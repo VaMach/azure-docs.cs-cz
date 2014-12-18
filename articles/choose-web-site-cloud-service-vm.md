@@ -1,279 +1,458 @@
-<properties HO="Azure SDK HO25"  linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties  HO="HO2" linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
+# Porovnání modelů spouštění aplikací Weby, Cloudové služby a Virtuální počítače systému Azure
 
+Azure nabízí několik způsobů, jak hostovat vaše webové aplikace, například pomocí modelů spouštění aplikací [Weby][1], [Cloudové služby][2] a [Virtuální počítače][3]. Když si tyto různé možnosti projdete, nemusí vám být úplně jasné, který z nich bude nejlíp vyhovovat vašim potřebám, nebo nemusíte mít jasno v některých konceptech, například to, jaký je rozdíl mezi IaaS a PaaS. Tento článek vám pomůže pochopit možnosti, které máte, a pomůže vám správně se rozhodnout pro váš webový scénář. Všechny tři možnosti vám sice umožní rychle zprovoznit vysoce škálovatelné webové aplikace v systému Azure, jsou mezi nimi ale rozdíly, které vám můžou při rozhodování pomoct.
 
+V mnoha situacích je nejvhodnějším modelem model Weby Azure. Nabízí jednoduché a flexibilní možnosti nasazení a správy a dokáže hostovat objemné weby. Můžete rychle vytvořit nový web pomocí některého z oblíbených softwarových produktů, jako je WordPress, z galerie webových aplikací, nebo můžete přesunout stávající web do modelu Weby Azure. Pomocí sady [Azure WebJobs SDK][4] (aktuálně ve verzi Preview) můžete taky přidat zpracování úloh na pozadí.
 
+Máte taky možnost hostovat webové aplikace v rámci modelu Cloudové služby Azure nebo Virtuální počítače Azure. Tyto možnosti jsou dobrá volba, pokud vaše webová vrstva vyžaduje další úroveň kontroly a přizpůsobení, které tyto možnosti poskytují. Tato zvýšená kontrola je tady ale za cenu větší složitosti při vývoji, správě a nasazení. Na následujícím obrázku se můžete podívat, jaké kompromisy musíte dělat v každém z těchto tří modelů.
 
-# Azure Web Sites, Cloud Services and Virtual Machines comparison
+![ChoicesDiagram](./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_2.png)
 
-Azure offers several ways to host your web applications, such as [Azure Web Sites][], [Cloud Services][], and [Virtual Machines][]. After looking at these various options, you might be unsure which one best fits your needs, or you might be unclear about concepts such as IaaS vs PaaS. This article helps you understand your options and helps you make the right choice for your web scenario. Although all three options allow you to run highly scalable web applications in Azure, there are differences which can help guide your decision.
+Weby se snadněji nastavují, spravují a monitorují, ale budete mít míň možností konfigurace. Klíčové je toto zjištění: Pokud nemáte závažný důvod umístit front-end svého webu do modelu Cloudových služeb nebo Virtuálních počítačů, použijte model Weby Azure. Ve zbytku dokumentu najdete informace, které potřebujete, abyste se mohli informovaně rozhodnout. To zahrnuje:
 
-In many situations, Azure Web Sites is the best option. It provides simple and flexible options for deployment and management, and it is capable of hosting high-volume web sites. You can quickly create a new web site with popular software, such as WordPress, from the Web Application Gallery, or you can move an existing web site to Azure Web Sites. Using the [Azure WebJobs SDK][] (currently in preview) you can also add background job processing. 
+* [Scénáře](#scenarios)
+* [Shrnutí služeb](#services)
+* [Porovnání funkcí](#features)
 
-You also have the option to host web applications on Azure Cloud Services or Azure Virtual Machines. These options are good choices when your web tier requires the additional level of control and customization that they provide; however, this increased control comes at a cost of increased complexity in application creation, management, and deployment. The following diagram illustrates the trade-offs among the three options.
+## <a name="scenarios"></a>Scénáře
 
-![ChoicesDiagram][ChoicesDiagram]
+### Jsem majitel malé firmy a potřebuju najít levný způsob, jak hostovat náš web, ale tak, aby se počítalo s budoucím růstem firmy
 
-Web Sites are easier to set up, manage, and monitor, but you have fewer configuration options. The key point is that when you do not have a compelling reason to place your web front-end on Cloud Services or Virtual Machines, use Azure Web Sites. The remainder of this document provides the information needed to make an informed decision. This includes:
+Skvělým řešením pro takovou situaci je řešení Weby Azure, protože ho můžete začít používat zadarmo a další funkce můžete přidat, až je budete potřebovat. Součástí každého bezplatného webu je například doména, kterou poskytuje systém Azure (*vaše_společnost*.azurewebsites.net). Až budete chtít začít používat vlastní doménu, můžete si tuto možnost přidat jenom za 9,80 USD za měsíc (cena platná k lednu 2014). Existuje mnoho dalších služeb a možností škálování, které umožňují vyvíjet web s tím, jak poroste poptávka uživatelů. Díky využívání modelu **Weby Azure** můžete:
 
-- [Scenarios](#scenarios)
-- [Service Summaries](#services)
-- [Feature Comparison](#features)
+* Začít s bezplatnou vrstvou a potom si služby a funkce podle potřeby
+  rozšířit
+* Pomocí Galerie aplikací rychle nastavit oblíbené webové aplikace, jako
+  je WordPress.
+* Přidat si do aplikace podle potřeby další služby a funkce Azure
+* Zabezpečit si web používáním HTTPS s použitím certifikátu dodaného k
+  názvu domény *vaše_společnost*.
 
-##<a name="scenarios"></a>Scenarios
+### Jsem webový nebo grafický návrhář a chci navrhnout a vytvořit weby pro svoje zákazníky
 
-### I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.
+Pro webové vývojáře má model Weby Azure všechno, co potřebují k vytváření důmyslných webových aplikací. Model Weby nabízí těsnou integraci s nástroji, jako je Visual Studio a SQL databáze. Díky využívání modelu **Weby Azure** vývojáři můžou:
 
-Azure Web Sites (WAWS) is a great solution for this scenario, because you can start using it for free and then add more capabilities when you need them. For example, each free web site comes with a domain provided by Azure (*your_company*.azurewebsites.net). When you’re ready to start using your own domain, you can add this for as low as $9.80 a month (as of 1/2014). There are many other services and scaling options that allow the site to evolve with increased user demand. With **Azure Web Sites**, you can:
+* Používat nástroje příkazového řádku pro [automatizované úkoly][5]
+* Pracovat s oblíbenými jazyky, například [.Net][6], [PHP][7],
+  [Node.js][8] a [Python][9]
+* Vybrat si tři různé úrovně škálování pro škálování na velmi vysoké
+  kapacity
+* Využít integrace s dalšími službami Azure, jako například [SQL
+  databáze][10], [Sběrnice][11] a [Úložiště][12], nebo partnerských
+  nabídek z [Azure Store][13], například MySQL a MongoDB.
+* Využít integrace s nástroji, jako je Visual Studio, Git, WebMatrix,
+  WebDeploy, TFS a FTP
 
-- Begin with the free tier and then scale up as needed.
-- Use the Application Gallery to quickly setup popular web applications, such as WordPress.
-- Add additional Azure services and features to your application as needed.
-- Secure your web site with HTTPS using the certificate provided with your *your_company*.azurewebsites.net domain name.
+### Migruji si vícevrstvou aplikaci s webovým front-endem do cloudu
 
-### I'm a web or graphic designer, and I want to design and build web sites for my customers
+Pokud provozujete vícevrstvou aplikaci, například webový server, který komunikuje s databázovým serverem za účelem ukládání a načítání dat webu, máte v systému Azure několik možností. Můžete třeba, co se týče architektury, používat model Weby, Cloudové služby a Virtuální počítače. První model, **Weby**, je dobrá volba pro webovou vrstvu vašeho řešení: Dá se používat s SQL databází Azure a může se tak vytvořit dvouvrstvá architektura. Model Weby taky umožňuje spouštět procesy na pozadí nebo procesy, které běží dlouho, pomocí sady Azure WebJobs SDK Preview. Pokud potřebujete složitější architekturu nebo flexibilnější možnosti škálování, bude lepší volbou model Cloudové služby nebo Virtuální počítače.
 
-For web developers, Azure Web Sites gives you what you need to create sophisticated web applications. Web Sites offers tight integration with tools such as Visual Studio and SQL database. With **Web Sites**, developers can:
+Model **Cloudové služby** vám umožňuje:
 
-- Use command-line tools for [automated tasks][scripting].
-- Work with popular languages such as [.Net][dotnet], [PHP][], [Node.js][nodejs], and [Python][].
-- Select three different scaling levels for scaling up to very high capacities.
-- Integrate with other Azure services, such as [SQL Database][sqldatabase], [Service Bus][servicebus] and [Storage][], or partner offerings from the [Azure Store][azurestore], such as MySQL and MongoDB.
-- Integrate with tools, such as Visual Studio, Git, WebMatrix, WebDeploy, TFS, and FTP.
+* Hostovat služby webu, prostřední vrstvy a služby back-end na
+  škálovatelných webových rolích a rolích pracovních procesů
+* Hostovat jenom služby prostřední vrstvy a back-endu na rolích
+  pracovních procesů a front-end nechat v modelu Weby Azure
+* Škálovat služby front-endu a back-endu nezávisle na sobě
 
-### I'm migrating my multi-tier application with a web front-end to the Cloud
+Model **Virtuální počítače** vám umožňuje:
 
-If you’re running a multi-tier application, such as a web server that talks to a database server to store and retrieve website data, you have several options for in Azure. These architectural options include Web Sites, Cloud Services, and Virtual Machines. First, **Web Sites** is a good option for the web tier of your solution and can be used with Azure SQL Database to create a two-tier architecture. Web Sites also allows you to run background or long running processes using the Azure WebJobs SDK preview. If you need more complex architecture or more flexible scaling options, Cloud Services or Virtual Machines are a better choice. 
+* Snadněji migrovat vysoce přizpůsobená prostředí jako image virtuálního
+  počítače
+* Spouštět software nebo služby, které se nedají konfigurovat v rámci
+  modelů Weby nebo Cloudové služby
 
-**Cloud Services** enables you to:
+### Moje aplikace potřebuje k běhu vysoce přizpůsobená prostředí systému Windows nebo Linux
 
-- Host web, middle-tier, and backend services on scalable web and worker roles. 
-- Host only the middle-tier and backend services on worker roles, keeping the front-end on Azure Web Sites. 
-- Scale frontend and backend services independently.
+Pokud vaše aplikace vyžaduje složitou instalaci nebo konfiguraci softwaru a operačního systému, bude asi nejlepším řešením model Virtuální počítače. Díky využívání modelu **Virtuální počítače** můžete:
 
-**Virtual Machines** enables you to: 
+* +Použít galerii virtuálních počítačů ke spuštění s operačním systémem,
+  jako je například Windows nebo Linux, a pak systém přizpůsobit
+  požadavkům vaší aplikace
+* Vytvořit a nahrát vlastní image existujícího místního serveru, který
+  má běžet na virtuálním počítači v systému Azure
 
-- More easily migrate highly customized environments as a virtual machine image.
-- Run software or services that cannot be configured on Web Sites or Cloud Services.
+### Můj web používá open source software a chci ho hostovat v systému Azure
 
-### My application depends on highly customized Windows or Linux environments
+Každý z těchto tří modelů vám umožní hostovat open source jazyky a architektury. Model **Cloudové služby** vyžaduje, abyste pomocí úloh při spuštění nechali nainstalovat a nakonfigurovat veškerý požadovaný open source software, který běží na Windows. Pomocí modelu **Virtuální počítače** nainstalujete a nakonfigurujete software na imagi počítače, a ta může být buď s Windows nebo s Linuxem. Pokud je vaše open source architektura v rámci modelu Weby podporovaná, nabízí jednodušší způsob, jak hostovat tyto typy aplikací, protože Weby se můžou automaticky konfigurovat s jazyky a architekturami, které vaše aplikace potřebuje. Model **Weby** vám umožňuje:
 
-If your application requires complex installation or configuration of software and the operating system, Virtual Machines is probably the best solution. With **Virtual Machines**, you can:
+* Používat řadu oblíbených open source jazyků, například [.NET][6],
+  [PHP][7], [Node.js][8] a [Python][9].
+* Nastavit WordPress, Drupal, Umbraco, DNN a řadu dalších webových
+  aplikací třetích stran
+* Migrovat existující aplikaci nebo vytvořit novou z Galerie aplikací
 
-- Use the Virtual Machine gallery to start with an operating system, such as Windows or Linux, and then customize it for your application requirements. 
-- Create and upload a custom image of an existing on-premises server to run on a virtual machine in Azure. 
+### Mám podnikovou aplikaci, která se potřebuje připojovat k podnikové síti
 
-### My site uses open source software, and I want to host it in Azure
+Pokud chcete vytvořit podnikovou aplikaci, mohl by váš web vyžadovat přímý přístup ke službám nebo datům v podnikové síti. To je možné v modelech **Weby**, **Cloudové služby** a **Virtuální počítače**. Přístupy, které můžete použít, se navzájem liší. Například v tomto:
 
-All three options allow you to host open source languages and frameworks. **Cloud Services** requires you to use startup tasks to install and configure any required open source software that runs on Windows. With **Virtual Machines**, you install and configure the software on the machine image, which can be Windows or Linux-based. If your open source framework is support on Web Sites, this provides a simpler way to host these types of applications as Web Sites can be automatically configured with the languages and frameworks needed by your application. **Web Sites** enables you to:
+* Model Weby se může bezpečně připojovat k místním prostředkům
+  prostřednictvím používání Propojovací sběrnice. Umožňuje to službám v
+  podnikové síti provádět úlohy jménem webové aplikace, aniž by se
+  všechno muselo přesouvat do cloudu nebo by se musela nastavovat
+  virtuální síť.
+* Modely Cloudové služby a Virtuální počítače můžou využívat výhod
+  řešení Virtuální síť. Ve skutečnosti řešení Virtuální síť umožňuje
+  počítačům, které běží v systému Azure, připojit se k místní síti.
+  Systém Azure se pak stane rozšířením vašeho firemního datacentra.
 
-- Use many popular open source languages, such as [.NET][dotnet], [PHP][], [Node.js][nodejs], and [Python][]. 
-- Setup WordPress, Drupal, Umbraco, DNN, and many other third-party web applications. 
-- Migrate an existing application or create a new one from the Application Gallery. 
+### Chci hostovat REST API nebo webovou službu pro mobilní klienty
 
-### I have a line-of-business application that needs to connect to the corporate network
+Webové služby, které používají HTTP, umožňují podporovat širokou škálu klientů, včetně mobilních klientů. Architektury, jako je ASP.NET Web API, se integrují s Visual Studiem, aby se daly jednodušším způsobem vytvářet a používat služby REST. Tyto služby jsou dostupné z webového koncového bodu, takže je pro podporu tohoto scénáře možné v systému Azure použít jakoukoliv metodu webového hostingu. Model **Weby** je ale skvělá volba pro hostování rozhraní REST API. Díky využívání modelu Weby můžete:
 
-If you want to create a line-of-business application, your web site might require direct access to services or data on the corporate network. This is possible on **Web Sites**, **Cloud Services**, and **Virtual Machines**. There are differences in the approach you take, which include the following:
+* Rychle vytvořit weby pro hostování webové služby HTTP v jednom z
+  globálně distribuovaných datacenter systému Azureâ
+* Migrovat existující služby nebo vytvářet nové, případně s využitím
+  rozhraní ASP.NET Web API ve Visual Studiu
+* Dosáhnout plnění podmínek smlouvy SLA pro dostupnost s jedinou
+  instanci nebo škálovat na větší počet vyhrazených počítačů
+* Používat publikovaný web k poskytování rozhraní REST API všem klientům
+  HTTP, včetně mobilních klientů
 
-- Web Sites can securely connect to on-premises resources through the use of Service Bus Relay. This allows services on the corporate network to perform tasks on behalf of the web application without moving everything to the Cloud or setting up a virtual network. 
-- Cloud Services and Virtual Machines can take advantage of Virtual Network. In effect, Virtual Network allows machines running in Azure to connect to an on-premises network. Azure then becomes an extension of your corporate datacenter.
+## <a name="services"></a>Shrnutí služeb
 
-### I want to host a REST API or web service for mobile clients
+Model [Weby Azure][1] umožňuje v systému Azure rychle vytvářet vysoce škálovatelné weby. Pomocí portálu systému Azure nebo nástrojů příkazového řádku můžete nastavit web s oblíbenými jazyky, jako je .NET, PHP, Node.js a Python. Podporované architektury jsou už nasazené a nemusí se v souvislosti s nimi dál nic instalovat. Galerie modelu Weby Azure obsahuje mnoho aplikací třetích stran, jako například Drupal a WordPress, ale taky vývojové architektury, jako Django a CakePHP. Po vytvoření webu můžete buď migrovat existující web, nebo vytvořit úplně nový web. Model Weby eliminuje potřebu spravovat fyzický hardware a nabízí taky několik možností škálování. Můžete přejít ze sdíleného víceklientského modelu na standardní režim, kde vyhrazené počítače zpracovávají příchozí provoz. Model Weby vám taky umožní integraci s dalšími službami Azure, například SQL databáze, sběrnice a úložiště. Pomocí sady [Azure WebJobs SDK][4] Preview můžete taky přidat zpracování
+úloh na pozadí. Stručně řečeno, model Weby Azure umožňuje jednodušší
+zaměření na vývoj aplikací, protože podporuje širokou škálu jazyků, open source aplikací a metodik nasazení (FTP, Git, Web Deploy nebo TFS). Pokud nemáte nějaké specifické požadavky, které by vyžadovaly model Cloudové služby nebo Virtuální počítače, bude pro vás nejspíš nejlepší volbou model Weby Azure.
 
-HTTP-based web services allows you to support a wide variety of clients, including mobile clients. Frameworks like the ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, **Web Sites** is a great choice for hosting REST APIs. With Web Sites, you can:
+Model [Cloudové služby][2] vám umožní vytvářet vysoce dostupné, škálovatelné webové aplikace v prostředí Platforma jako služba (PaaS) se spoustou možností. Na rozdíl od modelu Weby se nejdřív cloudová služba vytvoří ve vývojovém prostředí, jako je Visual Studio, než se nasadí do Azure. Architektury, jako je PHP, vyžadují vlastní kroky nebo úlohy nasazení, které instalují architekturu při spouštění role. Hlavní předností modelu Cloudových služeb je schopnost podporovat složitější vícevrstvé architektury. Jedna cloudová služba se může skládat z front-endové webové role a jedné nebo několika rolí pracovních procesů. Každá vrstva se dá škálovat samostatně. K dispozici je taky zvýšená úroveň kontroly nad infrastrukturou webových aplikací. K počítačům, na kterých běží instance rolí, se můžete například připojovat přes vzdálenou plochu. Pro složitější změny konfigurace počítače a služby IIS, včetně úloh, které vyžadují kontrolu správce, taky můžete použít skripty, které se pak spouští při spuštění role.
 
-- Quickly create a Web Site to host the HTTP web service in one of Azure’s globally distributed datacenters.
-- Migrate existing services or create new ones, potentially taking advantage of the ASP.NET Web API in Visual Studio.
-- Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines. 
-- Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
+Model [Virtuální počítače][3] vám umožní spouštět webové aplikace na virtuálních počítačích v systému Azure. Tato schopnost se taky označuje jako přístup Infrastruktura jako služba (IaaS). Nové počítače se systémem Windows Server nebo Linux můžete vytvářet prostřednictvím portálu anebo nebo můžete nahrát image existujícího virtuálního počítače. Model Virtuální počítače vám dává maximální kontrolu nad operačním systémem, konfigurací a nainstalovaným softwarem a službami. Je to dobrá volba pro rychlou migraci složitějších místních webových aplikací do cloudu, protože počítače se dají přesouvat jako celek. Pomocí modelu Virtuální sítě můžete taky tyto virtuální počítače připojovat k místním podnikovým sítím. Stejně jako v případě modelu Cloudové služby budete mít k těmto počítačům vzdálený přístup a budete moct dělat změny konfigurace na úrovni správy. Na rozdíl od modelů Weby a Cloudové služby ale musíte spravovat image svých virtuálních počítačů a aplikační architekturu úplně odděleně od úrovně infrastruktury. Jedním ze základních příkladů je to, že budete muset pro operační systém použít svoje vlastní opravy.
 
-##<a name="services"></a>Service Summaries
+## <a name="features"></a>Porovnání funkcí
 
-[Azure Web Sites][] enables you to build highly scalable web sites quickly on Azure. You can use the Azure Portal or the command-line tools to set up a web site with popular languages such as .NET, PHP, Node.js, and Python. Supported frameworks are already deployed and do not require more installation steps. The Azure Web Sites gallery contains many third-party applications, such as Drupal and WordPress as well as development frameworks such as Django and CakePHP. After creating a site, you can either migrate an existing web site or build a completely new web site. Web Sites eliminates the need to manage the physical hardware, and it also provides several scaling options. You can move from a shared multi-tenant model to a standard mode where dedicated machines service incoming traffic. Web Sites also enable you to integrate with other Azure services, such as SQL Database, Service Bus, and Storage. Using the [Azure WebJobs SDK][] preview, you can add background processing. In summary, Azure Web Sites make it easier to focus on application development by supporting a wide range of languages, open source applications, and deployment methodologies (FTP, Git, Web Deploy, or TFS). If you don’t have specialized requirements that require Cloud Services or Virtual Machines, an Azure Web Site is most likely the best choice.
+Následující tabulka porovnává možnosti modelů Weby, Cloudové služby a Virtuální počítače a může vám tak pomoct při výběru modelu, který pro vás bude nejlepší. Položky s vysvětlivkami jsou pak dovysvětlené v poznámkách pod tabulkou.
 
-[Cloud Services][] enable you to create highly-available, scalable web applications in a rich Platform as a Service (PaaS) environment. Unlike Web Sites, a cloud service is created first in a development environment, such as Visual Studio, before being deployed to Azure. Frameworks, such as PHP, require custom deployment steps or tasks that install the framework on role startup. The main advantage of Cloud Services is the ability to support more complex multitier architectures. A single cloud service could consist of a frontend web role and one or more worker roles. Each tier can be scaled independently. There is also an increased level of control over your web application infrastructure. For example, you can remote desktop onto the machines that are running the role instances. You can also script more advanced IIS and machine configuration changes that run at role startup, including tasks that require administrator control.
-
-[Virtual Machines][] enable you to run web applications on virtual machines in Azure. This capability is also known as Infrastructure as a Service (IaaS). Create new Windows Server or Linux machines through the portal, or upload an existing virtual machine image. Virtual Machines give you the most control over the operating system, configuration, and installed software and services. This is a good option for quickly migrating complex on-premises web applications to the cloud, because the machines can be moved as a whole. With Virtual Networks, you can also connect these virtual machines to on-premises corporate networks. As with Cloud Services, you have remote access to these machines and the ability to perform configuration changes at the administrative level. However, unlike Web Sites and Cloud Services, you must manage your virtual machine images and application architecture completely at the infrastructure level. One basic example is that you have to apply your own patches to the operating system.
-
-##<a name="features"></a>Feature Comparison
-
-The following table compares the capabilities of Web Sites, Cloud Services, and Virtual Machines to help you make the best choice. Boxes with an asterisk are explained more in the notes following the table.
-
-<table cellspacing="0" border="1">
+<table  cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Feature</th>
-   <th align="left" valign="middle">Web Sites</th>
-   <th align="left" valign="middle">Cloud Services (web roles)</th>
-   <th align="left" valign="middle">Virtual Machines</th>
+   <th  align="left" valign="middle">Funkce</th>
+
+   <th  align="left" valign="middle">Weby</th>
+
+   <th  align="left" valign="middle">Cloudové služby (webové role)</th>
+
+   <th  align="left" valign="middle">Virtuální počítače</th>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Access to services like Service Bus, Storage, SQL Database</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Přístup ke službám, například služba sběrnice, úložiště, SQL databáze</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Host web or web services tier of a multi-tier architecture</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Hostování webu nebo vrstvy webových služeb vícevrstvé architektury</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Host middle tier of a multi-tier architecture</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Hostování prostřední vrstvy vícevrstvé architektury</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X <sup>1</sup></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Integrovaná podpora pro MySQL-as-a-service</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X <sup>1</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for ASP.NET, classic ASP, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Podpora pro ASP.NET, klasické ASP, Node.js, PHP, Python</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Scale out to multiple instances without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X <sup>2</sup></td>
+   <td  valign="middle"><p>Škálování na větší počet instancí bez opakovaného nasazení</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X <sup>2</sup>
+</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for SSL</p></td>
-   <td valign="middle">X <sup>3</sup></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Podpora pro SSL</p>
+</td>
+
+   <td  valign="middle">X <sup>3</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Visual Studio integration</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Integrace s Visual Studiem</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Remote Debugging</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Vzdálené ladění</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Nasazení kódu s TFS</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Nasazení kódu s GIT, FTP</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with Web Deploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"><sup>4</sup></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Nasazení kódu s Web Deploy</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle"><sup>4</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>WebMatrix support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Podpora pro WebMatrix</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Near-instant deployment</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Téměř okamžité nasazení</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Instances share content and configuration</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Instance sdílejí obsah a konfiguraci</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Scale up to larger machines without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Škálování na větší počítače bez nutnosti opakovaného nasazení</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Multiple deployment environments (production and staging)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Několik prostředí nasazení (produkční a pracovní)</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Network isolation with Azure Virtual Network</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Izolace sítě pomocí řešení Virtuální síť Azure</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for Azure Traffic Manager</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Podpora pro Správce provozu Azure</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Remote desktop access to servers</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Přístup k serverům pomocí vzdálené plochy</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Ability to define/execute start-up tasks</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Schopnost definovat/spouštět úlohy při spuštění</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Automatic OS update management</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Automatická správa aktualizací OS</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Integrated Endpoint Monitoring</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Integrované monitorování koncových bodů</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Seamless platform switching (32bit/64bit)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Jednoduché a bezproblémové přepínání mezi platformami (32bitová/64bitová)</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 </table>
 
-<sup>1</sup> Web or worker roles can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
+<sup>1</sup> Webové role nebo role pracovních
+procesů můžou integrovat MySQL-as-a-servis prostřednictvím nabídek ClearDB, ale ne jako součást pracovního postupu portálu pro správu.
 
-<sup>2</sup> Although Virtual Machines can scale out to multiple instances, the services running on these machines must be written to handle this scale-out. An additional load balancer must be configured to route requests across the machines. Finally, an Affinity Group should be created for all machines participating in the same role to protect them from simultaneous restarts from maintenance or hardware failures.
+<sup>2</sup> Model Virtuální počítače sice umožňuje škálování na větší počet instancí, ale služby, které na těchto počítačích běží, musí být nastavené, aby se toto škálování na víc instancí dalo zvládnout. Musí být nakonfigurovaný další nástroj pro vyrovnávání zatížení, který by rozděloval požadavky rovnoměrně mezi jednotlivé počítače. Nakonec se musí vytvořit Skupiny vztahů pro všechny počítače, které se účastní stejné role, aby byly chráněné před souběžným restartování při údržbě nebo selhání hardwaru.
 
-<sup>3</sup> For Web Sites, SSL for custom domain names is only supported for standard mode. For more information on using SSL with Web Sites, see [Configuring an SSL certificate for an Azure Web Site][].
+<sup>3</sup> V případě modelu Weby se zabezpečení SSL pro vlastní domény podporuje jenom pro standardní režim. Další informace o používání SSL s modelem Weby najdete v tématu [Konfigurace certifikátu SSL pro model Weby Azure][14].
 
-<sup>4</sup> Web Deploy is supported for cloud services when deploying to single-instance roles. However, production roles require multiple instances to meet the Azure SLA. Therefore, Web Deploy is not a suitable deployment mechanism for cloud services in production.
+<sup>4</sup> Metodika nasazení Web Deploy je podporovaná pro cloudové služby při nasazování do rolí s jednou instancí. Role produkčního prostředí musí mít několik instancí, aby se splňovaly podmínky smlouvy Azure SLA. Web Deploy tak není vhodným mechanismem nasazení pro cloudové služby v produkčním prostředí.
 
 
-  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_2.png
-  [Azure Web Sites]: http://azure.microsoft.com/zh-cn/
-  [Cloud Services]: http://azure.microsoft.com/zh-cn/documentation/services/cloud-services/
-  [Virtual Machines]: http://azure.microsoft.com/zh-cn/documentation/services/virtual-machines/
-  [ClearDB]: http://www.cleardb.com/
-  [Azure WebJobs SDK]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
-  [Configuring an SSL certificate for an Azure Web Site]: http://azure.microsoft.com/zh-cn/documentation/articles/web-sites-configure-ssl-certificate/
-  [azurestore]: http://azure.microsoft.com/zh-cn/gallery/store/
-  [scripting]: http://azure.microsoft.com/zh-cn/documentation/scripts/?services=web-sites
-  [dotnet]: http://azure.microsoft.com/zh-cn/develop/net/
-  [nodejs]: http://azure.microsoft.com/zh-cn/develop/nodejs/
-  [PHP]: http://azure.microsoft.com/zh-cn/develop/php/
-  [Python]: http://azure.microsoft.com/zh-cn/develop/python/
-  [servicebus]: http://azure.microsoft.com/zh-cn/documentation/services/service-bus/
-  [sqldatabase]: http://azure.microsoft.com/zh-cn/documentation/services/sql-database/
-  [Storage]: http://azure.microsoft.com/zh-cn/documentation/services/storage/
+
+[1]: http://go.microsoft.com/fwlink/?LinkId=306051
+[2]: http://go.microsoft.com/fwlink/?LinkId=306052
+[3]: http://go.microsoft.com/fwlink/?LinkID=306053
+[4]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
+[5]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+[6]: http://www.windowsazure.com/en-us/develop/net/
+[7]: http://www.windowsazure.com/en-us/develop/php/
+[8]: http://www.windowsazure.com/en-us/develop/nodejs/
+[9]: http://www.windowsazure.com/en-us/develop/python/
+[10]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
+[11]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
+[12]: http://www.windowsazure.com/en-us/documentation/services/storage/
+[13]: http://www.windowsazure.com/en-us/gallery/store/
+[14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/

@@ -1,200 +1,247 @@
-<properties HO="Azure SDK HO25"  umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="" />
+<properties  HO="HO2"  umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="" />
 
+# Modely systému Azure pro spouštění aplikací
 
+V rámci systému Azure je k dispozici několik různých modelů pro spouštění aplikací. Každý z nich nabízí jinou sadu služeb, takže to, který z nich si vyberete, bude vždycky záležet jenom na tom, co se snažíte udělat. Tento článek se zaměřuje na tři modely a u každého popisuje technologie a dává příklady, kdy je vhodné je používat.
 
-#Azure Execution Models
+## Obsah
 
-Azure provides different execution models for running applications. Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do. This article looks at three, describing each technology and giving examples of when you'd use it.
+* [Virtuální počítače](#VMachine)
+* [Weby](#WebSites)
+* [Cloudové služby](#CloudServices)
+* [Co mám používat? Podle čeho se rozhodovat](#WhatShouldIUse)
 
-##Table of Contents
+<h2><a  id="VMachine" ></a>Virtuální počítače</h2>
 
-- [Virtual Machines](#VMachine)
-- [Web Sites](#WebSites)
-- [Cloud Services](#CloudServices)
-- [What Should I Use? Making a Choice](#WhatShouldIUse)
 
-<h2><a id="VMachine"></a>Virtual Machines</h2>
-Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. [Figure 1](#Fig1) shows its basic components.
+Model Virtuální počítače Azure umožňuje vývojářům, lidem z IT oddělení a dalším vytvářet a používat virtuální počítače v cloudu. Tato technologie zajišťuje něco, čemu se říká *infrastruktura jako služba (IaaS)*, a může se používat řadou různých způsobů. Na [Obrázku 1](#Fig1) vidíte, z čeho se zhruba skládá.
 
-<a name="Fig1"></a>![01_CreatingVMs][01_CreatingVMs]
+<a name="Fig1"></a>![01_CreatingVMs](./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png)
 
-**Figure 1: Azure Virtual Machines provides Infrastructure as a Service.**
+**Obrázek 1: Model Virtuální počítače Azure poskytuje přístup
+Infrastruktura jako služba (IaaS).**
 
-As the figure shows, you can create virtual machines using either the Azure Management Portal or the REST-based Azure Service Management API. The Management Portal can be accessed from any popular browser, including Internet Explorer, Mozilla, and Chrome. For the REST API, Microsoft provides client scripting tools for Windows, Linux, and Macintosh systems. Other software is also free to use this interface.
+Jak je vidět na obrázku, virtuální počítače můžete vytvářet buď pomocí portálu pro správu systému Azure, nebo pomocí rozhraní REST API pro správu služeb systému Azure. Na portál pro správu se dá dostat ze všech oblíbených prohlížečů, včetně Internet Exploreru, Mozilla Firefoxu a Chromu. Pro rozhraní REST API poskytuje Microsoft klientské skriptovací nástroje pro systémy Windows, Linux a Macintosh. Pro toto rozhraní se ale může používat i jiný software.
 
-However you access the platform, creating a new VM requires choosing a virtual hard disk (VHD) for the VM's image. These VHDs are stored in Azure blobs. 
+Bez ohledu na to, jaký přístup k platformě použijete, musí se při vytváření nového virtuálního počítače vybrat virtuální pevný disk (VHD) pro image virtuálního počítače. Tyto virtuální pevné disky se ukládají v objektech blob systému Azure.
 
-To get started you have two choices 
+Začít můžete dvěma způsoby:
 
-1. Upload your own VHD 
-2. Use VHDs provided by Microsoft and its partners in the Azure Virtual Machines gallery or on the Microsoft open source [VMDepot](http://vmdepot.msopentech.com/) website. 
+1.  Nahrajete do úložiště vlastní virtuální pevný disk (soubor VHD) 2.  Použijte soubory VHD od Microsoftu a jeho partnerů z galerie
+    virtuálních počítačů systému Azure nebo z open source webu
+    Microsoftu [VMDepot][1].
 
-The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operating system images as well as images that include Microsoft and other third party products installed on them.  The options are growing all the time. Examples include various versions, editions and configurations of:
- 
--	Windows Server 
--	Linux servers such as Suse, Ubuntu and CentOS
--	SQL Server
--	BizTalk Server 
--	SharePoint Server
+Mezi soubory VHD v galerii a na webu VMDepot najdete taky čisté image operačních systémů Microsoft a Linux i image s nainstalovanými produkty Microsoft a produkty jiných firem. Možnosti pořád přibývají. Přibývají třeba různé verze, edice a konfigurace těchto produktů:
 
+* Windows Server
+* Linux servery, jako například Suse, Ubuntu a CentOS
+* SQL Server
+* BizTalk Server
+* SharePoint Server
 
+Kromě VHD určíte taky velikost nového virtuálního počítače. Kompletní specifikace jednotlivých velikostí najdete [v knihovně Azure][2].
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/zh-cn/library/azure/dn197896.aspx).
+* **Velmi malé** se sdíleným jádrem a 768 MB paměti
+* **Malé** s 1 jádrem a 1,75 GB paměti
+* **Střední** se 2 jádry a 3,5 GB paměti
+* **Velké** se 4 jádry a 7 GB paměti
+* **Velmi velké** s 8 jádry a 14 GB paměti
+* **A6** se 4 jádry a 28 GB paměti
+* **A7** s 8 jádry a 56 GB paměti
 
--	**Extra Small**, with a shared core and 768MB  of memory.
--	**Small**, with 1 core and 1.75GB  of memory.
--	**Medium**, with 2 cores and 3.5GB  of memory.
--	**Large**, with 4 cores and 7GB of memory.
--	**Extra Large**, with 8 cores and 14GB of memory.
--	**A6**, with 4 cores and 28GB of memory.
--	**A7**, with 8 cores and 56GB of memory.
+Nakonec si zvolíte, v jakém datacentru Azure má váš nový virtuální počítač běžet (například ve Spojených státech, Evropě nebo Asii).
 
+Od okamžiku, kdy začne virtuální počítač běžet, budete platit za každou hodinu, kdy poběží, a přestanete za něho platit, když ho odeberete.
+Částka, kterou zaplatíte, nezávisí na tom, jak moc se váš virtuální počítač využívá -- odvíjí se čistě od doby, po jakou se používal. Virtuální počítač, který je úplně nevyužitý, stojí stejně jako ten, který se využívá každou minutu na maximum.
 
-Finally, you choose which Azure datacenter your new VM should run in, whether in the US, Europe, or Asia. 
+Každý spuštěný virtuální počítač má přiřazený *disk operačního systému (OS)*, který je uložený v objektu blob. Když vytvoříte virtuální počítač pomocí VHD z galerie, VHD se vám zkopíruje na disk OS vašeho virtuálního počítače. Všechny změny, které uděláte v operačním systému vašeho spouštěného virtuálního počítače, se sem uloží. Pokud třeba nainstalujete aplikaci, která něco změní v registru Windows, uloží se tato změna na disk OS vašeho virtuálního počítače. Když pak příště budete vytvářet virtuální počítač z tohoto disku OS, virtuální počítač bude dál běžet v takovém stavu, v jakém jste ho vypínali. Na soubory VHD uložené v galerii aplikuje společnost Microsoft v případě potřeby aktualizace, například opravy operačního systému. U souborů VHD na vašich vlastních discích OS jste ale za instalaci těchto aktualizací zodpovědní vy (i když je ve výchozím nastavení zapnutý Windows Update).
 
-Once a VM is running, you pay for each hour it runs, and you stop paying when you remove that VM. The amount you pay doesn't depend on how much your VM is used'it's based solely on wall-clock time. A VM that sits idle for an hour costs the same as one that's heavily loaded. 
+Běžící virtuální počítače se taky dají upravit a pak se dá udělat jejich snímek nástrojem Sysprep. Sysprep zbavuje virtuální počítač specifických informací, jako je název počítače, aby se dala VHD image použít k vytvoření dalších virtuálních počítačů se stejnou obecnou konfigurací. Tyto image jsou uložené na portálu pro správu společně s vašimi nahranými imagemi, takže se dají použít jako výchozí bod pro další virtuální počítače.
 
-Each running VM has an associated *OS disk*, kept in a blob. When you create a VM using a gallery VHD, that VHD is copied to your VM's OS disk. Any changes you make to the operating system of your running VM are stored here. For example, if you install an application that modifies the Windows registry, that change will be stored in your VM's OS disk. The next time you create a VM from that OS disk, the VM continues running in the same state you left it in. For VHDs stored in the gallery, Microsoft applies updates when needed, such as operating system patches. For the VHDs in your own OS disks, however, you're responsible for applying these updates (although Windows Update is turned on by default).
+V rámci modelu Virtuální počítače se taky monitoruje hardware, na kterém se každý virtuální počítač, který vytvoříte, hostuje. Pokud fyzický server, na kterém virtuální počítač běží, selže, platforma si toho všimne a spustí stejný virtuální počítač na jiném počítači. A pokud máte tu správnou licenci, můžete si změněný soubor VHD zkopírovat ze svého disku OS někam jinam, kde ho budete chtít spouštět, například do vlastního místního datacentra nebo k jinému poskytovateli cloudových služeb.
 
-Running VMs can also be modified and then captured using the sysprep tool. Sysprep removes specifics like the machine name so that a VHD image can be used to create additional VMs with the same general configuration. These images are stored in the Management portal alongside your uploaded images so they can be used as a starting point for additional VMs. 
+Kromě disku OS má virtuální počítač ještě taky jeden nebo víc datových disků. I když se vám všechny budou ve virtuálním počítači zobrazovat jako připojená jednotka, obsah každého z nich je ve skutečnosti uložený v objektu blob. Každý zápis na datový disk se trvale uloží do příslušného objektu blob. Tak jako u všech ostatních objektů blob pak Azure tyto objekty blob replikuje v rámci jednoho datacentra a mezi datacentry, aby se zajistila ochrana proti selhání.
 
-Virtual Machines also monitors the hardware hosting each VM you create. If a physical server running a VM fails, the platform notices this and starts the same VM on another machine. And assuming you have the right licensing, you can copy a changed VHD out of your OS disk, then run it someplace else, such as in your own on-premises datacenter or at another cloud provider. 
+Běžící virtuální počítače se dají spravovat pomocí portálu pro správu, prostředí PowerShell a dalších skriptovacích nástrojů nebo přímo přes REST API. (Ve skutečnosti můžete všechno to, co můžete dělat přes portál pro správu, dělat taky programově přes toto API.) Partneři Microsoftu, jako například RightScale a ScaleXtreme, taky poskytují služby správy, které jsou založené na REST API.
 
-Along with its OS disk, your VM has one or more data disks. Even though each of these looks like a mounted disk drive to your VM, the contents of each one is in fact stored in a blob. Every write made to a data disk is stored persistently in the underlying blob. As with all blobs, Azure replicates these both within a single datacenter and across datacenters to guard against failures.
+Model Virtuální počítače Azure se může využívat nejrůznějšími způsoby. Příklady hlavních scénářů, na které se zaměřuje Microsoft:
 
-Running VMs can be managed using the Management Portal, PowerShell and other scripting tools, or directly through the REST API. (In fact, whatever you can do through the Management Portal can be done programmatically through this API.) Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API.
+* **Virtuální počítače pro vývoj a testování.** Vývojové skupiny běžně
+  potřebují pro vytváření aplikací virtuální počítače s konkrétní
+  konfigurací. Přes model Virtuální počítače Azure se dají tyto
+  virtuální počítače jednoduchým a ekonomickým způsobem vytvářet,
+  používat a pak odebrat, když už nejsou potřeba.
+* **Spuštění aplikace v cloudu.** U některých aplikací má spouštění na
+  veřejném cloudu smysl z ekonomického hlediska. Vezměme si třeba
+  aplikaci s velkými výkyvy v poptávce. Samozřejmě se dá kdykoliv
+  dokoupit dostatek počítačů pro vaše vlastní datacentrum, aby se v něm
+  dala tato aplikace spouštět, ale většina z těchto počítačů pak bude
+  nejspíš povětšinou hodně nevyužitá. Když budete tuto aplikaci spouštět
+  na platformě Azure, budete si moct připlatit za další virtuální
+  počítače, když je budete potřebovat, a když pak špička poptávky
+  skončí, zase je povypínat. Nebo řekněme, že se vaše firma rozjíždí a
+  potřebuje výpočetní prostředky podle aktuální potřeby rychle a bez
+  závazku. I tady může být Azure ta správná volba.
+* **Rozšíření vašeho vlastního datacentra do veřejného cloudu.**
+  Virtuální síť Azure umožní vaší organizaci vytvořit virtuální síť
+  (VNET), díky které se pak bude skupina virtuálních počítačů Azure
+  chovat tak, jako kdyby byla součástí vaší vlastní místní sítě. Umožní
+  to spouštět aplikace, jako je například SharePoint a další, v systému
+  Azure a mohlo by to pro vás být levnější řešení s jednodušším
+  nasazováním, než kdybyste tyto aplikace měli spouštět ve vlastním
+  datacentru.
+* **Zotavení po havárii.** Místo toho, abyste bez přestání platili za
+  zálohovací datacentrum, který se jenom zřídka kdy používá, můžete
+  využívat systém zotavení po havárii na bázi IaaS. V takovém případě
+  pak platíte jenom za výpočetní prostředky, které používáte -- jenom,
+  když je opravdu potřebujete. Pokud vám třeba selže vaše primární
+  datacentrum, můžete si vytvořit virtuální počítače, na kterých vám v
+  systému Azure poběží základní aplikace, abyste mohli fungovat, a až už
+  je nebudete potřebovat, zase je vypnete.
 
-Azure Virtual Machines can be used in a variety of ways. The primary scenarios that Microsoft targets include these:
+To samozřejmě není to jediné, co se dá s virtuálními počítači Azure dělat. Zmiňujeme se tady o tom jenom proto, že je to dobrý příklad toho, jak se dají virtuální počítače v systému Azure taky využít.
 
-- **VMs for development and test.** Development groups commonly need VMs with specific configurations for creating applications. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then remove them when they're no longer needed.
-- **Running applications in the cloud.** For some applications, running on the public cloud makes economic sense. Think about an application with large spikes in demand, for example. It's always possible to buy enough machines for your own datacenter to run this application, but most of those machines are likely to sit unused much of the time. Running this application on Azure lets you pay for extra VMs only when you need them, shutting them down when a demand spike has ended. Or suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** With Azure Virtual Network, your organization can create a virtual network (VNET) that makes a group of Azure VMs appear to be part of your own on-premises network. This allows running applications such as SharePoint and others on Azure, an approach that might be easier to deploy and/or less expensive than running them in your own datacenter.
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed. 
+### Seskupování virtuálních počítačů: Cloudové služby
 
-These aren't the only possibilities, but they're good examples of how you might use Azure Virtual Machines.  
+Když vytvoříte nový virtuální počítač pomocí modelu Virtuální počítače Azure, můžete si vybrat, jestli má běžet jako samostatný virtuální počítač, nebo ve skupině virtuálních počítačů, které spolu běží v *cloudové službě*. (Tento koncept má podobný název jako PaaS technologie Cloudové služby v systému Azure, ale je to něco jiného, takže pozor na to, ať se vám to neplete. Jsou to dvě různé věci.) Každý samostatný virtuální počítač má přidělenou vlastní veřejnou IP adresu, zatímco pro přístup ke všem virtuálním počítačů v rámci stejné cloudové služby se používá jedna jediná veřejná IP adresa. Na [Obrázku 2](#Fig2) vidíte, jak to asi vypadá.
 
+<a name="Fig2"></a>![02_CloudServices](./media/fundamentals-application-models/ExecModels_02_CloudServices.png)
 
-###Grouping VMs: Cloud Services 
+**Obrázek 2: Každý samostatný virtuální počítač má přidělenou vlastní
+veřejnou IP adresu, zatímco pro přístup k virtuálním počítačů seskupeným do cloudové služby se používá jedna jediná veřejná IP adresa.**
 
-When you create a new VM with Azure Virtual Machines, you can choose to run it standalone or make it part of a group of VMs running together in a *cloud service*. (Despite the similar names, don't confuse this concept with Cloud Services, the name of Azure's PaaS technology; the two aren't the same.)  Each standalone VM is assigned its own public IP address, while all of the VMs in the same cloud service are accessed through a single public IP address. [Figure 2](#Fig2) shows how this looks.
- 
-<a name="Fig2"></a>![02_CloudServices][02_CloudServices]
+Pokud byste například vytvářeli virtuální počítač pro vytvoření a otestování jednoduché aplikace, použili byste k tomu nejspíš samostatný virtuální počítač. Pokud ale vytváříte vícevrstvou aplikaci s webovým rozhraním, databází a možná dokonce i s prostřední vrstvou, propojíte s největší pravděpodobností několik virtuálních počítačů do cloudové služby, jak je vidět na Obrázku 2.
 
-**Figure 2: Each standalone VM has its own public IP address, while VMs grouped into a cloud service are exposed via a single public IP address.**
+Díky seskupení virtuálních počítačů do cloudové služby budete taky moct používat další možnosti. Azure zajišťuje u virtuálních počítačů ve stejné cloudové službě vyrovnávání zatížení, a to tak, že mezi ně rozděluje požadavky uživatelů. Virtuální počítače, které jsou takto propojené, můžou taky v datacentru Azure mezi sebou komunikovat přímo přes lokální síť.
 
-For example, if you were creating a virtual machine to create and test a simple application, you'd probably use a standalone VM. If you're creating a multi-tier application, though, with a web front end, a database, and maybe even a middle tier, you'd most likely connect multiple VMs into a cloud service, as Figure 2 suggests.
+Virtuální počítače ve stejné cloudové službě se dají taky seskupovat do *sad dostupnosti*. Abychom pochopili, proč je to důležité, představíme si webovou aplikaci, která běží přes několik front-endových virtuálních počítačů. Pokud jsou všechny tyto virtuální počítače nasazené na stejném fyzickém počítači nebo dokonce na několika fyzických počítačích ve stejném racku, může jediné selhání hardwaru způsobit, že budou všechny nedostupné. Pokud ale budou tyto virtuální počítače seskupené do sady dostupnosti, systém Azure je nasadí na různých místech po datacentru tak, aby žádný z nich nesdílel jediný bod selhání.
 
-Grouping VMs into a cloud service lets you use other options as well. Azure provides load balancing for VMs in the same cloud service, spreading user requests across them. VMs connected in this way can also communicate directly with one another over the local network within an Azure datacenter. 
+### Scénář: Používání SQL Serveru pro spouštění aplikací
 
-VMs in the same cloud service can also be grouped into one or more *availability sets*. To understand why this is important, think about a web application that runs multiple front-end VMs. If all of these VMs are deployed on the same physical machine or even in the same rack of machines, a single hardware failure can make them all inaccessible. If these VMs are grouped into an availability set, however, Azure will deploy them across the datacenter so that none of them share a single point of failure.
+Abyste si mohli udělat lepší představu o tom, jak model Virtuální počítače Azure funguje, bude užitečné podívat se trochu podrobněji na několik scénářů. Řekněme třeba, že chcete vytvořit spolehlivou a škálovatelnou webovou aplikaci, která poběží v systému Azure. Jeden ze
+způsobů, jak se to dá udělat, je spustit logiku aplikace na virtuálních počítačích Azure a pak pro správu dat použít SQL Server. Na [Obrázku 3](#Fig3) vidíte, jak to asi vypadá.
 
-###Scenario: Running an Application with SQL Server
+<a name="Fig3"></a>![03_AppUsingSQLServer](./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png)
 
-To get a better sense of how Azure Virtual Machines works, it's useful to look at a couple of scenarios in a little more detail. Suppose, for example, that you want to create a reliable and scalable web application running on Azure. One way to do this is to run the application's logic in one or more Azure VMs, then use SQL Server for data management. [Figure 3](#Fig3) shows how this looks.
+**Obrázek 3: Aplikace, která běží v rámci modelu Virtuální počítače
+Azure, může pro úložiště používat SQL Server.**
 
-<a name="Fig3"></a>![03_AppUsingSQLServer][03_AppUsingSQLServer]
+V tomto příkladu se oba typy virtuálních počítačů vytváří ze standardních souborů VHD v galerii. Logika aplikace běží na Windows Serveru 2008 R2, takže vývojář z tohoto VHD vytvoří tři virtuální počítače a pak na každý z nich nainstaluje svoji aplikaci. Vzhledem k tomu, že jsou všechny tyto virtuální počítače ve stejné cloudové službě, může nastavit, že se má používat hardwarové vyrovnávání zatížení, aby se mezi ně požadavky rozprostřely. Vývojář taky vytvoří dva virtuální počítače ze souboru VHD v galerii s SQL Serverem 2012. Až se tyto počítače spustí, nakonfiguruje SQL Server v rámci každé instance tak, aby se používalo zrcadlení databáze s automatickým převzetím služeb při selhání. Není to nutné dělat (aplikace může používat taky jenom jednu instanci SQL Serveru), ale zvyšuje se tím spolehlivost.
 
-**Figure 3: An application running in Azure Virtual Machines can use SQL Server for storage.**
+### Scénář: Spuštění sharepointové farmy
 
-In this example, both kinds of VMs are created from standard VHDs in the gallery. The application's logic runs on Windows Server 2008 R2, so the developer creates three VMs from this VHD, then installs his application in each one. Since all of these VMs are in the same cloud service, he can configure hardware load balancing to spread requests across them. The developer also creates two VMs from the gallery's VHD containing SQL Server 2012. Once they're running, he configures SQL Server in each instance to use database mirroring with automatic failover. This isn't required'the application could use just a single SQL Server instance'but taking this approach improves reliability. 
+Řekněme, že organizace chce vytvořit sharepointovou farmu, ale nechce ji spouštět ve vlastním datacentru. Může to být proto, že má v místním datacentru nedostatek prostředků, nebo třeba jenom proto, že obchodní jednotka, která potřebuje farmu vytvořit, nechce, aby se o ni staralo interní IT oddělení. V takových případech, může mít smysl používat SharePoint v rámci modelu Virtuální počítače Azure. Na [Obrázku 4](#Fig4) vidíte, jak to asi vypadá.
 
-###Scenario: Running a SharePoint Farm 
+<a name="Fig4"></a>![04_SharePointFarm](./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png)
 
-Suppose an organization wishes to create a SharePoint farm but doesn't want to run the farm in its own datacenter. Maybe the on-premises datacenter is short of resources, or perhaps the business unit creating the farm doesn't want to deal with its internal IT group. In cases like these, running SharePoint on Azure Virtual Machines can make sense. [Figure 4](#Fig4) shows how this looks.
+**Obrázek 4: Model Virtuální počítače Azure umožňuje mít spuštěnou
+sharepointovou farmu v cloudu.**
 
-<a name="Fig4"></a>![04_SharePointFarm][04_SharePointFarm]
- 
-**Figure 4: Azure Virtual Machines allows running a SharePoint farm in the cloud.**
+Sharepointová farma se skládá z několika různých částí a každá z nich běží na virtuálním počítači Azure vytvořeném z jiného virtuálního pevného disku (VHD). Bude potřeba:
 
-A SharePoint farm has several components, each running in an Azure VM created from a different VHD. What's needed is the following:
+* Microsoft SharePoint. V galerii jsou image se zkušební verzí nebo může
+  organizace použít vlastní VHD.
+* Microsoft SQL Server. SharePoint je závislý na SQL Serveru, takže
+  organizace vytvoří virtuální počítače s SQL Serverem 2012 ze
+  standardního VHD, který najde v galerii.
+* Windows Server Active Directory. SharePoint potřebuje taky Active
+  Directory, takže organizace vytvoří řadiče domény v cloudu pomocí
+  image s Windows Serverem (taky z galerie). Není to úplně nutné (dají
+  se taky použít místní řadiče domény). SharePoint ale dost často
+  komunikuje s Active Directory, takže se takto dá zlepšit výkon.
 
-- Microsoft SharePoint. There are trial images in the gallery or the organization provides its own VHD.
-- Microsoft SQL Server. SharePoint depends on SQL Server, so the organization creates VMs running SQL Server 2012 from a standard gallery VHD.
-- Windows Server Active Directory. SharePoint also requires Active Directory, so the organization creates domain controllers in the cloud using a Windows Server image from the gallery. This isn't strictly required'it's also possible to use on-premises domain controllers'but SharePoint interacts frequently with Active Directory, and so the approach shown here will have better performance.
+I když to není vidět na obrázku, je tato sharepointová farma pravděpodobně připojená k místní síti přes Virtuální síť Azure. Virtuální počítače (a aplikace na nich) tak budou lidé, kteří tuto síť používají, považovat za místní.
 
-Although it's not shown in the figure, this SharePoint farm is probably connected to an on-premises network using Azure Virtual Network. This lets the VMs'and the applications they contain'appear to be local to the people using that network.
+Jak jsme si ukázali na těchto příkladech, virtuální počítače Azure můžete používat k vytváření a spouštění nových aplikací v cloudu, ke spouštění existujících aplikací nebo taky pro jiné účely. Cíl této technologie je stejný, ať už budete virtuální počítače používat k
+čemukoliv: Má poskytovat univerzální základ pro veřejný cloud computing.
 
-As these examples show, you can use Azure Virtual Machines to create and run new applications in the cloud, to run existing applications, or in other ways. Whatever option you choose, the technology's goal is the same: providing a general-purpose foundation for public cloud computing.
+<h2><a  id="WebSites" ></a>Weby</h2>
 
 
+Lidé používají webové technologie řadou různých způsobů. Společnost může potřebovat migrovat nebo nastavit internetový web, který by dokázal zvládat miliony návštěv týdně a který by mohl být nasazený v několika datacentrech po celém světě. Organizace, která bude web navrhovat, může ve spolupráci s týmem vývojářů vytvořit vlastní webovou aplikaci, která bude schopná zvládat tisíce uživatelů. Firemní vývojář může potřebovat nastavit aplikaci pro sledování vyúčtování výdajů v cloudu pro ověřené uživatele z podnikového adresáře Active Directory. IT konzultant může použít některou z oblíbených open source aplikací k nastavení systému pro správu obsahu pro malou firmu. Tohle všechno se dá dělat prostřednictvím modelu Virtuální počítače Azure. Vytváření a správa virtuálních počítačů, které jsou zatím ve výchozím stavu, ale vyžaduje určitou zručnost a úsilí. Pokud potřebujete implementovat web nebo webovou aplikaci, je tu jednodušší (a levnější) řešení: přístup, kterému se běžně říká Platforma jako služba (PaaS). Jak je vidět na Obrázku 5, systém Azure pro weby přístup PaaS umožňuje.
 
-<h2><a id="WebSites"></a>Web Sites</h2>
+<a name="Fig5"></a>![05_Websites](./media/fundamentals-application-models/ExecModels_05_Websites.png)
 
-People use web technologies in many different ways. A corporation may need to migrate or setup a presence web site that can handle millions of hits a week and be deployed in several data centers across the globe. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users. A corporate developer may need to setup an application to track expense reports in the Cloud for authenticated users from his corporate Active Directory. An IT consultant might use a popular open source application to set up a content management system for a small business.
-All of these things could be accomplished using Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If you need to implement a web site or web application, there's an easier (and cheaper) solution: the approach commonly known as Platform as a Service (PaaS). As Figure 5 shows, Azure provides this with Web Sites.
+**Obrázek 5: Řešení Weby Azure podporuje statické weby, oblíbené webové
+aplikace a vlastní webové aplikace, které používají nejrůznější technologie.**
 
+Weby Azure staví na řešení Cloudové služby Azure, aby bylo možné vytvořit řešení Platforma jako služba (PaaS) optimalizované pro spouštění webových aplikací. Jak je vidět na obrázku, model Weby běží na skupině jednotlivých virtuálních počítačů, na kterých může být několik webů vytvořených několika uživateli stejně jako standardní virtuální počítače, které patří jednomu konkrétnímu uživateli. Virtuální počítače jsou součástí fondu prostředků, které se spravují v rámci modelu Weby Azure. Díky tomu se dosahuje vysoké spolehlivosti a odolnosti proti chybám. S řešením není problém začít pracovat. V případě modelu Weby Azure můžou uživatelé vybírat z řady aplikací, architektur a šablon a vytvářet si weby během pár sekund. Můžou pak pomocí svých oblíbených vývojových nástrojů (WebMatrix, Visual Studio, jakýkoliv jiný editor) a možností správy zdrojového kódu nastavit kontinuální integraci a vyvíjet jako tým. Aplikace, které využívají MySQL DB, můžou používat službu MySQL, kterou pro Azure zajišťuje ClearDB, partner Microsoftu. Vývojáři můžou pomocí řešení Weby Azure vytvářet velké, škálovatelné webové aplikace. Technologie podporuje vytváření aplikací pomocí platforem ASP.NET, PHP, Node.js a Python. Aplikace můžou například používat přetrvávající relace (sticky session) a stávající webové aplikace se můžou přesunout do této cloudové platformy bez jakékoliv změny. Aplikace postavené na řešení Weby Azure můžou libovolně používat další aspekty Azure, jako například sběrnici, SQL databázi a úložiště objektů blobu. Můžete taky spouštět několik kopií aplikace v různých virtuálních počítačích a řešení Weby pak automaticky bude vyrovnávat zatížení tím, že mezi ně bude požadavky rovnoměrně rozdělovat. A protože se nové
+instance Webů vytváří ve virtuálních počítačích, které už existují, spustí se nová instance aplikace velmi rychle. Je to výrazně rychlejší než čekat na vytvoření nového virtuálního počítače. Jak je vidět na [Obrázku 5](#Fig5), můžete do řešení Weby publikovat kód a další webový
+obsah několika způsoby. Můžete použít technologii FTP, FTPS nebo technologii WebDeploy Microsoftu. Weby taky podporují publikování kódu ze systémů správy zdrojového kódu, včetně systému Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server a cloudového
+řešení Team Foundation Service.
 
-<a name="Fig5"></a>![05_Websites][05_Websites]
- 
-**Figure 5: Azure Web Sites supports static web sites, popular web applications, and custom web applications built with various technologies.** 
+<h2><a  id="CloudServices" ></a>Cloudové služby</h2>
 
-Azure Web Sites is built on top of Azure Cloud Services to create a Platform as a Service solution optimized for running web applications. As the figure shows, Web Sites runs on a set of single VMs that may contain multiple web sites created by multiple users as well as standard VMs that belong to an individual user. VMs are a part of a pool of resources managed by Azure Web Sites and thus allow for high reliability and fault tolerance.
-Getting started is easy. With Azure Web Sites, users can select from a range of applications, frameworks and template and create a web site in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to setup continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Azure by ClearDB, a Microsoft partner.
-Developers can create large, scalable web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because new Web Sites instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
-As [Figure 5](#Fig5) shows, you can publish code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Web Sites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
+Řešení Virtuální počítače Azure poskytuje IaaS, zatímco řešení Weby Azure poskytuje webový hosting. Třetí možnost zpracování výpočetních operací, Cloudové služby, zajišťuje přístup *Platforma jako služba (PaaS)*. Tato technologie je navržená tak, aby podporovala aplikace, které jsou škálovatelné a spolehlivé a dají se levně provozovat. Jejím účelem je taky to, aby se mohli vývojáři přestat starat o správu platformy, kterou používají, a mohli se naopak plně soustředit na svoje aplikace. Jak to funguje, vidíte na [Obrázku 6](#Fig6).
 
-<h2><a id="CloudServices"></a>Cloud Services</h2>
+<a name="Fig6"></a>![06_CloudServices2](./media/fundamentals-application-models/ExecModels_06_CloudServices2.png)
 
-Azure Virtual Machines provides IaaS, while Azure Web Sites provides web hosting. The third compute option, Cloud Services, provides *Platform as a Service (PaaS)*. This technology is designed to support applications that are scalable, reliable, and cheap to operate. It's also meant to free developers from worrying about managing the platform they're using, letting them focus entirely on their applications. [Figure 6](#Fig6) illustrates the idea.
+**Obrázek 6: Cloudové služby Azure zajišťují přístup Platforma jako
+služba.**
 
-<a name="Fig6"></a>![06_CloudServices2][06_CloudServices2] 
+Stejně tak jako u ostatních možností systému Azure pro výpočetní operace se i pro Cloudové služby využívají virtuální počítače. Tato technologie nabízí dvě mírně odlišné možnosti používání virtuálních počítačů: instance *webových rolí* používají variantu Windows Serveru s IIS a instance *rolí pracovních procesů* používají stejnou variantu Windows Serveru ale bez IIS. Aplikace Cloudových služeb využívá kombinaci těchto dvou možností.
 
-**Figure 6: Azure Cloud Services provides Platform as a Service.**
+Například jednoduchá aplikace může používat jenom webovou roli, ale složitější aplikace může používat webovou roli pro zpracování příchozích požadavků od uživatelů a potom tyto požadavky předávat roli pracovního procesu ke zpracování. (Pro tuto komunikaci by se mohlo používat řešení Sběrnice a Fronty Azure.)
 
-Like the other Azure compute options, Cloud Services relies on VMs. The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
+Jak je vidět na obrázku, všechny virtuální počítače v jedné aplikaci běží ve stejné cloudové službě, jak jsme si říkali, když jsme mluvili o modelu Virtuální počítače Azure. Uživatelé tak můžou aplikaci používat přes jedinou veřejnou IP adresu, přičemž požadavky se díky vyrovnávání zatížení automaticky rozdělují mezi virtuální počítače aplikace. A stejně jako u cloudových služeb vytvořených pomocí Virtuálních počítačů Azure bude platforma nasazovat virtuální počítače v aplikaci Cloudových služeb tak, aby se zabránilo používání jediného bodu selhání hardwaru.
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use Service Bus or Azure Queues.)
+I když aplikace běží ve virtuálních počítačích, je důležité si uvědomit, že Cloudové služby zajišťují přístup PaaS, ne přístup IaaS. Jeden ze způsobů, jak se na to dívat, je tento: V případě přístupu IaaS, například model Virtuální počítače Azure, musíte nejdřív vytvořit a nakonfigurovat prostředí, ve kterém vaše aplikace poběží, a potom do tohoto prostředí nasadit svoji aplikaci. Za správu všech těchto věcí jste zodpovědní vy (například za nasazování nových verzí operačního systému aktualizovaného o opravy v každém virtuálním počítači). V případě přístupu PaaS je to naopak tak, jako kdyby už prostředí existovalo. Stačí jenom nasadit svoji aplikaci. Správu platformy, na které běží, včetně nasazení nových verzí operačního systému, děláte vy.
 
-As the figure suggests, all of the VMs in a single application run in the same cloud service, as described earlier with Azure Virtual Machines. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. And as with cloud services created using Azure Virtual Machines, the platform will deploy the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
+V případě modelu Cloudové služby nevytváříte virtuální počítače. Místo toho můžete vytvořit konfigurační soubor, který systému Azure říká, kolik od každého typu instance potřebujete, například tři instance webových rolí a dvě instance rolí pracovních procesů, a platforma vám je vytvoří. Vyberete to, jakou velikost mají virtuální počítače mít (možnosti jsou stejné jako v případě modelu Virtuální počítače Azure), ale sami je explicitně nevytváříte. Pokud vaše aplikace potřebuje zvládat větší zátěž, můžete požádat o víc virtuálních počítačů a systém Azure tyto instance vytvoří. Pokud se zátěž sníží, můžete vypnout instance, které se vytvořily navíc, a přestat za ně platit.
 
-Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
+Aplikace Cloudových služeb se obvykle uživatelům zpřístupňuje procesem, který má dva kroky. Vývojář nejdřív nahraje aplikaci do pracovní oblasti platformy. Pokud už bude aplikace připravená a vývojář ji bude chtít zprovoznit v produkčním prostředí, zadá na to přes portál pro správu systému Azure požadavek. Toto přepnutí mezi pracovním a produkčním prostředí se dá udělat bez prostojů, takže se dají běžící aplikace upgradovat na novou verzi, aniž by se tím nějak uživatelé vyrušovali v práci.
 
-With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as three web role instances and two worker role instances, and the platform creates them for you.  You still choose what size those VMs should be'the options are the same as with Azure VMs'but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
+Řešení Cloudové služby taky zajišťují monitorování. Stejně jako řešení
+Virtuální počítače Azure dokáže i toto řešení zjistit, že selhal fyzický server, a virtuální počítače, které na tomto serveru běžely, restartovat na novém počítači. Řešení Cloudové služby ale taky dokáže zjistit selhání virtuálních počítačů a aplikací, nejenom selhání hardwaru. Na rozdíl od řešení Virtuální počítače má řešení Cloudové služby uvnitř každé webové role a role pracovního procesu agenta, takže dokáže v případě, že dojde k selhání, spouštět nové instance virtuálních počítačů a aplikací.
 
-A Cloud Services application is typically made available to users via a two-step process. A developer first uploads the application to the platform's staging area. When the developer is ready to make the application live, she uses the Azure Management Portal to request that it be put into production. This switch between staging and production can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
+PaaS povaha Cloudových služeb má taky další dopady. Jedním z nejdůležitějších je to, že aplikace postavené na této technologii by měly být napsané tak, aby správně běžely v případě, že by došlo k selhání instance kterékoliv webové role nebo role pracovního procesu. Aplikace Cloudových služeb by proto neměla udržovat stav v systému souborů svých vlastních virtuálních počítačů. Na rozdíl od virtuálních počítačů vytvořených pomocí řešení Virtuální počítače Azure, nejsou zápisy prováděné ve virtuálních počítačích Cloudových služeb trvalé. Neexistuje žádný datový disk Virtuální počítače. Místo toho by měla aplikace Cloudových služeb explicitně zapisovat všechny stavy do SQL databáze, objektů blob, tabulek nebo nějakého jiného externího úložiště. Pokud se aplikace vytvářejí tímto způsobem, můžou se snadněji škálovat a jsou pak odolnější vůči selhání, což je oboje pro model Cloudové služby důležité.
 
-Cloud Services also provides monitoring. Like Azure Virtual Machines, it will detect a failed physical server and restart the VMs that were running on that server on a new machine. But Cloud Services also detects failed VMs and applications, not just hardware failures. Unlike Virtual Machines, it has an agent inside each web and worker role, and so it's able to start new VMs and application instances when failures occur.
+<h2><a  id="WhatShouldIUse" ></a>Co mám používat? Podle čeho se rozhodovat</h2>
 
-The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
 
+Všechny tři modely systému Azure pro spouštění aplikací umožňují vytvářet škálovatelné a spolehlivé aplikace v cloudu. Všechny tři modely jsou si hodně podobné, který z nich byste tedy měli používat? Odpověď závisí na tom, co se snažíte udělat.
 
-<h2><a id="WhatShouldIUse"></a>What Should I Use? Making a Choice</h2>
+Model Virtuální počítače je nejobecnější řešení. Pokud chcete mít nad vším co největší kontrolu nebo pokud potřebujete obecné virtuální počítače, například pro vývoj a testování, je to ta nejlepší volba. Model Virtuální počítače je taky tou nejlepší volbou pro spouštění připravených místních aplikací v cloudu, jak jsme si předtím ukazovali na příkladu SharePointu. A protože virtuální počítače, které pomocí této technologie vytvoříte, můžou vypadat stejně jako vaše místní virtuální počítače, je taky pravděpodobné, že to bude ta nejlepší volba pro zotavení po havárii. Ale něco za něco. S velkým výkonem je spojená taky velká zodpovědnost -- u IaaS se vyžaduje, abyste převzali část práce, která souvisí se správou.
 
-All three Azure execution models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use? The answer depends on what you're trying to do.
+Model Weby je tou správnou volbou, pokud chcete vytvořit jednoduchý web. To platí hlavně tehdy, když je váš web založený na existující aplikaci, jako je Joomla, WordPress nebo Drupal. Model Weby je taky dobrá volba pro vytváření webových aplikací s nízkou úrovní správy i takových, které musí být škálovatelné, nebo pro přesunutí existující webové aplikace IIS do veřejného cloudu. Umožňuje taky rychlé nasazení. Nová instance vaší aplikace může začít běžet téměř okamžitě, zatímco nasazení nového virtuálního počítače buď pomocí modelu Virtuální počítače, nebo pomocí modelu Cloudové služby může trvat několik minut.
 
-Virtual Machines provides the most general solution. If you want the most control possible, or if you need generic VMs, such as for development and test, this is the best option. Virtual Machines is also the best choice for running off-the-shelf on-premises applications in the cloud, as illustrated by the SharePoint example described earlier. And because the VMs you create with this technology can look just like your on-premises VMs, it's also likely to be the best choice for disaster recovery. The trade-off, of course, is that with great power comes great responsibility'IaaS requires you to take on some administrative work.  
+Model Cloudové služby byl počáteční model spouštění aplikací, který se v rámci systému Azure poskytoval, a v jeho případě jde výslovně o PaaS přístup. Přístup PaaS se s webovým hostingem poměrně kryje, model Cloudové služby se ale v některých důležitých ohledech od modelu Weby liší, například v tomto:
 
-Web Sites is the right option when you want to create a simple web site. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well'a new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
+* Na rozdíl od modelu Weby vám model Cloudové služby poskytuje přístup
+  pro správu k virtuálním počítačům vaší aplikace. To vám umožní
+  nainstalovat libovolný software, který vaše aplikace potřebuje, což v
+  případě modelu Weby možné není.
+* Vzhledem k tomu, že model Cloudové služby nabízí jak webové role, tak
+  i role pracovních procesů, je to lepší volba, než model Weby pro
+  vícevrstvé aplikace, které pro svoji obchodní logiku potřebují
+  samostatné virtuální počítače.
+* Model Cloudové služby poskytuje samostatné pracovní a produkční
+  prostředí, takže aktualizace aplikací probíhají v porovnání s modelem
+  Weby o něco hladčeji.
+* Na rozdíl od modelu Weby můžete používat síťové technologie, například
+  Virtuální síť Azure a Azure Connect, pro připojení místních počítačů k
+  aplikacím Cloudových služeb.
+* Model Cloudové služby vám umožní připojovat se pomocí Vzdálené plochy
+  přímo k virtuálním počítačům aplikace. Něco takového není při
+  používání modelu Weby možné.
 
-Cloud Services, which was the initial execution model provided by Azure, is an explicitly PaaS approach. While the line between PaaS and web hosting is blurry, Cloud Services differs in some important ways from Web Sites, including the following:
+Vzhledem k tomu, že model Cloudové služby znamená přístup PaaS, nabízí taky několik výhod oproti modelu Virtuální počítače Azure. Automaticky se za vás dělají další úkoly správy, například nasazení aktualizací operačního systému, takže budete mít nejspíš nižší provozní náklady než v případě přístupu IaaS u modelu Virtuální počítače Azure.
 
-- Unlike Web Sites, Cloud Services gives you administrative access to your application's VMs. This lets you install arbitrary software that your application needs, something that's not possible with Web Sites.
-- Because Cloud Services offers both web roles and worker roles, it's a better choice than Web Sites for multi-tier applications that need separate VMs for their business logic.
-- Cloud Services provides separate staging and production environments, making application updates somewhat smoother than Web Sites. 
-- Unlike Web Sites, you can use networking technologies such as Azure Virtual Network and Azure Connect to hook on-premises computers to Cloud Services applications. 
-- Cloud Services lets you use Remote Desktop to connect directly to an application's VMs, something that's not possible with Web Sites.
+Všechny tři modely spouštění aplikací systému Azure mají svoje výhody a nevýhody. Abyste se mohli co nejlíp rozhodnout, musíte pochopit, jak fungují, a vědět, čeho se snažíte dosáhnout. Pak dokážete zvolit ten, který je pro vás nejvhodnější.
 
-Because it's PaaS, Cloud Services also offers some advantages over Azure Virtual Machines. More management tasks are done for you, for instance, such as deploying operating system updates, and so your operations costs are likely to be lower than with the IaaS approach of Azure Virtual Machines.
+Jsou situace, kdy neexistuje jeden nevhodnější model spouštění aplikací. Ideální je pak možnosti kombinovat. Řekněme třeba, že vytváříte aplikaci, kde by se vám líbilo mít výhody správy webových rolí modelu Cloudových služeb, musíte ale taky kvůli kompatibilitě a výkonu používat standardní SQL Server. V takovém případě je nejlepší modely spouštění aplikací kombinovat, jak je vidět na [Obrázku 7](#Fig7).
 
-All three Azure execution models have pros and cons. Making the best choice requires understanding these, knowing what you're trying to accomplish, then choosing the one that's the best fit.
+<a name="Fig7"></a>![07_CombineTechnologies](./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png)
 
-Sometimes, no single execution model is right. In situations like this, it's perfectly legal to combine options. For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server for compatibility or performance reasons. In this case, the best option is to combine execution models, as [Figure 7](#Fig7) shows.
+**Obrázek 7: Jedna aplikace může používat víc modelů spouštění
+aplikací.**
 
-<a name="Fig7"></a>![07_CombineTechnologies][07_CombineTechnologies] 
- 
-**Figure 7: A single application can use multiple execution models.**
+Jak vidíte na obrázku, virtuální počítače modelu Cloudových služeb běží v samostatné cloudové službě odděleně od virtuálních počítačů modelu Virtuální počítače. Přesto spolu dokážou docela efektivně komunikovat, takže někdy je nejlepší vytvářet aplikace tímto způsobem.
 
-As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best option.
+Azure poskytuje různé modely spouštění aplikací, protože cloudové platformy musí podporovat řadu různých scénářů. Každý, kdo chce efektivně využívat tuto platformu (a pokud jste článek dočetli až sem, pravděpodobně jste to i vy), musí jednotlivé modely pochopit.
 
-Azure provides different execution models because cloud platforms need to support many different scenarios. Anybody who wants to use this platform effectively'and if you've read this far, that probably includes you'needs to understand each one.
 
-[01_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
-[02_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
-[03_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
-[04_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
-[05_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
-[06_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
-[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
 
-
+[1]: http://vmdepot.msopentech.com/
+[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
