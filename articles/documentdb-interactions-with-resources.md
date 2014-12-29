@@ -334,4 +334,5 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
 <!--HONumber=27-->

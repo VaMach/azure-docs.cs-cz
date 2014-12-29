@@ -235,4 +235,5 @@ After creating a virtual machine, trying creating a SQL Server Virtual Machine. 
 [Step 2: Create a storage account in Azure]: #createstorage
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
+
 <!--HONumber=35_2-->

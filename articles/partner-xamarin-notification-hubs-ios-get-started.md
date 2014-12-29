@@ -492,4 +492,5 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
+
 <!--HONumber=27-->

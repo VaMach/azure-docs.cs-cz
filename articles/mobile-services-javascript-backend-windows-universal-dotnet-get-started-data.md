@@ -128,4 +128,5 @@ Once you have completed the data series, try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+
 <!--HONumber=27-->

@@ -102,4 +102,5 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_2-->

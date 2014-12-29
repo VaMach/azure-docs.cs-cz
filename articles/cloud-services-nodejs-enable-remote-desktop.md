@@ -128,4 +128,5 @@ instances in the cloud, disable remote desktop access using the [Azure PowerShel
   
   [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
   [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+
 <!--HONumber=35_2-->

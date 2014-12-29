@@ -267,4 +267,5 @@ Without integration with Azure Websites or Azure Cloud Services, it is possible 
 - [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-cloud-service-with-cdn/)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
+
 <!--HONumber=27-->

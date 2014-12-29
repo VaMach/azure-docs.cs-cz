@@ -7,4 +7,5 @@
 
 As announced in TechEd 2014, we will be releasing the iOS Storage SDK soon to simplify your development experience. Meanwhile, learn how to upload data to Blob Storage through Mobile Services with Chris Risner's tutorial [iOS and Mobile Services and Windows Azure Storage].
 
-[iOS and Mobile Services and Windows Azure Storage]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage<!--HONumber=35_1-->
+[iOS and Mobile Services and Windows Azure Storage]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
+<!--HONumber=35_1-->

@@ -134,4 +134,5 @@ For more details on using Azure services from your web and worker roles, such as
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
+
 <!--HONumber=35_1-->

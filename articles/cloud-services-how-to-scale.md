@@ -212,4 +212,5 @@ You can schedule automatic scaling of your application by configuring schedules 
 [message_number]: ./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
+
 <!--HONumber=35_1-->

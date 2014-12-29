@@ -807,4 +807,5 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 [Mask URLS in content]: #mask-urls-in-content
 [Allow cross-domain calls]: #allow-cross-domain-calls
 [JSONP]: #jsonp
-[CORS]: #cors<!--HONumber=27-->
+[CORS]: #cors
+<!--HONumber=27-->

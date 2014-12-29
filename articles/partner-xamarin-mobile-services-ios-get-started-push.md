@@ -400,4 +400,5 @@ You have successfully completed this tutorial.
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303<!--HONumber=27-->
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
+<!--HONumber=27-->

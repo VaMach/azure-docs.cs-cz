@@ -349,4 +349,5 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
+
 <!--HONumber=27-->

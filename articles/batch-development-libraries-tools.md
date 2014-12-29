@@ -32,4 +32,5 @@
 <!--Anchors-->
 [Batch]: #batch
 [Batch Apps]: #batch-apps
-[Additional resources]:#additional-resources<!--HONumber=35_2-->
+[Additional resources]:#additional-resources
+<!--HONumber=35_2-->

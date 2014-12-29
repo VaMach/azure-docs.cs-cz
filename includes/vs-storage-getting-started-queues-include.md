@@ -47,4 +47,5 @@ This two-step process of removing a message assures that if your code fails to p
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx).
+
 <!--HONumber=23-->

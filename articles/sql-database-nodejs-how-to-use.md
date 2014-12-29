@@ -186,4 +186,5 @@ For more information on deploying a Node.js application to Azure, see [Create an
 
 [go-to-db-info]: ./media/sql-database-nodejs-how-to-use/go-to-db-info.png
 [show-connection-string]: ./media/sql-database-nodejs-how-to-use/show-connection-string.png
+
 <!--HONumber=27-->

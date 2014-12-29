@@ -214,4 +214,5 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Django Documentation]: https://www.djangoproject.com/
 [SQL Database]: /en-us/documentation/services/sql-database/
+
 <!--HONumber=35_1-->

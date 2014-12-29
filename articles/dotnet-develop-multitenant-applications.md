@@ -112,4 +112,5 @@ Azure provides a number of ways provision new tenants for the application. For m
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh689716
 
 
+
 <!--HONumber=27-->

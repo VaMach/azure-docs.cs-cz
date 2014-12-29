@@ -155,4 +155,5 @@ Now that your mobile service is ready, you can update the app to store items in 
 		
 
 <!-- URLs. -->
-[Mobile Services Android SDK]: http://aka.ms/Iajk6q<!--HONumber=27-->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=27-->

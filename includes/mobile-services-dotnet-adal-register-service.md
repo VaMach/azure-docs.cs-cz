@@ -37,4 +37,5 @@ In this section you will register your mobile service with the Azure Active Dire
 
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Azure Management Portal]: https://manage.windowsazure.com/<!--HONumber=27-->
+[Azure Management Portal]: https://manage.windowsazure.com/
+<!--HONumber=27-->

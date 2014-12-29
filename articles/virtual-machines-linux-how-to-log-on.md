@@ -37,4 +37,5 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 You can now work with the virtual machine just as you would with any other server.
 
 <!-- LINKS -->
-[How to Reset a Password or SSH for Linux Virtual Machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138<!--HONumber=35_1-->
+[How to Reset a Password or SSH for Linux Virtual Machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+<!--HONumber=35_1-->

@@ -298,4 +298,5 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-[LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/<!--HONumber=27-->
+[LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/
+<!--HONumber=27-->

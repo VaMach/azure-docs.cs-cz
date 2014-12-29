@@ -49,4 +49,5 @@ You are now ready to use a Microsoft Account for authentication in your app by p
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_1-->

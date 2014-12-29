@@ -60,4 +60,5 @@ To get you started, HDInsight provides sample scripts to install Spark and R on 
 [hdinsight-provision-cluster]: ../hdinsight-provision-clusters/
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning
+
 <!--HONumber=35_2-->

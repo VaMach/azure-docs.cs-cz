@@ -174,4 +174,5 @@ In this tutorial you learned how to create a basic chat application hosted in an
   [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   
+
 <!--HONumber=35_2-->

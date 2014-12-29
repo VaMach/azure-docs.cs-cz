@@ -245,4 +245,5 @@ Azure poskytuje různé modely spouštění aplikací, protože cloudové platfo
 
 [1]: http://vmdepot.msopentech.com/
 [2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+
 <!--HONumber=2-->

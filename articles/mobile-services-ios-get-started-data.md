@@ -131,4 +131,5 @@ Once you have completed the data series, try these other iOS tutorials:
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
+
 <!--HONumber=35_2-->

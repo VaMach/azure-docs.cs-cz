@@ -269,4 +269,5 @@ To do this... | Use this...
 [xplat-cli]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
 [storesendgrid]: http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/
+
 <!--HONumber=35_1-->

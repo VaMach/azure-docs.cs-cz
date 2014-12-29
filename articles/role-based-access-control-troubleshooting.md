@@ -73,4 +73,5 @@ Virtual machines have these related resources:
     * Load balanced set
     * Alert rules
     
-If you can't access any of these parts, you'll need to ask your administrator for Contributor access to the Resource group.<!--HONumber=27-->
+If you can't access any of these parts, you'll need to ask your administrator for Contributor access to the Resource group.
+<!--HONumber=27-->

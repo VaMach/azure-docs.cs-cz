@@ -17,4 +17,5 @@ The hybrid collection supports only Azure Active Directory accounts that have be
 
 ##Office 365 ProPlus user account information
 If you are using the Office 365 ProPlus template image in your collection *or* if you created a custom image that uses Office 365, you are only allowed to add Azure Active Directory users that have Office 365 subscriptions for the default domain of your subscription. See [Using Office 365 with Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-o365/) for more information.
+
 <!--HONumber=35_2-->

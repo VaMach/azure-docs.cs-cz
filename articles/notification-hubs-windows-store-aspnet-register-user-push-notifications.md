@@ -180,4 +180,5 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users-aspnet
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

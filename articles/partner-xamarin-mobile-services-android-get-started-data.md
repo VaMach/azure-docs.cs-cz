@@ -278,4 +278,5 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+
 <!--HONumber=27-->

@@ -190,4 +190,5 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
+
 <!--HONumber=35_1-->

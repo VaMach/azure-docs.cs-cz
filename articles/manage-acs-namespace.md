@@ -442,4 +442,5 @@ Following are the exceptions that ACS will throw if the certificate is expired:
 [ACS112]:./media/manage-acs-namespace/ACS112.png
 [ACS14]:./media/manage-acs-namespace/ACS14.png
 [ACS15]:./media/manage-acs-namespace/ACS15.png
+
 <!--HONumber=27-->

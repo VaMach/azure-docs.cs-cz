@@ -227,4 +227,5 @@ To create Azure BizTalk Services in the Azure Management Portal, go to [BizTalk 
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
 <!--HONumber=27-->

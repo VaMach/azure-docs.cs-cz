@@ -22,4 +22,5 @@ After testing the client app against the local mobile service, the final stage o
 
 	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Azure.
 
+
 <!--HONumber=35_1-->

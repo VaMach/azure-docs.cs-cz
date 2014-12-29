@@ -55,4 +55,5 @@
    	Notice that the **skip(3)** method was translated into the query option **$skip=3** in the query URI.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=27-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+<!--HONumber=27-->

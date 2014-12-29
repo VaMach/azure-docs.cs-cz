@@ -387,4 +387,5 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 [Image31]: ./media/virtual-machines-provision-sql-server/31VM-Connect.png
 [Image32]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
+
 <!--HONumber=35_1-->

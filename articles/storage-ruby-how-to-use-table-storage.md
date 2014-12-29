@@ -170,4 +170,5 @@ Now that you've learned the basics of table storage, follow these links to learn
 * See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
 * Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+
 <!--HONumber=35_1-->

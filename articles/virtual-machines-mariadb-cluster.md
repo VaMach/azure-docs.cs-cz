@@ -365,4 +365,5 @@ You may want to take a look at [another way to cluster MySQL on Linux] and ways 
 [performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[another way to cluster MySQL on Linux]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/<!--HONumber=35_2-->
+[another way to cluster MySQL on Linux]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/
+<!--HONumber=35_2-->

@@ -245,4 +245,5 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

@@ -100,4 +100,5 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_2-->

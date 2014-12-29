@@ -115,4 +115,5 @@ To run the application, do the following:
 3. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
 
 4. In the Android app UI, click **Log in**. Then click **Send push**.
+
 <!--HONumber=35_2-->

@@ -187,4 +187,5 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
 [Role based access control with the AAD in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+
 <!--HONumber=27-->

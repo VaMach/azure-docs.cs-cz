@@ -81,4 +81,5 @@ Once an API is created and the settings configured, the next steps are to add th
 [How to create and publish a product]: ../api-management-howto-add-products
 
 [Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance<!--HONumber=27-->
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+<!--HONumber=27-->

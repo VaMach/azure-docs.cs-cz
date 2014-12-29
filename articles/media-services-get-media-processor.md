@@ -71,4 +71,5 @@ Now that you know how to get a media processor instance, go to the [How to Encod
 
 [How to Encode an Asset]: ../media-services-encode-asset/
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
-[How to: Connect to Media Services Programmatically]: ../media-services-set-up-computer/<!--HONumber=35_1-->
+[How to: Connect to Media Services Programmatically]: ../media-services-set-up-computer/
+<!--HONumber=35_1-->

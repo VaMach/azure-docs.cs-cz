@@ -287,4 +287,5 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+
 <!--HONumber=35_1-->

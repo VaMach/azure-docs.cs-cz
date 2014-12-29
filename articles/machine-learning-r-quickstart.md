@@ -1166,4 +1166,5 @@ The book 'Introductory Time Series with R' by Paul Cowpertwait and Andrew Metcal
 <!--links-->
 [appendixa]: #appendixa
 [download]: https://azurebigdatatutorials.blob.core.windows.net/rquickstart/RFiles.zip
+
 <!--HONumber=35_2-->

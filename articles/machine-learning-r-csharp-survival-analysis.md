@@ -175,4 +175,5 @@ This web service can only take numerical values as feature variables (columns). 
 For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
 <!--HONumber=27-->

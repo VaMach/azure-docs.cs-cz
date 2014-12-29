@@ -86,4 +86,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_2-->

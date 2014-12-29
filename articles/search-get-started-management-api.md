@@ -197,4 +197,5 @@ After having completed this tutorial, you might want to learn more about service
 [Create a geospatial search app using Azure Search]: ../search-create-geospatial/
 
 
+
 <!--HONumber=27-->

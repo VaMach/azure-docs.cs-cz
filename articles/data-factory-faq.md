@@ -93,4 +93,5 @@ The on-demand HDInsight cluster is created in the same region where the storage 
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/en-us/pricing/details/hdinsight/<!--HONumber=35_2-->
+[hdinsight-supported-regions]: http://azure.microsoft.com/en-us/pricing/details/hdinsight/
+<!--HONumber=35_2-->

@@ -73,4 +73,5 @@ For more information about creating indexes or documents, see the [Azure Search 
 [Manage your search service on Microsoft Azure]: ../search-manage/
 [Create your first search solution using Azure Search]: ../search-create-first-solution/
 
+
 <!--HONumber=27-->

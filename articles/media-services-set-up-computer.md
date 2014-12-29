@@ -69,4 +69,5 @@ The rest of the code examples in this topic use a variable called **_context** t
 Now that you have set up your computer and created a Visual Studio solution for programming Media Services, go to the [How to Create an Encrypted Asset and Upload to Storage][] topic.
 [How to Create a Media Services Account]: ../media-services-create-account/
 [How to Create an Encrypted Asset and Upload to Storage]: ../media-services-create-encrypted-asset-upload-storage/
+
 <!--HONumber=35_1-->

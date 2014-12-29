@@ -303,4 +303,5 @@ In this tutorial you've seen how to create a simple web application and deploy i
 * How to choose between Azure Websites, Cloud Services, and VMs for web applications
 
 	In Azure you can run web applications in Websites as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure Websites, Cloud Services, and VMs: When to use which?](/en-us/manage/services/web-sites/choose-web-app-service/).
+
 <!--HONumber=35_1-->

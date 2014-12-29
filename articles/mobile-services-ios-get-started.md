@@ -110,4 +110,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+
 <!--HONumber=27-->

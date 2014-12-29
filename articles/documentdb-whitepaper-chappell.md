@@ -23,4 +23,5 @@ This whitepaper also covers the following fundamental concepts:
 
 **Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 
+
 <!--HONumber=27-->

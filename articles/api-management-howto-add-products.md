@@ -121,4 +121,5 @@ Once the desired APIs are added and the product published, developers can subscr
 [Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: ../api-management-howto-create-groups
-[How create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules<!--HONumber=27-->
+[How create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules
+<!--HONumber=27-->

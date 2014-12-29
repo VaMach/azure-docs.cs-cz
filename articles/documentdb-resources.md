@@ -460,4 +460,5 @@ As all other resources, permissions in DocumentDB can be created, replaced, dele
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
 <!--HONumber=27-->

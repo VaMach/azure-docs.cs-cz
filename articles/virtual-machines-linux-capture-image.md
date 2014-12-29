@@ -55,4 +55,5 @@ The image is ready to be used as a template to create virtual machines. To do th
 [How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
 [How to Attach a Data Disk to a Virtual Machine]: ../storage-windows-attach-disk/
 
+
 <!--HONumber=35_1-->

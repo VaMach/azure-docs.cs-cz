@@ -107,4 +107,5 @@ Setting Up
 There are many resources for setting up a LAMP stack on Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+
 <!--HONumber=35_1-->

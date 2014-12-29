@@ -50,4 +50,5 @@ Metrics are stored in the storage account in four tables named $MetricsTransacti
 [dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
+
 <!--HONumber=35_1-->

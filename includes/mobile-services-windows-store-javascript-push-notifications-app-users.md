@@ -79,4 +79,5 @@ In this method, you added registration code from the tutorial directly to the de
 		        });
 		    });
 		}  
+
 <!--HONumber=27-->

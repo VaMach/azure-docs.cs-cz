@@ -163,4 +163,5 @@ The following sample dataset used by this experiment is available in ML Studio i
 [image2e]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png
 [image2f]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png
 [image3]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image3.png
+
 <!--HONumber=27-->

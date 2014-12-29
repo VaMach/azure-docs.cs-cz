@@ -24,4 +24,5 @@ You have successfully completed this tutorial.
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
+
 <!--HONumber=27-->

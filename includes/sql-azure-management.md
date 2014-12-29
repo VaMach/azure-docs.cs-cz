@@ -337,4 +337,5 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Introducing SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
   [SQL Database Provisioning Model]: http://msdn.microsoft.com/en-us/library/ee336227.aspx
   [Adding Users to your SQL Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=27-->

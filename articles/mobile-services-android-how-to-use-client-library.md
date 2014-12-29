@@ -884,4 +884,5 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+
 <!--HONumber=27-->

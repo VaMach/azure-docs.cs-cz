@@ -46,4 +46,5 @@ The disk remains in storage but is no longer attached to a virtual machine.
 [attachdisk]:/en-us/manage/windows/how-to-guides/attach-a-disk/
 
 [About disks and images]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=35_1-->

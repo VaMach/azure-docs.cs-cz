@@ -32,4 +32,5 @@ To install the Azure SDK 2.4 for .NET, follow these steps:
 ## Release Notes
 
 Read the [release notes](http://go.microsoft.com/fwlink/?LinkId=507517) for Azure SDK 2.4.
+
 <!--HONumber=27-->

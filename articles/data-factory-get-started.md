@@ -533,4 +533,5 @@ Article | Description
 
 [image-data-factory-sql-management-console-2]: ./media/data-factory-get-started/getstarted-azure-sql-management-console-2.png
 
-[image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png<!--HONumber=35_2-->
+[image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
+<!--HONumber=35_2-->

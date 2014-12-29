@@ -174,4 +174,5 @@ In this article, you have learned how to calculate streaming units and how to sc
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 
+
 <!--HONumber=27-->

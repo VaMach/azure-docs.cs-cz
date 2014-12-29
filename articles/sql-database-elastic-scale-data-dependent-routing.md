@@ -99,4 +99,5 @@ Packages necessary to implement transient fault handling are downloaded automati
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through data-dependent routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.  
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=27-->

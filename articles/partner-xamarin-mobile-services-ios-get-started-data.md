@@ -236,4 +236,5 @@ Once you have completed the data series, try these other iOS tutorials:
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+
 <!--HONumber=27-->

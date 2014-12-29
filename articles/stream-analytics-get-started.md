@@ -286,4 +286,5 @@ In this tutorial, you have learned how to use Stream Analytics to process the we
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
 <!--HONumber=27-->

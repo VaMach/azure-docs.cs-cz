@@ -128,4 +128,5 @@ To learn more about configuring Windows virtual machines on Azure, see the follo
 [How to set up communication with the virtual machine]: #endpoints
 
 
+
 <!--HONumber=27-->

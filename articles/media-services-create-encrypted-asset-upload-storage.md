@@ -121,4 +121,5 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][] topic.
 
 [How to Get a Media Processor]: ../media-services-get-media-processor/
+
 <!--HONumber=35_1-->

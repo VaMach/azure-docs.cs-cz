@@ -67,4 +67,5 @@ Others scenarios pack multiple tenants together into databases, rather than isol
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-intro/overview.png
 [2]:./media/sql-database-elastic-scale-intro/tenancy.png
+
 <!--HONumber=27-->

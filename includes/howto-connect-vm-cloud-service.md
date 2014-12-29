@@ -26,4 +26,5 @@ After you create a virtual machine, it's a good idea to add a data disk so your 
 [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/)
 
 
+
 <!--HONumber=35_1-->

@@ -181,4 +181,5 @@ In addition, a uniqueness property with the sharding key as the leading column w
 [1]:./media/sql-database-elastic-scale-split-and-merge/split-merge-overview.png
 [2]:./media/sql-database-elastic-scale-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-split-and-merge/diagnostics-config.png
+
 <!--HONumber=27-->

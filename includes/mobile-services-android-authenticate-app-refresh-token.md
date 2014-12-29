@@ -240,4 +240,5 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
        In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
 
 
+
 <!--HONumber=27-->

@@ -54,4 +54,5 @@ The scenario of copying your database to a new server is not available at this t
 [5]: ./media/sql-database-preview-upgrade/latestprview.png
 [6]: ./media/sql-database-preview-upgrade/upgrade.png
 [7]: ./media/sql-database-preview-upgrade/typeservername.png
-[8]: ./media/sql-database-preview-upgrade/enabled.png<!--HONumber=35_2-->
+[8]: ./media/sql-database-preview-upgrade/enabled.png
+<!--HONumber=35_2-->

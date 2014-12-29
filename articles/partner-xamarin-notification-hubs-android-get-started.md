@@ -457,4 +457,5 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging Component]: http://components.xamarin.com/view/GCMClient/
+
 <!--HONumber=27-->

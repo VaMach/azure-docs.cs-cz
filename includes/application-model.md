@@ -596,4 +596,5 @@ article.<a id="Ref" name="Ref"></a>
   [Managing Hosted Services in Azure]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
   [Migrating Applications to Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
   [Configuring an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+
 <!--HONumber=27-->

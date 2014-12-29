@@ -178,4 +178,5 @@ For Frequently Asked Questions on consumption of the web service or publishing t
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png
 [3]: ./media/machine-learning-r-csharp-normal-distribution/normal-img3.png
-[4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png<!--HONumber=27-->
+[4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
+<!--HONumber=27-->

@@ -110,4 +110,5 @@ Now that you have created your RemoteApp service, you need to add the users and 
 That's it - you have successfully created and deployed your RemoteApp hybrid deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into the client and access the RemoteApp programs you published.
 
 
+
 <!--HONumber=27-->

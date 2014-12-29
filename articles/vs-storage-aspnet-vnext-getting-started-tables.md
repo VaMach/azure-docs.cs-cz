@@ -35,4 +35,5 @@ Before you can do anything with a table, you need to get the connection string f
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
 
 For more information, see [ASP.NET vNext](http://www.asp.net/vnext).
+
 <!--HONumber=23-->

@@ -203,4 +203,5 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
 <!--HONumber=27-->

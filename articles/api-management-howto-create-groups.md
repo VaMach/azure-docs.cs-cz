@@ -95,4 +95,5 @@ Once a developer is added to a group, they can view and subscribe to the product
 [How create and publish a product in Azure API Management]: ../api-management-howto-add-products
 
 [Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance<!--HONumber=27-->
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+<!--HONumber=27-->

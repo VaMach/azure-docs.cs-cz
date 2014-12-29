@@ -78,4 +78,5 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 [24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
+
 <!--HONumber=27-->

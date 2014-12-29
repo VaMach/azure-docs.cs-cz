@@ -705,4 +705,5 @@ For more information about getting started with Sencha Touch please visit the fu
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+
 <!--HONumber=27-->

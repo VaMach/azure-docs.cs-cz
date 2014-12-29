@@ -121,4 +121,5 @@ For information about how to use the Azure Command-Line Tools for Mac and Linux,
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+
 <!--HONumber=27-->

@@ -104,4 +104,5 @@ This section steps through an example to to migrate a few websites that use a SQ
 20.	Click the links to the Azure websites and verify that the migration has succeeded.
 
 
+
 <!--HONumber=27-->

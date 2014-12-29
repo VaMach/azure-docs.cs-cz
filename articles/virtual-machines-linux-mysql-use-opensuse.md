@@ -28,4 +28,5 @@ In this tutorial you learned to create a virtual machine running OpenSUSE Linux 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
+
 <!--HONumber=35_1-->

@@ -28,4 +28,5 @@ Regardless of the sharding model being used, a special data structure, known as 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-sharding-overview/tenancy.png
+
 <!--HONumber=27-->

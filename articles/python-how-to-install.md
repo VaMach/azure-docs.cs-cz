@@ -182,4 +182,5 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [How to use the Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 
+
 <!--HONumber=27-->

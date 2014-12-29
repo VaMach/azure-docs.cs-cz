@@ -212,4 +212,5 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 
+
 <!--HONumber=35_1-->

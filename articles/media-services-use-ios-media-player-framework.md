@@ -204,4 +204,5 @@ There are a few things to note here:
 
 As illustrated in the preceding code example, if you set **deleteAfterPlay** to **YES**, this advertisement is played only once. And if you set **deleteAfterPlay** to **NO**, this advertisement continues to play, which we call a "Sticky Ad".
 ### Please refer to the [Azure Media Player Framework wiki](https://github.com/WindowsAzure/azure-media-player-framework/wiki) for more information.
+
 <!--HONumber=35_1-->

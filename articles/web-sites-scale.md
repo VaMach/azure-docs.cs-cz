@@ -228,4 +228,5 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 [TargetCPU]: ./media/web-sites-scale/15TargetCPU.png
 [LinkedResources]: ./media/web-sites-scale/16LinkedResources.png
 [ScaleDatabase]: ./media/web-sites-scale/17ScaleDatabase.png
+
 <!--HONumber=27-->

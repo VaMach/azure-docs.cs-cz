@@ -51,4 +51,5 @@ In your Mobile Service scheduler, overwrite your script with:
 	});
 	
 Note how in this case there is no need to send multiple notifications for different locales and platforms.
+
 <!--HONumber=27-->

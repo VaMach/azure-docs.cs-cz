@@ -209,4 +209,5 @@ Once you have completed the data series, try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+
 <!--HONumber=27-->

@@ -167,4 +167,5 @@ In this article, you have learned how to connect to HDInsight clusters from Visu
 [hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
 
 
-[apache.hive]: http://hive.apache.org<!--HONumber=35_2-->
+[apache.hive]: http://hive.apache.org
+<!--HONumber=35_2-->

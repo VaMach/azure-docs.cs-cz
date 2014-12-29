@@ -7,4 +7,5 @@
 
 
 [WACOM.INCLUDE [intro-to-azure](../includes/intro-to-azure.md)]
+
 <!--HONumber=35_2-->

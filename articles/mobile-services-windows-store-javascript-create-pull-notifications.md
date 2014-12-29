@@ -147,4 +147,5 @@ Now that you have created a periodic notification, consider finding out more abo
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 
+
 <!--HONumber=35_1-->

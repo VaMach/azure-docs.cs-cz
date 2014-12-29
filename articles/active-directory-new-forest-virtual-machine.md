@@ -146,4 +146,5 @@ If you rerun the script, you need to supply a unique value for $service. You can
 
 -  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684)
 
+
 <!--HONumber=35_2-->

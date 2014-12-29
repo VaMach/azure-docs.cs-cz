@@ -212,4 +212,5 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, righ
 [documentdb-manage]: ../documentdb-manage/
 
 [1]: ./media/documentdb-get-started/gs1.png
+
 <!--HONumber=35_2-->

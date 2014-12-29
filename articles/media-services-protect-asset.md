@@ -115,4 +115,5 @@ For more information on PlayReady protection, see:
 
 <h2>Next Steps</h2>
 Now that you know how to protect asssets with Media services, go to the [How To Manage Assets](../media-services-manage-assets/) topic.
+
 <!--HONumber=35_1-->

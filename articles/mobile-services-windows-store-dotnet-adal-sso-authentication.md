@@ -211,4 +211,5 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734<!--HONumber=27-->
+[Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734
+<!--HONumber=27-->

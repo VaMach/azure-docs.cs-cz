@@ -266,4 +266,5 @@ For more information on Azure Storage see:
 - Storage Getting Started for [Blob](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/), [Table](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/) and [Queues](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Storage Architecture – [Windows Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=35_1-->

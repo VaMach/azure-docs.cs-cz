@@ -22,4 +22,5 @@ Now, you can use this .p12 certificate to enable services to authenticate with A
 
 [Management Portal]: https://manage.windowsazure.com/
 
+
 <!--HONumber=27-->

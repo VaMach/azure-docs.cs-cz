@@ -286,4 +286,5 @@ To publish changes to application, follow these steps:
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
 [where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
+
 <!--HONumber=35_1-->

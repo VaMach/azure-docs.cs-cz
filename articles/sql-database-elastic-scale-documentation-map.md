@@ -7,4 +7,5 @@ Azure SQL Database Elastic Scale (in preview) enables the data-tier of an applic
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%">
 </object>
+
 <!--HONumber=27-->

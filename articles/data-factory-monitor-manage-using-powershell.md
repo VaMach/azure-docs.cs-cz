@@ -408,4 +408,5 @@ Article | Description
 
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456<!--HONumber=35_2-->
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+<!--HONumber=35_2-->

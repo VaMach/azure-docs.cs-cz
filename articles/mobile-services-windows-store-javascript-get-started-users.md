@@ -79,4 +79,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package
+
 <!--HONumber=35_2-->

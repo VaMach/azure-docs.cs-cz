@@ -74,4 +74,5 @@ Pin the most important tags to your Startboard for quick access and you're ready
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
 <!--HONumber=27-->

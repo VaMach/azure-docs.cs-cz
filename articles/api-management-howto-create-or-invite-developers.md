@@ -84,4 +84,5 @@ Once a developer account is created, you can associate it with roles and subscri
 
 [Get started with Azure API Management]: ../api-management-get-started
 [Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[Configure email templates]: ../api-management-howto-configure-notifications/#email-templates<!--HONumber=27-->
+[Configure email templates]: ../api-management-howto-configure-notifications/#email-templates
+<!--HONumber=27-->

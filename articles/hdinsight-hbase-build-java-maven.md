@@ -567,4 +567,5 @@ Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 ###No results or unexpected results when using Start-HBaseExample
 
 Use the `-showErr` parameter to view the STDERR produced while running the job.
+
 <!--HONumber=35_1-->

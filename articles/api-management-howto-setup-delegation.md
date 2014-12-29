@@ -149,4 +149,5 @@ These code samples show how to take the *delegation validation key*, which is se
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png<!--HONumber=27-->
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+<!--HONumber=27-->

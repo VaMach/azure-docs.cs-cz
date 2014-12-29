@@ -288,4 +288,5 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
+
 <!--HONumber=27-->

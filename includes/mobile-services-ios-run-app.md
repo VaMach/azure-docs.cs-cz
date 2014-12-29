@@ -17,4 +17,5 @@ The final stage of this tutorial is to build and run your new app.
 
 	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
  	</div>
+
 <!--HONumber=27-->

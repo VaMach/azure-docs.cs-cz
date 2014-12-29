@@ -65,4 +65,5 @@ Then you can select from any of the metrics that you have enabled for diagnostic
 
 The graph will show you a preview of your alert threshold compared the metric from the previous day. After you click **Save**, within a few minutes you will be informed whenever the metric you choose exceeds the threshold. 
 
-Note that metrics which only appear in the Preview Portal are not alertable in the Full Portal. As a result, certain alert rules from the Preview Portal are not visible in the Full portal.<!--HONumber=27-->
+Note that metrics which only appear in the Preview Portal are not alertable in the Full Portal. As a result, certain alert rules from the Preview Portal are not visible in the Full portal.
+<!--HONumber=27-->

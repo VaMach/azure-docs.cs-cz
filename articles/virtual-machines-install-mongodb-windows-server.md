@@ -40,4 +40,5 @@ In this tutorial you learned how to create a Windows Server virtual machine, rem
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
+
 <!--HONumber=35_1-->

@@ -138,4 +138,5 @@ You then need to update the site-packages directory by copying the files from C:
 After you copy the files, run the command **git status** to see the newly added files, and **git add** followed by **git commit** to commit the changes to the repo.  Finally, you can do a **git push**, which deploys the updated website to Azure.
 
 Now you can go into the DjangoApplication directory and use manage.py as you typically would to start adding new applications to your Django project.  
+
 <!--HONumber=35_1-->

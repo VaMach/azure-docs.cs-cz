@@ -71,4 +71,5 @@ To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure
 [6]: ./media/documentdb-create-account/ca6.png
 [7]: ./media/documentdb-create-account/ca7.png
 [8]: ./media/documentdb-create-account/ca8.png
+
 <!--HONumber=35_2-->

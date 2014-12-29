@@ -30,4 +30,5 @@ Before you can do anything with a blob, you need to get the connection string fo
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
+
 <!--HONumber=34-->

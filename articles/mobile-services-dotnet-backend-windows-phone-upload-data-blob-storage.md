@@ -67,4 +67,5 @@ To be able to use an SAS to upload images from your app to Blob storage, you mus
 [Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
 
 
+
 <!--HONumber=27-->

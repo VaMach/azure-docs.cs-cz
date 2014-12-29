@@ -14,4 +14,5 @@
 [@AzureMobile]: https://twitter.com/AzureMobile
 [Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
-[blog post]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/30/realtime-with-signalr-and-azure-mobile-net-backend.aspx<!--HONumber=27-->
+[blog post]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/30/realtime-with-signalr-and-azure-mobile-net-backend.aspx
+<!--HONumber=27-->

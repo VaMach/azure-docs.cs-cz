@@ -79,4 +79,5 @@ Now that you have created a custom API and called it from your HTML app, conside
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-html-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data<!--HONumber=27-->
+[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
+<!--HONumber=27-->

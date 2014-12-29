@@ -766,4 +766,5 @@ The following table compare the features supported by Azure Diagnostics versions
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495168.aspx
+
 <!--HONumber=35_1-->

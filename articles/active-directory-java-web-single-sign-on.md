@@ -419,4 +419,5 @@ This tutorial has shown you how to create and configure a single tenant Java app
 [Java Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-java-samples/tree/master/WAAD.WebSSO.JAVA
 [JBoss Application Server version 7.1.1.Final]: http://www.jboss.org/jbossas/downloads/
 [JBoss Developer Studio IDE]: https://devstudio.jboss.com/earlyaccess/
+
 <!--HONumber=27-->

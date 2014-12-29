@@ -23,4 +23,5 @@ Now, you can use this API key value to enable services to authenticate with GCM 
 
 [Management Portal]: https://manage.windowsazure.com/
 [.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+
 <!--HONumber=27-->

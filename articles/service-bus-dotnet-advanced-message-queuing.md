@@ -301,4 +301,5 @@ You can also use Service Bus AMQP 1.0 from other languages including Java, C, Py
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
 [How to Use Service Bus Queues]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+
 <!--HONumber=27-->

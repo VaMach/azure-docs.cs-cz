@@ -289,4 +289,5 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [47]: ./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
-[50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG<!--HONumber=35_1-->
+[50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
+<!--HONumber=35_1-->

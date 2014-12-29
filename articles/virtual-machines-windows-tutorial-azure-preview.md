@@ -104,4 +104,5 @@ To learn more about configuring Windows virtual machines on Azure, see the follo
 
 [How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
+
 <!--HONumber=35_2-->

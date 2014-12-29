@@ -56,4 +56,5 @@ For single-instance configuration virtual machines only, Azure send email commun
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../virtual-machines-windows-tutorial/
 [Understand planned versus unplanned maintenance]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
+
 <!--HONumber=35_1-->

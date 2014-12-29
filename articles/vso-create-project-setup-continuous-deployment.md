@@ -56,4 +56,5 @@ The Windows Azure Management Portal lets you create a Team Project on Visual Stu
 2. In the **Build** lens, click **Latest build** part to open the build blade.
 3. In the build blade, click the first item in the **Deployments** part to open the associated website.
 4. On the website blade, click the **Browse** blade-level command to browse the website and verify the deployment of your web application.
+
 <!--HONumber=27-->

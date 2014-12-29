@@ -77,4 +77,5 @@ For more information about delivering assets, see:
 
 <h2>Next Steps</h2>
 So far we have covered delivering media by downloading from Azure Storage and using Smooth Streaming. The next topic [How to Deliver HLS content](../media-services-deliver-http-live-streaming-content/) discusses delivering streaming content using Apple HTTP Live Streaming (HLS).
+
 <!--HONumber=35_1-->

@@ -514,4 +514,5 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+
 <!--HONumber=35_1-->

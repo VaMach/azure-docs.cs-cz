@@ -284,4 +284,5 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+
 <!--HONumber=35_1-->

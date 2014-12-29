@@ -28,4 +28,5 @@
 
    This registers a new insert script, which stores the registration information in the new table.
 
+
 <!--HONumber=27-->

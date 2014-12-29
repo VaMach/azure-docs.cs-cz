@@ -158,4 +158,5 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 	Please refer to your distribution's documentation on how to properly edit kernel parameters. For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "`/boot/grub/menu.lst`" file.  On Ubuntu this parameter can be added to the `GRUB_CMDLINE_LINUX_DEFAULT` variable on "/etc/default/grub".
 
+
 <!--HONumber=35_1-->

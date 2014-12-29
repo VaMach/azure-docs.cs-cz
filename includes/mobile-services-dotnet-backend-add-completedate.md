@@ -38,4 +38,5 @@ In this section we will modify the model of our database by adding a new timesta
 
 5. Rebuild the todolist .NET backend service project and verify that you have no build errors. 
 
-Next, you will update the client app to display the new **CompleteDate** data.<!--HONumber=27-->
+Next, you will update the client app to display the new **CompleteDate** data.
+<!--HONumber=27-->

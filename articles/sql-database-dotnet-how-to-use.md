@@ -264,4 +264,5 @@ following resources to learn more about SQL Database.
   [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
   [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
   [SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+
 <!--HONumber=35_2-->

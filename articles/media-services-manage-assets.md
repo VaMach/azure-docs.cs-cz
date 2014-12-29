@@ -81,4 +81,5 @@ For more information about managing assets, see:
 
 <h2>Next Steps</h2>
 Now that you know how to manage assets, go to the [How to Deliver an Asset by Download](../media-services-deliver-asset-download/) topic.
+
 <!--HONumber=35_1-->

@@ -132,4 +132,5 @@ The following sample dataset used by this experiment is available in ML Studio i
 [results]:./media/machine-learning-sample-credit-risk-prediction/results.jpg
 [screen3]:./media/machine-learning-sample-credit-risk-prediction/screen3.jpg
 [screen4]:./media/machine-learning-sample-credit-risk-prediction/screen4.jpg
+
 <!--HONumber=27-->

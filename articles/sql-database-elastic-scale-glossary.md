@@ -65,4 +65,5 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 
 
+
 <!--HONumber=35_1-->

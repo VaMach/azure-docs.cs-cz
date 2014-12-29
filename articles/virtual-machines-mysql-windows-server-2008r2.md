@@ -141,4 +141,5 @@ For information on MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc
 [MySQLConfig9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
 [MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
 
+
 <!--HONumber=35_1-->

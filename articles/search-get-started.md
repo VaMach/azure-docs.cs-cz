@@ -400,4 +400,5 @@ Ready for the next step? The following links take you to additional material tha
 [Azure Search development workflow]: ../search-workflow/
 [Create your first azure search solution]: ../search-create-first-solution/
 [Create a geospatial search app using Azure Search]: ../search-create-geospatial/
+
 <!--HONumber=35_2-->

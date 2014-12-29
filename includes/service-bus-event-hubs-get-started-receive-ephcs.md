@@ -121,4 +121,5 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Event Hubs Programming Guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx<!--HONumber=27-->
+[Event Hubs Programming Guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+<!--HONumber=27-->

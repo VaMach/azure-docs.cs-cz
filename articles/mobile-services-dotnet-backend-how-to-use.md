@@ -19,4 +19,5 @@ The Mobile Services .NET backend enables you to write rich backend business logi
 The Mobile Services .NET baceknd provides a universal "table" abstraction, which represents a CRUD-based HTTP API for database storage. This abstration separates data storage concerns from your  business logic and enables your mobile service to expose different data stores in a consistent JSON-based wire format, that is readily understood by the cross-platform Mobile Services client SDKs. 
 
 At the root of this programming model is the [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx) class, which is just a regular Web API [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), that is customized for a CRUD data access pattern. The **TableController** can use a variety of data stores, including SQL (through [Entity Framework](http://msdn.microsoft.com/data/ef.aspx)), [Azure Table Storage](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org), or your own custom store.
+
 <!--HONumber=27-->

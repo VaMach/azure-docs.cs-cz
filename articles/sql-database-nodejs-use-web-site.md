@@ -523,4 +523,5 @@ Once the changes have been deployed to Azure, your web application should contin
 [sql-new-table]: ./media/sql-database-nodejs-use-web-site/new-table.png
 [table-name-identity]: ./media/sql-database-nodejs-use-web-site/table-name-identity.png
 [completed-table]: ./media/sql-database-nodejs-use-web-site/table-columns.png
+
 <!--HONumber=27-->

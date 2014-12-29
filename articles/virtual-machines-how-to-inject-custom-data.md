@@ -60,4 +60,5 @@ If your Azure Virtual Machine is an Ubuntu image, then you can use cloud-init to
 
 [Microsoft Azure Cross-Platform Command-line Interface](https://github.com/Azure/azure-sdk-tools-xplat)
 
+
 <!--HONumber=35_1-->

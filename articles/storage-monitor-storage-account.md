@@ -154,4 +154,5 @@ For each of the storage services available with your storage account (Blob, Tabl
 4. Click **Save**.
 
 The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+
 <!--HONumber=35_1-->

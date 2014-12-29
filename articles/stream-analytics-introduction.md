@@ -121,4 +121,5 @@ The expectations for fast and agile execution in businesses continue to grow. Bu
 [stream.analytics.get.started]: ../stream-analytics-get-started/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
 <!--HONumber=27-->

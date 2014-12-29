@@ -107,4 +107,5 @@ Open an Azure PowerShell session and run the following command. Be sure to subst
 [How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service
 [About Azure VM configuration settings]: http://msdn.microsoft.com/en-us/library/azure/dn763935.aspx
 
+
 <!--HONumber=35_1-->

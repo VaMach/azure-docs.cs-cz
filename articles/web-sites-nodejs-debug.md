@@ -116,4 +116,5 @@ For information on specifying a Node.js version for your application, see [Speci
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+
 <!--HONumber=35_2-->

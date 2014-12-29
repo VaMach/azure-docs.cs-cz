@@ -23,4 +23,5 @@
 
 <!-- URLs. -->
 [Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=notificationhubs&filter=alltypes&sort=lastpostdesc
-[UserVoice]: http://feedback.azure.com/forums/218849-notification-hubs<!--HONumber=27-->
+[UserVoice]: http://feedback.azure.com/forums/218849-notification-hubs
+<!--HONumber=27-->

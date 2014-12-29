@@ -19,4 +19,5 @@
 The Azure SQL Database Elastic Scale references have now been added to your project. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=27-->

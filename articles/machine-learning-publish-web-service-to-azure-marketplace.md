@@ -80,4 +80,5 @@ The following are the steps in publishing an Azure ML web service to Azure Marke
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+
 <!--HONumber=27-->

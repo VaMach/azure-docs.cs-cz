@@ -208,4 +208,5 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Azure Storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
+
 <!--HONumber=35_1-->

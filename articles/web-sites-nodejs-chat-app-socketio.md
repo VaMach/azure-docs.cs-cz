@@ -289,4 +289,5 @@ In this tutorial you learned how to create a chat application hosted in an Azure
 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
-[pricing]: /en-us/pricing/details/web-sites/<!--HONumber=27-->
+[pricing]: /en-us/pricing/details/web-sites/
+<!--HONumber=27-->

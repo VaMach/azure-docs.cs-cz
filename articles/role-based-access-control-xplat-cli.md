@@ -132,4 +132,5 @@ To learn more about managing role-based access control with xplat-cli and relate
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/)
 - [Troubleshooting role based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
+
 <!--HONumber=27-->

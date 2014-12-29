@@ -261,4 +261,5 @@ If the new range of key values is not already part of an existing mapping and no
 For scenarios that require data movement, however, the Split-Merge service is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the Split-Merge service, see [Overview of Split-Merge](./sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=27-->

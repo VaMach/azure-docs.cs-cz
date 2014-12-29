@@ -32,4 +32,5 @@ Yes, a shard is an individual database, and thus one shard could be a Premium ed
 No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge** operations, you must delete the shard from the shard map manager and then delete the database.
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=35_2-->

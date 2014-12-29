@@ -25,4 +25,5 @@ This topic shows you how to use the [Azure Management Portal][Management Portal]
 
 [Management Portal]: https://manage.windowsazure.com/
 [.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+
 <!--HONumber=27-->

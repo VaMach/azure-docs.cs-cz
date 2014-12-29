@@ -53,4 +53,5 @@ Our goal is to make the Azure ML experience as smooth and seamless as possible. 
 [screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
+
 <!--HONumber=27-->

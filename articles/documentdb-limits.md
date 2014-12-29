@@ -37,4 +37,5 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Maximum number of JOINs per query    |2
 |Maximum number of AND clauses per query      |5
 |Maximum number of OR clauses per query       |5
+
 <!--HONumber=27-->

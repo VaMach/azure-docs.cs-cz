@@ -105,4 +105,5 @@ Here are the configuration details:
 	-	SharePoint farm account password: Specified during the initial configuration.		
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
+
 <!--HONumber=35_1-->

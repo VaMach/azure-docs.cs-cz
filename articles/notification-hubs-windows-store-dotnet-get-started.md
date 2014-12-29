@@ -278,4 +278,5 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [toast catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx
 [tile catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 [badge overview]: http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx
+
 <!--HONumber=27-->

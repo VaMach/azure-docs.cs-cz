@@ -194,4 +194,5 @@ A sample that shows how to use Azure Active Directory and single sign-on for PHP
 [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 
+
 <!--HONumber=27-->

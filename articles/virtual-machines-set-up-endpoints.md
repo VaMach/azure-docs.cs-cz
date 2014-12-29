@@ -71,4 +71,5 @@ Follow these steps to add, modify, or remove an ACL on an endpoint.
     ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
 
 6. Use rows in the list to add, delete, or edit rules for an ACL. The Remote Subnet value corresponds to the IP address range that you can either allow or deny as a rule. The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be listed from least restrictive to most restrictive. For examples and more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
+
 <!--HONumber=35_1-->

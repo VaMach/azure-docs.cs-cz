@@ -74,4 +74,5 @@ From this article and the articles on each of the samples, you learned how to ru
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
+
 <!--HONumber=35_1-->

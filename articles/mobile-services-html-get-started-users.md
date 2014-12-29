@@ -130,4 +130,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+
 <!--HONumber=35_2-->

@@ -377,4 +377,5 @@ The definition of the following network, designed to recognize numbers, illustra
 -	Since **Sharing**[d] is false only for d == 0, the number of kernels is **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
 <!--HONumber=27-->

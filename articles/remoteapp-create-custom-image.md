@@ -118,4 +118,5 @@ Now that you have your custom template image, you need to upload that image to y
 - [How to create a hybrid collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
 - [How to create a cloud collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
 
+
 <!--HONumber=35_2-->

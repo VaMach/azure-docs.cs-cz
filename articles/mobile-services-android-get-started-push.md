@@ -304,4 +304,5 @@ In this simple example a user receives a push notification with the data that wa
 [Mobile Services android conceptual]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
+
 <!--HONumber=27-->

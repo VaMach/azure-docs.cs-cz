@@ -201,4 +201,5 @@ After an operation is invoked, the developer portal displays the **Requested URL
 [api-management-developer-portal-myecho-api-console]: ./media/api-management-get-started-b/api-management-developer-portal-myecho-api-console.png
 [api-management-invoke-get]: ./media/api-management-get-started-b/api-management-invoke-get.png
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
+
 <!--HONumber=35_2-->

@@ -131,4 +131,5 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
 			
+
 <!--HONumber=35_2-->

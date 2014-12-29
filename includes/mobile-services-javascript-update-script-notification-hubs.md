@@ -33,4 +33,5 @@ Finally, you must update the script registered to the insert operation on the To
 
 	This insert script sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.
 
+
 <!--HONumber=27-->

@@ -129,4 +129,5 @@ To learn more about managing role-based access control with xplat-cli and relate
 - [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
 - [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
+
 <!--HONumber=27-->

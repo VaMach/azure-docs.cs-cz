@@ -94,4 +94,5 @@ For more information, see the following posts and topics:
   [Azure Web Sites, Cloud Services, and VMs: When to use which?]: http://go.microsoft.com/fwlink/?LinkId=310123
   [Configuring PHP in Azure Websites with .user.ini Files]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
   [Azure Integration Module]: http://drupal.org/project/azure
+
 <!--HONumber=27-->

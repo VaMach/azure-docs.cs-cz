@@ -406,4 +406,5 @@ To run jobs that use these classes, connect to the HDInsight cluster and run the
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=35_1-->

@@ -140,4 +140,5 @@ To facilitate the actual implementation of both horizontal and vertical scaling 
 [Telemetry]:#telemetry
 [Rule]:#rule
 [Action]:#action
+
 <!--HONumber=27-->

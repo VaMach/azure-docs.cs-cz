@@ -129,4 +129,5 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 9. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile. This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
+
 <!--HONumber=27-->

@@ -455,4 +455,5 @@ procesů můžou integrovat MySQL-as-a-servis prostřednictvím nabídek ClearDB
 [11]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
 [12]: http://www.windowsazure.com/en-us/documentation/services/storage/
 [13]: http://www.windowsazure.com/en-us/gallery/store/
-[14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/<!--HONumber=2-->
+[14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+<!--HONumber=2-->

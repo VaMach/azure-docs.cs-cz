@@ -81,4 +81,5 @@ Use the following information to configure Azure Active Directory
 - [Directory integration](http://technet.microsoft.com/en-us/library/jj573653.aspx) – Use this information to choose a directory integration option – either [DirSync with Password Synchronization](http://technet.microsoft.com/en-us/library/dn441214.aspx) or [DirSync with federation](http://technet.microsoft.com/en-us/library/dn441213.aspx).
 
 You can also configure [Multi-Factor Authentication (MFA)](http://technet.microsoft.com/en-us/library/dn249466.aspx).
+
 <!--HONumber=35_2-->

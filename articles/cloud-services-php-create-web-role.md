@@ -218,4 +218,5 @@ To publish your application, you need to first import your publish settings  wit
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
 [How to: Import publish settings]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [How to: Deploy a cloud service to Azure]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+
 <!--HONumber=35_1-->

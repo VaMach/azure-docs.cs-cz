@@ -201,4 +201,5 @@ Article | Description
 
 [image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
 
-[image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png<!--HONumber=35_2-->
+[image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
+<!--HONumber=35_2-->

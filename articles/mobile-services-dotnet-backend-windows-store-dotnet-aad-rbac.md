@@ -301,4 +301,5 @@ In this section you will create a new custom authorization attribute that can be
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx<!--HONumber=27-->
+[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+<!--HONumber=27-->

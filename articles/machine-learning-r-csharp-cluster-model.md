@@ -107,4 +107,5 @@ For Frequently Asked Questions on consumption of the web service or publishing t
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png
 [3]: ./media/machine-learning-r-csharp-cluster-model/cluster-img3.png
+
 <!--HONumber=27-->

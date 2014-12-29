@@ -8,4 +8,5 @@
 
 
 [WACOM.INCLUDE [training-kit](../includes/training-kit.md)]
+
 <!--HONumber=27-->

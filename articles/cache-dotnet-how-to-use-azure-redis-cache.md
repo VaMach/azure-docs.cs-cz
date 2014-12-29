@@ -372,4 +372,5 @@ follow these links to learn how to do more complex caching tasks.
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [Windows Azure Websites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+
 <!--HONumber=35_2-->

@@ -143,4 +143,5 @@ On the **CONFIGURATION** tab, click "YES" next to **READY FOR PRODUCTION?** This
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
-[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png<!--HONumber=27-->
+[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+<!--HONumber=27-->

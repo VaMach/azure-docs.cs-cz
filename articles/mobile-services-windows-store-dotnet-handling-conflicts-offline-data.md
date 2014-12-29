@@ -165,4 +165,5 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
 [Mobile Services Samples Github Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo Offline Mobile Services sample]: http://go.microsoft.com/fwlink/?LinkId=512866
+
 <!--HONumber=27-->

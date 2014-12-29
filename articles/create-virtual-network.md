@@ -103,4 +103,5 @@ For additional Virtual Network configuration procedures and settings, see [Azure
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
 <!--HONumber=27-->

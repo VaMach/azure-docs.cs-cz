@@ -13,4 +13,5 @@ After you have subscribed to the [web service]( https://datamarket.azure.com/dat
 
 This service Contains APIs to manage create Frequently Bought Together Models, upload historical transactions, and retrieve the best ranked frequently bought together product set for a given product.  Samples that demonstrate how to use these APIs can be found on the [Azure-MachineLearning-DataScience repo on GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
+
 <!--HONumber=27-->

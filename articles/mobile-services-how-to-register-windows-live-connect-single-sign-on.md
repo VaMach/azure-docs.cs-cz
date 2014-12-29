@@ -80,4 +80,5 @@ You are now ready to integrate authentication by using Live Connect into your ap
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_1-->

@@ -115,4 +115,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [Get started with authentication]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
 <!--HONumber=35_1-->

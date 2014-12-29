@@ -27,4 +27,5 @@ Because it is your organization’s cloud directory, you decide who your users a
 <h3>Integration with Active Directory on-premises</h3>
 
 If your organization already uses Active Directory on-premises, you can use Azure AD’s directory integration capabilities, such as directory sync and single sign-on, to further extend the reach of your existing on-premises identities into the cloud for an improved admin and end user experience. [Learn more](http://technet.microsoft.com/en-us/library/jj573653)
+
 <!--HONumber=27-->

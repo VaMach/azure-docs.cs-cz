@@ -142,4 +142,5 @@ Now that you have an overview of Media Services, go to the [Setting Up Your Comp
   [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/dn535852.aspx
 
 
+
 <!--HONumber=35_1-->

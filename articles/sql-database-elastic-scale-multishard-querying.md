@@ -49,4 +49,5 @@ A limitation with multi-shard querying is currently the lack of validation for s
 Multi-shard queries do not verify whether shardlets on the queried shard are participating in ongoing split/merge operations. This can lead to inconsistencies where rows from the same shardlet show for multiple shards in the same multi-shard query. Be aware of these limitations and consider draining ongoing split/merge operations and changes to the shard map while performing multi-shard queries.
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=27-->

@@ -204,4 +204,5 @@ The topics describing how to used these scripts to install Spark and R on HDInsi
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=35_2-->
+[powershell-install-configure]: ../install-configure-powershell/
+<!--HONumber=35_2-->

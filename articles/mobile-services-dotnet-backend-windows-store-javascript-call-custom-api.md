@@ -57,4 +57,5 @@ Now that you have created a custom API and called it from your Windows Store app
 
 [Define a custom API that supports periodic notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
 [Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+
 <!--HONumber=27-->

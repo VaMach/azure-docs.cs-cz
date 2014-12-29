@@ -67,4 +67,5 @@ A module may have a set of parameters that you can use to  configure the module'
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
 <!--HONumber=27-->

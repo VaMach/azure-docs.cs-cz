@@ -354,4 +354,5 @@ In this topic we showed how to create a simple Java REST client for Notification
 
 [Java REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 [Get started tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/
+
 <!--HONumber=35_1-->

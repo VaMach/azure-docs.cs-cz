@@ -96,4 +96,5 @@ This concludes the tutorials that demonstrate the basics of working with authent
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+
 <!--HONumber=35_2-->

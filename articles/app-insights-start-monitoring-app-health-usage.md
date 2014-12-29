@@ -102,4 +102,5 @@ Afterwards, go back to the portal and delete the old resource.
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
+
 <!--HONumber=27-->

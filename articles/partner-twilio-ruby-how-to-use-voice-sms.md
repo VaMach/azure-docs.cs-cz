@@ -192,4 +192,5 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+
 <!--HONumber=35_2-->

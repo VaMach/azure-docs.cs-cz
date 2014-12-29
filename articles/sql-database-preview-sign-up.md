@@ -34,4 +34,5 @@ You can sign up for the V12 preview when you attempt to create a new database on
 You can also sign up for the preview by clicking on the **Portal settings** part on the Azure portal.
 
 
+
 <!--HONumber=35_2-->

@@ -84,4 +84,5 @@ The previous example showed a standard sign-in, which requires the client to con
 
 5. If the app makes a request to your Mobile Service that should get through because the user is authenticated and you receive a 401 response (unauthorized error), it means the user token you're passing over has expired. In the completion handler for every method that we have that interacts with our Mobile Service, we could check for a 401 response, or we can handle things in one place: the MSFilter's handleRequest method.  To see how to handle this scenario, see [this blog post](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
+
 <!--HONumber=27-->

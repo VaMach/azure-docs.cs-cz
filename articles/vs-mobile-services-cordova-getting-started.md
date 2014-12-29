@@ -78,4 +78,5 @@ Delete a row in a data table using the **del** method. Call the [done]() method 
 	});
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+
 <!--HONumber=34-->

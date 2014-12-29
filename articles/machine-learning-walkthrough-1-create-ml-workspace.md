@@ -46,4 +46,5 @@ After your ML workspace is created, you will see it listed on the **machine lear
 
 **Next: [Upload existing data][upload-data]**
 
-[1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png<!--HONumber=27-->
+[1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+<!--HONumber=27-->

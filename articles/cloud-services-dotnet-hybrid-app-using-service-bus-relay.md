@@ -797,4 +797,5 @@ To learn more about Service Bus, see the following resources:
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+
 <!--HONumber=27-->

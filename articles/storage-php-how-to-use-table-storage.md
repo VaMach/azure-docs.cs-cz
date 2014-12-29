@@ -480,4 +480,5 @@ Now that you’ve learned the basics of the Azure Table Service, follow these li
 [table-data-model]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
+
 <!--HONumber=35_1-->

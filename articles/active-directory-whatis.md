@@ -28,4 +28,5 @@ Application developers can integrate their applications with Azure AD to provide
 * [Sign up for Azure as an organization](/en-us/manage/services/identity/organizational-account/)
 * [Azure Identity](/en-us/manage/windows/fundamentals/identity/)
 * [Azure AD Library on MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+
 <!--HONumber=27-->

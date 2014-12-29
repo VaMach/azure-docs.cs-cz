@@ -59,4 +59,5 @@ Go! Try it out! These articles help get you started with RemoteApp:
 - [How does licensing work in RemoteApp?](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-licensing/)
 - [Best practices for using Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-bestpractices/)
 - [Azure RemoteApp FAQ](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-faq/)
+
 <!--HONumber=35_2-->

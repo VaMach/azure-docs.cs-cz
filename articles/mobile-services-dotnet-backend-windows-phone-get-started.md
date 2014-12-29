@@ -125,4 +125,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
 [How to connect to a local web service from the Windows Phone 8 emulator]: http://go.microsoft.com/fwlink/p/?LinkId=391930
 [Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+
 <!--HONumber=27-->

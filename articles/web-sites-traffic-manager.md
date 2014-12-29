@@ -49,4 +49,5 @@ For detailed information about load balancing in Azure Traffic Manager, see [Abo
 
 For more information about using Traffic Manager with Azure Websites, see the blog posts 
 [Using Windows Azure Traffic Manager with WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+
 <!--HONumber=27-->

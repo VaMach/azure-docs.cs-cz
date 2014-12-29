@@ -355,4 +355,5 @@ Once you have completed the data series, try one of these other tutorials:
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]:  http://go.microsoft.com/fwlink/?LinkId=392240
-  <!--HONumber=27-->
+  
+<!--HONumber=27-->

@@ -803,4 +803,5 @@ For more information, see the following resources:
 * [Azure Storage](/en-us/documentation/services/storage/)
 * [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
 * [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+
 <!--HONumber=35_2-->

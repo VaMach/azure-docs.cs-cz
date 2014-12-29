@@ -81,4 +81,5 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 [Azure Store]: /en-us/gallery/store/
 [portal]: http://manage.windowsazure.com
 [configure]: ../web-sites-configure/
+
 <!--HONumber=27-->

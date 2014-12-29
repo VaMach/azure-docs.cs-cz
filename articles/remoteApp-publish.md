@@ -9,4 +9,5 @@ After you create your cloud or hybrid collection, you need to publish the apps o
 On the **Publishing** tab in the portal, Click **Publish**. You can either add an app from your template image's Start menu or provide the path to where the app is installed on the template image. If you choose to add from the Start menu, choose the app to publish from the list. If you choose to provide the path to the app, enter a name for the app and the path to the app. Use variables in the path - for example, "%systemdrive%" instead of "c:\".
 
 **Note:** If you want to add your app from the Start menu, you need to have *added that app to the Start menu on your template image.* Otherwise, RemoteApp will only see what *is* on the Start menu, and you will be confused. If you forgot to add the app to the Start menu when you created the template, choose to add the path to the app. (Or recreate your template image, but that's quite a bit more work.)
+
 <!--HONumber=35_2-->

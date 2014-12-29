@@ -51,4 +51,5 @@ The following shows the versions of multi-factor authentication that are availab
 * [Azure Identity](/en-us/manage/windows/fundamentals/identity/)
 * [Azure Multi-Factor Authentication Library](http://technet.microsoft.com/en-us/library/dn249471.aspx)
 
+
 <!--HONumber=35_2-->

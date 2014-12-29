@@ -72,4 +72,5 @@ For more information about delivering assets, see:
 
 <h2>Next Steps</h2>
 This topic explained downloading an asset from Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](../media-services-deliver-streaming-content/) topic.
+
 <!--HONumber=35_1-->

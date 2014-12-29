@@ -75,4 +75,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: /en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Single sign-on for Windows Phone apps by using Live Connect]: /en-us/documentation/articles/mobile-services-windows-phone-single-sign-on
+
 <!--HONumber=27-->

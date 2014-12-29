@@ -417,4 +417,5 @@ The following steps show you how to stop and delete your application.
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=35_1-->

@@ -594,4 +594,5 @@ This document does not provide you with any legal rights to any intellectual pro
 [8]: ./media/machine-learning-recommendation-api-quick-start-guide/Table07.png
 [9]: ./media/machine-learning-recommendation-api-quick-start-guide/Table08.png
 
+
 <!--HONumber=27-->

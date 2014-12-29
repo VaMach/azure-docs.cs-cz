@@ -291,4 +291,5 @@ For more information, see [How to: Point a Company Internet Domain to an Azure T
 [5]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
 [6]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
 [7]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png
+
 <!--HONumber=27-->

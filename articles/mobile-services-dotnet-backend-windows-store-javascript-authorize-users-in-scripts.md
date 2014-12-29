@@ -60,4 +60,5 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
 
 [How to use an HTML/JavaScript client for Azure Mobile Services]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+
 <!--HONumber=27-->

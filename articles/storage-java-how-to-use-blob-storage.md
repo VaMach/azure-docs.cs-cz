@@ -265,4 +265,5 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=35_1-->

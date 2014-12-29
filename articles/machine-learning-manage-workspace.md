@@ -27,4 +27,5 @@ To learn how to deploy production web services, see link.
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
 <!--HONumber=27-->

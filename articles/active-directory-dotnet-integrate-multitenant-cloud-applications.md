@@ -409,4 +409,5 @@ Integrating with Azure AD allows your customers to sign up and sign in to your a
 [this topic]: http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx
 [Add Apps in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/en-us/library/jj552465.aspx
 [login]: ./media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png
+
 <!--HONumber=27-->

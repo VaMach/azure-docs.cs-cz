@@ -122,4 +122,5 @@ The Restore feature, available on the Backups tab in the Azure Websites portal, 
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
+
 <!--HONumber=27-->

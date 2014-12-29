@@ -291,4 +291,5 @@ Once you have completed the data series, try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  <!--HONumber=27-->
+  
+<!--HONumber=27-->

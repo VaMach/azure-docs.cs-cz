@@ -219,4 +219,5 @@ To learn more about the Graph API, [you can read about it on MSDN]. You can also
 [Sample Application with Write Support for Graph API]: http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502
 [Role-Based Access Control for Graph API]: http://msdn.microsoft.com/en-us/library/hh974466.aspx
 [you can read about it on MSDN]: http://msdn.microsoft.com/en-us/library/hh974476.aspx
+
 <!--HONumber=27-->

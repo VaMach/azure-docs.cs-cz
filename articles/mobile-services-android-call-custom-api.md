@@ -59,4 +59,5 @@ Now that you have created a custom API and called it from your Android app, cons
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-android-get-started-push/
 
 [Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+
 <!--HONumber=35_1-->

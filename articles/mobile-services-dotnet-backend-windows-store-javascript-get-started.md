@@ -118,4 +118,5 @@ For more information about universal Windows apps, see [Supporting multiple devi
 [Management Portal]: https://manage.windowsazure.com/
 [JavaScript version]: /en-us/documentation/articles/mobile-services-windows-store-get-started
 [Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+
 <!--HONumber=27-->

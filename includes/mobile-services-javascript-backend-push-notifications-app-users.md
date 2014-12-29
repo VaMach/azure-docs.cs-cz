@@ -44,4 +44,5 @@
 
 	This adds a tag to the registration that is the ID of the logged-in user. The supplied tags are validated to prevent a user from registering for another user's ID. When a notification is sent to this user, it is received on this and any other device registered by the user.
 
-4. Click the back arrow, click the **Data** tab, click **TodoItem**, click **Script** and select **Insert**. <!--HONumber=27-->
+4. Click the back arrow, click the **Data** tab, click **TodoItem**, click **Script** and select **Insert**. 
+<!--HONumber=27-->

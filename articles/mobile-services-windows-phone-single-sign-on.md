@@ -195,4 +195,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

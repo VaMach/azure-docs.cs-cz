@@ -35,4 +35,5 @@
 [10]: ./media/sql-database-preview-create/newserverdetails.png
 [11]: ./media/sql-database-preview-create/resourcegroup.png
 [12]: ./media/sql-database-preview-create/create.png
+
 <!--HONumber=35_2-->

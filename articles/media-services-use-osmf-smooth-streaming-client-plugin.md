@@ -389,4 +389,5 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 7. 	Enjoy Smooth Streaming content inside Adobe&reg; Flash&reg; Player.
 
 For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
+
 <!--HONumber=35_1-->

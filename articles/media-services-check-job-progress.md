@@ -89,4 +89,5 @@ private static string JobIdAsFileName(string jobID)
 </code></pre>
 <h2>Next Steps</h2>
 Now that you know how to create a job and track it's progress, the next step is protecting assets. For more information, see [How to Protect an Asset with Azure Media Services](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
+
 <!--HONumber=35_1-->

@@ -230,4 +230,5 @@ The provided examples only scratch the surface for what is possible when combini
 [8]: ./media/sql-database-elastic-scale-scripting/sign-up.png
 [9]: ./media/sql-database-elastic-scale-scripting/add-credential.png
 [10]: ./media/sql-database-elastic-scale-scripting/assets.png
+
 <!--HONumber=27-->

@@ -14,4 +14,5 @@ The navigation path to the **webapps** folder differs based on how you set up yo
 Note that you can use source control to upload your application or web pages, including in continuous integration scenarios. Instructions for using source control with your website are available at [Publishing from Source Control to Azure Web Sites](../web-sites-publish-source-control). FTP is also an option for uploading your application or web pages.
 
 Note for Tomcat websites: Once you've uploaded your WAR file to the **webapps** folder, the Tomcat application server will detect that you've added it and will automatically load it. Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used. The autoload functionality for the Tomcat Java websites running on Azure is based on a new WAR file being added, or new files or directories added to the **webapps** folder. 
+
 <!--HONumber=27-->

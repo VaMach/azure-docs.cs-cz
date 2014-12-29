@@ -87,4 +87,5 @@ Yes, because DocumentDB is a RESTful service, resource links are immutable and c
 
 [preview-portal]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
 <!--HONumber=27-->

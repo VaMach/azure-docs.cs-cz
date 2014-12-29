@@ -64,4 +64,5 @@ If you want to get a Microsoft Account (previously called a â€œWindows Live IDâ€
 3. If prompted, create an Operational Insights account to associate with your sign-in information.
 4. Select **Try Preview** when you are prompted to select the version of Operational Insights that you want to use.
 5. If prompted, enter your invitation code and click **Apply** to join the preview. If you do not have an invitation code, at the bottom of the screen, enter your information to obtain one.
+
 <!--HONumber=35_2-->

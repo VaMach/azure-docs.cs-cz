@@ -70,4 +70,5 @@ Delete a row in the database. The parameter item is the TodoItem object to be de
 
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+
 <!--HONumber=34-->

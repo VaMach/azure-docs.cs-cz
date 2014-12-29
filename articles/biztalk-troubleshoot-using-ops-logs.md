@@ -99,4 +99,5 @@ The following table lists the operations that are tracked using the Azure Manage
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
 <!--HONumber=27-->

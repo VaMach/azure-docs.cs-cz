@@ -130,4 +130,5 @@ Visitors to your site will not see the awverify subdomain; it’s only for Azure
 [Enable the domain name on your website]: #enable-the-domain-name-on-your-website
 
 <!-- Images -->
-[subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png<!--HONumber=27-->
+[subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+<!--HONumber=27-->

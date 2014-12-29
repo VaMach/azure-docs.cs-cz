@@ -16,4 +16,5 @@ A *custom* virtual machine simply means a virtual machine you create using the *
 [WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 
+
 <!--HONumber=35_1-->

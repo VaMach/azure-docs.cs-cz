@@ -49,4 +49,5 @@ The instructions below apply to updating a Windows Store client app but, you can
 
 
 4. Save your changes and build the the service to verify no syntax errors.  
+
 <!--HONumber=27-->

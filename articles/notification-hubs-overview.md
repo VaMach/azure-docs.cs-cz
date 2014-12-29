@@ -87,4 +87,5 @@ The relevant .NET managed API references for push notifications are located here
   [Xamarin.Android]: http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.notifications.aspx
-  <!--HONumber=27-->
+  
+<!--HONumber=27-->

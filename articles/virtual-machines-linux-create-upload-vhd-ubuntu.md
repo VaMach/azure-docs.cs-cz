@@ -109,4 +109,5 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 11. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
+
 <!--HONumber=35_1-->

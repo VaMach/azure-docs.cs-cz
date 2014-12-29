@@ -302,4 +302,5 @@ Now that you've learned the basics of the Azure Blob service, follow these links
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+
 <!--HONumber=35_1-->

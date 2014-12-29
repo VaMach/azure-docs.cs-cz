@@ -78,4 +78,5 @@ Now that you have created your RemoteApp collection, you need to add the users t
 
 That's it - you have successfully created and deployed your RemoteApp cloud collection. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into the client and access the apps you published.
 
+
 <!--HONumber=35_2-->

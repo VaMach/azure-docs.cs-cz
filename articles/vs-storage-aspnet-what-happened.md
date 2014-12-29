@@ -26,4 +26,5 @@ This package adds the following .NET references:
 In the web.config file of your project, an element was created with the selected storage account's connection string and key.
 
 For more information, see [ASP.NET](http://www.asp.net).
+
 <!--HONumber=34-->

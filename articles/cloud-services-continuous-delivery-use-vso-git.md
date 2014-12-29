@@ -249,4 +249,5 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [44]: ./media/cloud-services-continuous-delivery-use-vso-git/PublishBranch.PNG
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
-[48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG<!--HONumber=35_1-->
+[48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
+<!--HONumber=35_1-->

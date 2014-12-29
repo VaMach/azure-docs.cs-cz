@@ -27,4 +27,5 @@ Relational technology has long been the dominant approach for working with data.
 **Revision:** 2.0
 
 **Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">"Understanding NoSQL on Microsoft Azure" PDF file</a>
+
 <!--HONumber=35_1-->

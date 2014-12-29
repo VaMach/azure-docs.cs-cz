@@ -92,4 +92,5 @@ The following resources are available for developing applications integrating Ev
 [Apache Storm]: https://storm.incubator.apache.org
 [HDInsight Storm Overview]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/
 [Analyzing sensor data with Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/<!--HONumber=27-->
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+<!--HONumber=27-->

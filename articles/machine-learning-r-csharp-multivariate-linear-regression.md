@@ -95,4 +95,5 @@ For Frequently Asked Questions on consumption of the web service or publishing t
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png
-[3]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png<!--HONumber=27-->
+[3]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png
+<!--HONumber=27-->

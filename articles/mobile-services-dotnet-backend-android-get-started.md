@@ -143,4 +143,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

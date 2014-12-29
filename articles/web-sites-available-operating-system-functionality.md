@@ -104,4 +104,5 @@ Areas of diagnostics logging and tracing that aren't available to web applicatio
 Applications have read-only access to much (though not all) of the registry of the virtual machine they are running on. In practice, this means registry keys that allow read-only access to the local Users group are accessible by web applications. One area of the registry that is currently not supported for either read or write access is the HKEY\_CURRENT\_USER hive.
 
 Write-access to the registry is blocked, including access to any per-user registry keys. From an application perspective, write access to the registry should never be relied upon in a cloud environment since applications can (and do) get migrated across different virtual machines. The only persistent writeable storage that can be depended on by a web application is the per-website content directory structure stored on the Azure Websites UNC shares. 
+
 <!--HONumber=27-->

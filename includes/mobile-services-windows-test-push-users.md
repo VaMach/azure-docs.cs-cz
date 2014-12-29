@@ -10,4 +10,5 @@
 4. (Optional) Repeat steps 1-3 on a different client device and using a different account when logging in.  
 
 	Verify that the notification is received only on this device, since the previous device was not tagged with the current user ID. 
+
 <!--HONumber=27-->

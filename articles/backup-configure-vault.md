@@ -99,4 +99,5 @@ Once the agent is installed you can use the appropriate local management interfa
 [install-agent]: ./media/backup-configure-vault/RS_howtodownload1.png
 [deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
+
 <!--HONumber=35_2-->

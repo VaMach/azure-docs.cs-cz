@@ -70,4 +70,5 @@ Next, you will update the quickstart app to capture and upload images.
 [Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
 
 
+
 <!--HONumber=27-->

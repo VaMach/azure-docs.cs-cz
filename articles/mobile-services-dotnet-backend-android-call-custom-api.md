@@ -52,4 +52,5 @@ Now that you have created a custom API and called it from your Android app, cons
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
 [Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+
 <!--HONumber=27-->

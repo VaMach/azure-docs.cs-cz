@@ -65,4 +65,5 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 <h2><a name="enabledomain"></a>Enable Traffic Manager website</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+
 <!--HONumber=27-->

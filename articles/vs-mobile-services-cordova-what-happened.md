@@ -24,4 +24,5 @@ Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **M
 	    );
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+
 <!--HONumber=34-->

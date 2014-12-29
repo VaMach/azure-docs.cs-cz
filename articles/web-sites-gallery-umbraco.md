@@ -114,4 +114,5 @@ That’s it! You've successfully created a blog website using Umbraco CMS, in ju
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
 <!--HONumber=27-->

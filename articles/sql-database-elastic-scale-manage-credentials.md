@@ -42,4 +42,5 @@ The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) uses cr
     Note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name must not be provided. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
 <!--HONumber=27-->

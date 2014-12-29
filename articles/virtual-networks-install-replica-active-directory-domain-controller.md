@@ -177,4 +177,5 @@ For more information about using Windows PowerShell, see [Getting Started with A
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+
 <!--HONumber=35_2-->

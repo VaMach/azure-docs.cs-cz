@@ -136,4 +136,5 @@ The LEFT OUTER JOIN operation is enabled in the Stream Analytics Query Language 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+
 <!--HONumber=27-->

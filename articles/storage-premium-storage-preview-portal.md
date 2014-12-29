@@ -262,4 +262,5 @@ This section shows how to create a Premium Storage account and how to use it whi
 [MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+
 <!--HONumber=35_2-->

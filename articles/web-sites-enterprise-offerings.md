@@ -132,4 +132,5 @@ Microsoft Azure Websites offers a flexible, cost effective, responsive solution 
 
 ## Call to Action ##
 For more information on the Microsoft Azure Websites service, visit [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](http://aka.ms/azuretrial) to evaluate the service and discover the benefits for your business.
+
 <!--HONumber=27-->

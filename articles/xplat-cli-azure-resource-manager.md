@@ -167,4 +167,5 @@ To view logged information on operations performed on a group, use the `azure gr
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /en-us/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
 <!--HONumber=27-->

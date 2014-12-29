@@ -2377,4 +2377,5 @@ Removes a DNS server entry from the network configuration.
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
 <!--HONumber=27-->

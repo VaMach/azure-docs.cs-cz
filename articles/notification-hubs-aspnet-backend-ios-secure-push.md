@@ -138,4 +138,5 @@ To run the application, do the following:
 3. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+
 <!--HONumber=35_2-->

@@ -73,4 +73,5 @@ The image is ready to be used as a template to create virtual machines. To do th
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+
 <!--HONumber=35_1-->

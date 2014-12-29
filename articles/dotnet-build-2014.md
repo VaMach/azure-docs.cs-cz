@@ -107,4 +107,5 @@ Resource Manager is a new framework for deploying and managing applications acro
 - [Build 2014: Azure Resource Group Model: Modern Management for Modern Cloud (video)](http://channel9.msdn.com/Events/Build/2014/2-607)
 
 
+
 <!--HONumber=27-->

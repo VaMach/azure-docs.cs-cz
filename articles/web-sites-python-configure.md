@@ -129,4 +129,5 @@ Browse to your website to test correct configuration. For this example the "Hell
 
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
+
 <!--HONumber=35_1-->

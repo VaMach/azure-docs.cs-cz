@@ -134,4 +134,5 @@ This tutorial requires the following:
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Xamarin binding for the Active Directory Authentication Library for iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Xamarin extension]: http://xamarin.com/visual-studio
-[Xamarin Studio]: http://xamarin.com/download<!--HONumber=27-->
+[Xamarin Studio]: http://xamarin.com/download
+<!--HONumber=27-->

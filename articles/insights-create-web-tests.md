@@ -47,4 +47,5 @@ Failed tests can be analyzed to determine why they failed.  Drill into a failed 
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
 <!--HONumber=27-->

@@ -136,4 +136,5 @@ The **myCert.pem** file is the public key that may then be used to provision a L
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	Click **Open** to connect to your virtual machine
+
 <!--HONumber=35_1-->

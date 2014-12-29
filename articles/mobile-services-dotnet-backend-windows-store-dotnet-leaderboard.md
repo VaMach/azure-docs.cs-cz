@@ -760,4 +760,5 @@ Now when you run the app, it communicates with the real service.
 [Handle database write conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
 [Add push notifications]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+
 <!--HONumber=27-->

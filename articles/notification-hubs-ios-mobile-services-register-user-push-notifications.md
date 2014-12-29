@@ -110,4 +110,5 @@ Now that the client app has been updated, return to the [Notify users with Notif
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Get Started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
 <!--HONumber=27-->

@@ -21,4 +21,5 @@ Now that the app has been updated to use Mobile Services for back end storage, y
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png)
 
-This concludes the **Get started with data** tutorial for Android.<!--HONumber=27-->
+This concludes the **Get started with data** tutorial for Android.
+<!--HONumber=27-->

@@ -733,4 +733,5 @@ In this tutorial, you have learned how to define an Oozie workflow, and Oozie co
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png  
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+
 <!--HONumber=35_1-->

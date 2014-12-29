@@ -136,4 +136,5 @@ This code calls the [AddOrUpdate] helper extension method to add seed data to th
 [Azure Management Portal]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+
 <!--HONumber=27-->

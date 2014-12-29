@@ -139,4 +139,5 @@ Once you have completed the data series, try these other Android tutorials:
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+
 <!--HONumber=35_2-->

@@ -21,4 +21,5 @@
 	The URL of the Git repository is displayed. You will use this URL to clone the repository to your local computer.
 
 With source control enabled in your mobile service, you can use Git to clone the repository to your local computer.
- <!--HONumber=35_1-->
+ 
+<!--HONumber=35_1-->

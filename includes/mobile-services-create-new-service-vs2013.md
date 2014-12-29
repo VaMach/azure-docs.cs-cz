@@ -28,4 +28,5 @@ The following steps create a new mobile service in Azure and add code to your pr
 7. After the mobile service is created, select the newly created mobile service from the list in Service Manager and click **OK**.
 
 	After the wizard completes, the required NuGet packages are installed, a reference to the Mobile Services client library is added to the project, and your project source code is updated.
+
 <!--HONumber=27-->

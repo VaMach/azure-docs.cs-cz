@@ -88,4 +88,5 @@ This is a very simple example of a binary classification web service. As can be 
 For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png
-[2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png<!--HONumber=27-->
+[2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png
+<!--HONumber=27-->

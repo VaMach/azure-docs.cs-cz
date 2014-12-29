@@ -313,4 +313,5 @@ This error means that your SSL certificate is not configured correctly. Please f
 [4]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/upload.png
 [5]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/storage.png
 [6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
+
 <!--HONumber=27-->

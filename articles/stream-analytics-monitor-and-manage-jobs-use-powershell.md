@@ -280,4 +280,5 @@ This tests the connection status of the output Output in StreamingJob.
 [stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301<!--HONumber=35_2-->
+[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+<!--HONumber=35_2-->

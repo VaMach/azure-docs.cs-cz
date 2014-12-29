@@ -332,4 +332,5 @@ The following limitations apply:
 - Load balancer needs at least 5 seconds to respond, so applications should be cluster aware and be more tolerant of timeout; other architectures can also help, for example in-app queues, query middlewares, etc.
 - MySQL tuning is necessary to ensure writing is done at a sane pace and caches are flushed to disk as frequently as possible to minimize memory loss
 - Write performance will be dependent in VM interconnect in the virtual switch as this is the mechanism used by DRBD to replicate the device
+
 <!--HONumber=35_1-->

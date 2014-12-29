@@ -595,4 +595,5 @@ A job describes a workload to be run and needs to include all the information ab
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
 
+
 <!--HONumber=35_2-->

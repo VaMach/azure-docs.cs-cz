@@ -467,4 +467,5 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 
 <!-- BLOG LINKS -->
 [How much does that key cost?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+
 <!--HONumber=27-->

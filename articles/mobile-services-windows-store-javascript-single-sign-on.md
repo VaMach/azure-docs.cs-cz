@@ -172,4 +172,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Authorize users with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_1-->

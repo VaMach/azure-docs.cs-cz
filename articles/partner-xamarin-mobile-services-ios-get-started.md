@@ -126,4 +126,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_1-->

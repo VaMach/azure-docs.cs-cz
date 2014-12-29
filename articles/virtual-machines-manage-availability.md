@@ -58,4 +58,5 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [How to Configure An Availability Set for Virtual Machines]: ../virtual-machines-how-to-configure-availability
 
 
+
 <!--HONumber=35_1-->

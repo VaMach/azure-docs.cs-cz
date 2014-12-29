@@ -268,4 +268,5 @@ To publish changes to application, follow these steps:
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+
 <!--HONumber=35_1-->

@@ -155,4 +155,5 @@ At this point you can configure the desired values for the remaining parameters,
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
+
 <!--HONumber=27-->

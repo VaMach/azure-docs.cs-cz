@@ -46,4 +46,5 @@ Before you can create the mobile service, you must import the publish settings f
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=35_1-->

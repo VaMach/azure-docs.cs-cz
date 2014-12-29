@@ -187,4 +187,5 @@ This metrics represent the average usage across instances belonging to a Web Hos
 ##Take away and Conclusions##
 </br>
 Web hosting plans represent a set of features and capacity that you can share across your websites.  A Web hosting Plan give you the flexibility to allocate specific sites to a given resource set- Virtual Machines, and further optimize you Azure resource allocation and usage for Websites. 
+
 <!--HONumber=35_2-->

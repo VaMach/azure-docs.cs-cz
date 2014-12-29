@@ -72,4 +72,5 @@ The following sample dataset used by this experiment is available in ML Studio i
 
 [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
 [2]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-2.png
+
 <!--HONumber=27-->

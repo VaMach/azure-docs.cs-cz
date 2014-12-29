@@ -157,4 +157,5 @@ For additional self-study, consider adding more capabilities to the mapping appl
 
 <!--Image references-->
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
-[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG<!--HONumber=27-->
+[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
+<!--HONumber=27-->

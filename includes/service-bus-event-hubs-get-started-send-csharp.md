@@ -60,4 +60,5 @@ In this section, you will write a Windows console app to send events to your Eve
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=27-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+<!--HONumber=27-->

@@ -191,4 +191,5 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 [HCMInstalling]:./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+
 <!--HONumber=35_1-->

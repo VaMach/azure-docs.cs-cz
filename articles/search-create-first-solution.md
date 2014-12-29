@@ -198,4 +198,5 @@ You can also review the [Azure Search REST API](http://msdn.microsoft.com/en-us/
 [9]: ./media/search-create-first-solution/AzureSearch_Create1_DashboardIndexes.PNG
 [10]: ./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
-[12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG<!--HONumber=35_2-->
+[12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
+<!--HONumber=35_2-->

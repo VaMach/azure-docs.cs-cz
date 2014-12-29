@@ -23,4 +23,5 @@ Want to sign up for Azure as an organization? [**Sign up now**](http://go.micros
 
 * [What is Azure AD?](/en-us/manage/services/identity/what-is-windows-azure-active-directory/) 
 * [Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
+
 <!--HONumber=27-->

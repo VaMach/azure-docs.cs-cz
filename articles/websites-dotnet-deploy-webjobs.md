@@ -190,4 +190,5 @@ For an independent WebJob, the same **Publish Web** wizard that is used for web 
 ## <a id="nextsteps"></a>Next Steps
 
 For more information about how to deploy Azure WebJobs from Visual Studio and by using a continuous delivery process, see [Azure WebJobs - Recommended Resources - Deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+
 <!--HONumber=27-->

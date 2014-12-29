@@ -133,4 +133,5 @@ On Linux the data disk might be named by the kernel as `/dev/sdc`, and users wil
 
  - See also: [Configure Software RAID on Linux](../virtual-machines-linux-configure-raid/)
 
+
 <!--HONumber=35_1-->

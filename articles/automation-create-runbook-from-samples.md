@@ -125,4 +125,5 @@ The example above shows a simple runbook that does not manage Azure services. Th
 - [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+
 <!--HONumber=35_2-->

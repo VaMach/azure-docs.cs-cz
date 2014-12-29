@@ -127,4 +127,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

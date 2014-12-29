@@ -248,4 +248,5 @@ You can download the completed version of this tutorial in our [GitHub samples r
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
+
 <!--HONumber=35_2-->

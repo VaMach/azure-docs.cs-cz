@@ -152,4 +152,5 @@ Now that you have learned the basics of blob storage, follow these links to lear
 -   See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
 -   Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+
 <!--HONumber=35_1-->

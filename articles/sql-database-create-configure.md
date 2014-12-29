@@ -82,4 +82,5 @@ You now have a logical server, a firewall rule that allows inbound connections f
 [5]: ./media/sql-database-create-configure/click-configure.png
 [6]: ./media/sql-database-create-configure/allowed-ip-addresses.png
 
+
 <!--HONumber=27-->

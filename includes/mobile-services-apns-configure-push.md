@@ -28,4 +28,5 @@ Your mobile service is now configured to work with APNS.
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

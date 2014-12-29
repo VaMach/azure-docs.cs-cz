@@ -53,4 +53,5 @@ With the powerful user customization in the Azure Portal Preview you can create 
 
 Note, that the chart time range and chosen metrics will reset when you leave the portal.
 
+
 <!--HONumber=27-->

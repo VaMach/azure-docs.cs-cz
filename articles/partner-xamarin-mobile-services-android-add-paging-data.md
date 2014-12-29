@@ -79,4 +79,5 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 [Management Portal]: https://manage.windowsazure.com/
 
+
 <!--HONumber=27-->

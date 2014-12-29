@@ -67,4 +67,5 @@ To create your SharePoint farm with SharePoint Farm, do the following:
 
 SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
 
+
 <!--HONumber=35_1-->

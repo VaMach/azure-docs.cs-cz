@@ -100,4 +100,5 @@ Note: A global policy has no parent policy and using the `<base>` element in it 
 [policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
+
 <!--HONumber=27-->

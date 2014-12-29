@@ -17,4 +17,5 @@ These include for example:
 * [Anomaly detection](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - an API that can spot anomalous events in time-series data (e.g. server telemetry, sensor based data).
 
 These APIs allow you to consume powerful machine learning based services built on Azure ML, without needing to be a data scientist or spend a lot of time developing those yourself – just bring your own data and start using them.
+
 <!--HONumber=27-->

@@ -8,4 +8,5 @@
    	Note that after the insert completes, the app receives a push notification from GCM.
 
 4. (Optional) Repeat steps 1-3 on a different client device and using a different account when logging in. Verify that the notification is received only by devices authenticating with the same user account. 
+
 <!--HONumber=27-->

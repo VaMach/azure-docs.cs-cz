@@ -69,4 +69,5 @@ With multiple scale rules, you can be more agressive about scaling up (or down) 
 1. Scale up by 1 instance if CPU percentage is above 60%
 2. Scale up by 3 instances if CPU percentage is above 85%
 
-With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. <!--HONumber=27-->
+With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
+<!--HONumber=27-->

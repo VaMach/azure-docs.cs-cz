@@ -78,4 +78,5 @@ To detect an old form of Organizational Account authentication, the wizard looks
 To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
 For more information, see [Authentication Scenarios for Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+
 <!--HONumber=34-->

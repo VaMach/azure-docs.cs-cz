@@ -318,4 +318,5 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
+
 <!--HONumber=27-->

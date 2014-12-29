@@ -123,4 +123,5 @@ For Frequently Asked Questions on consumption of the web service or publishing t
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
 [2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png
 [3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
+
 <!--HONumber=27-->

@@ -46,4 +46,5 @@ In API Management, a product contains one or more APIs as well as a usage quota 
 [How to add and publish a product]: ../api-management-howto-add-products
 [Monitoring and analytics]: ../api-management-monitoring
 [How to import the definition of an API with operations]: ../api-management-howto-import-api
-[How create and configure advanced product settings]: ../api-management-howto-product-with-rules<!--HONumber=27-->
+[How create and configure advanced product settings]: ../api-management-howto-product-with-rules
+<!--HONumber=27-->

@@ -61,4 +61,5 @@ For more information on the security of the Azure platform, information on repor
 For more information on **web.config** or **applicationhost.config** files in Azure Websites, see [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 For information on logging information for Azure Websites, which may be useful in detecting attacks, see [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/).
+
 <!--HONumber=27-->

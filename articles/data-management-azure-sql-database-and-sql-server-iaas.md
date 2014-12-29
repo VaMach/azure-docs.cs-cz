@@ -238,4 +238,5 @@ Thank you all for bringing this article to life!
 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
+
 <!--HONumber=27-->

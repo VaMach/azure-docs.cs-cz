@@ -569,4 +569,5 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 ## Conclusion
 
 In this tutorial, we've developed a Django application using [Python Tools for Visual Studio](http://pytools.codeplex.com).  We used 3 different databases: sqlite3, SQL Server and MySQL databases.  Finally, we published the application to Azure Websites and Cloud Services.
+
 <!--HONumber=27-->

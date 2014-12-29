@@ -562,4 +562,5 @@ autoscaling scenarios:
   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
   [How Sage Reduces Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+
 <!--HONumber=35_1-->

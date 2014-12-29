@@ -34,4 +34,5 @@ To be able to authenticate users, you must register your app with an identity pr
 	Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
 <!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/<!--HONumber=27-->
+[Azure Management Portal]: https://manage.windowsazure.com/
+<!--HONumber=27-->

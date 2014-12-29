@@ -51,4 +51,5 @@ Now that you have created a custom API and called it from your Windows Phone app
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-push/
 
 [Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+
 <!--HONumber=35_2-->

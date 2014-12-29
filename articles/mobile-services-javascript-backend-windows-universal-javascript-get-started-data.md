@@ -125,4 +125,5 @@ Once you have completed the data series, try one of these other tutorials:
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
+
 <!--HONumber=27-->

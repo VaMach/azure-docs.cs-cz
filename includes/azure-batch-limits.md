@@ -21,4 +21,5 @@
 </tr>
 </table>
 <sup>1</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
+
 <!--HONumber=35_1-->

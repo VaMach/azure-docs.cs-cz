@@ -13,4 +13,5 @@
 <!-- URLs. -->
 [@AzureMobile]: https://twitter.com/AzureMobile
 [Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
-[UserVoice]: http://feedback.azure.com/forums/216254-mobile-services<!--HONumber=27-->
+[UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
+<!--HONumber=27-->

@@ -41,4 +41,5 @@ Microsoft publishes several architecture related posters/infographics. They incl
 [azure_symbols]: ./media/architecture-overview/AzureSymbols.png
 [PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
+
 <!--HONumber=35_2-->

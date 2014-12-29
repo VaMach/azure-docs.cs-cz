@@ -539,4 +539,5 @@ to learn how to do more complex storage tasks.
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+
 <!--HONumber=35_1-->

@@ -38,4 +38,5 @@ You are now ready to use an Azure Active Directory for authentication in your ap
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
+
 <!--HONumber=27-->

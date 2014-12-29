@@ -179,4 +179,5 @@ Additional [documentation](http://msdn.microsoft.com/en-us/library/dn800981.aspx
 
 ##Summary
 Azure SQL Database service provides telemetry data and tools to evaluate your Web/Business database workloads and determine the best service tier fit for upgrade. The upgrade process is quite simple and can be done without taking the database offline and with no data loss. Upgraded databases benefit from the predictable performance and additional features provided by the new service tiers.
+
 <!--HONumber=35_2-->

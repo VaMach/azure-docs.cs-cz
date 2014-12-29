@@ -346,4 +346,5 @@ topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
   [Service Bus Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+
 <!--HONumber=27-->

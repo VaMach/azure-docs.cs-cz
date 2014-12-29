@@ -8,4 +8,5 @@
 
 
 [WACOM.INCLUDE [white-papers](../includes/white-papers.md)]
+
 <!--HONumber=27-->

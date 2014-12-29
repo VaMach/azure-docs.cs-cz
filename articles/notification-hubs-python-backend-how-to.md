@@ -338,4 +338,5 @@ In this topic we showed how to create a simple Python REST client for Notificati
 [2]: ./media/notification-hubs-python-backend-how-to/BroadcastScenario.png
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
-[5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png<!--HONumber=35_2-->
+[5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
+<!--HONumber=35_2-->

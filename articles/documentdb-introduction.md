@@ -81,4 +81,5 @@ To get started with Azure DocumentDB, explore these resources:
 -	[Get started with the DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
 
 [1]: ./media/documentdb-introduction/intro.png
+
 <!--HONumber=35_2-->

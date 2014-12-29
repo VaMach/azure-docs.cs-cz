@@ -103,4 +103,5 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
 
 [Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance<!--HONumber=27-->
+[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+<!--HONumber=27-->

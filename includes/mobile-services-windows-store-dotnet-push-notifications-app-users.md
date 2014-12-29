@@ -57,4 +57,5 @@ In this method, you added registration code from the tutorial directly to the ap
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }<!--HONumber=27-->
+        }
+<!--HONumber=27-->

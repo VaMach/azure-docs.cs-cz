@@ -121,4 +121,5 @@ A sample that shows how to use SQL Database with PHP on Azure is available at <h
 [go-to-db-info]: ./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png
 [show-connection-string]: ./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png
 [quick-create]: ./media/sql-database-php-how-to-use-sql-database/create-new-sql.png
+
 <!--HONumber=27-->

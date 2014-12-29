@@ -103,4 +103,5 @@ Need to step back and learn more about index creation? [Watch this video](http:/
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG<!--HONumber=27-->
+[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+<!--HONumber=27-->

@@ -465,4 +465,5 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 [Get Started with Offline Data]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+
 <!--HONumber=35_2-->

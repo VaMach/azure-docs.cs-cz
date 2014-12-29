@@ -90,4 +90,5 @@
 7. Republish the mobile service project.
 
 Now, the service uses the user ID tag to send a push notification (with the text of the inserted item) to all registrations created by the logged-in user.
- <!--HONumber=27-->
+ 
+<!--HONumber=27-->

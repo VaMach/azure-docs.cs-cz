@@ -75,4 +75,5 @@ This image is an extension of the vanilla image and has the following components
 - Microsoft Office Proofing Tools 
 
 **Important legal information:** This image does not include a Microsoft Office license and *cannot be used for production*. The Office 2013 Professional Plus image is intended for trial use only. If you want to use Office apps in Azure RemoteApp for production, you need to use the Office 365 ProPlus image. For more details on licensing in RemoteApp, see [How does licensing work in Azure RemoteApp?](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-licensing/) 
+
 <!--HONumber=35_2-->

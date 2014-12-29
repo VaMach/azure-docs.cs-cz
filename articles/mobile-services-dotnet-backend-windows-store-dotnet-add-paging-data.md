@@ -43,4 +43,5 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+
 <!--HONumber=27-->

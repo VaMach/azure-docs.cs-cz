@@ -401,4 +401,5 @@ If you are writing a script that relies on the exit status, please verify that t
 [xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+
 <!--HONumber=27-->

@@ -412,4 +412,5 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
+
 <!--HONumber=27-->

@@ -679,4 +679,5 @@ There are other methods for moving an on-premises database to SQL Database. If y
 [Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
+
 <!--HONumber=35_1-->

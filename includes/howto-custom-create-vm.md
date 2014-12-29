@@ -62,4 +62,5 @@ After the virtual machine is created, it's started automatically. When the porta
 - [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines-log-on-windows-server)
 
 
+
 <!--HONumber=27-->

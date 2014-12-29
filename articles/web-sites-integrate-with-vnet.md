@@ -84,4 +84,5 @@ There is another feature offered by Azure Websites called Hybrid Connections tha
 Another difference is that you need to install a relay agent for Hybrid Connections to work.  This agent needs to run on a Windows Server instance.  With the Virtual Network feature there is nothing to install and it enables access to remote resources regardless of hosting operating systems.  
 
 There are also pricing tier differences at this time between the two features.  This is because at the least expensive levels the Hybrid Connections feature is extremely useful for dev/test scenarios and only gives access to a small number of endpoints.  The virtual network feature gives you access to everything in the VNET or connected to it.  
+
 <!--HONumber=27-->

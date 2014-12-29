@@ -746,4 +746,5 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
 2. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory.
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+
 <!--HONumber=35_2-->

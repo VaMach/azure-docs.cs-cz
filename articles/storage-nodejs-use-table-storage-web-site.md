@@ -677,4 +677,5 @@ While the steps in this article describe using the Table Service to store inform
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
 [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=35_1-->
