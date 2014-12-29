@@ -134,4 +134,5 @@ You can delete an entity after you find it. The following code looks for a custo
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx).<!--HONumber=23-->
+See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx).
+<!--HONumber=23-->

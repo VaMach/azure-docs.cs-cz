@@ -16,4 +16,5 @@ The hybrid collection supports only Azure Active Directory accounts that have be
 **Note:** The Azure Active Directory users must be from the tenant that's associated with your subscription. (You can view and modify your subscription on the **Settings** tab in the portal. See [Change the Azure Active Directory tenant used by RemoteApp](http://msdn.microsoft.com/en-us/3d6c4fd1-c981-4c57-9402-59fe31b11883) for more information.)
 
 ##Office 365 ProPlus user account information
-If you are using the Office 365 ProPlus template image in your collection *or* if you created a custom image that uses Office 365, you are only allowed to add Azure Active Directory users that have Office 365 subscriptions for the default domain of your subscription. See [Using Office 365 with Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-o365/) for more information.<!--HONumber=35_2-->
+If you are using the Office 365 ProPlus template image in your collection *or* if you created a custom image that uses Office 365, you are only allowed to add Azure Active Directory users that have Office 365 subscriptions for the default domain of your subscription. See [Using Office 365 with Azure RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-o365/) for more information.
+<!--HONumber=35_2-->

@@ -66,4 +66,5 @@
 
 9. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.<!--HONumber=27-->
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+<!--HONumber=27-->

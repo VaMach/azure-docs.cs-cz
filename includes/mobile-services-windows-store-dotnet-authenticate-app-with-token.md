@@ -89,4 +89,5 @@ The previous example showed a standard sign-in, which requires the client to con
 
 3. Restart the app twice.
 
-	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. <!--HONumber=27-->
+	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+<!--HONumber=27-->

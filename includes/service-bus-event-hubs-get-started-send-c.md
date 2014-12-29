@@ -104,4 +104,5 @@ In this section we will write a C app to send events to your event hub. We will 
 
 		gcc sender.c -o sender -lqpid-proton
 
-> [AZURE.NOTE] In the code above, we use an outgoing window of 1 to force the messages out as soon as possible. In general your application should try to batch messages to increase throughput. Refer to [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information on how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).<!--HONumber=27-->
+> [AZURE.NOTE] In the code above, we use an outgoing window of 1 to force the messages out as soon as possible. In general your application should try to batch messages to increase throughput. Refer to [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information on how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
+<!--HONumber=27-->

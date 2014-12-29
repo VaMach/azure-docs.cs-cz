@@ -34,4 +34,5 @@ Before you can do anything with a queue, you need to get the connection string f
 
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-For more information, see [ASP.NET vNext](http://www.asp.net/vnext).<!--HONumber=23-->
+For more information, see [ASP.NET vNext](http://www.asp.net/vnext).
+<!--HONumber=23-->

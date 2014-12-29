@@ -36,4 +36,5 @@ Before you can do anything with a blob, you need to get the connection string fo
 
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
-For more information, see [ASP.NET vNext](http://www.asp.net/vnext).<!--HONumber=23-->
+For more information, see [ASP.NET vNext](http://www.asp.net/vnext).
+<!--HONumber=23-->

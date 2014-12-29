@@ -4,4 +4,5 @@
 - [(Java | EventProcessorHost C#)](/en-us/documentation/articles/service-bus-event-hubs-java-ephcs-getstarted/)
 - [(Java | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-java-storm-getstarted/)
 - [(C | EventProcessorHost C#)](/en-us/documentation/articles/service-bus-event-hubs-c-ephcs-getstarted/)
-- [(C | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-c-storm-getstarted/)<!--HONumber=27-->
+- [(C | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-c-storm-getstarted/)
+<!--HONumber=27-->
