@@ -442,20 +442,17 @@ procesů můžou integrovat MySQL-as-a-servis prostřednictvím nabídek ClearDB
 
 
 
-  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Azure Websites]: http://go.microsoft.com/fwlink/?LinkId=306051
-  [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [ClearDB]: http://www.cleardb.com/
-  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
-<!--HONumber=2-->
+[1]: http://go.microsoft.com/fwlink/?LinkId=306051
+[2]: http://go.microsoft.com/fwlink/?LinkId=306052
+[3]: http://go.microsoft.com/fwlink/?LinkID=306053
+[4]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
+[5]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+[6]: http://www.windowsazure.com/en-us/develop/net/
+[7]: http://www.windowsazure.com/en-us/develop/php/
+[8]: http://www.windowsazure.com/en-us/develop/nodejs/
+[9]: http://www.windowsazure.com/en-us/develop/python/
+[10]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
+[11]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
+[12]: http://www.windowsazure.com/en-us/documentation/services/storage/
+[13]: http://www.windowsazure.com/en-us/gallery/store/
+[14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/<!--HONumber=2-->
