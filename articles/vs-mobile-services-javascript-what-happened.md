@@ -15,4 +15,4 @@ The Windows Azure Mobile Service library was added to your project in the form o
 #####Connection string values for Mobile Services 
 
 In the `services\mobileServices\settings` folder, a new JavaScript (.js) file with a **MobileServiceClient** was generated that contains the selected mobile service's application URL and application key.  
-"<!--HONumber=34-->" 
+<!--HONumber=34-->

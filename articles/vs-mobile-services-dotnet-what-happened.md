@@ -22,4 +22,4 @@ The Azure Mobile Services NuGet package was added to your project. As a result, 
 
 In your App.xaml.cs file, a **MobileServiceClient** object was created with the selected mobile service’s application URL and application key. 
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)"<!--HONumber=34-->" 
+[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)<!--HONumber=34-->

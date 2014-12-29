@@ -59,4 +59,5 @@ The following configuration entries have been added.
 #####An Azure Active Directory (AD) App was created 
 An Azure AD Application was created in the directory that you selected in the wizard. 
 
-[Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)"<!--HONumber=34-->" 
+[Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+<!--HONumber=34-->
