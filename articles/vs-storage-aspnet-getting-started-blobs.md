@@ -1,4 +1,4 @@
-<properties HO="HO25_Azure SDK"  title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="kempb" />
+<properties title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="kempb" />
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="kempb" />
 
@@ -32,3 +32,4 @@ Before you can do anything with a blob, you need to get the connection string fo
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 For more information, see [ASP.NET](http://www.asp.net).
+"<!--HONumber=34-->" 

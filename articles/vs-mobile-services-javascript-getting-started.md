@@ -1,4 +1,4 @@
-<properties HO="HO25_Azure SDK"  title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
 
 <tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
@@ -76,4 +76,4 @@ Delete a row in a data table. Call the [done]() method on the returned [Promise]
 
 
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)"<!--HONumber=34-->" 

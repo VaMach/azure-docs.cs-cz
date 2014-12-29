@@ -1,4 +1,4 @@
-<properties HO="HO25_Azure SDK"  title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
@@ -135,4 +135,4 @@ To delete a blob, first get a reference to the blob and then call the **DeleteAs
 	await blockBlob.DeleteAsync();
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).
+See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext)."<!--HONumber=34-->" 

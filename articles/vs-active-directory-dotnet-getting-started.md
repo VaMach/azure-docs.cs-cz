@@ -1,4 +1,4 @@
-<properties HO="HO25_Azure SDK"  title="Getting Started with Active Directory Authentication" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Getting Started with Active Directory Authentication" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
   
 <tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
@@ -61,4 +61,4 @@ To add a the SignIn/SignOut controls to your view, you can use the **_LoginParti
     &lt;/html&gt;
 </PRE>
 
-[Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/)"<!--HONumber=34-->" 
