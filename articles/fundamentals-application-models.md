@@ -1,4 +1,20 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="" />
+<properties
+    pageTitle="Application Model"
+    description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling."
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="" />
+
+ <tags
+    ms.service="visual-studio-online"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/05/2016"
+    ms.author="tarcher" />
 
 # Modely systému Azure pro spouštění aplikací
 
