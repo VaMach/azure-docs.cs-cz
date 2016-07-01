@@ -1,21 +1,20 @@
-<vlastnosti
-
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="stevenpo"
-    editor=""/>
+<properties
+   pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+   description="How to create and manage groups to manage Azure users using Azure Active Directory."
+   services="active-directory"
+   documentationCenter=""
+   authors="curtand"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="05/26/2016"
-    ms.author="curtand"/>
+   ms.service="active-directory"
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.date="05/26/2016"
+   ms.author="curtand"/>
 
 
 # Správa skupin ve službě Azure Active Directory
@@ -107,6 +106,6 @@ Následující články poskytují další informace o službě Azure Active Dir
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
