@@ -1,4 +1,21 @@
-<properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties
+    pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison"
+    description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison."
+    services=""web-sites,virtual-machines,cloud-services"
+    documentationCenter="na"
+    authors="jroth"
+    manager="paulettm"
+    editor="" />
+
+ <tags
+    ms.service="visual-studio-online"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/05/2016"
+    ms.author="jroth" />
+
 
 # Porovnání modelů spouštění aplikací Weby, Cloudové služby a Virtuální počítače systému Azure
 
