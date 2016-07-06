@@ -32,7 +32,7 @@ V následujícím kurzu si vytvoříte jednoduchou webovou aplikaci, hostovanou 
 
 Jedná se o jednoduchou aplikaci "hello world":
 
-![Webový prohlížeč zobrazující webovou stránku Hello World][A web browser displaying the Hello World web page]
+![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
 
 ## Požadavky
 
@@ -56,7 +56,7 @@ Proveďte následující kroky, a vytvořte tak nový projekt Azure Cloud Servic
 
         New-AzureServiceProject helloworld
 
-    ![Výsledek příkazu New-AzureService helloworld][The result of the New-AzureService helloworld command]
+	![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
 
     Rutina **New-AzureServiceProject** generuje základní strukturu pro publikování aplikace Node.js na službě Cloud Service. Obsahuje konfigurační soubory, které jsou nezbytné pro publikování v systému Azure. Rutina také změní pracovní adresář na adresář pro službu.
 
@@ -188,14 +188,14 @@ Další informace najdete v tématu [Centrum pro vývojáře Node.js].
 
 <!-- IMG List -->
 
-[Výsledek příkazu New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Výstup příkazu Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Webový prohlížeč zobrazující webovou stránku Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Výstup příkazu Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Úplný výstup stavu příkazu Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Okno prohlížeče zobrazující stránku Hello World; adresa URL značí, že je stránka hostována v systému Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stav příkazu Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Stav příkazu Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
