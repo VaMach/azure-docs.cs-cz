@@ -160,22 +160,22 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 
 <!-- IMG List -->
 
-[MarketplaceSpuštění]: ./media/app-service-web-create-web-app-from-marketplace/marketplacestart.png
-[MarketplaceHledání]: ./media/app-service-web-create-web-app-from-marketplace/marketplacesearch.png
-[MarketplaceVytvoření]: ./media/app-service-web-create-web-app-from-marketplace/marketplacecreate.png
-[KonfiguraceSpuštění]: ./media/app-service-web-create-web-app-from-marketplace/configstart.png
-[KonfiguraceNázevAplikace]: ./media/app-service-web-create-web-app-from-marketplace/configappname.png
-[KonfiguracePředplatné]: ./media/app-service-web-create-web-app-from-marketplace/configsubscription.png
-[KonfiguraceSkupinaProstředků]: ./media/app-service-web-create-web-app-from-marketplace/configresourcegroup.png
-[KonfiguracePlánSlužeb]: ./media/app-service-web-create-web-app-from-marketplace/configserviceplan.png
-[KonfiguraceDatabáze]: ./media/app-service-web-create-web-app-from-marketplace/configdatabase.png
-[KonfiguraceDokončeno]: ./media/app-service-web-create-web-app-from-marketplace/configfinished.png
-[KonfiguracePrůběh]: ./media/app-service-web-create-web-app-from-marketplace/configprogress.png
-[WordPressVýběr]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
-[WordPressProcházení]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
-[WordPressJazyk]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressPanel]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
-[WordPressKonfigurace]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
+[MarketplaceStart]: ./media/app-service-web-create-web-app-from-marketplace/marketplacestart.png
+[MarketplaceSearch]: ./media/app-service-web-create-web-app-from-marketplace/marketplacesearch.png
+[MarketplaceCreate]: ./media/app-service-web-create-web-app-from-marketplace/marketplacecreate.png
+[ConfigStart]: ./media/app-service-web-create-web-app-from-marketplace/configstart.png
+[ConfigAppName]: ./media/app-service-web-create-web-app-from-marketplace/configappname.png
+[ConfigSubscription]: ./media/app-service-web-create-web-app-from-marketplace/configsubscription.png
+[ConfigResourceGroup]: ./media/app-service-web-create-web-app-from-marketplace/configresourcegroup.png
+[ConfigServicePlan]: ./media/app-service-web-create-web-app-from-marketplace/configserviceplan.png
+[ConfigDatabase]: ./media/app-service-web-create-web-app-from-marketplace/configdatabase.png
+[ConfigFinished]: ./media/app-service-web-create-web-app-from-marketplace/configfinished.png
+[ConfigProgress]: ./media/app-service-web-create-web-app-from-marketplace/configprogress.png
+[WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
+[WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
+[WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
+[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
 
 

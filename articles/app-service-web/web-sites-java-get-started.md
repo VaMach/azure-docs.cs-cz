@@ -73,11 +73,11 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
 
 7. Klikněte na možnost **Vytvořit**.
 
-    ![Vytvoření webové aplikace][newwebapp2]
+    ![Vytvoření webové aplikace][nováwebováaplikace2]]
  
 8. Po vytvoření webové aplikace klikněte na možnost **Webové aplikace > {vaše webová aplikace}**.
  
-    ![Výběr webové aplikace][selectwebapp]
+    ![Výběr webové aplikace][výběrwebovéaplikace]
 
 9. V okně **Webová aplikace** klikněte na možnost **Nastavení**.
 
@@ -183,7 +183,7 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 [nováwebováaplikace]: ./media/web-sites-java-get-started/newwebapp.png
 [nováwebováaplikace2]: ./media/web-sites-java-get-started/newwebapp2.png
 [výběrwebovéaplikace]: ./media/web-sites-java-get-started/selectwebapp.png
-[verze]: ./media/web-sites-java-get-started/versions.png
+[versions]: ./media/web-sites-java-get-started/versions.png
 [novýmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilníjetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [oknojetty]: ./media/web-sites-java-get-started/jettyblade.png

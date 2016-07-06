@@ -23,8 +23,9 @@ Pokud chcete stávající aplikaci logiky migrovat na nové schéma, postupujte 
 1. Otevřete aplikaci logiky na portálu Azure  
 2. Klikněte na tlačítko Aktualizovat schéma:
 
- ![Ikona rozhraní API][step1]   
-Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahující informace o vylepšeních v novém schématu: ![ikona rozhraní API][step2]
+ ![API Icon][step1]   
+Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahující informace o vylepšeních v novém schématu:
+ ![API Icon][step2]
 
 >[AZURE.NOTE] Když vyberete položku **Update Schema** (Aktualizovat schéma), můžeme automaticky spustit kroky migrace a poskytnout vám výstupní kód. S jeho pomocí můžete aktualizovat svou definici. Dbejte ale na to, abyste se drželi osvědčených kódovacích postupů, které jsou uvedeny níže v části **Osvědčené postupy**.
 
@@ -40,8 +41,8 @@ Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahuj�
 
 
 <!--Icon references-->
-[Krok 1]: ./media/connectors-schema-migration/migrateschema1.png
-[Krok 2]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
