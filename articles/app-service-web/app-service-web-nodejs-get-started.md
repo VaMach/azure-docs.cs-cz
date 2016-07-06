@@ -96,7 +96,7 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     Nyní byste měli vidět živý běh webové aplikace Node.js ve službě Azure App Service.
     
-    ![Příklad procházení k nasazené aplikaci.][deployed-express-app]
+    ![Example of browsing to the deployed application.][deployed-express-app]
 
 ## Aktualizace webové aplikace Node.js
 
@@ -237,7 +237,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 <!-- IMG List -->
 
-[nasazená-expresní-aplikace]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
+[deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
 [iislog-kudu-konzola-hledat]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-konzola-otevřít]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-konzola-číst]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
