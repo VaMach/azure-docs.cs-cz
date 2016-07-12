@@ -57,7 +57,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
 
 2. Klikněte na položku **Nové > Web + mobilní zařízení > Webová aplikace**.
 
-    ![Nová webová aplikace][newwebapp]
+    ![Nová webová aplikace][nováwebováaplikace]
 
 4. Zadejte název webové aplikace do pole **Webová aplikace**.
 
@@ -109,7 +109,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 2. Klikněte na možnost **Nové > Marketplace**.
 
-    ![Nový Marketplace][newmarketplace]
+    ![Nový Marketplace][novýmarketplace]
 
 3. Klikněte na možnost **Web + mobilní zařízení**.
 
@@ -119,11 +119,11 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 5. Ve výsledcích hledání klikněte na aplikační server Java.
 
-    ![Web Mobilní zařízení Jetty][webmobilejetty]
+    ![Web Mobilní zařízení Jetty][webmobilníjetty]
 
 6. V prvním okně **Apache Tomcat** nebo **Jetty** klikněte na možnost **Vytvořit**.
 
-    ![Okno portálu Jetty][jettyblade]
+    ![Okno portálu Jetty][oknojetty]
 
 7. V dalším okně **Apache Tomcat** nebo **Jetty** zadejte název webové aplikace do pole **Webová aplikace**.
 
@@ -139,7 +139,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 10. Klikněte na možnost **Vytvořit**.
 
-    ![Portál Jetty Vytvořit][jettyportalcreate2]
+    ![Portál Jetty Vytvořit][jettyportálvytvořit2]
 
     Zanedlouho, obvykle během méně než minuty, Azure dokončí vytváření nové webové aplikace.
 
