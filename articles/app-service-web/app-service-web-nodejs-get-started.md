@@ -170,15 +170,15 @@ Chcete-li číst protokoly modulu iisnode, použijte následující postup.
 
 5. Přejděte do adresáře D:\home\site\wwwroot\iisnode
 
-    ![Navigace k umístění souborů protokolů modulu iisnode.][iislog-kudu-console-find]
+    ![Navigace k umístění souborů protokolů modulu iisnode.][iislog-kudu-konzola-hledat]
 
 6. Klikněte na ikonu **Upravit** u protokolu, který chcete číst. Dle potřeby také můžete kliknout na položku **Stáhnout** nebo **Odstranit**.
 
-    ![Otevření souboru protokolu modulu iisnode.][iislog-kudu-console-open]
+    ![Otevření souboru protokolu modulu iisnode.][iislog-kudu-konzola-otevřít]
 
     Nyní je zobrazen protokol, který vám pomůže při ladění nasazení ve službě App Service.
     
-    ![Prohlížení souboru protokolu modulu iisnode.][iislog-kudu-console-read]
+    ![Prohlížení souboru protokolu modulu iisnode.][iislog-kudu-konzola-číst]
 
 ## Ladění aplikace pomocí nástroje Node-Inspector
 
