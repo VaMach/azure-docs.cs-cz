@@ -1,9 +1,15 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment** |
+|  | **Klasické nasazení**  | **Nasazení podle modelu Resource Manager** |
 |----------------------------------------|--------------|----------------------|
-| **Classic Portal**                     |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Not Supported |
-| **Azure Portal**                       | Supported               | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell**               |[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+| **Klasický portál**                     |[Článek*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Nepodporuje se |
+| **Portál Azure**                       | Podporuje se               | [Článek](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell**               |[Článek+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Článek](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-(*) denotes that the classic portal can only support creating one S2S VPN connection.
+Symbol (*) značí, že klasický portál můžete podporovat vytvoření jenom jednoho připojení sítě VPN typu S2S.
 
-(+) denotes that this article is written for multi-site connections.
+Symbol (+) značí, že se tento článek týká připojení propojujících víc webů.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

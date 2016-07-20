@@ -1,8 +1,13 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+Toto nastavení umožňuje určit server DNS, který chcete použít pro překlad názvů pro tuto virtuální síť. Neslouží k vytvoření serveru DNS.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the DNS servers blade.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
-4. Click **Save** at the top of the blade to save your configuration.
+1. Na stránce **Nastavení** vaší virtuální sítě přejděte na **Servery DNS** a kliknutím otevřete okno serverů DNS.
+2. Na stránce **Servery DNS** v části **Servery DNS** vyberte **Vlastní DNS**.
+3. V poli **Primární server DNS** zadejte IP adresu serveru DNS, který chcete použít k překladu názvů.
+4. Uložte konfiguraci kliknutím na **Uložit** v horní části okna.
 
-	![Custom DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+    ![Vlastní DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

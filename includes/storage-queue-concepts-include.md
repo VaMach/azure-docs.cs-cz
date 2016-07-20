@@ -1,28 +1,34 @@
-## What is Queue Storage?
+## Co je služba Queue Storage?
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+Azure Queue Storage je služba pro ukládání velkého počtu zpráv, ke které můžete získat přístup z jakéhokoli místa na světě prostřednictvím ověřených volání s využitím protokolu HTTP nebo HTTPS. Zpráva s jednou frontou může mít velikost až 64 kB a jedna fronta můžete obsahovat miliony zpráv, až do dosažení celkové kapacity účtu úložiště.
 
-Common uses of Queue storage include:
+Toto jsou některá běžná použití úložiště služby Queue Storage:
 
--   Creating a backlog of work to process asynchronously
--   Passing messages from an Azure web role to an Azure worker role
+-   Vytvoření backlogu práce k asynchronnímu zpracování
+-   Předávání zpráv z webové role Azure do role pracovního procesu Azure
 
-## Queue Service Concepts
+## Koncepty služby front
 
-The Queue service contains the following components:
+Služba front obsahuje následující součásti:
 
-![Queue1](./media/storage-queue-concepts-include/queue1.png)
+![Fronta1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **URL format:** Queues are addressable using the following URL format:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **Formát adresy URL:** Fronty jsou adresovatelné v následujícím formátu adresy URL:   
+    http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-	The following URL addresses a queue in the diagram:  
-		
-		http://myaccount.queue.core.windows.net/images-to-download
+    Následující adresa URL odkazuje na frontu v diagramu:  
+        
+        http://myaccount.queue.core.windows.net/images-to-download
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+- **Účet úložiště:** Veškerý přístup k úložišti Azure se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti úložiště Azure](../articles/storage/storage-scalability-targets.md).
 
-- **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- **Fronta:** Fronta obsahuje sadu zpráv. Všechny zprávy musí být ve frontě. Upozorňujeme, že název fronty musí být psaný malými písmeny. Informace o pojmenování front najdete v tématu [Pojmenování front a metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-- **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+- **Zpráva:** Zprávu v libovolném formátu o velikosti až 64 kB. Maximální doba, po kterou může zpráva zůstat ve frontě, je 7 dní.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,30 +1,36 @@
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project), sign in with your Google account credentials. 
+1. Přejděte na [Google Cloud Console](https://console.developers.google.com/project) a přihlaste se pomocí svých přihlašovacích údajů k účtu Google. 
  
-2. Click **Create Project**, type a project name, then click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Klikněte na **Create Project** (Vytvořit projekt), zadejte název projektu a potom klikněte na **Create** (Vytvořit). Pokud se zobrazí výzva, proveďte ověření SMS a znovu klikněte na **Create** (Vytvořit).
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
+    ![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 
-	 Type in your new **Project name** and click **Create project**.
+     Zadejte novou položku **Project name** (Název projektu) a klikněte na **Create project** (Vytvořit projekt).
 
-3. Click the **Utilities and More** button and then click **Project Information**. Make a note of the **Project Number**. You will need to set this value as the `SenderId` variable in the client app.
+3. Klikněte na tlačítko **Utilities and More** (Nástroje a další) a potom na **Project Information** (Informace o projektu). Poznamenejte si hodnotu **Project Number** (Číslo projektu). Tuto hodnotu budete muset nastavit jako proměnnou `SenderId` v klientské aplikaci.
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
 
-4. In the project dashboard, under **Mobile APIs**, click **Google Cloud Messaging**, then on the next page click **Enable API** and accept the terms of service. 
+4. Na řídicím panelu projektu v části **Mobile APIs** (Mobilní rozhraní API) klikněte na **Google Cloud Messaging** a potom na další stránce klikněte na **Enable API** (Povolit rozhraní API) a přijměte podmínky služby. 
 
-	![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-	![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
-5. In the project dashboard, Click **Credentials** > **Create Credential** > **API Key**. 
+5. Na řídicím panelu projektu klikněte na **Credentials**(Přihlašovací údaje)  > **Create Credential**(Vytvořit přihlašovací údaje)  > **API Key** (Klíč rozhraní API). 
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
-6. In **Create a new key**, click **Server key**, type a name for your key, then click **Create**.
+6. V části **Create a new key** (Vytvořit nový klíč) klikněte na **Server key** (Klíč serveru), zadejte název klíče a potom klikněte na **Create** (Vytvořit).
 
-7. Make a note of the **API KEY** value.
+7. Poznamenejte si hodnotu položky **API KEY** (Klíč rozhraní API).
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+    Pomocí této hodnoty klíče API potom povolíte službě Azure ověření na serveru GCM a odesílání nabízených oznámení jménem vaší aplikace.
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

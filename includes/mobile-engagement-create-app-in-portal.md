@@ -1,25 +1,31 @@
-1. Log on to the [Azure Classic Portal](https://manage.windowsazure.com), and then click **+NEW** at the bottom of the screen.
+1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) a v dolní části obrazovky klikněte na **+ NOVÝ**.
 
-2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
+2. Klikněte na **App Services**, **Mobile Engagement** a potom **Vytvořit**.
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 
-3. In the popup that appears, enter the following information:
+3. V místní nabídce, která se zobrazí, zadejte následující informace:
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
 
-	- **Application Name**: Name of your application. 
-	- **Platform**: Target platform for the app. You must create one Mobile Engagement app per platform that you are targeting for your mobile application. 
-	- **Application Resource Name**: Name by which this application will be accessible via APIs and URLs. 
-	- **Location**: Region/Data center where this app and app collection will be hosted.
-	- **Collection**: Select a previously created Collection or select 'New Collection'.
-	- **Collection Name**: Represents your group of applications. This will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
+    - **Název aplikace**: Název vaší aplikace. 
+    - **Platforma**: Cílová platforma pro aplikaci. Pro každou platformu, pro kterou je vaše mobilní aplikace určená, je potřeba vytvořit jednu aplikaci Mobile Engagement. 
+    - **Application Resource Name** (Název prostředku aplikace): Název, pomocí kterého bude tato aplikace přístupná přes rozhraní API a adresy URL. 
+    - **Umístění**: Oblast / datové centrum, kde bude tato aplikace a kolekce aplikací hostovaná.
+    - **Kolekce**: Vyberte už vytvořenou kolekci nebo zvolte možnost „Nová kolekce“.
+    - **Název kolekce**: Představuje vaši skupinu aplikací. To také zajistí, aby se všechny vaše aplikace nacházely ve skupině, která umožňuje souhrnné výpočty metrik. Pokud je to potřeba, použijte tu název vaší společnosti nebo oddělení.
 
-4. Select the app you just created in the **Applications** tab.
+4. Vyberte aplikaci, kterou jste právě vytvořili, na kartě **Aplikace**.
 
-5. Click on **CONNECTION INFO** in order to display the connection settings to put into your SDK integration in your mobile app.
+5. Kliknutím na **INFORMACE O PŘIPOJENÍ** zobrazíte nastavení připojení, které budete vkládat při integraci sady SDK v mobilní aplikaci.
 
-6. Copy the **CONNECTION STRING** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
+6. Zkopírujte **PŘIPOJOVACÍ ŘETĚZEC** – ten budete potřebovat k identifikaci této aplikace v kódu aplikace a připojení aplikace ke službě Mobile Engagement.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

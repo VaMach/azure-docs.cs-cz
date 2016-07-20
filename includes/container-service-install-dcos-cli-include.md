@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Install the DC/OS CLI | Microsoft Azure"
-   description="Install the DC/OS CLI."
+   pageTitle="Instalace rozhraní příkazového řádku DC/OS | Microsoft Azure"
+   description="Nainstalujte rozhraní příkazového řádku DC/OS."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,9 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
->[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
+>[AZURE.NOTE] To slouží k práci s clustery ACS založenými na DC/OS. Není nutné pro clustery ACS založené na metodě Swarm.
 
-First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+Nejdřív [se připojte ke svému clusteru ACS založenému na DC/OS](../articles/container-service/container-service-connect.md). Až to uděláte, můžete rozhraní příkazového řádku DC/OS pomocí níže uvedených příkazů nainstalovat na klientský počítač:
 
 ```bash
 sudo pip install virtualenv
@@ -30,18 +30,23 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
+Pokud používáte starší verzi Pythonu, můžou se zobrazovat upozornění „InsecurePlatformWarning“. Ta můžete bezpečně ignorovat.
 
-In order to get started without restarting your shell, run:
+Pokud chcete začít, aniž byste museli restartovat své prostředí, spusťte tento příkaz:
 
 ```bash
 source ~/.bashrc
 ```
 
-This step will not be necessary when you start new shells.
+Pokud spustíte nové prostředí, nebude tento krok nutný.
 
-Now you can confirm that the CLI is installed:
+Teď si můžete ověřit, jestli se rozhraní příkazového řádku nainstalovalo:
 
 ```bash
 dcos --help
 ```
+
+
+<!--HONumber=Jun16_HO2-->
+
+

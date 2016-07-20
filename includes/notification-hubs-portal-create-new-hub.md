@@ -1,23 +1,29 @@
 
 
-1. Log on to the [Azure Portal](https://portal.azure.com), and then click **+NEW** at the top left of the screen.
+1. Přihlaste se na [portál Azure](https://portal.azure.com) a v levém horním rohu obrazovky klikněte na **+ NOVÝ**.
 
-2. Click on **New**, then **Web + Mobile**. Scroll down if necessary and click **Notification Hub**.
+2. Klikněte na **Nový** a potom na **Web + mobilní zařízení**. Přejděte dolů, pokud je to potřeba, a klikněte na **Centrum oznámení**.
 
-   	![Azure Portal - Create Notification Hubs](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+    ![Portál Azure – vytváření center oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-3. Make sure you specify a unique name in the **Notification Hub** field. Select your desired **Region**, **Subscription** and **Resource Group** (if you have one already). 
+3. Do pole **Centrum oznámení** zadejte jedinečný název. Vyberte požadované nastavení u položek **Oblast**, **Předplatné** a **Skupina prostředků** (pokud už nějakou máte). 
  
-	If you already have a service bus namespace that you want to create the hub in, select it through the **Select Existing** option in the **Namespace** field.  Otherwise, you can use the default name which will be created based on the hub name as long as the namespace name is available. 
+    Pokud už máte obor názvů Service Bus, ve kterém chcete centrum vytvořit, vyberte ho pomocí možnosti **Vybrat existující** v poli **Obor názvů**.  Jinak můžete použít výchozí název, který se vytvoří na základě názvu centra, pokud je dostupný název oboru názvů. 
 
-	Once ready, click **Create**.
+    Až budete připravení, klikněte na **Vytvořit**.
 
-   	![Azure Portal - Set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+    ![Portál Azure – nastavení vlastností centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Once the namespace and notification hub are created, you will be taken to the respective portal page. 
+4. Po vytvoření oboru názvů a centra oznámení se zobrazí příslušná stránka portálu. 
 
-   	![Azure Portal - Notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+    ![Portál Azure – stránka portálu centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
        
-5. Click on **Settings** and then **Access Policies** - take note of the two connection strings that are made available to you, as you will need them to handle push notifications later.
+5. Klikněte na **Nastavení** a potom na **Zásady přístupu**. Poznamenejte si dva připojovací řetězce, které se zobrazí, budete je totiž později potřebovat ke zpracování nabízených oznámení.
 
-   	![Azure Portal - Notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+    ![Portál Azure – připojovací řetězce centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

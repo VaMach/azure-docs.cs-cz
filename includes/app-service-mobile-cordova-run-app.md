@@ -1,23 +1,24 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile
-app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
-then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. Navštivte [Portál Azure]. Klikněte na **Procházet vše** > **Mobilní aplikace** > prostředí back-end, které jste právě vytvořili. V nastavení mobilní aplikace klikněte na **Rychlý start** > **Cordova**. V části **Configure your client application** (Konfigurace klientské aplikace) vyberte možnost **Vytvořit novou aplikaci** a klikněte na **Stáhnout**. Tím stáhnete dokončený projekt Cordova pro aplikaci přednastavenou k připojení k vašemu prostředí back-end.
 
-2. Unpack the downloaded ZIP file to a directory on your hard drive.
+2. Rozbalte stažený soubor ZIP do adresáře na pevném disku.
 
-3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
+3. Otevřete projekt pomocí sady **Visual Studio**.  Klikněte na **Otevřít** > **Projekt nebo řešení**.
 
-4. Find the _sitename_.sln file and click **Open**.
+4. Najděte soubor _název_webu_.sln a klikněte na **Otevřít**.
 
-5. The default emulator is **Ripple - Nexus (Galaxy)**.  Click the drop-down arrow next to the emulator and select **Google Android Emulator**.
+5. Výchozí emulátor je **Ripple – Nexus (Galaxy)**.  Klikněte na šipku rozevíracího seznamu vedle emulátoru a vyberte **Emulátor Google Android**.
 
-6. Click on **Google Android Emulator**.  The project will be built and then run.  You may see a network security warning from the
-Google Android Emulator requesting access to the network.  Eventually, the Google Android Emulator will be shown and your application will run.
+6. Klikněte na **Emulátor Google Android**.  Projekt se sestaví a potom spustí.  Emulátor Google Android může zobrazit upozornění na zabezpečení sítě s požadavkem na přístup k síti.  Nakonec se zobrazí emulátor Google Android a spustí se vaše aplikace.
 
-7. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the
-Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information
-about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. V aplikaci zadejte smysluplný text, třeba _Dokončit kurz_, a klikněte na tlačítko Přidat. Tím odešlete do prostředí back-end v Azure, které jste předtím vytvořili, požadavek POST. Prostředí back-end vloží data z požadavku do tabulky SQL TodoItem a vrátí informace o nově uložených položkách do mobilní aplikace. Mobilní aplikace zobrazí tato data v seznamu.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Portál Azure]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

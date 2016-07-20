@@ -1,32 +1,38 @@
-## What is Blob Storage?
+## Co je služba Blob Storage?
 
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+Azure Blob Storage je služba, která slouží k ukládání velkých objemů nestrukturovaných dat objektů, například textu nebo binárních dat, která jsou přístupná odkudkoli na světě prostřednictvím protokolů HTTP nebo HTTPS. Službu Blob Storage můžete používat ke zveřejňování dat pro celý svět, nebo k soukromému ukládání dat aplikací.
 
-Common uses of Blob storage include:
+Mezi běžná použití služby Blob Storage patří:
 
-- Serving images or documents directly to a browser
-- Storing files for distributed access
-- Streaming video and audio
-- Storing data for backup and restore, disaster recovery, and archiving
-- Storing data for analysis by an on-premises or Azure-hosted service
+- poskytování obrázků nebo dokumentů přímo do prohlížeče
+- ukládání souborů pro distribuovaný přístup
+- streamování videa a zvuku
+- ukládání dat pro zálohování a obnovování, zotavení po havárii a pro archivaci
+- ukládání dat, které bude analyzovat místní nebo v Azure hostovaná služba
 
-## Blob service concepts
+## Koncepty služby objektů blob
 
-The Blob service contains the following components:
+Služba objektů blob obsahuje následující součásti:
 
 ![Blob1][Blob1]
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. For more information about storage accounts, see [Azure storage account](../articles/storage/storage-create-storage-account.md).
+- **Účet úložiště:** Veškerý přístup ke službě Azure Storage se provádí prostřednictvím účtu úložiště. Tento účet úložiště může být **účtem úložiště pro obecné účely** nebo **účtem služby Blob Storage**, který se specializuje na ukládání objektů blob. Další informace o účtech úložiště najdete v článku [Účty úložiště Azure](../articles/storage/storage-create-storage-account.md).
 
-- **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
+- **Kontejner:** Kontejner zajišťuje seskupení sady objektů blob. Všechny objekty blob musí být v kontejneru. Účet může obsahovat neomezený počet kontejnerů. Kontejner můžete pojmout neomezený počet objektů blob. Všimněte si, že název kontejneru musí být psaný malými písmeny.
 
-- **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
+- **Objekt blob:** Soubor libovolného typu a velikosti. Úložiště Azure Storage nabízí tři typy objektů blob – objekty blob bloků, doplňovací objekty blob a objekty blob stránek.
 
-    *Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob or append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
+    *Objekty blob bloků* jsou ideální pro ukládání textových nebo binárních souborů, například dokumentů a mediálních souborů. *Doplňovací objekty blob* jsou podobné objektům blob bloku v tom, že je tvoří bloky, ale jsou optimalizované pro doplňovací operace, takže se hodí pro scénáře protokolování. Jeden objekt blob bloku nebo doplňovací objekt blob může obsahovat až 50 000 bloků, každý o velikosti až 4 MB, v celkové velikosti o něco větší než 195 GB (4 MB × 50 000).
 
-    *Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
+    *Objekty blob stránek* můžou mít velikost až 1 TB a jsou efektivnější pro časté operace čtení a zápisu. Služba Azure Virtual Machines používá objekty blob stránek jako disky pro operační systém a ukládání dat.
 
-    For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+    Podrobnosti o vytváření názvů kontejnerů a objektů blob najdete v článku [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

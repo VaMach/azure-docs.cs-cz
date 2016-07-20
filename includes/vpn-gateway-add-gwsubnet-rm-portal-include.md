@@ -1,16 +1,22 @@
-1. In the portal, navigate to the virtual network to which you want to connect a gateway. On the blade for your virtual network, click the **Settings** icon at the top of the blade to expand the Setting blade. 
+1. Na portálu přejděte na virtuální síť, ke které chcete připojit bránu. V okně vaší virtuální sítě kliknutím na ikonu **Nastavení** v horní části okna rozbalte okno Nastavení. 
 
-2. On the **Settings** blade, click **Subnets** to expand the Subnets blade.
+2. V okně **Nastavení** kliknutím na **Podsítě** rozbalte okno Podsítě.
 
-3. On the **Subnets** blade, click **Add** to expand the **Add subnet** blade.
+3. V okně **Podsítě** kliknutím na **Přidat** rozbalte okno **Přidat podsíť**.
 
-	![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
+    ![Přidání podsítě brány](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
 
-4. On the **Add subnet** blade, name your subnet **GatewaySubnet**. You should not name it anything else, or the gateway will not work.
+4. V okně **Přidat podsíť** pojmenujte podsíť názvem **GatewaySubnet**. Pokud ji pojmenujete jinak, brána nebude fungovat.
 
-5. Add the IP **address range** for your gateway.
+5. Zadejte **Rozsah IP adres** vaší brány.
 
-6. Click **OK** at the bottom of the blade to create the subnet.
+6. Vytvořte podsíť kliknutím na tlačítko **OK** v dolní části okna.
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

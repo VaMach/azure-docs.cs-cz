@@ -1,33 +1,39 @@
-### Configure a DNS Label for the public IP address
+### Konfigurace názvu DNS veřejné IP adresy
 
-To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
+Pokud se chcete z internetu připojit k databázovému stroji systému SQL Server, nejdřív pro svoji veřejnou IP adresu nakonfigurujte název DNS.
 
-> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
+> [AZURE.NOTE] Názvy DNS nejsou nutné, pokud se chcete připojit k instanci systému SQL Server jenom v rámci stejné virtuální sítě nebo jenom místně.
 
-To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
+Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální počítače**. Vyberte virtuální počítač se systémem SQL Server, abyste zobrazili jeho vlastnosti.
 
-1. In the virtual machine blade, select your **Public IP address.**
+1. V okně virtuálního počítače vyberte své nastavení **Veřejná IP adresa**.
 
-	![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![Veřejná IP adresa](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. In the properties for your Public IP address, expand **Configuration**.
+2. Ve vlastnostech veřejné IP adresa rozbalte položku **Konfigurace**.
 
-3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
+3. Zadejte název DNS. Tento název je záznam A, který se dá použít k přímému připojení k vašemu virtuálnímu počítači se systémem SQL Server pomocí názvu, namísto pomocí IP adresy.
 
-	![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![Název DNS](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Connect to the Database Engine from another computer
+### Připojení k databázovému stroji z jiného počítače
 
-1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
+1. Na počítači připojeném k internetu otevřete aplikaci SSMS (SQL Server Management Studio).
 
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
+2. V dialogovém okně **Připojit k serveru** nebo **Connect to Database Engine** (Připojit k databázovému stroji) upravte hodnotu **Název serveru**. Zadejte úplný název DNS virtuálního počítače (určený v předchozí úloze).
 
-3. In the **Authentication** box, select **SQL Server Authentication**.
+3. V poli **Ověřování** vyberte **Ověřování serveru SQL Server**.
 
-5. In the **Login** box, type the name of a valid SQL login.
+5. Do pole **Přihlášení** zadejte název platného přihlášení SQL.
 
-6. In the **Password** box, type the password of the login.
+6. Do pole **Heslo** zadejte heslo pro přihlášení.
 
-7. Click **Connect**.
+7. Klikněte na **Připojit**.
 
-	![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![Připojení přes SSMS](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

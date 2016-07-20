@@ -8,26 +8,32 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Connecting to the Microsoft Azure portal with a subscription
+## Připojení k portálu Microsoft Azure s předplatným
 
-To connect to the Microsoft Azure portal, you must have a subscription. 
+Pokud se chcete připojit k portálu Microsoft Azure, potřebujete předplatné. 
 
-### Get a new account
+### Získání nového účtu
 
-If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
+Pokud nemáte účet služby Microsoft Azure, pomocí některého z následujících odkazu si ho pořiďte:
 
-- Get a [free account](https://azure.microsoft.com/get-started/)
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- Získání [bezplatného účtu](https://azure.microsoft.com/get-started/)
+- Použití [předplatného MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
 
-###Sign in using your existing account
+###Přihlášení pomocí existujícího účtu
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
+Pokud máte [existující předplatné]( https://account.windowsazure.com/Home/Index), pomocí níže uvedeného postupu se připojte k portálu Azure. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Otevřete prohlížeč, kterému dáváte přednost, a připojte se k [portálu Azure](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 
-1. When the sign in page appears, provide the credentials for your subscription
+1. Když se zobrazí přihlašovací stránka, zadejte přihlašovací údaje pro své předplatné.
 
-   ![sign in](./media/azure-getting-started-portal-login/login.png)
+   ![Přihlášení](./media/azure-getting-started-portal-login/login.png)
    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

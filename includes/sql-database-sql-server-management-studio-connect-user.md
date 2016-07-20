@@ -1,40 +1,46 @@
-## Connect to Azure SQL Database as a user
+## Připojení ke službě Azure SQL Database jako uživatel
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+Pomocí následujícího postupu se můžete v aplikaci SSMS připojit ke službě Azure SQL Database jako uživatel.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Do pole vyhledávání ve Windows zadejte text „Microsoft SQL Server Management Studio“ a potom kliknutím na desktopovou aplikaci spusťte aplikaci SSMS.
 
-2. In the Connect to Server window, enter the following information:
+2. V okně Připojení k serveru zadejte následující informace:
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **Typ serveru**: Výchozí hodnotou je databázový stroj. Tuto hodnotu nemůžete změnit.
+ - **Název serveru**: Zadejte název serveru, který je hostitelem databáze SQL. Použijte následující formát: *&lt;název_serveru >*.**database.windows.net**.
+ - **Typ ověřování**: Pokud teprve začínáte, vyberte Ověřování SQL. Pokud jste pro logický server služby SQL Database povolili službu Active Directory, můžete si vybrat Ověřování hesla Active Directory nebo Integrované ověřování Active Directory.
+ - **Uživatelské jméno**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte jméno uživatele, který má přístup k databázi na serveru.
+ - **Heslo**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte heslo uvedeného uživatele.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. Klikněte na **Možnosti** a určete databázi, ke které se chcete připojit.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. V **Připojení k databázi** vyberte databázi, ke které se chcete připojit.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. Klikněte na **Připojit**.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. Pokud IP adresa vašeho klienta nemá přístup k logickému serveru služby SQL Database, zobrazí se výzva k přihlášení k účtu Azure a k vytvoření pravidla brány firewall na úrovni serveru. Pokud jste správci předplatného Azure, klikněte na **Přihlásit** a vytvořte pravidlo brány firewall na úrovni serveru. Pokud ne, požádejte správce o vytvoření pravidla brány firewall na úrovni serveru nebo pravidla brány firewall na úrovni databáze v databázi, ke které se snažíte připojit.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. Pokud vám vaše přihlašovací údaje umožní přístup k zadané databázi, otevře se Průzkumník objektů a vy teď můžete provádět úlohy správy nebo se dotazovat na data, podle toho, jaká máte uživatelská oprávnění.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Troubleshoot connection failures
+ ## Řešení potíží s připojením
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Nejčastější příčinou chyb připojení jsou chyby v názvu serveru (nezapomeňte, že <*název_serveru*> je název logického serveru a ne název databáze), chybné uživatelské jméno nebo heslo a také situace, kdy server z bezpečnostních důvodů připojení neumožňuje. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

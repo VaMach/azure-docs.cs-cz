@@ -1,21 +1,27 @@
-#### To stop and start a virtual device
-To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
+#### Zastavení a spuštění virtuálního zařízení
+Pokud chcete zastavit virtuální zařízení, klikněte na jeho název a potom klikněte na **Vypnout**. Když se virtuální zařízení vypíná, zobrazuje se u něj stav **Zastavování**. Po zastavení virtuálního zařízení se zobrazuje stav **Zastaveno**.
 
-Use the following cmdlets to stop and start a virtual device.
+K zastavení a spuštění virtuálního zařízení slouží následující rutiny.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### To restart a virtual device
+#### Restartování virtuálního zařízení
 
-When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
+Když běží virtuální zařízení a vy ho chcete restartovat, klikněte na jeho název a potom klikněte na **Restartovat**. Když se virtuální zařízení restartuje, má stav **Restartování**. Když je virtuální zařízení připravené k použití, má stav **Spuštěno**.
 
-Use the following cmdlet to restart a virtual device.
+K restartování virtuálního zařízení slouží následující rutina.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

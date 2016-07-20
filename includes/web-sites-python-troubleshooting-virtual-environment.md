@@ -1,22 +1,28 @@
-The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
+Pokud skript nasazení zjistí, že kompatibilní virtuální prostředí už existuje, vytvoření virtuálního prostředí v Azure přeskočí.  To může nasazení značně urychlit.  Systém pip přeskočí balíčky, které jsou už nainstalované.
 
-In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
+V určitých situacích může být vhodné vynutit odstranění daného virtuálního prostředí.  Bude to nutné udělat, pokud se rozhodnete zahrnout virtuální prostředí jako součást úložiště.  Může to také být vhodné, pokud se rozhodnete zbavit určitých balíčků nebo testovat změny souboru requirements.txt.
 
-There are a few options to manage the existing virtual environment on Azure:
+Existující virtuální prostředí je možné v Azure spravovat pomocí několika možností:
 
-### Option 1: Use FTP
+### Možnost 1: Pomocí protokolu FTP
 
-With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
+Pomocí klienta FTP se připojte k serveru a budete moct odstranit složku env.  Upozornění: Někteří klienti FTP (například webové prohlížeče) mohou umožňovat přístup jen ke čtení a neumožňují odstraňovat složky. Proto je nutné použít klienta, který má tuto funkci.  Název hostitele FTP a uživatele se zobrazuje v okně vaší webové aplikace na [portálu Azure](https://portal.azure.com).
 
-### Option 2: Toggle runtime
+### Možnost 2: Přepnutí modulu runtime
 
-Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
+Jedná se o alternativní postup využívající fakt, že skript nasazení odstraní složku env, pokud neodpovídá požadované verzi Pythonu.  Výsledkem je odstranění existujícího prostředí a vytvoření nového.
 
-1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
-1. git push some changes (ignore any pip install errors if any)
-1. Switch back to initial version of Python
-1. git push some changes again
+1. Přepněte na jinou verzi Pythonu (pomocí souboru runtime.txt nebo okna **Nastavení aplikace** na portálu Azure).
+1. Pomocí příkazu git push proveďte nějaké změny (pokud dojde k chybám instalace systému pip, ignorujte je).
+1. Přepněte zpět na původní verzi Pythonu.
+1. Opět proveďte nějaké změny pomocí příkazu git push.
 
-### Option 3: Customize deployment script
+### Možnost 3: Přizpůsobení skriptu nasazení
 
-If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
+Pokud jste přizpůsobili skript nasazení, můžete změnit kód v souboru deploy.cmd a vynutit, aby odstranil složku env.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

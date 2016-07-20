@@ -1,29 +1,34 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### To create a new service
+#### Vytvoření nové služby
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Pomocí přihlašovacích údajů k účtu Microsoft se přihlaste na portál Azure Classic na této adrese URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
-2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
+2. Na portálu Azure Classic klikněte na **Nový** > **Datové služby** > **StorSimple Manager** > **Rychlý start**.
 
-3. In the form that is displayed, do the following:
-  1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-  2. Supply a **Location** for your service. In general, choose a Location closest to the geographical region where you want to deploy your device. You may also want to factor in the following: 
-	 
-		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure classic portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
-		 
-  3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-  4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
-  5. Click **Create StorSimple Manager** to create the service.
+3. Ve formuláři, který se zobrazí, proveďte následující akce:
+  1. Zadejte jedinečný **Název** služby. Jedná se o popisný název, který můžete použít k identifikaci služby. Název může být tvořen 2 až 50 písmeny, číslicemi a spojovníky. Název musí začínat a končit písmenem nebo číslicí.
+  2. Zadejte **Umístění** služby. Obvykle je dobré vybrat umístění, které je nejblíže geografickému regionu, kde chcete zařízení nasadit. Zvažte i následující okolnosti: 
+     
+        - Pokud máte v Azure existující úlohy, které chcete také nasadit se zařízením StorSimple, měli byste použít stejné datové centrum.
+        - Služby StorSimple Manager a úložiště Azure mohou být ve dvou různých umístěních. V takovém případě je nutné vytvořit účty služeb StorSimple Manager a úložiště Azure odděleně. Pokud chcete vytvořit účet úložiště Azure, přejděte do služby Azure Storage na portálu Azure Classic a postupujte způsobem popsaným v článku [Vytvoření účtu služby Azure Storage](storage-create-storage-account.md#create-a-storage-account). Po přihlášení k tomuto účtu pomocí kroků popsaných v článku [Konfigurace nového účtu úložiště pro službu](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service) účet přidejte do služby StorSimple Manager.
+         
+  3. V rozevíracím seznamu **Předplatné** vyberte předplatné. Předplatné je propojeno s vaším fakturačním účtem. Toto pole není dostupné, pokud máte pouze jedno předplatné.
+  4. Výběrem možnosti **Vytvořit nový účet úložiště** můžete vytvořit účet úložiště automaticky se službou. Takový účet úložiště bude mít speciální název, například storsimplebwv8c6dcnf. Pokud potřebujete mít data v jiném umístění, zaškrtnutí políčka zrušte. 
+  5. Kliknutím na **Vytvořit StorSimple Manager** vytvořte službu.
 
-   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Vytvoření služby StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
-  You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+  Budete přesměrováni na cílovou stránku **služby**. Vytvoření služby může trvat několik minut. Po úspěšném vytvoření služby budete odpovídajícím způsobem upozorněni a stav služby se změní na **Aktivní**.
  
-   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Vytvoření služby](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
+![Je dostupné video](./media/storsimple-create-new-service/Video_icon.png) **Je dostupné video**
 
-To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Pokud si chcete přehrát video, které ukazuje, jak vytvořit novou službu StorSimple Manager, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

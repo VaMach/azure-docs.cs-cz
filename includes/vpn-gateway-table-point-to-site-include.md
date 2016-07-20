@@ -1,7 +1,13 @@
-|  | **Classic Deployment**  |  **Resource Manager Deployment**  |
+|  | **Klasické nasazení**  |  **Nasazení podle modelu Resource Manager**  |
 |----------------------------------------|--------------|------------------------|
-| **Classic Portal** | [Article](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Not Supported |
-| **Azure Portal** |  Not Supported  |  Not Supported  |
-| **PowerShell** | Supported | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+| **Klasický portál** | [Článek](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Nepodporuje se |
+| **Portál Azure** |  Nepodporuje se  |  Nepodporuje se  |
+| **PowerShell** | Podporuje se | [Článek](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

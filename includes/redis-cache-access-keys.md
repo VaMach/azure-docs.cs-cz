@@ -1,15 +1,20 @@
-To connect to the cache, your cache clients need the host name, ports, and keys. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**.
+K připojení k mezipaměti potřebují vaši klienti mezipaměti název hostitele, porty a klíče. Někteří klienti můžou tyto položky označovat trochu odlišnými názvy. Pokud chcete získat tyto položky, pomocí možnosti [Procházet](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) přejděte na svoji mezipaměť na [portálu Azure](https://portal.azure.com) a klikněte na **Nastavení** nebo **Všechna nastavení**.
 
-![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
+![Nastavení mezipaměti Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Host name and ports
+### Název hostitele a porty
 
-To access the host name and ports click **Properties**.
+K názvu hostitele a portům získáte přístup kliknutím na **Vlastnosti**.
 
-![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
+![Vlastnosti mezipaměti Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Access keys
+### Přístupové klíče
 
-To retrieve the access keys, click **Access keys**.
+Pokud chcete získat přístupové klíče, klikněte na **Přístupové klíče**.
 
-![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+![Přístupové klíče mezipaměti Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

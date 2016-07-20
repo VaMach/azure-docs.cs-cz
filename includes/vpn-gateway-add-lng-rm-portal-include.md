@@ -1,23 +1,29 @@
-1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
+1. Na portálu Azure klikněte na **Nový** **>** **Sítě** **>** **Brána místní sítě**.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![Vytvoření brány místní sítě](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
+2. V okně **Vytvoření brány místní sítě** zadejte **Název** objektu brány místní sítě.
  
-3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Do pole **IP adresa** zadejte IP adresu brány. Jedná se o IP adresu externího zařízení VPN, ke kterému se chcete připojit. IP adresa nemůže být za serverem NAT a musí být dostupná pro Azure.
 
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
+4. Údaj v části **Adresní prostor** odkazuje na rozsahy adres ve vaší (obvykle místní) síti. Můžete přidat více různých rozsahů adres. Rozsahy, které zadáte v této části, nesmí překrývat žádné z rozsahů adresních prostorů, které používáte pro jakékoliv virtuální sítě, se kterými budete komunikovat prostřednictvím brány.  Bude nutné provést koordinaci s vaší místní konfigurací a také s adresními prostory vaší virtuální sítě Azure.
  
-5. For **Subscription**, verify that the correct subscription is showing.
+5. V rozevíracím seznamu **Předplatné** zkontrolujte, jestli se zobrazuje správné předplatné.
 
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+6. V rozevíracím seznamu **Skupina prostředků** vyberte skupinu prostředků, kterou chcete použít. Můžete vytvořit novou skupinu prostředků, nebo vybrat skupinu prostředků, kterou jste už vytvořili. Pokud chcete vytvořit novou skupinu prostředků, zadejte do pole její název. Pokud chcete vybrat skupinu prostředků, kterou jste už vytvořili, kliknutím na **Skupina prostředků** otevřete okno **Skupina prostředků** a potom vyberte skupinu prostředků, kterou chcete použít.
 
-7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
+7. Pokud vytváříte novou bránu místní sítě, v rozevíracím seznamu **Umístění** můžete vybrat stejné umístění, jaké má brána virtuální sítě. Není to však nutné. Brána místní sítě může být v jiném umístění. 
 
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+8. Pokud chcete mít k této bráně místní sítě snadný přístup z řídicího panelu, nechte zaškrtnuté políčko Připnout na řídicí panel.
 
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+9. Kliknutím na **Vytvořit** vytvořte bránu místní sítě. Na řídicím panelu se zobrazí dlaždice nasazování brány místní sítě.
 
-10. When the local network gateway has been created, it will open in the portal for you to view.
+10. Po vytvoření brány místní sítě se brána otevře na portálu, abyste si ji mohli prohlédnout.
 
-	
+    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

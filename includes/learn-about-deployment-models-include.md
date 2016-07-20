@@ -1,1 +1,6 @@
-> [AZURE.IMPORTANT] Before you work with Azure resources, get familiar with the deployment models: [Resource Manager, and classic](../articles/resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Než začnete pracovat s prostředky Azure, seznamte se s těmito modly nasazení: [modelem Resource Manager i klasickým modelem](../articles/resource-manager-deployment-model.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

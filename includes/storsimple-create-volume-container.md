@@ -1,22 +1,27 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To create a volume container
+#### Vytvoření kontejneru svazků
 
-1. In the device **Quick Start** page, click **Add a volume container**. The **Create Volume Container** dialog box appears.
+1. Na obrazovce **Rychlý start** zařízení klikněte na **Add a volume container** (Přidat kontejner svazků). Zobrazí se dialogové okno **Create Volume Container** (Vytvořit kontejner svazků).
 
-    ![Create Volume Container](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
+    ![Vytvoření kontejneru svazků](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
 
-2. In the **Create Volume container** dialog box:
-  1. Supply a **Name** for your volume container. The name must be 3 to 32 characters long.
-  2. Select a **Storage Account** to associate with this volume container. You can choose the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.
-  3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
-  4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
-  5. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth. You can also set this option to **Custom** to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps. 
-  If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-  6. Click the check icon ![check-icon](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) to save this volume container and exit the wizard. 
+2. V dialogovém okně **Create Volume Container** (Vytvořit kontejner svazků):
+  1. Zadejte **Název** kontejneru svazků. Název musí mít délku 3 až 32 znaků.
+  2. Vyberte **Účet úložiště**, který chcete k tomuto kontejneru svazků přidružit. Můžete vybrat výchozí účet, který se vygeneruje při vytváření služby. Můžete také pomocí možnosti **Přidat nový** zadat účet úložiště, který není spojený s předplatným této služby.
+  3. Výběrem možnosti **Enable Cloud Storage Encryption** (Povolit šifrování cloudového úložiště) povolte šifrování dat odesílaných ze zařízení do cloudu.
+  4. Zadejte a potvrďte **Cloud Storage Encryption Key** (Šifrovací klíč cloudového úložiště), který má délku 8 až 32 znaků. Tento klíč zařízení používá k přístupu k zašifrovaným datům.
+  5. V rozevíracím seznamu **Specify bandwidth** (Zadejte šířku pásma) vyberte možnost **Unlimited** (Neomezená), pokud chcete spotřebovávat veškerou dostupnou šířku pásma. U této možnosti také můžete vybrat **Vlastní**, pokud chcete použít ovládací prvky šířky pásma a zadat hodnotu mezi 1 a 1000 Mb/s. 
+  Pokud máte informace o využití šířky pásma, můžete vybrat možnost **Select a bandwidth template** (Vybrat šablonu šířky pásma), abyste mohli přidělovat šířku pásma na základě plánu. Podrobný postup najdete v článku [Přidání šablony šířky pásma](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
+  6. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) pro uložení tohoto kontejneru svazků a ukončení průvodce. 
 
-  The newly created volume container will be listed on the **Volume containers** page.
+  Nově vytvořený kontejner svazků bude uvedený na stránce **Volume containers** (Kontejnery svazků).
 
-![Video available](./media/storsimple-create-volume-container/Video_icon.png) **Video available**
+![Dostupné video](./media/storsimple-create-volume-container/Video_icon.png) **Dostupné video**
 
-To watch a video that demonstrates how to create a volume container in your StorSimple solution, click [here](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+Pokud si chcete přehrát video, které ukazuje, jak v řešení StorSimple vytvořit kontejner svazků, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

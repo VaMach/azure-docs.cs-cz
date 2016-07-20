@@ -1,15 +1,21 @@
-The Database Transaction Unit (DTU) is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. We took a set of operations that are typical for an online transaction processing (OLTP) request, and then measured how many transactions could be completed per second under fully loaded conditions (that’s the short version, you can read the gory details in the [Benchmark overview](../articles/sql-database/sql-database-benchmark-overview.md)). 
+Jednotka databázové transakce (DTU) je měrnou jednotkou služby SQL Database, která představuje relativní výkon databází na základě reálného měření: databázové transakce. Vzali jsme sadu operací, které jsou typické pro požadavek na online zpracování transakcí (OLTP), a změřili jsme, kolik transakcí je možné dokončit za jednu sekundu v podmínkách plného zatížení (tolik ve zkratce, sáhodlouhý příběh si můžete přečíst v [přehledu srovnávacího testu](../articles/sql-database/sql-database-benchmark-overview.md)). 
 
-For example, a Premium P11 database with 1750 DTUs provides 350x more DTU compute power than a Basic database with 5 DTUs. 
+Například databáze Premium P11 se 1 750 DTU nabízí 350x více DTU výpočetního výkonu než databáze Basic s 5 DTU. 
 
-![Intro to SQL Database: Single database DTUs by tier and level.](./media/sql-database-understanding-dtus/single_db_dtus.png)
+![Úvod do služby SQL Database: DTU izolované databáze podle úrovní.](./media/sql-database-understanding-dtus/single_db_dtus.png)
 
->[AZURE.NOTE] If you are migrating an existing SQL Server database, you can use a third-party tool, [the Azure SQL Database DTU Calculator](http://dtucalculator.azurewebsites.net/), to get an estimate of the performance level and service tier your database might require in Azure SQL Database.
+>[AZURE.NOTE] Pokud migrujete existující databázi serveru SQL Server a chcete získat odhad úrovně výkonu a úrovně služby, které může databáze vyžadovat ve službě Azure SQL Database, můžete použít nástroj třetí strany [kalkulačka DTU databáze SQL Azure](http://dtucalculator.azurewebsites.net/).
 
 ### DTU vs. eDTU
 
-The DTU for single databases translates directly to the eDTU for elastic databases. For example, a database in a Basic elastic database pool offers up to 5 eDTUs. That’s the same performance as a single Basic database. The difference is that the elastic database won’t consume any eDTUs from the pool until it has to. 
+DTU jednotlivých databází se překládá přímo na eDTU elastických databází. Například databáze ve fondu elastické databáze Basic nabízí až 5 eDTU. Je to stejný výkon jako v případě jedné databáze Basic. Rozdílem je, že elastická databáze nespotřebuje žádné eDTU z fondu, dokud nemusí. 
 
-![Intro to SQL Database: Elastic pools by tier.](./media/sql-database-understanding-dtus/sqldb_elastic_pools.png)
+![Úvod do služby SQL Database: Elastické fondy podle úrovně.](./media/sql-database-understanding-dtus/sqldb_elastic_pools.png)
 
-A simple example helps. Take a Basic elastic database pool with 1000 DTUs and drop 800 databases in it. As long as only 200 of the 800 databases are being used at any point in time (5 DTU X 200 = 1000), you won’t hit capacity of the pool, and database performance won’t degrade. This example is simplified for clarity. The real math is a bit more involved. The portal does the math for you, and makes a recommendation based on historical database usage. See [Price and performance considerations for an elastic database pool](../articles/sql-database/sql-database-elastic-pool-guidance.md) to learn how the recommendations work, or to do the math yourself. 
+Jednoduchý příklad usnadní pochopení. Vezměte fond elastické databáze Basic s 1 000 DTU a vložte do něj 800 databází. Tak dlouho, dokud v libovolném bodě v čase využíváte jenom 200 z 800 databází (5 DTU x 200 = 1 000), nedosáhnete stropu kapacity fondu a výkon databáze neklesne. Tento příklad je zjednodušený, aby byl pochopitelnější. Skutečná matematika je trochu složitější. Portál provede výpočty za vás a nabídne vám doporučení na základě historického využití databází. V článku [Cenové a výkonové požadavky fondu elastické databáze](../articles/sql-database/sql-database-elastic-pool-guidance.md) se dozvíte, jak doporučení fungují nebo jak si můžete výpočty provést sami. 
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

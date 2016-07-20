@@ -1,41 +1,46 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To complete the minimum StorSimple device setup
+#### Dokončení minimální instalace zařízení StorSimple
 
-1. In the **Devices** page, select the device, click the arrow against the device name to go to the specific device page. 
+1. Na stránce **Zařízení** vyberte zařízení a kliknutím na šipku u názvu zařízení přejděte na stránku konkrétního zařízení. 
 
-	![Devices page with device online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
+    ![Stránka Zařízení s online zařízeními](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
 
-2. Click quick start icon ![Quick Start Icon](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) to access the device quick start page. Click **Complete device setup** to start the **Configure device** wizard.
+2. Kliknutím na ikonu rychlého startu ![Ikona Rychlý start](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) otevřete stránku rychlého startu zařízení. Kliknutím na **Complete device setup** (Provést nastavení zařízení) spusťte průvodce **Configure device** (Konfigurace zařízení).
 
-	![Device quick start page](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
+    ![Stránka rychlého startu zařízení](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
 
-2. On the **Basic Settings** page, do the following:
-  1. Supply a **friendly name** for your device. The default device name reflects information such as the device model and serial number. You can assign a friendly name of up to 64 characters to manage your device.
-  2. Set the **time zone** based on the geographic location in which the device is being deployed. Your device will use this time zone for all scheduled operations.
-  3. Under **DNS Settings**, provide an address for your **Secondary DNS Server**. If you are using IPv6, the field will be populated based on the IPv6 prefix provided in the Windows PowerShell interface. 
-  If the secondary DNS server is not configured, you will not be allowed to save your device configuration.
-  4. Under iSCSI enabled interfaces, enable at least one network for iSCSI. At least one network interface needs to be cloud-enabled and one interface needs to be iSCSI-enabled. DATA 0 is automatically cloud-enabled.
+2. Na stránce **Základní nastavení** proveďte toto:
+  1. Zadejte **Přátelské oslovení** svého zařízení. Výchozí název zařízení odráží informace, jako je model zařízení a sériové číslo. Můžete přiřadit přátelské oslovení dlouhé až 64 znaků, které budete používat při správě zařízení.
+  2. Nastavte **Časové pásmo** podle zeměpisného umístění, ve kterém se zařízení nasazuje. Toto časové pásmo bude zařízení používat pro všechny naplánované operace.
+  3. V části **Nastavení DNS** zadejte adresu pro **Sekundární server DNS**. Pokud používáte protokol IPv6, zadá se do pole údaj na základě předpony IPv6 zadané v rozhraní Windows PowerShell. 
+  Pokud není sekundární server DNS nakonfigurovaný, nebudete moct konfiguraci zařízení uložit.
+  4. V seznamu rozhraní s podporou iSCSI povolte aspoň jednu síť pro iSCSI. Aspoň jedno síťové rozhraní musí mít povolenou podporu cloudu a jedno rozhraní musí mít podporu iSCSI. Rozhraní DATA 0 má automaticky povolenou podporu cloudu.
  
-      ![StorSimple minimum device setup basic settings](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
+      ![Základní nastavení minimální instalace zařízení StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
 
-3. Click the arrow icon. ![StorSimple arrow icon](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+3. Klikněte na ikonu šipky. ![Ikona šipky StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. On the **Network Interfaces** page, provide the fixed IP addresses for Controller 0 and Controller 1. If the DATA 0 interface was configured for IPv4, the fixed IP addresses need to be provided in the IPv4 format. If you provided a prefix for IPv6 configuration, the fixed IP addresses will be populated automatically in these fields.
+4. Na stránce **Síťová rozhraní** zadejte pevné IP adresy pro řadič 0 a řadič 1. Pokud jste u rozhraní DATA 0 nakonfigurovali protokol IPv4, pevné IP adresy musí být zadané ve formátu IPv4. Pokud jste v konfiguraci protokolu IPv6 uvedli předponu, pevné IP adresy se do těchto polí zadají automaticky.
 
 
-	> [AZURE.NOTE] 
- 	> 
- 	> - The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.
- 	> - The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet.
+    > [AZURE.NOTE] 
+    > 
+    > - Pevné IP adresy řadiče musí být volné IP adresy s podsítí přístupnou pro IP adresu zařízení.
+    > - Pevné IP adresy řadiče se používají k doručování aktualizací do zařízení, takže musí být směrovatelné a musí umožňovat připojení k internetu.
 
-    ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
+    ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-5. Click the check icon ![StorSimple check icon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-  You will return to the device **Quick Start** page.
+5. Klikněte na ikonu zaškrtnutí ![Ikona zaškrtnutí StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+  Vrátíte se na obrazovku **Rychlý start** zařízení.
 
- > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
+ > [AZURE.NOTE] Všechna ostatní nastavení zařízení můžete kdykoli upravit na stránce **Konfigurace**.
 
-![Video available](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video available**
+![Dostupné video](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Dostupné video**
 
-To watch a video that demonstrates how to complete the minimum device setup, click [here](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Pokud si chcete přehrát video, které ukazuje, jak provést minimální nastavení zařízení, klikněte [sem](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

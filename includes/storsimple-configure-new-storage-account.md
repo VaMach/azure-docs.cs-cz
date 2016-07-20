@@ -1,19 +1,25 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To add a new storage account in StorSimple Release version (GA)
+#### Přidání nového účtu úložiště v prodejní verzi zařízení StorSimple (GA)
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Na úvodní stránce služby StorSimple Manager vyberte svoji službu a dvakrát na ni klikněte. Tím přejdete na stránku **Rychlý start**. Vyberte stránku **Konfigurace**.
 
-2. Click **Add/edit storage account**.
+2. Klikněte na **Add/edit storage account** (Přidat nebo upravit účet úložiště).
 
-3. In the **Add/Edit Storage Account** dialog box, do the following:
+3. V dialogovém okně **Add/Edit Storage Account** (Přidat nebo upravit účet úložiště) proveďte tyto kroky:
 
-  1. Click **Add new**.
-  2. Provide a name for your storage account.
-  3. Supply the primary **Access Key** for your Microsoft Azure storage account.
-  4. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+  1. Klikněte na **Přidat nový**.
+  2. Zadejte název účtu úložiště.
+  3. Zadejte primární **Přístupový klíč** pro účet úložiště Microsoft Azure.
+  4. Výběrem možnosti **Enable SSL Mode** (Povolit režim SSL) vytvořte zabezpečený kanál pro síťovou komunikaci mezi vaším zařízením a cloudem. Zaškrtnutí políčka **Enable SSL Mode** (Povolit režim SSL) zrušte jenom v případě, že pracujete v privátním cloudu.
+  5. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Poté úspěšném vytvoření účtu úložiště se zobrazí oznámení.
 
-    ![Add storage account](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
+    ![Přidání účtu úložiště](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 
-4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
+4. Nově vytvořený účet úložiště se zobrazí na stránce **Konfigurace** v části **Účty úložiště**. Uložte nově vytvořený účet úložiště kliknutím na **Uložit**. Po zobrazení výzvy k potvrzení klikněte na **OK**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

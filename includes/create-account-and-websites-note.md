@@ -1,3 +1,9 @@
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activate your Visual Studio subscriber benefits</a> or <a href="/pricing/free-trial/" target="_blank">sign up for a free trial</a>.
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete si <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">aktivovat výhody předplatitele sady Visual Studio</a> nebo si <a href="/pricing/free-trial/" target="_blank">zaregistrovat bezplatnou zkušební verzi</a>.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

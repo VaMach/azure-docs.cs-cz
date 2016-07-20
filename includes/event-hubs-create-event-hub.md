@@ -1,26 +1,31 @@
-## Create an Event Hub
+## Vytvoření centra událostí
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. Přihlaste se k [portálu Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
 
-2. Click on **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
+2. Klikněte na **App Services**, potom na **Service Bus**, **Centrum událostí**, a **Rychle vytvořit**.
 
-	![][1]
+    ![][1]
 
-3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
+3. Zadejte název centra událostí, vyberte požadovanou oblast a potom klikněte na tlačítko **Create a new Event Hub** (Vytvořit nové centrum událostí).
 
-	![][2]
+    ![][2]
 
-4. If you didn't explicitly select an existing namespace in a given region, the portal creates a namespace for you (usually ***event hub name*-ns**). Click that namespace (in this example, **eventhub-ns**).
+4. Pokud jste v dané oblasti explicitně nevybrali existující obor názvů, portál vám vytvoří nový (většinou ***název_centra_událostí*-ns**). Klikněte na tento obor názvů (v tomto příkladu **centrum_událostí-ns**).
 
-	![][3]
+    ![][3]
 
-5. At the bottom of the page, click **Connection Information**. Click the copy button (shown in the following figure) to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+5. V dolní části stránky klikněte na **Informace o připojení**. Klikněte na tlačítko Kopírovat (zobrazené na následujícím obrázku) a zkopírujte do schránky řetězec připojení **RootManageSharedAccessKey**. Uložte tento připojovací řetězec k pozdějšímu použití v tomto kurzu.
 
-	![][4]
+    ![][4]
 
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+Centrum událostí je teď vytvořené a vy máte připojovací řetězce, které potřebujete k odesílání a příjmu událostí.
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+
+
+<!--HONumber=Jun16_HO2-->
+
+

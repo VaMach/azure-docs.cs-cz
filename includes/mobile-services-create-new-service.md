@@ -1,23 +1,29 @@
 
 
-Follow these steps to create a new mobile service.
+Podle těchto pokynů vytvořte novou mobilní službu.
 
-1.	Log into the [Azure classic portal](https://manage.windowsazure.com/). At the bottom of the navigation pane, click **+NEW**. Expand **Compute** and **Mobile Service**, then click **Create**.
+1.  Přihlaste se na [portál Azure Classic](https://manage.windowsazure.com/). Ve spodní části navigačního podokna klikněte na **+ NOVÝ**. Rozbalte položku **Vypočítat** a **Mobilní služba** a klikněte na **Vytvořit**.
 
-	![](./media/mobile-services-create-new-service/mobile-create.png)
+    ![](./media/mobile-services-create-new-service/mobile-create.png)
 
-	This displays the **Create a Mobile Service** dialog.
+    Zobrazí se dialogové okno **Create a Mobile Service** (Vytvořit mobilní službu).
 
-2.	In the **Create a Mobile Service** dialog, select **Create a free 20 MB SQL Database**, select **JavaScript** runtime, then type a subdomain name for the new mobile service in the **URL** textbox. Click the right arrow button to go to the next page.
+2.  V dialogovém okně **Create a Mobile Service** (Vytvořit mobilní službu) vyberte **Create a free 20 MB SQL Database** (Vytvořit zdarma 20MB SQL Database), vyberte modul runtime **JavaScript** a do textového pole **Adresa URL** zadejte název subdomény nové mobilní služby. Kliknutím na tlačítko se šipkou doprava přejděte na další stránku.
 
-	![](./media/mobile-services-create-new-service/mobile-create-page1.png)
+    ![](./media/mobile-services-create-new-service/mobile-create-page1.png)
 
-	This displays the **Specify database settings** page.
-	
-	>[AZURE.NOTE]As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
+    Zobrazí se stránka **Specify database settings** (Zadejte nastavení databáze).
+    
+    >[AZURE.NOTE]V rámci tohoto kurzu vytvoříte novou instanci a server služby SQL Database. Tuto novou databázi můžete znovu použít a spravovat ji jako jakoukoli jinou instanci služby SQL Database. Pokud už máte ve stejné oblasti, kterou používá nová mobilní služba, nastavenou databázi, můžete zvolit možnost **Použít stávající databázi** a potom tuto databázi vybrat. Databázi se nedoporučuje používat v jiné oblasti kvůli dalším nákladům na šířku pásma a vyšší latenci.
 
-3.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
-	![](./media/mobile-services-create-new-service/mobile-create-page2.png)
+3.  Do pole **Název** zadejte název nové databáze, potom zadejte **Přihlašovací jméno**, což je přihlašovací jméno správce pro nový server služby SQL Database, zadejte a potvrďte heslo a nakonec dokončete proces kliknutím na tlačítko se symbolem zaškrtnutí.
+    ![](./media/mobile-services-create-new-service/mobile-create-page2.png)
 
-You have now created a new mobile service that can be used by your mobile apps.
+Teď jste vytvořili novou mobilní službu, kterou můžou používat vaše mobilní aplikace.
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

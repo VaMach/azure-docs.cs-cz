@@ -1,3 +1,9 @@
 > [AZURE.SELECTOR]
-- [Linux cluster](../articles/hdinsight/hdinsight-hbase-tutorial-get-started-linux.md)
-- [Windows cluster](../articles/hdinsight/hdinsight-hbase-tutorial-get-started.md)
+- [Cluster s Linuxem](../articles/hdinsight/hdinsight-hbase-tutorial-get-started-linux.md)
+- [Cluster s Windows](../articles/hdinsight/hdinsight-hbase-tutorial-get-started.md)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

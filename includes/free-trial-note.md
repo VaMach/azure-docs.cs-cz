@@ -1,5 +1,11 @@
-> [AZURE.NOTE] <a name="note"></a>You need an Azure account to complete this tutorial:
+> [AZURE.NOTE] <a name="note"></a>K dokončení tohoto kurzu potřebujete mít účet Azure:
   >
-  > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  > + Můžete si [otevřít účet Azure zdarma](/pricing/free-trial/?WT.mc_id=A261C142F): Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. Až je vypotřebujete, můžete si účet nechat a dál používat bezplatné služby Azure, třeba Weby. Nikdy vám nebudeme účtovat žádné poplatky, pokud si sami nezměníte nastavení a nezačnete používat placené služby.
   >
-  > + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+  > + Můžete si [aktivovat výhody pro předplatitele MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Vaše předplatné MSDN vám každý měsíc dává kredity, které můžete použít k placení za služby Azure.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

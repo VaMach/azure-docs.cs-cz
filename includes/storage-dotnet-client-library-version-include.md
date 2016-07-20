@@ -1,4 +1,10 @@
->[AZURE.NOTE] We recommend that you use the latest version of the Azure Storage Client Library for .NET to complete this tutorial. The latest version of the library is 7.x, available for download on [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). The source for the client library is available on [GitHub](https://github.com/Azure/azure-storage-net).
+>[AZURE.NOTE] Při tomto kurzu doporučujeme používat nejnovější verzi klientské knihovny pro úložiště Azure pro .NET. Nejnovější verze knihovny je 7.x a můžete si ji stáhnout z webu [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). Zdroj klientské knihovny je dostupný na webu [GitHub](https://github.com/Azure/azure-storage-net).
 >
->If you are using the storage emulator, note that version 7.x of the client library requires at least version 4.3 of the storage emulator 
+>Pokud používáte emulátor úložiště, upozorňujeme, že verze 7.x klientské knihovny vyžaduje minimálně verzi 4.3 emulátoru úložiště. 
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

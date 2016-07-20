@@ -1,30 +1,36 @@
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project , open it by clicking **Show Package Details**, and choose **Google APIs**, if it is not already installed.
+1. Kliknutím na příslušnou ikonu na panelu nástrojů v Android Studiu nebo kliknutím na možnosti **Tools**(Nástroje)  -> **Android** -> **SDK Manager** v nabídce otevřete Android SDK Manager. Vyhledejte cílovou verzi sady SDK pro Android, kterou používá váš projekt, otevřete ji kliknutím na **Show Package Details** (Zobrazit podrobnosti balíčku) a vyberte možnost **Google APIs** (Rozhraní API Google), pokud ještě není nainstalovaná.
 
-2. Click the **SDK Tools** tab. If you haven't already installed Google Play Service, click **Google Play Services** as shown below. Then click **Apply** to install. 
+2. Klikněte na kartu **SDK Tools** (Nástroje SDK). Pokud jste ještě nenainstalovali služby Google Play, klikněte na položku **Google Play Services**, jak vidíte níže. Potom spusťte instalaci kliknutím na **Apply** (Použít). 
  
-	Note the SDK path, for use in a later step. 
+    Poznamenejte si cestu k sadě SDK, abyste ji mohli použít později. 
 
-   	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 
 
-3. Open the **build.gradle** file in the app directory.
+3. Otevřete soubor **build.gradle** v adresáři aplikace.
 
-	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Add this line under *dependencies*: 
+4. Do části *dependencies* přidejte tento řádek: 
 
-   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
+        compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
-5. Under *defaultConfig*, change *minSdkVersion* to 9.
+5. V části *defaultConfig* změňte hodnotu *minSdkVersion* na 9.
  
-6. Click the **Sync Project with Gradle Files** icon in the tool bar.
+6. Klikněte na ikonu **Sync Project with Gradle Files** (Synchronizovat projekt se soubory Gradle) na panelu nástrojů.
 
-7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+7. Otevřete soubor **AndroidManifest.xml** a ke značce *application* přidejte následující značku.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

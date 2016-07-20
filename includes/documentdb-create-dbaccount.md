@@ -1,36 +1,42 @@
-1.	Sign in to the online [Microsoft Azure portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**.
+1.  Přihlaste se k online [portálu Microsoft Azure](https://portal.azure.com/).
+2.  Na panelu vlevo klikněte na **Nový**, potom na **Data + úložiště** a nakonec na **Azure DocumentDB**.
 
-	![Screen shot of the Azure portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Snímek obrazovky portálu Azure při vytváření databáze, zvýrazněné tlačítko Nový, v okně Vytvořit možnost Data + úložiště a v okně Data + úložiště možnost Azure DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account.
+3. V okně **Nový účet DocumentDB** zadejte požadovanou konfiguraci účtu DocumentDB.
 
-	![Screen shot of the New DocumentDB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Snímek obrazovky s oknem Nový DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 
-	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+    - Do pole **ID** zadejte název pro identifikaci účtu DocumentDB.  Po ověření **ID** se v poli **ID** zobrazí zelená značka zaškrtnutí. Hodnota **ID** se v rámci identifikátoru URI stane názvem hostitele. **ID** může obsahovat pouze malá písmena, číslice a znak spojovníku a musí se skládat ze 3 až 50 znaků. Všimněte si, že ke zvolenému názvu koncového bodu se připojí text *documents.azure.com* a výsledkem bude koncový bod účtu DocumentDB.
 
-	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+    - V případě možnosti **Předplatné** vyberte požadované předplatné, se kterým chcete účet DocumentDB používat. Pokud má váš účet jenom jedno předplatné, bude ve výchozím nastavením vybrán tento účet.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+    - Ve **skupině prostředků** vyberte nebo vytvořte skupinu prostředků pro účet DocumentDB.  Ve výchozím nastavení bude vybrána existující skupina prostředků v rámci předplatného Azure.  Samozřejmě si můžete také vytvořit novou skupinu prostředků, do které účet DocumentDB přidáte. Další informace najdete v článku [Použití Portálu Azure ke správě prostředků Azure](resource-group-portal.md).
 
-	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
+    - K určení zeměpisného umístění, ve kterém chcete účet DocumentDB hostovat, použijte nabídku **Umístění**.   
 
-4.	Once the new DocumentDB account options are configured, click **Create**.  It can take a few minutes to create the DocumentDB account.  To check the status, you can monitor the progress on the Startboard.  
-	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
+4.  Po nakonfigurování možností nového účtu DocumentDB klikněte na **Vytvořit**.  Vytvoření účtu DocumentDB může několik minut trvat.  Pokud chcete zkontrolovat stav, můžete průběh sledovat na úvodním panelu.  
+    ![Snímek obrazovky s dlaždicí Vytváření na úvodním panelu – Online tvůrce databází](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
-	Or, you can monitor your progress from the Notifications hub.  
+    Popřípadě můžete průběh sledovat v centru oznámení.  
 
-	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
+    ![Rychlé vytváření databází – snímek obrazovky s centrem oznámení, na kterém je vidět vytváření účtu DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+    ![Snímek obrazovky s centrem oznámení, na kterém je vidět úspěšné vytvoření účtu DocumentDB a jeho nasazení do skupiny prostředků – oznámení Online tvůrce databází](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Settings** icon on the top command bar, then clicking the **Default Consistency** entry under **Feature** on the **All Settings** blade.
+5.  Účet DocumentDB je po vytvoření připravený k použití s výchozím nastavením na online portálu. Všimněte si, že výchozí konzistence účtu DocumentDB je nastavená na možnost **Relace**.  Výchozí nastavení konzistence můžete upravit kliknutím na ikonu **Nastavení** na horním příkazovém řádku a potom na položku **Výchozí konzistence**, která se nachází v okně **Všechna nastavení** v části **Funkce**.
 
-    ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
+    ![Snímek obrazovky okna Skupina prostředků – začátek vývoje aplikace](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Snímek obrazovky okna Úroveň konzistence – konzistence relace](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
+[Postup: Vytvoření účtu DocumentDB]: #Howto
+[Další kroky]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

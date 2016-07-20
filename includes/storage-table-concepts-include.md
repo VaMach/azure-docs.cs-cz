@@ -1,56 +1,40 @@
-## What is the Table Service
+## Co je služba Table?
 
-The Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
+Služba Azure Table Storage ukládá velké objemy strukturovaných dat. Služba je úložištěm dat typu NoSQL, které přijímá ověřená volání z cloudu Azure i z prostředí mimo něj. Tabulky Azure jsou ideální pro ukládání strukturovaných, nerelačních dat. Mezi běžná použití služby Table patří:
 
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
+-   Ukládání terabajtů strukturovaných dat, která můžou obsluhovat škálované webové aplikace
+-   Ukládání datových sad, které nevyžadují komplexní spojení, cizí klíče nebo uložené postupy a které můžete denormalizovat kvůli rychlému přístupu
+-   Rychle dotazování na data pomocí clusterovaného indexu
+-   Přístup k datům pomocí protokolu OData a dotazů LINQ s knihovnami .NET datové služby WCF
 
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
+Službu Table můžete použít k ukládání a dotazování obrovských sad strukturovaných, nerelačních dat a vaše tabulky se budou s rostoucími požadavky škálovat.
 
-## Table Service Concepts
+## Koncepty služby Table
 
-The Table service contains the following components:
+Služba Table obsahuje následující součásti:
 
 ![Table1][Table1]
 
--   **URL format:** Code addresses tables in an account using this
-    address format:   
+-   **Formát adresy URL:** Kód adresuje tabulky na účtu pomocí následujícího formátu adresy:   
     http://`<storage account>`.table.core.windows.net/`<table>`  
       
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
+    Tabulky Azure můžete adresovat přímo pomocí této adresy s protokolem OData. Další informace najdete na webu [OData.org][].
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+-   **Účet úložiště:** Veškerý přístup ke službě Azure Storage se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](storage-scalability-targets.md).
 
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. The number of tables that a 
-	storage account can contain is limited only by the 
-    storage account capacity limit.
+-   **Tabulka**: Tabulka je kolekcí entit. Tabulky nevynucují u entit schéma, což znamená, že jedna tabulka může obsahovat entity s různými sadami vlastností. Počet tabulek, které může účet úložiště obsahovat, je omezený pouze limitem kapacity účtu úložiště.
 
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
+-   **Entita**: Entita je sada vlastností, která se podobá řádku databáze. Entita může mít velikost až 1 MB.
 
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
+-   **Vlastnosti**: Vlastnost je pár název-hodnota. Každá entita může obsahovat až 252 vlastností pro ukládání dat. Každá entita má také tři systémové vlastnosti, které určují klíč oddílu, klíč řádku a časové razítko. Entity se stejným klíčem oddílu můžete dotazovat rychleji a můžete je vkládat nebo aktualizovat v atomických operacích. Klíč řádku entity je jedinečným identifikátorem v rámci oddílu.
 
-For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Podrobnosti o pojmenovávání tabulek a vlastnostech najdete v článku [Principy datového modelu služby Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

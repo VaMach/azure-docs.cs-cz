@@ -8,38 +8,43 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create an Azure SQL Database logical server
+## Vytvoření logického serveru Azure SQL Database
 
-Use the following steps in the Azure portal to create an Azure SQL Database logical server.
+Pomocí následujícího postupu můžete na portálu Azure vytvořit logický server Azure SQL Database.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new logical server)**
+1. Pokud nejste připojení, připojte se k [portálu Azure](http://portal.azure.com).
+2. Klikněte na **Nový**, zadejte **SQL Database** a potom klikněte na **SQL Database (nový logický server)**.
 
-      ![new logocal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![Nový logický server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
 
-3. Click SQL Database (new logical server).
+3. Klikněte na SQL Database (nový logický server).
 
-      ![new logccal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
+      ![Nový logický server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
    
-4. Click **Create** to open a template to create an empty logical server that can host single databases and elastic database pools.
+4. Kliknutím na **Vytvořit** otevřete šablonu pro vytvoření prázdného logického serveru, který může hostovat jednotlivé databáze a fondy elastické databáze.
 
-      ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![Nový logický server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Zadejte hodnoty následujících vlastností serveru:
 
- - Server name
- - Server admin login
- - Password
- - Subscription (only if have multiple subscriptions)
- - Resource group (new or existing)
- - Location
+ - Název serveru
+ - Přihlašovací jméno správce serveru
+ - Heslo
+ - Předplatné (jenom pokud máte více předplatných)
+ - Skupina prostředků (nová nebo stávající)
+ - Umístění
 
         ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Klikněte na **Vytvořit** a v oznamovací oblasti uvidíte, že se zahájilo nasazení.
 
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
+       ![Nový logický server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Než budete pokračovat na další krok, počkejte, až se nasazení dokončí.
 
        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

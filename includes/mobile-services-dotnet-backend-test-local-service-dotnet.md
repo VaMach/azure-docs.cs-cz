@@ -1,20 +1,25 @@
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
+Projekt mobilní služby, který stáhnete, vám umožní spustit novou mobilní službu přímo na místním počítači nebo virtuálním počítači. To usnadňuje ladění kódu služby před jeho publikací v Azure.
 
-In this section, you will test your new app against the mobile service running locally.
+V této části provedete testování nové aplikace v lokálně spuštěné mobilní službě.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1. Přejděte do umístění, kam jste uložili komprimované soubory projektu, rozbalte soubory do počítače a otevřete soubor řešení ve Visual Studiu.
 
-2. In the Solution Explorer in Visual Studio, right-click your service project, click **Set as StartUp Project**, and then press the **F5** key to build the project and start the mobile service locally.
+2. V Průzkumníku řešení v sadě Visual Studio klikněte pravým tlačítkem myši na svůj projekt služby, klikněte na **Nastavit jako spouštěný projekt** a potom stiskněte klávesu **F5**, aby se projekt sestavil a spustila se místní mobilní služba.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	A web page is displayed after the mobile service starts successfully.
+    Po úspěšném spuštění mobilní služby se zobrazí webová stránka.
 
-3. To test the store app, right-click your client app project, click **Set as StartUp Project**, and then press the **F5** key to rebuild the project and start the app.
+3. Pokud chcete testovat aplikaci pro Store, klikněte pravým tlačítkem myši na projekt klientské aplikace, klikněte na **Nastavit jako spouštěný projekt** a potom stiskněte klávesu **F5**, aby se projekt znovu sestavil a spustila se aplikace.
 
-	This starts the app, which connects to the local mobile service instance.	
+    Tím se spustí aplikace, která se připojí k místní instanci mobilní služby.   
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+4. V aplikaci zadejte smysluplný text, třeba _Dokončit kurz_, do části **Vložení úkolu** a klikněte na **Uložit**.
 
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    Tím odešlete do místní mobilní služby požadavek POST. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí pomocí mobilní služby a v druhém sloupci aplikace se zobrazí data.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,8 +1,14 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
+| Mobilní a nativní aplikace | Webové aplikace a webová rozhraní API | Přímá integrace s protokoly |
 | ----------------------- | ------------------------------- | --------------------- |
-| [Add Sign Up & Sign In to an iOS App](active-directory-b2c-devquickstarts-ios.md) | Add Sign Up & Sign In to an AngularJS SPA (Coming Soon) | [Register an Application](active-directory-b2c-app-registration.md) |
-| [Add Sign Up & Sign In to an Android App](active-directory-b2c-devquickstarts-android.md) | [Add Sign Up & Sign In to a .NET MVC App](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobile Apps with OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
-| Add Sign Up & Sign In to a Windows Universal App (Coming Soon) | [Add Sign Up & Sign In to a Node JS Web App](active-directory-b2c-devquickstarts-web-node.md) | [Web Apps with OpenID Connect](active-directory-b2c-reference-oidc.md) |
-| Add Sign Up & Sign In to a Windows Desktop App (Coming Soon) | [Secure a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md) | Single Page Apps with OpenID Connect (Coming Soon)
-|  | [Secure a NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | Server Side Daemons (Coming Soon) |
-|  | [Call a Web API from a .NET Web App](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Server Side Daemons (Coming Soon) |
+| [Přidání funkcí registrace a přihlášení do aplikace pro iOS](active-directory-b2c-devquickstarts-ios.md) | Přidání funkcí registrace a přihlášení do AngularJS SPA (už brzy) | [Registrace aplikace](active-directory-b2c-app-registration.md) |
+| [Přidání funkcí registrace a přihlášení do aplikace pro Android](active-directory-b2c-devquickstarts-android.md) | [Přidání funkcí registrace a přihlášení do aplikace .NET MVC](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobilní aplikace s OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
+| Přidání funkcí registrace a přihlášení do univerzální aplikace pro Windows (už brzy) | [Přidání funkcí registrace a přihlášení do webové aplikace NodeJS](active-directory-b2c-devquickstarts-web-node.md) | [Webové aplikace s OpenID Connect](active-directory-b2c-reference-oidc.md) |
+| Přidání funkcí registrace a přihlášení do aplikace pro počítače s Windows (už brzy) | [Zabezpečení webového rozhraní API .NET](active-directory-b2c-devquickstarts-api-dotnet.md) | jednostránkové aplikace s OpenID Connect (už brzy)
+|  | [Zabezpečení webového rozhraní API NodeJS](active-directory-b2c-devquickstarts-api-node.md) | Serverové procesy démon (už brzy) |
+|  | [Volání webového rozhraní API z webové aplikace .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Serverové procesy démon (už brzy) |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,28 +1,33 @@
-## Deploy the ARM template by using click to deploy
+## Nasazení šablony ARM pomocí metody Click to Deploy
 
-You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
+Můžete opakovaně používat předdefinované šablony ARM nahrané v úložišti GitHub, které udržuje Microsoft a které je otevřené celé komunitě. Tyto šablony se dají nasazovat přímo z webu GitHub nebo si je můžete stáhnout a upravit podle potřeby. Pokud chcete nasadit šablonu, která vytvoří síť VNet se dvěma podsítěmi, použijte následující postup.
 
-1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
+1. V prohlížeči přejděte na stránku [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Přejděte dolů v seznamu šablon a klikněte na šablonu **101-vnet-two-subnets**. Podívejte se do souboru **README.md** znázorněného níže.
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+    ![Soubor READEME.md na webu GitHub](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
-4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The figure below shows the values for our scenario.
+3. Klikněte na **Deploy to Azure** (Nasadit do Azure). V případě potřeby zadejte své přihlašovací údaje Azure. 
+4. V okně **Parametry** zadejte hodnoty, které chcete použít k vytvoření nové sítě VNet, a klikněte na **OK**. Následující obrázek znázorňuje hodnoty pro náš scénář.
 
-	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
+    ![Parametry šablony ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Klikněte na **Skupina prostředků** a vyberte skupinu prostředků, do které chcete přidat síť VNet, případně klikněte na **Vytvořit novou** a přidejte síť VNet do nové skupiny prostředků. Následující obrázek ukazuje nastavení skupiny prostředky pro novou skupinu prostředků s názvem **TestRG**.
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+    ![Skupina prostředků](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet.
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-5. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
-6. Click **Create** to create the VNet.
+5. V případě potřeby změňte nastavení **Předplatné** a **Umístění** sítě VNet.
+6. Pokud nechcete tuto síť VNet zobrazovat jako dlaždici v zobrazení **Úvodní panel**, zakažte možnost **Připnout na Úvodní panel**.
+5. Klikněte na **Právní podmínky**, přečtěte si podmínky a vyjádřete souhlas kliknutím na tlačítko **Koupit**. 
+6. Kliknutím na **Vytvořit** vytvořte síť VNet.
 
-	![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Dlaždice Odesílá se nasazení na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
+7. Až se nasazení provede, klikněte na **TestVNet** > **Všechna nastavení** > **Podsítě** a podívejte se na vlastnosti podsítě, jak vidíte níže.
 
-	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+    ![Vytvoření sítě VNet na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

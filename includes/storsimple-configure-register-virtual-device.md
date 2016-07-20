@@ -1,21 +1,26 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### To configure and register the virtual device
+#### Konfigurace a registrace virtuálního zařízení
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
+1. Vyberte virtuální zařízení StorSimple, které jste právě vytvořili, na stránce **Zařízení**. 
 
-2. Click **complete device setup**. This starts the Configure device wizard.
+2. Klikněte na **Complete device setup** (Provést nastavení zařízení). Spustí se průvodce Konfigurace zařízení.
 
-    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![Možnost Complete device setup (Provést nastavení zařízení) StorSimple na stránce Zařízení](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Enter the **Service Data Encryption Key** in the space provided.
+3. Do vyhrazeného prostoru zadejte **Service Data Encryption Key** (Šifrovací klíč dat služby).
 
-4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+4. Zadejte heslo Snapshot Manager a správce zařízení se zadanou délkou a nastavením.
 
-5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+5. Kliknutím na symbol zaškrtnutí dokončete počáteční konfiguraci a registraci virtuálního zařízení. 
 
-    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![Nastavení virtuálního zařízení StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+Po dokončení konfigurace a registrace zařízení přejde do režimu online. (Přechod zařízení do režimu online může několik minut trvat.)
 
-![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![Fáze režimu online virtuálního zařízení StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

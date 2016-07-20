@@ -1,29 +1,35 @@
-1. In the portal, go to **New**, then **Networking**. Select **Virtual network gateway** from the list.
+1. Na portálu klikněte na **Nový** a potom na **Sítě**. V seznamu vyberte **Brána virtuální sítě**.
 
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
+    ![Brána](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
 
-2. On the **Create virtual network gateway** blade **Name** field, name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object.
+2. V okně **Vytvořit bránu virtuální sítě** do pole **Název** zadejte název brány. Toto není název podsítě brány. Jde o název objektu brány.
  
-3. Next, choose the virtual network that you want to deploy this gateway to. Click the arrow to open the **Choose a virtual network** blade, and then click the VNet. In order for the VNet to appear in the list, it must already have a valid gateway subnet.
+3. Potom vyberte virtuální síť, ve které chcete bránu nasadit. Kliknutím na šipku otevřete okno **Výběr virtuální sítě** a potom klikněte na síť VNet. Aby se síť VNet zobrazila v seznamu, musí už mít platnou podsíť brány.
 
-4. Choose a public IP address. Click the arrow to open the **Choose public IP address blade**. Then click **Create New** to open the **Create public IP address blade**. Input a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. Click **OK** to save your changes.
+4. Zvolte veřejnou IP adresu. Kliknutím na šipku otevřete okno **Výběr veřejné IP adresy**. Potom kliknutím na **Vytvořit nový** otevřete okno **Vytvoření veřejné IP adresy**. Zadejte název veřejné IP adresy. Všimněte si, že IP adresa se nezadává. IP adresa se přiřadí dynamicky. Jde o název objektu IP adresy, ke kterému se adresa přiřadí. Kliknutím na tlačítko **OK** uložte změny.
 
-5. For **Gateway type**, select the Gateway type that is specified for your configuration.
+5. Jako **Typ brány** vyberte typ brány určený pro vaši konfiguraci.
 
-6. For **VPN type**, select the VPN type that is specified for your configuration.
+6. Jako **Typ VPN** vyberte typ VPN určený pro vaši konfiguraci.
 
-7. For **Subscription**, verify that the correct subscription is selected.
+7. V seznamu **Předplatné** zkontrolujte, jestli je vybrané správné předplatné.
 
-8. For **Resource Group**, the resource group is determined by the Virtual Network that you select.
+8. Skupina prostředků v části **Skupina prostředků** je určena vybranou virtuální sítí.
 
-9. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
+9. V seznamu **Umístění** zkontrolujte, jestli je vybrané umístění, ve kterém je vaše skupina prostředků i síť VNet.
 
-10. You can select **Pin to dashboard** if you want your gateway to appear on the dashboard. Click **Create** to begin creating the gateway. You'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. There is a lot going on in the background. You may need to refresh your portal page to see the completed status.
+10. Pokud chcete, aby se brána zobrazovala na řídicím panelu, můžete vybrat **Připnout na řídicí panel**. Kliknutím na **Vytvořit** zahajte proces vytváření brány. Na řídicím panelu se zobrazí dlaždice nasazování brány virtuální sítě. Vytváření brány může trvat až 45 minut. V pozadí probíhá množství různých procesů. K zobrazení stavu dokončení může být nutné obnovit stránku portálu.
 
-	
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
+    
+    ![Brána](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
 
-11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click on the connected device (your virtual network gateway) to view more information.
+11. Po vytvoření brány můžete zobrazením virtuální sítě na portálu zobrazit IP adresu, která jí byla přiřazena. Brána se zobrazí jako připojené zařízení. Kliknutím na připojené zařízení (bránu virtuální sítě) můžete zobrazit další informace.
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

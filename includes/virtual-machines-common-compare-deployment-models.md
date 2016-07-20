@@ -1,94 +1,100 @@
 
 
 
-## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
+## Výhody integrace výpočtů, sítě a úložiště v rámci modelu nasazení Azure Resource Manager
 
-The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
+Model nasazení Azure Resource Manager nabízí možnost snadného využívání předem připravených šablon aplikací nebo vytvoření šablony aplikace pro nasazení a správu výpočetních a síťových prostředků a prostředků úložiště v Azure. V této části se budeme zabývat výhodami nasazení prostředků prostřednictvím modelu nasazení Azure Resource Manager.
 
--	Complexity made simple -- Build, integrate, and collaborate on complicated applications that can include the entire gamut of Azure resources (such as Websites, SQL Databases, Virtual Machines, or Virtual Networks) from a shareable template file
--	Flexibility to have repeatable deployments for development, devOps, and system administrators when you use the same template file
--	Deep integration of VM Extensions (Custom Scripts, DSC, Chef, Puppet, etc.) with the Azure Resource Manager in a template file allows easy orchestration of in-VM setup configuration
--	Defining tags and the billing propagation of those tags for Compute, Network & Storage resources
--	Simple and precise organizational resource access management using Azure Role-Based Access Control (RBAC)
--	Simplified Upgrade/Update story by modifying the original template and then redeploying it
+-   Zjednodušená složitost – vytváření, integrace a spolupráce na složitých aplikacích, které můžou zahrnovat celou škálu prostředků Azure (například weby, databáze SQL, virtuální počítače nebo virtuální sítě) ze souboru šablony, který lze sdílet
+-   Flexibilita pro opakovatelná nasazení pro vývoj, DevOps a správce systému, když používáte stejný soubor šablony
+-   Těsná integrace rozšíření virtuálních počítačů (vlastní skripty, DSC, Chef, Puppet atd.) se správcem Azure Resource Manager v souboru šablony umožňuje snadnou orchestraci konfigurace při instalaci v rámci virtuálního počítače
+-   Definování značek a šíření fakturace těchto značek pro výpočetní a síťové prostředky a prostředky úložiště
+-   Jednoduchá a přesná správa přístupu k prostředkům organizace pomocí řízení přístupu na základě role v Azure (RBAC)
+-   Zjednodušený scénář upgradu nebo aktualizace pomocí úpravy původní šablony a jejího opakovaného nasazení
 
 
-## Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
+## Rozvoj výpočetních a síťových rozhraní API a rozhraní API úložiště v rámci správce Azure Resource Manager
 
-In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
+Kromě výše uvedených výhod se významně zvýšil výkon vydaných rozhraní API:
 
--	Enabling massive and parallel deployment of Virtual Machines
--	Support for 3 Fault Domains in Availability Sets
--	Improved Custom Script extension that allows specification of scripts from any publicly accessible custom URL
-- Integration of Virtual Machines with the Azure Key Vault for highly secure storage and private deployment of secrets from [FIPS-validated](http://wikipedia.org/wiki/FIPS_140-2) [Hardware Security Modules](http://wikipedia.org/wiki/Hardware_security_module)
--	Provides the basic building blocks of networking through APIs to enable customers to construct complicated applications that include Network Interfaces, Load Balancers, and Virtual Networks
--	Network Interfaces as a new object allows complicated network configuration to be sustained and reused for Virtual Machines
--	Load Balancers as a first-class resource enables IP Address assignments
--	Granular Virtual Network APIs allow you to simplify the management of individual Virtual Networks
+-   Možnost masivního a paralelního nasazení služeb Virtual Machines
+-   Podpora pro 3 domény selhání ve skupinách dostupnosti
+-   Vylepšené rozšíření pro vlastní skripty, které umožňuje specifikaci skriptů z jakékoli veřejně přístupné vlastní adresy URL
+- Integrace služby Virtual Machines se službou Azure Key Vault pro vysoce zabezpečená úložiště a privátní nasazení tajných údajů z [hardwarových zabezpečovacích modulů](http://wikipedia.org/wiki/Hardware_security_module) [ověřených algoritmem FIPS](http://wikipedia.org/wiki/FIPS_140-2)
+-   Poskytuje základní stavební bloky sítě prostřednictvím rozhraní API, aby zákazníkům umožnil vytvoření složitých aplikací, které obsahují síťová rozhraní, nástroje pro vyrovnávání zatížení a virtuální sítě
+-   Síťová rozhraní jako nový objekt umožňují, aby složitější konfigurace sítí byly trvalejší a služba Virtual Machines je využívala opakovaně
+-   Nástroje pro vyrovnávání zatížení jako prostředek první třídy, který umožňuje přiřazení IP adres
+-   Podrobná rozhraní API služeb Virtual Network umožňují zjednodušit správu jednotlivých služeb Virtual Network
 
-## Conceptual differences with the introduction of new APIs
+## Koncepční rozdíly přicházející se zavedením nových rozhraní API
 
-In this section, we will walk through some of the most important conceptual differences between the XML based APIs available today and JSON based APIs available through the Azure Resource Manager for Compute, Network & Storage.
+V této části probereme několik nejdůležitějších koncepčních rozdílů mezi rozhraními API založenými na XML, která jsou dnes dostupná, a rozhraními API založenými na JSON, která jsou dostupná prostřednictvím správce Azure Resource Manager pro výpočty, sítě a úložiště.
 
- Item | Azure Service Management (XML-based)	| Compute, Network & Storage Providers (JSON-based)
+ Položka | Azure Service Management (na základě XML)    | Poskytovatelé výpočtů, sítí a úložišť (na základě JSON)
  ---|---|---
-| Cloud Service for Virtual Machines |	Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing.	| Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
-| Availability Sets	| Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. | Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
-| Affinity Groups |	Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
-| Load Balancing	| Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. | The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. [Read more.](../articles/resource-groups-networking.md) |
-|Virtual IP Address	| Cloud Services will get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer.	| Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
-|Reserved IP Address|	You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky.	| Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
-|Public IP Address (PIP) per VM	| Public IP Addresses can also associated to a VM directly. | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
-|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
-|DNS Name| A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. | DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN will be in the following format - `<domainlabel>.<region>.cloudapp.azure.com`. |
-|Network Interfaces	| Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. | Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. |
+| Cloudová služba pro službu Virtual Machines |  Cloudová služba byla kontejnerem pro uložení virtuálních počítačů, která vyžadovala dostupnost z platformy a vyrovnávání zatížení. | Cloudová služba už není objektem vyžadovaným pro vytvoření virtuálního počítače pomocí nového modelu. |
+| Skupiny dostupnosti | Dostupnost pro platformu byla označovaná konfigurací stejného parametru „AvailabilitySetName“ ve službě Virtual Machines. Maximální počet domén selhání byl 2. | Skupina dostupnosti je prostředek vystavený poskytovatelem Microsoft.Compute. Služby Virtual Machines, které vyžadují vysokou dostupnost, musejí být součástí skupiny dostupnosti. Maximální počet domén selhání je teď 3. |
+| Skupiny vztahů | Skupiny vztahů byly nezbytné k vytváření služeb Virtual Network. Se zavedením regionálních služeb Virtual Network přestaly být nutné. |Abychom to zjednodušili, koncept skupin vztahů neexistuje v rozhraních API, které se vystavují prostřednictvím správce Azure Resource Manager. |
+| Vyrovnávání zatížení    | Vytvoření cloudové služby nabízí implicitní nástroj pro vyrovnávání zatížení nasazených služeb Virtual Machines. | Nástroj pro vyrovnávání zatížení je prostředek vystavený poskytovatelem Microsoft.Network. Primární síťové rozhraní služeb Virtual Machines, které potřebuje vyrovnávání zatížení, musí odkazovat na nástroj pro vyrovnávání zatížení. Nástroje pro vyrovnávání zatížení můžou být interní nebo externí. [Další informace.](../articles/resource-groups-networking.md) |
+|Virtuální IP adresa | Služby Cloud Services získají výchozí VIP (virtuální IP adresu) po přidání virtuálního počítače do cloudové služby. Virtuální IP adresa je adresa přidružená k implicitnímu nástroji pro vyrovnávání zatížení.   | Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. Dynamické veřejné IP adresy můžete přiřadit k nástroji pro vyrovnávání zatížení. Veřejné IP adresy můžete zabezpečit pomocí skupin zabezpečení. |
+|Vyhrazená IP adresa|   IP adresu můžete v Azure vyhradit a přidružit ji ke cloudové službě, abyste zajistili, že IP adresa zůstane dynamická.   | Veřejnou IP adresu můžete vytvořit v režimu „Statická“ a bude nabízet stejné funkce jako „vyhrazená IP adresa“. Statické veřejné IP adresy můžete k nástroji pro vyrovnávání zatížení přiřadit jenom teď. |
+|Veřejná IP adresa (PIP) na virtuální počítač | Veřejné IP adresy můžete k virtuálnímu počítači přiřadit i přímo. | Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. Abyste právě teď získali veřejnou IP adresu na virtuální počítač, můžete k síťovému rozhraní přiřadit jenom dynamické veřejné IP adresy. |
+|Koncové body| Vstupní koncové body je třeba konfigurovat na virtuálním počítači, aby se pro určité porty staly otevřeným připojením. Jeden z běžných režimů připojení k virtuálním počítačům se provádí nastavením vstupní koncových bodů. | Příchozí pravidla NAT můžete konfigurovat na nástrojích pro vyrovnávání zatížení, abyste dosáhli stejné možnosti povolování koncových bodů na konkrétních portech za účelem připojení k virtuálním počítačům. |
+|Název DNS| Cloudová služba by získala implicitní, globálně jedinečný název DNS. Například: `mycoffeeshop.cloudapp.net`. | Názvy DNS jsou volitelné parametry, které můžete nastavit na prostředku veřejné IP adresy. Plně kvalifikovaný název bude v následujícím formátu – `<domainlabel>.<region>.cloudapp.azure.com`. |
+|Síťová rozhraní | Primární a sekundární síťové rozhraní a jeho vlastnosti byly definované jako síťová konfigurace virtuálního počítače. | Síťové rozhraní je prostředek vystavený poskytovatelem Microsoft.Network. Životní cyklus síťového rozhraní není vázaný na virtuální počítač. |
 
-## Getting Started with Azure Templates for Virtual Machines
+## Začínáme s šablonami Azure pro službu Virtual Machines
 
-You can get started with the Azure Templates by leveraging the various tools that we have for developing and deploying to the platform.
+Práci se šablonami Azure můžete zahájit využitím různých nástrojů, které máme pro vývoj a nasazení na platformu.
 
-### Azure portal
+### Portál Azure
 
-The Azure portal will continue to have the option to deploy Virtual Machines with the classic deployment model and Virtual Machines with the Resource Manager deployment model simultaneously. The Azure portal will also allow custom template deployments.
+Portál Azure bude stále nabízet možnost pro nasazení služby Virtual Machines s klasickým modelem nasazení a služby Virtual Machines s modelem nasazení Resource Manageru současně. Portál Azure také umožní i nasazení vlastní šablony.
 
-### Azure PowerShell
+### Azure Powershell
 
-Azure PowerShell will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode.  AzureResourceManager mode will now also contain the cmdlets to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/powershell-azure-resource-manager.md).
+Azure PowerShell bude mít dva režimy nasazení – režim **AzureServiceManagement** a režim **AzureResourceManager**.  Režim AzureResourceManager bude teď obsahovat i rutiny pro správu služeb Virtual Machines, Virtual Network a účtů služby Storage. Další informace si můžete přečíst [tady](../articles/powershell-azure-resource-manager.md).
 
 ### Azure CLI
 
-The Azure Command-line Interface (Azure CLI) will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode. The AzureResourceManager mode will now also contain commands to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/xplat-cli-azure-resource-manager.md).
+Rozhraní příkazového řádku Azure (Azure CLI) bude mít dva režimy nasazení – režim **AzureServiceManagement** a režim **AzureResourceManager**. Režim AzureResourceManager bude teď obsahovat i příkazy pro správu služeb Virtual Machines, Virtual Network a účtů služby Storage. Další informace si můžete přečíst [tady](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
-With the latest Azure SDK release for Visual Studio, you can author and deploy Virtual Machines and complex applications right from Visual Studio. Visual Studio offers the ability to deploy from a pre-built list of templates or start from an empty template.
+V nejnovější verzi sady Azure SDK pro sadu Visual Studio můžete vytvářet a nasazovat služby Virtual Machines a složité aplikace přímo ze sady Visual Studio. Visual Studio nabízí možnost nasazení ze seznamu předdefinovaných šablon nebo zahájení z prázdné šablony.
 
-### REST APIs
+### Rozhraní REST API
 
-You can find the detailed REST API documentation for the Compute, Network & Storage Resource Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Podrobnou dokumentaci k REST API pro poskytovatele výpočetních a síťových prostředků a prostředků úložiště najdete [tady](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-## Frequently Asked Questions
+## Nejčastější dotazy
 
-**Can I create a Virtual Machine using the new Azure Resource Manager to deploy in a Virtual Network or Storage Account created using the Azure Service Management APIs?**
+**Můžu vytvořit virtuální počítač pomocí nového správce Azure Resource Manager, abych ho nasadil ve službě Virtual Network nebo účtu služby Storage, který byl vytvořený pomocí rozhraní Azure Service Management API?**
 
-This is not supported at the moment. You cannot deploy using the new Azure Resource Manager APIs to deploy a Virtual Machine into a Virtual Network that was created using the Service Management APIs.
+Toto se aktuálně nepodporuje. Pomocí nového správce Azure Resource Manager nemůžete nasadit službu Virtual Machine ve službě Virtual Network ve virtuální síti, která byla vytvořena pomocí rozhraní API pro správu služeb.
 
-**Can I create a Virtual Machine using the new Azure Resource Manager APIs from a user image that was created using the Azure Service Management APIs?**
+**Můžu vytvořit virtuální počítač pomocí nových rozhraní správce Azure Resource Manager z uživatelského image, který byl vytvořený pomocí rozhraní Azure Service Management API?**
 
-This is not supported at the moment. However, you can copy the VHD files from a Storage Account that was created using the Service Management APIs and copy it to a new account created using the using the new Azure Resource Manager APIs.
+Toto se aktuálně nepodporuje. Přesto můžete kopírovat soubory virtuálního pevného disku z účtu služby Storage, který byl vytvořený pomocí rozhraní API pro správu služeb, na nový účet vytvořený pomocí nových rozhraní API správce Azure Resource Manager.
 
-**What is the impact on the quota for my subscription?**
+**Jaký bude dopad na kvótu pro moje předplatné?**
 
-The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts created through the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each subscription gets new quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../articles/azure-subscription-service-limits.md).
+Kvóty pro služby Virtual Machines, Virtual Network a účty služby Storage vytvořené pomocí nových rozhraní API správce Azure Resource Manager jsou oddělené od vašich aktuálních kvót. Každé předplatné získá nové kvóty pro vytvoření prostředků pomocí nových rozhraní API. Další informace o dodatečných kvótách najdete [tady](../articles/azure-subscription-service-limits.md).
 
-**Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
+**Můžu dál používat své automatizované skripty pro zřizování služeb Virtual Machines, Virtual Network, účtů služby Storage atd. prostřednictvím nových rozhraní API správce Azure Resource Manager?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
+Všechny vámi vytvořené automatizace a skripty budou fungovat v existujících službách Virtual Machines a Virtual Network, které byly vytvořeny v rámci režimu Azure Service Management. Skripty je však potřeba aktualizovat, aby používaly nové schéma pro vytváření stejných prostředků prostřednictvím nového režimu správce Azure Resource Manager.
 
-**Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
+**Můžu služby Virtual vytvořené pomocí nových rozhraní API správce Azure Resource Manager připojit ke svému okruhu Express Route?**
 
-This is not supported at the moment. You cannot connect the Virtual Networks created using the new Azure Resource Manager APIs with an Express Route Circuit. This will be supported in the future.
+Toto se aktuálně nepodporuje. Služby Virtual Network vytvořené pomocí nových rozhraní API správce Azure Resource Manager nemůžete připojit ke svému okruhu Express Route. Tato funkčnost bude podporovaná v budoucnu.
 
-**Where can I find examples of Azure Resource Manager templates?**
+**Kde najdu příklady šablon správce Azure Resource Manager?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+Ucelenou sadu úvodních šablon najdete v [rychlých šablonách správce Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

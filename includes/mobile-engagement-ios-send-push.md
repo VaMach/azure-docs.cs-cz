@@ -1,57 +1,62 @@
-###Grant access to your Push Certificate to Mobile Engagement
+###Udělení přístupu službě Mobile Engagement k vašemu certifikátu push
 
-To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your certificate. This is done by configuring and entering your certificate into the Mobile Engagement portal. Make sure you obtain your .p12 certificate as explained in [Apple's documentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala nabízená oznámení, musíte jí udělit přístup k vašemu certifikátu. To provedete tak, že svůj certifikát nakonfigurujete a zadáte na portál Mobile Engagement. Musíte nejdřív získat certifikát .p12 podle pokynů v [dokumentaci od společnosti Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
+1. Přejděte na portál Mobile Engagement. Zkontrolujte, jestli pracujete ve správné aplikaci, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
 
-	![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
+2. Klikněte na stránku **Nastavení** na portálu Engagement. Tam klikněte do části **Nativní oznámení**, abyste mohli nahrát svůj certifikát .p12:
 
-	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
-3. Select your p12, upload it and type your password:
+3. Vyberte svůj soubor .p12, nahrajte ho a zadejte heslo:
 
-	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Odeslání oznámení do vaší aplikace
 
-We will now create a simple Push Notification campaign that will send a push to our app:
+Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat oznámení do vaší aplikace:
 
-1. Navigate to the **Reach** tab in your Mobile Engagement portal.
+1. Na portálu Mobile Engagement přejděte na kartu **Reach**.
 
-2. Click **New Announcement** to create your push campaign
+2. Kliknutím na **Nové oznámení** vytvořte kampaň nabízených oznámení
 
-	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
-3. Setup the first fields of your campaign:
+3. Nastavte první pole své kampaně:
 
-	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-	- 	Provide a **Name** for your campaign 
-	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
-	- 	In the notification text, type first the **Title** which will be the first line in the push.
-	- 	Then type your **Message** which will be the second line
+    -   Zadejte **Název** kampaně. 
+    -   U položky **Delivery time** (Čas doručení) vyberte **Out of app only** (Pouze mimo aplikaci): Jedná se o jednoduchý typ nabízeného oznámení Apple, který obsahuje text.
+    -   Do textu oznámení nejdřív zadejte **Název**, který se zobrazí na prvním řádku nabízeného oznámení.
+    -   Potom zadejte text do pole **Zpráva**, který se zobrazí na druhém řádku.
 
-4. Scroll down, and in the content section select **Notification only**
+4. Přejděte dolů a v části obsahu vyberte **Pouze oznámení**
 
-	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
+5. Tím jste dokončili nastavení nejzákladnější kampaně. Teď přejděte dolů a kliknutím na tlačítko **Vytvořit** kampaň nabízených oznámení uložte. 
 
-6. Finally - click on **Activate** to send push notification. 
+6. Nakonec kliknutím na **Aktivovat** odešlete nabízené oznámení. 
 
-	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-7. You will be able receive the notification on your iOS device in the notification center like the following:
+7. Oznámení budete moct na svém zařízení s iOS přijmout v centru oznámení, jako třeba tohle:
 
-	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+    ![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
 
-8. If you have an Apple Watch paired with this iOS device then you will see the notification on your Apple Watch:
+8. Pokud máte s tímto zařízením s iOS spárované zařízení Apple Watch, uvidíte oznámení na zařízení Apple Watch:
 
-	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+    ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
+
+ 
 
  
 
- 
+
+<!--HONumber=Jun16_HO2-->
+
+

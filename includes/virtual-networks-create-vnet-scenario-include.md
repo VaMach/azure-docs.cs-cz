@@ -1,12 +1,17 @@
-## Scenario
+## Scénář
 
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+V tomto dokumentu budeme používat následující scénář, abychom vám lépe předvedli, jak vytvořit síť VNet a podsítě.
 
-![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+![Scénář sítě VNet](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+V tomto scénáři vytvoříte virtuální síť VNet s názvem **TestVNet** s vyhrazeným blokem CIDR **192.168.0.0./16**. Vaše síť VNet bude obsahovat tyto podsítě: 
 
-- **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
-- **BackEnd**, using **192.168.2.0/24** as its CIDR block.
+- **FrontEnd** s blokem CIDR **192.168.1.0/24**
+- **BackEnd** s blokem CIDR **192.168.2.0/24**
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

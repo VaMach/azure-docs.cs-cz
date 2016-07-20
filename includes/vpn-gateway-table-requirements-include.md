@@ -1,12 +1,17 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+Následující tabulka uvádí požadavky na brány sítě VPN založené na zásadách a na trasách. Tato tabulka platí pro model nasazení Resource Manager i pro klasický model. V případě klasického modelu jsou brány sítě VPN založené na zásadách stejné jako statické brány a brány založené na trasách odpovídají dynamickým branám.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+|   | **Základní brána sítě VPN založená na zásadách** | **Základní brána sítě VPN založená na trasách** | **Standardní brána sítě VPN založená na trasách**   | **Vysoce výkonná brána sítě VPN založená na trasách** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+|    **Připojení typu site-to-site… (S2S)**  | Konfigurace sítě VPN založené na zásadách        | Konfigurace sítě VPN založené na trasách  | Konfigurace sítě VPN založené na trasách     | Konfigurace sítě VPN založené na trasách    |
+| **Připojení typu point-to-site (P2S**)      | Nepodporuje se   | Podporuje se (může existovat vedle připojení S2S)  | Podporuje se (může existovat vedle připojení S2S)  | Podporuje se (může existovat vedle připojení S2S) |
+| **Metoda ověřování**                 |    Předsdílený klíč  | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S |
+| **Maximální počet připojení S2S**       | 1                              | 10                                                                    | 10                                | 30                               |
+| **Maximální počet připojení P2S**       | Nepodporuje se                  | 128                                                                   | 128                               | 128                              |
+|**Podpora aktivního směrování (BGP)**           | Nepodporuje se                  | Nepodporuje se                                                         | Nepodporuje se                     | Nepodporuje se                    |
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

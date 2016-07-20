@@ -1,31 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To connect through the serial console
+#### Připojení přes sériovou konzolu
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Připojte k zařízení sériový kabel (přímo nebo prostřednictvím sériového adaptéru USB).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Otevřete **Ovládací panely** a potom **Správce zařízení**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Najděte port COM, jak znázorňuje následující obrázek.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Připojení prostřednictvím sériové konzoly](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. Spusťte PuTTY. 
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. V pravém podokně změňte **Typ připojení** na **Sériové**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. V pravém podokně zadejte odpovídající port COM. Ujistěte se, že jsou sériové konfigurační parametry nastavené takto:
+  - Rychlost: 115 200
+  - Datové bity: 8
+  - Stop-bity: 1
+  - Parita: žádná
+  - Řízení toku: žádné
 
-    These settings are shown in the following illustration.
+    Tato nastavení znázorňuje následující obrázek.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![Nastavení PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE] Pokud výchozí nastavení řízení toku nefunguje, zkuste nastavit řízení toku XON/XOFF.
 
-7. Click **Open** to start a serial session.
+7. Kliknutím na **Otevřít** spustíte sériovou relaci.
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

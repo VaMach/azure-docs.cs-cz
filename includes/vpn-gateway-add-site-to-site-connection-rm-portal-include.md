@@ -1,24 +1,30 @@
-1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
+1. Vyhledejte bránu virtuální sítě a kliknutím na **Všechna nastavení** otevřete okno **Nastavení**.
 
-2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. V okně **Nastavení** klikněte na **Připojení** a potom kliknutím na **Přidat** v horní části okna otevřete okno **Přidat připojení**.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+    ![Vytvoření připojení typu site-to-site](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. On the **Add connection** blade, **Name** your connection. 
+3. V okně **Přidat připojení** zadejte **Název** připojení. 
 
-4. For **Connection type**, select **Site-to-site(IPSec)**.
+4. U položky **Typ připojení**, vyberte **Site-to-site (IPSec)**.
 
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
+5. Nastavení **Brána virtuální sítě** má pevnou hodnotu, protože právě z této brány se připojujete.
 
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
+6. U položky **Brána místní sítě** klikněte na **Zvolit bránu místní sítě** a vyberte bránu místní sítě, kterou chcete použít. 
 
-7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
+7. Hodnota položky **Sdílený klíč** musí odpovídat hodnotě, kterou používáte pro místní zařízení VPN. Pokud zařízení VPN v místní síti neposkytuje sdílený klíč, můžete si ho vymyslet a zadat ho tady a na svém místním zařízení. Důležité je, aby se tyto klíče shodovaly.
 
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
+8. Hodnoty položek **Předplatné**, **Skupina prostředků** a **Umístění** jsou pevné.
 
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
+9. Vytvořte připojení kliknutím na **OK**. Na obrazovce bude blikat text *Vytváří se připojení*.
 
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+10. Po vytvoření se připojení zobrazí v okně **Připojení** pro vaši bránu.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+    ![Vytvoření připojení typu site-to-site](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

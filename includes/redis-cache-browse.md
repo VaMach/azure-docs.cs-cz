@@ -1,13 +1,18 @@
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
+K mezipamětím můžete na [portálu Azure](https://portal.azure.com) získat přístup v okně **Procházet**.
 
-![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Okno Procházet mezipaměti Azure Redis](media/redis-cache-browse/redis-cache-browse.png)
 
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
+Své mezipaměti zobrazíte kliknutím na **Procházet > Mezipaměti Redis**. Pokud jste nedávno přešli na některou mezipaměť Redis, můžete přímo v seznamu kliknout na **Mezipaměti Redis Cache**, aniž byste museli kliknout na **Procházet**.
 
-Select the desired cache to view the properties for that cache.
+Výběrem požadované mezipaměti zobrazíte její podrobnosti.
 
-![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
+![Seznam mezipamětí Azure Redis v okně Procházet](media/redis-cache-browse/redis-caches.png)
 
-Click **Settings** or **All settings** to view and configure your cache.
+Pokud chcete určitou mezipaměť zobrazit a nakonfigurovat, klikněte na **Nastavení** nebo **Všechna nastavení**.
 
-![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Všechna nastavení mezipaměti Redis](media/redis-cache-browse/redis-cache-blade.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+
