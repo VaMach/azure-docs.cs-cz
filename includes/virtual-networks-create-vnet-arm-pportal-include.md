@@ -1,36 +1,41 @@
-## How to create a VNet in the Azure portal
+## Vytvoření virtuální sítě VNet na portálu Azure
 
-To create a VNet based on the scenario above by using the Azure preview portal, follow the steps below.
+Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře vytvořit virtuální síť VNet, použijte následující postup.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
+1. V prohlížeči přejděte na http://portal.azure.com a v případě potřeby se přihlaste pomocí účtu Azure.
+2. Klikněte na **NOVÝ** > **Sítě** > **Virtuální síť**, v seznamu **Vyberte model nasazení** vyberte **Resource Manager** a potom klikněte na **Vytvořit**, jak vidíte na obrázku níže.
 
-	![Create VNet in Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+    ![Vytvoření virtuální sítě VNet na portálu Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
-3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
+3. V okně **Vytvořit virtuální síť** nakonfigurujte nastavení sítě VNet, jak znázorňuje následující obrázek.
 
-	![Create virtual network blade](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+    ![Okno Vytvořit virtuální síť](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md/#resource-groups).
+4. Klikněte na **Skupina prostředků** a vyberte skupinu prostředků, do které chcete přidat síť VNet, případně klikněte na **Vytvořit novou** a přidejte síť VNet do nové skupiny prostředků. Následující obrázek ukazuje nastavení skupiny prostředky pro novou skupinu prostředků s názvem **TestRG**. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/resource-group-overview.md/#resource-groups).
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+    ![Skupina prostředků](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
+5. V případě potřeby změňte nastavení **Předplatné** a **Umístění** sítě VNet. 
 
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
+6. Pokud nechcete tuto síť VNet zobrazovat jako dlaždici v zobrazení **Úvodní panel**, zakažte možnost **Připnout na Úvodní panel**. 
 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+7. Klikněte na **Vytvořit** a všimněte si dlaždice s názvem **Vytváří se virtuální síť**, znázorněné na následujícím obrázku.
 
-	![Creating virtual network tile](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+    ![dlaždice Vytváří se virtuální síť](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-8. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add** as seen below.
+8. Počkejte na vytvoření sítě VNet a potom v okně **Virtuální síť** klikněte na **Všechna nastavení** > **Podsítě** > **Přidat**, jak vidíte níže.
 
-	![Adding subnet in the Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+    ![Přidání podsítě na portálu Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
-9. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
+9. Zadejte nastavení podsítě pro podsíť *BackEnd*, jak znázorňuje následující obrázek, a klikněte na **OK**. 
 
-	![Subnet settings](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+    ![Nastavení podsítě](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-10. Notice the list of subnets, as shown in the figure below.
+10. Všimněte si seznamu podsítí znázorněného na následujícím obrázku.
 
-	![List of subnets in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+    ![Seznam podsítí v síti VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,4 +1,10 @@
 
 
-> [AZURE.WARNING] HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Please be sure to delete your cluster after you have finished using it. For information on deleting a cluster, see [How to delete an HDInsight cluster](../articles/hdinsight/hdinsight-delete-cluster.md).
+> [AZURE.WARNING] Clustery HDInsight se fakturují za minutu bez ohledu na to, jestli je používáte, nebo ne. Až přestanete cluster používat, nezapomeňte ho odstranit. Informace o odstranění clusteru najdete v tématu [Odstranění clusteru služby HDInsight](../articles/hdinsight/hdinsight-delete-cluster.md).
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

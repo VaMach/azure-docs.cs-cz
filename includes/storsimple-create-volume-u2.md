@@ -1,45 +1,51 @@
 <!--author=SharS last changed: 02/29/2016-->
 
-#### To create a volume
+#### Vytvoření svazku
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. Na stránce **Rychlý start** zařízení klikněte na **Přidat svazek**. Spustí se průvodce přidáním svazku.
 
-2. In the Add a volume wizard, under **Basic Settings**:
+2. V průvodci přidáním svazku v části **Základní nastavení** proveďte tyto kroky:
 
-	4. Type a **Name** for your volume.
-	5. On the drop-down list, select the **Usage Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**. 
-	
-		A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device will check for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device. 
+    4. Zadejte **Název** svazku.
+    5. V rozevíracím seznamu **Typ použití** vyberte typ použití svazku. Pro úlohy, které vyžadují místní záruky, nízkou latenci a vyšší výkon, vyberte typ svazku **Místně vázaný**. Pro ostatní typy dat vyberte typ svazku **Vrstvený**. Pokud tento svazek používáte k archivaci dat, zaškrtněte políčko **Použít tento svazek pro archivní data s méně častým přístupem**. 
+    
+        Místně vázaný svazek je tlustě zřízený a zajišťuje, že primární data uložená ve svazku zůstanou uložená v místním zařízení a nebudou distribuována do cloudu.  Pokud vytvoříte místně vázaný svazek, zařízení bude kontrolovat dostupný prostor v místních vrstvách a zřídí jejich pomocí svazek požadované velikosti. Při operaci vytváření místně vázaného svazku mohou být existující data ze zařízení distribuována do cloudu a vytvoření svazku může trvat dlouhou dobu. Celková doba závisí na velikosti zřizovaného svazku, dostupné šířce pásma sítě a datech uložených v zařízení. 
 
-		A tiered volume is thinly provisioned and can be created very quickly. If you are using the tiered volume for archival data, selecting **Use this volume for less frequently accessed archival data** changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+        Vrstvený svazek je tence zřízený a můžete ho vytvořit velmi rychle. Pokud používáte vrstvený svazek k uchovávání archivních dat, výběrem možnosti **Použít tento svazek pro archivní data s méně častým přístupem** můžete změnit velikost deduplikačního bloku dat pro svazek na 512 kB. Pokud políčko není zaškrtnuté, příslušný vrstvený svazek bude používat velikost bloku dat 64 kB. Větší velikost deduplikačního bloku dat umožňuje zařízení urychlit přenos velkých objemů archivních dat do cloudu.
 
-	3. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+    3. Zadejte hodnotu **Zřízená kapacita** svazku. Poznamenejte si kapacitu dostupnou na základě vybraného typu svazku. Zadaná velikost svazku nesmí překročit velikost dostupného místa.
 
-		You can provision locally pinned volumes up to 8 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 20 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes will impact the space available for provisioning tiered volumes. Therefore, if you create a locally pinned volume, space available for creation of tiered volumes will be reduced. Similarly, if a tiered volume is created, the available space for creation of  locally pinned volumes will be reduced. 
+        Zařízení 8100 umožňuje zřizovat místně vázané svazky o velikosti až 8 TB a vrstvené svazky o velikosti až 200 TB. Větší zařízení 8600 umožňuje zřizovat místně vázané svazky o velikosti až 20 TB a vrstvené svazky o velikosti až 500 TB. Protože k hostování pracovní sady vrstvených svazků je vyžadováno volné místo v zařízení, vytváření místně vázaných svazků ovlivní volné místo dostupné ke zřizování vrstvených svazků. Pokud vytvoříte místně vázaný svazek, zmenší se dostupné volné místo potřebné k vytváření vrstvených svazků. A podobně, pokud vytvoříte vrstvený svazek, zmenší se dostupné volné místo potřebné k vytváření místně vázaných svazků. 
 
-		If you provision a locally pinned volume of 8 TB (maximum allowable size) on your 8100 device, then you will have exhausted all the local space available on the device. You will not be able to create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of 100 TB, only 4 TB of space will be available for locally pinned volumes.
+        Pokud v zařízení 8100 zřídíte místně vázaný svazek o velikosti 8 TB (maximální možná velikost), vyčerpáte tím veškeré volné místo dostupné v zařízení. Nebudete už moct vytvořit žádné vrstvené svazky a v zařízení už nezbude žádné volné místo k hostování pracovní sady vrstveného svazku. Objem dostupného volného místa ovlivňují také vrstvené svazky. Pokud například používáte zařízení 8100, ve kterém jsou už zřízeny vrstvené svazky o velikosti 100 TB, k vytváření místně vázaných svazků zbude už jenom 4 TB dostupného volného místa.
 
-        The following image shows the **Basic Settings** dialog box for a locally pinned volume.
+        Na následujícím obrázku je dialogové okno **Základní nastavení** pro místně vázaný svazek.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+         ![Přidání místního svazku](./media/storsimple-create-volume-u2/add-local-volume-include.png)
 
-        The following image shows the **Basic Settings** dialog box for a tiered volume.
+        Na následujícím obrázku je dialogové okno **Základní nastavení** pro vrstvený svazek.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+         ![Přidání místního svazku](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
 
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) to go to the next page.
+   4. Kliknutím na ikonu šipky ![ikona šipky](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) přejděte na další stránku.
 
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
+3. V dialogovém okně **Další nastavení** přidejte nový záznam řízení přístupu (ACR):
 
-	1. Supply a **Name** for your ACR.
-	2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-	3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
-	 
-     > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+    1. Zadejte **Název** záznamu ACR.
+    2. V části **Název iniciátoru iSCSI** zadejte kvalifikovaný název iSCSI (IQN) hostitele s Windows. Pokud název IQN nemáte, přejděte do části [Získání názvu hostitele se systémem Windows Server](#get-the-iqn-of-a-windows-server-host).
+    3. V části **Výchozí zálohování tohoto svazku?** zaškrtněte políčko **Povolit**. Výchozí zálohování vytvoří zásadu, která se spustí každý den ve 22:30 (čas zařízení) a vytvoří cloudový snímek tohoto svazku.
+     
+     > [AZURE.NOTE] Jakmile tady zásadu povolíte, nastavení už se nedá vrátit. Pokud budete chtít nastavení změnit, musíte upravit svazek.
 
-     ![Add volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
+     ![Přidání svazku](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Vytvoří se svazek se zadaným nastavením.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

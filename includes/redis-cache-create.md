@@ -1,29 +1,35 @@
-To create a cache, first sign in to the [Azure Portal](https://portal.azure.com), and click **New**, **Data + Storage**, **Redis Cache**.
+Pokud chcete vytvořit mezipaměť, přihlaste se nejdřív k [portálu Azure](https://portal.azure.com), klikněte na **Nový**, **Data + úložiště** a potom na **Mezipaměť Redis**.
 
->[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
+>[AZURE.NOTE] Pokud účet Azure nemáte, můžete si během několika minut [vytvořit bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
-![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+![Nová mezipaměť](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI.
+>[AZURE.NOTE] Mezipaměti můžete vytvářet na portálu Azure, ale také pomocí šablon ARM, PowerShellu nebo rozhraní příkazového řádku Azure.
 >
->-	To create a cache using ARM templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
->-	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
->-	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
+>-  Pokud chcete mezipaměť vytvořit pomocí šablony ARM, přečtěte si článek [Vytvoření mezipaměti Redis pomocí šablony](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+>-  Pokud chcete mezipaměti vytvořit pomocí Azure PowerShellu, přečtěte si článek [Správa mezipaměti Azure Redis Cache pomocí Azure PowerShellu](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+>-  Pokud chcete mezipaměť vytvořit pomocí příkazového řádku Azure (CLI), přečtěte si článek [Postup vytvoření a správy mezipaměti Azure Redis Cache pomocí rozhraní příkazového řádku Azure (CLI)](../articles/redis-cache/cache-manage-cli.md).
 
-In the **New Redis Cache** blade, specify the desired configuration for the cache.
+V okně **Nová mezipaměť Redis** zadejte požadovanou konfiguraci mezipaměti.
 
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+![Vytvoření mezipaměti](media/redis-cache-create/redis-cache-cache-create.png) 
 
--	In **Dns name**, enter a cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
--	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
--	In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/resource-group-overview.md). 
--	Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
--	Use **Pricing Tier** to select the desired cache size and features.
--	**Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
--	**Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
--	**Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
+-   Do pole **Název DNS** zadejte název mezipaměti, kterou chcete použít pro koncový bod mezipaměti. Název mezipaměti musí být řetězec o délce 1 až 63 znaků a smí obsahovat jenom čísla, písmena a znak `-`. Název mezipaměti nesmí začínat ani končit znakem `-` a po sobě jdoucí znaky `-` nejsou platné.
+-   V rozevíracím seznamu **Předplatné** vyberte požadované předplatné, se kterým chcete mezipaměť používat. Pokud má váš účet jenom jedno předplatné, vybere se automaticky a rozevírací seznam **Předplatné** se nezobrazí.
+-   V části **Skupina prostředků** vyberte nebo vytvořte skupinu prostředků pro mezipaměť. Další informace najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../articles/resource-group-overview.md). 
+-   K určení zeměpisného umístění, ve kterém se mezipaměť hostuje, použijte **Umístění**. K zajištění nejlepšího výkonu Microsoft důrazně doporučuje vytvoření mezipaměti ve stejné oblasti, kde se už nachází klientská aplikace mezipaměti.
+-   K výběru požadované velikosti a funkcí mezipaměti použijte možnost **Cenová úroveň**.
+-   **Cluster Redis** vám umožní vytvoření mezipamětí, které jsou větší než 53 GB, a sdílení dat mezi různými uzly Redis. Další informace najdete v článku [Postup konfigurace clusterů pro mezipaměť Azure Redis Cache Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
+-   **Trvalost dat Redis** vám umožňuje zachovat mezipaměť pro účet služby Azure Storage. Pokyny týkající se konfigurace trvalosti najdete v článku [Postup konfigurace trvalosti pro mezipaměť Azure Redis Cache Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
+-   Služba **Virtual Network** nabízí lepší zabezpečení a izolaci omezením přístupu k vaší mezipaměti jenom pro ty klienty, kteří se nacházejí v určené službě Azure Virtual Network. K dalšímu omezení přístupu k Redisu můžete použít všechny funkce sítě VNet, například podsítě, zásady řízení přístupu a další funkce. Další informace najdete v článku [Postup konfigurace podpory služby Virtual Network pro mezipaměť Azure Redis Cache Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
+Po nakonfigurování možností nové mezipaměti klikněte na **Vytvořit**. Vytvoření mezipaměti může několik minut trvat. Pokud chcete zkontrolovat stav, můžete průběh sledovat na úvodním panelu. Nově vytvořená mezipaměť je ve stavu **Spuštěno** a je připravená k použití s výchozími nastaveními.
 
-![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+![Mezipaměť vytvořena](media/redis-cache-create/redis-cache-cache-created.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

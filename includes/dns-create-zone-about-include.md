@@ -1,12 +1,17 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svoji doménu, musíte vytvořit zónu DNS. Každý záznam DNS vytvořený pro určitou doménu se bude nacházet v zóně DNS dané domény. 
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Třeba doména „contoso.com“ může obsahovat několik záznamů DNS, třeba „mail.contoso.com“ (pro poštovní server) a „www.contoso.com“ (pro webový server). 
 
 
-## <a name="names"></a>About DNS zone names
+## <a name="names"></a>O názvech zón DNS
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- Název zóny musí být v rámci skupiny prostředků jedinečný a zóna ještě nesmí existovat. Jinak se operace nezdaří.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- V jiné skupině prostředků nebo v rámci jiného předplatného Azure se dá znovu použít stejný název zóny. 
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+- Pokud má víc zón stejný název, každé instanci se přiřadí různé adresy názvového serveru a jenom jedna instance může být delegovaná z nadřazené domény. Další informace najdete v tématu [Delegování domény do DNS Azure](../articles/dns/dns-domain-delegation.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

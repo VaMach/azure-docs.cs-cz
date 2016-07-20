@@ -1,14 +1,20 @@
-This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
+V této části se dozvíte, jak připojit vaši aplikaci s back-endu služby Mobile Engagement pomocí funkce sledování v reálném čase služby Mobile Engagement. 
 
-1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
+1. Ve svém účtu **Azure Mobile Engagement** vyberte aplikaci, kterou chcete sledovat a spravovat, na portálu **Mobile Engagement**. Přejděte na portál Mobile Engagement kliknutím na tlačítko **Engage** (Zpřístupnit) (dole na stránce). 
 
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
+2. Zobrazí se portál Mobile Engagement. Pokud není vybraná karta Sledovat, klikněte na **Sledovat**.
 
-3. The monitor is ready to show you any device in real time, which will start your app.
-	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+3. Funkce sledování je připravená ukázat vám všechna zařízení v reálném čase, čímž se spustí vaše aplikace.
+     
+4. Spusťte aplikaci buď v emulátoru/simulátoru, nebo na připojeném zařízení. Pokud je vaše integrace správná, funkce sledování vám ukáže jednu relaci, což znamená, že je teď vaše aplikace připojená k back-endu služby Mobile Engagement a odesílá do ní data.  
+    
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

@@ -1,14 +1,19 @@
 
-####To configure remote management on the device
+####Konfigurace vzdálené správy na zařízení
 
-1. On your virtual device, go to **Devices > Configure**.
+1. Na svém virtuálním zařízení přejděte na možnosti **Zařízení > Konfigurace**.
 
-2. Scroll down to the **Remote Management** section.
+2. Přejděte dolů do části **Vzdálená správa**.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. U položky **Povolit vzdálenou správu** zvolte **Ano**.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. Teď můžete zvolit připojení pomocí protokolu HTTP. Výchozí možností je připojení pomocí protokolu HTTPS. Připojení pomocí protokolu HTTP je přijatelné jenom v důvěryhodných sítích.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Kliknutím na **Download Remote Management Certificate** (Stáhnout certifikát pro vzdálenou správu) stáhnete certifikát pro vzdálenou správu. Zadáte umístění, do kterého chcete tento soubor uložit. Tento certifikát se potom musí nainstalovat na klientský nebo hostitelský počítač, pomocí kterého se budete připojovat k virtuálnímu zařízení.
 
-6. Click **Save** at the bottom of the page.
+6. V dolní části stránky klikněte na **Uložit**.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

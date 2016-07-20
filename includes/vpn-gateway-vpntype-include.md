@@ -1,3 +1,8 @@
-- **Policy-based VPN type:** Policy-based VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a policy-based VPN type is *PolicyBased*.
+- **Typ sítě VPN založený na zásadách:** Sítě VPN založené na zásadách se v klasickém modelu nasazení označovaly jako brány se statickým směrováním. Sítě VPN založené na zásadách šifrují pakety a směrují je do tunelových propojení IPsec na základě zásad IPsec nakonfigurovaných pomocí kombinace předpon adres mezi vaší místní sítí a virtuální sítí VNet Azure. Zásada (nebo selektor provozu) se většinou určuje v konfiguraci zařízení VPN jako přístupový seznam. Typ sítě VPN založený na zásadách má hodnotu *PolicyBased*.
 
-- **Route-based VPN type**: Route-based VPNs were previously called dynamic routing gateways in the classic deployment model. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for route-based VPNs are configured as any-to-any (or wild cards). The value for a route-based VPN type is *RouteBased*.
+- **Typ sítě VPN založený na trasách**: Sítě VPN založené na trasách se v klasickém modelu nasazení označovaly jako brány s dynamickým směrováním. Sítě VPN založené na trasách používají ke směrování paketů do příslušných rozhraní tunelových propojení „trasy“ v tabulce předávání IP nebo směrovací tabulce IP. Rozhraní tunelového propojení potom zašifruje nebo dešifruje pakety směřující do tunelových propojení nebo z nich. Zásady (nebo selektor provozu) pro sítě VPN založené na trasách mají konfiguraci typu any-to-any (takže se jedná o zástupné znaky). Typ sítě VPN založený na trasách má hodnotu *RouteBased*.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,30 +1,36 @@
-## About records
+## Informace o záznamech
 
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Každý záznam DNS má název a typ. Záznamy jsou uspořádány do různých typů podle dat, která obsahují. Nejběžnějším typem je záznam „A“, který mapuje název na adresu IPv4. Dalším typem je záznam „MX“, který mapuje název na poštovní server.
 
-Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS podporuje všechny běžné typy záznamů DNS včetně typů A, AAAA, CNAME, MX, NS, SOA, SRV a TXT. Sady záznamů SOA se vytváří automaticky s každou zónou. Nemůžete je vytvořit samostatně. Všimněte si, že záznamy SPF musí být vytvořené pomocí záznamu typu TXT. Další informace najdete na [této stránce](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
+V Azure DNS se záznamy zadávají pomocí relativních názvů. „Plně kvalifikovaný“ název domény (FQDN) obsahuje název zóny, zatímco „relativní“ název ho neobsahuje. Například relativní název záznamu „www“ v zóně „contoso.com“ dává plně kvalifikovaný název záznamu www.contoso.com.
 
-## About record sets
+## Informace o sadách záznamů
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the "www.contoso.com" web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Někdy můžete potřebovat vytvořit víc než jeden záznam DNS s daným názvem a typem. Předpokládejme například, že web „www.contoso.com“ je hostovaný na dvou různých IP adresách. Tento web vyžaduje dva různé záznamy A, jeden pro každou IP adresu. Tady je příklad sady záznamů:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
-Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Azure DNS spravuje záznamy DNS pomocí sady záznamů. Sada záznamů je kolekcí záznamů DNS v zóně, které mají stejný název a jsou stejného typu. Většina sad záznamů obsahuje jediný záznam, ale příklady jako je ten náš, ve kterém sada záznamů obsahuje víc než jeden záznam, nejsou neobvyklé.
 
-SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
+Sady záznamů SOA a CNAME jsou výjimkami. Normy DNS nepovolují více záznamů se stejným názvem pro tyto typy.
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+Hodnota TTL (Time to Live) určuje, jak dlouho budou klienti každý záznam uchovávat v mezipaměti před tím, než bude záznam znovu dotazován. V tomto příkladu je hodnota TTL 3 600 sekund nebo 1 hodina. Hodnota TTL se zadává pro sadu záznamů (ne pro jednotlivé záznamy), aby všechny záznamy v sadě pracovaly se stejnou hodnotou.
 
-#### Wildcard record sets
+#### Sady záznamů se zástupným znakem
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Azure DNS podporuje [záznamy se zástupným znakem](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ty se vrátí po jakémkoli dotazu s odpovídajícím názvem (pokud nebude nalezena bližší shoda v sadě záznamů bez zástupného znaku). Sady záznamů se zástupnými znaky jsou podporované u všech typů záznamů s výjimkou NS a SOA.  
 
-To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
+Pokud chcete vytvořit sadu záznamů se zástupným znakem, použijte název sady záznamů „\*“. Nebo použijte název s popiskem „\*“, například „\*.foo“.
 
-#### CNAME record sets
+#### Sady záznamů CNAME
 
-CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
+Sady záznamů CNAME nemůžou existovat současně s jinými sadami záznamů se stejným názvem. Nemůžete například současně vytvořit sadu záznamů CNAME s relativním názvem „www“ a záznam A s relativním názvem „www“. Protože vrchol zóny (název = „@“) vždy obsahuje sady záznamů NS a SOA, které byly vytvořené při vytvoření zóny, nemůžete na vrcholu zóny vytvořit sadu záznamů CNAME. Tato omezení pocházejí z norem DNS a nepředstavují omezení Azure DNS.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

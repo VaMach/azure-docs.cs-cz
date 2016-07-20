@@ -1,63 +1,69 @@
-## What are Service Bus queues?
+## Co jsou fronty služby Service Bus?
 
-Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
+Fronty služby Service Bus podporují komunikační model **zprostředkovaného zasílání zpráv**. Součásti distribuované aplikace při používání front nekomunikují navzájem přímo. Místo toho si zprávy vyměňují prostřednictvím fronty, která slouží jako zprostředkovatel. Autor zprávy (odesílatel) předá zprávu do fronty a potom pokračuje v jejím zpracování. Spotřebitel zprávy (příjemce) asynchronně přebírá zprávu z fronty a zpracovává ji. Autor nemusí čekat na odpověď od příjemce, aby mohl pokračovat se zpracováním a odesláním dalších zpráv. Fronty nabízejí doručování zpráv metodou **FIFO (First In First Out)** pro jednoho nebo několik konkurenčních spotřebitelů. To znamená, že příjemci zprávy obvykle přijímají a zpracovávají v pořadí, ve kterém byly přidány do fronty, a každou zprávu přijme a zpracuje jenom jeden příjemce zprávy.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
+Fronty služby Service Bus představují univerzální technologii, kterou můžete použít pro celou řadu scénářů:
 
--   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
--   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
+-   Komunikace mezi webovou rolí a rolí pracovního procesu ve vícevrstvé aplikaci Azure.
+-   Komunikace mezi místními aplikacemi a aplikacemi hostovanými v Azure v případě hybridního řešení.
+-   Komunikace mezi součástmi distribuované aplikace spuštěné místně v různých organizacích nebo odděleních organizace.
 
-Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
+Použití fronty vám umožňuje snazší škálování aplikací a zvyšuje odolnost vaší architektury proti chybám.
 
-## Create a service namespace
+## Vytvoření oboru názvů služby
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejdřív vytvořit obor názvů služby. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace.
 
-To create a namespace:
+Vytvoření oboru názvů:
 
-1.  Log on to the [Azure classic portal][].
+1.  Přihlaste se na [portál Azure Classic][].
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
 
-3.  In the lower pane of the portal, click **Create**.
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  V dolním podokně portálu klikněte na **Vytvořit**.
+    ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  V dialogovém okně **Přidat nový obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.   
+    ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Po kontrole dostupnosti oboru názvů vyberte zemi nebo oblast, ve které chcete obor názvů hostovat (nezapomeňte použít stejnou zemi nebo oblast, ve které nasazujete svoje výpočetní prostředky).
 
-	 > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+     > [AZURE.IMPORTANT] Vyberte **stejnou oblast**, kterou chcete zvolit pro nasazení aplikace. Tím získáte nejlepší výkon.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  V ostatních polích dialogového okna nechte výchozí hodnoty (**Zasílání zpráv** a **Úroveň Standard**) a potom klikněte na značku zaškrtnutí OK. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
-	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
+Aktivace vytvořeného oboru názvů chvíli trvá, obor názvů se na portálu zobrazí hned potom. Před pokračováním počkejte, než se stav oboru názvů změní na **Aktivní**.
 
-## Obtain the default management credentials for the namespace
+## Získání výchozích přihlašovacích údajů pro správu oboru názvů
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
+Abyste mohli provádět operace správy, například vytváření fronty v novém oboru názvů, potřebujete získat přihlašovací údaje pro správu oboru názvů. Tyto přihlašovací údaje můžete získat na stránce[portál Azure Classic][].
 
-###To obtain management credentials from the portal
+###Získání přihlašovacích údajů pro správu na portálu
 
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  V levém navigačním podokně klikněte na uzel **Service Bus** a zobrazte seznam dostupných oborů názvů:   
+    ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Select the namespace you just created from the list shown:   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  V zobrazeném seznamu vyberte právě vytvořený obor názvů:   
+    ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Click **Connection Information**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Klikněte na **informace o připojení**.   
+    ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+4.  V podokně **Informace o přístupovém připojení** najděte připojovací řetězec, který obsahuje klíč SAS a název klíče.   
 
-	![](./media/howto-service-bus-queues/multi-web-45.png)
+    ![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Make a note of the key, or copy it to the clipboard.
+5.  Klíč si poznamenejte, nebo ho zkopírujte do schránky.
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [portál Azure Classic]: http://manage.windowsazure.com
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

@@ -1,16 +1,22 @@
-### To add address space
+### Přidání adresního prostoru
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Pokud chcete přidat další adresní prostor, kliknutím na **Všechna nastavení** otevřete okno **Nastavení**. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. V okně **Nastavení** kliknutím na **Adresní prostor** otevřete okno Adresní prostor. V tomto okně přidejte další adresní prostor a potom v horní části okna klikněte na **Uložit**.
 
-	![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Přidání adresního prostoru](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### To add subnets 
+### Přidání podsítí 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Pokud chcete do adresních prostorů přidat další podsítě, v okně **Nastavení** kliknutím na **Podsítě** otevřete okno **Podsítě**. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
+2. V okně Podsítě kliknutím na **Přidat** otevřete okno **Přidat podsíť**. Pojmenujte novou podsíť, zadejte rozsah adres a potom ve spodní části okna klikněte na **OK**. Po vytvoření podsítě můžete v okně podsítí zobrazit všechny podsítě pro určitou virtuální síť VNet.
 
 
-	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)		
+    ![Nastavení podsítě](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

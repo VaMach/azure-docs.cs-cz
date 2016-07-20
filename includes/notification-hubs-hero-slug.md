@@ -1,6 +1,12 @@
 
-The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
+Cílem tohoto tématu je pomoct vám s co nejrychlejším zahájením práce se službou Notification Hubs. Toto téma představuje velmi jednoduchý příklad vysílání, ve kterém se budeme soustředit na základní koncepty služby Notification Hubs.
 
-If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+Pokud už jste se se službou Notification Hubs seznámili, můžete si vlevo vybrat jiné téma nebo si prohlédnout související odkazy v části [Další kroky](#next-steps).
 
-We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+Záleží nám na vašem názoru. Pokud máte s tímto tématem nějaké potíže nebo byste nám chtěli doporučit vylepšení tohoto obsahu, napište svůj názor do spodní části stránky a my si ho rádi přečteme.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

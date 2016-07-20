@@ -8,41 +8,46 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create a new Azure SQL database
+## Vytvoření nové databáze SQL Azure
 
-Use the following steps in the Azure portal to create a new Azure SQL database on a new or existing Azure SQL Database logical server.
+Pomocí následujícího postupu můžete na portálu Azure vytvořit novou databázi SQL Azure na novém nebo stávajícími logickém serveru služby SQL Database.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new database)**
+1. Pokud nejste připojení, připojte se k [portálu Azure](http://portal.azure.com).
+2. Klikněte na **Nový**, zadejte **SQL Database** a potom klikněte na **SQL Database (nová databáze)**.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
+     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Click SQL Database (new database).
+3. Klikněte na SQL Database (nová databáze).
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
+     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
    
-4. Click **Create** to create a new database in the SQL Database service.
+4. Kliknutím na **Vytvořit** vytvořte ve službě SQL Database novou databázi.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
+     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Zadejte hodnoty následujících vlastností serveru:
 
- - Database name
- - Subscription (only if you have multiple subscriptions)
- - Resource group (if just getting started, use the resource group of the logical server)
- - Select source (you can choose a blank database, sample data or a database backup)
- - Server (a new or existing logical server)
- - Server admin password
- - Password
- - Pricing tier (if just getting started, use the default value S0)
- - Collation (only if blank database chosen)
+ - Název databáze
+ - Předplatné (jenom pokud máte více předplatných)
+ - Skupina prostředků (pokud teprve začínáte, použijte skupinu prostředků logického serveru)
+ - Vyberte zdroj (můžete zvolit prázdnou databázi, ukázková data nebo zálohu databáze)
+ - Server (nový nebo stávající logický server)
+ - Heslo správce serveru
+ - Heslo
+ - Cenová úroveň (pokud teprve začínáte, použijte výchozí hodnotu S0)
+ - Kolace (jenom pokud vyberete prázdnou databázi)
 
         ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Klikněte na **Vytvořit** a v oznamovací oblasti uvidíte, že se zahájilo nasazení.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
+     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Než budete pokračovat na další krok, počkejte, až se nasazení dokončí.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,14 +1,19 @@
 
-1. Press the F5 key to rebuild the project and start the Windows Store app.
+1. Stisknutím klávesy F5 projekt znovu sestavte a spusťte aplikaci pro Windows Store.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+2. V aplikaci zadejte smysluplný text, například *Dokončit kurz*, v části **Vložení úkolu** a klikněte na **Uložit**.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile service hosted in Azure.
+    Tím se odešle požadavek POST do nové mobilní služby hostované v Azure.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.
+3. Zastavte ladění, změňte výchozí spouštěný projekt v univerzálním řešení Windows na aplikaci pro Windows Phone Store a znovu stiskněte klávesu F5.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
-	
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
+    
+    Všimněte si, že po spuštění aplikace se data uložená v předchozím kroku načtou z mobilní služby.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

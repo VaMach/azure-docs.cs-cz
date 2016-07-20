@@ -1,42 +1,48 @@
 
 
-## Connect to Azure SQL Database using a server-level principal login
+## Připojení ke službě Azure SQL Database pomocí hlavního přihlášení na úrovni serveru
 
-Use the following steps to connect to Azure SQL Database with SSMS using a server-level principal login.
+Pokud se chcete připojit ke službě Azure SQL Database pomocí aplikace SSMS s hlavním přihlášením na úrovni serveru, postupujte následovně.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Do pole vyhledávání ve Windows zadejte text „Microsoft SQL Server Management Studio“ a potom kliknutím na desktopovou aplikaci spusťte aplikaci SSMS.
 
-2. In the Connect to Server window, enter the following information:
+2. V okně Připojení k serveru zadejte následující informace:
 
- - **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+ - **Typ serveru**: Výchozí hodnotou je databázový stroj. Tuto hodnotu nemůžete změnit.
+ - **Název serveru**: Zadejte název serveru, který je hostitelem služby SQL Database. Použijte následující formát: *&lt;název_serveru >*.**Database.Windows.NET**.
+ - **Typ ověřování**: Pokud teprve začínáte, vyberte Ověřování SQL. Pokud jste pro logický server služby SQL Database povolili službu Active Directory, můžete si vybrat Ověřování hesla Active Directory nebo Integrované ověřování Active Directory.
+ - **Uživatelské jméno**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte jméno uživatele, který má přístup k databázi na serveru.
+ - **Heslo**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte heslo uvedeného uživatele.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
 
-3. Click **Connect**.
+3. Klikněte na **Připojit**.
  
-4. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, click **Sign in** to create a server-level firewall rule. If not, have an Azure administrator create a server-level firewall rule.
+4. Pokud IP adresa vašeho klienta nemá přístup k logickému serveru služby SQL Database, budete vyzváni k přihlášení k účtu Azure a k vytvoření pravidla brány firewall na úrovni serveru. Pokud jste správci předplatného Azure, klikněte na **Přihlásit** a vytvořte pravidlo brány firewall na úrovni serveru. Pokud nejste správci, požádejte správce Azure, aby pravidlo brány firewall na úrovni serveru vytvořil za vás.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
+      ![SQL Server Management Studio: Připojení k serveru služby SQL Database.](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
  
-1. If you are an Azure subscription administrator and need to sign in, when the sign in page appears, provide the credentials for your subscription and sign in.
+1. Pokud jste správci předplatného Azure a potřebujete se přihlásit, zadejte po zobrazení přihlašovací stránky přihlašovací údaje svého předplatného a přihlaste se.
 
-      ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+      ![přihlášení](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
  
-1. After your sign in to Azure is successful, review the proposed server-level firewall rule (you can modify it to allow a range of IP addresses) and then click **OK** to create the firewall rule and complete the connection to SQL Database.
+1. Po úspěšném přihlášení do Azure zkontrolujte navrhované pravidlo brány firewall na úrovni serveru (můžete ho upravit, abyste povolili rozsah IP adres) a potom kliknutím na tlačítko **OK** vytvořte pravidlo brány firewall a dokončete připojení ke službě SQL Database.
  
-      ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
+      ![nová brána firewall na úrovni serveru](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
  
-5. If your credentials grant you access, Object Explorer opens and you can now perform administrative tasks or query data. 
+5. Pokud vám vaše přihlašovací údaje umožní přístup, otevře se Průzkumník objektů a vy teď můžete provádět úlohy správy nebo se dotazovat na data. 
  
-     ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
+     ![nová brána firewall na úrovni serveru](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
-## Troubleshoot connection failures
+## Řešení potíží s připojením
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Nejčastější příčinou chyb připojení jsou chyby v názvu serveru (nezapomeňte, že <*název_serveru*> je název logického serveru a ne název databáze), chybné uživatelské jméno nebo heslo a také situace, kdy server z bezpečnostních důvodů připojení neumožňuje. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

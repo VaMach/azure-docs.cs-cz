@@ -1,10 +1,15 @@
 
-The following are screen captures from the completed app:
+Zde jsou snímky obrazovek z hotové aplikace:
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
-<br/>Windows Store app
+<br/>Aplikace pro Windows Store
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
-<br/>Windows Phone Store app
+<br/>Aplikace pro Windows Phone Store
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store and Windows Phone Store apps. 
+Ve všech dalších kurzech o používání služby Mobile Services pro aplikace pro Windows Store a Windows Phone Store se předpokládá dokončení tohoto kurzu. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

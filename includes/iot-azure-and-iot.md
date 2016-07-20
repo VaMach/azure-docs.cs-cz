@@ -1,53 +1,53 @@
-# Azure and Internet of Things
+# Azure a internet věcí
 
-Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces an IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. IoT solutions require secure, bidirectional communication between devices, possibly numbering in the millions, and a solution back end that, for example, uses automated, predictive analytics to uncover insights from your device-to-cloud event stream.
+Vítejte v tématu Microsoft Azure a internet věcí (IoT). Tento článek představuje architekturu řešení IoT popisující běžné vlastnosti řešení IoT, které můžete nasadit pomocí služeb Azure. Řešení IoT vyžadují zabezpečenou obousměrnou komunikaci mezi zařízeními, jejichž počet může jít do milionů, a také back-end řešení, který mimo jiné používá automatizované prediktivní analýzy, aby z datového proudu událostí (ze zařízení do cloudu) získal požadované informace.
 
-Azure IoT Hub is a key building block when you implement this IoT solution architecture using Azure services, and IoT Suite provides complete, end-to-end, implementations of this architecture for specific IoT scenarios. For example, the *remote monitoring*  solution enables you to monitor the status of devices such as vending machines and *predictive maintenance* helps you to anticipate maintenance needs of devices such as pumps in remote pumping stations and to avoid unscheduled downtime.
+Azure IoT Hub je klíčovým stavebním blokem při implementaci této architektury řešení IoT pomocí služeb Azure a IoT Suite nabízí ucelené implementace této architektury pro konkrétní scénáře IoT. Řešení *vzdáleného sledování* umožňuje například sledování stavu zařízení, třeba prodejních automatů, a *prediktivní údržba* pomáhá vytipovat potřebnou údržbu zařízení, například čerpadel na vzdálené čerpací stanici, aby se předešlo neplánovaným výpadkům.
 
-## IoT solution architecture
+## Architektura řešení IoT
 
-The following diagram shows a typical IoT solution architecture. Note that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. In this architecture, IoT devices collect data which they send to a cloud gateway. The cloud gateway makes the data available for processing by other back-end services from where data is delivered to other line-of-business applications or to human operators through a dashboard or other presentation device.
+Následující diagram ukazuje typickou architekturu řešení IoT. Všimněte si, že neobsahuje žádné konkrétní názvy služeb Azure, ale popisuje klíčové prvky v obecné architektuře řešení IoT. V této architektuře zařízení IoT shromažďují data, která odesílají do cloudové brány. Cloudová brána zpřístupní data pro zpracování dalším back-endovým službám, ze kterých se budou data prostřednictvím řídicího panelu nebo jiného prezentačního zařízení doručovat do dalších obchodních aplikací nebo k lidské obsluze.
 
-![IoT solution architecture][img-solution-architecture]
+![Architektura řešení IoT][img-solution-architecture]
 
-> [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> [AZURE.NOTE] Podrobné informace o architektuře IoT najdete v článku [Referenční architektura IoT v Microsoft Azure][lnk-refarch].
 
-### Device connectivity
+### Připojení zařízení
 
-In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send commands to other pumps in the pumping station to begin re-routing flows just before maintenance is due to start to make sure the maintenance engineer can get started as soon as she arrives.
+Zařízení v této architektuře řešení IoT odesílají telemetrická data, například odečty snímačů z čerpací stanice, do koncového bodu cloudu, kde jsou uloženy a zpracovány. Ve scénáři prediktivní údržby může back-end použít datový proud s daty ze snímačů, aby zjistil, kdy konkrétní čerpadlo vyžaduje údržbu. Zařízení můžete také přijímat a reagovat na příkazy z cloudu do zařízení tak, že si přečte zprávy z koncového bodu cloudu. Ve scénáři prediktivní údržby může back-end řešení například odeslat příkazy jiným čerpadlům čerpací stanice, aby těsně před údržbou přesměrovala toky, a tím pracovníkovi údržby umožní začít s prací hned, jak dorazí na místo.
 
-One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end to enable the device to send telemetry and retrieve commands. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
+Jednou z největších výzev, kterým projekty IoT čelí, je nalezení způsobu pro spolehlivé a bezpečné připojení zařízení k back-endu řešení, aby zařízení mohlo odesílat telemetrická data a načítat příkazy. Zařízení IoT mají se srovnání s různými klienty, například s prohlížeči a mobilními aplikacemi, jiné vlastnosti. Zařízení IoT:
 
-- Are often embedded systems with no human operator.
-- Can be deployed in remote locations, where physical access is very expensive.
-- May only be reachable through the solution back end. There is no other way to interact with the device.
-- May have limited power and processing resources.
-- May have intermittent, slow, or expensive network connectivity.
-- May need to use proprietary, custom, or industry specific application protocols.
-- Can be created using a large set of popular hardware and software platforms.
+- Jsou často vestavěnými systémy bez lidské obsluhy.
+- Můžou být nasazená ve vzdálených umístěních, kam je fyzický přístup velmi nákladný.
+- Můžou být dostupná jenom prostřednictvím back-endu řešení. Neexistuje jiný způsob práce se zařízením.
+- Můžou mít omezené prostředky pro napájení a zpracování.
+- Můžou mít přerušované, pomalé nebo nákladné síťové připojení.
+- Můžou potřebovat chráněné, vlastní nebo průmyslové protokoly aplikací.
+- Můžou být vytvořená pomocí rozsáhlé sady oblíbených hardwarových a softwarových platforem.
 
-In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers. Azure IoT Hub and the IoT Device SDKs make it easier to implement solutions that meet these requirements.
+Kromě výše uvedených požadavků musí jakékoli řešení IoT zajistit také škálování, zabezpečení a spolehlivost. Výslednou sadu požadavků na připojení je obtížné implementovat pomocí tradičních technologií, jakými jsou webové kontejnery a zprostředkovatelé zasílání zpráv. Azure IoT Hub a sady SDK pro zařízení IoT usnadňují implementace řešení, které tyto požadavky splňují.
 
-A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway, such as the [IoT Hub protocol gateway][lnk-protocol-gateway], that performs protocol translation. For example, from the Common Industrial Protocol (CIP) to AMQPS.
+Zařízení může komunikovat přímo s koncovým bodem cloudové brány, nebo když zařízení nemůže používat žádné komunikační protokoly, které podporuje cloudová brána, může se připojit prostřednictvím zprostředkující brány, například pomocí [brány protokolu IoT Hub][lnk-protocol-gateway], která provádí překlad protokolu. Například z protokolu CIP (Common Industrial Protocol) na AMQPS.
 
-### Data processing and analytics
+### Zpracování a analýza dat
 
-In the cloud, an IoT solution back end is where most of the data processing in the solution occurs, in particular filtering and aggregating telemetry and routing it to other services. The IoT solution back end:
+V rámci cloudu se většina dat zpracovává v back-endu řešení IoT, zejména se jedná o filtrování a agregování telemetrických dat a jejich směrování do dalších služeb. Back-end řešení IoT:
 
-- Receives telemetry at scale from your devices and determines how to process and store that data. 
-- May enable you to send commands from the cloud to specific device.
-- Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
-- Enables you to track the state of your devices and monitor their activities.
+- Přijímá škálovaná telemetrická data ze všech zařízení a určuje, jak tato data zpracovávat a ukládat. 
+- Může vám umožnit odesílání příkazů z cloudu do určitého zařízení.
+- Poskytuje možnosti registrace zařízení, které vám umožní zřizování zařízení a kontrolu toho, která zařízení mají povolení k připojení k vaší infrastruktuře.
+- Umožňuje sledování stavu zařízení a sledování jejich aktivit.
 
-In the predictive maintenance scenario, the solution back end stores historical telemetry data to use to identify patterns and analyzes telemetry as it arrives to spot the patterns that indicate maintenance is due on a specific pump.
+Ve scénáři prediktivní údržby back-end řešení ukládá historická telemetrická data, aby je mohl použít k identifikaci vzorů, a analyzuje příchozí telemetrická data za účelem rozpoznání vzorů, které ukazují na potřebu údržby u konkrétního čerpadla.
 
-IoT solutions can include automatic feedback loops. For example, an analytics module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, instructing it to take corrective action.
+Řešení IoT může obsahovat smyčky automatické zpětné vazby. Analytický modul v back-endu může například z telemetrických dat rozpoznat, že teplota konkrétního zařízení překračuje běžnou provozní úroveň, a odešle potom do zařízení příkaz s pokyny k provedení nápravné akce.
 
-### Presentation and business connectivity
+### Prezentační a obchodní připojení
 
-The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, the predictive maintenance solution can integrate with a scheduling system that books an engineer to visit a pumping station when the solution identifies a pump in need of maintenance.
+Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatelům pracovat s řešením IoT a se zařízeními. Umožňuje uživatelům zobrazit a analyzovat data shromážděná z jejich zařízení. Tato zobrazení můžou mít podobu řídicích panelů nebo sestav BI, které můžou zobrazit historická data i data téměř v reálném čase. Obsluha může například zkontrolovat stav konkrétní čerpací stanice a zobrazit všechny výstrahy vyvolané systémem. Tato vrstva také umožňuje integraci back-endu řešení IoT se stávajícími obchodními aplikacemi a jejich zapojení do podnikových obchodních procesů nebo pracovních postupů. Řešení prediktivní údržby se může integrovat například s plánovacím systémem, který zarezervuje návštěvu technika na čerpací stanici v případě, kdy řešení zjistí, že některé čerpadlo potřebuje údržbu.
 
-![IoT solution dashboard][img-dashboard]
+![Řídicí panel řešení IoT][img-dashboard]
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
@@ -56,3 +56,9 @@ The presentation and business connectivity layer allows end users to interact wi
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

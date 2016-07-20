@@ -1,31 +1,36 @@
-We will now create a simple push notification campaign that sends a push notification to our app.
+Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat oznámení do vaší aplikace.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Na portálu Mobile Engagement přejděte na kartu **REACH**.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Kliknutím na **Nové oznámení** vytvořte kampaň nabízených oznámení.
 
-	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
+    ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Nastavte první pole kampaně pomocí následujících kroků:
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
-	a. Provide a **Name** for your campaign.
+    a. Zadejte **Název** kampaně.
 
-	b. Select **Delivery time** as *Any time*.
+    b. U položky **Delivery time** (Čas doručení) nastavte možnost *Any time* (Kdykoli).
 
-	d. In the notification text - type the **Title** which will be in bold in the push.
+    d. Do textu oznámení zadejte **Název**, který se v nabízeném oznámení zobrazí tučně.
 
-	e. Then type your **Message**
+    e. Do pole **Zpráva** zadejte zprávu.
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Přejděte dolů a v části **Obsah** vyberte **Pouze oznámení**.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. Tím jste dokončili nastavení nejzákladnější možné kampaně. Nyní znovu přejděte dolů a kliknutím na tlačítko **Vytvořit** kampaň uložte.
 
-6. Last step: Click **Activate** to activate your campaign and to send push notifications.
+6. Poslední krok: Kliknutím na **Aktivovat** aktivujte svoji kampaň a odešlete nabízená oznámení.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,41 +1,47 @@
 <a name="tellmevm"></a>
-## Tell me about virtual machines
+## Informace o virtuálních počítačích
 
-Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
+Služba Azure Virtual Machine vám umožní vytvořit a používat virtuální počítače v cloudu. Díky tomu, co se nazývá *IaaS (infrastruktura jako služba)*, může být technologie virtuálních počítačů použita mnoha různými způsoby. Tady je několik příkladů:
 
-- **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.
-- **Running applications in the cloud.** It makes economic sense to run some applications in the public cloud. One example is an application that has large spikes in demand. Although you could equip your own data center with enough hardware to handle peak demand, that hardware might be underutilized much of the time. Running this application on Azure lets you pay for extra VMs only when you need them and shut them down when you don't. Or, suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** When you use Azure Virtual Network, your organization can create a virtual network (VNET) that's an extension of your own on-premises network and add VMs to that VNET. This allows running applications such as [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) and others on an Azure VM. This approach might be easier to deploy or less expensive than running them in VMs your own datacenter.   
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
+- **Virtuální počítače pro vývoj a testování.** Vývojářské skupiny virtuální počítače běžně používají, protože nabízejí rychlý a snadný způsob, jak vytvořit počítač s konkrétní konfigurací pro kódování a testování aplikací. Služba Azure Virtual Machine poskytuje snadný a nákladově výhodný způsob, jak tyto virtuální počítače vytvářet, používat a nakonec je odstranit, když už nejsou potřeba.
+- **Spouštění aplikací v cloudu.** Spouštění některých aplikací ve veřejném cloudu přináší úspory. Jedním z příkladů je aplikace, která má extrémní hodnoty poptávky. I když můžete vlastní datové centrum vybavit dostatečně výkonným hardwarem pro zpracování poptávky ve špičce, bude takový hardware většinu času značně nevyužitý. Spuštění této aplikace v Azure umožní platit peníze navíc za virtuální počítače jen v případě, kdy je potřebujete, a v ostatních případech je prostě vypnete. Nebo předpokládejme, že jste startup, který potřebuje výpočetní prostředky na vyžádání rychle a bez závazků. I tady platí, že Azure může být správnou volbou.
+- **Rozšíření vlastního datového centra do veřejného cloudu.** Když používáte službu Azure Virtual Network, může si vaše organizace vytvořit virtuální síť (VNET), která je rozšířením místní sítě, a do ní může virtuální počítače přidat. To umožňuje spouštění aplikací [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [server SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) a dalších ve virtuálním počítači Azure. Tento přístup může nasazování usnadnit nebo zlevnit ve srovnání se spouštěním aplikací ve virtuálních počítačích vlastního datového centra.   
+- **Zotavení po havárii.** Proč neustále platit za zálohovací datové centrum, který se používá jen občas, když vám zotavení po havárii založené na IaaS umožní platit za výpočetní prostředky jenom v případě, kdy je skutečně potřebujete?  Pokud se vaše primární datové centrum ocitne mimo provoz, můžete vytvořit virtuální počítače spuštěné v Azure, v nich můžete spustit základní aplikace, které vypnete v okamžiku, když už je nepotřebujete.
 
-Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
+Podobně jako jiné virtuální počítače používají i virtuální počítače v Azure operační systém, úložiště a sítě a můžete v nich spustit celou řadu aplikací. Můžete použít image poskytovaný Azure nebo jedním z jeho partnerů, popřípadě můžete použít vlastní. Příklady představují různé verze, vydání a konfigurace následujících systémů:
  
-- Linux servers such as Suse, Ubuntu and CentOS
+- Linuxové servery, například Suse, Ubuntu a CentOS
 - Windows Server 
 - SQL Server
 - BizTalk Server 
 - SharePoint Server
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
+Virtuální počítače používají virtuální pevné disky (VHD), na které ukládají svůj operační systém (OS) a data. Virtuální pevné disky se používají i pro image, ze kterých si můžete nainstalovat operační systém. Následující obrázek to znázorňuje spolu se dvěma nástroji pro vytváření a správu virtuálních počítačů.
 
 <a name="fig_createvms"></a>
 ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
+**Obrázek: Služba Azure Virtual Machine poskytuje infrastrukturu jako službu.**
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through the REST API. Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API. 
+Virtuální počítače můžete spravovat pomocí portálu (přes prohlížeč), nástrojů příkazového řádku s podporou pro skriptování, nebo přímo prostřednictvím REST API. Partneři Microsoftu, například RightScale a ScaleXtreme také poskytují služby pro správu, které jsou závislé na REST API. 
 
-Along with the OS, other configuration choices you have with VMs include:
+Kromě volby operačního systému máte v případě virtuálních počítačů i další konfigurační možnosti:
 
-- The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
-- The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
-- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
+- Velikost, která určuje faktory rozhodující o tom, kolik disků můžete připojit a jak velký bude výpočetní výkon. Azure nabízí širokou škálu velikostí, které podporují mnoho typů použití. Podrobnosti najdete v článku [Velikosti služeb Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+- Oblast Azure, kde bude nový virtuální počítač hostovaný, například USA, Evropa nebo Asie. 
+- Rozšíření virtuálních počítačů, která virtuálním počítačům dávají další možnosti, například spuštění antivirového programu nebo použití funkce prostředí Windows PowerShell Konfigurace požadovaného stavu.
 
-Other benefits to consider for VMs include:
+Mezi další výhody, které hovoří pro využívání virtuálních počítačů, patří následující:
 
-**Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. Storage is priced and charged separately. For details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Průběžné platby** – Azure účtuje hodinovou cenu na základě velikosti virtuálního počítače a na jeho operačním systému. V případě neúplných hodin Azure účtuje jenom využité minuty. Služba Storage je oceněna a účtována samostatně. Podrobnosti najdete v článku [Ceny služeb Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
+**Odolnost** – Azure sleduje fyzický hardware, který je hostitelem každého spuštěného virtuálního počítače. Pokud fyzický server se spuštěným virtuálním počítačem selže, Azure to zaznamená, přesune virtuální počítač na nový hardware a restartuje virtuální počítač. Tento proces se někdy nazývá službou opravy. Azure také chrání data virtuálního počítače tím, že udržuje redundantní kopie virtuálních pevných disků ve službě Blob Storage. 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

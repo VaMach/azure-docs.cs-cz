@@ -1,48 +1,54 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### Přidání účtu úložiště v zařízení StorSimple řady 8000 Update 1.0
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Na úvodní stránce služby StorSimple Manager vyberte svoji službu a dvakrát na ni klikněte. Tím přejdete na stránku **Rychlý start**. Vyberte stránku **Konfigurace**.
 
-2. Click **Add/edit storage account**.
+2. Klikněte na **Přidat nebo upravit účet úložiště**.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. V dialogovém okně **Přidat nebo upravit účet úložiště** klikněte na **Přidat nový**.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. V poli **Poskytovatel** vyberte příslušného poskytovatele cloudové služby. Podporovaní poskytovatelé jsou Azure, Amazon S3, Amazon S3 s RRS, HP a OpenStack. Zadejte přihlašovací údaje a umístění přidružené k účtu úložiště vašich poskytovatelů cloudových služeb. Pole zobrazená pro přihlašovací údaje se budou lišit v závislosti na zadaném poskytovateli cloudových služeb. 
+  - Pokud jste jako poskytovatele cloudových služeb vybrali Azure, zadejte **Název** a primární **Přístupový klíč** vašeho účtu úložiště Microsoft Azure. Umístění je v případě účtu Azure automaticky doplněno.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Pokud jste jako poskytovatele cloudových služeb vybrali Amazon S3 nebo Amazon S3 s RRS, zadejte popisný **Název účtu úložiště**, **Přístupový klíč** a **Tajný klíč**. U poskytovatelů Amazon S3 a Amazon S3 s RRS jsou podporována následující umístění:
 
-		- US Standard
-		- US West (Oregon)
-		- US West (Northern California)
-		- EU (Ireland)
-		- Asia Pacific (Singapore)
-		- Asia Pacific (Sydney)
-		- Asia Pacific (Tokyo)
-		- South America (Sao Paulo)
+        - US Standard
+        - US West (Oregon)
+        - US West (Northern California)
+        - EU (Ireland)
+        - Asia Pacific (Singapore)
+        - Asia Pacific (Sydney)
+        - Asia Pacific (Tokyo)
+        - South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+            
+ - Pokud jste jako poskytovatele cloudových služeb vybrali HP, zadejte popisný **Název účtu úložiště**, **ID klienta**, **Uživatelské jméno** a **Heslo**. V případě poskytovatele HP jsou podporována následující umístění:
 
-		- US East
-		- US West
-	  
+        - US East
+        - US West
+      
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+            
+ - Pokud jste jako poskytovatele cloudových služeb vybrali **Openstack**, zadejte **Název hostitele**, **Přístupový klíč** a **Tajný klíč**.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] U všech poskytovatelů cloudových služeb kromě Azure je povoleno zadání popisného názvu. S jednou sadou přihlašovacích údajů můžete používat různé popisné názvy a vytvořit více než jeden účet úložiště.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Výběrem možnosti **Povolit režim SSL** vytvořte zabezpečený kanál pro síťovou komunikaci mezi vaším zařízením a cloudem. Zaškrtnutí políčka **Povolit režim SSL** zrušte jenom v případě, že pracujete v privátním cloudu.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
-  		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+      > [AZURE.NOTE] Pokud jako poskytovatele cloudových služeb používáte HP, protokol SSL bude vždy povolen.
+        
+6. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Poté úspěšném vytvoření účtu úložiště se zobrazí oznámení.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Nově vytvořený účet úložiště se zobrazí na stránce **Konfigurace** v části **Účty úložiště**. Uložte nově vytvořený účet úložiště kliknutím na **Uložit**. Po zobrazení výzvy k potvrzení klikněte na **OK**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

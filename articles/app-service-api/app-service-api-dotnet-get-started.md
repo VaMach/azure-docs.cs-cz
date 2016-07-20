@@ -76,7 +76,7 @@ Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloud
 
 2. Sestavte řešení, aby se obnovily balíčky NuGet.
 
-    Pokud si chcete aplikaci prohlédnout v provozu ještě před nasazením, můžete ji spustit místně. Jenom zkontrolujte, že všechny tři projekty jsou spouštěné projekty. Je potřeba použít Internet Explorer nebo Edge, protože tyto prohlížeče umožňují volání JavaScriptu na adresy URL `http://localhost` mezi zdroji. 
+    Pokud si chcete aplikaci prohlédnout v provozu ještě před nasazením, můžete ji spustit místně. Jenom zkontrolujte, že všechny tři projekty jsou spouštěné projekty. Je potřeba použít Internet Explorer nebo Microsoft Edge, protože tyto prohlížeče umožňují volání JavaScriptu na adresy URL `http://localhost` mezi zdroji. 
 
 ## Používání uživatelského rozhraní a metadat rozhraní API Swaggeru
 
@@ -100,7 +100,7 @@ V této části kurzu si prohlédnete generovaná metadata Swagger 2.0 a vyzkou�
 
     ![Stažení metadat JSON do IE](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-    Pokud používáte Chrome, Firefox nebo Edge, zobrazí se data JSON v okně prohlížeče. Různé prohlížeče zpracovávají data JSON různě a okno prohlížeče může vypadat jinak než v tomto příkladu.
+    Pokud používáte Chrome, Firefox nebo Microsoft Edge, zobrazí se data JSON v okně prohlížeče. Různé prohlížeče zpracovávají data JSON různě a okno prohlížeče může vypadat jinak než v tomto příkladu.
 
     ![Metadata JSON v Chromu](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
@@ -313,7 +313,7 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
 
     ![Procházení služeb App Services](./media/app-service-api-dotnet-get-started/browseas.png)
 
-15. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na Portálu Azure, označujeme jako *okna*.)
+15. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na Portálu Azure, označujeme jako *okna *.)
 
     ![Okno App Services](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 

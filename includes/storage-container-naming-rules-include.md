@@ -1,13 +1,18 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Každý objekt blob v úložišti Azure se musí nacházet v kontejneru. Kontejner je součástí názvu objektu blob. Třeba `mycontainer` je název kontejneru v těchto identifikátorech URI ukázkových objektů blob:
 
-	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Název kontejneru musí být platný název DNS, který odpovídá následujícím pravidlům pro pojmenování:
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Názvy kontejnerů musí začínat písmenem nebo číslicí a smí obsahovat jenom písmena, číslice a pomlčky (-).
+1. Bezprostředně před a za každým znakem pomlčky (-) se musí nacházet písmeno nebo číslice. Názvy kontejnerů nesmí obsahovat po sobě jdoucí pomlčky.
+1. Název kontejneru musí být psaný malými písmeny.
+1. Názvy kontejnerů musí mít délku 3 až 63 znaků.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT] Upozorňujeme, že název kontejneru musí být psaný malými písmeny. Pokud v názvu kontejneru napíšete velké písmeno nebo jinak porušíte pravidla po pojmenování kontejnerů, může se zobrazit chyba 400 (Chybný požadavek). 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

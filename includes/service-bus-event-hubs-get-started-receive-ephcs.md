@@ -1,100 +1,100 @@
-## Receive messages with EventProcessorHost
+## Přijímání zpráv pomocí třídy EventProcessorHost
 
-[EventProcessorHost][] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][] for a single receiver. The [Scaled out event processing][] sample shows how to use [EventProcessorHost][] with multiple receivers.
+[EventProcessorHost][] je třída rozhraní .NET, která zjednodušuje přijímání události ze služby Event Hubs tím, že spravuje trvalé kontrolní body a paralelní příjemce událostí ze služby Event Hubs. Pomocí třídy [EventProcessorHost][] můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy [EventProcessorHost][] pro jednoho příjemce. Ukázka metody [Škálované zpracování událostí][] znázorňuje způsob použití třídy [EventProcessorHost][] v případě několika příjemců.
 
-In order to use [EventProcessorHost][], you must have an [Azure Storage account][]:
+Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azure Storage][]:
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. Přihlaste se na [portál Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
 
-2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
+2. Klikněte na **Datové služby**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
 
     ![][11]
 
-3. Click the newly created storage account, and then click **Manage Access Keys**:
+3. Klikněte na nově vytvořený účet úložiště a potom klikněte na **Spravovat přístupové klíče**:
 
     ![][12]
 
-    Copy the primary access key to use later in this tutorial.
+    Primární přístupový klíč si zkopírujte pro pozdější použití v tomto kurzu.
 
-4. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
+4. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt nazvěte **Receiver** (Příjemce).
 
     ![][14]
 
-5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
+5. V Průzkumníku řešení klikněte pravým tlačítkem na řešení a potom na **Správa balíčků NuGet pro řešení**.
 
-6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use.
+6. Klikněte na kartu **Procházení** a potom najděte `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Zkontrolujte, jestli je v okně **Verze** uvedený název projektu (**Receiver**). Klikněte na **Instalovat** a přijměte podmínky použití.
 
     ![][13]
 
-	This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
+    Tím stáhnete, nainstalujete a přidáte odkaz na [balíček NuGet třídy EventProcessorHost služby Event Hubs ve službě Azure Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) se všemi jeho závislostmi.
 
-7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **Add** to create the class.
+7. Klikněte pravým tlačítkem na projekt **Receiver**, **Přidat** a potom na **Třída**. Pojmenujte novou třídu **SimpleEventProcessor** a potom kliknutím na **Přidat** třídu vytvořte.
 
-	![][15]
+    ![][15]
 
-8. Add the following statements at the top of the SimpleEventProcessor.cs file:
+8. Na začátek souboru SimpleEventProcessor.cs přidejte následující příkazy:
 
-	```
-	using Microsoft.ServiceBus.Messaging;
-	using System.Diagnostics;
-	```
+    ```
+    using Microsoft.ServiceBus.Messaging;
+    using System.Diagnostics;
+    ```
 
-	Then, substitute the following code for the body of the class:
+    Potom nahraďte tělo třídy následujícím kódem:
 
-	```
+    ```
     class SimpleEventProcessor : IEventProcessor
-	{
-	    Stopwatch checkpointStopWatch;
+    {
+        Stopwatch checkpointStopWatch;
 
-	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-	    {
-	        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-	        if (reason == CloseReason.Shutdown)
-	        {
-	            await context.CheckpointAsync();
-	        }
-	    }
+        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+            if (reason == CloseReason.Shutdown)
+            {
+                await context.CheckpointAsync();
+            }
+        }
 
-	    Task IEventProcessor.OpenAsync(PartitionContext context)
-	    {
-	        Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-	        this.checkpointStopWatch = new Stopwatch();
-	        this.checkpointStopWatch.Start();
-	        return Task.FromResult<object>(null);
-	    }
+        Task IEventProcessor.OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+            this.checkpointStopWatch = new Stopwatch();
+            this.checkpointStopWatch.Start();
+            return Task.FromResult<object>(null);
+        }
 
-	    async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-	    {
-	        foreach (EventData eventData in messages)
-	        {
-	            string data = Encoding.UTF8.GetString(eventData.GetBytes());
+        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData eventData in messages)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 
-	            Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                context.Lease.PartitionId, data));
-	        }
+                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                    context.Lease.PartitionId, data));
+            }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
                 this.checkpointStopWatch.Restart();
             }
-	    }
-	}
+        }
+    }
     ```
 
-	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
+    Tuto třídu bude volat třída **EventProcessorHost** kvůli zpracování událostí přijatých z centra událostí. Všimněte si, že třída `SimpleEventProcessor` používá stopky, aby pravidelně volala metodu kontrolního bodu v kontextu třídy **EventProcessorHost**. Tím je zajištěno, že příjemce v případě restartování neztratí víc než pět minut práce potřebné ke zpracování.
 
-9. In the **Program** class, add the following `using` statement at the top of the file:
-
-	```
-	using Microsoft.ServiceBus.Messaging;
-	```
-
-	Then, replace the `Main` method in the `Program` class with the following code, substituting the Event Hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
+9. Ve třídě **Program** přidejte na začátek souboru následující příkaz `using`:
 
     ```
-	static void Main(string[] args)
+    using Microsoft.ServiceBus.Messaging;
+    ```
+
+    Potom nahraďte metodu `Main` ve třídě `Program` následujícím kódem, kde nahradíte název centra událostí a připojovací řetězec na úrovni oboru názvů, který jste si dříve uložili, a účet úložiště spolu s klíčem, který jste si v předchozích částech zkopírovali. 
+
+    ```
+    static void Main(string[] args)
     {
       string eventHubConnectionString = "{Event Hub connection string}";
       string eventHubName = "{Event Hub name}";
@@ -113,17 +113,17 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	```
+    ```
 
-> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
+> [AZURE.NOTE] Tento kurz používá jednu instanci třídy [EventProcessorHost][]. Pokud chcete zvýšit propustnost, spusťte několik instancí třídy [EventProcessorHost][], jak je znázorněno v ukázce metody [Škálované zpracování událostí][]. V těchto případech se spolu různé instance navzájem automaticky koordinují, aby dokázaly vyrovnávat zatížení přijatých událostí. Pokud chcete, aby každý z několika příjemců zpracovával *všechny* události, musíte použít koncept **ConsumerGroup**. Když přijímáte události z různých počítačů, může být užitečné nazvat instance třídy [EventProcessorHost][] podle počítačů (nebo rolí), ve kterých jsou nasazené. Další informace o těchto tématech najdete v článcích [Přehled služby Event Hubs][] a [Průvodce programováním pro službu Event Hubs][].
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
-[Event Hubs Programming Guide]: event-hubs-programming-guide.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Přehled služby Event Hubs]: event-hubs-overview.md
+[Průvodce programováním pro službu Event Hubs]: event-hubs-programming-guide.md
+[Škálované zpracování událostí]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Účet služby Azure Storage]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure classic portal]: http://manage.windowsazure.com
+[portál Azure Classic]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -132,4 +132,10 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

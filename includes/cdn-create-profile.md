@@ -1,21 +1,26 @@
-**To create a new CDN profile**
+**Vytvoření nového profilu CDN**
 
-1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
+1. Na [portálu Azure](https://portal.azure.com) klikněte v levém horním rohu na **Nový**.  V okně **Nový** vyberte **Média a CDN** a potom **CDN**.
 
-    The new CDN profile blade appears.
+    Zobrazí se nové okno profilu CDN.
 
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Nový profil CDN](./media/cdn-create-profile/new-cdn-profile.png)
 
-2. Enter a name for your CDN profile.
+2. Zadejte název svého profilu CDN.
 
-3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
+3. Vyberte **Umístění**.  Toto je umístění v Azure, kam se uloží informace o vašem profilu CDN.  Nemá žádný vliv na umístění koncových bodů CDN.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+4. Vyberte nebo vytvořte **skupinu prostředků**.  Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](resource-group-overview.md#resource-groups).
 
-5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
+5. Vyberte možnost u položky **Cenová úroveň**.  V článku [Přehled sítě CDN](cdn-overview.md#azure-cdn-features) najdete porovnání cenových úrovní.
     
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Výběr cenové úrovně CDN](./media/cdn-create-profile/cdn-choose-sku.png)
 
-6. Select the **Subscription** for this CDN profile.
+6. Vyberte **Předplatné** pro tento profil CDN.
 
-7. Click the **Create** button to create the new profile. 
+7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

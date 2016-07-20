@@ -2,24 +2,30 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### To create a manual backup
+#### Ruční vytvoření zálohy
 
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
+1. Na stránce **Zařízení** přejděte na kartu **Zásady zálohování**. Tato karta obsahuje všechny zásady zálohování v tabelárním formátu, včetně zásad svazku, který chcete zálohovat.
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
+2. Vyberte zásady kliknutím na libovolné místo v příslušném řádku, s výjimkou prvního sloupce. Ve spodní části stránky klikněte na **Take backup** (Zálohovat). Tlačítko se rozbalí a zobrazí se možnosti zálohování: místní snímek nebo cloudový snímek. 
 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+3. Po výběru některé z těchto možností se zobrazí výzva k potvrzení. Klikněte na **Ano**. 
 
-    ![Create manual backup](./media/storsimple-create-manual-backup/HCS_CreateManualBackup1-include.png)
+    ![Ruční vytvoření zálohy](./media/storsimple-create-manual-backup/HCS_CreateManualBackup1-include.png)
  
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
+    Tím se spustí úloha pro vytvoření snímku. Po úspěšném vytvoření úlohy se na konci stránky zobrazí oznámení.
 
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+4. Pokud chcete úlohu sledovat, v oznamovací oblasti (ve spodní části stránky) klikněte na **View Job** (Zobrazit úlohu). 
 
-    ![Monitor the manual backup](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
+    ![Sledování ručního zálohování](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 
-5. After the backup job is finished, go to the **Backup catalog** tab.
+5. Po dokončení úlohy zálohování přejděte na kartu **Backup catalog** (Katalog zálohování).
 
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+6. Nastavte filtry na příslušné zařízení, zásady zálohování a časové rozmezí. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) po nastavení filtrů.
 
-  The backup should appear in the list of backup sets that is displayed in the catalog.
+  Záloha by se měla zobrazit v seznamu sad záloh uvedených v katalogu.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

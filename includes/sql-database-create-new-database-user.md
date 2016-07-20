@@ -1,24 +1,30 @@
 
 
-## Create new database user using SSMS
+## Vytvoření nového uživatele databáze pomocí aplikace SSMS
 
-Use the following steps to create a new database user in an existing database using SSMS. 
+Pomocí následujících kroků vytvořte ve stávající databázi nového uživatele databáze pomocí aplikace SSMS. 
 
-These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
+Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS připojení ke službě SQL Database a jste připojení ke svému logickému serveru SQL Database jako hlavní správce na úrovni serveru nebo pomocí uživatelského účtu s oprávněním k vytváření nových uživatelů. 
 
-1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
+1. V Průzkumníku objektů rozbalte uzel Databáze a vyberte databázi, ve které chcete vytvořit nový uživatelský účet.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Klikněte pravým tlačítkem myši na vybranou databázi a potom klikněte na **Dotaz**.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
+3. V okně dotazu úpravou a použitím následujícího příkazu Transact-SQL vytvořte uživatele ve své databázi uživatelů. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

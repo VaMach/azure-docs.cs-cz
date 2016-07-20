@@ -1,8 +1,13 @@
-|    | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+|    | **Propustnost brány sítě VPN (1)** | **Maximální počet tunelových propojení IPsec brány sítě VPN (2)** | **Propustnost brány ExpressRoute** | **Brána sítě VPN a ExpressRoute existují vedle sebe**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **Základní SKU**              |  100 Mb/s | 10                         |  500 Mb/s                           | Ne   |
+| **Standardní SKU**           |  100 Mb/s | 10                         | 1000 Mb/s                           | Ano  |
+| **SKU pro vysoký výkon**   | 200 Mb/s  | 30                         | 2000 Mb/s                           | Ano  |
 
-- (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
-- (2) The number of tunnels refer to route-based VPN below. A policy-based VPN can only support one Site-to-Site VPN tunnel
+- (1) Propustnost sítě VPN představuje přibližný odhad na základě měření mezi sítěmi VNet ve stejné oblasti Azure. Není zárukou toho, jaké výsledky dostanete u připojení mezi pracovišti po internetu, ale dá se použít jako ukazatel maximálních možných hodnot.
+- (2) Počet tunelových propojení se týká níže uvedené sítě VPN založené na trasách. Sítě VPN založené na zásadách podporují jenom jedno tunelové propojení sítě VPN typu site-to-site.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

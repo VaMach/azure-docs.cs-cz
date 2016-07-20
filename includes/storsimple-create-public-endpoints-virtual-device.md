@@ -1,21 +1,26 @@
-#### To create public endpoints on the virtual device
+#### Vytvoření veřejných koncových bodů na virtuálním zařízení
 
-1. Sign in to the Azure classic portal.
+1. Přihlaste se na portál Azure Classic.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- Klikněte na **Virtuální počítače** a potom vyberte virtuální počítač, který používáte jako virtuální zařízení.
 
-- Click **Endpoints**. The **Endpoints** page lists all endpoints for the virtual machine.
+- Klikněte na **Koncové body**. Objeví se stránka **Koncové body**, která obsahuje všechny koncové body pro daný virtuální počítač.
 
-- Click **Add**. The **Add Endpoint** dialog box appears. Click the arrow to continue.
+- Klikněte na tlačítko **Add** (Přidat). Zobrazí se dialogové okno **Přidat koncový bod**. Pokračujte kliknutím na šipku.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- Do pole **Název** zadejte následující název koncového bodu: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- V poli **Protokol** uveďte **TCP**.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- Do pole **Veřejný port** zadejte čísla portů, která chcete pro připojení použít.
 
-- For the **Private Port**, type **5986**.
+- Do pole **Privátní port** zadejte **5986**.
 
-- Click the check mark to create the endpoint.
+- Kliknutím na symbol zaškrtnutí vytvořte koncový bod.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+Po vytvoření koncového bodu můžete zobrazit jeho podrobnosti, abyste zjistili virtuální IP adresu (VIP). Tuto adresu si poznamenejte.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

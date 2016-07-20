@@ -1,30 +1,35 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### To take a backup
+### Provedení zálohy
 
-1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
+1. Na obrazovce **Rychlý start** zařízení klikněte na **Add a backup policy** (Přidat zásadu zálohování). Tím spustíte průvodce přidáním zásady zálohování. 
 
-2. On the **Define your backup policy** page:
-  1. Supply a name that contains between 3 and 150 characters for your backup policy.
-  2. Select the volumes to be backed up. If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+2. Na stránce **Define your backup policy** (Definujte zásadu zálohování):
+  1. Zadejte název zásady zálohování, který obsahuje 3 až 150 znaků.
+  2. Vyberte svazky, které chcete zálohovat. Pokud vyberete víc než jeden svazek, tyto svazky se seskupí, aby byla vytvořená záloha konzistentní v případě selhání.
+  3. Kliknutím na ikonu šipky ![ikona šipky](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
   
-    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
+    ![Přidání zásady zálohování](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
 
-3. On the **Define a schedule** page:
-  1. Select the type of backup from the drop-down list. For faster restores, select **Local Snapshot**. For data resiliency, select **Cloud Snapshot**.
-  2. Specify the backup frequency in minutes, hours, days, or weeks.
-  3. Select a retention time. The retention choices depend on the backup frequency. For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
-  4. Select the starting time and date for the backup policy.
-  5. Select the **Enable** check box to enable the backup policy. 
-  6. Click the check icon ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) to save the policy.
+3. Na stránce **Define a schedule** (Definujte plán):
+  1. V rozevíracím seznamu vyberte typ zálohy. Pokud chcete rychlejší zálohování, vyberte **Local Snapshot** (Místní snímek). Pokud vám záleží na odolnosti dat, vyberte **Cloud Snapshot** (Cloudový snímek).
+  2. Zadejte četnost zálohování v minutách, hodinách, dnech nebo týdnech.
+  3. Vyberte dobu uchování. Volby uchování závisí na požadované četnosti zálohování. Třeba v případě denní zásady se dá doba uchování zadat v týdnech, kdežto v případě měsíční zásady v měsících.
+  4. Vyberte počáteční čas a datum zásady zálohování.
+  5. Povolte zásadu zálohování zaškrtnutím políčka **Povolit**. 
+  6. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-take-backup/HCS_CheckIcon-include.png) a zásadu uložte.
 
-    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
+    ![Přidání zásady zálohování](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
  
-     You now have a backup policy that will create scheduled backups of your volume data.
+     Teď máte zásadu zálohování, která bude podle plánu vytvářet zálohy dat svazku.
 
-You have completed the device configuration. 
+Dokončili jste konfiguraci zařízení. 
 
-![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**
+![Dostupné video](./media/storsimple-take-backup/Video_icon.png) **Dostupné video**
 
-To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+Pokud si chcete přehrát video, které ukazuje, jak vytvořit zálohu StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

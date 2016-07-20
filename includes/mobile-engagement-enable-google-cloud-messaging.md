@@ -1,36 +1,42 @@
 
-###Create a Google Cloud Messaging project with API key
+###Vytvoření projektu služby GCM (Google Cloud Messaging) s klíčem rozhraní API
 
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] K provedení tohoto postupu potřebujete účet Google s ověřenou e-mailovou adresou. Nový účet Google si můžete vytvořit na stránce <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
+1. Přejděte na [Google Cloud Console](https://console.developers.google.com/project) a přihlaste se pomocí svých přihlašovacích údajů k účtu Google.
 
-2. Click **Go to project**, and then click **Create Project**.
+2. Klikněte na **Go to project** (Přejít na projekt) a potom klikněte na **Create Project** (Vytvořit projekt).
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
 -->
-3. Enter a project name.
+3. Zadejte název projektu.
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Click **Create**.
+4. Poznamenejte si číslo projektu, které se zobrazí pod textovým polem **Project name** (Název projektu). Později ho budete potřebovat v kurzu, který se týká zadání informací do souboru manifest v Androidu.
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+5. Klikněte na **Vytvořit**.
 
-6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
+6. V levém sloupci zkontrolujte, jestli je vybraná možnost **Overview** (Přehled), a v části mobilních rozhraní API klikněte na **Google Cloud Messaging**. Na další stránce klikněte na tlačítko **Enable** (Povolit).
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 <!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. Na další stránce klikněte na **Go to Credentials** (Přejít na přihlašovací údaje) a na následující stránce vyberte v prvním rozevíracím seznamu **Google Cloud Messaging** a v druhém **Web server** (Webový server) a potom klikněte na **What credentials do I need?** (Jaké přihlašovací údaje potřebuji?).
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. In **Add credentials to your project** page, click **Create API key**.
+8. Na stránce **Add credentials to your project** (Přidání přihlašovacích údajů k vašemu projektu) klikněte na **Create API key** (Vytvořit klíč rozhraní API).
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
-9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
+9. Poznamenejte si hodnotu položky **API KEY** (Klíč rozhraní API). Hodnotu klíče rozhraní API budete později potřebovat ke konfiguraci nastavení v části „Native Push“ (Nativní oznámení). Klikněte na **Done** (Hotovo).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

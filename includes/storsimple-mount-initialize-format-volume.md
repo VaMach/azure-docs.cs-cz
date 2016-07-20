@@ -1,36 +1,42 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To mount, initialize, and format a volume
+#### Připojení, inicializace a formátování svazku
 
-1. Start the Microsoft iSCSI initiator.
+1. Spusťte iniciátor iSCSI od Microsoftu.
 
-2. In the **iSCSI Initiator Properties** window, on the **Discovery** tab, click **Discover Portal**.
+2. V okně **iSCSI Initiator Properties (Vlastnosti iniciátoru iSCSI)** na kartě **Zjišťování** klikněte na **Vyhledat portál**.
 
-3. In the **Discover Target Portal** dialog box, supply the IP address of your iSCSI-enabled network interface, and then click **OK**. 
+3. V dialogovém okně **Zjistit cílový portál** zadejte IP adresu svého síťového rozhraní s podporou iSCSI a potom klikněte na **OK**. 
 
-4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. The device status should appear as **Inactive**.
+4. V okně **iSCSI Initiator Properties** (Vlastnosti iniciátoru iSCSI) na kartě **Cíle** najděte část **Zjištěné cíle**. U zařízení by se měl zobrazovat stav **Neaktivní**.
 
-5. Select the target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator][1]).
+5. Vyberte cílové zařízení a potom klikněte na **Připojit**. Po připojení zařízení by se měl stav změnit na **Připojeno**. (Další informace o použití iniciátoru iSCSI od Microsoftu najdete v tématu [Instalace a konfigurace iniciátoru Microsoft iSCSI][1]).
 
-6. On your Windows host, press the Windows Logo key + X, and then click **Run**. 
+6. Na hostiteli s Windows stiskněte klávesu s logem Windows + X a potom klikněte na **Spustit**. 
 
-7. In the **Run** dialog box, type **Diskmgmt.msc**. Click **OK**, and the **Disk Management** dialog box will appear. The right pane will show the volumes on your host.
+7. V dialogovém okně **Spustit** zadejte **Diskmgmt.msc**. Klikněte na **OK**. Zobrazí se dialogové okno **Správa disků**. V pravém podokně se zobrazí svazky na vašem hostiteli.
 
-8. In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
+8. V okně **Správa disků** se připojené svazky zobrazí tak, jak znázorňuje následující obrázek. Klikněte pravým tlačítkem myši na zjištěný svazek (klikněte na název disku) a potom klikněte na **Online**.
 
-     ![Initialize format volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png) 
+     ![Inicializace a formátování svazku](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png) 
 
-9. Right-click the volume (click the disk name) again, and then click **Initialize**.
+9. Znovu klikněte pravým tlačítkem myši na svazek (klikněte na název disku) a potom klikněte na **Inicializovat**.
 
-10. To format a simple volume, perform the following steps:
-  1. Select the volume, right-click it (click the right area), and click **New Simple Volume**.
-  2. In the New Simple Volume wizard, specify the volume size and drive letter and configure the volume as an NTFS file system.
-  3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
-  4. Perform a quick format.
+10. Pokud chcete naformátovat jednoduchý svazek, postupujte takto:
+  1. Vyberte svazek, klikněte na něj pravým tlačítkem myši (klikněte na pravou část) a klikněte na **Nový jednoduchý svazek**.
+  2. V průvodci Nový jednoduchý svazek zadejte písmeno svazku a písmeno jednotky a nakonfigurujte u svazku systém souborů NTFS.
+  3. Zvolte velikost alokační jednotky 64 kB. Tato velikost alokační jednotky dobře funguje s algoritmy pro odstranění duplicit, které používá řešení StorSimple.
+  4. Proveďte rychlé formátování.
 
-![Video available](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video available**
+![Dostupné video](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Dostupné video**
 
-To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+Pokud si chcete přehrát video, které ukazuje, jak připojit, inicializovat a naformátovat svazek StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

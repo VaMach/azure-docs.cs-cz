@@ -1,29 +1,35 @@
-## Defining a backup policy
+## Definování zásad zálohování
 
-A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
+Zásady zálohování definují postupy, podle kterých se pořizují snímky dat včetně doby uchovávání těchto snímků. Při definování zásad pro zálohování virtuálních počítačů můžete úlohu zálohování aktivovat *jednou denně*. Když vytvoříte nové zásady, budou použity na trezor. Rozhraní zásad zálohování vypadá následovně:
 
-![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
+![Zásady zálohování](./media/backup-create-policy-for-vms/backup-policy.png)
 
-To create a policy:
+Vytvoření zásad:
 
-1. Enter a name for the **Policy name**.
+1. Zadejte **Název zásad**.
 
-2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Snímky dat můžete pořizovat v denních nebo týdenních intervalech. V rozevírací nabídce **Četnost zálohování** vyberte, jestli chcete snímky dat pořizovat denně nebo týdně.
 
-    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
+    - Pokud zvolíte denní interval, použijte zvýrazněný ovládací prvek a vyberte čas, kdy se má snímek pořídit. Hodinu můžete změnit tak, že zrušíte výběr aktuální hodiny a vyberete novou hodinu.
 
-    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Zásady pro denní zálohování](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+    - Pokud zvolíte týdenní interval, použijte zvýrazněný ovládací prvek a vyberte dny v týdnu a čas, kdy chcete snímek pořizovat. V nabídce dnů vyberte jeden nebo několik dnů. V nabídce hodin vyberte požadovanou hodinu. Hodinu můžete změnit tak, že zrušíte výběr aktuální hodiny a vyberete novou hodinu.
 
-    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Zásady pro týdenní zálohování](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
+3. Ve výchozím nastavení jsou vybrané všechny možnosti **Rozsah uchování**. Pokud některý limit rozsahu uchování nechcete používat, zrušte jeho zaškrtnutí. Potom zadejte interval nebo intervaly, které chcete používat.
 
-    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
+    Měsíční a roční rozsahy uchovávání umožňují stanovit pořizování snímků na základě denního nebo týdenního přírůstku.
 
-    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+    >[AZURE.NOTE] Když chráníte virtuální počítač, úloha zálohování se spustí jednou denně. Čas spuštění zálohování je stejný pro všechny rozsahy uchování.
 
-4. After setting all options for the policy, at the top of the blade click **Save**.
+4. Po nastavení všech možností zásad klikněte v horní části okna na **Uložit**.
 
-    The new policy is immediately applied to the vault.
+    Nové zásady se okamžitě použijí na trezor.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

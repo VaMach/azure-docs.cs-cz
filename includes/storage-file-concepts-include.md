@@ -1,45 +1,45 @@
-## What is Azure File storage?
+## Co je služba File Storage?
 
-File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
+Služba File Storage nabízí sdílené úložiště pro aplikace, které používají standardní protokol SMB 2.1 nebo SMB 3.0. Virtuální počítače a cloudové služby Microsoft Azure můžou sdílet souborová data mezi komponentami aplikace přes sdílené složky a místní aplikace můžou k souborovým datům ve sdílené složce přistupovat přes rozhraní API služby File Storage.
 
-Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
+Aplikace běžící v cloudových službách nebo virtuálních počítačích Azure můžou připojit sdílené úložiště služby File Storage pro přístup k datům souborů stejným způsobem, jako desktopová aplikace připojí typickou sdílenou složku SMB. Potom může sdílené úložiště File Storage připojit a používat libovolný počet virtuálních počítačů nebo rolí Azure.
 
-Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
+Protože sdílené úložiště File Storage je standardní složkou sdílených souborů v Azure, která je sdílená pomocí protokolu SMB, aplikace běžící v Azure můžou k datům ve sdíleném úložišti přistupovat přes rozhraní API určená pro vstupně–výstupní operace se soubory. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure. Tato příručka obsahuje příklady obou.
 
-Common uses of File storage include:
+Mezi běžná použití služby File Storage patří:
 
-- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
-- Storing shared application settings, for example in configuration files
-- Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
-- Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
+- Migrace místních aplikací, které závisí na sdílených složkách, aby mohly spouštět virtuální počítače nebo cloudové služby Azure bez nákladných přepisů
+- Ukládání nastavení sdílených aplikací, například do konfiguračních souborů
+- Ukládání diagnostických dat, například protokolů, metrik a výpisů stavu systému ve sdíleném umístění 
+- Ukládání nástrojů potřebných pro vývoj nebo správu virtuálních počítačů nebo cloudových služeb Azure
 
-## File storage concepts
+## Koncepty služby File Storage
 
-File storage contains the following components:
+Služba File Storage obsahuje následující součásti:
 
 ![files-concepts][files-concepts]
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+-   **Účet úložiště:** Veškerý přístup ke službě Azure Storage se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](../articles/storage/storage-scalability-targets.md).
 
--   **Share:** A File storage share is an SMB file share in Azure. 
-    All directories and files must be created in a parent share. An account can contain an
-    unlimited number of shares, and a share can store an unlimited
-    number of files, up to the 5 TB total capacity of the file share.
+-   **Sdílená složka:** Sdílená složka úložiště File Storage představuje sdílenou složku protokolu SMB v Azure. 
+    Všechny adresáře a soubory musí být vytvořeny v nadřazené sdílené složce. Účet může obsahovat neomezený počet sdílených složek a sdílená složka můžete obsahovat neomezený počet souborů až do 5 TB celkové kapacity sdílené složky.
 
--   **Directory:** An optional hierarchy of directories. 
+-   **Adresář:** Volitelná hierarchie adresářů. 
 
--	**File:** A file in the share. A file may be up to 1 TB in size.
+-   **Soubor:** Soubor ve sdílené složce. Soubor může mít velikost až 1 TB.
 
--   **URL format:** Files are addressable using the following URL
-    format:   
+-   **Formát adresy URL:** Soubory jsou adresovatelné v následujícím formátu adresy URL:   
     https://`<storage
     account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
-    The following example URL could be used to address one of the files in the
-    diagram above:  
+    Následující příklad adresy URL můžete použít k adresování jednoho ze souborů ve výše uvedeném diagramu:  
     `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
+Podrobnosti o pojmenovávání sdílených složek, adresářů a souborů najdete v článku [Pojmenování a odkazování na sdílené složky, soubory a metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
+
+
+<!--HONumber=Jun16_HO2-->
+
+

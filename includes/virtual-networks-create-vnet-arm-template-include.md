@@ -1,59 +1,64 @@
-## Download and understand the ARM template
+## Postup stažení a popis šablony ARM
 
-You can download the existing ARM template for creating a VNet and two subnets from github, make any changes you might want, and reuse it. To do so, follow the steps below.
+Z webu github si můžete stáhnout existující šablonu ARM k vytvoření sítě VNet a dvou podsítí, libovolně ji upravit a opakovaně používat. Postupujte následujícím způsobem.
 
-1. Navigate to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
-2. Click **azuredeploy.json**, and then click **RAW**.
-3. Save the file to a a local folder on your computer.
-4. If you are familiar with ARM templates, skip to step 7.
-5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
+1. Přejděte na stránku [vzorové šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+2. Klikněte na **azuredeploy.json** a potom klikněte na **RAW**.
+3. Uložte soubor do místní složky v počítači.
+4. Pokud již šablony ARM znáte, pokračujte krokem 7.
+5. Otevřete soubor, který jste právě stáhli, a prohlédněte si jeho obsah v části **parameters** na řádku 5. Parametry šablony ARM představují zástupce hodnot, které můžete doplnit během nasazování.
 
-	| Parameter | Description |
-	|---|---|
-	| **location** | Azure region where the VNet will be created |
-	| **vnetName** | Name for the new VNet |
-	| **addressPrefix** | Address space for the VNet, in CIDR format |
-	| **subnet1Name** | Name for the first VNet |
-	| **subnet1Prefix** | CIDR block for the first subnet |
-	| **subnet2Name** | Name for the second VNet |
-	| **subnet2Prefix** | CIDR block for the second subnet |
+    | Parametr | Popis |
+    |---|---|
+    | **location** | Oblast Azure, ve které bude síť VNet vytvořena |
+    | **vnetName** | Název nové sítě VNet |
+    | **addressPrefix** | Adresní prostor sítě VNet ve formátu CIDR |
+    | **subnet1Name** | Název první sítě VNet |
+    | **subnet1Prefix** | Blok CIDR pro první podsíť |
+    | **subnet2Name** | Název druhé sítě VNet |
+    | **subnet2Prefix** | Blok CIDR pro druhou podsíť |
 
-	>[AZURE.IMPORTANT] ARM templates maintained in github can change over time. Make sure you check the template before using it.
-	
-6. Check the content under **resources** and notice the following:
+    >[AZURE.IMPORTANT] Šablony ARM udržované na webu github se můžou časem změnit. Před použitím proto šablonu vždy nejprve zkontrolujte.
+    
+6. Prohlédněte si obsah v části **resources** a všimněte si následujících parametrů:
 
-	- **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
-	- **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
-	- **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
+    - **type**. Typ prostředku vytvořeného šablonou. V tomto případě se jedná o prostředek **Microsoft.Network/virtualNetworks**, který reprezentuje síť VNet.
+    - **name**. Název prostředku. Všimněte si volání **[parameters('vnetName')]**, které znamená, že název bude dodán jako vstup uživatelem nebo ze souboru parametrů během nasazování.
+    - **properties**. Seznam vlastností prostředku. Tato šablona používá během vytváření sítě VNet vlastnosti adresního prostoru a podsítě.
 
-7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
-8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
-9. Save the file to a a local folder on your computer.
-10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the VNet described in our scenario.
+7. Přejděte zpět na stránku [vzorové šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+8. Klikněte na **azuredeploy-paremeters.json** a potom klikněte na **RAW**.
+9. Uložte soubor do místní složky v počítači.
+10. Otevřete soubor, který jste právě uložili, a upravte hodnoty parametrů. K nasazení sítě VNet popsané v tomto scénáři použijte níže uvedené hodnoty.
 
-		{
-		  "location": {
-		    "value": "Central US"
-		  },
-		  "vnetName": {
-		      "value": "TestVNet"
-		  },
-		  "addressPrefix": {
-		      "value": "192.168.0.0/16"
-		  },
-		  "subnet1Name": {
-		      "value": "FrontEnd"
-		  },
-		  "subnet1Prefix": {
-		    "value": "192.168.1.0/24"
-		  },
-		  "subnet2Name": {
-		      "value": "BackEnd"
-		  },
-		  "subnet2Prefix": {
-		      "value": "192.168.2.0/24"
-		  }
-		}
+        {
+          "location": {
+            "value": "Central US"
+          },
+          "vnetName": {
+              "value": "TestVNet"
+          },
+          "addressPrefix": {
+              "value": "192.168.0.0/16"
+          },
+          "subnet1Name": {
+              "value": "FrontEnd"
+          },
+          "subnet1Prefix": {
+            "value": "192.168.1.0/24"
+          },
+          "subnet2Name": {
+              "value": "BackEnd"
+          },
+          "subnet2Prefix": {
+              "value": "192.168.2.0/24"
+          }
+        }
 
-11. Save the file.
+11. Uložte soubor.
   
+
+
+<!--HONumber=Jun16_HO2-->
+
+

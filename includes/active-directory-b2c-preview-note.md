@@ -1,3 +1,7 @@
 > [AZURE.NOTE]
-	This information applies to the Azure AD B2C consumer identity service preview.  For information on Azure AD for employees and organizations, 
-	please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    Tyto informace se týkají verze Preview služby identit pro zákazníky B2C Azure AD.  Informace o Azure AD pro zaměstnance a organizace najdete v tématu[Příručka pro vývojáře Azure Active Directory](active-directory-developers-guide.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

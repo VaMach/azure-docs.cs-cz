@@ -1,2 +1,7 @@
 > [AZURE.IMPORTANT]
-	If you've used the code in this tutorial at any point before this notice was added, please re-download the code now.  A bug fix has been added to the `PolicyAuthHelpers` folder that addresses an out-of-memory exception.  More information is available is [this pull request on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/pull/4). We apologize for the inconvenience.
+    Pokud jste použili kód uvedený v tomto kurzu kdykoli před přidáním tohoto upozornění, znovu si ho stáhněte.  Ve složce `PolicyAuthHelpers` přibyla oprava chyb, která řeší výjimku z důvodu nedostatku paměti.  Další informace získáte v [této žádosti o data na webu GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/pull/4). Omlouváme se za nepříjemnosti.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

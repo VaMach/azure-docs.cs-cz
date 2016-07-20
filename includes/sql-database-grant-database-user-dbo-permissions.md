@@ -1,23 +1,29 @@
 
 
-## Grant new database user db_owner permissions
+## Udělení oprávnění db_owner novému uživateli databáze
 
-Use the following steps to grant an existing database user db_owner permissions
+Pomocí následujícího postupu můžete stávajícímu uživateli databáze udělit oprávnění db_owner.
 
-Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
+Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS připojení ke službě SQL Database a jste připojení ke svému logickému serveru SQL Database jako hlavní správce na úrovni serveru nebo pomocí uživatelského účtu s oprávněním k udělování oprávnění uživatelům. 
 
-1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
+1. V Průzkumníku objektů rozbalte uzel Databáze a vyberte databázi obsahující uživatele, kterému chcete udělit oprávnění dbo.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Klikněte pravým tlačítkem myši na vybranou databázi a potom klikněte na **Dotaz**.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
+3. V okně dotazu úpravou a použitím následujícího příkazu Transact-SQL udělte zadanému uživateli oprávnění dbo. 
 
     '''ALTER ROLE db_owner ADD MEMBER user1;
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+     ![SQL Server Management Studio: Připojení k serveru služby SQL Database](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,1 +1,7 @@
->[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Klíč účtu úložiště vždycky pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že je klíč účtu ohrožený, vygenerujte ho znovu pomocí portálu Azure. Informace o tom, jak znovu vygenerovat klíč účtu, najdete v tématu [Vytvoření, správa nebo odstranění účtu úložiště na portálu Azure](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
