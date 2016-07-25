@@ -184,7 +184,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         module.exports = DocDBUtils;
 
 > [AZURE.TIP] createCollection přijímá volitelný parametr requestOptions, který je možné použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota requestOptions.offerType, kolekce se vytvoří pomocí výchozího typu nabídky.
-> Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md). 
+> Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md) 
         
 3. Uložte a zavřete soubor **docdbUtils.js**.
 
@@ -549,7 +549,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
 
 ## <a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Weby Azure
 
-1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak to lze udělat, najdete v tématu o [průběžném nasazování pomocí GIT v Azure App Service](../app-service-web/web-sites-publish-source-control.md).
+1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak to lze udělat, najdete v tématu o [průběžném nasazování pomocí GIT v Azure App Service](../app-service-web/web-sites-publish-source-control.md)
 
 2. Přidejte svůj web Azure jako vzdálené úložiště Git.
 
