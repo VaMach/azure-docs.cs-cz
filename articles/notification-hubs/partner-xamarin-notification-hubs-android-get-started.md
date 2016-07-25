@@ -510,7 +510,7 @@ V tomto jednoduchém příkladu jste vysílali oznámení pro všechna zařízen
 [portálu Azure Classic]: https://manage.windowsazure.com/
 [objekt služby WNS]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
-[Postupy centra oznámení pro Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[Centra oznámení s postupy pro Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Použití centra oznámení pro nabízená oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
 [Používání centra oznámení k odesílání novinek]: /manage/services/notification-hubs/breaking-news-dotnet

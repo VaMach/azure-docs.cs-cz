@@ -168,11 +168,12 @@ Zde jsou odkazy na relevantní spravovaná rozhraní API pro .NET:
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
   [šablon]: notification-hubs-templates.md
-  [Portál Azure]: https://portal.azure.com
+  [Portálu Azure]: https://portal.azure.com
   [značek]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 

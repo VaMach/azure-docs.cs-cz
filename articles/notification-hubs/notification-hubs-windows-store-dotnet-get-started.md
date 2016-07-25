@@ -283,10 +283,12 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 [katalog informační zprávy]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [katalog dlaždic]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[přehled oznámení]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[přehled odznaků]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 
 
 <!--HONumber=Jun16_HO2-->
+
+
 
 

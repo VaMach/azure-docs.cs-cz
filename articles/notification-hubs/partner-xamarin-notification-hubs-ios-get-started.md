@@ -313,7 +313,7 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 [Začínáme používat mobilní služby]: /develop/mobile/tutorials/get-started-xamarin-ios
 [portálu Azure Classic]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
-[Postupy centra oznámení pro iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Centra oznámení s postupy pro iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instalaci Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -332,5 +332,6 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 
