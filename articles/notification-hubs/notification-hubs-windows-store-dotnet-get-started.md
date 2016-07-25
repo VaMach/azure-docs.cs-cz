@@ -185,11 +185,11 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 
 * **Microsoft Azure oznámení centra .NET SDK**: Ve správci balíčků Nuget pro Visual Studio spusťte položku [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-* **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+* **Node.js**: [Jak používat Notification Hubs z Node.js]( notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Azure Mobile Apps**: Příklad zasílání oznámení ze služby Azure Mobile Apps integrované se službou Notification Hubs najdete v tématu [Přidání nabízených oznámení do mobilních aplikací](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Azure Mobile Apps**: Příklad zasílání oznámení ze služby Azure Mobile Apps integrované se službou Notification Hubs najdete v tématu [Přidání nabízených oznámení do mobilních aplikací]( ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-* **Java / PHP**: příklad odesílání oznámení pomocí rozhraní API REST naleznete v části „Použití centra oznámení z Java/PHP“ ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+* **Java / PHP**: příklad odesílání oznámení pomocí rozhraní API REST naleznete v části „Použití centra oznámení z Java/PHP“ ([Java]( notification-hubs-java-backend-how-to.md) | [PHP]( notification-hubs-php-backend-how-to.md)).
 
 
 ## (Volitelné) Odesílání oznámení z konzoly aplikace
@@ -283,10 +283,12 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 [katalog informační zprávy]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [katalog dlaždic]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[přehled oznámení]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[přehled odznaků]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 
 
 <!--HONumber=Jun16_HO2-->
+
+
 
 

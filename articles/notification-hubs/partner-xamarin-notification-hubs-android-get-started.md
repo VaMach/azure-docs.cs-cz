@@ -388,8 +388,8 @@ Nabízená oznámení se většinou posílají ve službě backend, jako je slu�
 Tady je seznam některých dalších kurzů, které se týkají zasílání oznámení:
 
 - ASP.NET: Viz [Použití centra oznámení pro nabízená oznámení uživatelům].
-- Sada Azure Notification Hubs Java SDK: Informace o zasílání oznámení z prostředí Java najdete v tématu [Použití služby Notification Hubs z prostředí Java](notification-hubs-java-backend-how-to.md). Tato metoda prošla pro potřeby vývoje pro Android testováním v Eclipse.
-- PHP: Viz [Použití služby Notification Hubs z PHP](notification-hubs-php-backend-how-to.md).
+- Sada Azure Notification Hubs Java SDK: Informace o zasílání oznámení z prostředí Java najdete v tématu [Použití služby Notification Hubs z prostředí Java]( notification-hubs-java-backend-how-to.md). Tato metoda prošla pro potřeby vývoje pro Android testováním v Eclipse.
+- PHP: Viz [Použití služby Notification Hubs z PHP]( notification-hubs-php-backend-how-to.md).
 
 
 V dalším pododdílu kurzu odešlete oznámení pomocí konzolové aplikace .NET a pomocí mobilních služeb prostřednictvím skriptu uzlu.
@@ -510,7 +510,7 @@ V tomto jednoduchém příkladu jste vysílali oznámení pro všechna zařízen
 [portálu Azure Classic]: https://manage.windowsazure.com/
 [objekt služby WNS]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
-[Postupy centra oznámení pro Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[Centra oznámení s postupy pro Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Použití centra oznámení pro nabízená oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
 [Používání centra oznámení k odesílání novinek]: /manage/services/notification-hubs/breaking-news-dotnet

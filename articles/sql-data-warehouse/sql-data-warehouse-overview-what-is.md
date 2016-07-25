@@ -163,8 +163,8 @@ Teď, když už službu SQL Data Warehouse trochu znáte, seznamte se s [úloham
 <!--Article references-->
 [Vytvoření lístku podpory]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [úlohami datového skladu]: ./sql-data-warehouse-overview-workload.md
-[jak načíst ukázková data]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[jak zřídit]: ./sql-data-warehouse-get-started-provision.md
+[načíst ukázková data]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[zřídit]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -180,5 +180,6 @@ Teď, když už službu SQL Data Warehouse trochu znáte, seznamte se s [úloham
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 

@@ -190,17 +190,17 @@ Nabízená oznámení můžete otestovat ve vaší aplikaci odesláním oznámen
 
 Nabízená oznámení se většinou posílají pomocí služby backend, jako je služba Mobile Services, nebo v technologii ASP.NET pomocí kompatibilní knihovny. Můžete také použít rozhraní REST API k přímému zasílání oznámení, pokud pro váš scénář není dostupná knihovna. 
 
-V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům](notification-hubs-aspnet-backend-ios-notify-users.md). Následující přístupy lze však použít pro zasílání oznámení:
+V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]( notification-hubs-aspnet-backend-ios-notify-users.md). Následující přístupy lze však použít pro zasílání oznámení:
 
 * **Rozhraní REST**: nabízené oznámení můžete podporovat na jakékoli backend platformě pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
 * **Microsoft Azure oznámení centra .NET SDK**: Ve správci balíčků Nuget pro Visual Studio spusťte položku [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-* **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+* **Node.js**: [Jak používat Notification Hubs z Node.js]( notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Mobilní služby Azure**: pro příklad odesílání nabízených oznámení z mobilních služeb Azure backend, které jsou integrovány v centrech oznámení, si projděte téma „Začínáme s nabízenými oznámeními v mobilních službách“ ([.NET backend](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)).
+* **Mobilní služby Azure**: pro příklad odesílání nabízených oznámení z mobilních služeb Azure backend, které jsou integrovány v centrech oznámení, si projděte téma „Začínáme s nabízenými oznámeními v mobilních službách“ ([.NET backend]( ../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) | [JavaScript backend]( ../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)).
 
-* **Java / PHP**: příklad odesílání nabízených oznámení pomocí rozhraní API REST naleznete v části „Použití centra oznámení z Java/PHP“ ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+* **Java / PHP**: příklad odesílání nabízených oznámení pomocí rozhraní API REST naleznete v části „Použití centra oznámení z Java/PHP“ ([Java]( notification-hubs-java-backend-how-to.md) | [PHP]( notification-hubs-php-backend-how-to.md)).
 
 
 ####(Volitelné) Odesílání nabízených oznámení z konzoly aplikace .NET
@@ -313,7 +313,7 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 [Začínáme používat mobilní služby]: /develop/mobile/tutorials/get-started-xamarin-ios
 [portálu Azure Classic]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
-[Postupy centra oznámení pro iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Centra oznámení s postupy pro iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instalaci Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -332,5 +332,6 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 
