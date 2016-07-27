@@ -89,6 +89,4 @@ Tento virtuální počítač virtuálního zařízení musí být schopný přij
 
 
 
-<!--HONumber=Jun16_HO2-->
-
-
+<!---HONumber=Jun16_HO2-->
