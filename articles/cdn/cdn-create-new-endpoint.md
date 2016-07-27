@@ -39,15 +39,15 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
     Otevře se okno Profil CDN.
 
-    ![Profil CDN][cdn-profile-settings]
+    ![Profil CDN][cdn-profil-nastavení]
 
 2. Klikněte na tlačítko **Přidat koncový bod**.
 
-    ![Tlačítko Přidat koncový bod][cdn-new-endpoint-button]
+    ![Tlačítko Přidat koncový bod][cdn-nový-koncový bod-tlačítko]
 
     Otevře se okno **Přidání koncového bodu**.
 
-    ![Okno Přidání koncového bodu][cdn-add-endpoint]
+    ![Okno Přidání koncového bodu][cdn-přidání-koncový bod]
 
 3. Zadejte **Název** tohoto koncového bodu CDN.  Tento název se použije pro přístup k prostředkům v mezipaměti v doméně `<endpointname>.azureedge.net`.
 
@@ -78,7 +78,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
 10. Jakmile je koncový bod vytvořený, zobrazí se v seznamu koncových bodů daného profilu. Zobrazení seznamu zobrazuje adresu URL, kterou je nutné použít k přístupu k obsahu v mezipaměti, a také doménu původu.
 
-    ![Koncový bod CDN][cdn-endpoint-success]
+    ![Koncový bod CDN][cdn-koncový bod-úspěch]
 
     > [AZURE.IMPORTANT] Koncový bod nebude hned dostupný pro použití, protože chvíli trvá, než se registrace rozšíří v rámci CDN.  V případě profilů <b>Azure CDN společnosti Akamai</b> je šíření obvykle hotové během jedné minuty.  V případě profilů <b>Azure CDN společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
     >    
