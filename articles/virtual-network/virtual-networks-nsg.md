@@ -124,13 +124,13 @@ Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Cl
 
 |Nástroj pro nasazení|Classic|Resource Manager|
 |---|---|---|
-|Portál Classic|![Ne][red]|![Ne][red]|
-|Portál Azure|![Ano][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Ano][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Ano][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Ano][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Ano][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Ano][green]</a>|
-|Šablona ARM|![Ne][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Ano][green]</a>|
+|Portál Classic|![Ne][červená]|![Ne][červená]|
+|Portál Azure|![Ano][zelená]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Ano][zelená]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Ano][zelená]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Ano][zelená]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Ano][zelená]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Ano][zelená]</a>|
+|Šablona ARM|![Ne][červená]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Ano][zelená]</a>|
 
-|**Klíč**|![Ano][green] Podporuje se. Kliknutím zobrazíte článek.|![Ne][red] Nepodporuje se.|
+|**Klíč**|![Ano][zelená] Podporuje se. Kliknutím zobrazíte článek.|![Ne][červená] Nepodporuje se.|
 |---|---|---|
 
 ## Plánování
