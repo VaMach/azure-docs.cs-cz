@@ -103,17 +103,17 @@ K virtuálnímu počítači (nebo síťové kartě, podle modelu nasazení) a po
 - **Příchozí provoz**
     1. Skupina NSG použitá na podsíť. 
     
-           If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
+           Má-li skupina NSG použitá na podsíť odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat.
     2. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
        
-           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+           Má-li skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo odepřít provoz, bude se paket ve virtuálním počítači nebo na síťové kartě ignorovat, přestože má skupina NSG použitá na podsíť odpovídající pravidlo provoz povolit.
 - **Odchozí provoz**
     1. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
       
-           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
+           Má-li skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat.
     2. Skupina NSG použitá na podsíť.
        
-           If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
+           Má-li skupina NSG použitá na podsíť odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat, přestože má skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo provoz povolit.
 
 ![Seznamy ACL skupiny NSG](./media/virtual-network-nsg-overview/figure2.png)
 
@@ -285,5 +285,6 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 

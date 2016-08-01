@@ -100,7 +100,7 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
 
     ![Snímek obrazovky karty package.json](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+       Tímto se programu Node (a později službě Azure) poskytne informace, že vaše aplikace závisí na těchto dodatečných modulech.
 
 ## <a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
 
@@ -577,5 +577,6 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 
 <!--HONumber=Jun16_HO2-->
+
 
 

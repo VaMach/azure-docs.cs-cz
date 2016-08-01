@@ -91,7 +91,7 @@ Při vytváření fondu můžete zadat následující atributy:
     - Všechny uzly v rámci fondu musí mít stejnou velikost. Jestliže mají být spuštěny různé aplikace s odlišnými požadavky na systém anebo úrovně zatížení, měly by být vytvořeny samostatné fondy.
     - Pro fond mohou být konfigurovány všechny [velikosti uzlu cloudových služeb][cloud_service_sizes] s výjimkou A0.
 
-- **Řada ** a **verze operačního systému** spuštěného na uzlech
+- **Řada** a **verze operačního systému** spuštěného na uzlech
     - Podobně jako u rolí pracovního procesu v rámci služby Cloud Services lze zadat *řadu operačního systému* a *verzi operačního systému* (další informace o rolích pracovního procesu naleznete v části [Více informací o cloudových službách][about_cloud_services] kapitoly *Možnosti hostování výpočtů poskytované platformou Azure*).
     - Řada operačního systému také určuje, jaké verze rozhraní .NET jsou nainstalovány s operačním systémem.
     - Stejně jako u rolí pracovního procesu se doporučuje, aby byl pro verzi operačního systému specifikovaný `*`, takže uzly budou automaticky upgradovány a nebude vyžadována žádná práce s ošetřováním nově vydaných verzí. Případem primárního použití pro výběr konkrétní verze operačního systému je zajistit, aby byla zachována kompatibilita aplikací umožňující testování zpětné kompatibility, jenž má být provedeno před tím, než se povolí aktualizace příslušné verze. Po ověření je možné aktualizovat verzi operačního systému pro fond a nainstalovat novou bitovou kopii operačního systému – všechny spuštěné úkoly budou přerušeny a znovu zařazeny do fronty.
@@ -416,5 +416,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 <!--HONumber=Jun16_HO2-->
+
+
 
 
