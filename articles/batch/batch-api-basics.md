@@ -20,7 +20,7 @@
 
 Tento článek obsahuje základní přehled klíčových funkcí rozhraní API služby Azure Batch. Bez ohledu na to, zda vyvíjíte distribuovaná výpočetní řešení pomocí rozhraní API [Batch REST][batch_rest_api] nebo [Batch .NET][batch_net_api], použijete mnoho entit a funkcí popsaných níže.
 
-> [AZURE.TIP] Vyšší úroveň technického přehledu služby Batch naleznete v tématu [Základy Azure Batch](batch-technical-overview.md).
+> [AZURE.TIP] Vyšší úroveň technického přehledu služby Batch naleznete v tématu [Základy Azure Batch]( batch-technical-overview.md).
 
 ## <a name="workflow"></a>Pracovní postup služby Batch
 
@@ -38,7 +38,7 @@ Následující pracovní postup nejvyšší úrovně je typický příklad praco
 
 6. Sledujte průběh úlohy a načtěte výsledky.
 
-> [AZURE.NOTE] Pro používání služby Batch budete potřebovat [účet Batch](batch-account-create-portal.md) a téměř všechna řešení budou používat účet [Azure Storage][azure_storage] pro ukládání a načítání souborů. Batch aktuálně podporuje pouze typ účtu úložiště pro **obecné účely**, jak je popsáno v kroku č. 5 [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v dokumentu [Informace o účtech úložiště Azure](../storage/storage-create-storage-account.md).
+> [AZURE.NOTE] Pro používání služby Batch budete potřebovat [účet Batch]( batch-account-create-portal.md) a téměř všechna řešení budou používat účet [Azure Storage][azure_storage] pro ukládání a načítání souborů. Batch aktuálně podporuje pouze typ účtu úložiště pro **obecné účely**, jak je popsáno v kroku č. 5 [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v dokumentu [Informace o účtech úložiště Azure](../storage/storage-create-storage-account.md).
 
 V následujících částech se dozvíte o jednotlivých zdrojích uvedených v dříve popsaném pracovním postupu, a také o mnoha dalších funkcích služby Batch, které umožní váš distribuovaný výpočetní scénář.
 
@@ -61,7 +61,7 @@ Při použití služby Batch budete používat mnoho z následujících prostře
 
 ### <a name="account"></a>Účet
 
-Účet Batch je jednoznačně identifikovaná entita v rámci služby Batch. Veškeré zpracování je přidruženo k účtu Batch. Když provádíte operace se službou Batch, potřebujete název účtu i klíč účtu. Chcete-li vytvořit dávkový účet, podívejte se na dokument [Vytvoření a správa účtu Azure Batch na portálu Azure](batch-account-create-portal.md).
+Účet Batch je jednoznačně identifikovaná entita v rámci služby Batch. Veškeré zpracování je přidruženo k účtu Batch. Když provádíte operace se službou Batch, potřebujete název účtu i klíč účtu. Chcete-li vytvořit dávkový účet, podívejte se na dokument [Vytvoření a správa účtu Azure Batch na portálu Azure]( batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Výpočetní uzel
 
@@ -91,7 +91,7 @@ Při vytváření fondu můžete zadat následující atributy:
     - Všechny uzly v rámci fondu musí mít stejnou velikost. Jestliže mají být spuštěny různé aplikace s odlišnými požadavky na systém anebo úrovně zatížení, měly by být vytvořeny samostatné fondy.
     - Pro fond mohou být konfigurovány všechny [velikosti uzlu cloudových služeb][cloud_service_sizes] s výjimkou A0.
 
-- **Řada ** a **verze operačního systému** spuštěného na uzlech
+- **Řada** a **verze operačního systému** spuštěného na uzlech
     - Podobně jako u rolí pracovního procesu v rámci služby Cloud Services lze zadat *řadu operačního systému* a *verzi operačního systému* (další informace o rolích pracovního procesu naleznete v části [Více informací o cloudových službách][about_cloud_services] kapitoly *Možnosti hostování výpočtů poskytované platformou Azure*).
     - Řada operačního systému také určuje, jaké verze rozhraní .NET jsou nainstalovány s operačním systémem.
     - Stejně jako u rolí pracovního procesu se doporučuje, aby byl pro verzi operačního systému specifikovaný `*`, takže uzly budou automaticky upgradovány a nebude vyžadována žádná práce s ošetřováním nově vydaných verzí. Případem primárního použití pro výběr konkrétní verze operačního systému je zajistit, aby byla zachována kompatibilita aplikací umožňující testování zpětné kompatibility, jenž má být provedeno před tím, než se povolí aktualizace příslušné verze. Po ověření je možné aktualizovat verzi operačního systému pro fond a nainstalovat novou bitovou kopii operačního systému – všechny spuštěné úkoly budou přerušeny a znovu zařazeny do fronty.
@@ -99,7 +99,7 @@ Při vytváření fondu můžete zadat následující atributy:
 - **Cílový počet uzlů**, který by měl být k dispozici pro fond
 
 - **Zásady škálování** pro fond
-    - Kromě počtu uzlů je pro fond také možné stanovit [vzorec automatického škálování](batch-automatic-scaling.md). Služba Batch spustí vzorec a upraví počet uzlů v rámci fondu v závislosti na různých parametrech fondu, úlohy a úkolu, které lze zadat.
+    - Kromě počtu uzlů je pro fond také možné stanovit [vzorec automatického škálování]( batch-automatic-scaling.md). Služba Batch spustí vzorec a upraví počet uzlů v rámci fondu v závislosti na různých parametrech fondu, úlohy a úkolu, které lze zadat.
 
 - Zásady **plánování úkolů**
     - Možnost konfigurace [maximálního počtu úkolů na uzel](batch-parallel-node-tasks.md) určuje maximální počet úkolů, které lze spustit souběžně na každém uzlu v rámci fondu.
@@ -183,13 +183,13 @@ Služba Batch poskytuje úkol přípravy úlohy pro nastavení provádění pře
 
 Úkoly přípravy a uvolnění úlohy umožňují zadat příkazový řádek, který se má spustit, když je úkol vyvolán, a nabízejí funkce jako stažení souboru, provádění se zvýšenými oprávněními, vlastní proměnné prostředí, maximální dobu provádění, počet opakování a dobu uchovávání souboru.
 
-Další informace ohledně úkolů přípravy a uvolnění úloh najdete v části [Spouštění úkolů přípravy a dokončení úlohy na výpočetních uzlech Azure Batch](batch-job-prep-release.md).
+Další informace ohledně úkolů přípravy a uvolnění úloh najdete v části [Spouštění úkolů přípravy a dokončení úlohy na výpočetních uzlech Azure Batch]( batch-job-prep-release.md).
 
 #### <a name="multiinstance"></a>Úkoly s více instancemi
 
-[Úkol s více instancemi](batch-mpi.md) je úkol, který je nakonfigurován, aby byl současně spuštěn na více než jednom výpočetním uzlu. Pomocí úkolů s více instancemi můžete povolit scénáře vysokovýkonného výpočetního prostředí jako je rozhraní MPI (Message Passing Interface), které vyžadují skupinu výpočetních uzlů přidělených společně na zpracování jediné úlohy.
+[Úkol s více instancemi]( batch-mpi.md) je úkol, který je nakonfigurován, aby byl současně spuštěn na více než jednom výpočetním uzlu. Pomocí úkolů s více instancemi můžete povolit scénáře vysokovýkonného výpočetního prostředí jako je rozhraní MPI (Message Passing Interface), které vyžadují skupinu výpočetních uzlů přidělených společně na zpracování jediné úlohy.
 
-Podrobné informace o spouštění úloh MPI ve službě Batch pomocí knihovny Batch .NET naleznete v dokumentu [Použití úkolů s více instancemi ke spouštění aplikací rozhraní MPI Message Passing Interface) v Azure Batch](batch-mpi.md).
+Podrobné informace o spouštění úloh MPI ve službě Batch pomocí knihovny Batch .NET naleznete v dokumentu [Použití úkolů s více instancemi ke spouštění aplikací rozhraní MPI Message Passing Interface) v Azure Batch]( batch-mpi.md).
 
 #### <a name="taskdep"></a>Závislosti úkolů
 
@@ -209,11 +209,11 @@ Plány úloh umožňují vytvořit opakované úlohy v rámci služby Batch. Pl�
 
 ### <a name="appkg"></a>Balíčky aplikací
 
-Funkce [balíčků aplikací](batch-application-packages.md) poskytuje snadnou správu a nasazení aplikací na výpočetní uzly ve fondech. S balíčky aplikací lze snadno nahrávat a spravovat více verzí aplikací spouštěných prostřednictvím úkolů, včetně binárních a podpůrných souborů, pak automaticky nasadit jednu nebo více těchto aplikací na výpočetní uzly ve fondu.
+Funkce [balíčků aplikací]( batch-application-packages.md) poskytuje snadnou správu a nasazení aplikací na výpočetní uzly ve fondech. S balíčky aplikací lze snadno nahrávat a spravovat více verzí aplikací spouštěných prostřednictvím úkolů, včetně binárních a podpůrných souborů, pak automaticky nasadit jednu nebo více těchto aplikací na výpočetní uzly ve fondu.
 
 Služba Batch zpracovává podrobnosti o práci s úložištěm Azure Storage na pozadí, aby bezpečně ukládala a nasazovala balíčky aplikací na výpočetní uzly, čímž lze zjednodušit režijní náklady na kód a správu.
 
-Chcete-li získat další informace o funkci balíčku aplikace, projděte si dokument [Nasazení aplikací pomocí balíčků aplikací Azure Batch](batch-application-packages.md).
+Chcete-li získat další informace o funkci balíčku aplikace, projděte si dokument [Nasazení aplikací pomocí balíčků aplikací Azure Batch]( batch-application-packages.md).
 
 ## <a name="files"></a>Soubory a adresáře
 
@@ -246,7 +246,7 @@ Kombinovaný přístup, obvykle používaný pro zpracování proměnného, ale 
 
 ## <a name="scaling"></a>Škálování aplikací
 
-Služba Batch může díky [automatickému škálování](batch-automatic-scaling.md) dynamicky upravit počet výpočetních uzlů ve fondu podle aktuálního zatížení a využití prostředků výpočetního scénáře. To umožňuje snížit celkové náklady na spuštění aplikace pomocí pouze těch prostředků, které potřebujete, a uvolněním těch, které nepotřebujete. Pro fond lze určit nastavení automatického škálování, když je vytvořen, nebo povolit škálování později, a u fondu s povoleným automatickým škálováním je možné nastavení škálování aktualizovat.
+Služba Batch může díky [automatickému škálování]( batch-automatic-scaling.md) dynamicky upravit počet výpočetních uzlů ve fondu podle aktuálního zatížení a využití prostředků výpočetního scénáře. To umožňuje snížit celkové náklady na spuštění aplikace pomocí pouze těch prostředků, které potřebujete, a uvolněním těch, které nepotřebujete. Pro fond lze určit nastavení automatického škálování, když je vytvořen, nebo povolit škálování později, a u fondu s povoleným automatickým škálováním je možné nastavení škálování aktualizovat.
 
 Automatické škálování se provádí zadáním **vzorce automatického škálování** pro fond. Služba Batch používá tento vzorec k určení cílového počtu uzlů ve fondu pro další interval škálování (interval, který lze zadat).
 
@@ -264,7 +264,7 @@ Když automatické škálování sníží počet výpočetních uzlů ve fondu, 
 
 > [AZURE.TIP] Chcete-li maximalizovat využití výpočetních prostředků, nastavte cílový počet uzlů na konci úlohy na hodnotu nula, ale povolte dokončení spouštěných úkolů.
 
-Další informace o automatickém škálování aplikace naleznete v tématu [Automatické škálování výpočetních uzlů ve fondu Azure Batch](batch-automatic-scaling.md).
+Další informace o automatickém škálování aplikace naleznete v tématu [Automatické škálování výpočetních uzlů ve fondu Azure Batch]( batch-automatic-scaling.md).
 
 ## <a name="cert"></a>Zabezpečení pomocí certifikátů
 
@@ -362,7 +362,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 ## Další kroky
 
-- Vytvořte svoji první aplikaci služby Batch podle kroků v dokumentu [Začínáme s knihovnou Azure Batch Library for .NET](batch-dotnet-get-started.md)
+- Vytvořte svoji první aplikaci služby Batch podle kroků v dokumentu [Začínáme s knihovnou Azure Batch Library for .NET]( batch-dotnet-get-started.md)
 - Stáhněte si a sestavte ukázkový projekt [Batch Explorer][batch_explorer_project] pro použití při vývoji řešení pro službu Batch. Pomocí projektu Batch Explorer můžete provést následující a další akce:
   - Monitorování a manipulace s fondy, úlohami a úkoly v rámci vašeho účtu Batch
   - Stažení `stdout.txt`, `stderr.txt` a dalších souborů z uzlů
@@ -373,7 +373,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 [about_cloud_services]: ../cloud-services/cloud-services-choose-me.md
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
+[cloud_service_sizes]:  ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -416,5 +416,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 <!--HONumber=Jun16_HO2-->
+
+
 
 
