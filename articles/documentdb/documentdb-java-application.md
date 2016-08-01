@@ -750,7 +750,7 @@ Díky Webům Azure je nasazování aplikací Java stejně snadné jako export ap
  - V poli Destination (Cíl) vyberte cíl, do kterého se uloží soubor WAR.
  - Klikněte na **Finish** (Dokončit).
 
-3. Nyní když máte k dispozici soubor WAR, můžete tento soubor jednoduše nahrát do adresáře **webapps** Webu Azure. Pokyny, jak soubor nahrát, najdete v tématu o [přidání aplikace na web Java v Azure](../app-service-web/web-sites-java-add-app.md).
+3. Nyní když máte k dispozici soubor WAR, můžete tento soubor jednoduše nahrát do adresáře **webapps** Webu Azure. Pokyny, jak soubor nahrát, najdete v tématu o [přidání aplikace na web Java v Azure]( ../app-service-web/web-sites-java-add-app.md).
 
     Až bude soubor WAR nahrán do adresáře webapps, běhové prostředí zjistí, že jste jej přidali, a automaticky ho načte.
 4. Pokud si chcete zobrazit hotový produkt, přejděte na http://NÁZEVVAŠEHO\_WEBU\_.azurewebsites.net/azure-documentdb-java-sample/ a začněte přidávat úkoly!

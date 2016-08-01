@@ -77,7 +77,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
 ## Vývoj skriptů U-SQL
 
-Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL]( data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Postup vytvoření a odeslání úlohy Data Lake Analytics**
 
@@ -285,10 +285,10 @@ Pokud chcete začít s Data Lake Analytics pomocí různých nástrojů, projdě
 
 Další témata týkající se vývoje:
 
-- [Analýza weblogů pomocí Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+- [Analýza weblogů pomocí Data Lake Analytics]( data-lake-analytics-analyze-weblogs.md)
 - [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Začínáme s jazykem U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
-- [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [Začínáme s jazykem U-SQL Azure Data Lake Analytics]( data-lake-analytics-u-sql-get-started.md)
+- [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics]( data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Ukázka Appx-A PowerShell pro přípravu kurzu
 
