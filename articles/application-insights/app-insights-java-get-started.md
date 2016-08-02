@@ -375,7 +375,7 @@ Získáte tabulky s dobami odezvy a navíc e-mailová oznámení, pokud váš we
 
 ![Příklad webového testu](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Další informace o dostupnosti webových testů .][dostupnost] 
+[Další informace o dostupnosti webových testů .]\[dostupnost] 
 
 
 
