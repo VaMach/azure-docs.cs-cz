@@ -1,0 +1,197 @@
+<properties
+   pageTitle="Začínáme s nasazením a upgradem aplikací v místním clusteru | Microsoft Azure"
+   description="Nastavte místní cluster Service Fabric, nasaďte do něj existující aplikaci a potom tuto aplikaci upgradujte."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotNet"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/12/2016"
+   ms.author="ryanwi"/>
+
+# Začínáme s nasazením a upgradem aplikací v místním clusteru
+Sada Azure Service Fabric SDK zahrnuje úplné místní vývojové prostředí, pomocí kterého můžete rychle začít nasazovat a spravovat aplikace v místním clusteru. V tomto článku vytvoříte místní cluster, nasadíte do něj existující aplikaci a potom ji upgradujete na novou verzi, to všechno z prostředí Windows PowerShell.
+
+> [AZURE.NOTE] Tento článek vychází z předpokladu, že už máte [nastavené vývojové prostředí](service-fabric-get-started.md).
+
+## Vytvoření místního clusteru
+Cluster Service Fabric tvoří sada hardwarových prostředků, na které můžete nasazovat aplikace. Většinou se cluster skládá z pěti až několika tisíc počítačů. Sada Service Fabric SDK ale obsahuje konfiguraci clusteru, která se dá spustit na jednom počítači.
+
+Je důležité si uvědomit, že místní cluster Service Fabric není emulátor ani simulátor. Spouští stejný kód platformy, jaký najdete i v clusterech s víc počítači. Jediný rozdíl je v tom, že v něm na jednom počítači běží procesy platformy, které jsou normálně rozložené mezi pěti počítačů.
+
+Sada SDK nabízí dva způsoby, jak vytvořit místní cluster: skript prostředí Windows PowerShell a aplikaci hlavního panelu systému Local Cluster Manager. V tomto kurzu použijeme skript prostředí PowerShell.
+
+> [AZURE.NOTE] Pokud jste už nasazením aplikace z Visual Studia vytvořili místní cluster, můžete tuto část přeskočit.
+
+
+1. Jako správce spusťte nové okno prostředí PowerShell.
+
+2. Spusťte instalační skript clusteru z této složky sady SDK:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+    ```
+
+    Instalace clusteru bude chvíli trvat. Po dokončení instalace byste měli vidět výstup podobný tomuto:
+
+    ![Výstup po instalaci clusteru][cluster-setup-success]
+
+    Teď můžete zkusit nasadit do clusteru aplikaci.
+
+## Nasazení aplikace
+Sada Service Fabric SDK obsahuje celou řadu architektur a vývojářských nástrojů pro tvorbu aplikací. Pokud se chcete naučit vytvářet aplikace ve Visual Studiu, projděte si téma [Vytvoření první aplikace Service Fabric v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
+
+V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem WordCount), abychom se mohli zaměřit na aspekty správy platformy, včetně nasazení, monitorování a upgradu.
+
+
+1. Jako správce spusťte nové okno prostředí PowerShell.
+
+2. Importujte modul Service Fabric SDK PowerShell.
+
+    ```powershell
+    Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
+    ```
+
+3. Vytvořte adresář pro uložení aplikace, kterou stáhnete a nasadíte, třeba C:\ServiceFabric.
+
+    ```powershell
+    mkdir c:\ServiceFabric\
+    cd c:\ServiceFabric\
+    ```
+
+4. [Stáhněte aplikaci WordCount](http://aka.ms/servicefabric-wordcountapp) do umístění, které jste vytvořili.
+
+5. Připojte se k místnímu clusteru:
+
+    ```powershell
+    Connect-ServiceFabricCluster localhost:19000
+    ```
+
+6. Pomocí příkazu pro nasazení v sadě SDK vytvořte novou aplikaci tím, že zadáte název a cestu k balíčku aplikace.
+
+    ```powershell  
+  Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
+    ```
+
+    Pokud všechno proběhne správně, zobrazený výstup by měl vypadat asi takto:
+
+    ![Nasazení aplikace do místního clusteru][deploy-app-to-local-cluster]
+
+7. Pokud chcete vidět aplikaci v akci, spusťte prohlížeč a přejděte na adresu [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Měli byste vidět zhruba toto:
+
+    ![Uživatelské rozhraní nasazené aplikace][deployed-app-ui]
+
+    Aplikace WordCount je velmi jednoduchá. Obsahuje kód JavaScript na straně klienta, který generuje náhodná „slova“ o pěti znacích a ta potom předává do aplikace přes webové rozhraní API ASP.NET. Stavová služba uchovává informace o spočítaném počtu slov. Slova se podle prvního znaku dělí do oddílů.
+
+    Aplikace, kterou jsme nasadili, obsahuje čtyři oddíly. Slova začínající písmeny A až G se ukládají do prvního oddílu, slova začínající písmeny H až N do druhého oddílu a tak dál.
+
+## Zobrazení podrobností a stavu aplikace
+Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na některé podrobnosti.
+
+1. Zadejte dotaz na všechny nasazené aplikace v clusteru:
+
+    ```powershell
+    Get-ServiceFabricApplication
+    ```
+
+    Pokud jste nasadili jenom aplikaci WordCount, zobrazí se přibližně toto:
+
+    ![Dotaz na všechny nasazené aplikace v prostředí PowerShell][ps-getsfapp]
+
+2. Přejděte na další úroveň a zadejte dotaz na sadu služeb zahrnutých v aplikaci WordCount.
+
+    ```powershell
+    Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
+    ```
+
+    ![Výpis seznamu služeb aplikace v prostředí PowerShell][ps-getsfsvc]
+
+    Všimněte si, že aplikace se skládá ze dvou služeb – z webového prostředí front-end a stavové služby, která spravuje slova.
+
+3. Nakonec se podíváme na seznam oddílů služby WordCountService:
+
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
+    ![Zobrazení oddílů služby v prostředí PowerShell][ps-getsfpartitions]
+
+    Sada příkazů, které jste právě použili, stejně jako všechny příkazy Service Fabric prostředí PowerShell, jsou dostupné pro každý místní i vzdálený cluster, ke kterému se připojíte.
+
+    Pokud byste ocenili víc vizuální způsob práce s clusterem, můžete použít webový nástroj Service Fabric Explorer na adrese [http://localhost:19080/Explorer](http://localhost:19080/Explorer) v prohlížeči.
+
+    ![Zobrazení podrobností aplikace v Service Fabric Exploreru][sfx-service-overview]
+
+    > [AZURE.NOTE] Další informace o nástroji Service Fabric Explorer najdete v tématu [Vizualizace vašeho clusteru v nástroji Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+
+## Upgrade aplikace
+Service Fabric nabízí upgrady bez výpadků díky tomu, že během zavádění v clusteru monitoruje stav aplikací. Teď provedeme jednoduchý upgrade aplikace WordCount.
+
+Nová verze aplikace teď bude počítat jenom slova, která začínají samohláskou. Po upgradu vidíme v chování aplikace dvě změny. Zaprvé by se měla zpomalit rychlost zvyšování hodnoty, protože se počítá míň slov. Zadruhé by měla hodnota prvního oddílu postupně začít růst rychleji než ostatní oddíly, protože první oddíl obsahuje dvě samohlásky (A a E) a ostatní oddíly jenom po jedné.
+
+1. [Stáhněte balíček WordCount v2](http://aka.ms/servicefabric-wordcountappv2) do stejného umístění, do kterého jste stáhli balíček v1.
+
+2. Vraťte se do prostředí PowerShell a pomocí příkazu pro upgrade v sadě SDK zaregistrujte novou verzi v clusteru. Pak začněte upgradovat aplikaci fabric:/WordCount.
+
+    ```powershell
+    Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
+    ```
+
+    Po zahájení upgradu by měl být v prostředí PowerShell vidět výstup podobný následujícímu.
+
+    ![Průběh upgradu v prostředí PowerShell][ps-appupgradeprogress]
+
+3. Během upgradu může být snazší monitorovat jeho stav v Service Fabric Exploreru. Spusťte okno prohlížeče a přejděte na adresu [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ve stromě vlevo rozbalte položku **Aplikace**, zvolte **WordCount** a nakonec **fabric:/WordCount**. Na kartě základních informací uvidíte průběh upgradu v upgradovaných doménách clusteru.
+
+    ![Průběh upgradu v Service Fabric Exploreru][sfx-upgradeprogress]
+
+    Během upgradu v jednotlivých doménách se provádí kontroly stavu, které ověřují správné chování aplikace.
+
+4. Pokud pro sadu služeb, které jsou součástí aplikace fabric:/WordCount, znovu spustíte předchozí příkaz, zjistíte, že se změnila verze WordCountService, ale verze WordCountWebService ne:
+
+    ```powershell
+    Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
+    ```
+
+    ![Dotaz na aplikační služby po upgradu][ps-getsfsvc-postupgrade]
+
+    To ukazuje, jak Service Fabric spravuje upgrady aplikací. Dotýká se jenom sady služeb (nebo balíčků kódu/konfigurace v těchto službách), které se změnily, a díky tomu má upgrade rychlejší a spolehlivější průběh.
+
+5. Nakonec se vraťte do prohlížeče, abyste mohli pozorovat chování nové verze aplikace. Podle očekávání se hodnoty zvyšují pomaleji a první oddíl nakonec získá o něco větší objem slov.
+
+    ![Zobrazení nové verze aplikace v prohlížeči][deployed-app-ui-v2]
+
+## Další kroky
+- Provedli jste nasazení a upgrade některých předem sestavených aplikací a teď si můžete zkusit [sestavit vlastní aplikaci v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
+- Všechny akce, které jsme v tomto článku prováděli v místním clusteru, se dají provádět i v [clusteru Azure](service-fabric-cluster-creation-via-portal.md).
+- V tomto článku jsme popisovali jenom velmi jednoduchý upgrade. Další informace o výkonu a flexibilitě upgradů Service Fabric najdete v [dokumentaci upgradů](service-fabric-application-upgrade.md).
+
+<!-- Images -->
+
+[cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
+[extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png
+[deploy-app-to-local-cluster]: ./media/service-fabric-get-started-with-a-local-cluster/DeployAppToLocalCluster.png
+[deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v1.png
+[deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
+[sfx-app-instance]: ./media/service-fabric-get-started-with-a-local-cluster/SfxAppInstance.png
+[sfx-two-app-instances-different-partitions]: ./media/service-fabric-get-started-with-a-local-cluster/SfxTwoAppInstances-DifferentPartitionCount.png
+[ps-getsfapp]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFApp.png
+[ps-getsfsvc]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc.png
+[ps-getsfpartitions]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFPartitions.png
+[ps-appupgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/PS-AppUpgradeProgress.png
+[ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
+[sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
+[sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
