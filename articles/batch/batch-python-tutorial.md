@@ -576,7 +576,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Spuštění ukázkového skriptu
 
-Když spouštíte skript *python_tutorial_client.py*, bude výstup konzoly podobný následujícímu. Zatímco se vytvářejí a spouští výpočetní uzly fondu a provádí se příkazy ve spouštěcím úkolu fondu, uvidíte pozastavení na `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte [portál Azure][azure_portal] nebo [Průzkumníka služby Batch][github_batchexplorer]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [portál Azure][azure_portal] nebo [průzkumník služby Microsoft Azure Storage][storage_explorers] .
+Když spouštíte skript *python_tutorial_client.py*, bude výstup konzoly podobný následujícímu. Zatímco se vytvářejí a spouští výpočetní uzly fondu a provádí se příkazy ve spouštěcím úkolu fondu, uvidíte pozastavení na `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte [portál Azure][azure_portal] nebo [Průzkumníka služby Batch][github_batchexplorer]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [portál Azure][azure_portal] nebo [průzkumník služby Microsoft Azure Storage]\[storage_explorers] .
 
 Typická doba provádění je **přibližně 5–7 minut**, když aplikaci spouštíte v její výchozí konfiguraci.
 
@@ -684,6 +684,5 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!--HONumber=Jun16_HO2-->
-
+<!----HONumber=Jun16_HO2-->
 
