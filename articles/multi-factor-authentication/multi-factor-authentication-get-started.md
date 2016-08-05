@@ -20,8 +20,8 @@
 
 Jelikož existuje několik typů Azure  Multi-Factor Authentication, musíme určit několik věcí, aby bylo možné zjistit, která verze je ta správná pro vaše použití.  Jedná se o:
 
--   [Co se pokouším zabezpečit](#what-am-i-trying-to-secure)
--   [Kde se nachází uživatelé](#where-are-the-users-located)
+-   [Co se pokouším zabezpečit](#co-se-pokoum-zabezpeit)
+-   [Kde se nachází uživatelé](#kde-se-nachz-uivatel)
 
 V následujících částech naleznete pokyny k zodpovězení každé z těchto otázek.
 
