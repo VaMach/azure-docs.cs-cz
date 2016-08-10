@@ -141,6 +141,6 @@ Abyste mohli na portálu Azure Classic spravovat oba adresáře, postupujte nás
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Jun16_HO2--->
 
 
