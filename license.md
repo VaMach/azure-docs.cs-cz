@@ -1,0 +1,7 @@
+﻿Copyright (c) Microsoft Corporation.  Distribuováno za následujících podmínek:
+ 
+1. Společnost Microsoft a všichni přispěvatelé tohoto projektu vám jednotlivě poskytují licenci na základě svých příslušných autorských práv k dokumentaci pro služby Microsoft Azure na základě licence [Creative Commons Attribution 3.0 United States License](http://creativecommons.org/licenses/by/3.0/us/legalcode).  Kromě toho vám s ohledem na libovolný ukázkový kód obsažený v dokumentaci společnost Microsoft a všichni zmínění přispěvatelé poskytují dodatečnou licenci na základě svých příslušných práv k duševnímu vlastnictví pro používání uvedeného kódu k vývoji nebo navrhování vašeho softwaru pro služby Microsoft Azure.
+ 
+2.  Microsoft, Windows, Microsoft Azure a/nebo další produkty a služby společnosti Microsoft, které jsou uvedené v této dokumentaci, mohou být ochrannými známkami nebo registrovanými ochrannými známkami společnosti Microsoft v USA a/nebo v jiných zemích. Tato licence vám neuděluje práva k používání jakýchkoli názvů, log nebo ochranných známek. Obecné pokyny pro nakládání s ochrannými známkami společnosti Microsoft naleznete na adrese [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+ 
+3.  Společnost Microsoft a všichni přispěvatelé si vyhrazují všechna další práva, ať již se jedná o autorská práva, patenty či ochranné známky, nebo práva odvozená, práva plynoucí z překážky nebo další práva.
