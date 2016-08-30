@@ -104,10 +104,10 @@ V tomto kroku připojíte ke svému objektu pro vytváření dat cluster HDInsig
     - Pomocí výše uvedeného kódu JSON služba Data Factory vytvoří cluster HDInsight **se systémem Windows**. Můžete ale také vytvořit cluster HDInsight **se systémem Linux**. Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
     - Místo clusteru HDInsight na vyžádání můžete použít také **vlastní cluster HDInsight**. Podrobnosti najdete v tématu [Propojená služba HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
     - Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je úmyslné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je potřeba zpracovat určitý řez, pokud neexistuje aktivní cluster (**timeToLive**), a po dokončení zpracování se zase odstraní.
-    
-        Po zpracování velkého množství řezů se ve službě Azure Blob Storage objeví velké množství kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
+	
+		Po zpracování velkého množství řezů se ve službě Azure Blob Storage objeví velké množství kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
 
-    Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+	Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Uložte soubor **HDInsightOnDemandLinkedService1.json**.
 
 ## Vytvoření datových sad
@@ -279,7 +279,10 @@ Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se n
     2. Do pole **Název** zadejte **FirstDataFactoryUsingVS**. 
     
         > [AZURE.IMPORTANT] Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-3. V poli **Předplatné** vyberte správné předplatné. 4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit. 5. Vyberte **oblast** pro objekt pro vytváření dat. 6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.) 
+	3. V poli **Předplatné** vyberte správné předplatné.
+	4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit.
+	5. Vyberte **oblast** pro objekt pro vytváření dat.
+	6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.) 
 23. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.     
 24. Zkontrolujte souhrn a klikněte na **Další**. Spustí se proces nasazení a zobrazí se **Stav nasazení**.
 25. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit. 
@@ -486,6 +489,4 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
-<!--HONumber=Jun16_HO2-->
-
-
+<!-----HONumber=Jun16_HO2-->
