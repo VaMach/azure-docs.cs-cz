@@ -12,45 +12,47 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="07/28/2016"
     ms.author="awills"/>
 
 
-# Nainstalujte monitorování stavu Application Insights pro sledování výkonu webu
+# Instrumentace webových aplikací za běhu pomocí nástrojů Application Insights
 
 *Application Insights je ve verzi Preview.*
 
-Stav monitorování sady Visual Studio Application Insights umožňuje diagnostikovat výjimky a problémy s výkonem v aplikacích technologie ASP.NET. 
+Nástroje Visual Studio Application Insights vám umožňují instrumentovat živou webovou aplikaci, aniž byste museli upravovat nebo znovu nasazovat kód. Pokud jsou vaše aplikace hostované na místním serveru služby IIS, budete instalovat Monitorování stavu, nebo pokud se jedná o webové aplikace Azure nebo aplikace spuštěné na virtuálním počítači Azure, můžete nainstalovat rozšíření Application Insights. (Existují i samostatné články o instrumentaci [živých webových aplikací J2EE](app-insights-java-live.md) a [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![ukázkové grafy](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] Existují samostatné články o instrumentaci [živých webových aplikací J2EE](app-insights-java-live.md) a [Azure Cloud Services](app-insights-cloudservices.md).
+Můžete si vybrat ze tří způsobů, jak u webových aplikací .NET použít nástroje Application Insights:
+
+* **Čas sestavení:** [Přidejte Application Insights SDK][greenbrown] do kódu webové aplikace. 
+* **Za běhu:** Podle níže popsaného postupu proveďte instrumentaci webové aplikace na serveru, aniž byste museli znovu sestavovat a nasazovat kód.
+* **Obojí:** Přidejte do kódu webové aplikace sadu SDK a zároveň uplatněte rozšíření za běhu. Získáte to nejlepší z obou možností. 
+
+Tady je souhrn toho, co vám jednotlivé možnosti přinesou:
+
+||Při sestavení|Za běhu|
+|---|---|---|
+|Požadavky a výjimky|Ano|Ano|
+|[Podrobnější výjimky](app-insights-asp-net-exceptions.md)||Ano|
+|[Diagnostika závislostí](app-insights-asp-net-dependencies.md)|V rozhraní .NET 4.6+|Ano|
+|[Čítače výkonu systému](app-insights-web-monitor-performance.md#system-performance-counters)||IIS nebo cloudová služba Azure, ne webová aplikace Azure|
+|[Rozhraní API pro vlastní telemetrii][rozhraní api]|Ano||
+|[Integrace protokolu trasování](app-insights-asp-net-trace-logs.md)|Ano||
+|[Zobrazení stránky a uživatelská data](app-insights-javascript.md)|Ano||
+|Bez nutnosti znovu sestavovat kód|Ne||
 
 
-Máte možnost volby tří způsobů, jak použít Application Insights pro vaše webové aplikace služby IIS:
-
-* **Čas sestavení:** [Přidejte Application Insights SDK][greenbrown] do kódu webové aplikace. To vám poskytuje:
- * Rozsah standardní diagnostiky a telemetrii využití.
- *  Rozhraní [Application Insights API][api] umožňuje psát vlastní telemetrii ke sledování podrobného využití nebo diagnostiky problémů.
-* **Čas spuštění:** monitorování stavu použijte k instrumentaci vaší webové aplikace na server.
- * Sledování webových aplikací, které jsou již spuštěny: není třeba je znovu sestavit nebo znovu publikovat.
- * Rozsah standardní diagnostiky a telemetrii využití.
- * Diagnostika závislosti& #151; vyhledá chyby nebo nízký výkon, kde vaše aplikace používá jiné komponenty, například databáze, REST API nebo jiné služby.
- * Vyřešte všechny problémy s telemetrií.
-* **Oboje:** Zkompilujte sadu SDK do kódu webové aplikace a spusťte monitorování stavu na webovém serveru.  Nejlepší z obou světů:
- * Standardní diagnostika a využití telemetrie.
- * Diagnostika závislostí.
- * Rozhraní API umožňuje psát vlastní telemetrii.
- * Vyřešte všechny problémy s SDK a telemetrií.
 
 
-## Nainstalujte monitorování stavu služby Application Insights
+## Instrumentace webové aplikace za běhu
 
 Budete potřebovat předplatné [Microsoft Azure](http://azure.com).
 
-### Pokud vaše aplikace běží na serveru služby IIS
+### Pokud aplikace běží na vašem serveru služby IIS
 
-1. Na webovém serveru IIS se přihlaste s pověřeními správce.
+1. Na webovém serveru služby IIS se přihlaste pomocí přihlašovacích údajů správce.
 2. Stažení a spuštění [instalačního programu Sledování stavu](http://go.microsoft.com/fwlink/?LinkId=506648).
 4. V průvodci instalací se přihlaste do Microsoft Azure.
 
@@ -87,9 +89,15 @@ Po dokončení průvodce můžete agenta znovu nakonfigurovat vždy, když chcet
 
 ### Pokud vaše aplikace běží jako webová aplikace Azure
 
-V ovládacích panelech webové aplikace Azure přidejte rozšíření Application Insights.
+1. Na webu [Azure Portal](https://portal.azure.com) vytvořte prostředek Application Insights typu ASP.NET. Tady se budou ukládat, analyzovat a zobrazovat telemetrické údaje vaší aplikace.
 
-![Ve vaší webové aplikaci, nastavení, rozšíření, přidat, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Přidejte Application Insights. Vyberte typ ASP.NET.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Teď otevřete ovládací okno webové aplikace Azure, přejděte na **Nástroje > Monitorování výkonu** a přidejte rozšíření Application Insights.
+
+    ![Ve své webové aplikaci přejděte na Nástroje > Rozšíření > Přidat > Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Vyberte prostředek Application Insights, který jste právě vytvořili.
 
 
 ### Pokud se jedná o projekt cloudových služeb Azure
@@ -107,26 +115,28 @@ Otevřete okno Výkon a zobrazte si žádost, dobu odezvy, závislosti a další
 
 ![Výkon](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Chcete-li upravit podrobnosti informací o zobrazení nebo přidat nový graf.
+Kliknutím na libovolný graf otevřete okno s dalšími podrobnostmi.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+Grafy můžete [upravit, uspořádat a uložit](app-insights-metrics-explorer.md) a graf nebo celé okno taky můžete připnout k [řídicímu panelu](app-insights-dashboards.md).
 
 ## Závislosti
 
 Graf doby trvání závislosti zobrazuje dobu trvání zabranou voláním z aplikace na externí komponenty, například databáze, REST API nebo úložiště objektů blob Azure.
 
-Pro segmentování grafu voláním různých závislostí vyberte graf, zapněte seskupování a pak zvolte závislost, typ závislosti nebo závislosti výkonu.
+Pokud chcete graf segmentovat podle volání různých závislostí: Upravte graf, zapněte seskupování a potom proveďte seskupení podle závislosti, typu závislosti nebo výkonu závislosti.
 
-Můžete graf také filtrovat a podívat se na konkrétní závislosti, typ nebo výkon. Klikněte na tlačítko Filtry.
+![Závislost](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Čítače výkonu
+## Čítače výkonu 
 
 (Není pro webové aplikace Azure.) Klikněte na tlačítko Servery v okně Přehled a zobrazte grafy čítačů výkonu serveru, například využití procesoru a využití paměti.
 
-Přidejte nový graf nebo klikněte na graf a změňte, co zobrazí. 
+Pokud máte víc instancí serveru, můžete být vhodné grafy upravit tak, aby se seskupovaly podle instance role.
+
+![Servery](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 Můžete také [změnit sadu čítačů výkonu, které jsou hlášeny sadou SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
+
 
 ## Výjimky
 
@@ -143,24 +153,7 @@ Pokud vaše aplikace odešle velké množství dat a používáte Application In
 
 ### Chyby připojení
 
-Je třeba otevřít některé odchozí porty v bráně firewall a povolit funkci sledování stavu:
-
-+ Telemetrie – je potřeba vždy:
- +  `dc.services.visualstudio.com:80`
- +  `dc.services.visualstudio.com:443`
- +  `dc.applicationinsights.microsoft.com`
-+ Konfigurace – je potřeba pouze při provádění změn:
- -  `management.core.windows.net:443`
- -  `management.azure.com:443`
- -  `login.windows.net:443`
- -  `login.microsoftonline.com:443`
- -  `secure.aadcdn.microsoftonline-p.com:443`
- -  `auth.gfx.ms:443`
- -  `login.live.com:443`
-+ Instalace:
- +  `packages.nuget.org:443`
-
-Tento seznam se může občas měnit.
+Funkce monitorování stavu funguje teprve tehdy, když v bráně firewall svého serveru otevřete [některé odchozí porty](app-insights-ip-addresses.md#outgoing-ports).
 
 ### Žádná telemetrie?
 
@@ -196,6 +189,12 @@ Podpora služby IIS je: IIS 7, 7.5, 8, 8.5 (je vyžadována služba IIS)
 ## Automatizace v prostředí PowerShell
 
 Můžete spustit a zastavit monitorování pomocí prostředí PowerShell.
+
+Nejdřív importujte modul Application Insights:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Zjistěte, které aplikace se monitorují:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
@@ -292,17 +291,17 @@ Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šab
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
+[rozhraní api]: app-insights-api-custom-events-metrics.md
 [dostupnosti]: app-insights-monitor-web-app-availability.md
 [klient]: app-insights-javascript.md
-[diagnostika]: app-insights-diagnostic-search.md
+[Vyhledávejte diagnostiku událostí a protokolů]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [role]: app-insights-resources-roles-access-control.md
-[využití]: app-insights-web-track-usage.md
+[Přidání využití telemetrie webového klienta]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

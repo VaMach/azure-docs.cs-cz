@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="řešení zálohování; služba zálohování"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="03/30/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
 # Verze Public Preview služby Azure Backup – časté otázky
@@ -32,7 +32,7 @@ Verze Public Preview zavádí trezor Služeb zotavení a podporu ARM v rámci oc
 
 ## Služby zotavení a trezory Backup
 
-**Otázka 1. Trezory Služby zotavení jsou v.2. Jsou trezory Backup (v.1) stále podporovány?** <br/>
+**Otázka č. 1: Trezory Služby zotavení jsou v.2. Jsou trezory Backup (v.1) stále podporovány?** <br/>
 Odpověď 1. Ano, trezory Backup jsou stále podporovány. Trezory Backup vytvářejte na portálu Classic. Trezory Služeb zotavení vytvářejte na Portálu Azure.
 
 **Otázka 2. Můžu migrovat trezor Backup do trezoru Služeb zotavení?** <br/>
@@ -45,10 +45,10 @@ Odpověď 2. Bohužel ne. Obsah trezoru Backup nyní nejde migrovat do trezoru S
 ## Podpora ARM pro virtuální počítače Azure
 
 **Otázka 1. Existují ohledně podpory ARM pro virtuální počítače Azure nějaká omezení?** <br/>
-Odpověď 1. Rutiny prostředí PowerShell pro ARM nejsou aktuálně dostupné. Pokud chcete přidat prostředky do skupiny prostředků, je nutné použít uživatelské rozhraní Portálu Azure.
+Odpověď č. 1: Rutiny prostředí PowerShell pro ARM nejsou aktuálně dostupné. Pokud chcete přidat prostředky do skupiny prostředků, je nutné použít uživatelské rozhraní Portálu Azure.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

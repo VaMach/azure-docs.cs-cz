@@ -79,7 +79,7 @@ Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného př
 
 ### Vytvoření oboru názvů služby pomocí klasického portálu Azure
 
-1.  Přihlaste se do [klasického portálu Azure][].
+1.  Přihlaste se do [portál Azure Classic][].
 
 2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
 
@@ -272,7 +272,7 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
 
 2.  Zadejte název třídy **QueueConnector.cs**. Klikněte na **Přidat** a třída se vytvoří.
 
-3.  Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z [klasického portálu Azure][] v kroku 12 v části „Vytvoření oboru názvů Service Bus“.
+3.  Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z [portál Azure Classic][] v kroku 12 v části „Vytvoření oboru názvů Service Bus“.
 
     ```
     using System;
@@ -473,7 +473,7 @@ Další informace o víceúrovňových scénářích najdete v:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [klasického portálu Azure]: http://manage.windowsazure.com
+  [portál Azure Classic]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -498,11 +498,11 @@ Další informace o víceúrovňových scénářích najdete v:
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

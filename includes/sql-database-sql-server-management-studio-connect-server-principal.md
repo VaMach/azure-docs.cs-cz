@@ -9,7 +9,7 @@ Pokud se chcete připojit ke službě Azure SQL Database pomocí aplikace SSMS s
 2. V okně Připojení k serveru zadejte následující informace:
 
  - **Typ serveru**: Výchozí hodnotou je databázový stroj. Tuto hodnotu nemůžete změnit.
- - **Název serveru**: Zadejte název serveru, který je hostitelem služby SQL Database. Použijte následující formát: *&lt;název_serveru >*.**Database.Windows.NET**.
+ - **Název serveru**: Zadejte název serveru, který je hostitelem služby SQL Database. Použijte následující formát: *&lt;název_serveru >*.**database.windows.net**
  - **Typ ověřování**: Pokud teprve začínáte, vyberte Ověřování SQL. Pokud jste pro logický server služby SQL Database povolili službu Active Directory, můžete si vybrat Ověřování hesla Active Directory nebo Integrované ověřování Active Directory.
  - **Uživatelské jméno**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte jméno uživatele, který má přístup k databázi na serveru.
  - **Heslo**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte heslo uvedeného uživatele.
@@ -43,6 +43,6 @@ Nejčastější příčinou chyb připojení jsou chyby v názvu serveru (nezapo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

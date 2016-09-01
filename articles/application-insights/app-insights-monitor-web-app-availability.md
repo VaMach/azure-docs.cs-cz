@@ -12,15 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/20/2016"
+    ms.date="08/10/2016"
     ms.author="awills"/>
 
 # Sledování dostupnosti a odezvy libovolných webů
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Poté, co nasadíte webovou aplikaci, můžete nastavit webové testy ke sledování dostupnosti a odezvy. Application Insights vám bude zasílat webové požadavky v pravidelných intervalech z bodů po celém světě a může vás upozornit v případě, že aplikace reaguje pomalu nebo vůbec.
+Po nasazení webové aplikace na libovolného hostitele můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Application Insights v sadě Visual Studio](app-insights-overview.md) odesílá webové požadavky v pravidelných intervalech z bodů po celém světě a může vás upozornit v případě, že aplikace reaguje pomalu nebo vůbec.
 
 ![Příklad webového testu](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,7 +37,7 @@ Můžete vytvořit až 10 webových testů na prostředek aplikace.
 
 Tento krok přeskočte, pokud jste již [nastavili prostředek Application Insights][start] pro tuto aplikaci a chcete zobrazit data dostupnosti na stejném místě.
 
-Přihlaste se do portálu [Microsoft Azure](http://azure.com), přejděte na [portál Azure](https://portal.azure.com) a vytvořte nový prostředek Application Insights.
+Zaregistrujte se na portálu [Microsoft Azure](http://azure.com), přejděte na [portál Azure](https://portal.azure.com) a vytvořte prostředek Application Insights.
 
 ![Nový > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -52,24 +49,24 @@ V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte n
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **Adresa URL** musí být viditelná z veřejného internetu. Může obsahovat řetězec dotazu&#151; takže také například můžete odněkud získat databáze. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
+- **Adresa URL** musí být viditelná z veřejného internetu. Může obsahovat řetězec dotazu&#151; takže také například můžete odněkud získat databáze. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
 - **Analyzovat závislé požadavky**: obrázky, skripty, soubory stylu a další materiály na stránce jsou požadovány v rámci testu. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří.
 - **Povolit opakování**: Pokud se test nezdaří, zopakuje se za krátkou dobu. Selhání je nahlášeno pouze v případě tří po sobě jdoucích neúspěšných pokusů. Následné testy jsou pak provedeny s obvyklou frekvencí testu. Opakování je dočasně pozastaveno do dalšího úspěchu. Toto pravidlo platí nezávisle na každém umístění testu. (Doporučujeme toto nastavení. V průměru přibližně 80 % selhání zmizí při opakování.)
-- **Frekvence testů**: Nastaví, jak často se test spustí z umístění každého testu. S četností 5 minut a pěti testovanými místy bude váš web testován v průměru každou minutu.
+- **Frekvence testů**: Nastaví, jak často se test spustí z umístění každého testu. S pětiminutovou četností a pěti testovanými místy bude váš web testován v průměru každou minutu.
 - **Testovací umístění** jsou místa, ze kterých naše servery odesílají webové požadavky na adresu URL. Zvolte více než jeden, aby bylo možné rozlišit problémy ve vašem webu od problémů se sítí. Můžete vybrat až 16 umístění.
 
 - **Kritéria úspěchu**:
 
-    **Časový limit testu**: zmenšení velikosti pro upozornění pomalé odezvy. Test se počítá jako selhání, pokud během tohoto období nebyly přijaty odpovědí z webu. Pokud jste vybrali **analyzovat závislé požadavky**, pak všechny bitové kopie, soubory stylů, skripty a další závislé prostředky musí být přijaty během tohoto období.
+    **Časový limit testu**: Pokud chcete dostávat upozornění na pomalé odezvy, zmenšete tuto hodnotu. Test se počítá jako selhání, pokud během tohoto období nebyly přijaty odpovědí z webu. Pokud jste vybrali možnost **Analyzovat závislé požadavky**, potom všechny image, soubory stylů, skripty a další závislé prostředky musejí být přijaty během tohoto období.
 
     **Odpověď HTTP**: vrácený kód stavu, který se počítá jako úspěšný. 200 je kód, který označuje, že byla vrácena normální webová stránka.
 
-    **Shoda obsahu**: řetězec, například „Vítejte!“ Otestujeme, zda se vyskytuje v každé odpovědi. Musí být prostý řetězec bez zástupných znaků. Nezapomeňte, že pokud se obsah vaší stránka změní, bude pravděpodobně nutné jej aktualizovat.
+    **Shoda obsahu**: řetězec, například „Vítejte!“ Testujeme, zda se vyskytuje v každé odpovědi. Musí být prostý řetězec bez zástupných znaků. Nezapomeňte, že pokud se obsah vaší stránka změní, bude pravděpodobně nutné jej aktualizovat.
 
 
 - **Výstrahy** jsou ve výchozím nastavení odesílány, pokud se vyskytnou selhání ve třech umístěních po dobu delší než pět minut. Selhání v jednom umístění bude pravděpodobně problém se sítí a nejedná se o problém s webem. Ale můžete změnit prahovou hodnotu na citlivější nebo méně citlivou a můžete také změnit, komu mají být e-maily zasílány.
 
-    Můžete nastavit [webhook](../azure-portal/insights-webhooks-alerts.md), který je volán, když je vydána výstraha.
+    Můžete nastavit [webhook](../azure-portal/insights-webhooks-alerts.md), který je volán, když je vydána výstraha. (Všimněte si, že v současné době parametry dotazu neprocházejí jako vlastnosti.)
 
 #### Testování více adres URL
 
@@ -82,13 +79,13 @@ Po 1–2 minutách klikněte na tlačítko **Aktualizovat** v okně dostupnost /
 
 ![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Klikněte na libovolný panel v grafu souhrnu v horní části pro podrobnější pohled na toto časové období.
+Kliknutím na libovolný panel v grafu souhrnu získáte podrobnější zobrazení tohoto časového období.
 
 Tyto grafy kombinují výsledky pro všechny webové testy aplikace.
 
 #### Komponenty webové stránky
 
-Obrázky, šablony stylů a skripty a další součásti statické webové stránky, které testujete, jsou požadovány v rámci testu.  
+Obrázky, šablony stylů, skripty a další statické součásti webové stránky, které testujete, jsou požadovány v jako část testu.  
 
 Doba zaznamenané odezvy je čas potřebný k dokončení načítání pro všechny součásti.
 
@@ -104,7 +101,7 @@ Případně přejděte dolů a klikněte na tlačítko test, kde uvidíte menš�
 
 ![Klikněte na konkrétní test webu](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-Ten vám zobrazí výsledky testu.
+Otevřou se výsledky tohoto testu.
 
 ![Klikněte na konkrétní test webu](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -123,7 +120,7 @@ Klikněte na výsledek pro vyhodnocení na portálu a podívejte se, proč byl n
 Alternativně můžete stáhnout soubor s výsledky a zkontrolovat v sadě Visual Studio.
 
 
-*Vypadá v pořádku, ale je hlášen jako selhání?* Zkontrolujte všechny bitové kopie, skripty, šablony stylů a všechny další soubory, které jsou načteny stránkou. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
+*Vypadá v pořádku, ale je hlášen jako selhání?* Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
 
 
 
@@ -131,7 +128,7 @@ Alternativně můžete stáhnout soubor s výsledky a zkontrolovat v sadě Visua
 
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
 
-Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio a pak nahrajte tento záznam do služby Application Insights. Application Insights přehraje scénář v intervalech a ověří odezvy.
+Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
 
 Všimněte si, že nemůžete použít kódované funkce ve svých testech: kroky scénáře musí být obsaženy jako skript v souboru .webtest.
 
@@ -141,7 +138,7 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise nebo U
 
 1. Vytvořte projekt testu výkonnosti webu.
 
-    ![V sadě Visual Studio vytvořte nový projekt ze šablony výkonu webu a zátěžového testu.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Vytvořte v sadě Visual Studio nový projekt ze šablony výkonu webu a zátěžového testu.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. Otevřete soubor .webtest a spusťte záznam.
 
@@ -182,7 +179,7 @@ Prohlédněte si výsledky testu a všechny chyby stejným způsobem jako u test
 
 Běžným důvodem selhání je, že test běží příliš dlouho. Nesmí se spouštět déle než dvě minuty.
 
-Nezapomeňte, že musí správně načítat všechny prostředky stránky pro úspěšný test, včetně skriptů, šablon stylů, obrázků a tak dále.
+Nezapomeňte, že všechny prostředky stránky se musí načíst správně, včetně skriptů, šablon stylů, obrázků a tak dále, jinak test nebude úspěšný.
 
 Všimněte si, že webový test musí být zcela obsažen v souboru .webtest: programové funkce nelze použít v testu.
 
@@ -195,7 +192,7 @@ Předpokládejme, že testujete nástroj, který získá data závislá na čase
 
 Při spuštění testu chcete, aby čas ukončení vždy představoval aktuální čas a čas spuštění by měl začínat před 15 minutami.
 
-Zásuvné moduly webového testu poskytují způsob k provedení.
+Zásuvné moduly webového testu nabízejí způsob parametrizace časů.
 
 1. Přidejte zásuvný modul webového testu pro každou hodnotu parametru proměnné, kterou chcete. V panelu nástrojů webového testu zvolte **Přidat zásuvný modul pro testování webu**.
 
@@ -211,24 +208,48 @@ Zásuvné moduly webového testu poskytují způsob k provedení.
 
     ![V parametru testu použijte {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Teď nahrajte svůj test na portál. Při každé spuštění testu se budou používat dynamické hodnoty.
+Teď nahrajte svůj test na portál. Při každém spuštění testu se budou používat dynamické hodnoty.
 
 ## Vyřešení přihlášení
 
-Pokud se vaši uživatelé přihlásí do vaší aplikace, máte několik možností pro simulaci přihlášení, takže můžete testovat stránky za přihlášením. Použitý přístup závisí na typu zabezpečení poskytovaném aplikací.
+Pokud se uživatelé přihlásí do aplikace, máte několik možností pro simulaci přihlášení, takže můžete otestovat stránky následující po přihlášení. Použitý přístup závisí na typu zabezpečení poskytovaném aplikací.
 
-Ve všech případech musíte vytvořit účet pouze pro účely testování. Pokud je to možné, omezte oprávnění, aby byla pouze ke čtení.
+Ve všech případech musíte v aplikaci vytvořit účet jenom pro účely testování. Pokud je to možné, omezte oprávnění tohoto testovacího účtu, aby webové testy nemohly žádným způsobem ovlivnit skutečné uživatele.
 
-* Jednoduché uživatelské jméno a heslo: pouze záznam webového testu obvyklým způsobem. Nejprve odstraňte soubory cookie.
-* Ověřování SAML. V takovém případě můžete použít zásuvný modul SAML, který je k dispozici pro webové testy.
-* Tajný klíč klienta: Pokud vaše aplikace obsahuje trasu přihlášení, která zahrnuje tajný klíč klienta, použijte ji. Tento klíč poskytuje Azure Active Directory. 
-* Otevřete ověřování – například se přihlaste pomocí účtu Microsoft nebo Google. Velký počet aplikací, které používají OAuth poskytují alternativní tajný klíč klienta, takže prvním cílem je zjistit tento klíč. Pokud se váš test musí přihlásit pomocí OAuth, je obecný přístup následující:
+### Jednoduché uživatelské jméno a heslo
+
+Webový test zaznamenejte obvyklým způsobem. Nejprve odstraňte soubory cookie.
+
+### Ověřování SAML
+
+Použijte zásuvný modul SAML, který je pro webové testy dostupný.
+
+### Tajný klíč klienta
+
+Pokud vaše aplikace obsahuje trasu přihlášení, která zahrnuje tajný klíč klienta, použijte ji. Azure Active Directory (AAD) je příkladem služby, která poskytuje přihlašování pomocí tajného klíče klienta. Ve službě AAD je tajným klíčem klienta klíč aplikace. 
+
+Tady je ukázkový webový test webové aplikace v Azure pomocí klíče aplikace:
+
+![Ukázkový tajný klíč klienta](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Získejte token ze služby AAD pomocí tajného klíče klienta (AppKey).
+2. Extrahujte nosný token z odpovědi.
+3. Pomocí nosného tokenu v autorizační hlavičce zavolejte rozhraní API.
+
+Ujistěte se, jestli je webový test skutečným klientem – to znamená, že má vlastní aplikaci ve službě AAD – a použijte jeho clientId + appkey. Testovaná služba má také vlastní aplikaci ve službě AAD: identifikátor URI appID této aplikace se ve webovém testu projevuje v poli „prostředek“. 
+
+### Otevřené ověřování
+
+Příkladem otevřeného ověřování je přihlašování pomocí účtu Microsoft nebo Google. Velký počet aplikací, které používají OAuth, nabízí alternativní tajný klíč klienta, takže prvním cílem bude prozkoumání této možnosti. 
+
+Pokud váš test vyžaduje přihlášení pomocí OAuth, bude obecný postup následující:
+
  * K prozkoumání přenosu dat mezi webovým prohlížečem, webem ověřování a aplikací použijte například nástroj Fiddler. 
  * Proveďte dvě nebo více přihlášení pomocí různých počítačů nebo prohlížečů nebo v dlouhých intervalech (aby mohla vypršet platnost tokenů).
  * Porovnáním různých relací identifikujte token předaný zpět z webu ověřování, který byl následně předán do aplikačního serveru po přihlášení. 
  * Uložte webový test pomocí sady Visual Studio. 
  * Parametrizujte tokeny, nastavte parametr při vrácení tokenu z ověřovatele a použijte ho v dotazu na web.
- (Visual Studio se pokusí o parametrizaci testu, ale nebude správně parametrizovat tokeny.)
+ (Sada Visual Studio se pokusí o parametrizaci testu, ale nebude tokeny parametrizovat správně.)
 
 
 ## <a name="edit"></a> Upravit nebo zakázat test
@@ -239,7 +260,16 @@ Otevřete jednotlivé testy a upravte je nebo je zakažte.
 
 Můžete chtít zakázat webové testy během provádění údržby vaší služby.
 
-## Automatizace
+## Testy výkonnosti
+
+Na svém webu můžete spustit zátěžový test. Podobně jako v testu dostupnosti můžete z našich bodů po celém světě odeslat buď jednoduché požadavky, nebo vícekrokové požadavky. Na rozdíl od testu dostupnosti se odesílá mnoho požadavků, které simulují několik souběžných uživatelů.
+
+V okně Přehled otevřete **Nastavení**, **Testy výkonnosti**. Při vytváření testu budete vyzváni k připojení k účtu Visual Studio Team Services nebo k jeho vytvoření. 
+
+Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
+
+
+## Automation
 
 * [Automaticky používat skripty prostředí PowerShell k nastavení webového](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) testu. 
 * Nastavení [webhook](../azure-portal/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
@@ -248,11 +278,11 @@ Můžete chtít zakázat webové testy během provádění údržby vaší služ
 
 * *Mohu volat kód z mého webového testu?*
 
-    Ne. Kroky testu musí být v souboru .webtest. A nemůžete volat jiné webové testy nebo používat smyčky. Existuje však množství zásuvných modulů, které mohou být užitečné.
+    Ne. Kroky testu musí být v souboru .webtest. A nemůžete volat jiné webové testy nebo používat smyčky. Existují různé zásuvné moduly, které se vám můžou hodit.
 
 * *Je podporován protokol HTTPS?*
 
-    V současné době podporujeme SSL 3.0 a TLS 1.0.
+    Podporujeme protokoly TLS 1.1 a TLS 1.2.
 
 * *Existuje rozdíl mezi "webovými testy" a "testy dostupnosti"?*
 
@@ -260,11 +290,11 @@ Můžete chtít zakázat webové testy během provádění údržby vaší služ
 
 * *Chci používat testy dostupnosti na našem interním serveru, který se spouští za bránou firewall.*
 
-    Nakonfigurujte bránu firewall, aby umožňovala žádostí z IP adres v seznamu na konci tohoto článku.
+    Nakonfigurujte bránu firewall, aby povolovala požadavky z [IP adres agentů webového testu](app-insights-ip-addresses.md#availability).
 
 * *Nahrávání vícekrokového webového testu se nezdaří*
 
-    Existuje limit velikosti 300 kB.
+    Maximální velikost je 300 kB.
 
     Smyčky nejsou podporovány.
 
@@ -294,125 +324,7 @@ Můžete chtít zakázat webové testy během provádění údržby vaší služ
 
 [Poradce při potížích][qna].
 
-
-## IP adresy webových testů
-
-Pokud potřebujete otevřít bránu firewall a umožnit webové testy, zde naleznete aktuální seznam IP adres. Tento seznam se může občas měnit.
-
-Otevřete porty 80 (http) a 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[IP adresy agentů webových testů](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
@@ -424,6 +336,6 @@ Otevřete porty 80 (http) a 443 (https).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

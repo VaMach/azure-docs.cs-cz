@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Kurz: Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio
@@ -26,7 +26,7 @@ Naučte se nainstalovat nástroje Data Lake pro Visual Studio a používat tyto 
 U-SQL je mimořádně škálovatelný a vysoce rozšiřitelný jazyk pro přípravu, transformaci a analýzu všech dat v úložišti Data Lake i mimo něj. Další informace najdete v tématu [Odkaz na U-SQL] (http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 
-###Předpoklady
+###Požadavky
 
 - **Visual Studio 2015, Visual Studio 2013 Update 4 nebo Visual Studio 2012. Jsou podporovány edice Enterprise (Ultimate nebo Premium), Professional a Community; není podporována edice Express. Visual Studio „15“ není aktuálně podporováno, ale pracujeme na tom.**
 - **Sada Microsoft Azure SDK pro .NET verze 2.7.1 nebo vyšší**.  Nainstalujte ji pomocí [Instalačního programu webové platformy](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -77,7 +77,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
 ## Vývoj skriptů U-SQL
 
-Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL]( data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Postup vytvoření a odeslání úlohy Data Lake Analytics**
 
@@ -130,7 +130,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
         Technologie IntelliSense pro entity katalogu (Databáze, Schémata, Tabulky, UDO atd.) se vztahuje k výpočetnímu účtu. Aktuální aktivní výpočetní účet, databázi a schéma můžete zkontrolovat v horním panelu nástrojů a můžete je přepnout pomocí rozevíracích seznamů.
 
-    - **Rozbalení * sloupců**
+    - **Rozbalení sloupců ***
 
         Klikněte vpravo od * a pod * se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
         ![Nástroje Data Lake Visual Studio, rozbalení *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
@@ -139,7 +139,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
     - **Automatický formát**
 
-        Uživatelé můžou změnit odsazení skriptu Scope na základě struktury kódu v nabídce Upravit -> Rozšířené:
+        Uživatelé můžou změnit odsazení skriptu U-SQL na základě struktury kódu v nabídce Upravit -> Rozšířené:
 
         - Formátovat dokument (Ctrl+E, D): Naformátuje celý dokument.   
         - Formátovat výběr (Ctrl+K, Ctrl+F): Naformátuje výběr. Pokud není nic vybráno, tato zkratka naformátuje řádek, ve kterém se nachází kurzor.  
@@ -236,8 +236,8 @@ Toto video ukazuje funkci místního spuštění U-SQL:
 
     - ve vstupu skriptu (EXTRACT * FROM „/cesta/abc“) – prohledá se cesta DataRoot i cesta ke skriptu.
     - ve výstupu skriptu (OUTPUT TO „cesta/abc“) – cesta DataRoot se použije jako výstupní složka.
-    - v registraci sestavení (CRREATE ASSEMBLY xyz FROM „/cesta/abc“): prohledá se cesta ke skriptu, ale ne DataRoot.
-    - v registrovaném TVF, zobrazení nebo jiných entitách metadat: prohledá se cesta DataRoot, ale ne cesta ke skriptu.
+    - v registraci sestavení (CREATE ASSEMBLY xyz FROM „/cesta/abc“) – prohledá se cesta ke skriptu, ale ne DataRoot.
+    - v registrovaném TVF, zobrazení nebo jiných entitách metadat – prohledá se cesta DataRoot, ale ne cesta ke skriptu.
 
     U skriptů spuštěných ve službě Data Lake se jako kořenová složka použije výchozí účet úložiště a odpovídajícím způsobem se prohledá.
 
@@ -285,10 +285,10 @@ Pokud chcete začít s Data Lake Analytics pomocí různých nástrojů, projdě
 
 Další témata týkající se vývoje:
 
-- [Analýza weblogů pomocí Data Lake Analytics]( data-lake-analytics-analyze-weblogs.md)
+- [Analýza weblogů pomocí Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 - [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Začínáme s jazykem U-SQL Azure Data Lake Analytics]( data-lake-analytics-u-sql-get-started.md)
-- [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics]( data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [Začínáme s jazykem U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
+- [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Ukázka Appx-A PowerShell pro přípravu kurzu
 
@@ -364,7 +364,6 @@ Následující skript prostředí PowerShell vám připraví účet Azure Data L
 
 
 
-<!--HONumber=Jun16_HO2-->
-
+<!--HONumber=Aug16_HO4-->
 
 

@@ -43,13 +43,9 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Tím vygenerujete ID aplikace a budete vyzváni k potvrzení informací. Klikněte na **Submit** (Odeslat).
+    Tím vygenerujete ID aplikace a budete vyzváni k potvrzení tohoto údaje. Kliknutím na **Register** (Zaregistrovat) potvrďte nové ID aplikace.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-    Po kliknutí na **Submit** (Odeslat) se zobrazí obrazovka **Registration complete** (Registrace je dokončena), která je na obrázku níže. Klikněte na **Done** (Hotovo).
+    Po kliknutí na **Register** (Zaregistrovat) se zobrazí obrazovka **Registration complete** (Registrace je dokončena), která je na obrázku níže. Klikněte na **Done** (Hotovo).
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -139,6 +135,6 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

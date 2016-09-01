@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="06/22/2016" 
     ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Služba Azure Media Services na portálu Azure je aktuálně ve verzi preview.
 
 K dokončení kurzu potřebujete následující:
 
-- Účet Azure. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-create-account.md).
 - Webová kamera. Například [kodér Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -50,7 +50,7 @@ Následující kroky popisují úlohy, které jsou běžně součástí procesu 
 1. Vytvořit a spustit průchozí kanál.
 1. Načtěte adresu URL ingestování kanálu. 
 
-    Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání proudu do kanálu.
+    Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání datového proudu do kanálu.
 1. Načtěte adresu URL náhledu kanálu. 
 
     Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
@@ -177,6 +177,6 @@ Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlač�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

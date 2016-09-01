@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade z nástroje DirSync
@@ -217,6 +217,6 @@ Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

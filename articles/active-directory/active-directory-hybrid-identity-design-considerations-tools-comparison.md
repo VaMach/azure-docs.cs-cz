@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Hybridní identita: Porovnání nástrojů pro integraci adresáře
@@ -24,7 +24,7 @@ V průběhu let se nástroje pro integraci adresáře rozšířily a vyvinuly.  
 
 >[AZURE.NOTE] Azure AD Connect zahrnuje komponenty a funkce dříve vydávané jako Dirsync a AAD Sync. Tyto nástroje se již nebudou vydávat jednotlivě a všechna budoucí vylepšení budou zahrnuta do aktualizací služby Azure AD Connect, abyste vždycky věděli, kde sehnat ty nejnovější funkce.
 >
->DirSync a Azure AD Sync jsou nyní zastaralé. Další informace naleznete v tématu o [upgradu nástrojů Windows Azure Active Directory Sync (DirSync) a Azure Active Directory Sync (Azure AD Sync)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync a Azure AD Sync jsou nyní zastaralé. Další informace najdete [tady](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 U jednotlivých tabulek použijte následující klíč.
@@ -98,6 +98,6 @@ Přečtěte si další informace o [Integrování místních identit do služby 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

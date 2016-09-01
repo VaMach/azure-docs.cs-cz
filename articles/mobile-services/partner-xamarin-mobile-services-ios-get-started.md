@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="craig.dunn@xamarin.com"/>
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
@@ -37,7 +37,7 @@ Zde je snímek obrazovky dokončené aplikace:
 
 Dokončení tohoto kurzu vyžaduje XCode a Xamarin Studio pro OS X nebo Visual Studio v systému Windows se síťovým počítačem Mac. Úplné instalační pokyny najdete v tématu [Nastavení a instalace pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 
-> [AZURE.IMPORTANT] K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních služeb, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních služeb, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Vytvoření nové mobilní služby
 
@@ -49,7 +49,7 @@ Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého 
 
 V této části vytvoříte novou aplikaci pro Xamarin.iOS, která je připojena k mobilní službě.
 
-1.  Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1.  Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **Xamarin.iOS** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci Xamarin.iOS**.
 
@@ -87,7 +87,7 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
 
     > [AZURE.NOTE] Na kód, který přistupuje k mobilní službě pro dotazování a vkládání dat, se můžete podívat v souboru C# ToDoService.cs.
 
-4. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
+4. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
 
     ![][11]
 
@@ -135,10 +135,10 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

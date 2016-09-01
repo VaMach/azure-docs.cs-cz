@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Jak v Azure RemoteAppu funguje licencování?
 
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Takže jste si nastavili službu Azure RemoteApp, vytvořili šablony a jste nyní připraveni publikovat aplikace pro vaše uživatele. Ale zbývá dořešit ještě jednu věc – licencování. Jak tedy funguje licencování pro RemoteApp a pro aplikace, které sdílíte prostřednictvím RemoteAppu?
 
@@ -37,6 +39,6 @@ Upozorňujeme, že v cloudové kolekci nemůžete používat licence CAL ani mul
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
 # Vytvoření virtuální sítě s připojením VPN typu Site-to-Site pomocí portálu Azure Classic
@@ -25,7 +25,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace. Tento článek se týká modelu nasazení Classic a používá portál Azure Classic. 
+Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace. Tento článek se týká modelu nasazení Classic a používá portál Azure Classic. V současné době nelze vytvořit end-to-end konfiguraci Site-to-Site pro model klasického nasazení pomocí portálu Azure.
 
 
 **O modelech nasazení Azure**
@@ -73,7 +73,7 @@ Zadejte následující informace.
 
 Zadejte následující informace, a poté klikněte na šipku Další vpravo dole.
 
-- **Servery DNS**: Zadejte název serveru DNS a IP adresu, nebo vyberte dříve zaregistrovaný server DNS z místní nabídky. Toto nastavení nevytvoří server DNS, ale umožňuje vám určit servery DNS, které chcete používat pro překlad IP adres u této virtuální sítě.
+- **Servery DNS**: Zadejte název serveru DNS a IP adresu, nebo vyberte dříve zaregistrovaný server DNS z místní nabídky. Toto nastavení neslouží k vytvoření serveru DNS. Umožňuje určit server DNS, který chcete použít pro překlad názvů pro tuto virtuální síť.
 - **Konfigurace sítě Site-to-Site VPN**: Zaškrtněte políčko **Konfigurovat síť Site-to-Site VPN**.
 - **Místní síť**: Místní síť představuje váš fyzický místní server. Můžete vybrat místní síť, kterou jste vytvořili dříve, nebo můžete vytvořit novou místní síť. Nicméně pokud vyberete použití místní sítě, kterou jste vytvořili dříve, budete chtít přejít na stránku konfigurace **Místní sítě** a ujistit se, že IP adresa zařízení VPN (veřejná adresa IPv4) pro zařízení VPN, které používáte pro toto připojení, je správná.
 
@@ -85,7 +85,7 @@ Zadejte následující informace, a poté klikněte na šipku Další.
 
 -   **Název**: Název, který chcete použít pro místní server.
 -   **IP adresa zařízení VPN**: Toto je veřejná IP adresa IPv4 vašeho místního zařízení VPN, které budete používat pro připojení k Azure. Zařízení VPN nesmí být umístěné za překladem adres (NAT).
--   **Adresní prostor**: Zahrnuje počáteční IP adresu a CIDR (počet adres). Zde určíte rozsah(y) adres, které chcete posílat přes bránu virtuální sítě na svůj místní server. Pokud cílová IP adresa spadá do rozsahu, který zde určíte, bude směrována přes bránu virtuální sítě.
+-   **Adresní prostor**: Zahrnuje počáteční IP adresu a CIDR (počet adres). Zde určíte rozsah(y) adres, které chcete posílat přes bránu virtuální sítě na svůj místní server. Pokud cílová IP adresa spadá do rozsahu, který zde určíte, je směrována přes bránu virtuální sítě.
 -   **Přidání adresního prostoru**: Pokud máte více rozsahů adres, které chcete posílat přes bránu virtuální sítě, zde určíte každý další rozsah adres. Přidat nebo odebrat rozsahy můžete i později na stránce **Místní síť**.
 
 ## Stránka Adresní prostory virtuální sítě
@@ -114,6 +114,6 @@ Po dokončení připojení můžete do virtuálních sítí přidávat virtuáln
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

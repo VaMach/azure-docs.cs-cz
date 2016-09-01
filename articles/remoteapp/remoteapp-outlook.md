@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Používání Outlooku v Azure RemoteAppu
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp podporuje Microsoft Outlook O365. Další informace o [fungování Office v Azure RemoteAppu](remoteapp-officesubscription.md). Existuje několik doporučených nastavení pro Outlook, když se používá v Azure RemoteAppu.
 
@@ -27,12 +30,12 @@ Uživatel může zvolit **režim Cached Exchange** nebo **online režim** během
 Přečtěte si [podrobné pokyny k povolení režimu mezipaměti](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc).
 
 ## Hledání
-Použití hledání v Outlooku v Azure RemoteAppu má určitá omezení. Azure RemoteApp používá k obsluze uživatelských relací fond virtuálních počítačů. Indexování pro hledání závisí na ID počítače, které se pro různé virtuální počítače liší. Při každém přihlášení uživatele do Azure RemoteAppu může být uživatel přesměrován na nový virtuální počítač. To znamená, že pokud povolíte místní vyhledávání, spustí se indexer při každé změně ID počítače (když je uživatel na odlišném virtuálním počítači). V závislosti na velikosti souboru .OST může indexer běžet dlouhou dobu a spotřebovávat zdroje potřebné pro ostatní aplikace. Hledání je pak nejen pomalé, ale také nemusí vracet výsledky. Tento problém by se dal obejít tak, že by se jako výchozí povolilo online hledání. Bohužel však v Outlooku 2013 nelze ve výchozím nastavení zakázat indexované/místní hledání a povolit online hledání.
+Použití hledání v Outlooku v Azure RemoteAppu má určitá omezení. Azure RemoteApp používá k obsluze uživatelských relací fond virtuálních počítačů. Indexování pro hledání závisí na ID počítače, které se pro různé virtuální počítače liší. Při každém přihlášení uživatele do Azure RemoteAppu může být uživatel přesměrován na nový virtuální počítač. To znamená, že pokud povolíte místní vyhledávání, spustí se indexer při každé změně ID počítače (když je uživatel na odlišném virtuálním počítači). V závislosti na velikosti souboru .OST může indexer běžet dlouhou dobu a spotřebovávat zdroje potřebné pro ostatní aplikace. Hledání je pak nejen pomalé, ale také nemusí vracet výsledky. Pomocí profilu účtu v režimu Online lze tento problém obejít, ale celkový výkon utrpí z důvodu nedostatku místní mezipaměti (viz výše uvedený odkaz pro další informace o rozdílu mezi mezipamětí a online režimem). Bohužel však v Outlooku 2013 nelze ve výchozím nastavení zakázat indexované/místní hledání a povolit online hledání.
 
-Outlook 2016 nabízí řešení tohoto problému tím, že přináší nové prostředí online hledání pro poštovní schránky hostované na serveru Exchange 2016 (nebo hostované v Office 365). Tato funkce využívá serverové výsledky hledání v místní mezipaměti (OST). Outlook se může v některých scénářích vrátit zpět k použití indexeru pro hledání, ale většina hledání probíhá v online režimu. Pokud je pro vás hledání v poště důležité, Azure RemoteApp proto doporučuje používat Outlook 2016.
+Outlook 2016 nabízí řešení tohoto problému tím, že přináší nové možnosti služby hledání pro poštovní schránky hostované na serveru Exchange 2016 (nebo hostované v Office 365). Tato funkce využívá výsledky hledání služby v místní mezipaměti (OST). Outlook se může v některých scénářích vrátit zpět k použití indexeru pro místní hledání, ale většina hledání probíhá pomocí této nové funkce služby hledání. Pokud je pro vás hledání v poště důležité, Azure RemoteApp proto doporučuje používat Outlook 2016.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

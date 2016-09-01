@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Ochrana virtuálních počítačů nasazených Resource Managerem pomocí Azure Backup | Microsoft Azure"
-    description="Ochrana virtuálních počítačů nasazených Resource Managerem pomocí služby Azure Backup Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem a virtuálních počítačů služby Storage úrovně Premium. Vytvoření a registrace trezoru Služeb zotavení. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
+    pageTitle="První pohled: chraňte virtuální počítače Azure pomocí trezoru Služeb zotavení | Microsoft Azure"
+    description="Virtuální počítače Azure s trezorem Služeb zotavení. Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem, virtuálních počítačů nasazených službou Classic a virtuálních počítačů služby Storage úrovně Premium. Vytvoření a registrace trezoru Služeb zotavení. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
@@ -18,11 +18,11 @@
     ms.author="markgal; jimpark"/>
 
 
-# První pohled: Zálohování virtuálních počítačů nasazených Resource Managerem do trezoru Služeb zotavení
+# První pohled: Virtuální počítače Azure s úložištěm obnovení služeb
 
 > [AZURE.SELECTOR]
-- [Zálohování virtuálních počítačů nasazených Resource Managerem](backup-azure-vms-first-look-arm.md)
-- [Zálohování virtuálních počítačů v klasickém režimu](backup-azure-vms-first-look.md)
+- [První pohled: Virtuální počítače s trezorem Služeb zotavení](backup-azure-vms-first-look-arm.md)
+- [První pohled: Virtuální počítače Azure s trezorem zálohování](backup-azure-vms-first-look.md)
 
 Tento kurz vás provede kroky pro vytvoření trezoru Služeb zotavení a zálohování virtuálních počítačů (VM) Azure. Trezory Služeb zotavení chrání:
 
@@ -30,6 +30,7 @@ Tento kurz vás provede kroky pro vytvoření trezoru Služeb zotavení a záloh
 - Klasické virtuální počítače
 - Virtuální počítače služby Storage úrovně Standard
 - Virtuální počítače služby Storage úrovně Premium
+- Virtuální počítače, které jsou šifrované pomocí Azure Disk Encryption s BEK a KEK (podporováno použití prostředí Powershell)
 
 Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium naleznete v tématu [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms).
 
@@ -50,7 +51,7 @@ Trezor záloh Služeb zotavení je entita, která ukládá všechny vytvořené 
 >[AZURE.NOTE] Zálohování virtuálního počítače je místní proces. Virtuální počítače z jedné oblasti nelze zálohovat do trezoru Služeb zotavení v jiné oblasti. Pro každou oblast Azure s virtuálními počítači, které se mají zálohovat, tedy musí existovat alespoň jeden trezor Služeb zotavení.
 
 
-Chcete-li vytvořit trezor Služeb zotavení:
+Vytvoření trezoru Služeb zotavení:
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 
@@ -72,13 +73,13 @@ Chcete-li vytvořit trezor Služeb zotavení:
 
 5. Kliknutím na **Předplatné** zobrazíte seznam dostupných předplatných. Pokud si nejste jisti, jaké předplatné použít, použijte výchozí (nebo navrhované) předplatné. Více možností bude dostupných pouze pokud je váš účet organizace přidružený k více předplatným Azure.
 
-6. Kliknutím na **Skupina prostředků** zobrazíte seznam dostupných skupin prostředků, nebo klikněte na **Nová**, chcete-li vytvořit novou skupinu prostředků. Podrobné informace o skupinách prostředků naleznete v tématu [Použití portálu Azure k nasazení a správě prostředků Azure](../azure-portal/resource-group-portal.md).
+6. Kliknutím na **Skupina prostředků** zobrazíte seznam dostupných skupin prostředků, nebo klikněte na **Nová**, chcete-li vytvořit novou skupinu prostředků. Úplnější informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md)
 
 7. Klikněte na **Oblast** a vyberte zeměpisnou oblast trezoru. Trezor **musí** být ve stejné oblasti jako virtuální počítače, které chcete chránit.
 
     >[AZURE.IMPORTANT] Pokud si nejste jisti oblastí, ve které jsou vaše virtuální počítače, zavřete dialogové okno vytvoření trezoru a na portálu přejděte na seznam virtuálních počítačů. Pokud máte virtuální počítače v několika oblastech, bude potřeba vytvořit trezor Služeb zotavení v každé oblasti. Vytvořte trezor nejprve v první oblasti, poté přejděte k další oblasti. Není potřeba specifikovat účty úložiště pro ukládání zálohovaných dat – trezor Služeb zotavení a služba Azure Backup se o to postarají automaticky.
 
-8. Klikněte na **Vytvořit**. Vytvoření trezoru Služeb zotavení může chvíli trvat. Sledujte oznámení o stavu v horní pravé části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Služeb zotavení.
+8. Klikněte na možnost **Vytvořit**. Vytvoření trezoru Služeb zotavení může chvíli trvat. Sledujte oznámení o stavu v horní pravé části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Služeb zotavení.
 
     ![Seznam trezorů záloh](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -222,6 +223,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

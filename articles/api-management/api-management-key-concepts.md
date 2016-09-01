@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/24/2016" 
+    ms.date="08/09/2016" 
     ms.author="sdanie"/>
 
 #Co je služba API Management?
@@ -88,7 +88,7 @@ Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v 
 
 > [AZURE.VIDEO rate-limits-and-quotas]
 
-## <a name="developer-portal"> </a> Portál pro vývojáře
+## <a name="developer-portal"> </a> portálu pro vývojáře
 
 Portál pro vývojáře je místo, na kterém se můžou vývojáři dozvědět o vašich rozhraních API, zobrazit a volat operace a přihlásit se k odběru produktů. Potenciální zákazníci můžou navštívit portál pro vývojáře, zobrazovat rozhraní API a operace a zaregistrovat se. Adresa URL portálu pro vývojáře je umístěná na řídicím panelu na portálu Azure Classic vaší instance služby API Management.
 
@@ -111,7 +111,7 @@ Pokud se chcete o službě API Management dozvědět víc, podívejte se na nás
 [Přidání operací do rozhraní API]: api-management-howto-add-operations.md
 [Vytvoření a publikování produktu]: api-management-howto-add-products.md
 [Vytvoření a používání skupin]: api-management-howto-create-groups.md
-[Přidružení skupin a vývojářů]: api-management-howto-create-groups.md#associate-group-developer
+[přidružení skupin k vývojářům]: api-management-howto-create-groups.md#associate-group-developer
 [Vytvoření a konfigurace pokročilých nastavení produktu]: api-management-howto-product-with-rules.md
 [vytváření a zvaní vývojářů]: api-management-howto-create-or-invite-developers.md
 [referenční příručce o zásadách]: api-management-policy-reference.md
@@ -124,6 +124,6 @@ Pokud se chcete o službě API Management dozvědět víc, podívejte se na nás
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

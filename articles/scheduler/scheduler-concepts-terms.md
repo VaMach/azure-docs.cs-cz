@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Koncepty, terminologie a hierarchie entit Scheduleru
@@ -220,6 +220,6 @@ Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval me
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

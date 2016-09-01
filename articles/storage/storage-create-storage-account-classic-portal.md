@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Informace o účtech Azure Storage
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Přehled
 
@@ -43,9 +45,9 @@ Na stránce [Azure Storage – Ceny](https://azure.microsoft.com/pricing/details
 
 Podrobné informace o kapacitě úložiště a cílech výkonnosti najdete v tématu [Škálovatelnost a cíle výkonnosti Azure Storage](storage-scalability-targets.md).
 
-> [AZURE.NOTE] Když vytvoříte virtuální počítač Azure, účet úložiště se vám vytvoří automaticky v umístění nasazení, pokud ještě nemáte účet úložiště v tomto umístění. Není proto potřeba pro disky virtuálních počítačů vytvářet účet úložiště podle následujících kroků. Název účtu úložiště bude vycházet z názvu virtuálního počítače. Další podrobnosti najdete v [dokumentaci ke službě Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+> [AZURE.NOTE] Když vytvoříte virtuální počítač Azure, účet úložiště se vám vytvoří automaticky v umístění nasazení, pokud ještě nemáte účet úložiště v tomto umístění. Není proto podle následujících kroků nutné vytvořit účet úložiště pro disky virtuálního počítače. Název účtu úložiště bude založený na názvu virtuálního počítače. Další podrobnosti najdete v [dokumentaci ke službě Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
 
-## Vytvoření účtu úložiště
+## vytvořit účet úložiště
 
 1. Přihlaste se k [Azure Portal Classic](https://manage.windowsazure.com).
 
@@ -87,11 +89,11 @@ Každý objekt, který uložíte v úložišti Azure Storage, má jedinečnou ad
 
 Pokud je například název účtu úložiště *můj_účet_úložiště*, pak jsou výchozí koncové body pro váš účet úložiště tyto:
 
-- Služba Blob: http://*můj_účet_úložiště*.blob.core.windows.net
+- Služba objektů blob: http://*můj_účet_úložiště*.blob.core.windows.net
 
 - Služba Table: http://*můj_účet_úložiště*.table.core.windows.net
 
-- Služba Queue: http://*můj_účet_úložiště*.queue.core.windows.net
+- Služba front: http://*můj_účet_úložiště*.queue.core.windows.net
 
 - Služba File: http://*můj_účet_úložiště*.file.core.windows.net
 
@@ -155,7 +157,7 @@ Tady je proces pro výměnu přístupových klíčů k úložišti:
 
 Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte funkci **Odstranit** na řídicím panelu nebo na stránce **Konfigurace**. **Odstranit** odstraní celý účet úložiště včetně všech objektů blob, tabulek a v účtu.
 
-> [AZURE.WARNING] Odstraněný účet úložiště není možné obnovit ani není možné načíst žádný obsah, který byl součástí účtu před jeho odstraněním. Nezapomeňte si před odstraněním účtu  zazálohovat všechno, co chcete uložit. To platí také pro všechny prostředky v rámci účtu – po odstranění jsou objekt blob, tabulka, fronta nebo soubor odstraněny trvale.
+> [AZURE.WARNING] Odstraněný účet úložiště není možné obnovit ani není možné načíst žádný obsah, který byl součástí účtu před jeho odstraněním. Nezapomeňte si před odstraněním účtu zazálohovat všechno, co chcete uložit. To platí také pro všechny prostředky v rámci účtu – po odstranění jsou objekt blob, tabulka, fronta nebo soubor odstraněny trvale.
 >
 > Pokud váš účet úložiště obsahuje soubory virtuálního pevného disku pro virtuální počítač Azure, pak musíte odstranit všechny image a disky, které používají tyto soubory virtuálních pevných disků, aby bylo možné odstranit účet úložiště. Nejdřív zastavte virtuální počítač, pokud je spuštěný, a pak ho odstraňte. Pokud chcete odstranit disky, přejděte na záložku **Disky** a odstraňte požadované disky. Pokud chcete odstranit image, přejděte na kartu **Image** a odstraňte všechny image, které jsou uložené v účtu.
 
@@ -177,6 +179,6 @@ Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

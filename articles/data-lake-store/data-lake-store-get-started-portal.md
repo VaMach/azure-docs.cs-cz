@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí Portálu Azure
@@ -29,7 +29,7 @@
 
 Naučte se používat Portál Azure k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace o službě Data Lake Store najdete v tématu [Přehled o Azure Data Lake Store](data-lake-store-overview.md).
 
-## Předpoklady
+## Požadavky
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
@@ -136,9 +136,10 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 - [Zabezpečení dat v Data Lake Store](data-lake-store-secure-data.md)
 - [Použití Azure Data Lake Analytics s Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Zobrazení protokolů diagnostiky pro Data Lake Store](data-lake-store-diagnostic-logs.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

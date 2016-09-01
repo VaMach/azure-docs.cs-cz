@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Vytvoření první aplikace Azure Service Fabric v sadě Visual Studio
@@ -42,11 +42,11 @@ Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každ
 
     ![Dialogové okno Nový projekt ve Visual Studiu][1]
 
-4. Na další stránce se zobrazí žádost o výběr typu první služby, kterou chcete do aplikace zahrnout. Pro účely tohoto kurzu vybereme možnost **Stavová**. Dejte službě název a klikněte na **OK**.
+4. Na další stránce vyberte jako první typ služby, kterou chcete do aplikace zahrnout, možnost **Stavový**. Dejte službě název a klikněte na **OK**.
 
     ![Dialogové okno Nová služba ve Visual Studiu][2]
 
-    >[AZURE.NOTE] Další informace o možnostech najdete v článku [Zvolte rozhraní](service-fabric-choose-framework.md).
+    >[AZURE.NOTE] Další informace o možnostech najdete v tématu [Přehled programovacího modelu Service Fabric](service-fabric-choose-framework.md).
 
     Visual Studio vytvoří projekt aplikace a projekt stavové služby a zobrazí je v Průzkumníku řešení.
 
@@ -56,9 +56,9 @@ Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každ
 
     - **Publikační profily**: slouží ke správě předvoleb nástrojů pro různá prostředí.
 
-    - **Skripty**: Zahrnuje skript prostředí PowerShell pro nasazení/upgrade vaší aplikace. Tento skript používá Visual Studio na pozadí a můžete ho přímo vyvolat na příkazovém řádku.
+    - **Skripty**: Zahrnuje skript prostředí PowerShell pro nasazení/upgrade vaší aplikace. Visual Studio používá skript na pozadí. Skript můžete také volat přímo na příkazovém řádku.
 
-    - **Definice aplikace**: Obsahuje soubor manifest aplikace (ve složce *ApplicationPackageRoot*) a přidružené soubory parametrů aplikace (ve složce *ApplicationParameters*), které definují aplikaci a umožňují vám nakonfigurovat ji speciálně pro dané prostředí.
+    - **Definice aplikace**: Obsahuje manifest aplikace pod ve složce *ApplicationPackageRoot*. Přidružené soubory parametrů aplikace, které se nachází ve složce *ApplicationParameters*, definují aplikaci a umožňují vám ji nakonfigurovat speciálně pro určité prostředí.
 
     Přehled obsahu projektu služby najdete v tématu [Začínáme se službami Reliable Services](service-fabric-reliable-services-quick-start.md).
 
@@ -68,7 +68,7 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
 1. Stisknutím klávesy F5 ve Visual Studiu aplikaci nasadíte pro ladění.
 
-    >[AZURE.NOTE] To bude napoprvé chvíli trvat, protože Visual Studio vytváří místní cluster pro vývoj. Místní cluster spouští na jednom počítači stejný kód platformy, na kterém později budete stavět v clusteru s více počítači. V okně výstupu sady Visual Studio se zobrazí stav vytváření clusteru.
+    >[AZURE.NOTE] Nasazení bude napoprvé chvíli trvat, protože Visual Studio vytváří místní cluster pro vývoj. Místní cluster spouští na jednom počítači stejný kód platformy, na kterém později budete stavět v clusteru s více počítači. V okně výstupu sady Visual Studio se zobrazí stav vytváření clusteru.
 
     Až bude cluster připravený, aplikace pro správu na hlavním panelu systému místního clusteru, která je součástí sady SDK, zobrazí upozornění.
 
@@ -84,7 +84,7 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
     ![Podrobnosti v prohlížeči diagnostických událostí][6]
 
-    Místní cluster obsahuje pět uzlů hostovaných na jednom počítači. Napodobuje tím cluster s pěti uzly, ve kterém se uzly nachází na různých počítačích. Zkusme teď jeden z uzlů v místním clusteru zastavit, jako by daný počítač přestal pracovat, a současně spustíme program Visual Studio Debugger.
+    Místní cluster obsahuje pět uzlů hostovaných na jednom počítači. Napodobuje tím cluster s pěti uzly, ve kterém se uzly nachází na různých počítačích. Zkusme teď jeden z uzlů v místním clusteru zastavit, abychom napodobili situaci, kdy daný počítač přestane pracovat, a současně spustíme program Visual Studio Debugger.
 
     >[AZURE.NOTE] Diagnostické události aplikace vydávané šablonou projektu používají zahrnutou třídu `ServiceEventSource`. Další informace najdete v tématu [Místní monitorování a diagnostika služeb](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
@@ -100,7 +100,7 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
 6. V levém podokně rozbalte položky **Cluster > Uzly** a najděte uzel, na kterém běží váš kód.
 
-7. Kliknutím na **Akce > Deaktivovat (restartovat)** simulujte restartování počítače. (To můžete provést také pomocí místní nabídky v zobrazení seznamu uzlu v levém podokně, když vyberete tři tečky.)
+7. Kliknutím na **Akce > Deaktivovat (restartovat)** simulujte restartování počítače. (Upozorňujeme, že deaktivaci můžete provést taky z místní nabídky v zobrazení seznamu uzlů v levém podokně.)
 
     ![Zastavení uzlu v Service Fabric Exploreru][sfx-stop-node]
 
@@ -110,31 +110,19 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
     ![Prohlížeč diagnostických událostí po převzetí služeb při selhání][diagnostic-events-viewer-detail-post-failover]
 
-### Čištění
+## Čištění
 
-  Před zabalení je dobré si uvědomit, že místní cluster je naprosto skutečný. I po zastavení ladicího programu a ukončení Visual Studia budou aplikace dál běžet v pozadí. V závislosti na povaze vašich aplikací může tato aktivita na pozadí spotřebovávat značné množství prostředků vašeho počítače. To můžete řešit pomocí několika možností:
+  Před zabalení je dobré si uvědomit, že místní cluster je naprosto skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
 
-  1. Pokud chcete jednotlivou aplikaci a všechna její data odebrat, použijte akci **Odstranit aplikaci** v Service Fabric Exploreru, a to buď v nabídce **AKCE**, nebo v místní nabídce v zobrazení seznamu aplikací v levém podokně.
+  1. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
 
-    ![Odstranění aplikace v Service Fabric Exploreru][sfe-delete-application]
-
-  2. Po odstranění aplikace z clusteru můžete zvolit možnost **Unprovision Type** (Zrušit zřízení typu), která umožňuje odebrat balíček aplikace, včetně kódu a konfigurace, z úložiště imagí clusteru.
-  3. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
-
-  4. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Upozorňujeme, že pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Použijte tuto možnost jenom v případě, že se místní cluster nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
-
-
+  2. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Upozorňujeme, že pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Cluster odstraňte jenom v případě, že se místní cluster nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
 
 ## Další kroky
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Zjistěte, jak vytvořit cluster v Azure.](service-fabric-cluster-creation-via-portal.md)
-- [Získejte další informace o službách Reliable Services.](service-fabric-reliable-services-quick-start.md)
-- [Zkuste si vytvořit službu pomocí programovacího modelu Reliable Actors.](service-fabric-reliable-actors-get-started.md)
+- Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Zkuste si vytvořit službu pomocí programovacího modelu [Reliable Services](service-fabric-reliable-services-quick-start.md) nebo [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+- Zjistěte, jak vystavit svoje služby na internetu, prostřednictvím [rozhraní front-end webové služby](service-fabric-add-a-web-frontend.md).
 
 <!-- Image References -->
 
@@ -152,6 +140,6 @@ Temporarily removing this link because we have removed the ASP.NET template.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Co je SQL Database? Představení služby SQL Database | Microsoft Azure"
     description="Přečtěte si základní informace o službě SQL Database – technické podrobnosti a možností cloudového systému pro správu relačních databází (RDBMS) společnosti Microsoft."
-    keywords="introduction to sql,intro to sql,what is sql database"
+    keywords="představení sql,úvod do sql,co je sql database"
     services="sql-database"
     documentationCenter=""
     authors="shontnew"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # Co je SQL Database? Úvod do služby SQL Database
@@ -61,6 +61,6 @@ Nyní, když jste si přečetli úvod do služby SQL Database a znáte odpověď
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

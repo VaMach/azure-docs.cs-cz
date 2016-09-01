@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -52,7 +52,7 @@ Následující kroky popisují úlohy, které jsou běžně součásti procesu v
 
 1. Načtěte adresu URL náhledu kanálu.
 
-    Tuto adresu můžete použít, když chcete ověřit, jestli kanál správně přijímá živý datový proud.
+    Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
 
 2. Vytvořte asset.
 3. Pokud chcete asset během přehrávání dynamicky šifrovat, postupujte takto:
@@ -532,6 +532,6 @@ Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějak�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

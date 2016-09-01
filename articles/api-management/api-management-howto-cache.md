@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management
@@ -95,7 +95,7 @@ Definice zásad této operace obsahuje zásady, které definují konfiguraci ukl
 
 Abyste viděli ukládání do mezipaměti v akci, můžete operaci volat z portálu pro vývojáře. Klikněte na **Portál pro vývojáře** v pravé horní nabídce.
 
-![Portál pro vývojáře][api-management-developer-portal-menu]
+![portálu pro vývojáře][api-management-developer-portal-menu]
 
 Klikněte na **Rozhraní API** v horní nabídce a potom vyberte **Echo API**.
 
@@ -165,6 +165,6 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

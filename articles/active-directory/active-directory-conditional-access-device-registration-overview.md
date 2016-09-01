@@ -2,10 +2,10 @@
     pageTitle="Registrace zařízení ve službě Azure Active Directory – přehled | Microsoft Azure"
     description="je základem pro scénáře přístupu podmíněného zařízením. Když je zařízení registrováno, poskytne mu nástroj Registrace zařízení služby Azure Active Directory identitu, která se používá k ověření zařízení při přihlášení uživatele."
     services="active-directory"
-    keywords="device registration, enable device registration, device registration and MDM"
+    keywords="registrace zařízení, povolení registrace zařízení, registrace zařízení a MDM"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Začínáme s nástrojem Registrace zařízení ve službě Azure Active Directory
@@ -90,6 +90,6 @@ Zařízení se systémy Windows 7 a Windows 8.1 připojená k doméně můžete 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

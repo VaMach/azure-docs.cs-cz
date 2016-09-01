@@ -1,10 +1,10 @@
 <properties
     pageTitle="Použití řízení přístupu na základě rolí na portálu Azure | Microsoft Azure"
-    description="Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Používejte přiřazení rolí k přiřazení oprávnění v adresáři."
+    description="Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Oprávnění k prostředkům se přiřazují pomocí přiřazení rolí."
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/03/2016"
+    ms.date="07/21/2016"
     ms.author="kgremban"/>
 
-# Použití přiřazení rolí ke správě přístupu k vašim prostředkům služby Azure Active Directory
+# Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
 
@@ -78,6 +78,6 @@ Přiřazování rolí a správu přístupu pomocí řízení přístupu na zákl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

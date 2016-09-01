@@ -1,7 +1,7 @@
 <properties
     pageTitle="Kurz Apache Storm: Začínáme s linuxovým Storm v HDInsight | Microsoft Azure"
     description="Začněte s analýzami velkých objemů dat pomocí Apache Storm a ukázek Storm Starter na HDInsight se systémem Linux. Naučte se používat Storm pro zpracování dat v reálném čase."
-    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    keywords="apache storm,kurz apache storm,analýza velkého objemu dat,storm starter"
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Musíte úspěšně dokončit tento kurz Apache Storm:
 
 ## Vytvoření clusteru Storm
 
-V této části vytvoříte clusteru služby HDInsight verze 3.2 (Storm verze 0.9.3) pomocí šablony Azure ARM. Informace o verzích HDInsight a jejich SLA naleznete v tématu [Správa verzí komponenty HDInsight](hdinsight-component-versioning.md). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+V této části vytvoříte cluster HDInsight verze 3.2 (Storm verze 0.9.3) pomocí šablony Azure Resource Manageru. Informace o verzích HDInsight a jejich SLA naleznete v tématu [Správa verzí komponenty HDInsight](hdinsight-component-versioning.md). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknutím na následující obrázek otevřete šablonu ARM na portálu Azure.         
+1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Šablona ARM je umístěna v kontejneru veřejného objektu blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
+    Tato šablona se nachází v kontejneru veřejného objektu blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
    
 2. Z okna Parametry zadejte následující údaje:
 
@@ -87,17 +87,17 @@ Ukázky [storm-starter](https://github.com/apache/storm/tree/master/examples/sto
         
     Další informace o použití SSH se systémem Linux HDInsight naleznete v následujících článcích:
     
-    * [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému OS X, Linux a Unix.](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows)
 
 2. Následující příkaz použijte ke spuštění ukázkové topologie:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Část `0.9.3.2.2.4.9-1` názvu souboru se může změnit při aktualizaci HDinsight pomocí novějších verzí Storm.
+    > [AZURE.NOTE] Část `0.10.0.2.4.2.4-5` názvu souboru se při aktualizaci HDInsight o novější verze Stormu může změnit.
 
-    Tato akce spustí ukázkovou topologii WordCount v clusteru s popisným názvem „wordcount“. Bude náhodně generovat věty a počítat výskyt jednotlivých slov ve větách.
+    Tato akce spustí ukázkovou topologii WordCount v clusteru s popisným názvem „wordcount“. Bude náhodně generovat věty a počítat výskyt jednotlivých slov v těchto větách.
 
     > [AZURE.NOTE] Při odesílání topologie do clusteru je nutné nejprve zkopírovat soubor jar obsahující cluster před použitím příkazu `storm`. Můžete to provést pomocí příkazu `scp` z klienta, které se soubor nachází. Například: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
@@ -141,7 +141,7 @@ Ke sledování topologie pomocí uživatelského rozhraní Storm použijte násl
 
 3. Na této stránce vyberte položku z oddílu **Spouts** nebo **Bolts**. Zobrazí se informace o vybrané součásti.
 
-    ![Ovládací panel Storm s informacemi o vybraných součástech.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
+    ![Řídicí panel Storm s informacemi o vybraných součástech.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
     Tato stránka obsahuje následující informace:
 
@@ -193,6 +193,6 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

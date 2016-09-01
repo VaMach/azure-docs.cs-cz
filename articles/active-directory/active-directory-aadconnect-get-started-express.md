@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Začínáme se službou Azure AD Connect s použitím expresního nastavení
@@ -71,6 +71,6 @@ Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby A
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

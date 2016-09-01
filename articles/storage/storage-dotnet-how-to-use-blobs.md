@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Začínáme s Úložištěm objektů blob v Azure (úložiště objektů) pomocí rozhraní .NET | Microsoft Azure"
-    description="Ukládání nestrukturovaných dat v cloudu pomocí Úložiště objektů blob v Azure (úložiště objektů)."
+    pageTitle="Začínáme s Azure Blob Storage (úložiště objektů) pomocí rozhraní .NET | Microsoft Azure"
+    description="Ukládejte nestrukturovaná data v cloudu pomocí Azure Blob Storage (úložiště objektů)."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/25/2016"
+    ms.date="07/22/2016"
     ms.author="tamram"/>
 
 
 # Začínáme s úložištěm Azure Blob pomocí rozhraní .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Přehled
 
@@ -40,6 +42,11 @@ Tenhle kurz ukazuje, jak napsat kód .NET pro některé běžné scénáře s vy
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Další ukázky
+
+Další příklady použití Blob Storage najdete v článku [Začínáme s Azure Blob Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu. 
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -373,6 +380,13 @@ Ve výchozím nastavení jsou data objektu blob ve vašem účtu úložiště do
 
 Teď, když jste se naučili základy používání Blob storage, podívejte se na následující odkazy a získejte další informace.
 
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, OS X a Linuxu.
+
+### Ukázky Blob Storage
+
+- [Začínáme s úložištěm Azure Blob Storage pomocí rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+
 ### Odkazy Blob storage
 
 - [Klientská knihovna pro úložiště pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
@@ -397,6 +411,6 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Začínáme s webovou službou mobilní aplikace serveru MFA
@@ -32,19 +32,19 @@ Chcete-li používat aplikaci Azure Multi-Factor Authentication, je třeba splni
 - Sada Web Service SDK Azure Multi-Factor Authentication musí být nainstalován ve službě IIS 7.x nebo vyšší na serveru Azure Multi-Factor Authentication
 - Sada Web Service SDK Azure Multi-Factor Authentication musí být zabezpečená certifikátem SSL.
 - Webové služby mobilní aplikace musí být schopni se připojit k sadě Web Service SDK Azure Multi-Factor Authentication přes protokol SSL
-- Webové služby mobilní aplikace musí mít k ověření sady Web Service SDK Azure Multi-Factor Authentication pomocí pověření účtu služby, který je členem skupiny zabezpečení s názvem „PhoneFactor Admins“. Tento účet služby a skupina existují ve službě Active Directory, pokud server Azure Multi-Factor Authentication běží na serveru připojeném k doméně. Tento účet služby a skupina existují místně na serveru Azure Multi-Factor Authentication, pokud není připojený k doméně.
+- Webové služby mobilní aplikace musí mít k ověření sady Web Service SDK Azure Multi-Factor Authentication pomocí pověření účtu služby, který je členem skupiny zabezpečení s názvem „PhoneFactor Admins“. Tento účet služby a skupina existují ve službě Active Directory, pokud server Azure Multi-Factor Authentication běží na serveru připojeném k doméně. Tento účet služby a skupina existují místně na Azure Multi-Factor Authentication Serveru, pokud není připojený k doméně.
 
 
-Instalace portálu uživatele na jiném serveru než server Azure Multi-Factor Authentication vyžaduje následující tři kroky:
+Instalace portálu uživatele na jiném serveru než je Azure Multi-Factor Authentication Server vyžaduje následující tři kroky:
 
 1. Instalaci sady SDK webové služby
 2. Instalaci webové služby mobilní aplikace
 3. Konfigurace serveru Azure Multi-Factor Authentication
 4. Aktivace aplikace Azure Multi-Factor Authentication pro koncové uživatele
 
-## Instalaci sady SDK webové služby
+## Instalace sady SDK webové služby
 
-Pokud již není nainstalována sada Web Service SDK Azure Multi-Factor Authentication na serveru Azure Multi-Factor Authentication, přejděte k danému serveru a otevřete server Azure Multi-Factor Authentication. Klikněte na ikonu sady Web Service SDK, klikněte na tlačítko nainstalovat Web Service SDK... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečena certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL. 
+Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure Multi-Factor Authentication Server. Klikněte na ikonu sady SDK webové služby, klikněte na tlačítko Instalovat sadu SDK webové služby... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečená certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL. 
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
@@ -52,7 +52,7 @@ Pokud již není nainstalována sada Web Service SDK Azure Multi-Factor Authenti
 Před instalací webové služby mobilní aplikace si uvědomte skutečnosti:
 
 - Pokud je portál pro uživatele Azure Multi-Factor Authentication již nainstalován na internetovém serveru, uživatelské jméno, heslo a adresu URL pro sadu Web Service SDK lze zkopírovat ze souboru web.config rozhraní portálu pro uživatele. 
-- Je užitečné otevřít webový prohlížeč na webovém serveru s přístupem k internetu a přejít na adresu URL sady Web Service SDK, která byla zadán do souboru web.config. Pokud dokáže prohlížeč úspěšně otevřít webovou službu, měl by vás vyzvat k zadání přihlašovacích údajů. Zadejte uživatelské jméno a heslo, které byly vloženy do souboru web.config přesně tak, jak se zobrazí v souboru. Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
+- Je užitečné otevřít webový prohlížeč na webovém serveru s přístupem k internetu a přejít na adresu URL sady Web Service SDK, která byla zadán do souboru web.config. Pokud se prohlížeč úspěšně dostane k webové službě, měla by se zobrazit výzva k zadání přihlašovacích údajů. Zadejte uživatelské jméno a heslo, které jste zadali do souboru web.config, v naprosto stejném tvaru. Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
 - Pokud se před webovým serverem webové služby mobilní aplikace nachází reverzní proxy server nebo brána firewall a provádí snižování zátěže protokolu SSL, můžete upravit soubor web.config webové služby mobilní aplikace a přidat následující klíč do části <appSettings> tak, aby webové služby mobilní aplikace mohly používat protokol http místo protokolu https. SSL je však stále zapotřebí ve směru z mobilní aplikace k reverznímu proxy serveru / bráně firewall. <add key="SSL_REQUIRED" value="false"/> 
 
 ### Instalace webové služby mobilní aplikace
@@ -91,6 +91,7 @@ Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigu
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

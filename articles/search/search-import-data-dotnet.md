@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/15/2016"
     ms.author="brjohnst"/>
 
 # Odesílání dat do služby Azure Search pomocí .NET SDK
@@ -207,6 +207,6 @@ Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

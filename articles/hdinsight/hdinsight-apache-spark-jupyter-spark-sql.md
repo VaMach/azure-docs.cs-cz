@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
 
 
@@ -37,6 +37,8 @@ Naučte se vytvářet cluster Apache Spark v HDInsight a pak použijte poznámko
     -  Z počítače se systémem Linux – [Použití SSH s linuxovým systémem HDInsight (Hadoop) z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     -  Z počítače se systémem Windows – [Použití SSH s linuxovým systémem HDInsight (Hadoop) z Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+>[AZURE.NOTE] Tento článek používá šablonu ARM k vytvoření clusteru Spark, který využívá [Úložiště Azure objektů blob jako úložiště clusteru](hdinsight-hadoop-use-blob-storage.md). Můžete také vytvořit cluster Spark, který používá [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) jako další úložiště, navíc k úložišti objektů blob Azure jako výchozího úložiště. Pokyny naleznete v tématu [Vytvoření clusteru HDInsight pomocí Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
 ## Vytvoření clusteru Spark
@@ -121,7 +123,7 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
     Do prázdné buňky vložte následující příklad kódu a stiskněte klávesu **SHIFT + ENTER**. Tento ukázkový kód registruje data do dočasné tabulky nazývané **TVK**.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -173,6 +175,8 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 * [Analýza protokolu webu pomocí Spark v HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [Analýza dat telemetrie aplikace Insight využívá Spark v HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Vytvoření a spouštění aplikací
 
 * [Vytvoření samostatné aplikace pomocí Scala](hdinsight-apache-spark-create-standalone-application.md)
@@ -212,6 +216,6 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

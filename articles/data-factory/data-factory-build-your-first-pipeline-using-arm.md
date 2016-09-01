@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Sestavení prvního objektu pro vytváření dat (šablona ARM) | Microsoft Azure"
+    pageTitle="Sestavení prvního objektu pro vytváření dat (šablona Resource Manageru) | Microsoft Azure"
     description="V tomto kurzu vytvoříte pomocí šablony Azure Resource Manageru ukázkový kanál služby Azure Data Factory."
     services="data-factory"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí šablony Azure Resource Manageru
@@ -23,29 +23,31 @@
 - [Pomocí prostředí PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Pomocí sady Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Pomocí šablony Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
+- [Pomocí rozhraní REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-V tomto článku se dozvíte, jak vytvořit první objekt pro vytváření dat Azure pomocí šablony Azure Resource Manageru (ARM). 
+V tomto článku se dozvíte, jak vytvořit první objekt pro vytváření dat Azure pomocí šablony Azure Resource Manageru. 
 
 
 ## Požadavky
 Vedle požadavků uvedených v tématu Přehled kurzu musíte nainstalovat tyto položky:
 
-- Než budete pokračovat, **musíte** si přečíst článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a provést nutné kroky. 
+- Než budete pokračovat, přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte nutné kroky. 
 - **Nainstalujte prostředí Azure PowerShell**. Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
 - Tento článek neposkytuje koncepční přehled služby Azure Data Factory. Podrobnější přehled služby najdete v článku [Úvod do Azure Data Factory](data-factory-introduction.md). 
-- Informace o šablonách Azure Resource Manageru (ARM) najdete v článku [Vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md). 
+- Informace o šablonách Azure Resource Manageru najdete v článku [Vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md). 
 
-> [AZURE.IMPORTANT] Pokud chcete postupovat podle návodu v tomto článku, musíte nejdřív provést nutné kroky popsané v článku [Přehled kurzu](data-factory-build-your-first-pipeline.md). 
+> [AZURE.IMPORTANT]
+> Pokud chcete postupovat podle návodu v tomto článku, nejdřív proveďte nutné kroky popsané v článku [Přehled kurzu](data-factory-build-your-first-pipeline.md). 
 
-## Vytvoření šablony ARM
+## Vytvoření šablony Resource Manageru
 
 Ve složce **C:\ADFGetStarted** vytvořte soubor JSON s názvem **ADFTutorialARM.json** s následujícím obsahem: 
 
 Šablona umožňuje vytvořit následující entity služby Data Factory.
 
 1. **Objekt pro vytváření dat** s názvem **TutorialDataFactoryARM**. Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Může obsahovat třeba aktivitu kopírování, která slouží ke kopírování dat ze zdrojového do cílového úložiště dat, a aktivitu HDInsight Hive pro spuštění skriptu Hive, který umožňuje transformovat vstupní data na výstupní data produktu. 
-2. Dvě **propojené služby**: **StorageLinkedService** a **HDInsightOnDemandLinkedService**. Tyto propojené služby připojují k vašemu objektu pro vytváření dat účet služby Azure Storage a cluster Azure HDInsight na vyžádání. Účet služby Azure Storage bude v této ukázce obsahovat vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Musíte určit, jaké úložiště dat / výpočetní služby se mají ve vašem scénáři používat, a vytvořením propojených služeb spojit tyto služby s objektem pro vytváření dat. 
+2. Dvě **propojené služby**: **StorageLinkedService** a **HDInsightOnDemandLinkedService**. Tyto propojené služby připojují k vašemu objektu pro vytváření dat účet služby Azure Storage a cluster Azure HDInsight na vyžádání. Účet služby Azure Storage v této ukázce obsahuje vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Musíte určit, jaké úložiště dat / výpočetní služby se mají ve vašem scénáři používat, a vytvořením propojených služeb spojit tyto služby s objektem pro vytváření dat. 
 3. Dvě **datové sady** (vstupní/výstupní): **AzureBlobInput** a **AzureBlobOutput**. Tyto datové sady představují vstupní a výstupní data pro zpracování Hive. Tyto datové sady odkazují na službu **StorageLinkedService**, kterou už jste v tomto kurzu vytvořili. Propojená služba odkazuje na účet služby Azure Storage a datové sady určují kontejner, složku a název souboru v úložišti, který obsahuje vstupní a výstupní data.   
 
 Kliknutím na kartu **Pomocí editoru služby Data Factory** přepnete na článek, který obsahuje podrobnosti o vlastnostech formátu JSON použitých v této šabloně.
@@ -223,11 +225,11 @@ Je třeba počítat s následujícím:
 - Místo clusteru HDInsight na vyžádání můžete použít také **vlastní cluster HDInsight**. Podrobnosti najdete v tématu [Propojená služba HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je úmyslné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je potřeba zpracovat určitý řez, pokud neexistuje aktivní cluster (**timeToLive**), a po dokončení zpracování se zase odstraní.
 
-    Po zpracování velkého množství řezů se ve službě Azure Blob Storage objeví velké množství kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
+    Po zpracování dalších řezů se ve službě Azure Blob Storage objeví spousta kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
 
 Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-> [AZURE.NOTE] Další příklad šablony ARM pro vytvoření služby Azure Data Factory najdete na webu [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
+> [AZURE.NOTE] Další příklad šablony Resource Manageru pro vytvoření služby Azure Data Factory najdete na webu [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
 ## Vytvoření objektu pro vytváření dat
 
@@ -235,7 +237,7 @@ Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](dat
     - Spusťte příkaz **Login-AzureRmAccount** a zadejte uživatelské jméno a heslo, které používáte k přihlášení na webu Azure Portal.  
     - Spuštěním následujícího příkazu vyberte předplatné, ve kterém chcete objekt pro vytváření dat vytvořit.
             Get-AzureRmSubscription -název_předplatného <SUBSCRIPTION NAME> | Set-AzureRmContext
-1. Spuštěním následujícího příkazu nasaďte entity služby Data Factory pomocí šablony ARM, kterou jste vytvořili v kroku 1. 
+1. Spuštěním následujícího příkazu nasaďte entity služby Data Factory pomocí šablony Resource Manageru, kterou jste vytvořili v kroku 1. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
@@ -246,13 +248,13 @@ Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](dat
 2.  V okně **Datové továrny** klikněte na objekt pro vytváření dat (**TutorialFactoryARM**), který jste vytvořili.   
 2.  V okně **Objekt pro vytváření dat** vašeho objektu pro vytváření dat klikněte na **Diagram**.
         ![Dlaždice Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4.  V **zobrazení diagramu** uvidíte přehled kanálů a datové sady použité v tomto kurzu.
+4.  V **Zobrazení diagramu** uvidíte přehled kanálů a datové sady použité v tomto kurzu.
     
     ![Zobrazení diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-8. V zobrazení diagramu dvakrát klikněte na datovou sadu **AzureBlobOutput**. Zobrazí se řez, který se právě zpracovává.
+8. V Zobrazení diagramu dvakrát klikněte na datovou sadu **AzureBlobOutput**. Zobrazí se řez, který se právě zpracovává.
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Po dokončení zpracování uvidíte, že je řez ve stavu **Připraveno**. Upozorňujeme, že vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). 
+9. Po dokončení zpracování uvidíte, že je řez ve stavu **Připraveno**. Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). 
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Pokud je řez ve stavu **Připraveno**, zkontrolujte, jestli se ve složce **partitioneddata** v kontejneru **adfgetstarted** ve službě Blob Storage nachází výstupní data.  
@@ -263,8 +265,8 @@ K monitorování datových kanálů můžete také použít aplikaci pro monitor
 
 > [AZURE.IMPORTANT] Po úspěšném zpracování řezu se vstupní soubor odstraní. Pokud tedy chcete spustit řez znovu nebo si znovu projít tento kurz, načtěte vstupní soubor (input.log) do složky inputdata v kontejneru adfgetstarted.
 
-## Šablona ARM pro vytvoření brány
-Tady je ukázka šablony ARM pro vytvoření logické brány v pozadí. Upozorňujeme, že je potřeba nainstalovat bránu na místní počítač nebo virtuální počítač Azure s modelem IaaS a pomocí klíče ji zaregistrovat ve službě Data Factory. Podrobnosti najdete v článku [Přesun dat mezi místním prostředím a cloudem](data-factory-move-data-between-onprem-and-cloud.md).
+## Šablona Resource Manageru pro vytvoření brány
+Tady je ukázka šablony Resource Manageru pro vytvoření logické brány v pozadí. Musíte nainstalovat bránu na místní počítač nebo virtuální počítač Azure s modelem IaaS a pomocí klíče ji zaregistrovat ve službě Data Factory. Podrobnosti najdete v článku [Přesun dat mezi místním prostředím a cloudem](data-factory-move-data-between-onprem-and-cloud.md).
 
     {
         "contentVersion": "1.0.0.0",
@@ -313,6 +315,6 @@ Tato šablona vytvoří objekt pro vytváření dat s názvem GatewayUsingArmDF,
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

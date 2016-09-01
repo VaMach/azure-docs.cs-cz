@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/13/2016"
+    ms.date="08/04/2016"
     ms.author="normesta"/>
 
 
@@ -27,13 +27,13 @@ V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní ap
 
 Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k používání funkce Mobile Apps v Azure App Service pro Xamarin.iOS.
 
-##Předpoklady
+##Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
-* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 * Počítač Mac s nainstalovaným Xcode verze 7.0 nebo novějším a Xamarin Studio Community. Přečtěte si témata o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) a o [nastavení, instalaci a ověření pro uživatele počítačů Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
@@ -53,18 +53,9 @@ Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď 
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (Nepovinné) Lokální otestování back-endového projektu
-
-Pokud jste si výše vybrali konfiguraci back-endu .NET, můžete si ho lokálně otestovat, pokud chcete.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
-
 ## Stáhnutí a spuštění aplikace Xamarin.iOS
 
-1. Otevřete v okně prohlížeče [Portál Azure].
+1. Otevřete v okně prohlížeče [Azure Portal].
 
 2. V okně nastavení mobilní aplikace klikněte na **Začínáme** > **Xamarin.iOS**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
 
@@ -108,10 +99,10 @@ Pokud jste si výše vybrali konfiguraci back-endu .NET, můžete si ho lokáln�
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Aug16_HO4-->
 
 

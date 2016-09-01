@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure AD Connect: Integrování místních identit do služby Azure Active Directory | Microsoft Azure"
     description="Azure AD Connect integruje vaše místní adresáře do služby Azure Active Directory. To umožní poskytovat společnou identitu pro aplikace Office 365, Azure a SaaS integrované s Azure AD."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
+    keywords="Úvod k Azure AD Connect, přehled Azure AD Connect, co je Azure AD Connect, instalace active directory"
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/19/2016"
+    ms.date="07/14/2016"
     ms.author="andkjell;billmath"/>
 
 # Integrování místních identit do služby Azure Active Directory
@@ -139,6 +139,7 @@ Pokud váš server služby AD FS není nakonfigurován pro automatické aktualiz
 
 Téma |  
 --------- | ---------
+Všechny články o službě AD FS | [Azure AD Connect a federace](active-directory-aadconnectfed-whatis.md)
 Konfigurace služby ADFS se subdoménami | [Podpora více domén pro federaci s Azure AD](active-directory-aadconnect-multiple-domains.md)
 Správa farmy služby AD FS | [Správa služby AD FS a vlastní nastavení se službou Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Ruční aktualizace federačních certifikátů | [Obnovení federačních certifikátů pro Office 365 a Azure AD](active-directory-aadconnect-o365-certs.md)
@@ -164,6 +165,6 @@ Prezentace Ignite 2015 na rozšíření místních adresářů do cloudu.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

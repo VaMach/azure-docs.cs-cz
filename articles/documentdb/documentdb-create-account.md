@@ -1,7 +1,7 @@
 <properties
     pageTitle="Jak vytvořit účet DocumentDB | Microsoft Azure"
     description="Vytvoření databáze NoSQL pomocí Azure DocumentDB Pomocí těchto pokynů můžete vytvořit účet DocumentDB a začít vytvářet neuvěřitelně rychlou databázi NoSQL v globálním rozsahu." 
-    keywords="build a database"
+    keywords="vytvoření databáze"
     services="documentdb"
     documentationCenter=""
     authors="mimig1"
@@ -14,13 +14,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/11/2016"
     ms.author="mimig"/>
 
 # Jak vytvořit účet DocumentDB na Portálu Azure
 
 > [AZURE.SELECTOR]
-- [Portál Azure](documentdb-create-account.md)
+- [Azure Portal](documentdb-create-account.md)
 - [Azure CLI a ARM](documentdb-automation-resource-manager-cli.md)
 
 Abyste mohli vytvořit databázi pomocí Microsoft Azure DocumentDB, musíte:
@@ -55,6 +55,6 @@ Další informace o DocumentDB najdete v těchto materiálech:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

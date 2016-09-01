@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Získejte stejné funkce Office 365 na jakémkoliv zařízení s Azure RemoteAppem
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Tento článek se zabývá nasazením služeb Office 365 na jakémkoliv zařízení ve vaší společnosti. Svým uživatelům můžete nabídnout stejné funkce a uživatelské rozhraní v systémech Android, Apple i Windows.
 
@@ -69,6 +72,6 @@ Když kliknete na kteroukoliv z těchto položek, aplikace by se měla spustit v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/18/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Použití aplikace Fiddler k vyhodnocování a testování rozhraní REST API služby Azure Search
@@ -47,33 +47,33 @@ K provedení těchto kroků budete potřebovat službu Azure Search a `api-key`.
 
     Úplná adresa URL by měla vypadat podobně jako v následujícím příkladu.
 
-         https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
 4.  Zadejte hlavičku žádosti, přičemž hodnoty host a api-key nahraďte hodnotami platnými pro vaši službu.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 5.  Do textu žádosti vložte pole, která tvoří definici indexu.
-
-         {
-        "name": "hotels",  
-        "fields": [
-          {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-          {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-          {"name": "hotelName", "type": "Edm.String"},
-          {"name": "category", "type": "Edm.String"},
-          {"name": "tags", "type": "Collection(Edm.String)"},
-          {"name": "parkingIncluded", "type": "Edm.Boolean"},
-          {"name": "smokingAllowed", "type": "Edm.Boolean"},
-          {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-          {"name": "rating", "type": "Edm.Int32"},
-          {"name": "location", "type": "Edm.GeographyPoint"}
-         ]
-        }
+            
+             {
+            "name": "hotels",  
+            "fields": [
+              {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
+              {"name": "baseRate", "type": "Edm.Double"},
+              {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+              {"name": "hotelName", "type": "Edm.String"},
+              {"name": "category", "type": "Edm.String"},
+              {"name": "tags", "type": "Collection(Edm.String)"},
+              {"name": "parkingIncluded", "type": "Edm.Boolean"},
+              {"name": "smokingAllowed", "type": "Edm.Boolean"},
+              {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+              {"name": "rating", "type": "Edm.Int32"},
+              {"name": "location", "type": "Edm.GeographyPoint"}
+             ]
+            }
 
 6.  Klikněte na tlačítko **Spustit**.
 
@@ -91,77 +91,77 @@ Pokud se zobrazí kód HTTP 504, ověřte, jestli je v adrese URL určený proto
 
 2.  Zadejte adresu URL, která začíná HTTPS a dál obsahuje adresu URL služby a „/indexes/<'indexname'>/docs/index?api-version=2015-02-28“. Úplná adresa URL by měla vypadat podobně jako v následujícím příkladu.
 
-        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
 3.  Hlavička žádosti by měla být stejná jako předtím. Nezapomeňte, že jste hodnoty host a api-key nahradili hodnotami, které jsou platné pro vaši službu.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  Text žádosti obsahuje čtyři dokumenty, které se mají přidat do indexu hotels.
 
-        {
-        "value": [
-        {
-            "@search.action": "upload",
-            "hotelId": "1",
-            "baseRate": 199.0,
-            "description": "Best hotel in town",
-            "hotelName": "Fancy Stay",
-            "category": "Luxury",
-            "tags": ["pool", "view", "wifi", "concierge"],
-            "parkingIncluded": false,
-            "smokingAllowed": false,
-            "lastRenovationDate": "2010-06-27T00:00:00Z",
-            "rating": 5,
-            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "2",
-            "baseRate": 79.99,
-            "description": "Cheapest hotel in town",
-            "hotelName": "Roach Motel",
-            "category": "Budget",
-            "tags": ["motel", "budget"],
-            "parkingIncluded": true,
-            "smokingAllowed": true,
-            "lastRenovationDate": "1982-04-28T00:00:00Z",
-            "rating": 1,
-            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "3",
-            "baseRate": 279.99,
-            "description": "Surprisingly expensive",
-            "hotelName": "Dew Drop Inn",
-            "category": "Bed and Breakfast",
-            "tags": ["charming", "quaint"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "4",
-            "baseRate": 220.00,
-            "description": "This could be the one",
-            "hotelName": "A Hotel for Everyone",
-            "category": "Basic hotel",
-            "tags": ["pool", "wifi"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-          }
-         ]
-        }
+            {
+            "value": [
+            {
+                "@search.action": "upload",
+                "hotelId": "1",
+                "baseRate": 199.0,
+                "description": "Best hotel in town",
+                "hotelName": "Fancy Stay",
+                "category": "Luxury",
+                "tags": ["pool", "view", "wifi", "concierge"],
+                "parkingIncluded": false,
+                "smokingAllowed": false,
+                "lastRenovationDate": "2010-06-27T00:00:00Z",
+                "rating": 5,
+                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "2",
+                "baseRate": 79.99,
+                "description": "Cheapest hotel in town",
+                "hotelName": "Roach Motel",
+                "category": "Budget",
+                "tags": ["motel", "budget"],
+                "parkingIncluded": true,
+                "smokingAllowed": true,
+                "lastRenovationDate": "1982-04-28T00:00:00Z",
+                "rating": 1,
+                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "3",
+                "baseRate": 279.99,
+                "description": "Surprisingly expensive",
+                "hotelName": "Dew Drop Inn",
+                "category": "Bed and Breakfast",
+                "tags": ["charming", "quaint"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "4",
+                "baseRate": 220.00,
+                "description": "This could be the one",
+                "hotelName": "A Hotel for Everyone",
+                "category": "Basic hotel",
+                "tags": ["pool", "wifi"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+              }
+             ]
+            }
 
 8.  Klikněte na tlačítko **Spustit**.
 
@@ -176,17 +176,17 @@ Teď, když jsou index a dokumenty nahrané, můžete na ně vydávat dotazy.  N
 1.  Vyberte **GET**.
 
 2.  Zadejte adresu URL, která začíná HTTPS a dál obsahuje adresu URL služby, „/indexes/<'indexname'>/docs?“ a nakonec parametry dotazu. Jako příklad použijte následující adresu URL, kde ukázkový název hostitele nahradíte názvem, který je platný pro vaši službu.
-
-        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
+    
+            https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     Tento dotaz hledá výraz „motel“ a načte kategorie faset pro hodnocení.
 
 3.  Hlavička žádosti by měla být stejná jako předtím. Nezapomeňte, že jste hodnoty host a api-key nahradili hodnotami, které jsou platné pro vaši službu.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 Měli byste dostat kód odpovědi 200 a odpověď by měla vypadat podobně jako na následujícím snímku obrazovky.
 
@@ -212,14 +212,14 @@ Můžete taky dotázat systém a získat počet dokumentů a spotřebu úložiš
 
 2.  Zadejte adresu URL, která obsahuje adresu URL služby a potom „/indexes/hotels/stats?api-version=2015-02-28“:
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.  Zadejte hlavičku žádosti, přičemž hodnoty host a api-key nahraďte hodnotami platnými pro vaši službu.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  Text žádosti nechte prázdný.
 
@@ -241,6 +241,6 @@ Informace o bezkódovém přístupu k správě a používání služby Azure Sea
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

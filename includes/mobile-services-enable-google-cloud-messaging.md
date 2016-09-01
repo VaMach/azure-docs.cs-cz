@@ -14,9 +14,9 @@
 
 4. Na řídicím panelu projektu v části **Mobile APIs** (Mobilní rozhraní API) klikněte na **Google Cloud Messaging** a potom na další stránce klikněte na **Enable API** (Povolit rozhraní API) a přijměte podmínky služby. 
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![Povolení GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![Povolení GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. Na řídicím panelu projektu klikněte na **Credentials**(Přihlašovací údaje)  > **Create Credential**(Vytvořit přihlašovací údaje)  > **API Key** (Klíč rozhraní API). 
 
@@ -31,6 +31,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

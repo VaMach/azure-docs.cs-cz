@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Používání služby Azure AD Connect Health pro synchronizaci
-Následující dokumentace se věnuje sledování synchronizace služby Azure AD Connect pomocí služby Azure AD Connect Health.  Informace o sledování služby AD FS pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md).
+Následující dokumentace se věnuje sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health.  Informace o sledování služby AD FS pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health pro synchronizaci](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -64,12 +64,13 @@ Tato funkce nabízí grafické zobrazení trendu v počtu změn, které se vyhod
 * [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md)
+* [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

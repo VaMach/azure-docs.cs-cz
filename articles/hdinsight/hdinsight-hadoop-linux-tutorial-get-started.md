@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="jgao"/>
 
 # Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
@@ -23,11 +23,11 @@
 - [Založený na Linuxu](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Založený na systému Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
-Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. Aktuálně se HDInsight dodává se 4 různými typy clusteru: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) a [Storm](hdinsight-storm-overview.md).  Každý typ clusteru podporuje odlišnou sadu komponent. Všechny 4 typy clusteru podporují Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
+Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. V současnosti se HDInsight dodává se 4 různými typy clusterů: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) a [Storm](hdinsight-storm-overview.md).  Každý typ clusteru podporuje odlišnou sadu komponent. Všechny 4 typy clusteru podporují Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Předpoklady
+### Požadavky
 
 Než začnete tento kurz, musíte mít:
 
@@ -102,7 +102,7 @@ Po dokončení kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše da
 
 **Postup odstranění clusteru a/nebo výchozího účtu úložiště**
 
-1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
+1. Přihlaste se k [portálu Azure](https://portal.azure.com).
 2. V ovládacím panelu portálu klikněte na dlaždici s názvem skupiny prostředků, které jste použili při vytvoření clusteru.
 3. V okně prostředků klikněte na tlačítko **Odstranit** a odstraňte skupinu prostředků, která obsahuje clusteru a výchozí účet úložiště nebo klikněte na název clusteru v dlaždici **Prostředky** a pak klikněte na tlačítko **Odstranit** v okně clusteru. Vezměte na vědomí, že odstraněním skupiny prostředků odstraníte účet úložiště. Pokud chcete zachovat účet úložiště, zvolte odstranění samotného clusteru.
 
@@ -163,6 +163,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 
@@ -39,7 +39,7 @@ Pro konfiguraci ověřování pomocí protokolu RADIUS nainstalujte server Azure
 3. Na kartě Klienti změňte porty ověřování a komunikace se zákazníky, pokud by měla služba RADIUS Azure Multi-Factor Authentication vytvořit vazbu na nestandardní porty pro naslouchání požadavků protokolu RADIUS od klientů, kteří budou nakonfigurováni.
 4. Klikněte na tlačítko Přidat... .
 5. V dialogovém okně Přidat klienta RADIUS zadejte IP adresu zařízení/serveru, který se bude ověřovat na server Azure Multi-Factor Authentication, název aplikace (volitelné) a sdílený tajný klíč. Sdílený tajný klíč bude muset být stejný jak na serveru Azure Multi-Factor Authentication , tak i v zařízení/serveru. Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
-6. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. Další informace o této funkci naleznete v souboru nápovědy.
+6. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. Další informace o této funkci najdete v souboru nápovědy.
 7. Zaškrtněte políčko Povolit záložní token OATH, pokud budou uživatelé používat ověřování mobilní aplikaci Azure Multi-Factor Authentication a chcete použít jako záložní ověřování hesla OATH pro telefonní volání, SMS nebo nabízená oznámení mimo pásmo.
 8. Klikněte na tlačítko OK.
 9. Kroky 4 až 8 můžete opakovat pro přidání dalších klientů RADIUS.
@@ -65,6 +65,6 @@ Chcete-li nakonfigurovat klienta RADIUS, postupujte podle pokynů:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

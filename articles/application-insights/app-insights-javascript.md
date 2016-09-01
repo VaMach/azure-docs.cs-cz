@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
 # Application Insights pro webové stránky
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Zjistěte informace o výkonu a využití webové stránky nebo aplikace. Přidejte Visual Studio Application Insights do skriptu stránky a získáte časování načtení stránky a volání AJAX, počty a podrobnosti výjimek prohlížeče a selhání AJAX, a také počty uživatelů a relací. Všechny tyto hodnoty mohou být segmentovány podle stránky, klientského operačního systému a verze prohlížeče, zeměpisné polohy a ostatních dimenzí. Můžete také nastavit výstrahy na počet selhání nebo pomalé načítání stránky.
+Zjistěte informace o výkonu a využití webové stránky nebo aplikace. Když přidáte Visual Studio Application Insights do skriptu stránky, získáte časování načtení stránky a volání AJAX, počty a podrobnosti výjimek prohlížeče a selhání AJAX, a také počty uživatelů a relací. Všechny tyto hodnoty mohou být segmentovány podle stránky, klientského operačního systému a verze prohlížeče, zeměpisné polohy a ostatních dimenzí. Můžete také nastavit výstrahy na počet selhání nebo pomalé načítání stránky.
 
 Application Insights můžete použít s jakýmikoliv webovými stránkami – stačí přidat krátký kód jazyka JavaScript. Pokud používáte webovou službu [Java](app-insights-java-get-started.md) nebo [ASP.NET](app-insights-asp-net.md), můžete integrovat telemetrii ze serveru a klientů.
 
-Budete potřebovat předplatné [Microsoft Azure](https://azure.com). Pokud má váš tým předplatné pro společnosti, požádejte vlastníka, aby do něj přidal váš účet Microsoft. Existuje volná cenová úroveň, takže vývoj a méně rozsáhlé používání vás nebude nic stát.
+Potřebujete předplatné [Microsoft Azure](https://azure.com). Pokud má váš tým předplatné pro společnosti, požádejte vlastníka, aby do něj přidal váš účet Microsoft. Existuje volná cenová úroveň, takže vývoj a méně rozsáhlé používání vás nebude nic stát.
 
 
 ## Nastavte Application Insights pro svou webovou stránku
 
-Možná ji už máte. Pokud vaše aplikace představuje nový projekt ASP.NET a vy se rozhodnete přidat Application Insights do dialogu Nový projekt sady Visual Studio, skript se přidá a vše bude nastaveno.
+Nejdřív zjistěte, jestli potřebujete přidat Application Insights na své webové stránky. Možná jste to už udělali. Pokud jste zvolili přidání služby Application Insights do vaší webové aplikace v dialogovém okně Nový projekt v sadě Visual Studio, skript už byl přidán. V takovém případě nemusíte nic dalšího dělat.
 
 Jinak je potřeba přidat fragment kódu na vaše webové stránky následujícím způsobem.
 
@@ -39,7 +39,7 @@ Prostředek služby Application Insights je místo, kde se zobrazují data o vý
 
 Přihlaste se na [portál Azure](https://portal.azure.com).
 
-Pokud jste již nastavili monitorování pro aplikaci na straně serveru, budete již mít prostředek:
+Pokud jste už nastavili monitorování pro aplikaci na straně serveru, už máte prostředek:
 
 ![Zvolte Procházet, služby pro vývojáře, Application Insights.](./media/app-insights-javascript/01-find.png)
 
@@ -71,7 +71,7 @@ Skript obsahuje klíč instrumentace, který nasměruje data pro daný prostřed
 
 ## Podrobná konfigurace
 
-Nastavit můžete několik [Parametrů](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), i když ve většině případů to není třeba. Například můžete zakázat nebo omezit počet volání Ajax hlášených na zobrazení stránky (chcete-li snížit zatížení); nebo můžete nastavit režim ladění tak, aby rychle přesouval telemetrická data prostřednictvím kanálu bez provedení dávkou.
+Nastavit můžete několik [Parametrů](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), i když ve většině případů to není třeba. Například můžete zakázat nebo omezit počet volání Ajax hlášených na zobrazení stránky (chcete-li snížit zatížení). Nebo můžete nastavit režim ladění tak, aby rychle přesouval telemetrická data prostřednictvím kanálu bez provedení dávkou.
 
 Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a následně přidejte další položky oddělené čárkami:
 
@@ -107,7 +107,7 @@ Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a
 
 ## <a name="run"></a>Spuštění aplikace
 
-Spusťte webovou aplikaci, chvíli ji používejte ke generování telemetrie a počkejte několik sekund. Můžete ji buď spustit pomocí klíče **F5** na vývojovém počítači, nebo ji publikovat a umožnit uživatelům, aby si ji vyzkoušeli.
+Spusťte webovou aplikaci, chvíli ji používejte ke generování telemetrie a počkejte několik sekund. Můžete ji buď spustit pomocí klávesy **F5** na vývojovém počítači, nebo ji publikovat a umožnit uživatelům, aby si ji vyzkoušeli.
 
 Pokud chcete zkontrolovat telemetrii, kterou webová aplikace odesílá do služby Application Insights, použijte ladicí nástroje prohlížeče (**F12** u mnoha prohlížečů). Data budou odeslána na adresu dc.services.visualstudio.com.
 
@@ -175,7 +175,7 @@ a níže pak podrobné mřížky:
 Klikněte na libovolný řádek pro konkrétní podrobnosti.
 
 
-> [AZURE.NOTE] Při odstranění filtru prohlížečů v okně budou server a závislosti AJAX zahrnuty do těchto grafů. Klikněte na tlačítko Obnovit výchozí nastavení a překonfigurujte filtr.
+> [AZURE.NOTE] Při odstranění filtru prohlížečů v okně se server a závislosti AJAX zahrnou do těchto grafů. Klikněte na tlačítko Obnovit výchozí nastavení a překonfigurujte filtr.
 
 **Chcete-li zobrazit podrobnosti nezdařených volání Ajax** posuňte se dolů k mřížce selhání závislostí a klikněte na řádek pro zobrazení konkrétních instancí.
 
@@ -205,9 +205,9 @@ V okně diagnostické vyhledávání nastavte filtry pro zobrazení stránky.
 
 Vyberte další události pro zobrazení dalších podrobností. Na stránce podrobností klikněte na tlačítko „...“, chcete-li zobrazit více podrobností.
 
-> [AZURE.NOTE] Pokud používáte [Vyhledávání](app-insights-diagnostic-search.md), všimněte si, že musíte hledat celá slova: „Abou“ a „bout“ se neshoduje s „About“, ale „Abou*“ ano. A nemůžete začínat hledaný termín zástupným znakem. Například hledání „*bou“ nepovede ke shodě s termínem „About“.
+> [AZURE.NOTE] Pokud používáte [Vyhledávání](app-insights-diagnostic-search.md), všimněte si, že musíte hledat celá slova: „Abou“ a „bout“ se neshoduje s „About“.
 
-> [Další informace o diagnostickém vyhledávání](app-insights-diagnostic-search.md)
+Při hledání zobrazení stránek můžete také použít výkonný [analytický dotazovací jazyk](app-insights-analytics-tour.md).
 
 ### Zobrazení vlastností stránky
 
@@ -215,7 +215,7 @@ Vyberte další události pro zobrazení dalších podrobností. Na stránce pod
 
  * Ve výchozím nastavení čas potřebný k načtení stránky, od žádosti klienta po úplné načtení (včetně pomocných souborů s výjimkou asynchronních úloh, například volání Ajax). 
  * Pokud nastavíte `overridePageViewDuration` v [konfiguraci stránky](#detailed-configuration), interval mezi požadavkem klienta po spuštění prvního `trackPageView`. Pokud jste přesunuli trackPageView z obvyklé pozice po inicializaci skriptu, bude odrážet odlišnou hodnotu.
- * Pokud je sada `overridePageViewDuration` a dobu trvání argumentu k dispozici u volání `trackPageView()`, pak bude místo toho použita hodnota argumentu. 
+ * Pokud je nastavený parametr `overridePageViewDuration` a u volání `trackPageView()` je zadán argument doby trvání, pak se místo toho použije hodnota argumentu. 
 
 
 ## Počty vlastních stránek
@@ -226,7 +226,7 @@ Vložte podobné volání jazyka JavaScript v odpovídajícím bodě v klientsk�
 
     appInsights.trackPageView(myPageName);
 
-Název stránky může obsahovat stejné znaky jako adresa URL, ale cokoli za „#“ nebo „?“ bude ignorováno.
+Název stránky může obsahovat stejné znaky jako adresa URL, ale cokoli za „#“ nebo „?“ se ignoruje.
 
 
 
@@ -253,6 +253,6 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

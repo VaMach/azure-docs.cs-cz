@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Začínáme s aplikací Azure AD Privileged Identity Management
@@ -29,15 +29,16 @@ Před použitím aplikace Azure AD Privileged Identity Management musíte tuto a
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/) jako globální správce adresáře.
 2. Pokud má vaše organizace více než jeden adresář, klikněte na své uživatelské jméno v pravém horním rohu na portálu Azure a vyberte adresář, kde budete používat PIM.
-3. Na levém navigačním panelu zvolte ikonu **Nový**.
-4. Vyberte **Zabezpečení + Identita**.
-5. Vyberte **Azure AD Privileged Identity Management**.
-6. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na tlačítko **Vytvořit**. Aplikace Privileged Identity Management se otevře.
+3. Vyberte **Nové** > **Zabezpečení + Identita** > **Azure AD Privileged Identity Management**.
+
+    ![Povolení PIM na portálu][1]
+
+4. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na **Vytvořit**. Aplikace Privileged Identity Management se otevře.
 
 
-Pokud jste první, kdo bude ve vašem adresáři používat aplikaci Azure AD Privileged Identity Management, [průvodce zabezpečením](active-directory-privileged-identity-management-security-wizard.md) vás provede počátečním přiřazením. Následně se automaticky stanete prvním **správcem zabezpečení** a **správcem privilegovaných rolí** adresáře. Pouze správce privilegovaných rolí má přístup k této aplikaci za účelem správy přístupu pro další správce.  
+Pokud jste první, kdo bude ve vašem adresáři používat aplikaci Azure AD Privileged Identity Management, [průvodce zabezpečením](active-directory-privileged-identity-management-security-wizard.md) vás provede počátečním přiřazením. Automaticky se pak stanete prvním **správcem zabezpečení** a **správcem privilegovaných rolí** adresáře. Pouze správce privilegovaných rolí má přístup k této aplikaci za účelem správy přístupu pro další správce.  
 
-V opačném případě, pokud vám jiný správce privilegovaných rolí přiřadil jednu nebo více rolí, můžete si vybrat, kterou z nich aktivujete. Pokud jste sami v roli správce privilegovaných rolí, zobrazí se vám také možnost volby, zda chcete **spravovat identity**.  
+Pokud jste byli přiřazeni k jedné nebo více rolím, budete mít k dispozici možnost **Aktivovat moje role**. Pokud jste správcem privilegovaných rolí, zobrazí se také možnost **Spravovat privilegované role**.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,8 +48,12 @@ V opačném případě, pokud vám jiný správce privilegovaných rolí přiřa
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

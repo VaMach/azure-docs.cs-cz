@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Aplikaci pro Windows můžete hned teď spustit kdekoliv a v jakémkoliv zařízení. Neděláme si srandu – stačí použít Azure RemoteApp. Ať se jedná o nějakou vlastní aplikaci napsanou před 10 lety, nebo o aplikaci Office, uživatelé již nemusí vlastnit konkrétní operační systém (např. Windows, XP), aby těchto pár aplikací mohli používat.
 
@@ -28,7 +31,9 @@ V tomto článku budeme se všemi uživateli sdílet aplikaci Access. Můžete v
 
 Poznámka: Protože Access je databázová aplikace a chceme, aby byla užitečná, provedeme několik kroků navíc, které uživatelům umožní přístup ke sdílení dat Accessu. Pokud vaše aplikace není databázová nebo nepotřebujete, aby uživatelé měli přístup ke sdílené složce, můžete tyto kroky kurzu přeskočit
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>K dokončení tohoto kurzu potřebujete mít účet Azure:
+> - Můžete si [otevřít účet Azure zdarma](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. Až je vypotřebujete, můžete si účet nechat a dál používat bezplatné služby Azure, například Websites. Nikdy vám nebudeme účtovat žádné poplatky, pokud si sami nezměníte nastavení a nezačnete používat placené služby.
+> - Můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Vaše předplatné MSDN vám každý měsíc dává kredity, které můžete použít k placení za služby Azure.
 
 
 ## Vytvoření kolekce v RemoteAppu
@@ -120,6 +125,6 @@ Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci použí
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

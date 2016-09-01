@@ -1,6 +1,6 @@
 <properties
     pageTitle="Kurz – Začínáme s knihovnou Azure Batch .NET | Microsoft Azure"
-    description="Seznamte se se základními koncepty Azure Batch a s postupy vývoje pro službu Batch pomocí jednoduchého scénáře."
+    description="Seznamte se se základními koncepty fóra Azure Batch a s postupy vývoje pro službu Batch pomocí ukázkového scénáře."
     services="batch"
     documentationCenter=".net"
     authors="mmacy"
@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="05/27/2016"
+    ms.date="08/15/2016"
     ms.author="marsma"/>
 
 # Začínáme s knihovnou Azure Batch pro .NET
@@ -40,7 +40,7 @@ Tento článek předpokládá, že máte praktické znalosti jazyka C# a sady Vi
 
 ### Visual Studio
 
-K vytvoření ukázkového projektu potřebujete sadu **Visual Studio 2013** nebo **Visual Studio 2015**. V [přehledu produktů Visual Studio 2015][visual_studio] najdete bezplatné a zkušební verze sady Visual Studio.
+K vytvoření ukázkového projektu potřebujete sadu **Visual Studio 2015**. V [přehledu produktů Visual Studio 2015][visual_studio] najdete bezplatné a zkušební verze sady Visual Studio.
 
 ### Ukázka kódu *DotNetTutorial*
 
@@ -54,13 +54,13 @@ Ukázka [DotNetTutorial][github_dotnettutorial] je jednou z mnoha ukázek kódu,
 
 ## Přehled ukázkového projektu DotNetTutorial
 
-Ukázka kódu *DotNetTutorial* je řešením sady Visual Studio 2013, které se skládá ze dvou projektů: **DotNetTutorial** a **TaskApplication**.
+Ukázka kódu *DotNetTutorial* je řešení sady Visual Studio 2015, které se skládá ze dvou projektů: **DotNetTutorial** a **TaskApplication**.
 
 - **DotNetTutorial** je klientská aplikace, která komunikuje se službou Batch a se službou Azure Storage při spouštění paralelní úlohy na výpočetních uzlech (virtuálních počítačích). DotNetTutorial se spouští na místní pracovní stanici.
 
 - **TaskApplication** je program, který běží na výpočetních uzlech v Azure a provádí samotnou práci. V tomto příkladu `TaskApplication.exe` analyzuje text v souboru staženém ze služby Azure Storage (vstupní soubor). Potom vytvoří textový soubor (výstupní soubor), který obsahuje seznam nejčastějších tří slov, která se zobrazují ve vstupním souboru. Po vytvoření výstupního souboru TaskApplication odešle soubor do služby Azure Storage. Klientská aplikace ho tak bude mít k dispozici ke stažení. TaskApplication běží paralelně v několika výpočetních uzlech v rámci služby Batch.
 
-Následující diagram znázorňuje primární operace, které provádí klientská aplikace *DotNetTutorial* a aplikace *TaskApplication*, kterou spouští úkoly. Tento základní pracovní postup je typický pro mnoho výpočetních řešení, která jsou vytvořená pomocí služby Batch. I když nepředvádí všechny funkce, které jsou ve službě Batch dostupné, téměř každý scénář Batch bude obsahovat podobné procesy.
+Následující diagram znázorňuje primární operace, které provádí klientská aplikace *DotNetTutorial* a aplikace *TaskApplication*, kterou spouští úkoly. Tento základní pracovní postup je typický pro mnoho výpočetních řešení, která jsou vytvořená pomocí služby Batch. I když nepředvádí všechny funkce, které jsou ve službě Batch dostupné, skoro každý scénář Batch obsahuje podobné procesy.
 
 ![Ukázkový pracovní postup služby Batch][8]<br/>
 
@@ -76,11 +76,11 @@ Následující diagram znázorňuje primární operace, které provádí klients
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Úkoly při dokončení odesílají svoje výstupní data do služby Azure Storage.<br/>
 [**Krok 7.**](#step-7-download-task-output) Stáhněte si výstup úkolu ze služby Storage.
 
-Jak jsme už zmínili, ne každé řešení Batch provede právě tyto kroky a může jich obsahovat i mnohem víc, ale ukázková aplikace *DotNetTutorial* předvádí běžné procesy, které probíhají ve službě Batch.
+Jak jsme už zmínili, ne každé řešení Batch provede právě tyto kroky a může jich obsahovat i mnohem víc, ale ukázková aplikace *DotNetTutorial* předvádí běžné procesy, které probíhají v řešení Batch.
 
 ## Vytvoření ukázkového projektu *DotNetTutorial*
 
-Předtím, než ukázku úspěšně spustíte, musíte zadat přihlašovací údaje k účtu Batch i k účtu Storage do souboru `Program.cs` v projektu *DotNetTutorial*. Pokud jste to ještě neudělali, otevřete řešení v sadě Visual Studio poklikáním na soubor řešení `DotNetTutorial.sln`. Nebo ho otevřete v sadě Visual Studio pomocí nabídky **Soubor > Otevřít > Projekt nebo řešení**.
+Předtím, než ukázku úspěšně spustíte, musíte zadat přihlašovací údaje k účtu Batch i k účtu Storage do souboru `Program.cs` v projektu *DotNetTutorial*. Pokud jste to ještě neudělali, otevřete řešení v sadě Visual Studio dvojím kliknutím na soubor řešení `DotNetTutorial.sln`. Nebo ho otevřete v sadě Visual Studio pomocí nabídky **Soubor > Otevřít > Projekt nebo řešení**.
 
 V projektu *DotNetTutorial* otevřete soubor `Program.cs`. Potom podle pokynů na začátku souboru zadejte svoje přihlašovací údaje:
 
@@ -99,7 +99,7 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-> [AZURE.IMPORTANT] Jak jsme uvedli výše, je nutné, abyste ve službě Azure Storage aktuálně zadali přihlašovací údaje účtu úložiště, který je pro **obecné účely**. Aplikace Batch budou používat úložiště objektů blob v rámci účtu úložiště pro **obecné účely**. Nezadávejte přihlašovací údaje k účtu služby Storage, který jste vytvořili výběrem účtu typu *Blob Storage*.
+> [AZURE.IMPORTANT] Jak jsme uvedli výše, je nutné, abyste ve službě Azure Storage aktuálně zadali přihlašovací údaje účtu úložiště, který je pro **obecné účely**. Aplikace Batch používají úložiště objektů blob v rámci účtu úložiště pro **obecné účely**. Nezadávejte přihlašovací údaje k účtu služby Storage, který jste vytvořili výběrem účtu typu *Blob Storage*.
 
 Přihlašovací údaje k účtu Batch a k účtu Storage najdete v okně účtu každé služby na [portálu Azure][azure_portal]:
 
@@ -127,7 +127,7 @@ Batch obsahuje vestavěnou podporu pro komunikaci se službou Azure Storage. Kon
 
 Za účelem práce s účtem služby Storage a vytvoření kontejnerů použijte [klientskou knihovnu služby Azure Storage pro .NET][net_api_storage]. Referenci na účet vytvoříme pomocí [CloudStorageAccount][net_cloudstorageaccount] a z té vytvoříme [CloudBlobClient][net_cloudblobclient]:
 
-```
+```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format(
     "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
@@ -135,15 +135,17 @@ string storageConnectionString = String.Format(
     StorageAccountKey);
 
 // Retrieve the storage account
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.Parse(storageConnectionString);
 
-// Create the blob client, for use in obtaining references to blob storage containers
+// Create the blob client, for use in obtaining references to
+// blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Referenci `blobClient` používáme v celé aplikaci a předáváme jako parametr do řady metod. Příklad toho je v bloku kódu, který následuje výše uvedené, kde voláme `CreateContainerIfNotExistAsync`, abychom vytvořili kontejnery.
+Referenci `blobClient` používáme v celé aplikaci a předáváme jako parametr do několika metod. Příklad toho je v bloku kódu, který následuje výše uvedené, kde voláme `CreateContainerIfNotExistAsync`, abychom vytvořili kontejnery.
 
-```
+```csharp
 // Use the blob client to create the containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
@@ -154,12 +156,13 @@ await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-```
+```csharp
 private static async Task CreateContainerIfNotExistAsync(
     CloudBlobClient blobClient,
     string containerName)
 {
-        CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+        CloudBlobContainer container =
+            blobClient.GetContainerReference(containerName);
 
         if (await container.CreateIfNotExistsAsync())
         {
@@ -257,7 +260,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
 ### ResourceFiles
 
-[ResourceFile][net_resourcefile] poskytuje úkolům ve službě Batch adresu URL k souboru ve službě Azure Storage, který bude stažen do výpočetního uzlu před spuštěním úkolu. Vlastnost [ResourceFile.BlobSource][net_resourcefile_blobsource] určuje úplnou adresu URL souboru, protože existuje ve službě Azure Storage. Adresa URL může obsahovat také sdílený přístupový podpis (SAS), který zajišťuje zabezpečený přístup k souboru. Většina typů úkolů v rámci v Batch .NET obsahuje vlastnost *ResourceFiles* včetně:
+[ResourceFile][net_resourcefile] poskytuje úkolům ve službě Batch adresu URL k souboru ve službě Azure Storage, který se před spuštěním úkolu stahuje do výpočetního uzlu. Vlastnost [ResourceFile.BlobSource][net_resourcefile_blobsource] určuje úplnou adresu URL souboru, protože existuje ve službě Azure Storage. Adresa URL může obsahovat také sdílený přístupový podpis (SAS), který zajišťuje zabezpečený přístup k souboru. Většina typů úkolů v rámci v Batch .NET obsahuje vlastnost *ResourceFiles* včetně:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
@@ -274,16 +277,18 @@ Sdílené přístupové podpisy jsou řetězce, které (když jsou součástí a
 
 - **Sdílené přístupové podpisy kontejnerů**: Když každý úkol dokončí svojí práci ve výpočetním uzlu, odešle svůj výstupní soubor do kontejneru *output* ve službě Azure Storage. Aby to mohl provést, používá TaskApplication sdílený přístupový podpis kontejneru, který zajišťuje oprávnění k zápisu do kontejneru jako součást cesty při nahrávání souboru. Získání sdíleného přístupového podpisu kontejneru se provádí podobným způsobem jako získávání sdíleného přístupového podpisu objektu blob. V aplikaci DotNetTutorial zjistíte, že pomocná metoda `GetContainerSasUrl` za tímto účelem volá [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Další informace o tom, jak TaskApplication používá sdílený přístupový podpis kontejneru, se dočtete v kroku 6: Sledování úkolů.
 
-> [AZURE.TIP] Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou objektů blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu služby Storage.
+> [AZURE.TIP] Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu: [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu služby Storage.
 
 ## Krok 3: Vytvoření fondu služby Batch
 
 ![Vytvoření fondu služby Batch][3]
 <br/>
 
+**Fond** Batch je kolekce výpočetních uzlů (virtuálních počítačů), na kterých služba Batch provádí úkoly z úlohy.
+
 Po nahrání aplikačních a datových souborů do účtu Storage zahájí aplikace *DotNetTutorial* komunikaci se službou Batch pomocí knihovny Batch .NET. Aby to mohla provést, vytvoří nejdřív [BatchClient][net_batchclient]:
 
-```
+```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
     BatchAccountUrl,
     BatchAccountName,
@@ -296,7 +301,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Na účtu Batch potom pomocí volání `CreatePoolAsync` vytvoří fond výpočetních uzlů. `CreatePoolAsync` používá metodu [BatchClient.PoolOperations.CreatePool][net_pool_create] k samotnému vytvoření fondu ve službě Batch.
 
-```
+```csharp
 private static async Task CreatePoolAsync(
     BatchClient batchClient,
     string poolId,
@@ -337,11 +342,11 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-Když pomocí [CreatePool][net_pool_create] vytvoříte fond, zadáváte určité parametry, například počet výpočetních uzlů, [velikost uzlů](../cloud-services/cloud-services-sizes-specs.md) a operační systém uzlů. V aplikaci *DotNetTutorial* používáme [CloudServiceConfiguration][net_cloudserviceconfiguration], abychom v [cloudových službách](../cloud-services/cloud-services-guestos-update-matrix.md) zadali systém Windows Server 2012 R2. Když ale místo toho zadáte [VirtualMachineConfiguration][net_virtualmachineconfiguration], můžete vytvářet fondy uzlů vytvořené z imagů z Marketplace, které obsahují image systémů Windows i Linux – další informace najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
+Když pomocí [CreatePool][net_pool_create] vytvoříte fond, zadáváte několik parametrů, třeba počet výpočetních uzlů, [velikost uzlů](../cloud-services/cloud-services-sizes-specs.md) a operační systém uzlů. V aplikaci *DotNetTutorial* používáme [CloudServiceConfiguration][net_cloudserviceconfiguration], abychom v [cloudových službách](../cloud-services/cloud-services-guestos-update-matrix.md) zadali systém Windows Server 2012 R2. Když ale místo toho zadáte [VirtualMachineConfiguration][net_virtualmachineconfiguration], můžete vytvářet fondy uzlů vytvořené z imagí z Marketplace, které obsahují image systémů Windows i Linux – další informace najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
 
 > [AZURE.IMPORTANT] Za výpočetní prostředky ve službě Batch vám budou účtované poplatky. Pokud chcete náklady minimalizovat, můžete před spuštěním ukázky snížit `targetDedicated` na hodnotu 1.
 
-Spolu s těmito fyzickými vlastnostmi uzlu můžete určit také vlastnost [StartTask][net_pool_starttask] fondu. StartTask se spustí na každém uzlu, když se takový uzel připojí k fondu, a také pokaždé, když se uzel restartuje. StartTask je zvláště užitečná pro instalaci aplikací na výpočetní uzly před spuštěním úkolů. Pokud vaše úkoly například zpracovávají data pomocí skriptů Python, můžete StartTask použít k instalaci Pythonu na výpočetní uzly.
+Spolu s těmito fyzickými vlastnostmi uzlu můžete určit také vlastnost [StartTask][net_pool_starttask] fondu. StartTask se spustí na každém uzlu, když se takový uzel připojí k fondu, a taky pokaždé, když se uzel restartuje. StartTask je zvláště užitečná pro instalaci aplikací na výpočetní uzly před spuštěním úkolů. Pokud vaše úkoly například zpracovávají data pomocí skriptů Python, můžete StartTask použít k instalaci Pythonu na výpočetní uzly.
 
 V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze služby Storage (které je určené vlastností [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) z pracovního adresáře StartTask do sdíleného adresáře, ke kterému mají přístup *všechny* úkoly spuštěné na takovém uzlu. V podstatě zkopíruje soubor `TaskApplication.exe` a jeho závislé položky do sdíleného adresáře v každém uzlu v okamžiku, kdy se uzel připojí k fondu, aby každý úkol spuštěný v uzlu měl k tomuto souboru přístup.
 
@@ -349,17 +354,19 @@ V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze slu�
 
 Ve výše uvedeném fragmentu kódu je také zajímavé použití dvou proměnných prostředí ve vlastnosti *CommandLine* v StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` a `%AZ_BATCH_NODE_SHARED_DIR%`. Každý výpočetní uzel v rámci fondu Batch je automaticky nakonfigurovaný pomocí řady proměnných prostředí, které se týkají služby Batch. Jakýkoli proces spuštěný úkolem má přístup k těmto proměnným prostředí.
 
-> [AZURE.TIP] Další informace o proměnných prostředí, které jsou dostupné na výpočetní uzlech ve fondu Batch, a také informace o pracovních adresářích úkolu najdete v částech „Nastavení prostředí pro úkoly“ a „Soubory a adresáře“ v článku [Přehled funkcí Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Další informace o proměnných prostředí, které jsou dostupné na výpočetní uzlech ve fondu Batch, a taky informace o pracovních adresářích úkolů najdete v částech [Nastavení prostředí pro úkoly](batch-api-basics.md#environment-settings-for-tasks) a [Soubory a adresáře](batch-api-basics.md#files-and-directories) v článku [Přehled funkcí služby Batch pro vývojáře](batch-api-basics.md).
 
 ## Krok 4: Vytvoření úlohy Batch
 
 ![Vytvoření úlohy Batch][4]<br/>
 
-Úloha Batch je v podstatě kolekcí úkolů, které jsou přidružené k fondu výpočetních uzlů. Můžete ji použít nejen k uspořádání a sledování úkolů v souvisejících úlohách, ale také k nastavení určitých omezení – například maximálního runtime úlohy (a při rozšíření i pro její úkoly) a také priority úloh ve vztahu k dalším úlohám na účtu Batch. V tomto příkladu je úloha přidružená jenom k fondu, který byl vytvořen v kroku 3. Žádné další vlastnosti se nekonfigurují.
+**Úloha** Batch je kolekcí úkolů a je přidružená k fondu výpočetních uzlů. Úkoly v úloze se spustit na přidružených výpočetních uzlech fondu.
 
-Všechny úlohy Batch jsou přidružené ke konkrétnímu fondu. Toto přidružení označuje uzly, na kterých se úkoly úlohy spustí.  Toto určíte pomocí vlastnosti [CloudJob.PoolInformation][net_job_poolinfo], jak je ukázáno v následujícím fragmentu kódu.
+Úlohu můžete použít nejen k uspořádání a sledování úkolů v souvisejících úlohách, ale také k nastavení určitých omezení – například maximálního runtime úlohy (a při rozšíření i pro její úkoly) a také priority úloh ve vztahu k dalším úlohám na účtu Batch. V tomto příkladu je úloha přidružená jenom k fondu, který byl vytvořen v kroku 3. Žádné další vlastnosti se nekonfigurují.
 
-```
+Všechny úlohy Batch jsou přidružené ke konkrétnímu fondu. Toto přidružení označuje uzly, na kterých se úkoly úlohy spustí. Toto určíte pomocí vlastnosti [CloudJob.PoolInformation][net_job_poolinfo], jak je ukázáno v následujícím fragmentu kódu.
+
+```csharp
 private static async Task CreateJobAsync(
     BatchClient batchClient,
     string jobId,
@@ -382,9 +389,11 @@ Po vytvoření úlohy budou přidány úkoly, které budou provádět práci.
 ![Přidání úkolů do úlohy][5]<br/>
 *(1) Úkoly jsou přidány do úlohy, (2) úkoly jsou naplánovány ke spuštění na uzlech a (3) úkoly stahují datové soubory ke zpracování*
 
+**Úkoly** Batch jsou jednotlivé jednotky práce, které se spouští na výpočetních uzlech. Úkol má příkazový řádek a spouští skripty nebo spustitelné soubory, které jste v takovém příkazovém řádku určili.
+
 Aby mohly skutečně provést nějakou práci, musí úkoly nejprve přidat do úlohy. Každý [CloudTask][net_task] se konfiguruje pomocí vlastnosti příkazového řádku a [ResourceFiles][net_task_resourcefiles] (stejně jako u StartTask fondu), kterou si úkol stáhne do uzlu předtím, než se jeho příkazový řádek automaticky spustí. V ukázkovém projektu *DotNetTutorial* každý úkol zpracovává jenom jeden soubor. Proto jeho kolekce ResourceFiles obsahuje jen jeden prvek.
 
-```
+```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
     BatchClient batchClient,
     string jobId,
@@ -427,11 +436,11 @@ Ve smyčce `foreach` ve výše uvedeném fragmentu kódu můžete vidět, že p�
 
 1.  **První argument** je cesta k souboru, který má být zpracován. Jedná se o místní cestu k souboru, protože soubor existuje na uzlu. Když byl objekt ResourceFile v `UploadFileToContainerAsync` v předchozí části vytvořen, použil se pro tuto vlastnost název souboru (jako parametr pro konstruktor ResourceFile). To znamená, že se soubor nachází ve stejném adresáři jako *TaskApplication.exe*.
 
-2. **Druhý argument** určuje, že nejčastější slova v počtu *N* mají být zapsána do výstupního souboru. V ukázce je pevně zakódováno, aby do výstupního souboru byla zapsána tři nejčastější slova.
+2. **Druhý argument** určuje, že nejčastější slova v počtu *N* mají být zapsána do výstupního souboru. V ukázce je to pevně zakódované, aby se do výstupního souboru zapisovala tři nejčastější slova.
 
 3. **Třetí argument** je sdílený přístupový podpis (SAS), který zajišťuje oprávnění k zápisu do kontejneru **output** ve službě Azure Storage. *TaskApplication.exe* používá tuto adresu URL se sdíleným přístupovým podpisem při nahrávání výstupního souboru do služby Azure Storage. Kód pro metodu `UploadFileToContainer` můžete najít v souboru `Program.cs` z projektu TaskApplication:
 
-```
+```csharp
 // NOTE: From project TaskApplication Program.cs
 
 private static void UploadFileToContainer(string filePath, string containerSas)
@@ -483,7 +492,7 @@ V rámci metody `MonitorTasks` v souboru `Program.cs` z projektu DotNetTutorial 
 
 Metodu `MonitorTasks` ze souboru `Program.cs` v aplikaci *DotNetTutorial* vidíte zde:
 
-```
+```csharp
 private static async Task<bool> MonitorTasks(
     BatchClient batchClient,
     string jobId,
@@ -494,75 +503,72 @@ private static async Task<bool> MonitorTasks(
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
     // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to specify that only the "id" property of each task should be
+    // a detail level to  specify that only the "id" property of each task should be
     // populated. Using a detail level for all list operations helps to lower
     // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
     List<CloudTask> tasks =
         await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
-    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
+    Console.WriteLine("Awaiting task completion, timeout in {0}...",
+        timeout.ToString());
 
     // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
     // will wait for all tasks to reach the Completed state.
-    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(
-        tasks,
-        TaskState.Completed,
-        timeout);
+    TaskStateMonitor taskStateMonitor
+        = batchClient.Utilities.CreateTaskStateMonitor();
 
-    if (timedOut)
+    try
     {
-        allTasksSuccessful = false;
-
-        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-
-        Console.WriteLine(failureMessage);
+        await taskStateMonitor.WhenAll(tasks, TaskState.Completed, timeout);
     }
-    else
+    catch (TimeoutException)
     {
-        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+        Console.WriteLine(failureMessage);
+        return false;
+    }
 
-        // All tasks have reached the "Completed" state. However, this does not
-        // guarantee that all tasks were completed successfully. Here we further
-        // check each task's ExecutionInfo property to ensure that it did not
-        // encounter a scheduling error or return a non-zero exit code.
+    await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // Update the detail level to populate only the task id and executionInfo
-        // properties. We refresh the tasks below, and need only this information
-        // for each task.
-        detail.SelectClause = "id, executionInfo";
+    // All tasks have reached the "Completed" state, however, this does not
+    // guarantee all tasks completed successfully. Here we further check each task's
+    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // or return a non-zero exit code.
 
-        foreach (CloudTask task in tasks)
+    // Update the detail level to populate only the task id and executionInfo
+    // properties. We refresh the tasks below, and need only this information for
+    // each task.
+    detail.SelectClause = "id, executionInfo";
+
+    foreach (CloudTask task in tasks)
+    {
+        // Populate the task's properties with the latest info from the
+        // Batch service
+        await task.RefreshAsync(detail);
+
+        if (task.ExecutionInformation.SchedulingError != null)
         {
-            // Populate the task's properties with the latest info from the Batch service
-            await task.RefreshAsync(detail);
+            // A scheduling error indicates a problem starting the task on the node.
+            // It is important to note that the task's state can be "Completed," yet
+            // still have encountered a scheduling error.
 
-            if (task.ExecutionInformation.SchedulingError != null)
-            {
-                // A scheduling error indicates a problem starting the task on the
-                // node. It is important to note that the task's state can be
-                // "Completed," yet the task still might have encountered a
-                // scheduling error.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
+            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
+                task.Id,
+                task.ExecutionInformation.SchedulingError.Message);
+        }
+        else if (task.ExecutionInformation.ExitCode != 0)
+        {
+            // A non-zero exit code may indicate that the application executed by
+            // the task encountered an error during execution. As not every
+            // application returns non-zero on failure by default (e.g. robocopy),
+            // your implementation of error checking may differ from this example.
 
-                Console.WriteLine(
-                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
-                    task.Id,
-                    task.ExecutionInformation.SchedulingError.Message);
-            }
-            else if (task.ExecutionInformation.ExitCode != 0)
-            {
-                // A non-zero exit code may indicate that the application executed by
-                // the task encountered an error during execution. As not every
-                // application returns non-zero on failure by default (e.g. robocopy),
-                // your implementation of error checking may differ from this example.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
-            }
+            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
         }
     }
 
@@ -581,7 +587,7 @@ private static async Task<bool> MonitorTasks(
 
 Po dokončení úlohy můžete ze služby Azure Storage stáhnout výstup úkolů. To provedete pomocí volání metody `DownloadBlobsFromContainerAsync` v souboru `Program.cs` z aplikace *DotNetTutorial*:
 
-```
+```csharp
 private static async Task DownloadBlobsFromContainerAsync(
     CloudBlobClient blobClient,
     string containerName,
@@ -615,7 +621,7 @@ private static async Task DownloadBlobsFromContainerAsync(
 
 Vzhledem k tomu, že musíte platit za data, která si necháváte ve službě Azure Storage, doporučujeme odebrat všechny objekty blob, které už pro úlohy Batch nepotřebujete. V souboru `Program.cs` z aplikace DotNetTutorial se to provádí pomocí tří volání pomocné metody `DeleteContainerAsync`:
 
-```
+```csharp
 // Clean up Storage resources
 await DeleteContainerAsync(blobClient, appContainerName);
 await DeleteContainerAsync(blobClient, inputContainerName);
@@ -624,7 +630,7 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 
 Metoda sama jenom získá referencí na kontejner a potom zavolá [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
 
-```
+```csharp
 private static async Task DeleteContainerAsync(
     CloudBlobClient blobClient,
     string containerName)
@@ -649,7 +655,7 @@ V posledním kroku bude uživatel vyzván k odstranění úlohy a fondu, které 
 
 [JobOperations][net_joboperations] a [PoolOperations][net_pooloperations] v BatchClient mají odpovídající metody odstranění, které se volají, pokud uživatel potvrdí odstranění:
 
-```
+```csharp
 // Clean up the resources we've created in the Batch account if the user so chooses
 Console.WriteLine();
 Console.WriteLine("Delete job? [yes] no");
@@ -671,7 +677,7 @@ if (response != "n" && response != "no")
 
 ## Spuštění ukázkové aplikace *DotNetTutorial*
 
-Když spustíte ukázkovou aplikaci, bude výstup konzoly podobný následujícímu. Během provádění dojde k pozastavení při `Awaiting task completion, timeout in 00:30:00...` a mezitím se spustí výpočetní uzly fondu. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte [Průzkumníka služby Batch][github_batchexplorer]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [portál Azure][azure_portal] nebo jednoho z [dostupných průzkumníků služby Azure Storage][storage_explorers] .
+Když spustíte ukázkovou aplikaci, bude výstup konzoly podobný následujícímu. Během provádění dojde k pozastavení při `Awaiting task completion, timeout in 00:30:00...` a mezitím se spustí výpočetní uzly fondu. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte [Azure Portal][azure_portal]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [Azure Portal][azure_portal] nebo [průzkumníka služby Azure Storage][storage_explorers].
 
 Typická doba provádění je **přibližně 5 minut**, když aplikaci spouštíte v její výchozí konfiguraci.
 
@@ -708,20 +714,18 @@ Sample complete, hit ENTER to exit...
 
 ## Další kroky
 
-Nebojte se provádět v projektu *DotNetTutorial* a *TaskApplication* změny a experimentovat s různými výpočetními scénáři. Zkuste například do *TaskApplication* přidat prodlevu provádění, jaká je u [Thread.Sleep][net_thread_sleep], abyste mohli simulovat dlouhotrvající úlohy, a sledujte je pomocí funkce *Heat mapa* v Průzkumníkovi služby Batch. Zkuste přidat další úkoly nebo upravit počet výpočetních uzlů. Přidejte logiku pro kontrolu a povolte použití existujícího fondu, abyste urychlili čas provádění (*tip*: podívejte se na soubor `ArticleHelpers.cs` v projektu [Microsoft.Azure.Batch.Samples.Common][github_samples_common] v [azure-batch-samples][github_samples]).
+Nebojte se provádět v projektu *DotNetTutorial* a *TaskApplication* změny a experimentovat s různými výpočetními scénáři. Zkuste třeba do *TaskApplication* přidat prodlevu provádění, jaká je u [Thread.Sleep][net_thread_sleep], abyste mohli simulovat dlouhotrvající úlohy a sledovat je na portálu. Zkuste přidat další úkoly nebo upravit počet výpočetních uzlů. Přidejte logiku pro kontrolu a povolte použití existujícího fondu, abyste urychlili čas provádění (*tip*: podívejte se na soubor `ArticleHelpers.cs` v projektu [Microsoft.Azure.Batch.Samples.Common][github_samples_common] v [azure-batch-samples][github_samples]).
 
 Teď, když jste se seznámili se základním pracovním postupem řešení Batch, je čas proniknout do dalších funkcí služby Batch.
 
-- Přečtěte si článek [Přehled funkcí Azure Batch](batch-api-basics.md), který doporučujeme všem novým uživatelům služby.
+- Přečtěte si článek [Přehled funkcí služby Batch pro vývojáře](batch-api-basics.md), který doporučujeme všem novým uživatelům služby Batch.
 - Začněte u dalších článků o vývoji pro službu Batch, které najdete v [Mapě kurzů služby Batch][batch_learning_path] v části **Podrobný popis vývoje**.
 - Podívejte se na různé implementace zpracování úlohy „nejčastějších N slov“ a použijte k tomu Batch v ukázce [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -760,9 +764,9 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
 [net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
-[nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+[nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
-[storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
+[storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Vytvoření kontejnerů ve službě Azure Storage"
@@ -779,6 +783,6 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Používání služby Azure AD Connect Health se službou AD FS
-Následující dokumentace se věnuje sledování infrastruktury služby AD FS ve službě Azure AD Connect Health.
+Následující dokumentace se věnuje sledování infrastruktury služby AD FS ve službě Azure AD Connect Health. Informace o sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md). 
 
 ## Upozornění služby AD FS
 Část pojednávající o upozorněních služby Azure AD Connect Health uvádí seznam aktivních upozornění. Každé upozornění obsahuje důležité informace, postup řešení a odkazy na související dokumentaci. Výběrem aktivního nebo vyřešeného upozornění zobrazíte nové okno s doplňujícími informacemi, kroky, které můžete k vyřešení upozornění použít, a odkazy na další dokumentaci. Můžete si zobrazit i historické údaje o dříve vyřešených upozorněních.
@@ -40,7 +40,7 @@ Pokud chcete vybrat další metriky, určit časový rozsah nebo změnit seskupe
 
 | Metrika | Seskupit podle | Co seskupení znamená a proč je užitečné? |
 | ------ | -------- | -------------------------------------------- |
-| Celkový počet požadavků: Celkový počet požadavků zpracovaných službou FS | Vše | Zobrazí celkový počet požadavků bez seskupení. |
+| Celkový počet požadavků: Celkový počet požadavků zpracovaných službou FS | Všechny | Zobrazí celkový počet požadavků bez seskupení. |
 |  | Aplikace | Tato možnost seskupí celkový počet požadavků podle cílové přijímající strany. Toto seskupení vás seznámí s procentem celkového provozu, které jednotlivé aplikace přijímají. |
 |  | Server | Tato možnost seskupí celkový počet požadavků podle serveru, který požadavek zpracoval. Toto seskupení vás seznámí s distribucí zatížení celkového provozu. |
 |  | Připojení k pracovišti | Tato možnost seskupí celkový počet požadavků podle toho, jestli požadavky přicházejí ze zařízení, která jsou připojená k pracovišti (známá). Toto seskupení vás seznámí s tím, jestli se k vašim prostředkům přistupuje pomocí zařízení, které infrastruktura identity nezná. |
@@ -110,11 +110,12 @@ Tato sestava poskytuje následující:
 * [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
+* [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

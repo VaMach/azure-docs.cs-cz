@@ -3,7 +3,7 @@
    description="Seznamte se s virtuálními sítěmi v Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Přehled služby Virtual Network
 
@@ -97,6 +97,6 @@ Za použití služeb Virtual Network se v Azure neúčtují žádné dodatečné
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

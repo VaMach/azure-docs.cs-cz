@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/03/2016"
+    ms.date="06/30/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Používám Mobile Services, jak mi pomůže App Service?
@@ -64,6 +64,6 @@ Výhody *App Service* pro existující Mobile Service můžete začít využíva
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

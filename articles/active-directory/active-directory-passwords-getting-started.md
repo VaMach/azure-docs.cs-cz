@@ -2,11 +2,11 @@
     pageTitle="Začínáme: Správa hesel služby Azure AD | Microsoft Azure"
     description="Naučte se umožnit uživatelům resetovat jejich hesla, přečtěte si o požadavcích resetování hesel a povolte zpětný zápis hesla ke správě místních hesel ve službě Active Directory."
     services="active-directory"
-    keywords="Active directory password management, password management, reset Azure AD password"
+    keywords="Správa hesel služby Active Directory, správa hesel, resetování hesla Azure AD"
     documentationCenter=""
     authors="asteen"
-    manager="kbrint"
-    editor="billmath"/>
+    manager="femila"
+    editor="curtand"/>
 
 <tags
     ms.service="active-directory"
@@ -14,10 +14,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/16/2016" 
+    ms.date="07/12/2016"
     ms.author="asteen"/>
 
 # Začínáme se správou hesel
+
+> [AZURE.IMPORTANT] **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md).
+
 Pokud chcete uživatelům umožnit spravovat jejich vlastní hesla ke cloudové službě Azure Active Directory nebo místní službě Active Directory, stačí provést několik jednoduchých kroků. Po splnění několika jednoduchých požadavků a provedení několika snadných kroků bude aktivace funkce změny a resetování hesel ve vaší organizaci hned hotová. V tomto článku najdete následující informace:
 
 * [**Umožnění resetování hesel cloudové služby Azure Active Directory uživatelům**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -195,7 +198,7 @@ Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve s
 
 
 ### Krok 1: Stažení nejnovější verze služby Azure AD Connect
-Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout kliknutím sem](active-directory-aadconnect.md#download-azure-ad-connect).
+Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout po kliknutí sem](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Kontrola verze služby Azure AD Sync
 1.  Přejděte do složky **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -312,7 +315,7 @@ Zpětný zápis hesla je povolený a resetováním hesla uživatele, jehož úč
 ## Odkazy na dokumentaci k resetování hesel
 Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel služby Azure AD:
 
-* [**Resetování vlastního hesla**](active-directory-passwords-update-your-own-password.md)  – Přečtěte si, jak můžete resetovat nebo změnit své heslo jako uživatel systému.
+* **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md).
 * [**Jak to funguje**](active-directory-passwords-how-it-works.md) – Přečtěte si o šesti různých komponentách služby a o tom, jaké mají funkce.
 * [**Přizpůsobení**](active-directory-passwords-customize.md) – Přečtěte si, jak můžete přizpůsobit vzhled a funkce služby potřebám své organizace.
 * [**Osvědčené postupy**](active-directory-passwords-best-practices.md) – Přečtěte si, jak můžete ve své organizaci rychle nasazovat a efektivně spravovat hesla.
@@ -358,6 +361,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

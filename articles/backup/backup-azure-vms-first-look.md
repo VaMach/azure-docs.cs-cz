@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Ochrana virtuálních počítačů v Azure pomocí Azure Backup | Microsoft Azure"
-    description="Ochrana virtuálních počítačů Azure pomocí služby Azure Backup. Kurz vysvětluje vytvoření trezoru, registraci virtuálních počítačů, vytvoření zásad a ochranu virtuálních počítačů v Azure."
+    pageTitle="První pohled: Virtuální počítače Azure s trezorem zálohování | Microsoft Azure"
+    description="Virtuální počítače Azure s trezorem zálohování. Kurz vysvětluje vytvoření trezoru, registraci virtuálních počítačů, vytvoření zásad a ochranu virtuálních počítačů v Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
-    manager="jwhit"
+    manager="cfreeman"
     editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/22/2016"
+    ms.date="07/29/2016"
     ms.author="markgal; jimpark"/>
 
 
 # První pohled: Zálohování virtuálních počítačů Azure
 
 > [AZURE.SELECTOR]
-- [Zálohování virtuálních počítačů ARM](backup-azure-vms-first-look-arm.md)
-- [Zálohování virtuálních počítačů v klasickém režimu](backup-azure-vms-first-look.md)
+- [První pohled: Virtuální počítače s trezorem Služeb zotavení](backup-azure-vms-first-look-arm.md)
+- [První pohled: Virtuální počítače Azure s trezorem zálohování](backup-azure-vms-first-look.md)
 
-Tento kurz vás provede kroky pro zálohování virtuálních počítačů (VM) Azure do Azure. Pro úspěšné dokončení tohoto kurzu musí být splněny tyto požadavky:
+Tento kurz vás provede kroky pro zálohování virtuálních počítačů (VM) Azure do trezoru zálohování v Azure. Tento článek popisuje model Classic nebo model nasazení portálu Service Manager pro zálohování virtuálních počítačů. Pokud máte zájem o zálohování virtuálních počítačů do trezoru Recovery Services, který patří do skupiny prostředků, přečtěte si téma [První pohled: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md). Pro úspěšné dokončení tohoto kurzu musí být splněny tyto požadavky:
 
 - Vytvořili jste virtuální počítač v rámci svého předplatného Azure.
 - Virtuální počítač je připojen k veřejným IP adresám Azure. Další informace naleznete v tématu [Připojení k síti](./backup-azure-vms-prepare.md#network-connectivity).
@@ -38,7 +38,7 @@ Zálohování virtuálního počítače se skládá z pěti hlavních kroků:
 
 ![Zobrazení procesu zálohování virtuálního počítače na nejvyšší úrovni](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Klasický](../resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače na bázi Azure Resource Manageru (ARM) – označované také jako virtuální počítače IaaS V2. Podrobnosti o zálohování virtuálních počítačů ARM naleznete v tématu [První pohled: Zálohování virtuálních počítačů ARM do trezoru Služeb zotavení](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Klasický](../resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače založené na správci prostředků. Podrobnosti o zálohování virtuálních počítačů do trezoru Recovery Services naleznete v tématu [První seznámení: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -145,7 +145,7 @@ Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhl
 
 ## Krok 3 – Na virtuální počítač nainstalujte agenta virtuálního počítače
 
-Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Můžete přeskočit na [ochranu virtuálních počítačů](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Můžete přeskočit na [ochranu virtuálních počítačů](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Pokud byl virtuální počítač přenesen z místního datového centra, pravděpodobně na něm není agent virtuálního počítače nainstalovaný. Před pokračováním k ochraně virtuálního počítače je potřeba na něj nainstalovat agenta virtuálního počítače. Podrobné pokyny k instalaci agenta virtuálního počítače naleznete v [oddílu Agent virtuálního počítače v článku Zálohování virtuálních počítačů](backup-azure-vms-prepare.md#vm-agent).
 
@@ -225,6 +225,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

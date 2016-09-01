@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/26/2016"
+    ms.date="08/15/2016"
     ms.author="curtand"/>
 
 # Jak je předplatné Azure propojeno se službou Azure Active Directory
@@ -141,6 +141,6 @@ Abyste mohli na portálu Azure Classic spravovat oba adresáře, postupujte nás
 
 
 
-<!--HONumber=Jun16_HO2--->
+<!--HONumber=Aug16_HO4-->
 
 

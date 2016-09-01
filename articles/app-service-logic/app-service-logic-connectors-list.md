@@ -1,38 +1,38 @@
 <properties
     pageTitle="Seznam dostupných konektorů a aplikací API | Microsoft Azure App Service"
     description="Přečtěte si o konektorech a aplikacích API v Azure App Service."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MandiOhlinger"
     manager="erikre"
     editor="cgronlun"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/11/2016"
+    ms.date="07/28/2016"
     ms.author="mandia"/>
 
 
 # Seznam konektorů a aplikací API k použití ve vašich Logic Apps
->[AZURE.NOTE] Tato verze článku se vztahuje na verzi schématu Logic Apps ve verzi 2014-12-01-preview. Pokud vás zajímá verze schématu 2015-08-01-preview, klikněte na [Nový seznam konektorů](../connectors/apis-list.md).
+>[AZURE.NOTE] Tato verze článku se vztahuje na verzi schématu Logic Apps ve verzi 2014-12-01-preview. Informace k Logic Apps ve verzi obecné dostupnosti najdete v tématu [Nový seznam konektorů](../connectors/apis-list.md).
 
 Podívejte se na přehled všech dostupných konektorů a aplikací API vytvořených Microsoftem pro použití v rámci vašich Logic Apps.
 
-Informace o cenách a přehled, co je součástí jednotlivých úrovní služby, naleznete v části [Azure App Service – ceny](https://azure.microsoft.com/pricing/details/app-service/).
+Informace o cenách a obsahu jednotlivých úrovní služeb najdete v článku [Ceny služeb Azure App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si aplikaci logiky](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete hned vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> [AZURE.NOTE] Pokud chcete začít se službou Logic Apps, přejděte před registrací účtu Azure k [možnosti vyzkoušet si aplikaci logiky](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete hned vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
 ## Základní konektory
 Následující tabulka uvádí všechny dostupné konektory a aplikace API vytvořená Microsoftem, které jsou k dispozici jako základní konektory:
 
-Název | Popis
+Name (Název) | Popis
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Může odesílat zprávy z front a témat Service Bus a přijímat zprávy z front a předplatných Service Bus.
-[Překladač Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Pomocí služby Bing můžete přeložit text do jiného jazyka.
+[Překladač Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Pomocí služby Bing můžete přeložit text do jiného jazyka.
 [HTTP](app-service-logic-connector-http.md) | Naslouchací proces HTTP otevře koncový bod, který funguje jako server HTTP a naslouchá příchozím požadavkům HTTP nebo HTTPS. Akce HTTP nevyžaduje aplikaci API a je nativně podporována v rámci Logic Apps.
 [Aplikace Microsoft Office 365](app-service-logic-connector-office365.md) | Konektor Office 365 může odesílat a přijímat e-maily, řídit kalendář a spravovat kontakty pomocí vašeho účtu Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Z Intuit QuickBooks můžete provádět různé úlohy, včetně vytváření a aktualizací různých entit (jako jsou zákazníci, položky, faktury atd.) a dotazování na ně.
@@ -86,6 +86,6 @@ Konektory lze použít také jako akce v rámci vaší aplikace logiky. Akce jso
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

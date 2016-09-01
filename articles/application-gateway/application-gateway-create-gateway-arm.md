@@ -3,7 +3,7 @@
    description="Tato stránka obsahuje pokyny pro vytvoření, konfiguraci, spuštění a odstranění služby Azure Application Gateway pomocí Azure Resource Manageru."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Vytvoření, spuštění nebo odstranění služby Application Gateway pomocí Azure Resource Manageru
@@ -22,9 +22,10 @@ Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrs
 
 
 > [AZURE.SELECTOR]
-- [Kroky pro prostředí Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [portál Azure](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Šablona Azure Resource Manageru ](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -40,8 +41,8 @@ Tento článek vás provede kroky k vytvoření, konfiguraci, spuštění a odst
 ## Než začnete
 
 1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Nejnovější verzi můžete stáhnout a nainstalovat v části **Windows PowerShell** na stránce [Položky ke stažení](https://azure.microsoft.com/downloads/).
-2. Vytvoříte virtuální síť a podsíť pro službu Application Gateway. Ujistěte se, že tuto podsíť nepoužívají žádné virtuální počítače ani cloudová nasazení. Služba Application Gateway musí být sama o sobě v podsíti virtuální sítě.
-3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
+2. Pokud máte existující virtuální sítě, vyberte buď existující prázdnou podsíť, nebo vytvořte podsíť v existující virtuální síti výhradně pro účely služby Application Gateway. Nejde nasadit službu Application Gateway do jiné virtuální sítě, než jsou prostředky, které máte v úmyslu nasadit za službou Application Gateway. 
+3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo mít své koncové body vytvořené buď ve virtuální síti, nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
 ## Co je potřeba k vytvoření služby Application Gateway?
 
@@ -54,11 +55,11 @@ Tento článek vás provede kroky k vytvoření, konfiguraci, spuštění a odst
 
 
 
-## Vytvoření nové služby Application Gateway
+## Vytvoření služby Application Gateway
 
 Rozdíl mezi použitím nástrojů Azure Classic a Azure Resource Manager je v tom, v jakém pořadí tvoříte službu Application Gateway, a v položkách, které konfigurujete.
 
-S Resource Managerem se budou všechny položky, které vytvoří službu Application Gateway, konfigurovat individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
+S Resource Managerem se všechny položky, které tvoří službu Application Gateway, konfigurují individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
 
 
 Toto jsou kroky, které se musí provést k vytvoření služby Application Gateway:
@@ -137,7 +138,7 @@ Před vytvořením služby Application Gateway bude potřeba nastavit všechny p
 
 ### Krok 1
 
-Vytvořte konfiguraci protokolu IP služby Application Gateway s názvem „gatewayIP01“. Při spuštění služby Application Gateway se předá IP adresa z nakonfigurované podsítě a síťový provoz se bude směrovat na IP adresy ve fondu back-end IP adres. Uvědomte si, že každá instance bude vyžadovat jednu IP adresu.
+Vytvořte konfiguraci protokolu IP služby Application Gateway s názvem „gatewayIP01“. Při spuštění služby Application Gateway se předá IP adresa z nakonfigurované podsítě a síťový provoz se bude směrovat na IP adresy ve fondu back-end IP adres. Uvědomte si, že každá instance vyžaduje jednu IP adresu.
 
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -145,7 +146,7 @@ Vytvořte konfiguraci protokolu IP služby Application Gateway s názvem „gate
 
 ### Krok 2
 
-Nakonfigurujte fond back-end IP adres s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Budou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Výše uvedené IP adresy nahradíte vlastními aplikačními koncovými body IP adresy.
+Nakonfigurujte fond back-end IP adres s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Jsou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Výše uvedené IP adresy nahradíte vlastními aplikačními koncovými body IP adresy.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -196,6 +197,30 @@ Nakonfigurujte velikost instance služby Application Gateway.
 Vytvořte službu Application Gateway se všemi položkami konfigurace z výše uvedených kroků. V tomto příkladu má služba Application Gateway název „appgwtest“.
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+
+### Krok 9
+Načtěte podrobnosti o DNS a VIP služby Application Gateway z veřejného IP prostředku připojeného ke službě Application Gateway.
+
+    Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+    Name                     : publicIP01
+    ResourceGroupName        : appgwtest 
+    Location                 : westus
+    Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+    Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+    ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+    ProvisioningState        : Succeeded
+    Tags                     : 
+    PublicIpAllocationMethod : Dynamic
+    IpAddress                : 137.116.26.16
+    IdleTimeoutInMinutes     : 4
+    IpConfiguration          : {
+                                 "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+                               }
+    DnsSettings              : {
+                                 "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+                               } 
+
 
 
 ## Odstranění služby Application Gateway
@@ -248,6 +273,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

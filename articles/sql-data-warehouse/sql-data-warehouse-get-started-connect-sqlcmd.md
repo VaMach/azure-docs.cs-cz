@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Začínáme: Připojení k Azure SQL Data Warehouse | Microsoft Azure"
-   description="Začněte tím, že se připojíte k SQL Data Warehouse a spustíte pár dotazů."
+   pageTitle="Dotazování Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Dotazování SQL Azure Data Warehouse pomocí nástroje příkazového řádku sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,41 +13,28 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Připojení a dotazování pomocí SQLCMD
+# Dotazování Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-
-Tento návod ukazuje, jak se během pár minut připojit a zadávat dotazy na databázi Azure SQL Data Warehouse pomocí nástroje sqlcmd.exe. Tento návod vám ukáže, jak:
-
-+ Nainstalovat požadovaný software
-+ Připojit se k databázi, která obsahuje ukázkovou databázi AdventureWorksDW
-+ Zadávat dotazy na data v ukázkové databázi  
+Tento návod používá nástroj příkazového řádku sqlcmd k dotazování Azure SQL Data Warehouse.  
 
 ## Požadavky
 
-+ Pokud si budete chtít stáhnout [sqlcmd.exe][], podívejte se na stránku pro stažení nástrojů [Microsoft Command Line Utilities 11 for SQL Server][].
+Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
-## Získání plně kvalifikovaného názvu SQL serveru Azure
+-  [sqlcmd.exe][]. Pro stažení si přečtěte část [Microsoft Command Line Utilities 11 for SQL Server][] které také mohou vyžadovat [Microsoft ODBC Driver 11 pro SQL Server Windows][].
 
-K připojení ke své databázi potřebujete úplný název serveru (***název_serveru**. database.windows.net*) obsahujícího databázi, ke které se chcete připojit.
+## 1. Připojení
 
-1. Přejděte na [portál Azure][].
-2. Přejděte do databáze, ke které se chcete připojit.
-3. Vyhledejte úplný název serveru (použijeme ho v následujících krocích):
-
-![][1]
-
-
-## Připojení k SQL Data Warehouse pomocí sqlcmd
-
-Když se budete chtít ke konkrétní instanci SQL Data Warehouse připojení pomocí nástroje příkazového řádku sqlcmd, budete muset otevřít příkazový řádek a zadat příkaz **sqlcmd** a za ním připojovací řetězec pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
+Chcete-li začít s nástrojem sqlcmd, otevřete příkazový řádek a zadejte příkaz **sqlcmd** následovaný připojovacím řetězcem pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
 
 + **Server (-S):** Server v následující podobě: `<`název serveru`>`.database.windows.net
 + **Database (-d):** Název databáze
@@ -55,48 +42,53 @@ Když se budete chtít ke konkrétní instanci SQL Data Warehouse připojení po
 + **Password (-P):** Heslo přidružené k uživateli
 + **Enable Quoted Identifiers (-I):** Aby bylo možné se připojit k instanci SQL Data Warehouse, musí být povolené identifikátory v uvozovkách.
 
-Proto platí, že když se budete chtít připojit k instanci SQL Data Warehouse, zadali byste následující příkaz:
+Připojovací řetězec může například vypadat následovně:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Spuštění ukázkových dotazů
+> [AZURE.NOTE] Možnost -I, která umožňuje identifikátory v uvozovkách, je momentálně nutná pro připojení k SQL Data Warehouse.
 
-Po připojení můžete pro instanci zadávat všechny podporované příkazy jazyka Transact-SQL.
+## 2. Dotaz
+
+Po připojení můžete pro instanci zadávat všechny podporované příkazy jazyka Transact-SQL.  V tomto příkladu jsou dotazy zadávány v interaktivním režimu.
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-Další informace o sqlcmd najdete v [dokumentaci k sqlcmd][sqlcmd.exe].
+Tyto další příklady ukazují, jak lze vaše dotazy spouštět v dávkovém režimu pomocí parametru -Q nebo vedení serveru SQL k příkazu sqlcmd.
 
+```sql
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Další kroky
 
-Teď, když se můžete připojit a můžete zadávat dotazy, zkuste se [připojit pomocí PowerBI][].
+Viz část [Dokumentace sqlcmd][sqlcmd.exe], kde naleznete další informace o možnostech dostupných v sqlcmd.
 
-Informace o tom, jak si pro prostředí nakonfigurovat ověřování systému Windows, najdete v tématu [Připojení k SQL Database nebo SQL Data Warehouse pomocí ověřování služby Azure Active Directory][].
+<!--Image references-->
 
-<!--Articles-->
-[Připojení k SQL Database nebo SQL Data Warehouse pomocí ověřování služby Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[připojit pomocí PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+<!--Article references-->
 
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/en-us/library/ms162773.aspx
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[Microsoft ODBC Driver 11 pro SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
 [Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
 [portál Azure]: https://portal.azure.com
 
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+<!--Other Web references-->
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

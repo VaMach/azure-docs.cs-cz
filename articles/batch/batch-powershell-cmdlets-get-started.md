@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Začínáme s prostředím PowerShell ve službě Azure Batch
-Tento článek obsahuje rychlý úvod do rutin prostředí Azure PowerShell, jejichž pomocí lze spravovat účty Batch a pracovat s prostředky služby Batch, jako jsou fondy, úlohy a úkoly. Pomocí rutin služby Batch lze provádět množství stejných úkolů, které se provádějí pomocí rozhraní API služby Batch, portálu Azure a rozhraní příkazového řádku (CLI) Azure. Tento článek popisuje rutiny v prostředí Azure PowerShell verze 1.3.2 nebo novější.
+Pomocí rutin prostředí PowerShell služby Batch můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí pomocí rozhraní API služby Batch, webu Azure Portal a rozhraní příkazového řádku (CLI) Azure. Tento článek obsahuje rychlý úvod do rutin, s jejichž pomocí můžete spravovat účty Batch a pracovat s prostředky služby Batch, jako jsou fondy, úlohy a úkoly. Tento článek popisuje rutiny v prostředí Azure PowerShell verze 1.6.0.
 
 Úplný seznam rutin prostředí Batch a podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
@@ -45,7 +45,7 @@ Tento článek obsahuje rychlý úvod do rutin prostředí Azure PowerShell, jej
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Poté ve skupině prostředků vytvořte nový účet Batch a zadejte název účtu v parametru <*account_name*> a umístění, ve kterém bude služba Batch dostupná. Vytvoření účtu může trvat několik minut. Příklad:
+Potom ve skupině prostředků vytvořte nový účet Batch a zadejte název účtu v parametru <*název_účtu*> a umístění a název skupiny prostředků. Vytváření účtu Batch může nějakou dobu trvat. Příklad:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -92,18 +92,24 @@ Objekt BatchAccountContext budete předávat rutinám, které pracují s paramet
 
 
 ## Vytváření a úpravy prostředků služby Batch
-Pomocí rutin, jako například **New-AzureBatchPool**, **New-AzureBatchJob** a **New-AzureBatchTask** lze v účtu Batch vytvářet prostředky. Pomocí rutin **Get-** a **Set-** lze aktualizovat vlastnosti existujících prostředků a pomocí rutin **Remove-** lze prostředky v účtu Batch odebírat. 
+Pomocí rutin, jako třeba **New-AzureBatchPool**, **New-AzureBatchJob** a **New-AzureBatchTask**, můžete v účtu Batch vytvářet prostředky. Pomocí rutin **Get-** a **Set-** lze aktualizovat vlastnosti existujících prostředků a pomocí rutin **Remove-** lze prostředky v účtu Batch odebírat. 
+
+Při použití řady těchto rutin musíte kromě předání objektu BatchContext navíc taky vytvořit nebo předat objekty, které obsahují podrobné nastavení prostředků, jak ukazuje následující příklad. Další příklady najdete v podrobné nápovědě k jednotlivým rutinám.
 
 ### Vytvoření fondu služby Batch
 
-Následující rutina například vytvoří nový fond služby Batch konfigurovaný k používání malých virtuálních počítačů s imagi nejnovější verze operačního systému rodiny 3 (Windows Server 2012) s cílovým počtem výpočetních uzlů určeným vzorcem pro automatické škálování. V tomto případě se používá jednoduchý vzorec **$TargetDedicated=3**, který značí, že maximální počet výpočetních uzlů ve fondu je 3. Parametr **BatchContext** určuje jako objekt BatchAccountContext dříve definovanou proměnnou *$context*.
+Při vytváření nebo aktualizaci fondu Batch vyberete konfiguraci cloudové služby nebo konfiguraci virtuálního počítače pro operační systém výpočetních uzlů (viz [Přehled funkcí služby Batch](batch-api-basics.md#pool)). Vaše volba určí, jestli vaše výpočetní uzly obdrží image některého z [vydání hostovaného operačního systému Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) nebo některou z podporovaných imagí Linuxu nebo virtuálního počítače s Windows z Azure Marketplace. 
+
+Když spouštíte rutinu **New-AzureBatchPool**, předejte nastavení operačního systému v objektu PSCloudServiceConfiguration nebo PSVirtualMachineConfiguration. Následující rutina třeba vytvoří nový fond Batch s výpočetními uzly malé velikosti v konfiguraci cloudové služby, které obdrží image nejnovější verze operačního systému z řady 3 (Windows Server 2012). Parametr **CloudServiceConfiguration** tady určuje proměnnou *$configuration* jako objekt PSCloudServiceConfiguration. Parametr **BatchContext** určuje jako objekt BatchAccountContext dříve definovanou proměnnou *$context*.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Rutiny prostředí PowerShell ve službě Batch u výpočetních uzlů aktuálně podporují pouze konfiguraci cloudových služeb. To vám umožňuje k provozu výpočetních uzlů vybrat jeden z hostovaných operačních systémů Azure řady Windows Server. K implementaci dalších možností konfigurace fondů služby Batch použijte sady SDK služby Batch nebo rozhraní příkazového řádku služby Azure (CLI).
+Cílový počet výpočetních uzlů v novém fondu určuje vzorec automatického škálování. V tomto případě se používá jednoduchý vzorec **$TargetDedicated=4**, který značí, že maximální počet výpočetních uzlů ve fondu je 4. 
 
-## Dotazy na fond, úlohy, úkoly a další podrobnosti
+## Dotazy na fondy, úlohy, úkoly a další podrobnosti
 
 Pomocí rutin, jako například **Get-AzureBatchPool**, **Get-AzureBatchJob** a **Get-AzureBatchTask**, lze zadávat dotazy na entity vytvořené v účtu Batch.
 
@@ -159,10 +165,10 @@ Rutiny služby Batch mohou využívat kanál prostředí PowerShell k odesílán
 ## Další kroky
 * Podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-* Další informace o snižování počtu položek a typu informací, které se vrací pro dotazy na službu Batch, najdete v článku [Efektivní dotazování na službu Batch](batch-efficient-list-queries.md). 
+* Další informace o snižování počtu položek a typů informací, které se vrací pro dotazy na službu Batch, najdete v článku [Efektivní dotazování na službu Batch](batch-efficient-list-queries.md). 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

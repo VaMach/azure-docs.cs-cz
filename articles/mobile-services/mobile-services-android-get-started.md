@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 # Začněte používat Azure Mobile Services pro Android (back-end JavaScript)
@@ -33,7 +33,7 @@ Zde je snímek obrazovky dokončené aplikace:
 
 ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
-## Předpoklady
+## Požadavky
 
 K dokončení tohoto kurzu budete potřebovat [vývojářské nástroje pro Android](https://developer.android.com/sdk/index.html), které zahrnují integrované vývojové prostředí Android Studio a nejnovější platformu Android. Je požadována verze Android 4.2 nebo novější.
 
@@ -100,6 +100,6 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

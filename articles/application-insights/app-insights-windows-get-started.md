@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="06/20/2016"
     ms.author="awills"/>
 
 # Analýza pro aplikace Windows Phone a Store
@@ -33,13 +33,13 @@ Pokud má vaše aplikace serverovou stranu, použijte [Application Insights](app
 
 Můžete také použít [Application Insights pro aplikace Windows Desktop](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] 15. června 2016 zastavíme zobrazování dat ve službě Application Insights pro aplikace iOS, Android, Windows Store a Windows Phone.
-> 
-> [Další informace o této změně](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+> [AZURE.NOTE] Brzy bude možné používat [Application Insights Analytics](app-insights-analytics.md) a [průběžný export](app-insights-export-telemetry.md) s telemetrií odeslanou ze sady HockeyApp SDK. 
+>
+> [Další informace o této změně.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

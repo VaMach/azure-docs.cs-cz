@@ -3,7 +3,7 @@
    description="Tahle stránka poskytuje pokyny pro vytvoření, konfiguraci, spuštění a odstranění služby Azure application gateway s interním nástrojem pro vyrovnávání zatížení (ILB) pro nástroj Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Vytvořte aplikační bránu s interním nástrojem pro vyrovnávání zatížení (ILB) pomocí nástroje Azure Resource Manager
@@ -28,16 +28,16 @@ Tenhle článek vás provede kroky konfigurace aplikační brány s ILB.
 
 ## Než začnete
 
-1. Nainstalujte nejnovější verzi rutiny prostředí Azure PowerShell pomocí instalačního programu webové platformy. Můžete stáhnout a nainstalovat nejnovější verzi **Windows PowerShell** z oddílu [Stránka se soubory ke stažení](https://azure.microsoft.com/downloads/).
-2. Vytvořte virtuální síť a podsíť aplikační brány. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Aplikační brána musí být sama o sobě v podsíti virtuální sítě.
-3. Servery, které nakonfigurujete pro použití aplikační brány, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP nebo virtuální IP adresou.
+1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Můžete stáhnout a nainstalovat nejnovější verzi **Windows PowerShell** z oddílu [Stránka se soubory ke stažení](https://azure.microsoft.com/downloads/).
+2. Vytvořte virtuální síť a podsíť aplikační brány. Ujistěte se, že tuto podsíť nepoužívají žádné virtuální počítače ani cloudová nasazení. Aplikační brána musí být sama o sobě v podsíti virtuální sítě.
+3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
-## Co se vyžaduje k vytvoření aplikační brány?
+## Co je potřeba k vytvoření služby Application Gateway?
 
 
 - **Fond back-end serverů:** seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do virtuální sítě, ale v jiné podsíti pro aplikační bránu, nebo by se mělo jednat o veřejné IP nebo virtuální IP adresy.
-- **Nastavení fondu back-end serverů:** každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tahle nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
-- **Front-end port:** Tenhle port je veřejný port, který se otevírá na aplikační bráně. Provoz volá tenhle port a potom se přesměruje na jeden z back-end serverů.
+- **Nastavení fondu back-end serverů:** každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
+- **Front-end port:** Toto je veřejný port, který se otevírá ve službě Application Gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
 - **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, s rozlišením malých a velkých písmen) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
 - **Pravidlo:** Pravidlo váže naslouchací proces a fond back-end serverů a definuje, ke kterému fondu back-end serverů se má provoz směrovat při volání příslušného naslouchacího procesu. V tuhle chvíli se podporuje jenom *základní* pravidlo. *Základní* pravidlo je distribuce zatížení pomocí kruhového dotazování.
 
@@ -45,53 +45,53 @@ Tenhle článek vás provede kroky konfigurace aplikační brány s ILB.
 
 ## Vytvořte novou aplikační bránu
 
-Rozdíl mezi použitím nástrojů Azure Classic a Azure Resource Manager je v tom, v jakém pořadí tvoříte aplikační bránu, a v položkách, které konfigurujete.
-S Resource Managerem se všechny položky, které vytvoří aplikační bránu, budou konfigurovat individuálně, potom se spojí dohromady a vytvoří prostředek aplikační brány.
+Rozdíl mezi použitím nástrojů Azure Classic a Azure Resource Manager je v tom, v jakém pořadí tvoříte službu Application Gateway, a v položkách, které konfigurujete.
+S Resource Managerem se budou všechny položky, které vytvoří službu Application Gateway, konfigurovat individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
 
 
 Tady jsou kroky, které se musí udělat k vytvoření aplikační brány:
 
 1. Vytvořte skupinu prostředků pro Resource Manager
-2. Vytvořte virtuální síť a podsíť pro aplikační bránu
-3. Vytvořte objekt konfigurace aplikační brány 
+2. Vytvoření virtuální sítě a podsítě pro službu Application Gateway
+3. Vytvoření objektu konfigurace služby Application Gateway
 4. Vytvořte prostředek aplikační brány
 
 
-## Vytvořte skupinu prostředků pro Resource Manager
+## Vytvoření skupiny prostředků pro Resource Manager
 
 Ujistěte se, že jste přepnuli režim prostředí PowerShell tak, aby se mohly použít rutiny Azure Resource Manageru. Další informace jsou k dispozici v části [Použití prostředí Windows PowerShell s Resource Managerem](../powershell-azure-resource-manager.md).
 
 ### Krok 1
 
-        PS C:\> Login-AzureRmAccount
+        Login-AzureRmAccount
 
 ### Krok 2
 
-Zkontrolujte předplatné účtu.
+Zkontrolujte předplatná pro příslušný účet.
 
-        PS C:\> get-AzureRmSubscription
+        get-AzureRmSubscription
 
-Budete vyzváni k ověření pomocí přihlašovacích údajů.<BR>
+Zobrazí se výzva k ověření pomocí přihlašovacích údajů.<BR>
 
 ### Krok 3
 
 Zvolte předplatné Azure, které chcete použít. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Krok 4
 
-Vytvořte novou skupinu prostředků (když používáte některou ze stávajících skupin prostředků, můžete tenhle krok přeskočit).
+Vytvořte novou skupinu prostředků (pokud používáte některou ze stávajících skupin prostředků, můžete tenhle krok přeskočit).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. To slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření aplikační brány budou používat stejnou skupinu prostředků.
+Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. To slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření služby Application Gateway používají stejnou skupinu prostředků.
 
 V předchozím příkladu jsme vytvořili skupinu prostředků s názvem „appgw-rg“ a umístěním „Západní USA“.
 
-## Vytvořte virtuální síť a podsíť pro aplikační bránu
+## Vytvoření virtuální sítě a podsítě pro službu Application Gateway
 
 Následující příklad ukazuje, jak vytvořit virtuální síť pomocí Resource Managera:
 
@@ -126,7 +126,7 @@ Tím se vytvoří konfigurace IP aplikační brány s názvem „gatewayIP01“.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Tím se konfiguruje fond back-end IP adresy s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Budou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Výše uvedené IP adresy nahraďte vlastními aplikačními koncovými body IP adresy.
+Tím se konfiguruje fond back-end IP adresy s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Budou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Výše uvedené IP adresy nahradíte vlastními aplikačními koncovými body IP adresy.
 
 ### Krok 3
 
@@ -164,7 +164,7 @@ Tím se vytvoří pravidlo směrování pro vyrovnávání zatížení s názvem
 
 Tím se nakonfiguruje velikost instance aplikační brány.
 
->[AZURE.NOTE]  Výchozí hodnota pro *InstanceCount* je 2 s maximální hodnotou 10. Výchozí hodnota pro *GatewaySize* je Střední. Můžete vybrat mezi Standard_Small, Standard_Medium a Standard_Large.
+>[AZURE.NOTE]  Výchozí hodnota *InstanceCount* je 2, přičemž maximální hodnota je 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Standard_Small, Standard_Medium a Standard_Large.
 
 ## Vytvořte aplikační bránu pomocí New-AzureApplicationGateway
 
@@ -187,7 +187,7 @@ Pokud chcete odstranit aplikační bránu, musíte provést následující kroky
 
 ### Krok 1
 
-Získejte objekt aplikační brány a přidružte jej k proměnné „$getgw“.
+Získejte objekt služby Application Gateway a přidružte ho k proměnné „$getgw“.
 
     $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -214,10 +214,10 @@ Jakmile je aplikační brána v zastaveném stavu, pro odstranění služby pou�
     ----       ----------------     ------------                             ----
     Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
->[AZURE.NOTE] Přepínač **-Force** lze použít k potlačení potvrzovací zprávy odstranění.
+>[AZURE.NOTE] K potlačení zprávy s potvrzením o odstranění se dá použít přepínač **-force**.
 
 
-Když chcete prověřit, jestli se služba odstranila, použijte rutinu **Get-AzureRmApplicationGateway**. Tenhle krok se nevyžaduje.
+Pokud chcete zkontrolovat, jestli se služba odebrala, použijte rutinu **Get-AzureRmApplicationGateway**. Tenhle krok není povinný.
 
 
     PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -240,6 +240,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

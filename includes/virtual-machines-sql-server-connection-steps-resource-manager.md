@@ -14,6 +14,8 @@ Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální p
 
 3. Zadejte název DNS. Tento název je záznam A, který se dá použít k přímému připojení k vašemu virtuálnímu počítači se systémem SQL Server pomocí názvu, namísto pomocí IP adresy.
 
+4. Klikněte na tlačítko **Uložit**.
+
     ![Název DNS](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Připojení k databázovému stroji z jiného počítače
@@ -34,6 +36,6 @@ Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

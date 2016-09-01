@@ -13,13 +13,11 @@
 
 4. Do části *dependencies* přidejte tento řádek: 
 
-        compile 'com.google.android.gms:play-services-gcm:8.4.0'
+        compile 'com.google.android.gms:play-services-gcm:9.2.0'
 
-5. V části *defaultConfig* změňte hodnotu *minSdkVersion* na 9.
- 
-6. Klikněte na ikonu **Sync Project with Gradle Files** (Synchronizovat projekt se soubory Gradle) na panelu nástrojů.
+5. Klikněte na ikonu **Sync Project with Gradle Files** (Synchronizovat projekt se soubory Gradle) na panelu nástrojů.
 
-7. Otevřete soubor **AndroidManifest.xml** a ke značce *application* přidejte následující značku.
+6. Otevřete soubor **AndroidManifest.xml** a ke značce *application* přidejte následující značku.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -31,6 +29,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/11/2016"
     ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -22,17 +22,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Jedná se například o aplikace WordPress, Umbraco CMS, Drupal atd. Tyto webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP] v tomto příkladu aplikace WordPress, [.NET], [Node.js], [Java], [Python] a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [Portál Azure].
+Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Jedná se například o aplikace WordPress, Umbraco CMS, Drupal atd. Tyto webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP] v tomto příkladu aplikace WordPress, [.NET], [Node.js], [Java], [Python] a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [Azure Portal].
 
 V tomto kurzu se naučíte:
 
-* Nalézt šablonu aplikace v Azure Marketplace.
-* Vytvořit webovou aplikaci ve službě Azure App Service založenou na šabloně.
-* Nakonfigurovat nastavení služby Azure App Service pro novou webovou aplikaci a databázi.
+* Najděte a vytvořte webovou aplikaci ve službě Azure App Service založenou na šabloně Azure Marketplace.
+* Nakonfigurujte nastavení služby Azure App Service pro novou webovou aplikaci.
+* Spusťte a spravujte webovou aplikaci.
 
 Pro účely tohoto kurzu nasadíte web s blogem WordPress z Azure Marketplace. Jakmile dokončíte postup popsaný v tomto kurzu, budete mít vlastní funkční web WordPress v cloudu.
 
-![Příklad řídicího panelu webové aplikace WordPress][WordPressDashboard]
+![Příklad řídicího panelu webové aplikace WordPress][WordPressDashboard1]
 
 Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. Chcete-li jako databázi raději použít SQL Database, informace naleznete v [Project Nami], který je rovněž k dispozici prostřednictvím Azure Marketplace.
 
@@ -41,9 +41,9 @@ Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. 
 >
 > Chcete-li začít se službou Azure App Service dříve, než se zaregistrujete k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service]. Odtud můžete ihned vytvořit krátkodobou úvodní webovou aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
-## Výběr aplikace WordPress a konfigurace pro službu Azure App Service
+## Najděte a vytvořte webovou aplikaci ve službě Azure App Service
 
-1. Přihlaste se k [Portál Azure].
+1. Přihlaste se k [Azure Portal].
 
 1. Klikněte na možnost **Nové**.
     
@@ -57,7 +57,9 @@ Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. 
 
     ![Vytvoření webové aplikace WordPress][MarketplaceCreate]
 
-1. Zobrazí se okno nastavení aplikace WordPress, pomocí něhož provedete následující kroky:
+## Nakonfigurujte nastavení služby Azure App Service pro novou webovou aplikaci
+
+1. Po vytvoření nové webové aplikace se zobrazí okno nastavení aplikace WordPress, pomocí něhož provedete následující kroky:
 
     ![Konfigurace nastavení webové aplikace WordPress][ConfigStart]
 
@@ -73,7 +75,7 @@ Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. 
 
 1. Vyberte **skupinu prostředků** nebo vytvořte novou.
 
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití portálu Azure ke správě prostředků Azure][SkupinyProstředků].
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru][SkupinyProstředků].
 
     ![Konfigurace skupiny prostředků pro webovou aplikaci][ConfigResourceGroup]
 
@@ -131,7 +133,7 @@ Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. 
 
 1. Otevře se stránka řídicího panelu webu, na níž se zobrazí vámi zadané informace.    
 
-    ![Zobrazení řídicího panelu WordPress][WordPressDashboard]
+    ![Zobrazení řídicího panelu WordPress][WordPressDashboard2]
 
 ## Další kroky
 
@@ -151,10 +153,10 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 [aktivovat]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [bezplatná zkušební verze]: https://azure.microsoft.com/pricing/free-trial/
 [Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[SkupinyProstředků]: ../azure-portal/resource-group-portal.md
+[SkupinyProstředků]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
 [WordPressVAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
@@ -174,11 +176,12 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

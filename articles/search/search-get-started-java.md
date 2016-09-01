@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Začínáme s Azure Search v Javě
@@ -58,7 +58,7 @@ Následující seznam popisuje soubory, které se vztahují k tomuto příkladu.
 
 Všechna volání rozhraní API REST služby Azure Search vyžadují, abyste zadali adresu URL služby a klíč api-key. 
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
 2. Na panelu odkazů klikněte na **Služba Search** a zobrazte výpis všech služeb Azure Search zřízených pro předplatné.
 3. Vyberte službu, kterou chcete použít.
 4. Na řídicím panelu služby uvidíte dlaždice se základními informacemi a ikonu klíče pro přístup ke klíčům správce.
@@ -69,7 +69,7 @@ Všechna volání rozhraní API REST služby Azure Search vyžadují, abyste zad
 
 ## Stažení ukázkových souborů
 
-1. Přejděte na [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) na Githubu.
+1. Přejděte na [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) na GitHubu.
 
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip na disk a potom z něj extrahujte všechny soubory. Zvažte extrahování souborů do pracovního prostoru Java, aby bylo později snazší projekt najít.
 
@@ -151,7 +151,7 @@ Nyní jste dokončili úlohy konfigurace. V dalším kroku sestavíte a spustít
 
 Stavové zprávy se zobrazují v okně konzoly. Měli byste vidět zprávu o úspěšném sestavení, která oznamuje sestavení projektu bez chyb.
 
-## Spuštění aplikace
+## Spusťte aplikaci
 
 V tomto posledním kroku spustíte aplikaci v běhovém prostředí místního serveru.
 
@@ -205,6 +205,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""
     tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Nastavení služby Azure AD Join v organizaci
@@ -34,7 +34,7 @@ Pokud vás zajímá, jak ve službě Azure AD ručně vytvořit a spravovat uži
 5. Přejděte do části **Zařízení**.
 6. Na kartě **Zařízení** nastavte následující:  
    * **MAXIMÁLNÍ POČET ZAŘÍZENÍ NA UŽIVATELE**: Nastavte maximální počet zařízení, která uživatel ve službě Azure AD může mít.  Pokud uživatel dosáhne této kvóty, nebude už moct přidávat další zařízení, dokud neodebere některá z existujících.
-   * **PŘI PŘIPOJOVÁNÍ ZAŘÍZENÍ VYŽADOVAT VÍCEFAKTOROVÉ OVĚŘENÍ**: Nastavte, jestli musí uživatelé pro připojení zařízení poskytnout druhý ověřovací faktor. Další informace o ověřování Azure Multi-Factor Authentication najdete v článku [Začínáme s ověřováním Azure Multi-Factor Authentication v cloudu](multi-factor-authentication-get-started-cloud/).
+   * **PŘI PŘIPOJOVÁNÍ ZAŘÍZENÍ VYŽADOVAT VÍCEFAKTOROVÉ OVĚŘENÍ**: Nastavte, jestli musí uživatelé pro připojení zařízení poskytnout druhý ověřovací faktor. Další informace o ověřování Azure Multi-Factor Authentication najdete v článku [Začínáme s ověřováním Azure Multi-Factor Authentication v cloudu](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **UŽIVATELÉ, KTEŘÍ MOHOU PŘIPOJOVAT ZAŘÍZENÍ KE SLUŽBĚ AZURE AD**: Vyberte uživatele a skupiny, kteří mají povoleno připojovat zařízení ke službě Azure AD.
    * **DALŠÍ SPRÁVCI PŘIPOJENÝCH ZAŘÍZENÍ VE SLUŽBĚ AZURE AD**: U verzí Azure AD Premium a Enterprise Mobility Suite (EMS) můžete nastavit, kteří uživatelé budou mít u zařízení práva místního správce. Globální správci a vlastníci zařízení mají oprávnění místního správce automaticky.
 
@@ -57,6 +57,6 @@ Pokud chcete uživatelům umožnit, aby si nastavili službu Azure AD Join, mů�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

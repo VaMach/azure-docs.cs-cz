@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 
@@ -22,6 +22,10 @@
 Ověřování Multi-Factor authentication je k dispozici ve výchozím nastavení pro globální správce, kteří mají uživatele služeb Azure Active Directory a Office 365. Pokud však budete chtít využívat výhod [pokročilých funkcí](multi-factor-authentication-whats-next.md), pak je nutné zakoupit plnou verzi Azure MFA. 
 
 > [AZURE.NOTE]  Poskytovatel ověřování Azure Multi-Factor Auth umožňuje využít výhod funkcí poskytovaných plnou verzí Azure MFA. Je určena pro uživatele, kteří **nemají licence prostřednictvím Azure MFA, Azure AD Premium nebo EMS**.  Azure MFA, Azure AD Premium a EMS zahrnují plnou verzi Azure MFA ve výchozím nastavení.  Pokud máte licence, pak nepotřebujete poskytovatele Azure Multi-Factor Auth. 
+
+Poskytovatel vícefaktorového ověřování Azure je vyžadován, chcete-li stáhnout sadu SDK.
+
+> [AZURE.IMPORTANT]  Chcete-li stáhnout sadu SDK, je třeba vytvořit poskytovatele vícefaktorového ověřování Azure i v případě, že máte licence Azure MFA, AAD Premium nebo EMS.  Pokud vytvoříte vícefaktorového poskytovatele ověřování Azure pro tento účel a již máte licence, je nutné vytvořit zprostředkovatele s modelem **Podle povoleného uživatele** a propojit zprostředkovatele do adresáře, který obsahuje licence Azure MFA, Azure AD Premium nebo EMS.  Tím bude zajištěno, že nebudete dostávat faktury, pokud nemáte více jedinečných uživatelů využívajících sadu SDK než počet vlastněných licencí.
  
 K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte následující postup.
 
@@ -46,11 +50,13 @@ K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte nás
     2. **Adresář** – klient Azure Active Directory, ke kterému je přidružen poskytovatel Multi-Factor Authentication. Uvědomte si následující skutečnosti:
         - Pro vytvoření poskytovatele Multi-Factor Auth nepotřebujete adresář Azure AD.  Pokud plánujete používat pouze server Azure Multi-Factor Authentication nebo SDK, jednoduše pole ponechte prázdné.
         - Poskytovatel Multi-Factor Auth musí být přidružen k adresáři služby Azure AD, aby mohl využívat výhod pokročilých funkcí.
-        - Azure AD Connect, AAD Sync nebo DirSync jsou požadavek pouze v případě, že synchronizujete prostředí služby Active Directory v místě s adresářem služby Azure AD.  Pokud používáte pouze adresář služby Azure AD, který není synchronizován, pak využijte téma ![Vytváření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)    
+        - Azure AD Connect, AAD Sync nebo DirSync jsou požadavek pouze v případě, že synchronizujete prostředí služby Active Directory v místě s adresářem služby Azure AD.  Pokud používáte pouze adresář služby Azure AD, který není synchronizován, pak tento postup není třeba. 
+![Vytvoření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)    
 5. Po kliknutí na tlačítko vytvořit se vytvoří poskytovatel MFA a měla by se zobrazit zpráva s oznámením: **Poskytovatel Multi-Factor Authentication byl úspěšně vytvořen**. Klikněte na tlačítko **OK**.
 ![Vytvoření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)    
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

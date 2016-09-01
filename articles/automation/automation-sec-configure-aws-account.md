@@ -6,14 +6,14 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="aws authentication, configure aws"/>
+   keywords="ověřování aws, konfigurace aws"/>
 <tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/10/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte"/>
 
 # Ověření runbooků pomocí Amazon Web Services
@@ -22,7 +22,7 @@ Automatizaci běžných úkolů pomocí prostředků ve službě Amazon Web Serv
 * Předplatné AWS a sadu přihlašovacích údajů.  Zejména přístupový klíč a tajný klíč AWS.  Další informace najdete v článku [Použití přihlašovacích údajů AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
 * Předplatné Azure a účet Automation.  Další informace o nastavení účtu Azure Automation najdete v článku [Konfigurace účtu Spustit v Azure jako](../automation/automation-sec-configure-azure-runas-account.md).  
 
-Abyste mohli ověřovat pomocí AWS, musíte zadat sadu přihlašovacích údajů AWS a ověřit svoje runbooky spuštěné ve službě Azure Automation. Pokud už máte vytvořený účet Automation a chcete ho použít k ověřování pomocí AWS, postupujte podle návodu v následující části.  Pokud chcete mít vyhrazený účet pro runbooky, které se budou zaměřovat na prostředky AWS, vytvořte nejdřív nový [účet Spustit v Automation jako](../automation/automation-sec-configure-azure-runas-account) (vynechte možnost vytvořit objekt služby) a potom postupujte podle následujících kroků.
+Abyste mohli ověřovat pomocí AWS, musíte zadat sadu přihlašovacích údajů AWS a ověřit svoje runbooky spuštěné ve službě Azure Automation. Pokud už máte vytvořený účet Automation a chcete ho použít k ověřování pomocí AWS, postupujte podle návodu v následující části.  Pokud chcete mít vyhrazený účet pro runbooky, které se budou zaměřovat na prostředky AWS, vytvořte nejdřív nový [účet Spustit v Automation jako](../automation/automation-sec-configure-azure-runas-account.md) (vynechte možnost vytvořit objekt služby) a potom postupujte podle následujících kroků.
 
 ## Konfigurace účtu Automation
 Pokud má Azure Automation komunikovat s AWS, musíte nejdřív načíst přihlašovací údaje AWS a uložit je jako assety ve službě Azure Automation.  Proveďte následující kroky, které jsou popsány v dokumentu AWS [Správa přístupových klíčů k vašemu účtu AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html), vytvořte přístupový klíč a zkopírujte **Access Key ID** (ID přístupového klíče) a **Secret Access Key** (Tajný přístupový klíč) (případně si můžete soubor s klíčem stáhnout a uložit na bezpečné místo).
@@ -38,6 +38,6 @@ Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

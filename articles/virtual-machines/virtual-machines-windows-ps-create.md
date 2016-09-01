@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="06/07/2016"
     ms.author="davidmu"/>
 
 # Vytvoření virtuálního počítače s Windows pomocí Resource Manageru a PowerShellu
@@ -33,34 +33,36 @@ Nejdříve vytvořte skupinu prostředků.
 
 1. Získejte seznamu dostupných umístění, kde je možné prostředky vytvořit.
 
-        Get-AzureLocation | sort Name | Select Name
+        Get-AzureRmLocation | sort Location | Select Location
         
     Mělo by se vám zobrazit přibližně toto:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Nahraďte hodnotu **$locName** umístěním ze seznamu. Vytvořte proměnnou.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Nahraďte hodnotu **$rgName** názvem pro novou skupinu prostředků. Vytvořte proměnnou a skupinu prostředků.
 
@@ -74,13 +76,13 @@ Nejdříve vytvořte skupinu prostředků.
 1. Nahraďte hodnotu **$stName** názvem pro účet úložiště. Otestujte, že je název jedinečný.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
     Pokud tento příkaz vrátí hodnotu **False**, je navržený název v rámci Azure jedinečný. Názvy účtů úložiště musí mít od 3 do 24 znaků a můžou obsahovat jenom číslice a malá písmena.
     
 2. Teď spuštěním příkazu vytvořte účet úložiště.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Krok 4: Vytvoření virtuální sítě
 
@@ -120,7 +122,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Heslo musí mít 8 až 123 znaků a musí obsahovat minimálně 3 z následujících typů znaků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. 
+    Heslo musí být 12 až 123 znaků dlouhé a musí obsahovat minimálně jedno malé písmeno, jedno velké písmeno, jednu číslici a jeden speciální znak. 
         
 2. Nahraďte hodnotu **$vmName** názvem pro virtuální počítač. Vytvořte proměnnou a konfiguraci virtuálního počítače.
 
@@ -172,6 +174,6 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí Azure PowerShell
@@ -29,7 +29,7 @@
 
 Naučte se používat Azure PowerShell k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
-## Předpoklady
+## Požadavky
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
@@ -43,7 +43,7 @@ Viz část Předpoklady v tématu [Použití Azure PowerShellu s Azure Resource 
 
 ## Vytvoření účtu Azure Data Lake Store
 
-1. Otevřete na ploše nové okno Azure PowerShell a zadáním následujícího fragmentu kódu se přihlaste k účtu Azure, nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
+1. Otevřete na ploše nové okno Windows PowerShellu, zadejte následující fragment kódu a přihlaste se tak k účtu Azure. Nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -143,6 +143,6 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

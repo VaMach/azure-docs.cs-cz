@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
-Microsoft Azure IoT Suite je podnikové řešení umožňující rychlý start prostřednictvím sady rozšiřitelných předkonfigurovaných řešení, které se vztahují k běžným scénářům IoT, jako je [vzdálené sledování][lnk-preconfigured-solutions] a [prediktivní údržba][lnk-predictive-maintenance]. Tato řešení představují implementace architektury řešení IoT a byla popsána dříve.
+Microsoft Azure IoT Suite je podnikové řešení umožňující rychlý start prostřednictvím sady rozšiřitelných předkonfigurovaných řešení, které se vztahují k běžným scénářům IoT, jako je [vzdálené sledování][lnk-preconfigured-solutions] a [prediktivní údržba][lnk-predictive-maintenance]. Tato řešení jsou implementacemi architektury řešení IoT, která je vysvětlená v tomto článku.
 
 Předkonfigurovaná řešení jsou kompletní, funkční a koncová řešení zahrnující simulovaná zařízení, která vám pomohou v začátcích, a předem nakonfigurované služby Azure, např. [Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], [Azure Storage][] a konzole spravující specifická řešení. Předkonfigurovaná řešení obsahují ověřený a ke zprovoznění připravený kód, který si můžete přizpůsobit a rozšířit tak, abyste mohli implementovat vlastní scénáře IoT.
 
@@ -29,15 +29,14 @@ Mohla by vás také zajímat služba [Azure IoT Hub][], kterou využívá celá 
 
 ## Další kroky
 
-Další informace o IoT na platformě Azure můžete najít v následujících odkazech:
+Prostudováním těchto materiálů zjistíte další informace o sadě IoT Suite a předkonfigurovaných řešeních:
 
-- [Přehled Azure IoT Suite][lnk-suite-overview].
-- [Začínáme s přednastavenými řešeními IoT ][lnk-preconfigured-solutions].
-- [Připojení zařízení k řešení vzdáleného sledování IoT Suite][lnk-connecting].
-- [Azure IoT Hub]
+- [Co je Azure IoT Suite?][lnk-whatissuite]
+- [Co jsou předkonfigurovaná řešení Azure IoT Suite?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
@@ -47,6 +46,6 @@ Další informace o IoT na platformě Azure můžete najít v následujících o
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

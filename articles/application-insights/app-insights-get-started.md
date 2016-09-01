@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/31/2016"
+    ms.date="06/06/2016"
     ms.author="awills"/>
 
 # Začínáme s Visual Studio Application Insights
@@ -52,8 +52,6 @@ Co chcete použít | Co dělat | Co získáte
  * [Poradce při potížích][qna].
  * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Chyby:
- * [Připojení](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Návrhy:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Ukázky kódů
@@ -61,8 +59,9 @@ Co chcete použít | Co dělat | Co získáte
 
 
 
-## <a name="video"></a>Videa
+## <a name="video"></a>Video
 
+[![A[animovaný úvod](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -78,6 +77,6 @@ Co chcete použít | Co dělat | Co získáte
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

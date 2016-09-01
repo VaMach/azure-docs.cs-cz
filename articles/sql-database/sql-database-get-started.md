@@ -1,10 +1,10 @@
 <properties
     pageTitle="Kurz k SQL Database: Vytvoření databáze SQL | Microsoft Azure"
     description="Naučte se, jak vytvářet logické servery služby SQL Database, pravidla brány firewall, databáze SQL, vzorová data, jak se propojovat s klientskými nástroji a jak konfigurovat uživatele a pravidla brány firewall pro databázi."
-    keywords="sql database tutorial, create a sql database"
+    keywords="kurz k sql database, vytvoření databáze sql"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/14/2016"
+    ms.date="07/05/2016"
     ms.author="carlrab"/>
 
 # Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí portálu Azure
@@ -23,11 +23,11 @@
 **Izolovaná databáze**
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-get-started.md)
+- [portál Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-V tomto kurzu se naučíte, jak pomocí portálu Azure:
+V tomto kurzu se naučíte, jak pomocí portálu Azure Portal:
 
 - vytvořit logický server služby SQL Database pro hostování databází SQL,
 - vytvořit databázi SQL bez dat, s ukázkovými daty nebo s daty ze zálohy databáze SQL,
@@ -36,6 +36,8 @@ V tomto kurzu se naučíte, jak pomocí portálu Azure:
 Pomocí těchto odkazů můžete stejné úlohy provádět buď pomocí [C#](sql-database-get-started-csharp.md), nebo v [prostředí PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -54,14 +56,16 @@ Nyní jste dokončili kurz SQL Database a vytvořili jste databázi s ukázkový
 
 - Pokud do služby Azure přesouváte databáze z vašeho místního SQL Serveru, najdete další informace v článku [Migrace databáze do služby Azure SQL Database](sql-database-cloud-migrate.md).
 
+- Pokud chcete do nové tabulky načíst data ze souboru CSV pomocí BCP, přečtěte si článek [Načtení dat do databáze SQL ze souboru CSV pomocí BCP](sql-database-load-from-csv-with-bcp.md).
 
-## Další informace
+
+## Další zdroje
 
 [Co je SQL Database?](sql-database-technical-overview.md)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

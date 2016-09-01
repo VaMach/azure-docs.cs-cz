@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí sady .NET SDK
@@ -29,7 +29,7 @@
 
 Naučte se používat sadu .NET SDK pro Azure Data Lake Store k vytvoření účtu Azure Data Lake a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Předpoklady
+## Požadavky
 
 * Visual Studio 2013 nebo 2015. Níže uvedené pokyny používají Visual Studio 2015.
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -58,7 +58,7 @@ Naučte se používat sadu .NET SDK pro Azure Data Lake Store k vytvoření úč
   	|----------|-----------------------------|
   	| Kategorie | Šablony/Visual C#/Windows |
   	| Šablona | Konzolová aplikace         |
-  	| Název     | VytvořeníAplikaceADL        |
+  	| Name (Název)     | VytvořeníAplikaceADL        |
 
 4. Kliknutím na tlačítko **OK** vytvořte projekt.
 
@@ -528,6 +528,6 @@ Nakonec se ujistěte, že na počítači existuje místní cesta a název soubor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

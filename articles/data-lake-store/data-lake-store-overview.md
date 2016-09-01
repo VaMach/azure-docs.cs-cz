@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Přehled Azure Data Lake Store
@@ -64,8 +64,8 @@ Azure Data Lake Store využívá k ověřování službu Azure Active Directory 
 
 | Funkce                                 | Popis                              |
 |-----------------------------------------|------------------------------------------|
-| Ověřování | Služba Azure Data Lake Store se integruje se službou Azure Active Directory (AAD) v oblasti správy identit a přístupu veškerých dat uložených v Azure Data Lake Store. Díky této integraci získává služba Azure Data Lake všechny funkce AAD, včetně vícefaktorového ověřování, podmíněného přístupu, řízení přístupu na základě role, sledování využití aplikací, sledování a výstrah zabezpečení atd. Azure Data Lake Store podporuje protokol OAuth 2.0 pro ověřování v rozhraní REST. |
-| Řízení přístupu                          | Azure Data Lake Store zajišťuje řízení přístupu tím, že podporuje oprávnění ve stylu POSIX zpřístupněná protokolem WebHDFS. V aktuální verzi je možné určit oprávnění na úrovni úložiště Data Lake a tato oprávnění budou platit pro všechny soubory a složky v tomto úložišti. Budoucí aktualizace poskytnou odstupňované řízení přístupu tím, že umožní určit oprávnění u jednotlivých souborů a složek.|
+| Authentication | Služba Azure Data Lake Store se integruje se službou Azure Active Directory (AAD) v oblasti správy identit a přístupu veškerých dat uložených v Azure Data Lake Store. Díky této integraci získává služba Azure Data Lake všechny funkce AAD, včetně vícefaktorového ověřování, podmíněného přístupu, řízení přístupu na základě role, sledování využití aplikací, sledování a výstrah zabezpečení atd. Azure Data Lake Store podporuje protokol OAuth 2.0 pro ověřování v rozhraní REST. |
+| Řízení přístupu                          | Azure Data Lake Store zajišťuje řízení přístupu tím, že podporuje oprávnění ve stylu POSIX zpřístupněná protokolem WebHDFS. V aktuální verzi můžou být povolené seznamy řízení přístupu u kořenové složky, podsložek i u jednotlivých souborů. Seznamy řízení přístupu, které použijete u kořenové složky, budou platit také pro všechny podřízené složky a soubory.|
 
 Chcete se dozvědět víc o zabezpečení dat v Data Lake Store? Použijte následující odkazy.
 
@@ -115,6 +115,6 @@ Pokud se raději učíte při sledování videa, služba Data Lake Store nabíz�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

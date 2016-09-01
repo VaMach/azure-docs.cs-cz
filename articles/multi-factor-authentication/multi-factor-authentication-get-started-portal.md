@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
@@ -190,6 +190,7 @@ Samoobslužný zápis je teď dokončený a uživatel je přihlášený do port�
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

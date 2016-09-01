@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Vytvoření zóny DNS pomocí rozhraní příkazového řádku
 
 
 > [AZURE.SELECTOR]
-- [Portál Azure](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
@@ -52,7 +52,7 @@ Azure DNS používá Azure Resource Manager. Nezapomeňte přepnout režim rozhr
 
 ### 3. Přihlášení k účtu Azure
 
-Budete vyzváni k ověření pomocí přihlašovacích údajů. Nezapomeňte, že lze použít pouze účty ORGID.
+Zobrazí se výzva k ověření pomocí přihlašovacích údajů. Nezapomeňte, že lze použít pouze účty ORGID.
 
     Azure login -u "username"
 
@@ -189,6 +189,6 @@ Po vytvoření zóny DNS vytvořte [sady záznamů a záznamy](dns-getstarted-cr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="multiple"
     ms.topic="get-started-article" 
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="ggailey777"/>
 
-# Začínáme používat Mobile Services
+# Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -52,7 +52,7 @@ K dokončení tohoto kurzu budete potřebovat následující:
 
 V této části vytvoříte novou aplikaci PhoneGap, která je připojena k mobilní službě.
 
-1.  Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1.  Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **PhoneGap** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci PhoneGap**.
 
@@ -113,7 +113,7 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
 
     > [AZURE.IMPORTANT] Změny tohoto projektu platformy budou přepsány, pokud je hlavní projekt znovu sestaven pomocí nástrojů PhoneGap. Místo toho proveďte změny v kořenovém adresáři www projektu jak je uvedeno v následující části.
 
-4. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItem**.
+4. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItem**.
 
     ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -176,12 +176,12 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 <!-- URLs. -->
 [Přidání ověřování do aplikace]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express pro Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

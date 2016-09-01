@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -163,7 +163,7 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
               </appSettings>
         </configuration>
 
-1. Získejte alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat. Další informace najdete v článku o [konfiguraci koncových bodů streamování](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+1. získat alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat Další informace najdete v článku o [konfiguraci koncových bodů streamování](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
 
 1. Přepište kód v souboru Program.cs kódem zobrazeným v této části.
     
@@ -628,6 +628,6 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

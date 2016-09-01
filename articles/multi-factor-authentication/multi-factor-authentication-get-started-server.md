@@ -2,10 +2,10 @@
     pageTitle="Začínáme s Azure Multi-Factor Authentication Serverem" 
     description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s Azure MFA Serverem." 
     services="multi-factor-authentication"
-    keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
+    keywords="authentication server,stránka pro aktivaci aplikace azure multi factor authentication,stažení authentication serveru" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Začínáme s Azure Multi-Factor Authentication Serverem
@@ -192,6 +192,6 @@ Metoda|Popis
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

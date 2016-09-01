@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Kurz: Začínáme s Azure Data Lake Analytics pomocí Portálu Azure
@@ -26,7 +26,7 @@ V tomto kurzu budete vyvíjet úlohu, která načte soubor hodnot oddělených t
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Předpoklady
+##Požadavky
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
@@ -155,9 +155,9 @@ Jakmile připravíte zdrojová data, můžete začít vyvíjet skript U-SQL.
 - Informace týkající se úloh správy najdete v tématu [Správa Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-manage-use-portal.md).
 - Přehled Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 - Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
+- Pokud chcete protokolovat diagnostické informace, přečtěte si téma [Zobrazení protokolů diagnostiky pro Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

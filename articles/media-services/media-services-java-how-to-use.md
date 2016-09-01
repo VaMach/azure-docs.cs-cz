@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="08/11/2016"   
     ms.author="robmcm"/>
 
 #Používání Media Services s Javou
@@ -255,7 +255,7 @@ Místo proměnných `clientId` a `clientSecret` dosaďte svoje hodnoty. Kód tak
     }
 
 
-##Mapy kurzů k Media Services
+##Mapy kurzů ke službě Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -278,6 +278,6 @@ Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny A
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

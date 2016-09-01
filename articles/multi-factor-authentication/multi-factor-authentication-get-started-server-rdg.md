@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
-# Vzdálená plocha brány a server Azure Multi-Factor Authentication využívající protokol RADIUS
+# Brána vzdálené plochy Azure Multi-Factor Authentication Server pomocí protokolu RADIUS
 
 V mnoha případech využívá brána vzdálené plochy používá NPS k ověřování uživatelů. Tento dokument popisuje požadavek směřování žádostí protokolu RADIUS ze služby brána vzdálené plochy (prostřednictvím místního serveru NPS) na server Multi-Factor Authentication.
 
@@ -61,6 +61,6 @@ Server Azure Multi-Factor Authentication je nakonfigurován jako proxy server pr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

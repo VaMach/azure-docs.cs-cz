@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, kontejnery, mikroslužby, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Nasazení kontejneru formátovaného Dockerem
 
-Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON, který popisuje zamýšlené nasazení. Následující ukázka nasadí kontejner Nginx a sváže port 80 agenta DC/OS s portem 80 kontejneru. Kromě toho si všimněte, že vlastnost acceptedResourceRoles je nastavena na slave_public. Tím se kontejner nasadí do agenta v sadě škálování veřejně přístupných agentů.
+Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON, který popisuje zamýšlené nasazení. Následující ukázka nasadí kontejner Nginx a sváže port 80 agenta DC/OS s portem 80 kontejneru. Kromě toho si všimněte, že vlastnost acceptedResourceRoles je nastavena na slave_public. Kontejner se tak nasadí do agenta v sadě škálování veřejně přístupných agentů.
 
 ```json
 {
@@ -172,14 +172,11 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Další kroky
 
-[Další informace o koncových bodech Mesos HTTP]( http://mesos.apache.org/documentation/latest/endpoints/)
-[Další informace o rozhraní REST API Marathonu]( https://mesosphere.github.io/marathon/docs/rest-api.html)
+- [Další informace o koncových bodech Mesos HTTP]( http://mesos.apache.org/documentation/latest/endpoints/)
+- [Další informace o rozhraní REST API Marathonu]( https://mesosphere.github.io/marathon/docs/rest-api.html)
 
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

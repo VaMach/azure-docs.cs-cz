@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Začínáme s Azure Key Vault #
-Azure Key Vault je dostupný ve většině oblastí. Další informace naleznete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Úvod  
 Tento kurz vám pomůže začít s Azure Key Vault a ukáže vám, jak v Azure vytvořit zesílený kontejner (trezor), a jak ukládat a spravovat kryptografické klíče a tajné klíče v Azure. Provede vás procesem použití Azure PowerShell k vytvoření trezoru, který obsahuje klíč nebo heslo, které pak můžete použít s aplikací Azure. Poté vám ukáže, jak aplikace může tento klíč nebo heslo použít.
@@ -247,6 +247,6 @@ Programátorské reference najdete v [příručce pro vývojáře Azure Key Vaul
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

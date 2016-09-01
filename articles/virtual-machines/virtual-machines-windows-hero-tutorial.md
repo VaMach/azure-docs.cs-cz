@@ -1,7 +1,7 @@
 <properties
     pageTitle="Vytvoření vašeho prvního virtuálního počítače s Windows | Microsoft Azure"
     description="Zjistěte, jak si vytvořit svůj první virtuální počítač s Windows pomocí Portálu Azure."
-    keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
+    keywords="virtuální počítač s Windows,vytvoření virtuálního počítače,virtuální počítač,nastavení virtuálního počítače"
     services="virtual-machines-windows"
     documentationCenter=""
     authors="cynthn"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/05/2016"
+    ms.date="06/07/2016"
     ms.author="cynthn"/>
 
 # Vytvoření vašeho prvního virtuálního počítače s Windows na Portálu Azure
@@ -30,14 +30,14 @@ Tady je [video s návodem](https://channel9.msdn.com/Blogs/Azure-Documentation-S
 
 Jako příklad používáme image systému Windows Server 2012 R2 Datacenter, je to ale pouze jedna z mnoha imagí, které Azure nabízí. Volba image závisí na tom, jaké máte předplatné. [Předplatitelé MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) můžou mít například k dispozici image desktopových verzí operačního systému.
 
-1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
+1. Přihlaste se k [portálu Azure](https://portal.azure.com).
 
 2. V nabídce centra klikněte na **Nový** > **Virtuální počítače** > **Windows Server 2012 R2 Datacenter**.
 
     ![Snímek obrazovky zobrazující image virtuálního počítače Azure dostupné na Portálu](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. Na stránce **Windows Server 2012 R2 Datacenter** v části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. Klikněte na **Vytvořit**.
+3. Na stránce **Windows Server 2012 R2 Datacenter** v části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. Klikněte na možnost **Vytvořit**.
 
     ![Snímek obrazovky zobrazující model nasazení, který se má vybrat pro virtuální počítač](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -49,7 +49,7 @@ Po výběru image můžete pro většinu položek konfigurace použít výchozí
 
 2. Zadejte **uživatelské jméno** a silné **heslo**, které se použijí k vytvoření místního účtu ve virtuálním počítači. Místní účet se používá k přihlášení k virtuálnímu počítači a jeho správě. 
 
-    Heslo musí mít 8 až 123 znaků a musí obsahovat minimálně 3 z následujících typů znaků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. 
+    Heslo musí být 12 až 123 znaků dlouhé a musí obsahovat minimálně jedno malé písmeno, jedno velké písmeno, jednu číslici a jeden speciální znak. 
 
 
 3. Vyberte existující [skupinu prostředků](../resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. Zadejte **umístění** datového centra Azure, například **Západní USA**. 
@@ -118,6 +118,6 @@ Až ho budete chtít zase použít, stačí kliknout na tlačítko **Spustit **.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Kurz: Vytvoření kanálu pomocí průvodce kopírováním" 
-    description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí průvodce kopírováním podporovaného službou Data Factory." 
+    description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí průvodce kopírováním podporovaného službou Data Factory" 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,20 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-get-started.md)
-- [Pomocí editoru služby Data Factory](data-factory-get-started-using-editor.md)
-- [Pomocí prostředí PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-get-started-using-vs.md)
+- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 V tomto kurzu vytvoříte v objektu pro vytváření dat kanál s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory. Nejdřív pomocí webu Azure Portal vytvoříte objekt pro vytváření dat a potom pomocí průvodce kopírováním vytvoříte pro službu Data Factory propojené služby, datové sady a kanál s aktivitou kopírování, která zkopíruje data ze Azure Blob Storage do Azure SQL Database.
 
-> [AZURE.IMPORTANT] Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-get-started.md) a proveďte nutné kroky.
+> [AZURE.IMPORTANT] Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte nutné kroky.
 
 ## Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
@@ -115,11 +116,11 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 | :---- | :---- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) | Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo podniku použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
 | [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

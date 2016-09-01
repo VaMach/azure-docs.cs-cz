@@ -1,7 +1,7 @@
 <properties
   pageTitle="Kurz k NoSQL Node.js pro DocumentDB | Microsoft Azure"
   description="Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze Node a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON."
-    keywords="node.js tutorial, node database"
+    keywords="kurz node.js, databáze uzlů"
   services="documentdb"
   documentationCenter="node.js"
   authors="AndrewHoh"
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Kurz k NoSQL Node.js: Konzolová aplikace DocumentDB Node.js  
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Vítejte v kurzu k Node.js pro sadu DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB, včetně databáze Node, a dotazuje se na ně.
+Vítejte v kurzu k Node.js pro sadu Azure DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB, včetně databáze Node, a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
@@ -56,7 +56,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Krok 2: Nastavení aplikace Node.js
+## <a id="SetupNode"></a>Krok 2: Nastavení aplikace Node.js
 
 1. Otevřete svůj oblíbený terminál.
 2. Vyhledejte složku nebo adresář, do kterého chcete uložit aplikaci Node.js.
@@ -72,7 +72,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 Výborně! Teď když jste dokončili nastavování, napišme nějaký kód.
 
-##<a id="Config"></a> Krok 3: Nastavení konfigurací aplikace
+## <a id="Config"></a>Krok 3: Nastavení konfigurací aplikace
 
 Ve svém oblíbeném textovém editoru otevřete ```config.js```.
 
@@ -598,7 +598,7 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup by měl odpovídat u
 
 Blahopřejeme! Dokončili jste kurz k Node.js a máte svou první konzolovou aplikaci DocumentDB!
 
-##<a id="GetSolution"></a> Získání úplného řešení kurzu k Node.js
+## <a id="GetSolution"></a>Získání úplného řešení kurzu k Node.js
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
 -   [Účet DocumentDB][documentdb-create-account]
@@ -623,6 +623,6 @@ Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.au
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

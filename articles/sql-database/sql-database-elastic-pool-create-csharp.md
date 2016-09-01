@@ -3,7 +3,7 @@
     description="Pomocí technik vývoje databází v C# můžete v Azure SQL Database vytvořit škálovatelný fond elastické databáze umožňující sdílení prostředků mezi mnoha databázemi."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,26 +13,24 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # Vytvoření nového fondu elastické databáze s C&#x23;
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-elastic-pool-create-portal.md)
+- [portál Azure](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Naučte se vytvářet [fondy elastické databáze](sql-database-elastic-pool.md) pomocí C&#x23;. 
+Naučte se vytvořit [fond elastické databáze](sql-database-elastic-pool.md) pomocí C#. 
 
 Běžné kódy chyb naleznete v článku [Kódy chyb SQL pro klientské aplikace SQL Database: chyby připojení k databázi a další problémy](sql-database-develop-error-messages.md).
 
-Fondy elastické databáze jsou aktuálně ve verzi Preview a jsou dostupné jen pro servery SQL Database verze 12. Pokud máte server SQL Database verze 11, můžete [použít PowerShell k upgradu na verzi 12 a vytvořit fond](sql-database-upgrade-server-portal.md) v jednom kroku.
+V následujících příkladech se používá [Knihovna SQL Database pro .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), takže pokud ji ještě nemáte, před dalším pokračováním ji musíte nainstalovat. Tuto knihovnu nainstalujete spuštěním následujícího příkazu v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**):
 
-Příklady používají [knihovnu SQL Database pro .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) a je proto třeba ji nainstalovat. Instalaci můžete provést spuštěním následujícího příkazu v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**):
-
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Vytvoření nového fondu
 
@@ -76,7 +74,7 @@ Vytvořte instanci [DataBaseCreateOrUpdateProperties](https://msdn.microsoft.com
 
 Chcete-li do fondu přesunout existující databázi, přečtěte si část [Přesun databáze do pružného fondu](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Příklad: vytvoření fondu pomocí C&#x23
+## Příklad: Vytvoření fondu pomocí C&#x23;
 
 Tento příklad vytvoří novou skupinu prostředků Azure, novou instanci serveru Azure SQL Server a nový elastický fond. 
  
@@ -84,7 +82,7 @@ Tento příklad vytvoří novou skupinu prostředků Azure, novou instanci serve
 Pro spuštění tohoto příkladu potřebujete následující knihovny: Instalaci můžete provést spuštěním následujících příkazů v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím kódem. Informace o získání potřebného ID klienta a souvisejících hodnot najdete v článku [Získání ID klienta a klíče pro připojení k SQL Database z kódu](sql-database-client-id-keys.md). Pomocí rutiny [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) získejte hodnotu subscriptionId.
@@ -252,6 +250,7 @@ Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím 
 - [Rozhraní API pro správu prostředků Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

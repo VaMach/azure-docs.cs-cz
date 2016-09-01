@@ -1,7 +1,7 @@
 <properties
     pageTitle="Kurz k NoSQL: DocumentDB .NET SDK | Microsoft Azure"
     description="Kurz k NoSQL, v rámci kterého se vytváří online databáze a konzolová aplikace v jazyce C# pomocí sady DocumentDB .NET SDK. DocumentDB je databáze NoSQL pro JSON."
-    keywords="nosql tutorial, online database, c# console application"
+    keywords="kurz nosql, online databáze konzolová aplikace jazyka c#"
     services="documentdb"
     documentationCenter=".net"
     authors="AndrewHoh"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/16/2016"
     ms.author="anhoh"/>
 
 # Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Vítejte v kurzu k NoSQL pro sadu DocumentDB .NET SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
+Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
@@ -57,7 +57,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Krok 2: Nastavení řešení v nástroji Visual Studio
+## <a id="SetupVS"></a>Krok 2: Nastavení řešení v nástroji Visual Studio
 
 1. Otevřete v počítači **Visual Studio 2015**.
 2. V nabídce **Soubor** vyberte **Nový** a zvolte **Projekt**.
@@ -73,7 +73,7 @@ ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB](http
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Krok 3: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
 
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
@@ -98,11 +98,10 @@ Nyní přidejte tyto dvě konstanty a proměnnou *client* pod veřejnou třídu 
         private const string PrimaryKey = "<your key>";
         private DocumentClient client;
 
-Dále přejděte na [Portál Azure](https://portal.azure.com) a získejte identifikátor URI a primární klíč. Identifikátor URI a primární klíč pro DocumentDB jsou potřebné, aby aplikace věděla, kam se připojit, a aby databáze DocumentDB důvěřovala připojení aplikace.
+Dále přejděte na [Portál Azure](https://portal.azure.com) a získejte identifikátor URI a primární klíč. Identifikátor URI a primární klíč pro DocumentDB jsou potřeba k tomu, aby aplikace věděla, kam se připojit, a aby databáze DocumentDB důvěřovala připojení aplikace.
 
-Na Portálu Azure přejděte na účet DocumentDB z kroku 1.
+Na portálu Azure Portal přejděte na účet DocumentDB z kroku 1 a klikněte na **Klíče**.
 
-Klikněte na ikonu **klíčů** na panelu **Základy**.
 Zkopírujte URI a nahraďte v programu *<your endpoint URI>* zkopírovaným identifikátorem URI.
 Zkopírujte primární klíč a nahraďte v programu *<your key>* zkopírovaným klíčem.
 
@@ -206,7 +205,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.  
 
-##<a id="CreateColl"></a>Krok 5: Vytvoření kolekce  
+## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** vytvoří novou kolekci s vyhrazenou propustností, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -236,7 +235,7 @@ Zkopírujte a vložte metodu **CreateDocumentCollectionIfNotExists** pod metodu 
                 // Here we create a collection with 400 RU/s.
                 await this.client.CreateDocumentCollectionAsync(
                     UriFactory.CreateDatabaseUri(databaseName),
-                    new DocumentCollection { Id = collectionName },
+                    collectionInfo,
                     new RequestOptions { OfferThroughput = 400 });
 
                 this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
@@ -261,7 +260,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili kolekci dokumentů DocumentDB.  
 
-##<a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
+## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
 [Dokument](documentdb-resources.md#documents) je možné vytvořit pomocí metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) třídy **DocumentClient**. Dokumenty představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit jeden nebo více dokumentů. Pokud již máte data, která chcete uložit do databáze, můžete použít [nástroj pro migraci dat](documentdb-import-data.md) DocumentDB.
 
 Nejprve musíme vytvořit třídu **Family**, která bude v této ukázce představovat objekty uložené v DocumentDB. Kromě toho vytvoříme i podtřídy **Parent**, **Child**, **Pet** a **Address**, které se použijí v rámci **Family**. Povšimněte si, že dokumenty musí mít vlastnost **Id** serializovanou jako **id** ve formátu JSON. Vytvořte tyto třídy tak, že za metodu **GetStartedDemo** přidáte následující vnitřní podtřídy.
@@ -449,7 +448,7 @@ Zkopírujte a vložte metodu **ExecuteSimpleQuery** pod metodu **CreateFamilyDoc
             // Now execute the same query via direct SQL
             IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                    "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+                    "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
                     queryOptions);
 
             Console.WriteLine("Running direct SQL query...");
@@ -488,15 +487,15 @@ Zkopírujte a vložte metodu **ReplaceFamilyDocument** pod metodu **ExecuteSimpl
     // ADD THIS PART TO YOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
     {
-            try
-            {
-                    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-                    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-            }
-            catch (DocumentClientException de)
-            {
-                    throw de;
-            }
+        try
+        {
+            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
+        }
+        catch (DocumentClientException de)
+        {
+            throw;
+        }
     }
 
 Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod spuštění dotazu. Po nahrazení dokumentu tento kód spustí stejný dotaz znovu, aby se zobrazil změněný dokument.
@@ -526,15 +525,15 @@ Zkopírujte a vložte metodu **DeleteFamilyDocument** pod metodu **ReplaceFamily
     // ADD THIS PART TO YOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
-            try
-            {
-                    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-                    Console.WriteLine("Deleted Family {0}", documentName);
-            }
-            catch (DocumentClientException de)
-            {
-                            throw de;
-            }
+        try
+        {
+            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+            Console.WriteLine("Deleted Family {0}", documentName);
+        }
+        catch (DocumentClientException de)
+        {
+            throw;
+        }
     }
 
 Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod spuštění druhého dotazu.
@@ -620,6 +619,6 @@ Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual St
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

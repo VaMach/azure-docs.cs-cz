@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Zprovoznění aplikace Azure Storage v pěti minutách 
@@ -52,7 +52,7 @@ Jakmile budete mít účet úložiště Azure, můžete si pomocí jednoho z uk�
     b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
     - 3.c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
     
-    ![Azure Quick Starts][Image1]
+    ![Ukázkové projekty Azure Rychlý start][Image1]
 
 Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho budete chtít projít, vyberte v sadě Visual Studio v nabídce **Zobrazení** možnost **Průzkumník řešení**. Potom poklikejte na soubor Program.cs. 
 
@@ -62,8 +62,7 @@ Dále pak stáhněte ukázkovou aplikaci:
 
     `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2.  Odkomentujte připojovací řetězec pro službu Azure Storage a zadejte název účtu úložiště a přístupový klíč v souboru App.config: 
-	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+2.  Odkomentujte připojovací řetězec pro službu Azure Storage a zadejte název účtu úložiště a přístupový klíč v souboru App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
     Informace o tom, jak přístupový klíč účtu úložiště načíst, najdete v části věnované [správě přístupových klíčů úložiště](storage-create-storage-account.md#manage-your-storage-access-keys).
 
@@ -81,8 +80,8 @@ Vyzkoušejte si to: vytvoříme jednoduchou aplikaci Azure Storage pomocí jedno
 1. Spusťte Visual Studio.
 2. V nabídce **Soubor** klikněte na **Nový projekt**.
 3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Datové služby**.
-    a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
-    b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.   
+   a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
+   b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.   
     c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
     
     ![Ukázkové projekty Azure Rychlý start][Image1]
@@ -97,17 +96,18 @@ Dále pak spusťte ukázkovou aplikaci v emulátoru úložiště Azure:
 
 1.  Stiskněte tlačítko **Start** nebo klávesu Windows, vyhledejte *Emulátor úložiště Microsoft Azure* a spusťte aplikaci. Po spuštění emulátoru uvidíte ikonu a oznámení v oblasti zobrazení úkolů systému Windows.
 2.  V sadě Visual Studio klikněte na v nabídce **Sestavení** na **Sestavit řešení**. 
-3.  V nabídce **Ladění** stiskněte klávesu **F11**. Tím spustíte řešení v krokovacím režimu. Stisknutím klávesy **F5** také můžete řešení spustit tak, aby proběhlo od začátku až do konce.
+3.  Stisknutím klávesy **F11** v nabídce **Ladění** spustíte řešení v krokovacím režimu. Stisknutím klávesy **F5** spustíte řešení od začátku do konce.
 
 ## Další kroky
 
 Další informace o službě Azure Storage najdete v těchto zdrojích informací:
 
 * [Úvod do Microsoft Azure Storage](storage-introduction.md)
-* [Začínáme s Azure Blob Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md)
+* [Začínáme s Azure Storage Explorerem](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Začínáme s úložištěm Azure Blob pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md)
 * [Začínáme s Azure Table Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-tables.md)
 * [Začínáme s Azure Queue Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-queues.md)
-* [Začínáme s Azure File Storage ve Windows](storage-dotnet-how-to-use-files.md)
+* [Začínáme s úložištěm Azure File ve Windows](storage-dotnet-how-to-use-files.md)
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
 * [Dokumentace k Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Klientská knihovna pro Microsoft Azure Storage pro .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -118,6 +118,6 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

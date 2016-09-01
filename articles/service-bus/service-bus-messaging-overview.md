@@ -1,6 +1,6 @@
 <properties
     pageTitle="Přehled přenosu zpráv ve službě Service Bus | Microsoft Azure"
-    description="Přenos zpráv ve službě Service Bus: Flexibilní přenos dat v cloudu"
+    description="Přenos zpráv ve službě Service Bus: flexibilní přenos dat v cloudu"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="sethm"/>
 
 
 # Přenos zpráv ve službě Service Bus: flexibilní přenos dat v cloudu
 
-Přenos zpráv ve službě Service Bus je spolehlivá služba pro přenos informací. Cílem této služby je usnadnění komunikace. Když si dvě nebo více stran chce vyměňovat informace, potřebují nějaký komunikační mechanizmus. Přenos zpráv ve službě Service Bus je mechanizmus pro komunikaci zprostředkovanou přes třetí stranu. Princip je podobný jako při používání poštovních a zásilkových služeb pro fyzickou poštu a zásilky. Díky poštovním službám můžeme do celého světa posílat nejrůznější dopisy a balíky, s určitými zárukami.
+Přenos zpráv ve službě Microsoft Azure Service Bus je spolehlivá služba pro doručování informací. Cílem této služby je usnadnění komunikace. Když si dvě nebo více stran chce vyměňovat informace, potřebují nějaký komunikační mechanizmus. Přenos zpráv ve službě Service Bus je mechanizmus pro komunikaci zprostředkovanou přes třetí stranu. Princip je podobný jako při používání poštovních a zásilkových služeb pro fyzickou poštu a zásilky. Díky poštovním službám můžeme do celého světa posílat nejrůznější dopisy a balíky, s určitými zárukami.
 
 Podobně jako když poštovní služba doručuje dopisy, služba Service Bus nabízí flexibilní doručení informací od odesílatele i příjemce. Služba přenosu zpráv zajišťuje, aby se informace doručily i v případě, že obě strany nejsou online ve stejnou dobu nebo že nejsou dostupné ve stejnou dobu. V tomto ohledu je přenos zpráv podobný jako poslání dopisu, zatímco nezprostředkovaná komunikace je podobná telefonnímu hovoru (resp. tomu, jak telefonování vypadalo dřív – bez identifikace volajícího a bez čekání na to, až bude volané číslo dostupné, to už se totiž podobá spíš zprostředkovanému přenosu zpráv).
 
@@ -39,7 +39,7 @@ Přenos zpráv přes předávací službu má spoustu výhod, ale aby se zprávy
 
 ## Zprostředkované zasílání zpráv
 
-Na rozdíl od předávaného přenosu zpráv můžeme o [zprostředkovaném zasílání zpráv](service-bus-fundamentals-hybrid-solutions.md) mluvit jako o asynchronním nebo „časově odděleném“. Producenti (odesílatelé) a spotřebitelé (příjemci) nemusí být online ve stejnou dobu. Infrastruktura přenosu zpráv spolehlivě uloží zprávy do „zprostředkovatele“ (například fronty), dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na celý systém. Přijímající aplikaci navíc stačí být online jen v určitou dobu – například systém pro správu inventáře stačí spustit až na konci pracovního dne.
+Na rozdíl od přenosu zpráv přes předávací službu můžeme o [zprostředkovaném zasílání zpráv](service-bus-queues-topics-subscriptions.md) mluvit jako o asynchronním nebo „časově odděleném“. Producenti (odesílatelé) a spotřebitelé (příjemci) nemusí být online ve stejnou dobu. Infrastruktura přenosu zpráv spolehlivě uloží zprávy do „zprostředkovatele“ (například fronty), dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na celý systém. Přijímající aplikaci navíc stačí být online jen v určitou dobu – například systém pro správu inventáře stačí spustit až na konci pracovního dne.
 
 Zprostředkované zasílání zpráv přes Service Bus má tři základní součásti: fronty, témata a odběry.  Hlavní rozdíl je v tom, že témata podporují funkce pbulikovat/odebírat, které se dají použít pro komplexní směrování a logiku odesílání obsahu, jako třeba odesílání několika příjemcům. Komponenty umožňují nové scénáře pro zasílání zpráv, jako je časové oddělení, publikování/odběr a vyvažování zátěže. Další informace o těchto entitách zasílání zpráv najdete v tématu [Fronty, témata a odběry služby Service Bus](service-bus-queues-topics-subscriptions.md).
 
@@ -49,15 +49,15 @@ Stejně jako v případě infrastruktury přenosu zpráv přes předávací slu�
 
 Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
-- [Fronty, témata a odběry služby Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Fronty, témata a odběry služby Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Architektura služby Service Bus](service-bus-architecture.md)
-- [Jak používat Fronty služby Service Bus](service-bus-dotnet-how-to-use-queues.md)
-- [Jak používat Témata služby Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Jak používat fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Jak používat témata a odběry Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

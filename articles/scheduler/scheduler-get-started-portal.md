@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Začínáme se Schedulerem na portálu Azure
@@ -25,7 +25,7 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
 
 2.  Klikněte na **+Nový** > v poli pro vyhledávání zadejte _Scheduler_ > ve výsledcích vyberte **Scheduler** > klikněte na **Vytvořit**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Teď vytvoříme úlohu, která jednoduše vyšle požadavek GET na http://www.microsoft.com/. Na obrazovce **Úloha Scheduleru** zadejte následující informace:
 
@@ -43,7 +43,7 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
 
     3.  **Adresa URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Nakonec nastavíme plán. Úloha se může definovat jako jednorázová, ale my vytvoříme plán opakování:
 
@@ -55,7 +55,7 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
 
     4. **Konec**: Dva dny po dnešním datu  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Klikněte na **Vytvořit**
 
@@ -73,7 +73,7 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
 
 5.  Uživatelé
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Vlastnosti
 
@@ -100,7 +100,7 @@ Pro akce sběrnice můžete změnit obory názvů, cestu k tématu/frontě, nast
 
 Pokud vám plán vytvořený v průvodci rychlým vytvořením nevyhovuje, můžete ho tady změnit.
 
-To je příležitost [v úloze vytvořit komplexní plány a pokročilé nastavení opakování](scheduler-advanced-complexity.md).
+To je příležitost k sestavení [komplexních plánů a pokročilého opakování ve vaší úloze](scheduler-advanced-complexity.md).
 
 Můžete změnit datum a čas zahájení, plán opakování a datum a čas ukončení (pokud se úloha opakuje).
 
@@ -150,7 +150,7 @@ Můžete kliknout na běh a zobrazí se **Podrobnosti historie** včetně komple
 
  [Vysoká dostupnost a spolehlivost Scheduleru](scheduler-high-availability-reliability.md)
 
- [Omezení, výchozí hodnoty a chybové kódy Scheduleru](scheduler-limits-defaults-errors.md)
+ [Omezení, výchozí hodnoty a kódy chyb Scheduleru](scheduler-limits-defaults-errors.md)
 
  [Odchozí ověření Scheduleru](scheduler-outbound-authentication.md)
 
@@ -184,6 +184,6 @@ Můžete kliknout na běh a zobrazí se **Podrobnosti historie** včetně komple
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

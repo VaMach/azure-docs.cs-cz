@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/15/2016"
     ms.author="mandia"/>
 
 
@@ -279,6 +279,6 @@ Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými karta
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

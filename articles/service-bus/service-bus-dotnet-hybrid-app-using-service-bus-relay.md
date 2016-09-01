@@ -67,7 +67,7 @@ Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojov
 
 Pokud chcete začít používat funkce Service Bus v Azure, musíte nejdřív vytvořit obor názvů služby. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace.
 
-1.  Přihlaste se do [klasického portálu Azure][].
+1.  Přihlaste se do [portál Azure Classic][].
 
 2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
 
@@ -541,7 +541,7 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
   [Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [klasického portálu Azure]: http://manage.windowsazure.com
+  [portál Azure Classic]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -571,11 +571,11 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # SQL Azure s Azure RemoteAppem
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Když se zákazníci rozhodnou, že budou své aplikace hostovat v cloudu pomocí Azure RemoteAppu, často chtějí do cloudu migrovat také svá data, například na serverech SQL, aby byl přesun nasazení do cloudu úplný. Tímto způsobem lze vytvářet řešení hostovaná čistě v cloudu, ke kterým lze kdykoliv a kdekoliv přistupovat pomocí Azure RemoteAppu. Níže naleznete odkazy na zdroje a reference spolu s pokyny, které vás tímto procesem provedou.  
 
@@ -53,6 +56,6 @@ Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající data
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="07/13/2016"
    ms.author="cherylmc"/>
 
 # Resetování služby Azure VPN Gateway pomocí prostředí PowerShell
@@ -50,7 +50,7 @@ Následující příklad resetuje bránu Azure VPN pro virtuální síť s názv
         StatusCode     : OK
 
 
-Pokud po prvním resetování nedojde k obnovení připojení, znovu vydejte stejný příkaz pro resetování druhé instance virtuálního počítače (nové aktivní brány). Pokud vyžádáte tato dvě resetování za sebou, bude doba, po kterou jsou obě instance virtuálního počítače (aktivní a pohotovostní) resetovány, trochu delší. To způsobí delší prodlevu propojování VPN – 2 až 4 minuty, než se dokončí resetování virtuálních počítačů.
+Pokud po prvním resetování nedojde k obnovení připojení, znovu vydejte stejný příkaz pro resetování druhé instance virtuálního počítače (nové aktivní brány). Pokud se vyžadují dvě restartování za sebou, bude doba, po kterou se obě instance virtuálního počítače (aktivní a pohotovostní) restartují, trochu delší. To způsobí delší prodlevu propojování VPN – 2 až 4 minuty, než se dokončí resetování virtuálních počítačů.
 
 Pokud i po dvou resetováních stále přetrvávají problémy s propojováním více míst, kontaktujte prosím podporu Microsoft Azure otevřením lístku podpory na portálu Azure Classic.
 
@@ -66,6 +66,6 @@ Další informace o této rutině najdete v [Manuálu k prostředí PowerShell](
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, kontejnery, mikroslužby, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -30,7 +30,7 @@ Předpoklady pro praktická cvičení v tomto dokumentu:
 
 ## Nasazení nového kontejneru
 
-Nový kontejner v nástroji Docker Swarm vytvoříte pomocí příkazu `docker run`. Tento příklad vytvoří kontejner z image `yeasy/simple-web`:
+Chcete-li vytvořit nový kontejner v Docker Swarm, použijte příkaz `docker run` (zajistí, že jste otevřeli tunelové propojení SSH k předlohám podle výše uvedených požadavků). Tento příklad vytvoří kontejner z image `yeasy/simple-web`:
 
 
 ```bash
@@ -54,9 +54,11 @@ Nyní můžete k aplikaci, která běží v tomto kontejneru, přistoupit přes 
 
 ![Výsledky skutečných návštěv](media/real-visit.jpg)  
 
+Ve výchozím nastavení má nástroj pro vyrovnávání zatížení otevřené porty 80, 8080 a 443. Pokud se chcete připojit k jinému portu, musíte otevřít tento port v nástroji Azure Load Balancer pro fond agenta.
+
 ## Nasazení několika kontejnerů
 
-Když je v clusteru Docker Swarm spuštěno více kontejnerů, je možné si pomocí příkazu `docker ps` zobrazit, na kterých hostitelích kontejnery běží. V tomto příkladu jsou tři kontejnery rovnoměrně rozloženy na tři agenty Swarm:  
+Když je spuštěno více kontejnerů, je možné vícenásobným spuštěním příkazu „spuštění docker“ použít příkaz `docker ps` k zobrazení, na kterých hostitelích kontejnery běží. V tomto příkladu níže jsou tři kontejnery rovnoměrně rozloženy na tři agenty Swarm:  
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Nasazení kontejnerů pomocí Docker Compose
 
-Pomocí Docker Compose je možné automatizovat nasazení a konfiguraci několika kontejnerů. Abyste toho mohli využít, ujistěte se, že je vytvořen tunel Secure Shell (SSH) a že je nastavena proměnná DOCKER_HOST.
+Pomocí Docker Compose je možné automatizovat nasazení a konfiguraci několika kontejnerů. Abyste toho mohli využít, ujistěte se, že je vytvořen tunel Secure Shell (SSH) a že je nastavena proměnná DOCKER_HOST (viz předpoklady výše).
 
 Vytvořte v lokálním systému soubor docker-compose.yml. Použijte k tomu tuto [ukázku](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -115,12 +117,14 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Přirozeně, můžete použít `docker-compose ps` k prozkoumání samotných kontejnerů definovaných ve vašem souboru `compose.yml`.
+
 ## Další kroky
 
 [Další informace o Docker Swarmu](https://docs.docker.com/swarm/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

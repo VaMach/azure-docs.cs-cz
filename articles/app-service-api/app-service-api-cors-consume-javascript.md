@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="tdykstra"/>
+    ms.date="05/27/2016"
+    ms.author="rachelap"/>
 
 # Využití aplikace API z JavaScriptu pomocí CORS
 
@@ -80,8 +80,7 @@ V [ukázkové aplikaci ToDoList](https://github.com/Azure-Samples/app-service-ap
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
-            var apiEndpoint = "http://localhost:46439";
-        
+
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
         
@@ -116,7 +115,7 @@ Postup vytvoření nové webové aplikace App Service a nasazení projektu do n�
 
 4. V rozevíracím seznamu **Plán služby App Service** vyberte stejný plán, který jste vytvořili dříve. 
 
-7. Klikněte na **Vytvořit**.
+7. Klikněte na možnost **Vytvořit**.
 
     Visual Studio vytvoří webovou aplikaci, vytvoří pro ni profil publikování a zobrazí krok **Připojení** průvodce **Publikovat web**.
 
@@ -287,6 +286,6 @@ V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App S
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

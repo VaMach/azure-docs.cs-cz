@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Co je Azure Machine Learning Studio? | Microsoft Azure"
     description="Přehled nástroje Azure ML Studio, který umožňuje přetahováním rychle vytvářet modely z předpřipravených knihoven algoritmů a modulů"
-    keywords="azure machine learning,azure ml, ml studio"
+    keywords="azure machine learning,azure ml,ml studio"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 # Co je Azure Machine Learning Studio?
@@ -47,6 +47,7 @@ V horní části jsou tři karty: **Domů** (zde začínáte), **Studio** a **Ga
 
 Po kliknutí na kartu **Studio** se zobrazí výzva, abyste se přihlásili účtem Microsoft či školním nebo pracovním účtem. Jakmile se přihlásíte, na levé straně uvidíte následující karty:
 
+- **PROJEKTY** – Kolekce experimentů, datových sad, poznámkových bloků a jiných prostředků představující jeden objekt
 - **EXPERIMENTY** – Experimenty, které byly vytvořeny, spuštěny a uloženy jako koncepty
 - **WEBOVÉ SLUŽBY** – Webové služby, které jste nasadili z experimentů
 - **POZNÁMKOVÉ BLOKY** – Jupyter Notebooks, které jste vytvořili
@@ -117,6 +118,6 @@ Jakmile je váš model prediktivní analýzy připraven, můžete jej přímo v 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

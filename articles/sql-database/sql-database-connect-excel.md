@@ -2,7 +2,7 @@
     pageTitle="Připojení Excelu k SQL Database | Microsoft Azure"
     description="Zjistěte, jak připojit Microsoft Excel k databázi SQL Azure v cloudu. Naimportujte si data do Excelu, kde můžete data dále zkoumat a vytvářet z nich sestavy."
     services="sql-database"
-    keywords="connect excel to sql, import data to excel"
+    keywords="připojení excelu k sql, import dat do excelu"
     documentationCenter=""
     authors="joseidz"
     manager="jhubbard"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/25/2016"
+    ms.date="07/05/2016"
     ms.author="joseidz"/>
 
 
@@ -86,6 +86,6 @@ Máte vytvořené připojení a také soubor s daty a informacemi o připojení,
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

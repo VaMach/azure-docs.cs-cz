@@ -96,13 +96,14 @@ Mobilní průmysl v obrovském měřítku úspěšně používá schéma komunik
 
 ## Další kroky
 
-Další informace službě Azure IoT Hub naleznete pod následujícími odkazy:
+V článku [Přehled správy zařízení ve službě Azure IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení IoT založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
 
-* [Začínáme se službou IoT Hub][lnk-get-started]
-* [Připojení zařízení][lnk-connect-device]
-* [Zpracování zpráv typu zařízení-cloud][lnk-d2c]
+K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK zařízení IoT. Sady SDK zařízení IoT zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace naleznete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
+
+Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kurz [Začínáme se službu IoT Hub][lnk-get-started].
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,9 +121,10 @@ Další informace službě Azure IoT Hub naleznete pod následujícími odkazy:
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

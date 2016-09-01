@@ -1,8 +1,8 @@
 <properties
-    pageTitle="CDN Azure – Přehled"
+    pageTitle="CDN Azure – Přehled | Microsoft Azure"
     description="Zjistěte, co je Síť pro doručování obsahu (CDN) Azure, a jak ji používat k doručování širokopásmového obsahu díky ukládání objektů blob a statického obsahu do mezipaměti."
     services="cdn"
-    documentationCenter=".NET"
+    documentationCenter=""
     authors="camsoper"
     manager="erikre"
     editor=""/>
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/06/2016"
+    ms.date="08/09/2016"
     ms.author="casoper"/>
 
 # Přehled Sítě pro doručování obsahu (CDN) Azure
@@ -39,7 +39,7 @@ Mezi výhody používání CDN k ukládání webových prostředků do mezipamě
 
 3. Zdroj vrátí soubor serveru Edge včetně volitelných hlaviček protokolu HTTP, které popisují hodnotu TTL (Time to Live) souboru.
 
-4. Server Edge soubor uloží do mezipaměti a vrátí ho původnímu žadateli (Alici).  Soubor zůstane v mezipaměti na serveru Edge dokud hodnota TTL nevyprší.  Pokud zdroj nezadal hodnotu TTL, je výchozí hodnota TTL 7 dnů.
+4. Server Edge soubor uloží do mezipaměti a vrátí ho původnímu žadateli (Alici).  Soubor zůstane v mezipaměti na serveru Edge, dokud nevyprší platnost hodnoty TTL.  Pokud zdroj nezadal hodnotu TTL, je výchozí hodnota TTL sedm dní.
 
 5. Další uživatelé (například Bob) mohou následně požadovat stejný soubor pomocí stejné adresy URL a budou přesměrováni na stejný POP. 
 
@@ -57,32 +57,34 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | Vyrovnávání zatížení | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Ochrana proti útoku DDoS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Duální sada protokolů IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Podpora vlastních názvů domén](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Ukládání řetězce dotazu do mezipaměti](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrování podle země](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Rychlé vyprázdnění](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Předběžné načítání prostředku](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Základní analýza](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [Správa prostřednictvím REST API](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) nebo [prostředí PowerShellu](./cdn-manage-powershell.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Přizpůsobitelný modul doručování obsahu založený na pravidlech](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Rozšířené sestavy HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiky v reálném čase](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Víte o funkci, kterou byste uvítali v CDN Azure?  [Sdělte nám svůj názor](https://feedback.azure.com/forums/169397-cdn)! 
 
 ## Další kroky
 
 Chcete-li začít s CDN, podívejte se na [Používání Azure CDN](./cdn-create-new-endpoint.md).
 
-Pokud jste stávající zákazník CDN, můžete nyní spravovat koncové body CDN prostřednictvím [portálu Microsoft Azure](https://portal.azure.com).
+Pokud jste stávající zákazník CDN, můžete nyní spravovat koncové body CDN prostřednictvím portálu [Microsoft Azure Portal](https://portal.azure.com) nebo [PowerShellu](cdn-manage-powershell.md).
 
 Chcete-li vidět CDN v akci, podívejte se na [video z naší konference Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Přečtěte si informace o automatizaci Azure CDN s [.NET](./cdn-app-dev-net.md) nebo [Node.js](./cdn-app-dev-node.md).
+
 Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-Víte o funkci, kterou byste uvítali v CDN Azure?  [Sdělte nám svůj názor](https://feedback.azure.com/forums/169397-cdn)! 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

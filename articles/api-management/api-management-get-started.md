@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Správa vašeho prvního rozhraní API ve službě Azure API Management
@@ -133,11 +133,11 @@ Aby bylo možné rozhraní API volat, musí se vývojáři nejdřív přihlásit
 
 Operaci můžete volat přímo z portálu pro vývojáře, který nabízí pohodlný způsob pro zobrazení a testování operací v rozhraní API. V tomto kroku kurzu budete v rozhraní API základní kalkulačky volat operaci **Add two integers** (Sečíst dvě celá čísla). V nabídce v pravé horní části portálu vydavatele klikněte na **Portál pro vývojáře**.
 
-![Portál pro vývojáře][api-management-developer-portal-menu]
+![portálu pro vývojáře][api-management-developer-portal-menu]
 
 Pokud chcete zobrazit dostupné operace, klikněte v horní nabídce na **Rozhraní API** a potom na **Basic Calculator** (Základní kalkulačka).
 
-![Portál pro vývojáře][api-management-developer-portal-calc-api]
+![portálu pro vývojáře][api-management-developer-portal-calc-api]
 
 Všimněte si ukázkových popisů a parametrů naimportovaných společně s rozhraním API a operacemi, které poskytují dokumentaci vývojářům, kteří budou tuto operaci používat. Tyto popisy můžete přidat i v případě, kdy operace přidáváte ručně.
 
@@ -247,6 +247,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

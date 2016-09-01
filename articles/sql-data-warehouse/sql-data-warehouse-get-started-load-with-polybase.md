@@ -3,7 +3,7 @@
    description="Zjistěte, co je PolyBase a jak tuto funkci používat pro scénáře datových skladů."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/18/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
@@ -256,12 +256,10 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 <!--Article references-->
-[Kurz k používání funkce PolyBase v SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
-[Načtení dat pomocí bcp]: sql-data-warehouse-load-with-bcp.md
-[partneři řešení]: sql-data-warehouse-solution-partners.md
-[přehled vývoje]: sql-data-warehouse-overview-develop.md
-[Statistika]: sql-data-warehouse-develop-statistics.md
-[průvodce funkcí PolyBase]: sql-data-warehouse-load-polybase-guide.md
+[Kurz k používání funkce PolyBase v SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Načtení dat pomocí bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistika]: ./sql-data-warehouse-tables-statistics.md
+[průvodce funkcí PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Začínáme s nástrojem příkazového řádku AzCopy]: ../storage/storage-use-azcopy.md
 [nejnovější verzi AzCopy]: ../storage/storage-use-azcopy.md
 
@@ -289,6 +287,6 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

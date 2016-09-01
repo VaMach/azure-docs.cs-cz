@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Návrh tabulky][] nebo [Syntaxe CREATE TABLE][] .
+>[AZURE.NOTE] Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Přehled tabulek][] nebo [Syntaxe CREATE TABLE][].
 
 ### Krok 2: Vytvoření zdrojového datového souboru
 
@@ -179,10 +179,10 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 
 <!--Article references-->
 
-[Načtení dat do SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Přehled vývoje SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Návrh tabulky]: sql-data-warehouse-develop-table-design.md
-[Statistika]: sql-data-warehouse-develop-statistics.md
+[Načtení dat do SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Přehled vývoje SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Přehled tabulek]: ./sql-data-warehouse-tables-overview.md
+[Statistika]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -193,6 +193,6 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

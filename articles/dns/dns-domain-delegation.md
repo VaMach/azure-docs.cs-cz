@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -116,7 +116,9 @@ Pro načtení záznamů autoritativních NS můžete použít také víceplatfor
 
 Každý registrátor má vlastní nástroje pro správu DNS, které umožňují měnit záznamy názvových serverů pro doménu. Na stránce správy DNS vašeho registrátora upravte záznamy NS a nahraďte je záznamy NS, které vytvořil Azure DNS.
 
-Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS. Pro ukazování na IP adresy názvových serverů Azure DNS byste neměli používat „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
+Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS.  Vždycky byste měli použít všechny čtyři názvy názvových serverů bez ohledu na název domény.  Delegování domény nevyžaduje, aby název názvového serveru používal jako vaši doménu stejnou doménu nejvyšší úrovně.
+
+Pro ukazování na IP adresy názvových serverů Azure DNS byste neměli používat „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
 
 ### Ověření, že překlad názvů funguje
 
@@ -202,6 +204,6 @@ Vyhledáním záznamu SOA podřízené zóny můžete ověřit, že je všechno 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

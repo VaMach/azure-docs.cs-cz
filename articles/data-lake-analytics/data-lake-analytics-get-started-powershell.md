@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Kurz: Začínáme s Azure Data Lake Analytics pomocí Azure PowerShell
@@ -26,7 +26,7 @@ V tomto kurzu budete vyvíjet úlohu, která načte soubor hodnot oddělených t
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Předpoklady
+##Požadavky
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
@@ -212,6 +212,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

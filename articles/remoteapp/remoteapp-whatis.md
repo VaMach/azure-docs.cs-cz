@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/18/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Co je Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp přináší funkce místního programu Microsoft RemoteApp založeného na vzdálené ploše do Azure. Azure RemoteApp pomáhá poskytovat zabezpečený vzdálený přístup k aplikacím z mnoha různých uživatelských zařízení. Azure RemoteApp v podstatě hostuje dočasné relace terminálového serveru v cloudu a umožňuje vám jejich použití a sdílení s uživateli.
 
@@ -81,6 +84,6 @@ Nyní si můžete vše vyzkoušet. Určitě to udělejte! Tyto články vám pom
 Věděli jste, že kromě hodnocení tohoto článku a přidání komentářů pod článkem také můžete měnit samotný článek? Něco chybí? Něco není v pořádku? Něco je matoucí? Vraťte se na začátek článku, klikněte na **Upravit na GitHubu** nebo na **Upravit** a proveďte změny – změny se nám odešlou ke kontrole a po jejich schválení je doplníme do článku.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

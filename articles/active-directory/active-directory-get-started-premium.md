@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/16/2016"
     ms.author="markvi"/>
 
 # Začínáme se službou Azure Active Directory Premium
@@ -23,7 +23,7 @@ Active Directory Premium si můžete registrovat několika způsoby:
 
 **Azure nebo Office 365** – jako předplatitel služby Azure nebo Office 365 si můžete koupit Active Directory Premium online. Podrobný postup naleznete v tématu [Jak zakoupit Azure Active Directory Premium – stávající zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) nebo [Jak zakoupit Azure Active Directory Premium – noví zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
-**Sada Enterprise Mobility Suite** – sada Enterprise Mobility Suite je pro organizace nákladově efektivní způsob používání následujících služeb společně v rámci jednoho licenčního plánu: Active Directory Premium, Azure Rights Management, Microsoft Intune. Další informace naleznete na webu [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Pokud chcete získat bezplatnou 30denní zkušební verzi, klikněte [sem](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility + Security** – Enterprise Mobility + Security (dříve Enterprise Mobility Suite) je pro organizace nákladově efektivní způsob používání následujících služeb společně v rámci jednoho licenčního plánu: Active Directory Premium, Azure Rights Management, Microsoft Intune. Další informace naleznete na webu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Pokud chcete získat bezplatnou 30denní zkušební verzi, klikněte [sem](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Multilicenční služby společnosti Microsoft  ** – Azure Active Directory Premium je k dispozici prostřednictvím programu [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 nebo více licencí) nebo [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licencí).
@@ -164,6 +164,6 @@ Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se li�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
@@ -75,7 +75,7 @@ První věc, kterou je potřeba udělat, je konfigurace deklarací identity slu�
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
-13. Klikněte na **Finish** (Dokončit).
+13. Klikněte na **Dokončit**.
 14. Klikněte na tlačítko **Použít**.
 15. Klikněte na tlačítko **OK**.
 16. Zavřete správu služby AD FS.
@@ -106,6 +106,6 @@ A to je vše! Od tohoto okamžiku musí federovaní uživatelé služeb Office 3
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

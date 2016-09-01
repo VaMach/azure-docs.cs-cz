@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Informace o účtech Azure Storage
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Přehled
 
@@ -51,11 +53,11 @@ Pokud je například název účtu úložiště *můj_účet_úložiště*, pak 
 
 Adresa URL pro přístup k objektu v účtu úložiště je sestavena připojením umístění objektu v účtu úložiště ke koncovému bodu. Například adresa účtu pro objekty blob může mít tento formát: http://*můj_účet_úložiště*.blob.core.windows.net/*můj_kontejner*/*můj_objekt_blob*.
 
-Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Pro účty úložiště Classic najdete informace v tématu věnovaném [konfiguraci vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md). Pro účty úložiště ARM ještě tato funkce nebyla přidána na [Portál Azure](https://portal.azure.com), můžete ji ale konfigurovat pomocí PowerShellu. Další informace najdete v tématu věnovaném rutině [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
+Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Pro účty úložiště Classic najdete informace v tématu věnovaném [konfiguraci vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md). Pro účty úložiště Resource Manager ještě tato funkce nebyla přidána na [Portál Azure](https://portal.azure.com), můžete ji ale konfigurovat pomocí PowerShellu. Další informace najdete v tématu věnovaném rutině [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
-## Vytvoření účtu úložiště
+## vytvořit účet úložiště
 
-1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
+1. Přihlaste se k [portálu Azure](https://portal.azure.com).
 
 2. V nabídce centra vyberte **Nový** -> **Data a úložiště** -> **Účet úložiště**.
 
@@ -79,9 +81,9 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
 
 7. Vyberte předplatné, ve kterém chcete vytvořit nový účet úložiště.
 
-8. Zadejte novou skupinu prostředků nebo vyberte existující skupinu prostředků. Podrobnější informace o skupinách prostředků najdete v tématu [Použití Portálu Azure ke správě prostředků Azure](../azure-portal/resource-group-portal.md).
+8. Zadejte novou skupinu prostředků nebo vyberte existující skupinu prostředků. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md).
 
-9. Vyberte zeměpisné umístění účtu úložiště.
+9. Vyberte zeměpisné umístění účtu úložiště. V článku [Oblasti Azure](https://azure.microsoft.com/regions/#services) najdete další informace o tom, které služby jsou dostupné v daných oblastech.
 
 10. Vytvořte účet úložiště kliknutím na **Vytvořit**.
 
@@ -141,7 +143,7 @@ Pokud chcete odstranit účet úložiště, který je přidružený k virtuáln�
 
 Pokud účet úložiště používá model nasazení Classic, můžete disk virtuálního počítače odebrat pomocí následujících kroků na [Portálu Azure](https://manage.windowsazure.com):
 
-1. Přejděte na [Portál Classic](https://manage.windowsazure.com).
+1. Přejděte na [Portál Azure Classic](https://manage.windowsazure.com).
 2. Přejděte na kartu Virtuální počítače.
 3. Klikněte na kartu Disky.
 4. Vyberte datový disk a potom klikněte na Odstranit disk.
@@ -159,6 +161,6 @@ Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

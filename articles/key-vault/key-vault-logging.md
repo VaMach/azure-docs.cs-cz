@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Protokolování v Azure Key Vault #
-Azure Key Vault je dostupný ve většině oblastí. Další informace naleznete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Úvod  
 Poté, co jste vytvořili jeden nebo více trezorů klíčů, budete pravděpodobně chtít monitorovat kdo, jak a kdy k vašim trezorům klíčů přistupuje. Toho docílíte povolením protokolování pro Key Vault, které ukládá informace v zadaném účtu úložiště Azure. Nový kontejner s názvem **insights-logs-auditevent** je automaticky vytvořený pro zadaný účet úložiště a ten samý účet úložiště můžete použít pro shromažďování protokolů více trezorů klíčů.
@@ -33,6 +33,8 @@ Tento kurz vám pomůže začít s protokolováním v Azure Key Vault, vytvořen
 >[AZURE.NOTE]  Tento kurz neobsahuje pokyny k vytvoření trezorů klíčů, klíčů nebo tajných klíčů. Další informace naleznete v tématu [Začínáme s Azure Key Vault](key-vault-get-started.md) Pokyny pro rozhraní příkazového řádku pro různé platformy naleznete v [tomto ekvivalentním kurzu](key-vault-manage-with-cli.md).
 >
 >V současné době nelze Azure Key Vault konfigurovat na portálu Azure. Místo toho použijte tyto pokyny pro Azure PowerShell.
+
+Shromážděné protokoly je možné vizualizovat pomocí služby Log Analytics ze sady Operations Management Suite. Další informace najdete v článku [Řešení Azure Key Vault (Preview) ve službě Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault?](key-vault-whatis.md).
 
@@ -119,7 +121,7 @@ Výstup bude vypadat nějak takto:
 **Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
-**Název**
+**Name (Název)**
 
 **----**
 
@@ -269,12 +271,10 @@ Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na kurz 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
 
 Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
- 
+
+Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

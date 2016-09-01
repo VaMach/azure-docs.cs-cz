@@ -3,10 +3,10 @@
     description="Pomocí Azure Backup a Služeb zotavení můžete zálohovat a obnovovat data a aplikace Windows Serverů, klientských počítačů Windows, serverů System Center DPM a virtuálních počítačů Azure."
     services="backup"
     documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
+    authors="markgalioto"
+    manager="cfreeman"
     editor="tysonn"
-    keywords="backup and restore; recovery services; backup solutions"/>
+    keywords="zálohování a obnovení; recovery services; řešení zálohování"/>
 
 <tags
     ms.service="backup"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
 # Co je Azure Backup?
@@ -80,7 +80,7 @@ Protože je služba Backup hybridním řešením zálohování, skládá se z n�
 | Agent Azure Backup (MARS) | Ano | Ne (pouze agent založený na Windows) |
 | System Center Data Protection Manager | Ano (agent u hosta) | Pouze Hyper-V (ne virtuální počítač Azure) Možné pouze zálohování s konzistentními soubory |
 | Server Azure Backup (MABS) | Ano (agent u hosta) | Pouze Hyper-V (ne virtuální počítač Azure) Možné pouze zálohování s konzistentními soubory (stejně jako u DPM) |
-| Zálohování virtuálních počítačů Azure IaaS | Ve veřejné verzi Preview | Ve veřejné verzi Preview – virtuální počítače s Linuxem v modelu nasazení Resource Manageru <br>(Konzistence na úrovni souborového systému)<br><br>Ano pro virtuální počítače s Linuxem v modelu klasického nasazení |
+| Zálohování virtuálních počítačů Azure IaaS | Ano | Ano |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -99,7 +99,7 @@ Po dokončení úlohy zálohování je pracovní umístění odstraněno. Cena �
 
 ### Obnovení virtuálních počítačů služby Storage úrovně Premium
 
-Typickým procesem obnovení je obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do služby Storage úrovně Premium. Nicméně obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do standardního úložiště může být cenově výhodnější. Tento typ obnovení lze použít, pokud potřebujete podmnožinu souborů z virtuálního počítače.
+Virtuální počítač Storage úrovně Premium je možné obnovit do úložiště Storage úrovně Premium nebo do normálního úložiště. Typickým procesem obnovení je obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do služby Storage úrovně Premium. Nicméně obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do standardního úložiště může být cenově výhodnější. Tento typ obnovení lze použít, pokud potřebujete podmnožinu souborů z virtuálního počítače.
 
 ## Funkce
 Těchto pět tabulek shrnuje, jak se zpracovávají funkce zálohování v jednotlivých komponentách.
@@ -187,9 +187,9 @@ Agent Azure Backup poskytuje schopnost omezování, která vám umožňuje kontr
 | Frekvence zálohování (na disk) | Neuvedeno | <p>Každých 15 minut pro SQL Server</p> <p>Každou hodinu pro ostatní úlohy</p> | <p>Každých 15 minut pro SQL Server</p> <p>Každou hodinu pro ostatní úlohy</p> |Neuvedeno |
 | Možnosti uchovávání | Denně, týdně, měsíčně, ročně | Denně, týdně, měsíčně, ročně | Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |
 | Doba uchovávání | Až 99 let | Až 99 let | Až 99 let | Až 99 let |
-| Body obnovení v trezoru služby Backup | Neomezeno | Neomezeno | Neomezeno | Neomezeno |
+| Body obnovení v trezoru služby Backup | Neomezeno | Unlimited | Unlimited | Unlimited |
 | Body obnovení na místním disku | Neuvedeno | 64 pro souborové servery,<br><br>448 pro aplikační servery | 64 pro souborové servery,<br><br>448 pro aplikační servery |Neuvedeno |
-| Body obnovení na pásku | Neuvedeno | Neomezeno | Neuvedeno | Neuvedeno |
+| Body obnovení na pásku | Neuvedeno | Unlimited | Neuvedeno | Neuvedeno |
 
 ## Co je soubor s přihlašovacími údaji trezoru?
 
@@ -226,11 +226,11 @@ Tyto kurzy vám pomohou rychle zálohovat a proto ukazují pouze ten nejpřímě
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
-[red]: ./media/backup-introduction-to-azure-backup/red.png
+[žlutá]: ./media/backup-introduction-to-azure-backup/yellow.png
+[červená]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

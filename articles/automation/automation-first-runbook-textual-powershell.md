@@ -6,19 +6,19 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="azure powershell, powershell script tutorial, powershell automation"/>
+    keywords="azure powershell, kurz k powershellovému scriptu, automatizace powershellu"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
 # Můj první powershellový runbook
 
-> [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-PowerShell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-PowerShell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)  
 
 V tomto kurzu se seznámíte s vytvořením [powershellového runbooku](automation-runbook-types.md#powershell-runbooks) ve službě Azure Automation. Začneme s jednoduchým runbookem, který společně otestujeme a publikujeme a současně vám vysvětlíme, jak sledovat stav úlohy runbooku. Potom runbook upravíme, aby skutečně spravoval prostředky Azure, v tomto případě virtuální počítač Azure. Nakonec runbook zkvalitníme přidáním parametrů.
 
@@ -106,7 +106,7 @@ Runbook jsme otestovali a publikovali, ale zatím nedělá nic užitečného. Ch
     ``` 
 <br>
 4.  Klikněte na **testovací podokno**, abychom mohli runbook otestovat.
-5.  Kliknutím na **Spustit** spustíte test. Po jeho dokončení byste měli obdržet výstup, který zobrazuje základní informace z vašeho účtu. Tím se potvrdí platnost přihlašovacích údajů. <br> ![Ověření](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
+5.  Kliknutím na **Spustit** spustíte test. Po dokončení byste měli obdržet výstup podobný následujícímu se základními informacemi z vašeho účtu. Tím se potvrdí platnost přihlašovacích údajů. <br> ![Ověření](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Krok 6 – přidání kódu pro spuštění virtuálního počítače
 
@@ -117,7 +117,7 @@ Teď, když runbook umí ověřit naše předplatné Azure, můžeme začít spr
     ```
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
      ```
 <br>
@@ -137,7 +137,7 @@ Náš runbook aktuálně spouští virtuální počítač, který jsme do něj p
     )
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
      ```
 <br> 
@@ -167,6 +167,6 @@ Powershellové runbooky mají stejný životní cyklus, možnosti a správu jako
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

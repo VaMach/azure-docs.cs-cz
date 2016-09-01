@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí příkazového řádku Azure
@@ -32,7 +32,7 @@ Naučte se používat rozhraní příkazového řádku Azure k vytvoření účt
 Rozhraní příkazového řádku Azure je implementované v Node.js. Dá se použít na jakékoli platformě, která podporuje Node.js, včetně systému Windows, Mac a Linux. Rozhraní příkazového řádku Azure je typu Open Source. Zdrojový kód je spravován na webu GitHub na adrese <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Tento článek se týká jenom používání rozhraní příkazového řádku Azure se službou Data Lake Store. Obecné informace týkající se používání rozhraní příkazového řádku Azure najdete v tématu [Používání rozhraní příkazového řádku Azure] [nástroje-příkazového-řádku-azure].
 
 
-##Předpoklady
+##Požadavky
 
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:
 
@@ -191,6 +191,6 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Vyzkoušejte SQL Database: Použití jazyka C# k vytvoření databáze SQL | Microsoft Azure"
     description="Vyzkoušejte SQL Database při vývoji aplikací v jazyce C# využívajících SQL a vytvořte Azure SQL Database v C# s použitím knihovny SQL Database Library pro .NET."
-    keywords="try sql, sql c#"   
+    keywords="vyzkoušejte sql, sql c#"   
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-get-started.md)
+- [portál Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -46,7 +46,7 @@ K dokončení kroků v tomto článku budete potřebovat následující:
 Než začnete vytvářet databáze SQL pomocí C#, získejte potřebné knihovny pro správu, nejlépe instalací následujících balíčků pomocí [Konzoly správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) v sadě Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola správce balíčků**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -439,7 +439,7 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 ## Další zdroje
 
-- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Databáze SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 
@@ -458,6 +458,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

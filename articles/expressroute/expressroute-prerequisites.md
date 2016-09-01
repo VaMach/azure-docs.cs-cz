@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # Požadavky ExpressRoute a kontrolní seznam  
 
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, budete muset ověřit, že jsou splněné požadavky uvedené v následujících oddílech.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Účet Azure
 
@@ -66,6 +68,6 @@ Pokud budete chtít povolit CRM Online v ExpressRoute, přečtěte si následuj�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

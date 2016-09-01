@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Přiřazení licence Azure MFA, Azure AD Premium nebo Enterprise Mobility uživatelům
@@ -38,6 +38,7 @@ Pokud jste zakoupili licence ověřování Azure Multi-Factor Authentication, Az
 ![Přiřazení licencí](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

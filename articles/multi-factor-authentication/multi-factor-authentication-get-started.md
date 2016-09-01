@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtland"/>
 
 <tags 
@@ -13,19 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 #Výběr  multi-factor authentication řešení pro vás
 
 Jelikož existuje několik typů Azure  Multi-Factor Authentication, musíme určit několik věcí, aby bylo možné zjistit, která verze je ta správná pro vaše použití.  Jedná se o:
 
--	<a href="#1">Co se pokouším zabezpečit</a>
--	<a href="#2">Kde se nachází uživatelé</a>
+-   [Co se pokouším zabezpečit](#what-am-i-trying-to-secure)
+-   [Kde se nachází uživatelé](#where-are-the-users-located)
 
 V následujících částech naleznete pokyny k zodpovězení každé z těchto otázek.
 
-<h2 id="1">Co se pokouším zabezpečit</h2>
+## Co se pokouším zabezpečit?
 
 Aby bylo možné zjistit správné řešení multi-factor authentication, nejprve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo jde například o systém vzdáleného přístupu.  Určením co se pokoušíme zabezpečit zjistíme odpověď na otázku, kde musí být povoleno ověřování multi-factor authentication.  
 
@@ -40,7 +40,7 @@ Vzdálený přístup, jako je například síť VPN, RDG| |* |
 
 
 
-<h2 id="2">Kde se nachází uživatelé</h2>
+## Kde se nachází uživatelé
 
 V závislosti na tom, kde se nachází naši uživatelé můžeme určit správné řešení, které je třeba chcete, ať už jde o Multi-Factor authentication v cloudu nebo místní využití serveru MFA.
 
@@ -91,6 +91,6 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

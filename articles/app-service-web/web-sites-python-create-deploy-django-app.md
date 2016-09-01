@@ -54,13 +54,13 @@ Již byste měli mít nainstalován jazyk Python a Git, ale ujistěte se, zda m�
 
 ## Vytvoření webové aplikace v portálu
 
-Prvním krokem při vytváření aplikace je vytvoření webové aplikace pomocí [portálu Azure](https://portal.azure.com).
+Prvním krokem při vytváření aplikace je vytvoření webové aplikace pomocí [Azure Portal](https://portal.azure.com).
 
 1. Přihlaste se k portálu Azure a v levém dolním rohu klikněte na tlačítko **NOVÉ**.
 3. Do vyhledávacího pole zadejte „python“.
-4. Ve výsledcích hledání vyberte položku **Django** a klikněte na možnost **Vytvořit**.
+4. Ve výsledcích hledání vyberte položku **Django** (publikováno PTVS) a klikněte na **Vytvořit**.
 5. Nakonfigurujte novou aplikaci Django, například pro ni vytvořte nový plán služby App Service a novou skupinu prostředků. Poté klikněte na možnost **Vytvořit**.
-6. Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Průběžné nasazování pomocí GIT ve službě Azure App Service](web-sites-publish-source-control.md).
+6. Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Místní nasazení GIT ve službě Azure App Service](app-service-deploy-local-git.md).
 
 ## Přehled aplikace
 
@@ -146,7 +146,7 @@ Následující 3 části popisují postup při vývoji webové aplikace ve 3 rů
 
 ### Klonování úložiště
 
-Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure. Další informace naleznete v tématu [Průběžné nasazování pomocí GIT ve službě Azure App Service](web-sites-publish-source-control.md).
+Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
 Otevřete soubor řešení (.sln), který je zahrnut v kořenovém adresáři úložiště.
 
@@ -223,7 +223,7 @@ Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
 ### Klonování úložiště
 
-Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Průběžné nasazování pomocí GIT ve službě Azure App Service](web-sites-publish-source-control.md).
+Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
 ### Klonování úložiště
 
-Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Průběžné nasazování pomocí GIT ve službě Azure App Service](web-sites-publish-source-control.md).
+Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -513,11 +513,11 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 [Python Tools pro Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pro Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Dokumentace nástrojů Python Tools pro Visual Studio]: http://aka.ms/ptvsdocs
+[Dokumentace k nástrojům Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Dokumentace rozhraní Django]: https://www.djangoproject.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

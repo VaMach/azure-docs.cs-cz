@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="03/28/2016"
-    ms.author="wesmc"/>
+    ms.date="07/07/2016"
+    ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement – příručka Začínáme s osvědčenými postupy
 
@@ -409,6 +409,6 @@ Až získáte dostatek zkušeností, můžete zvážit rozšíření svých prog
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

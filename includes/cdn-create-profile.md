@@ -4,7 +4,7 @@
 
     Zobrazí se nové okno profilu CDN.
 
-    ![Nový profil CDN](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Nový profil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Zadejte název svého profilu CDN.
 
@@ -14,13 +14,13 @@
 
 5. Vyberte možnost u položky **Cenová úroveň**.  V článku [Přehled sítě CDN](cdn-overview.md#azure-cdn-features) najdete porovnání cenových úrovní.
     
-    ![Výběr cenové úrovně CDN](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Výběr cenové úrovně CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Vyberte **Předplatné** pro tento profil CDN.
 
 7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 
