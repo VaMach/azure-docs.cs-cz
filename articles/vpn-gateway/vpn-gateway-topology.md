@@ -114,6 +114,6 @@ Je vhodné se seznámit s tématy v článcích [Informace o službě VPN Gatewa
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

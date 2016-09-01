@@ -290,6 +290,6 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

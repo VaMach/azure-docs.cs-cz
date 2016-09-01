@@ -91,6 +91,6 @@ Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

@@ -306,6 +306,6 @@ Blahopřejeme! Naučili jste se, jak vyexportovat šablonu z prostředků, kter�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 
