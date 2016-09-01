@@ -49,6 +49,6 @@ Pomocí následujícího postupu vytvořte na portálu Azure pravidlo brány fir
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

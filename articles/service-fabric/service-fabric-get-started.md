@@ -66,6 +66,6 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

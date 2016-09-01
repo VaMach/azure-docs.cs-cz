@@ -135,6 +135,6 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

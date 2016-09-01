@@ -147,6 +147,6 @@ V těchto prezentacích s přehledem vývoje aplikací pro službu Azure Active 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

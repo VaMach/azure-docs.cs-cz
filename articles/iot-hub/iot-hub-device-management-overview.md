@@ -124,6 +124,6 @@ Pokud si chcete přečíst více o funkcích správy zařízení ve službě Azu
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

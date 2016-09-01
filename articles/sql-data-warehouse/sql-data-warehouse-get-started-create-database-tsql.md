@@ -85,6 +85,6 @@ Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][] n
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -47,6 +47,6 @@ Pokud při připojování nastanou problémy, přečtěte si článek [Řešení
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

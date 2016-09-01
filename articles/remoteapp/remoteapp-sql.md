@@ -56,6 +56,6 @@ Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající data
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

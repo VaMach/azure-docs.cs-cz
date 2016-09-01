@@ -86,6 +86,6 @@ Máte vytvořené připojení a také soubor s daty a informacemi o připojení,
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

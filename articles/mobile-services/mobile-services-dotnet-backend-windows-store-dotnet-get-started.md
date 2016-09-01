@@ -136,6 +136,6 @@ Další informace o univerzálních aplikací pro Windows naleznete v části [P
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -194,6 +194,6 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

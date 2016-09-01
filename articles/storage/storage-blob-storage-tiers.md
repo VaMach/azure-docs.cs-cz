@@ -355,6 +355,6 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

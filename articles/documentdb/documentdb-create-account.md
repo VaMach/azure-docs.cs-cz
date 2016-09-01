@@ -55,6 +55,6 @@ Další informace o DocumentDB najdete v těchto materiálech:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

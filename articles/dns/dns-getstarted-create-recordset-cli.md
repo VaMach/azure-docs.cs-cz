@@ -68,6 +68,6 @@ Další informace o službě Azure DNS najdete v tématu [Přehled Azure DNS](dn
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

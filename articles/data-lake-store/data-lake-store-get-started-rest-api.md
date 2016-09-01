@@ -278,6 +278,6 @@ Zobrazený výstup by měl vypadat asi takto:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

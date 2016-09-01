@@ -38,6 +38,6 @@ Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

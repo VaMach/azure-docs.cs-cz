@@ -163,6 +163,6 @@ Teď máte obecný přehled o použití služby Batch a je na čase službu proz
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

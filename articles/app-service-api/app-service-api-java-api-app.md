@@ -340,6 +340,6 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

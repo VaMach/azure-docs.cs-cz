@@ -69,6 +69,6 @@ Cesta partnerského vztahu Microsoftu vám umožní připojit se ke cloudovým s
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -123,6 +123,6 @@ Pokud budete potřebovat image se zvláštními úpravami, můžete *zachytit* e
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

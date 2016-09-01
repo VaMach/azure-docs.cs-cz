@@ -786,6 +786,6 @@ Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.c
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

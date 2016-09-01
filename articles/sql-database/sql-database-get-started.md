@@ -66,6 +66,6 @@ Nyní jste dokončili kurz SQL Database a vytvořili jste databázi s ukázkový
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

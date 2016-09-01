@@ -123,6 +123,6 @@ Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

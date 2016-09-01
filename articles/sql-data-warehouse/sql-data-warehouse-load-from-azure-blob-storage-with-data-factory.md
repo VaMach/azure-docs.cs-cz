@@ -240,6 +240,6 @@ Tato témata obsahují podrobné informace o službě Azure Data Factory. Jsou v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -193,6 +193,6 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

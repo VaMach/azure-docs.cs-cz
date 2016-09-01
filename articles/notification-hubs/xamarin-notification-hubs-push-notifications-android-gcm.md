@@ -522,6 +522,6 @@ V tomto jednoduchém příkladu jste vysílali oznámení pro všechna zařízen
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

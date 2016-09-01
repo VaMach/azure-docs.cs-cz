@@ -90,6 +90,6 @@ Během období vyhodnocování bude funkce partnerských vztahů virtuálních s
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

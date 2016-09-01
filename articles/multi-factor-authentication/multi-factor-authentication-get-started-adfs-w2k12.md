@@ -88,6 +88,6 @@ V nástroji PowerShell spusťte skript \Program Files\Multi-Factor Authenticatio
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

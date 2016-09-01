@@ -52,6 +52,6 @@ Scheduler umožní vytvářet, aktualizovat, odstraňovat, zobrazovat a spravova
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -42,6 +42,6 @@ Tento kurz vám pomůže rychle vytvořit virtuální počítač, takže vám uk
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

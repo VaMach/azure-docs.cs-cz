@@ -576,6 +576,6 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

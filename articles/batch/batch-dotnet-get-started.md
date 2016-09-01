@@ -783,6 +783,6 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -93,6 +93,6 @@ Teď, když jste dokončili rychlé spuštění se naučte pracovat s [klientem 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -247,6 +247,6 @@ Programátorské reference najdete v [příručce pro vývojáře Azure Key Vaul
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

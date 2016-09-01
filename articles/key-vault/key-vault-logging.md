@@ -275,6 +275,6 @@ Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Ruti
 Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

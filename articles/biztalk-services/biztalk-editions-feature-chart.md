@@ -261,6 +261,6 @@ Pokud chcete vytvořit službu BizTalk Services na webu Azure Portal, přejděte
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

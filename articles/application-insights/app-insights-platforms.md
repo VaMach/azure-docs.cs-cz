@@ -87,6 +87,6 @@ Pokud ještě není SDK k dispozici pro váš jazyk nebo platformu, možná si c
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

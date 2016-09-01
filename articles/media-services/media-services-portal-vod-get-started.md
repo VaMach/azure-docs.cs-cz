@@ -233,6 +233,6 @@ Musí být splněny určité předpoklady:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

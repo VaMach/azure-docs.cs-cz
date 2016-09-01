@@ -103,6 +103,6 @@ V předchozích krocích jste vytvořili kolekci pracovních prostorů a první 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

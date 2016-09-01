@@ -160,6 +160,6 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

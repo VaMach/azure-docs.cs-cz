@@ -218,6 +218,6 @@ Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v p�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

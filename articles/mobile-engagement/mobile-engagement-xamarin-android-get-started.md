@@ -149,6 +149,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

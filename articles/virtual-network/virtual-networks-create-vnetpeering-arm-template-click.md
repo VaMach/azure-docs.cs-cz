@@ -304,6 +304,6 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí mezi různými př
 3. Po navázání partnerského vztahu si můžete projít tento [článek](virtual-network-create-udr-arm-ps.md) a definovat Uživatelem definované trasy (UDR) pro přesměrování přenosu dat sítě VNet1 prostřednictvím virtuálního zařízení, abyste využili jeho možností. Při zadávání adresy pro další směrování v trase můžete jako adresu nastavit IP adresu virtuálního zařízení v partnerské virtuální síti HubVNet.
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 

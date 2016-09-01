@@ -283,6 +283,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

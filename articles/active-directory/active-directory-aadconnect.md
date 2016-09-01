@@ -165,6 +165,6 @@ Prezentace Ignite 2015 na rozšíření místních adresářů do cloudu.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

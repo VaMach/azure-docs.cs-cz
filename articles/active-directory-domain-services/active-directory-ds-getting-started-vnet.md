@@ -72,6 +72,6 @@ Další úlohou konfigurace je [povolení služby Azure AD Domain Services](acti
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

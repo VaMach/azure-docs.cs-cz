@@ -204,6 +204,6 @@ Vyhledáním záznamu SOA podřízené zóny můžete ověřit, že je všechno 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -82,6 +82,6 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

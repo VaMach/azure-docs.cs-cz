@@ -619,6 +619,6 @@ Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual St
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

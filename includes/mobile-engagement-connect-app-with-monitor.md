@@ -15,6 +15,6 @@ V této části se dozvíte, jak připojit vaši aplikaci s back-endu služby Mo
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

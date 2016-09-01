@@ -140,6 +140,6 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

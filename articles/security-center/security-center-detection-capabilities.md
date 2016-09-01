@@ -88,6 +88,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center funguje d
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

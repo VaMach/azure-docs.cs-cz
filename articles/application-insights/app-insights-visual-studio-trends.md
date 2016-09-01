@@ -102,6 +102,6 @@ Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

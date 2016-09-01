@@ -279,6 +279,6 @@ Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými karta
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

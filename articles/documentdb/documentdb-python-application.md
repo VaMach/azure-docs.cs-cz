@@ -436,6 +436,6 @@ Další kurzy Pythonu Flask najdete na stránce [Velký kurz na Flask, část I:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -628,6 +628,6 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -122,6 +122,6 @@ V dotazu se používá příkaz **LEFT OUTER JOIN** na stejný datový proud (sp
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -170,6 +170,6 @@ Nyní, když jste se naučili o konceptech služby Event Hubs, se můžete přes
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

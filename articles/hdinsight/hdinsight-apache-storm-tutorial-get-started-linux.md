@@ -193,6 +193,6 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

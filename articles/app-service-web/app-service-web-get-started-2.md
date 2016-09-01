@@ -157,6 +157,6 @@ Zkontrolujte, zda webová aplikace není zranitelná moderními hrozbami, a to p
 - [Seznámení s fungováním služby App Service](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -384,6 +384,6 @@ Další podrobnosti týkající se schopností Notification Hubs najdete na [por
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -65,6 +65,6 @@ Jakmile si uživatelé změní heslo, nové heslo bude zanedlouho použitelné v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

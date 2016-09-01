@@ -367,6 +367,6 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

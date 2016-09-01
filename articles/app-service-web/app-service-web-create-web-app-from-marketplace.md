@@ -182,6 +182,6 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

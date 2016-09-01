@@ -61,6 +61,6 @@ Nyní, když jste si přečetli úvod do služby SQL Database a znáte odpověď
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -124,6 +124,6 @@ Po připojení k logickému serveru se můžete připojit k databázi a spustit 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -158,6 +158,6 @@ Tento článek se věnoval SQL Database a SQL Serveru na virtuálních počíta�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

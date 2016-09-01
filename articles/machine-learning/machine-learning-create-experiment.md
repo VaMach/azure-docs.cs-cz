@@ -249,6 +249,6 @@ Rozsáhlejší a podrobnější návod k technikám prediktivního modelování 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

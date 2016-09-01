@@ -105,6 +105,6 @@ Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

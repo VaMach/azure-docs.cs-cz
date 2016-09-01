@@ -82,6 +82,6 @@ S využitím Poradce pro funkci Stretch Database, který je funkcí Poradce pro 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

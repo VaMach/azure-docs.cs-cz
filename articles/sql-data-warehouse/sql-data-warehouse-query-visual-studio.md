@@ -110,6 +110,6 @@ Informace o tom, jak nakonfigurovat prostředí pro ověřování služby Azure 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

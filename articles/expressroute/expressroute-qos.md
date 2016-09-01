@@ -52,6 +52,6 @@ V následující tabulce je seznam označení DSCP používaných Skypem pro fir
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

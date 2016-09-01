@@ -97,6 +97,6 @@ Za použití služeb Virtual Network se v Azure neúčtují žádné dodatečné
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

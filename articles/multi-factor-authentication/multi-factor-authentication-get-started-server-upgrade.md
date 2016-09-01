@@ -71,6 +71,6 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

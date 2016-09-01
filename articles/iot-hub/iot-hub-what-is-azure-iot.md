@@ -38,6 +38,6 @@ Možná by vás také mohla zajímat sada [Azure IoT Suite][lnk-iot-suite], což
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

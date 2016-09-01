@@ -68,6 +68,6 @@ Můžete také prozkoumat některé další funkce a možnosti předkonfigurovan
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

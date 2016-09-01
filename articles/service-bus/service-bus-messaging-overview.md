@@ -58,6 +58,6 @@ Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

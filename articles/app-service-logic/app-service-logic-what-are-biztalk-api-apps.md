@@ -55,6 +55,6 @@ Obchodní pravidla v sobě nesou zásady a rozhodnutí řídící podnikové pro
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

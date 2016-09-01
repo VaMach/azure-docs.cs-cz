@@ -83,6 +83,6 @@ Site Recovery může pomoci se strategií BCDR se sledováním aplikací, aby ú
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

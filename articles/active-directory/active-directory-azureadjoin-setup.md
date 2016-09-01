@@ -57,6 +57,6 @@ Pokud chcete uživatelům umožnit, aby si nastavili službu Azure AD Join, mů�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

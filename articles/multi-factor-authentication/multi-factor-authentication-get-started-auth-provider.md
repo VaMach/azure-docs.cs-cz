@@ -57,6 +57,6 @@ K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte nás
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

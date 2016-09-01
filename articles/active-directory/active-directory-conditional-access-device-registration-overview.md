@@ -90,6 +90,6 @@ Zařízení se systémy Windows 7 a Windows 8.1 připojená k doméně můžete 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

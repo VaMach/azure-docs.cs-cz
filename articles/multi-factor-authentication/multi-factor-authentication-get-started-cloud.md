@@ -98,6 +98,6 @@ Nyní, když máte nastavené Multi-Factor Authentication v cloudu, můžete kon
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

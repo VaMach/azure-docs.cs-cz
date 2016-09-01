@@ -125,6 +125,6 @@ Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kur
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

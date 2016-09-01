@@ -184,6 +184,6 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

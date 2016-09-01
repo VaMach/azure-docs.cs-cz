@@ -70,6 +70,6 @@ V tématu [Začínáme s protokolem BGP na branách Azure VPN](./vpn-gateway-bgp
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

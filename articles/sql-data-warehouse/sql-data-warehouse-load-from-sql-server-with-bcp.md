@@ -204,6 +204,6 @@ Další informace o vytvoření tabulky v SQL Data Warehouse viz [Přehled tabul
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

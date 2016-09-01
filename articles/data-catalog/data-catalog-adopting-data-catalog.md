@@ -175,6 +175,6 @@ Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší or
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

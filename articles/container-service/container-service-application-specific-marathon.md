@@ -60,6 +60,6 @@ Pomocí příkazu `dcos config show` můžete ověřit, proti které instanci Ma
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

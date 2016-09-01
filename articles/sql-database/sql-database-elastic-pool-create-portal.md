@@ -117,6 +117,6 @@ Po přidání databází do fondu se dynamicky vygeneruje doporučení na zákla
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

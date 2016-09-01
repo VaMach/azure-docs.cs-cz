@@ -139,6 +139,6 @@ Můžete zřídit další Multi-Factor Auth Servery, které budou sloužit jako 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

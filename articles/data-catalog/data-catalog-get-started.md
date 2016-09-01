@@ -375,6 +375,6 @@ V tomto kurzu jste prozkoumali základní možnosti služby Azure Data Catalog v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -39,6 +39,6 @@ Pokud jste zakoupili licence ověřování Azure Multi-Factor Authentication, Az
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

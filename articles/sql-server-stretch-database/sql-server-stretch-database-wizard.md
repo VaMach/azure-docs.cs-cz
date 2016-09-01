@@ -196,6 +196,6 @@ Povolení dalších tabulek pro Stretch Database Monitorování migrace dat a sp
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

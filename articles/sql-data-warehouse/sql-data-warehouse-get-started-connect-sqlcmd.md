@@ -89,6 +89,6 @@ Viz část [Dokumentace sqlcmd][sqlcmd.exe], kde naleznete další informace o 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

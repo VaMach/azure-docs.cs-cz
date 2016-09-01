@@ -55,6 +55,6 @@ Teď nastavte instance na hodnotu 10000000, aby služba Sysdig při každém př
 Po instalaci balíčku přejděte zpátky do uživatelského rozhraní služby Sysdig. Teď už budete moc prozkoumávat různé metriky využití kontejnerů v clusteru. 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

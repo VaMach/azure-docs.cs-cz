@@ -112,6 +112,6 @@ Pokud chcete vyhledat anomálie v datech, vyberte jednu z možností anomálií 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

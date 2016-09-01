@@ -70,6 +70,6 @@ V pracovním prostoru se vytvoří nový experiment, ve kterém ukázkový exper
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

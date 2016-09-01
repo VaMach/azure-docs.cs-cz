@@ -46,6 +46,6 @@ Prostudováním těchto materiálů zjistíte další informace o sadě IoT Suit
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

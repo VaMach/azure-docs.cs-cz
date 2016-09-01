@@ -260,6 +260,6 @@ Tento pracovní postup nastiňuje proces ochrany, replikace a převzetí služeb
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -159,6 +159,6 @@ K připojení vašeho řešení Big Compute k místním prostředkům nebo prost
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

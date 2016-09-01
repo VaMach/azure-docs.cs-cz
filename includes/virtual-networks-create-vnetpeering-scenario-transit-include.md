@@ -10,6 +10,6 @@ POZNÁMKA: Pro jednoduchost předpokládejte, že všechny zdejší virtuální 
 Klíčovou vlastností pro povolení směrování přenosu je parametr „Povolit přesměrovaný provoz“. Ten umožňuje přijímání a odesílání přenosů z/do NVA v partnerských virtuálních sítích.  
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

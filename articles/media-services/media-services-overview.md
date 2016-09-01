@@ -222,6 +222,6 @@ Další informace najdete v článku [Microsoft Azure SLA](https://azure.microso
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

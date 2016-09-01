@@ -314,6 +314,6 @@ V tomto okamžiku jste úspěšně vytvořili aplikaci API a nasadili do ní kó
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

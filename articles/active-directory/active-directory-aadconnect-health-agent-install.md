@@ -269,6 +269,6 @@ Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - Sho
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -107,6 +107,6 @@ Anomálie se definují jako bubliny s poměrem počty/procenta, který je vyšš
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

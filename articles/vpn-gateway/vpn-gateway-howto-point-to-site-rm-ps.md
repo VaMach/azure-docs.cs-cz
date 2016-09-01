@@ -254,6 +254,6 @@ Do virtuální sítě můžete přidat virtuální počítač. Kroky jsou uveden
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

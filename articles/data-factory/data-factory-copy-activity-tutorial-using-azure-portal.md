@@ -467,6 +467,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

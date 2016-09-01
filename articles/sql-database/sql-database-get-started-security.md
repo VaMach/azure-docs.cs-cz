@@ -54,6 +54,6 @@ Nyní jste dokončili kurz SQL Database – vytvořili jste uživatelský účet
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

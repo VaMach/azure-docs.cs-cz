@@ -94,6 +94,6 @@ Informace o běžných vzorech architektury dat databázových aplikací softwar
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

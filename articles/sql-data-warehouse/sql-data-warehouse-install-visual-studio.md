@@ -58,6 +58,6 @@ Teď, když máte nejnovější verzi rozšíření SSDT, se můžete [připojit
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

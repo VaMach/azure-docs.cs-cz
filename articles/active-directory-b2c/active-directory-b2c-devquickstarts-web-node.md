@@ -22,6 +22,6 @@
 > [AZURE.WARNING] Velice se omlouváme se, ale u tohoto kurzu potřebujeme udělat důležitou údržbu, takže jsme ho na chvíli znepřístupnili.  K dispozici je srovnatelný kurz .NET, který najdete v naší [příručce vývojáře](active-directory-b2c-overview.md).
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -623,6 +623,6 @@ Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.au
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

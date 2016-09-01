@@ -96,6 +96,6 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -287,6 +287,6 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

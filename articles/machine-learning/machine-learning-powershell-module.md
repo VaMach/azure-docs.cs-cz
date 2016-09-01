@@ -56,6 +56,6 @@ Pokud chcete začít s Machine Learning PowerShell, stáhněte si [vydaný balí
 Modul PowerShell bude dál vylepšován a rozšiřován i v současném období zkušebního provozu. Novinky a další informace se dočtete na [blogu o Cortana Intelligence a Machine Learning](https://blogs.technet.microsoft.com/machinelearning/).
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

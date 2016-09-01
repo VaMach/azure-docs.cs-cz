@@ -199,6 +199,6 @@ Další informace o funkcích správy zařízení ve službě Azure IoT Hub najd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

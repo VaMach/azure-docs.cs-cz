@@ -220,6 +220,6 @@ Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval me
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 
