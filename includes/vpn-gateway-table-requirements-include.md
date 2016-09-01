@@ -8,10 +8,11 @@ Následující tabulka uvádí požadavky na brány sítě VPN založené na zá
 | **Metoda ověřování**                 |    Předsdílený klíč  | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S | Předsdílený klíč pro připojení S2S, certifikáty pro připojení P2S |
 | **Maximální počet připojení S2S**       | 1                              | 10                                                                    | 10                                | 30                               |
 | **Maximální počet připojení P2S**       | Nepodporuje se                  | 128                                                                   | 128                               | 128                              |
-|**Podpora aktivního směrování (BGP)**           | Nepodporuje se                  | Nepodporuje se                                                         | Nepodporuje se                     | Nepodporuje se                    |
+|**Podpora aktivního směrování (BGP)**           | Nepodporuje se                  | Nepodporuje se                                                         | Podporuje se                     | Podporuje se                   |
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

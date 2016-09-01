@@ -11,7 +11,7 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
 
         info:    New mode is arm
 
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
         azure group create -n TestRG -l centralus
 
@@ -108,6 +108,6 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

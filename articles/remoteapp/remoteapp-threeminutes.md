@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Chcete si prohlédnout Azure RemoteApp na svém zařízení? Pokud máte účet Microsoft, můžete po dobu 10 minut přistupovat k našemu ukázkovému nasazení. Na ukázku máme Office a několik dalších aplikací. Je to skvělý způsob, jak si můžete vyzkoušet uživatelské prostředí Azure RemoteAppu za méně než tři minuty.
 
@@ -37,6 +40,6 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

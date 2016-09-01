@@ -1,7 +1,7 @@
 <properties
     pageTitle="Dotazovat data z HDFS kompatibilního úložiště Blob storage | Microsoft Azure"
     description="HDInsight používá Úložiště objektů blob v Azure jako úložiště velkých dat pro HDFS. Zjistěte, jak zadávat dotazy na data z Blob storage a uložte výsledky analýzy."
-    keywords="blob storage,hdfs,structured data,unstructured data"
+    keywords="úložiště objektů blob,hdfs,strukturovaná data,nestrukturovaná data"
     services="hdinsight,storage"
     documentationCenter=""
     tags="azure-portal"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 
@@ -27,11 +27,7 @@ Naučte se používat nízkonákladové Úložiště objektů blob v Azure s HDI
 
 Ukládání dat do Blob storage vám umožní bezpečné odstranění clusterů HDInsight, které jsou používány pro výpočty, aniž by se ztratila uživatelská data.
 
-> [AZURE.NOTE]  Syntaxe *asv://* se nepodporuje v clusterech HDInsight verze 3.0. To znamená, že všechny úlohy, odeslané do clusteru HDInsight verze 3.0, které explicitně používají syntaxi *asv: / /*, se nezdaří. Místo toho by měla být použita syntaxe *wasb: / /*. Úlohy, odeslané do jakýchkoli clusterů HDInsight verze 3.0, které jsou vytvořeny pomocí existujícího metaúložiště, které obsahuje explicitní odkazy na prostředky, které používají syntaxi asv: / /, se nezdaří. Pro adresování prostředků se tato metaúložiště musí znovu vytvořit pomocí syntaxe wasb: / /.
-
-> HDInsight aktuálně podporuje jenom objekty blob bloku.
-
-> Většina příkazů HDFS (například <b>ls</b>, <b>copyFromLocal</b> a <b>mkdir</b>) bude i nadále fungovat podle očekávání. Jenom příkazy, které jsou specifické pro nativní implementaci HDFS (což se označuje jako DFS), jako je například <b>fschk</b> a <b>dfsadmin</b>, se budou chovat v Úložišti objektů blob v Azure odlišně.
+> [AZURE.IMPORTANT] HDInsight podporuje jen objekty blob bloku. Nepodporuje objekty blob stránky ani doplňovací objekty blob.
 
 Informace o vytváření clusteru služby HDInsight najdete v tématu [Začínáme se službou HDInsight][hdinsight-get-started] nebo [Tvorba clusterů HDInsight][hdinsight-creation].
 
@@ -49,6 +45,7 @@ Navíc služba HDInsight poskytuje schopnost přístupu k datům, která jsou ul
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] Ve verzích služby HDInsight starších než 3.0 se místo `wasb://` používal `asv://`. `asv://` se nemá používat s clustery HDInsight 3.0 nebo novějšími, jinak dojde k chybě.
 
 Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření HDInsight je jako výchozí systém souborů nastaven Účet úložiště Azure a konkrétní kontejner Úložiště objektů blob v Azure z tohoto účtu.
 
@@ -83,7 +80,7 @@ Existuje více výhod  spojených s ukládáním dat do Úložiště objektů bl
 
 Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, které do úložiště objektů Blob Azure ve skutečnosti uložit  nechcete. V takovém případě můžete zvolit k uložení dat do místní HDFS. Ve skutečnosti služba HDInsight používá DFS pro některé z těchto mezilehlých výsledků v úlohách Hive a jiných procesech.
 
-
+> [AZURE.NOTE] Většina příkazů HDFS (například <b>ls</b>, <b>copyFromLocal</b> a <b>mkdir</b>) bude i nadále fungovat podle očekávání. Jenom příkazy, které jsou specifické pro nativní implementaci HDFS (což se označuje jako DFS), jako je například <b>fschk</b> a <b>dfsadmin</b>, se budou chovat v Úložišti objektů blob v Azure odlišně.
 
 ## Vytvoření kontejnerů objektů Blob
 
@@ -155,10 +152,6 @@ Schéma identifikátoru URI pro přístup k souborům v Blob storage ze služby 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] Syntaxe pro adresování souborů na emulátoru úložiště (spuštěných v emulátoru HDInsight) je <i>wasb: / /&lt;ContainerName&gt;@storageemulator</i>.
-
-
-
 Schéma identifikátoru URI poskytuje nezašifrovaný přístup (s předponou *wasb:*) a zašifrovaný přístup SSL (s *wasbs*). Doporučujeme používat *wasbs* kdykoli je to možné, i v případě přístupu k datům, umístěným uvnitř stejné oblasti v Azure.
 
  &lt;BlobStorageContainerName&gt; identifikuje název kontejneru v Úložiště objektů blob v Azure.
@@ -166,8 +159,8 @@ Schéma identifikátoru URI poskytuje nezašifrovaný přístup (s předponou *w
 
 Pokud nebyl zadán &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt;, použije se výchozí systém souborů. Pro soubory ve výchozím systému souborů můžete použít relativní cestu nebo absolutní cestu. Například soubor *hadoop-mapreduce-examples.jar*, který se dodává s clustery HDInsight, lze odkazovat pomocí jedné z následujících akcí:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] V clusterech HDInsight verze 2.1 a 1.6. je název souboru <i>hadoop-examples.jar</i>
@@ -277,7 +270,7 @@ $clusterName = „<HDInsightClusterName>“
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Další kroky
 
@@ -308,6 +301,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

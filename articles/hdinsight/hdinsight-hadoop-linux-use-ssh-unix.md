@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 #Použití SSH se systémem Linux Hadoop v HDInsight ze systému OS X, Linux a Unix.
@@ -93,7 +93,7 @@ Při vytváření clusteru HDInsight se systémem Linux je nutné zadat veřejn�
 
 Každá z těchto metod bude vyžadovat heslo nebo veřejný klíč. Úplné informace týkající se vytvoření clusteru HDInsight se systémem Linux naleznete v části [Clustery HDInsight se systémem Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portál Azure
+###Azure Portal
 
 Pokud používáte [portál Azure][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, musíte zadat **UŽIVATELSKÉ JMÉNO SSH** a vybrat, jestli chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
 
@@ -247,6 +247,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

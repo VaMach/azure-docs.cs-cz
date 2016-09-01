@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Úvod do Microsoft Azure Storage
@@ -132,7 +132,11 @@ Další informace o sdílených přístupových podpisech najdete v tématu [Sd�
 
 ## Replikace pro odolnost a vysokou dostupnost
 
-Data v účtu úložiště Microsoft Azure se vždy replikují, protože se tím zajistí jejich odolnost a vysoká dostupnost a splní se tím nároky [SLA pro úložiště](https://azure.microsoft.com/support/legal/sla/storage/) i při krátkodobém výpadku hardwaru. Při vytvoření účtu úložiště si musíte vybrat jednu z těchto možností replikace:  
+Data v účtu úložiště Microsoft Azure se vždy replikují, protože se tím zajistí jejich odolnost a vysoká dostupnost a splní se tím nároky [SLA pro úložiště](https://azure.microsoft.com/support/legal/sla/storage/) i při krátkodobém výpadku hardwaru. 
+
+V článku [Oblasti Azure](https://azure.microsoft.com/regions/#services) najdete další informace o tom, které služby jsou dostupné v jednotlivých oblastech.
+
+Při vytvoření účtu úložiště si musíte vybrat jednu z těchto možností replikace:  
 
 - **Místně redundantní úložiště (LRS).** Místně redundantní úložiště udržuje tři kopie dat. LRS se replikuje třikrát v rámci jednoho zařízení v jedné oblasti. LRS chrání vaše data před běžnými výpadky hardwaru, ale ne před výpadkem celého zařízení.  
   
@@ -147,10 +151,11 @@ Data v účtu úložiště Microsoft Azure se vždy replikují, protože se tím
     > 
     > Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS. 
 
-- **Geograficky redundantní úložiště (GRS)** Při vytváření účtu úložiště se automaticky vybere geograficky redundantní úložiště. GRS udržuje šest kopií dat. S GRS data se replikují třikrát v rámci primární oblasti a třikrát v sekundární oblasti stovky kilometrů od primární oblasti, takže poskytuje nejvyšší úroveň odolnosti. V případě výpadku primární oblasti převezme služby sekundární oblast. GRS zajistí, aby vaše data byla odolná ve dvou oblastech.
+- **Geograficky redundantní úložiště (GRS)** GRS udržuje šest kopií dat. S GRS data se replikují třikrát v rámci primární oblasti a třikrát v sekundární oblasti stovky kilometrů od primární oblasti, takže poskytuje nejvyšší úroveň odolnosti. V případě výpadku primární oblasti převezme služby sekundární oblast. GRS zajistí, aby vaše data byla odolná ve dvou oblastech.
 
+    Informace o primárních a sekundárních párech podle oblastí najdete v článku [Oblasti Azure](https://azure.microsoft.com/regions/).
 
-- **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)** Geograficky redundantní úložiště s přístupem pro čtení replikuje data do sekundárního geografického umístění a v sekundárním umístění poskytne k datům přístup pro čtení. Geograficky redundantní úložiště s přístupem pro čtení vám umožní přistupovat k datům z primárního nebo sekundárního umístění pro případ, že bude jedno umístění nedostupné.
+- **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)** Při vytváření účtu úložiště se automaticky povolí geograficky redundantní úložiště jen pro čtení. Geograficky redundantní úložiště s přístupem pro čtení replikuje data do sekundárního geografického umístění a v sekundárním umístění poskytne k datům přístup pro čtení. Geograficky redundantní úložiště s přístupem pro čtení vám umožní přistupovat k datům z primárního nebo sekundárního umístění pro případ, že bude jedno umístění nedostupné.
 
     > [AZURE.IMPORTANT] Pokud jste při vytváření účtu nezvolili replikaci ZRS, můžete způsob replikace později změnit. Pokud ale z LRS přejdete na GRS nebo RA-GRS, může se vám účtovat jednorázový poplatek za přenos dat.
  
@@ -203,7 +208,9 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 
 ### Nástroje
 
-- [Sady SDK a nástroje Azure](https://azure.microsoft.com/downloads/)
+- [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Klientské nástroje pro Azure Storage](storage-explorers.md)
+- [Sady SDK a nástroje Azure](https://azure.microsoft.com/tools/)
 - [Emulátor úložiště Azure](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure Powershell](../powershell-install-configure.md)
 - [Nástroj příkazového řádku AzCopy](http://aka.ms/downloadazcopy)
@@ -262,6 +269,6 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* – Povolení synchronizace hesel do služby Azure AD Domain Services
@@ -42,7 +42,7 @@ Toto jsou pokyny, které je nutné dát koncovým uživatelům, aby si změnili 
 
 3. Kliknutím na dlaždici **Změnit heslo** na této stránce zahajte změnu hesla.
 
-    ![Vytvořte virtuální síť pro službu Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Vytvoření virtuální sítě pro službu Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
 4. Otevře se stránka **změny hesla**. Uživatelé můžou zadat své stávající (staré) heslo a pokračovat ve změně hesla.
 
@@ -65,6 +65,6 @@ Jakmile si uživatelé změní heslo, nové heslo bude zanedlouho použitelné v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

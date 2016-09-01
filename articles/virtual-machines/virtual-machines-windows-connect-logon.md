@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="07/28/2016"
     ms.author="cynthn"/>
 
 # Jak se připojit a přihlásit k virtuálnímu počítači s Windows v Azure 
@@ -34,7 +34,7 @@ Pomocí tlačítka **Připojit** na Portálu Azure spustíte relaci Vzdálené p
 
     ![Snímek obrazovky Portálu Azure znázorňující způsob připojení k virtuálnímu počítači](./media/virtual-machines-windows-connect-logon/connect.png)
     
- > [AZURE.TIP] Pokud je tlačítko Připojit na portálu šedé (nedostupné) a nejste připojení k Azure přes [Express Route](../expressroute/expressroute-introduction.md) nebo připojení [S2S (Site-to-site) VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), musíte před použitím protokolu RDP vytvořit veřejnou IP adresu a přiřadit ji svému virtuálnímu počítači. Podle potřeby si můžete přečíst další informace o [veřejných IP adresách v Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+ > [AZURE.TIP] Pokud je tlačítko **Připojit** na portálu zašedlé a nejste připojení k Azure přes [Express Route](../expressroute/expressroute-introduction.md) nebo připojení [S2S (Site-to-site) VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), musíte před použitím protokolu RDP vytvořit veřejnou IP adresu a přiřadit ji svému virtuálnímu počítači. Podle potřeby si můžete přečíst další informace o [veřejných IP adresách v Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Přihlášení k virtuálnímu počítači
 
@@ -43,10 +43,10 @@ Pomocí tlačítka **Připojit** na Portálu Azure spustíte relaci Vzdálené p
 
 ## Další kroky
 
-Pokud budete mít s připojením problémy, projděte si téma [Poradce při potížích s připojením k virtuálnímu počítači s Windows v Azure pomocí Vzdálené plochy](virtual-machines-windows-troubleshoot-rdp-connection.md). Tento článek vás provede diagnostikou a řešením běžných problémů.
+Pokud při připojování nastanou problémy, přečtěte si článek [Řešení problémů s připojením ke Vzdálené ploše](virtual-machines-windows-troubleshoot-rdp-connection.md). Tento článek vás provede diagnostikou a řešením běžných problémů.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

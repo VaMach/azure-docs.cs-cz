@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Použití Azure Redis Cache s Node.js
@@ -36,7 +36,7 @@ Nainstalujte [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-V tomto kurzu používáme [node_redis](https://github.com/mranney/node_redis), ale můžete použít jakéhokoli Node.js klienta uvedeného na stránce [http://redis.io/clients](http://redis.io/clients).
+Tento kurz používá [node_redis](https://github.com/mranney/node_redis). Příklady použití dalších klientů Node.js najdete v individuální dokumentaci pro klienty Node.js uvedené v [klientech Node.js Redis](http://redis.io/clients#nodejs).
 
 ## Vytvoření mezipaměti Redis v Azure
 
@@ -46,17 +46,21 @@ V tomto kurzu používáme [node_redis](https://github.com/mranney/node_redis), 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## Bezpečné připojení k mezipaměti pomocí protokolu SSL
 
-## Povolení koncového bodu bez SSL
+Nejnovější sestavení [node_redis](https://github.com/mranney/node_redis) poskytuje podporu pro připojení k mezipaměti Azure Redis pomocí protokolu SSL. Následující příklad ukazuje, jak se připojit k mezipaměti Redis Azure pomocí protokolu SSL koncového bodu 6380. Nahraďte `<name>` názvem mezipaměti a `<key>` primárním nebo sekundárním klíčem popsaným v předchozí části [Načtení názvu hostitele a přístupových klíčů](#retrieve-the-host-name-and-access-keys).
 
-Někteří klienti Redis nepodporují SSL a ve výchozím nastavení je [port bez SSL pro nové instance služby Azure Redis Cache zakázán](cache-configure.md#access-ports). V době psaní tohoto textu klient [node_redis](https://github.com/mranney/node_redis) nepodporuje SSL. 
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+     var redis = require("redis");
+    
+      // Add your cache name and access key.
+    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## Přidání dat do mezipaměti a jejich načtení
 
-      var redis = require("redis");
+Následující příklad ukazuje, jak se připojit k instanci mezipaměti Redis Azure a uložit a načíst položku z mezipaměti. Pro další příklady použití Redis pomocí klienta [node_redis](https://github.com/mranney/node_redis) si zobrazte [http://redis.js.org/](http://redis.js.org/).
+
+     var redis = require("redis");
     
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -85,6 +89,6 @@ Výstup:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

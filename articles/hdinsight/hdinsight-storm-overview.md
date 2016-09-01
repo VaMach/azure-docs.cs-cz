@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Úvod do Apache Storm v HDInsight: analýzy v reálném čase pro Hadoop
@@ -109,7 +109,7 @@ Storm v HDInsight obsahuje nepřetržitou plnou podporu na úrovni rozlehlé sí
 
 ##Běžné případy použití pro analýzu v reálném čase
 
-Následují některé obvyklé scénáře, pro které můžete použít Apache Storm v HDInsight. Pro informace o scénářích reálného světa si přečtěte téma [Jak společnosti využívají Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
+Následují některé obvyklé scénáře, pro které můžete použít Apache Storm v HDInsight. Pro informace o scénářích reálného světa si přečtěte téma [Jak společnosti využívají Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet věcí (IoT)
 * Odhalování podvodů
@@ -162,7 +162,7 @@ Další informace naleznete v tématu [Vývoj topologií C# pro Apache Storm v 
 
 Většina příkladů Java, na které narazíte, bude v prostém jazyce Java nebo Trident. Trident má vysokou úroveň abstrakce, která usnadňuje provádění akcí, například slučování, agregací, seskupování a filtrování. Trident však funguje na dávky záznamů, zatímco hrubé řešení Java zpracovává jeden záznam za druhým.
 
-Další informace o Trident naleznete v tématu [Kurz Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) na apache.org.
+Další informace o Trident naleznete v tématu [Kurz Trident](https://storm.apache.org/documentation/Trident-tutorial.html) na apache.org.
 
 Příklady topologií Java a Trident naleznete v tématu [Seznam příkladů topologie Storm](hdinsight-storm-example-topology.md) nebo počáteční příklady Storm v clusteru HDInsight.
 
@@ -206,6 +206,12 @@ Pokud vaše topologie závisí na výpočtu hodnoty „top N“, například top
 
 Příklad naleznete v části [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java).
 
+##Jaký typ protokolování používá Storm?
+
+Storm používá Apache Log4j k ukládání informací. Ve výchozím nastavení se zaznamenává velké množství dat a může být obtížné informace roztřídit. Konfigurační soubor protokolování můžete zahrnout jako součást topologie Storm k řízení chování protokolování.
+
+Topologii příkladu, která ukazuje, jak nakonfigurovat protokolování, najdete v části [Počet slov na základě jazyka Java](hdinsight-storm-develop-java-topology.md) pro Storm v HDInsight.
+
 ##Další kroky
 
 Další informace o řešení pro analýzu v reálném čase s Apache Storm v HDInsight:
@@ -214,13 +220,13 @@ Další informace o řešení pro analýzu v reálném čase s Apache Storm v HD
 
 * [Příklad topologií pro Storm v HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

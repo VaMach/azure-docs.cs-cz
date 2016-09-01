@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga" />
 
 #Vytvoření aplikace Xamarin.Android
@@ -30,11 +30,11 @@ Zde je snímek obrazovky dokončené aplikace:
 
 Ve všech dalších kurzech k používání funkce Mobile Apps pro Xamarin.Android se předpokládá dokončení tohoto kurzu.
 
-##Předpoklady
+##Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
-* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).  
  
@@ -56,7 +56,7 @@ Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použí
 
 1. V části **Stáhnout a spustit projekt Xamarin.Android** klikněte na tlačítko **Stáhnout**.
 
-    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu na místní počítač a poznamenejte si, kam jste jej uložili.
+    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 
 2. Stiskněte klávesu **F5**, aby se projekt sestavil a spustil aplikaci.
 
@@ -86,11 +86,11 @@ Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin.
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Portál Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="07/19/2016"
    ms.author="charwen"/>
 
 # Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Classic existovat vedle sebe
@@ -227,6 +227,6 @@ Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastěj
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

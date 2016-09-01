@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="08/02/2016"
+    ms.author="curtand"/>
 
 # Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
-Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
+Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
 
 ## Přidání uživatele
 
@@ -56,7 +56,8 @@ Když do svého adresáře přidáte uživatele z jiného adresáře, bude tento
 
 Jediné propojení, které mezi těmito dvěma účty existuje, spočívá v tom, že se uživatel vždy ověřuje prostřednictvím svého domovského adresáře nebo účtu Microsoft. To je důvod, proč u externího uživatele nevidíte možnost povolení vícefaktorového ověřování nebo resetování hesla. V současné době se při přihlášení uživatele vyhodnocují pouze zásady ověřování jeho domovského adresáře nebo účtu Microsoft.
 
-> [AZURE.NOTE] Uživatele stále můžete ve svém adresáři zakázat, čímž mu zablokujete přístup do adresáře.
+> [AZURE.NOTE]
+> Uživatele pořád můžete zakázat ve svém adresáři a zablokovat mu tak přístup do adresáře.
 
 Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstraněn ze svého domovského adresáře nebo zruší svůj účet Microsoft. Tento uživatel ale nebude mít přístup k prostředkům ve vašem adresáři, protože se nemůže ověřit prostřednictvím domovského adresáře nebo účtu Microsoft.
 
@@ -85,6 +86,6 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

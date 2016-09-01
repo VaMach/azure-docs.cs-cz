@@ -47,7 +47,7 @@ Nyní si ukážeme, jak snadné je přidat do aplikace ověřování (podrobněj
 5. V okně **Nastavení služby Azure Active Directory** klikněte na možnost **Expresní** a poté klikněte na tlačítko **OK**. Výchozí nastavení vytvoří novou aplikaci Azure AD ve výchozím adresáři.  
  ![Ověřování – expresní konfigurace](./media/app-service-web-get-started/aad-login-express.png)
 
-6. Klikněte na možnost **Uložit**.  
+6. Klikněte na **Uložit**.  
     ![Ověřování – uložení konfigurace](./media/app-service-web-get-started/aad-login-save.png)
 
     Jakmile změna úspěšně proběhne, zobrazí se zelený zvonek indikující oznámení společně s přátelskou zprávou.
@@ -72,7 +72,7 @@ Služba App Service poskytuje řešení na klíč pro některé běžné potřeb
 
 ## Automatické škálování aplikace na základě poptávky
 
-Nyní budeme automaticky škálovat aplikaci tak, aby automaticky přizpůsobovala svou kapacitu dle poptávky uživatelů (podrobnější informace naleznete v částech [Škálování cenové úrovně ve službě Azure App Service](app-service-scale) a [Ruční nebo automatické škálování počtu instancí](../azure-portal/insights-how-to-scale.md)). 
+Nyní budeme automaticky škálovat aplikaci tak, aby automaticky přizpůsobovala svou kapacitu podle poptávky uživatelů (podrobnější informace naleznete v částech [Vertikální navýšení kapacity aplikace v Azure](web-sites-scale.md) a [Ruční nebo automatické škálování počtu instancí](../azure-portal/insights-how-to-scale.md)). 
 
 Stručně řečeno, webové aplikace lze škálovat dvěma způsoby:
 
@@ -112,7 +112,7 @@ V okně **Nastavení škálování** jste si nejspíše všimli, že lze provád
 - Automatické škálování podle plánu
 - Nastavení chování automatického škálování pro budoucí událost
 
-Další informace o vertikálním navýšení kapacity aplikace naleznete v tématu [Škálování cenové úrovně v službě Azure App Service](../app-service/app-service-scale.md). Další informace o horizontálním navýšení kapacity naleznete v tématu [Ruční nebo automatické škálování počtu instancí](../azure-portal/insights-how-to-scale.md).
+Další informace o vertikálním navýšení kapacity aplikace naleznete v tématu [Vertikální navýšení kapacity aplikace v Azure](../app-service-web/web-sites-scale.md). Další informace o horizontálním navýšení kapacity naleznete v tématu [Ruční nebo automatické škálování počtu instancí](../azure-portal/insights-how-to-scale.md).
 
 ## Doručování upozornění týkajících se aplikace
 
@@ -147,7 +147,7 @@ Zjistěte, jak z nasazené aplikace vytěžit co nejvíce. Následující výče
 
 - [Zakoupení a konfigurace vlastního názvu domény](custom-dns-web-site-buydomains-web-app.md) – Kupte pro svou webovou aplikaci atraktivní doménu namísto domény *.azurewebsites.net. Můžete také použít doménu, kterou již máte.
 - [Nastavení přípravných prostředí](web-sites-staged-publishing.md) – Nasaďte aplikaci na přípravnou adresu URL předtím, než ji umístíte do produkce. S jistotou aktualizujte svou živou webovou aplikaci. Nastavte propracované řešení DevOps s více nasazovacími sloty. 
-- [Nastavení průběžného nasazování](web-sites-publish-source-control.md) – Integrujte nasazení aplikace do systému správy zdrojů. Proveďte nasazení do Azure s každou potvrzenou změnou.
+- [Nastavení průběžného nasazování](app-service-continuous-deployment.md) – Integrujte nasazení aplikace do systému správy zdrojů. Proveďte nasazení do Azure s každou potvrzenou změnou.
 - [Přístup k místním prostředkům](web-sites-hybrid-connection-get-started.md) – Získejte přístup k stávající místní databázi nebo systému CRM.
 - [Zálohování aplikace](web-sites-backup.md) – Nastavte zálohování a obnovení webové aplikace. Připravte se na neočekávaná selhání a zotavte se z nich.
 - [Povolení diagnostických protokolů](web-sites-enable-diagnostic-log.md) – Přečtěte si protokoly služby IIS z Azure nebo trasování aplikací. Přečtěte si je pomocí streamu, stáhněte si je nebo je přizpůsobte pro službu [Application Insights](../application-insights/app-insights-overview.md) k analýze na klíč.
@@ -157,6 +157,6 @@ Zkontrolujte, zda webová aplikace není zranitelná moderními hrozbami, a to p
 - [Seznámení s fungováním služby App Service](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

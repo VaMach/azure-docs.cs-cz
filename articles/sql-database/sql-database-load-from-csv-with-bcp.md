@@ -1,0 +1,134 @@
+<properties
+   pageTitle="Načtení dat ze souboru CSV do databáze Azure SQL Database (bcp) | Microsoft Azure"
+   description="Pro malá množství dat se k importu dat do databáze SQL Azure používá bcp."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="CarlRabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/30/2016"
+   ms.author="carlrab"/>
+
+
+# Načtení dat ze souboru CSV do Azure SQL Data Warehouse (ploché soubory)
+
+Nástroj příkazového řádku bcp můžete použít k importu dat ze souboru CSV do databáze Azure SQL Database.
+
+## Než začnete
+
+### Požadavky
+
+Pro jednotlivé kroky v tomto kurzu budete potřebovat:
+
+- Logický server a databáze Azure SQL Database
+- Nainstalovaný nástroj příkazového řádku bcp
+- Nainstalovaný nástroj příkazového řádku sqlcmd
+
+Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][].
+
+### Data ve formátu ASCII nebo UTF-16
+
+Pokud pro tento kurz používáte svoje vlastní data, musí vaše data používat kódování ASCII nebo UTF-16, protože bcp nepodporuje kódování UTF-8. 
+
+PolyBase podporuje UTF-8, ale zatím nepodporuje UTF-16. Je potřeba upozornit na to, že pokud chcete kombinovat používání nástroje s funkcí PolyBase, budete muset data po vyexportování z SQL Serveru převést na UTF-8. 
+
+
+## 1. Vytvoření cílové tabulky
+
+Definujte v SQL Data Warehouse tabulku, která bude cílovou tabulkou pro načtení. Sloupce v tabulce musí odpovídat datům v jednotlivých řádcích vašeho datového souboru.
+
+Pokud chcete vytvořit tabulku, otevřete okno příkazového řádku a pomocí sqlcmd.exe spusťte následující příkaz:
+
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    ;
+"
+```
+
+
+## 2. Vytvoření zdrojového datového souboru
+
+Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového textového souboru. Pak tento soubor uložte do místního dočasného adresáře C:\Temp\DimDate2.txt. Tato data jsou ve formátu ASCII.
+
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
+
+(Volitelné) Pokud chcete z databáze SQL Serveru vyexportovat svoje vlastní data, otevřete příkazový řádek a spusťte následující příkaz. TableName, ServerName, DatabaseName, Username a Password nahraďte svými vlastními informacemi.
+
+```sql
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```
+
+## 3. Načtení dat
+Pokud chcete načíst data, otevřete příkazový řádek a spusťte následující příkaz, přičemž hodnoty parametrů Server Name (Název serveru), Database name (Název databáze), Username (Uživatelské jméno) a Password (Heslo) nahraďte svými vlastními informacemi.
+
+```sql
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```
+
+Pomocí tohoto příkazu ověřte, že se data načetla správně.
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
+```
+
+Výsledky by měly vypadat takto:
+
+DateId |CalendarQuarter |FiscalQuarter
+----------- |--------------- |-------------
+20150101 |1 |3
+20150201 |1 |3
+20150301 |1 |3
+20150401 |2 |4
+20150501 |2 |4
+20150601 |2 |4
+20150701 |3 |1
+20150801 |3 |1
+20150801 |3 |1
+20151001 |4 |2
+20151101 |4 |2
+20151201 |4 |2
+
+
+## Další kroky
+
+Postup migrace databáze serveru SQL Server naleznete v části [Migrace databáze serveru SQL Server](sql-database-cloud-migrate.md).
+
+<!--MSDN references-->
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[Syntaxe CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+
+<!--Other Web references-->
+[Stažení softwaru společnosti Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+
+
+
+<!--HONumber=Aug16_HO4-->
+
+

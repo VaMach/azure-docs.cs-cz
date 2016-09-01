@@ -20,13 +20,20 @@
 
 Vítejte v Azure Site Recovery! Začněte tímto článkem. Poskytne vám rychlý přehled služby Site Recovery a popíše, čím může služba přispět ke strategii pro provozní kontinuitu a zotavení po havárii (BCDR).
 
-Azure nabízí dva různé modely nasazení pro vytváření a práci s prostředky: [nástroj Resource Manager a klasický režim](../resource-manager-deployment-model.md). Tento článek se týká obou modelů. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
-
 ## Přehled
 
-Důležitou součástí strategie BCDR organizace je přijít na to, jak udržovat firemní úlohy a aplikace v provozu, když dojde k plánovanému i neplánovanému výpadku.
+Organizace potřebují strategii BCDR, která určuje, jak aplikace, úlohy a data zůstanou spuštěné a dostupné během plánovaných a neplánovaných výpadků a jak co nejdříve obnovit normální provozní podmínky. Strategie BCDR by měla zajistit bezpečnost a obnovitelnost firemních dat a zajistit, aby v případě, že dojde k havárii, byly zpracovávané úlohy stále k dispozici. 
 
-Site Recovery k tomu přispívá orchestrováním replikace, převzetí služeb při selhání a obnovení úloh a aplikací, aby byly k dispozici ze sekundární lokality v případě, že se primární lokalita ocitne mimo provoz. 
+Site Recovery je služba Azure, která přispívá ke strategie BCDR orchestrací replikace místní fyzických serverů a virtuálních počítačů do cloudu (Azure) nebo do sekundárního datového centra. Pokud dojde k výpadkům ve vašem primárním umístění, předáte služby při selhání do sekundárního umístění, aby aplikace a úlohy zůstaly dostupné. Až se obnoví normální provozní podmínky, vrátíte služby po obnovení zpět do primárního umístění. Potřebujete další informace [O službě Site Recovery?](site-recovery-overview.md)
+
+## Site Recovery na portálu Azure
+
+Azure má dva různé [modely nasazení](../resource-manager-deployment-model.md) pro vytváření prostředků a práci s nimi: Azure Resource Manager a klasický model správy služeb. Azure má také dva portály – [portál Azure Classic](https://manage.windowsazure.com/), který podporuje klasický model nasazení, a [portál Azure](https://portal.azure.com) s podporou pro oba modely nasazení.
+
+Site Recovery je k dispozici na klasickém portálu a na portálu Azure. Na portálu Azure Classic můžete podporovat službu Site Recovery s klasickým modelem správy služeb. Na portálu Azure můžete podporovat klasický model nasazení nebo nasazení nástroje Resource Manager. [Další informace](site-recovery-overview.md#site-recovery-in-the-azure-portal) o nasazení pomocí portálu Azure.
+
+Informace v tomto článku se vztahují na klasické nasazení i na nasazení portálu Azure. Rozdíly jsou popsány v případě potřeby.
+
 
 ## Proč používat Site Recovery? 
 
@@ -40,20 +47,20 @@ Zde je výčet, co může Site Recovery poskytnout vašemu podniku:
 
 ## Co mohu replikovat?
 
-Zde je souhrn toho, co Site Recovery dokáže replikovat.
+Zde naleznete souhrn toho, co dokáže nástroj Site Recovery replikovat.
 
 ![Z lokálního prostředí do lokálního prostředí](./media/site-recovery-overview/asr-overview-graphic.png)
 
-**REPLIKACE** | **Z** | **DO** | **ČLÁNEK**
+**REPLIKACE** | **REPLIKACE Z (LOKÁLNĚ)** | **DO** | **ČLÁNEK**
 ---|---|---|---
-Úlohy běžící na virtuálních počítačích VMware | Lokální server VMware | Azure Storage | [Nasazení](site-recovery-vmware-to-azure-classic.md)
-Úlohy běžící na virtuálních počítačích VMware | Lokální server VMware | Sekundární lokalita VMware | [Nasazení](site-recovery-vmware-to-vmware.md) 
-Úlohy běžící na virtuálních počítačích Hyper-V | Lokální hostitelský server Hyper-V v cloudu VMM | Azure Storage | [Nasazení](site-recovery-vmm-to-azure.md)
-Úlohy běžící na virtuálních počítačích Hyper-V | Lokální hostitelský server Hyper-V v cloudu VMM | Sekundární lokalita VMM | [Nasazení](site-recovery-vmm-to-vmm.md)
-Úlohy běžící na virtuálních počítačích Hyper-V | Lokální hostitelský server Hyper-V v cloudu VMM s úložištěm pro sítě SAN| Sekundární lokalita VMM s úložištěm pro sítě SAN | [Nasazení](site-recovery-vmm-san.md)
-Úlohy běžící na virtuálních počítačích Hyper-V | Místní lokalita Hyper-V (bez VMM) | Azure Storage | [Nasazení](site-recovery-hyper-v-site-to-azure.md)
-Úlohy běžící na fyzických serverech s Windows nebo Linuxem | Lokální fyzický server | Azure Storage | [Nasazení](site-recovery-vmware-to-azure-classic.md)
-Úlohy běžící na fyzických serverech s Windows nebo Linuxem | Lokální fyzický server | Sekundární datacentrum | [Nasazení](site-recovery-vmware-to-vmware.md) 
+Virtuální počítače VMware | Server VMware | Azure | [Další informace](site-recovery-vmware-to-azure-classic.md)
+Virtuální počítače VMware | Server VMware | Sekundární lokalita VMware | [Další informace](site-recovery-vmware-to-vmware.md) 
+Virtuální počítače Hyper-V | Hostitel Hyper-V v cloudu VMM | Azure | [Další informace](site-recovery-vmm-to-azure.md) 
+Virtuální počítače Hyper-V | Hostitel Hyper-V v cloudu VMM | Sekundární lokalita VMM | [Další informace](site-recovery-vmm-to-vmm.md)
+Virtuální počítače Hyper-V | Hostitel Hyper-V v cloudu VMM s úložištěm pro sítě SAN| Sekundární lokalita VMM s úložištěm pro sítě SAN | [Další informace](site-recovery-vmm-san.md)
+Virtuální počítače Hyper-V | Hostitel Hyper-V (bez VMM) | Azure | [Další informace](site-recovery-hyper-v-site-to-azure.md)
+Fyzické servery Windows/Linux | Fyzický server | Azure | [Další informace](site-recovery-vmware-to-azure-classic.md)
+Úlohy běžící na fyzických serverech s Windows nebo Linuxem | Fyzický server | Sekundární datacentrum | [Další informace](site-recovery-vmware-to-vmware.md) 
 
 
 ## Jaké úlohy mohu ochránit?
@@ -61,11 +68,11 @@ Zde je souhrn toho, co Site Recovery dokáže replikovat.
 Site Recovery může pomoci se strategií BCDR se sledováním aplikací, aby úlohy a aplikace neustále běžely, i když dojde k výpadku. Site Recovery poskytuje následující: 
 
 - **Snímky konzistentní vzhledem k aplikacím** – Replikace pomocí snímků konzistentních vzhledem k aplikacím s jednou nebo N vrstvami
-**Téměř synchronní replikace** – Frekvence replikací pouhých 30 sekund pro Hyper-V a neustálá replikace pro VMware
-**Integrace s SQL Server AlwaysOn** – Správa převzetí služeb skupin dostupnosti při selhání v plánech obnovení Site Recovery 
-- **Flexibilní plány obnovení** – Vytváření a přizpůsobení plánů obnovení pomocí externích skriptů, manuálních akcí a runbooků služby Azure Automation, které umožňují obnovit celý zásobník aplikací jediným kliknutím
-- **Knihovna Automation** – Bohatá knihovna Azure Automation obsahující předpřipravené skripty specifické pro aplikace, které je možné stáhnout a integrovat se Site Recovery 
--**Jednoduchá správa sítě** – Pokročilá správa sítě v Site Recovery a Azure, která zjednodušuje požadavky aplikací na síť, včetně rezervace IP adres, konfigurace nástrojů pro vyrovnávání zatížení a integrace Azure Traffic Manageru pro efektivní přepínání sítí
+- **Téměř synchronní replikace** – Frekvence replikací pouhých 30 sekund pro Hyper-V a neustálá replikace pro VMware
+- **Integrace s SQL Server AlwaysOn** – Správa převzetí služeb skupin dostupnosti při selhání v plánech obnovení Site Recovery 
+- **Flexibilní plány obnovení** – Vytváření a přizpůsobení plánů obnovení pomocí externích skriptů, manuálních akcí a runbooků služby Azure Automation, které umožňují obnovit celý zásobník aplikací jediným kliknutím.
+- **Knihovna Automation** – Bohatá knihovna Azure Automation obsahující předpřipravené skripty specifické pro aplikace, které je možné stáhnout a integrovat se Site Recovery
+- **Jednoduchá správa sítě** – Pokročilá správa sítě v Site Recovery a Azure, která zjednodušuje požadavky aplikací na síť, včetně rezervace IP adres, konfigurace nástrojů pro vyrovnávání zatížení a integrace Azure Traffic Manageru pro efektivní přepínání sítí.
 
 
 ## Další kroky
@@ -76,6 +83,6 @@ Site Recovery může pomoci se strategií BCDR se sledováním aplikací, aby ú
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""
-   keywords="how to backup; how to back up"/>
+   keywords="postup zálohování; jak zálohovat"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# První pohled: zálohování souborů a složek z Windows Serveru nebo z klienta Windows do Azure s Azure Backup pomocí modelu nasazení Resource Manageru
+# První pohled: zálohování souborů a složek s Azure Backup pomocí modelu nasazení Resource Manageru
 
 Tento článek vysvětluje, jak postupovat při zálohování souborů a složek z Windows Serveru (nebo z klienta Windows) do Azure s Azure Backup pomocí Resource Manageru. Tento kurz vás má provést základy. Chcete-li začít používat Azure Backup, jste na správném místě.
 
@@ -65,7 +65,7 @@ Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb z
 
 7. Klikněte na **Oblast** a vyberte zeměpisnou oblast trezoru. Tato volba určuje geografickou oblast, kam jsou zasílaná vaše zálohovaná data.
 
-8. Klikněte na **Vytvořit**.
+8. Klikněte na možnost **Vytvořit**.
 
     Pokud po vytvoření svůj trezor nevidíte v seznamu, klikněte na **Obnovit**. Až se seznam aktualizuje, klikněte na název trezoru.
 
@@ -209,6 +209,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

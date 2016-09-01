@@ -1,7 +1,7 @@
 <properties
     pageTitle="Vytvoření nového elastického fondu pomocí portálu Azure | Microsoft Azure"
     description="Jak přidat škálovatelný fond elastické databáze do konfigurace vaší databáze SQL pro snazší administraci a sdílení prostředků mezi mnoha databázemi."
-    keywords="scalable database,database configuration"
+    keywords="škálovatelná databáze, konfigurace databáze"
     services="sql-database"
     documentationCenter=""
     authors="ninarn"
@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.date="05/06/2016"
+    ms.date="07/20/2016"
     ms.author="ninarn"
     ms.workload="data-management"
     ms.topic="get-started-article"
@@ -21,7 +21,7 @@
 # Vytvoření nového fondu elastické databáze pomocí portálu Azure
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-elastic-pool-create-portal.md)
+- [portál Azure](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
@@ -33,9 +33,11 @@ Můžete přidat více fondů na jeden server, ale nemůžete přidat databáze 
 
 ## Krok 1: Vytvořte nový fond
 
-Vytvořte fond elastické databáze přidáním nového fondu k serveru. Můžete přidat více fondů na jeden server, ale nemůžete přidat databáze z různých serverů do stejného fondu.
+Tento článek ukazuje, jak vytvořit nový fond z existujícího okna **serveru** na portálu, což je nejjednodušší způsob, jak přesunout existující databáze do fondu. 
 
-1. V [portálu Azure](http://portal.azure.com/) klikněte na **Servery SQL** a potom na server obsahující databáze, které chcete přidat do fondu.
+> [AZURE.NOTE] Bez ohledu na to, zda již máte server nebo ne, můžete vytvořit nový fond z okna **SQL elastické fondy** (pod seznamem na levé straně portálu klikněte na tlačítko **Procházet** **>** **SQL elastické fondy**). Kliknutím na **+ Přidat** v okně **SQL elastické fondy** zajistíte kroky k vytvoření nového serveru během pracovního postupu zřizování fondu.
+
+1. Na [portálu Azure](http://portal.azure.com/) pod seznamem na levé straně klikněte na **Procházet** **>** **Servery SQL** a potom na server obsahující databáze, které chcete přidat do fondu.
 2. Klikněte na **Nový fond**.
 
     ![Přidejte fond na server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -115,6 +117,6 @@ Po přidání databází do fondu se dynamicky vygeneruje doporučení na zákla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

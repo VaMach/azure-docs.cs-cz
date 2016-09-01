@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí rozhraní REST API
@@ -31,7 +31,7 @@ V tomto článku se naučíte používat rozhraní REST API WebHDFS a rozhraní 
 
 >[AZURE.NOTE] Podrobné informace týkající se podpory rozhraní REST API pro Data Lake Store najdete v tématu [Referenční informace týkající se rozhraní REST API Azure Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx).
 
-## Předpoklady
+## Požadavky
 
 - **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Aktivujte předplatné Azure** pro verzi Public Preview služby Data Lake Store. Viz [pokyny](data-lake-store-get-started-portal.md#signup).
@@ -278,6 +278,6 @@ Zobrazený výstup by měl vypadat asi takto:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

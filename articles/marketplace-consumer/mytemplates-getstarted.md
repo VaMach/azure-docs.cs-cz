@@ -33,7 +33,7 @@ Následující návrhy vám pomohou naplno využít výhody **šablon** při pr�
 - **Šablona** je zapouzdřující prostředek, který obsahuje šablonu Resource Manageru a další metadata. Chová se velmi podobně jako položka v Marketplace. Klíčovým rozdílem je, že se jedná o soukromou položku, na rozdíl od veřejných položek Marketplace.
 - Knihovna **Šablony** dobře funguje pro uživatele, kteří potřebují přizpůsobit svá nasazení.
 - **Šablony** dobře fungují pro uživatele, kteří potřebují jednoduché úložiště v rámci Azure.
-- Začněte s existující šablonou Resource Manageru. Najděte šablony na [GitHubu](https://github.com/Azure/azure-quickstart-templates) nebo [Exportujte šablonu](https://azure.microsoft.com/blog/export-template/) z existující skupiny prostředků.
+- Začněte s existující šablonou Resource Manageru. Najděte šablony na [GitHubu](https://github.com/Azure/azure-quickstart-templates) nebo [exportujte šablonu](../resource-manager-export-template.md) z existující skupiny prostředků.
 - **Šablony** jsou vázané na uživatele, který je publikuje. Název vydavatele je viditelný každému, kdo k němu má přístup pro čtení.
 - **Šablony** jsou prostředky Resource Manageru a po publikování je nelze přejmenovat.
 
@@ -44,7 +44,7 @@ Existují dva způsoby, jak lze na portálu Azure vytvořit prostředek **šablo
 ### Způsob 1: Vytvoření nového prostředku šablony ze spuštěné skupiny prostředků
 
 1. Na portálu Azure přejděte do existující skupiny prostředků. V **Nastavení** vyberte **Exportovat šablonu**.
-2. Když je šablona Resource Manageru exportovaná, uložte ji pomocí tlačítka **Uložit šablonu** do úložiště **Šablony**. Podrobné informace o exportování šablony naleznete [zde](https://azure.microsoft.com/blog/export-template/).
+2. Když je šablona Resource Manageru exportovaná, uložte ji pomocí tlačítka **Uložit šablonu** do úložiště **Šablony**. Podrobné informace o exportování šablony najdete [zde](../resource-manager-export-template.md).
 <br /><br />
 ![Export skupiny prostředků](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +116,7 @@ Kliknutím pravým tlačítkem nebo v okně zobrazení konkrétní položky vybe
 
 ![Sdílení šablony](media/share-template-portal1a.png)  <br />
 
- Nyní můžete zvolit roli a uživatele nebo skupinu, kterým chcete poskytnout přístup ke konkrétní **šabloně**. Dostupné role jsou Vlastník, Čtenář a Přispěvatel. Další podrobnosti naleznete níže v oddílu [Řízení přístupu](#access-control-for-a-tenant-resource-provider).
+ Nyní můžete zvolit roli a uživatele nebo skupinu, kterým chcete poskytnout přístup ke konkrétní **šabloně**. Dostupné role jsou Vlastník, Čtenář a Přispěvatel. Další podrobnosti najdete výše v oddílu [Řízení přístupu](#access-control-for-a-tenant-resource-provider).
 
 ![Sdílení šablony](media/share-template-portal2b.png)  <br />
 
@@ -136,6 +136,6 @@ Klikněte na **Vybrat** a **Ok**. Nyní vidíte uživatele a skupiny, které jst
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

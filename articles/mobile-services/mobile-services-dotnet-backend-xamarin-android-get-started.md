@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/14/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -89,7 +89,8 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
 
     Tím se odešle požadavek POST do nové mobilní služby hostované v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí pomocí mobilní služby a v seznamu se zobrazí data.
 
-    > [AZURE.NOTE] Na kód, který přistupuje k mobilní službě pro dotazování a vkládání dat, se můžete podívat v souboru C# ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Kód, který přistupuje k mobilní službě pro účely dotazování a vkládání dat, si můžete prohlédnout v souboru ToDoActivity.cs jazyka C#.
 
 ## Další kroky
 Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět další důležité úkoly v Mobile Services:
@@ -130,12 +131,12 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript a HTML]: mobile-services-win8-javascript/
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[klasický portál Azure]: https://manage.windowsazure.com/
 [portálu classic]: https://manage.windowsazure.com/
 [Back-end verze jazyka JavaScript]: mobile-services-android-get-started.md
 [Poradce při potížích s .NET back-end pro Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

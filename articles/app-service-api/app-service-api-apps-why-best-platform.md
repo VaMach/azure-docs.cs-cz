@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="05/03/2016" 
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Přehled API Apps
 
@@ -65,6 +65,6 @@ Pokud se chcete v souvislosti s aplikacemi API na něco zeptat, otevřete vlákn
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

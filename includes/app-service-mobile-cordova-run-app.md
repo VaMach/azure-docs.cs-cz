@@ -1,24 +1,23 @@
 
-1. Navštivte [Portál Azure]. Klikněte na **Procházet vše** > **Mobilní aplikace** > prostředí back-end, které jste právě vytvořili. V nastavení mobilní aplikace klikněte na **Rychlý start** > **Cordova**. V části **Configure your client application** (Konfigurace klientské aplikace) vyberte možnost **Vytvořit novou aplikaci** a klikněte na **Stáhnout**. Tím stáhnete dokončený projekt Cordova pro aplikaci přednastavenou k připojení k vašemu prostředí back-end.
+1. Navštivte [Azure Portal]. Klikněte na **Procházet vše** > **Mobilní aplikace** > prostředí back-end, které jste právě vytvořili. V nastavení mobilní aplikace klikněte na **Rychlý start** > **Cordova**. V části **Configure your client application** (Konfigurace klientské aplikace) vyberte možnost **Vytvořit novou aplikaci** a klikněte na **Stáhnout**. Tím stáhnete dokončený projekt Cordova pro aplikaci přednastavenou k připojení k vašemu prostředí back-end.
 
-2. Rozbalte stažený soubor ZIP do adresáře na pevném disku.
+2. Rozbalte stažený soubor ZIP do adresáře na pevném disku, přejděte do souboru řešení (.sln) a otevřete ho pomocí aplikace Visual Studio.
 
-3. Otevřete projekt pomocí sady **Visual Studio**.  Klikněte na **Otevřít** > **Projekt nebo řešení**.
+5. V aplikaci Visual Studio zvolte platformu řešení (Android, iOS nebo Windows) z rozevíracího seznamu vedle spouštěcí šipky a pak vyberte konkrétní nasazení zařízení nebo emulátor kliknutím na rozevírací seznam na zelené šipce. Všimněte si, že můžete použít výchozí platformu Android a emulátor Ripple. Pokročilejší kurzy vyžadují výběr podporovaného zařízení nebo emulátoru. 
 
-4. Najděte soubor _název_webu_.sln a klikněte na **Otevřít**.
+6. Stisknutím klávesy F5 nebo kliknutím na zelenou šipku sestavte a spusťte aplikaci Cordova. Pokud se v emulátoru zobrazí dialogové okno zabezpečení požadující přístup k síti, potvrďte ho.   
 
-5. Výchozí emulátor je **Ripple – Nexus (Galaxy)**.  Klikněte na šipku rozevíracího seznamu vedle emulátoru a vyberte **Emulátor Google Android**.
-
-6. Klikněte na **Emulátor Google Android**.  Projekt se sestaví a potom spustí.  Emulátor Google Android může zobrazit upozornění na zabezpečení sítě s požadavkem na přístup k síti.  Nakonec se zobrazí emulátor Google Android a spustí se vaše aplikace.
-
-7. V aplikaci zadejte smysluplný text, třeba _Dokončit kurz_, a klikněte na tlačítko Přidat. Tím odešlete do prostředí back-end v Azure, které jste předtím vytvořili, požadavek POST. Prostředí back-end vloží data z požadavku do tabulky SQL TodoItem a vrátí informace o nově uložených položkách do mobilní aplikace. Mobilní aplikace zobrazí tato data v seznamu.
+7. Po spuštění aplikace v zařízení nebo emulátoru zadejte smysluplný text do pole **Zadejte nový text**, například _Dokončení kurzu_ a pak klikněte na tlačítko **Přidat**.  
+Tím odešlete do prostředí back-end v Azure, které jste předtím vytvořili, požadavek POST. Prostředí backend vloží data z požadavku do tabulky TodoItem v databázi SQL Database a vrátí informace o nově uložených položkách do mobilní aplikace. Mobilní aplikace zobrazí tato data v seznamu.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
+    
+8. Opakujte předchozí tři kroky pro každou platformu zařízení, kterou plánujete podporovat.
 
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

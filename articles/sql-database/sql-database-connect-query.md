@@ -2,7 +2,7 @@
     pageTitle="Připojení k SQL Database pomocí dotazu jazyka C# | Microsoft Azure"
     description="Napište v jazyce C# program, který vám umožní připojit se k databázi SQL a zadávat dotazy na data, která obsahuje. Informace o IP adresách, připojovacích řetězcích, zabezpečeném přihlašování a sadě Visual Studio zdarma."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="databázový dotaz c#, dotaz c#, připojení k databázi, SQL C#"
     documentationCenter=""
     authors="MightyPen"
     manager="jhubbard"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="08/17/2016"
     ms.author="annemill"/>
 
 
@@ -82,7 +82,7 @@ Pokud potřebujete instalaci sady Visual Studio, můžete:
 
 9. Po nainstalování sady Visual Studio klikněte v okně **Otevřít v sadě Visual Studio** na tlačítko **Otevřít v sadě Visual Studio**. Otevře se Visual Studio.
 
-10. Pro podokno **Průzkumníka objektů systému SQL Serveru** vás sada Visual Studio vyzve k vyplnění polí připojovacího řetězce v dialogu.
+10. Visual Studio vás vyzve, abyste v dialogovém okně vyplnili pole s připojovacím řetězcem.
  - Zvolte **Ověřování SQL Serveru**, nikoli **Ověřování systému Windows**.
  - Nezapomeňte zadat svoji databázi **AdventureWorksLT** (**Možnosti** > **Vlastnosti připojení** v dialogovém okně).
 
@@ -93,7 +93,7 @@ Pokud potřebujete instalaci sady Visual Studio, můžete:
 
 Po připojení k logickému serveru se můžete připojit k databázi a spustit ukázkový dotaz. 
 
-1. V **Průzkumníku objektů** přejděte na databázi na serveru, ke které máte oprávnění, například k ukázkové databázi **AdventureWorks**.
+1. V **Průzkumníkovi objektů** přejděte na databázi na serveru, ke které máte oprávnění, například k ukázkové databázi **AdventureWorks**.
 2. Klikněte na databázi pravým tlačítkem myši a pak klikněte na **Nový dotaz**.
 
     ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
@@ -124,6 +124,6 @@ Po připojení k logickému serveru se můžete připojit k databázi a spustit 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

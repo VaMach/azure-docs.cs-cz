@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/15/2016"
     ms.author="mandia"/>
 
 
@@ -261,6 +261,6 @@ Pokud chcete vytvořit službu BizTalk Services na webu Azure Portal, přejděte
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

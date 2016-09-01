@@ -4,7 +4,7 @@
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
-    manager="mbaldwin" 
+    manager="swadhwa" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/08/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Časté otázky k Azure RemoteAppu
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+
 K Azure RemoteAppu jste nám položili následující otázky. Máte další? Navštivte [fóra RemoteAppu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) a napište nám, co potřebujete vědět, nebo níže zanechte komentář.
+
+## Nemůžete najít, co hledáte? Máte otázku, na kterou jste nenašli odpověď?
+Pokud nemůžete najít potřebné informace nebo máte další otázku, kterou jste zde nenašli, navštivte prosím [fórum věnované Azure RemoteApp](http://aka.ms/araforum) a položte svou otázku tam. Do tohoto fóra pořád přidáváme další odpovědi.
 
 ## Co je Azure RemoteApp? ##
 
@@ -33,7 +40,7 @@ K Azure RemoteAppu jste nám položili následující otázky. Máte další? Na
 - **Jaká má služba omezení?** Další informace o výchozím nastavení a omezení služby Azure RemoteApp najdete v části [Omezení a kvóty předplatného a služeb Azure](../azure-subscription-service-limits.md). Dejte nám vědět, pokud máte další dotazy.
 - **Kolik uživatelů musím mít?** Minimálně 20 uživatelů. Ještě to zopakuji, aby to bylo naprosto jasné - MINIMUM je 20. Poplatky vám budou účtovány za 20 uživatelů. 
 - **Kolik stojí RemoteApp?** Podívejte se na [Podrobnosti o cenách Azure RemoteAppu ](https://azure.microsoft.com/pricing/details/remoteapp/).
-- **Stojí jeden typ kolekce víc než druhý?** Ano, může to tak být. Záleží na požadavcích vaší kolekce. Hybridní kolekce vyžaduje připojení z Azure RemoteAppu k místní síti. Pokud používáte stávající virtuální síť / síť ExpressRoute, je to bez dalších poplatků. Ale pokud používáte novou virtuální síť Azure a bránu nebo ExpressRoute, budou se vám účtovat poplatky za [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) nebo [ ExpressRoute](../../../pricing/details/expressroute/). Tyto poplatky (podrobně v odkazech) se přičtou k měsíčním nákladům na Azure RemoteApp.
+- **Stojí jeden typ kolekce víc než druhý?** Ano, může to tak být. Záleží na požadavcích vaší kolekce. Hybridní kolekce vyžaduje připojení z Azure RemoteAppu k místní síti. Pokud používáte stávající virtuální síť / síť ExpressRoute, je to bez dalších poplatků. Pokud ale používáte novou virtuální síť Azure a bránu nebo ExpressRoute, budou se vám účtovat poplatky za [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) nebo [ ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Tyto poplatky (podrobně v odkazech) se přičtou k měsíčním nákladům na Azure RemoteApp.
 
 ## Kolekce - co je podporováno, které byste měli používat a další
 - **Jsou podporovány vlastní obchodní aplikace (LOB)?** Ano. Pokud v Azure RemoteAppu chcete používat vlastní aplikaci, vytvořte si [image vlastní šablony](remoteapp-create-custom-image.md) a nahrajte ho do kolekce RemoteAppu.
@@ -86,7 +93,7 @@ Nejdříve počítače a tablety:
 
 - **Která verze Windows Serveru je podporována u hostitele relací vzdálené plochy (RDSH)?** Windows Server 2012 R2.
 
-##Podpora a zpětná vazba
+## Podpora a zpětná vazba
 
 
 - **Co je plán podpory pro RemoteApp?** Podpora pro správu fakturace a předplatného je k dispozici zdarma. Odborná pomoc je k dispozici prostřednictvím [plánů služby Azure](https://azure.microsoft.com/support/plans/). Bezplatnou podporu komunity můžete získat také na našem [diskusním fóru Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
@@ -117,6 +124,6 @@ Věděli jste, že kromě hodnocení tohoto článku a přidání komentářů p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

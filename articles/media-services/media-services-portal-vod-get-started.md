@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
-# Začínáme s doručováním obsahu na vyžádání pomocí portálu Azure (verze preview)
+# Začínáme s doručováním obsahu na vyžádání pomocí portálu Azure Portal
 
 V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a portálu Azure.
 
@@ -40,7 +40,7 @@ Tento kurz sestává z následujících úloh:
 Postup v této části ukazuje, jak vytvořit nový účet AMS.
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
-2. Klikněte na **+ Nový** > **Média + CDN** > **Media Services**.
+2. Klikněte na **+Nový** > **Média a CDN** > **Media Services**.
 
     ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -233,6 +233,6 @@ Musí být splněny určité předpoklady:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

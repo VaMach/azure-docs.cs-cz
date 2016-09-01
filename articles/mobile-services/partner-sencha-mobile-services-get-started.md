@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-sencha"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Začínáme s Mobile Services a Sencha Touch
@@ -58,7 +58,7 @@ Snímek obrazovky dokončené aplikace naleznete níže:
 
 Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého spuštění portálu Azure Classic k vytvoření nové databázové tabulky pro použití v mobilní službě.
 
-1. Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1. Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **HTML** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci HTML**.
 
@@ -684,7 +684,7 @@ Závěrečnou fází tohoto kurzu je hostování a spuštění nové aplikace v 
 
     Tím se odešle požadavek POST do nové mobilní služby hostované v Azure. Data z požadavku se vloží do tabulky TodoItem.
 
-  5. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku TodoItems.
+  5. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku TodoItems.
 
     ![Tabulka položek todo](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -705,7 +705,7 @@ Poté se ponořte do dalších informací o rozšíření Sencha Touch pro Azure
   * Používání Sencha s Azure Mobile Services: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
-##Další prostředky
+##Další zdroje
 
   * [Stáhnout Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
   * [Rozšíření Sencha Touch pro Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
@@ -723,9 +723,9 @@ Další informace o začátcích se Sencha Touch naleznete v úplné sadě [prů
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

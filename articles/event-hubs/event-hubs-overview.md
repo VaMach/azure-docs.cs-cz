@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Přehled služby Azure Event Hubs
@@ -21,9 +21,9 @@ Mnohá moderní řešení jsou navržená tak, aby poskytovala adaptivní uživa
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Služba Azure Event Hubs zpracovává události a zajišťuje příjem příchozích dat událostí a telemetrie do cloudu v masivním měřítku, s nízkou latencí a vysokou spolehlivostí. Tato služba je v kombinaci s dalšími službami pro příjem dat obzvlášť užitečná pro scénáře instrumentace aplikací, zpracování činnosti nebo pracovního postupu koncového uživatele a internetu věcí (IoT). Služba Event Hubs poskytuje možnost zpracovávat datové proudy zpráv. Centra událostí (Event Hubs) jsou entity podobné frontám a tématům, ale mají i charakteristiky, které je značně odlišují od tradičních podnikových způsobů zasílání zpráv. Podnikové scénáře zasílání zpráv běžně vyžadují mnoho sofistikovaných funkcí, jako je sekvencování, dead-lettering, podpora transakcí nebo silné záruky doručení, ačkoliv je při přijímání událostí hlavním zájmem zajistit u datových proudů událostí vysokou propustnost a flexibilitu zpracování. Možnosti služby Event Hubs se tudíž liší od témat sběrnice Service Bus tím, že výrazně upřednostňují scénáře vysoké propustnosti a zpracování událostí. V důsledku toho služba Event Hubs neimplementuje některé možnosti zasílání zpráv, které jsou k dispozici pro témata. Pokud tyto funkce potřebujete, témata zůstávají optimální volbou.
+Služba Azure Event Hubs zpracovává události a zajišťuje příjem příchozích dat událostí a telemetrie do cloudu v masivním měřítku, s nízkou latencí a vysokou spolehlivostí. Tato služba je v kombinaci s dalšími službami pro příjem dat obzvlášť užitečná pro scénáře instrumentace aplikací, zpracování činnosti nebo pracovního postupu koncového uživatele a internetu věcí (IoT). Služba Event Hubs poskytuje možnost zpracovávat datové proudy zpráv. Centra událostí (Event Hubs) jsou entity podobné frontám a tématům, ale mají i charakteristiky, které je značně odlišují od tradičních podnikových způsobů zasílání zpráv. Podnikové scénáře zasílání zpráv běžně vyžadují sofistikované funkce, jako je sekvencování, dead-lettering, podpora transakcí nebo silné záruky doručení, ačkoliv je při přijímání událostí hlavním zájmem zajistit u datových proudů událostí vysokou propustnost a flexibilitu zpracování. Možnosti služby Event Hubs se tudíž liší od témat sběrnice Service Bus tím, že výrazně upřednostňují scénáře vysoké propustnosti a zpracování událostí. V důsledku toho služba Event Hubs neimplementuje některé možnosti zasílání zpráv, které jsou k dispozici pro témata. Pokud tyto funkce potřebujete, témata zůstávají optimální volbou.
 
-Centrum událostí (Event Hub) se podobně jako fronty a témata vytváří na úrovni oboru názvů ve sběrnici Service Bus. Služba Event Hubs využívá jako svá primární rozhraní API protokoly AMQP a HTTP. Následující diagram znázorňuje vztah mezi službami Event Hubs a Service Bus.
+Centrum událostí (Event Hub) se podobně jako fronty a témata ve sběrnici Service Bus vytváří na úrovni oboru názvů Event Hubs. Služba Event Hubs využívá jako svá primární rozhraní API protokoly AMQP a HTTP. Následující diagram znázorňuje vztah mezi službami Event Hubs a Service Bus.
 
 ![Event Hubs](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Oddíly uchovávají data po nakonfigurovanou dobu uchování, která se nastavu
 
 Počet oddílů se určí v okamžiku vytvoření centra událostí a musí být mezi 2 a 32 (výchozí hodnota je 4). Oddíly slouží jako mechanismus pro organizaci dat a více souvisí se stupněm paralelismu příjmu dat, který vyžadují přijímací aplikace, než s propustností služby Event Hubs. To znamená, že výběr počtu oddílů v centru událostí přímo souvisí s počtem souběžných čtenářů, které plánujete mít. Jakmile centrum událostí vytvoříte, už počet oddílů nemůžete změnit. Proto je třeba zvážit tento počet s ohledem na dlouhodobě očekávanou škálu. Pokud chcete zvýšit limit 32 oddílů, kontaktujte tým Service Bus.
 
-I když lze oddíly identifikovat a je možné posílat jim data přímo, obecně se odesílání dat na konkrétní oddíly nedoporučuje. Místo toho můžete použít konstrukce vyšší úrovně, které představujeme v částech o [zdroji událostí](#event-publisher) a [zásadách zdroje](#capacity-and-security).
+I když lze oddíly identifikovat a je možné posílat jim data přímo, odesílání dat na konkrétní oddíly se nedoporučuje. Místo toho můžete použít konstrukce vyšší úrovně, které představujeme v částech o [zdroji událostí](#event-publisher) a [zásadách zdroje](#capacity-and-security).
 
 V kontextu služby Event Hubs se zprávy označují jako *data událostí*. Data událostí obsahují tělo události, uživatelem definovaný kontejner objektů a dat a různá metadata události, například její posun v oddílu a pořadí v posloupnosti datového proudu. Oddíly jsou vyplněny posloupností dat událostí.
 
@@ -118,11 +118,11 @@ Po otevření připojení a relace AMQP 1.0 u konkrétního oddílu služba Even
 
 ![Event Hubs](./media/event-hubs-overview/IC759862.png)
 
-Je na uživateli, aby tento posun spravoval způsobem, který umožňuje co nejlépe postupovat při zpracovávání datového proudu.
+Je na vás, aby tento posun spravoval způsobem, který umožňuje co nejlépe postupovat při zpracovávání datového proudu.
 
 ## Kapacita a zabezpečení
 
-Služba Event Hubs je vysoce škálovatelná paralelní architektura pro příjem příchozích dat z datového proudu. Při nastavování velikosti a škálování řešení založeného na službě Event Hubs je tedy potřeba zvážit několik klíčových aspektů. První z ovládacích prvků kapacity jsou *jednotky propustnosti*, které jsou popsány v následující části.
+Služba Event Hubs je vysoce škálovatelná paralelní architektura pro příjem příchozích dat z datového proudu. Při nastavování velikosti a škálování řešení založeného na službě Event Hubs je tedy potřeba zvážit několik klíčových aspektů. První z ovládacích prvků kapacity se nazývají *jednotky propustnosti*, které jsou popsány v následující části.
 
 ### Jednotky propustnosti
 
@@ -134,9 +134,9 @@ Kapacita propustnosti je ve službě Event Hubs řízená prostřednictvím jedn
 
 Příjem příchozích dat je omezen množstvím poskytnuté kapacity, které závisí na počtu nakoupených jednotek propustnosti. Odesílání dat ve větším množství způsobí výjimku „quota exceeded“ (překročená kvóta). Toto množství může být 1 MB za sekundu nebo 1000 událostí za sekundu – záleží, co nastane dříve. Odchozí data nezpůsobují takové výjimky, ale jsou omezená na objem přenosu dat, který poskytují zakoupené jednotky propustnosti: 2 MB za sekundu za jednotku propustnosti. Pokud se vám objevují výjimky související s frekvencí publikování nebo v budoucnu očekáváte větší objem odchozích dat, zkontrolujte, kolik jednotek propustnosti jste zakoupili pro obor názvů, ve kterém bylo centrum událostí vytvořené. Pokud chcete získat další jednotky propustnosti, můžete upravit nastavení na stránce **Obory názvů** na kartě **Škálování** v [Portál Azure Classic][]. Toto nastavení taky můžete změnit pomocí rozhraní API služby Azure.
 
-Oddíly jsou koncept organizace dat, zatímco jednotky propustnosti jsou čistě koncept kapacity. Jednotky propustnosti se kupují předem a účtují se po hodinách. Zakoupené jednotky propustnosti se účtují minimálně za jednu hodinu. Pro obor názvů služby Service Bus můžete zakoupit až dvacet jednotek propustnosti. Jeden účet Azure je omezený na dvacet jednotek propustnosti. Tyto jednotky propustnosti jsou sdíleny ve všech centrech událostí v daném oboru názvů.
+Oddíly jsou koncept organizace dat, zatímco jednotky propustnosti jsou čistě koncept kapacity. Jednotky propustnosti se kupují předem a účtují se po hodinách. Zakoupené jednotky propustnosti se účtují minimálně za jednu hodinu. Pro obor názvů služby Event Hubs můžete zakoupit až 20 jednotek propustnosti. Jeden účet Azure je omezený na 20 jednotek propustnosti. Tyto jednotky propustnosti jsou sdíleny ve všech centrech událostí v daném oboru názvů.
 
-Jednotky propustnosti se zřizují podle toho, jak kapacita systému dovolí, a nemusejí být vždy dostupné k okamžitému zakoupení. Pokud potřebujete konkrétní kapacitu, měli byste si potřebné jednotky propustnosti zakoupit s předstihem. Pokud potřebujete více než dvacet jednotek propustnosti, kontaktujte podporu služby Service Bus, která vám umožní zakoupit si další jednotky propustnosti na základě závazku v blocích po dvaceti jednotkách – až do první stovky jednotek propustnosti. Navíc si můžete taky zakoupit bloky, které obsahují sto jednotek propustnosti.
+Jednotky propustnosti se zřizují podle toho, jak kapacita systému dovolí, a nemusejí být vždy dostupné k okamžitému zakoupení. Pokud potřebujete konkrétní kapacitu, měli byste si potřebné jednotky propustnosti zakoupit s předstihem. Pokud potřebujete více než 20 jednotek propustnosti, kontaktujte podporu služby Azure, která vám umožní zakoupit si další jednotky propustnosti na základě závazku v blocích po 20 jednotkách – až do první stovky jednotek propustnosti. Navíc si můžete taky zakoupit bloky, které obsahují sto jednotek propustnosti.
 
 Doporučujeme, abyste pečlivě vyvážili jednotky propustnosti a oddíly. Jedině tak dosáhnete ve službě Event Hubs optimálního škálování. Škálování jednoho oddílu dovoluje maximálně jednu jednotku propustnosti. Počet jednotek propustnosti by měl být menší nebo roven počtu oddílů v centru událostí.
 
@@ -170,6 +170,6 @@ Nyní, když jste se naučili o konceptech služby Event Hubs, se můžete přes
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

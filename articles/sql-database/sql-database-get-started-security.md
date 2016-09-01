@@ -4,7 +4,7 @@
     keywords=""
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,10 +15,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="07/19/2016"
     ms.author="carlrab"/>
 
 # Kurz k SQL Database: Vytvoření uživatelského účtu databáze SQL pro přístup k databázi a její správu pomocí portálu Azure
+
+
+> [AZURE.SELECTOR]
+- [Kurz Začínáme](sql-database-get-started-security.md)
+- [Udělení přístupu](sql-database-manage-logins.md)
 
 V tomto kurzu se naučíte, jak pomocí Portálu Azure:
 
@@ -49,6 +54,6 @@ Nyní jste dokončili kurz SQL Database – vytvořili jste uživatelský účet
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

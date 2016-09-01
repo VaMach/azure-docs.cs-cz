@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="piyushjo" />
+    ms.date="08/12/2016"
+    ms.author="piyushjo;ricksal" />
 
 # Začínáme s Azure Mobile Engagementem pro univerzální aplikace pro Windows
 
@@ -23,14 +23,12 @@
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikace a jak odesílat nabízená oznámení segmentovaným uživatelům univerzální aplikace pro Windows.
 Tento kurz představuje scénář jednoduchého vysílání přes Mobile Engagement. Vytvoříte prázdnou univerzální aplikaci pro Windows, která bude shromažďovat základní data o využití aplikace a přijímat nabízená oznámení pomocí služby oznamování systému Windows (WNS).
 
-V tomto kurzu budete potřebovat následující:
+## Požadavky
 
-+ Visual Studio 2013
-+ Balíček NuGet [MicrosoftAzure.MobileEngagement]
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-> [AZURE.NOTE] K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
-##<a id="setup-azme"></a>Nastavení Mobile Engagementu pro univerzální aplikaci pro Windows
+## Nastavení Mobile Engagementu pro univerzální aplikaci pro Windows
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -38,19 +36,19 @@ V tomto kurzu budete potřebovat následující:
 
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu, která je zapotřebí pro shromažďování dat a odesílání nabízených oznámení. Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Windows Universal SDK](mobile-engagement-windows-store-sdk-overview.md)
 
-Pomocí Visual Studia si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
+Pomocí sady Visual Studio vytvoříte základní aplikaci, na které si tuto integraci předvedeme.
 
-###Vytvoření nového projektu univerzální aplikace pro Windows
+###Vytvoření projektu univerzální aplikace pro Windows
 
-Následující postup předpokládá použití sady Visual Studio 2015, ačkoliv kroky se podobají předchozím verzím sady Visual Studio. 
+Následující postup předpokládá použití sady Visual Studio 2015, ačkoliv kroky se podobají předchozím verzím sady Visual Studio.
 
 1. Spusťte Visual Studio a na obrazovce **Domů** vyberte **Nový projekt**.
 
-2. V místní nabídce vyberte **Windows 8** -> **Universal** -> **Prázdná aplikace (Universal Windows 8.1)**. Vyplňte **Název** aplikace a **Název řešení** a potom klikněte na **OK**.
+2. V místní nabídce vyberte **Windows** -> **Universal** -> **Prázdná aplikace (Universal Windows)**. Vyplňte **Název** aplikace a **Název řešení** a potom klikněte na **OK**.
 
     ![][1]
 
-Nyní jste vytvořili nový projekt univerzální aplikace pro Windows, do kterého budeme integrovat sadu Azure Mobile Engagement SDK.
+Nyní jste vytvořili projekt univerzální aplikace pro Windows, do kterého budete dál integrovat sadu Azure Mobile Engagement SDK.
 
 ###Připojení aplikace k back-endu Mobile Engagementu
 
@@ -66,7 +64,7 @@ Nyní jste vytvořili nový projekt univerzální aplikace pro Windows, do kter�
 
     ![][3]
 
-    >[AZURE.TIP] Pokud bude vaše aplikace cílit na platformy Windows i Windows Phone, měli byste stále vytvořit dvě aplikace Mobile Engagementu – jednu pro každou podporovanou platformu. Budete tak moci správně segmentovat publika a posílat vhodně cílená oznámení na každou platformu.
+    >[AZURE.TIP] Pokud vaše aplikace cílí na platformy Windows i Windows Phone, měli byste stále vytvořit dvě aplikace Mobile Engagementu – jednu pro každou podporovanou platformu. Dvě aplikace zajišťují, že můžete správně segmentovat publika a posílat vhodně cílená oznámení na každou platformu.
 
 4. V souboru `App.xaml.cs`:
 
@@ -74,7 +72,7 @@ Nyní jste vytvořili nový projekt univerzální aplikace pro Windows, do kter�
 
             using Microsoft.Azure.Engagement;
 
-    b. Přidejte metodu vyhrazenou pro inicializaci a nastavení Engagementu:
+    b. Přidejte metodu, která inicializuje Engagement:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -120,8 +118,8 @@ Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, m
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
     b. Nahraďte **Page** v názvu značky XML textem **engagement:EngagementPageOverlay**
-    
-> [AZURE.IMPORTANT] Pokud stránka přepíše metodu `OnNavigatedTo`, nezapomeňte volat `base.OnNavigatedTo(e)`. Jinak aktivita nebude hlášena (`EngagementPage` volá `StartActivity` uvnitř své metody `OnNavigatedTo`). To je obzvláště důležité v projektu Windows Phone, kde má výchozí šablona metodu `OnNavigatedTo`. 
+
+> [AZURE.IMPORTANT] Pokud stránka přepíše metodu `OnNavigatedTo`, nezapomeňte volat `base.OnNavigatedTo(e)`. Jinak aktivita nebude hlášena (`EngagementPage` volá `StartActivity` uvnitř své metody `OnNavigatedTo`). To je obzvláště důležité v projektu Windows Phone, kde má výchozí šablona metodu `OnNavigatedTo`.
 
 ##<a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 
@@ -148,16 +146,16 @@ V `App.xaml.cs` volejte **EngagementReach.Instance.Init(e);** ve funkci **InitEn
            EngagementReach.Instance.Init(e);
         }
 
-Nyní je vše nastavené k odesílání oznámení. A teď ověříme, zda jste základní integraci provedli správně.
+Jste připravení odeslat oznámení. Dál ověříme, jestli jste základní integraci provedli správně.
 
 ###Udělení přístupu k Mobile Engagementu za účelem odesílání oznámení
 
 1. Otevřete [Centrum vývojářů pro Windows Store] ve webovém prohlížeči, přihlaste se a v případě potřeby si vytvořte účet.
-2. Klikněte na **Řídicí panel** v pravém horním rohu a pak klikněte na **Vytvořit novou aplikaci** z nabídky na levém panelu. 
+2. Klikněte na **Řídicí panel** v pravém horním rohu a pak klikněte na **Vytvořit novou aplikaci** z nabídky na levém panelu.
 
     ![][9]
 
-2. Vytvoření aplikace rezervací názvu. 
+2. Vytvoření aplikace rezervací názvu.
 
     ![][10]
 
@@ -165,7 +163,7 @@ Nyní je vše nastavené k odesílání oznámení. A teď ověříme, zda jste 
 
     ![][11]
 
-4. V části Nabízená oznámení klikněte na odkaz **web služeb Live Services**. 
+4. V části Nabízená oznámení klikněte na odkaz **web služeb Live Services**.
 
     ![][12]
 
@@ -173,19 +171,19 @@ Nyní je vše nastavené k odesílání oznámení. A teď ověříme, zda jste 
 
     ![][13]
 
-6. Přejděte do **Nastavení** v portálu Mobile Engagement a klikněte na část **Nativní oznámení** na levé straně. Klikněte na tlačítko **Upravit** a zadejte **Identifikátor zabezpečení balíčku (SID)** a **Tajný klíč**, jak je uvedeno níže:
+6. Přejděte do **Nastavení** v portálu Mobile Engagement a klikněte na část **Nativní oznámení** na levé straně. Klikněte na tlačítko **Upravit** a zadejte **Identifikátor zabezpečení balíčku (SID)** a **Tajný klíč**, jak je zobrazeno:
 
     ![][6]
 
-8. Nakonec nezapomeňte přiřadit aplikaci Visual Studio k této vytvořené aplikaci v App Storu. Provedete to tak, že v aplikaci Visual Studio kliknete na **Propojit aplikaci se Store**.
-
+8. Nakonec nezapomeňte přiřadit aplikaci Visual Studio k této vytvořené aplikaci v App Storu. V sadě Visual Studio klikněte na **Propojit aplikaci se Storem**.
     ![][7]
 
 ##<a id="send"></a>Odeslání oznámení do vaší aplikace
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Pokud byla aplikace spuštěná, zobrazí se oznámení v aplikaci, v opačném případě se zobrazí oznámení s informační zprávou. Pokud se zobrazuje oznámení v aplikaci, ale ne oznámení s informační zprávou a aplikace je spuštěna v režimu ladění v sadě Visual Studio, zkontrolujte v části **Události životního cyklu -> Pozastavit**, jestli je aplikace opravdu pozastavená. Po kliknutí na tlačítko Domů při ladění aplikace v sadě Visual Studio nemusí vždy dojít k jejímu pozastavení, a protože se oznámení zobrazuje v aplikaci, nezobrazí se jako oznámení s informační zprávou.  
+Pokud aplikace běží, zobrazí se oznámení v aplikaci. Pokud je aplikace je zavřená, zobrazí se informační zpráva.
+Pokud se zobrazuje oznámení v aplikaci, ale ne oznámení s informační zprávou a aplikace je spuštěna v režimu ladění v sadě Visual Studio, zkontrolujte v části **Události životního cyklu -> Pozastavit**, že je aplikace pozastavená. Po kliknutí na tlačítko Domů při ladění aplikace v sadě Visual Studio nemusí vždy dojít k jejímu pozastavení, a protože se oznámení zobrazuje v aplikaci, nezobrazí se jako informační zpráva.  
 
 ![][8]
 
@@ -211,8 +209,6 @@ Pokud byla aplikace spuštěná, zobrazí se oznámení v aplikaci, v opačném 
 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

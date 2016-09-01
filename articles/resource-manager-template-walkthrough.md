@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Názorný průvodce šablonou Resource Manageru
@@ -53,7 +53,7 @@ Začněme nejjednodušší šablonou:
 
 Uložte tento soubor jako **azuredeploy.json** (šablona může mít libovolný název, ale vždycky to musí být soubor json).
 
-## Vytvoření účtu úložiště
+## vytvořit účet úložiště
 V sekci **resources** přidejte objekt definující účet úložiště, jak ukazuje následující obrázek. 
 
 ```json
@@ -583,6 +583,6 @@ Tuto šablonu můžete znovu nasadit pomocí stejných příkazů, které jste p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

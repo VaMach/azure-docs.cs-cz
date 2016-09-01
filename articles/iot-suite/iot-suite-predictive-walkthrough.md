@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Návod pro předkonfigurované řešení prediktivní údržby
 
 ## Úvod
 
-Předkonfigurované řešení prediktivní údržby je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení lze proaktivně využít pro různé činnosti, například pro optimalizaci údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, včetně pracovního prostoru [Azure Machine Learning][lnk_machine_learning] doplněného o experimenty pro predikci zbývající doby životnosti  (RUL) leteckého motoru, založené na veřejné vzorové sadě dat. Řešení poskytuje úplnou implementaci daného obchodního scénáře jako výchozí bod pro plánování a implementaci tohoto typu řešení IoT podle konkrétních podnikových požadavků.
+Předkonfigurované řešení prediktivní údržby je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení můžete aktivně využívat pro různé činnosti, jako je třeba optimalizace údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, včetně pracovního prostoru [Azure Machine Learning][lnk_machine_learning]. Tento pracovní prostor obsahuje experimenty založené na veřejné ukázkové datové sadě, která předpovídají zbývající dobu životnosti (RUL) leteckého motoru. Řešení nabízí úplnou implementaci daného obchodního scénáře IoT jako výchozího bodu pro plánování a implementaci řešení, které vyhovuje vašim konkrétním obchodním požadavkům.
 
 ## Logická architektura
 
@@ -33,17 +33,17 @@ Modré položky jsou služby Azure, které jsou zřízené v umístění vybran�
 
 Některé prostředky nejsou v oblastech, kde zřídíte předkonfigurované řešení, k dispozici. Oranžové položky v diagramu představují služby Azure zřízené v nejbližší dostupné oblasti (jižní střední USA, západní Evropa nebo jihovýchodní Asie) podle vybrané oblasti.
 
-Zelená položka je simulované zařízení, které představuje letecký motor. Další informace o těchto simulovaných zařízeních jsou uvedeny níže.
+Zelená položka je simulované zařízení, které představuje letecký motor. Další informace o těchto simulovaných zařízeních najdete v následující části.
 
 Šedé položky představují součásti, které implementují funkce *správy zařízení*. Aktuální verze předkonfigurovaného řešení prediktivní údržby tyto prostředky neposkytuje. Další informace o správě zařízení naleznete v tématu [předkonfigurované řešení pro vzdálený monitoring][lnk-remote-monitoring].
 
 ## Simulovaná zařízení
 
-V předkonfigurovaných řešeních simulované zařízení představuje letecký motor. Řešení obsahuje 2 motory, které jsou součástí jednoho letadla. Každý motor vysílá čtyři typy telemetrických dat: ze snímače Sensor 9, Sensor 11, Sensor 14 a Sensor 15, které poskytují data potřebná pro model Machine Learning k výpočtu zbývající doby životnosti (RUL) pro tento motor. Každé simulované zařízení posílá do služby IoT Hub následující telemetrické zprávy:
+V předkonfigurovaných řešeních simulované zařízení představuje letecký motor. Řešení obsahuje dva motory, které jsou součástí jednoho letadla. Každý motor vysílá čtyři typy telemetrických dat: ze snímače Sensor 9, Sensor 11, Sensor 14 a Sensor 15, které poskytují data potřebná k tomu, aby mohl model Machine Learning vypočítat zbývající dobu životnosti (RUL) pro tento motor. Každé simulované zařízení posílá do služby IoT Hub následující telemetrické zprávy:
 
-*Počet cyklů*. Cyklus představuje dokončený let proměnlivé délky v rozmezí 2 až 10 hodin, během nějž jsou každou půlhodinu zaznamenána telemetrická data.
+*Počet cyklů*. Cyklus představuje dokončený let proměnlivé délky v rozmezí 2 až 10 hodin, během kterého se každou půlhodinu zaznamenávají telemetrická data.
 
-*Telemetrická data*. V řešení jsou 4 snímače, které představují vlastnosti motoru. Snímače jsou obecně označeny jako Sensor 9, Sensor 11, Sensor 14 a Sensor 15. Tyto 4 snímače představují dostatek telemetrických dat k tomu, aby bylo možné pomocí modelu Machine Learning dosáhnout pro RUL užitečných výsledků. Tento model je vytvořený z veřejné datové sady, obsahující data snímačů reálného motoru. Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
+*Telemetrická data*. V řešení jsou čtyři snímače, které představují vlastnosti motoru. Snímače jsou obecně označeny jako Sensor 9, Sensor 11, Sensor 14 a Sensor 15. Tyto 4 snímače představují dostatek telemetrických dat k tomu, aby bylo možné pomocí modelu Machine Learning dosáhnout pro RUL užitečných výsledků. Tento model je vytvořený z veřejné datové sady, obsahující data snímačů reálného motoru. Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
 
 Simulovaná zařízení mohou zpracovávat následující příkazy, odeslané ze služby IoT Hub:
 
@@ -60,7 +60,7 @@ Služba IoT Hub zajišťuje potvrzení příkazu zařízení.
 
 ## Procesor událostí
 
-**Procesor událostí** přijímá průměrné hodnoty čidel za dokončený cyklus a předává je rozhraní API, které zpřístupňuje model Machine Learning pro výpočet zbývající doby životnosti motoru.
+**Procesor událostí** přebírá průměrné hodnoty snímačů za dokončený cyklus. Potom tyto hodnoty předá do rozhraní API, které nabídne trénovaný model Machine Learning pro výpočet zbývající doby životnosti motoru.
 
 ## Azure Machine Learning
 
@@ -79,23 +79,23 @@ Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce J
 
 ### Sledování chování cloudového řešení
 
-Zřízené prostředky můžete zobrazit na webu portálu Azure, kde přejděte do skupiny prostředků se zadaným názvem řešení.
+Na webu Azure Portal přejděte do skupiny prostředků s názvem řešení, které jste si vybrali k zobrazení zřízených prostředků.
 
 ![][img-resource-group]
 
-Při zřizování předkonfigurovaného řešení obdržíte e-mail s odkazem na pracovní prostor Machine Learning. Do tohoto pracovního prostoru Machine Learning se můžete dostat také z ze stránky zřízeného řešení na webu [azureiotsuite.com][lnk-azureiotsuite] v případě, že je řešení ve stavu **Připraveno**.
+Při zřizování předkonfigurovaného řešení obdržíte e-mail s odkazem na pracovní prostor Machine Learning. Do pracovního prostoru Machine Learning se můžete dostat také ze stránky zřízeného řešení na webu [azureiotsuite.com][lnk azureiotsuite] v případě, že je řešení ve stavu **Připraveno**.
 
 ![][img-machine-learning]
 
-Na portálu řešení uvidíte, že ve vzorovém řešení jsou čtyři simulovaná zařízení, představující dvě letadla se dvěma motory pro každé letadlo a čtyřmi snímači pro každý motor. Při první návštěvě portálu řešení dojde k zastavení simulace.
+Na portálu řešení uvidíte, že ve vzorovém řešení jsou čtyři simulovaná zařízení, která představují dvě letadla se dvěma motory na každé letadlo, z nichž každý má čtyři snímače. Při první návštěvě portálu řešení dojde k zastavení simulace.
 
 ![][img-simulation-stopped]
 
-Klikněte kliknutím na tlačítko **Spustit simulaci** zahájíte simulaci, ve kterém uvidíte na řídicím panelu historii hodnot snímačů, zbývající dobu životnosti (RUL), počet cyklů a historii hodnot RUL.
+Kliknutím na **Spustit simulaci** zahájíte simulaci, ve které uvidíte na řídicím panelu historii hodnot snímačů, zbývající dobu životnosti (RUL), počet cyklů a historii hodnot RUL.
 
 ![][img-simulation-running]
 
-Když je zbývající doba životnosti (RUL) menší než 160 (libovolná hodnota, zvolená pro demonstrační účely), portál řešení zobrazí symbol upozornění vedle zobrazení hodnoty RUL a daný motor letadla se na obrázku zobrazí žlutě. Můžete si všimnout, že hodnoty zbývající doby životnosti (RUL) mají obecné klesající trend, ale kolísají nahoru a dolů. To vyplývá z různých délek cyklu a přesnosti modelu.
+Když je zbývající doba životnosti (RUL) nižší než 160 (libovolná hodnota, zvolená pro demonstrační účely), portál řešení zobrazí vedle hodnoty RUL symbol upozornění a zvýrazní daný motor letadla žlutou barvou. Můžete si všimnout, že hodnoty zbývající doby životnosti (RUL) mají obecné klesající trend, ale kolísají nahoru a dolů. Toto chování vyplývá z různých délek cyklu a přesnosti modelu.
 
 ![][img-simulation-warning]
 
@@ -111,7 +111,12 @@ Když jste si vyzkoušeli předkonfigurované řešení prediktivní údržby, m
 
 V příspěvku [IoT Suite - Pod kapotou - Prediktivní údržba](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) na blogu TechNet naleznete další podrobnosti o předkonfigurovaném řešení prediktivní údržby.
 
-  
+Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
+
+- [Nejčastější dotazy k sadě IoT Suite][lnk-faq]
+- [Zabezpečení IoT od samého začátku][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -123,11 +128,13 @@ V příspěvku [IoT Suite - Pod kapotou - Prediktivní údržba](http://social.t
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

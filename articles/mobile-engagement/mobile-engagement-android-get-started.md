@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Začínáme s Azure Mobile Engagementem"
+    pageTitle="Začínáme s Android Apps Azure Mobile Engagementem"
     description="Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro Android."
     services="mobile-engagement"
     documentationCenter="android"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="Java"
     ms.topic="hero-article"
-    ms.date="05/12/2016"
+    ms.date="08/10/2016"
     ms.author="piyushjo;ricksal" />
 
 # Začínáme s Azure Mobile Engagementem pro aplikace pro Android
@@ -37,17 +37,17 @@ Také budete potřebovat sadu [Mobile Engagement Android SDK](https://aka.ms/vq9
 
 ## Připojení aplikace k back-endu Mobile Engagementu
 
-V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Android SDK](mobile-engagement-android-sdk-overview.md)
+V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. Pomocí Android Studia vytvoříte základní aplikaci, na které si tuto integraci předvedeme.
 
-Pomocí Android Studia si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
+Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Android SDK](mobile-engagement-android-sdk-overview.md).
 
-### Vytvoření nového projektu Android
+### Vytvoření projektu Android
 
 1. Spusťte **Android Studio** a v místní nabídce vyberte **Start a new Android Studio project** (Začít nový projekt Android Studio).
 
     ![][1]
 
-2. Zadejte název aplikace a doménu firmy. Poznamenejte si, co vyplňujete – později budete tyto údaje potřebovat. Klikněte na **Next** (Další).
+2. Zadejte název aplikace a doménu firmy. Poznamenejte si, co vyplňujete, protože budete tyto údaje potřebovat později. Klikněte na **Další**.
 
     ![][2]
 
@@ -57,7 +57,7 @@ Pomocí Android Studia si vytvoříme základní aplikaci, na které si tuto int
 
     ![][3]
 
-4. Zde vyberte **Blank Activity** (Prázdná aktivita), která bude jedinou obrazovkou pro tuto aplikaci, a klikněte na **Next**.
+4. Zde vyberte **Blank Activity** (Prázdná aktivita), která je jedinou obrazovkou pro tuto aplikaci, a klikněte na **Next**.
 
     ![][4]
 
@@ -65,11 +65,11 @@ Pomocí Android Studia si vytvoříme základní aplikaci, na které si tuto int
 
     ![][5]
 
-Android Studio nyní vytvoří ukázkovou aplikaci, do které budeme integrovat Mobile Engagement.
+Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile Engagement.
 
 ### Zahrnutí knihovny sady SDK do projektu
 
-1. Stáhněte sadu [Mobile Engagement Android SDK].
+1. Stáhněte sadu [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Extrahujte soubor archivu do složky v počítači.
 3. Identifikujte knihovnu .jar pro aktuální verzi této sady SDK a zkopírujte ji do schránky.
 
@@ -79,7 +79,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které budeme integrovat 
 
       ![][7]
 
-5. Synchronizujte projekt, aby knihovnu načetl.
+5. Pro načtení knihovny synchronizujte projekt.
 
       ![][8]
 
@@ -100,7 +100,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které budeme integrovat 
 
       ![][9]
 
-4. Vložte jej do parametru `setConnectionString`, aby nahradil ukázkový text v následujícím příkladu:
+4. Vložte jej do parametru `setConnectionString` a nahraďte celý zobrazený řetězec následujícím kódem:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
@@ -115,7 +115,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které budeme integrovat 
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. Pokud chcete deklarovat službu agenta, přidejte mezi značky `<application>` a `</application>` následující:
+2. Chcete-li deklarovat službu agenta, přidejte tento kód mezi značky `<application>` a `</application>`:
 
         <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -123,7 +123,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které budeme integrovat 
             android:label="<Your application name>"
             android:process=":Engagement"/>
 
-3. U kódu, který jste vložili, nahraďte `"<Your application name>"` v atributu label. Tento text se bude zobrazovat v nabídce **Settings** (Nastavení), kde uživatelé vidí, jaké služby mají na zařízení zrovna spuštěné. Do tohoto popisku můžete například přidat slovo „Service“.
+3. Ve vloženém kódu nahraďte `"<Your application name>"` v popisku, který se zobrazí v nabídce **Nastavení**, kde můžete zobrazit služeb spuštěné v zařízení. Do tohoto popisku můžete například přidat slovo „Service“.
 
 ### Odeslání obrazovky do Mobile Engagementu
 
@@ -136,11 +136,11 @@ Přejděte na **MainActivity.java** a přidejte následující kód, kterým nah
 > [AZURE.NOTE] Pokud vaše základní třída není *Activity*, podívejte se do [Rozšířených možností hlášení pro Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) na postupy, jak dědit z různých tříd.
 
 
-V rámci tohoto jednoduchého ukázkového scénáře byste měli následující řádek nastavit jako komentář (čili deaktivovat):
+Okomentujte následující řádek pro tento jednoduchý vzorový scénář:
 
     // setSupportActionBar(toolbar);
 
-Pokud byste tento řádek chtěli ponechat, přečtěte si nejprve článek [Rozšířené možnosti hlášení pro Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
+Pokud chcete zachovat `ActionBar` ve vaší aplikaci, zobrazte si část [Rozšířená sestava Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Připojení aplikace se sledováním v reálném čase
 
@@ -148,7 +148,7 @@ Pokud byste tento řádek chtěli ponechat, přečtěte si nejprve článek [Roz
 
 ## Povolení nabízených oznámení a zasílání zpráv v aplikaci
 
-Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
+Během kampaně vám Mobile Engagement umožňuje interagovat a KOMUNIKOVAT s uživateli pomocí nabízených oznámení a zpráv v aplikaci. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
 ### Kopírování prostředků sady SDK do projektu
@@ -169,7 +169,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 ## Další kroky
 
-Podrobné informace o integraci sady SDK najdete v článku o [integraci sady Android SDK](mobile-engagement-android-sdk-overview.md).
+Podrobné informace o integraci sady SDK najdete v článku o integraci sady [Android SDK](mobile-engagement-android-sdk-overview.md).
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
@@ -186,6 +186,6 @@ Podrobné informace o integraci sady SDK najdete v článku o [integraci sady An
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

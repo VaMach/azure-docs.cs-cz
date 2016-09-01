@@ -1,7 +1,7 @@
 <properties
     pageTitle="Naučte se používat nástroje Visual Studio Hadoop pro HDInsight | Microsoft Azure"
     description="Naučte se instalovat a používat nástroje Visual Studio Hadoop pro HDInsight pro připojení ke clusteru Hadoop a spouštění dotazů Hive."
-    keywords="hadoop tools,hive query,visual studio"
+    keywords="nástroje hadoop,dotaz hive,visual studio"
     services="HDInsight"
     documentationCenter=""
     tags="azure-portal"
@@ -15,14 +15,14 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="05/25/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 # Začněte používat nástroje Visual Studio Hadoop pro HDInsight ke spouštění dotazů Hive
 
 Naučte se používat nástroje HDInsight pro Visual Studio k připojení ke clusterům HDInsight a odesílání dotazů Hive. Další informace o používání HDInsight naleznete v části [Úvod do HDInsight][hdinsight.introduction] a [Začínáme s HDInsight][hdinsight.get.started]. Další informace o připojování ke clusteru Storm naleznete v tématu [Vývoj C# topologií pro Apache Storm v HDInsight pomocí sady Visual Studio][hdinsight.storm.visual.studio.tools].
 
-**Předpoklady**
+**Požadavky**
 
 Pro dokončení tohoto kurzu a používání nástrojů Hadoop v sadě Visual Studio budete potřebovat následující:
 
@@ -86,6 +86,11 @@ Po připojení k předplatnému Azure budete moci provádět následující akce
 V Průzkumníkovi serveru můžete zobrazit výchozí účet úložiště a všechny propojené účty úložiště. Pokud rozbalíte výchozí účet úložiště, uvidíte kontejnery na účtu úložiště. Jsou označeny jako výchozí účet úložiště a výchozí kontejner. Pro zobrazení obsahu můžete také kliknout pravým tlačítkem myši na kontejnery.
 
 ![Nástroje HDInsight pro seznam clusterů Průzkumníka serveru Visual Studia][2]
+
+Po otevření kontejneru můžete k nahrání, odstranění a stažení objektů blob použít následující tlačítka:
+
+![Nástroje HDInsight pro operace s objekty blob Průzkumníka serveru sady Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Spuštění dotazu Hive
 [Apache Hive][apache.hive] je infrastruktura datového skladu postavená na Hadoop pro poskytování souhrnů dat, dotazů a analýz. Nástroje HDInsight pro Visual Studio podporují spouštění dotazů Hive ze sady Visual Studio. Další informace o Hive naleznete v tématu [Používání Hive s HDInsight][hdinsight.hive].
@@ -281,6 +286,6 @@ V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight z
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

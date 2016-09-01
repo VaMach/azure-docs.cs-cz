@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Začínáme s Microsoft Power BI Embedded Preview"
+   pageTitle="Začínáme s Microsoft Power BI Embedded"
    description="Power BI Embedded – přidejte do své aplikace business intelligence interaktivní sestavy Power BI."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="07/05/2016"
+   ms.author="owend"/>
 
-# Začínáme s Microsoft Power BI Embedded Preview
+# Začínáme s Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** je služba Azure, který vývojářům aplikací umožňuje přidávání interaktivních sestav Power BI do jejich vlastních aplikací. **Power BI Embedded** funguje s již existujícími aplikacemi, aniž by bylo nutné změnit jejich návrh nebo způsob, jakým se uživatelé přihlašují.
+**Power BI Embedded** je služba Azure, který vývojářům aplikací umožňuje přidávání interaktivních sestav Power BI do jejich vlastních aplikací. **Power BI Embedded** funguje se stávajícími aplikacemi bez nutnosti přepracování nebo změny způsobu, jakým se uživatelé přihlašují.
 
-Další informace o této službě naleznete v tématu [Co je Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
-
-Jak je popsáno v tématu [Co je Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md), prostředky pro **Microsoft Power BI Embedded** se zřizují prostřednictvím [rozhraní API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). V tomto případě je prostředkem, který zřídíte, **kolekce Pracovních prostorů Power BI**. V další části se dozvíte, jak kolekci pracovních prostorů vytvořit.
+Prostředky pro **Microsoft Power BI Embedded** se zřizují prostřednictvím [rozhraní API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). V tomto případě je prostředkem, který zřídíte, **kolekce Pracovních prostorů Power BI**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
@@ -47,18 +45,16 @@ Projděme si postup pro sestavení **kolekce pracovních prostorů** na Portálu
 
    5. Klikněte na **Vytvořit**.
 
-Zřizování **kolekce pracovních prostorů** bude chvíli trvat. Až se dokončí, otevře se **okno kolekce pracovních prostorů**.
+Zřizování **kolekce pracovních prostorů** bude chvíli trvat. Po dokončení se otevře **okno kolekce pracovních prostorů**.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
 Toto **okno pro vytvoření** obsahuje informace potřebné k volání rozhraní API, která slouží k vytváření pracovních prostorů a nasazování obsahu do nich.
 
-Následující část popisuje, jak se na základě **přístupových klíčů** generují **tokeny aplikací**, které se používají k ověřování žádostí o rozhraní API.
-
 <a name="view-access-keys"/>
 ## Zobrazení přístupových klíčů k rozhraním API v Power BI
 
-Jednou z nejdůležitějších informací potřebných k volání rozhraní REST API pro Power BI jsou **přístupové klíče**. Na jejich základě se generují **tokeny aplikací** používané k ověřování vašich žádostí o rozhraní API. Pokud si chcete **přístupové klíče** zobrazit, klikněte na **Přístupové klíče** v **okně Nastavení**. Další informace o **tokenech aplikací** naleznete v článku o [jejich toku](power-bi-embedded-app-token-flow.md).
+Jednou z nejdůležitějších informací potřebných k volání rozhraní REST API pro Power BI jsou **přístupové klíče**. Na jejich základě se generují **tokeny aplikací** používané k ověřování vašich žádostí o rozhraní API. Pokud si chcete **přístupové klíče** zobrazit, klikněte na **Přístupové klíče** v **okně Nastavení**. Další informace o **tokenech aplikace** naleznete v části [Ověřování a autorizace pomocí Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -68,7 +64,7 @@ Jak si všimnete, máte dva klíče.
 
 Zkopírujte tyto klíče a zabezpečeně je uložte do své aplikace. Je velmi důležité, abyste s těmito klíči zacházeli jako s heslem, protože poskytují přístup k veškerému obsahu ve vaší **kolekci pracovních prostorů**.
 
-Ačkoli jsou uvedeny dva klíče, vždy je zapotřebí pouze jeden z nich. Druhý klíč je k dispozici proto, abyste mohli klíče pravidelně obnovovat, aniž by to ovlivnilo přístup ke službě.
+Ačkoli jsou uvedeny dva klíče, najednou je zapotřebí pouze jeden z nich. Druhý klíč je k dispozici proto, abyste mohli klíče pravidelně obnovovat, aniž by to ovlivnilo přístup ke službě.
 
 Nyní když máte instanci Power BI pro vaši aplikaci a **přístupové klíče**, můžete do vlastní aplikace naimportovat sestavu. Než si řekneme, jak sestavu importovat, dozvíte se v další části, jak vytvářet datové sady a sestavy Power BI určené pro vložení do aplikace.
 
@@ -102,13 +98,11 @@ V předchozích krocích jste vytvořili kolekci pracovních prostorů a první 
 
 ## Viz také
 - [Začínáme s ukázkou](power-bi-embedded-get-started-sample.md)
-- [Co je Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Začínáme s Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Ověřování a autorizace s Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Ceny za Power BI Embedded ](http://go.microsoft.com/fwlink/?LinkID=760527)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

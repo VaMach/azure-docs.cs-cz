@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
 # Vytvoření webové aplikace s Redis Cache
@@ -802,6 +802,8 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 ## Další kroky
 
 -   Další informace o [Začátcích s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) najdete na stránce [ASP.NET](http://asp.net/).
+-   Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect.
+    -   Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -   Zjistěte více o přístupu [Code First pro novou databázi](https://msdn.microsoft.com/data/jj193542) k Entity Frameworku, který používáme v tomto kurzu.
 -   Zjistěte více o [webových aplikacích v Azure App Service](../app-service-web/app-service-web-overview.md).
 -   Zjistěte, jak [monitorovat](cache-how-to-monitor.md) vaši mezipaměť na webu Azure Portal.
@@ -811,6 +813,7 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
     -   [Konfigurace clusteringu pro Azure Redis Cache ve verzi Premium](cache-how-to-premium-clustering.md)
     -   [Konfigurace podpory služby Virtual Network pro Azure Redis Cache ve verzi Premium](cache-how-to-premium-vnet.md)
     -   Další podrobnosti o velikosti, propustnosti a šířce pásma u prémiových mezipamětí najdete v tématu [Azure Redis Cache – Nejčastější dotazy](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+
 
 
 <!-- IMAGES -->
@@ -849,6 +852,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

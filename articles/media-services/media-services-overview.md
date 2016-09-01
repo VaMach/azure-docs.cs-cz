@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/03/2016" 
+    ms.date="08/07/2016"
     ms.author="juliako;anilmur"/>
 
 #Přehled a běžné scénáře Azure Media Services
@@ -49,7 +49,7 @@ Mapu kurzů k AMS můžete zobrazit tady:
 
 Pokud chcete začít používat Azure Media Services, potřebujete následující:
  
-3. Účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](azure.microsoft.com).
+3. Účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com).
 2. Účet Azure Media Services. K vytvoření účtu Azure Media Services použijte portál Azure Classic, .NET nebo REST API. Další informace najdete v článku o [vytvoření účtu](media-services-create-account.md).
 3. (Volitelné) Nastavte vývojové prostředí. Jako vývojové prostředí si zvolte .NET nebo REST API. Další informace najdete v článku o [nastavení prostředí](media-services-dotnet-how-to-use.md). 
 
@@ -60,7 +60,7 @@ Pokud chcete začít používat Azure Media Services, potřebujete následujíc�
 
 Informace o konceptech Azure Media Services najdete v článku [Koncepty](media-services-concepts.md).
 
-Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato návody obsahují skvělý přehled konceptů a používají nástroj AMSE k předvedení úloh AME. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Doručování média na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
 
@@ -222,6 +222,6 @@ Další informace najdete v článku [Microsoft Azure SLA](https://azure.microso
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -184,16 +184,16 @@ Místo vyexportování celé tabulky můžete také pomocí funkce **queryout** 
 ## Další kroky
 Přehled načítání najdete v tématu [Načtení dat do SQL Data Warehouse][].
 Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][].
-Další informace o vytváření tabulek v SQL Data Warehouse viz [Návrh tabulky][] nebo [Syntaxe CREATE TABLE][] .
+Další informace o vytvoření tabulky v SQL Data Warehouse viz [Přehled tabulek][] nebo [Syntaxe CREATE TABLE][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Načtení dat do SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Přehled vývoje SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Návrh tabulky]: sql-data-warehouse-develop-table-design.md
-[Statistika]: sql-data-warehouse-develop-statistics.md
+[Načtení dat do SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Přehled vývoje SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Přehled tabulek]: ./sql-data-warehouse-tables-overview.md
+[Statistika]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -204,6 +204,6 @@ Další informace o vytváření tabulek v SQL Data Warehouse viz [Návrh tabulk
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

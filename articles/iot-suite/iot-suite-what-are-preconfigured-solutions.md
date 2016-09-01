@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Co jsou předkonfigurovaná řešení Azure IoT Suite?
@@ -24,17 +24,17 @@ Předkonfigurovaná řešení Azure IoT Suite jsou implementací běžných vzor
 - Jako výchozí bod pro své vlastní řešení IoT.
 - K získání informací o běžných vzorech v designu a vývoji řešení IoT.
 
-Každé předkonfigurované řešení je kompletní a komplexní implementace, která generuje telemetrická data pomocí simulovaných zařízení.
+Každé předkonfigurované řešení je kompletní a komplexní implementace, která využívá telemetrická simulovaná zařízení ke generování telemetrie.
 
 Kromě nasazení a spuštění řešení v Azure si můžete stáhnout kompletní zdrojový kód a upravit a rozšířit řešení tak, aby odpovídalo vašim specifickým požadavkům na IoT.
 
-> [AZURE.NOTE] Pokud chcete  nasadit některé z předkonfigurovaných řešení, navštivte [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Další informace, jak nasadit a spustit jedno z řešení, najdete v článku [Začínáme s předkonfigurovanými řešeními IoT][lnk-preconf-get started].
+> [AZURE.NOTE] Pokud chcete  nasadit některé z předkonfigurovaných řešení, navštivte [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Další informace, jak nasadit a spustit jedno z řešení, najdete v článku [Začínáme s předkonfigurovanými řešeními IoT][lnk-getstarted-preconfigured].
 
 Následující tabulka ukazuje, jak se řešení mapují na určité funkce IoT.
 
 | Řešení | Přijímání dat | Identita zařízení | Příkazy a ovládání | Pravidla a akce | Prediktivní analýza |
 |------------------------|-----|-----|-----|-----|-----|
-| [Vzdálené monitorování][lnk-preconf-get started] | Ano | Ano | Ano | Ano | -   |
+| [Vzdálené sledování][lnk-getstarted-preconfigured] | Ano | Ano | Ano | Ano | -   |
 | [Prediktivní údržba][lnk-predictive-maintenance] | Ano | Ano | Ano | Ano | Ano |
 
 - *Přijímání dat*: Přijímání škálovaných dat do cloudu.
@@ -117,10 +117,7 @@ V tomto předkonfigurovaném řešení je portál řešení součástí **back-e
 
 Další informace o struktuře řešení IoT najdete v článku [Služby Microsoft Azure IoT: Referenční architektura][lnk-refarch].
 
-Pokud chcete zjistit více o předkonfigurovaných řešeních IoT, prostudujte tyto články:
-
-- [Začínáme s přednastavenými řešeními IoT ][lnk-preconf-get started].
-- [Přehled předkonfigurovaného řešení prediktivní údržby][lnk-predictive-maintenance]
+Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasazením *vzdáleného sledování* předkonfigurovaného řešení: [Začínáme s předkonfigurovanými řešeními][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,15 +125,13 @@ Pokud chcete zjistit více o předkonfigurovaných řešeních IoT, prostudujte 
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

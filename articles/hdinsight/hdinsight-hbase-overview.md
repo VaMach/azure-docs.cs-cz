@@ -1,7 +1,7 @@
 <properties
     pageTitle="Co je to HBase v HDInsight? | Microsoft Azure"
     description="Úvod do Apache HBase v HDInsight, databáze typu NoSQL postavené na Hadoop. Další informace o případech použití a porovnání HBase s dalšími clustery Hadoop."
-    keywords="bigtable,nosql,what is hbase"
+    keywords="bigtable,nosql,co je hbase"
     services="hdinsight"
     documentationCenter=""
     tags="azure-portal"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="06/28/2016"
     ms.author="jgao"/>
 
 
@@ -96,6 +96,6 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

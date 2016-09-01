@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Active Directory B2C ve verzi Preview: Volání webového rozhraní API z aplikace pro iOS | Microsoft Azure"
-    description="V tomto článku se dozvíte, jak vytvořit aplikaci „seznam úkolů“ pro iOS, která volá webové rozhraní API Node.js pomocí nosných tokenů OAuth 2.0. Aplikace pro iOS i webové rozhraní API používají Azure Active Directory B2C ke správě identit uživatelů a k ověřování uživatelů."
+    pageTitle="Azure Active Directory B2C: Volání webového rozhraní API z aplikace pro iOS přes knihovny třetích stran | Microsoft Azure"
+    description="V tomto článku se dozvíte, jak vytvořit aplikaci „seznam úkolů“ pro iOS, která volá webové rozhraní API Node.js pomocí nosných tokenů OAuth 2.0 přes knihovnu třetí strany"
     services="active-directory-b2c"
     documentationCenter="ios"
     authors="brandwe"
@@ -9,23 +9,23 @@
 
 <tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
 
-    ms.date="05/31/2016"
+    ms.date="07/26/2016"
     ms.author="brandwe"/>
 
-# Azure AD B2C ve verzi Preview: Volání webového rozhraní API z aplikace pro iOS
+# Azure AD B2C: Volání webového rozhraní API z aplikace pro iOS s použitím knihovny třetích stran
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Pomocí Azure Active Directory (Azure AD) B2C můžete v několika krocích přidat do svojí aplikace pro iOS a do webového rozhraní API výkonné funkce samoobslužné správy identity. V tomto článku se dozvíte, jak vytvořit aplikaci „seznam úkolů“ pro iOS, která volá webové rozhraní API Node.js pomocí nosných tokenů OAuth 2.0. Aplikace pro iOS i webové rozhraní API používají Azure AD B2C ke správě identit uživatelů a k ověřování uživatelů.
+Platforma Microsoft identity používá otevřené standardy, jako je například OAuth2 nebo OpenID Connect. To umožňuje vývojářům využívat všechny knihovny, které chtějí integrovat do našich služeb. Abychom vývojářům usnadnili používání naší platformy i s ostatními knihovnami, napsali jsme několik návodů, jako je tento. Popisují, jak nakonfigurovat knihovny třetích stran tak, aby se daly připojit k platformě Microsoft identity. Většinu knihoven, které implementují [specifikace RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749), bude možné připojit k platformě Microsoft Identity.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-    Pro správné fungování tohoto Rychlého startu je potřeba mít už webové rozhraní API zabezpečené pomocí Azure AD B2C. Sestavili jsme pro vás Rychlý start pro .NET a Node.js. Tento podrobný návod předpokládá, že je nakonfigurované ukázkové webové rozhraní API Node.js. Pro více informací viz [ukázku webového rozhraní API Azure Active Directory pro Node.js](active-directory-b2c-devquickstarts-api-node.md).
-).
+Pokud jste ještě nikdy nepracovali s OAuth2 nebo OpenID Connect, pak vám tahle vzorová konfigurace možná nebude moc dávat smysl. Doporučujeme prohlédnout si stručný [přehled protokolu, který uvádíme tady](active-directory-b2c-reference-protocols.md).
 
 > [AZURE.NOTE]
-    Tento článek se nezabývá implementací registrace, přihlašování a správy profilů pomocí Azure AD B2C. Zaměřuje se na volání webových rozhraní API po ověření uživatele. Pokud jste tak ještě neučinili, měli byste začít s [kurzem Začínáme s webovými aplikacemi .NET](active-directory-b2c-devquickstarts-web-dotnet.md), kde naleznete základy Azure AD B2C.
+    Některé funkce naší platformy, které mají vyjádření v rámci těchto standardů (například podmíněný přístup nebo správa zásad služby Intune), vyžadují, abyste použili open source knihovny identit Microsoft Azure. 
+   
+Na platformě B2C nejsou podporovány úplně všechny scénáře a funkce Azure Active Directory.  Pokud chcete zjistit, zda byste měli používat platformu B2C, přečtěte si článek [o omezeních B2C](active-directory-b2c-limitations.md).
+
 
 ## Získání adresáře služby Azure AD B2C
 
@@ -35,585 +35,600 @@ Před použitím Azure AD B2C musíte vytvořit adresář, nebo klienta. Adresá
 
 Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá informace potřebné k bezpečné komunikaci s vaší aplikací. Aplikace i webové rozhraní API budou mít v tomto případě stejné **ID aplikace**, protože společně tvoří jednu logickou aplikaci. Chcete-li vytvořit aplikaci, postupujte podle [těchto pokynů](active-directory-b2c-app-registration.md). Ujistěte se, že:
 
-- Jste do aplikace zahrnuli **webovou aplikaci nebo webové rozhraní API**.
-- Do pole **Adresa URL odpovědi** vyplňte `http://localhost:3000/auth/openid/return`. To je výchozí URL pro tento příklad.
-- Vytvořte pro aplikaci **tajný klíč aplikace** a poznamenejte si ho. Budete ho potřebovat později.
+- Zahrnete do aplikace **mobilní zařízení**.
 - Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. To také budete potřebovat později.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Vytvořte svoje zásady
 
-V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tato aplikace obsahuje tři činnosti koncového uživatele: registrace, přihlášení a přihlášení pomocí Facebooku. Pro každý typ rozhraní musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Když vytváříte tyto tři zásady, nezapomeňte:
+V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tahle aplikace obsahuje možnosti pro jednu identitu: kombinované přihlášení a registraci. Tuto zásadu je třeba vytvořit pro každý typ činnosti, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Při vytváření zásady nezapomeňte na následující:
 
-- Zvolit **Zobrazovaný název** a atributy registrace ve svojí registrační zásadě.
+- Ve vytvářené zásadě zvolit **zobrazovaný název** a atributy registrace.
 - Zvolit deklarace identity aplikace **Zobrazovaný název** a **ID objektu** v každé zásadě. Můžete zvolit i další deklarace identity.
-- Po vytvoření každé zásady si poznamenejte její **Název**. Měl by mít předponu `b2c_1_`.  Tyto názvy zásad budete potřebovat později.
+- Po vytvoření každé zásady si poznamenejte její **Název**. Měl by mít předponu `b2c_1_`.  Název zásady budete potřebovat později.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Po vytvoření těchto tří zásad jste připraveni k sestavení aplikace.
+Po vytvoření zásad jste připraveni k sestavení aplikace.
 
-Tento článek nepopisuje používání právě vytvořených zásad. Chcete-li se dozvědět, jak fungují zásady v Azure AD B2C, začněte [kurzem Začínáme s webovými aplikacemi .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Stáhněte si kód
 
-Kód k tomuto kurzu [je udržovaný na GitHubu](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Chcete-li během čtení tohoto návodu rovnou sestavit ukázku, můžete si [stáhnout kostru projektu v souboru ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). Kostru můžete také klonovat:
+Kód k tomuto kurzu je udržovaný [na GitHubu](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c).  Můžete si [stáhnout aplikaci jako soubor .zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/archive/master.zip), nebo jej klonovat:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
+git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-> [AZURE.NOTE] **Kostru si musíte stáhnout, chcete-li dokončit tento kurz.** Z důvodu složitosti implementace plně funkční aplikace pro iOS obsahuje **kostra** kód uživatelského rozhraní, který se spustí po dokončení tohoto kurzu. To znamená velkou míru úspory času pro vývojáře. Kód uživatelského rozhraní není podstatný pro téma jak přidat B2C do aplikace pro iOS.
+Můžete si také stáhnout kompletní kód a začít ihned: 
 
-Dokončená aplikace je také [k dispozici jako soubor ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) nebo ve větvi `complete` stejného úložiště.
+```
+git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
+```
 
-Poté načtěte `podfile` pomocí CocoaPods. Tím se vytvoří nový pracovní prostor Xcode, který načtete. Pokud nemáte CocoaPods, [navštivte web a nastavte jej](https://cocoapods.org).
+## Stáhnutí knihovny třetí strany nxoauth2 a spuštění pracovního prostředí
+
+V rámci tohoto návodu budeme používat klienta OAuth2Client z GItHubu a knihovnu OAuth2 pro Mac OS X a iOS (Cocoa a Cocoa Touch). Tahle knihovna je založena na konceptu 10 specifikace OAuth2. Implementuje profil nativní aplikace a podporuje koncový bod autorizace koncového uživatele. To je vše, co budeme potřebovat k integraci s platformou Microsoft identity.
+
+### Přidání knihovny do projektu pomocí CocoaPods
+
+CocoaPods je správce závislostí pro projekty Xcode. Automaticky spravuje výše uvedené kroky instalace.
+
+```
+$ vi Podfile
+```
+Do tohoto souboru podfile přidejte následující:
+
+```
+ platform :ios, '8.0'
+ 
+ target 'SampleforB2C' do
+ 
+ pod 'NXOAuth2Client'
+ 
+ end
+```
+
+Nyní soubor podfile načtěte pomocí cocoapods. Tím se vytvoří nový pracovní prostor XCode, který načtete.
 
 ```
 $ pod install
 ...
-$ open Microsoft Tasks for Consumers.xcworkspace
-```
-
-## Konfigurace aplikace úkolů pro iOS
-
-Pro to, aby aplikace úkolů pro iOS mohla komunikovat s Azure AD B2C, musíte poskytnout několik společných parametrů. Ve složce `Microsoft Tasks` otevřete soubor `settings.plist` v kořenu projektu a nahraďte hodnoty v oddílu `<dict>`. Tyto hodnoty budou použity v celé aplikaci.
+$ open SampleforB2C.xcworkspace
 
 ```
+
+## Struktura projektu
+
+Pro náš projekt máme nastavenou zhruba následující strukturu:
+
+* **Hlavní pohled** s podoknem úloh
+* **Pohled pro přidání úlohy** pro data o vybrané úloze
+* **Pohled pro přihlášení**, který umožňuje uživateli přihlásit se k aplikaci.
+
+Abychom přidali ověřování, budeme přecházet k různým souborům projektu. Další části kódu (například kód vizuálu), které jsou vám poskytnuty, nejsou pro identitu relevantní.
+
+## Vytvoření souboru `settings.plist` pro aplikaci
+
+Aplikace se dá snáze konfigurovat, pokud máme pro konfigurační hodnoty centralizované umístění. To vám pomůže lépe pochopit, jak které nastavení v aplikaci funguje. Tyhle hodnoty budeme aplikaci poskytovat přes *seznam vlastností*.
+
+* V pracovním prostoru aplikace vytvořte nebo otevřete `settings.plist` níže uvedený soubor `Supporting Files`
+
+* Zadejte následující hodnoty (později si je rozebereme podrobněji)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
-    <key>authority</key>
-    <string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
-    <key>clientId</key>
-    <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-    <key>scopes</key>
-    <array>
-        <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-    </array>
-    <key>additionalScopes</key>
-    <array>
-    </array>
-    <key>redirectUri</key>
+    <key>accountIdentifier</key>
+    <string>B2C_Acccount</string>
+    <key>clientID</key>
+    <string><client ID></string>
+    <key>clientSecret</key>
+    <string></string>
+    <key>authURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/authorize?p=<policy name></string>
+    <key>loginURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/login</string>
+    <key>bhh</key>
     <string>urn:ietf:wg:oauth:2.0:oob</string>
-    <key>taskWebAPI</key>
-    <string>http://localhost/tasks:3000</string>
-    <key>emailSignUpPolicyId</key>
-    <string><Enter your sign up policy name, e.g.g b2c_1_sign_up></string>
-    <key>faceBookSignInPolicyId</key>
-    <string><your sign in policy for FB></string>
-    <key>emailSignInPolicyId</key>
-    <string><Enter your sign in policy name, e.g. b2c_1_sign_in></string>
-    <key>fullScreen</key>
-    <false/>
-    <key>showClaims</key>
-    <true/>
+    <key>tokenURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/token?p=<policy name></string>
+    <key>keychain</key>
+    <string>com.microsoft.azureactivedirectory.samples.graph.QuickStart</string>
+    <key>contentType</key>
+    <string>application/x-www-form-urlencoded</string>
+    <key>taskAPI</key>
+    <string>https://aadb2cplayground.azurewebsites.net</string>
 </dict>
 </plist>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+Nyní si vše rozeberme podrobně.
 
-## Získání přístupových tokenů a volání rozhraní API úkolů
 
-Tento oddíl popisuje, jak dokončit výměnu tokenů OAuth 2.0 ve webové aplikaci pomocí knihoven a architektur společnosti Microsoft. Pokud nejste seznámeni s autorizačními kódy nebo přístupovými tokeny, více informací naleznete v [tématu o protokolu OAuth 2.0](active-directory-b2c-reference-protocols.md).
+Jak vidíte, u `authURL`, `loginURL`, `bhh`, `tokenURL` je třeba vyplnit název klienta. Je to název klienta, který vám byl přiřazen pro klienta B2C. Například `kidventusb2c.onmicrosoft.com`. Pokud používáte naše open source knihovny identit Microsoft Azure, můžete si od nás tato data načíst přes koncový bod metadat. Náročnou práci jsme udělali za vás a tyhle hodnoty jsme extrahovali.
 
-### Vytvoření hlavičkových souborů pomocí metod
+Další informace o názvech klientů B2C najdete tady: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
 
-Budete potřebovat metody pro získání tokenu s vámi zvolenou zásadou a následné volání serveru úkolů. Nyní je nastavte.
+Hodnota `keychain` je kontejner, který knihovna NXOAuth2Client použije k vytvoření řetězce klíčů pro ukládání tokenů. Pokud chcete získat jednotné přihlašování do většího počtu aplikací, můžete v každé aplikaci specifikovat stejný řetězec klíčů, stejně jako vyžadovat použití tohoto řetězce klíčů v požadavcích XCode. Tento proces je popsán v dokumentaci Apple.
 
-Pod `/Microsoft Tasks` ve vašem projektu Xcode vytvořte soubor s názvem `samplesWebAPIConnector.h`.
+`<policy name>`  na konci každé adresy URL představuje místa, kam můžete umístit zásadu, kterou jste vytvořili výše. Aplikace bude volat tyhle zásady v závislosti na toku.
 
-Přidejte následující kód, abyste definovali, co potřebujete dělat:
+`taskAPI` je koncový bod REST, který budeme volat přes token B2C, buď abychom přidali úlohy, nebo odeslali dotaz na úlohy existující. Tohle bylo nastaveno zvlášť pro tento příklad. Ten bude fungovat, i když nic nezměníte.
 
-```
+Zbytek těchto hodnot je potřeba k používání knihovny a k vytváření míst, kde můžete přenášet hodnoty do kontextu.
+
+Když jsme teď vytvořili soubor `settings.plist`, potřebujeme kód pro jeho čtení.
+
+## Nastavení třídy AppData tak, aby přečetla naše nastavení
+
+Vytvoříme jednoduchý soubor, který bude parsovat soubor `settngs.plist`, který jsme vytvořili výše, a v budoucnu zpřístupní tato nastavení jakékoliv třídě. Protože nechceme vytvářet novou kopii dat pokaždé, když o ně třída požádá, použijeme vzor s jedním prvkem a vrátíme jenom stejnou instanci, která se vytváří pokaždé, když je na nastavení vytvořen požadavek
+
+* Vytvořte soubor `AppData.h`:
+
+```objc
 #import <Foundation/Foundation.h>
-#import "samplesTaskItem.h"
-#import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationContext.h"
 
-@interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
+@interface AppData : NSObject
 
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
+@property(strong) NSString *accountIdentifier;
+@property(strong) NSString *taskApiString;
+@property(strong) NSString *authURL;
+@property(strong) NSString *clientID;
+@property(strong) NSString *loginURL;
+@property(strong) NSString *bhh;
+@property(strong) NSString *keychain;
+@property(strong) NSString *tokenURL;
+@property(strong) NSString *clientSecret;
+@property(strong) NSString *contentType;
 
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) doPolicy:(samplesPolicyData*)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock;
-
-+(void) signOut;
++ (id)getInstance;
 
 @end
 ```
 
-Jedná se o jednoduché operace CRUD v rámci vašeho rozhraní API a metodu `doPolicy`. Pomocí této metody můžete získat token se zásadou, kterou chcete.
+* Vytvořte soubor `AppData.m`:
 
-Všimněte si, že musí být definované dva další hlavičkové soubory. V těch budou uloženy položka úkolu a data zásady. Nyní je vytvořte:
+```objc
+#import "AppData.h"
 
-Vytvořte soubor `samplesTaskItem.h` s následujícím kódem:
+@implementation AppData
+
++ (id)getInstance {
+  static AppData *instance = nil;
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    instance = [[self alloc] init];
+
+    NSDictionary *dictionary = [NSDictionary
+        dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+                                         pathForResource:@"settings"
+                                                  ofType:@"plist"]];
+    instance.accountIdentifier = [dictionary objectForKey:@"accountIdentifier"];
+    instance.clientID = [dictionary objectForKey:@"clientID"];
+    instance.clientSecret = [dictionary objectForKey:@"clientSecret"];
+    instance.authURL = [dictionary objectForKey:@"authURL"];
+    instance.loginURL = [dictionary objectForKey:@"loginURL"];
+    instance.bhh = [dictionary objectForKey:@"bhh"];
+    instance.tokenURL = [dictionary objectForKey:@"tokenURL"];
+    instance.keychain = [dictionary objectForKey:@"keychain"];
+    instance.contentType = [dictionary objectForKey:@"contentType"];
+    instance.taskApiString = [dictionary objectForKey:@"taskAPI"];
+
+  });
+
+  return instance;
+}
+@end
+```
+
+Jak uvidíte níže, můžeme nyní snadno získat data prostým voláním `  AppData *data = [AppData getInstance];` v jakékoliv z našich tříd.
+
+
+
+## Nastavení knihovny NXOAuth2Client v AppDelegate
+
+Knihovna NXOAuthClient vyžaduje nastavení určitých hodnot. Potom můžete použít získaný token, který je třeba k volání API služby REST. Protože víme, že `AppDelegate` bude volán vždy, když načteme aplikaci, měli bychom do tohoto souboru vložit konfigurační hodnoty.
+* Otevřete soubor `AppDelegate.m`
+
+* Importujte některé soubory s hlavičkami, které použijeme později.
+
+```objc
+#import "NXOAuth2.h" // the Identity library we are using
+#import "AppData.h" // the class we just created we will use to load the settings of our application
+```
+
+* Do AppDelegate přidejte metodu `setupOAuth2AccountStore`
+
+Potřebujeme vytvořit úložiště účtů AccountStore a pak do něj vložit data, která jsme načetli ze souboru `settings.plist`.
+
+V této chvíli bychom vás v souvislosti se službou B2C chtěli upozornit na několik věcí, které vám pomohou lépe porozumět tomuto kódu:
+
+
+1. Azure AD B2C používá *zásadu*, která je uvedena v parametrech dotazů pro zpracování vašeho požadavku. To umožňuje službě Azure Active Directory fungovat nezávisle, pouze pro vaši aplikaci. Abychom mohli poskytnout tyhle zvláštní parametry dotazů, potřebujeme poskytnout metodu `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` s parametry našich vlastních zásad. 
+
+2. Azure AD B2C používá obory téměř stejným způsobem jako ostatní servery OAuth2. Protože se při používání B2C řeší ověřování uživatele i přístup k prostředkům, jsou ke správnému fungování toku některé obory naprosto nezbytné. Tohle je obor `openid`. Obor `openid` vám automaticky poskytují naše sady SDK Microsoft identity, takže jej v konfiguraci sady SDK neuvidíte. Protože ale používáme knihovnu třetí strany, musíme tento obor specifikovat.
+
+```objc
+- (void)setupOAuth2AccountStore {
+  AppData *data = [AppData getInstance]; // The singleton we use to get the settings
+
+  NSDictionary *customHeaders =
+      [NSDictionary dictionaryWithObject:@"application/x-www-form-urlencoded"
+                                  forKey:@"Content-Type"];
+
+  // Azure B2C needs
+  // kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters for
+  // sending policy to the server,
+  // therefore we use -setConfiguration:forAccountType:
+  NSDictionary *B2cConfigDict = @{
+    kNXOAuth2AccountStoreConfigurationClientID : data.clientID,
+    kNXOAuth2AccountStoreConfigurationSecret : data.clientSecret,
+    kNXOAuth2AccountStoreConfigurationScope :
+        [NSSet setWithObjects:@"openid", data.clientID, nil],
+    kNXOAuth2AccountStoreConfigurationAuthorizeURL :
+        [NSURL URLWithString:data.authURL],
+    kNXOAuth2AccountStoreConfigurationTokenURL :
+        [NSURL URLWithString:data.tokenURL],
+    kNXOAuth2AccountStoreConfigurationRedirectURL :
+        [NSURL URLWithString:data.bhh],
+    kNXOAuth2AccountStoreConfigurationCustomHeaderFields : customHeaders,
+    //      kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:customAuthenticationParameters
+  };
+
+  [[NXOAuth2AccountStore sharedStore] setConfiguration:B2cConfigDict
+                                        forAccountType:data.accountIdentifier];
+}
+```
+Dále zkontrolujte, zda ji opravdu voláte v AppDelegate pod metodou `didFinishLaunchingWithOptions:`. 
 
 ```
-#import <Foundation/Foundation.h>
+[self setupOAuth2AccountStore];
+```
 
-@interface samplesTaskItem : NSObject
 
-@property NSString *itemName;
-@property NSString *ownerName;
-@property BOOL completed;
-@property (readonly) NSDate *creationDate;
+## Vytvoření třídy `LoginViewController`, kterou použijeme k vyřizování požadavku na ověřování
+
+Pro přihlášení k účtu používáme webové zobrazení. To nám umožňuje požádat uživatele o další faktory, jako je například textová zpráva SMS (pokud je nakonfigurována) nebo zasílání chybových hlášení zpět uživateli. Tady nastavíme webové zobrazení a potom napíšeme kód pro zpracování zpětných dotazů, které budou přicházet ve webovém zobrazení přes službu Microsoft Identity.
+
+* Vytvořte třídu `LoginViewController.h`
+
+```objc
+@interface LoginViewController : UIViewController <UIWebViewDelegate>
+@property(weak, nonatomic) IBOutlet UIWebView *loginView; // Our webview that we will use to do authentication
+
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult; // Allows us to get a token after we've received an Access code.
+- (void)setupOAuth2AccountStore; // We will need to add to our OAuth2AccountStore we setup in our AppDelegate
+- (void)requestOAuth2Access; // This is where we invoke our webview.
+```
+
+Vytvoříme každou z níže uvedených metod.
+
+> [AZURE.NOTE] 
+    Nezapomeňte vytvořit vazbu `loginView` na aktuální webové zobrazení, které je obsaženo ve scénáři. Jinak nebudete mít webové zobrazení, které se automaticky otevře, když je čas na ověření.
+
+* Vytvořte třídu `LoginViewController.m`
+
+* Přidejte několik proměnných, které budou během ověřování přenášet stav
+
+```objc
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
+bool loginFlow = FALSE; 
+bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
+NSURL *authcode; \\ A placeholder for our auth code.
+```
+
+* Přepište metody webového zobrazení pro práci s ověřováním
+
+Musíme webovému zobrazení sdělit, jak se má chovat, když se uživatel potřebuje přihlásit, jak je popsáno výše. Můžete jednoduše zkopírovat a vložit níže uvedený kód.
+
+```objc
+- (void)resolveUsingUIWebView:(NSURL *)URL {
+  // We get the auth token from a redirect so we need to handle that in the
+  // webview.
+
+  if (![NSThread isMainThread]) {
+    [self performSelectorOnMainThread:@selector(resolveUsingUIWebView:)
+                           withObject:URL
+                        waitUntilDone:YES];
+    return;
+  }
+
+  NSURLRequest *hostnameURLRequest =
+      [NSURLRequest requestWithURL:URL
+                       cachePolicy:NSURLRequestUseProtocolCachePolicy
+                   timeoutInterval:10.0f];
+  isRequestBusy = YES;
+  [self.loginView loadRequest:hostnameURLRequest];
+
+  NSLog(@"resolveUsingUIWebView ready (status: UNKNOWN, URL: %@)",
+        self.loginView.request.URL);
+}
+
+- (BOOL)webView:(UIWebView *)webView
+    shouldStartLoadWithRequest:(NSURLRequest *)request
+                navigationType:(UIWebViewNavigationType)navigationType {
+  AppData *data = [AppData getInstance];
+
+  NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL,
+        (long)navigationType);
+
+  // The webview is where all the communication happens. Slightly complicated.
+
+  myLoadedUrl = [webView.request mainDocumentURL];
+  NSLog(@"***Loaded url: %@", myLoadedUrl);
+
+  // if the UIWebView is showing our authorization URL or consent URL, show the
+  // UIWebView control
+  if ([request.URL.absoluteString rangeOfString:data.authURL
+                                        options:NSCaseInsensitiveSearch]
+          .location != NSNotFound) {
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.loginURL
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.bhh
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = YES;
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  } else {
+    self.loginView.hidden = NO;
+    // read the Location from the UIWebView, this is how Microsoft APIs is
+    // returning the
+    // authentication code and relation information. This is controlled by the
+    // redirect URL we chose to use from Microsoft APIs
+    // continue the OAuth2 flow
+    // [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  }
+
+  return YES;
+}
+
+```
+
+* Napište kód pro zpracování výsledku požadavku OAuth2
+
+Potřebujeme kód, který bude zpracovávat redirectURL, která se vrací z webového zobrazení. Pokud se to nepodařilo, zkusíme to znovu. Mezitím knihovna zahlásí chybu, kterou uvidíte v konzole, nebo kterou nesynchronně zpracujete. 
+
+```objc
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult {
+  // parse the response for success or failure
+  if (accessResult)
+  // if success, complete the OAuth2 flow by handling the redirect URL and
+  // obtaining a token
+  {
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
+  } else {
+    // start over
+    [self requestOAuth2Access];
+  }
+}
+```
+
+* Nastavte faktory pro oznámení.
+
+Vytvoříme stejnou metodu, jako je výše uvedená `AppDelegate`. Tentokrát ale přidáme i příkazy `NSNotification`, aby nám sdělily, co se v naší službě děje. Nastavíme pozorovatele, který nám oznámí jakoukoliv změnu tokenu. Jakmile získáme token, vrátíme uživatele zpátky do `masterView`.
+
+
+
+```objc
+- (void)setupOAuth2AccountStore {
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                if (aNotification.userInfo) {
+                  // account added, we have access
+                  // we can now request protected data
+                  NSLog(@"Success!! We have an access token.");
+                  dispatch_async(dispatch_get_main_queue(), ^{
+
+                    MasterViewController *masterViewController =
+                        [self.storyboard
+                            instantiateViewControllerWithIdentifier:@"master"];
+                    [self.navigationController
+                        pushViewController:masterViewController
+                                  animated:YES];
+                  });
+                } else {
+                  // account removed, we lost access
+                }
+              }];
+
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreDidFailToRequestAccessNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                NSError *error = [aNotification.userInfo
+                    objectForKey:NXOAuth2AccountStoreErrorKey];
+                NSLog(@"Error!! %@", error.localizedDescription);
+              }];
+}
+
+```
+* Přidejte kód, který uživatele zpracuje vždy, když se spustí požadavek pro přihlášení
+
+Vytvoříme metodu, kterou budeme volat pokaždé, když obdržíme požadavek na ověření. Bude to metoda, která vytváří webové zobrazení
+
+```objc
+- (void)requestOAuth2Access {
+  AppData *data = [AppData getInstance];
+
+  // in order to login to Mircosoft APIs using OAuth2 we must show an embedded
+  // browser (UIWebView)
+  [[NXOAuth2AccountStore sharedStore]
+           requestAccessToAccountWithType:data.accountIdentifier
+      withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+        // navigate to the URL returned by NXOAuth2Client
+
+        NSURLRequest *r = [NSURLRequest requestWithURL:preparedURL];
+        [self.loginView loadRequest:r];
+      }];
+}
+```
+
+* Nakonec zavoláme všechny výše uvedené metody pokaždé, když se načte `LoginViewController`. To provedeme tak, že tyhle metody přidáme k naší metodě `viewDidLoad`, kterou nám poskytuje Apple
+
+```objc
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+
+  // OAuth2 Code
+
+  self.loginView.delegate = self;
+  [self requestOAuth2Access];
+  [self setupOAuth2AccountStore];
+  NSURLCache *URLCache =
+      [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                    diskCapacity:20 * 1024 * 1024
+                                        diskPath:nil];
+  [NSURLCache setSharedURLCache:URLCache];
+```
+
+Tím jste vytvořili hlavní způsob, jakým budeme pracovat s naší aplikací pro přihlašování. Až se přihlásíme, bude třeba použít tokeny, které jsme obdrželi. Za tímto účelem vytvoříme pomocný kód, který zavolá API služby REST s použitím této knihovny.
+
+
+## Vytvoření třídy `GraphAPICaller` pro zpracování našich požadavků na rozhraní API služby REST
+
+Pokaždé, když načteme aplikaci, načte se nám i konfigurace. Jakmile obdržíme token, musíme s ním něco udělat. 
+
+* Vytvořte soubor `GraphAPICaller.h`
+
+```objc
+@interface GraphAPICaller : NSObject <NSURLConnectionDataDelegate>
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock;
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *error))completionBlock;
 
 @end
 ```
 
-Vytvořte také soubor `samplesPolicyData.h` pro uložení dat zásady:
+Z tohoto kódu vidíte, že budeme vytvářet dvě metody: jedna bude získávat úlohy z API, druhá bude úlohy do API přidávat.
 
-```
-#import <Foundation/Foundation.h>
+Nyní jsme vytvořili rozhraní a můžeme přidat aktuální implementaci:
 
-@interface samplesPolicyData : NSObject
+* Vytvořte `GraphAPICaller.m file`
 
-@property (strong) NSString* policyName;
-@property (strong) NSString* policyID;
+```objc
+@implementation GraphAPICaller
 
-+(id) getInstance;
+// 
+// Gets the tasks from our REST endpoint we specified in settings
+//
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *))completionBlock
+
+{
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSMutableArray *Tasks = [[NSMutableArray alloc] init];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"GET"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:nil
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (!error) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          if ([dataReturned count] != 0) {
+
+            for (NSMutableDictionary *theTask in dataReturned) {
+
+              Task *t = [[Task alloc] init];
+              t.name = [theTask valueForKey:@"Text"];
+
+              [Tasks addObject:t];
+            }
+          }
+
+          completionBlock(Tasks, nil);
+        } else {
+          completionBlock(nil, error);
+        }
+
+      }];
+}
+
+// 
+// Adds a task from our REST endpoint we specified in settings
+//
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock {
+
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSDictionary *params = [self convertParamsToDictionary:task.name];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"POST"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:params
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (responseData) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          completionBlock(TRUE, nil);
+        } else {
+          completionBlock(FALSE, error);
+        }
+
+      }];
+}
+
++ (NSDictionary *)convertParamsToDictionary:(NSString *)task {
+  NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+  [dictionary setValue:task forKey:@"Text"];
+
+  return dictionary;
+}
 
 @end
-```
-### Přidání implementace položek úkolů a zásad
-
-Teď, když jsou vaše soubory hlaviček na místě, můžete napsat kód pro ukládání dat, která použijete ve svojí ukázce.
-
-Vytvořte soubor `samplesPolicyData.m` s následujícím kódem:
-
-```
-#import <Foundation/Foundation.h>
-#import "samplesPolicyData.h"
-
-@implementation samplesPolicyData
-
-+(id) getInstance
-{
-    static samplesPolicyData *instance = nil;
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-        instance.policyName = [dictionary objectForKey:@"policyName"];
-        instance.policyID = [dictionary objectForKey:@"policyID"];
-
-
-    });
-
-    return instance;
-}
-
-
-@end
-```
-
-### Napsání kódu pro nastavení volání ADAL pro IOS
-
-Rychlý kód pro uložení objektů pro uživatelské rozhraní je nyní dokončený. Dále je nutné pro iOS napsat kód pro přístup k Active Directory Authentication Library (ADAL) pomocí parametrů, které jste zadali v souboru `settings.plist`. Tím získáte přístupový token, který můžete poskytnout svému serveru úkolů.
-
-Veškerá práce proběhne v souboru `samplesWebAPIConnector.m`.
-
-Nejprve vytvořte implementaci `doPolicy()`, kterou jste napsali v hlavičkovém souboru `samplesWebAPIConnector.h`:
-
-```
-+(void) doPolicy:(samplesPolicyData *)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
-
-        if (userInfo == nil)
-        {
-            completionBlock(nil, error);
-        }
-
-        else {
-
-            completionBlock(userInfo, nil);
-        }
-    }];
-
-}
-
-
-```
-
-Tato metoda je jednoduchá. Jako vstupy přijímá objekt `samplesPolicyData`, který jste vytvořili, rodičovský `ViewController` a zpětné volání. Zpětné volání je zajímavé, takže se na něj podíváme podrobněji.
-
-- Všimněte si, že `completionBlock` obsahuje `ADProfileInfo` jako typ, který bude vrácený pomocí objektu `userInfo`. `ADProfileInfo` je typ, který obsahuje všechny odpovědi ze serveru, včetně deklarací identity.
-- Všimněte si také `readApplicationSettings`. To čte data, která jste zadali v souboru `settings.plist`.
-- Nakonec máte obsáhlou metodu `getClaimsWithPolicyClearingCache`. To je vlastní volání ADAL pro iOS, které musíte napsat. K tomu se vrátíme později.
-
-Dále napište svoji obsáhlou metodu `getClaimsWithPolicyClearingCache`. Ta je dostatečně obsáhlá, aby si zasloužila vlastní oddíl.
-
-### Vytvoření volání ADAL pro iOS
-
-Po stažení kostry z GitHubu uvidíte, že obsahuje několik těchto volání, která vám pomůžou s ukázkovou aplikací. Všechny se řídí vzorem `get(Claims|Token)With<verb>ClearningCache`. Díky dodržování konvencí Objective C je lze číst téměř jako angličtinu. Například „Get a token with extra parameters that I provide to you and clear the cache“ je `getTokenWithExtraParamsClearingCache()`.
-
-Budete psát „Get claims and a token with the policy that I provide to you and don't clear the cache“ nebo `getClaimsWithPolicyClearingCache`. Z ADAL vždy získáte zpět token, takže není nutné v metodě zadávat „deklarace identity a token“. Nicméně, občas můžete chtít pouze token bez nutnosti analyzovat deklarace identity – pro tyto případy je v kostře k dispozici metoda bez deklarací, která se nazývá `getTokenWithPolicyClearingCache`.
-
-Nyní napište tento kód:
-
-```
-+(void) getClaimsWithPolicyClearingCache  : (BOOL) clearCache
-                           policy:(samplesPolicyData *)policy
-                           params:(NSDictionary*) params
-                           parent:(UIViewController*) parent
-                completionHandler:(void (^) (ADProfileInfo*, NSError*))completionBlock;
-{
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
-    authContext.parentController = parent;
-    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-
-    if(!data.correlationId ||
-       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
-    {
-        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
-    }
-
-    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
-    [authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-                           if (result.status != AD_SUCCEEDED)
-                           {
-                               completionBlock(nil, result.error);
-                           }                              else
-                              {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.profileInfo, nil);
-                              }
-                          }];
-}
-
-
-```
-
-První část by měla vypadat povědomě.
-
-- Načtěte nastavení, která jste zadali v souboru `settings.plist` a přiřaďte je do objektu `data`.
-- Nastavte `ADAuthenticationError`, který přebírá všechny chyby, které přichází z ADAL pro iOS.
-- Vytvořte `authContext`, který nastavuje volání do ADAL. Začněte tím, že mu předáte svoji autoritu.
-- Poskytněte `authContext` odkaz na rodičovský ovladač, abyste se k němu mohli vrátit.
-- Převeďte `redirectURI`, která byla v souboru `settings.plist` řetězec na typ NSURL, který ADAL očekává.
-- Nastavte `correlationId`. Toto je UUID, který může sledovat volání od klienta k serveru a zpět. To je užitečné při ladění.
-
-Teď se dostáváte k vlastnímu volání do ADAL. Tady se volání liší od toho, co byste očekávali v předchozích příkladech použití ADAL pro iOS:
-
-```
-[authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-```
-
-Jak můžete vidět, volání je docela jednoduché.
-
-`scopes`: Obory, které předáváte serveru a které si chcete vyžádat ze serveru pro uživatele, který se přihlásí. V případě B2C ve verzi Preview předáváte `client_id`. Nicméně se očekává, že se to v budoucnu změní pro čtení oborů. V tom případě bude tento dokument aktualizován.
-`additionalScopes`: Toto jsou další obory, které byste mohli chtít použít ve své aplikaci. Jejich používání se očekává i v budoucnu.
-`clientId`: ID aplikace, které jste získali z portálu.
-`redirectURI`: Adresa přesměrování, na kterou by se měl token poslat zpět.
-`identifier`: Způsob identifikace uživatele, abyste viděli, zda je v mezipaměti použitelný token. Tím se zabrání opětovnému odesílání žádostí o token na server. Identifikátor je uložený v typu s názvem `ADUserIdentifier` a můžete určit, co chcete použít jako ID. Měli byste použít `username`.
-`promptBehavior`: Toto je zastaralé. Mělo by to být `AD_PROMPT_ALWAYS`.
-`extraQueryParameters`: Cokoli dalšího, co si přejete předat serveru, zakódované do adresy URL. 
-`policy`: Zásada, kterou vyvoláváte. Toto je nejdůležitější část tohoto návodu.
-
-V `completionBlock` můžete vidět, že předáváte `ADAuthenticationResult`. To obsahuje váš token a informace o profilu (pokud bylo volání úspěšné).
-
-Pomocí výše uvedeného kódu můžete získat token pro zásadu, kterou zadáte. Tento token poté můžete použít k volání rozhraní API.
-
-### Vytvoření volání úkolů na server
-
-Když teď máte token, je třeba ho poskytnout rozhraní API k autorizaci.
-
-Je třeba implementovat tři metody:
-
-```
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
-
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-```
-
-`getTasksList` poskytuje pole, které představuje úkoly na vašem serveru. `addTask` a `deleteTask` provedou následující akce a vrátí `true` nebo `false` pokud jsou úspěšné.
-
-Nejprve napište metodu `getTaskList`:
-
-```
-
-+(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
-             parent:(UIViewController*) parent;
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-    [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
-                parent:parent
-     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-
-        if (error != nil)
-        {
-            completionBlock(nil, error);
-        }
-        else
-        {
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                if (error == nil && data != nil){
-
-                    NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-                    //each object is a key value pair
-                    NSDictionary *keyValuePairs;
-                    NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
-
-                    for(int i =0; i < tasks.count; i++)
-                    {
-                        keyValuePairs = [tasks objectAtIndex:i];
-
-                        samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"task"];
-
-                        [sampleTaskItems addObject:s];
-                    }
-
-                    completionBlock(sampleTaskItems, nil);
-                }
-                else
-                {
-                    completionBlock(nil, error);
-                }
-
-            }];
-        }
-    }];
-
-}
-
-```
-
-Popis kódu úlohy je nad rámec tohoto návodu. Ale možná jste si všimli něčeho zajímavého: metody `craftRequest`, která přebírá adresu URL vašeho úkolu. Tuto metodu používáte k vytvoření požadavku pro server pomocí obdrženého přístupového tokenu. Nyní ji napište.
-
-Do souboru `samplesWebAPIConnector.m` přidejte následující kód:
-
-```
-+(void) craftRequest : (NSString*)webApiUrlString
-               parent:(UIViewController*) parent
-    completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
-{
-    [self getClaimsWithPolicyClearingCache:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
-
-        if (accessToken == nil)
-        {
-            completionBlock(nil,error);
-        }
-        else
-        {
-            NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-
-            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-
-            [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-
-            completionBlock(request, nil);
-        }
-    }];
-}
-```
-
-Kód vezme identifikátor URI webu, přidá k němu token pomocí hlavičky `Bearer` v HTTP, a poté vám ho vrátí. Zavoláte rozhraní API `getTokenClearingCache`. Může se to zdát divné, ale toto volání jednoduše použijete k získání tokenu z mezipaměti a k zajištění, že je stále platný.  (Volání `getToken` to dělají za vás dotázáním ADALu.) Tento kód budete používat při každém volání. Dále vytvořte další metody úloh.
-
-Napište `addTask`:
-
-```
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"POST"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
-
-            NSLog(@"Request was: %@", request);
-            NSLog(@"Request body was: %@", myString);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-Používá se stejný vzor, ale navíc přidává poslední metodu, kterou je nutné implementovat: `convertTaskToDictionary`. To převezme vaše pole a změní ho na objekt slovníku. Tento objekt lze snadněji mutovat na parametry dotazu, které potřebujete předat serveru. Kód je jednoduchý:
-
-```
-// Here we have some conversation helpers that allow us to parse passed items into dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-
-    return dictionary;
-}
-
-```
-
-Dále napište `deleteTask`:
-
-```
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"DELETE"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSLog(@"%@", request);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-### Přidání odhlašování do vaší aplikace
-
-Poslední, co je třeba udělat, je implementace odhlašování do vaší aplikace. To je jednoduché. Do souboru `sampleWebApiConnector.m` přidejte:
-
-```
-+(void) signOut
-{
-    [authContext.tokenCacheStore removeAll:nil];
-
-    NSHTTPCookie *cookie;
-
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies])
-    {
-        [storage deleteCookie:cookie];
-    }
-}
 ```
 
 ## Spuštění ukázkové aplikace
@@ -622,9 +637,6 @@ Nakonec sestavte a spusťte aplikaci v Xcode. Zaregistrujte se nebo se přihlast
 
 Všimněte si, že úkoly se v rozhraní API ukládají pro každého uživatele zvlášť, protože rozhraní API extrahuje identitu uživatele z přístupového tokenu, který obdrží.
 
-Pro srovnání je kompletní ukázka [k dispozici jako soubor ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Můžete ho také klonovat z GitHubu:
-
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## Další kroky
 
@@ -636,6 +648,6 @@ Nyní se můžete přesunout k pokročilejším tématům o B2C. Můžete vyzkou
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

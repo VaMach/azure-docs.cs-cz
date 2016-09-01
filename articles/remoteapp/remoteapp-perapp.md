@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publikování aplikací pro jednotlivé uživatele v kolekci Azure RemoteAppu (verze Preview)
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Tento článek vysvětluje, jak publikovat aplikace pro jednotlivé uživatele v kolekci Azure RemoteAppu. Toto je nová funkce v Azure RemoteAppu, která je aktuálně ve verzi Preview a je k dispozici pouze vybraným uživatelům se zájmem o nové funkce pro účely vyhodnocení.
 
@@ -104,6 +107,6 @@ Pokud jste se dosud neúčastnili žádného vyhodnocování verzí Preview, pou
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

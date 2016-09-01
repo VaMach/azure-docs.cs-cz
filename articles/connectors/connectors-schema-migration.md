@@ -1,7 +1,7 @@
 <properties
     pageTitle="Migrace aplikací logiky na schéma verze 2015-08-01-preview | Microsoft Azure App Service"
     description="Aplikace logiky můžete snadno migrovat na schéma nejnovější verze. Postupujte podle těchto kroků."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MSFTMAN"
     manager="erikre"
@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -23,9 +23,8 @@ Pokud chcete stávající aplikaci logiky migrovat na nové schéma, postupujte 
 1. Otevřete aplikaci logiky na portálu Azure  
 2. Klikněte na tlačítko Aktualizovat schéma:
 
- ![API Icon][step1]   
-Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahující informace o vylepšeních v novém schématu:
- ![API Icon][step2]
+ ![Ikona rozhraní API][step1]   
+Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahující informace o vylepšeních v novém schématu: ![ikona rozhraní API][step2]
 
 >[AZURE.NOTE] Když vyberete položku **Update Schema** (Aktualizovat schéma), můžeme automaticky spustit kroky migrace a poskytnout vám výstupní kód. S jeho pomocí můžete aktualizovat svou definici. Dbejte ale na to, abyste se drželi osvědčených kódovacích postupů, které jsou uvedeny níže v části **Osvědčené postupy**.
 
@@ -52,6 +51,6 @@ Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahuj�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

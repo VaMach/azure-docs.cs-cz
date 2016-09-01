@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure AD B2C ve verzi Preview | Microsoft Azure"
+    pageTitle="Azure AD B2C | Microsoft Azure"
     description="Postup pro sestavení webového rozhraní API .NET pomocí Azure Active Directory B2C zabezpečeného za použití přístupových tokenů OAuth 2.0 pro ověřování."
     services="active-directory-b2c"
     documentationCenter=".net"
@@ -13,16 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="07/22/2016"
     ms.author="dastrock"/>
 
-# Azure Active Directory B2C ve verzi Preview: Sestavení webového rozhraní API .NET
+# Azure Active Directory B2C: Sestavení webového rozhraní API .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-S Azure Active Directory (Azure AD) B2C můžete zabezpečit webové rozhraní API pomocí přístupových tokenů OAuth 2.0. Tyto tokeny umožňují ověření přístupu klientských aplikací, které používají Azure AD B2C, do rozhraní API. Tento článek ukazuje, jak vytvořit aplikaci "seznam úkolů" pomocí modelu .NET Model-View-Controller (MVC), která zahrnuje uživatelskou registraci, přihlašování a správu profilu. Seznam úkolů každého uživatele bude uložen službou úkolů. Toto webové rozhraní API umožňuje ověřeným uživatelům vytváření a čtení úkolů ve svém seznamu úkolů.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+S Azure Active Directory (Azure AD) B2C můžete zabezpečit webové rozhraní API pomocí přístupových tokenů OAuth 2.0. Tyto tokeny umožňují ověření přístupu klientských aplikací, které používají Azure AD B2C, do rozhraní API. Tento článek ukazuje, jak vytvořit rozhraní API „seznam úkolů“ .NET Model-View-Controller (MVC), které umožňuje uživatelům provádět CRUD u úloh. Webové rozhraní API je zabezpečeno pomocí Azure AD B2C a umožňuje pouze ověřeným uživatelům spravovat své seznamy úkolů.
 
 ## Vytvoření adresáře Azure AD B2C
 
@@ -53,8 +51,6 @@ Po úspěšném vytvoření těchto tří zásad jste připraveni k sestavení a
 
 ## Stáhněte si kód
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
-
 Kód k tomuto kurzu [je udržovaný na GitHubu](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Chcete-li během čtení tohoto návodu rovnou sestavit ukázku, můžete si [stáhnout kostru projektu v souboru ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Kostru můžete také klonovat:
 
 ```
@@ -67,47 +63,26 @@ Po stažení ukázkového kódu otevřete soubor Visual Studio .sln, abyste mohl
 
 ## Konfigurace webové aplikace úkolů
 
-Když uživatel komunikuje s `TaskWebApp`, klient odešle požadavky do Azure AD a získá zpět tokeny, které lze použít k volání webového rozhraní API `TaskService`. Chcete-li přihlásit uživatele a získat tokeny, musíte poskytnout `TaskWebApp` určité informace o vaší aplikaci. V projektu `TaskWebApp` otevřete v kořenovém adresáři projektu soubor `web.config` a nahraďte hodnoty v oddílu `<appSettings>`:
+Když uživatel komunikuje s `TaskWebApp`, klient odešle požadavky do Azure AD a získá zpět tokeny, které lze použít k volání webového rozhraní API `TaskService`. Chcete-li přihlásit uživatele a získat tokeny, musíte poskytnout `TaskWebApp` určité informace o vaší aplikaci. V projektu `TaskWebApp` otevřete v kořenovém adresáři projektu soubor `web.config` a nahraďte hodnoty v oddílu `<appSettings>`.  Hodnoty `AadInstance`, `RedirectUri` a `TaskServiceUrl` můžete ponechat jak jsou.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
-    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
-    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
-</appSettings>
+  </appSettings>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
-Jsou zde také dva dekoratéry `[PolicyAuthorize]`, kterým musíte poskytnout název vaší registrační zásady. Atribut `[PolicyAuthorize]` slouží k vyvolání konkrétní zásady, když se uživatel pokusí přistoupit ke stránce aplikace, která vyžaduje ověření.
-
-```C#
-// Controllers\HomeController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public ActionResult Claims()
-{
-```
-
-```C#
-// Controllers\TasksController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public class TasksController : Controller
-{
-```
-
-Chcete-li zjistit, jak webová aplikace jako je `TaskWebApp` používá Azure AD B2C, navštivte téma [Sestavení webové aplikace .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Tento článek nezahrnuje sestavení klienta `TaskWebApp`.  Postup tvorby webových aplikací pomocí Azure AD B2C naleznete v části [náš kurz webových aplikací .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Zabezpečení rozhraní API
 
@@ -123,19 +98,21 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Zadejte podrobnosti o svém B2C
-Otevřete soubor `web.config` v kořenovém adresáři projektu `TaskService` a nahraďte hodnoty v oddílu `<appSettings>`. Tyto hodnoty budou použity v celém rozhraní API a v knihovně OWIN.
+Otevřete soubor `web.config` v kořenovém adresáři projektu `TaskService` a nahraďte hodnoty v oddílu `<appSettings>`. Tyto hodnoty budou použity v celém rozhraní API a v knihovně OWIN.  Hodnotu `AadInstance` můžete ponechat beze změn.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/{1}/{2}?p={3}" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
-    <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
-</appSettings>
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
+  </appSettings>
 ```
 
 ### Přidání třídy pro spuštění OWIN
@@ -168,22 +145,31 @@ public partial class Startup
     public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
     public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
     public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-    public static string commonPolicy = ConfigurationManager.AppSettings["ida:PolicyId"];
-    private const string discoverySuffix = ".well-known/openid-configuration";
+    public static string signUpPolicy = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
+    public static string signInPolicy = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
+    public static string editProfilePolicy = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
 
     public void ConfigureAuth(IAppBuilder app)
     {   
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signUpPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signInPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(editProfilePolicy));
+    }
+
+    public OAuthBearerAuthenticationOptions CreateBearerOptionsFromPolicy(string policy)
+    {
         TokenValidationParameters tvps = new TokenValidationParameters
         {
-            // This is where you specify that your API accepts tokens only from its own clients
+            // This is where you specify that your API only accepts tokens from its own clients
             ValidAudience = clientId,
+            AuthenticationType = policy,
         };
 
-        app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-        {   
-            // This SecurityTokenProvider fetches the Azure AD B2C metadata and signing keys from the OpenID Connect metadata endpoint
-            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, "v2.0", discoverySuffix, commonPolicy)))
-        });
+        return new OAuthBearerAuthenticationOptions
+        {
+            // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, policy))),
+        };
     }
 }
 ```
@@ -221,7 +207,7 @@ Nakonec sestavte a spusťte `TaskWebApp` a `TaskService`. Zaregistrujte se do ap
 
 ## Úprava zásad
 
-Po zabezpečení rozhraní API pomocí Azure AD B2C můžete experimentovat se zásadami svojí aplikace a zjistit, jaký vliv mají (nebo nemají) na rozhraní API. Můžete také <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipulovat s deklaracemi identity aplikace v zásadách a změnit, jaké informace o uživateli mají být přístupné v rozhraní API. Jakékoli přidané deklarace identity budou dostupné vašemu webovému rozhraní API .NET MVC v objektu `ClaimsPrincipal`, jak je popsáno výše.
+Po zabezpečení rozhraní API pomocí Azure AD B2C můžete experimentovat se zásadami svojí aplikace a zjistit, jaký vliv mají (nebo nemají) na rozhraní API. Můžete také manipulovat s deklaracemi identity aplikace v zásadách a změnit, jaké informace o uživateli mají být přístupné v rozhraní API. Jakékoli přidané deklarace identity budou dostupné vašemu webovému rozhraní API .NET MVC v objektu `ClaimsPrincipal`, jak je popsáno výše.
 
 <!--
 
@@ -237,6 +223,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

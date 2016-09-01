@@ -3,7 +3,7 @@
     description="V tomto kurzu začnete používat back-endy mobilní aplikace Azure pro vývoj na platformě Android."
     services="app-service\mobile"
     documentationCenter="android"
-    authors="ysxu"
+    authors="RickSaling"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="yuaxu;ricksal"/>
+    ms.date="07/21/2016"
+    ms.author="ricksal"/>
 
 #Vytvoření aplikace pro Android
 
@@ -26,7 +26,7 @@ V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní ap
 
 Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k používání funkce Mobile Apps v Azure App Service pro Android.
 
-## Předpoklady
+## Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
@@ -51,11 +51,11 @@ Pro absolvování tohoto kurzu potřebujete:
 <!-- Images. -->
 
 <!-- URLs -->
-[Portál Azure]: https://portal.azure.com/
+[portál Azure]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

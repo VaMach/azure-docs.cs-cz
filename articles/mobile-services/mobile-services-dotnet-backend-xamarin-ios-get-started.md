@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -49,7 +49,7 @@ V této části stáhněte novou aplikaci Xamarin iOS a projekt služby pro mobi
 
 1. Pokud jste tak ještě neučinili, nainstalujte Visual Studio s funkcí Xamarin. Pokyny naleznete v tématu [Instalační program a instalace Visual Studia a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Xamarin Studio můžete také použít na počítači Mac OS X, viz téma [Instalační program, instalace a ověření pro uživatele Mac](https://msdn.microsoft.com/library/mt488770.aspx).
 
-2. Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+2. Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 3. Na kartě Rychlé spuštění klikněte na tlačítko **Xamarin** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci Xamarin**.
 
@@ -133,11 +133,11 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript a HTML]: mobile-services-win8-javascript/
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 [Back-end verze jazyka JavaScript]: mobile-services-ios-get-started.md
 [Poradce při potížích s .NET back-end pro Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

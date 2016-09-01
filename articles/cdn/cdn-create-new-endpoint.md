@@ -1,5 +1,5 @@
 <properties
-     pageTitle="Používání Azure CDN"
+     pageTitle="Používání Azure CDN | Microsoft Azure"
      description="Toto téma ukazuje, jak povolit Síť pro doručování obsahu (CDN) pro Azure. Kurz vás provede vytvořením nového profilu a koncového bodu CDN."
      services="cdn"
      documentationCenter=""
@@ -12,7 +12,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="05/24/2016" 
+     ms.date="07/28/2016" 
      ms.author="casoper"/>
 
 # Používání Azure CDN  
@@ -39,15 +39,15 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
     Otevře se okno Profil CDN.
 
-    ![Profil CDN][cdn-profil-nastavení]
+    ![Profil CDN][cdn-profile-settings]
 
 2. Klikněte na tlačítko **Přidat koncový bod**.
 
-    ![Tlačítko Přidat koncový bod][cdn-nový-koncový bod-tlačítko]
+    ![Tlačítko Přidat koncový bod][cdn-new-endpoint-button]
 
     Otevře se okno **Přidání koncového bodu**.
 
-    ![Okno Přidání koncového bodu][cdn-přidání-koncový bod]
+    ![Okno Přidání koncového bodu][cdn-add-endpoint]
 
 3. Zadejte **Název** tohoto koncového bodu CDN.  Tento název se použije pro přístup k prostředkům v mezipaměti v doméně `<endpointname>.azureedge.net`.
 
@@ -67,7 +67,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
     
     > [AZURE.NOTE]  **Port původu** má vliv pouze na port použitý koncovým bodem k načtení informací z původu.  Koncový bod jako takový bude dostupný pouze koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na **Port původu**.  
     >
-    > Koncové body **Azure CDN společnosti Akamai** neumožňují použít u původu plný rozsah portů.  Seznam nepovolených portů původu najdete v tématu [Podrobnosti o chování Azure CDN společnosti Akamai](cdn-akamai-behavior-details.md).  
+    > Koncové body **Azure CDN společnosti Akamai** neumožňují použít u původu plný rozsah portů.  Seznam nepovolených portů původu najdete v tématu [Povolené porty původu Azure CDN společnosti Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
     >
     > Přístup k obsahu CDN pomocí protokolu HTTPS má tato omezení:
     > 
@@ -78,7 +78,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
 10. Jakmile je koncový bod vytvořený, zobrazí se v seznamu koncových bodů daného profilu. Zobrazení seznamu zobrazuje adresu URL, kterou je nutné použít k přístupu k obsahu v mezipaměti, a také doménu původu.
 
-    ![Koncový bod CDN][cdn-koncový bod-úspěch]
+    ![Koncový bod CDN][cdn-endpoint-success]
 
     > [AZURE.IMPORTANT] Koncový bod nebude hned dostupný pro použití, protože chvíli trvá, než se registrace rozšíří v rámci CDN.  V případě profilů <b>Azure CDN společnosti Akamai</b> je šíření obvykle hotové během jedné minuty.  V případě profilů <b>Azure CDN společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
     >    
@@ -99,6 +99,6 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

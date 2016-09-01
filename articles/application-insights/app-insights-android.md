@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="06/20/2016"
     ms.author="awills"/>
 
 # Analýza aplikací pro Android
@@ -30,12 +30,12 @@ Přejít na:
 
 Pokud má vaše aplikace serverovou stranu, použijte [Application Insights](app-insights-overview.md) ke sledování na straně webového serveru vaší aplikace na [ASP.NET](app-insights-asp-net.md) nebo [J2EE](app-insights-java-get-started.md). 
 
-> [AZURE.NOTE] 15. června 2016 zastavíme zobrazování dat ve službě Application Insights pro aplikace iOS, Android, Windows Store a Windows Phone.
+> [AZURE.NOTE] Brzy bude možné používat [Application Insights Analytics](app-insights-analytics.md) a [průběžný export](app-insights-export-telemetry.md) s telemetrií odeslanou ze sady HockeyApp SDK. 
 >
-> [Další informace o této změně.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+> [Další informace o této změně.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

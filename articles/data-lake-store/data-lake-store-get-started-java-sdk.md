@@ -36,7 +36,7 @@ Následující odkazy obsahují umístění ke stažení sady Java SDK pro Data 
 * Zdrojový kód sady Java SDK pro Data Lake Store je dostupný na webu [GitHub](https://github.com/Azure/azure-sdk-for-java).
 * Referenční informace sady Java SDK pro Data Lake Store jsou dostupné na adrese [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
 
-## Předpoklady
+## Požadavky
 
 * Java Development Kit (JDK) 8 (využívající jazyk Java verze 1.8).
 * IntelliJ nebo jiné vhodné vývojové prostředí Java. Tato položka je nepovinná, ale doporučuje se. Níže uvedené pokyny používají IntelliJ.
@@ -95,7 +95,17 @@ Pro účely tohoto kurzu je nutné, abyste aplikaci udělili oprávnění k vytv
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-client-authentication</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.0-20160513.000802-24</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-client-runtime</artifactId>
+                <version>1.0.0-20160513.000812-28</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.rest</groupId>
+                <artifactId>client-runtime</artifactId>
+                <version>1.0.0-20160513.000825-29</version>
             </dependency>
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
@@ -312,6 +322,6 @@ Pro účely tohoto kurzu je nutné, abyste aplikaci udělili oprávnění k vytv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

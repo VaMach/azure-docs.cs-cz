@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Docker, Kontejnery, mikroslužby, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -21,7 +21,7 @@
 
 # Připojení ke clusteru Azure Container Service
 
-Clustery DC/OS a Swarm nasazené v Azure Container Service zpřístupňují koncové body REST. Tyto koncové body ale nejsou k dispozici pro vnější svět. Pokud chcete tyto koncové body spravovat, je nutné vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu SSH můžete proti koncovým bodům clusteru spouštět příkazy a na svém vlastním systému si můžete přes prohlížeč zobrazit uživatelské rozhraní clusteru. Tento dokument vás provede vytvořením tunelu SSH z Linuxu, OS X a Windows.
+Clustery DC/OS a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST. Tyto koncové body ale nejsou k dispozici pro vnější svět. Pokud chcete tyto koncové body spravovat, je nutné vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu SSH můžete proti koncovým bodům clusteru spouštět příkazy a na svém vlastním systému si můžete přes prohlížeč zobrazit uživatelské rozhraní clusteru. Tento dokument vás provede vytvořením tunelu SSH z Linuxu, OS X a Windows.
 
 >[AZURE.NOTE] Se systémem pro správu clusteru je možné vytvořit relace SSH. To ale nedoporučujeme. Práce přímo v systému pro správu představuje riziko neúmyslných změn konfigurace.   
 
@@ -45,7 +45,7 @@ Nyní otevřete prostředí a spusťte následující příkaz, kde:
 
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> Port pro připojení SSH je 2200, nikoli standardní 22.
+> Port pro připojení SSH je 2200, nikoli standardní port 22.
 
 ## Tunel DC/OS
 
@@ -75,7 +75,7 @@ Pokud chcete otevřít tunel ke koncovému bodu Swarm, spusťte příkaz podobn�
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Nyní je možné následujícím způsobem nastavit svou proměnnou prostředí DOCKER_HOST a dále používat rozhraní příkazového řádku Dockeru běžným způsobem.
+Nyní můžete nastavit proměnnou prostředí vašeho DOCKER_HOST následujícím způsobem. Můžete nadále používat rozhraní příkazového řádku Docker (CLI) jako za normálních okolností.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -91,11 +91,11 @@ Zadejte název hostitele, který se skládá z uživatelského jména správce c
 
 ![Konfigurace PuTTY 1](media/putty1.png)
 
-Vyberte `SSH` a `Authentication`. Pro ověření přidejte svůj soubor privátního klíče.
+Vyberte **SSH** a **ověřování**. Pro ověření přidejte svůj soubor privátního klíče.
 
 ![Konfigurace PuTTY 2](media/putty2.png)
 
-Vyberte `Tunnels` a nakonfigurujte následující přesměrované porty:
+Vyberte **tunely** a nakonfigurujte následující přesměrované porty:
 - **Zdrojový port:** Vaše předvolba – použijte 80 pro DC/OS nebo 2375 pro Swarm.
 - **Cíl:** Použijte localhost:80 pro DC/OS nebo localhost:2375 pro Swarm.
 
@@ -119,13 +119,13 @@ Když nakonfigurujete tunel pro Docker Swarm, budete mít ke clusteru Swarm př�
 
 ## Další kroky
 
-Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu
+Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
-[Práce s Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
-[Práce s Azure Container Service a nástrojem Docker Swarm](container-service-docker-swarm.md)
+- [Práce s Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
+- [Práce s Azure Container Service a Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

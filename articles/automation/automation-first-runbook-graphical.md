@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="runbook, runbook template, runbook automation, azure runbook"/>
+    keywords="runbook, šablona sady runbook, automatizace sady runbook, runbook azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Můj první grafický runbook
@@ -115,7 +115,7 @@ Teď, když máme proměnnou, do které se uloží naše ID předplatného, mů�
 10.  **Add-AzureRmAccount** obsahuje několik sad parametrů, takže před zadáním hodnot parametru musíme nejdřív jednu sadu vybrat.  Klikněte na **Sada parametrů** a potom vyberte sadu **ServicePrincipalCertificate**. 
 11.  Po výběru sady parametrů se parametry zobrazí v okně Konfigurace parametru aktivity.  Klikněte na **APPLICATIONID**.<br> ![Přidání parametrů účtu Azure RM](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  V okně Hodnota parametru v části **Zdroj dat** vyberte **Výstup aktivity**, v seznamu vyberte **Získat připojení Spustit jako**, do textového pole **Cesta pole** zadejte **ApplicationId** a potom klikněte na tlačítko **OK**.  Název vlastnosti pro cestu pole zadáváme kvůli tomu, že výstupem aktivity je objekt s více vlastnostmi.
-13.  Klikněte na **CERTIFICATETHUMBPRINT**, v okně Hodnota parametru v části **Zdroj dat** vyberte **Výstup aktivity**.  V seznamu vyberte **Získat připojení Spustit jako**, do textového pole **Cesta pole** zadejte **CertificateThumbrprint** a potom klikněte na tlačítko **OK**. 
+13.  Klikněte na **CERTIFICATETHUMBPRINT**, v okně Hodnota parametru v části **Zdroj dat** vyberte **Výstup aktivity**.  V seznamu vyberte **Získat připojení Spustit jako**, do textového pole **Cesta pole** zadejte **CertificateThumbrprint**. Potom klikněte na **OK**. 
 14.  Klikněte na **SERVICEPRINCIPAL**, v okně Hodnota parametru v části **Zdroj dat** vyberte **ConstantValue** , klikněte na možnost **Pravda** a potom klikněte na tlačítko **OK**.
 15.  Klikněte na **TENANTID**, v okně Hodnota parametru v části **Zdroj dat** vyberte **Výstup aktivity**.  V seznamu vyberte **Získat připojení Spustit jako**, do textového pole **Cesta pole** zadejte **TenantId** a potom dvakrát klikněte na tlačítko **OK**.  
 16.  V ovládacím prvku Knihovna zadejte do textového pole hledání text **Set-AzureRmContext**.
@@ -135,7 +135,7 @@ Váš runbook by měl v tuto chvíli vypadat následovně: <br>![Konfigurace ov�
 Teď přidáme aktivitu **Start-AzureRmVM**, která spustí virtuální počítač.  V rámci vašeho předplatného Azure můžete vybrat jakýkoli virtuální počítač, ale prozatím jeho název pevně zakódujeme do rutiny.
 
 1. V ovládacím prvku Knihovna zadejte do textového pole hledání text **Start-AzureRm**.
-2. Přidejte aktivitu **Start-AzureRmVM** na plátno a potom na ni klikněte a přetáhněte ji pod **Zadat ID předplatného**.
+2. Přidejte aktivitu **Start-AzureRmVM** na plátno. Potom na ni klikněte a přetáhněte ji pod **Připojit se k Azure**.
 3. Pozastavte ukazatel myši nad možností **Zadat ID předplatného**, dokud se v dolní části obrazce nezobrazí kruh.  Klikněte na kruh a přetáhněte šipku na **Start-AzureRmVM**. 
 4.  Vyberte **Start-AzureRmVM**.  Pokud chcete zobrazit sady, které patří k **Start-AzureRmVM**, klikněte na **Parametry** a potom na **Sada parametrů**.  Vyberte sadu parametrů **ResourceGroupNameParameterSetName**. Všimněte si, že vedle **ResourceGroupName** a **Název** se zobrazuje vykřičník.  To znamená, že tyto parametry jsou povinné.  Všimněte si také, že oba očekávají řetězcové hodnoty.
 5.  Vyberte **Název**.  V části **Zdroj dat** vyberte **Powershellový výraz** a zadejte název virtuálního počítače (v uvozovkách), který pomocí tohoto runbooku spustíme.  Klikněte na tlačítko **OK**.<br>![Hodnota parametru názvu Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -198,15 +198,15 @@ Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v p�
 17. V případě **výrazu podmínky** zadejte text *$ActivityOutput['Get Status'] -eq "Stopped"*.  **Start-AzureRmVM** se spustí jenom v případě zastavení virtuálního počítače.
 18. V ovládacím prvku Knihovna rozbalte položku **Rutiny** a potom **Microsoft.PowerShell.Utility**.
 19. Přidejte **Write-Output** dvakrát na plátno.<br> ![Runbook s aktivitou Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. V prvním ovládacím prvku **Write-Output** změňte hodnotu **Popisek** na *Oznámit spuštění virtuálního počítače*.
+20. V prvním ovládacím prvku **Write-Output** klikněte na **Parametry** a změňte hodnotu **Popisek** na *Oznámit spuštění virtuálního počítače*.
 21. U položky **InputObject** změňte**Zdroj dat** na **Powershellový výraz** a zadejte výraz *"$VMName successfully started."*.
-22. V druhém ovládacím prvku **Write-Output** změňte hodnotu **Popisek** na *Oznámit neúspěšné spuštění virtuálního počítače*.
+22. V druhém ovládacím prvku **Write-Output** klikněte na **Parametry** a změňte hodnotu **Popisek** na *Oznámit neúspěšné spuštění virtuálního počítače*.
 23. U položky **InputObject** změňte **Zdroj dat** na **Powershellový výraz** a zadejte výraz *"$VMName could not start."*.
 24. Propojte **Start-AzureRmVM** s **Oznámit spuštění virtuálního počítače** a **Oznámit neúspěšné spuštění virtuálního počítače**.
 25. Vyberte propojení s **Oznámit spuštění virtuálního počítače** a změňte možnost **Použít podmínku** na **Pravda**.
 26. V případě **výrazu podmínky** zadejte *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  Tento ovládací prvek Write-Output se teď spustí jenom v případě úspěšného spuštění virtuálního počítače.
 27. Vyberte propojení na **Oznámit neúspěšné spuštění virtuálního počítače** a změňte možnost **Použít podmínku** na **Pravda**.
-28. V případě **výrazu podmínky** zadejte *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Tento ovládací prvek Write-Output se teď spustí jenom v případě, když se virtuální počítač nespustí. 
+28. V případě **výrazu podmínky** zadejte *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Tento ovládací prvek Write-Output se teď spustí jenom v případě, když se virtuální počítač nespustí.
 29. Uložte runbook a otevřete testovací podokno.
 30. Spusťte runbook se zastaveným virtuálním počítačem  a virtuální počítač by se měl spustit.
 
@@ -218,6 +218,6 @@ Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v p�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

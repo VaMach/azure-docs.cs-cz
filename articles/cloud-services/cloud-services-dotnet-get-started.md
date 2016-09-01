@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Začínáme s cloudovými službami Azure Cloud Services a technologií ASP.NET
@@ -60,7 +60,7 @@ Pokyny kurzu pracují s jedním z následujících produktů:
 * Visual Studio 2013
 * Visual Studio 2015
 
-Pokud je nemáte, Visual Studio 2015 se vám nainstaluje automaticky při instalaci sady Azure SDK. 
+Pokud je nemáte, Visual Studio 2015 se vám nainstaluje automaticky při instalaci sady Azure SDK.
 
 ## Architektura aplikace
 
@@ -229,7 +229,7 @@ Pro webovou roli a nastavení prostředí cloudové služby pro roli pracovního
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Nechte soubor otevřený pro úpravy.
 
 2. Na [portálu Azure Classic](http://manage.windowsazure.com) klikněte v levém podokně na **Databáze SQL**, klikněte na databázi, kterou jste si pro tento kurz vytvořili, klikněte na kartu **Řídicí panel** a potom klikněte na **Zobrazit připojovací řetězce**.
@@ -314,10 +314,10 @@ A soubor *ServiceConfiguration.Cloud.cscfg* obsahuje hodnoty, které jste pro ta
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ V této části budete konfigurovat službu Azure Storage a připojovací řetě
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Pokud používáte Visual Studio 2015, nahraďte text „v11.0“ textem „MSSQLLocalDB“.
 
 2. Uložte provedené změny.
@@ -868,9 +868,10 @@ Další informace najdete v následujících zdrojích:
 * [Cloudové služby Azure Cloud Services část 1: Úvod](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Správa cloudových služeb Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Jak vybrat poskytovatele cloudových služeb](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

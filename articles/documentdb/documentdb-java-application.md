@@ -1,10 +1,10 @@
 <properties
     pageTitle="Kurz vývoje aplikace Java pomocí DocumentDB | Microsoft Azure"
     description="Tento kurz vývoje webové aplikace Java popisuje, jak pomocí služby Azure DocumentDB ukládat data a přistupovat k nim z aplikace Java hostované na Webech Azure."
-    keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+    keywords="Vývoj aplikací, databázový kurz, aplikace v jazyce java, kurz vývoje webových aplikací v jazyce java, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,8 +14,8 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/10/2016"
-    ms.author="andrl"/>
+    ms.date="08/11/2016"
+    ms.author="anhoh"/>
 
 # Vytvoření webové aplikace Java pomocí DocumentDB
 
@@ -750,7 +750,7 @@ Díky Webům Azure je nasazování aplikací Java stejně snadné jako export ap
  - V poli Destination (Cíl) vyberte cíl, do kterého se uloží soubor WAR.
  - Klikněte na **Finish** (Dokončit).
 
-3. Nyní když máte k dispozici soubor WAR, můžete tento soubor jednoduše nahrát do adresáře **webapps** Webu Azure. Pokyny, jak soubor nahrát, najdete v tématu o [přidání aplikace na web Java v Azure]( ../app-service-web/web-sites-java-add-app.md).
+3. Nyní když máte k dispozici soubor WAR, můžete tento soubor jednoduše nahrát do adresáře **webapps** Webu Azure. Pokyny, jak soubor nahrát, najdete v tématu o [přidání aplikace na web Java v Azure](../app-service-web/web-sites-java-add-app.md).
 
     Až bude soubor WAR nahrán do adresáře webapps, běhové prostředí zjistí, že jste jej přidali, a automaticky ho načte.
 4. Pokud si chcete zobrazit hotový produkt, přejděte na http://NÁZEVVAŠEHO\_WEBU\_.azurewebsites.net/azure-documentdb-java-sample/ a začněte přidávat úkoly!
@@ -786,6 +786,6 @@ Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.c
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

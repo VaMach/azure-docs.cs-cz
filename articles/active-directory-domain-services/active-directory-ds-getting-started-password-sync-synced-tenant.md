@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* – Povolení synchronizace hesel do služby Azure AD Domain Services
@@ -38,9 +38,9 @@ Pokud má klient služby Azure AD vaší organizace nastavenou synchronizaci s m
 
 Bude nutné nainstalovat nejnovější doporučenou verzi služby Azure AD Connect na počítač připojený k doméně. Pokud máte existující instanci instalace služby Azure AD Connect, bude nutné ji aktualizovat tak, aby používala sestavení Azure AD Connect GA. Ujistěte se, že používáte nejnovější verzi Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.
 
-**[Stažení Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Stažení služby Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Doporučená verze: **1.1.130.0** – publikováno 12. dubna 2016.
+Doporučená verze: **1.1.189.0** – publikováno 3. června 2016
 
   > [AZURE.WARNING] Pokud chcete povolit synchronizaci starší verze hesla (nutné pro ověřování protokolů NTLM a Kerberos) do klienta služby Azure AD, JE NUTNÉ nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. V předchozích verzích služby Azure AD Connect ani u starší verze nástroje DirSync není tato funkce dostupná.
 
@@ -82,6 +82,6 @@ Synchronizace přihlašovacích údajů do služby Azure AD bude v závislosti n
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

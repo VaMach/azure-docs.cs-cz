@@ -19,7 +19,7 @@
 # Replikace virtuálních počítačů Hyper-V v clouduech VMM do Azure přes Azure Site Recovery pomocí portálu Azure | Microsoft Azure
 
 > [AZURE.SELECTOR]
-- [Portál Azure](site-recovery-vmm-to-azure.md)
+- [Azure Portal](site-recovery-vmm-to-azure.md)
 - [Portál Azure Classic](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [PowerShell Classic](site-recovery-deploy-with-powershell.md)
@@ -151,7 +151,7 @@ Během nasazování Site Recovery budete muset nastavit mapování sítě. Mapov
     ![Nový trezor](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
 3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Máte-li více předplatných, vyberte jedno z nich.
-4. [Vytvořte novou skupinu prostředků](../resource-group-portal.md#create-resource-group) nebo vyberte existující. Zadejte oblast Azure. Počítače budou replikovány do této oblasti. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. [Vytvořte novou skupinu prostředků](../resource-group-template-deploy-portal.md) nebo vyberte existující. Zadejte oblast Azure. Počítače budou replikovány do této oblasti. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 4. Pokud chcete mít k trezoru rychlý přístup z řídicího panelu, klikněte na tlačítko **Připnout na řídicí panel** a potom klikněte na tlačítko **Vytvořit trezor**.
 
     ![Nový trezor](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -213,31 +213,29 @@ Nainstalujte zprostředkovatele Azure Site Recovery na server VMM a zaregistrujt
     ![Umístění instalace](./media/site-recovery-vmm-to-azure/provider2.png)
 
 4. Po dokončení instalace klikněte na **Zaregistrovat**, aby se server VMM zaregistroval v trezoru.
-5. V části **Připojení k Internetu** určete, jak se zprostředkovatel, který běží na serveru VMM, připojí k Site Recovery přes internet.
+5. Na stránce **Nastavení trezoru** klikněte na **Procházet** a vyberte soubor klíče trezoru. Určuje předplatné Azure Site Recovery a název trezoru.
 
-    - Pokud chcete, aby se zprostředkovatel připojil přímo, vyberte **Připojit přímo bez proxy serveru**.
-    - Pokud chcete nastavit připojení s proxy serverem, který je aktuálně nastavený na serveru, vyberte **Připojit se s existujícím nastavením proxy serveru**.
-    - Pokud váš stávající proxy server vyžaduje ověření nebo pokud chcete používat vlastní proxy server, vyberte **Připojit se s vlastním nastavením proxy serveru**.
+    ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider10.PNG)
+
+6. V části **Připojení k Internetu** určete, jak se zprostředkovatel, který běží na serveru VMM, připojí k Site Recovery přes internet.
+
+    - Pokud chcete, aby se zprostředkovatel připojil přímo, vyberte **Připojit k Azure Site Recovery přímo bez proxy serveru**.
+    - Pokud váš existující proxy server vyžaduje ověření nebo chcete použít vlastní proxy server, vyberte **Připojit k Azure Site Recovery pomocí proxy serveru**.
     - Pokud budete používat vlastní proxy server, budete muset zadat adresu, port a přihlašovací údaje.
     - Pokud používáte proxy server, měli byste už mít povolené adresy URL popisované v [požadavcích](#on-premises-prerequisites).
     - Pokud používáte vlastní proxy server, vytvoří se automaticky účet VMM RunAs (DRAProxyAccount) pomocí zadaných přihlašovacích údajů proxy serveru. Proxy server nakonfigurujte tak, aby tento účet bylo možné úspěšně ověřit. Nastavení účtu VMM RunAs můžete upravovat v konzole VMM. V části **Nastavení** rozbalte položku **Zabezpečení** > **Účty Spustit jako** a potom změňte heslo pro DRAProxyAccount. Budete muset službu VMM restartovat, aby se toto nastavení projevilo.
 
-    ![Internet](./media/site-recovery-vmm-to-azure/provider3.png)
-
-6. Na stránce **Nastavení trezoru** klikněte na **Procházet** a vyberte soubor klíče trezoru. Určuje předplatné Azure Site Recovery a název trezoru.
-
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider4.png)
+    ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 
 7. Přijměte nebo změňte umístění certifikátu SSL, který je automaticky generován pro šifrování dat. Tento certifikát se používá, pokud povolíte šifrování dat pro cloud chráněný platformou Azure na portálu Azure Site Recovery. Uchovávejte tento certifikát v bezpečí. Při spuštění předání služeb při selhání do Azure ho budete potřebovat k dešifrování, pokud je povolené šifrování dat.
 
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider5.png)
 
 8. Do pole **Název serveru** zadejte popisný název, který bude identifikovat server VMM v trezoru. V konfiguraci clusteru zadejte název role clusteru VMM.
-13. Pokud chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru, zaškrtněte políčko **Synchronizovat metadata cloudu**. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM. Kliknutím na **Zaregistrovat** proces dokončete.
+9. Pokud chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru, zaškrtněte políčko **Synchronizovat metadata cloudu**. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM. Kliknutím na **Zaregistrovat** proces dokončete.
 
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider6.png)
+    ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider16.PNG)
 
-9. Spustí se registrace. Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.
+10. Spustí se registrace. Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.
 
 
 #### Instalace zprostředkovatele Azure Site Recovery pomocí příkazového řádku
@@ -573,6 +571,6 @@ Po nasazení a zprovoznění nasazení si můžete přečíst [další informace
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

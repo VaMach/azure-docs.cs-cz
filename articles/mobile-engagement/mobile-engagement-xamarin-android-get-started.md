@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="06/16/2016"
     ms.author="piyushjo" />
 
 # Začínáme s Azure Mobile Engagementem pro aplikace pro Xamarin.Android
@@ -109,6 +109,20 @@ Xamarin Studio vytvoří aplikaci, do které budeme integrovat Mobile Engagement
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku na back-end Mobile Engagementu. Pokud to chcete provést, zajistěte, aby se metoda `MainActivity` převzala z `EngagementActivity` namísto `Activity`.
 
     public class MainActivity : EngagementActivity
+    
+Pokud `EngagementActivity` neumožňuje převzetí, musíte do `OnResume` a `OnPause` přidat metody `.StartActivity` a `.EndActivity`.  
+
+        protected override void OnResume()
+            {
+                EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+                base.OnResume();             
+            }
+    
+            protected override void OnPause()
+            {
+                EngagementAgent.EndActivity();
+                base.OnPause();            
+            }
 
 ##<a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 
@@ -134,6 +148,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

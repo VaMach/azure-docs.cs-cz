@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Vytvoření aplikace na platformě Xamarin.Forms
@@ -26,11 +26,11 @@ V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní ap
 
 Ve všech dalších kurzech k Mobile Apps týkajících se Xamarin.Forms se předpokládá dokončení tohoto kurzu.
 
-##Předpoklady
+##Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
-* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 
@@ -53,24 +53,16 @@ Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď 
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (Nepovinné) Lokální otestování back-endového projektu
-
-Pokud jste si výše vybrali konfiguraci back-endu .NET, můžete si ho lokálně otestovat, pokud chcete.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 ##Stáhnutí a spuštění řešení Xamarin.Forms
 
 Zde máte několik možností. Řešení si můžete stáhnout na Mac a otevřít ho v nástroji Xamarin Studio nebo si ho můžete stáhnout do počítače s Windows a otevřít v nástroji Visual Studio pomocí síťově připojeného počítače Mac, abyste mohli sestavit aplikaci pro iOS. Pokud potřebujete podrobnější pokyny ke scénářům instalace nástroje Xamarin, nahlédněte do tématu o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Můžeme pokračovat:
 
- 1. Na počítači Mac nebo počítači s Windows otevřete [Portál Azure] v okně prohlížeče.
+ 1. Na počítači Mac nebo počítači s Windows otevřete [Azure Portal] v okně prohlížeče.
  2. V okně nastavení mobilní aplikace klikněte na **Začínáme** (v části pro mobilní řešení) > **Xamarin.Forms**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
 
-    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu na místní počítač a poznamenejte si, kam jste jej uložili.
+    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 
  3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio nebo v nástroji Visual Studio.
 
@@ -102,7 +94,8 @@ Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikn�
 
 Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
->[AZURE.NOTE] Kód, který přistupuje k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+>[AZURE.NOTE]
+> Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
 
 ##(Nepovinné) Spuštění projektu pro Android
 
@@ -128,7 +121,8 @@ Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikn�
 
 Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
-> [AZURE.NOTE] Kód, který přistupuje k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+> [AZURE.NOTE]
+> Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
 
 
 ##(Nepovinné) Spuštění projektu pro Windows
@@ -152,14 +146,20 @@ Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v 
 
 ![][12]
 
-> [AZURE.NOTE] Kód, který přistupuje k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+> [AZURE.NOTE]
+> Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
 
 ##Další kroky
 
-* [Přidání ověřování do aplikace ](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Přidání ověřování do aplikace](app-service-mobile-xamarin-forms-get-started-users.md)  
 Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
-* [Přidání nabízených oznámení do aplikace Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md)  
-Naučte se přidávat nabízená oznámení do aplikace.
+
+* [Přidání nabízených oznámení do aplikace](app-service-mobile-xamarin-forms-get-started-push.md)  
+Naučte se přidávat do aplikace podporu nabízených oznámení a konfigurovat back-end mobilní aplikace tak, aby k zasílání nabízených oznámení používal Azure Notification Hubs.
+
+* [Povolení offline synchronizace u aplikace](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Naučte se, jak pomocí back-endu mobilní aplikace přidat do aplikace podporu offline režimu. Offline synchronizace umožňuje koncovým uživatelům pracovat s mobilní aplikací &mdash; zobrazovat, přidávat a upravovat data &mdash; i v případě, že nemají připojení k síti.
+
 * [Jak používat spravovaného klienta pro Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin. 
 
@@ -182,11 +182,11 @@ Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin.
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Sada SDK pro mobilní aplikace]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

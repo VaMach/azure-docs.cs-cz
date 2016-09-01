@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Ochrana rozhraní API omezením četnosti pomocí Azure API Management
@@ -212,7 +212,7 @@ Kliknutím na **Portál pro vývojáře** v pravé horní nabídce přejděte na
 
 Klikněte v horní nabídce na **Rozhraní API** a potom vyberte **Rozhraní API v programu Echo**.
 
-![Portál pro vývojáře][api-management-developer-portal-api-menu]
+![portálu pro vývojáře][api-management-developer-portal-api-menu]
 
 Klikněte na **GET Resource** a potom klikněte na **Zkouška**.
 
@@ -296,6 +296,6 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

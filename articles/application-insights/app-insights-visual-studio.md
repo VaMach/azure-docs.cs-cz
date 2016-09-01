@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
+    ms.date="06/21/2016" 
     ms.author="awills"/>
 
 
@@ -65,7 +65,11 @@ Pokud jste [nastavili monitorování výjimek](app-insights-asp-net-exceptions.m
 Klikněte na výjimku a získejte trasování zásobníku. Pokud je kód aplikace otevřen v sadě Visual Studio, můžete kliknutím z trasování zásobníku přejít na příslušný řádek kódu.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Trasování zásobníku výjimky](./media/app-insights-visual-studio/17.png)
+
+Navíc v řádku Code Lens nad jednotlivými metodami uvidíte počet výjimek zaznamenaných nástrojem Application Insights za posledních 24 hodin.
+
+![Trasování zásobníku výjimky](./media/app-insights-visual-studio/21.png)
 
 
 ## Místní monitorování
@@ -84,17 +88,17 @@ Je také užitečné, pokud máte některou [vlastní telemetrii](app-insights-a
  * V okně hledání nastavení je možnost vyhledávání místní diagnostiky i v případě, že vaše aplikace odesílá telemetrii na portál.
  * Odesílání telemetrie na portál zastavíte okomentováním řádku `<instrumentationkey>...` ze souboru ApplicationInsights.config. Jakmile budete připraveni k opětovnému odeslání telemetrie na portál, komentář zrušte.
 
+## Trendy
 
+Trendy představují nástroj pro vizualizaci chování aplikace v čase. 
 
+Vybírejte z **Trendů zkoumání telemetrie** z tlačítka panelu nástrojů Application Insights nebo okna hledání Application Insights. Zvolte jeden z pěti běžných dotazů, abyste mohli začít. Na základě typů telemetrie, časových rozsahů a dalších vlastností můžete analyzovat různé datové sady. 
 
+Pokud chcete vyhledat anomálie v datech, vyberte jednu z možností anomálií v rozevíracím seznamu „Typ zobrazení“. Možnosti filtrování v dolní části okna usnadňují zdokonalování v konkrétních podmnožinách vaší telemetrie.
 
-## Postup upgradu na budoucí verze sady SDK
+![Trendy](./media/app-insights-visual-studio/51.png)
 
-K upgradu [novou verzi sady SDK](app-insights-release-notes-dotnet.md) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte Microsoft.ApplicationInsights.Web a zvolte Upgradovat.
-
-Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložte jeho kopii před upgradem a následně slučte změny do nové verze.
-
-
+[Další informace o trendech](app-insights-visual-studio-trends.md).
 
 ## Co dále?
 
@@ -108,6 +112,6 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

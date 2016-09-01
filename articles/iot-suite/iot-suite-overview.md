@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/23/2016"
+     ms.date="08/09/2016"
      ms.author="dobett"/>
 
 # Co je Azure IoT Suite?
@@ -53,14 +53,7 @@ Sada Azure IoT Suite zahrnuje předkonfigurovaná řešení, která vám umožň
 
 ## Další kroky
 
-Když teď máte přehled o tom, co se dá pomocí sady IoT Suite dělat a jaké jsou jeho hlavní součásti, můžete:
-
-- Zjistit další informace o předkonfigurovaných řešeních v prostředí IoT Suite – viz téma [Co jsou předkonfigurovaná řešení Azure IoT?][lnk-what-are-preconfig].
-
-- Začít s pomocí jednoho z předkonfigurovaných řešení – viz téma [Začínáme s předkonfigurovanými řešeními IoT][lnk-preconfig-start].
-
-- Zjistit další informace o službě Azure IoT Hub – viz téma [Dokumentace IoT Hub][lnk-iot-hub].
-
+Teď, když máte přehled o tom, co sada IoT Suite dokáže a jaké jsou její hlavní součásti, můžete v článku [Co jsou předkonfigurovaná řešení Azure IoT][lnk-what-are-preconfig] zjistit další informace o předkonfigurovaných řešeních v sadě IoT Suite.
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,11 +64,9 @@ Když teď máte přehled o tom, co se dá pomocí sady IoT Suite dělat a jaké
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

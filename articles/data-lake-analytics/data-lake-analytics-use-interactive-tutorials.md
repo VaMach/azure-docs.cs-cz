@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -33,7 +33,7 @@ Další kurzy najdete v tématech:
 - [Začínáme s Data Lake Analytics pomocí sady .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 - [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
 
-**Předpoklady**
+**Požadavky**
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
@@ -91,6 +91,6 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -12,11 +12,13 @@
 
     - V případě možnosti **Předplatné** vyberte požadované předplatné, se kterým chcete účet DocumentDB používat. Pokud má váš účet jenom jedno předplatné, bude ve výchozím nastavením vybrán tento účet.
 
-    - Ve **skupině prostředků** vyberte nebo vytvořte skupinu prostředků pro účet DocumentDB.  Ve výchozím nastavení bude vybrána existující skupina prostředků v rámci předplatného Azure.  Samozřejmě si můžete také vytvořit novou skupinu prostředků, do které účet DocumentDB přidáte. Další informace najdete v článku [Použití Portálu Azure ke správě prostředků Azure](resource-group-portal.md).
+    - Ve **skupině prostředků** vyberte nebo vytvořte skupinu prostředků pro účet DocumentDB.  Ve výchozím nastavení se vytvoří nová skupina prostředků. Další informace najdete v článku [Použití Portálu Azure ke správě prostředků Azure](../articles/azure-portal/resource-group-portal.md).
 
-    - K určení zeměpisného umístění, ve kterém chcete účet DocumentDB hostovat, použijte nabídku **Umístění**.   
+    - K určení zeměpisného umístění, ve kterém chcete účet DocumentDB hostovat, použijte nabídku **Umístění**. 
+    
+    - Chcete-li zajistit pohodlný přístup k účtu a prostředkům, které vytvoříte v budoucnu, zaškrtněte položku **Připnout k řídicímu panelu**.  
 
-4.  Po nakonfigurování možností nového účtu DocumentDB klikněte na **Vytvořit**.  Vytvoření účtu DocumentDB může několik minut trvat.  Pokud chcete zkontrolovat stav, můžete průběh sledovat na úvodním panelu.  
+4.  Po nakonfigurování možností nového účtu DocumentDB klikněte na **Vytvořit**. Pokud chcete zkontrolovat stav nasazení, můžete průběh sledovat na úvodním panelu.  
     ![Snímek obrazovky s dlaždicí Vytváření na úvodním panelu – Online tvůrce databází](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
     Popřípadě můžete průběh sledovat v centru oznámení.  
@@ -25,7 +27,7 @@
 
     ![Snímek obrazovky s centrem oznámení, na kterém je vidět úspěšné vytvoření účtu DocumentDB a jeho nasazení do skupiny prostředků – oznámení Online tvůrce databází](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  Účet DocumentDB je po vytvoření připravený k použití s výchozím nastavením na online portálu. Všimněte si, že výchozí konzistence účtu DocumentDB je nastavená na možnost **Relace**.  Výchozí nastavení konzistence můžete upravit kliknutím na ikonu **Nastavení** na horním příkazovém řádku a potom na položku **Výchozí konzistence**, která se nachází v okně **Všechna nastavení** v části **Funkce**.
+5.  Účet DocumentDB je po vytvoření připravený k použití s výchozím nastavením na online portálu. Všimněte si, že výchozí konzistence účtu DocumentDB je nastavená na možnost **Relace**.  Kliknutím můžete upravit výchozí nastavení konzistence **výchozí konzistence** v nabídce. Další informace o úrovních konzistence nabízených databází DocumentDB naleznete v tématu [Úrovně konzistence v DocumentDB](../articles/azure-portal/resource-group-portal.md)
 
     ![Snímek obrazovky okna Skupina prostředků – začátek vývoje aplikace](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -37,6 +39,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Instalace sady Visual Studio 2015 a SSDT pro SQL Data Warehouse
 
-Pro vývoj aplikací pro SQL Data Warehouse doporučujeme používat Visual Studio 2015 s nejnovější verzí rozšíření SQL Server Data Tools (SSDT).  Visual Studio 2013 s rozšířením SSDT je podporováno pro zpětnou kompatibilitu.  
+Pro vývoj aplikací pro SQL Data Warehouse doporučujeme používat Visual Studio 2015 s nejnovější verzí rozšíření SQL Server Data Tools (SSDT).  Kvůli zpětné kompatibilitě se rovněž podporuje Visual Studio 2013 Update 5 s rozšířením SSDT.  
 
 Používání sady Visual Studio s rozšířením SSDT vám umožní pomocí Průzkumníka objektů systému SQL Server vizuálně zkoumat tabulky, zobrazení, uložené procedury a celou řadu dalších objektů v SQL Data Warehouse a také spouštět dotazy.
 
@@ -49,7 +49,7 @@ Teď, když máte nejnovější verzi rozšíření SSDT, se můžete [připojit
 <!--Image references-->
 
 <!--Articles-->
-[připojit]: ./sql-data-warehouse-get-started-connect.md
+[připojit]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Stáhněte si Visual Studio 2015]: https://www.visualstudio.com/downloads/
@@ -58,6 +58,6 @@ Teď, když máte nejnovější verzi rozšíření SSDT, se můžete [připojit
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

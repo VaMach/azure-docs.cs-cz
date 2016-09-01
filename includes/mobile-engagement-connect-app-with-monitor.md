@@ -8,13 +8,13 @@ V této části se dozvíte, jak připojit vaši aplikaci s back-endu služby Mo
 
 3. Funkce sledování je připravená ukázat vám všechna zařízení v reálném čase, čímž se spustí vaše aplikace.
      
-4. Spusťte aplikaci buď v emulátoru/simulátoru, nebo na připojeném zařízení. Pokud je vaše integrace správná, funkce sledování vám ukáže jednu relaci, což znamená, že je teď vaše aplikace připojená k back-endu služby Mobile Engagement a odesílá do ní data.  
+4. Teď svou aplikaci spusťte. Pokud je vaše integrace správná, funkce sledování vám ukáže jednu relaci, což znamená, že je teď vaše aplikace připojená k back-endu služby Mobile Engagement a odesílá do ní data.  
     
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -28,14 +28,13 @@ Díky tomuto kurzu se dozvíte, jak pomocí portálu Azure Classic vytvořit cen
 
 Abyste tento kurz dokončili, potřebujete následující:
 
-+ Microsoft Visual Studio 2013 (nebo novější verzi) nebo Microsoft Visual Studio Express pro Windows. V příkladech v tomto článku pracujeme s aplikací Visual Studio 2015.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
 + Aktivní účet Azure. <br/>Pokud účet nemáte, můžete si ho bezplatně vytvořit během několika minut. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="_blank").
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -97,6 +96,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

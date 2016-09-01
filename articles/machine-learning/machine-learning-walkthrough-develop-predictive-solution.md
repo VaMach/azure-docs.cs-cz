@@ -1,7 +1,7 @@
 <properties
     pageTitle="Prediktivní řešení pro úvěrové riziko v Machine Learning | Microsoft Azure"
     description="Podrobný průvodce postupem vytvoření řešení prediktivní analýzy pro posuzování úvěrového rizika v nástroji Azure Machine Learning Studio"
-    keywords="credit risk, predictive analytics solution,risk assessment"
+    keywords="úvěrové riziko,řešení prediktivní analýzy,posouzení rizika"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Posouzení úvěrového rizika je samozřejmě složitý problém, ale trochu si
 V tomto názorném průvodci budeme sledovat proces vývoje modelu prediktivní analýzy v nástroji Machine Learning Studio a jeho nasazení jako webové služby Azure Machine Learning. Začneme s veřejně dostupnými daty o úvěrovém riziku, na jejichž základě vyvineme a natrénujeme prediktivní model, a poté tento model nasadíme jako webovou službu, kterou mohou pro posuzování úvěrového rizika využívat další uživatelé.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
@@ -43,6 +45,6 @@ Tento názorný postup je založen na zjednodušené verzi ukázkového experime
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

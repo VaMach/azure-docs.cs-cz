@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="05/09/2016"
+    ms.date="07/25/2016"
     ms.author="spelluru"/>
 
 # Přijmutí služby Azure Data Catalog
@@ -175,6 +175,6 @@ Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší or
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

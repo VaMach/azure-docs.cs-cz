@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
 # Přizpůsobení vyexportované šablony Azure Resource Manageru
@@ -236,6 +236,6 @@ V tomto článku si ukážeme obě možnosti.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="07/23/2016"
     ms.author="tamram"/>
 
 
-# Začínáme s Azure Table Storage pomocí rozhraní .NET
+# Začínáme s úložištěm Azure Table pomocí rozhraní .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Přehled
 
@@ -41,6 +43,11 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 - [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Další ukázky
+
+Další příklady použití Table Storage najdete v článku [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu. 
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -442,6 +449,7 @@ Pokud načítáte velký počet entit a chcete entity zpracovávat/zobrazovat ta
 
 Teď, když jste se naučili základy používání služby Table Storage, podívejte se na následujících odkazech na další informace o složitějších úlohách úložiště:
 
+- Další příklady Table Storage najdete v článku [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/).
 - Projděte si referenční dokumentaci ke službě Table, kde najdete úplné podrobnosti o dostupných rozhraních API:
     - [Klientská knihovna pro úložiště pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API – referenční informace](http://msdn.microsoft.com/library/azure/dd179355)
@@ -470,6 +478,6 @@ Teď, když jste se naučili základy používání služby Table Storage, podí
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

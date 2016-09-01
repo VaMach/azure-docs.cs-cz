@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="07/14/2016"
    ms.author="magoedte" />
 
 # Moduly integrace pro Azure Automation
@@ -27,6 +27,8 @@ Modul PowerShellu je skupina rutin PowerShellu, například **Get-Date** nebo **
 ## Co je modul integrace pro Azure Automation?
 
 Modul integrace se příliš neliší od modulu PowerShellu. Je to prostě modul PowerShellu, který volitelně obsahuje jeden další soubor – soubor metadat určujících typ připojení Azure Automation, který se bude používat s rutinami modulu v runboocích. Bez ohledu na volitelný soubor můžete tyto moduly PowerShellu importovat do Azure Automation, abyste jejich rutiny zpřístupnili pro použití v rámci runbooků a jejich prostředků DSC, které jsou dostupné pro použití v rámci konfigurací DSC. Azure Automation tyto moduly ukládá a v čase spuštění úlohy runbooku a úlohy kompilace DSC je načte do izolovaného prostoru (sandbox) v Azure Automation, kde se runbooky spustí a konfigurace DSC se zkompilují.  Veškeré prostředky DSC v modulech se také automaticky umístí na server vyžádané replikace Automation DSC, aby si je mohly vyžádat počítače, které chtějí použít konfigurace DSC.  Řadu modulů Azure PowerShellu dodáváme jako součást služby Azure Automation, abyste mohli okamžitě začít s automatizací správy Azure. Samozřejmě můžete snadno importovat další moduly PowerShellu pro libovolný systém, službu nebo nástroj, které chcete integrovat. 
+
+>[AZURE.NOTE] Některé moduly se dodávají jako „globální“ moduly ve službě Automation. Tyto globální moduly jsou okamžitě dostupné po vytvoření účtu automatizace a my je někdy aktualizujeme, což je automaticky nasadí do účtu automatizace. Pokud nechcete používat automatické aktualizace, můžete vždy importovat stejný modul sami a ten bude mít přednost před globální verzí modulu, dodávanou v rámci služby. 
 
 Formát, ve kterém budete importovat balíček modulu integrace, je komprimovaný soubor se stejným názvem, jako má modul, a navíc s příponou .zip. Obsahuje modul Windows PowerShellu a všechny podpůrné soubory včetně souboru manifestu (.psd1), pokud ho modul obsahuje.
 
@@ -203,10 +205,9 @@ I když jsou moduly integrace v podstatě moduly PowerShellu, neznamená to, že
 ## Další kroky
 
 - První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
-- Další informace o vytváření modulů PowerShellu najdete v článku [Psaní modulu Windows PowerShellu](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- Další informace o vytváření modulů PowerShellu najdete v článku [Psaní modulu Windows PowerShellu](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

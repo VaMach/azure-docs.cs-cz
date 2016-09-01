@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-html5"
     ms.devlang="javascript"
     ms.topic="get-started-article" 
-    ms.date="11/30/2015"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
@@ -36,7 +36,7 @@ Zde je snímek obrazovky dokončené aplikace:
 
 Ve všech dalších kurzech používání Mobile Services pro HTML aplikace se předpokládá dokončení tohoto kurzu. Pro aplikaci PhoneGap nebo Cordova si prostudujte téma [Verze PhoneGap/Cordova](mobile-services-javascript-backend-phonegap-get-started.md) tohoto kurzu.
 
-##Předpoklady
+##Požadavky
 
 Pro dokončení tohoto kurzu potřebujete následující položky:
 
@@ -62,7 +62,7 @@ Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého 
 
 V této části vytvoříte novou aplikaci pro HTML, která je připojena k mobilní službě.
 
-1.  Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1.  Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **Windows** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci HTML**.
@@ -109,7 +109,7 @@ Závěrečnou fází tohoto kurzu je hostování a spuštění nové aplikace v 
 
     > [AZURE.NOTE] Kód, který přistupuje k mobilní službě pro dotazování a vkládání dat a který se nachází v souboru page.js, můžete zkontrolovat.
 
-4. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
+4. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
 
     ![][11]
 
@@ -150,7 +150,7 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 <!-- URLs. -->
 [Přidání ověřování do aplikace]: mobile-services-html-get-started-users.md
 
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 [instalačního programu webové platformy Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [nejnovější verzi jazyka Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Reference konceptu postupu u Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
@@ -159,6 +159,6 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

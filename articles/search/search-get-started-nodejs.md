@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Začínáme s Azure Search v NodeJS
@@ -54,12 +54,11 @@ Po vytvoření služby se vraťte na portál a získejte adresu URL nebo `api-ke
 
 Stáhněte ukázku pomocí libovolného z následujících dvou přístupů.
 
-1. Přejděte k programu [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+1. Přejděte na [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip a potom z něj extrahujte všechny soubory.
 
 Všechny následné úpravy souborů a spouštěné příkazy se budou provádět na souborech v této složce.
 
-Případně, pokud máte v příkazu cesty GIT, můžete otevřít okno prostředí PowerShell a zadat `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ## Aktualizace souboru config.js. pomocí adresy URL služby Search a klíče rozhraní API
 
@@ -123,6 +122,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Začínáme se službou Azure IoT Hub pro rozhraní .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Úvod
-
-Azure IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení pro internet věcí (IoT) a back-endem řešení. Jeden z největších problémů, kterým projekty IoT čelí, je způsob spolehlivého a bezpečného připojení zařízení k back-endu řešení. Tento problém služba IoT Hub řeší následovně:
-
-- Nabízí spolehlivé, flexibilně škálovatelné zasílání zpráv ze zařízení do cloudu a z cloudu do zařízení.
-- Umožňuje zabezpečit komunikaci pomocí zabezpečených přihlašovacích údajů a řízení přístupu do zařízení.
-- Zahrnuje knihovny zařízení pro nejoblíbenější jazyky a platformy.
-
-V tomto kurzu získáte informace o následujících postupech:
-
-- vytvoření služby IoT Hub pomocí Portálu Azure
-- vytvoření identity zařízení ve službě IoT Hub
-- vytvoření simulovaného zařízení, která odesílá telemetrické zprávy do back-endu vašeho cloudu a přijímá příkazy z back-endu vašeho cloudu
 
 Na konci tohoto kurzu budete mít tři konzolové aplikace systému Windows:
 
@@ -132,7 +118,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která čte zp
         static string iotHubD2cEndpoint = "messages/events";
         static EventHubClient eventHubClient;
 
-6. Do třídy **Program** přidejte následující metodu.
+6. Přidejte následující metodu do třídy **Program**:
 
         private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
         {
@@ -196,7 +182,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která simuluj
         static string iotHubUri = "{iot hub hostname}";
         static string deviceKey = "{device key}";
 
-6. Do třídy **Program** přidejte následující metodu.
+6. Přidejte následující metodu do třídy **Program**:
 
         private static async void SendDeviceToCloudMessagesAsync()
         {
@@ -243,11 +229,11 @@ Tento kurz vás provede postupem vytvoření klienta zařízení IoT Hub. K při
 
 Nyní můžete spustit aplikace.
 
-1.  V sadě Visual Studio v Průzkumníku řešení klikněte pravým tlačítkem na řešení a potom klikněte na tlačítko **Nastavit projekty po spuštění**. Vyberte možnost **Více projektů po spuštění** a poté příkaz **Spustit** jako akci pro oba projekty **ProcessDeviceToCloudMessages** a **SimulatedDevice**.
+1.  V sadě Visual Studio v Průzkumníku řešení klikněte pravým tlačítkem na řešení a potom klikněte na tlačítko **Nastavit projekty po spuštění**. Vyberte možnost **Více projektů po spuštění** a poté příkaz **Spustit** jako akci pro oba projekty **ReadDeviceToCloudMessages** a **SimulatedDevice**.
 
     ![Vlastnosti projektu po spuštění][41]
 
-2.  Stisknutím klávesy **F5** spusťte obě aplikace. Výstup konzoly z aplikace **SimulatedDevice** zobrazuje zprávy, které simulované zařízení odesílá do služby IoT Hub. Výstup konzoly z aplikace **ProcessDeviceToCloudMessages** zobrazuje zprávy, které služba IoT Hub přijímá.
+2.  Stisknutím klávesy **F5** spusťte obě aplikace. Výstup konzoly z aplikace **SimulatedDevice** zobrazuje zprávy, které simulované zařízení odesílá do služby IoT Hub. Výstup konzoly z aplikace **ReadDeviceToCloudMessages** zobrazuje zprávy, které služba IoT Hub přijímá.
 
     ![Výstup konzoly z aplikací][42]
 
@@ -258,11 +244,15 @@ Nyní můžete spustit aplikace.
 
 ## Další kroky
 
-V tomto kurzu jste nakonfigurovali novou službu IoT Hub v portálu a poté jste vytvořili identitu zařízení v registru identit ve službě. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. V následujících kurzech můžete pokračovat v průzkumu funkcí služby IoT Hub a dalších scénářů platformy IoT:
+V tomto kurzu jste nakonfigurovali novou službu IoT Hub v portálu a poté jste vytvořili identitu zařízení v registru identit ve službě. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. 
 
-- V kurzu [Odesílání zpráv typu cloud-zařízení pomocí služby IoT Hub][lnk-c2d-tutorial] zjistíte, jak posílat zprávy do zařízení a zpracovávat zpětnou vazbu o doručení vytvořenou službou IoT Hub.
-- V kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial] zjistíte, jak spolehlivě zpracovávat telemetrické a interaktivní zprávy přicházející ze zařízení.
-- Kurz [Nahrávání souborů ze zařízení][lnk-upload-tutorial] popisuje schéma, které usnadňuje nahrávání souborů ze zařízení pomocí zpráv typu cloud-zařízení.
+Pokud chcete pokračovat v seznamování se službou IoT Hub a prozkoumat další scénáře IoT, podívejte se na tyto články:
+
+- [Připojení zařízení][lnk-connect-device]
+- [Začínáme se správou zařízení][lnk-device-management]
+- [Začínáme se sadou Gateway SDK][lnk-gateway-SDK]
+
+Další informace o tom, jak rozšířit váš internet věcí a zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -273,9 +263,7 @@ V tomto kurzu jste nakonfigurovali novou službu IoT Hub v portálu a poté jste
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks ]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -290,9 +278,11 @@ V tomto kurzu jste nakonfigurovali novou službu IoT Hub v portálu a poté jste
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

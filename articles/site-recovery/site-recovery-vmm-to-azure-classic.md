@@ -19,7 +19,7 @@
 #  Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure
 
 > [AZURE.SELECTOR]
-- [Portál Azure](site-recovery-vmm-to-azure.md)
+- [Azure Portal](site-recovery-vmm-to-azure.md)
 - [Prostředí PowerShell – ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Portál Classic](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell – Classic](site-recovery-deploy-with-powershell.md)
@@ -134,9 +134,13 @@ Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředko
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. V části **Připojení k internetu** určete, jak se zprostředkovatel, který běží na serveru VMM, připojí k internetu. Pokud chcete použít výchozí nastavení připojení k internetu nakonfigurované na serveru, vyberte **Použít výchozí nastavení proxy serveru systému**.
+9. V poli **Název trezoru** ověřte název trezoru, ve kterém bude server zaregistrovaný. Klikněte na *Další*.
 
-    ![Nastavení internetu](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+    ![Registrace serveru](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. V části **Připojení k internetu** určete, jak se zprostředkovatel, který běží na serveru VMM, připojí k internetu. Pokud chcete použít výchozí nastavení připojení k internetu nakonfigurované na serveru, vyberte **Připojit pomocí stávajícího nastavení proxy**.
+
+    ![Nastavení internetu](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
     - Pokud chcete používat vlastní proxy server, měli byste ho nastavit před instalací zprostředkovatele. Při konfiguraci nastavení vlastního proxy serveru proběhne test, aby se zkontrolovalo připojení k proxy serveru.
     - Pokud používáte vlastní proxy server nebo váš výchozí proxy server vyžaduje ověření, budete muset zadat podrobnosti o proxy serveru, včetně jeho adresy a portu.
@@ -146,26 +150,23 @@ Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředko
         - *.backup.windowsazure.com
         - *.blob.core.windows.net
         - *.store.core.windows.net
-    - Povolte IP adresy popsané v [rozsazích IP adres Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) a protokol HTTPS (443). Měli byste také povolit rozsahy IP adres oblasti Azure, kterou budete chtít používat, a oblasti Západní USA.
+    - Povolte IP adresy popsané v [rozsazích IP adres Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) a protokol HTTPS (443). Musíte také povolit rozsahy IP adres oblasti Azure, kterou budete chtít používat, a oblasti Západní USA.
+    - Pokud používáte vlastní proxy server, vytvoří se automaticky účet VMM RunAs (DRAProxyAccount) pomocí zadaných přihlašovacích údajů proxy serveru. Proxy server nakonfigurujte tak, aby tento účet bylo možné úspěšně ověřit. Nastavení účtu VMM RunAs můžete upravovat v konzole VMM. Uděláte to tak, že otevřete pracovní prostor **Nastavení**, rozbalíte možnost **Zabezpečení**, kliknete na **Účty Spustit jako** a pak upravíte heslo pro DRAProxyAccount. Budete muset službu VMM restartovat, aby se toto nastavení projevilo.
 
-    - Pokud používáte vlastní proxy server, vytvoří se automaticky účet VMM RunAs (DRAProxyAccount) pomocí zadaných přihlašovacích údajů proxy serveru. Proxy server nakonfigurujte tak, aby tento účet bylo možné úspěšně ověřit. Nastavení účtu VMM RunAs můžete upravovat v konzole VMM. Uděláte to tak, že otevřete pracovní prostor Nastavení, rozbalíte možnost Zabezpečení, kliknete na Účty Spustit jako a pak upravíte heslo pro DRAProxyAccount. Budete muset službu VMM restartovat, aby se toto nastavení projevilo.
 
 8. V části **Registrační klíč** vyberte klíč, který jste si stáhli z Azure Site Recovery a zkopírovali na server VMM.
-9. V poli **Název trezoru** ověřte název trezoru, ve kterém bude server zaregistrovaný.
 
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. Můžete zadat umístění pro uložení certifikátu SSL, který se automaticky vygeneroval pro šifrování dat. Tento certifikát se bude používat, pokud povolíte šifrování dat pro cloud VMM během nasazování Site Recovery. Uchovávejte tento certifikát v bezpečí. Při spuštění předání služeb při selhání do Azure ho vyberete, abyste mohli dešifrovat šifrovaná data.
+10.  Nastavení šifrování se používá pouze při replikaci virtuálních počítačů Hyper-V v cloudech VMM do Azure. Pokud provádíte replikaci do sekundární lokality, tak se nepoužívá.
 
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  Do pole **Název serveru** zadejte popisný název, který bude identifikovat server VMM v trezoru. V konfiguraci clusteru zadejte název role clusteru VMM.
+12.  V části **Synchronizovat metadata cloudu** vyberte, zda chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM.
 
-11. Do pole **Název serveru** zadejte popisný název, který bude identifikovat server VMM v trezoru. V konfiguraci clusteru zadejte název role clusteru VMM.
+13.  Dokončete proces kliknutím na **Další**. Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
+    
+    ![LastPage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. V části **Synchronizovat počáteční metadata cloudu** vyberte, jestli chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM.
-
-    ![Registrace serveru](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. Dokončete proces kliknutím na **Další**. Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
+Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
 
 ### Instalace pomocí příkazového řádku
 
@@ -331,7 +332,10 @@ Testovací převzetí služeb při selhání simuluje váš mechanismus převzet
 
     ![Vytvoření plánu obnovení](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Na stránce pro **výběr virtuálních počítačů** vyberte virtuální počítače, které chcete přidat do plánu obnovení. Tyto virtuální počítače se přidají do výchozí skupiny plánu obnovení – Skupina 1. V jednom plánu obnovení bylo otestováno maximálně 100 virtuálních počítačů.
+2. Na stránce pro **výběr virtuálních počítačů** vyberte virtuální počítače, které chcete přidat do plánu obnovení. Tyto virtuální počítače se přidají do výchozí skupiny plánu obnovení – Skupina 
+3. 
+4. 
+5. 1. V jednom plánu obnovení bylo otestováno maximálně 100 virtuálních počítačů.
 
     - Pokud chcete před přidáním virtuálních počítačů do plánu ověřit jejich vlastnosti, klikněte na virtuální počítač na stránce vlastností cloudu, ve kterém se nachází. Vlastnosti virtuálního počítače můžete také konfigurovat v konzole VMM.
     - Pro všechny virtuální počítače, které jsou zobrazené, byla povolena ochrana. Seznam obsahuje jak virtuální počítače, pro které je povolená ochrana a byla pro ně dokončena počáteční replikace, tak ty, pro které je povolená ochrana, ale u kterých se stále ještě čeká na provedení počáteční replikace. Převzetí služeb při selhání v rámci plánu obnovení je možné pouze u virtuálních počítačů s dokončenou počáteční replikací.
@@ -381,6 +385,6 @@ Další informace o [nastavení plánů obnovení](site-recovery-create-recovery
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

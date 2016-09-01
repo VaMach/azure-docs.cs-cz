@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Přehled Microsoft Azure Data Lake Analytics
@@ -67,6 +67,7 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
     - [Správa Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-manage-use-portal.md)
     - [Správa Azure Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Sledování úloh Azure Data Lake Analytics a odstraňování potíží pomocí Portálu Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Přístup k protokolům diagnostiky pro Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 - Ucelený kurz
     - [Použití interaktivních kurzů Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
@@ -81,6 +82,6 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

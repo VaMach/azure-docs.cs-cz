@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologie připojení ke službě Azure VPN Gateway
+# Připojení ke službě Azure VPN Gateway
 
 Tento článek ukazuje základní topologie připojení brány VPN. Grafika a popisy vám pomohou s výběrem topologie konfigurace, která bude odpovídat vašim požadavkům. Přestože tento článek probírá základní topologie, je možné vytvořit komplexnější topologie použitím diagramů jako vodítek.
 
 Každá topologie obsahuje tabulku se seznamem modelů nasazení, pro které je topologie dostupná, nástroje pro nasazení, které můžete použít ke konfiguraci jednotlivých topologií, a přímý odkaz na článek, pokud je k dispozici. Tabulky pravidelně aktualizujeme s tím, jak vznikají nové články a nástroje pro nasazení, které lze použít.
 
-Další informace o branách VPN najdete v tématu [Informace o branách VPN](vpn-gateway-about-vpngateways.md).
-
-
+Po rozhodnutí ohledně připojení, které chcete vytvořit se budou pokyny, podle kterých vytvoříte vlastní bránu VPN, lišit v závislosti na modelu nasazení, který jste použili k vytvoření svojí virtuální sítě. Například pokud jste virtuální síť vytvořili pomocí modelu nasazení Classic, budete při vytváření a konfiguraci brány VPN postupovat podle pokynů pro model nasazení Classic. Není možné vytvořit bránu VPN Resource Manageru pro virtuální síť nasazenou pomocí modelu nasazení Classic. Další informace o modelech nasazení najdete v tématu [Pochopení modelu nasazení Classic a modelu nasazení Resource Manager](../resource-manager-deployment-model.md).
 
 ## Site-to-Site a Multi-Site
 
@@ -64,6 +62,28 @@ Azure v současné době obsahuje dva modely nasazení: Azure Service Manager a 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Point-to-Site
+
+Konfigurace Point-to-Site vám umožňuje vytvoření bezpečného připojení k virtuální síti z jednotlivých klientských počítačů. Připojení VPN je vytvořeno spuštěním připojení na klientském počítači. Toto řešení je užitečné, pokud se chcete připojit k virtuální síti ze vzdáleného umístění, například z domova nebo z konference, nebo pokud máte pouze několik klientů, kteří se potřebují připojit k virtuální síti. 
+
+Připojení typu Point-to-Site je připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Připojení typu Point-to-Site k fungování nevyžadují zařízení VPN ani veřejnou IP adresu. 
+
+**Diagram Point-to-Site**
+
+![Připojení typu Point-to-Site](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Dostupné modely a metody nasazení**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Další informace o ExpressRoute najdete v [Technickém přehledu ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
 
 ## Současně existující připojení typu Site-to-Site a ExpressRoute
 
@@ -80,23 +100,11 @@ ExpressRoute je přímé vyhrazené připojení ke službám Microsoftu, včetn�
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
-## Point-to-Site
 
-Konfigurace Point-to-Site vám umožňuje vytvoření bezpečného připojení k virtuální síti z jednotlivých klientských počítačů. Připojení VPN je vytvořeno spuštěním připojení na klientském počítači. Toto řešení je užitečné, pokud se chcete připojit k virtuální síti ze vzdáleného umístění, například z domova nebo z konference, nebo pokud máte pouze několik klientů, kteří se potřebují připojit k virtuální síti. 
-
-Připojení typu Point-to-Site je připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Připojení typu Point-to-Site k fungování nevyžadují zařízení VPN ani veřejnou IP adresu. 
-
-**Diagram Point-to-Site**
-
-![Připojení typu Point-to-Site](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Dostupné modely a metody nasazení**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Další kroky
 
-Je vhodné se seznámit s tématy v článcích [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md) a [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md) pro lepší porozumění branám VPN před tím, než postoupíte k plánování a návrhu svého připojení.
+Je vhodné se seznámit s tématy v článcích [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md) a [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md) pro lepší porozumění nastavení bran VPN.
 
 
 
@@ -106,6 +114,6 @@ Je vhodné se seznámit s tématy v článcích [Informace o službě VPN Gatewa
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

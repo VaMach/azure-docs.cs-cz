@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Kurz k ASP.NET MVC pro DocumentDB: Vývoj webových aplikací | Microsoft Azure" 
     description="Kurz k ASP.NET MVC, v rámci kterého se vytvoří webová aplikace MVC pomocí DocumentDB. Budete ukládat JSON a přístupová data z aplikace seznamu úkolů hostované na Webech Azure – podrobný kurz ASP.NET MVC." 
-    keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
+    keywords="kurz asp.net mvc, vývoj webových aplikací, aplikace mvc web, kurz asp net mvc krok za krokem"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,10 +15,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/11/2016" 
+    ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
+# <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -32,14 +32,14 @@ Pro větší názornost, jak lze pomocí Azure DocumentDB efektivně ukládat do
 
 Tento návod popisuje, jak pomocí služby DocumentDB, kterou poskytuje Azure, ukládat data a přistupovat k nim z webové aplikace ASP.NET MVC, která je hostována v Azure. Pokud hledáte kurz, který se zaměřuje jenom na DocumentDB, nikoli komponenty ASP.NET MVC, přečtěte si téma o [vytvoření konzolové aplikace DocumentDB v jazyce C#](documentdb-get-started.md).
 
-> [AZURE.TIP] V tomto kurzu se předpokládá, že již máte zkušenosti s používáním ASP.NET MVC a Webů Azure. Pokud jsou pro vás technologie ASP.NET nebo [požadované nástroje](#_Toc395637760) nové, doporučujeme stáhnout úplný ukázkový projekt z [GitHubu][] a postupovat podle pokynů v této ukázce. Až jej budete mít sestavený, můžete se k tomuto článku vrátit, abyste kódu lépe porozuměli v kontextu projektu.
+> [AZURE.TIP] V tomto kurzu se předpokládá, že již máte zkušenosti s používáním ASP.NET MVC a Webů Azure. Pokud jsou pro vás technologie ASP.NET nebo [požadované nástroje](#_Toc395637760) nové, doporučujeme stáhnout úplný ukázkový projekt z [GitHub][] a postupovat podle pokynů v této ukázce. Až jej budete mít sestavený, můžete se k tomuto článku vrátit, abyste kódu lépe porozuměli v kontextu projektu.
 
 ## <a name="_Toc395637760"></a>Předpoklady pro tento databázový kurz
 
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
 - Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) s aktualizací 4 nebo vyšší
+- [Visual Studio 2015](http://www.visualstudio.com/) nebo Visual Studio 2013 Update 4 nebo vyšší. Pokud používáte sadu Visual Studio 2013, budete muset nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) a přidat podporu pro C# 6.0. 
 - Azure SDK pro rozhraní .NET verze 2.5.1 nebo vyšší, k dispozici prostřednictvím [instalace webové platformy Microsoft][]
 
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Visual Studio 2013 s aktualizací 4 a sady Azure SDK pro .NET verze 2.5.1. Pokud konfigurace vašeho serveru využívá jiné verze, je možné, že se vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte předpoklady uvedené výše, řešení by mělo fungovat.
@@ -242,7 +242,7 @@ A nakonec stejným způsobem jako předtím přidejte jedno poslední zobrazení
     - V poli **Třída modelu** vyberte ***Položka (todo.Models)***.
     - Pole **Třída kontextu dat** nechejte prázdné. 
     - Do pole stránky rozložení zadejte ***~/Views/Shared/_Layout.cshtml***.
-    - Klikněte na **Přidat**.
+    - Klikněte na tlačítko **Přidat**.
 
 Až bude vše hotovo, zavřete všechny dokumenty cshtml v nástroji Visual Studio, protože se k těmto zobrazením vrátíme později.
 
@@ -455,7 +455,7 @@ Přidejme nějaký kód do DocumentDBRepository a ItemController, aby byl zázna
 
     Teto kód zavolá do DocumentDBRepository a použije metodu CreateItemAsync, aby se nová položka úkolu zachovala v databázi. 
  
-    **Poznámka k zabezpečení**: Atribut **ValidateAntiForgeryToken** zde slouží k tomu, aby pomohl zabezpečit tuto aplikace před útokem CSRF. Není třeba provádět žádnou další akci, jen přidat tento atribut – vaše zobrazení musí s tímto tokenem proti padělání pracovat také. Další informace k tomuto tématu a příklady, jak toto správně implementovat, si prosím přečtěte v článku o [zabránění útoku CSRF][]. Zdrojový kód dostupný na [GitHubu][] má toto plně implementováno.
+    **Poznámka k zabezpečení**: Atribut **ValidateAntiForgeryToken** zde slouží k tomu, aby pomohl zabezpečit tuto aplikace před útokem CSRF. Není třeba provádět žádnou další akci, jen přidat tento atribut – vaše zobrazení musí s tímto tokenem proti padělání pracovat také. Další informace k tomuto tématu a příklady, jak toto správně implementovat, si prosím přečtěte v článku o [zabránění útoku CSRF][]. Zdrojový kód dostupný na [GitHub][] má toto plně implementováno.
 
     **Poznámka k zabezpečení**: U parametru metody používáme i atribut **Bind**, abychom zvýšili zabezpečení před útoky typu OVERPOST. Další informace najdete v tématu [Základní operace CRUD v ASP.NET MVC][].
 
@@ -546,7 +546,7 @@ Aplikaci otestujete na svém místním počítači tak, že provedete následuj�
 
     ![Snímek obrazovky webové aplikace vytvořené v tomto databázovém kurzu](./media/documentdb-dotnet-application/image24.png)
 
-    Pokud v tuto chvíli dojde k chybám, můžete porovnat svůj kód s ukázkovým projektem na [GitHubu][].
+    Pokud používáte sadu Visual Studio 2013 a zobrazí se chybová zpráva „Nelze vyčkat v těle klauzule problému.“ je třeba nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Můžete také porovnat kód proti vzorovému projektu na [GitHub][]. 
 
 2. Klikněte na odkaz **Vytvořit nový** a do polí **Název** a **Popis** zadejte hodnoty. Zaškrtávací políčko **Dokončeno** ponechte prázdné, jinak bude nová **položka** přidána ve stavu dokončení a nezobrazí se v úvodním seznamu.
 
@@ -564,7 +564,7 @@ Aplikaci otestujete na svém místním počítači tak, že provedete následuj�
 
 4. Až budete s testováním aplikace hotovi, stiskněte CTRL+F5, aby se ukončilo ladění aplikace. Jste připraveni aplikaci nasadit!
 
-##<a name="_Toc395637774"></a>Krok 7: Nasazení aplikace na Weby Azure
+## <a name="_Toc395637774"></a>Krok 7: Nasazení aplikace na Weby Azure
 
 Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme tuto webovou aplikaci na Weby Azure. Pokud jste při vytváření prázdného projektu ASP.NET MVC vybrali možnost **Hostovat v cloudu**, Visual Studio tento krok velmi usnadní a většinu práce odvede za vás. 
 
@@ -578,11 +578,11 @@ Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme 
 
 Za několik sekund Visual Studio dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
-##<a name="_Toc395637775"></a>Další kroky
+## <a name="_Toc395637775"></a>Další kroky
 
-Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které v tomto kurzu nebyly zahrnuty, je možné si stáhnout nebo naklonovat z [GitHubu][]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
+Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které v tomto kurzu nebyly zahrnuty, je možné si stáhnout nebo naklonovat z [GitHub][]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
 
-Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupná v [knihovně .NET DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) a nebojte se přispět do knihovny .NET DocumentDB na [GitHubu][]. 
+Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupná v [knihovně .NET DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) a nebojte se přispět do knihovny .NET DocumentDB na [GitHub][]. 
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -590,11 +590,10 @@ Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupn
 [instalace webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [zabránění útoku CSRF]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Základní operace CRUD v ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
-[GitHubu]: https://github.com/Azure-Samples/documentdb-net-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!---HONumber=Jun16_HO2-->
-
+<!--HONumber=Aug16_HO4-->
 
 

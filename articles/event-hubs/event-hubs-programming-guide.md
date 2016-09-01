@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Průvodce programováním pro službu Event Hubs
@@ -23,7 +23,7 @@ Toto téma popisuje programování pro Azure Event Hubs pomocí sady Azure .NET 
 
 Události se do centra událostí odesílají buď pomocí metody POST protokolu HTTP, nebo prostřednictvím připojení protokolu AMQP 1.0. Možnost, která se použije, závisí na konkrétním adresovaném scénáři. Připojení protokolu AMQP 1.0 se měří jako zprostředkovaná připojení ve službě Service Bus. Díky tomu, že poskytují trvalý kanál pro zasílání zpráv, jsou vhodnější ve scénářích, kde se počítá s častými vysokými objemy zpráv a vyžaduje se nižší latence.
 
-Centra událostí (Event Hubs) se vytváří a spravují pomocí třídy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Pokud používáte rozhraní API spravované pomocí .NET, budou primárními konstrukcemi pro publikování dat ve službě Event Hubs třídy [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) a [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Třída [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) poskytuje komunikační kanál AMQP, přes který se události posílají do centra událostí. Třída [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) představuje událost a slouží k publikování zpráv v centru událostí. Tato třída obsahuje tělo, některá metadata a záhlaví s informacemi o události. Další vlastnosti se do objektu [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) přidají při průchodu centrem událostí.
+Centra událostí Event Hubs se vytváří a spravují pomocí třídy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Pokud používáte rozhraní API spravované pomocí .NET, budou primárními konstrukcemi pro publikování dat ve službě Event Hubs třídy [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) a [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Třída [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) poskytuje komunikační kanál AMQP, přes který se události posílají do centra událostí. Třída [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) představuje událost a slouží k publikování zpráv v centru událostí. Tato třída obsahuje tělo, některá metadata a záhlaví s informacemi o události. Další vlastnosti se do objektu [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) přidají při průchodu centrem událostí.
 
 ## Začínáme
 
@@ -172,7 +172,7 @@ Třída [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.
 
 ## Odvolání zdroje
 
-Jako bonus k pokročilým funkcím runtime třídy [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) umožňuje služba Event Hubs odvolání zdroje, aby bylo možné blokovat konkrétním zdrojům možnost odesílat události do centra událostí. Tyto funkce jsou zvláště užitečné, pokud jsou pochybnosti ohledně pravosti tokenu zdroje nebo se zdroj v důsledku aktualizace softwaru začne chovat nevhodně. V těchto situacích může být pro identitu zdroje, která je součástí jeho tokenu SAS, zablokováno publikování událostí.
+Jako bonus k pokročilým funkcím runtime třídy [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) umožňuje služba Event Hubs odvolání zdroje, aby bylo možné blokovat u konkrétních zdrojů možnost odesílat události do centra událostí. Tyto funkce jsou zvláště užitečné, pokud jsou pochybnosti ohledně pravosti tokenu zdroje nebo se zdroj v důsledku aktualizace softwaru začne chovat nevhodně. V těchto situacích může být pro identitu zdroje, která je součástí jeho tokenu SAS, zablokováno publikování událostí.
 
 Další informace o odvolání zdroje a o tom, jak jako zdroj odesílat do centra událostí, naleznete v ukázce [zabezpečeného publikování ve velkém rozsahu u služeb Service Bus a Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -187,6 +187,6 @@ Další informace o scénářích služby Event Hubs naleznete pod těmito odkaz
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

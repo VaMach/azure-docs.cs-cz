@@ -14,14 +14,14 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Import dat do služby Azure Search pomocí portálu
 
-Portál Azure obsahuje v řídícím panelu služby Azure Search příkaz **Import dat**, který vás provede přijímáním dat ve službě Azure Search. Tento příkaz využívá předdefinovanou funkci indexerů, která prochází existující zdroj dat, a vytváří a odesílá dokumenty v závislosti na sadě řádků nalezené ve zdroji dat.
+Portál Azure obsahuje v řídícím panelu služby Azure Search příkaz **Import dat** pro načítání dat do indexu. Tento příkaz využívá předdefinovanou funkci indexerů, která prochází existující zdroj dat, vytváří a odesílá dokumenty na základě sady řádků získané ze zdroje dat.
 
-Import dat pomocí průvodce se skládá ze tří částí:
+Import dat v průvodci se skládá ze 3 částí:
 
 - připojení ke zdroji dat
 - cílový index, do kterého se data odesílají (průvodce ho pro vás často může vytvořit)
@@ -35,7 +35,7 @@ Tento pracovní postup můžete vyzkoušet s použitím vzorových dat. Chcete-l
 
 ##Konfigurace importu dat
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
 
 2. Otevřete řídící panel služby Azure Search. Zde je několik způsobů, jak najít řídicí panel.
     - Na panelu vlevo klikněte na **Domů**. Domovská stránka obsahuje dlaždice pro všechny služby v rámci vašeho předplatného. Řídící panel služby otevřete kliknutím na dlaždici.
@@ -68,10 +68,16 @@ Právě dokončená operace importování dat na pozadí vytvořila indexer. Nyn
 
 ##Úprava existujícího indexeru
 
-Dvojím kliknutím na dlaždici Indexer v řídícím panelu služby vysuňte seznam všech indexerů vytvořených pro vaše předplatné. Dvakrát klikněte na indexery, které chcete spustit, upravit nebo odstranit.
+Dvojím kliknutím na dlaždici Indexer v řídícím panelu služby vysuňte seznam všech indexerů vytvořených pro vaše předplatné. Dvakrát klikněte na indexery, které chcete spustit, upravit nebo odstranit. Index můžete nahradit jiným existujícím indexem, změnit zdroj dat a nastavit možnosti prahových hodnot chybu během indexování.
+
+##Úprava existujícího indexu
+
+Ve vyhledávání systému Azure budou strukturální aktualizace indexu vyžadovat opětovné vytvoření tohoto indexu, který se skládá z odstranění indexu, opětovného vytvoření indexu a načtení dat. Strukturální aktualizace zahrnují změnu datového typu a přejmenování nebo odstranění pole.
+
+Úpravy, které nevyžadují opětovné sestavení zahrnují přidání nového pole, změnu vyhodnocování profilů, změna navrhovatelů nebo změnu analyzátorů jazyka. Další informace naleznete v [aktualizaci indexu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

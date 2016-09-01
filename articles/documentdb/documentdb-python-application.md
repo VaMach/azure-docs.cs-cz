@@ -1,10 +1,10 @@
 <properties
     pageTitle="Vývoj webové aplikace Python Flask s použitím DocumentDB | Microsoft Azure"
     description="Projděte si databázový kurz na téma, jak ukládat a přistupovat k datům ve webové aplikaci Python Flask hostované v Azure pomocí DocumentDB. Naleznete zde řešení pro vývoj aplikací." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Vývoj aplikací, databázový kurz, python flask, webová aplikace python, vývoj pro web python, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/11/2016"
+    ms.author="anhoh"/>
 
 # Vývoj webové aplikace Python Flask s použitím DocumentDB
 
@@ -432,10 +432,10 @@ Další kurzy Pythonu Flask najdete na stránce [Velký kurz na Flask, část I:
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
   [Instalace webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Portál Azure]: http://portal.azure.com
+  [portál Azure]: http://portal.azure.com
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

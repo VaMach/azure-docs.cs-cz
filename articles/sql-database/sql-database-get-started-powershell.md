@@ -1,11 +1,11 @@
-<properties 
-    pageTitle="Nové nastavení SQL Database pomocí PowerShellu | Microsoft Azure" 
-    description="Naučte se vytvářet nové databáze pomocí prostředí PowerShell. Běžných úlohy vytváření databází lze provádět pomocí rutin prostředí PowerShell." 
-    keywords="create new sql database,database setup"
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Nové nastavení SQL Database pomocí PowerShellu | Microsoft Azure"
+    description="Naučte se vytvářet nové databáze pomocí prostředí PowerShell. Běžných úlohy vytváření databází lze provádět pomocí rutin prostředí PowerShell."
+    keywords="vytvoření nové databáze sql, nastavení databáze"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,15 +13,15 @@
     ms.devlang="NA"
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="05/09/2016"
     ms.author="sstein"/>
 
-# Vytvoření nové databáze SQL a provádění běžných úloh úvodního nastavení databáze pomocí rutin prostředí PowerShell 
+# Vytvoření nové databáze SQL a provádění běžných úloh úvodního nastavení databáze pomocí rutin prostředí PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 - [C#](sql-database-get-started-csharp.md)
 
@@ -34,22 +34,22 @@ Naučte se vytvářet nové databáze SQL pomocí rutin PowerShell. (Potřebujet
 
 ## Vytvoření databáze: vytvoření skupiny prostředků, serveru a pravidla brány firewall
 
-Nyní máte přístup ke spouštění rutin ve vašem vybraném předplatném Azure, dalším krokem proto je stanovení skupiny prostředků, která bude obsahovat server s novou databází. Následující příklad můžete upravit tak, aby používal libovolné platné umístění. Spuštěním příkazu **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** získáte seznam platných umístění.
+Jakmile máte přístup ke spouštění rutin ve vašem vybraném předplatném Azure, je dalším krokem stanovení skupiny prostředků, která bude obsahovat server s novou databází. Následující příklad můžete upravit tak, aby používal libovolné platné umístění. Spuštěním příkazu **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** získáte seznam platných umístění.
 
 Spuštěním následujícího příkazu vytvoříte novou skupinu prostředků:
 
     New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
-Po úspěšném vytvoření nové skupiny prostředků uvidíte na obrazovce informace, mezi kterými bude uvedeno **ProvisioningState : Succeeded** (Stav zřizování: úspěch).
+Po úspěšném vytvoření nové skupiny prostředků uvidíte následující informace: **ProvisioningState : Succeeded** (Stav zřizování: úspěch).
 
 
-### Vytvoření serveru 
+### Vytvoření serveru
 
-Databáze SQL se vytvářejí na serverech služby Azure SQL Database. Nový server vytvoříte příkazem **New-AzureRmSqlServer**. Parametr ServerName nahraďte názvem vašeho serveru. Název musí být jedinečný mezi všemi servery Azure SQL, proto se zobrazí chyba, když se název serveru už používá. Stojí také za zmínku, že dokončení tohoto příkazu může trvat i několik minut. Příkaz můžete upravit tak, aby používal jakékoli platné umístění, ale je třeba určit stejné umístění, které jste použili pro vytvoření skupiny prostředků v předchozím kroku.
+Databáze SQL se vytvářejí na serverech služby Azure SQL Database. Nový server vytvoříte příkazem **New-AzureRmSqlServer**. Parametr *ServerName* nahraďte názvem vašeho serveru. Tento název musí být jedinečný pro všechny servery databáze SQL Azure. Pokud se již název používá, obdržíte chybu. Stojí také za zmínku, že dokončení tohoto příkazu může trvat i několik minut. Příkaz můžete upravit tak, aby používal jakékoli platné umístění, ale je třeba určit stejné umístění, které jste použili pro vytvoření skupiny prostředků v předchozím kroku.
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
-Po spuštění tohoto příkazu se otevře okno požadující **uživatelské jméno** a **heslo**. Nejde o vaše přihlašovací údaje Azure, zadejte uživatelské jméno a heslo, které chcete používat jako správce nového serveru.
+Při spuštění tohoto příkazu budete vyzváni k zadání uživatelského jména a hesla. Nezadávejte svoje přihlašovací údaje služby Azure. Místo toho zadejte uživatelské jméno a heslo, které chcete používat jako správce nového serveru.
 
 Po úspěšném vytvoření serveru se o něm zobrazí podrobnosti.
 
@@ -80,40 +80,42 @@ Po úspěšném vytvoření databáze se zobrazí podrobnosti o ní.
 
 ## Skript prostředí PowerShell pro vytvoření nové databáze SQL
 
+Následuje skript prostředí PowerShell pro vytvoření nové databáze SQL:
+
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
     $Location = "Japan West"
-    
+
     $ServerName = "uniqueservername"
-    
+
     $FirewallRuleName = "rule1"
     $FirewallStartIP = "192.168.0.0"
     $FirewallEndIp = "192.168.0.0"
-    
+
     $DatabaseName = "database1"
     $DatabaseEdition = "Standard"
     $DatabasePerfomanceLevel = "S1"
-    
-    
+
+
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-    
+
     $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-    
+
     $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
-    
+
     $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
-    
+
     $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
-    
+
     $SqlDatabase
-    
+
 
 
 ## Další kroky
 Po vytvoření nové databáze SQL a provedení běžných úloh její úvodního nastavení jste připraveni na další krok:
 
-- [Připojení k SQL Database přes SQL Server Management Studio a provedení ukázkového dotazu T-SQL](sql-database-connect-query-ssms.md)
+- [Připojení k SQL Database přes SQL Server Management Studio a provedení ukázkového dotazu T-SQL](sql-database-connect-query-ssms.md).
 
 
 ## Další zdroje
@@ -122,6 +124,6 @@ Po vytvoření nové databáze SQL a provedení běžných úloh její úvodníh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

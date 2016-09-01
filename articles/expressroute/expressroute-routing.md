@@ -3,8 +3,8 @@
    description="Tato stránka obsahuje podrobné požadavky pro konfiguraci a správu směrování pro okruhy ExpressRoute."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Požadavky na směrování služby ExpressRoute  
@@ -124,6 +124,8 @@ Microsoft označí předpony inzerované prostřednictvím veřejného partnersk
 |    | Východní USA | 12076:51004 |
 |    | Východní USA 2 | 12076:51005 |
 |    | Západní USA | 12076:51006 |
+|    | Západní USA 2 | 12076:51026 |
+|    | Západní střed USA | 12076:51027 |
 |    | Střed USA – sever | 12076:51007 |
 |    | Střed USA – jih | 12076:51008 |
 |    | Střed USA | 12076:51009 |
@@ -177,6 +179,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

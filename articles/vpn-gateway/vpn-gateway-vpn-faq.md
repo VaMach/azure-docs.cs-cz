@@ -88,13 +88,17 @@ Jiná softwarová řešení sítě VPN by měla s naší bránou spolupracovat, 
 
 Podporovány jsou následující operační systémy:
 
-- Windows 7 (pouze 64bitová verze)
+- Windows 7 (32bitové a 64bitové verze)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (pouze 64bitové verze)
 
-- Windows 8 (pouze 64bitová verze)
+- Windows 8 (32bitové a 64bitové verze)
 
-- Windows Server 2012
+- Windows 8.1 (32bitové a 64bitové verze)
+
+- Windows Server 2012 (pouze 64bitové verze)
+
+- Windows Server 2012 R2 (pouze 64bitové verze)
 
 - Windows 10
 
@@ -281,6 +285,6 @@ Další informace o branách VPN najdete na [stránce dokumentace k branám VPN]
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

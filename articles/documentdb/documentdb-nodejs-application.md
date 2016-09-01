@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Výuka Node.js – kurz k DocumentDB Node.js | Microsoft Azure" 
     description="Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí Microsoft Azure DocumentDB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované na Webech Azure." 
-    keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+    keywords="Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="04/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/15/2016" 
+    ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js pomocí DocumentDB
 
@@ -42,7 +42,7 @@ Postupem v tomto kurzu vytvoříte jednoduchou webovou aplikaci pro správu úko
 
 Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? To není problém, celé ukázkové řešení si můžete stáhnout z [GitHubu][].
 
-## <a name="_Toc395783176"></a>Předpoklady
+## <a name="_Toc395783176"></a>Požadavky
 
 > [AZURE.TIP] V tomto kurzu Node.js se předpokládá, že již máte zkušenosti s používáním Node.js a Webů Azure.
 
@@ -100,7 +100,7 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
 
     ![Snímek obrazovky karty package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Tímto se programu Node (a později službě Azure) poskytne informace, že vaše aplikace závisí na těchto dodatečných modulech.
+       This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
 
@@ -165,11 +165,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
                                 id: collectionId
                             };
                             
-                            var requestOptions = {
-                                offerType: 'S1'
-                            };
-                            
-                            client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
                                 callback(null, created);
                             });
         
@@ -183,8 +179,9 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
                 
         module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection přijímá volitelný parametr requestOptions, který je možné použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota requestOptions.offerType, kolekce se vytvoří pomocí výchozího typu nabídky.
-> Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB]( documentdb-performance-levels.md).
+    > [AZURE.TIP] createCollection přijímá volitelný parametr requestOptions, který je možné použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota requestOptions.offerType, kolekce se vytvoří pomocí výchozího typu nabídky.
+    >
+    > Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md). 
         
 3. Uložte a zavřete soubor **docdbUtils.js**.
 
@@ -549,7 +546,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
 
 ## <a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Weby Azure
 
-1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak to lze udělat, najdete v tématu o [průběžném nasazování pomocí GIT v Azure App Service]( ../app-service-web/web-sites-publish-source-control.md).
+1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak máte postupovat, najdete v tématu [Místní nasazení přes Git do Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
 2. Přidejte svůj web Azure jako vzdálené úložiště Git.
 
@@ -571,12 +568,11 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHubu]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 
 
-<!--HONumber=Jun16_HO2-->
-
+<!--HONumber=Aug16_HO4-->
 
 

@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Začínáme s ověřováním Azure Multi-Factor Authenticatin v cloudu
@@ -23,7 +23,7 @@ V následujícím článku se dozvíte, jak začít používat Azure Multi-Facto
 
 ![MFA v cloudu](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## Předpoklady
+## Požadavky
 Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, je třeba splnit následující předpoklady. 
 
 
@@ -63,7 +63,7 @@ Pomocí následujícího postupu povolte MFA pro uživatele.
 
 ## Automatizace zapnutí Multi-Factor Authentication pomocí prostředí PowerShell
 
-Chcete-li změnit [stav](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShell](powershell-install-configuremd), můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
+Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShellu](../powershell-install-configure.md) můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
 
 
 - Povoleno
@@ -98,6 +98,6 @@ Nyní, když máte nastavené Multi-Factor Authentication v cloudu, můžete kon
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

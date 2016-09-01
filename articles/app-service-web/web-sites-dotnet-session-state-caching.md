@@ -5,7 +5,7 @@
     documentationCenter=".net" 
     authors="Rick-Anderson" 
     manager="wpickett" 
-    editor="jimbe"/>
+    editor="none"/>
 
 <tags 
     ms.service="app-service-web" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="02/27/2016" 
+    ms.date="06/27/2016" 
     ms.author="riande"/>
 
 
@@ -89,7 +89,7 @@ Následující kód tuto hodnotu načítá ze stavu relace.
 Můžete také použít službu Redis Cash k načtení objektů ve webové aplikaci do mezipaměti. Další informace naleznete v tématu [Filmová aplikace MVC se službou Azure Redis Cache během 15 minut](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 Podrobnější informace týkající se používání stavu relace ASP.NET naleznete v tématu [Přehled stavu relace ASP.NET][].
 
->[AZURE.NOTE] Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
+>[AZURE.NOTE] Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
 ## Co se změnilo
 * Průvodce změnou z webů na službu App Service naleznete v tématu: [Služba Azure App Service a její vliv na stávající služby Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -111,6 +111,6 @@ Podrobnější informace týkající se používání stavu relace ASP.NET nalez
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

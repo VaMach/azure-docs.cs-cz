@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Vytvoření smlouvy s obchodním partnerem v Azure App Service | Microsoft Azure" 
    description="Vytváření smluv s obchodními partnery" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -81,6 +81,6 @@ Postup vytvoření smluv s obchodními partnery:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

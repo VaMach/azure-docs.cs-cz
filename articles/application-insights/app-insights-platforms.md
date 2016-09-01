@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/02/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
-# Application Insights: jazyky, platformy a integrace
+# Developer Analytics: jazyky, platformy a integrace
 
-Jedná se o implementace, o kterých jsme se dozvěděli, včetně některých třetích stran.
+Tyto položky jsou implementace [Application Insights](app-insights-overview.md), o kterých jsme se dozvěděli. Zahrnují také některé, které dodávají třetí strany.
 
 ## Jazyky
 
@@ -38,23 +38,22 @@ Jedná se o implementace, o kterých jsme se dozvěděli, včetně některých t
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET – pro aplikace, které jsou již nasazeny](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
-+ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Webové aplikace Azure a virtuální počítače](../azure-portal/insights-perf-analytics.md)
-+ [Azure Cloud Services](app-insights-cloudservices.md)& #151; včetně webových a pracovních rolí
++ [Azure Cloud Services](app-insights-cloudservices.md)&#151; včetně webových a pracovních rolí
 + [CRM Online z Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
 + [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-+ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE – pro aplikace, které jsou již nasazeny](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md)
-+ [Windows Store C++](app-insights-windows-cpp.md)
++ [Windows Store C#|VB](app-insights-windows-get-started.md) (HockeyApp)
++ [Windows Store C++](app-insights-windows-cpp.md) (HockeyApp)
 + [Aplikace pracovní plochy Windows, služby a pracovní role](app-insights-windows-desktop.md)
-+ [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [Cokoliv jiného](#projects)
 
 
@@ -88,6 +87,6 @@ Pokud ještě není SDK k dispozici pro váš jazyk nebo platformu, možná si c
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

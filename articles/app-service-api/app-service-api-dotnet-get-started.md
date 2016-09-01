@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Začínáme s aplikacemi API, technologií ASP.NET a Swaggerem v Azure App Service
 
@@ -22,7 +22,7 @@
 
 Toto je první ze série kurzů věnovaných ukázce používání funkcí Azure App Service, které jsou užitečné pro vývoj a hostování rozhraní RESTful API.  Tento kurz se zaměřuje na podporu metadat rozhraní API ve formátu Swagger.
 
-Co se dozvíte:
+Naučíte se:
 
 * Jak vytvořit a nasadit [aplikace API](app-service-api-apps-why-best-platform.md) v Azure App Service pomocí nástrojů integrovaných v nástroji Visual Studio 2015
 * Jak automatizovat zjišťování rozhraní API pomocí balíčku NuGet Swashbuckle a dynamicky generovat metadata rozhraní API Swaggeru
@@ -54,7 +54,7 @@ Po dokončení tohoto kurzu budete mít v cloudu v App Service API Apps nastaven
 
 Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloudu.
 
-## Předpoklady
+## Požadavky
 
 * Webové rozhraní API ASP.NET – tento kurz předpokládá základní znalosti práce s [webovým rozhraním API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET v nástroji Visual Studio.
 
@@ -233,13 +233,13 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
 
     Pokud zadáte název, který již použil někdo jiný, zobrazí se vpravo červený vykřičník.
 
-    Adresa URL aplikace API bude `{APi app name}.azurewebsites.net`.
+    Adresa URL aplikace API bude `{API app name}.azurewebsites.net`.
 
 6. V rozevíracím seznamu **Skupina prostředků** klikněte na **Nová** a zadejte ToDoListGroup nebo jiný název, který preferujete. 
 
     Skupina prostředků je kolekce prostředků Azure, jako jsou aplikace API, databáze, virtuální počítače apod. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
 
-    V tomto poli můžete vybrat existující [skupinu prostředků](../azure-portal/resource-group-portal.md), nebo vytvořit novou, a to zadáním názvu, který zatím žádná existující skupina prostředků ve vašem předplatném nemá.
+    V tomto poli můžete vybrat existující [skupinu prostředků](../resource-group-overview.md). Můžete taky vytvořit novou tak, že zadáte název, který zatím nemá žádná existující skupina prostředků ve vašem předplatném.
 
 4. Klikněte na tlačítko **Nová** vedle rozevíracího seznamu **Plán služby App Service**.
 
@@ -391,7 +391,7 @@ Projekt ToDoListAPI už má kód klienta vygenerovaný, ale v následujících k
 
     Parametr konstruktoru získá adresu URL koncového bodu z nastavení aplikace `toDoListDataAPIURL`. V souboru Web.config je tato hodnota nastavena na místní adresu URL služby IIS Express projektu rozhraní API, abyste mohli aplikaci spouštět místně. Pokud vynecháte parametr konstruktoru, bude výchozím koncovým bodem adresa URL, ze které jste kód vygenerovali.
 
-6. Třída klienta se vygeneruje s jiným názvem na základě názvu vaší aplikace API; změňte kód v souboru *Controllers\ToDoListController.cs* tak, aby název typu odpovídal tomu, co bylo vygenerováno v projektu. Pokud jste například aplikaci API nazvali ToDoListDataAPI0121, pak byste tento kód:
+6. Třída klienta se vygeneruje s jiným názvem na základě názvu vaší aplikace API; změňte kód v souboru *Controllers\ToDoListController.cs* tak, aby název typu odpovídal tomu, co bylo vygenerováno v projektu. Pokud jste například aplikaci API nazvali ToDoListDataAPI071316, pak byste tento kód:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -399,9 +399,9 @@ Projekt ToDoListAPI už má kód klienta vygenerovaný, ale v následujících k
 
 měli změnit na:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Vytvoření aplikace API k hostování střední vrstvy
@@ -424,7 +424,7 @@ V předchozích krocích jste [vytvořili aplikaci API datové vrstvy a nasadili
 
 4. V rozevíracím seznamu **Plán služby App Service** vyberte stejný plán, který jste vytvořili dříve. Tato hodnota se nastaví jako výchozí. 
 
-7. Klikněte na **Vytvořit**.
+7. Klikněte na možnost **Vytvořit**.
 
     Visual Studio vytvoří aplikaci API, vytvoří pro ni profil publikování a zobrazí krok **Připojení** průvodce **Publikovat web**.
 
@@ -445,7 +445,7 @@ Pokud jste právě volali aplikaci API střední vrstvy, pokusí se tato aplikac
   	| **Klíč** | toDoListDataAPIURL |
   	|---|---|
   	| **Hodnota** | https://{název vaší aplikace API datové vrstvy}.azurewebsites.net |
-  	| **Příklad** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Příklad** | https://todolistdataapi.azurewebsites.net |
 
 4. Klikněte na **Uložit**.
 
@@ -493,6 +493,6 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

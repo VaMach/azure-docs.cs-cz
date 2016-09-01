@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Ověření služby LDAP a server Azure Multi-Factor Authentication 
@@ -67,6 +67,6 @@ Chcete-li nakonfigurovat klienta LDAP, postupujte podle pokynů:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

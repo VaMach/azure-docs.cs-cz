@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 # Nastavení prostředí
@@ -56,6 +56,6 @@ Zvolte .NET nebo REST API a naprogramujte připojení k Azure Media Services.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

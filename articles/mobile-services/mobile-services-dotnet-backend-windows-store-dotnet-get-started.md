@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -84,7 +84,7 @@ V této části vytvoříte novou univerzální aplikaci pro Windows, která je 
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    <p>The client will now access the mobile service published to Azure.</p></li>
+    <p>Tento klient teď bude mít přístup k mobilním službám publikovaným do Azure.</p></li>
 </ol>
 
 ## Otestujte aplikaci pro mobilní služby hostované v Azure
@@ -136,6 +136,6 @@ Další informace o univerzálních aplikací pro Windows naleznete v části [P
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

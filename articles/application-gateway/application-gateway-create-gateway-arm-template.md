@@ -4,7 +4,7 @@
    description="Tato stránka obsahuje pokyny pro vytvoření služby Azure Application Gateway pomocí šablony Azure Resource Manageru."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Vytvoření služby Application Gateway pomocí šablony Azure Resource Manageru
@@ -22,8 +22,9 @@
 Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Služba Application Gateway poskytuje následující funkce doručování aplikací: vyrovnávání zatížení HTTP, spřažení relace na základě souborů cookie a přesměrování zpracování Secure Sockets Layer (SSL).
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [portál Azure](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
 
 <BR>
@@ -40,9 +41,9 @@ V tomto scénáři provedete tyto kroky:
 - Vytvoříte službu Application Gateway se dvěma instancemi.
 - Vytvoříte virtuální síť s názvem VirtualNetwork1 s vyhrazeným blokem CIDR 10.0.0.0/16.
 - Vytvoříte podsíť s názvem Appgatewaysubnet, která používá blok CIDR 10.0.0.0/28.
-- Nastavíte dvě dříve nakonfigurované back-end IP adresy pro webové servery, které chcete použít k vyrovnávání zatížení datových přenosů. V tomto příkladu šablony to budou back-end IP adresy 10.0.1.10 a 10.0.1.11.
+- Nastavíte dvě dříve nakonfigurované back-end IP adresy pro webové servery, které chcete použít k vyrovnávání zatížení datových přenosů. V tomto příkladu šablony se jedná o back-end IP adresy 10.0.1.10 a 10.0.1.11.
 
->[AZURE.NOTE] Tato šablona má uvedené parametry. Pokud ji chcete přizpůsobit, můžete změnit pravidla, naslouchací proces a protokol SSL, který otevírá azuredeploy.json.
+>[AZURE.NOTE] Tato nastavení jsou parametry této šablony. Pokud ji chcete přizpůsobit, můžete změnit pravidla, naslouchací proces a protokol SSL, který otevírá azuredeploy.json.
 
 
 
@@ -58,11 +59,11 @@ Z webu GitHub si můžete stáhnout existující šablonu Azure Resource Manager
 2. Klikněte na **azuredeploy.json** a potom na **RAW**.
 3. Uložte soubor do místní složky v počítači.
 4. Pokud už šablony Azure Resource Manageru znáte, pokračujte krokem 7.
-5. Otevřete soubor, který jste právě uložili, a prohlédněte si jeho obsah v části **parameters** na řádku 5. Parametry šablony Azure Resource Manageru představují zástupce hodnot, které můžete doplnit během nasazování.
+5. Otevřete soubor, který jste uložili, a prohlédněte si jeho obsah v části **parameters** na řádku 5. Parametry šablony Azure Resource Manageru představují zástupce hodnot, které můžete doplnit během nasazování.
 
   	| Parametr | Popis |
   	|---|---|
-  	| **location** | Oblast Azure, kde se služba Application Gateway vytvoří |
+  	| **location** | Oblast Azure, kde je služba Application Gateway vytvořena |
   	| **VirtualNetwork1** | Název nové virtuální sítě |
   	| **addressPrefix** | Adresní prostor virtuální sítě ve formátu CIDR |
   	| **ApplicationGatewaysubnet** | Název podsítě služby Application Gateway |
@@ -78,13 +79,13 @@ Z webu GitHub si můžete stáhnout existující šablonu Azure Resource Manager
 6. Prohlédněte si obsah v části **resources** a všimněte si následujících parametrů:
 
     - **type**. Typ prostředku vytvořeného šablonou. V tomto případě je to typ **Microsoft.Network/applicationGateways**, který představuje službu Application Gateway.
-    - **name**. Název prostředku. Všimněte si volání **[parameters('applicationGatewayName')]**, které znamená, že název doplní během nasazování uživatel nebo soubor parametru.
+    - **name**. Název prostředku. Všimněte si volání **[parameters('applicationGatewayName')]**, které znamená, že název doplníte jako vstup nebo je doplněn souborem parametru během nasazení.
     - **properties**. Seznam vlastností prostředku. Tato šablona používá při vytváření služby Application Gateway virtuální síť a veřejnou IP adresu.
 
-7. Vraťte se na stránku https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
+7. Vraťte se na stránku [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Klikněte na **azuredeploy-paremeters.json** a potom klikněte na **RAW**.
 9. Uložte soubor do místní složky v počítači.
-10. Otevřete soubor, který jste právě uložili, a upravte hodnoty parametrů. K nasazení služby Application Gateway popsané v tomto scénáři použijte níže uvedené hodnoty.
+10. Otevřete soubor, který jste uložili, a upravte hodnoty parametrů. K nasazení služby Application Gateway popsané v tomto scénáři použijte následující hodnoty.
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -116,7 +117,7 @@ Z webu GitHub si můžete stáhnout existující šablonu Azure Resource Manager
 
 ## Nasazení šablony Azure Resource Manageru pomocí prostředí PowerShell
 
-Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
+Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na článek [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) a použijte pokyny pro přihlášení ke službě Azure a vyberte své předplatné.
 
 ### Krok 1
 
@@ -143,7 +144,7 @@ Zvolte předplatné Azure, které chcete použít. <BR>
 ### Krok 4
 
 
-Pokud je to potřeba, vytvořte pomocí rutiny **New-AzureResourceGroup** novou skupinu prostředků. V následujícím příkladu vytvoříte novou skupinu prostředků s názvem AppgatewayRG v umístění Východní USA.
+Pokud je to potřeba, vytvořte pomocí rutiny **New-AzureResourceGroup** skupinu prostředků. V následujícím příkladu vytvoříte novou skupinu prostředků s názvem AppgatewayRG v umístění Východní USA.
 
      New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
         VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -160,7 +161,7 @@ Pokud je to potřeba, vytvořte pomocí rutiny **New-AzureResourceGroup** novou 
 
         ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-Spuštěním rutiny **New-AzureRmResourceGroupDeployment** nasadíte novou virtuální síť pomocí šablony a souborů parametrů, které jste stáhli a upravili v předchozích krocích.
+Spuštěním rutiny **New-AzureRmResourceGroupDeployment** nasadíte novou virtuální síť pomocí šablony a souborů parametrů, které jste stáhli a upravili v krocích výše.
 
         New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
            -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -191,52 +192,60 @@ Příkazový řádek vygeneruje následující výstup:
 
 Pokud chcete nasadit šablonu Azure Resource Manageru, kterou jste stáhli, pomocí rozhraní příkazového řádku Azure CLI, použijte následující postup:
 
-1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
-2. Spuštěním příkazu **azure config mode** přejděte do režimu Resource Manager, jak vidíte níže.
+### Krok 1
 
-        azure config mode arm
+Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
+### Krok 2
+
+Spuštěním příkazu **azure config mode** přejděte do režimu Resource Manager, jak vidíte níže.
+
+    azure config mode arm
 
 Toto je očekávaný výstup výše uvedeného příkazu:
 
-        info:   New mode is arm
+    info:   New mode is arm
 
-3. Pokud je to potřeba, vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md).
+### Krok 3
 
-        azure group create -n appgatewayRG -l eastus
+Pokud je to potřeba, vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md).
+
+    azure group create -n appgatewayRG -l eastus
 
 **-n (nebo --name)**. Název nové skupiny prostředků. V našem scénáři je to název *appgatewayRG*.
 
-**-l (nebo --location)**. Oblast Azure, ve které se nová skupina prostředků vytvoří. V našem scénáři je to *eastus*.
+**-l (nebo --location)**. Oblast Azure, ve které je vytvořena nová skupina prostředků. V našem scénáři je to *eastus*.
 
-4. Spuštěním rutiny **azure group deployment create** nasadíte novou virtuální síť pomocí šablony a souborů parametrů, které jste stáhli a upravili v předchozích krocích. Seznam uvedený za výstupem vysvětluje použité parametry.
+### Krok 4
 
-        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+Spuštěním rutiny **azure group deployment create** nasadíte novou virtuální síť pomocí šablony a souborů parametrů, které jste stáhli a upravili v předchozích krocích. Seznam uvedený za výstupem vysvětluje použité parametry.
+
+    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
 Toto je očekávaný výstup výše uvedeného příkazu:
 
-        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-        info:    Executing command group deployment create
-        + Initializing template configurations and parameters
-        + Creating a deployment
-        info:    Created template deployment "TestAppgatewayDeployment"
-        + Waiting for deployment to complete
-        data:    DeploymentName     : TestAppgatewayDeployment
-        data:    ResourceGroupName  : appgatewayRG
-        data:    ProvisioningState  : Succeeded
-        data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-        data:    Mode               : Incremental
-        data:    Name               Type    Value
-        data:    -----------------  ------  --------------
-        data:    location           String  East US
-        data:    addressPrefix      String  10.0.0.0/16
-        data:    subnetPrefix       String  10.0.0.0/24
-        data:    skuName            String  Standard_Small
-        data:    capacity           Int     2
-        data:    backendIpAddress1  String  10.0.1.10
-        data:    backendIpAddress2  String  10.0.1.11
-        info:    group deployment create command OK
+    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "TestAppgatewayDeployment"
+    + Waiting for deployment to complete
+    data:    DeploymentName     : TestAppgatewayDeployment
+    data:    ResourceGroupName  : appgatewayRG
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
+    data:    Mode               : Incremental
+    data:    Name               Type    Value
+    data:    -----------------  ------  --------------
+    data:    location           String  East US
+    data:    addressPrefix      String  10.0.0.0/16
+    data:    subnetPrefix       String  10.0.0.0/24
+    data:    skuName            String  Standard_Small
+    data:    capacity           Int     2
+    data:    backendIpAddress1  String  10.0.1.10
+    data:    backendIpAddress2  String  10.0.1.11
+    info:    group deployment create command OK
 
-**-g (nebo --resource-group)**. Název skupiny prostředků, ve které se vytvoří nová virtuální síť.
+**-g (nebo --resource-group)**. Název skupiny prostředků, ve které je vytvořena nová virtuální síť.
 
 **-f (nebo --template-file)**. Cesta k souboru šablony Azure Resource Manageru.
 
@@ -286,6 +295,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

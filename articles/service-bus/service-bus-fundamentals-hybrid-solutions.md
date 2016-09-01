@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure Service Bus | Microsoft Azure" 
-    description="Úvod do různých způsobů, jak můžete pomocí Service Bus spojit aplikace Azure a jiný software." 
+    description="Úvod do používání Service Bus ke spojení aplikace Azure a jiného softwaru." 
     services="service-bus" 
     documentationCenter=".net" 
     authors="sethmanheim" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/09/2016" 
+    ms.date="06/20/2016" 
     ms.author="sethm"/>
 
 # Azure Service Bus
@@ -39,7 +39,7 @@ V oboru názvů můžete použít jednu nebo víc instancí čtyř různých kom
 
 Když vytvoříte frontu, téma, předávání nebo Event Hub, musíte ho pojmenovat. Kombinace tohoto názvu a vašeho oboru názvů vytváří jedinečný identifikátor objektu. Aplikace můžou tento název poskytnout službě Service Bus, a pak pomocí této fronty, tématu, předávání nebo Event Hubu mezi sebou komunikovat. 
 
-Pokud aplikace Windows chtějí tyto objekty používat, můžou využít WCF (Windows Communication Foundation). Pro fronty, témata a Event Hubs můžou aplikace Windows použít taky API pro přenos zpráv, které definuje služba Service Bus. Pro snadnější použití těchto objektů z aplikací pro jinou platformu než Windows uvolnil Microsoft sady SDK pro Javu, Node.js a další jazyky. Přístup k frontám, tématům a Event Hubs se může získat i pomocí REST API přes HTTP. 
+Pokud aplikace Windows chtějí tyto objekty používat ve scénáři přenosu, můžou využít WCF (Windows Communication Foundation). Pro fronty, témata a Event Hubs můžou aplikace Windows použít API pro přenos zpráv, které definuje služba Service Bus. Pro snadnější použití těchto objektů z aplikací pro jinou platformu než Windows uvolnil Microsoft sady SDK pro Javu, Node.js a další jazyky. Přístup k frontám, tématům a Event Hubs se může získat i pomocí REST API přes HTTP. 
 
 Je důležité pochopit, že i když služba Service Bus samotná běží v cloudu (to znamená v datových centrech Microsoftu pro Azure), aplikace, které ji využívají, můžou běžet kdekoli. Service Bus můžete použít třeba k připojení aplikací běžících v Azure nebo aplikací běžících ve vašem vlastním datovém centru. Můžete ji použít i k připojení aplikace běžící v Azure nebo jiné cloudové službě k lokální službě nebo k mobilním zařízením,jako jsou tablety a telefony. Dokonce s ní můžete připojit domácí spotřebiče, senzory a jiná zařízení k centrální aplikaci nebo k jiným zařízením. Service Bus je obecný komunikační mechanizmus v cloudu, který je přístupný prakticky odkudkoli. To, jakým způsobem ho budete využívat, záleží jen na tom, co vaše aplikace potřebují dělat.
 
@@ -75,27 +75,27 @@ Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepš
  
 **Obrázek 3: V závislosti na použitém filtru může odběratelská aplikace přijímat všechny nebo jen některé zprávy odeslané do tématu Service Bus.**
 
-Téma se ve spoustě ohledů podobá frontě. Odesílatelé odesílají zprávy do tématu stejným způsobem jako do fronty a zprávy v tématu vypadají stejně jako zprávy ve frontě. Rozdíl je ale v tom, že témata umožňují každé aplikaci, aby si pomocí *filtru* vytvořila vlastní odběr. Odběratel pak uvidí jen zprávy, které odpovídají použitému filtru. Na obrázku 3 je například téma se třemi odběrateli a každý z nich používá vlastní filtr.
+*Téma* se ve spoustě ohledů podobá frontě. Odesílatelé odesílají zprávy do tématu stejným způsobem jako do fronty a zprávy v tématu vypadají stejně jako zprávy ve frontě. Rozdíl je ale v tom, že témata umožňují každé aplikaci, aby si pomocí *filtru* vytvořila vlastní *odběr*. Odběratel pak uvidí jen zprávy, které odpovídají použitému filtru. Na obrázku 3 je například téma se třemi odběrateli a každý z nich používá vlastní filtr.
 
 - Odběratel 1 přijímá jen zprávy, které mají určitou vlastnost *Seller="Ava"*.
 - Odběratel 2 přijímá zprávy, které mají vlastnost *Seller="Ruby"* a/nebo mají vlastnost *Amount* s hodnotou vyšší než 100 000. Možná je Ruby manažerka prodeje, takže chce vidět svoje prodeje a všechny velké prodeje bez ohledu na to, čí jsou.
 - Odběratel 3 má nastavený filtr *True* – to znamená, že přijímá všechny zprávy. Tato aplikace může mít například na starost udržování auditní stopy a proto potřebuje vidět všechny zprávy.
 
-Stejně jako v případě front můžou odběratelé tématu načítat zprávy způsobem **ReceiveAndDelete** nebo **PeekLock**. Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k víc odběratelům. Tomuto přístupu se obvykle říká *publikování a odběr* a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
+Stejně jako v případě front můžou odběratelé tématu načítat zprávy způsobem **ReceiveAndDelete** nebo **PeekLock**. Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
 
 ## Předávání
 
-Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když to ale není to, co chcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost předávání, jak je vidět na obrázku 4.
+Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když to ale není to, co chcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost *přenosu*, jak je vidět na obrázku 4.
 
 ![][4]
  
 **Obrázek 4: Předávání přes Service Bus nabízí synchronní obousměrnou komunikaci mezi aplikacemi.**
 
-Asi vás napadne otázka: K čemu by se mi tohle hodilo? I když nepotřebuju fronty, proč mám nutit aplikace komunikovat přes cloudovou službu, když chci, aby komunikovaly přímo? Odpověď je taková, že přímá komunikace je někdo mnohem obtížnější, než by se mohlo zdát.
+Asi vás napadne otázka týkající se přenosu: K čemu by se mi tohle hodilo? I když nepotřebuju fronty, proč mám nutit aplikace komunikovat přes cloudovou službu, když chci, aby komunikovaly přímo? Odpověď je taková, že přímá komunikace je někdo mnohem obtížnější, než by se mohlo zdát.
 
 Řekněme, že chcete propojit dvě lokální aplikace, které obě běží ve firemních datových centrech. Každá z těchto aplikací je za firewallem a každé datové centrum pravděpodobně používá překládání adres (NAT). Firewall povoluje data jen na několika málo portech a ostatní porty blokuje, zatímco NAT naznačuje, že ani jeden z počítačů, na kterých aplikace běží, nemá pevnou IP adresu, takže z jiné zóny, než je zóna jejího datového centra, se k ní nedá dostat přímo. Bez pomoci specializovaných nástrojů půjdou tyto aplikace propojit přes internet jen těžko.
 
-A Service Bus je právě takový specializovaný nástroj. Aby aplikace mohly komunikovat obousměrně s předáváním, každá z nich vytvoří odchozí připojení přes TCP se službou Service Bus a udržuje ho otevřené. Veškerá komunikace mezi těmito dvěma aplikacemi bude procházet přes tato spojení. Protože se obě spojení vytvořila ze zóny datového centra, firewall povolí veškerou příchozí komunikaci pro danou aplikaci bez nutnosti otevřít nové porty. Tento přístup také obchází problém s NAT, protože každá z obou aplikací má v cloudu vlastní pevný koncový bod. Výměnou dat přes předávací službu se aplikace můžou vyhnout problémům, které by jinak takovou komunikaci výrazně ztěžovaly. 
+Service Bus relay může pomoci. Aby aplikace mohly komunikovat obousměrně s předáváním, každá z nich vytvoří odchozí připojení přes TCP se službou Service Bus a udržuje ho otevřené. Veškerá komunikace mezi těmito dvěma aplikacemi bude procházet přes tato spojení. Protože se obě spojení vytvořila ze zóny datového centra, firewall povolí veškerou příchozí komunikaci pro danou aplikaci bez nutnosti otevřít nové porty. Tento přístup také obchází problém s NAT, protože každá z obou aplikací má v cloudu vlastní pevný koncový bod. Výměnou dat přes předávací službu se aplikace můžou vyhnout problémům, které by jinak takovou komunikaci výrazně ztěžovaly. 
 
 Pokud aplikace chtějí používat předávání přes Service Bus, můžou využít WCF (Windows Communication Foundation). Service Bus poskytuje vazby WCF, které aplikacím Windows ulehčují komunikaci přes předávací službu. Pro aplikace, které už WCF používají, obvykle stačí specifikovat jednu z těchto vazeb a potom můžou komunikovat přes předávací službu. Na rozdíl od front a témat ale komunikace přes předávací službu z aplikací na jiné platformě než Windows vyžaduje určitou míru programátorského úsilí, protože nejsou k dispozici žádné standardizované knihovny.
 
@@ -105,7 +105,7 @@ Předávací služby jsou správným řešením v situaci, když potřebujete p�
 
 ## Event Hubs
 
-Event Hubs je vysoce škálovatelná služba, která dokáže zpracovat miliony událostí za sekundu a umožňuje vaší aplikaci zpracovávat a analyzovat masivní objemy dat vytvářených zařízeními a aplikacemi připojenými k vaší síti. Službu Event Hubs můžete použít třeba ke sběru výkonnostních ukazatelů motorů vozidel firemního vozového parku v reálném čase. Když Event Hubs shromáždí data, můžete je zpracovat a uložit pomocí libovolného úložného clusteru nebo poskytovatele datové analýzy v reálném čase. Podrobné informace o službě Event Hubs nejdete v tématu [Přehled služby Event Hubs](../event-hubs/event-hubs-overview.md).
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/) je vysoce škálovatelná služba, která dokáže zpracovat miliony událostí za sekundu a umožňuje vaší aplikaci zpracovávat a analyzovat masivní objemy dat vytvářených zařízeními a aplikacemi připojenými k vaší síti. Službu Event Hubs můžete použít třeba ke sběru výkonnostních ukazatelů motorů vozidel firemního vozového parku v reálném čase. Když Event Hubs shromáždí data, můžete je zpracovat a uložit pomocí libovolného úložného clusteru nebo poskytovatele datové analýzy v reálném čase. Podrobné informace o službě Event Hubs nejdete v tématu [Přehled služby Event Hubs](../event-hubs/event-hubs-overview.md).
 
 ## Souhrn
 
@@ -115,7 +115,7 @@ Propojení aplikací vždy patřilo k budování kompletních řešení a množs
 
 Dozvěděli jste se základní informace službě Azure Service Bus, další informace se dozvíte na následujících odkazech.
 
-- Jak používat [fronty Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- Jak používat [fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
 - Jak používat [témata Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - Jak používat [předávání přes Service Bus](service-bus-dotnet-how-to-use-relay.md)
 - [Ukázky služby Service Bus](service-bus-samples.md)
@@ -127,6 +127,6 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

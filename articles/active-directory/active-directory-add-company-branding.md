@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
+    ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
 # Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
@@ -46,9 +46,7 @@ Když službu navštívíte pomocí adresy URL, která se neváže ke konkrétn�
 
 > [AZURE.NOTE]
 >
-
 - Název domény se musí v sekci portálu Azure Classic **Active Directory** > **Adresář** > **Domény**, kde jste branding nakonfigurovali, zobrazovat jako „Aktivní“.
-
 - Branding přihlašovací stránky se nepřenáší na spotřebitelskou přihlašovací stránku Microsoftu. Pokud se přihlásíte pomocí osobního účtu Microsoft, může se vám zobrazit seznam uživatelských dlaždic s brandingem, které vykreslí Azure AD, ale branding vaší organizace se na přihlašovací stránku účtu Microsoft nepoužije.
 
 
@@ -107,7 +105,7 @@ Všechny prvky na této stránce můžete lokalizovat. Po konfiguraci „výchoz
 
 ## Přizpůsobení stránky přístupového panelu
 
-Stránka přístupového panelu je v podstatě stránkou portálu, která umožňuje rychlý přístup ke cloudové aplikaci, ke které vám správce udělil přístup. Na této stránce se vaše aplikace zobrazují jako dlaždice aplikací, na které můžete kliknout. 
+Stránka přístupového panelu je v podstatě stránkou portálu, která umožňuje rychlý přístup ke cloudové aplikaci, ke které vám správce udělil přístup. Na této stránce se vaše aplikace zobrazují jako dlaždice aplikací, na které můžete kliknout.
 
 
 Následující snímek obrazovky ukazuje příklad stránky přístupového panelu po přizpůsobení.
@@ -118,14 +116,14 @@ Následující snímek obrazovky ukazuje příklad stránky přístupového pane
 
 Na portálu Azure Classic můžete každému adresáři nakonfigurovat jednu výchozí sadu přizpůsobitelných prvků. Po uložení výchozích hodnot může správce přidat lokalizované verze jednotlivých prvků pro různé jazyky a národní prostředí. Všechny přizpůsobitelné prvky jsou volitelné.
 
-Pokud například nakonfigurujete výchozí banner s logem, ale žádný velký obrázek, přihlašovací stránka zobrazí vaše logo v pravém horním rohu. Zobrazí se nicméně výchozí obrázek webu. 
+Pokud například nakonfigurujete výchozí banner s logem, ale žádný velký obrázek, přihlašovací stránka zobrazí vaše logo v pravém horním rohu. Zobrazí se nicméně výchozí obrázek webu.
 
 Představte si následující konfiguraci:
 
-- Výchozí banner s logem a text přihlašovací stránky v angličtině 
-- Text přihlašovací stránky přizpůsobený pro němčinu 
+- Výchozí banner s logem a text přihlašovací stránky v angličtině
+- Text přihlašovací stránky přizpůsobený pro němčinu
 
-Pokud je vaším preferovaným jazykem němčina, zobrazí se vám výchozí banner s logem, ale s německým textem. 
+Pokud je vaším preferovaným jazykem němčina, zobrazí se vám výchozí banner s logem, ale s německým textem.
 
 Technicky je možné nakonfigurovat sadu pro každý jazyk podporovaný službou Azure AD, přesto doporučujeme raději menší počet variant – z důvodu snazší údržby a lepšího výkonu.
 
@@ -180,8 +178,8 @@ Před provedením změn v produkčním prostředí doporučujeme nejprve experim
 
 **Pokud chcete ověřit, jestli se váš branding používá, proveďte následující kroky:**
 
-1. Otevřete relaci prohlížeče InPrivate nebo Incognito. 
-2. Navštivte stránku https://outlook.com/contoso.com a text „contoso.com“ nahraďte doménou, kterou jste přizpůsobili. 
+1. Otevřete relaci prohlížeče InPrivate nebo Incognito.
+2. Navštivte stránku https://outlook.com/contoso.com a text „contoso.com“ nahraďte doménou, kterou jste přizpůsobili.
 
 Tento postup funguje i s doménami, které mají tvar contoso.onmicrosoft.com.
 
@@ -196,7 +194,7 @@ Abyste mohli otestovat nastavení pro konkrétní jazyk, změňte výchozí jazy
 
 Některé přizpůsobitelné prvky v Azure AD mají více možností použití. Firemní logo můžete v adresáři nakonfigurovat jen jednou a používat ho na přihlašovací stránce i na stránce přístupového panelu. Některé přizpůsobitelné prvky jsou určené jenom pro přihlašovací stránku. Následující tabulka obsahuje podrobnosti o různých přizpůsobitelných prvcích.
 
-Název | Popis | Omezení | Doporučení
+Name (Název) | Popis | Omezení | Doporučení
     ------------- | ------------- | ------------- | -------------
 Banner s logem | Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. | <p>JPG nebo PNG</p><p>60 x 280 pixelů</p><p>10 kB</p> | <p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p>
 Dlaždice s logem | (Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. | <p>JPG nebo PNG</p><p>120 x 120 pixelů</p><p>10 kB</p> | <p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %.
@@ -224,6 +222,6 @@ Barva pozadí na přihlašovací stránce | Barva pozadí na přihlašovací str
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

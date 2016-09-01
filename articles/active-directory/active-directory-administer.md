@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="markusvi"
     writer="markvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 # Správa adresáře služby Azure AD
@@ -40,7 +40,8 @@ Služba Azure AD poskytuje základní možnosti správy adresáře a identity pr
 
 Adresář služby Azure AD získáte při registraci libovolné z těchto cloudových služeb Microsoftu. Podle potřeby můžete vytvářet další adresáře. Například můžete první adresář používat jako produkční a vytvořit další adresář pro testování nebo přípravu.
 
-> [AZURE.NOTE] Doporučujeme, abyste pro registraci k dalším cloudovým službám Microsoftu používali účet správce přidružený k vaší organizaci, který jste použili při registraci k vaší první službě.
+> [AZURE.NOTE]
+> Doporučujeme, abyste pro registraci k dalším cloudovým službám Microsoftu používali účet správce přidružený k vaší organizaci, který jste použili při registraci k první službě.
 
 Při první registraci ke cloudové službě Microsoftu budete vyzváni k zadání podrobností o vaší organizaci a registraci názvu internetové domény vaší organizace. Tyto informace se použijí k vytvoření nové instance adresáře služby Azure AD pro vaši organizaci. Stejný adresář se použije k ověřování pokusů o přihlášení, pokud se zaregistrujete k více cloudovým službám Microsoftu.
 
@@ -102,7 +103,7 @@ Každý adresář můžete spravovat jako plně nezávislý prostředek: každý
 - **Nezávislost prostředků**. Vytvoření nebo odstranění prostředku v jednom adresáři nemá žádný vliv na prostředky v jiných adresářích. Částečnou výjimku, která platí pro externí uživatele, popisujeme níže. Pokud používáte vlastní doménu „contoso.com“ u jednoho adresáře, nemůžete ji použít u jiných adresářů.
 - **Nezávislost správy**.  Pokud uživatel adresáře „Contoso“, který nemá oprávnění správce, vytvoří adresář „Test“, pak:
     - Používá se nástroj pro synchronizaci adresáře k synchronizaci dat s jednou doménovou strukturou služby AD.
-    - Správci adresáře „Contoso“ nemají žádná přímá oprávnění pro správu adresáře „Test“, pokud jim správce adresáře „Test“ oprávnění explicitně neudělí. Správci adresáře „Contoso“ můžou řídit přístup k adresáři „Test“ na základě ovládání uživatelského účtu, který vytvořil adresář „Test“.
+    - Správci adresáře Contoso nemají žádná přímá oprávnění pro správu adresáře Test, pokud jim správce adresáře Test oprávnění explicitně neudělí. Správci adresáře „Contoso“ můžou řídit přístup k adresáři „Test“ na základě ovládání uživatelského účtu, který vytvořil adresář „Test“.
 
     A pokud změníte (přidáte nebo odeberete) roli správce u uživatele v jednom adresáři, neovlivní tato změna žádnou roli správce, kterou tento uživatel může mít v jiném adresáři.
 
@@ -129,8 +130,8 @@ Kontrolují se následující podmínky:
 - V adresáři nesmí být žádné aplikace. Všechny aplikace musí být před odstraněním adresáře odstraněny.
 - K adresáři nesmí být přidruženo žádné předplatné online služby Microsoft, jako jsou Microsoft Azure, Office 365 nebo Azure AD Premium. Například pokud byl váš výchozí adresář vytvořený v Azure, nemůžete ho odstranit, pokud stále slouží k ověřování přihlášení k předplatnému služby Azure. Podobně nelze odstranit adresář, pokud k němu má přidružené předplatné jiný uživatel. Pokud předplatné chcete přidružit k jinému adresáři, přihlaste se k Portálu pro správu Azure a klikněte v levé navigaci na **Nastavení**. Poté v dolní části stránky **Předplatné** klikněte na **Upravit adresář**. Další informace o předplatných služby Azure najdete v článku o tom,  [jakým způsobem se předplatné služby Azure přidruží ke službě Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
+> [AZURE.NOTE]
+> Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
 
 - S adresářem nesmí být propojení žádní poskytovatelé služby Multi-Factor Authentication.
 
@@ -150,6 +151,6 @@ Kontrolují se následující podmínky:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

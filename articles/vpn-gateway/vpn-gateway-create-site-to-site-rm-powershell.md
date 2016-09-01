@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # Vytvoření virtuální sítě s připojením VPN typu Site-to-Site pomocí prostředí PowerShell a Azure Resource Manageru
@@ -183,7 +183,7 @@ Dále vytvoříte připojení VPN typu Site-to-Site mezi bránou virtuální sí
 
 Za malou chvíli dojde k vytvoření připojení. 
 
-## 9. Ověření připojení VPN
+## <a name="toverify"></a>Ověření připojení VPN
 
 Existuje několik různých způsobů, jak ověřit připojení VPN. Níže budeme mluvit o tom, jak provést základní ověření pomocí webu Azure Portal a pomocí prostředí PowerShell.
 
@@ -191,20 +191,23 @@ Existuje několik různých způsobů, jak ověřit připojení VPN. Níže bude
 
 ## <a name="modify"></a>Chcete-li upravit předpony IP adresy pro bránu místní sítě
 
-Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podle následujících pokynů.  K dispozici jsou dvě sady pokynů. Pokyny, které zvolíte, závisí na tom, zda jste již vytvořili připojení brány VPN. 
+Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podle následujících pokynů. K dispozici jsou dvě sady pokynů. Pokyny, které zvolíte, závisí na tom, jestli jste už vytvořili připojení brány. 
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>Změna IP adresy místní síťové brány
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Další kroky
 
-- Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Kroky jsou uvedeny v tématu [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Do virtuálních sítí můžete přidat virtuální počítače. Kroky jsou uvedeny v tématu [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 - Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -12,7 +12,7 @@
     ms.workload="identity" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Začínáme s ověřováním Azure Multi-Factor Authentication a službami Active Directory Federation Services
@@ -55,6 +55,7 @@ Informace o nastavení ověřování Azure Multi-Factor Authentication nebo serv
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

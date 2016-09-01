@@ -3,7 +3,7 @@
    description="Tahle stránka poskytuje pokyny pro vytvoření, konfiguraci, spuštění a odstranění služby Azure application gateway"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -12,17 +12,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Vytvoření, spuštění nebo odstranění aplikační brány
 
-Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Služba Application Gateway poskytuje následující funkce doručování aplikací: vyrovnávání zatížení HTTP, spřažení relace na základě souborů cookies a přesměrování zpracování Secure Sockets Layer (SSL).
+Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Služba Application Gateway poskytuje následující funkce doručování aplikací: vyrovnávání zatížení HTTP, spřažení relace na základě souborů cookie a přesměrování zpracování Secure Sockets Layer (SSL).
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Šablona Resource Manageru Azure](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -32,11 +33,12 @@ Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a ods
 
 ## Než začnete
 
-1. Nainstalujte nejnovější verzi rutiny prostředí Azure PowerShell pomocí instalačního programu webové platformy. Můžete stáhnout a nainstalovat nejnovější verzi **Windows PowerShell** z oddílu [Stránka se soubory ke stažení](https://azure.microsoft.com/downloads/).
-2. Ověřte, že máte funkční virtuální síť s platnou podsítí. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Aplikační brána musí být sama o sobě v podsíti virtuální sítě.
-3. Servery, které nakonfigurujete pro použití aplikační brány, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP nebo virtuální IP adresou.
+1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Nejnovější verzi můžete stáhnout a nainstalovat v části **Windows PowerShell** na stránce [Položky ke stažení](https://azure.microsoft.com/downloads/).
+2. Pokud už máte virtuální síť, vyberte buď existující prázdnou podsíť, nebo vytvořte novou podsíť výhradně pro účely služby Application Gateway v existující virtuální síti. Službu Application Gateway není možné nasadit do jiné virtuální sítě než prostředky, které chcete nasadit za službu Application Gateway.
+3. Ověřte, že máte funkční virtuální síť s platnou podsítí. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Služba Application Gateway musí být sama o sobě v podsíti virtuální sítě.
+3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
-## Co se vyžaduje k vytvoření aplikační brány?
+## Co je potřeba k vytvoření služby Application Gateway?
 
 
 Když použijete příkaz **New-AzureApplicationGateway** k vytvoření aplikační brány, v tomhle bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se musí konfigurovat buď pomocí XML, nebo objektu konfigurace.
@@ -44,14 +46,14 @@ Když použijete příkaz **New-AzureApplicationGateway** k vytvoření aplikač
 
 Hodnoty jsou:
 
-- **Fond back-end serverů:** seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do podsítě virtuální sítě, nebo by měly být IP nebo veřejnými IP adresami.
-- **Nastavení fondu back-end serverů:** každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tahle nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
-- **Front-end port:** Tenhle port je veřejný port, který se otevírá na aplikační bráně. Provoz volá tenhle port a potom se přesměruje na jeden z back-end serverů.
+- **Fond back-end serverů:** Seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do podsítě virtuální sítě, nebo by měly být veřejnými nebo virtuálními IP adresami.
+- **Nastavení fondu back-end serverů:** Každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
+- **Front-end port:** Toto je veřejný port, který se otevírá ve službě Application Gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
 - **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, s rozlišením malých a velkých písmen) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
 - **Pravidlo:** Pravidlo váže naslouchací proces a fond back-end serverů a definuje, ke kterému fondu back-end serverů se má provoz směrovat při volání příslušného naslouchacího procesu.
 
 
-## Vytvořte novou aplikační bránu
+## Vytvoření nové služby Application Gateway
 
 Pro vytvoření nové aplikační brány:
 
@@ -97,7 +99,7 @@ Když chcete ověřit vytvoření brány, můžete použít rutinu **Get-AzureAp
     VirtualIPs    : {}
     DnsName       :
 
->[AZURE.NOTE]  Výchozí hodnota pro *InstanceCount* je 2 s maximální hodnotou 10. Výchozí hodnota pro *GatewaySize* je Střední. Můžete vybrat mezi Malá, Střední a Velká.
+>[AZURE.NOTE]  Výchozí hodnota pro *InstanceCount* je 2 s maximální hodnotou 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Malá, Střední a Velká.
 
 
  Hodnoty *VirtualIPs* a *DnsName* se zobrazují jako prázdné, protože se brána ještě nespustila. Vytvoří se, jakmile bude brána v běžícím stavu.
@@ -363,7 +365,7 @@ Následující příklad ukazuje aplikační bránu, která je aktivní, spušt�
     DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
-## Odstranění aplikační brány
+## Odstranění služby Application Gateway
 
 Pro odstranění aplikační brány:
 
@@ -392,7 +394,7 @@ Jakmile je aplikační brána v zastaveném stavu, pro odstranění služby pou�
     ----       ----------------     ------------                             ----
     Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
-Když chcete prověřit, jestli se služba odstranila, použijte rutinu **Get-AzureApplicationGateway**. Tenhle krok se nevyžaduje.
+Když chcete prověřit, jestli se služba odstranila, použijte rutinu **Get-AzureApplicationGateway**. Tenhle krok není povinný.
 
 
     Get-AzureApplicationGateway AppGwTest
@@ -404,7 +406,7 @@ Když chcete prověřit, jestli se služba odstranila, použijte rutinu **Get-Az
 
 ## Další kroky
 
-Když chcete konfigurovat přesměrování zpracování SSL, přejděte do části [Konfigurace aplikační brány pro přesměrování zpracování SSL](application-gateway-ssl.md).
+Pokud chcete konfigurovat přesměrování zpracování SSL, přejděte do části [Konfigurace aplikační brány pro přesměrování zpracování SSL](application-gateway-ssl.md).
 
 Pokud chcete provést konfiguraci aplikační brány pro použití s interním nástrojem pro vyrovnávání zatížení, přečtěte si část [Vytvoření aplikační brány s interním nástrojem pro vyrovnávání zatížení (ILB)](application-gateway-ilb.md).
 
@@ -415,6 +417,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -18,7 +18,7 @@
 
 # <a name="getting-started"> </a>Co jsou Mobile Apps?
 
-Azure App Service je nabídka plně spravované platformy jako služba (PaaS) pro profesionální vývojáře, která přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. Služba *Mobile Apps* v *Azure App Service* nabízí vysoce škálovatelnou a globálně dostupnou platformu pro vývoj mobilních aplikací určenou pro vývojáře a integrátory systémů ve velkých firmách. Přináší bohatou sadu funkcí pro vývojáře pro mobilní zařízení.
+Azure App Service nabízí plně spravovanou [platformu jako službu](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro profesionální vývojáře. Přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. Služba *Mobile Apps* v *Azure App Service* nabízí vysoce škálovatelnou a globálně dostupnou platformu pro vývoj mobilních aplikací určenou pro vývojáře a integrátory systémů ve velkých firmách. Přináší bohatou sadu funkcí pro vývojáře pro mobilní zařízení.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -105,6 +105,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

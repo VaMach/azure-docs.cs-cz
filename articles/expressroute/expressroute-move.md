@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
@@ -112,6 +112,6 @@ Postupujte podle pokynů uvedených v tématu [Přesun okruhu ExpressRoute z mod
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/21/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Začínáme používat Mobile Services
@@ -39,7 +39,7 @@ V tomto návodu vytvoříte novou mobilní službu a jednoduchou aplikaci _Sezna
 
 Pro vytvoření nové aplikace připojené k mobilní službě můžete využít jednoduchý Rychlý start na portálu Azure Classic:
 
-1. Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1. Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 2. Na kartě Rychlý start klikněte na tlačítko **iOS** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci iOS**. Zobrazí se kroky k vytvoření aplikace iOS připojené k mobilní službě.
 
@@ -52,7 +52,7 @@ Pro vytvoření nové aplikace připojené k mobilní službě můžete využít
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Zpět v [Portál Azure Classic] klikněte na kartu **DATA** a pak klikněte na tabulku **TodoItem**. Tato možnost vám umožňuje procházet data vložená aplikací do tabulky.<p></li></ol></p>
+<li><p>Zpět v [portál Azure Classic] klikněte na kartu **DATA** a pak klikněte na tabulku **TodoItem**. Tato možnost vám umožňuje procházet data vložená aplikací do tabulky.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Další kroky
 Naučte se provádět další důležité úkoly v Mobile Services:
@@ -92,12 +92,12 @@ Naučte se provádět další důležité úkoly v Mobile Services:
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Verze rozhraní .NET back-end]: mobile-services-dotnet-backend-ios-get-started.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

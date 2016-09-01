@@ -30,7 +30,7 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
  - Název databáze
  - Předplatné (jenom pokud máte více předplatných)
  - Skupina prostředků (pokud teprve začínáte, použijte skupinu prostředků logického serveru)
- - Vyberte zdroj (můžete zvolit prázdnou databázi, ukázková data nebo zálohu databáze)
+ - Vyberte zdroj (můžete zvolit prázdnou databázi, ukázková data nebo zálohu databáze Azure – pokud chcete migrovat místní databázi SQL Serveru nebo načíst data pomocí BCP, přejděte na odkazy na konci tohoto článku).
  - Server (nový nebo stávající logický server)
  - Heslo správce serveru
  - Heslo
@@ -48,6 +48,7 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

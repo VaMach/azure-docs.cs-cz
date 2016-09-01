@@ -13,28 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Vizualizace dat pomocí Power BI
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 V tomto kurzu si ukážeme, jak se pomocí Power BI připojit k SQL Data Warehouse a vytvořit pár základních vizualizací.
 
-> [AZURE.NOTE] K tomuto kurzu budete potřebovat databázi SQL Data Warehouse, do které je předem načtená ukázková databáze AdventureWorksDW. Postup, jak si ji vytvořit, najdete v tématu [Vytvoření SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
->
-> Pokud už máte databázi SQL Data Warehouse, ale nemáte ukázková data, můžete [ukázková data ručně načíst][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Připojení k databázi AdventureWorksDW
+## Požadavky
+
+Pro jednotlivé kroky v tomto kurzu budete potřebovat:
+
+- SQL Data Warehouse s předem načtenou databází AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][].
+
+
+## 1. Připojení k databázi
 
 Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksDW, postupujte takto:
 
-1. Přihlaste se k [portálu Azure][].
+1. Přihlaste se k [Azure Portal][].
 2. Klikněte na **Databáze SQL** a zvolte databázi AdventureWorks služby SQL Data Warehouse.
 
     ![Vyhledání databáze][1]
@@ -51,13 +56,13 @@ Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksD
 
     ![Přihlášení k Power BI][4]
 
-1. Až se zaregistrujete v Power BI, klikněte v levém okně na datovou sadu AdventureWorksDW. Tím se otevře databáze.
+7. Až se zaregistrujete v Power BI, klikněte v levém okně na datovou sadu AdventureWorksDW. Tím se otevře databáze.
 
     ![Otevření databáze AdventureWorksDW v Power BI][5]
 
 
 
-## Vytvoření sestavy Power BI k analýze ukázkových dat
+## 2. Vytvoření sestavy
 
 Teď můžete pomocí Power BI analyzovat ukázková data databáze AdventureWorksDW. K provedení analýzy má databáze AdventureWorksDW zobrazení s názvem AggregateSales. Toto zobrazení obsahuje několik klíčových metrik pro analýzu prodeje společnosti.
 
@@ -91,35 +96,33 @@ Kdykoli můžete rozdělanou práci uložit tak, že kliknete na **Soubor** a vy
 Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na [vývoj][], [načítání][] nebo [migraci][]. Nebo se podívejte na [web Power BI][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrace]: ./sql-data-warehouse-overview-migrate.md
-[vývoj]: ./sql-data-warehouse-overview-develop.md
-[načtení]: ./sql-data-warehouse-overview-load.md
-[ukázková data ručně načíst]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[připojení k SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Vytvoření SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[migraci]: sql-data-warehouse-overview-migrate.md
+[vývoj]: sql-data-warehouse-overview-develop.md
+[načítání]: sql-data-warehouse-overview-load.md
+[ukázková data načíst ručně]: sql-data-warehouse-load-sample-databases.md
+[připojení k SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Vytvoření SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[portálu Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [web Power BI]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

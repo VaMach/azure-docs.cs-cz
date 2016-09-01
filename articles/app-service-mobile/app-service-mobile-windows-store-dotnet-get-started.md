@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Vytvoření aplikace pro Univerzální platformu Windows (UPW) v Azure App Service Mobile Apps | Microsoft Azure"
+    pageTitle="Vytvoření Univerzální platformy Windows (UPW) využívající Mobile Apps | Microsoft Azure"
     description="V tomto kurzu začnete pracovat s back-endy mobilní aplikace Azure při vývoji aplikací pro Univerzální platformu Windows (UPW) v jazycích C#, Visual Basic a JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Vytvoření aplikace pro Windows
@@ -32,7 +32,7 @@ Spuštěná na telefonu
 
 Ve všech dalších kurzech Mobile App pro aplikace UPW se předpokládá dokončení tohoto kurzu. 
 
-##Předpoklady
+##Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
@@ -80,24 +80,24 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
 
 ##Další kroky
 
-* [Přidání ověřování do aplikace ](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Přidání ověřování do aplikace](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
 
 * [Přidání nabízených oznámení do aplikace](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Naučte se přidávat do aplikace podporu nabízených oznámení a konfigurovat back-end mobilní aplikace tak, aby k zasílání nabízených oznámení používal Azure Notification Hubs.
 
-* [Zapnutí offline synchronizace u aplikace pro Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Povolení offline synchronizace u aplikace](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Naučte se, jak pomocí back-endu mobilní aplikace přidat do aplikace podporu offline režimu. Offline synchronizace umožňuje koncovým uživatelům pracovat s mobilní aplikací &mdash; zobrazovat, přidávat a upravovat data &mdash; i v případě, že nemají připojení k síti.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
 [Sada SDK pro mobilní aplikace]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portál Azure]: https://portal.azure.com/
+[portál Azure]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

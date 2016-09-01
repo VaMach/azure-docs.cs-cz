@@ -1,10 +1,10 @@
 <properties
     pageTitle="Monitorování výkonu databáze ve službě Azure SQL Database | Microsoft Azure"
     description="Seznamte se s možnostmi monitorování vaší databáze pomocí nástrojů Azure a zobrazení dynamické správy."
-    keywords="database monitoring, cloud database performance"
+    keywords="monitorování databáze, výkon cloudové databáze"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="data-management"
-    ms.date="03/25/2016"
+    ms.date="07/06/2016"
     ms.author="carlrab"/>
 
 # Monitorování výkonu databáze ve službě Azure SQL Database
@@ -24,10 +24,10 @@ Monitorování výkonu databáze SQL v Azure začíná sledováním využití pr
 
 Na [portálu Azure](https://portal.azure.com/) můžete monitorovat využití izolované databáze jednoduše tak, že vyberete databázi a kliknete na graf **Monitorování**. Zobrazí se okno **Metrika**, které můžete upravit kliknutím na **Upravit graf**. Přidejte následující metriky:
 
-- Procento procesoru
+- Procento CPU
 - Procento DTU
 - Procento datových V/V
-- Procento úložiště
+- Procento velikosti databáze
 
 Jakmile přidáte tyto metriky, můžete pokračovat jejich zobrazením v grafu **Monitorování** s dalšími podrobnostmi v okně **Metrika**. Tyto čtyři metriky uvádějí průměrné využití v procentech vzhledem k hodnotě **DTU** vaší databáze. Podrobnosti o jednotkách DTU najdete v článku o [úrovních služeb](sql-database-service-tiers.md).
 
@@ -49,6 +49,6 @@ Pro fondy elastické databáze můžete monitorovat jednotlivé databáze ve fon
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

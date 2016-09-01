@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Vytvoření webové aplikace Node.js ve službě Azure App Service
@@ -28,7 +28,7 @@
 
 V tomto kurzu se dozvíte, jak vytvořit jednoduchou aplikaci [Node.js](http://nodejs.org) a jak ji pomocí [Git](http://git-scm.com) nasadit do [webové aplikace](app-service-web-overview.md) ve službě [Azure App Service](../app-service/app-service-value-prop-what-is.md). Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
 
-Co se dozvíte:
+Naučíte se:
 
 * Postup vytvoření webové aplikace ve službě Azure App Service pomocí portálu Azure.
 * Postup nasazení aplikace Node.js do webové aplikace nuceným doručením (push) do úložiště Git webové aplikace.
@@ -66,7 +66,7 @@ Chcete-li vytvořit webovou aplikaci ve službě Azure App Service a povolit pub
 
 6. Vyberte **skupinu prostředků** nebo vytvořte novou.
 
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití portálu Azure ke správě prostředků Azure](../resource-group-portal.md).
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
 
 7. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
 
@@ -227,6 +227,6 @@ Podrobnější informace týkající se postupu při vývoji aplikací Node.js v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

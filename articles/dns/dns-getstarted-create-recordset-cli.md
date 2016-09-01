@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Vytváření sad záznamů a záznamů DNS pomocí rozhraní příkazového řádku
 
 > [AZURE.SELECTOR]
-- [Portál Azure](dns-getstarted-create-recordset-portal.md)
+- [Azure Portal](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
@@ -68,6 +68,6 @@ Další informace o službě Azure DNS najdete v tématu [Přehled Azure DNS](dn
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

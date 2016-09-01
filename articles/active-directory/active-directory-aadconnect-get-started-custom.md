@@ -2,7 +2,7 @@
     pageTitle="Azure AD Connect: Vlastní instalace | Microsoft Azure"
     description="Tento dokument podrobně popisuje možnosti vlastní instalace Azure AD Connect. Použijte tyto pokyny, pokud chcete nainstalovat službu Active Directory přes Azure AD Connect."
     services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
+    keywords="co je Azure AD Connect, instalace služby Active Directory, požadované součásti služby Azure AD"
     documentationCenter=""
     authors="andkjell"
     manager="stevenpo"
@@ -14,10 +14,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
-# Vlastní instalace Azure AD Connect
+# Vlastní instalace služby Azure AD Connect
 **Vlastní nastavení** Azure AD Connect se používá, pokud chcete využít další možnosti instalace. Používá se, pokud máte víc doménových struktur, nebo pokud chcete nakonfigurovat volitelné funkce, které nejsou zahrnuty v rychlé instalaci. Používá se ve všech případech, kde možnost [**rychlá instalace**](active-directory-aadconnect-get-started-express.md) nevyhovuje nasazení nebo topologii.
 
 Před zahájením instalace Azure AD Connect nezapomeňte [stáhnout Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) a provést požadovanou přípravu popsanou v tématu [Azure AD Connect: Hardware a nezbytné předpoklady](active-directory-aadconnect-prerequisites.md). Taky se ujistěte, jestli máte požadované účty, které jsou popsané v tématu [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md).
@@ -253,7 +253,7 @@ Podrobněji se seznamte s těmito funkcemi, které byly povoleny v rámci instal
 
 Zjistěte více o těchto běžných tématech: [plánovač a jak aktivovat synchronizaci](active-directory-aadconnectsync-feature-scheduler.md).
 
-Podrobněji se seznamte s tématem [Integrace místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
+Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
 ## Související dokumentace
 
@@ -262,10 +262,10 @@ Téma |
 Přehled služby Azure AD Connect | [Integrace místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 Instalace pomocí expresního nastavení | [Expresní instalace Azure AD Connect](active-directory-aadconnect-get-started-express.md)
 Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Účty použité pro instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Účty použité k instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

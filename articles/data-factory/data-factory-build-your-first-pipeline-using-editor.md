@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="05/16/2016"
+    ms.date="08/16/2016"
     ms.author="spelluru"/>
 
 # Sestavení prvního objektu pro vytváření dat Azure pomocí webu Azure Portal / editoru služby Data Factory
@@ -23,12 +23,13 @@
 - [Pomocí prostředí PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Pomocí sady Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Pomocí šablony Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
+- [Pomocí rozhraní REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 V tomto článku se dozvíte, jak vytvořit první objekt pro vytváření dat Azure pomocí [webu Azure Portal](https://portal.azure.com/). 
 
 ## Požadavky
 
-1. Než budete pokračovat, **musíte** si přečíst článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a provést nutné kroky.
+1. Než budete pokračovat, přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte nutné kroky.
 2. Tento článek neposkytuje koncepční přehled služby Azure Data Factory. Doporučujeme projít si podrobnější přehled služby, který najdete v článku [Úvod do Azure Data Factory](data-factory-introduction.md).  
 
 ## Vytvoření objektu pro vytváření dat
@@ -45,7 +46,7 @@ Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může 
 
     ![Okno Nový objekt pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-    > [AZURE.IMPORTANT] Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba **Název objektu pro vytváření dat GetStartedDF není k dispozici**, změňte název objektu pro vytváření dat (třeba na váš_název_GetStartedDF) a zkuste to znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+    > [AZURE.IMPORTANT] Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba: **Název objektu pro vytváření dat GetStartedDF není k dispozici**, změňte název objektu pro vytváření dat (např. na váš_název_GetStartedDF) a zkuste ho vytvořit znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
     > 
     > Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
     > 
@@ -58,14 +59,14 @@ Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může 
 6.  Na dlaždici **Úvodní panel** na webu Azure Portal uvidíte, jak se objekt pro vytváření dat vytváří:   
 
     ![Stav vytváření objektu pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-7. Blahopřejeme! Úspěšně jste vytvořili první objekt pro vytváření dat. Po úspěšném vytvoření objektu pro vytváření dat se zobrazí stránka s obsahem objektu pro vytváření dat.  
+7. Blahopřejeme! Úspěšně jste vytvořili první objekt pro vytváření dat. Po úspěšném vytvoření objektu pro vytváření dat se zobrazí stránka s obsahem objektu pro vytváření dat.   
 
     ![Okno Objekt pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
 Před vytvořením kanálu je nejdřív potřeba vytvořit několik entit služby Data Factory. Nejdřív vytvoříte propojené služby, které spojí úložiště dat / výpočetní služby s vaším úložištěm dat, definujete vstupní a výstupní datové sady reprezentující data v propojených úložištích dat a potom vytvoříte kanál s aktivitou, která tyto datové sady používá. 
 
 ## Vytvoření propojených služeb
-V tomto kroku propojíte svůj účet služby Azure Storage a cluster Azure HDInsight na vyžádání s objektem pro vytváření dat. Účet služby Azure Storage bude v této ukázce obsahovat vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Musíte určit, jaké úložiště dat / výpočetní služby se mají ve vašem scénáři používat, a vytvořením propojených služeb spojit tyto služby s objektem pro vytváření dat.  
+V tomto kroku propojíte svůj účet služby Azure Storage a cluster Azure HDInsight na vyžádání s objektem pro vytváření dat. Účet služby Azure Storage v této ukázce obsahuje vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Musíte určit, jaké úložiště dat / výpočetní služby se mají ve vašem scénáři používat, a vytvořením propojených služeb spojit tyto služby s objektem pro vytváření dat.  
 
 ### Vytvoření propojené služby Azure Storage
 V tomto kroku propojíte se svým objektem pro vytváření dat svůj účet služby Azure Storage. Pro účely tohoto kurzu použijete stejný účet služby Azure Storage taky k uložení vstupních/výstupních dat a souboru skriptu HQL. 
@@ -88,7 +89,7 @@ V tomto kroku propojíte se svým objektem pro vytváření dat svůj účet slu
 
  
 ### Vytvoření propojené služby Azure HDInsight
-V tomto kroku připojíte ke svému objektu pro vytváření dat cluster HDInsight na vyžádání. Cluster HDInsight se automaticky vytvoří za běhu, a až dokončí zpracování, po určité zadané době nečinnosti se odstraní. 
+V tomto kroku propojíte se svým objektem pro vytváření dat cluster HDInsight na vyžádání. Cluster HDInsight se automaticky vytvoří za běhu, a až dokončí zpracování, po určité zadané době nečinnosti se odstraní. 
 
 1. V **editoru služby Data Factory** klikněte na panelu příkazů na **Nový výpočet** a vyberte **Cluster HDInsight na vyžádání**.
 
@@ -113,7 +114,7 @@ V tomto kroku připojíte ke svému objektu pro vytváření dat cluster HDInsig
   	| Vlastnost | Popis |
   	| :------- | :---------- |
   	| Version | Určuje, že vytvářený cluster HDInsight má mít verzi 3.2. | 
-  	| ClusterSize | Vytvoří v clusteru HDInsight jeden uzel. | 
+  	| ClusterSize | Určuje velikost clusteru HDInsight. | 
   	| TimeToLive | Určuje dobu nečinnosti před odstraněním clusteru HDInsight. |
   	| linkedServiceName | Určuje účet úložiště, který se má použít k ukládání protokolů generovaných clusterem HDInsight. |
 
@@ -121,9 +122,9 @@ V tomto kroku připojíte ke svému objektu pro vytváření dat cluster HDInsig
     
     - Pomocí výše uvedeného kódu JSON služba Data Factory vytvoří cluster HDInsight **se systémem Windows**. Můžete ale také vytvořit cluster HDInsight **se systémem Linux**. Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
     - Místo clusteru HDInsight na vyžádání můžete použít také **vlastní cluster HDInsight**. Podrobnosti najdete v tématu [Propojená služba HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-    - Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je úmyslné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je potřeba zpracovat určitý řez, pokud neexistuje aktivní cluster (**timeToLive**), a po dokončení zpracování se zase odstraní.
+    - Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je záměrné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je potřeba zpracovat určitý řez, pokud neexistuje aktivní cluster (**timeToLive**), a po dokončení zpracování se zase odstraní.
     
-        Po zpracování velkého množství řezů se ve službě Azure Blob Storage objeví velké množství kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
+        Po zpracování dalších řezů se vám ve službě Azure Blob Storage objeví spousta kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů používají následující formát: „adf**název_vašeho_objektu_pro_vytváření_dat**-**název_propojené_služby**-razítko_data_a_času“. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
 
     Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 3. Propojenou službu nasadíte kliknutím na **Nasadit** na panelu příkazů. 
@@ -171,7 +172,7 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
   	| linkedServiceName | Odkazuje na službu AzureStorageLinkedService, kterou jste vytvořili předtím. |
   	| fileName | Tato vlastnost je nepovinná. Pokud ji vynecháte, vyberou se všechny soubory v cestě folderPath. V tomto případě se zpracovává jenom soubor input.log. |
   	| type | Soubory protokolů jsou v textovém formátu, takže použijeme hodnotu TextFormat. | 
-  	| columnDelimiter | Sloupce v souborech protokolu jsou oddělené čárkou (,). |
+  	| columnDelimiter | Sloupce v souborech protokolu jsou oddělené znakem čárky (,) |
   	| frequency/interval | Frekvence je nastavená na hodnotu Month (Měsíc) a interval je 1, takže vstupní řezy jsou dostupné jednou za měsíc. | 
   	| external | Pokud vstupní data nevygenerovala služba Data Factory, je tato vlastnost nastavená na hodnotu true. | 
       
@@ -211,7 +212,7 @@ Teď vytvoříte výstupní datovou sadu, která bude představovat výstupní d
     ![Zobrazení stromu s propojenými službami](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## Vytvoření kanálu
-V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Všimněte si, že vstupní řez je dostupný jednou měsíčně (frequency: Month, interval: 1), výstupní řez se vytváří také jednou měsíčně a vlastnost scheduler pro aktivitu je také nastavena na jednou měsíčně (viz níže). Nastavení výstupní datové sady a vlastnosti scheduler se musí shodovat. V tomto okamžiku určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. Vysvětlení vlastností použitých v následujícím kódu JSON najdete na konci této části. 
+V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vstupní řez je dostupný jednou měsíčně (frequency: Month, interval: 1), výstupní řez se vytváří také jednou měsíčně a vlastnost scheduler pro aktivitu je také nastavena na jednou měsíčně (viz níže). Nastavení výstupní datové sady a vlastnosti scheduler se musí shodovat. V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. Vysvětlení vlastností použitých v následujícím kódu JSON najdete na konci této části. 
 
 1. V **editoru služby Data Factory**, klikněte na tlačítko **(…) Další příkazy** a potom klikněte na **Nový kanál**.
     
@@ -287,10 +288,10 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vš
 
 ## Monitorování kanálu
 
-6. Kliknutím na **X** zavřete editor služby Data Factory, abyste se vrátili zpátky do okna Objekt pro vytváření dat. Tam klikněte na **Diagram**.
+6. Kliknutím na **X** zavřete editor služby Data Factory a vrátíte se zpátky do okna Objekt pro vytváření dat. Tam klikněte na **Diagram**.
   
     ![Dlaždice Diagram](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
-7. V zobrazení diagramu uvidíte přehled kanálů a datové sady použité v tomto kurzu.
+7. V Zobrazení diagramu uvidíte přehled kanálů a datové sady použité v tomto kurzu.
     
     ![Zobrazení diagramu](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
 8. Pokud chcete zobrazit všechny aktivity v kanálu, klikněte na kanál v diagramu pravým tlačítkem myši a klikněte na Otevřít kanál. 
@@ -305,7 +306,7 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vš
 
     ![Vstupní řez ve stavu Připraveno](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 11. Kliknutím na tlačítko **X** zavřete okno **AzureBlobInput**. 
-12. V **zobrazení diagramu** dvakrát klikněte na datovou sadu **AzureBlobOutput**. Zobrazí se řez, který se právě zpracovává.
+12. V **Zobrazení diagramu** dvakrát klikněte na datovou sadu **AzureBlobOutput**. Zobrazí se řez, který se právě zpracovává.
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Po dokončení zpracování uvidíte, že je řez ve stavu **Připraveno**.
@@ -332,14 +333,14 @@ V tomto kurzu jste vytvořili objekt pro zpracování dat Azure, který zpracov�
 4.  Vytvořili jste **kanál** s aktivitou **HDInsight Hive**. 
 
 ## Další kroky
-V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDInsight), která v clusteru HDInsight na vyžádání spouští skript Hive. Pokud chcete zjistit, jak pomocí aktivity kopírování zkopírovat data z objektu blob Azure do Azure SQL, projděte si článek [Kurz: Kopírování dat z objektu blob Azure do Azure SQL](./data-factory-get-started.md).
+V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDInsight), která v clusteru HDInsight na vyžádání spouští skript Hive. Pokud chcete zjistit, jak pomocí aktivity kopírování zkopírovat data z Azure Blob do Azure SQL, projděte si článek [Kurz: Kopírování dat z Azure Blob do Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Viz také
 | Téma | Popis |
 | :---- | :---- |
 | [Aktivity transformace dat](data-factory-data-transformation-activities.md) | Tento článek obsahuje seznam aktivit transformace dat (třeba transformaci HDInsight Hive, kterou jste použili v tomto kurzu) podporovaných službou Azure Data Factory. | 
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo podniku použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
 | [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
@@ -348,6 +349,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

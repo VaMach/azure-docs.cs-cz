@@ -3,17 +3,17 @@
    description="Řízení přístupu na základě role (RBAC) umožňuje správu přístupu k prostředkům Azure. Tento článek popisuje způsob nastavení řízení přístupu na základě role ve službě Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn"
-   keywords="automation rbac, role based access control, azure rbac" />
+   keywords="rbac v automation, řízení přístupu na základě rolí, rbac v azure" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/20/2016"
    ms.author="magoedte;sngun"/>
 
 # Řízení přístupu na základě role ve službě Azure Automation
@@ -30,11 +30,100 @@ Ve službě Azure Automation se přístup uděluje přiřazením příslušné r
 |:--- |:---|
 | Vlastník | Role vlastníka umožňuje přístup ke všem prostředkům a akcím v rámci účtu Automation, včetně poskytnutí přístupu dalším uživatelům, skupinám a aplikacím za účelem správy účtu Automation. |
 | Přispěvatel | Role přispěvatele umožňuje spravovat všechno kromě úpravy oprávnění jiných uživatelů k přístupu k účtu Automation. |
-| Čtenář | Role čtenáře vám umožní zobrazit všechny prostředky na účtu Automation, ale neumožní vám provádět změny. |
-| Operátor služby Automation | Role operátora služby Automation umožňuje provádět provozní úlohy, například spuštění, zastavení, pozastavení, pokračování a plánování úloh. Tato role je užitečná, pokud chcete chránit prostředky na účtu Automation, například assety přihlašovacích údajů a runbooky, aby je nikdo nemohl zobrazit nebo upravit, ale aby členové vaší organizace mohli tyto runbooky stále spouštět. [Akce operátora automatizace](../active-directory/role-based-access-built-in-roles.md#automation-operator) uvádí seznam akcí podporovaných rolí operátora automatizace na účtu Automation a jejími prostředky. |
+| Čtenář | Role čtenáře vám umožní zobrazit všechny prostředky na účtu Automation, ale neumožní vám provádět změny.|
+| Operátor služby Automation | Role operátora služby Automation umožňuje provádět provozní úlohy, například spuštění, zastavení, pozastavení, pokračování a plánování úloh. Tato role je užitečná, pokud chcete chránit prostředky na účtu Automation, například assety přihlašovacích údajů a runbooky, aby je nikdo nemohl zobrazit nebo upravit, ale aby členové vaší organizace mohli tyto runbooky stále spouštět. |
 | Správce přístupu uživatelů | Role správce přístupu uživatelů umožňuje spravovat přístup uživatelů k účtům Azure Automation. |
 
-V tomto článku vás provedeme procesem nastavení řízení přístupu na základě role ve službě Azure Automation. 
+>[AZURE.NOTE] Konkrétnímu runbooku nebo runbookům nemůžete udělit přístupová práva, můžete je přidělit jenom prostředkům a akcím v rámci účtu Automation.  
+
+V tomto článku vás provedeme procesem nastavení řízení přístupu na základě role ve službě Azure Automation. Nejdřív se trochu podrobněji podíváme na jednotlivá oprávnění udělená přispěvateli, čtenáři, operátorovi služby Automation a správci přístupu uživatelů, abychom získali dostatečný přehled předtím, než někomu udělíme práva k účtu Automation.  V opačném případě by to mohlo přinést nezamýšlené nebo nežádoucí důsledky.     
+
+## Oprávnění role přispěvatele
+
+Následující tabulka představuje konkrétní akce, které může role přispěvatele provádět na účtu Automation.
+
+| **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
+|:--- |:---|:--- |:---|:--- |
+| Účet Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset certifikátu Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset připojení Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset typu připojení Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset přihlašovacích údajů Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset plánu Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset proměnné Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Požadovaný stav konfigurace Automation | | | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
+| Typ prostředku procesu Hybrid Runbook Worker | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Úloha Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | 
+| Datový proud úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Plán úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Modul Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |
+| Runbook Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
+| Koncept runbooku Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
+| Testovací úloha konceptu runbooku Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | 
+| Webhook služby Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
+
+## Oprávnění role čtenáře
+
+Následující tabulka představuje konkrétní akce, které může role čtenáře provádět na účtu Automation.
+
+| **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
+|:--- |:---|:--- |:---|:--- |
+| Klasický správce předplatného | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Zámek pro správu | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Oprávnění | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Operace poskytovatele | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Přiřazení role | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Definice role | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+
+## Oprávnění role operátora služby Automation
+
+Následující tabulka představuje konkrétní akce, které může role operátora služby Automation provádět na účtu Automation.
+
+| **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
+|:--- |:---|:--- |:---|:--- |
+| Účet Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Asset certifikátu Automation | | | |
+| Asset připojení Automation | | | |
+| Asset typu připojení Automation | | | |
+| Asset přihlašovacích údajů Automation | | | |
+| Asset plánu Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Asset proměnné Automation | | | |
+| Požadovaný stav konfigurace Automation | | | | |
+| Typ prostředku procesu Hybrid Runbook Worker | | | | | 
+| Úloha Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | 
+| Datový proud úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | |  
+| Plán úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Modul Automation | | | |
+| Runbook Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Koncept runbooku Automation | | | |
+| Testovací úloha konceptu runbooku Automation | | | |  
+| Webhook služby Automation | | | |
+
+[Akce operátora automatizace](../active-directory/role-based-access-built-in-roles.md#automation-operator) uvádí seznam akcí podporovaných rolí operátora automatizace na účtu Automation a jejími prostředky.
+
+## Oprávnění role správce přístupu uživatelů
+
+Následující tabulka představuje konkrétní akce, které může role správce přístupu uživatelů provádět na účtu Automation.
+
+| **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
+|:--- |:---|:--- |:---|:--- |
+| Účet Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset certifikátu Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset připojení Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset typu připojení Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset přihlašovacích údajů Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset plánu Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset proměnné Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Požadovaný stav konfigurace Automation | | | | |
+| Typ prostředku procesu Hybrid Runbook Worker | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Úloha Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Datový proud úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Plán úlohy Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Modul Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Runbook Azure Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Koncept runbooku Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Testovací úloha konceptu runbooku Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Webhook služby Automation | ![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | |
 
 ## Konfigurace řízení přístupu na základě role u vašeho účtu Automation pomocí portálu Azure
 
@@ -44,7 +133,7 @@ V tomto článku vás provedeme procesem nastavení řízení přístupu na zák
 
     ![Tlačítko Přístup](media/automation-role-based-access-control/automation-01-access-button.png)  
 
->[AZURE.NOTE]  **Správci předplatného** už existují jako výchozí uživatel. Skupina služby Active Directory, která patří správcům předplatného, zahrnuje správce služeb a spolusprávce předplatného Azure. Správce služby je vlastníkem vašeho předplatného Azure a jeho prostředků a zdědí i roli vlastníka pro účty Automation. To znamená, že přístup se **dědí** v případě **správců a spolusprávců služby** předplatného a všem ostatním uživatelům se **přiřazuje**. Kliknutím na **Správci předplatného** zobrazíte další podrobnosti o jejich oprávněních.  
+>[AZURE.NOTE] **Správci předplatného** už existují jako výchozí uživatel. Skupina služby Active Directory, která patří správcům předplatného, zahrnuje správce služeb a spolusprávce předplatného Azure. Správce služby je vlastníkem vašeho předplatného Azure a jeho prostředků a zdědí i roli vlastníka pro účty Automation. To znamená, že přístup se **dědí** v případě **správců a spolusprávců služby** předplatného a všem ostatním uživatelům se **přiřazuje**. Kliknutím na **Správci předplatného** zobrazíte další podrobnosti o jejich oprávněních.  
 
 ### Přidání nového uživatele a přiřazení role
 
@@ -60,19 +149,21 @@ V tomto článku vás provedeme procesem nastavení řízení přístupu na zák
 
     ![Přidání uživatelů](media/automation-role-based-access-control/automation-04-add-users.png)  
  
-Teď by se měl přidaný uživatel zobrazit v okně **Uživatelé** s přiřazenou rolí **Čtenář**.  
+    Teď by se měl přidaný uživatel zobrazit v okně **Uživatelé** s přiřazenou rolí **Čtenář**.  
 
-![Vypsání uživatelů](media/automation-role-based-access-control/automation-05-list-users.png)  
+    ![Vypsání uživatelů](media/automation-role-based-access-control/automation-05-list-users.png)  
 
-Roli můžete uživateli přiřadit také v okně **Role**. Klikněte v okně Uživatelé na **Role**, a otevřete tak okno **Role**. V tomto okně můžete vidět název role a počet uživatelů a skupin, kteří jsou k této roli přiřazení.
+    Roli můžete uživateli přiřadit také v okně **Role**. 
 
-![Přiřazení role v okně Uživatelé](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+1. Klikněte v okně Uživatelé na **Role**, a otevřete tak okno **Role**. V tomto okně můžete vidět název role a počet uživatelů a skupin, kteří jsou k této roli přiřazení.
+
+    ![Přiřazení role v okně Uživatelé](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
->[AZURE.NOTE] Řízení přístupu na základě role můžete nastavit jenom na úrovni účtu Automation, a ne u jakéhokoliv prostředku pod účtem Automation.
+    >[AZURE.NOTE] Řízení přístupu na základě role můžete nastavit jenom na úrovni účtu Automation, a ne u jakéhokoliv prostředku pod účtem Automation.
 
-Uživateli, skupině nebo aplikaci můžete přiřadit více než jednu roli. Pokud uživateli přidáme například roli **Operátor automatizace** spolu s rolí **Čtenář**, takový uživatel může zobrazit všechny prostředky Automation a může také spouštět úlohy runbooku. Pokud chcete zobrazit role přiřazené uživateli, můžete rozbalit rozevírací seznam.  
+    Uživateli, skupině nebo aplikaci můžete přiřadit více než jednu roli. Pokud uživateli přidáme například roli **Operátor automatizace** spolu s rolí **Čtenář**, takový uživatel může zobrazit všechny prostředky Automation a může také spouštět úlohy runbooku. Pokud chcete zobrazit role přiřazené uživateli, můžete rozbalit rozevírací seznam.  
 
-![Zobrazení více rolí](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
+    ![Zobrazení více rolí](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
  
 ### Odebrání uživatele
 
@@ -94,7 +185,7 @@ Když se uživatel přiřazený k roli přihlásí k účtu Automation, může v
 
 ### Uživatelské prostředí pro roli operátora služby Automation
 
-Pokud uživatel, který je přiřazený k roli Operátor automatizace, zobrazí účet Automation, ke kterému je přiřazený, může zobrazit jenom seznam runbooků a úlohy a plány runbooků vytvořené v účtu Automation, ale nemůže zobrazit jejich definice. Může spustit, zastavit, pozastavit, obnovit nebo naplánovat úlohu runbooku. Uživatel nebude mít přístup k dalším prostředkům Automation, například ke konfiguracím, skupinám Hybrid Worker nebo uzlům DSC.  
+Pokud uživatel, který je přiřazený k roli Operátor služby Automation, zobrazí účet Automation, ke kterému je přiřazený, může zobrazit jenom seznam runbooků a úlohy a plány runbooků vytvořené v účtu Automation, ale nemůže zobrazit jejich definice. Může spustit, zastavit, pozastavit, obnovit nebo naplánovat úlohu runbooku. Uživatel nebude mít přístup k dalším prostředkům Automation, například ke konfiguracím, skupinám Hybrid Worker nebo uzlům DSC.  
 
 ![Žádný přístup k prostředkům](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
@@ -114,40 +205,40 @@ Tento uživatel také nemá přístup k zobrazení webhooků, které jsou přidr
 
 Přístup na základě role můžete pro účet Automation nakonfigurovat také pomocí následujících [rutin Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) vypíše všechny role, které jsou v RBAC služby Azure Active Directory dostupné. Tento příkaz můžete použít spolu s vlastností **Název** k vypsání uživatelů s konkrétní rolí.  
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) vypíše všechny role funkce řízení přístupu na základě role, které jsou ve službě Azure Active Directory dostupné. Tento příkaz můžete použít spolu s vlastností **Název** k vypsání všech akcí, které může konkrétní role provádět.  
     **Příklad:**  
     ![Získání definice role](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) vypíše přiřazení rolí pro RBAC v zadaném rozsahu. Pokud nezadáte žádné parametry, tento příkaz vrátí všechna přiřazení rolí v rámci předplatného. K vypsání přiřazení přístupu konkrétního uživatele nebo skupin, kterých je uživatel členem, použijte parametr **ExpandPrincipalGroups**.  
+• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) vypíše v zadaném rozsahu všechna přiřazení rolí funkce řízení přístupu na základě role v Azure AD. Pokud nezadáte žádné parametry, tento příkaz vrátí všechna přiřazení rolí v rámci předplatného. K vypsání přiřazení přístupu konkrétního uživatele nebo skupin, kterých je uživatel členem, použijte parametr **ExpandPrincipalGroups**.  
     **Příklad:** K vypsání všech uživatelů a jejich rolí v rámci účtu Automation použijte následující příkaz.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
 
 ![Získat přiřazení role](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
-• [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) slouží k udělení přístupu v určitém rozsahu pro uživatele, skupiny nebo aplikace.  
-    **Příklad:** K vytvoření nové role „Operátor automatizace“ pro uživatele v rozsahu účtu Automation použijte následující příkaz.
+• [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) slouží k přiřazení přístupu v určitém rozsahu pro uživatele, skupiny nebo aplikace.  
+    **Příklad:** K přiřazení role „Operátor služby Automation“ pro uživatele v rozsahu účtu Automation použijte následující příkaz.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Přiřazení nové role](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) použijte k odebrání přístupu v určitém rozsahu pro konkrétního uživatele, skupinu nebo aplikaci.
-    **Příklad:** K vytvoření nové role „Operátor automatizace“ pro uživatele v rozsahu účtu Automation použijte následující příkaz.
+• [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) použijte k odebrání přístupu v určitém rozsahu pro konkrétního uživatele, skupinu nebo aplikaci.  
+    **Příklad:** K odebrání uživatele z role „Operátor služby Automation“ v rozsahu účtu Automation použijte následující příkaz.
 
-    Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Ve výše uvedených rutinách nahraďte přihlašovací jméno, ID předplatného, název skupiny prostředků a název účtu Automation údaji ze svého účtu. Po zobrazení výzvy k pokračování s odstraněním přiřazení role zvolte **Ano**.   
+Ve výše uvedených příkladech nahraďte **přihlašovací ID**, **ID předplatného**, **název skupiny prostředků** a **název účtu Automation** údaji ze svého účtu. Po zobrazení výzvy, která požádá o potvrzení odebrání přiřazené role uživatele, zvolte **Ano**.   
 
 
 ## Další kroky
 -  Další informace o různých způsobech konfigurace RBAC pro Azure Automation najdete v článku [Správa řízení přístupu na základě role pomocí Azure PowerShellu](../active-directory/role-based-access-control-manage-access-powershell.md).
 - Podrobnosti o různých způsobech spouštění runbooků najdete v článku [Spuštění runbooku](automation-starting-a-runbook.md)
-- Informace o různých typech najdete v článku [Typy runbooků ve službě Azure Automation](automation-runbook-types.md).
+- Další informace o různých typech runbooků najdete v článku [Typy runbooků ve službě Azure Automation](automation-runbook-types.md).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Ověřování IIS
@@ -28,16 +28,16 @@
 
 Pro zabezpečení webové aplikace služby IIS, která používá ověřování založené na formulářích, nainstalujte server Azure Multi-Factor Authentication na webový server služby IIS a nakonfigurujte server podle následujícího postupu.
 
-1. V rámci serveru Azure Multi-Factor Authentication klikněte na ikonu ověření služby IIS v levé nabídce.
+1. V Azure Multi-Factor Authentication Serveru klikněte v levé nabídce na ikonu Ověřování IIS.
 2. Klikněte na kartu Založené na formulářích.
 3. Klikněte na tlačítko Přidat... .
 4. K automatické detekci uživatelského jména, hesla a proměnných domény zadejte adresu URL pro přihlášení (např. https://localhost/contoso/auth/login.aspx) v rámci dialogového okna Automatická konfigurace webu založeného na formuláři a klikněte na tlačítko OK.
-5. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté.
+5. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud se ještě neimportoval velký počet uživatelů do Serveru a/nebo se vyloučí z vícefaktorového ověřování, nechte pole nezaškrtnuté.
 6. Pokud proměnné stránky nelze rozpoznat automaticky, klikněte na tlačítko Zadat ručně... v dialogovém okně Automatická konfigurace webu na základě formuláře.
 7. V dialogovém okně Přidat web na základě formuláře zadejte adresu URL do přihlašovací stránky v poli Adresa URL pro odeslání a zadejte název aplikace (volitelný). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování. Další informace o Adrese URL pro odeslání naleznete v souboru nápovědy. 
 8. Vyberte správný formát požadavku. Tato hodnota je u většiny webových aplikací nastavena na „POST nebo GET“.
 9. Zadejte proměnnou Uživatelské jméno, Heslo a Doména (pokud se zobrazí na stránce přihlášení). Možná bude nutné přejít na přihlašovací stránku ve webovém prohlížeči, kliknout pravým tlačítkem na stránku a vybrat možnost „Zdroj zobrazení“ pro vyhledání názvů vstupních polí v rámci stránky.
-10. Zaškrtněte políčko Vyžadovat uživatele Azure Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. Další informace o této funkci naleznete v souboru nápovědy.
+10. Zaškrtněte políčko Vyžadovat uživatele Azure Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud se ještě neimportoval velký počet uživatelů do Serveru a/nebo se vyloučí z vícefaktorového ověřování, nechte pole nezaškrtnuté. Další informace o této funkci najdete v souboru nápovědy.
 11.  Klikněte na tlačítko Rozšířené... pro kontrolu upřesňujícího nastavení, včetně schopnosti výběru vlastního soubor  odmítnutí stránky, pro ukládání úspěšných ověření na webu do mezipaměti po dobu používání souborů cookie a vyberte, zda chcete ověřit primární pověření vůči doméně systému Windows, adresáři LDAP nebo serveru RADIUS. Po dokončení klikněte na tlačítko OK se vraťte do dialogového okna Přidat web založený na formuláři. Další informace o rozšířeném nastavení naleznete v souboru nápovědy.
 12. Klikněte na tlačítko OK.
 13. Po zjištění nebo zadání Adresy URL a proměnných hodnot stránek  se zobrazí data webové stránky v panelu založeném na formulářích.
@@ -52,7 +52,7 @@ Pro zabezpečení webové aplikace služby IIS, která používá integrované H
 3. Klikněte na tlačítko Přidat... .
 4. V dialogovém okně Přidat základní adresu URL zadejte adresu URL pro webovou stránku, kde se provádí ověřování HTTP (např. http://localhost/owa) do pole Základní adresa URL pro web a zadejte název aplikace (volitelné). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
 5. Pokud je výchozí hodnota nedostatečná, upravte časový limit nečinnosti a maximální dobu trvání relace.
-6. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. Další informace o této funkci naleznete v souboru nápovědy. 
+6. Zaškrtněte políčko Vyžadovat uživatele Multi-Factor Authentication, pokud byli nebo budou všichni uživatelé importováni do serveru a podstoupí Multi-Factor Authentication. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. Další informace o této funkci najdete v souboru nápovědy. 
 7. V případě potřeby zaškrtněte políčko mezipaměti souborů cookie.
 8. Klikněte na tlačítko OK.
 9. V tématu [povolit moduly plug-in IIS pro server Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) přímo pod tématem dokončete ověřování konfigurace služby IIS. 
@@ -78,6 +78,6 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

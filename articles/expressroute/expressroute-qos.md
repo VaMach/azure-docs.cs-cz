@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Požadavky na technologii QoS služby ExpressRoute
@@ -21,7 +21,7 @@ Skype pro firmy má úlohy, které vyžadují odlišné zacházení podle QoS. P
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] Požadavky na technologii QoS se týkají jenom partnerského vztahu Microsoftu.
+>[AZURE.NOTE] Požadavky na technologii QoS se týkají jenom partnerského vztahu Microsoftu. Hodnoty DSCP v provozu vaší sítě přijaté v rámci veřejného partnerského vztahu Azure a soukromého partnerského vztahu Azure budou vynulovány. 
 
 V následující tabulce je seznam označení DSCP používaných Skypem pro firmy. Další informace najdete v tématu [Správa technologie QoS pro Skype pro firmy](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -52,6 +52,6 @@ V následující tabulce je seznam označení DSCP používaných Skypem pro fir
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

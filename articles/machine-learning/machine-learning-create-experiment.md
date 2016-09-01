@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Vytvoření jednoduchého experimentu v nástroji Machine Learning Studio | Microsoft Azure"
-    description="První kurz strojového učení, v jehož rámci se vytvoří jednoduchý experiment a natrénuje a otestuje model lineární regrese v nástroji Azure Machine Learning Studio."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+    pageTitle="Jednoduchý experiment v nástroji Machine Learning Studio | Microsoft Azure"
+    description="Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Pomocí regresního algoritmu předpovíme cenu automobilu."
+    keywords="experiment,lineární regrese,algoritmy Machine Learningu,kurz Machine Learningu,techniky prediktivního modelování,experiment z oblasti datové vědy"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,23 +14,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/14/2016"
     ms.author="garye"/>
 
-# Kurz strojového učení: Vytvoření prvního experimentu v nástroji Azure Machine Learning Studio
+# Kurz Machine Learningu: Vytvoření prvního experimentu z oblasti datové vědy v nástroji Azure Machine Learning Studio
 
-V tomto prvním kurzu strojového učení vytvoříme model lineární regrese, který bude předpovídat cenu automobilu podle různých proměnných, například značky a technických specifikací. K tomu využijeme Azure Machine Learning Studio, ve kterém budeme vyvíjet a iterovat jednoduchý experiment prediktivní analýzy.
+Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Vytvoříme model lineární regrese, který bude předpovídat cenu automobilu podle různých proměnných, třeba značky a technických specifikací. K tomu využijeme Azure Machine Learning Studio, ve kterém budeme vyvíjet a iterovat jednoduchý experiment prediktivní analýzy.
+
+*Prediktivní analýza* je odvětví datové vědy, které na základě aktuálních dat předpovídá budoucí výsledky. Velmi jednoduchý příklad prediktivní analýzy můžete sledovat ve videu o datové vědě pro začátečníky č. 4: [Předpověď odpovědi pomocí jednoduchého modelu](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (délka: 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Experiment v nástroji Machine Learning Studio vzniká přetahováním komponent myší na plátno a jejich propojováním s cílem *vytvořit* model, *natrénovat ho*, *stanovit jeho skóre a otestovat ho*. Experiment používá techniky prediktivního modelování ve formě modulů nástroje Machine Learning Studio, které ingestují data, trénují podle nich model a aplikují model na nová data. Kromě toho je možné přidávat moduly pro předzpracování dat a výběr příznaků, rozdělení dat na trénovací a testovací sady a vyhodnocení nebo křížové ověření kvality modelu.  
+## V čem je přínos nástroje Machine Learning Studio?
 
-Přejděte na Machine Learning Studio na adrese [https://studio.azureml.net](https://studio.azureml.net) a klikněte na tlačítko **Začít**. Můžete si vybrat buď přístup hosta, nebo se přihlásit pomocí účtu Microsoft.
+Machine Learning Studio usnadňuje vytvoření pokusu přetahováním předem naprogramovaných modulů s technikami prediktivního modelování. Když chcete provést experiment a předpovědět odpověď, v nástroji Machine Learning Studio *vytvoříte model*, *provedete trénování modelu* a potom *model ohodnotíte a otestujete*.
+
+Otevřete Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Pokud už jste se do nástroje Machine Learning Studio někdy přihlašovali, klikněte na odkaz **Přihlásit se**. Jinak klikněte na **Zaregistrovat** a vyberte si mezi bezplatnou a placenou možností.
 
 Další obecné informace o nástroji Machine Learning Studio najdete v tématu [Co je Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
-
->[AZURE.TIP] Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-
 
 ## Vytvoření experimentu v pěti krocích
 
@@ -67,7 +68,11 @@ Tato datová sada obsahuje záznamy řady různých automobilů, včetně inform
 
     ![Datová sada][screen1]
 
-Pokud se chcete podívat, jak tato data vypadají, klikněte na výstupní port ve spodní části datové sady automobilů a vyberte **Vizualizovat**. Proměnné datové sady jsou zobrazeny jako sloupce a každá instance automobilu je představována jedním řádkem. Sloupec nejvíce vpravo (sloupec 26 s názvem price) je cílová proměnná, kterou se pokusíme předpovídat.
+Pokud se chcete podívat, jak tato data vypadají, klikněte na výstupní port ve spodní části datové sady automobilů a vyberte **Vizualizovat**.
+
+![Výstupní port modulu][screen1c]
+
+Proměnné datové sady jsou zobrazeny jako sloupce a každá instance automobilu je představována jedním řádkem. Sloupec nejvíce vpravo (sloupec 26 s názvem price) je cílová proměnná, kterou se pokusíme předpovídat.
 
 ![Vizualizace datové sady][screen1b]
 
@@ -85,8 +90,9 @@ Nejprve odstraníme sloupec **normalized-losses**, pak odstraníme všechny řá
 
 2. Vyberte modul [Výběr sloupců v datové sadě][select-columns] a v podokně **Vlastnosti** klikněte na **Spustit selektor sloupců**.
 
-    - Ujistěte se, že v rozevíracím seznamu filtru **Začít s** je zvolena možnost **Všechny sloupce**. Tím modul [Výběr sloupců v datové sadě][select-columns] dostává instrukci, aby procházel všechny sloupce (kromě těch, které vyloučíme).
-    - Na dalším řádku vyberte **Vyloučit** a **názvy sloupců** a klikněte do textového pole. Zobrazí se seznam sloupců. Vyberte sloupec **normalized-losses**, který tak bude přidán do textového pole.
+    - Vlevo klikněte na **S pravidly**.
+    - V části **Začít s** klikněte na **Všechny sloupce**. Tím modul [Výběr sloupců v datové sadě][select-columns] dostává instrukci, aby procházel všechny sloupce (kromě těch, které vyloučíme).
+    - V rozevíracích seznamech vyberte **Vyloučit** a **názvy sloupců** a klikněte do textového pole. Zobrazí se seznam sloupců. Vyberte sloupec **normalized-losses**, který tak bude přidán do textového pole.
     - Kliknutím na tlačítko se značkou zaškrtnutí (OK) zavřete selektor sloupců.
 
     ![Výběr sloupců][screen3]
@@ -113,21 +119,26 @@ Nyní když jsou data vyčištěna, můžete určit, které příznaky použijem
 
 ## Krok 3: Definice příznaků
 
-Ve strojovém učení se jako *příznaky* označují jednotlivé měřitelné vlastnosti něčeho, co vás zajímá. V naší datové sadě každý řádek představuje jeden automobil a každý sloupec je příznak daného automobilu. Nalezení správné sady příznaků pro vytvoření prediktivního modelu vyžaduje experimentování a znalost problému, který chcete vyřešit. Některé příznaky jsou pro predikci cíle vhodnější než jiné. Některé příznaky navíc silně korelují s jinými příznaky (například city-mpg a highway-mpg), tudíž do modelu nepřinesou mnoho nových informací a lze je odstranit.
+Ve strojovém učení se jako *příznaky* označují jednotlivé měřitelné vlastnosti něčeho, co vás zajímá. V naší datové sadě každý řádek představuje jeden automobil a každý sloupec je příznak daného automobilu.
 
-Vytvořme model, který používá podmnožinu příznaků naší datové sady. Můžete se vrátit a vybrat jiné příznaky, spustit experiment znovu a zjistit, jestli nedostanete lepší výsledky. Jako první odhad vybereme pomocí modulu [Výběr sloupců v datové sadě][select-columns] následující příznaky (sloupce). Všimněte si, že pro trénování modelu musíme zahrnout hodnotu *price*, tedy cenu, kterou budeme předpovídat.
+Nalezení správné sady příznaků pro vytvoření prediktivního modelu vyžaduje experimentování a znalost problému, který chcete vyřešit. Některé příznaky jsou pro predikci cíle vhodnější než jiné. Některé příznaky navíc silně korelují s jinými příznaky (například city-mpg a highway-mpg), tudíž do modelu nepřinesou mnoho nových informací a lze je odstranit.
+
+Vytvořme model, který používá podmnožinu příznaků naší datové sady. Můžete se vrátit a vybrat jiné příznaky, spustit experiment znovu a zjistit, jestli nedostanete lepší výsledky. Nejdřív ale vyzkoušíme tyto funkce:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Přetáhněte na plátno experimentu další modul [Výběr sloupců v datové sadě][select-columns] a propojte jej s levým výstupním portem modulu [Vyčištění chybějících dat][clean-missing-data]. Poklikejte na modul a zadejte Výběr příznaků pro predikci.
 
 2. V podokně **Vlastnosti** klikněte na **Spustit selektor sloupců**.
 
-3. V selektoru sloupců vyberte pro **Začít s** možnost **Žádné sloupce**, pak v řádku filtru vyberte **Zahrnout** a **názvy sloupců**. Zadejte náš seznam názvů sloupců. Tím modul dostává instrukci, aby procházel jen ty sloupce, které určíme.
+3. Klikněte na **S pravidly**.
 
-    > [AZURE.TIP] Protože jsme experiment spustili, definice sloupců pro naše data prošla z původní datové sady přes modul [Vyčištění chybějících dat][clean-missing-data]. Když propojíte [Výběr sloupců v datové sadě][select-columns] s modulem [Vyčištění chybějících dat][clean-missing-data], modul [Výběr sloupců v datové sadě][select-columns] obdrží informace o definicích sloupců v našich datech. Když kliknete na pole **názvy sloupců**, zobrazí se seznam sloupců. Můžete pak vybrat sloupce, které chcete do seznamu přidat.
+4. V části **Začít s** klikněte na **Žádné sloupce** a potom v řádku filtru vyberte **Zahrnout** a **názvy sloupců**. Zadejte náš seznam názvů sloupců. Tím modul dostává instrukci, aby procházel jen ty sloupce, které určíme.
 
-4. Klikněte na tlačítko zaškrtnutí (OK).
+    > [AZURE.TIP] Provedením experimentu jsme zajistili, aby definice sloupců pro naše data prošly z původní datové sady přes modul [Vyčištění chybějících dat][clean-missing-data]. To znamená, že ostatní moduly, které připojíte, budou mít taky informace z této datové sady.
+
+5. Klikněte na tlačítko zaškrtnutí (OK).
 
 ![Výběr sloupců][screen6]
 
@@ -135,13 +146,13 @@ Tímto se vytvoří datová sada, kterou algoritmus učení použije v dalších
 
 ## Krok 4: Volba a použití algoritmu učení
 
-Nyní když jsou data připravena, tvorba prediktivního modelu sestává z trénování a testování. Naše data použijeme pro trénování modelu, pak model otestujeme a zjistíme, jak přesně dokáže předpovídat ceny.
+Nyní když jsou data připravena, tvorba prediktivního modelu sestává z trénování a testování. Naše data použijeme pro trénování modelu, pak model otestujeme a zjistíme, jak přesně dokáže předpovídat ceny. Tím, proč potřebujeme model trénovat a potom testovat, se zatím nezabývejte.
 
-*Klasifikace* a *regrese* jsou dva typy technik strojového učení s učitelem. Klasifikace se používá k předpovědím na základě definované sady hodnot, například barvy (červená, modrá nebo zelená). Regrese se používá při předpovědích ze spojité sady hodnot, například z věku osoby.
+*Klasifikace* a *regrese* jsou dva typy technik strojového učení s učitelem. Klasifikace předpovídá odpověď na základě definované sady kategorií, třeba barvy (červená, modrá nebo zelená). Regrese se používá k předpovědi čísel.
 
-Chcete předpovídat cenu automobilu, což může být jakákoli hodnota, proto použijeme regresní model. V tomto příkladu natrénujeme jednoduchý model *lineární regrese* a v dalším kroku jej otestujeme.
+Chceme předpovědět cenu, což je číslo, a tak použijeme regresní model. V tomto příkladu natrénujeme jednoduchý model *lineární regrese* a v dalším kroku jej otestujeme.
 
-1. Naše data můžeme použít jak pro trénování, tak pro testování, je totiž možné je rozdělit na samostatné sady pro trénování a testování. Vyberte a přetáhněte na plátno experimentu modul [Rozdělení dat][split] a propojte jej s výstupem posledního modulu [Výběr sloupců v datové sadě][select-columns]. Nastavte **Podíl řádků v první výstupní sadě dat** na 0,75. Takto použijeme 75 procent dat pro trénování modelu a 25 procent si ponecháme na testování.
+1. Naše data můžeme použít jak pro trénování, tak pro testování, dají se totiž je rozdělit na samostatné sady pro trénování a testování. Vyberte a přetáhněte na plátno experimentu modul [Rozdělení dat][split] a propojte jej s výstupem posledního modulu [Výběr sloupců v datové sadě][select-columns]. Nastavte **Podíl řádků v první výstupní sadě dat** na 0,75. Takto použijeme 75 procent dat pro trénování modelu a 25 procent si ponecháme na testování.
 
     > [AZURE.TIP] Změnou parametru **Náhodná počáteční hodnota** je možné pro trénování a testování vytvořit různé náhodné vzorky. Tento parametr řídí nastavování počáteční hodnoty pseudonáhodného generátoru čísel.
 
@@ -213,6 +224,7 @@ Rozsáhlejší a podrobnější návod k technikám prediktivního modelování 
 [screen1]:./media/machine-learning-create-experiment/screen1.png
 [screen1a]:./media/machine-learning-create-experiment/screen1a.png
 [screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]:./media/machine-learning-create-experiment/screen2.png
 [screen3]:./media/machine-learning-create-experiment/screen3.png
 [screen4]:./media/machine-learning-create-experiment/screen4.png
@@ -237,6 +249,6 @@ Rozsáhlejší a podrobnější návod k technikám prediktivního modelování 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="05/24/2016"
+    ms.date="06/21/2016"
     ms.author="jroth" />
 
 # Zřízení virtuálního počítače s SQL Serverem na Portálu Azure
@@ -53,7 +53,9 @@ V tomto kurzu provedete následující:
 
 1. U každé šablony je označena příslušná verze SQL Serveru a operační systém. Ze seznamu vyberte jednu z těchto imagí. Pak si v okně s podrobnostmi přečtěte popis image virtuálního počítače.
 
-1. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**, a klikněte na **Vytvořit**.
+    >[AZURE.NOTE] Bitové kopie virtuálního počítače SQL zahrnují licenční náklady na SQL Server do ceny vytvořených virtuálních počítačů za minutu. Existuje další možnost používání vlastní licence (BYOL) a platby pouze za virtuální počítače. Tyto názvy bitových kopií mají předponu {BYOL}. Další informace o této možnosti najdete v tématu [Začínáme se serverem SQL ve službě Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. U nových virtuálních počítačů se doporučuje používat model nasazení Resource Manageru. Klikněte na možnost **Vytvořit**.
 
     ![Vytvoření virtuálního počítače s SQL Serverem pomocí Resource Manageru](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -118,7 +120,7 @@ V okně **Nastavení SQL Serveru** nakonfigurujte konkrétní nastavení a optim
 | Nastavení               |
 |---------------------|
 | [Připojení](#connectivity)              |
-| [Ověřování](#authentication)                |
+| [Authentication](#authentication)                |
 | [Konfigurace úložiště](#storage-configuration)            |
 | [Automatizované opravy](#automated-patching) |
 | [Automatizované zálohování](#automated-backup)             |
@@ -251,8 +253,10 @@ Další informace o používání SQL Serveru v Azure najdete v tématu [SQL Ser
 
 Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v tématu [Azure Virtual Machines je nejlepší platformou pro SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
+[Projděte si mapy kurzů](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pro SQL Server na virtuálních počítačích Azure.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

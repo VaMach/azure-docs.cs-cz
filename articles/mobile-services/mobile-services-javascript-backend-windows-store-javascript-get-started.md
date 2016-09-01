@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="javascript"
     ms.topic="get-started-article"
-    ms.date="03/06/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
-# Začínáme používat Mobile Services
+# Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -40,7 +40,7 @@ Pro absolvování tohoto kurzu potřebujete:
 
 Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého spuštění portálu Azure Classic k vytvoření nové aplikace Windows Store 8.1 jazyka JavaScript, která se připojuje k mobilní službě.
 
-1.  Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1.  Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **Windows** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci Windows Store**.
@@ -67,7 +67,7 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
 
 4. (Volitelné) Znovu spusťte aplikaci a všimněte si, že data uložená v předchozím kroku jsou načtena z mobilní služby po spuštění aplikace.
  
-4. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
+4. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
 
     Tato možnost vám umožňuje procházet data vložená aplikací do tabulky.
 
@@ -89,10 +89,10 @@ Teď, když jste dokončili rychlé spuštění se naučte pracovat s [klientem 
 <!-- URLs. -->
 [Visual Studio 2013 Express pro Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

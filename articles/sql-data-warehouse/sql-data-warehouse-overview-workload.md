@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Načítání dat představuje významnou část úloh datového skladu. Podniky 
 
 - Proces načítání se tradičně nazývá ETL (extrakce, transformace a načítání). Data je obvykle nutné transformovat tak, aby byla konzistentní s ostatními daty v datovém skladu. K provádění těchto transformací podniky dřív používaly vyhrazené servery ETL. Dnešní masivně paralelní zpracování je ale tak rychlé, že můžete data nejdřív načíst do služby SQL Data Warehouse a pak provést transformace. Tento proces se nazývá ELT (extrakce, načítání a transformace) a stává se novým standardem pro úlohy datového skladu.
 
-> [AZURE.NOTE] Pomocí SQL Serveru CTP2 teď můžete provádět analýzy na tabulce OLTP v reálném čase. Toto nenahrazuje nutnost ukládat a analyzovat data v datovém skladu, ale nabízí to možnost provádět analýzu v reálném čase.
+> [AZURE.NOTE] Pomocí SQL Serveru 2016 teď můžete provádět analýzy tabulky OLTP v reálném čase. Toto nenahrazuje nutnost ukládat a analyzovat data v datovém skladu, ale nabízí to možnost provádět analýzu v reálném čase.
 
 ### Dotazy analýz a generování sestav
 Dotazy analýz a generování sestav se podle různých kritérií často dělí na malé, střední a velké, obvykle podle doby. Ve většině datových skladů jsou smíšené úlohy, které obsahují rychle běžící i dlouho běžící dotazy. V každém případě je důležité určit tuto směsici a určit její interval (hodinový, denní, konec měsíce, konec čtvrtletí a tak dále). Je důležité si uvědomit, že tyto úlohy se smíšenými dotazy společně se souběžností vedou k správnému plánování kapacity datového skladu.
@@ -59,15 +59,13 @@ Jednou z možností, jak zpřístupnit data pro sestavy a analýzy, je odesílá
 - Pokud jde o analýzy, můžete buď vytvořit analytickou datovou krychli na datovém skladu a spustit analýzu na datovém skladu, nebo můžete předběžně zpracovat data a exportovat je do serveru pro analýzu k další analýze.
 
 ## Další kroky
-Pokud chcete začít vyvíjet datový sklad, přečtěte si téma [přehled vývoje][].
-
-## Knihy
-[Big Data Warehousing (Skladování velkých objemů dat)](https://www.manning.com/books/big-data-warehousing), autor: Karthik Ramachandran, Istvan Szededi a Richard L. Saltzer (Manning Publications). [Kapitola 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychle [vytvořit SQL Data Warehouse][] a [načíst ukázková data][].
 
 <!--Image references-->
 
 <!--Article references-->
-[přehled vývoje]: sql-data-warehouse-overview-develop.md
+[načíst ukázková data]: ./sql-data-warehouse-load-sample-databases.md
+[vytvořit SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -75,6 +73,6 @@ Pokud chcete začít vyvíjet datový sklad, přečtěte si téma [přehled výv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Přizpůsobení portálu pro vývojáře ve službě Azure API Management
@@ -101,6 +101,6 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

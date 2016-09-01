@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Vytvoření webové aplikace WordPress ve službě Azure App Service
@@ -65,7 +65,7 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
 
 5. Vyberte **skupinu prostředků** nebo vytvořte novou.
 
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití portálu Azure ke správě prostředků Azure](../resource-group-portal.md).
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
 
 5. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
 
@@ -130,6 +130,6 @@ Další informace týkající se práce s webovými aplikacemi App Service Web A
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

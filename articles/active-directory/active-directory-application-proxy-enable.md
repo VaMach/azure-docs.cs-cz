@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="StevenPo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,37 +13,39 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/19/2016"
     ms.author="kgremban"/>
 
 # Povolení proxy aplikace v portálu Azure
 
-Tento článek vám ukáže, jak povolit proxy aplikace u cloudového adresáře služby Microsoft Azure AD. To zahrnuje instalaci konektoru proxy aplikace, který udržuje propojení vaší sítě se službou proxy, ve vaší privátní síti. Konektor si také zaregistrujete k předplatnému klienta služby Microsoft Azure AD. Pokud netušíte, čím vám může proxy aplikace prospět, přečtěte si článek o tom, [jak poskytnout zabezpečený vzdálený přístup k místním aplikacím](active-directory-application-proxy-get-started.md).
+Tento článek vás provede postupem, který umožňuje povolit proxy aplikace u cloudového adresáře služby Microsoft Azure AD.
 
-Po dokončení tohoto návodu budete mít povolenou proxy aplikace služby Azure AD a budete moci publikovat své místní aplikace pro vzdálený přístup.
-
-> [AZURE.NOTE] Proxy aplikace je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
+Pokud netušíte, čím vám může proxy aplikace prospět, přečtěte si článek o tom, [jak poskytnout zabezpečený vzdálený přístup k místním aplikacím](active-directory-application-proxy-get-started.md).
 
 ## Požadavky na proxy aplikace
 Předtím, než budete moct povolit a používat služby proxy aplikace, musíte mít:
 
 - [Základní nebo prémiové předplatné služby Microsoft Azure AD](active-directory-editions.md) a adresář služby Azure AD, u kterého jste globální správce.
-- Server se systémem Windows Server 2012 R2 nebo Windows 8.1 či novější, na který nainstalujete konektor proxy aplikace. Server bude odesílat požadavky službám proxy aplikace na cloudu pomocí protokolu HTTPS a musí mít připojení protokolu HTTPS k aplikacím, které chcete publikovat.
-- Pokud používáte bránu firewall, zajistěte, aby byla otevřená a konektor mohl proxy aplikace posílat požadavky prostřednictvím protokolu HTTPS (TCP). Konektor používá následující porty společně se subdoménami, které jsou součástí domén nejvyšších úrovní: *msappproxy.net* a *servicebus.windows.net*. Zajistěte, aby byly otevřeny **všechny** následující porty pro **odchozí** přenos:
+- Server se systémem Windows Server 2012 R2 nebo Windows 8.1 či novější, na který nainstalujete konektor proxy aplikace. Server odesílá požadavky službám proxy aplikací v cloudu pomocí protokolu HTTPS a musí mít připojení protokolu HTTP nebo HTTPS k aplikacím, které publikujete.
+
+    - Pokud chcete v publikovaných aplikacích používat jednotné přihlašování, měl by být tento počítač připojený ke stejné doméně služby AD jako aplikace, které publikujete.
+
+- Pokud stojí v cestě brána firewall, zajistěte, aby byla otevřená a konektor mohl proxy aplikace posílat požadavky prostřednictvím protokolu HTTPS (TCP). Konektor používá následující porty společně se subdoménami, které jsou součástí domén nejvyšších úrovní: msappproxy.net a servicebus.windows.net. Zajistěte, aby byly otevřené všechny následující porty pro **odchozí** přenos:
 
   	| Číslo portu | Popis |
   	| --- | --- |
-  	| 80 | Slouží k povolení odchozího přenosu protokolu HTTP pro bezpečnostní ověření. |
-  	| 443 | Slouží k povolení ověřování uživatele pomocí služby Azure AD (vyžadováno pouze u registračního procesu konektoru) |
-  	| 10100 - 10120 | Slouží k povolení odesílání odpovědí LOB HTTP zpět na proxy |
-  	| 9352, 5671 | Slouží k povolení komunikace mezi konektorem a službou Azure v rámci příchozích požadavků |
+  	| 80 | Umožňuje odchozí přenosy pomocí protokolu HTTP pro bezpečnostní ověření. |
+  	| 443 | Umožňuje ověření uživatele ve službě Azure AD (potřeba jenom při registračním procesu konektoru). |
+  	| 10100–10120 | Umožňuje odesílání odpovědí LOB HTTP zpátky na proxy. |
+  	| 9352, 5671 | Umožňuje komunikaci mezi konektorem a službou Azure v rámci příchozích požadavků. |
   	| 9350 | Volitelné, umožňuje lepší příjem příchozích požadavků |
-  	| 8080 | Slouží k povolení sekvence bootstrap konektoru a automatické aktualizaci konektoru |
-  	| 9090 | Slouží k povolení registrace konektoru (vyžadováno pouze u registračního procesu konektoru) |
-  	| 9091 | Slouží k povolení automatického obnovení certifikátu důvěryhodnosti konektoru |
+  	| 8080 | Umožňuje sekvenci bootstrap konektoru a automatickou aktualizaci konektoru. |
+  	| 9090 | Umožňuje registraci konektoru (potřeba jenom při registračním procesu konektoru). |
+  	| 9091 | Umožňuje automatické obnovení certifikátu důvěryhodnosti konektoru. |
 
-Pokud brána firewall vynucuje přenos v závislosti na zdroji uživatelů, otevřete tyto porty pro přenos ze služeb systému Windows, které běží jako síťové služby. Zajistěte také, aby byl port číslo 8080 povolen pro NT Authority\System.
+    Pokud brána firewall vynucuje přenos v závislosti na zdroji uživatelů, otevřete tyto porty pro přenos ze služeb systému Windows, které běží jako síťové služby. Zajistěte také, aby byl port číslo 8080 povolen pro NT Authority\System.
 
+- Pokud se vaše organizace připojuje k internetu pomocí proxy serverů, podívejte se na příspěvek na blogu [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Práce s existujícími místními proxy servery) a přečtěte si podrobnosti o jejich konfiguraci.
 
 ## Krok 1: Povolení proxy aplikace ve službě Azure AD
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com/).
@@ -56,45 +58,40 @@ Pokud brána firewall vynucuje přenos v závislosti na zdroji uživatelů, otev
 
     ![Povolení proxy aplikace](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
 
-5. Vyberte **Stáhnout**. Tím přejdete ke **Stažení konektoru proxy aplikace služby Azure AD**. Přečtěte si a přijměte licenční podmínky, klikněte na **Stáhnout** a uložte instalační soubor (.exe) konektoru proxy aplikace.
+5. Vyberte **Stáhnout**. Tím přejdete na stránku pro **stažení konektoru proxy aplikace služby Azure AD**. Přečtěte si a přijměte licenční podmínky, klikněte na **Stáhnout** a uložte soubor Instalační služby Windows (.exe) konektoru.
 
 ## Krok 2: Instalace a registrace konektoru
-1. Spusťte aplikaci *AADApplicationProxyConnectorInstaller.exe* na serveru, který jste připravili v souladu s výše uvedenými požadavky.
+1. Spusťte aplikaci **AADApplicationProxyConnectorInstaller.exe** na serveru, který jste připravili podle uvedených požadavků.
 2. Nainstalujte podle pokynů instalačního průvodce.
-3. Během instalace budete vyzváni k registraci konektoru k proxy aplikace vašeho klienta služby Azure AD.
+3. Během instalace se zobrazí výzva k registraci konektoru v proxy aplikace vašeho tenanta služby Azure AD.
 
   - Zadejte vaše přihlašovací údaje globálního správce pro službu Azure AD. Klient globálního správce se může lišit od vašich přihlašovacích údajů ke službě Microsoft Azure.
-  - Ujistěte se, že je správce, který registruje konektor, ve stejném adresáři, kde jste povolili službu proxy aplikace: Pokud je například doména klienta „contoso.com“, měl by být správce „admin@contoso.com“, případně jiný alias v této doméně.
-  - Pokud je **Konfigurace rozšířeného zabezpečení aplikace Internet Explorer** na serveru, kam instalujete konektor služby Azure AD, nastavena na **Zapnuto**, může být registrační obrazovka zablokovaná. V takovém případě postupujte podle pokynů v chybové zprávě, které vás dovedou k povolení přístupu. Ujistěte se, že je rozšířené zabezpečení aplikace Internet Explorer vypnuto.
+  - Ujistěte se, že správce, který zaregistruje konektor, je ve stejném adresáři, ve kterým jste povolili službu proxy aplikací. Pokud je třeba doména tenanta contoso.com, správce by měl být admin@contoso.com nebo jakýkoli jiný alias v této doméně.
+  - Pokud je **Konfigurace rozšířeného zabezpečení aplikace Internet Explorer** na serveru, kam instalujete konektor, nastavená na **Zapnuto**, může být registrační obrazovka zablokovaná. V tom případě postupujte podle pokynů v chybové zprávě, které vás dovedou k povolení přístupu. Ujistěte se, že je rozšířené zabezpečení aplikace Internet Explorer vypnuto.
   - Pokud registrace konektoru selže, podívejte se do článku [Poradce při potížích s proxy aplikace](active-directory-application-proxy-troubleshoot.md).  
 
-4. Po dokončení instalace se k serveru přidají dvě nové služby, jak můžete vidět níže.
+4. Po dokončení instalace se k serveru přidají dvě nové služby:
 
     - **Microsoft AAD Application Proxy Connector** umožňuje propojení
     - **Microsoft AAD Application Proxy Connector Updater** je služba pro automatickou aktualizaci, která pravidelně kontroluje nové verze konektoru a v případě potřeby ho aktualizuje.
 
     ![Služby konektoru proxy aplikace – snímek obrazovky](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
-5. V okně instalace klikněte na tlačítko **Dokončit**, a instalace se dokončí.
+5. V okně instalace klikněte na **Dokončit**.
 
-Nyní jste připraveni k [publikování aplikací pomocí proxy aplikace](active-directory-application-proxy-publish.md).
+V zájmu vyšší dostupnosti byste měli nasadit aspoň dva konektory. Pokud chcete nasadit víc konektorů, opakujte výše popsané kroky 2 a 3. Každý konektor musí být zaregistrovaný samostatně.
 
-V zájmu vyšší dostupnosti byste měli nasadit alespoň jeden další konektor. Pokud chcete nasadit více konektorů, opakujte výše popsané kroky 2 a 3. Každý konektor musí být zaregistrován samostatně.
-
-Pokud chcete odinstalovat konektor, odinstalujte službu konektoru i aktualizační službu a restartujte počítač, aby se služba úplně odebrala.
+Pokud chcete konektor odinstalovat, odinstalujte službu Connector i službu Updater. Restartujte počítač, aby se službě úplně odebrala.
 
 
 ## Další kroky
 
-- [Publikování aplikací pomocí proxy aplikace](active-directory-application-proxy-publish.md)
-- [Publikování aplikací s použitím vlastního názvu domény](active-directory-application-proxy-custom-domains.md)
-- [Povolení jednoduchého přihlášení](active-directory-application-proxy-sso-using-kcd.md)
-- [Řešení potíží s proxy aplikace](active-directory-application-proxy-troubleshoot.md)
+Nyní jste připraveni k [publikování aplikací pomocí proxy aplikace](active-directory-application-proxy-publish.md).
 
-Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://blogs.technet.com/b/applicationproxyblog/)
+Pokud máte aplikace, které jsou v různých sítích nebo na různých místech, můžete pomocí skupin konektorů uspořádat různé konektory do logických jednotek. Další informace získáte v článku [Práce s konektory proxy aplikací](active-directory-application-proxy-connectors.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

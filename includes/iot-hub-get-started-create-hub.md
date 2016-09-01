@@ -21,7 +21,7 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 
     ![Stav nového centra IoT][3]
 
-5. Po úspěšném vytvoření centra IoT klikněte na dlaždici nového centra IoT na portálu a otevřete okno nového centra IoT. Poznamenejte si **Název hostitele** a potom klikněte na ikonu **Klíče**.
+5. Po úspěšném vytvoření centra IoT klikněte na dlaždici nového centra IoT na portálu a otevřete okno nového centra IoT. Poznačte si **Název hostitele** a klikněte na **Zásady sdíleného přístupu**.
 
     ![Okno nového centra IoT][4]
 
@@ -45,6 +45,6 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

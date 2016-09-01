@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Architektura služby Service Bus | Microsoft Azure"
-    description="Popisuje architekturu zpracování zpráv služby Azure Service Bus."
+    description="Popisuje architekturu zpracování zpráv a přenosů služby Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Architektura služby Service Bus
 
-Tento článek popisuje architekturu zpracování zpráv služby Azure Service Bus.
+Tento článek popisuje architekturu zpracování zpráv a přenosů služby Azure Service Bus.
 
 ## Jednotky škálování služby Service Bus
 
@@ -53,7 +53,7 @@ Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy
 
 ## Další kroky
 
-Teď víte, jak služba Service Bus funguje a můžete ji začít používat. K tomu vám pomůžou tyto odkazy:
+Teď, když znáte přehled architektury služby Service Bus, ji můžete začít používat. K tomu vám pomůžou tyto odkazy:
 
 - [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
 - [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -61,6 +61,6 @@ Teď víte, jak služba Service Bus funguje a můžete ji začít používat. K 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

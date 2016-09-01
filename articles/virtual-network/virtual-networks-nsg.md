@@ -3,7 +3,7 @@
    description="Seznamte se s distribuovanou bránou firewall v Azure, která používá skupiny zabezpečení sítě (NSG), a s používáním skupin NSG k izolování a řízení toku provozu ve virtuálních sítích."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Co je skupina zabezpečení sítě (NSG)?
 
@@ -25,12 +25,12 @@ Skupiny NSG obsahují následující vlastnosti.
 
 |Vlastnost|Popis|Omezení|Požadavky|
 |---|---|---|---|
-|Název|Název skupiny NSG|Musí být jedinečný v rámci oblasti.<br/>Může obsahovat písmena, číslice, podtržítka, tečky a pomlčky.<br/>Musí začínat písmenem nebo číslicí.<br/>Musí končit písmenem, číslicí nebo podtržítkem.<br/>Může obsahovat maximálně 80 znaků.|Budete pravděpodobně vytvářet víc skupin NGS, a proto je vhodné používat takové názvy, které umožní snadno rozpoznat funkci jednotlivých skupin.|
+|Name (Název)|Název skupiny NSG|Musí být jedinečný v rámci oblasti.<br/>Může obsahovat písmena, číslice, podtržítka, tečky a pomlčky.<br/>Musí začínat písmenem nebo číslicí.<br/>Musí končit písmenem, číslicí nebo podtržítkem.<br/>Může obsahovat maximálně 80 znaků.|Budete pravděpodobně vytvářet víc skupin NGS, a proto je vhodné používat takové názvy, které umožní snadno rozpoznat funkci jednotlivých skupin.|
 |Oblast|Oblast Azure, kde je skupina NSG hostovaná.|Skupiny NSG se dají použít jenom na prostředky v oblasti svého vytvoření.|Informace o tom, kolik skupin NSG můžete mít v jedné oblasti, najdete v části popisující [omezení](#Limits).|
 |Skupina prostředků|Skupina prostředků, do které skupina NSG patří.|Ačkoli skupina NSG patří do jedné ze skupin prostředků, dá se přidružit k prostředkům v libovolné skupině prostředků, pokud příslušný prostředek patří do stejné oblasti Azure jako skupina NSG.|Skupiny prostředků slouží ke společné správě více prostředků jako jednotky nasazení.<br/>Může být vhodné seskupit NSG s prostředky, ke kterým je přidružená.|
 |Pravidla|Pravidla, která definují, jaký provoz je povolený nebo odepřený.||Viz [pravidla NSG](#Nsg-rules) níže.| 
 
->[AZURE.NOTE] Seznamy ACL založené na koncových bodech a skupiny zabezpečení sítě nejsou podporované ve stejné instanci virtuálního počítače. Pokud chcete použít skupinu NSG a už máte seznam ACL pro koncové body, nejdřív tento seznam odeberte. Informace o tom, jak to provést, najdete v tématu [Správa seznamů řízení přístupu (ACL) pro koncové body pomocí prostředí PowerShell]( virtual-networks-acl-powershell.md).
+>[AZURE.NOTE] Seznamy ACL založené na koncových bodech a skupiny zabezpečení sítě nejsou podporované ve stejné instanci virtuálního počítače. Pokud chcete použít skupinu NSG a už máte seznam ACL pro koncové body, nejdřív tento seznam odeberte. Informace o tom, jak to provést, najdete v tématu [Správa seznamů řízení přístupu (ACL) pro koncové body pomocí prostředí PowerShell](virtual-networks-acl-powershell.md).
 
 ### Pravidla NSG
 
@@ -38,7 +38,7 @@ Pravidla NSG obsahují následující vlastnosti.
 
 |Vlastnost|Popis|Omezení|Požadavky|
 |---|---|---|---|
-|**Název**|Název pravidla|Musí být jedinečný v rámci oblasti.<br/>Může obsahovat písmena, číslice, podtržítka, tečky a pomlčky.<br/>Musí začínat písmenem nebo číslicí.<br/>Musí končit písmenem, číslicí nebo podtržítkem.<br/>Může obsahovat maximálně 80 znaků.|Ve skupině NGS budete mít pravděpodobně několik pravidel, a proto je vhodné používat takové názvy, které umožní rozpoznat funkci pravidla.|
+|**Name (Název)**|Název pravidla|Musí být jedinečný v rámci oblasti.<br/>Může obsahovat písmena, číslice, podtržítka, tečky a pomlčky.<br/>Musí začínat písmenem nebo číslicí.<br/>Musí končit písmenem, číslicí nebo podtržítkem.<br/>Může obsahovat maximálně 80 znaků.|Ve skupině NGS budete mít pravděpodobně několik pravidel, a proto je vhodné používat takové názvy, které umožní rozpoznat funkci pravidla.|
 |**Protocol (Protokol)**|Protokol, který je nutné u pravidla splnit|TCP, UDP nebo \*|Použití \* jako protokolu zahrnuje protokol ICMP (pouze provoz typu East-West) a protokoly UDP a TCP a může snížit počet pravidel, která budete potřebovat.<br/>Použití \* ale současně může být příliš široké, a proto se vždy ujistěte, že je tento přístup skutečně nutný.|
 |**Rozsah zdrojových portů**|Rozsah zdrojových portů, který je nutné u pravidla splnit|Jedno číslo portu od 1 do 65535, rozsah portů (tj. 1–65635) nebo \* (pro všechny porty)|Zdrojové porty můžou být dočasné. Pokud váš klientský program nepoužívá konkrétní port, ve většině případů prosím použijte „*“.<br/>Snažte se co nejvíc používat rozsahy portů, aby nebylo potřeba více pravidel.<br/>Není možné seskupit několik portů nebo rozsahů portů oddělených čárkami.
 |**Rozsah cílových portů**|Rozsah cílových portů, který je nutné u pravidla splnit|Jedno číslo portu od 1 do 65535, rozsah portů (tj. 1–65535) nebo \* (pro všechny porty)|Snažte se co nejvíc používat rozsahy portů, aby nebylo potřeba více pravidel.<br/>Není možné seskupit několik portů nebo rozsahů portů oddělených čárkami.
@@ -72,7 +72,7 @@ Jak vidíte ve výchozích pravidlech níže, provoz směřující z/do virtuál
 
 **Příchozí výchozí pravidla**
 
-| Název                              | Priorita | Zdrojová IP adresa          | Zdrojový port | Cílová IP adresa  | Cílový port | Protocol (Protokol) | Access |
+| Name (Název)                              | Priorita | Zdrojová IP adresa          | Zdrojový port | Cílová IP adresa  | Cílový port | Protocol (Protokol) | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
 | ALLOW VNET INBOUND                | 65000    | VIRTUAL_NETWORK    | *           | VIRTUAL_NETWORK | *                | *        | POVOLIT  |
 | ALLOW AZURE LOAD BALANCER INBOUND | 65001    | AZURE_LOADBALANCER | *           | *               | *                | *        | POVOLIT  |
@@ -80,7 +80,7 @@ Jak vidíte ve výchozích pravidlech níže, provoz směřující z/do virtuál
 
 **Odchozí výchozí pravidla**
 
-| Název                    | Priorita | Zdrojová IP adresa       | Zdrojový port | Cílová IP adresa  | Cílový port | Protocol (Protokol) | Access |
+| Name (Název)                    | Priorita | Zdrojová IP adresa       | Zdrojový port | Cílová IP adresa  | Cílový port | Protocol (Protokol) | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
 | ALLOW VNET OUTBOUND     | 65000    | VIRTUAL_NETWORK | *           | VIRTUAL_NETWORK | *                | *        | POVOLIT  |
 | ALLOW INTERNET OUTBOUND | 65001    | *               | *           | INTERNET        | *                | *        | POVOLIT  |
@@ -103,19 +103,19 @@ K virtuálnímu počítači (nebo síťové kartě, podle modelu nasazení) a po
 - **Příchozí provoz**
     1. Skupina NSG použitá na podsíť. 
     
-           Má-li skupina NSG použitá na podsíť odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat.
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
     2. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
        
-           Má-li skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo odepřít provoz, bude se paket ve virtuálním počítači nebo na síťové kartě ignorovat, přestože má skupina NSG použitá na podsíť odpovídající pravidlo provoz povolit.
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
 - **Odchozí provoz**
     1. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
       
-           Má-li skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat.
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
     2. Skupina NSG použitá na podsíť.
        
-           Má-li skupina NSG použitá na podsíť odpovídající pravidlo odepřít provoz, bude se zde paket ignorovat, přestože má skupina NSG použitá na virtuální počítač nebo síťovou kartu odpovídající pravidlo provoz povolit.
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![Seznamy ACL skupiny NSG](./media/virtual-network-nsg-overview/figure2.png)
+    ![Seznamy ACL skupiny NSG](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Přestože k podsíti, virtuálnímu počítači nebo síťové kartě se dá přidružit jenom jedna skupina NSG, tutéž skupinu NSG můžete přidružit k libovolnému počtu prostředků.
 
@@ -124,13 +124,13 @@ Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Cl
 
 |Nástroj pro nasazení|Classic|Resource Manager|
 |---|---|---|
-|Portál Classic|![Ne][červená]|![Ne][červená]|
-|Portál Azure|![Ano][zelená]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal"> ![Ano][zelená] </a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps"> ![Ano][zelená] </a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps"> ![Ano][zelená] </a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli"> ![Ano][zelená] </a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli"> ![Ano][zelená] </a>|
-|Šablona ARM|![Ne][červená]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template"> ![Ano][zelená] </a>|
+|Portál Classic|![Ne][red]|![Ne][red]|
+|portál Azure|![Ano][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ano][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ano][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ano][green]|
+|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ano][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ano][green]|
+|Šablona ARM|![Ne][red]|[](virtual-networks-create-nsg-arm-template.md)![Ano][green]|
 
-|**Klíč**|![Ano][zelená] Podporuje se. Kliknutím zobrazíte článek.|![Ne][červená] Nepodporuje se.|
+|**Klíč**|![Ano][green] Podporuje se. Kliknutím zobrazíte článek.|![Ne][red] Nepodporuje se.|
 |---|---|---|
 
 ## Plánování
@@ -141,7 +141,7 @@ Před implementací skupin NSG je nutné odpovědět na tyto otázky:
 
 2. Jsou prostředky, z/do kterých chcete filtrovat provoz, připojené k podsítím v existujících virtuálních sítích, nebo budou připojené k novým virtuálním sítím nebo podsítím?
  
-Další informace o plánování zabezpečení sítě v Azure najdete v tématu popisujícím [osvědčené postupy pro cloudové služby a zabezpečení sítě]( ../best-practices-network-security.md). 
+Další informace o plánování zabezpečení sítě v Azure najdete v tématu popisujícím [osvědčené postupy pro cloudové služby a zabezpečení sítě](../best-practices-network-security.md). 
 
 ## Na co dát pozor při navrhování
 
@@ -189,7 +189,7 @@ Aktuální pravidla NSG povolují pouze protokoly *TCP* nebo *UDP*. Pro *ICMP* n
 
 ### Ostatní
 
-- Skupiny NSG a seznamy ACL založené na koncových bodech nejsou podporované ve stejné instanci virtuálního počítače. Pokud chcete použít skupinu NSG a už máte seznam ACL pro koncové body, nejdřív tento seznam odeberte. Informace o tom, jak to provést, najdete v tématu [Správa seznamů ACL pro koncové body]( virtual-networks-acl-powershell.md).
+- Skupiny NSG a seznamy ACL založené na koncových bodech nejsou podporované ve stejné instanci virtuálního počítače. Pokud chcete použít skupinu NSG a už máte seznam ACL pro koncové body, nejdřív tento seznam odeberte. Informace o tom, jak to provést, najdete v tématu [Správa seznamů ACL pro koncové body](virtual-networks-acl-powershell.md).
 - V modelu nasazení Resource Manager můžete použít skupinu NSG přidruženou k síťové kartě u virtuálních počítačů s více síťovými kartami k povolení správy (vzdáleného přístupu) síťovou kartou, a tím oddělit provoz.
 - Podobně, jako tomu je při použití nástrojů pro vyrovnávání zatížení, když filtrujete provoz z jiných virtuálních sítí, je nutné použít zdrojový rozsah adres vzdáleného počítače, nikoli brány připojující tyto virtuální sítě.
 - Mnoho služeb Azure nejde připojit k virtuálním sítím Azure, a proto provoz do/z těchto služeb není možné filtrovat pomocí skupin NSG.  Pokud potřebujete zjistit, jestli vámi používané služby jde připojit k virtuálním sítím, přečtěte si jejich dokumentaci.
@@ -274,9 +274,9 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 ## Další kroky
 
-- [Nasazení skupin NSG v modelu nasazení Classic]( virtual-networks-create-nsg-classic-ps.md).
-- [Nasazení skupin NSG v modelu Resource Manager]( virtual-networks-create-nsg-arm-pportal.md).
-- [Správa protokolů NSG]( virtual-network-nsg-manage-log.md).
+- [Nasazení skupin NSG v modelu nasazení Classic](virtual-networks-create-nsg-classic-ps.md).
+- [Nasazení skupin NSG v modelu Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+- [Správa protokolů NSG](virtual-network-nsg-manage-log.md).
 
 [zelená]: ./media/virtual-network-nsg-overview/green.png
 [žlutá]: ./media/virtual-network-nsg-overview/yellow.png
@@ -284,7 +284,6 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 
 
-<!--HONumber=Jun16_HO2-->
-
+<!--HONumber=Aug16_HO4-->
 
 

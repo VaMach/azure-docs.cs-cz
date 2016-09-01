@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="08/05/2016"
     ms.author="vakarand"/>
 
 
@@ -28,7 +28,7 @@ Následující tabulka představuje seznam požadavků pro používání služby
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health je funkcí služby Azure AD Premium a vyžaduje Azure AD Premium. </br></br>Další informace najdete v článku [Začínáme s Azure AD Premium](active-directory-get-started-premium.md) </br>Pokud chcete začít používat bezplatnou 30denní zkušební verzi, přečtěte si článek, jak [začít se zkušební verzí.](https://azure.microsoft.com/trial/get-started-active-directory/)|
 |Abyste mohli Azure AD Connect Health začít používat, musíte být globálním správcem služby Azure AD. |Ve výchozím nastavení můžou agenty stavu instalovat a konfigurovat jenom globální správci. Bez nich agenty nespustíte, nebudete mít přístup na portál ani nebudete moct v rámci Azure AD Connect Health provádět jakékoli operace. Další informace najdete v článku o [správě adresáře Azure AD](active-directory-administer.md). <br><br> Pomocí řízení přístupu na základě rolí můžete povolit přístup k Azure AD Connect Health i ostatním uživatelům z vaší organizace. Další informace najdete v článku o [řízení přístupu k Azure AD Connect Health na základě rolí.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Důležité:** Účet, který použijete při instalaci agentů, musí být pracovní nebo školní účet a nesmí to být účet Microsoft. Další informace najdete v článku o [registraci do Azure jako organizace](sign-up-organization.md).
-|Agent Azure AD Connect Health se instaluje na každý cílový server.| Azure AD Connect Health vyžaduje instalaci agentů na cílových serverech proto, aby dodávali data prohlížená na portálu. </br></br>Pokud například potřebujete získávat data o místní infrastruktuře služby AD FS, musí být agent nainstalovaný na serverech služby AD FS, na proxy serverech služby AD FS a na proxy serverech webových aplikací. </br></br>**Důležité:** Účet, který použijete při instalaci agentů, musí být pracovní nebo školní účet a nesmí to být účet Microsoft.   Další informace najdete v článku o [registraci do Azure jako organizace](sign-up-organization.md).|
+|Agent Azure AD Connect Health se instaluje na každý cílový server.| Azure AD Connect Health vyžaduje instalaci agentů na cílových serverech proto, aby dodávali data prohlížená na portálu. </br></br>Pokud například potřebujete získávat data o místní infrastruktuře služby AD FS, musí být agent nainstalovaný na serverech služby AD FS, na proxy serverech služby AD FS a na proxy serverech webových aplikací. Podobně pro načtení dat ve vaší místní infrastruktuře služby AD DS musí být agent nainstalován na řadičích domény. </br></br>**Důležité:** Účet, který použijete při instalaci agentů, musí být pracovní nebo školní účet a nesmí to být účet Microsoft.   Další informace najdete v článku o [registraci do Azure jako organizace](sign-up-organization.md).|
 |Odchozí připojení ke koncovým bodům služby Azure|Agent během instalace a za běhu vyžaduje připojení ke koncovým bodům služby Azure AD Connect Health, které jsou uvedené níže. Pokud blokujete odchozí připojení, nezapomeňte do seznamu povolených výjimek přidat následující: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Porty brány firewall na serveru se spuštěným agentem.| Agent vyžaduje, aby následující porty brány firewall byly otevřené. Je to proto, aby agent mohl komunikovat s koncovými body služby Azure AD Health.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
 |Pokud je povoleno rozšířené zabezpečení Internet Exploreru, povolte následující weby|Následující weby musí být povoleny, pokud je na serveru, na který budete instalovat agenta, povolené rozšířené zabezpečení Internet Exploreru.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federační server vaší organizace, který je pro službu Azure Active Directory důvěryhodný. Příklad: https://sts.contoso.com</li>
@@ -155,7 +155,38 @@ Příkaz přijímá následující parametry:
 
 Po zobrazení výzvy k ověření použijte stejný účet globálního správce (například admin@domain.onmicrosoft.com), který jste použili ke konfiguraci Azure AD Connect.
 
+## Instalace agenta Azure AD Connect Health pro službu AD DS
+Pokud chcete spustit instalaci agenta, poklikejte na stažený soubor .exe. Na první obrazovce klikněte na Instalovat.
 
+![Ověření Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
+
+Po dokončení instalace klikněte na Konfigurovat.
+
+![Ověření Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
+
+Tím se spustí příkazový řádek následovaný kódem PowerShellu, který provede Register-AzureADConnectHealthADDSAgent. Budete vyzváni k přihlášení do Azure. Pokračujte a přihlaste se.
+
+![Ověření Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
+
+Po přihlášení bude PowerShell pokračovat. Po dokončení můžete PowerShell zavřít. Konfigurace je hotová.
+
+V tomto okamžiku by služby měly být automaticky spuštěny a agent teď bude sledovat a shromažďovat data. Níže uvedený snímek obrazovky ukazuje příklad výstupu. Pokud jste nesplnili všechny předpoklady popsané v předchozí části, počítejte s tím, že se vám v okně PowerShellu budou zobrazovat upozornění. Nezapomeňte proto [tyto požadavky](active-directory-aadconnect-health-agent-install.md#requirements) splnit ještě před samotnou instalací agenta. 
+
+![Ověření Azure AD Connect Health pro AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+
+Pokud chcete ověřit úspěšnou instalaci agenta, otevřete panel služeb a hledejte následující:
+
+- Služba analýz AD DS pro Azure AD Connect Health
+- Služba monitorování AD DS pro Azure AD Connect Health
+
+Tyto dvě služby se nespustí až do dokončení konfigurace.
+
+![Ověření Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Instalace agenta Azure AD Connect Health pro službu AD DS na jádro serveru. 
+Po instalaci souboru .exe můžete dokončit proces registrace pomocí následujícího příkazu prostředí PowerShell:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Konfigurace agentů Azure AD Connect Health k používání proxy serveru HTTP
 Agenty Azure AD Connect Health můžete nakonfigurovat, aby používaly proxy server HTTP.
@@ -216,6 +247,7 @@ Parametr „role“ v současnosti přijímá následující hodnoty:
 
 - Adfs
 - Sync
+- PŘIDÁ
 
 Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - ShowResults.  Použijte následující příklad:
 
@@ -231,11 +263,12 @@ Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - Sho
 * [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md)
 * [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
+* [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

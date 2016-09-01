@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Vytvoření webové aplikace v jazyce Java ve službě Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-V tomto kurzu se dozvíte, jak vytvořit [webová aplikace ve službě Azure App Service] pomocí [Portál Azure]. Portál Azure je webové rozhraní, které lze použít ke správě prostředků Azure.
+V tomto kurzu se dozvíte, jak vytvořit [webová aplikace ve službě Azure App Service] pomocí [Azure Portal]. Portál Azure je webové rozhraní, které lze použít ke správě prostředků Azure.
 
 > [AZURE.NOTE] K absolvování tohoto kurzu potřebujete účet Microsoft Azure. Pokud nemáte účet, můžete si [aktivovat výhody předplatitele sady Visual Studio] nebo se [zaregistrovat k bezplatné zkušební verzi].
 >
@@ -53,11 +53,11 @@ Existuje několik způsobů, jimiž lze nastavit aplikaci v jazyce Java ve webov
 
 V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji pro jazyk Java pomocí okna **Nastavení aplikace** portálu.
 
-1. Přihlaste se k [Portál Azure].
+1. Přihlaste se k [Azure Portal].
 
 2. Klikněte na položku **Nové > Web + mobilní zařízení > Webová aplikace**.
 
-    ![Nová webová aplikace][nováwebováaplikace]
+    ![Nová webová aplikace][newwebapp]
 
 4. Zadejte název webové aplikace do pole **Webová aplikace**.
 
@@ -73,11 +73,11 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
 
 7. Klikněte na možnost **Vytvořit**.
 
-    ![Vytvoření webové aplikace][nováwebováaplikace2]]
+    ![Vytvoření webové aplikace][newwebapp2]
  
 8. Po vytvoření webové aplikace klikněte na možnost **Webové aplikace > {vaše webová aplikace}**.
  
-    ![Výběr webové aplikace][výběrwebovéaplikace]
+    ![Výběr webové aplikace][selectwebapp]
 
 9. V okně **Webová aplikace** klikněte na možnost **Nastavení**.
 
@@ -105,11 +105,11 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
 
 V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomocí Azure Marketplace. Tentýž obecný postup lze také použít k vytvoření mobilní aplikace nebo aplikace API založené na jazyce Java. 
 
-1. Přihlaste se k [Portál Azure].
+1. Přihlaste se k [Azure Portal].
 
 2. Klikněte na možnost **Nové > Marketplace**.
 
-    ![Nový Marketplace][novýmarketplace]
+    ![Nový Marketplace][newmarketplace]
 
 3. Klikněte na možnost **Web + mobilní zařízení**.
 
@@ -119,11 +119,11 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 5. Ve výsledcích hledání klikněte na aplikační server Java.
 
-    ![Web Mobilní zařízení Jetty][webmobilníjetty]
+    ![Web Mobilní zařízení Jetty][webmobilejetty]
 
 6. V prvním okně **Apache Tomcat** nebo **Jetty** klikněte na možnost **Vytvořit**.
 
-    ![Okno portálu Jetty][oknojetty]
+    ![Okno portálu Jetty][jettyblade]
 
 7. V dalším okně **Apache Tomcat** nebo **Jetty** zadejte název webové aplikace do pole **Webová aplikace**.
 
@@ -139,7 +139,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 10. Klikněte na možnost **Vytvořit**.
 
-    ![Portál Jetty Vytvořit][jettyportálvytvořit2]
+    ![Portál Jetty Vytvořit][jettyportalcreate2]
 
     Zanedlouho, obvykle během méně než minuty, Azure dokončí vytváření nové webové aplikace.
 
@@ -169,9 +169,9 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 [Přidání aplikace nebo webové stránky do webové aplikace v jazyce Java]: ./web-sites-java-add-app.md
 [Přehled plánů služby Azure App Service]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [aktivovat výhody předplatitele sady Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
-[registrace k bezplatné zkušební verzi]: http://go.microsoft.com/fwlink/?LinkId=623901
+[zaregistrovat k bezplatné zkušební verzi]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [webová aplikace ve službě Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Středisko pro vývojáře Java]: /develop/java/
@@ -180,20 +180,20 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 <!-- IMG List -->
 
-[nováwebováaplikace]: ./media/web-sites-java-get-started/newwebapp.png
+[newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [nováwebováaplikace2]: ./media/web-sites-java-get-started/newwebapp2.png
 [výběrwebovéaplikace]: ./media/web-sites-java-get-started/selectwebapp.png
-[versions]: ./media/web-sites-java-get-started/versions.png
-[novýmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
-[webmobilníjetty]: ./media/web-sites-java-get-started/webmobilejetty.png
-[oknojetty]: ./media/web-sites-java-get-started/jettyblade.png
-[jettyportálvytvořit2]: ./media/web-sites-java-get-started/jettyportalcreate2.png
+[verze]: ./media/web-sites-java-get-started/versions.png
+[newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
+[webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
+[jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
+[jettyportalcreate2]: ./media/web-sites-java-get-started/jettyportalcreate2.png
 [jettyurl]: ./media/web-sites-java-get-started/jettyurl.png
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

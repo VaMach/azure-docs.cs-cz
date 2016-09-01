@@ -14,7 +14,7 @@
     ms.devlang="node"
     ms.topic="get-started-article"
     ms.date="05/26/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
 
@@ -22,7 +22,7 @@
 
 Tento kurz ukazuje, jak vytvořit jednoduché rozhraní [Node.js](http://nodejs.org) API a jak ho nasadit do [aplikace API](app-service-api-apps-why-best-platform.md) v [Azure App Service](../app-service/app-service-value-prop-what-is.md) pomocí systému [Git](http://git-scm.com). Můžete použít libovolný operační systém, na kterém běží Node.js, a všechnu práci provedete pomocí nástrojů příkazového řádku, jako je cmd.exe nebo bash.
 
-## Předpoklady
+## Požadavky
 
 1. Účet Microsoft Azure ([zde si můžete otevřít bezplatný účet](https://azure.microsoft.com/pricing/free-trial/))
 1. Nainstalovaný [Node.js](http://nodejs.org) (V tomto příkladu se předpokládá, že máte Node.js verze 4.2.2.)
@@ -193,7 +193,7 @@ V této části využijete Portál Azure k vytvoření nové aplikace API v Azur
 
 6. V rozevíracím seznamu **Skupina prostředků**, klikněte na **Nový** a potom do pole **Nový název skupiny prostředků** zadejte NodejsAPIAppGroup nebo jiný název, který preferujete. 
 
-    [Skupina prostředků](../azure-portal/resource-group-portal.md) je kolekce prostředků Azure, jako jsou aplikace API, databáze a virtuální počítače. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
+    [Skupina prostředků](../resource-group-overview.md) je kolekce prostředků Azure, jako jsou aplikace API, databáze a virtuální počítače. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
 
 4. Klikněte na **Plán nebo umístění služby App Service**, a potom na tlačítko **Vytvořit nové**.
 
@@ -314,6 +314,6 @@ V tomto okamžiku jste úspěšně vytvořili aplikaci API a nasadili do ní kó
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

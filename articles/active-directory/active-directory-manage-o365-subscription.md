@@ -13,22 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="curtand"/>
 
 # Správa adresáře pro předplatné služeb Office 365 ve službě Azure
 
-Tento článek popisuje, jak spravovat adresář, který byl vytvořen pro předplatné služeb Office 365, budeme ale používat portál Azure Classic. Pokud se chcete přihlásit k portálu Azure Classic, musíte být správce nebo spolusprávce služeb v předplatném služby Azure. Pokud ještě nemáte předplatné Azure
+Tento článek popisuje, jak spravovat adresář, který byl vytvořen pro předplatné služeb Office 365, pomocí portálu Azure Classic. Pokud se chcete přihlásit k portálu Azure Classic, musíte být správce nebo spolusprávce služeb v předplatném služby Azure. Pokud ještě nemáte předplatné Azure, můžete si pomocí tohoto odkazu zaregistrovat [bezplatnou 30denní zkušební verzi](https://azure.microsoft.com/trial/get-started-active-directory/) ještě dnes a nasadit první cloudové řešení za méně než 5 minut. Nezapomeňte použít pracovní nebo školní účet, jaký používáte k přihlášení do služeb Office 365.
 
-1. Můžete se přihlásit pomocí pracovního nebo školního účtu, jaký používáte k přihlášení do služeb Office 365.
-
-![Pole pro zadání e-mailové adresy](./media/active-directory-manage-o365-subscription/AAD_O365_01.png)
-
-Odpovídající předplatné služby Azure nebude nalezeno, můžete ale kliknout na možnost **Zaregistrovat se k Azure** a ve formuláři pro registraci se potom předběžně vyplní příslušné informace z účtu Office 365. Do role správce služeb bude ve výchozím nastavení přiřazen stejný účet.
-
-![Odkaz na registraci předplatného Azure](./media/active-directory-manage-o365-subscription/AAD_O365_02.png)
-
-Po dokončení registrace předplatného služby Azure se budete moct přihlásit k portálu Azure Classic a používat služby Azure. Abyste mohli spravovat stejný adresář, který ověřuje uživatele služeb Office 365, klikněte na rozšíření Active Directory.
+Po dokončení registrace předplatného služby Azure se budete moct přihlásit k portálu Azure Classic a používat služby Azure. Pro správu stejného adresáře, který ověřuje uživatele služeb Office 365, klikněte na rozšíření Active Directory.
 
 Pokud již máte předplatné služby Azure, proces správy dalšího adresáře je také snadný. Michael Smith má například předplatné služeb Office 365 pro doménu Contoso.com. Má také předplatné služby Azure, které si zaregistroval pomocí účtu Microsoft, msmith@hotmail.com. V tomto případě spravuje dva adresáře.
 
@@ -47,7 +39,7 @@ V tomto případě jsou na sobě tyto dva adresáře navzájem nezávislé.
 Aby mohl Michael Smith spravovat oba adresáře, když je přihlášený do služby Azure pomocí účtu msmith@hotmail.com, musí dokončit následující kroky:
 
 > [AZURE.NOTE]
-> Kroky je možné dokončit, jen když je uživatel přihlášený pomocí účtu Microsoft. Pokud je uživatel přihlášený pomocí pracovního nebo školního účtu, možnost **Použít existující adresář** není k dispozici, protože pracovní a školní účet může být ověřen pouze pomocí jeho domovského adresáře (to znamená adresáře, ve kterém je pracovní nebo školní účet uložen a který vlastní práce nebo škola).
+> Kroky je možné dokončit, jen když je uživatel přihlášený pomocí účtu Microsoft. Pokud je uživatel přihlášen pomocí pracovního nebo školního účtu, možnost **Použít existující adresář** není k dispozici. Pracovní nebo školní účet můžete ověřit pouze pomocí jeho domovského adresáře (to znamená adresáře, kde je pracovní nebo školní účet uložen a který společnost nebo škola vlastní).
 
 1.  Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako msmith@hotmail.com.
 2.  Klikněte na tlačítko **Nový** > **App Services** > **Active Directory** > **Adresář** > **Vytvořit vlastní**.
@@ -60,17 +52,17 @@ Aby mohl Michael Smith spravovat oba adresáře, když je přihlášený do slu�
 Po dokončení těchto kroků se účet msmith@hotmail.com stane globálním správcem v adresáři společnosti Contoso.
 
 ## Postup správy prostředků jako globální správce
-Nyní předpokládejme, že se Jane Doe potřebuje přihlásit k portálu Azure Classic a spravovat prostředky webových stránek a databází, které jsou spojené s předplatným služby Azure pro účet msmith@hotmail.com. Než to bude moct provést, musí Michael Smith dokončit tyto další kroky:
+Nyní předpokládejme, že Jane Doe potřebuje spravovat prostředky webových stránek a databází, které jsou spojené s předplatným služby Azure pro účet msmith@hotmail.com. Než to bude moct provést, musí Michael Smith dokončit tyto další kroky:
 
 1.  Přihlásit se k [portálu Azure Classic](https://manage.windowsazure.com) pomocí účtu správce služeb pro předplatné Azure (v tomto příkladu msmith@hotmail.com).
-2.  Převést předplatné do adresáře Contoso: kliknout na **Nastavení** > **Předplatné** > vybrat předplatné > **Upravit adresář** > a vybrat **Contoso (Contoso.com)**. V rámci převodu budou odebrány veškeré pracovní nebo školní účty, které jsou spolusprávci předplatného.
+2.  Převést předplatné do adresáře Contoso: kliknout na **Nastavení** > **Předplatné** > vybrat předplatné > **Upravit adresář** > a vybrat **Contoso (Contoso.com)**. V rámci převodu se odeberou veškeré pracovní nebo školní účty, které jsou spolusprávci předplatného.
 3.  Přidat Jane Doe jako spolusprávce předplatného: kliknout na **Nastavení** > **Správci** > vybrat předplatné > **Přidat** > a zadat **JohnDoe@Contoso.com**.
 
-##Další kroky
+## Další kroky
 Další informace o vztahu mezi předplatnými a adresáři najdete v článku, [jak předplatné je spojeno s adresářem](active-directory-how-subscriptions-associated-directory.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

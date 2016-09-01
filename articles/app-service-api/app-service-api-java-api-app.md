@@ -14,7 +14,7 @@
     ms.devlang="java"
     ms.topic="get-started-article"
     ms.date="06/01/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Sestavení a nasazení aplikace API Java v Azure App Service
 
@@ -22,7 +22,7 @@
 
 V tomto kurzu se dozvíte, jak vytvořit aplikaci Java a jak ji pomocí [Git] nasadit v Azure App Service API Apps. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Javu. Kód v tomto kurzu je sestaven pomocí [Maven]. Projekt [Jax-RS] vytvoří službu RESTful a vygeneruje se na základě specifikace metadat [Swagger] v [editoru Swagger].
 
-## Předpoklady
+## Požadavky
 
 1. [Sada pro vývojáře Java 8] (nebo novější)
 1. Nástroj [Maven] nainstalovaný na počítači pro vývoj
@@ -259,7 +259,7 @@ V této části nahradíte implementaci kódu na straně serveru generovaného v
 
 V této části se dozvíte, jak vytvořit novou aplikaci API pomocí Portálu Azure, jak tuto aplikaci API připravit na hostování aplikací Java a jak nasadit nově vytvořený soubor WAR v Azure App Service, abyste mohli novou aplikaci API spustit. 
 
-1. Kliknutím na položku nabídky **Nový -> Web + mobilní zařízení -> Aplikace API**, zadáním podrobností o aplikaci a kliknutím na **Vytvořit** vytvořte na [Portál Azure] novou aplikaci API.
+1. Kliknutím na položku nabídky **Nový -> Web + mobilní zařízení -> Aplikace API**, zadáním podrobností o aplikaci a kliknutím na **Vytvořit** vytvořte na [Azure Portal] novou aplikaci API.
 
     ![Vytvoření nové aplikace API][create-api-app]
 
@@ -304,7 +304,7 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 <!-- URL List -->
 
 [CORS pro rozhraní API v App Service]: app-service-api-cors-consume-javascript.md
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Sada SDK Document DB Java]: ../documentdb/documentdb-java-application.md
 [bezplatná zkušební verze]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
@@ -317,7 +317,7 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 [Postman]: https://www.getpostman.com/
 [Sada SDK úložiště pro jazyk Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
-[Editor Swagger]: http://editor.swagger.io/
+[editoru Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
 
 <!-- IMG List -->
@@ -340,6 +340,6 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

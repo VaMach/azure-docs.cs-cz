@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/01/2016"
+    ms.date="06/29/2016"
     ms.author="jgao"/>
 
 # Publikování aplikací HDInsight do Azure Marketplace.
@@ -25,10 +25,11 @@ Aplikace HDInsight využívají model *Přineste si vlastní licenci (BYOL)*, kd
 
 Další článek týkající se aplikací HDInsight:
 
+- [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md): Naučte se instalovat aplikace HDInsight do svých clusterů.
 - [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md): Naučte se instalovat a testovat vlastní aplikace HDInsight.
 
  
-## Předpoklady
+## Požadavky
 
 Aby bylo možné odeslat vlastní aplikace na web marketplace, musíte vytvořit a otestovat vlastní aplikaci. Viz následující články:
 
@@ -64,7 +65,7 @@ Vytvořte soubor zip, který obsahuje všechny požadované soubory pro instalac
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. Viz ukázka v části [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md).
 
-    >[AZURE.IMPORTANT] Názvy instalačních skriptů aplikace musí být jedinečné pro konkrétní cluster s níže uvedeným formátem. 
+    >[AZURE.IMPORTANT] Názvy instalačních skriptů aplikace musí být jedinečné pro konkrétní cluster s níže uvedeným formátem. Všechny akce instalačních a odinstalačních skriptů by navíc měly být idempotentní, což znamená, že při opakovaném volání skriptů vznikne stejný výsledek.
     
     >   name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
         
@@ -94,11 +95,12 @@ K publikování aplikace HDInsight postupujte podle následujících kroků:
 
 ## Další kroky
 
+- [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md): Naučte se instalovat aplikace HDInsight do svých clusterů.
 - [Instalace vlastní aplikace HDInsight](hdinsight-apps-install-custom-applications.md): naučte se nasazovat nepublikované aplikace HDInsight do HDInsight.
 - [Přizpůsobení clusterů HDInsight v systému Linux pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md): další informace o použití akce skriptu k instalaci dalších aplikací.
-- [Vytvoření clusterů se systémem Linux Hadoop v HDInsight pomocí šablony ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): další informace, jak volat šablony ARM k vytvoření clusterů HDInsight.
+- [Vytvoření linuxových clusterů Hadoop v HDInsight pomocí šablon Azure Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md): zjistěte, jak voláním šablon Resource Manageru vytvoříte clustery HDInsight.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Co jsou image šablon Azure Remote Appu?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vaše předplatné Azure RemoteAppu obsahuje tři image šablon:
 
@@ -61,7 +64,7 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 - Excel
 - Lync
 - OneNote
-- OneDrive pro firmy
+- OneDrive pro firmy (použití synchronizačního agenta s Azure RemoteAppem se nepodporuje)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +97,7 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 - Excel
 - Lync
 - OneNote
-- OneDrive pro firmy
+- OneDrive pro firmy (použití synchronizačního agenta s Azure RemoteAppem se nepodporuje)
 - Outlook
 - PowerPoint
 - Project
@@ -106,6 +109,6 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

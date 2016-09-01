@@ -54,7 +54,7 @@ Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá 
 ## <a name="sdk"></a> Nainstalujte sadu SDK do aplikace
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Využití
@@ -63,7 +63,7 @@ Tím povolíte sledování požadavku, sledování neošetřených výjimek a sl
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

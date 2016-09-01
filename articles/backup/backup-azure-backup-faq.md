@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup and disaster recovery; backup service"/>
+   keywords="zálohování a zotavení po havárii; služba zálohování"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="04/04/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Služba Azure Backup – Nejčastější dotazy
@@ -275,6 +275,6 @@ Pro správné fungování agenta Azure Backup doporučujeme, aby složka mezipam
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

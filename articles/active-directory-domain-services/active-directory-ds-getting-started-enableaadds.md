@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Služba Azure AD Domain Services *(ve verzi Preview)* – Povolení služby Azure AD Domain Services
@@ -96,6 +96,6 @@ Další úlohou konfigurace je [aktualizace DNS pro virtuální síť Azure](act
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

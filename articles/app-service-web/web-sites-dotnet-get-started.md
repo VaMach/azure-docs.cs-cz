@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/22/2016"
-    ms.author="tdykstra"/>
+    ms.date="07/22/2016"
+    ms.author="rachelap"/>
 
 # Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio
 
@@ -26,7 +26,7 @@ V tomto kurzu se dozvíte, jak nasadit webovou aplikaci ASP.NET do [webové apli
 
 Kurz předpokládá, že jste vývojáři ASP.NET, kteří nemají žádné předchozí zkušenosti s používáním Azure. Až budete hotovi, budete mít jednoduchou funkční webovou aplikaci spuštěnou v cloudu.
 
-Co se dozvíte:
+Naučíte se:
 
 * Postup vytvoření nové webové aplikace služby App Service při vytváření nového webového projektu v sadě Visual Studio.
 * Postup nasazení webového projektu do webové aplikace služby App Service pomocí sady Visual Studio.
@@ -47,7 +47,7 @@ Kromě času potřebného k instalaci sady Azure SDK pro rozhraní .NET bude abs
 
 * Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
-    Chcete-li začít se službou Azure App Service dříve, než se zaregistrujete k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
+    Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](http://go.microsoft.com/fwlink/?LinkId=523751). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
 ## <a name="setupdevenv"></a>Nastavení vývojového prostředí
 
@@ -239,9 +239,12 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
 
 * Odstranění skupiny prostředků obsahující webovou aplikaci a veškeré související prostředky Azure, se kterými již nechcete pracovat
 
-    Informace týkající se práce se skupinami prostředků na portálu Azure naleznete v tématu [Použití portálu Azure k nasazení a správě prostředků Azure](../resource-group-portal.md).   
+    Informace týkající se práce se skupinami prostředků na portálu Azure naleznete v tématu [Nasazení prostředků pomocí šablon Resource Manageru a portálu Azure](../resource-group-template-deploy-portal.md).   
+
+*   Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) a [Vytvoření a nasazení mobilní aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect. Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

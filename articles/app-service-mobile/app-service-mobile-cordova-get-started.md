@@ -7,7 +7,7 @@
     manager="erikre"
     editor=""
     tags=""
-    keywords="cordova,javascript,mobile,client" />
+    keywords="cordova, javascript, mobilní, klient" />
 
 <tags
     ms.service="app-service-mobile"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Vytvoření aplikace na platformě Apache Cordova
@@ -28,7 +28,7 @@ V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu k mobilní apl
 
 Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k používání funkce Mobile Apps v Azure App Service pro Apache Cordova.
 
-## Předpoklady
+## Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
@@ -41,6 +41,8 @@ Visual Studio je možné obejít a používat přímo příkazový řádek platf
 ## Vytvoření nového back-endu mobilní aplikace Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+[Podívejte se na video zobrazující podobný postup.](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
 ## Konfigurace serverového projektu
 
@@ -59,7 +61,7 @@ Teď když jste dokončili tento kurz, jak rychle začít, přejděte k jednomu 
 
 Další informace o klíčových konceptech Azure App Service
 
-* [Ověřování]
+* [Authentication]
 * [Nabízená oznámení]
 
 Zjistěte, jak používat sady SDK.
@@ -71,12 +73,12 @@ Zjistěte, jak používat sady SDK.
 <!-- Images. -->
 
 <!-- URLs -->
-[Portál Azure]: https://portal.azure.com/
+[portál Azure]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Přidání ověřování]: app-service-mobile-cordova-get-started-users.md
 [Přidání nabízených oznámení]: app-service-mobile-cordova-get-started-push.md
-[Ověřování]: app-service-mobile-auth.md
+[Authentication]: app-service-mobile-auth.md
 [Nabízená oznámení]: ../notification-hubs/notification-hubs-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -84,7 +86,6 @@ Zjistěte, jak používat sady SDK.
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

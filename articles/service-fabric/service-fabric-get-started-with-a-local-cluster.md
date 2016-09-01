@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Začínáme s nasazením a upgradem aplikací v místním clusteru
@@ -26,7 +26,7 @@ Cluster Service Fabric tvoří sada hardwarových prostředků, na které může
 
 Je důležité si uvědomit, že místní cluster Service Fabric není emulátor ani simulátor. Spouští stejný kód platformy, jaký najdete i v clusterech s víc počítači. Jediný rozdíl je v tom, že v něm na jednom počítači běží procesy platformy, které jsou normálně rozložené mezi pěti počítačů.
 
-Sada SDK nabízí dva způsoby, jak vytvořit místní cluster: skript prostředí Windows PowerShell a aplikaci hlavního panelu systému Local Cluster Manager. V tomto kurzu použijeme skript prostředí PowerShell.
+Sada SDK nabízí dva způsoby, jak vytvořit místní cluster: skript prostředí Windows PowerShell a aplikaci hlavního panelu systému Local Cluster Manager. V tomto kurzu používáme skript prostředí PowerShell.
 
 > [AZURE.NOTE] Pokud jste už nasazením aplikace z Visual Studia vytvořili místní cluster, můžete tuto část přeskočit.
 
@@ -39,7 +39,7 @@ Sada SDK nabízí dva způsoby, jak vytvořit místní cluster: skript prostřed
     & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
     ```
 
-    Instalace clusteru bude chvíli trvat. Po dokončení instalace byste měli vidět výstup podobný tomuto:
+    Instalace clusteru bude chvíli trvat. Po dokončení instalace byste měli vidět výstup podobný tomuhle:
 
     ![Výstup po instalaci clusteru][cluster-setup-success]
 
@@ -66,7 +66,7 @@ V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem Word
     cd c:\ServiceFabric\
     ```
 
-4. [Stáhněte aplikaci WordCount](http://aka.ms/servicefabric-wordcountapp) do umístění, které jste vytvořili.
+4. [Stáhněte aplikaci WordCount](http://aka.ms/servicefabric-wordcountapp) do umístění, které jste vytvořili.  Poznámka: Prohlížeč Microsoft Edge uloží soubor s příponou *.zip*.  Změňte příponu souboru na *.sfpkg*.
 
 5. Připojte se k místnímu clusteru:
 
@@ -74,7 +74,7 @@ V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem Word
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Pomocí příkazu pro nasazení v sadě SDK vytvořte novou aplikaci tím, že zadáte název a cestu k balíčku aplikace.
+6. Pomocí příkazu pro nasazení v sadě SDK vytvořte novou aplikaci s názvem a cestou k balíčku aplikace.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,11 +84,11 @@ V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem Word
 
     ![Nasazení aplikace do místního clusteru][deploy-app-to-local-cluster]
 
-7. Pokud chcete vidět aplikaci v akci, spusťte prohlížeč a přejděte na adresu [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Měli byste vidět zhruba toto:
+7. Pokud chcete vidět aplikaci v akci, spusťte prohlížeč a přejděte na adresu [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Měli byste vidět tohle:
 
     ![Uživatelské rozhraní nasazené aplikace][deployed-app-ui]
 
-    Aplikace WordCount je velmi jednoduchá. Obsahuje kód JavaScript na straně klienta, který generuje náhodná „slova“ o pěti znacích a ta potom předává do aplikace přes webové rozhraní API ASP.NET. Stavová služba uchovává informace o spočítaném počtu slov. Slova se podle prvního znaku dělí do oddílů.
+    Aplikace WordCount je velmi jednoduchá. Obsahuje kód JavaScript na straně klienta, který generuje náhodná „slova“ o pěti znacích a ta potom předává do aplikace přes webové rozhraní API ASP.NET. Stavová služba uchovává informace o spočítaném počtu slov. Slova se podle prvního znaku dělí do oddílů. Zdrojový kód aplikace WordCount najdete mezi [úvodními ukázkami](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     Aplikace, kterou jsme nasadili, obsahuje čtyři oddíly. Slova začínající písmeny A až G se ukládají do prvního oddílu, slova začínající písmeny H až N do druhého oddílu a tak dál.
 
@@ -101,7 +101,7 @@ Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na někter�
     Get-ServiceFabricApplication
     ```
 
-    Pokud jste nasadili jenom aplikaci WordCount, zobrazí se přibližně toto:
+    Pokud jste nasadili jenom aplikaci WordCount, zobrazí se přibližně tohle:
 
     ![Dotaz na všechny nasazené aplikace v prostředí PowerShell][ps-getsfapp]
 
@@ -113,7 +113,7 @@ Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na někter�
 
     ![Výpis seznamu služeb aplikace v prostředí PowerShell][ps-getsfsvc]
 
-    Všimněte si, že aplikace se skládá ze dvou služeb – z webového prostředí front-end a stavové služby, která spravuje slova.
+    Aplikace se skládá ze dvou služeb – z webového prostředí front-end a stavové služby, která spravuje slova.
 
 3. Nakonec se podíváme na seznam oddílů služby WordCountService:
 
@@ -123,7 +123,7 @@ Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na někter�
 
     ![Zobrazení oddílů služby v prostředí PowerShell][ps-getsfpartitions]
 
-    Sada příkazů, které jste právě použili, stejně jako všechny příkazy Service Fabric prostředí PowerShell, jsou dostupné pro každý místní i vzdálený cluster, ke kterému se připojíte.
+    Sada příkazů, které jste použili, stejně jako všechny příkazy Service Fabric prostředí PowerShell, jsou dostupné pro každý místní i vzdálený cluster, ke kterému se připojíte.
 
     Pokud byste ocenili víc vizuální způsob práce s clusterem, můžete použít webový nástroj Service Fabric Explorer na adrese [http://localhost:19080/Explorer](http://localhost:19080/Explorer) v prohlížeči.
 
@@ -154,7 +154,7 @@ Nová verze aplikace teď bude počítat jenom slova, která začínají samohl�
 
     Během upgradu v jednotlivých doménách se provádí kontroly stavu, které ověřují správné chování aplikace.
 
-4. Pokud pro sadu služeb, které jsou součástí aplikace fabric:/WordCount, znovu spustíte předchozí příkaz, zjistíte, že se změnila verze WordCountService, ale verze WordCountWebService ne:
+4. Pokud pro sadu služeb v aplikaci fabric:/WordCount znovu spustíte předchozí dotaz, zjistíte, že se změnila verze WordCountService, ale verze WordCountWebService ne:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -168,10 +168,37 @@ Nová verze aplikace teď bude počítat jenom slova, která začínají samohl�
 
     ![Zobrazení nové verze aplikace v prohlížeči][deployed-app-ui-v2]
 
+## Čištění
+
+Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Aplikace dál běží na pozadí, dokud je neodeberete.  V závislosti na povaze vašich aplikací může spuštěná aplikace spotřebovávat značné množství prostředků vašeho počítače. Při správě aplikací a clusteru máte několik možností:
+
+1. Pokud chcete odebrat jednotlivou aplikaci a všechna její data, spusťte následující příkaz:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Nebo aplikaci odeberte z nabídky **AKCE** v Service Fabric Exploreru nebo z kontextové nabídky zobrazení seznamu aplikací v levém podokně.
+
+    ![Odstranění aplikace v Service Fabric Exploreru][sfe-delete-application]
+
+2. Po odstranění aplikace z clusteru můžete zrušit registraci verze 1.0.0 a 2.0.0 typu aplikace WordCount. Při odstranění se z úložiště imagí v clusteru odeberou balíčky aplikace, včetně kódu a konfigurace.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    Nebo v Service Fabric Exploreru vyberte pro aplikaci možnost **Unprovision Type** (Zrušit zřízení typu).
+
+3. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
+
+4. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Upozorňujeme, že pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Místní cluster odeberte jenom v případě, že se ho nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
+
 ## Další kroky
 - Provedli jste nasazení a upgrade některých předem sestavených aplikací a teď si můžete zkusit [sestavit vlastní aplikaci v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Všechny akce, které jsme v tomto článku prováděli v místním clusteru, se dají provádět i v [clusteru Azure](service-fabric-cluster-creation-via-portal.md).
-- V tomto článku jsme popisovali jenom velmi jednoduchý upgrade. Další informace o výkonu a flexibilitě upgradů Service Fabric najdete v [dokumentaci upgradů](service-fabric-application-upgrade.md).
+- V tomto článku jsme popisovali jenom jednoduchý upgrade. Další informace o výkonu a flexibilitě upgradů Service Fabric najdete v [dokumentaci upgradů](service-fabric-application-upgrade.md).
 
 <!-- Images -->
 
@@ -189,9 +216,10 @@ Nová verze aplikace teď bude počítat jenom slova, která začínají samohl�
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

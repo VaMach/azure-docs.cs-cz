@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
 
 # Začínáme s webovými aplikacemi Node.js ve službě Azure App Service
@@ -70,7 +70,7 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     Po zobrazení výzvy vyberte oblast Azure, do které chcete provést nasazení. Pokud jste u předplatného Azure dosud nenastavili přihlašovací údaje pro nasazení Git/FTP, budete rovněž vyzváni k jejich vytvoření.
 
-3. Z kořenového adresáře aplikace otevřete soubor ./config/config.js a změňte produkční port na možnost `process.env.port`; produkční objekt JSON by měl odpovídat následujícímu příkladu. Pokud v kořenovém adresáři aplikace tato složka/cesta k souboru neexistuje, vytvořte v kořenovém adresáři aplikace složku s názvem **config** a zkopírujte do ní následující kód JSON.
+3. Z kořenového adresáře aplikace otevřete soubor ./config/config.js a změňte produkční port na možnost `process.env.port`. Vlastnost `production` v objektu `config` by měla odpovídat následujícímu příkladu.
 
         production: {
             root: rootPath,
@@ -96,7 +96,7 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     Nyní byste měli vidět živý běh webové aplikace Node.js ve službě Azure App Service.
     
-    ![Example of browsing to the deployed application.][deployed-express-app]
+    ![Příklad procházení k nasazené aplikaci.][deployed-express-app]
 
 ## Aktualizace webové aplikace Node.js
 
@@ -170,15 +170,15 @@ Chcete-li číst protokoly modulu iisnode, použijte následující postup.
 
 5. Přejděte do adresáře D:\home\site\wwwroot\iisnode
 
-    ![Navigace k umístění souborů protokolů modulu iisnode.][iislog-kudu-konzola-hledat]
+    ![Navigace k umístění souborů protokolů modulu iisnode.][iislog-kudu-console-find]
 
 6. Klikněte na ikonu **Upravit** u protokolu, který chcete číst. Dle potřeby také můžete kliknout na položku **Stáhnout** nebo **Odstranit**.
 
-    ![Otevření souboru protokolu modulu iisnode.][iislog-kudu-konzola-otevřít]
+    ![Otevření souboru protokolu modulu iisnode.][iislog-kudu-console-open]
 
     Nyní je zobrazen protokol, který vám pomůže při ladění nasazení ve službě App Service.
     
-    ![Prohlížení souboru protokolu modulu iisnode.][iislog-kudu-konzola-číst]
+    ![Prohlížení souboru protokolu modulu iisnode.][iislog-kudu-console-read]
 
 ## Ladění aplikace pomocí nástroje Node-Inspector
 
@@ -208,6 +208,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 ## Další zdroje informací
 
 - [Určení verze Node.js v aplikaci Azure](../nodejs-specify-node-version-azure-apps.md)
+- [Osvědčené postupy a průvodci odstraňováním potíží aplikace Node.js v Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Postup ladění webové aplikace Node.js ve službě Azure App Service](web-sites-nodejs-debug.md)
 - [Používání modulů Node.js s aplikacemi Azure](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -219,7 +220,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[aktivace výhod pro předplatitele Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[aktivovat výhody předplatitele Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [BOWER]: http://bower.io/
 [Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Nasazení webové aplikace Sails.js do služby Azure App Service]: ./app-service-web-nodejs-sails.md
@@ -238,12 +239,12 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 <!-- IMG List -->
 
 [deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
-[iislog-kudu-konzola-hledat]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
-[iislog-kudu-konzola-otevřít]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
-[iislog-kudu-konzola-číst]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
+[iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
+[iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
+[iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

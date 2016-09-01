@@ -1,23 +1,25 @@
 <properties
-            pageTitle="Začínáme s Azure File Storage ve Windows | Microsoft Azure"
-            description="Ukládejte data souborů do cloudu pomocí Azure File Storage a připojte svou cloudovou sdílenou složku z virtuálního počítače Azure nebo z lokální aplikace s Windows."
-            services="storage"
-            documentationCenter=".net"
-            authors="mine-msft"
-            manager="aungoo"
-            editor="tysonn" />
+    pageTitle="Začínáme s Azure File Storage ve Windows | Microsoft Azure"
+    description="Ukládejte data souborů do cloudu pomocí Azure File Storage a připojte svou cloudovou sdílenou složku z virtuálního počítače Azure nebo z lokální aplikace s Windows."
+    services="storage"
+    documentationCenter=".net"
+    authors="mine-msft"
+    manager="aungoo"
+    editor="tysonn" />
 
 <tags ms.service="storage"
-      ms.workload="storage"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="hero-article"
-      ms.date="04/11/2016"
-      ms.author="minet" />
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="07/26/2016"
+    ms.author="minet" />
 
 # Začínáme s Azure File Storage ve Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Přehled
 
@@ -669,6 +671,6 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="05/25/2016"
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Přehled Web Apps
 
@@ -40,15 +40,15 @@ Toto jsou některé klíčové funkce služby App Service, které platí pro slu
 
 - **Více jazyků a rozhraní** – Služba App Service obsahuje prvotřídní podporu pro ASP.NET, Node.js, Javu, PHP a Python. Ve virtuálních počítačích App Service můžete také spouštět [PowerShell a další skripty či spustitelné soubory](../app-service-web/web-sites-create-web-jobs.md).
 
-- **Optimalizace DevOps** – Nastavte [průběžnou integraci a nasazení](../app-service-web/app-service-continous-deployment.md) pomocí řešení Visual Studio Team Services, GitHub nebo BitBucket. Podporujte aktualizace prostřednictvím [testovacího a přípravného prostředí](../app-service-web/web-sites-staged-publishing.md). Provádějte [testování A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Spravujte aplikace ve službě App Service pomocí prostředí [Azure PowerShell](../powershell-install-configure.md) nebo [multiplatformního rozhraní příkazového řádku (CLI)](../xplat-cli-install.md).
+- **Optimalizace DevOps:** Můžete nastavit [průběžnou integraci a nasazení](../app-service-web/app-service-continuous-deployment.md) pomocí služeb Visual Studio Team Services, GitHub nebo BitBucket. Aktualizace lze podporovat prostřednictvím [testovacího a přípravného prostředí](../app-service-web/web-sites-staged-publishing.md). Máte možnost [testování A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Spravujte aplikace ve službě App Service pomocí prostředí [Azure PowerShell](../powershell-install-configure.md) nebo [multiplatformního rozhraní příkazového řádku (CLI)](../xplat-cli-install.md).
  
-- **Globální škálování s vysokou dostupností** – [Vertikálně](../app-service/app-service-scale.md) či [horizontálně](../azure-portal/insights-how-to-scale.md) navyšujte kapacitu, a to ručně i automaticky. Hostujte aplikace kdekoli v globální infrastruktuře datacenter společnosti Microsoft. Smlouva [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) služby App Service zaručuje vysokou dostupnost.
+- **Globální škálování s vysokou dostupností:** Můžete ručně i automaticky škálovat pro účely [vertikálního](../app-service-web/web-sites-scale.md) nebo [horizontálního](../azure-portal/insights-how-to-scale.md) navýšení kapacity. Aplikace je možné hostovat kdekoli v globální infrastruktuře datacenter Microsoftu a smlouva [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) pro App Service zaručuje vysokou dostupnost.
 
-- **Připojení k platformám SaaS a místním datům** – Vyberte si z více než 50 [konektorů](../connectors/apis-list.md) pro podnikové systémy (například SAP, Siebel nebo Oracle), služeb SaaS (například služby Salesforce nebo Office 365) a internetových služeb (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [virtuálních sítí Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Připojení k platformám SaaS a lokálním datům:** Můžete si vybírat z více než 50 [konektorů](../connectors/apis-list.md) pro firemní systémy (například SAP, Siebel nebo Oracle), služby SaaS (například služby Salesforce nebo Office 365) a internetové služby (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [virtuálních sítí Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Zabezpečení a dodržování předpisů** – Služba App Service je [kompatibilní se standardy ISO, SOC a PCI](https://www.microsoft.com/TrustCenter/).
 
-- **Šablony aplikací** – Vyberte si z rozsáhlého seznamu šablon aplikací v [Azure Marketplace](https://azure.microsoft.com/marketplace/), které vám umožní používat průvodce k instalaci oblíbeného Open Source softwaru, jako je WordPress, Joomla či Drupal.
+- **Šablony aplikací**: Vyberte si z rozsáhlého seznamu šablon aplikací na [Azure Marketplace](https://azure.microsoft.com/marketplace/), které vám umožní používat průvodce k instalaci oblíbeného open-source softwaru, jako je WordPress, Joomla nebo Drupal.
 
 - **Integrace sady Visual Studio** – Vyhrazené nástroje v sadě Visual Studio zjednodušují práci při vytváření, nasazování a ladění.
 
@@ -60,10 +60,10 @@ Kromě Web Apps ve službě App Service nabízí Azure další služby, které l
 
 Chcete-li začít nasazením ukázkového kódu do nové webové aplikace ve službě App Service, postupujte podle kurzu [Nasazení první webové aplikace do Azure během 5 minut](app-service-web-get-started.md). Budete potřebovat bezplatný účet Azure.
 
-Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
+Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

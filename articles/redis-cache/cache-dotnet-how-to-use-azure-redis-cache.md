@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/31/2016" 
+    ms.date="06/09/2016" 
     ms.author="sdanie"/>
 
 # Použití Azure Redis Cache
@@ -59,21 +59,7 @@ Další informace o konfiguraci mezipaměti najdete v tématu [Konfigurace Azure
 <a name="NuGet"></a>
 ## Konfigurace klientů mezipaměti
 
-Mezipaměť vytvořená pomocí Azure Redis Cache je přístupná ze všech aplikací Azure. Aplikace .NET vyvinuté v sadě Visual Studio mohou použít klienta mezipaměti **StackExchange.Redis**, kterého lze nakonfigurovat pomocí balíčku NuGet, který zjednodušuje konfiguraci aplikací klientů mezipaměti. 
-
->[AZURE.NOTE] Více informací najdete na GitHub stránce [StackExchange.Redis][] a v [dokumentaci ke klientu mezipaměti StackExchange.Redis][].
-
-Chcete-li konfigurovat klientskou aplikaci v sadě Visual Studio pomocí balíčku StackExchange.Redis NuGet, klikněte pravým tlačítkem na projekt v **Průzkumníku řešení** a vyberte**Správa balíčků NuGet**. 
-
-![Správa balíčků NuGet][NuGetMenu]
-
-Do textového pole pro vyhledávání zadejte **StackExchange.Redis** nebo **StackExchange.Redis.StrongName**, vyberte z výsledků požadovanou verzi, a klikněte na **Instalovat**.
-
->[AZURE.NOTE] Pokud upřednostňujete použití verze klientské knihovny **StackExchange.Redis** se silným názvem, vyberte **StackExchange.Redis.StrongName**, jinak vyberte **StackExchange.Redis**.
-
-![Balíček StackExchange.Redis NuGet][StackExchangeNuget]
-
-Balíček NuGet se stáhne a přidá klientským aplikacím požadované odkazy na sestavení pro přístup do Azure Redis Cache pomocí klienta mezipaměti StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Po konfiguraci klientského projektu pro používání mezipaměti můžete pro práci s mezipamětí použít techniky popsané v následujících sekcích.
 
@@ -207,7 +193,9 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 -   [Povolte diagnostiku mezipaměti](cache-how-to-monitor.md#enable-cache-diagnostics), abyste mohli [monitorovat](cache-how-to-monitor.md) stav svojí mezipaměti. Metriky lze zobrazit na webu Azure Portal a můžete je také [stáhnout a revidovat](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) pomocí nástrojů dle vašeho výběru.
 -   Prohlédněte si [dokumentaci ke klientu mezipaměti StackExchange.Redis][].
     -   K Azure Redis Cache lze přistupovat z mnoha klientů Redis a programovacích jazyků. Další informace najdete na stránce [http://redis.io/clients][].
-    -   Azure Redis Cache lze také použít se službami jako například Redsmin. Další informace najdete v tématu [Načtení připojovacího řetězce Azure Redis a jeho použití s Redsmin][].
+-   Azure Redis Cache lze rovněž použít se službami a nástroji třetích stran, jako jsou Redsmin a Redis Desktop Manager.
+    -   Další informace o nástroji Redsmin najdete v tématu [Načtení připojovacího řetězce Azure Redis a jeho použití s Redsmin][].
+    -   [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) umožňuje získat přístup k datům v Azure Redis Cache a zkoumat je pomocí grafického uživatelského rozhraní.
 -   Prohlédněte si dokumentaci k [Redis][] a přečtěte si o [datových typech Redis][] a [15minutový úvod do datových typů Redis][].
 
 
@@ -302,6 +290,6 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

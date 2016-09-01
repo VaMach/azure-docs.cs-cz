@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="03/05/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 
-# <a name="getting-started"> </a>Začínáme používat Mobile Services
+# <a name="getting-started"> </a>Začínáme používat mobilní služby
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -134,6 +134,6 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

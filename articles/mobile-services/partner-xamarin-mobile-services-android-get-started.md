@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"></a>Začínáme používat Mobile Services
@@ -53,7 +53,7 @@ Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého 
 
 V této části vytvoříte novou aplikaci pro Xamarin.Android, která je připojena k mobilní službě.
 
-1.  Na [Portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
+1.  Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
 
 2. Na kartě Rychlé spuštění klikněte na tlačítko **Xamarin.Android** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci Android**.
 
@@ -87,9 +87,10 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
 
     Tím se odešle požadavek POST do nové mobilní služby hostované v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí pomocí mobilní služby a v seznamu se zobrazí data.
 
-    > [AZURE.NOTE] Na kód, který přistupuje k mobilní službě pro dotazování a vkládání dat, se můžete podívat v souboru C# ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Kód, který přistupuje k mobilní službě pro účely dotazování a vkládání dat, si můžete prohlédnout v souboru ToDoActivity.cs jazyka C#.
 
-6. Zpět v [Portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
+6. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku **TodoItems**.
 
     ![][11]
 
@@ -139,11 +140,11 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 [Začínáme s nabízenými oznámeními]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

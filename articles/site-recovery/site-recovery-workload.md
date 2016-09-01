@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="storage-backup-recovery" 
-    ms.date="03/27/2016" 
+    ms.date="07/06/2016" 
     ms.author="raynew"/>
 
 # Jaké úlohy je možné chránit pomocí Azure Site Recovery?
@@ -60,7 +60,7 @@ Exchange (ne DAG) | Ano | Již brzy | Ano | Ano
 Vzdálená plocha/VDI | Ano | Ano | Ano | – 
 Linux (operační systém a aplikace) | Ano (testováno Microsoftem) | Ano (testováno Microsoftem) | Ano (testováno Microsoftem) | Ano (testováno Microsoftem) 
 Dynamics AX | Ano | Ano | Ano | Ano
-Dynamics CRM | Ano | Již brzy | Ano | Již brzy
+Dynamics CRM | Ano | Již brzy | Ano | Připravuje se
 Oracle | Ano (testováno Microsoftem) | Ano (testováno Microsoftem) | Ano (testováno Microsoftem) | Ano (testováno Microsoftem)
 Souborový server systému Windows | Ano | Ano | Ano | Ano
 
@@ -152,6 +152,6 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Přehled protokolu BGP se službou Azure VPN Gateways
@@ -35,7 +35,9 @@ Existuje několik výhod a nových schopností při použití protokolu BGP:
 
 U protokolu BGP musíte pouze deklarovat minimální předponu určitému partnerskému uzlu protokolu BGP přes tunel S2S VPN s protokolem IPsec. Ta může být malá jako předpona hostitele (/32) IP adresy partnerského uzlu protokolu BGP vašeho místního zařízení VPN. Můžete určit, které předpony místní sítě chcete inzerovat do Azure pro umožnění přístupu službě Azure Virtual Network.
     
-Můžete také inzerovat delší předpony, které mohou obsahovat některé předpony adres vaší virtuální sítě, jako například výchozí trasa (0.0.0.0/0) nebo velký adresní prostor privátní IP adresy (např. 10.0.0.0/8). Pamatujte na to, že se předpony nesmí shodovat s žádnými předponami vaší virtuální sítě. Trasy shodné s předponami vaší virtuální sítě budou odmítnuty.
+Můžete také inzerovat delší předpony, které mohou obsahovat některé předpony adres vaší virtuální sítě, třeba velký adresní prostor privátních IP adres (např. 10.0.0.0/8). Pamatujte na to, že se předpony nesmí shodovat s žádnými předponami vaší virtuální sítě. Trasy shodné s předponami vaší virtuální sítě budou odmítnuty.
+
+>[AZURE.IMPORTANT] Inzerování výchozí trasy (0.0.0.0/0) branám Azure VPN bude v současnosti blokováno. Až bude tato funkce povolena, oznámíme to.
 
 #### Podpora více tunelů mezi virtuální sítí a místním webem s automatickým převzetím služeb při selhání na základě protokolu BGP
 
@@ -68,6 +70,6 @@ V tématu [Začínáme s protokolem BGP na branách Azure VPN](./vpn-gateway-bgp
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 
