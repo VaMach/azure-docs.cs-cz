@@ -98,6 +98,6 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

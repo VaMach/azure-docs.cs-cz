@@ -153,6 +153,6 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -203,6 +203,6 @@ Chcete-li s použitím prostředí PowerShell vytvořit partnerský vztah sítě
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

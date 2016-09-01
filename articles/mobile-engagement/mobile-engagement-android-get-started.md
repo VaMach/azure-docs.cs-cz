@@ -186,6 +186,6 @@ Podrobné informace o integraci sady SDK najdete v článku o integraci sady [An
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

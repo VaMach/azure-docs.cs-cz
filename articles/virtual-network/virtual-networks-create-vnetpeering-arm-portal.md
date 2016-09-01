@@ -132,6 +132,6 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 
