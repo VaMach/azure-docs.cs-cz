@@ -174,6 +174,6 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

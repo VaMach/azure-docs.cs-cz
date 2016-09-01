@@ -152,6 +152,6 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

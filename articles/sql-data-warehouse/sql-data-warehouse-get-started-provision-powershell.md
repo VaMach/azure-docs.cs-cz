@@ -104,6 +104,6 @@ Pokud vás zajímají další informace o tom, jak SQL Data Warehouse spravovat 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

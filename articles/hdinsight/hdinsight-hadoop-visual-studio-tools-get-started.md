@@ -286,6 +286,6 @@ V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight z
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

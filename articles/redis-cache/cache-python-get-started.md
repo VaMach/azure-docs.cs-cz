@@ -70,6 +70,6 @@ Nahraďte `<name>` názvem vaší mezipaměti a `key` vaším přístupovým kl�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

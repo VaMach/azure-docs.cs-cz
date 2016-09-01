@@ -138,6 +138,6 @@ V článku [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

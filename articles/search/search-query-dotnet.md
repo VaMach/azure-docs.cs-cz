@@ -164,6 +164,6 @@ Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

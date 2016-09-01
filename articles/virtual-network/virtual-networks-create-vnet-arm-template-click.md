@@ -40,6 +40,6 @@ Pokud šablonu ARM jednoduše nasazujete přímo z GitHubu, beze změn, přejdě
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

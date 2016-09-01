@@ -220,6 +220,6 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Apl
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

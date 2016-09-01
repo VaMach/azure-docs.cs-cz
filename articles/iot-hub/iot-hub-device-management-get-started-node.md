@@ -203,6 +203,6 @@ Další informace o funkcích správy zařízení ve službě Azure IoT Hub najd
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

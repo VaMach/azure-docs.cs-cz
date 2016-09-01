@@ -257,6 +257,6 @@ Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v téma
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

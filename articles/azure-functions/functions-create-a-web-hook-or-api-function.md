@@ -95,6 +95,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

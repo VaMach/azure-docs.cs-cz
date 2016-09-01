@@ -411,6 +411,6 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

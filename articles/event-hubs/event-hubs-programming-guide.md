@@ -187,6 +187,6 @@ Další informace o scénářích služby Event Hubs naleznete pod těmito odkaz
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

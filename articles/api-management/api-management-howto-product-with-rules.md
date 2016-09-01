@@ -296,6 +296,6 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -385,6 +385,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

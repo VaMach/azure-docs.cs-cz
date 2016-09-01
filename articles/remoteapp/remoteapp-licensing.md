@@ -39,6 +39,6 @@ Upozorňujeme, že v cloudové kolekci nemůžete používat licence CAL ani mul
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

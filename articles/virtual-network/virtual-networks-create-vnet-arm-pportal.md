@@ -31,6 +31,6 @@
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

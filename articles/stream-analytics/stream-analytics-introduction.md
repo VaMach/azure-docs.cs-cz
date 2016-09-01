@@ -58,6 +58,6 @@ Přečetli jste si úvod do služby Stream Analytics, spravované služby pro an
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

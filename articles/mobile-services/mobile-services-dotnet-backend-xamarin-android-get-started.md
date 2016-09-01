@@ -137,6 +137,6 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 [Poradce při potížích s .NET back-end pro Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

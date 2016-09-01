@@ -127,6 +127,6 @@ Se základy prediktivní analýzy a strojového učení se můžete seznámit v 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

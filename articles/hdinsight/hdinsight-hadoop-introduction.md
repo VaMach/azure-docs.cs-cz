@@ -271,6 +271,6 @@ Tyto nástroje BI vám mohou pomoci při analýze velkých objemů dat:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

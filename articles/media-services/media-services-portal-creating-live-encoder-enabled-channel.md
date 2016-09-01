@@ -277,6 +277,6 @@ Pokud jste dokončili streamování událostí a chcete dříve zřízené prost
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

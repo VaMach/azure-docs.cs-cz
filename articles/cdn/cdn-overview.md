@@ -85,6 +85,6 @@ Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/p
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

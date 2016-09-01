@@ -124,6 +124,6 @@ Pokud se chcete začít dotazovat na svůj datový sklad pomocí sady Visual Stu
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

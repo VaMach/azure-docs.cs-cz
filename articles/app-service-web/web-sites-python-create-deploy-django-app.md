@@ -518,6 +518,6 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

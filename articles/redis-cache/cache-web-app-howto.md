@@ -852,6 +852,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

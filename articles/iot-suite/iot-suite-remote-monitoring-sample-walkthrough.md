@@ -241,6 +241,6 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

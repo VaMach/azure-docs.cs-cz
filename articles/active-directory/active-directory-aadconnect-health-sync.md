@@ -71,6 +71,6 @@ Tato funkce nabízí grafické zobrazení trendu v počtu změn, které se vyhod
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

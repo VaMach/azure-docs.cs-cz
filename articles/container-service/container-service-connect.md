@@ -126,6 +126,6 @@ Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

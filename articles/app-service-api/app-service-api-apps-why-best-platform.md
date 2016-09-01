@@ -65,6 +65,6 @@ Pokud se chcete v souvislosti s aplikacemi API na něco zeptat, otevřete vlákn
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

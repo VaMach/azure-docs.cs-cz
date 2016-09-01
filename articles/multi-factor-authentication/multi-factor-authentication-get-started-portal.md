@@ -191,6 +191,6 @@ Samoobslužný zápis je teď dokončený a uživatel je přihlášený do port�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

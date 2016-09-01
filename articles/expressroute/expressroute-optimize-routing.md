@@ -44,6 +44,6 @@ Druhým řešením je, že budete nadále inzerovat obě předpony v obou okruz�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

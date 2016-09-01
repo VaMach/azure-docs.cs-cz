@@ -648,6 +648,6 @@ Nyní se můžete přesunout k pokročilejším tématům o B2C. Můžete vyzkou
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

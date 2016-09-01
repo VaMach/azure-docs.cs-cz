@@ -49,6 +49,6 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

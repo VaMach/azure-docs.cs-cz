@@ -47,6 +47,6 @@ Podrobné informace o službě Event Hubs nejdete v následujících tématech.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

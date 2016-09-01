@@ -62,6 +62,6 @@ Ve výchozím nastavení jsme předem vybrali čtyři čítače výkonu. Kliknut
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

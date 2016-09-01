@@ -132,6 +132,6 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

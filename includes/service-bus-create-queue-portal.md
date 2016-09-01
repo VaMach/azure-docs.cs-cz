@@ -31,6 +31,6 @@ Ujistěte se, že jste již vytvořili obor názvů sběrnice, jak je znázorně
 [classic-portal]: https://manage.windowsazure.com
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

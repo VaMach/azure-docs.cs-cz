@@ -205,6 +205,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

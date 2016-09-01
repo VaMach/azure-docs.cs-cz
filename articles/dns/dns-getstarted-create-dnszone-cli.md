@@ -189,6 +189,6 @@ Po vytvoření zóny DNS vytvořte [sady záznamů a záznamy](dns-getstarted-cr
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

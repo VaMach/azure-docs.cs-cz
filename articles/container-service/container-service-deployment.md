@@ -197,6 +197,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

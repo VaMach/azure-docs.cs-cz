@@ -276,6 +276,6 @@ Další obecné informace o službě Notification Hubs najdete v tématu [Průvo
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

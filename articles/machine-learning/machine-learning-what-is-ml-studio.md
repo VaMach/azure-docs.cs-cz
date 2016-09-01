@@ -118,6 +118,6 @@ Jakmile je váš model prediktivní analýzy připraven, můžete jej přímo v 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -286,6 +286,6 @@ V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App S
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

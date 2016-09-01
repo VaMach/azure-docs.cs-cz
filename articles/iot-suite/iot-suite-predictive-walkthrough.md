@@ -135,6 +135,6 @@ Můžete si taky prostudovat některé další funkce a možnosti předkonfiguro
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

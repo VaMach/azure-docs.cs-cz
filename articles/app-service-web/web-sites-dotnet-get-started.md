@@ -245,6 +245,6 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

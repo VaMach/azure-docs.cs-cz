@@ -49,6 +49,6 @@ Odpověď č. 1: Rutiny prostředí PowerShell pro ARM nejsou aktuálně dostupn
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

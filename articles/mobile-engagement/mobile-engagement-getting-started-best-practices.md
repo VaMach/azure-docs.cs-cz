@@ -409,6 +409,6 @@ Až získáte dostatek zkušeností, můžete zvážit rozšíření svých prog
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

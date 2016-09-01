@@ -140,6 +140,6 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -508,6 +508,6 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

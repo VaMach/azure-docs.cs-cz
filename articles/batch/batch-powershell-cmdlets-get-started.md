@@ -169,6 +169,6 @@ Rutiny služby Batch mohou využívat kanál prostředí PowerShell k odesílán
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

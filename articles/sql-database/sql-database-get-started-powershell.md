@@ -124,6 +124,6 @@ Po vytvoření nové databáze SQL a provedení běžných úloh její úvodníh
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

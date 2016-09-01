@@ -127,6 +127,6 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

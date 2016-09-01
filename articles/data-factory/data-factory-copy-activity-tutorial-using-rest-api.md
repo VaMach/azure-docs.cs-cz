@@ -493,6 +493,6 @@ V tomto kurzu jste pomocí rozhraní REST API vytvořili objekt pro vytváření
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -493,6 +493,6 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

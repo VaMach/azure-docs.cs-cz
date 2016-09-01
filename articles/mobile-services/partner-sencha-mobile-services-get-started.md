@@ -726,6 +726,6 @@ Další informace o začátcích se Sencha Touch naleznete v úplné sadě [prů
 [portál Azure Classic]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

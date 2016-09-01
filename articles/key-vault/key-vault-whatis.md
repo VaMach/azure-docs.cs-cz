@@ -69,6 +69,6 @@ Další informace o používání klíčů a tajných klíčů s Azure Key Vault
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

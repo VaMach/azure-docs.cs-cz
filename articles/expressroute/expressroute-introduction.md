@@ -138,6 +138,6 @@ Můžete si vybrat fakturační model, který vám nejlépe vyhovuje. Zvolte si 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -129,6 +129,6 @@ Postup migrace databáze serveru SQL Server naleznete v části [Migrace databá
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

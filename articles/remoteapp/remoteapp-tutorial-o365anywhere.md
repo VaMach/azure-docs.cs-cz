@@ -72,6 +72,6 @@ Když kliknete na kteroukoliv z těchto položek, aplikace by se měla spustit v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

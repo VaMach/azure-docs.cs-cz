@@ -216,6 +216,6 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -82,6 +82,6 @@ Nebo si můžete otevřít [bezplatný účet Azure](https://azure.microsoft.com
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

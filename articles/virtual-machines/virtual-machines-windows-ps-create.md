@@ -174,6 +174,6 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

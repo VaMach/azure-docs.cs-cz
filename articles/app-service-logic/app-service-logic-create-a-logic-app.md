@@ -68,6 +68,6 @@ Za méně než 5 minut jste dokázali nastavit jednoduchou aplikaci logiky, kter
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

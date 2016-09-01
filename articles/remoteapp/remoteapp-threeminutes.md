@@ -40,6 +40,6 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

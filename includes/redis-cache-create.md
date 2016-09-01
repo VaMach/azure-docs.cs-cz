@@ -30,6 +30,6 @@ Po nakonfigurování možností nové mezipaměti klikněte na **Vytvořit**. Vy
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

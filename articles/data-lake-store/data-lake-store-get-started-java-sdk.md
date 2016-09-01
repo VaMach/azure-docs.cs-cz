@@ -322,6 +322,6 @@ Pro účely tohoto kurzu je nutné, abyste aplikaci udělili oprávnění k vytv
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

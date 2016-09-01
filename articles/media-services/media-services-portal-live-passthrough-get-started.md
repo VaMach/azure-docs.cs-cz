@@ -177,6 +177,6 @@ Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlač�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

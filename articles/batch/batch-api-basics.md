@@ -495,6 +495,6 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

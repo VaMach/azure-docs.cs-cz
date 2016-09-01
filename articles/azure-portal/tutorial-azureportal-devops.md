@@ -404,6 +404,6 @@ V tomto kurzu jsme vám ukázali některé schopnosti platformy Azure – rychl�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

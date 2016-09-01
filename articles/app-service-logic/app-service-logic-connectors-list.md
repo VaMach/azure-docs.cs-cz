@@ -86,6 +86,6 @@ Konektory lze použít také jako akce v rámci vaší aplikace logiky. Akce jso
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

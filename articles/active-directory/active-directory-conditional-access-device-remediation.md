@@ -177,6 +177,6 @@ Pokyny pro telefony a tablety s Androidem připravujeme.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

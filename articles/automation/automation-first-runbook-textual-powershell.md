@@ -167,6 +167,6 @@ Powershellové runbooky mají stejný životní cyklus, možnosti a správu jako
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

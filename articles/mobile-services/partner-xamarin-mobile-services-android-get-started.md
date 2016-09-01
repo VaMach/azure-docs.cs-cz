@@ -145,6 +145,6 @@ Teď, když jste dokončili rychlé spuštění, se naučíte, jak provádět da
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -30,6 +30,6 @@ V tomto krátkém videu se dozvíte, jak vytvořit funkci Azure, která naslouch
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

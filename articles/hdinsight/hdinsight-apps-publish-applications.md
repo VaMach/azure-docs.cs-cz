@@ -101,6 +101,6 @@ K publikování aplikace HDInsight postupujte podle následujících kroků:
 - [Vytvoření linuxových clusterů Hadoop v HDInsight pomocí šablon Azure Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md): zjistěte, jak voláním šablon Resource Manageru vytvoříte clustery HDInsight.
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

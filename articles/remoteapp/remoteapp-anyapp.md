@@ -125,6 +125,6 @@ Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci použí
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

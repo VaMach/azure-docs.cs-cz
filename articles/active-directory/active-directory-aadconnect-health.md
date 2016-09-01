@@ -127,6 +127,6 @@ Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, moni
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

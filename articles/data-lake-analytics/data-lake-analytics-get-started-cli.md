@@ -165,6 +165,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

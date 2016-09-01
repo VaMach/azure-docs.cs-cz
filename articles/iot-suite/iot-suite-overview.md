@@ -67,6 +67,6 @@ Teď, když máte přehled o tom, co sada IoT Suite dokáže a jaké jsou její 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

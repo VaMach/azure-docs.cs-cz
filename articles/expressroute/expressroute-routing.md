@@ -179,6 +179,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

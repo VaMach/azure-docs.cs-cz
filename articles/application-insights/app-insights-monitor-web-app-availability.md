@@ -336,6 +336,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

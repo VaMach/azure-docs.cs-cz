@@ -148,6 +148,6 @@ Další informace o vytváření prediktivních modelů strojového učení najd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

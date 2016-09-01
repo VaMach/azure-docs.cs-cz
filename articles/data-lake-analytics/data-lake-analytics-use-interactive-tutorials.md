@@ -91,6 +91,6 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

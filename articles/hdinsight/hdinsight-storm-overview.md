@@ -227,6 +227,6 @@ Další informace o řešení pro analýzu v reálném čase s Apache Storm v HD
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

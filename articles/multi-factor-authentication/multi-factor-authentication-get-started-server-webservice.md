@@ -92,6 +92,6 @@ Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigu
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

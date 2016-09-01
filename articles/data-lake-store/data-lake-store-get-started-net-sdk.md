@@ -528,6 +528,6 @@ Nakonec se ujistěte, že na počítači existuje místní cesta a název soubor
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

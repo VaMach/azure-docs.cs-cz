@@ -125,6 +125,6 @@ Přirozeně, můžete použít `docker-compose ps` k prozkoumání samotných ko
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

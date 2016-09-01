@@ -478,6 +478,6 @@ Teď, když jste se naučili základy používání služby Table Storage, podí
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

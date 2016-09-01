@@ -185,6 +185,6 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

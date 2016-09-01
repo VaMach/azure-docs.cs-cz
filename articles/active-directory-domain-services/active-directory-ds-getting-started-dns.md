@@ -53,6 +53,6 @@ Dalším úkolem konfigurace je [povolení synchronizace hesel do služby Azure 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

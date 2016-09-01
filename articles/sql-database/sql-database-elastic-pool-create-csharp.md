@@ -251,6 +251,6 @@ Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

@@ -73,6 +73,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

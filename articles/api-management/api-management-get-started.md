@@ -247,6 +247,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 

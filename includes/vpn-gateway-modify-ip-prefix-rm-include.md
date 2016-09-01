@@ -50,6 +50,6 @@ Pokud jste vytvořili připojení k bráně a chcete přidat nebo odebrat předp
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!---HONumber=Aug16_HO4-->
 
 
