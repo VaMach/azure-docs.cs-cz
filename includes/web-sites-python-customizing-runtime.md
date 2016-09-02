@@ -1,7 +1,7 @@
 Azure určí verzi jazyka Python, která se má použít pro virtuální prostředí, pomocí tohoto pořadí priorit:
 
 1. Verze zadaná v souboru runtime.txt v kořenové složce
-1. Verze zadaná v nastavení jazyka Python v konfiguraci webové aplikace (okno **Nastavení** > **Nastavení aplikace** pro danou webovou aplikaci na portálu Azure)
+1. Verze zadaná v nastavení jazyka Python v konfiguraci webové aplikace (okno **Nastavení** > **Nastavení aplikace** pro danou webovou aplikaci na webu Azure Portal)
 1. Pokud není uvedená žádná z výše uvedených verzí, použije se výchozí verze python-2.7
 
 Platné hodnoty obsahu souboru 
@@ -17,6 +17,6 @@ Pokud je uvedená mikroverze (třetí číslice), bude se ignorovat.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

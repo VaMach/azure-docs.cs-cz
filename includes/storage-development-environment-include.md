@@ -27,7 +27,7 @@ K získání obou balíčků můžete použít balíček NuGet. Postupujte násl
 
 >[AZURE.NOTE] Balíček knihovny klienta služby Storage je také součástí [sady Azure SDK for .NET](https://azure.microsoft.com/downloads/). Přesto doporučujeme, abyste si knihovnu klienta služby Storage nainstalovali také z balíčku NuGet, protože tím si zajistíte nejnovější verzi knihovny klienta.
 >
->Závislosti ODataLib v knihovně klienta služby Storage pro .NET jsou vyřešené prostřednictvím balíčků ODataLib (verze 5.0.2 a novější), které jsou dostupné prostřednictvím balíčku NuGet a ne prostřednictvím služby datových služeb WCF. Knihovny ODataLib můžete stáhnout přímo nebo z odkazu ve vašem kódovém projektu prostřednictvím balíčku NuGet. Konkrétní balíčky ODataLib používané knihovnou klienta služby Storage jsou [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), a [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). I když tyto knihovny používají třídy Azure Table Storage, představují požadované závislosti pro programování s knihovnou klienta úložiště.
+>Závislosti ODataLib v knihovně klienta služby Storage pro .NET jsou vyřešené prostřednictvím balíčků ODataLib (verze 5.0.2 a novější), které jsou dostupné prostřednictvím balíčku NuGet a ne prostřednictvím služby WCF Data Services. Knihovny ODataLib můžete stáhnout přímo nebo z odkazu ve vašem kódovém projektu prostřednictvím balíčku NuGet. Konkrétní balíčky ODataLib používané knihovnou klienta služby Storage jsou [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), a [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). I když tyto knihovny používají třídy Azure Table Storage, představují požadované závislosti pro programování s knihovnou klienta úložiště.
 
 
 ### Určení cílového prostředí
@@ -37,7 +37,7 @@ Ke spuštění příkladů z této příručky máte dvě možnosti prostředí:
 - Svůj kód můžete spustit na účtu služby Azure Storage v cloudu. 
 - Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další podrobnosti najdete v článku [Použití emulátoru služby Azure Storage pro vývoj a testování](../articles/storage/storage-use-emulator.md)
 
-Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z portálu Azure primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure Portal primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [AZURE.NOTE] Pokud se chcete vyhnout nákladům spojeným se službou Azure Storage, můžete se zaměřit na emulátor úložiště. I když se zaměříte na účet úložiště Azure v cloudu, budou náklady na vyzkoušení postupů z tohoto kurzu zanedbatelné.
 
@@ -47,7 +47,7 @@ Knihovna klienta služby Azure Storage pro .NET podporuje použití připojovac�
 
 Další informace o připojovacích řetězcích najdete v článku [Konfigurace připojovací řetězce pro službu Azure Storage](../articles/storage/storage-configure-connection-string.md).
 
-> [AZURE.NOTE] Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že je klíč ohrožený, vygenerujte ho znovu pomocí portálu Azure.
+> [AZURE.NOTE] Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že je klíč ohrožený, vygenerujte ho znovu pomocí webu Azure Portal.
 
 Pokud chcete konfigurovat připojovací řetězec, otevřete v sadě Visual Studio Průzkumníka řešení a v něm soubor `app.config`. Přidejte obsah níže uvedeného prvku `<appSettings>`. `account-name` nahraďte názvem svého účtu úložiště a místo `account-key` zadejte svůj klíč účtu úložiště:
 
@@ -71,6 +71,6 @@ Pokud se chcete zaměřit na emulátor úložiště, můžete vytvořit zástupc
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

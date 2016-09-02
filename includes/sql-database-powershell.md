@@ -17,6 +17,6 @@ Pokud máte více předplatných, pomocí rutiny [**Set-AzureRmContext**](https:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

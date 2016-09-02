@@ -59,6 +59,6 @@ Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatel�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -25,7 +25,7 @@ Pokud máte [existující předplatné]( https://account.windowsazure.com/Home/I
 
 1. Otevřete prohlížeč, kterému dáváte přednost, a připojte se k [portálu Azure](https://portal.azure.com/).
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k webu [Portál Azure](https://portal.azure.com/).
 
 1. Když se zobrazí přihlašovací stránka, zadejte přihlašovací údaje pro své předplatné.
 
@@ -34,6 +34,6 @@ Pokud máte [existující předplatné]( https://account.windowsazure.com/Home/I
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

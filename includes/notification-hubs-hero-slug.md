@@ -7,6 +7,6 @@ Záleží nám na vašem názoru. Pokud máte s tímto tématem nějaké potíž
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

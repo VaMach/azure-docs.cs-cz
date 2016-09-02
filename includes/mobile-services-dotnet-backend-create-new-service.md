@@ -1,7 +1,7 @@
 
 Podle těchto pokynů vytvořte novou mobilní službu.
 
-1.  Přihlaste se na [portál Azure Classic](https://manage.windowsazure.com/). Ve spodní části navigačního podokna klikněte na **+ NOVÝ**. Rozbalte položku **Vypočítat** a **Mobilní služba** a klikněte na **Vytvořit**.
+1.  Přihlaste se na [portál Azure Classic](https://manage.windowsazure.com/). Ve spodní části navigačního podokna klikněte na **+ NOVÝ**. Rozbalte položku **Compute** a **Mobilní služba** a klikněte na **Vytvořit**.
     
     ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
@@ -22,6 +22,6 @@ Teď jste vytvořili novou mobilní službu, kterou můžou používat vaše mob
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

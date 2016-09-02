@@ -48,6 +48,6 @@ Pokud už nějaké připojení brány existuje, musíte ho nejdřív odebrat. Po
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -2,6 +2,6 @@ Je důležité vědět, že Azure v současné době používá dva modely nasaz
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

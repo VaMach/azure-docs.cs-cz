@@ -3,6 +3,6 @@
 - **Typ sítě VPN založený na trasách**: Sítě VPN založené na trasách se v klasickém modelu nasazení označovaly jako brány s dynamickým směrováním. Sítě VPN založené na trasách používají ke směrování paketů do příslušných rozhraní tunelových propojení „trasy“ v tabulce předávání IP nebo směrovací tabulce IP. Rozhraní tunelového propojení potom zašifruje nebo dešifruje pakety směřující do tunelových propojení nebo z nich. Zásady (nebo selektor provozu) pro sítě VPN založené na trasách mají konfiguraci typu any-to-any (takže se jedná o zástupné znaky). Typ sítě VPN založený na trasách má hodnotu *RouteBased*.
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

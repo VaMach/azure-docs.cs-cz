@@ -8,6 +8,6 @@ Přehled partnerských vztahů virtuálních sítí je ve verzi public preview. 
  
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,6 +14,6 @@
     Všimněte si, že po spuštění aplikace se data uložená v předchozím kroku načtou z mobilní služby.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,6 +1,6 @@
 **Vytvoření nového profilu CDN**
 
-1. Na [portálu Azure](https://portal.azure.com) klikněte v levém horním rohu na **Nový**.  V okně **Nový** vyberte **Média a CDN** a potom **CDN**.
+1. Na [webu Azure Portal](https://portal.azure.com) klikněte v levém horním rohu na **Nový**.  V okně **Nový** vyberte **Média a CDN** a potom **CDN**.
 
     Zobrazí se nové okno profilu CDN.
 
@@ -21,6 +21,6 @@
 7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

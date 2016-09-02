@@ -28,6 +28,6 @@ Informace o vytvoření účtu úložiště najdete v článku [Vytvoření úč
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

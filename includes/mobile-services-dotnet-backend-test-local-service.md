@@ -8,6 +8,6 @@ Projekt mobilní služby umožňuje místní spuštění nové mobilní služby.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

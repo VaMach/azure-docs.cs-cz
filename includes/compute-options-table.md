@@ -1,5 +1,5 @@
 
-| Možnosti výpočetního prostředí             | Cílová skupina   |
+| Možnosti služby Compute             | Cílová skupina   |
 | --------------------------- | --------   |
 | [App Service][lnk_app]      | Škálovatelné webové aplikace, mobilní aplikace, aplikace API a aplikace logiky pro všechna zařízení |
 | [Cloud Services][lnk_cloud] | Vysoce dostupné škálovatelné cloudové n-vrstvé aplikace nabízející větší kontrolu nad operačním systémem |
@@ -10,6 +10,6 @@
 [lnk_cloud]: ../articles/cloud-services/cloud-services-choose-me.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

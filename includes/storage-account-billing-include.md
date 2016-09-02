@@ -11,6 +11,6 @@ Na stránce [Ceny za Azure Storage](https://azure.microsoft.com/pricing/details/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

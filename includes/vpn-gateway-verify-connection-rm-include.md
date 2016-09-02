@@ -47,6 +47,6 @@ Na webu Azure Portal můžete zobrazit stav připojení otevřením připojení.
     ![Ověření připojení](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

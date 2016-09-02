@@ -42,6 +42,6 @@ Mezi další výhody, které hovoří pro využívání virtuálních počítač
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

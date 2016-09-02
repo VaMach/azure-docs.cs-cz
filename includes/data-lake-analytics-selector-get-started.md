@@ -7,6 +7,6 @@
 - [Rozhraní příkazového řádku](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

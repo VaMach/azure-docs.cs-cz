@@ -70,6 +70,6 @@ Existující virtuální prostředí v aplikaci se doporučuje odstranit, abyste
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,5 +1,5 @@
 
-1. Navštivte [Portál Azure]. Klikněte na **Procházet vše** > **Mobilní aplikace** > prostředí back-end, které jste právě vytvořili. V nastavení mobilní aplikace klikněte na **Rychlý start** > **Android**. V části **Configure your client application** (Konfigurace klientské aplikace) klikněte na **Stáhnout**. Tím stáhnete dokončený projekt Android pro aplikaci přednastavenou k připojení k vašemu prostředí back-end. 
+1. Navštivte [Azure Portal]. Klikněte na **Procházet vše** > **Mobilní aplikace** > prostředí back-end, které jste právě vytvořili. V nastavení mobilní aplikace klikněte na **Rychlý start** > **Android**. V části **Configure your client application** (Konfigurace klientské aplikace) klikněte na **Stáhnout**. Tím stáhnete dokončený projekt Android pro aplikaci přednastavenou k připojení k vašemu prostředí back-end. 
 
 2. Otevřete projekt v **Android Studiu** pomocí možnosti **Importovat projekt (Eclipse ADT, Gradle atd.)**. Nezapomeňte vybrat tuto možnost importu, abyste se vyhnuli případným chybám JDK.
 
@@ -9,10 +9,10 @@
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

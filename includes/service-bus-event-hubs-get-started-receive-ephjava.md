@@ -8,7 +8,7 @@ Pokud chcete EventProcessorHost používat, musíte mít [Účet služby Azure S
 
 1. Přihlaste se na [portál Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
 
-2. Klikněte na **Datové služby**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
+2. Klikněte na **Data Services**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
 
     ![][11]
 
@@ -201,6 +201,6 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

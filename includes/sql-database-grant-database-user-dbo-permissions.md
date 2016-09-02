@@ -25,6 +25,6 @@ Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS p
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

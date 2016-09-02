@@ -35,6 +35,6 @@ Pokud tyto soubory neexistují, Azure vytvoří dočasný skript nasazení a spu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

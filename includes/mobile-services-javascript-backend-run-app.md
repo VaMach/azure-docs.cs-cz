@@ -20,6 +20,6 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
     ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

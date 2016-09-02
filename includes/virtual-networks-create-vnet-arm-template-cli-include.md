@@ -11,7 +11,7 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
 
         info:    New mode is arm
 
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **`azure group create`**, jak vidíte níže. Všimněte si výstupu příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
+3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **`azure group create`**, jak vidíte níže. Všimněte si výstupu příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
 
         azure group create -n TestRG -l centralus
 
@@ -91,6 +91,6 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

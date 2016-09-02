@@ -2,6 +2,6 @@
 K tomuto účelu se nedají použít aplikace zaregistrované na kartě **Aplikace** na klasickém [Portálu pro správu Azure](https://manage.windowsazure.com/).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

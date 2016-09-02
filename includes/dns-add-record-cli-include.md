@@ -56,6 +56,6 @@ Pokud vytváříte záznam SRV v kořenu zóny, můžete v názvu záznamu uvés
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

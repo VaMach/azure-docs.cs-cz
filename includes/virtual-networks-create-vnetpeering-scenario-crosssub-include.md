@@ -7,6 +7,6 @@ V tomto scénáři vytvoříte partnerské vztahy mezi dvěma virtuálními sít
 Přehled partnerských vztahů virtuálních sítí spoléhá při autorizaci na řízení přístupu na základě rolí (RBAC). Pro různé podřízené scénáře musíte nejprve udělit dostatečná oprávnění uživatelům, kteří vytvořili peering propojení: POZNÁMKA: pokud má tentýž uživatel oprávnění k oběma odběrům, pak je možné přeskočit krok 1–4 níže. 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

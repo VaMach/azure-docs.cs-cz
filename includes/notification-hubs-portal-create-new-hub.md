@@ -1,10 +1,10 @@
 
 
-1. Přihlaste se na [portál Azure](https://portal.azure.com) a v levém horním rohu obrazovky klikněte na **+ NOVÝ**.
+1. Přihlaste se na [web Azure Portal](https://portal.azure.com) a v levém horním rohu obrazovky klikněte na **+ NOVÝ**.
 
 2. Klikněte na **Nový** a potom na **Web + mobilní zařízení**. Přejděte dolů, pokud je to potřeba, a klikněte na **Centrum oznámení**.
 
-    ![Portál Azure – vytváření center oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+    ![Azure Portal – vytváření center oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
 3. Do pole **Centrum oznámení** zadejte jedinečný název. Vyberte požadované nastavení u položek **Oblast**, **Předplatné** a **Skupina prostředků** (pokud už nějakou máte). 
  
@@ -12,18 +12,18 @@
 
     Až budete připravení, klikněte na **Vytvořit**.
 
-    ![Portál Azure – nastavení vlastností centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+    ![Azure Portal – nastavení vlastností centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
 4. Po vytvoření oboru názvů a centra oznámení se zobrazí příslušná stránka portálu. 
 
-    ![Portál Azure – stránka portálu centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+    ![Azure Portal – stránka portálu centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
        
 5. Klikněte na **Nastavení** a potom na **Zásady přístupu**. Poznamenejte si dva připojovací řetězce, které se zobrazí, budete je totiž později potřebovat ke zpracování nabízených oznámení.
 
-    ![Portál Azure – připojovací řetězce centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+    ![Azure Portal – připojovací řetězce centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

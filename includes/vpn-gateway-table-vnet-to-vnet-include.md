@@ -13,6 +13,6 @@ Pro určité modely a konfigurace nasazení je dostupná služba VNet Peering, k
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 
