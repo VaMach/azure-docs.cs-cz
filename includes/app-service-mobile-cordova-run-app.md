@@ -18,6 +18,6 @@ Tím odešlete do prostředí back-end v Azure, které jste předtím vytvořili
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -4,7 +4,7 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí prostředí Powe
 
 1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../articles/powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním rutiny **`New-AzureRmResourceGroup`**. Následující příkaz vytvoří skupinu prostředků s názvem *TestRG* v oblasti Azure *Střed USA*. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
+3. V případě potřeby vytvořte novou skupinu prostředků spuštěním rutiny **`New-AzureRmResourceGroup`**. Následující příkaz vytvoří skupinu prostředků s názvem *TestRG* v oblasti Azure *Střed USA*. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
 
         New-AzureRmResourceGroup -Name TestRG -Location centralus
         
@@ -93,6 +93,6 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí prostředí Powe
                             ]
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

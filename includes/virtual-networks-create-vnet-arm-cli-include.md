@@ -108,6 +108,6 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

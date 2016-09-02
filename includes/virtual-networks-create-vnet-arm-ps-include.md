@@ -3,7 +3,7 @@ Pokud chcete vytvořit síť VNet pomocí prostředí PowerShell, použijte nás
 
 1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../articles/powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
     
-2. V případě potřeby vytvořte novou skupinu prostředků, jak vidíte níže. V našem scénáři vytvoříte skupinu prostředků s názvem *TestRG*. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
+2. V případě potřeby vytvořte novou skupinu prostředků, jak vidíte níže. V našem scénáři vytvoříte skupinu prostředků s názvem *TestRG*. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
 
         New-AzureRmResourceGroup -Name TestRG -Location centralus
 
@@ -139,6 +139,6 @@ Pokud chcete vytvořit síť VNet pomocí prostředí PowerShell, použijte nás
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

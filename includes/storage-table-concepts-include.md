@@ -35,6 +35,6 @@ Podrobnosti o pojmenovávání tabulek a vlastnostech najdete v článku [Princi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

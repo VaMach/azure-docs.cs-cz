@@ -10,9 +10,9 @@ Mezi běžná použití služby Blob Storage patří:
 - ukládání dat pro zálohování a obnovování, zotavení po havárii a pro archivaci
 - ukládání dat, které bude analyzovat místní nebo v Azure hostovaná služba
 
-## Koncepty služby objektů blob
+## Koncepty služby Blob service
 
-Služba objektů blob obsahuje následující součásti:
+Služba Blob service obsahuje následující součásti:
 
 ![Blob1][Blob1]
 
@@ -33,6 +33,6 @@ Služba objektů blob obsahuje následující součásti:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

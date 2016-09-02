@@ -8,6 +8,6 @@
 - [Python](../articles/storage/storage-python-how-to-use-table-storage.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -31,6 +31,6 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

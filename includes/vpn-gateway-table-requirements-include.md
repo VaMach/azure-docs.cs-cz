@@ -13,6 +13,6 @@ Následující tabulka uvádí požadavky na brány sítě VPN založené na zá
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

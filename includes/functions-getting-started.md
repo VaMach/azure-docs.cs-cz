@@ -3,6 +3,6 @@
 Toto úvodní video vám ukáže, jak vytvořit aplikaci Function App, upravit kód a pracovat s aktivačními událostmi a vazbami.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

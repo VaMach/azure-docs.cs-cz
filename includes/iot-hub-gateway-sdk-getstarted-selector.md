@@ -2,65 +2,65 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
+Tento článek poskytuje podrobný návod k [ukázkovému kódu Hello World][lnk-helloworld-sample] ilustrujícího základní součásti architektury [sady Azure IoT Gateway SDK][lnk-gateway-sdk]. Příklad používá sadu Gateway SDK k vytvoření jednoduché brány, která každých pět sekund zaznamená do souboru zprávu „hello world“.
 
-This walkthrough covers:
+Tento návod ilustruje:
 
-- **Concepts**: A conceptual overview of the components that compose any gateway you create with the Gateway SDK.  
-- **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
-- **How to build the sample**: The steps required to build the sample.
-- **How to run the sample**: The steps required to run the sample. 
-- **Typical output**: An example of the output to expect when you run the sample.
-- **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
+- **Koncepce**: celkový přehled součásti, které tvoří každou bránu, kterou vytvoříte pomocí sady Gateway SDK.  
+- **Ukázková architektura Hello World**: popis konceptů, které se vztahují na ukázku Hello World, a jak součásti do sebe zapadají.
+- **Postup k vytvoření ukázky**: kroky potřebné k vytvoření ukázkového kódu.
+- **Postup spuštění ukázky**: kroky potřebné ke spuštění ukázkového kódu. 
+- **Příklad typického výstupu**: příklad výstupu, jaký můžete očekávat při spuštění ukázky.
+- **Fragmenty kódu**: sbírka fragmentů kódu předvádějících, jak ukázka Hello, World implementuje klíčové součásti brány.
 
-## Gateway SDK concepts
+## Koncepce sady Gateway SDK
 
-Before you examine the sample code or create your own field gateway using the Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
+Než si projdete ukázkový kód nebo než vytvoříte pomocí sady SDK svou vlastní bránu, měli byste porozumět klíčovým koncepcím, které jsou základem architektury sady Gateway SDK.
 
-### Modules
+### Moduly
 
-You build a gateway with the Azure IoT Gateway SDK by creating and assembling *modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
+Brána se pomocí sady Azure IoT Gateway SDK otvírá vytvořením a propojením *modulů*. Moduly používají pro výměnu dat mezi sebou *zprávy*. Modul obdrží zprávu a provede s ní určitou akci, například ji může transformovat na novou zprávu a pak ji publikovat pro ostatní moduly ke zpracování. Některé moduly pouze vytvářejí nové zprávy a nezpracovávají zprávy příchozí. Řetěz modulů vytvoří kanál zpracování dat, ve kterém každý modul provádí transformaci dat v daném místě kanálu.
 
 ![][1]
  
-The SDK contains the following:
+Sada SDK obsahuje následující:
 
-- Pre-written modules which perform common gateway functions.
-- The interfaces a developer can use to write custom modules.
-- The infrastructure necessary to deploy and run a set of modules.
+- Předpřipravené moduly, které provádějí běžné funkce brány.
+- Rozhraní, které vývojář může použít k vytvoření vlastních modulů.
+- Infrastrukturu nutnou pro nasazení a spuštění sady modulů.
 
-The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
+Sada SDK poskytuje abstraktní vrstvu, která umožňuje vytvářet brány spouštěné na různých operačních systémech a platformách.
 
 ![][2]
 
-### Messages
+### Zprávy
 
-Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a message bus to communicate with each other, they publish messages to the bus, and the bus broadcasts the messages to all the modules connected to the bus.
+Ačkoli je představa modulů posílajících zprávy pohodlným způsobem, jak popsat koncepci funkce brány, neodráží přesně samotnou její činnost. Moduly spolu navzájem komunikují pomocí sběrnice zpráv – publikují je na sběrnici a sběrnice je pak rozesílá všem připojeným modulům.
 
-A module uses the **MessageBus_Publish** function to publish a message to the message bus. The message bus delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
+K publikování zprávy na sběrnici používají moduly funkci **MessageBus_Publish**. Sběrnice zpráv předává zprávy ostatním modulům zavoláním funkce zpětného volání. Zpráva se skládá ze sady vlastností klíč/hodnota a obsah se předává jako blok paměti.
 
 ![][3]
 
-Each module is responsible for filtering the messages because the message bus uses a broadcast mechanism to deliver each message to every module connected to it. A module should only act on messages that are intended for it. The message filtering effectively creates the message pipeline. A module typically filters the messages it receives using the message properties to identify messages it should process.
+Každý modul musí provádět filtrování zpráv, protože sběrnice zpráv rozesílá zprávy všem připojeným modulům. Modul by měl reagovat jen na zprávy, které jsou pro něho určené. Filtrování zpráv ve výsledku tvoří kanál zpracování zpráv. Modul typicky vyfiltruje svoje zprávy podle jejich vlastností a identifikuje tak ty, které má zpracovat.
 
-## Hello World sample architecture
+## Architektura ukázky Hello World
 
-The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
+Ukázka Hello World ilustruje koncepty popsané v předchozí části. Ukázka Hello, World implementuje bránu, jejíž kanál se skládá ze dvou modulů:
 
--	The *hello world* module creates a message every five seconds and passes it to the logger module.
--	The *logger* module writes the messages it receives to a file.
+-   Modul *hello world* vytvoří každých pět sekund zprávu a předá ji do modulu logger.
+-   Modul *logger* zapíše přijatou zprávu do souboru.
 
 ![][4]
 
-As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the message bus every five seconds.
+Jak je popsáno v předchozí části, modul Hello World nepředává každých pět sekund zprávu přímo do modulu logger. Místo toho ji každých pět sekund publikuje na sběrnici zpráv.
 
-The logger module receives the message from the message bus and inspects its properties in a filter. If the logger module determines that it should process the message, it writes the contents of the message to a file.
+Modul logger přijímá zprávy ze sběrnice zpráv a pomocí filtračního mechanismu zkoumá jejich vlastnosti. Když logger zjistí, že by měl zprávu zpracovat, zapíše obsah zprávy do souboru.
 
-The logger module only consumes messages from the message bus, it never publishes new messages to the bus.
+Modul logger ze sběrnice zprávy pouze přijímá, nikdy žádné sám nepublikuje.
 
 ![][5]
 
-The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-gateway-sdk]. Explore the code on your own, or use the code snippets below as a guide.
+Obrázek nahoře ukazuje architekturu ukázky Hello World a relativní cesty ke zdrojovým souborům, které implementují jednotlivé části, v [úložišti][lnk-gateway-sdk]. Prozkoumejte kód sami, nebo pro orientaci použijte fragmenty kódu uvedené dole.
 
 <!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
@@ -72,3 +72,8 @@ The figure above shows the architecture of the Hello World sample and the relati
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+
+
+<!--HONumber=Aug16_HO4-->
+
+

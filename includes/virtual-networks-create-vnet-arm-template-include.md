@@ -59,6 +59,6 @@ Z webu github si můžete stáhnout existující šablonu ARM k vytvoření sít
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

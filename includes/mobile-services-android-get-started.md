@@ -41,6 +41,6 @@ Aplikaci můžete spustit pomocí emulátoru nebo pomocí samotného zařízení
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

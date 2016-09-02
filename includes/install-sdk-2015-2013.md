@@ -4,10 +4,10 @@ Nejdřív vytvořte vývojové prostředí instalací sady [Azure SDK for Visual
 
 Pokud nemáte nainstalovanou sadu Visual Studio, použijte odkaz na Visual Studio 2015 a sada Visual Studio se nainstalujte spolu se sadou SDK.
 
->[AZURE.NOTE] Instalace sady SDK může trvat delší dobu, od několika minut až více než půl hodiny, a to podle počtu závislostí sady SDK, které jsou již v počítači.
+>[AZURE.NOTE] V závislosti na tom, kolik závislostí sady SDK už na počítači máte, může instalace sady SDK trvat dlouhou dobu: několik minut, půl hodiny nebo i déle.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

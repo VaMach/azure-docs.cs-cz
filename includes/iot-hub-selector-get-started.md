@@ -18,6 +18,6 @@ V tomto kurzu získáte informace o následujících postupech:
 - vytvoření simulovaného zařízení, která odesílá telemetrické zprávy do back-endu vašeho cloudu a přijímá příkazy z back-endu vašeho cloudu
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

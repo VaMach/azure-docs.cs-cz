@@ -28,6 +28,6 @@ Můžete opakovaně používat předdefinované šablony ARM nahrané v úloži�
     ![Vytvoření sítě VNet na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

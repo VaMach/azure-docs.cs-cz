@@ -21,6 +21,6 @@
 - Provoz VNet-to-VNet v rámci stejné oblasti je v obou směrech zdarma; v případě různých oblastí je výchozí přenos VNet-to-VNet zpoplatněn jako odchozí přenos dat mezi virtuálními sítěmi podle zdrojových oblastí. Podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

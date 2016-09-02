@@ -14,6 +14,6 @@ Použití nástroje Azure Configuration Manager není povinné. Taky můžete po
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

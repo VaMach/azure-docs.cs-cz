@@ -37,6 +37,6 @@ Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

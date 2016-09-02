@@ -9,6 +9,6 @@
 - (3) SKU pro vysoký výkon se u typu sítě VPN založené na zásadách nepodporuje.
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 
