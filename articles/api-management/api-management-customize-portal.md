@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Přizpůsobení portálu pro vývojáře ve službě Azure API Management
@@ -78,7 +78,7 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 
 ## <a name="next-steps"> </a>Další kroky
 
--   Podívejte se i na další témata kurzu [Začínáme s pokročilou konfigurací rozhraní API][].
+-   Zjistěte, jak můžete přizpůsobit obsah stránek portálu pro vývojáře pomocí [šablon portálu pro vývojáře](api-management-developer-portal-templates.md).
 
 [Změna textu nebo loga v záhlaví stránek]: #change-page-headers
 [Změna stylu záhlaví]: #change-headers-styling
@@ -95,12 +95,11 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Začínáme s pokročilou konfigurací rozhraní API]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [proměnné LESS]: http://getbootstrap.com/css/
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

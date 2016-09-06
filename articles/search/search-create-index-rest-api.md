@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Vytvoření indexu Azure Search pomocí rozhraní REST API
@@ -35,14 +35,14 @@ Pokud chcete vytvořit index Azure Search pomocí rozhraní REST API, vydáte je
 ## I. Identifikace klíče rozhraní API správce služby Azure Search
 Teď, když máte zřízenou službu Azure Search, můžete vydávat žádosti HTTP na koncový bod adresy URL služby pomocí rozhraní REST API. *Všechny* žádosti rozhraní API ale musí obsahovat klíč rozhraní API vygenerovaný pro službu Search, kterou jste zřídili. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče API svojí služby musíte se přihlásit k [Portálu Azure](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
-Služba bude mít *klíče správce* a *klíče dotazu*.
+Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
- - Primární a sekundární *klíče správce* udělují plná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
- - *Klíče dotazu* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají žádosti hledání.
+ - Primární a sekundární *klíče správce* udělují úplná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
+ - Vaše *klíče dotazů* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají požadavky hledání.
 
 Pro účely vytvoření indexu můžete použít primární nebo sekundární klíč správce.
 
@@ -108,6 +108,6 @@ Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah]
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

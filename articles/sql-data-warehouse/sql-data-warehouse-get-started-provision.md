@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Vytvoření Azure SQL Data Warehouse
@@ -60,6 +60,8 @@ Na začátek budete potřebovat:
 
     - **Zvolit zdroj:** Klikněte na **Zvolit zdroj** > **Ukázka**. Azure automaticky vyplní možnost **Vyberte vzorek** s možností AdventureWorksDW.
 
+> [AZURE.NOTE] Výchozí kolace pro SQL Data Warehouse je SQL_Latin1_General_CP1_CI_AS. V případě potřeby jiné kolace je možné použít [T-SQL][] k vytvoření databáze s jinou kolací.
+
 4. Kliknutím na **Vytvořit** si vytvořte svoji službu SQL Data Warehouse.
 
 5. Počkejte několik minut. Když je váš datový sklad připraven, můžete se vrátit do [portálu Azure](https://portal.azure.com). Svoji službu SQL Data Warehouse najdete na řídicím panelu v části s vašimi databázemi SQL nebo ve skupině prostředků, kterou jste použili k jejímu vytvoření. 
@@ -88,7 +90,8 @@ Dobrým nápadem je také podívat se na část [Osvědčené postupy][].
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [předplatné]: ../azure-glossary-cloud-terminology.md#subscription
 [skupina prostředků]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -101,6 +104,6 @@ Dobrým nápadem je také podívat se na část [Osvědčené postupy][].
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Nasazení místního zařízení StorSimple (Update 1)
@@ -292,6 +292,6 @@ Pokyny k instalaci a konfiguraci funkce MPIO pro zařízení StorSimple připoje
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

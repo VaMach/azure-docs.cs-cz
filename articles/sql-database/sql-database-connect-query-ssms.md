@@ -2,7 +2,7 @@
     pageTitle="Připojení k SQL Database – SQL Server Management Studio | Microsoft Azure"
     description="Zjistěte, jak se připojit k SQL Database na Azure pomocí služby SQL Server Management Studio (SSMS). Potom spusťte ukázkový dotaz pomocí jazyka Transact-SQL (T-SQL)."
     metaCanonical=""
-    keywords="connect to sql database,sql server management studio"
+    keywords="Připojení k SQL Database, SQL Server Management Studio"
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
 # Připojení k SQL Database přes SQL Server Management Studio a provedení ukázkového dotazu T-SQL
@@ -25,26 +25,23 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Tento článek ukazuje, jak se připojit k databázi Azure SQL pomocí nejnovější verze služby SQL Server Management Studio (SSMS) a provést jednoduchý dotaz s příkazy jazyka Transact-SQL (T-SQL).
-
-[AZURE.INCLUDE [Sign in](../../includes/azure-getting-started-portal-login.md)]
+Tento článek ukazuje, jak se připojit k Azure SQL Database pomocí služby SQL Server Management Studio (SSMS). Po úspěšném připojení spustíme jednoduchý dotaz jazyka Transact-SQL (T-SQL), abychom ověřili komunikaci s databází.
 
 [AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Informace o pravidlech brány firewall najdete v tématu [Postupy: Konfigurace nastavení brány firewall (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Spuštění ukázkových dotazů
 
-Po připojení k logickému serveru se můžete připojit k databázi a spustit ukázkový dotaz. 
+Po připojení k serveru se můžete připojit k databázi a spustit ukázkový dotaz. Pokud je pro vás psaní dotazů novinkou, přečtěte si téma [Psaní příkazů Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx).
 
-1. V **Průzkumníku objektů** přejděte na databázi na serveru, ke které máte oprávnění, například k ukázkové databázi **AdventureWorks**.
-2. Klikněte na databázi pravým tlačítkem myši a pak klikněte na **Nový dotaz**.
+1. V **Průzkumníku objektů** přejděte k databázi na serveru, například k ukázkové databázi **AdventureWorks**.
+2. Klikněte na databázi pravým tlačítkem myši a pak klikněte na **Nový dotaz**:
 
     ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. Zkopírujte následující kód a vložte ho do okna dotazu.
+3. Zkopírujte následující kód a vložte ho do okna dotazu:
 
         SELECT
         CustomerId
@@ -54,7 +51,7 @@ Po připojení k logickému serveru se můžete připojit k databázi a spustit 
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Klikněte na tlačítko **Provést**.  Na následujícím snímku obrazovky vidíte úspěšný dotaz.
+4. Klikněte na tlačítko **Provést**:
 
     ![Úspěch Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -66,8 +63,10 @@ Pokud s T-SQL teprve začínáte, projděte si [Kurz: Psaní příkazů Transact
 
 Informace o tom, jak začít s vytvářením uživatelů a správců databází, najdete v tématu [Začínáme se zabezpečení služby Azure SQL Database](sql-database-get-started-security.md).
 
+Další informace o SSMS najdete v tématu [Použití SQL Server Management Studia](https://msdn.microsoft.com/library/ms174173.aspx).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

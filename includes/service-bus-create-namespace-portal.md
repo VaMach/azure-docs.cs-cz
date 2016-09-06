@@ -1,55 +1,45 @@
-1. Přihlaste se na portál Azure Classic.
+1. Přihlaste se k webu [Azure Portal][].
 
-2. V levém navigačním podokně portálu klikněte na **Service Bus**.
+2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 
-3. V dolním podokně portálu klikněte na **Vytvořit**.
+4. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 
-    ![Výběr možnosti Vytvořit][select-create]
-   
-4. V dialogovém okně **Přidat nový obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
+5. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
 
-    ![Název oboru názvů][namespace-name]
-  
-5. Až se ujistíte, že je název oboru názvů dostupný, zvolte zemi nebo oblast, kde se má obor názvů hostovat.
+7. V poli **Předplatné** zvolte předplatné Azure, ve které chcete vytvořit obor názvů.
 
-6. V ostatních polích dialogového okna nechte výchozí hodnoty (**Zasílání zpráv** a **Úroveň Standard**) a potom klikněte na značku zaškrtnutí OK. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
+9. V poli **Skupina prostředků** zvolte existující skupinu prostředků, ve které bude obor názvů fungovat, nebo vytvořte novou.      
+
+8. V poli **Umístění**, vyberte zemi nebo oblast, ve které by měl být oboru názvů hostován.
+
+    ![Vytvoření oboru názvů][create-namespace]
+
+6. Klikněte na tlačítko **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
  
-    ![Úspěšné vytvoření][created-successfully]
+### Získání přihlašovacích údajů pro správu
 
-###Získání přihlašovacích údajů
-1. V levém navigačním podokně klikněte na uzel **Service Bus** a zobrazte seznam dostupných oborů názvů:
+1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
  
-    ![Výběr služby Service Bus][select-service-bus]
-  
-2. V zobrazeném seznamu vyberte právě vytvořený obor názvů:
- 
-    ![Výběr oboru názvů][select-namespace]
- 
-3. Klikněte na **Informace o připojení**.
+3. V okně **Obor názvů Service Bus** klikněte na **Zásady sdíleného přístupu**.
 
-    ![Informace o připojení][connection-information]
-  
-4. V podokně **Informace o přístupovém připojení** najděte připojovací řetězec, který obsahuje klíč SAS a název klíče.
+4. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
 
-    ![Informace o přístupovém připojení][access-connection-information]
-  
-5. Klíč si poznamenejte, nebo ho zkopírujte do schránky.
+    ![connection-info][connection-info]
+
+5. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití.
+
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
-
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

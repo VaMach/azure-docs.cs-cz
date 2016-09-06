@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Partneři ExpressRoute a umístění partnerského vztahu
@@ -29,9 +29,9 @@ Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopol
 
 |**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
 |---|---|---|
-|**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Jižní Amerika**|Brazílie – jih|Sao Paulo|
-|**Evropa**|Severní Evropa, Západní Evropa|Amsterdam, Dublin, Londýn, Newport(Wales)+, Paříž|
+|**Evropa**|Severní Evropa, Západní Evropa|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
 |**Asie**|Východní Asie, Jihovýchodní Asie|Hongkong, Singapur|
 |**Japonsko**|Japonsko – západ, Japonsko – východ|Ósaka, Tokio|
 |**Austrálie**|Austrálie – jihovýchod, Austrálie – východ|Melbourne, Sydney|
@@ -76,7 +76,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Bombaj** | Tata Communications |
 | **Ósaka** | Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, Softbank |
 | **Paříž** | Interxion |
-| **Sao Paulo** | Equinix, Telefonica+ |
+| **Sao Paulo** | Equinix, Telefonica |
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
@@ -158,6 +158,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

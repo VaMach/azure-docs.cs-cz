@@ -14,20 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Konfigurace připojení VPN typu Point-to-Site k virtuální síti pomocí klasického portálu
+# Konfigurace připojení typu Point-to-Site k virtuální síti prostřednictvím portálu Classic
 
 > [AZURE.SELECTOR]
 - [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Klasický portál](vpn-gateway-point-to-site-create.md)
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení mezi jednotlivým klientským počítačem a virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. 
+Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení mezi jednotlivým klientským počítačem a virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
+
+Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **modelu nasazení Classic** s použitím portálu Classic. V současné době nelze tuto konfiguraci pro model nasazení Classic vytvořit v plném rozsahu v rámci webu Azure Portal.
 
 Připojení typu Point-to-Site k fungování nevyžadují zařízení VPN ani veřejnou IP adresu. Připojení VPN je vytvořeno spuštěním připojení na klientském počítači. Další informace o připojeních typu Point-to-Site najdete v tématech [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md#point-to-site-connections) a [Plánování a navrhování](vpn-gateway-plan-design.md).
 
-Tento článek se týká připojení Point-to-Site k virtuální síti vytvořených pomocí klasického modelu nasazení. Kroky postupu v tomto článku využívají klasický portál. V současné době nelze vytvořit tuto konfiguraci pomocí portálu Azure.
 
 **Modely nasazení a nástroje pro připojení typu Point-to-Site**
 
@@ -37,7 +38,7 @@ Tento článek se týká připojení Point-to-Site k virtuální síti vytvořen
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Diagram Point-to-Site](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+![Diagram Point-to-Site](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 ## Informace o vytvoření připojení typu Point-to-Site
  
@@ -135,13 +136,13 @@ Chcete-li se připojit k virtuální síti, je potřeba nakonfigurovat také kli
 
 ### Část 1: Vytvoření konfiguračního balíčku klienta VPN
 
-1. Na portálu Azure Classic na stránce **Řídicí panel** u vaší virtuální sítě přejděte do rychlé nabídky , přejděte do nabídky rychlého přehledu v pravém horním rohu. Seznam podporovaných klientských operačních systémů naleznete v části [Připojení Point-to-Site](vpn-gateway-vpn-faq.md#point-to-site-connections) v tématu Služba VPN Gateway - nejčastější dotazy.<br><br>Vyberte balíček ke stažení, který odpovídá operačnímu systému klienta, na kterém bude nainstalován.
+1. Na portálu Azure Classic na stránce **Řídicí panel** u vaší virtuální sítě přejděte do rychlé nabídky , přejděte do nabídky rychlého přehledu v pravém horním rohu. Seznam podporovaných klientských operačních systémů naleznete v části [Připojení Point-to-Site](vpn-gateway-vpn-faq.md#point-to-site-connections) v tématu Služba VPN Gateway - nejčastější dotazy. Balíček klienta VPN obsahuje informace o konfiguraci pro konfigurování klientského softwaru VPN, který je součástí Windows. Balíček neinstaluje další software. Nastavení jsou specifická pro virtuální síť, ke které se chcete připojit.<br><br>Vyberte balíček ke stažení, který odpovídá operačnímu systému klienta, na kterém bude nainstalován.
  - Pro 32bitové klienty vyberte **Stáhnout 32bitovou verzi balíčku klienta VPN**.
  - Pro 64bitové klienty vyberte **Stáhnout 64bitovou verzi balíčku klienta VPN**.
 
 2. Vytvoření vašeho klientského balíčku bude trvat několik minut. Když je balíček hotový, můžete soubor stáhnout. Soubor *.exe*, který stáhnete, můžete bezpečně uložit na místním počítači.
 
-3. Po vygenerování a stažení balíčku klienta VPN z portálu Azure Classic můžete balíček klienta nainstalovat na klientský počítač, ze kterého se chcete připojit k virtuální síti. Pokud plánujete nainstalovat balíček klienta VPN na více klientských počítačů, ujistěte se, že je na každém z nich nainstalovaný také klientský certifikát. Balíček klienta VPN obsahuje informace o konfiguraci pro konfigurování klientského softwaru VPN, který je součástí Windows. Balíček neinstaluje další software.
+3. Po vygenerování a stažení balíčku klienta VPN z portálu Azure Classic můžete balíček klienta nainstalovat na klientský počítač, ze kterého se chcete připojit k virtuální síti. Pokud plánujete nainstalovat balíček klienta VPN na více klientských počítačů, ujistěte se, že je na každém z nich nainstalovaný také klientský certifikát.
 
 ### Část 2: Instalace balíčku konfigurace VPN na klienta a zahájení připojení
 
@@ -180,6 +181,6 @@ Další informace o virtuálních sítích najdete na stránce [Dokumentace k vi
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

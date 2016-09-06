@@ -47,6 +47,10 @@ Existují dva typy serverů DNS:
 - _Autoritativní_ server DNS hostí zóny DNS. Odpovídá pouze na dotazy DNS pro záznamy v těchto zónách.
 - _Rekurzivní_ server DNS nehostuje zóny DNS. Odpovídá na všechny dotazy DNS voláním autoritativních serverů DNS, které shromáždí potřebná data.
 
+>[AZURE.NOTE] Azure DNS poskytuje autoritativní službu DNS.  Neposkytuje rekurzivní službu DNS.
+
+> Cloud Services a virtuální počítače v Azure se automaticky konfigurují, aby používaly rekurzivní služby DNS, které se poskytují samostatně jako součást infrastruktury Azure.  Informace o tom, jak změnit tato nastavení DNS, najdete v tématu [Překlad názvů v Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 Klient DNS v počítačích nebo na mobilních zařízeních obvykle pro všechny dotazy DNS klientské aplikace volá rekurzivní server DNS.
 
 Když rekurzivní server DNS obdrží dotaz na záznam DNS, třeba „www.contoso.com“, nejprve musí najít názvový server, který hostuje zónu pro doménu „contoso.com“. To provede tak, že začne u kořenových názvových serverů a vyhledá názvové servery, které hostují zónu „com“. Následně se dotazuje názvových serverů „com“ a tak najde názvové servery, které hostují zónu „contoso.com“.  Nakonec se těchto názvových serverů může dotázat na „www.contoso.com“.  
@@ -204,6 +208,6 @@ Vyhledáním záznamu SOA podřízené zóny můžete ověřit, že je všechno 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

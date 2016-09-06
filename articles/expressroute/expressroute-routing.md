@@ -78,15 +78,15 @@ Výměna směrování bude přes protokol EBGP. Relace EBGP se vytvoří mezi sm
 
 ## Čísla autonomního systému
 
-Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS.
+Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS. Na straně partnerského vztahu (u zákazníka nebo poskytovatele) může být AS veřejným číslem ASN, pokud lze ověřit, že jste jeho vlastníkem, nebo soukromým číslem ASN pro privátní partnerský vztah a vyžaduje veřejné ASN pro veřejné partnerské vztahy a partnerské vztahy Microsoftu. 
 
-Nejsou žádné požadavky týkající se symetrie přenosu dat. Cesty vpřed a zpět můžou procházet různými dvojicemi směrovačů. Můžou být inzerovány identické trasy z obou stran přes víc dvojic okruhů, které vám patří. Metriky tras nemusejí být identické.
+Neuplatňují se žádné požadavky týkající se symetrie přenosu dat v primární a sekundární cestě žádného daného okruhu. Cesty vpřed a zpět můžou procházet různými dvojicemi směrovačů. Identické trasy musí být inzerovány buď z primární, nebo ze sekundární strany přes kterékoli dané dvojice okruhů, které vám patří. Metriky tras nemusejí být identické.
 
 ## Agregace tras a omezení předpon
 
 Podporujeme až 4000 předpon, které jsou nám inzerované prostřednictvím soukromého partnerského vztahu Azure. To omezení může být zvýšeno až 10 000 předpon, pokud je povolen doplněk ExpressRoute Premium. Přijímáme až 200 předpon na každou relaci BGP pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
-Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel musí odfiltrovat výchozí trasy a privátní IP adresy (RFC 1918) z cest pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
+Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel nebo zákazník musí odfiltrovat výchozí trasu a privátní IP adresy (RFC 1918) ze svých inzerování protokolu BGP pro cesty pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
 ## Tranzitní směrování a směrování mezi oblastmi
 
@@ -179,6 +179,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

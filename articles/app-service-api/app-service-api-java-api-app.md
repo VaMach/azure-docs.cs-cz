@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/31/2016"
     ms.author="rachelap"/>
 
 # Sestavení a nasazení aplikace API Java v Azure App Service
@@ -340,6 +340,6 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

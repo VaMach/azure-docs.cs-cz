@@ -3,7 +3,7 @@
    description="Naučte se vytvořit virtuální síť pomocí webu Azure Portal v nástroji Resurce Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -106,12 +106,12 @@ Pokud chcete vytvořit partnerský vztah sítě VNet pomocí prostředí PowerSh
 
   	|Možnost|Popis|Výchozí|
   	|:-----|:----------|:------|
-  	|AllowVirtualNetworkAccess|Určuje, zda adresní prostor partnerské sítě VNet má být zahrnut jako součást značky Virtual_network|Ano|
-  	|AllowForwardedTraffic|Určuje, zda komunikace nepocházející z partnerské sítě VNet bude přijata nebo vyřazena|Ne|
-  	|AllowGatewayTransit|Umožňuje určit, zda může partnerská síť VNet používat bránu vaší sítě VNet|Ne|
-  	|UseRemoteGateways|Určuje, zda se má používat brána partnerské sítě VNet. Partnerská síť VNet musí mít konfigurovanou bránu a musí být vybrána možnost AllowGatewayTransit. Tuto možnost nelze použít, pokud máte nakonfigurovanou bránu|Ne|
+  	|AllowVirtualNetworkAccess|Určuje, jestli má být adresní prostor partnerské virtuální sítě má zahrnutý jako součást značky Virtual_network.|Ano|
+  	|AllowForwardedTraffic|Určuje, jestli bude přijata nebo zahozena komunikace, která nemá původ přímo z partnerské virtuální sítě.|Ne|
+  	|AllowGatewayTransit|Umožňuje určit, jestli může partnerská virtuální síť používat bránu vaší virtuální sítě.|Ne|
+  	|UseRemoteGateways|Určuje, jestli se má používat brána partnerské virtuální sítě. Partnerská virtuální síť musí mít nakonfigurovanou bránu a dále musí být vybraná možnost AllowGatewayTransit. Pokud vaše síť již má nakonfigurovanou bránu, tuto možnost nelze použít.|Ne|
 
-    Každé propojení v partnerském vztahu sítě VNet má definovánu uvedenou sadu vlastností. Můžete například nastavit možnost AllowVirtualNetworkAccess na hodnotu True pro propojení partnerského vztahu sítě VNet ze sítě VNet1 do sítě VNet2 a na hodnotu False propojení partnerského vztahu sítě VNet v opačném směru.
+    Každé propojení v partnerském vztahu virtuálních sítě má sadu výše uvedených vlastností. Můžete například nastavit možnost AllowVirtualNetworkAccess na hodnotu True pro propojení partnerského vztahu sítě VNet ze sítě VNet1 do sítě VNet2 a na hodnotu False propojení partnerského vztahu sítě VNet v opačném směru.
 
         $LinktoVNet2 = Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name LinkToVNet2
         $LinktoVNet2.AllowForwardedTraffic = $true
@@ -203,6 +203,6 @@ Chcete-li s použitím prostředí PowerShell vytvořit partnerský vztah sítě
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

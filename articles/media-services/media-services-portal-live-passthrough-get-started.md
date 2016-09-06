@@ -13,15 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016" 
+    ms.date="08/30/2016" 
     ms.author="juliako"/>
 
 
 #Jak provést živé streamování pomocí místních kodérů na portálu Azure
 
 Tento kurz vás provede kroky pro vytvoření **Kanálu**, který je nakonfigurován pro průchozí doručování. 
-
-Služba Azure Media Services na portálu Azure je aktuálně ve verzi preview.   
 
 
 ##Požadavky
@@ -177,6 +175,6 @@ Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlač�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

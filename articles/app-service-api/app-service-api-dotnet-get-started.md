@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.date="08/19/2016"
     ms.author="rachelap"/>
 
 # Začínáme s aplikacemi API, technologií ASP.NET a Swaggerem v Azure App Service
@@ -493,6 +493,6 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

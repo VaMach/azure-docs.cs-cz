@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Nahrání dat do služby Azure Search
@@ -43,10 +43,10 @@ Model Pull prochází podporovaný zdroj dat a automaticky nahrává data do ind
 
 Ve službě Azure Search je tato schopnost implementovaná prostřednictvím *indexerů*, které jsou aktuálně dostupné pro [Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [databáze Azure SQL a SQL Server na virtuálních počítačích Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-Funkce indexeru je zpřístupněná na [Portálu Azure](search-import-data-portal.md) a v rozhraní [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+Funkce indexeru je zpřístupněná na webu [Azure Portal](search-import-data-portal.md) a v rozhraní [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

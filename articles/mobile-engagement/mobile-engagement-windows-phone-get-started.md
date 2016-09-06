@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Začínáme s Azure Mobile Engagementem pro aplikace Silverlight pro Windows Phone
@@ -170,6 +170,6 @@ Nyní by se ve vašem zařízení mělo zobrazit oznámení, které se zobrazí 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

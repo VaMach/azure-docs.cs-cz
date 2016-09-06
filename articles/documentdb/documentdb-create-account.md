@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/11/2016"
+    ms.date="08/25/2016"
     ms.author="mimig"/>
 
 # Jak vytvořit účet DocumentDB na Portálu Azure
@@ -28,7 +28,7 @@ Abyste mohli vytvořit databázi pomocí Microsoft Azure DocumentDB, musíte:
 - Mít účet Azure. Pokud ještě žádný nemáte, můžete získat [bezplatný účet Azure](https://azure.microsoft.com/free). 
 - Vytvořit si účet DocumentDB  
 
-Účet DocumentDB můžete vytvořit přes Portál Azure, s použitím šablon Azure Resource Manageru nebo přes rozhraní příkazového řádku (CLI) Azure. Tento článek popisuje, jak databázový účet vytvořit pomocí Portálu Azure. Pokud chcete účet vytvořit pomocí Azure Resource Manageru nebo Azure CLI, přečtěte si téma [Automatizace vytváření databázového účtu DocumentDB](documentdb-automation-resource-manager-cli.md).
+Účet DocumentDB můžete vytvořit přes Portál Azure, s použitím šablon Azure Resource Manageru nebo přes rozhraní příkazového řádku (CLI) Azure. Tento článek popisuje, jak vytvořit účet DocumentDB pomocí webu Azure Portal. Pokud chcete účet vytvořit pomocí Azure Resource Manageru nebo Azure CLI, přečtěte si téma [Automatizace vytváření databázového účtu DocumentDB](documentdb-automation-resource-manager-cli.md).
 
 Je pro vás služba DocumentDB nová? Podívejte se na [toto](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) čtyřminutové video Scotta Hanselmana, kde se dozvíte, jak na online portálu provést nejzákladnější úkoly.
 
@@ -55,6 +55,6 @@ Další informace o DocumentDB najdete v těchto materiálech:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

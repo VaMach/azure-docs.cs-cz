@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Začínáme s SQL Serverem v Azure Virtual Machines | Microsoft Azure"
-    description="Přesuňte si místní databázové úlohy SQL Serveru do cloudu pomocí Azure Virtual Machines. Díky předem nakonfigurovaným imagím virtuálních počítačů s SQL Serverem můžete velmi rychle začít pracovat."
+    pageTitle="Přehled SQL Serveru v Azure Virtual Machines | Microsoft Azure"
+    description="Můžete se dozvědět, jak spouštět úplné edice SQL Serveru ve službě Azure Virtual Machines. Můžete získat přímé odkazy na všechny image virtuálních počítačů SQL Serveru a související obsah."
     services="virtual-machines-windows"
     documentationCenter=""
     authors="rothja"
@@ -14,13 +14,16 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="07/22/2016"
+    ms.date="08/29/2016"
     ms.author="jroth"/>
 
-# Začínáme s SQL Serverem v Azure Virtual Machines
+# Přehled SQL Serveru v Azure Virtual Machines
 
-Toto téma popisuje možnosti provozování SQL Serveru na virtuálních počítačích Azure a obsahuje pokyny a informace o prostředcích, které vám pomůžou začít.
+Toto téma popisuje možnosti spouštění SQL Serveru ve službě Azure Virtual Machines a uvádí [odkazy na image na portálu](#option-1-deploy-a-sql-vm-per-minute-licensing) a přehled [běžných úkolů](#manage-your-sql-vm).
 
+>[AZURE.NOTE] Pokud jste již obeznámeni s SQL Serverem a chcete jenom zjistit, jak nasadit virtuální počítač SQL Serveru, najdete informace v tématu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+
+## Přehled
 Můžete být správcem databáze, který hledá způsob, jak přesunout místní databázové úlohy SQL Serveru do cloudu. Nebo vývojářem, který zvažuje využívání možností relační databáze SQL Serveru pro aplikaci Azure. Jakou výhodu nabízí provozování úloh SQL Serveru na virtuálních počítačích Azure? Následující souhrnné video vás seznámí s výhodami a získáte z něj celkový technický přehled.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
@@ -38,7 +41,7 @@ Když se rozhodnete provozovat SQL Server na virtuálních počítačích Azure,
 ## Možnost 1: Nasazení virtuálního počítače s SQL (licencování za minutu)
 Následuje tabulka dostupných imagí SQL Serveru v galerii virtuálních počítačů. Po kliknutí na odkaz se začne vytvářet nový virtuální počítač SQL se zadanou verzí, edicí a operačním systémem. Všechny image zahrnují [náklady na licencování SQL Serveru](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Podrobné pokyny jsou k dispozici v kurzu [Zřízení virtuálního počítače s SQL Serverem na Portálu Azure](virtual-machines-windows-portal-sql-server-provision.md). Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
+Podrobné pokyny jsou k dispozici v kurzu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
 
 |Version|Operační systém|Edition (Edice)|
 |---|---|---|
@@ -93,6 +96,6 @@ Máte nějaký další dotaz? Nejdříve si projděte [Nejčastější dotazy k 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

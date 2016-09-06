@@ -40,7 +40,7 @@ Poté, co uživatelům z partnerských společností zašleme pozvánky, je mů�
 4. Alice obdrží následující e-mail.  
 ![E-mailová pozvánka pro Alici](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Když Alice klikne na odkaz, zobrazí se jí výzva k přijetí pozvánky a k přihlášení pomocí jejích pracovních přihlašovacích údajů. Pokud Alice v adresáři služby Azure AD není, bude vyzvána k registraci.  
+5. Když Alice klikne na odkaz, zobrazí se jí výzva k přijetí pozvánky a k přihlášení pomocí pracovních přihlašovacích údajů. Pokud Alice v adresáři služby Azure AD není, bude vyzvána k registraci.  
 ![Registrace po odeslání pozvánky pro Alici](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice je přesměrována na panel přístupu k aplikacím, který je prázdný, dokud jí nebude přístup k aplikacím udělen.  
@@ -55,7 +55,7 @@ Tento postup umožňuje nejjednodušší formu spolupráce B2B. Alici, jakožto 
 2. Vytvořte soubor .csv, který obsahuje Robertovy atributy Email a DisplayName, **InviteAppID**, **InviteAppResources** a InviteContactUsUrl. Do pole **InviteAppResources** zadejte identifikátory AppPrincipalIds aplikací Moodle a Salesforce, které jste našli pomocí rozhraní PowerShell. Jednotlivá ID oddělte mezerou. Do pole **InviteAppId** zadejte identifikátor AppPrincipalId aplikace Moodle. Díky tomu se v e-mailu a na přihlašovací stránce bude zobrazovat logo aplikace Moodle.  
 ![Příklad souboru .csv pro Roberta](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
 
-3. Nahrajte soubor .csv prostřednictvím portálu Azure stejně, jako jste to udělali u Alice. Robert je nyní externím uživatelem v adresáři společnosti Contoso ve službě Azure AD.
+3. Nahrajte soubor .csv prostřednictvím webu Azure Portal stejně, jako jste to udělali u Alice. Robert je nyní externím uživatelem v adresáři společnosti Contoso ve službě Azure AD.
 
 4. Robert obdrží následující e-mail.  
 ![E-mailová pozvánka pro Roberta](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
@@ -98,6 +98,6 @@ Projděte si naše další články ohledně spolupráce B2B ve službě Azure A
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

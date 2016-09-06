@@ -34,10 +34,9 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 
 Instalace webové platformy nabízí tři konfigurace pro vývoj Service Fabric:
 
-- [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro Visual Studio 2015 Update 2][full-bundle-vs2015]
+- [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro Visual Studio 2015 Update 2 nebo novějších ][full-bundle-vs2015]
 - [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro Visual Studio "15" Preview][full-bundle-dev15]
 - [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů pro Visual Studio)][core-sdk]
-
 
 ## Povolení spouštění skriptů prostředí PowerShell
 
@@ -66,6 +65,6 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

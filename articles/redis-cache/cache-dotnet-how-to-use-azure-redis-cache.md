@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="06/09/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Použití Azure Redis Cache
@@ -290,6 +290,6 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

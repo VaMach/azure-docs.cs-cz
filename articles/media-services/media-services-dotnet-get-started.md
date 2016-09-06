@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET"
+    pageTitle="Začínáme s doručováním obsahu na vyžádání pomocí .NET | Azure"
     description="V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručování obsahu na vyžádání pomocí služeb Azure Media Services, které používají .NET."
     services="media-services"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/18/2016"
+    ms.date="08/17/2016"
     ms.author="juliako"/>
 
 
@@ -457,6 +457,6 @@ Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějak�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

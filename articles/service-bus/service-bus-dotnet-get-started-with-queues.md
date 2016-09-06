@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Začínáme s frontami služby Service Bus
@@ -54,7 +54,7 @@ Pokud už máte frontu služby Service Bus vytvořenou, přejděte do části [Z
 
 ## 3. Zasílání zpráv do fronty
 
-Abychom mohli do fronty odesílat zprávy, napíšeme ve Visual Studiu konzolovou aplikaci v jazyce C#.
+Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konzolovou aplikaci v jazyce C#.
 
 ### Vytvoření konzolové aplikace
 
@@ -111,9 +111,9 @@ Abychom mohli do fronty odesílat zprávy, napíšeme ve Visual Studiu konzolovo
     }
     ```
   
-3. Spusťte program a podívejte se na portál Azure Classic. Položka **Délka fronty** by teď měla mít hodnotu 1.
+3. Spusťte program a podívejte se na web Azure Portal. Klikněte na název fronty v oboru názvů okna **Přehled**. Všimněte si, že hodnota **Počet aktivních zpráv** by měla nyní být 1.
     
-      ![Délka fronty][queue-length-send]
+      ![Počet zpráv][queue-message]
     
 ## 4. Přijetí zpráv z fronty
 
@@ -173,7 +173,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme ve Visual Studiu konzolovo
   
 4. Spusťte program a podívejte se na portál. Položka **Délka fronty** by teď měla mít hodnotu 0.
 
-    ![Délka fronty][queue-length-receive]
+    ![Délka fronty][queue-message-receive]
   
 Blahopřejeme! Vytvořili jste frontu, zaslali jste zprávu a přijali jste zprávu.
 
@@ -184,8 +184,8 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -193,6 +193,6 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="06/16/2016"
-    ms.author="jtaubensee"/>
+    ms.author="jotaub"/>
 
 # Začínáme se službou Event Hubs
 
@@ -26,7 +26,7 @@ Event Hubs je služba, která zpracovává velké objemy dat událostí (telemet
 
 Díky tomuto kurzu se dozvíte, jak pomocí portálu Azure Classic vytvořit centrum událostí (Event Hub). Také se naučíte, jak v centru událostí shromažďovat zprávy pomocí konzolové aplikace napsané v jazyce C# a jak je paralelně znovu přijímat pomocí knihovny Event Processor Host jazyka Java.
 
-Abyste tento kurz dokončili, potřebujete následující:
+K absolvování tohoto kurzu potřebujete:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
@@ -73,6 +73,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

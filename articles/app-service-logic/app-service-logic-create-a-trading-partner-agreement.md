@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Vytvoření smlouvy s obchodním partnerem   
@@ -27,7 +27,7 @@ Obchodní partneři jsou entity, které se účastní komunikace B2B (business-t
 - X12 (ASC X12)
 
 ### Aplikace API pro BizTalk, které podporují scénáře B2B
-Následující aplikace API nabízejí tyto možnosti v bohatém a intuitivním prostředí na Portálu Azure:
+Následující aplikace API nabízejí tyto možnosti v bohatém a intuitivním prostředí na webu Azure Portal:
 
 
 ## BizTalk Trading Partner Management (TPM)
@@ -81,6 +81,6 @@ Postup vytvoření smluv s obchodními partnery:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

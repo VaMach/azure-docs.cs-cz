@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Resetování služby Azure VPN Gateway pomocí prostředí PowerShell
 
 
-Tento článek vás provede procesem resetování služby Azure VPN Gateway pomocí rutin prostředí PowerShell. Tyto pokyny platí pro model nasazení Classic.  Zatím nemáme rutinu nebo rozhraní REST API umožňující resetování brány VPN pro virtuální sítě vytvořené pomocí modelu nasazení Resource Manager. Na těch se pracuje. Jestli byla vaše brána vytvořena pomocí modelu nasazení Classic zjistíte zobrazením svojí virtuální sítě na webu Azure Portal. Virtuální sítě vytvořené pomocí modelu nasazení Classic jsou uvedeny v části Virtuální sítě (klasické) na webu Azure Portal.
+Tento článek vás provede procesem resetování služby Azure VPN Gateway pomocí rutin prostředí PowerShell. Tyto pokyny platí pro model nasazení Classic. V současné době nejde obnovit brány virtuální sítě, které jsou vytvořené v modelu nasazení Resource Manager.
 
 Resetování služby Azure VPN Gateway je užitečné v případě ztráty propojování více míst na jednom nebo více tunelových propojeních VPN typu Site-to-Site. V této situaci vaše místní zařízení VPN fungují správně, ale nejsou schopná vytvořit tunelová propojení prostřednictvím protokolu IPsec s branami Azure VPN. Když použijete rutinu *Reset-AzureVNetGateway*, brána se restartuje, a poté se na ni znovu použije konfigurace pro více míst. Brána si ponechá stejnou veřejnou IP adresu. To znamená, že nebudete muset aktualizovat konfiguraci směrovače VPN na novou veřejnou IP adresu brány Azure VPN.  
 
@@ -66,6 +66,6 @@ Další informace o této rutině najdete v [Manuálu k prostředí PowerShell](
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -6,7 +6,7 @@ Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azu
 
 1. Přihlaste se na [portál Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
 
-2. Klikněte na **Datové služby**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
+2. Klikněte na **Data Services**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
 
     ![][11]
 
@@ -26,7 +26,7 @@ Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azu
 
     ![][13]
 
-    Tím stáhnete, nainstalujete a přidáte odkaz na [balíček NuGet třídy EventProcessorHost služby Event Hubs ve službě Azure Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) se všemi jeho závislostmi.
+    Visual Studio stáhne, nainstaluje a přidá odkaz na [balíček NuGet třídy EventProcessorHost služby Event Hub ve službě Azure Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) se všemi jeho závislostmi.
 
 7. Klikněte pravým tlačítkem na projekt **Receiver**, **Přidat** a potom na **Třída**. Pojmenujte novou třídu **SimpleEventProcessor** a potom kliknutím na **Přidat** třídu vytvořte.
 
@@ -121,7 +121,7 @@ Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azu
 [Přehled služby Event Hubs]: event-hubs-overview.md
 [Průvodce programováním pro službu Event Hubs]: event-hubs-programming-guide.md
 [Škálované zpracování událostí]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Účet služby Azure Storage]: ../storage/storage-create-storage-account.md
+[Účet služby Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portál Azure Classic]: http://manage.windowsazure.com
 
@@ -136,6 +136,6 @@ Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

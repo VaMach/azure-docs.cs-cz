@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/01/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Definování strategie Mobile Engagementu
@@ -138,6 +138,6 @@ Veškerá data tohoto typu se dají rozšířit o parametry (v Mobile Engagement
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

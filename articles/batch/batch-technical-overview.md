@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="08/22/2016"
     ms.author="marsma"/>
 
 # Základy služby Azure Batch
@@ -58,7 +58,7 @@ Při vývoji řešení Batch budete ve službě Microsoft Azure používat násl
 
 - **Účet a předplatné služby Azure** – Pokud zatím předplatné služby Azure nemáte, můžete si aktivovat [výhodu předplatitele MSDN][msdn_benefits] nebo si zaregistrovat [bezplatný účet Azure][free_account]. Při vytvoření účtu pro vás bude vytvořeno výchozí předplatné.
 
-- **Účet Batch** – Při komunikaci vašich aplikací se službou Batch se jako přihlašovací údaje používají název účtu, adresa URL účtu a přístupový klíč. Všechny prostředky služby Batch, například fondy, výpočetní uzly, úlohy a úkoly, jsou přidruženy k účtu Batch. [Účet Batch můžete vytvořit a spravovat](batch-account-create-portal.md) na portálu Azure.
+- **Účet Batch** – Při komunikaci vašich aplikací se službou Batch se jako přihlašovací údaje používají název účtu, adresa URL účtu a přístupový klíč. Všechny prostředky služby Batch, například fondy, výpočetní uzly, úlohy a úkoly, jsou přidruženy k účtu Batch. [Účet Batch můžete vytvořit](batch-account-create-portal.md) na webu Azure Portal.
 
 - **Účet Storage** – služba Batch zahrnuje integrovanou podporu pro práci se soubory ve [službě Azure Storage][azure_storage]. Téměř každý scénář služby Batch používá službu Azure Storage – pro přípravu programů, které budou vaše úkoly spouštět, a dat, která budou zpracovávat, a také pro ukládání generovaných výstupních dat. Informace o vytvoření účtu služby Storage najdete v článku [Informace o účtech Azure Storage](./../storage/storage-create-storage-account.md).
 
@@ -126,7 +126,7 @@ Mějte na paměti, že toto je pouze jeden ze způsobů použití služby Batch 
 
 Teď máte obecný přehled o použití služby Batch a je na čase službu prozkoumat podrobněji. Zjistěte, jak můžete s její pomocí zpracovat paralelní úlohy náročné na výkon.
 
-- Přečtěte si kapitolu [Přehled funkcí Batch pro vývojáře](batch-api-basics.md), kde získáte podrobnější informace o funkcích rozhraní API, které služba Batch používá ke zpracování vašich úloh. Informace v tomto článku jsou nezbytné pro každého, kdo se chystá používat službu Batch.
+- Přečtěte si téma [Přehled funkcí Batch pro vývojáře](batch-api-basics.md), kde jsou základní informace pro každého, kdo se připravuje použít Batch. Článek obsahuje podrobné informace o prostředcích služby Batch, jako jsou fondy, uzly a úlohy, a mnoha funkcích rozhraní API, které můžete použít při vytváření aplikace Batch.
 
 - V kapitole [Začínáme s knihovnou Azure Batch pro .NET](batch-dotnet-get-started.md) zjistíte, jak použít C# a knihovnu Batch .NET ke spuštění jednoduché úlohy s použitím běžného pracovního postupu služby Batch. Při studiu používání služby Batch by měl být tento článek jednou z vašich prvních zastávek. Tento kurz je také k dispozici ve [verzi pro Python](batch-python-tutorial.md).
 
@@ -163,6 +163,6 @@ Teď máte obecný přehled o použití služby Batch a je na čase službu proz
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Nastavení zásad zabezpečení v Azure Security Center
@@ -22,11 +22,11 @@ Tento dokument vám pomůže nakonfigurovat zásady zabezpečení v Security Cen
 ## Co jsou zásady zabezpečení?
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného nebo skupiny prostředků. V Security Center určíte zásady pro vaše předplatná Azure nebo skupinu prostředků na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat v každém předplatném.
 
-Třeba prostředky používané pro vývoj nebo testování můžou mít jiné požadavky na zabezpečení než ty, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase můžou vyžadovat jinou úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center budou mít vliv na doporučení zabezpečení a monitorování a pomůžou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o rozhodování, která možnost je pro vás vhodnější, si přečtěte [Příručka plánování a používání centra zabezpečení Azure](security-center-planning-and-operations-guide.md).
+Třeba prostředky používané pro vývoj nebo testování můžou mít jiné požadavky na zabezpečení než prostředky, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase můžou vyžadovat jinou úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center budou mít vliv na doporučení zabezpečení a monitorování a pomůžou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o rozhodování, která možnost je pro vás vhodnější, si přečtěte [Příručka plánování a používání centra zabezpečení Azure](security-center-planning-and-operations-guide.md).
 
 ## Nastavení zásad zabezpečení pro předplatné
 
-Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skupinu prostředků. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Otevřete portál Azure a ke konfiguraci zásad zabezpečení v Security Center použijte následující postup:
+Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skupinu prostředků. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Otevřete Azure Portal a při konfiguraci zásad zabezpečení v Security Center postupujte podle předchozích kroků:
 
 1. Na řídicím panelu Security Center klikněte na dlaždici **Zásady**.
 
@@ -34,19 +34,25 @@ Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skup
 
     ![Určení zásady](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-3. Otevře se okno **Security policy** (Zásada zabezpečení) pro dané předplatné, které obsahuje podobné možnosti jako následující okno:
+3. Otevře se okno **Zásady zabezpečení** pro dané předplatné. Okno obsahuje podobné možnosti jako následující obrazovka:
 
     ![Povolení shromažďování dat](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. Ujistěte se, že je u položky **Collect data from virtual machines** (Shromažďovat data z virtuálních počítačů) vybraná možnost **On** (Zapnuto). Tato možnost povolí automatické shromažďování protokolů u stávajících a nových prostředků. 
+    V tomto okně jsou k dispozici následující možnosti:
+    - **Zásady prevence**: Tato možnost umožňuje konfigurovat zásady pro konkrétní předplatné nebo skupinu prostředků.  
+    - **E-mailové oznámení**: E-mailové oznámení se odešle při prvním výskytu výstrahy během dne a pouze u výstrah s vysokou závažností. Předvolby e-mailu lze konfigurovat pouze pro zásady předplatného. Další informace o postupu při konfigurování e-mailových oznámení najdete v článku [Zadání podrobností o kontaktu zabezpečení do Azure Security Center](security-center-provide-security-contact-details.md). 
+    - **Cenová úroveň**: Tuto možnost použijte pro upgrade z výběru Cenová úroveň. Další informace o možnostech cen najdete na [stránce služby Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-    >[AZURE.NOTE] Důrazně doporučujeme zapnout pro každé z vašich předplatných shromažďování dat, tím totiž zajistíte dostupnost sledování zabezpečení pro všechny stávající i nové virtuální počítače. Pokud povolíte shromažďování dat, nainstaluje se agent sledování. Pokud teď na tomto místě nechcete shromažďování dat zapnout, můžete to udělat později v zobrazení stavu a doporučení. Shromažďování dat můžete také povolit pro celé předplatné nebo pro vybrané virtuální počítače. Další informace o podporovaných virtuálních počítačích najdete v článku [Azure Security Center – nejčastější dotazy](security-center-faq.md).
+    
+4.  Ujistěte se, že je u položky **Collect data from virtual machines** (Shromažďovat data z virtuálních počítačů) vybraná možnost **On** (Zapnuto). Tato možnost povolí automatické shromažďování protokolů u stávajících a nových prostředků. 
 
-5. Pokud ještě nemáte nakonfigurovaný účet úložiště, může se vám při otevření okna **Security Policy** (Zásada zabezpečení) zobrazit upozornění podobné tomuto obrázku:
+    >[AZURE.NOTE] Doporučujeme zapnout pro každé z vašich předplatných shromažďování dat, aby se zajistila dostupnost sledování zabezpečení pro všechny stávající i nové virtuální počítače. Pokud povolíte shromažďování dat, nainstaluje se agent sledování. Pokud teď na tomto místě nechcete shromažďování dat zapnout, můžete to udělat později v zobrazení stavu a doporučení. Shromažďování dat můžete také povolit pro celé předplatné nebo pro vybrané virtuální počítače. Další informace o podporovaných virtuálních počítačích najdete v článku [Azure Security Center – nejčastější dotazy](security-center-faq.md).
+
+5. Pokud ještě nemáte nakonfigurovaný účet úložiště, může se vám při otevření okna **Zásady zabezpečení** zobrazit upozornění podobné následující obrazovce:
 
     ![Výběr úložiště](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. Pokud se vám zobrazí toto upozornění, klikněte na tuto možnost a vyberte oblast, jak znázorňuje následující obrázek:
+6. Pokud se vám zobrazí toto upozornění, klikněte na tuto možnost a vyberte oblast, jak je znázorněno na následující obrazovce:
 
     ![Výběr úložiště](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
@@ -56,15 +62,15 @@ Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skup
 
     > [AZURE.NOTE] Pokud chcete, můžete v jednom centrálním účtu úložiště shromažďovat data z virtuálních počítačů v různých oblastech. Další informace najdete v článku [Azure Security Center – nejčastější dotazy](security-center-faq.md).
 
-9. V okně **Security Policy** (Zásady zabezpečení) kliknutím na **On** (Zapnout) povolte doporučení zabezpečení, která chcete v tomto předplatném používat. Klikněte na možnost **Prevention policy** (Zásada prevence). Otevře se okno **Security Policy** (Zásada zabezpečení), jak znázorňuje následující obrázek. 
+9. V okně **Security Policy** (Zásady zabezpečení) kliknutím na **On** (Zapnout) povolte doporučení zabezpečení, která chcete v tomto předplatném používat. Klikněte na možnost **Prevention policy** (Zásada prevence). Otevře se okno **Zásady zabezpečení**, jak je znázorněno na následující obrazovce: 
 
     ![Výběr zásad zabezpečení](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
-Použijte následující tabulku pro referenci, abyste pochopili, jakou mají jednotlivé možnosti funkci:
+Následující tabulku použijte jako referenci, abyste pochopili, jakou mají jednotlivé možnosti funkci:
 
 | Zásada | Pokud je nastavená možnost On (Zapnuto) |
 |----- |-----|
-| System Updates (Aktualizace systému) | Denně načítá seznam dostupných aktualizací zabezpečení a kritických aktualizací ze služby Windows Update nebo WSUS, podle toho, která služba je pro daný virtuální počítač nakonfigurovaná, a doporučuje instalaci chybějících aktualizací. Zkontroluje nejnovější aktualizace v systémech Linux využívajících systém pro správu balíčků distro k určení, které balíčky obsahují dostupné aktualizace systému Linux. Také zkontroluje aktualizace zabezpečení a důležité aktualizace z [cloudové služby](./cloud-services/cloud-services-how-to-configure.md) virtuálních počítačů. |
+| System Updates (Aktualizace systému) | Denně načítá seznam dostupných aktualizací zabezpečení a kritických aktualizací ze služby Windows Update nebo WSUS, podle toho, která služba je pro daný virtuální počítač nakonfigurovaná, a doporučuje instalaci chybějících aktualizací. Zkontroluje nejnovější aktualizace v systémech Linux využívajících systém pro správu balíčků distro k určení, které balíčky obsahují dostupné aktualizace systému Linux. Také kontroluje aktualizace zabezpečení a důležité aktualizace z virtuálních počítačů [Cloud Services](./cloud-services/cloud-services-how-to-configure.md). |
 | Ohrožení zabezpečení operačního systému | Denně analyzuje konfigurace operačních systémů, které by mohly způsobit větší zranitelnost virtuálního počítače vůči útokům, a doporučuje změny konfigurace, které tyto nedostatky zabezpečení řeší. Další informace o tom, jaké konkrétní konfigurace se sledují, najdete v [seznamu doporučených standardních hodnot](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
 | Endpoint Protection (Ochrana koncových bodů) | Doporučuje zřízení ochrany koncových bodů pro všechny virtuální počítače s Windows, aby se mohly identifikovat a odstraňovat viry, spyware a další škodlivý software.|
 | Šifrování disku | Doporučuje povolit šifrování disku ve všech virtuálních počítačích pro zvýšení ochrany dat při nečinnosti. 
@@ -102,6 +108,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

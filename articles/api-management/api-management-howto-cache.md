@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management
@@ -129,7 +129,6 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 
 ## <a name="next-steps"> </a>Další kroky
 
--   Podívejte se i na další témata kurzu [Začínáme s pokročilou konfigurací rozhraní API][].
 -   Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][] v článku [Zásady API Managementu][].
 -   Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 [Přidání rozhraní API do produktu]: api-management-howto-add-products.md#add-apis
 [Publikování produktu]: api-management-howto-add-products.md#publish-product
 [Začínáme s Azure API Management]: api-management-get-started.md
-[Začínáme s pokročilou konfigurací rozhraní API]: api-management-get-started-advanced.md
 
 [Zásady API Managementu]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Zásady ukládání do mezipaměti]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -165,6 +163,6 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

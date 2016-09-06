@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Seznam konektorů
 
-Výběrem příslušné ikony získáte informace o tom, jak můžete tyto konektory rychle využít k vytváření pracovních postupů volajících příslušné služby.
+Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pracovních postupů.
 
 ## Standardní konektory
 
@@ -46,8 +46,9 @@ Konektory EIP slouží k vytvoření aplikace logiky pro scénáře B2B, které 
  
 |Konektory EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Ikona rozhraní API][as2icon]<br/>**AS2</br>kódování/dekódování**][as2doc]|[![Ikona rozhraní API][x12icon]<br/>**X12</br>kódování/dekódování**][x12Doc]|[![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>ověření**][xmlvalidatedoc]|[![Ikona rozhraní API][xmltransformicon]<br/>**XML<br/> transformace**][xmltransformdoc]|
-|[![Ikona rozhraní API][flatfileicon]<br/>**Plochý soubor</br>kódování**][flatfiledoc]|[![Ikona rozhraní API][flatfiledecodeicon]<br/>**Plochý soubor</br>dekódování**][flatfiledecodedoc]|||
+|[![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>ověření**][xmlvalidatedoc]|[![Ikona rozhraní API][xmltransformicon]<br/>**XML<br/> transformace**][xmltransformdoc]|[![Ikona rozhraní API][flatfileicon]<br/>**Plochý soubor</br>kódování**][flatfiledoc]|[![Ikona rozhraní API][flatfiledecodeicon]<br/>**Plochý soubor</br>dekódování**][flatfiledecodedoc]|
+|[![Ikona rozhraní API][as2icon]<br/>**AS2</br>dekódování**][as2decode]|[![Ikona rozhraní API][as2icon]<br/>**AS2</br>kódování**][as2encode]|[![Ikona rozhraní API][x12icon]<br/>**X12</br>dekódování**][x12decode]|[![Ikona rozhraní API][x12icon]<br/>**X12</br>kódování**][x12encode]|
+|[![Ikona rozhraní API][x12icon]<br/>**EDIFACT</br>dekódování**][EDIFACTdecode]|[![Ikona rozhraní API][x12icon]<br/>**EDIFACT</br>kódování**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Konektory lze používat jako triggery
@@ -56,7 +57,7 @@ Několik konektorů poskytuje triggery, které mohou vaší aplikaci odesílat u
 Existují dva typy triggerů:  
 
 * Triggery dotazů: Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. Pokud jsou k dispozici nová data, spustí novou instanci aplikace a získaná data se použijí jako vstup. Aby se stejná data nepoužívala vícekrát, trigger také může odstranit data, která již aplikace přečetla a zpracovala.
-* Triggery nabízených oznámení: Tyto triggery naslouchají datům nebo událostem v koncovém bodě. Poté spustí novou instanci aplikace. Jedním z příkladů je konektor twitter.
+* Triggery nabízených oznámení: Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté spustí novou instanci vaší aplikace. Jedním z příkladů je konektor Twitter.
 
 ### Konektory mohou být akce
 Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pro vyhledávání dat, která lze poté použít za běhu aplikace. Při zpracování objednávky můžete například potřebovat vyhledat informace o zákazníkovi v databázi SQL. Nebo může být nutné zapsat, aktualizovat nebo odstranit data v cílové tabulce. Můžete to provést pomocí akcí poskytovaných konektory. Akce se mapují na operace, které jsou definované v metadatech Swaggeru.
@@ -105,6 +106,12 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Přečtěte si víc o plochém souboru podnikové integrace."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Přečtěte si víc o ověřování XML podnikové integrace."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Přečtěte si víc o transformacích podnikové integrace."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Přečtěte si víc o dekódování pro podnikovou integraci AS2."
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Přečtěte si víc o kódování pro podnikovou integraci AS2."
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Přečtěte si víc o dekódování pro podnikovou integraci X12."
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Přečtěte si víc o kódování pro podnikovou integraci X12."
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Přečtěte si víc o dekódování pro podnikovou integraci EDIFACT."
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Přečtěte si víc o kódování pro podnikovou integraci EDIFACT."
 [httpdoc]: ./connectors-native-http.md "Konektor HTTP pro volání HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Akce odezvy a odpovědi."
 [http~responsedoc]: ./connectors-native-reqres.md "Akce odezvy a odpovědi."
@@ -185,6 +192,6 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

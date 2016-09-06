@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Vytvoření indexu Azure Search pomocí sady .NET SDK
@@ -34,7 +34,7 @@ Všimněte si, že ukázkový kód v tomto článku je napsán v jazyce C#. Úpl
 ## I. Identifikace klíče api-key správce služby Azure Search
 Teď, když máte zřízenou službu Azure Search, jste skoro připraveni vydávat žádosti na koncový bod služby pomocí sady .NET SDK. Nejprve budete muset získat jeden z klíčů správce (api-key) vytvořených pro vyhledávací službu, kterou jste zřídili. .NET SDK bude tento klíč api-key odesílat v každém požadavku na vaši službu. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [portálu Azure](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
@@ -125,6 +125,6 @@ Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah]
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

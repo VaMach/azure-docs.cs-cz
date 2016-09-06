@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Přehled Azure Resource Manageru
@@ -133,7 +133,7 @@ Informace o použití portálu najdete v tématu [Nasazení prostředků pomocí
 
 Azure Resource Manager podporuje technologii CORS (sdílení prostředků mezi zdroji). Díky CORS můžete volat rozhraní REST API Resource Manageru nebo služby Azure z webové aplikace, která je umístěná v jiné doméně. Bez podpory CORS by webový prohlížeč zabránil aplikaci z jedné domény v přístupu k prostředkům v jiné doméně. Resource Manager umožňuje použití CORS pro všechny požadavky s platnými přihlašovacími údaji pro ověřování.
 
-## Sady SDK a ukázky
+## Sady SDK
 
 Sady Azure SDK jsou k dispozici pro různé jazyky a platformy.
 Každá z těchto implementací jazyka je k dispozici prostřednictvím správce balíčků jejího ekosystému a GitHubu.
@@ -144,25 +144,44 @@ Kód SDK je generován prostřednictvím open source projektu s názvem AutoRest
 AutoRest transformuje tyto specifikace rozhraní RESTful API do klientských knihoven v několika jazycích.
 Pokud chcete zlepšit některé aspekty generovaného kódu v sadách SDK, je celá sada nástrojů pro vytváření sad SDK otevřená, volně přístupná a založená na rozšířeném formátu specifikace rozhraní API.
 
-**Ukázky**: Rychlý úvod ve zvoleném jazyce.
+Zde jsou naše úložiště opensourcových sad SDK. Vítáme zpětnou vazbu, otázky a žádosti o získání dat.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *již brzy*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
-
-**Úložiště open source sad SDK**: Vítáme zpětnou vazbu, otázky a žádosti o získání dat.
-
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] Pokud sada SDK neobsahuje požadovanou funkci, můžete také přímo zavolat [rozhraní Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+
+## Ukázky
+
+### .NET
+
+- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Správa prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Správa skupin prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Kromě těchto ukázek můžete prohledat galerii ukázek.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Další kroky
 
@@ -178,6 +197,6 @@ Zde je videoukázka tohoto přehledu:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

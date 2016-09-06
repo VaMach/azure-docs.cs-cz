@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí Azure PowerShellu" 
+    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí Azure PowerShellu | Microsoft Azure" 
     description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí Azure PowerShellu." 
     services="data-factory" 
     documentationCenter="" 
@@ -23,11 +23,12 @@
 - [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 Kurz [Kopírování dat z Blob Storage do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ukazuje, jak můžete vytvořit a monitorovat objekt pro vytváření dat Azure pomocí webu [Azure Portal][azure-portal]. V tomto kurzu vytvoříte a budete monitorovat objekt pro vytváření dat Azure pomocí rutin Azure PowerShellu. Kanál v objektu pro vytváření dat, který vytvoříte v tomto kurzu, používá aktivitu kopírování ke kopírování dat z objektu blob Azure do Azure SQL Database.
 
-Aktivita kopírování provádí přesun dat ve službě Azure Data Factory a aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md).   
+Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md).   
 
 > [AZURE.IMPORTANT] 
 > Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte nutné kroky.
@@ -47,14 +48,14 @@ Krok | Popis
 -----| -----------
 [Vytvoření služby Azure Data Factory](#create-data-factory) | V tomto kroku vytvoříte objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactoryPSH**. 
 [Vytvoření propojených služeb](#create-linked-services) | V tomto kroku vytvoříte dvě propojené služby: **StorageLinkedService** a **AzureSqlLinkedService**. StorageLinkedService propojuje službu Azure Storage a AzureSqlLinkedService propojuje službu Azure SQL Database k objektu ADFTutorialDataFactoryPSH.
-[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V tomto kroku nadefinujete dvě datové sady, **EmpTableFromBlob** a **EmpSQLTable**, které se používají jako vstupní a výstupní tabulka pro **aktivitu kopírování** v objektu ADFTutorialPipeline, který vytvoříte v následujícím kroku.
+[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V tomto kroku definujete dvě sady dat (**EmpTableFromBlob** a **EmpSQLTable**). Tyto datové sady se používají jako vstupní a výstupní tabulka pro **Aktivitu kopírování** v objektu ADFTutorialPipeline, který vytvoříte v následujícím kroku.
 [Vytvoření a spuštění kanálu](#create-pipeline) | V tomto kroku vytvoříte v objektu pro vytváření dat **ADFTutorialDataFactoryPSH** kanál s názvem **ADFTutorialPipeline**. Kanál bude mít **aktivitu kopírování**, která kopíruje data z objektu blob Azure do výstupní tabulky databáze Azure.
 [Monitorování datových sad a kanálu](#monitor-pipeline) | V tomto kroku budete monitorovat datové sady a kanál pomocí Azure PowerShellu.
 
 ## Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí Azure PowerShellu objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactoryPSH**.
 
-1. Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
+1. Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
     1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
     
             Login-AzureRmAccount   
@@ -77,7 +78,9 @@ V tomto kroku vytvoříte pomocí Azure PowerShellu objekt pro vytváření dat 
     
 Je třeba počítat s následujícím:
  
-- Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba **Název objektu pro vytváření dat ADFTutorialDataFactoryPSH není k dispozici**, název změňte (třeba na název váš_název_ADFTutorialDataFactoryPSH). Při provádění postupů v tomto kurzu potom tento název používejte místo názvu ADFTutorialFactoryPSH. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+- Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí následující chyba, změňte název (třeba na váš_název_ADFTutorialDataFactoryPSH). Při provádění postupů v tomto kurzu potom tento název používejte místo názvu ADFTutorialFactoryPSH. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+    
+        Data factory name “ADFTutorialDataFactoryPSH” is not available
 - Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
 - Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
 - Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
@@ -92,7 +95,7 @@ Je třeba počítat s následujícím:
     - Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
 
 ## Vytvoření propojených služeb
-Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Úložištěm dat může být Azure Storage, Azure SQL Database nebo místní databáze SQL Serveru, která obsahuje vstupní data nebo uložená výstupní data pro kanál služby Data Factory. Služba Compute je služba, která zpracovává vstupní data a vytváří výstupní data. 
+Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Úložištěm dat může být Azure Storage, Azure SQL Database nebo místní databáze SQL Serveru, která obsahuje vstupní data nebo uložená výstupní data pro kanál služby Data Factory. Výpočetní služba je služba, která zpracovává vstupní data a vytváří výstupní data. 
 
 V tomto kroku vytvoříte dvě propojené služby: **StorageLinkedService** a **AzureSqlLinkedService**. Propojená služba StorageLinkedService propojuje účet úložiště Azure a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactoryPSH**. Později v tomto kurzu vytvoříte kanál, který kopíruje data z kontejneru objektů blob ve službě StorageLinkedService do tabulky SQL ve službě AzureSqlLinkedService.
 
@@ -109,9 +112,9 @@ V tomto kroku vytvoříte dvě propojené služby: **StorageLinkedService** a **
                 }
             }
 
-    Položku **accountname** nahraďte názvem účtu úložiště a **accountkey** nahraďte klíčem pro účet úložiště Azure.
+    Položky **accountname** a **accountkey** nahraďte názvem svého účtu Azure Storage a jeho klíčem.
 2.  V prostředí **Azure PowerShell** přejděte do složky **ADFGetStartedPSH**. 
-3.  K vytvoření propojené služby můžete použít rutinu **New-AzureRmDataFactoryLinkedService**. Tato rutina a jiné rutiny služby Data Factory používané v tomto kurzu vyžadují, abyste zadali hodnoty parametrů **ResourceGroupName** a **DataFactoryName**. Alternativně můžete pomocí rutiny **Get-AzureRmDataFactory** načíst objekt DataFactory a tento objekt předat, abyste nemuseli při každém spouštění rutiny zadávat hodnoty parametrů ResourceGroupName a DataFactoryName. Spuštěním následujícího příkazu přiřaďte výstup rutiny **Get-AzureRmDataFactory** k proměnné **$df**. 
+3.  K vytvoření propojené služby můžete použít rutinu **New-AzureRmDataFactoryLinkedService**. Tato rutina a další rutiny služby Data Factory používané v tomto kurzu vyžadují, abyste zadali hodnoty parametrů **ResourceGroupName** a **DataFactoryName**. Alternativně můžete pomocí rutiny **Get-AzureRmDataFactory** načíst objekt DataFactory a tento objekt předat, abyste nemuseli při každém spouštění rutiny zadávat hodnoty parametrů ResourceGroupName a DataFactoryName. Spuštěním následujícího příkazu přiřaďte výstup rutiny **Get-AzureRmDataFactory** k proměnné **$df**. 
 
         $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
@@ -157,7 +160,7 @@ V tomto kroku vytvoříte dvě propojené služby: **StorageLinkedService** a **
 
 V předchozím kroku jste vytvořili propojené služby **StorageLinkedService** a **AzureSqlLinkedService**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactoryPSH**. V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data pro aktivitu kopírování v kanálu, který vytvoříte v následujícím kroku. 
 
-Tabulka je obdélníková datová sada a je jediným typem datové sady, který je v současné době podporovaný. Vstupní tabulky v tomto kurzu odkazuje na kontejner objektů blob ve službě Azure Storage, na kterou odkazuje objekt StorageLinkedService, a výstupní tabulka odkazuje na tabulku SQL ve službě Azure SQL Database, na kterou odkazuje objekt AzureSqlLinkedService.  
+Tabulka je obdélníková datová sada a je jediným typem datové sady, který je nyní podporovaný. Vstupní tabulka v tomto kurzu odkazuje na kontejner objektů blob v úložišti Azure, na které odkazuje AzureStorageLinkedService. Výstupní tabulka odkazuje na tabulku SQL v Azure SQL Database, na kterou odkazuje AzureSqlLinkedService.  
 
 ### Příprava služeb Azure Blob Storage a Azure SQL Database pro tento kurz
 Pokud jste prošli kurzem z článku [Kopírování dat z Blob Storage do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), tento krok přeskočte. 
@@ -190,9 +193,9 @@ Abyste připravili služby Azure Blob Storage a Azure SQL Database pro tento kur
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    Pokud máte na počítači nainstalovaný SQL Server 2014: Postupujte podle pokynů v části [Krok 2: Připojení k SQL Database článku Správa Azure SQL Database pomocí aplikace SQL Server Management Studio][sql-management-studio], připojte se k serveru SQL Azure a spusťte skript SQL.
+    Pokud máte na počítači nainstalovaný SQL Server 2014: Postupujte podle pokynů v části [Krok 2: Připojení k SQL Database článku Správa Azure SQL Database pomocí aplikace SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md), připojte se k serveru SQL Azure a spusťte skript SQL.
 
-    Pokud máte na počítači nainstalovanou sadu Visual Studio 2013: Na webu Azure Portal ([http://portal.azure.com](http://portal.sazure.com)), klikněte na **PROCHÁZET** na levé straně, klikněte na **SQL**, vyberte svou databázi a potom se kliknutím na tlačítko **Otevřít v sadě Visual Studio** na panelu nástrojů připojte k serveru SQL Azure a spusťte tento skript. Pokud klient nemá povolený přístup k serveru SQL Azure, budete muset nakonfigurovat bránu firewall pro server SQL Azure tak, aby povolovala přístup z vašeho počítače (IP adresa). Postup konfigurace brány firewall pro server SQL Azure najdete v článku výš.
+    Pokud klient nemá povolený přístup ke službě Azure SQL Server, budete muset nakonfigurovat bránu firewall pro Azure SQL Server tak, aby povolovala přístup z vašeho počítače (IP adresa). Postup konfigurace brány firewall pro server SQL Azure najdete v [tomto článku](../sql-database/sql-database-configure-firewall-settings.md).
         
 ### Vytvoření vstupní datové sady 
 Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte tabulku s názvem **EmpBlobTable**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentované propojenou službou **StorageLinkedService**. Tento kontejner objektu blob (**adftutorial**) obsahuje vstupní data v souboru **emp.txt**. 
@@ -238,7 +241,7 @@ Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte 
     - Vlastnost **filename** je nastavená na **emp.txt**. Pokud neurčíte název objektu blob, budou se za vstupní data považovat data ze všech objektů blob v kontejneru.  
     - Vlastnost **type** formátu je nastavená na **TextFormat**.
     - V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
-    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na**hour** a **interval** je nastavená na **1**), takže služba Data Factory bude každou hodinu hledat vstupní data v kořenové složce v zadaném kontejneru objektů blob (**adftutorial**).
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce v kontejneru objektů blob (**adftutorial**), který jste zadali.
 
     Pokud neurčíte **fileName** pro **vstupní** **tabulku**, všechny soubory nebo objekty blob ze vstupní složky (**folderPath**) se považují za vstupy. Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob. 
  
@@ -263,7 +266,7 @@ Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte 
         New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Vytvoření výstupní datové sady
-V této části kroku vytvoříte výstupní tabulku s názvem **EmpSQLTable**, která odkazuje na tabulku SQL (**emp**) ve službě Azure SQL Database reprezentované propojenou službou **AzureSqlLinkedService**. Kanál kopíruje data z vstupního objektu blob do tabulky **emp**. 
+V tomto kroku vytvoříte výstupní datovou sadu s názvem **EmpSQLTable**. Tato datová sada odkazuje na tabulku SQL (**emp**) v Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. Kanál kopíruje data z vstupního objektu blob do tabulky **emp**. 
 
 1.  Ve složce **C:\ADFGetStartedPSH** vytvořte soubor JSON s názvem **EmpSQLTable.json** s následujícím obsahem:
         
@@ -297,7 +300,7 @@ V této části kroku vytvoříte výstupní tabulku s názvem **EmpSQLTable**, 
     * Vlastnost **type** datové sady je nastavená na **AzureSqlTable**.
     * Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService**.
     * Vlastnost **tablename** je nastavená na **emp**.
-    * V tabulce emp v databázi existují tři sloupce, **ID**, **FirstName** a **LastName**, ale ID je sloupec identity, takže je zde potřeba zadat jenom **FirstName** a **LastName**.
+    * V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
     * Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
 
 2.  Spuštěním následujícího příkazu vytvořte datovou sadu služby Data Factory. 
@@ -346,8 +349,8 @@ V tomto kroku vytvoříte kanál pomocí **aktivity kopírování**, který pou�
                     }
                   }
                 ],
-                "start": "2015-12-09T00:00:00Z",
-                "end": "2015-12-10T00:00:00Z",
+                "start": "2016-08-09T00:00:00Z",
+                "end": "2016-08-10T00:00:00Z",
                 "isPaused": false
               }
             }
@@ -362,7 +365,7 @@ V tomto kroku vytvoříte kanál pomocí **aktivity kopírování**, který pou�
     
     Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Chcete-li kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9/9/9999**.
     
-    V uvedeném příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
+    V příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
     
     Podrobné informace o vlastnostech JSON najdete v tématu [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) (Referenční příručka skriptování JSON).
 2.  Spuštěním následujícího příkazu vytvořte tabulku služby Data Factory. 
@@ -382,7 +385,7 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
 
         Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-    Rok, měsíc a den v parametru **StartDateTime** nahraďte aktuálním rokem, měsícem a dnem. Mělo by to odpovídat hodnotě **Start** v kódu JSON kanálu. 
+    Rok, měsíc a den v parametru **StartDateTime** nahraďte aktuálním rokem, měsícem a dnem. Toto nastavení by mělo odpovídat hodnotě **Start** v kódu JSON kanálu. 
 
     Měli byste vidět 24 řezů, pro každou hodinu od 12:00 aktuálního dne do 12:00 následujícího dne jeden. 
     
@@ -410,7 +413,7 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
         LatencyStatus     : 
         LongRetryCount    : 0
 
-3.  Spuštěním rutiny **Get-AzureRmDataFactoryRun** získáte podrobnosti o spouštění aktivity pro **konkrétní** řez. Změňte hodnotu parametru **StartDateTime** tak, aby odpovídala času **Start** řezu ve výstupu výš. Hodnota **StartDateTime** musí být ve [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Příklad: 2014-03-03T22:00:00Z.
+3.  Spuštěním rutiny **Get-AzureRmDataFactoryRun** získáte podrobnosti o spouštění aktivity pro **konkrétní** řez. Změňte hodnotu parametru **StartDateTime** tak, aby odpovídala času **Start** řezu ve výstupu. Hodnota **StartDateTime** musí být ve [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Příklad: 2014-03-03T22:00:00Z.
 
         Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
@@ -451,7 +454,7 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 | :---- | :---- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) | Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo podniku použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
 | [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
@@ -475,6 +478,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
  
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

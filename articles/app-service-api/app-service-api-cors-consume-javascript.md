@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/27/2016"
+    ms.date="08/27/2016"
     ms.author="rachelap"/>
 
 # Využití aplikace API z JavaScriptu pomocí CORS
@@ -286,6 +286,6 @@ V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App S
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

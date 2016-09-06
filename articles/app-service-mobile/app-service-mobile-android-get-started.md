@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Vytvoření aplikace pro Android
@@ -32,7 +32,6 @@ Pro absolvování tohoto kurzu potřebujete:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), což zahrnuje integrované vývojové prostředí Android Studio a nejnovější platformu Android
 * Sadu SDK Azure Mobile pro Android, na kterou se automaticky odkazuje jako na součást projektu pro rychlý start, který si stáhnete
-* Počítač s nástrojem [Visual Studio Community 2013] nebo novějším &mdash; není potřeba pro back-end Node.js
 * [Aktivní účet Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Vytvoření nového back-endu mobilní aplikace Azure
@@ -56,6 +55,6 @@ Pro absolvování tohoto kurzu potřebujete:
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

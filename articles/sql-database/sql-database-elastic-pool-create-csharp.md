@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Vytvoření nového fondu elastické databáze s C&#x23;
@@ -24,15 +24,15 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Naučte se vytvořit [fond elastické databáze](sql-database-elastic-pool.md) pomocí C#. 
+Naučte se vytvořit [fond elastické databáze](sql-database-elastic-pool.md) pomocí C#.
 
 Běžné kódy chyb naleznete v článku [Kódy chyb SQL pro klientské aplikace SQL Database: chyby připojení k databázi a další problémy](sql-database-develop-error-messages.md).
 
-V následujících příkladech se používá [Knihovna SQL Database pro .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), takže pokud ji ještě nemáte, před dalším pokračováním ji musíte nainstalovat. Tuto knihovnu nainstalujete spuštěním následujícího příkazu v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**):
+V příkladech se používá [Knihovna SQL Database pro .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx). Pokud tedy není nainstalovaná, před dalším pokračováním ji nainstalujte. Tuto knihovnu nainstalujete spuštěním následujícího příkazu v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Vytvoření nového fondu
+## Vytvoření fondu
 
 Vytvořte instanci [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) pomocí hodnot z [Azure Active Directory](sql-database-client-id-keys.md). Vytvořte instanci [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) a zavolejte metodu [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Hodnoty eDTU na fond a minimální a maximální DTU jsou omezeny úrovní služeb (Basic, Standard nebo Premium). Viz odstavec [Omezení eDTU a úložiště pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -52,7 +52,7 @@ Vytvořte instanci [SqlManagementClient](https://msdn.microsoft.com/library/micr
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Vytvoření nové databáze ve fondu
+## Vytvoření databáze ve fondu
 
 Vytvořte instanci [DataBaseCreateOrUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) a nastavte vlastnosti nové databáze. Poté zavolejte metodu CreateOrUpdate se skupinou prostředků, názvem serveru a názvem nové databáze.
 
@@ -76,20 +76,20 @@ Chcete-li do fondu přesunout existující databázi, přečtěte si část [Př
 
 ## Příklad: Vytvoření fondu pomocí C&#x23;
 
-Tento příklad vytvoří novou skupinu prostředků Azure, novou instanci serveru Azure SQL Server a nový elastický fond. 
+Tento příklad vytvoří skupinu prostředků Azure, server Azure SQL a elastický fond. 
  
 
 Pro spuštění tohoto příkladu potřebujete následující knihovny: Instalaci můžete provést spuštěním následujících příkazů v [konzole správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console) sady Visual Studio (**Nástroje** > **Správce balíčků NuGet** > **Konzola Správce balíčků**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím kódem. Informace o získání potřebného ID klienta a souvisejících hodnot najdete v článku [Získání ID klienta a klíče pro připojení k SQL Database z kódu](sql-database-client-id-keys.md). Pomocí rutiny [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) získejte hodnotu subscriptionId.
+Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím kódem. Chcete-li získat požadované ID klienta a související hodnoty, vytvořte nativní aplikaci podle následujícího článku: [Registrace vaší aplikace a získání požadovaných hodnot klienta a klíče pro připojení aplikace k SQL Database](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -251,6 +251,6 @@ Vytvořte aplikaci konzoly a nahraďte obsah souboru Program.cs následujícím 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

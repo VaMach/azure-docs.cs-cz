@@ -24,7 +24,7 @@ Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrs
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -36,12 +36,12 @@ Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a ods
 1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Nejnovější verzi můžete stáhnout a nainstalovat v části **Windows PowerShell** na stránce [Položky ke stažení](https://azure.microsoft.com/downloads/).
 2. Pokud už máte virtuální síť, vyberte buď existující prázdnou podsíť, nebo vytvořte novou podsíť výhradně pro účely služby Application Gateway v existující virtuální síti. Službu Application Gateway není možné nasadit do jiné virtuální sítě než prostředky, které chcete nasadit za službu Application Gateway.
 3. Ověřte, že máte funkční virtuální síť s platnou podsítí. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Služba Application Gateway musí být sama o sobě v podsíti virtuální sítě.
-3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo musí mít své koncové body vytvořené ve virtuální síti nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
+3. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo mít své koncové body vytvořené buď ve virtuální síti, nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
 ## Co je potřeba k vytvoření služby Application Gateway?
 
 
-Když použijete příkaz **New-AzureApplicationGateway** k vytvoření aplikační brány, v tomhle bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se musí konfigurovat buď pomocí XML, nebo objektu konfigurace.
+Když použijete příkaz **New-AzureApplicationGateway** k vytvoření aplikační brány, v tomhle bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se konfiguruje buď pomocí XML, nebo objektu konfigurace.
 
 
 Hodnoty jsou:
@@ -49,11 +49,11 @@ Hodnoty jsou:
 - **Fond back-end serverů:** Seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do podsítě virtuální sítě, nebo by měly být veřejnými nebo virtuálními IP adresami.
 - **Nastavení fondu back-end serverů:** Každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
 - **Front-end port:** Toto je veřejný port, který se otevírá ve službě Application Gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
-- **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, s rozlišením malých a velkých písmen) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
+- **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, u těchto hodnot se rozlišují malá a velká písmena) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
 - **Pravidlo:** Pravidlo váže naslouchací proces a fond back-end serverů a definuje, ke kterému fondu back-end serverů se má provoz směrovat při volání příslušného naslouchacího procesu.
 
 
-## Vytvoření nové služby Application Gateway
+## Vytvoření služby Application Gateway
 
 Pro vytvoření nové aplikační brány:
 
@@ -66,7 +66,7 @@ Pro vytvoření nové aplikační brány:
 
 ### Vytvořte prostředek aplikační brány
 
-Když chcete vytvořit bránu, použijte rutinu **New-AzureApplicationGateway** a zadejte vlastní hodnoty. Všimněte si, že fakturace brány se nespustí v tomhle okamžiku. Fakturace začíná v pozdější fázi, po úspěšném spuštění brány.
+Když chcete vytvořit bránu, použijte rutinu **New-AzureApplicationGateway** a zadejte vlastní hodnoty. Fakturace brány se nespustí v tomhle okamžiku. Fakturace začíná v pozdější fázi, po úspěšném spuštění brány.
 
 Následující příklad vytvoří novou aplikační bránu pomocí virtuální sítě s názvem „testvnet1“ a podsítě s názvem „subnet-1".
 
@@ -163,7 +163,7 @@ Upravte hodnoty položek konfigurace v závorkách. Uložte soubor s příponou 
 
 >[AZURE.IMPORTANT] Položka protokolu Http nebo Https rozlišuje velká a malá písmena.
 
-Následující příklad ukazuje, jak použít konfigurační soubor k nastavení aplikační brány, aby vyrovnávala zatížení provozu HTTP na veřejném portu 80 a odesílala aktivity v síti na back-end port 80 mezi dvěma IP adresami.
+Následující příklad ukazuje, jak použít konfigurační soubor k nastavení služby Application Gateway. V příkladu se vyrovnává zatížení provozu HTTP na veřejném portu 80 a síťový provoz mezi dvěma IP adresami se odesílá na port back-end 80.
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -417,6 +417,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

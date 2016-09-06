@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="08/11/2016" 
+    ms.date="08/25/2016" 
     ms.author="anhoh"/>
 
 # <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
@@ -594,6 +594,6 @@ Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupn
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

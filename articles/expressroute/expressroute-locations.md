@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Partneři ExpressRoute a umístění partnerského vztahu
@@ -76,7 +76,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **[Internet Initiative Japan Inc. – IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Podporuje se | Podporuje se | Ósaka, Tokio |
 | **[InterCloud]( https://www.intercloud.com/)** | Podporuje se | Podporuje se | Amsterdam, Londýn, Singapur, Washington DC |
 | **Internet Solutions – Cloud Connect** | Podporuje se | Podporuje se | Amsterdam, Londýn |
-| **Interxion** | Podporuje se | Podporuje se | Amsterdam, Londýn, Paříž |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)**  | Podporuje se | Podporuje se | Amsterdam, Londýn, Paříž |
 | **Jisc** | Připravuje se | Připravuje se | Londýn+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Podporuje se | Podporuje se | Amsterdam, Chicago, Dallas, Las Vegas+, Londýn, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Podporuje se | Podporuje se | Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sydney, Washington DC |
@@ -89,7 +89,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Softbank** | Podporuje se | Podporuje se | Ósaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Podporuje se | Podporuje se | Amsterdam, Čennaj, Hongkong, Londýn, Bombaj, Silicon Valley, Singapur, Washington DC |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Podporuje se | Podporuje se | Amsterdam, Londýn |
-| **Telefonica** | Připravuje se | Připravuje se | Sao Paulo+ |
+| **Telefonica** | Podporuje se | Připravuje se | Sao Paulo |
 | **Telenor** | Podporuje se | Podporuje se | Amsterdam, Londýn |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Podporuje se | Připravuje se | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Podporuje se | Podporuje se | Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
@@ -133,7 +133,7 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 
     - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
     - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-    - [InterXion](http://www.interxion.com/)
+    - [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
     - [Cologix](http://www.cologix.com/)
@@ -173,6 +173,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

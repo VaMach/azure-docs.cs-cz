@@ -123,6 +123,7 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 - Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Zkuste si vytvořit službu pomocí programovacího modelu [Reliable Services](service-fabric-reliable-services-quick-start.md) nebo [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Zjistěte, jak vystavit svoje služby na internetu, prostřednictvím [rozhraní front-end webové služby](service-fabric-add-a-web-frontend.md).
+- Projděte si [testovací prostředí](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) a vytvořte bezstavovou službu, nakonfigurujte sledování a hlášení o stavu a proveďte upgrade aplikace.
 
 <!-- Image References -->
 
@@ -140,6 +141,6 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -12,7 +12,7 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
 
     ![][8]
 
-    Tím se stáhne a nainstaluje <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">balíček NuGet knihovny Azure Service Bus</a> a přidá se na něj odkaz.
+    Visual Studio stáhne a nainstaluje [balíček NuGet knihovny Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) a přidá se na něj odkaz.
 
 4. Do horní části souboru **Program.cs** přidejte následující příkazy `using`:
 
@@ -56,7 +56,7 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
 
     Tato metoda neustále odesílá události do vašeho centra událostí se zpožděním 200 ms.
 
-7. Nakonec přidejte do metody **Main** následující řádky:
+7. Nakonec do metody **Main** přidejte následující řádky:
 
     ```
     Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -71,6 +71,6 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

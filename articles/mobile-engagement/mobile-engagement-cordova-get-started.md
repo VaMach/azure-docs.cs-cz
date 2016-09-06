@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="js"
     ms.topic="hero-article" 
-    ms.date="04/04/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Začínáme s Azure Mobile Engagementem pro Cordovu/Phonegap
@@ -241,6 +241,6 @@ Nyní vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

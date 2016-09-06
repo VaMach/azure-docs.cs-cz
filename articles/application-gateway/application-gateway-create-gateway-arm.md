@@ -26,12 +26,12 @@ Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrs
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
 
-Tento článek vás provede kroky k vytvoření, konfiguraci, spuštění a odstranění služby Application Gateway.
+Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a odstranění aplikační brány.
 
 
 >[AZURE.IMPORTANT] Než začnete pracovat s prostředky Azure, je potřeba si uvědomit, že Azure má v současné době dva modely nasazení: Resource Manager a Classic. Před zahájením práce s jakýmikoli prostředky Azure se ujistěte, že [modelům nasazení a příslušným nástrojům](../azure-classic-rm.md) rozumíte. Dokumentaci k různým nástrojům můžete zobrazit kliknutím na karty v horní části tohoto článku. Tento dokument se týká vytvoření služby Application Gateway pomocí Azure Resource Manageru. Pokud chcete použít klasickou verzi, přejděte na téma [Vytvoření klasického nasazení služby Application Gateway pomocí prostředí PowerShell](application-gateway-create-gateway.md).
@@ -50,7 +50,7 @@ Tento článek vás provede kroky k vytvoření, konfiguraci, spuštění a odst
 - **Fond back-end serverů:** Seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do podsítě virtuální sítě, nebo by měly být veřejnými nebo virtuálními IP adresami.
 - **Nastavení fondu back-end serverů:** Každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tato nastavení se vážou na fond a používají se na všechny servery v rámci fondu.
 - **Front-end port:** Toto je veřejný port, který se otevírá ve službě Application Gateway. Když datový přenos dorazí na tento port, přesměruje se na některý back-end server.
-- **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, s rozlišením malých a velkých písmen) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
+- **Naslouchací proces:** Naslouchací proces má front-end port, protokol (Http nebo Https, u těchto hodnot se rozlišují malá a velká písmena) a název certifikátu SSL (pokud se konfiguruje přesměrování zpracování SSL).
 - **Pravidlo:** Pravidlo váže naslouchací proces a fond back-end serverů a definuje, ke kterému fondu back-end serverů se má provoz směrovat při volání příslušného naslouchacího procesu. 
 
 
@@ -62,13 +62,7 @@ Rozdíl mezi použitím nástrojů Azure Classic a Azure Resource Manager je v t
 S Resource Managerem se všechny položky, které tvoří službu Application Gateway, konfigurují individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
 
 
-Toto jsou kroky, které se musí provést k vytvoření služby Application Gateway:
-
-1. Vytvoření skupiny prostředků pro Resource Manager
-2. Vytvoření virtuální sítě, podsítě a veřejné IP adresy pro službu Application Gateway
-3. Vytvoření objektu konfigurace služby Application Gateway
-4. Vytvoření prostředku služby Application Gateway
-
+Následují kroky, které se musí provést k vytvoření služby Application Gateway.
 
 ## Vytvoření skupiny prostředků pro Resource Manager
 
@@ -93,7 +87,7 @@ Vytvořte novou skupinu prostředků (pokud používáte některou ze stávajíc
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. To slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření služby Application Gateway používají stejnou skupinu prostředků.
+Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. Toto umístění slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Ujistěte se, že všechny příkazy k vytvoření služby Application Gateway používají stejnou skupinu prostředků.
 
 V předchozím příkladu jsme vytvořili skupinu prostředků s názvem „appgw-RG“ a umístěním „Západní USA“.
 
@@ -146,7 +140,7 @@ Vytvořte konfiguraci protokolu IP služby Application Gateway s názvem „gate
 
 ### Krok 2
 
-Nakonfigurujte fond back-end IP adres s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Jsou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Výše uvedené IP adresy nahradíte vlastními aplikačními koncovými body IP adresy.
+Nakonfigurujte fond back-end IP adres s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Tyto IP adresy jsou IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Předchozí IP adresy nahradíte vlastními aplikačními koncovými body IP adresy.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -194,7 +188,7 @@ Nakonfigurujte velikost instance služby Application Gateway.
 
 ## Vytvoření služby Application Gateway pomocí New-AzureApplicationGateway
 
-Vytvořte službu Application Gateway se všemi položkami konfigurace z výše uvedených kroků. V tomto příkladu má služba Application Gateway název „appgwtest“.
+Vytvořte službu Application Gateway se všemi položkami konfigurace z předchozích kroků. V tomto příkladu má služba Application Gateway název „appgwtest“.
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
@@ -226,10 +220,6 @@ Načtěte podrobnosti o DNS a VIP služby Application Gateway z veřejného IP p
 ## Odstranění služby Application Gateway
 
 Pokud chcete službu Application Gateway odstranit, postupujte takto:
-
-1. Zastavte bránu pomocí rutiny **Stop-AzureRmApplicationGateway**.
-2. Pomocí rutiny **Remove-AzureRmApplicationGateway** bránu odeberte.
-3. Pomocí rutiny **Get-AzureRmApplicationGateway** můžete zkontrolovat odebrání brány.
 
 ### Krok 1
 
@@ -273,6 +263,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
