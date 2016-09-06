@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Ochrana rozhraní API omezením četnosti pomocí Azure API Management
@@ -238,7 +238,6 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 
 ## <a name="next-steps"> </a>Další kroky
 
--   Podívejte se i na další témata kurzu [Začínáme s pokročilou konfigurací rozhraní API][].
 -   V následujícím videu si pusťte ukázku nastavení kvót a omezení četnosti.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -289,13 +288,12 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 [Publikování produktu]: #publish-product
 [Přihlášení vývojářského účtu k odběru produktu]: #subscribe-account
 [Volání operace a testování omezení četnosti]: #test-rate-limit
-[Začínáme s pokročilou konfigurací rozhraní API]: api-management-get-started-advanced.md
 
 [Omezení četnosti volání]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Nastavení kvóty využití]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

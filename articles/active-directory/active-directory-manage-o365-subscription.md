@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Správa adresáře pro předplatné služeb Office 365 ve službě Azure
@@ -63,6 +63,6 @@ Další informace o vztahu mezi předplatnými a adresáři najdete v článku, 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

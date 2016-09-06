@@ -67,45 +67,7 @@ Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojov
 
 Pokud chcete začít používat funkce Service Bus v Azure, musíte nejdřív vytvořit obor názvů služby. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace.
 
-1.  Přihlaste se do [portál Azure Classic][].
-
-2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
-
-3.  V dolním podokně portálu klikněte na **Vytvořit**.
-
-    ![][5]
-
-4.  V dialogovém okně **Přidat nový obor názvů** zadejte název oboru názvů.
-    Systém okamžitě kontroluje, jestli je název dostupný.
-    ![][6]
-
-5.  Po kontrole dostupnosti oboru názvů vyberte zemi nebo oblast, ve které chcete obor názvů hostovat (nezapomeňte použít stejnou zemi nebo oblast, ve které nasazujete svoje výpočetní prostředky).
-
-    > [AZURE.IMPORTANT] Vyberte *stejnou oblast*, kterou chcete zvolit pro nasazení aplikace. Tím získáte nejlepší výkon.
-
-6.  V ostatních polích dialogového okna nechte výchozí hodnoty, potom klikněte na zatržítko OK. Systém vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
-
-Vytvořený obor názvů se zobrazí na portálu, i když jeho aktivace může chvíli trvat. Než budete pokračovat, počkejte na to, až bude stav **Aktivní**.
-
-## Získání výchozího pověření pro správu oboru názvů
-
-Abyste na novém oboru názvů mohli provádět operace správy, například vytváření entit zpráv, potřebujete získat pověření pro tento obor názvů.
-
-1.  V hlavním okně klikněte na obor názvů, který jste vytvořili v předchozím kroku.
-
-2.  V dolní části stránky klikněte na **Informace o připojení**.
-
-3.  V podokně **Informace o přístupovém připojení** najděte připojovací řetězec, který obsahuje klíč SAS a název klíče.
-
-    ![][45]
-
-4.  Protože budete připojovací řetězec později potřebovat, zkopírujte ho a vložte na vhodné místo nebo do poznámkového bloku.
-
-5. V horní části této stránky portálu taky klikněte na **Konfigurovat**.
-
-6. Zkopírujte primární klíč pro zásady **RootManageSharedAccessKey** do schránky nebo ho vložte do poznámkového bloku. Tuto hodnotu použijete později v tomto kurzu.
-
-    ![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Vytvoření lokálního serveru
 
@@ -298,7 +260,7 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
 
 8. Teď musíte nakonfigurovat prostředky Azure pro novou webovou aplikaci. Postupujte podle pokynů v části [Konfigurace prostředků Azure pro novou webovou aplikaci](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Potom se vraťte do tohoto kurzu a pokračujte dalším krokem.
 
-5.  V Průzkumníkovi řešení klikněte pravým tlačítkem na **Modely**, pak levým na **Přidat** a nakonec taky levým na **Třída**. Do pole **Název** zadejte název **Product.cs**: Pak klikněte na **Přidat**.
+5.  V Průzkumníkovi řešení klikněte pravým tlačítkem na **Modely**, pak levým na **Přidat** a pak na **Třída**. Do pole **Název** zadejte název **Product.cs**: Pak klikněte na **Přidat**.
 
     ![][17]
 
@@ -541,11 +503,6 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
   [Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [portál Azure Classic]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -567,8 +524,7 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
@@ -576,6 +532,6 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

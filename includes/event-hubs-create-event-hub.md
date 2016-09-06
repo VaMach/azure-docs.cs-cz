@@ -1,6 +1,6 @@
 ## Vytvoření centra událostí
 
-1. Přihlaste se k [portálu Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
+1. Přihlaste se na [portál Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
 
 2. Klikněte na **App Services**, potom na **Service Bus**, **Centrum událostí**, a **Rychle vytvořit**.
 
@@ -25,7 +25,9 @@ Centrum událostí je teď vytvořené a vy máte připojovací řetězce, kter�
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[portál Azure Classic]: https://manage.windowsazure.com/
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

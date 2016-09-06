@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Časté otázky týkající se verze Public Preview služby Azure Backup | Microsoft Azure"
+   pageTitle="Nejčastější dotazy k trezoru Recovery Services | Microsoft Azure"
    description="Tato verze častých otázek podporuje verzi Public Preview služby Azure Backup. Odpovědi na časté otázky týkající se agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další běžné otázky týkající se řešení Azure Backup."
    services="backup"
    documentationCenter=""
@@ -14,41 +14,37 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="07/01/2016"
+     ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
-# Verze Public Preview služby Azure Backup – časté otázky
+# Trezor služby Recovery Services – nejčastější dotazy
 
 > [AZURE.SELECTOR]
-- [Časté otázky týkající se režimu Classic](backup-azure-backup-faq.md)
-- [Časté otázky týkající se režimu ARM](backup-azure-backup-ibiza-faq.md)
+- [Nejčastější dotazy týkající se klasického režimu ve službě Backup](backup-azure-backup-faq.md)
+- [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Tento článek obsahuje informace specifické pro verzi Public Preview služby Azure Backup. Tento článek se aktualizuje po příchodu nových častých otázek a doplňuje [Časté otázky týkající se Azure Backup](backup-azure-backup-faq). Časté otázky týkající se Azure Backup poskytují ucelený soubor otázek a odpovědí ohledně služby Azure Backup.  
+Tento článek poskytuje informace specifické pro trezor služby Recovery Services a doplňuje článek [Nejčastější dotazy k Azure Backup](backup-azure-backup-faq). Časté otázky týkající se Azure Backup poskytují ucelený soubor otázek a odpovědí ohledně služby Azure Backup.  
 
 Otázky týkající se služby Azure Backup můžete pokládat v části Disqus tohoto článku nebo v některém souvisejícím článku. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Co obsahuje verze Public Preview?
-Verze Public Preview zavádí trezor Služeb zotavení a podporu ARM v rámci ochrany virtuálních počítačů Azure. Trezor Služeb zotavení představuje novou generaci trezorů. Tento trezor využívají služby Azure Backup a Azure Site Recovery (ASR). Považujte ho za trezor v.2.
+## Trezory Recovery Services využívají Resource Manager. Jsou ještě podporované trezory Backup (klasický režim)? <br/>
+Ano, trezory Backup jsou stále podporovány. Trezory Backup vytvářejte na [portálu Classic](https://manage.windowsazure.com). Trezory Recovery Services vytvářejte na webu [Azure Portal](https://portal.azure.com). Důrazně ale doporučujeme, abyste si vytvořili trezor Recovery Services, protože všechna budoucí vylepšení budou dostupná jenom pro trezory Recovery Services. 
 
-## Služby zotavení a trezory Backup
+## Můžu migrovat trezor Backup do trezoru Služeb zotavení? <br/>
+Bohužel ne. Obsah trezoru Backup nyní nejde migrovat do trezoru Služeb zotavení. Ačkoli na přidání této funkce pracujeme, v rámci verze Public Preview není dostupná.
 
-**Otázka č. 1: Trezory Služby zotavení jsou v.2. Jsou trezory Backup (v.1) stále podporovány?** <br/>
-Odpověď 1. Ano, trezory Backup jsou stále podporovány. Trezory Backup vytvářejte na portálu Classic. Trezory Služeb zotavení vytvářejte na Portálu Azure.
+## Podporují trezory Recovery Services klasické virtuální počítače nebo virtuální počítače využívající Resource Manager? <br/>
+Trezory Recovery Services podporují oba modely.  Do trezoru Recovery Services můžete zálohovat virtuální počítač vytvořený na portálu Classic (to je virtuální počítač v klasickém režimu) nebo virtuální počítač vytvořený na webu Azure Portal (to je virtuální počítač založený Resource Manageru).
 
-**Otázka 2. Můžu migrovat trezor Backup do trezoru Služeb zotavení?** <br/>
-Odpověď 2. Bohužel ne. Obsah trezoru Backup nyní nejde migrovat do trezoru Služeb zotavení. Ačkoli na přidání této funkce pracujeme, v rámci verze Public Preview není dostupná.
+## Svoje klasické virtuální počítače jsem zálohoval v trezoru služby Backup. Teď chci svoje virtuální počítače migrovat z klasického režimu do režimu Resource Manageru.  Jakým způsobem je můžu zálohovat v trezoru Recovery Services?
+Při migraci virtuálních počítačů z klasického režimu do režimu Resource Manageru se neprovede automatická migrace záloh klasických virtuálních počítačů do trezoru služby Backup. Při migraci záloh virtuálních počítačů použijte tento postup:
 
-**Otázka 3. Podporují trezory Služeb zotavení virtuální počítače v.1 nebo v.2?** <br/>
- Odpověď 3. Trezory Služeb zotavení podporují virtuální počítače v.1 a v.2. Virtuální počítač vytvořený na portálu Classic (což je v.1) nebo virtuální počítač vytvořený na Portálu Azure (což je v.2) můžete zálohovat do trezoru Služeb zotavení.
-
-
-## Podpora ARM pro virtuální počítače Azure
-
-**Otázka 1. Existují ohledně podpory ARM pro virtuální počítače Azure nějaká omezení?** <br/>
-Odpověď č. 1: Rutiny prostředí PowerShell pro ARM nejsou aktuálně dostupné. Pokud chcete přidat prostředky do skupiny prostředků, je nutné použít uživatelské rozhraní Portálu Azure.
+1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**. 
+2. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a síť odpovídající tomuto virtuálnímu počítači. 
+3. Vytvořte trezor Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Další informace o postupu při [povolení zálohování v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

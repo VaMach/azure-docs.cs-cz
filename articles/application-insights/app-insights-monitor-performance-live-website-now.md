@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="08/24/2016"
     ms.author="awills"/>
 
 
@@ -162,7 +162,7 @@ Funkce monitorování stavu funguje teprve tehdy, když v bráně firewall svéh
   * Otevřete Vyhledávání diagnostiky (dlaždice Hledání) a zobrazte jednotlivé události. Události jsou často viditelné ve Vyhledávání diagnostiky před zobrazením agregovaných dat v grafech.
   * Otevřete monitorování stavu a vyberte svou aplikaci v levém podokně. Zkontrolujte, zda existují jakékoli zprávy diagnostiky pro tuto aplikaci v části „Konfigurace oznámení“:
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Otevřete okno Výkon a zobrazte si žádost, dobu odezvy, závislosti a další data.](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Ujistěte se, že server brány firewall umožňuje odchozí přenosy na těchto portech uvedených výše.
   * Na serveru, pokud se zobrazí zpráva o „nedostatečných oprávněních“, zkuste následující postup:
@@ -302,6 +302,6 @@ Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šab
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

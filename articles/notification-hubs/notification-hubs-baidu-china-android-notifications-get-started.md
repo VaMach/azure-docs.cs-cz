@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="mobile-baidu"
     ms.workload="mobile"
-    ms.date="05/05/2016"
+    ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Začínáme s použitím Notification Hubs pomocí Baidu
@@ -413,7 +413,7 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 
 * **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Mobilní služby Azure**: pro příklad odesílání oznámení z mobilních služeb Azure back-end, které jsou integrovány v centrech oznámení, naleznete v tématu [Přidat nabízená oznámení do vaší aplikace pro mobilní služby](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
+* **Azure Mobile Services**: pro příklad odesílání oznámení z Azure Mobile Services back-end, které jsou integrovány v centrech oznámení, naleznete v tématu [Přidat nabízená oznámení do vaší aplikace pro Mobile Services](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
 
 * **Java / PHP**: Příklad odesílání oznámení pomocí rozhraní REST API najdete v části „Jak používat Notification Hubs z Javy/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
@@ -505,6 +505,6 @@ Pro odeslání testovacího oznámení můžete použít kartu ladění na port�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

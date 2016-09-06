@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Správa zabezpečení v Azure
 
 Předplatitelé služby Azure mohou svoje cloudová prostředí spravovat z více zařízení. Můžou k tomu využívat pracovní stanice, počítače vývojářů a dokonce i privilegovaná zařízení koncových uživatelů, která mají oprávnění ke konkrétním úlohám. V některých případech se funkce správy provádějí prostřednictvím webových konzol, například [portálu Azure](https://azure.microsoft.com/features/azure-portal/). V ostatních případech můžou existovat přímá připojení k Azure z místních systémů prostřednictvím virtuálních privátních sítí (VPN), terminálových služeb, protokolů klientských aplikací nebo (v kódu) rozhraní API pro správu služby Azure (SMAPI). Kromě toho můžou být koncové body klienta buď připojené k doménám nebo izolované a nespravované, jako například tablety nebo smartphony.
 
-Přestože tyto funkce správy a více přístupů nabízejí bohatou sadu možností, může tato variabilita zvýšit rizika při nasazení cloudu a může ztížit správu, sledování a audit akcí správy. Tato variabilita může také zvýšit ohrožení bezpečnosti prostřednictvím neregulovaného přístupu ke koncovým bodům klientů, které se používají pro správu cloudových služeb. Používání obecných nebo osobních pracovních stanic k vývoji a správě infrastruktury otevírá možnosti útoků z nečekaných směrů, například prohlížení webu (útok typu watering hole) nebo e-mailu (sociální inženýrství a phishing).
+Přestože funkce správy a více přístupů nabízejí bohatou sadu možností, může tato variabilita výrazně zvýšit rizika při nasazení cloudu. Může být obtížné spravovat, sledovat a auditovat akce správy. Tato variabilita může také zvýšit ohrožení bezpečnosti prostřednictvím neregulovaného přístupu ke koncovým bodům klientů, které se používají pro správu cloudových služeb. Používání obecných nebo osobních pracovních stanic k vývoji a správě infrastruktury otevírá možnosti útoků z nečekaných směrů, například prohlížení webu (např. útok typu watering hole) nebo e-mailu (např. sociální inženýrství a phishing).
 
 ![][1]
 
@@ -128,7 +128,7 @@ Některé aplikace nebo služby, které nasadíte do Azure, můžou mít vlastn�
 
 K zabezpečení připojení klientů k virtuálním sítím Azure je k dispozici několik mechanismů. Dva z těchto mechanismů [VPN typu site-to-site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) a [VPN typu point-to-site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) umožňují používání standardního protokolu IPsec (S2S) nebo SSTP ([Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx)) (P2S) pro šifrování a tunelové propojení. Když se Azure připojuje ke správě veřejně přístupných služeb Azure, například k portálu pro správu Azure, vyžaduje protokol HTTPS (Hypertext Transfer Protocol Secure).
 
-Samostatná posílená pracovní stanice, která není k Azure připojená prostřednictvím brány VP, musí k vytvoření počátečního připojení ke službě Azure Virtual Network používat síť VPN typu point-to-site s protokolem SSTP a potom musí vytvořit připojení RDP k jednotlivým virtuální počítačům zevnitř tunelu VPN.
+Samostatná posílená pracovní stanice, která není k Azure připojená prostřednictvím brány VP, musí k vytvoření počátečního připojení ke službě Azure Virtual Network používat síť VPN typu Point-to-Site s protokolem SSTP a potom musí vytvořit připojení RDP k jednotlivým virtuální počítačům zevnitř tunelu VPN.
 
 ### Auditování správy vs. vynucení zásad
 
@@ -161,7 +161,7 @@ V případě prostředí IT, která nemají místní infrastrukturu (například
 
 ### Samostatná posílená pracovní stanice určená pro správu
 
-V případě samostatné posílené pracovní stanice mají správci stolní nebo přenosný počítač používaný pro úlohy správy a jiný, samostatný stolní nebo přenosný počítač pro úlohy, které nepotřebují žádné oprávnění. Pracovní stanice vyhrazená pro správu služeb Azure nepotřebuje instalaci dalších aplikací. Kromě toho používání pracovních stanic, které podporují [služby TPM (Trusted Platform Module)](https://technet.microsoft.com/library/cc766159) (TPM) nebo podobné technologie šifrování na úrovni hardwaru, usnadňuje ověřování zařízení a ochranu před napadením. TPM může také podporovat ochranu celého svazku systémové jednotky [jejím šifrováním pomocí BitLockeru](https://technet.microsoft.com/library/cc732774.aspx).
+V případě samostatné posílené pracovní stanice mají správci stolní nebo přenosný počítač používaný pro úlohy správy a jiný, samostatný stolní nebo přenosný počítač pro úlohy, které nepotřebují žádné oprávnění. Pracovní stanice vyhrazená pro správu služeb Azure nepotřebuje instalaci dalších aplikací. Kromě toho používání pracovních stanic, které podporují [služby TPM (Trusted Platform Module)](https://technet.microsoft.com/library/cc766159) (TPM) nebo podobné technologie šifrování na úrovni hardwaru, usnadňuje ověřování zařízení a ochranu před napadením. TPM může také podporovat ochranu celého svazku systémové jednotky jejím [šifrováním pomocí BitLockeru](https://technet.microsoft.com/library/cc732774.aspx).
 
 V případě scénáře se samostatnou posílenou pracovní stanicí (viz následující obrázek) je místní instance brány Windows Firewall (nebo brány firewall klienta jiného výrobce) nakonfigurovaná tak, aby blokovala příchozí připojení, například RDP. Správce se může přihlásit k posílené pracovní stanici a spustit relaci RDP, která se připojuje k Azure po navázání připojení VPN ke službě Azure Virtual Network, ale nemůže se přihlásit k podnikovému počítači pomocí RDP, aby se připojil k samotné posílené pracovní stanici.
 
@@ -249,6 +249,6 @@ Následující prostředky vám poskytnou další obecné informace o Azure a so
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

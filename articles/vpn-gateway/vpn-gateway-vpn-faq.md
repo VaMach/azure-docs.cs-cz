@@ -42,7 +42,7 @@ Podporovány jsou následující možnosti připojení mezi různými místy:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute je přímé připojení k Azure z vaší sítě WAN, nikoli prostřednictvím veřejného internetu. Další informace najdete v tématech [Technický přehled ExpressRoute](../expressroute/expressroute-introduction.md) a [ExpressRoute – nejčastější dotazy](../expressroute/expressroute-faqs.md).
 
-Další informace o připojeních mezi různými místy najdete v tématu [Informace o bezpečném připojení mezi různými místy](vpn-gateway-cross-premises-options.md).
+Další informace o připojeních najdete v tématu [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### Jaký je rozdíl mezi připojením Site-to-Site a Point-to-Site?
 
@@ -52,11 +52,9 @@ Připojení typu **Point-to-Site** umožňují připojit se z jednoho počítač
 
 Virtuální sítě můžete konfigurovat tak, aby souběžně používaly připojení Site-to-Site i Point-to-Site, pokud připojení Site-to-Site vytvoříte s použitím typu sítě VPN založeného na směrování pro bránu. Typy sítí VPN založené na směrování se v modelu nasazení Classic nazývají dynamické brány.
 
-Další informace najdete v tématu [Informace o bezpečném připojení mezi různými místy pro virtuální sítě](vpn-gateway-cross-premises-options.md).
-
 ### Co je ExpressRoute?
 
-ExpressRoute vám umožňuje vytvářet privátní připojení mezi datovými centry společnosti Microsoft a infrastrukturou, která se nachází ve vašem umístění nebo v prostředí ve společném umístění. Prostřednictvím ExpressRoute můžete vytvářet připojení ke cloudovým službám společnosti Microsoft jako je například Microsoft Azure nebo Office 365, v partnerském zařízení ExpressRoute ve společném umístění, nebo se připojovat přímo z existující sítě WAN (například ze sítě VPN MPLS poskytované poskytovatelem síťové služby).
+ExpressRoute vám umožňuje vytvářet privátní připojení mezi datovými centry společnosti Microsoft a infrastrukturou, která se nachází ve vašem umístění nebo v prostředí ve společném umístění. Prostřednictvím ExpressRoute můžete vytvářet připojení ke cloudovým službám společnosti Microsoft, jako je například Microsoft Azure nebo Office 365, v partnerském zařízení ExpressRoute ve společném umístění, nebo se připojovat přímo z existující sítě WAN (například ze sítě VPN MPLS poskytované poskytovatelem síťové služby).
 
 Připojení ExpressRoute nabízejí vyšší úroveň zabezpečení, větší spolehlivost, větší šířku pásma a nižší latenci než typická připojení přes internet. V některých případech může používání připojení ExpressRoute pro přenos dat mezi vaší místní sítí a Azure přispět také k výraznému snížení nákladů. Pokud jste již vytvořili připojení mezi různými místy z místní sítě do Azure, můžete provést migraci na připojení ExpressRoute, a přitom zachovat virtuální síť beze změn.
 
@@ -70,11 +68,11 @@ Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zaří
 
 ### Jak postupovat, pokud mám zařízení VPN, které není v seznamu známých kompatibilních zařízení?
 
-Pokud vaše zařízení není uvedeno v seznamu jako známé kompatibilní zařízení VPN a chcete je použít pro připojení k síti VPN, budete muset ověřit, zda splňuje podporované možnosti konfigurace protokolu IPsec/IKE a parametry uvedené [zde](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Zařízení splňující minimální požadavky by měla spolupracovat s bránami VPN bez problémů. Kvůli další podpoře a pokynům ke konfiguraci se prosím obraťte na výrobce zařízení.
+Pokud vaše zařízení není uvedeno v seznamu jako známé kompatibilní zařízení VPN a chcete je použít pro připojení k síti VPN, budete muset ověřit, zda splňuje podporované možnosti konfigurace protokolu IPsec/IKE a parametry uvedené [zde](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Zařízení splňující minimální požadavky by měla spolupracovat s bránami VPN bez problémů. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
 
 ### Proč se tunelové připojení sítě VPN založené na zásadách při nečinnosti deaktivuje?
 
-Toto je očekávané chování u bran VPN pracujících na základě zásad (označují se také výrazem statické směrování). Když je přenos přes tunelové propojení nečinný déle než 5 minut, tunelové propojení se deaktivuje. Jakmile se ale provoz v některém směru obnoví, tunelové propojení se ihned aktivuje znovu. Pokud používáte brány VPN založené na směrování (také označované jako dynamické), toto chování se neprojeví.
+Toto je očekávané chování u bran VPN pracujících na základě zásad (označují se také výrazem statické směrování). Když je přenos přes tunelové propojení nečinný déle než 5 minut, tunelové propojení se deaktivuje. Když se provoz v některém směru obnoví, tunelové propojení se ihned aktivuje znovu. Pokud používáte brány VPN založené na směrování (také označované jako dynamické), toto chování se neprojeví.
 
 ### Je možné používat pro připojení k Azure softwarové sítě VPN?
 
@@ -128,7 +126,7 @@ Automatické opětné připojení a DDNS se u sítí VPN s připojením Point-to
 
 ### Je možné současně používat konfigurace Site-to-Site a Point-to-Site pro stejnou virtuální síť?
 
-Ano. Obě tato řešení budou funkční, pokud pro bránu používáte typ sítě VPN založené na směrování. Pro model nasazení Classic budete potřebovat dynamickou bránu. Připojení Point-to-Site pro brány VPN se statickým směrováním ani brány používající typ sítě VPN PolicyBased se nepodporuje.
+Ano. Obě tato řešení budou funkční, pokud pro bránu používáte síť VPN typu RouteBased. Pro model nasazení Classic je potřebná dynamická brána. Připojení Point-to-Site pro brány VPN se statickým směrováním ani brány používající typ sítě VPN PolicyBased se nepodporuje.
 
 ### Je možné nakonfigurovat klienta Point-to-Site tak, aby se připojoval k několik virtuálním sítím současně?
 
@@ -168,11 +166,11 @@ Ověřování je omezeno na použití předsdílených klíčů (PSK).
 
 Aby bylo možné povolit propojení mezi různými místy, spouští se služba brány. 
 
-Pro virtuální síť je třeba vytvořit podsíť brány, aby bylo možné konfigurovat bránu VPN. Všechny podsítě brány musí mít název GatewaySubnet, aby fungovaly správně. Nenastavujte pro podsíť brány jiný název. A v podsíti brány nenasazujte virtuální počítače ani žádná jiná zařízení.
+Pro virtuální síť je třeba vytvořit podsíť brány, aby bylo možné konfigurovat bránu VPN. Pro správné fungování všech podsítí brány je nutné, aby měly název GatewaySubnet. Nenastavujte pro podsíť brány jiný název. A v podsíti brány nenasazujte virtuální počítače ani žádná jiná zařízení.
 
 Minimální velikost podsítě brány zcela závisí na konfiguraci, kterou chcete vytvořit. Přestože je pro některé konfigurace možné vytvořit tak malou podsíť brány, jako je /29, doporučujeme vytvořit podsíť brány o velikosti /28 nebo větší (/28, /27, /26 atd.). 
 
-## Je možné nasazovat do podsítě brány virtuální počítače nebo instance role?
+### Je možné nasazovat do podsítě brány virtuální počítače nebo instance role?
 
 Ne.
 
@@ -197,7 +195,7 @@ Brána sítě VPN je v podstatě zařízení s více adresami, přičemž jedna 
 
 ### Další informace o typech brány, požadavcích a propustnosti
 
-Další informace najdete v tématu [Informace o bránách VPN](vpn-gateway-about-vpngateways.md).
+Další informace najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Možnosti připojování k více serverům a připojení VNet-to-VNet
 
@@ -231,7 +229,7 @@ Ne, redundantní tunelová propojení mezi virtuální sítí Azure a místním 
 
 ### Mohou se adresní prostory mezi propojenými virtuálními sítěmi a místními servery překrývat?
 
-Ne. Překrývající se adresní prostory by způsobily selhání při odesílání souboru netcfg nebo při vytváření virtuální sítě.
+Ne. Překrývající se adresní prostory by způsobily selhání při odesílání souboru konfigurace sítě nebo při provádění operace „Vytvoření virtuální sítě“.
 
 ### Je možné dosáhnout větší šířky pásma použitím několika sítí VPN Site-to-Site než v případě jedné virtuální sítě?
 
@@ -239,7 +237,10 @@ Ne, všechna tunelové propojení sítí VPN Point-to-Site sdílejí tutéž br�
 
 ### Je možné používat bránu VPN Azure pro provoz mezi místními servery a jinou virtuální sítí?
 
-Provoz prostřednictvím brány VPN Azure je možné, je však závislý na staticky definovaných adresních prostorech v konfiguračním souboru netcfg. Protokol BGP není u virtuálních sítí a bran VPN Azure dosud podporován. Bez protokolu BGP je ruční definování adresních prostorů pro přenos velmi náchylné k chybám a nedoporučuje se.
+**Model nasazení Classic**<br>
+Provoz prostřednictvím brány VPN Azure s použitím modelu nasazení Classic je možný, je však závislý na staticky definovaných adresních prostorech v souboru konfigurace sítě. Protokol BGP není u virtuálních sítí a bran VPN Azure používajících model nasazení Classic dosud podporován. Bez protokolu BGP je ruční definování adresních prostorů pro přenos velmi náchylné k chybám a nedoporučuje se.<br>
+**Model nasazení Resource Manager**<br>
+Pokud používáte model nasazení Resource Manager, najdete další informace v části [BGP](#bgp).
 
 ### Generuje Azure stejný předsdílený klíč protokolu IPsec/IKE pro všechna připojení k síti VPN pro stejnou virtuální síť?
 
@@ -254,7 +255,7 @@ Provoz mezi různými virtuálními sítěmi Azure se v Azure účtuje pouze jak
 
 Ano, tato možnost je podporována. Další informace najdete v tématu [konfigurace ExpressRoute a připojení VPN typu site-to-site, která mohou existovat vedle sebe](../expressroute/expressroute-howto-coexist-classic.md).
 
-## Protokol BGP
+## <a name="bgp"></a>Protokol BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -264,27 +265,22 @@ Ano, tato možnost je podporována. Další informace najdete v tématu [konfigu
 
 ### Pokud se virtuální počítač nachází ve virtuální síti s propojením mezi různými místy, jak se k virtuálnímu počítači připojovat?
 
-Možností je několik. Pokud je povolen protokol RDP a je vytvořen koncový bod, je možné připojit se k virtuálnímu počítači s použitím virtuální IP adresy. V takovém případě zadejte virtuální IP adresu a port, ke kterému se chcete připojit. Je třeba nakonfigurovat příslušný port ve virtuálním počítači pro provoz. Obvykle je třeba přejít na portál Azure Classic a uložit si do počítače nastavení pro připojení RDP. Nastavení budou obsahovat potřebné informace o připojení.
+Možností je několik. Pokud je povolen protokol RDP a je vytvořen koncový bod, je možné připojit se k virtuálnímu počítači s použitím virtuální IP adresy. V takovém případě zadejte virtuální IP adresu a port, ke kterému se chcete připojit. Je třeba nakonfigurovat příslušný port ve virtuálním počítači pro provoz. Obvykle je třeba přejít na portál Azure Classic a uložit si do počítače nastavení pro připojení RDP. Nastavení obsahují potřebné informace o připojení.
 
 V případě virtuální sítě s nakonfigurovanou možností propojení mezi různými místy je možné připojit se k virtuálnímu počítači s použitím vnitřní vyhrazené IP adresy nebo privátní IP adresy. K virtuálnímu počítači se lze připojit pomocí vnitřní vyhrazené IP adresy i z jiného virtuálního počítače umístěného ve stejné virtuální síti. K virtuálnímu počítači se nelze připojit pomocí protokolu RDP s použitím vyhrazené IP adresy z místa mimo virtuální síť. Pokud je například nakonfigurována virtuální síť Point-to-Site, ale z počítače není vytvořeno připojení, nelze se k počítači připojit pomocí vyhrazené IP adresy.
 
 ### Pokud se virtuální počítač nachází ve virtuální síti s možností připojení mezi různými místy, prochází tímto připojením veškerý provoz z virtuálního počítače?
 
-Ne. Bránou virtuální sítě prochází pouze s cílovou IP adresou uvedenou v nastavených rozsazích IP adres místní sítě pro příslušnou virtuální síť. Provoz s cílovou adresou IP v příslušné virtuální síti probíhá v rámci této virtuální sítě. Ostatní provoz je odesílán prostřednictvím služby Load Balancer do veřejných sítí nebo prostřednictvím brány VPN Azure, pokud je použito vynucené tunelování. Při řešení problémů je důležité ujistit se, že jsou pro místní síť nastaveny všechny rozsahy, jejichž prostřednictvím chcete provádět odesílání. Ověřte, že rozsahy adres místní sítě se nepřekrývají se žádnými rozsahy adres ve virtuální síti. Je také vhodné ověřit, že server DNS, který používáte, překládá název na správnou adresu IP.
+Ne. Bránou virtuální sítě prochází pouze s cílovou IP adresou uvedenou v nastavených rozsazích IP adres místní sítě pro příslušnou virtuální síť. Provoz s cílovou IP adresou v příslušné virtuální síti probíhá v rámci této virtuální sítě. Ostatní provoz je odesílán prostřednictvím služby Load Balancer do veřejných sítí nebo prostřednictvím brány VPN Azure, pokud je použito vynucené tunelování. Při řešení problémů je důležité ujistit se, že jsou pro místní síť nastaveny všechny rozsahy, jejichž prostřednictvím chcete provádět odesílání. Ověřte, že rozsahy adres místní sítě se nepřekrývají se žádnými rozsahy adres ve virtuální síti. Je také vhodné ověřit, že server DNS, který používáte, překládá název na správnou IP adresu.
 
 
 ## Nejčastější dotazy týkající se virtuálních sítí
 
 Další informace o virtuálních sítích najdete v tématu [Nejčastější dotazy týkající se virtuálních sítí](../virtual-network/virtual-networks-faq.md).
-
-## Další kroky
-
-Další informace o branách VPN najdete na [stránce dokumentace k branám VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

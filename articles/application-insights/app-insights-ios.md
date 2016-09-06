@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analýza pro aplikace iOS"
+    pageTitle="Analýza pro aplikace iOS | Microsoft Azure"
     description="Analýza využití a výkonu vaší aplikace iOS."
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/20/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analýza pro aplikace iOS
@@ -31,15 +31,21 @@ Přejít na:
 
 Pokud má vaše aplikace serverovou stranu, použijte [Application Insights](app-insights-overview.md) ke sledování na straně webového serveru vaší aplikace na [ASP.NET](app-insights-asp-net.md) nebo [J2EE](app-insights-java-get-started.md). 
 
-> [AZURE.NOTE] Brzy bude možné používat [Application Insights Analytics](app-insights-analytics.md) a [průběžný export](app-insights-export-telemetry.md) s telemetrií odeslanou ze sady HockeyApp SDK. 
->
-> [Další informace o této změně.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## Analýza, export a přístup přes rozhraní API k datům HockeyApp 
+
+[Nastavte most HockeyApp](app-insights-hockeyapp-bridge-app.md) v Application Insights. To umožňuje:
+
+* Používat výkonný dotazovací jazyk [analýzy](app-insights-analytics.md) u vaší telemetrie. 
+* [Exportujte telemetrii](app-insights-export-telemetry.md) do Azure Blob Storage.
+
+## Další kroky
+
+* [Začínáme s HockeyApp pro iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
 
 
 
 
-
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

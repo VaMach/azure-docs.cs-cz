@@ -39,42 +39,7 @@ Pokud chcete začít používat předávání přes Service Bus v Azure, musíte
 
 Vytvoření oboru názvů služby:
 
-1.  Přihlaste se k [portálu Azure Classic][].
-
-2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
-
-3.  V dolním podokně portálu klikněte na **Vytvořit**.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  V dialogovém okně **Přidat nový obor názvů** zadejte název oboru názvů.
-    Systém okamžitě kontroluje, jestli je název dostupný.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Po kontrole dostupnosti oboru názvů vyberte zemi nebo oblast, ve které chcete obor názvů hostovat (nezapomeňte použít stejnou zemi nebo oblast, ve které nasazujete svoje výpočetní prostředky).
-
-    > [AZURE.IMPORTANT] Vyberte *stejnou oblast*, kterou chcete zvolit pro nasazení aplikace. Tím získáte nejlepší výkon.
-
-6.  V ostatních polích dialogového okna nechte výchozí hodnoty (**Přenos zpráv** a **Úroveň Standard**) a potom klikněte na zatržítko. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-    Aktivace vytvořeného oboru názvů chvíli trvá, obor názvů se pak zobrazí na portálu. Než budete pokračovat, počkejte na to, až bude stav **Aktivní**.
-
-## Získání výchozího pověření pro správu oboru názvů
-
-Abyste mohli provádět operace správy, například vytvoření předávacího spojení nebo nový obor názvů, musíte nakonfigurovat sdílený přístupový podpis (SAS) pro obor názvů. Další informace o tokenu SAS naleznete v tématu o [ověřování u služby Service Bus pomocí sdíleného přístupového podpisu][].
-
-1.  V levém navigačním podokně klikněte na uzel **Service Bus** a zobrazte seznam dostupných oborů názvů.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  V zobrazeném seznamu poklikejte na právě vytvořený obor názvů.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Klikněte na kartu **Konfigurovat** v horní části stránky.
-
-4.  Při zřízení oboru názvů Service Bus se ve výchozím nastavení vytvoří **SharedAccessAuthorizationRule** s hodnotou **KeyName** nastavenou na **RootManageSharedAccessKey**. Na této straně se zobrazí klíč a primární a sekundární klíče pro výchozí pravidlo.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Získání balíčku Service Bus NuGet
 
@@ -271,12 +236,11 @@ Naučili jste se základy předávání přes Service Bus, další informace se 
 - [Přehled architektury služby Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - Ukázky pro Service Bus si můžete stáhnout z [ukázek Azure][] nebo se můžete podívat na [přehled ukázek pro Service Bus][].
 
-  [portálu Azure Classic]: http://manage.windowsazure.com
   [ověřování u služby Service Bus pomocí sdíleného přístupového podpisu]: service-bus-shared-access-signature-authentication.md
   [ukázek Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [přehled ukázek pro Service Bus]: service-bus-samples.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

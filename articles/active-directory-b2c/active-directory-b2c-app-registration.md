@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/22/2016"
+    ms.date="08/30/2016"
     ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azur
 2. Klikněte na **Přidat** v horní části okna.
 3. Zadejte **Název** aplikace, který popíše aplikaci uživatelům. Můžete například zadat „Aplikace Contoso B2C“.
 4. Pokud píšete webovou aplikaci, přepněte přepínač **Zahrnout webovou aplikaci / webové rozhraní API** na **Ano**. **Adresy URL odpovědí** jsou koncové body, kam Azure AD B2C vrátí všechny tokeny, které vaše aplikace požaduje. Zadejte například `https://localhost:44321/`. Pokud vaše webová aplikace také bude volat některé webové rozhraní API zabezpečené pomocí Azure AD B2C, budete chtít vytvořit **Tajný klíč aplikace** a také kliknout na tlačítko **Vygenerovat klíč**.
+
+    > [AZURE.NOTE] **Tajný klíč aplikace** je důležitý údaj zabezpečení a musí být řádně zabezpečen.
+
 5. Pokud píšete mobilní aplikaci, přepněte přepínač **Zahrnout nativního klienta** na **Ano**. Poznamenejte si výchozí **Identifikátor URI přesměrování**, který se automaticky vytvoří.
 6. Pro registraci aplikace klikněte na **Vytvořit**.
 7. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu.
 
-> [AZURE.NOTE] **Tajný klíč aplikace** je důležitý údaj zabezpečení a musí být řádně zabezpečen.
+> [AZURE.IMPORTANT] Aplikace vytvořené v okně funkcí B2C musí být spravované ve stejném umístění. Pokud upravujete aplikace B2C pomocí PowerShellu nebo jiného portálu, stanou se nepodporované a nebudou pravděpodobně s Azure AD B2C pracovat.
 
 ## Sestavení aplikace Rychlý start
 
@@ -53,6 +56,6 @@ Nyní, když máte aplikaci registrovanou v Azure AD B2C, můžete dokončit jed
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

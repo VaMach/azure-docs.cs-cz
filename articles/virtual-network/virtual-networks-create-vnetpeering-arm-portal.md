@@ -3,7 +3,7 @@
    description="Naučte se vytvořit virtuální síť pomocí webu Azure Portal v nástroji Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -132,6 +132,6 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

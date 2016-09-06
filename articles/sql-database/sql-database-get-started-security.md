@@ -15,22 +15,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/19/2016"
+    ms.date="08/17/2016"
     ms.author="carlrab"/>
 
-# Kurz k SQL Database: Vytvoření uživatelského účtu databáze SQL pro přístup k databázi a její správu pomocí portálu Azure
+# Kurz k SQL Database: Vytvoření uživatelského účtu databáze SQL pro přístup k databázi a její správu
 
 
 > [AZURE.SELECTOR]
 - [Kurz Začínáme](sql-database-get-started-security.md)
 - [Udělení přístupu](sql-database-manage-logins.md)
 
-V tomto kurzu se naučíte, jak pomocí Portálu Azure:
+V tomto kurzu se naučíte používat SQL Server Management Studio (SSMS), když chcete:
 
-- použít hlavní přihlášení na úrovni serveru k přihlášení k SQL Database,
-- vytvořit uživatelský účet pro SQL Database,
-- přidělit uživatelskému účtu SQL Database oprávnění dbo pro uživatelskou databázi,
-- provést připojení k databázi SQL pomocí uživatelského účtu, který není hlavním přihlášením na úrovni serveru. 
+- Přihlásit se k SQL Database pomocí hlavního přihlášení na úrovni serveru.
+- Vytvořit uživatelský účet pro SQL Database.
+- Udělit uživateli SQL Database [oprávnění db_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0).
+- Připojit se k SQL Database pomocí uživatelského účtu, který není hlavním přihlášením na úrovni serveru.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -54,6 +54,6 @@ Nyní jste dokončili kurz SQL Database – vytvořili jste uživatelský účet
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

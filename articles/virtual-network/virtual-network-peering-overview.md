@@ -4,7 +4,7 @@
    description="Informace o partnerských vztazích virtuálních sítí ve službě Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor="tysonn" />
 <tags
@@ -90,6 +90,6 @@ Během období vyhodnocování bude funkce partnerských vztahů virtuálních s
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

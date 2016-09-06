@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Používání Azure Media Services s Javou" 
+    pageTitle="Začínáme s doručováním obsahu na vyžádání pomocí Javy | Microsoft Azure" 
     description="Popisuje, jak pomocí Azure Media Services provádět běžné úlohy, jako kódování, šifrování a streamování prostředků." 
     services="media-services" 
     documentationCenter="java" 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/11/2016"   
+    ms.date="08/17/2016"   
     ms.author="robmcm"/>
 
-#Používání Media Services s Javou
+# Začínáme s doručováním obsahu na vyžádání pomocí Javy
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Ser
 
 ##Návod: Použití Media Services s Javou
 
-Tento kód ukazuje, jak vytvořit prostředek, uložit do prostředku soubor média, spustit úlohu s úkolem transformace prostředku a vytvořit lokátor pro streamování videa.
+Tento kód ukazuje, jak vytvořit asset, uložit do assetu soubor média, spustit úlohu s úkolem transformace assetu a vytvořit lokátor pro streamování videa.
 
 Abyste mohli tento kód použít, musíte si nejdřív vytvořit účet Media Services. Informace o vytvoření účtu najdete v tématu [Vytvoření účtu Media Services](media-services-create-account.md).
 
-Místo proměnných `clientId` a `clientSecret` dosaďte svoje hodnoty. Kód taky pracuje s místně uloženým souborem. Budete muset použít vlastní soubor.
+Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pracuje s místně uloženým souborem. Budete muset použít vlastní soubor.
     
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -278,6 +278,6 @@ Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny A
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

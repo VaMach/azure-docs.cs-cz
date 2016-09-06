@@ -16,11 +16,11 @@
     ms.date="08/09/2016"
     ms.author="casoper"/>
 
-# Přehled Sítě pro doručování obsahu (CDN) Azure
+# Přehled služby Content Delivery Network (CDN) Azure
 
-> [AZURE.NOTE] Tento dokument popisuje, co je Síť pro doručování obsahu (CDN) Azure, jak funguje, a funkce všech produktů CDN Azure.  Chcete-li tyto informace přeskočit a rovnou přejít ke kurzu jak vytvořit koncový bod CDN, přejděte na [Používání CDN Azure](cdn-create-new-endpoint.md).  Chcete-li zobrazit aktuální seznam umístění uzlů CDN, přejděte na [Umístění POP v síti CDN](cdn-pop-locations.md).
+> [AZURE.NOTE] Tento dokument popisuje, co je služba Content Delivery Network (CDN) Azure, jak funguje, a funkce všech produktů CDN Azure.  Chcete-li tyto informace přeskočit a rovnou přejít ke kurzu jak vytvořit koncový bod CDN, přejděte na [Používání CDN Azure](cdn-create-new-endpoint.md).  Chcete-li zobrazit aktuální seznam umístění uzlů CDN, přejděte na [Umístění POP v síti CDN](cdn-pop-locations.md).
 
-Síť pro doručování obsahu (CDN) Azure ukládá statický webový obsah do mezipaměti na strategicky umístěných místech, a tak poskytuje maximální propustnost pro doručování obsahu uživatelům.  CDN nabízí vývojářům globální řešení pro doručování širokopásmového obsahu díky ukládání obsahu do mezipaměti na fyzických uzlech po celém světě. 
+Služba Content Delivery Network (CDN) Azure ukládá statický webový obsah do mezipaměti na strategicky umístěných místech, a tak poskytuje maximální propustnost pro doručování obsahu uživatelům.  CDN nabízí vývojářům globální řešení pro doručování širokopásmového obsahu díky ukládání obsahu do mezipaměti na fyzických uzlech po celém světě. 
 
 Mezi výhody používání CDN k ukládání webových prostředků do mezipaměti patří:
 
@@ -68,6 +68,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | [Přizpůsobitelný modul doručování obsahu založený na pravidlech](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Rozšířené sestavy HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiky v reálném čase](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Výstrahy v reálném čase](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Víte o funkci, kterou byste uvítali v CDN Azure?  [Sdělte nám svůj názor](https://feedback.azure.com/forums/169397-cdn)! 
 
@@ -85,6 +86,6 @@ Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/p
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

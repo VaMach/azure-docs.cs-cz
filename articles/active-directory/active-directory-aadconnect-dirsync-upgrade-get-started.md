@@ -13,18 +13,22 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="06/27/2016"
+   ms.date="08/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade z nástroje DirSync
 Azure AD Connect je nástupcem nástroje DirSync. V tomto tématu najdete popis způsobů upgradu z nástroje DirSync. Pokud upgradujete z jiné verze služby Azure AD Connect nebo ze služby Azure AD Sync, tyto kroky nefungují.
 
-Před zahájením instalace služby Azure AD Connect nezapomeňte [stáhnout službu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) a dokončit nezbytné kroky uvedené v tématu [Azure AD Connect: Hardware a nezbytné předpoklady](active-directory-aadconnect-prerequisites.md).
+Před zahájením instalace Azure AD Connect nezapomeňte [stáhnout Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) a provést požadovanou přípravu popsanou v tématu [Azure AD Connect: Hardware a nezbytné předpoklady](active-directory-aadconnect-prerequisites.md). Zejména si přečtěte následující informace, protože se od DirSync liší tyto oblasti:
+
+- Požadovaná verze rozhraní .NET a prostředí PowerShell. Je třeba, aby na serveru byly novější verze, než jaké vyžaduje DirSync.
+- Konfigurace proxy serveru. Pokud pro přístup k Internetu používáte proxy server, toto nastavení je třeba konfigurovat ještě před upgradem. DirSync vždy používá proxy server nakonfigurovaný pro uživatele, který provádí instalaci, ale Azure AD Connect používá nastavení platné pro počítač.
+- Adresy URL musí být v proxy serveru povolené. Pro základní scénáře, které také DirSync podporuje, jsou požadavky stejné. Pokud chcete používat nové funkce zahrnuté do Azure AD Connect, je třeba povolit některé nové adresy URL.
 
 Pokud neupgradujete z nástroje DirSync, přečtěte si [související dokumentaci](#related-documentation) a použijte jiné scénáře.
 
 ## Upgrade z nástroje DirSync
-V závislosti na aktuálním nasazení nástroje DirSync můžete upgradovat různými způsoby. Pokud je očekávaná doba upgradu kratší než 3 hodiny, pak doporučujeme provést místní upgrade. Pokud je očekávaná doba upgradu delší než 3 hodiny, pak doporučujeme provést paralelní nasazení na jiném serveru. Pokud máte více než 50 tisíc objektů, potrvá upgrade odhadem déle než 3 hodiny.
+V závislosti na aktuálním nasazení nástroje DirSync můžete upgradovat různými způsoby. Pokud je očekávaná doba upgradu kratší než tři hodiny, pak doporučujeme provést místní upgrade. Pokud je očekávaná doba upgradu delší než tři hodiny, pak doporučujeme provést paralelní nasazení na jiném serveru. Pokud máte více než 50 000 objektů, potrvá upgrade odhadem déle než tři hodiny.
 
 Scénář |  
 ---- | ----
@@ -34,29 +38,29 @@ Scénář |
 >[AZURE.NOTE] Pokud plánujete upgrade z nástroje DirSync na službu Azure AD Connect, nesnažte se DirSync odinstalovat sami, dokud neproběhne upgrade. Azure AD Connect bude číst a migrovat konfigurace z nástroje DirSync. Odinstalace proběhne až po kontrole serveru.
 
 **Místní upgrade**  
-Očekávaný čas dokončení upgradu se zobrazí v průvodci. Odhad vychází z předpokladu, že upgrade databáze s 50 tisíci objekty (uživatelé, kontakty a skupiny) potrvá 3 hodiny. Pokud je počet objektů v databázi menší než 50 tisíc, Azure AD Connect analyzuje aktuální nastavení nástroje DirSync a doporučí místní upgrade. Pokud se rozhodnete pokračovat, budou při upgradu automaticky použita vaše aktuální nastavení a server automaticky obnoví aktivní synchronizaci.
+Očekávaný čas dokončení upgradu se zobrazí v průvodci. Odhad vychází z předpokladu, že upgrade databáze s 50 000 objekty (uživatelé, kontakty a skupiny) potrvá tři hodiny. Pokud je počet objektů v databázi menší než 50 000, Azure AD Connect doporučí místní upgrade. Pokud se rozhodnete pokračovat, budou při upgradu automaticky použita vaše aktuální nastavení a server automaticky obnoví aktivní synchronizaci.
 
 Pokud chcete provést migraci konfigurace a paralelní nasazení, můžete doporučení pro místní upgrade ignorovat. Například můžete při této příležitosti obnovit hardware a operační systém. Další informace najdete v tématu [Paralelní nasazení](#parallel-deployment).
 
 **Paralelní nasazení**  
-Pokud počet vašich objektů přesahuje 50 tisíc, doporučuje se použít paralelní nasazení. Tím se vyhnete různým provozním zdržením, ke kterým by mohlo u vašich uživatelů dojít. Instalace Azure AD Connect se pokusí odhadnout prostoje při upgradu, ale pokud jste DirSync upgradovali již dříve, raději se řiďte vlastními zkušenostmi.
+Pokud počet vašich objektů přesahuje 50 000, doporučuje se použít paralelní nasazení. Tím se vyhnete různým provozním zdržením, ke kterým by mohlo u vašich uživatelů dojít. Instalace Azure AD Connect se pokusí odhadnout prostoje při upgradu, ale pokud jste DirSync upgradovali již dříve, raději se řiďte vlastními zkušenostmi.
 
 ### Podporované konfigurace nástroje DirSync, které budou upgradovány
-Následující změny konfigurace jsou podporovány nástrojem DirSync a budou upgradovány:
+Následující změny konfigurace podporované nástrojem DirSync budou upgradovány:
 
-- doména a filtrování organizační jednotky
+- Filtrování domén a organizačních jednotek
 - alternativní ID (UPN)
 - synchronizace hesla a hybridní nastavení Exchange
 - doménová struktura/doména a nastavení služby Azure AD
 - filtrování podle atributů uživatele
 
-Následující změnu nelze upgradovat. Pokud jste ji provedli, upgrade bude zablokován:
+Následující změnu nelze upgradovat. Pokud máte tuto konfiguraci, upgrade bude zablokován:
 
-- nepodporované změny nástroje DirSync, např. odstraněné atributy nebo použití vlastního rozšíření knihovny DLL
+- nepodporované změny nástroje DirSync, např. odstraněné atributy nebo použití vlastní rozšířující knihovny DLL.
 
 ![Upgradování zablokováno](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-V těchto případech doporučujeme nainstalovat nový server Azure AD Connect v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode), ověřit starou konfiguraci nástroje DirSync a novou konfiguraci služby Azure AD Connect. Veškeré změny znovu použijte pomocí vlastní konfigurace, jak je popsáno v tématu [Vlastní konfigurace služby Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
+V těchto případech doporučujeme nainstalovat nový server Azure AD Connect v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode) a ověřit starou konfiguraci nástroje DirSync a novou konfiguraci služby Azure AD Connect. Veškeré změny znovu použijte pomocí vlastní konfigurace, jak je popsáno v tématu [Vlastní konfigurace služby Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
 Hesla, která nástroj DirSync používá pro účty služby, nelze získat a nebudou migrována. Tato hesla se při upgradu resetují.
 
@@ -67,7 +71,7 @@ Hesla, která nástroj DirSync používá pro účty služby, nelze získat a ne
 3. Získání hesla globálního správce služby Azure AD
 4. Získání přihlašovacích údajů pro účet správce podnikové sítě (použije se pouze během instalace služby Azure AD Connect)
 5. Instalace služby Azure AD Connect
-    * Odinstalace nástroje DirSync
+    * Odinstalace nástroje DirSync (nebo jeho dočasné vypnutí)
     * Instalace služby Azure AD Connect
     * Volitelné zahájení synchronizace
 
@@ -87,12 +91,12 @@ Další kroky jsou požadovány, pokud:
     - Pokud používáte systém SQL Server Express a máte méně než 50 tisíc objektů, zobrazí se následující obrazovka: ![Analýza dokončena, připraveno k upgradu z nástroje DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - Pokud pro nástroj DirSync používáte plnou instalaci systému SQL Server, zobrazí se tato stránka: ![Analýza dokončena, připraveno k upgradu z nástroje DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
 Zobrazí se informace, že DirSync používá stávající databázový server systému SQL Server. V případě potřeby proveďte příslušné změny. Kliknutím na tlačítko **Další** pokračujte v instalaci.
-    - Pokud máte v databázi více než 50 tisíc objektů, zobrazí se tato obrazovka: ![Analýza dokončena, připraveno k upgradu z nástroje DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+    - Pokud máte v databázi více než 50 000 objektů, zobrazí se tato obrazovka: ![Analýza dokončena, připraveno k upgradu z nástroje DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
 Pokud chcete pokračovat v místním upgradu, klikněte na zaškrtávací políčko vedle této zprávy: **Pokračovat v upgradu nástroje DirSync na tomto počítači.**
-Pokud chcete místo toho provést [paralelní nasazení](#parallel-deployment), budete nastavení konfigurace nástroje DirSync exportovat a přesouvat na nový server.
+Pokud chcete místo toho provést [paralelní nasazení](#parallel-deployment), exportujte nastavení konfigurace nástroje DirSync a přesuňte konfiguraci na nový server.
 5. Zadejte heslo pro účet, který aktuálně používáte k připojení ke službě Azure AD. Musí se jednat o účet, který DirSync aktuálně používá.
 ![Zadejte svoje přihlašovací údaje služby Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
-Pokud se zobrazí chybová zpráva a máte problémy s připojením, přejděte na téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
+Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Zadejte účet správce podnikové sítě pro Active Directory.
 ![Zadejte svoje přihlašovací údaje ke službě AD DS.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. Nyní můžete provést konfiguraci. Pokud kliknete na tlačítko **Upgradovat**, odinstaluje se nástroj DirSync a nakonfiguruje se služba Azure AD Connect a zahájí synchronizaci.
@@ -112,7 +116,7 @@ Zobrazí se obrazovka, která se podobá této:
 
 Pokud chcete pokračovat v paralelním nasazení, je třeba provést následující kroky:
 
-- Klikněte na tlačítko **Exportovat nastavení**. Pokud Azure AD Connect instalujete na samostatný server, budou tato nastavení importována, aby se migrovala nastavení z vašeho stávajícího nástroje DirSync do nové instalace služby Azure AD Connect.
+- Klikněte na tlačítko **Exportovat nastavení**. Pokud Azure AD Connect instalujete na samostatný server, budou tato nastavení migrována z vašeho stávajícího nástroje DirSync do nové instalace služby Azure AD Connect.
 
 Po dokončení exportu nastavení můžete na serveru nástroje DirSync ukončit průvodce služby Azure AD Connect. Pokračujte dalším krokem a [nainstalujte Azure AD Connect na samostatný server.](#installation-of-azure-ad-connect-on-separate-server)
 
@@ -124,7 +128,7 @@ Pokud máte méně než 50 tisíc objektů, ale přesto chcete provést paraleln
 2. Až se zobrazí obrazovka **Vítá vás Azure AD Connect**, ukončete průvodce instalací kliknutím na křížek v pravém horním rohu okna.
 3. Otevřete příkazový řádek.
 4. Z umístění instalace služby Azure AD Connect (výchozí: C:\Program Files\Microsoft Azure Active Directory Connect) spusťte následující příkaz:  `AzureADConnect.exe /ForceExport`.
-5. Klikněte na tlačítko **Exportovat nastavení**.  Pokud Azure AD Connect instalujete na samostatný server, budou tato nastavení importována, aby se migrovala nastavení z vašeho stávajícího nástroje DirSync do nové instalace služby Azure AD Connect.
+5. Klikněte na tlačítko **Exportovat nastavení**.  Pokud Azure AD Connect instalujete na samostatný server, budou tato nastavení migrována z vašeho stávajícího nástroje DirSync do nové instalace služby Azure AD Connect.
 
 ![Analýza dokončena](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
@@ -146,17 +150,17 @@ Při instalaci služby Azure AD Connect na nový server bude instalační progra
     - Účet služby, který používáte k připojení k systému SQL Server (pokud je vaše databáze v systému SQL Server vzdálená, pak tento účet musí být účtem doménové služby).
 Tyto možnosti můžete zobrazit na této obrazovce: ![ Zadejte svoje přihlašovací údaje služby Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klikněte na **Další**.
-8. Na stránce **Připraveno ke konfiguraci** nechejte zaškrtnuté políčko **Zahájit proces synchronizace ihned po dokončení konfigurace**. Server se bude nacházet v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode), takže změny tentokrát nebudou exportovány do služby Azure AD.
-9. Klikněte na **Instalovat**.
+8. Na stránce **Připraveno ke konfiguraci** nechejte zaškrtnuté políčko **Zahájit proces synchronizace ihned po dokončení konfigurace**. Server je teď v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode), takže změny se nebudou exportovat do služby Azure AD.
+9. Klikněte na **Nainstalovat**.
 10. Po dokončení instalace se odhlaste a znovu přihlaste do Windows. Teprve pak použijte Synchronization Service Manager, Synchronization Rule Editor, případně proveďte další změny v konfiguraci.
 
->[AZURE.NOTE] Bude zahájena synchronizace mezi službami Windows Server Active Directory a Azure Active Directory, ale žádné změny nebudou exportovány do služby Azure AD.  V jednu chvíli může změny aktivně exportovat pouze jeden synchronizační nástroj. Tento postup se nazývá [pracovní režim](active-directory-aadconnectsync-operations.md#staging-mode).
+>[AZURE.NOTE] Bude zahájena synchronizace mezi službami Windows Server Active Directory a Azure Active Directory, ale žádné změny se nebudou exportovat do služby Azure AD. V jednu chvíli může změny aktivně exportovat pouze jeden synchronizační nástroj. Tento stav se nazývá [pracovní režim](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Kontrola připravenosti služby Azure AD Connect k zahájení synchronizace
 
-Abyste ověřili, že je služba Azure AD Connect připravena převzít roli nástroje DirSync, je třeba pomocí nabídky Start otevřít **Synchronization Service Manager** ve skupině **Azure AD Connect**.
+Pro ověření, že je služba Azure AD Connect připravena převzít roli nástroje DirSync, je třeba pomocí nabídky Start otevřít **Synchronization Service Manager** ve skupině **Azure AD Connect**.
 
-V aplikaci je třeba zobrazit kartu **Operace**. Na této kartě uvidíte potvrzení, zda byly provedeny následující operace:
+V aplikaci přejděte na kartu **Operace**. Na této kartě uvidíte potvrzení, zda byly provedeny následující operace:
 
 - Import v konektoru služby AD
 - Import v konektoru služby Azure AD
@@ -169,15 +173,17 @@ Zkontrolujte výsledky těchto operací a ujistěte se, že nikde nejsou žádn�
 
 Pokud chcete zobrazit a zkontrolovat změny, které mají být exportovány do služby Azure AD, přečtěte si postup ověření konfigurace v [pracovním režimu](active-directory-aadconnectsync-operations.md#staging-mode). Proveďte požadované změny, pokud nenarazíte na nic neočekávaného.
 
-Až dokončíte tyto čtyři operace, nebudou nikde žádné chyby a budete spokojeni se změnami, které mají být vyexportovány, jste připraveni odinstalovat DirSync a povolit synchronizaci se službou Azure AD Connect. Proveďte následující dva kroky a migrace bude dokončena.
+Pokud jste provedli tyto kroky a jste spokojeni s výsledkem, jste připraveni na přepnutí z nástroje DirSync na Azure AD.
 
 ### Odinstalace nástroje DirSync (starý server)
 
 - V nabídce **Programy a funkce** vyhledejte **synchronizační nástroj služby Windows Azure Active Directory**.
 - Odinstalujte **synchronizační nástroj služby Windows Azure Active Directory**.
-- Počítejte s tím, že odinstalace může trvat až 15 minut.
+- Odinstalace může trvat až 15 minut.
 
-Když DirSync odinstalujete, nebude už k dispozici žádný aktivní server exportující do služby Azure AD. Následující krok je třeba provést dřív, než budou jakékoli změny v místní službě Active Directory dále synchronizovány se službou Azure AD.
+Pokud budete chtít odinstalovat DirSync později, můžete také dočasně vypnout server nebo zakázat službu. Pokud dojde k nějaké chybě, budete ho moct znovu povolit. Neočekává se však, že by následující krok mohl selhat, takže by tento postup neměl být potřeba.
+
+Když DirSync odinstalujete nebo vypnete, nebude už k dispozici žádný aktivní server exportující do služby Azure AD. Následující krok, povolení služby Azure AD Connect, je třeba provést dřív, než budou jakékoli změny v místní službě Active Directory dále synchronizovány se službou Azure AD.
 
 ### Povolení služby Azure AD Connect (nový server)
 Když po instalaci znovu otevřete službu Azure AD Connect, budete moci provést další změny v konfiguraci. Z nabídky Start nebo pomocí zástupce na ploše spusťte **Azure AD Connect**. Zkontrolujte, jestli se nepokoušíte znovu spustit instalační soubor MSI.
@@ -217,6 +223,6 @@ Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

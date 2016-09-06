@@ -1,36 +1,31 @@
 Ujistěte se, že jste již vytvořili obor názvů sběrnice, jak je znázorněno [zde][namespace-how-to].
 
-1. Přihlaste se na [portál Azure Classic][classic-portal].
+1. Přihlaste se k webu [Azure Portal][azure-portal].
 
 2. V levém navigačním podokně portálu klikněte na **Service Bus**.
 
-3. Vyberte obor názvů, ve kterém chcete vytvořit frontu. V tomto případě se jedná o „mytestns1“.
+3. Vyberte obor názvů, ve kterém chcete vytvořit frontu. V tomto případě se jedná o **nstest1**.
 
-    ![Výběr oboru názvů][select-namespace]
+    ![Vytvoření fronty][createqueue1]
 
-4. Vyberte **Fronty**.
+4. V okně **Obor názvů Service Bus** vyberte **Fronty** a pak klikněte na **Přidat frontu**.
 
-    ![Vyberte Fronty][select-queue]
+    ![Vyberte Fronty][createqueue2]
 
-5. Vyberte **Nový** v levém dolním rohu a pak vyberte **Rychle vytvořit**.
+5. Zadejte **Název fronty** a nechte ostatní hodnoty na jejich výchozích hodnotách.
 
-    ![Vyberte Nový][select-new]
+    ![Vyberte Nový][createqueue3]
 
-6. Zadejte **Název fronty** a ujistěte se, že je vybrán správný obor názvů.
+7. Dole na v okně klikněte na **Vytvořit**.
 
-7. Vyberte **Vytvořit novou frontu**.
-
-    ![Vytvoření fronty][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

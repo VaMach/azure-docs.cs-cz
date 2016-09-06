@@ -122,7 +122,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Heslo musí být 12 až 123 znaků dlouhé a musí obsahovat minimálně jedno malé písmeno, jedno velké písmeno, jednu číslici a jeden speciální znak. 
+    Heslo musí mít 8 až 123 znaků a musí splňovat 3 ze 4 bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Nahraďte hodnotu **$vmName** názvem pro virtuální počítač. Vytvořte proměnnou a konfiguraci virtuálního počítače.
 
@@ -168,12 +168,12 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
                                   
 ## Další kroky
 
-- Pokud byly nějaké problémy s nasazením, je dalším krokem projít si téma [Řešení potíží s nasazením skupin prostředků pomocí Portálu Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Pokud byly nějaké problémy s nasazením, je dalším krokem projít si téma [Řešení potíží s nasazením skupin prostředků pomocí webu Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
 - Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md), kde najdete informace o tom, jak spravovat virtuální počítač, který jste právě vytvořili.
 - Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md) můžete vytvořit virtuální počítač pomocí šablony.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -3,7 +3,7 @@
    description="Tento článek vám pomůže vytvořit, zakázat, povolit, odstranit nebo zobrazit historii profilu Azure Traffic Manageru."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Správa profilu Azure Traffic Manageru
 
@@ -86,6 +86,6 @@ Můžete zobrazit historii změn pro svůj profil Traffic Manageru na portálu A
 [Řešení potíží při sníženém výkonu Traffic Manageru](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows
@@ -26,6 +26,8 @@
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umožňuje vzdáleně provádět různé operace v clusterech služby HDInsight v Linuxu pomocí rozhraní příkazového řádku. Tento dokument obsahuje informace o připojení k HDInsight z klientů se systémem Windows pomocí klienta PuTTY SSH.
 
 > [AZURE.NOTE] Postup v tomto článku předpokládá, že používáte klienta se systémem Windows. Pokud používáte klienta OS X, Linux a Unix, naleznete postup v části [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> Pokud máte Windows 10 a používáte [Bash na Ubuntu ve Windows](https://msdn.microsoft.com/commandline/wsl/about), můžete použít kroky v dokumentu [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Požadavky
 
@@ -97,7 +99,7 @@ Každá z těchto metod bude vyžadovat veřejný klíč. Úplné informace týk
 
 ###Azure Portal
 
-Pokud používáte [portál Azure][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, je nutné zadat **Uživatelské jméno SSH** a vybrat, zda chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
+Pokud používáte [web Azure Portal][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, je nutné zadat **Uživatelské jméno SSH** a vybrat, zda chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
 
 Pokud vyberete **VEŘEJNÝ KLÍČ SSH**, můžete buď vložit veřejný klíč (zobrazený v části __Veřejný klíč pro vložení do pole klíčů oprávnění\_OpenSSH__ v PuttyGen,) do pole __SSH PublicKey__ nebo vybrat možnost __Vybrat soubor__ a procházet a vybrat soubor, který obsahuje veřejný klíč.
 
@@ -237,6 +239,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

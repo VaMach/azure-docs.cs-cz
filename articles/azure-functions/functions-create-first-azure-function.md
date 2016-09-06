@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,13 +15,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Vytvoření první funkce Azure
+#Vytvoření první funkce Azure
 
 ##Přehled
-Řešení Azure Functions je prostředí typu výpočet jako služba řízené událostmi, které rozšiřuje stávající platformu aplikací Azure o funkce pro implementaci kódu aktivovaného událostmi, ke kterým dochází v jiných službách Azure, produktech SaaS a místních systémech. Díky Azure Functions se aplikace škálují na základě poptávky a vy platíte jen za využité prostředky. Azure Functions umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
+Řešení Azure Functions je prostředí typu „výpočetní prostředí jako služba“ řízené událostmi, které rozšiřuje stávající platformu aplikací Azure o funkce pro implementaci kódu aktivovaného událostmi, ke kterým dochází v jiných službách Azure, produktech SaaS a místních systémech. Díky Azure Functions se aplikace škálují na základě poptávky a vy platíte jen za využité prostředky. Azure Functions umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
 
 Toto téma vám ukáže, jak pomocí rychlého startu Azure Functions na portálu Azure Functions vytvořit jednoduchou funkci "hello world" v Node.js, která se vyvolá triggerem protokolu HTTP. Můžete také shlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
 
@@ -70,6 +70,6 @@ Azure Functions využívá platformu Azure App Service pro základní funkce, ja
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -4,7 +4,7 @@
     services="sql-database"
     keywords="databázový dotaz c#, dotaz c#, připojení k databázi, SQL C#"
     documentationCenter=""
-    authors="MightyPen"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -15,7 +15,8 @@
     ms.devlang="dotnet"
     ms.topic="get-started-article"
     ms.date="08/17/2016"
-    ms.author="annemill"/>
+    ms.author="stevestein"/>
+
 
 
 # Připojení k SQL Database pomocí sady Visual Studio
@@ -30,73 +31,57 @@ Přečtěte si, jak se připojit k Azure SQL Database v sadě Visual Studio.
 ## Požadavky
 
 
-Abyste se mohli připojit k SQL Database pomocí sady Visual Studio, musíte mít: 
+Abyste se mohli připojit k databázi SQL pomocí sady Visual Studio, potřebujete následující položky: 
 
 
-- Účet a předplatné Azure. Můžete si zaregistrovat i [bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- Ukázkovou databázi **AdventureWorksLT** služby Azure SQL Database.
- - [Vytvoření ukázkové databáze](sql-database-get-started.md) během pár minut.
+- Databázi SQL, k níž se chcete připojit. V tomto článku se používá ukázková databáze **AdventureWorks**. Ukázkovou databázi AdventureWorks můžete získat podle popisu v článku [Vytvoření ukázkovou databázi](sql-database-get-started.md).
 
 
 - Visual Studio 2013 s aktualizací Update 4 (nebo vyšší). Microsoft teď nabízí *zdarma* Visual Studio Community. 
  - [Visual Studio Community, stažení](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Další možnosti získání bezplatné verze sady Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Nebo se můžete podívat, jak tento [krok](#InstallVSForFree) dále v tomto tématu popisuje, jak vás [portál Azure](https://portal.azure.com/) provede instalací sady Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Krok 1: Instalace bezplatné verze Visual Studio Community
 
 
-Pokud potřebujete instalaci sady Visual Studio, můžete:
-
-- Nainstalovat zdarma verzi Visual Studio Community, a to tak, že přejdete v prohlížeči na webové stránky produktu Visual Studio se soubory, které jsou zdarma ke stažení, a dalšími možnostmi, nebo
-- Nechat se [portálem Azure](https://portal.azure.com/) navést na webovou stránku se soubory ke stažení, která je popsána dále.
+## Spuštění sady Visual Studio z webu Azure Portal
 
 
-### Visual Studio prostřednictvím portálu Azure
+1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+
+2. Klikněte na možnost **Další služby** > **Databáze SQL**
+3. Otevřete okno databáze **AdventureWorks** po vyhledání databáze *AdventureWorks* a kliknutí na ni.
+
+6. Klikněte na tlačítko **Nástroje** v horní části okna databáze:
+
+    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Klikněte na tlačítko **Otevřít ve Visual Studiu** (pokud budete potřebovat sadu Visual Studio, klikněte na odkaz ke stažení):
+
+    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/) (http://portal.azure.com/).
-
-2. Klikněte na **PROCHÁZET* VŠE** > **Databáze SQL**. Otevře se okno umožňující hledat databáze.
-
-3. Do textového pole filtru v horní začněte psát název vaší databáze **AdventureWorksLT**.
-
-4. Pokud uvidíte řádek pro vaši databázi na serveru, klikněte na něj. Otevře se okno pro vaši databázi.
-
-5. Abyste měli zobrazení přehlednější, klikněte na každém z předchozích oken na ovládací prvek pro minimalizaci.
-
-6. V horní části okna databáze klikněte na tlačítko **Otevřít v sadě Visual Studio**. Otevře se nové okno o sadě Visual Studio s odkazy na umístění instalace pro Visual Studio.
-
-    ![Tlačítko Otevřít v sadě Visual Studio][20-OpenInVisualStudioButton]
-
-7. Klikněte na odkaz **Verze Community (zdarma)** nebo na podobný odkaz. Přidá se nová webová stránka.
-
-8. Pomocí odkazů na nové webové stránce nainstalujte sadu Visual Studio.
-
-9. Po nainstalování sady Visual Studio klikněte v okně **Otevřít v sadě Visual Studio** na tlačítko **Otevřít v sadě Visual Studio**. Otevře se Visual Studio.
-
-10. Visual Studio vás vyzve, abyste v dialogovém okně vyplnili pole s připojovacím řetězcem.
- - Zvolte **Ověřování SQL Serveru**, nikoli **Ověřování systému Windows**.
- - Nezapomeňte zadat svoji databázi **AdventureWorksLT** (**Možnosti** > **Vlastnosti připojení** v dialogovém okně).
-
-11. V **Průzkumníku objektů SQL Serveru** rozbalte uzel vaší databáze.
+8. Visual Studio se spustí a v okně **Připojit k serveru** již bude nastaveno připojení k serveru a databázi, které jste vybrali na portálu.  (Po kliknutí na **Možnosti** můžete ověřit, že je nastaveno připojení ke správné databázi.) Zadejte heslo správce serveru a klikněte na **Připojit**.
 
 
-## Krok 2: Spuštění ukázkových dotazů
+    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Po připojení k logickému serveru se můžete připojit k databázi a spustit ukázkový dotaz. 
 
-1. V **Průzkumníkovi objektů** přejděte na databázi na serveru, ke které máte oprávnění, například k ukázkové databázi **AdventureWorks**.
+8. Pokud nemáte nastavené pravidlo brány firewall pro IP adresu počítače, může se zde zobrazit zpráva *Připojení nelze provést*. Chcete-li vytvořit pravidlo brány firewall, najdete informace v tématu [Konfigurace pravidla brány firewall na úrovni serveru SQL Azure Database](sql-database-configure-firewall-settings.md).
+
+
+9. Po úspěšném připojení se otevře okno **Průzkumník objektů systému SQL Server** s připojením k vaší databázi.
+
+    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Spuštění ukázkového dotazu
+
+Po připojení k databázi nyní následující kroky ilustrují, jak spustit jednoduchý dotaz:
+
 2. Klikněte na databázi pravým tlačítkem myši a pak klikněte na **Nový dotaz**.
 
-    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![Nový dotaz Připojení k serveru služby SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Zkopírujte následující kód a vložte ho do okna dotazu.
 
@@ -108,22 +93,20 @@ Po připojení k logickému serveru se můžete připojit k databázi a spustit 
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Klikněte na tlačítko **Provést**.  Na následujícím snímku obrazovky vidíte úspěšný dotaz.
+4. Spusťte dotaz kliknutím na tlačítko **Spustit**:
 
-    ![Úspěch Připojení k serveru SQL Database: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Úspěch Připojení k serveru SQL Database: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Další kroky
 
-[Připojení k SQL Database s použitím rozhraní .NET (C#)](sql-database-develop-dotnet-simple.md) 
-
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+- K otevírání databází SQL v sadě Visual Studio se používají nástroje SQL Server Data Tools. Podrobnější informace najdete v tématu [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- Chcete-li se připojit k databázi SQL s použitím kódu, najdete informace v části [Připojení k SQL Database s použitím rozhraní .NET (C#)](sql-database-develop-dotnet-simple.md).
 
 
 
 
-<!---HONumber=Aug16_HO4-->
+
+
+<!--HONumber=ago16_HO5-->
 
 

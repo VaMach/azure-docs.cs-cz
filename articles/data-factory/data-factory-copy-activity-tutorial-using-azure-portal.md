@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí editoru služby Data Factory" 
+    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí editoru služby Data Factory | Microsoft Azure" 
     description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí editoru služby Data Factory na webu Azure Portal." 
     services="data-factory" 
     documentationCenter="" 
@@ -23,6 +23,7 @@
 - [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 
@@ -32,8 +33,8 @@ Krok | Popis
 -----| -----------
 [Vytvoření služby Azure Data Factory](#create-data-factory) | V tomto kroku vytvoříte objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.  
 [Vytvoření propojených služeb](#create-linked-services) | V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService** a **AzureSqlLinkedService**. AzureStorageLinkedService propojuje službu Azure Storage a AzureSqlLinkedService propojuje službu Azure SQL Database k objektu ADFTutorialDataFactory. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data budou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.      
-[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V předchozím kroku jste vytvořili propojené služby, které odkazují na úložiště dat, která obsahují vstupní a výstupní data. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data uložená v úložištích dat. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data. Zadejte také další vlastnosti, jako je například struktura dat, dostupnost dat a další. 
-[Vytvoření kanálu](#create-pipeline) | V tomto kroku vytvoříte v objektu ADFTutorialDataFactory kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory a aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
+[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V předchozím kroku jste vytvořili propojené služby, které odkazují na úložiště dat, která obsahují vstupní a výstupní data. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data uložená v úložištích dat. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data. Zadejte také další vlastnosti, jako je například struktura, dostupnost a další. 
+[Vytvoření kanálu](#create-pipeline) | V tomto kroku vytvoříte v objektu ADFTutorialDataFactory kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 [Monitorování kanálu](#monitor-pipeline) | V tomto kroku budete monitorovat řezy vstupní a výstupní tabulky pomocí webu Azure Portal.
 
 > [AZURE.IMPORTANT] 
@@ -60,7 +61,9 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 7. Všimněte si, že v okně **Nový objekt pro vytváření dat** je vybraná možnost **Add to Startboard** (Připnout na Úvodní panel).
 8. V okně **Nový objekt pro vytváření dat** klikněte na **Vytvořit**.
 
-    Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba **Název objektu pro vytváření dat ADFTutorialDataFactory není k dispozici**, změňte název objektu pro vytváření dat (třeba na váš_název_ADFTutorialDataFactory) a zkuste to znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.  
+    Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí následující chyba, změňte název objektu pro vytváření dat (třeba na váš_název_ADFTutorialDataFactory) a zkuste to znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+    
+        Data factory name “ADFTutorialDataFactory” is not available  
      
     ![Název objektu pro vytváření dat není k dispozici][image-data-factory-name-not-available]
     
@@ -155,7 +158,7 @@ Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte 
     - Vlastnost **folderPath** je nastavená na kontejner **adftutorial**. Můžete taky zadat název objektu blob ve složce. Pokud neurčíte název objektu blob, budou za vstupní data považována data ze všech objektů blob v kontejneru.  
     - Vlastnost **type** formátu je nastavená na **TextFormat**.
     - V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
-    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na**hour** a **interval** je nastavená na **1**), takže služba Data Factory bude každou hodinu hledat vstupní data v kořenové složce v zadaném kontejneru objektů blob (**adftutorial**). 
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce kontejneru objektů blob (**adftutorial**), který jste zadali. 
     
 
     Pokud neurčíte **fileName** pro **vstupní** **tabulku**, všechny soubory nebo objekty blob ze vstupní složky (**folderPath**) se považují za vstupy. Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
@@ -179,7 +182,7 @@ Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte 
 2. Tabulku **EmpTableFromBlob** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Potvrďte, že se v záhlaví okna editoru zobrazila zpráva **ÚSPĚŠNÉ VYTVOŘENÍ TABULKY**.
 
 ### Vytvoření výstupní datové sady
-V této části kroku vytvoříte výstupní tabulku s názvem **EmpSQLTable**, která odkazuje na tabulku SQL ve službě Azure SQL Database reprezentované propojenou službou **AzureSqlLinkedService**. 
+V této části kroku vytvoříte výstupní datovou sadu s názvem **EmpSQLTable**. Tato datová sada odkazuje na tabulku SQL v Azure SQL Database reprezentované službou **AzureSqlLinkedService**. 
 
 1. V **editoru** služby Data Factory klikněte na panelu nástrojů na tlačítko **Nová datová sada** a v rozevírací nabídce klikněte na **Tabulka Azure SQL**. 
 2. Nahraďte kód JSON v pravém podokně následujícím fragmentem kódu JSON:
@@ -215,7 +218,7 @@ V této části kroku vytvoříte výstupní tabulku s názvem **EmpSQLTable**, 
     * Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
     * Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService** (tuto propojenou službu jste vytvořili v kroku 2).
     * Vlastnost **tablename** je nastavená na **emp**.
-    * V tabulce emp v databázi existují tři sloupce, **ID**, **FirstName** a **LastName**, ale ID je sloupec identity, takže je zde potřeba zadat jenom **FirstName** a **LastName**.
+    * V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
     * Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
 
 
@@ -285,7 +288,7 @@ V tomto kroku vytvoříte kanál pomocí **aktivity kopírování**, který pou�
     
     Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Pokud chcete kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9999-09-09**.
     
-    V uvedeném příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
+    V předchozím příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
     
     Podrobné informace o vlastnostech JSON najdete v tématu [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) (Referenční příručka skriptování JSON).
 
@@ -317,37 +320,29 @@ V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objekt
 
 1. Přejděte na web [Azure Portal (Preview)][azure-portal], pokud ho ještě nemáte otevřený. 
 2. Pokud není okno pro **ADFTutorialDataFactory** otevřené, otevřete ho kliknutím na **ADFTutorialDataFactory** na **úvodním panelu**. 
-3. Měli byste vidět počet a názvy tabulek a kanálů, které jste
-4. vytvořili v tomto okně.
+3. V tomto okně byste měli vidět počet a názvy tabulek a kanálů, které jste vytvořili.
 
     ![Domovská stránka s názvy][image-data-factory-get-started-home-page-pipeline-tables]
 
 4. Teď klikněte na dlaždici **Datové sady**.
-5. V okně **Datové sady** klikněte na **EmpTableFromBlob**. Toto je vstupní tabulka pro **ADFTutorialPipeline**.
+5. V okně **Datové sady** klikněte na **EmpTableFromBlob**. Tato datová sada je vstupní datovou sadou pro **ADFTutorialPipeline**.
 
     ![Datové sady s vybraným objektem EmpTableFromBlob][image-data-factory-get-started-datasets-emptable-selected]   
 5. Všimněte si, že se už vytvořily datové řezy až do aktuálního času a jsou ve stavu **Připraveno**, protože soubor **emp.txt** celou dobu existuje v kontejneru objektů blob: **adftutorial\input**. Potvrďte, že se žádné řezy nezobrazují v části **Řezy, které v poslední době selhaly** dole.
 
     Oba seznamy **Řezy, které se v poslední době aktualizovaly** a **Řezy, které v poslední době selhaly** jsou řazené podle **DOBY POSLEDNÍ AKTUALIZACE**. Doba aktualizace řezu se změní v následujících situacích. 
     
-
-    -  Provedete aktualizaci stavu řezu ručně, například pomocí **Set-AzureRmDataFactorySliceStatus** (nebo) kliknutím na **SPUSTIT** v okně **ŘEZ** pro příslušný řez.
-    -  Stav řezu se změní z důvodu spuštění (např. při zahájení, ukončení a selhání spuštění, při úspěšném dokončení atd.).
- 
-    Pokud chcete zobrazit větší seznam řezů, klikněte na název seznamů nebo **... (tři tečky)**. Řezy můžete filtrovat kliknutím na **Filtr** v panelu nástrojů.  
+    Pokud chcete rozsáhlejší větší seznam řezů, klikněte na název seznamů nebo na **... (tři tečky)**. Řezy můžete filtrovat kliknutím na **Filtr** v panelu nástrojů.  
     
     Pokud chcete zobrazit datové řezy seřazené podle času zahájení nebo konce, klikněte na dlaždici **Datové řezy (podle času řezu)**.   
 
     ![Datové řezy podle času řezu][DataSlicesBySliceTime]   
 
-6. Teď v okně **Datové sady** klikněte na **EmpSQLTable**. Toto je výstupní tabulka pro **ADFTutorialPipeline**.
+6. Teď v okně **Datové sady** klikněte na **EmpSQLTable**. Tato datová sada je výstupní datovou sadou pro **ADFTutorialPipeline**.
 
     ![okno datové sady][image-data-factory-get-started-datasets-blade]
 
-
-
-     
-6. Měli byste vidět okno **EmpSQLTable**, jak je zobrazeno dál:
+6. Mělo by se zobrazit okno **EmpSQLTable** uvedené na následujícím obrázku:
 
     ![okno tabulky][image-data-factory-get-started-table-blade]
  
@@ -356,7 +351,7 @@ V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objekt
 
     ![okno datové řezy][image-data-factory-get-started-dataslices-blade]
 
-9. Klikněte na libovolný datový řez ze seznamu a mělo by se zobrazit okno **DATOVÝ ŘEZ**.
+9. Klikněte na libovolný datový řez ze seznamu. Mělo by se zobrazit okno **DATOVÝ ŘEZ**.
 
     ![okno datový řez][image-data-factory-get-started-dataslice-blade]
   
@@ -390,7 +385,7 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 | :---- | :---- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) | Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
 | [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
@@ -467,6 +462,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
  
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

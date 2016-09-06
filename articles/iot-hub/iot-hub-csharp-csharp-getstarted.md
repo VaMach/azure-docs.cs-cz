@@ -26,7 +26,7 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace systému Windows:
 * **ReadDeviceToCloudMessages** zobrazuje telemetrické zprávy odesílané simulovaným zařízením.
 * **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu AMQPS.
 
-> [AZURE.NOTE] Informace o různých sadách SDK, s jejichž pomocí můžete sestavit aplikace, které poběží v zařízení, i back-end vašeho řešení, najdete v tématu [Sady SDK služby IoT Hub][lnk-hub-sdks ].
+> [AZURE.NOTE] Informace o různých sadách SDK, s jejichž pomocí můžete sestavit aplikace, které poběží v zařízení, i back-end vašeho řešení, najdete v tématu [Sady SDK služby IoT Hub][lnk-hub-sdks].
 
 K absolvování tohoto kurzu potřebujete:
 
@@ -60,7 +60,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která v regis
 5. Do třídy **Program** přidejte následující pole. Nahraďte hodnotu zástupného symbolu připojovacím řetězcem pro službu IoT Hub, který jste vytvořili v předchozí části.
 
         static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Do třídy **Program** přidejte následující metodu.
 
@@ -265,7 +265,7 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks ]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -283,6 +283,7 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!---HONumber=Aug16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

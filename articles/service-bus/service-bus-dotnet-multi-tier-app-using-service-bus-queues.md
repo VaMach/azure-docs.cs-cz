@@ -73,45 +73,11 @@ Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojov
 
 6.  Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu. Pokud nemáte Visual Studio nainstalované, SDK taky nainstaluje bezplatnou verzi Visual Studio Express.
 
-## Vytvoření oboru názvů Service Bus
+## Vytvoření oboru názvů
 
-Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
+Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje klíč SAS při vytvoření oboru názvů. Kombinace oboru názvů a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
-### Vytvoření oboru názvů služby pomocí klasického portálu Azure
-
-1.  Přihlaste se do [portál Azure Classic][].
-
-2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
-
-3.  V dolním podokně portálu klikněte na **Vytvořit**.
-
-    ![][6]
-
-4.  Na stránce **Přidat nový obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
-
-    ![][7]
-
-5.  Po kontrole dostupnosti oboru názvů vyberte zemi nebo oblast, ve které chcete obor názvů hostovat (nezapomeňte použít stejnou zemi nebo oblast, ve které nasazujete svoje výpočetní prostředky). Taky se ujistěte, že vyberete hodnotu **Zasílání zpráv** v poli **Typ** oboru názvů, a hodnotu **Standardní** v poli **Úroveň zasílání zpráv**.
-
-    > [AZURE.IMPORTANT] Vyberte **stejnou oblast**, kterou chcete zvolit pro nasazení aplikace. Tím získáte nejlepší výkon.
-
-6.  Klikněte na zatržítko OK. Systém teď vytvoří obor názvů služby a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
-
-7.  V hlavním okně klikněte na název vašeho oboru názvů služby.
-
-8. Klikněte na **Informace o připojení**.
-
-9.  V podokně **Informace o přístupovém připojení** najděte připojovací řetězec, který obsahuje klíč SAS a název klíče.
-
-    ![][35]
-
-10.  Pověření si poznamenejte nebo je zkopírujte do schránky.
-
-11. V horní části této stránky portálu taky klikněte na **Konfigurovat**.
-
-12. Zkopírujte primární klíč pro zásady **RootManageSharedAccessKey** do schránky nebo ho vložte do poznámkového bloku. Tuto hodnotu použijete později v tomto kurzu.
-
-    ![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Vytvoření webové role
 
@@ -272,7 +238,7 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
 
 2.  Zadejte název třídy **QueueConnector.cs**. Klikněte na **Přidat** a třída se vytvoří.
 
-3.  Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z [portál Azure Classic][] v kroku 12 v části „Vytvoření oboru názvů Service Bus“.
+3.  Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z webu Azure Portal.
 
     ```
     using System;
@@ -439,7 +405,7 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
     receivedMessage.Complete();
     ```
 
-14. Dokončili jste aplikaci. Celou aplikaci můžete vyzkoušet tak, že v Průzkumníku řešení kliknete pravým tlačítkem na projekt MultiTierApp, vyberete **Nastavit jako spouštěný projekt**, a pak stisknete F5. Všimněte si, že počet zpráv se nezvyšuje, protože role pracovního procesu zpracovává položky z fronty a označuje je jako hotové. Výstup své role pracovního procesu můžete sledovat v uživatelském prostředí Emulátoru výpočtů v Azure. To můžete udělat tak, že v oznamovací oblasti hlavního panelu kliknete pravým tlačítkem na ikonu emulátoru a vyberte **Zobrazit uživatelské prostředí emulátoru výpočtů**.
+14. Dokončili jste aplikaci. Celou aplikaci můžete vyzkoušet tak, že v Průzkumníku řešení kliknete pravým tlačítkem na projekt MultiTierApp, vyberete **Nastavit jako spouštěný projekt**, a pak stisknete F5. Všimněte si, že počet zpráv se nezvyšuje, protože role pracovního procesu zpracovává položky z fronty a označuje je jako hotové. Výstup své role pracovního procesu můžete sledovat v uživatelském prostředí Emulátoru výpočtů v Azure. To můžete udělat tak, že v oznamovací oblasti hlavního panelu kliknete pravým tlačítkem na ikonu emulátoru a vyberte **Zobrazit uživatelské prostředí emulátoru služby Compute**.
 
     ![][19]
 
@@ -473,9 +439,6 @@ Další informace o víceúrovňových scénářích najdete v:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [portál Azure Classic]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -493,8 +456,6 @@ Další informace o víceúrovňových scénářích najdete v:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
@@ -503,6 +464,6 @@ Další informace o víceúrovňových scénářích najdete v:
   
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

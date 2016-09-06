@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio" 
+    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio | Microsoft Azure" 
     description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí sady Visual Studio." 
     services="data-factory" 
     documentationCenter="" 
@@ -23,19 +23,22 @@
 - [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 V tomto kurzu provedete pomocí sady Visual Studio 2013 následující:
 
 1. Vytvoříte dvě propojené služby: **AzureStorageLinkedService1** a **AzureSqlLinkedService1**. AzureStorageLinkedService1 propojuje službu Azure Storage a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactoryVS**. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data jsou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.
-2. Vytvoříte dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data. Zadejte také další vlastnosti, jako je například struktura dat, dostupnost dat a další.
-3. Vytvoříte v objektu ADFTutorialDataFactoryVS kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory a aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
+2. Vytvoříte dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data. Zadejte také další vlastnosti, jako je například struktura, dostupnost atd.
+3. Vytvoříte v objektu ADFTutorialDataFactoryVS kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 4. Vytvoříte objekt pro vytváření dat a nasadíte propojené služby, tabulky a kanál.    
 
 ## Požadavky
 
-1. Než budete pokračovat, **musíte** si přečíst článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a provést nutné kroky.
-2. K publikování entit Data Factory do Azure Data Factory musíte být **správce předplatného Azure**. To je momentální omezení.  
+1. Pročtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+    
+    > [AZURE.IMPORTANT] Než budete pokračovat, dokončete další předpoklady. 
+2. K publikování entit Data Factory do Azure Data Factory musíte být **správce předplatného Azure**.  
 3. Na počítači musíte mít nainstalované tyto položky: 
     - Visual Studio 2013 nebo Visual Studio 2015.
     - Stáhněte si sadu Azure SDK pro Visual Studio 2013 nebo Visual Studio 2015. Přejděte na [stránku položek ke stažení pro Azure](https://azure.microsoft.com/downloads/) a klikněte na **VS 2013** nebo **VS 2015** v části **.NET**.
@@ -80,7 +83,7 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService1*
 
 
 ## Vytvoření datových sad
-V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService1** a **AzureSqlLinkedService1**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactory**. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat, na která odkazují objekty AzureStorageLinkedService1 a AzureSqlLinkedService1. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data.
+V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService1** a **AzureSqlLinkedService1**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactory**. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat, na která odkazují objekty AzureStorageLinkedService1 a AzureSqlLinkedService1. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data.
 
 ### Vytvoření vstupní datové sady
 
@@ -272,12 +275,12 @@ Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto 
 | :---- | :---- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) | Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
 | [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

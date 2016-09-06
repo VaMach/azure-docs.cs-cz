@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Migrace aplikací logiky na schéma verze 2015-08-01-preview
@@ -51,6 +51,6 @@ Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahuj�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

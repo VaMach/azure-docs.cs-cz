@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Začínáme s Azure Mobile Engagementem pro nasazení Unity Android
@@ -153,6 +153,7 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

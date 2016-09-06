@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Použití SSH se systémem Linux Hadoop v HDInsight ze systému OS X, Linux a Unix.
@@ -25,7 +25,9 @@
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umožňuje vzdáleně provádět různé operace v clusterech služby HDInsight v Linuxu pomocí rozhraní příkazového řádku. Dokument poskytuje informace o používání SSH s HDInsight od klientů OS X, Linux a Unix.
 
-> [AZURE.NOTE] Postup v tomto článku předpokládá, že používáte klienta se systémem Linux, Unix, nebo OS X. Protože tyhle kroky se dají provést u klienta se systémem Windows, pokud jste nainstalovali balíček, který poskytuje `ssh` a `ssh-keygen` (například Git pro Windows), doporučujeme, aby klienti systému Windows postupovali podle kroků v části [Použití SSH se systémem Linux HDInsight (Hadoop) ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] Postup v tomto článku předpokládá, že používáte klienta se systémem Linux, Unix, nebo OS X. Tyto kroky může provést u klienta s Windows, pokud jste nainstalovali balíček, který poskytuje `ssh` a `ssh-keygen`, jako je například [Bash na Ubuntu ve Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Pokud nemáte v klientu Windows nainstalované SSH, postupujte podle kroků v tématu [Použití SSH s linuxovým systémem HDInsight (Hadoop) z Windows](hdinsight-hadoop-linux-use-ssh-windows.md), kde najdete informace o instalaci a používání PuTTY.
 
 ##Požadavky
 
@@ -87,7 +89,7 @@ Následující informace použijte, pokud plánujete používat klíče SSH s va
 
 Při vytváření clusteru HDInsight se systémem Linux je nutné zadat veřejný klíč, který jste vytvořili dříve. V klientech se systémem Linux, Unix nebo OS X existují dva způsoby vytvoření clusteru HDInsight:
 
-* **Portál Azure** – používá k vytvoření clusteru webový portál.
+* **Azure Portal** – používá k vytvoření clusteru webový portál.
 
 * **Azure CLI pro Mac, Linux a Windows** – používá příkazy příkazového řádku k vytvoření clusteru.
 
@@ -95,7 +97,7 @@ Každá z těchto metod bude vyžadovat heslo nebo veřejný klíč. Úplné inf
 
 ###Azure Portal
 
-Pokud používáte [portál Azure][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, musíte zadat **UŽIVATELSKÉ JMÉNO SSH** a vybrat, jestli chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
+Pokud používáte web [Azure Portal][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, musíte zadat **UŽIVATELSKÉ JMÉNO SSH** a vybrat, jestli chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
 
 Když vyberete **VEŘEJNÝ KLÍČ SSH**, můžete buď vložit veřejný klíč (uložený v souboru s příponou **.pub**) do pole __SSH PublicKey__, nebo vybrat možnost __Vybrat soubor__ a procházet a vybrat soubor, který obsahuje veřejný klíč.
 
@@ -247,6 +249,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -57,7 +57,7 @@ V části Rychlý start získáte skript pro webové stránky:
 
 ![V okně přehledu aplikace zvolte Rychlý start, získat kód ke sledování webové stránky. Zkopírujte skript.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Vložte skript těsně před značku `<head>` každé stránky, kterou chcete sledovat. Pokud má daný web stránku předlohy, můžete se skript vložit. Příklad:
+Vložte skript těsně před značku `</head>` každé stránky, kterou chcete sledovat. Pokud má daný web stránku předlohy, můžete se skript vložit. Příklad:
 
 * Vložíte ho do projektu aplikace ASP.NET MVC `View\Shared\_Layout.cshtml`
 * Na webu služby SharePoint, v Ovládacích panelech, otevřete [Nastavení webu / stránky předlohy](app-insights-sharepoint.md).
@@ -85,10 +85,10 @@ Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
@@ -253,6 +253,6 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

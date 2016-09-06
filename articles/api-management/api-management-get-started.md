@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Správa vašeho prvního rozhraní API ve službě Azure API Management
@@ -186,7 +186,7 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 ## <a name="next-steps"> </a>Další kroky
 
--   Podívejte se i na další témata kurzu [Začínáme s pokročilou konfigurací rozhraní API][].
+- Zjistěte, jak můžete [chránit rozhraní API omezením četnosti ](api-management-howto-product-with-rules.md).
 
 [Bezplatná zkušební verze Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management]: api-management-howto-configure-notifications.md
 [Odezvy]: api-management-howto-add-operations.md#responses
 [Vytvoření a publikování produktu]: api-management-howto-add-products.md
-[Začínáme s pokročilou konfigurací rozhraní API]: api-management-get-started-advanced.md
 [Ceny služby API Management]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Portál Azure Classic]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

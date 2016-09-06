@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Začínáme s Azure Mobile Engagementem pro nasazení aplikací Unity v systému iOS
@@ -134,6 +134,7 @@ V aplikaci není nutné provádět žádnou další konfiguraci k odběru oznám
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

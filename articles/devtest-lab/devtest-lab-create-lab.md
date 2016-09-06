@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/25/2016"
     ms.author="tarcher"/>
 
 # Vytvoření testovacího prostředí v Azure DevTest Labs
 
-## Předpoklady
+## Požadavky
 
 K vytvoření testovacího prostředí budete potřebovat:
 
@@ -27,7 +27,7 @@ K vytvoření testovacího prostředí budete potřebovat:
 
 ## Vytvoření testovacího prostředí
 
-1. Přihlaste se k [Portálu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Přihlaste se k webu [Portál Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Vyberte **Procházet**.
 
@@ -46,6 +46,8 @@ K vytvoření testovacího prostředí budete potřebovat:
 
     ![Okno pro vytvoření testovacího prostředí](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Další kroky
 
 Po vytvoření testovacího prostředí je zde několik kroků, které je vhodné zvážit:
@@ -61,6 +63,6 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 - [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

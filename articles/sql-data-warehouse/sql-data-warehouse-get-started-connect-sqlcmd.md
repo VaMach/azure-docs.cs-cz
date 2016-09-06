@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Dotazování Azure SQL Data Warehouse (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Tento návod používá nástroj příkazového řádku sqlcmd k dotazování Azure SQL Data Warehouse.  
-
-## Požadavky
-
-Pro jednotlivé kroky v tomto kurzu budete potřebovat:
-
--  [sqlcmd.exe][]. Pro stažení si přečtěte část [Microsoft Command Line Utilities 11 for SQL Server][] které také mohou vyžadovat [Microsoft ODBC Driver 11 pro SQL Server Windows][].
+Tento návod používá nástroj příkazového řádku [sqlcmd][] k dotazování Azure SQL Data Warehouse.  
 
 ## 1. Připojení
 
-Chcete-li začít s nástrojem sqlcmd, otevřete příkazový řádek a zadejte příkaz **sqlcmd** následovaný připojovacím řetězcem pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
+Chcete-li začít s nástrojem [sqlcmd][], otevřete příkazový řádek a zadejte příkaz **sqlcmd** následovaný připojovacím řetězcem pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
 
 + **Server (-S):** Server v následující podobě: `<`název serveru`>`.database.windows.net
 + **Database (-d):** Název databáze
@@ -73,22 +67,20 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Další kroky
 
-Viz část [Dokumentace sqlcmd][sqlcmd.exe], kde naleznete další informace o možnostech dostupných v sqlcmd.
+Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možnostech dostupných v sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft ODBC Driver 11 pro SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [portál Azure]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -3,9 +3,9 @@
    description="Koncepční přehled poskytovatelů prostředků CRP (Compute Resource Provider), NRP (Network Resource Provider) a SRP (Storage Resource Provider) pro aplikace Windows v modelu nasazení Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Poskytovatelé prostředků Compute Resource Provider, Network Resource Provider a Storage Resource Provider pro aplikace Windows v rámci modelu nasazení Azure Resource Manager
 
@@ -25,6 +25,6 @@ Zahrnutí funkcí výpočtů (služba Compute), sítě (služba Network) a úlo�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

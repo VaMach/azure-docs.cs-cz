@@ -89,7 +89,7 @@ Připravte mapování sítě následujícím způsobem:
 ## Krok 1: Vytvoření trezoru Site Recovery
 
 1. Přihlaste se k [portálu pro správu](https://portal.azure.com) ze serveru VMM, který chcete zaregistrovat.
-2. Klikněte na **Datové služby** > **Služby zotavení** > **Trezor Site Recovery**.
+2. Klikněte na **Data Services** > **Služby zotavení** > **Trezor Site Recovery**.
 3. Klikněte na **Vytvořit nový** > **Rychlé vytvoření**.
 4. Jako **Název** zadejte popisný název pro identifikaci trezoru.
 5. V rozevírací nabídce **Oblast** vyberte zeměpisnou oblast trezoru. Informace o tom, které oblasti jsou podporované, najdete v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) v části s geografickou dostupností.
@@ -206,6 +206,8 @@ Kde parametry mají následující význam:
 
     ![Účet úložiště](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
+> [AZURE.NOTE] [Migrace účtů úložiště](../resource-group-move-resources.md) napříč skupinami prostředků v rámci stejného předplatného nebo napříč předplatnými se pro účty úložiště použité k nasazení Site Recovery nepodporuje.
+
 ## Krok 5: Instalace agenta Služeb zotavení Azure
 
 Nainstalujte agenta služby Azure Site Recovery na každém serveru hostitele technologie Hyper-V v cloudu VMM.
@@ -267,6 +269,8 @@ Před zahájením mapování sítě ověřte, jestli jsou virtuální počítač
 Po uložení nastavení se spustí úloha pro sledování postupu mapování a je možné ji monitorovat na kartě Úlohy. Jakékoli existující virtuální počítače repliky, které odpovídají zdrojové síti virtuálních počítačů, budou připojené k cílovým sítím Azure. Nové virtuální počítače, které jsou připojené ke zdrojové síti virtuálních počítačů, budou po replikaci připojené k namapované síti Azure. Pokud upravíte existující mapování s novou sítí, virtuální počítače repliky budou připojené pomocí nového nastavení.
 
 Pamatujte, že pokud má cílová síť více podsítí a jedna z těchto podsítí má stejný název jako podsíť, ve které se nachází zdrojový virtuální počítač, bude virtuální počítač repliky po převzetí služeb při selhání připojen k této cílové podsíti. Pokud neexistuje žádná cílová podsíť s odpovídajícím názvem, připojí se virtuální počítač k první podsíti v síti.
+
+> [AZURE.NOTE] [Migrace sítí](../resource-group-move-resources.md) napříč skupinami prostředků v rámci stejného předplatného nebo napříč předplatnými se pro sítě použité k nasazení Site Recovery nepodporuje.
 
 ## Krok 8: Povolení ochrany pro virtuální počítače
 
@@ -332,14 +336,10 @@ Testovací převzetí služeb při selhání simuluje váš mechanismus převzet
 
     ![Vytvoření plánu obnovení](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Na stránce pro **výběr virtuálních počítačů** vyberte virtuální počítače, které chcete přidat do plánu obnovení. Tyto virtuální počítače se přidají do výchozí skupiny plánu obnovení – Skupina 
-3. 
-4. 
-5. 1. V jednom plánu obnovení bylo otestováno maximálně 100 virtuálních počítačů.
+2. Na stránce pro **výběr virtuálních počítačů** vyberte virtuální počítače, které chcete přidat do plánu obnovení. Tyto virtuální počítače se přidají do výchozí skupiny plánu obnovení – Skupina 1. V jednom plánu obnovení bylo otestováno maximálně 100 virtuálních počítačů.
 
-    - Pokud chcete před přidáním virtuálních počítačů do plánu ověřit jejich vlastnosti, klikněte na virtuální počítač na stránce vlastností cloudu, ve kterém se nachází. Vlastnosti virtuálního počítače můžete také konfigurovat v konzole VMM.
-    - Pro všechny virtuální počítače, které jsou zobrazené, byla povolena ochrana. Seznam obsahuje jak virtuální počítače, pro které je povolená ochrana a byla pro ně dokončena počáteční replikace, tak ty, pro které je povolená ochrana, ale u kterých se stále ještě čeká na provedení počáteční replikace. Převzetí služeb při selhání v rámci plánu obnovení je možné pouze u virtuálních počítačů s dokončenou počáteční replikací.
-
+- Pokud chcete před přidáním virtuálních počítačů do plánu ověřit jejich vlastnosti, klikněte na virtuální počítač na stránce vlastností cloudu, ve kterém se nachází. Vlastnosti virtuálního počítače můžete také konfigurovat v konzole VMM.
+- Pro všechny virtuální počítače, které jsou zobrazené, byla povolena ochrana. Seznam obsahuje jak virtuální počítače, pro které je povolená ochrana a byla pro ně dokončena počáteční replikace, tak ty, pro které je povolená ochrana, ale u kterých se stále ještě čeká na provedení počáteční replikace. Převzetí služeb při selhání v rámci plánu obnovení je možné pouze u virtuálních počítačů s dokončenou počáteční replikací.
 
     ![Vytvoření plánu obnovení](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -385,6 +385,6 @@ Další informace o [nastavení plánů obnovení](site-recovery-create-recovery
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

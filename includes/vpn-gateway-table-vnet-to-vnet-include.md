@@ -7,12 +7,10 @@
 Symbol (+) značí, že je tato metoda nasazení dostupná jenom pro sítě VNet v rámci jednoho předplatného.<br>
 Symbol * značí částečnou podporu.
 
-Pro určité modely a konfigurace nasazení je dostupná služba VNet Peering, která je v současnosti ve verzi Preview. Další informace najdete v článku [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

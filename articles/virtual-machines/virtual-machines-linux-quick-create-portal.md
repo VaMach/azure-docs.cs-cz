@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Vytvoření virtuálního počítače s Linuxem pomocí Portálu Azure | Microsoft Azure"
-    description="Virtuální počítače s Linuxem si můžete vytvořit také pomocí Portálu Azure."
+    pageTitle="Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal | Microsoft Azure"
+    description="Virtuální počítače s Linuxem si můžete vytvořit také pomocí webu Azure Portal."
     services="virtual-machines-linux"
     documentationCenter=""
     authors="vlivech"
@@ -15,20 +15,18 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí Portálu
 
-> [AZURE.NOTE] Pokud máte chvíli čas, pomozte nám prosím vylepšit dokumentaci virtuálního počítače s Linuxem v Azure pomocí tohoto [rychlého průzkumu](https://aka.ms/linuxdocsurvey) vašich zkušeností. Každá odpověď nám pomůže splnit vaše potřeby.
+> [AZURE.NOTE] Pokud máte chvíli čas, pomozte nám vylepšit dokumentaci virtuálního počítače s Linuxem v Azure pomocí tohoto [rychlého průzkumu](https://aka.ms/linuxdocsurvey) vašich zkušeností. Každá odpověď nám pomůže splnit vaše potřeby.
 
-Tento článek ukazuje, jak rychle vytvořit virtuální počítač s Linuxem pomocí [Portálu Azure](https://portal.azure.com/). Jediným požadavkem je mít [účet Azure](https://azure.microsoft.com/pricing/free-trial/) a [soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md).
-
-> [AZURE.NOTE] Pokud jste se rozhodli zabezpečit přístup k virtuálnímu počítači heslem, musí mít toho heslo více než 12 znaků a obsahovat alespoň jedno velké písmeno, jedno malé písmeno, jeden speciální znak a jednu číslici. 
+Tento článek ukazuje, jak rychle vytvořit virtuální počítač s Linuxem pomocí [webu Azure Portal](https://portal.azure.com/). Jediným požadavkem je mít [účet Azure](https://azure.microsoft.com/pricing/free-trial/) a [soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
 
-1. Po přihlášení k Portálu Azure s vaší identitou účtu Azure klikněte v levém horním rohu na **+ Nový**:
+1. Po přihlášení k webu Azure Portal s vaší identitou účtu Azure klikněte v levém horním rohu na **+ Nový**:
 
     ![obrazovka1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
@@ -40,8 +38,8 @@ Tento článek ukazuje, jak rychle vytvořit virtuální počítač s Linuxem po
     - Název virtuálního počítače
     - Uživatelské jméno pro účet Admin
     - Typ ověřování nastavený na **Veřejný klíč SSH**
-    - Veřejný klíč SSH jako řetězec (ve výchozím nastavení z vašeho adresáře `~/.ssh/`)
-    - Název skupiny prostředků (pro vytvoření nové skupiny nasazení) nebo vyberte existující skupinu
+    - Veřejný klíč SSH jako řetězec (z vašeho adresáře `~/.ssh/`)
+    - Název skupiny prostředků nebo vyberte existující skupinu.
 
     Pak pokračujte kliknutím na **OK** a zvolte velikost virtuálního počítače. Obrazovka by měla vypadat nějak takto:
 
@@ -75,16 +73,14 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Další kroky
 
-Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli otestovat a abychom si ukázali, jak se to dělá. Pokud budete chtít vytvořit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z článků níže.
+Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli otestovat a abychom si ukázali, jak se to dělá. Pokud budete chtít vytvořit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků.
 
 - [Vytvoření virtuálního počítače s Linuxem v Azure pomocí šablon](virtual-machines-linux-cli-deploy-templates.md)
 - [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
-Tyto články vám pomůžou začít s vytvářením infrastruktury Azure a také celé řady proprietárních a open source nástrojů pro nasazení, konfiguraci a orchestraci infrastruktury.
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
