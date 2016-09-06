@@ -32,7 +32,7 @@ V následujícím kurzu si vytvoříte jednoduchou webovou aplikaci, hostovanou 
 
 Jedná se o jednoduchou aplikaci "hello world":
 
-![Webový prohlížeč zobrazující webovou stránku Hello World][A web browser displaying the Hello World web page]
+![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
 
 ## Požadavky
 
@@ -56,7 +56,7 @@ Proveďte následující kroky, a vytvořte tak nový projekt Azure Cloud Servic
 
         New-AzureServiceProject helloworld
 
-    ![Výsledek příkazu New-AzureService helloworld][The result of the New-AzureService helloworld command]
+    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
 
     Rutina **New-AzureServiceProject** generuje základní strukturu pro publikování aplikace Node.js na službě Cloud Service. Obsahuje konfigurační soubory, které jsou nezbytné pro publikování v systému Azure. Rutina také změní pracovní adresář na adresář pro službu.
 
@@ -70,7 +70,7 @@ Proveďte následující kroky, a vytvořte tak nový projekt Azure Cloud Servic
 
         Add-AzureNodeWebRole
 
-    ![Výstup příkazu Add-AzureNodeWebRole][The output of the Add-AzureNodeWebRole command]
+    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
 
     Rutina **Add-AzureNodeWebRole** vytvoří základní aplikaci Node.js. Také upraví soubory **.csfg** a **.csdef** pro přidání konfiguračních údajů pro novou roli.
 
@@ -125,14 +125,14 @@ Pokud chcete aplikaci publikovat, spusťte následující příkazy:
 
 Po úspěšném publikování uvidíte odpověď podobnou této:
 
-![Výstup příkazu Publish-AzureService][The output of the Publish-AzureService command]
+![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
 
 > [AZURE.NOTE]
 > Při prvním publikování může trvat několik minut, než se aplikace nasadí a bude k dispozici.
 
 Po dokončení nasazení se otevře okno prohlížeče a zobrazí stránku cloudové služby.
 
-![Okno prohlížeče zobrazující stránku Hello World; adresa URL značí, že je stránka hostována v systému Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
+![A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
 Aplikace je nyní spuštěna v systému Azure.
 
@@ -157,7 +157,7 @@ Může se stát, že po nasazení budete chtít aplikaci zastavit a vyhnout se t
 
     Zastavování služby může trvat několik minut. Až bude služba zastavená, obdržíte zprávu s oznámením, že se tak stalo.
 
-    ![Stav příkazu Stop-AzureService][The status of the Stop-AzureService command]
+    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 
 2.  Pokud chcete službu odstranit, zavolejte následující rutinu:
 
@@ -167,7 +167,7 @@ Může se stát, že po nasazení budete chtít aplikaci zastavit a vyhnout se t
 
     Odstraňování služby může trvat několik minut. Po odstranění služby obdržíte zprávu s oznámením, že se tak stalo.
 
-    ![Stav příkazu Remove-AzureService][The status of the Remove-AzureService command]
+    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
     > [AZURE.NOTE] Odstraněním služby nedojde k odstranění účtu úložiště, který byl vytvořen při prvním publikování služby. Budou vám tedy i nadále účtovány poplatky za využívání úložiště. Další informace o odstranění účtu úložiště naleznete v tématu [Odstranění účtu služby Storage z předplatného Azure].
 
@@ -189,14 +189,14 @@ Další informace najdete v tématu [Centrum pro vývojáře Node.js].
 
 <!-- IMG List -->
 
-[Výsledek příkazu New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Výstup příkazu Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Webový prohlížeč zobrazující webovou stránku Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Výstup příkazu Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
 [Úplný výstup stavu příkazu Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Okno prohlížeče zobrazující stránku Hello World; adresa URL značí, že je stránka hostována v systému Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stav příkazu Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Stav příkazu Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
