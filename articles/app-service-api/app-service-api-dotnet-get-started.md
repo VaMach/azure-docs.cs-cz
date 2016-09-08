@@ -313,7 +313,7 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
 
     ![Procházení služeb App Services](./media/app-service-api-dotnet-get-started/browseas.png)
 
-15. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na Portálu Azure, označujeme jako *okna *.)
+15. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na Portálu Azure, označujeme jako *okna* .)
 
     ![Okno App Services](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 

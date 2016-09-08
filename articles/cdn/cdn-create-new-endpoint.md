@@ -92,10 +92,10 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 - [Vyprázdnění koncového bodu Azure CDN](cdn-purge-endpoint.md)
 - [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md)
 
-[cdn-profil-nastavení]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-nový-koncový bod-tlačítko]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-přidání-koncový bod]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-koncový bod-úspěch]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
 
 

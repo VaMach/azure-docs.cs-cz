@@ -130,7 +130,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
         Technologie IntelliSense pro entity katalogu (Databáze, Schémata, Tabulky, UDO atd.) se vztahuje k výpočetnímu účtu. Aktuální aktivní výpočetní účet, databázi a schéma můžete zkontrolovat v horním panelu nástrojů a můžete je přepnout pomocí rozevíracích seznamů.
 
-    - **Rozbalení sloupců ***
+    - **Rozbalení * sloupců**
 
         Klikněte vpravo od * a pod * se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
         ![Nástroje Data Lake Visual Studio, rozbalení *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)

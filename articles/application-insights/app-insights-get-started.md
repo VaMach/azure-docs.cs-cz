@@ -61,7 +61,7 @@ Co chcete použít | Co dělat | Co získáte
 
 ## <a name="video"></a>Video
 
-[![A[animovaný úvod](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
+[![Aanimovaný úvod](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 

@@ -226,7 +226,7 @@ Tyto kurzy vám pomohou rychle zálohovat a proto ukazují pouze ten nejpřímě
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
-[žlutá]: ./media/backup-introduction-to-azure-backup/yellow.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [červená]: ./media/backup-introduction-to-azure-backup/red.png
 
 

@@ -568,7 +568,7 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHubu]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 

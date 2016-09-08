@@ -217,12 +217,12 @@ server.on("listening", () => {
 
 <!--Link references-->
 
-[knowUsers]: app-insights-overview-usage.md
-[metriky]: app-insights-metrics-explorer.md
-[výkon]: app-insights-web-monitor-performance.md
-[portál]: http://portal.azure.com/
+[Azure]: app-insights-overview-usage.md
+[Průzkumníku metrik]: app-insights-metrics-explorer.md
+[prostředků]: app-insights-web-monitor-performance.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[prostředků]: app-insights-resources-roles-access-control.md
+[roles]: app-insights-resources-roles-access-control.md
 
 
 
