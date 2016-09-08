@@ -158,7 +158,7 @@ Nahraďte klíč instrumentace, který jste dostali z portálu Azure.
 
 * Klíč instrumentace se zasílá společně s každou položkou telemetrie a říká službě Application Insights, aby ho zobrazila v prostředku.
 * Požadavek komponenty HTTP je volitelný. Automaticky odesílá telemetrii týkající se žádostí a časů odezvy na portál.
-* Korelace událostí je doplněk komponenty požadavku HTTP. Přiřadí identifikátor každé žádosti přijaté serverem a přidá ho jako vlastnost každé položce telemetrie jako vlastnost Operation.Id. Umožňuje korelovat telemetrii související s každou žádostí nastavením filtru v diagnostice [diagnostických vyhledávání][].
+* Korelace událostí je doplněk komponenty požadavku HTTP. Přiřadí identifikátor každé žádosti přijaté serverem a přidá ho jako vlastnost každé položce telemetrie jako vlastnost Operation.Id. Umožňuje korelovat telemetrii související s každou žádostí nastavením filtru v diagnostice [diagnostických vyhledávání][diagnostických vyhledávání].
 * Klíč Application Insights se může předat dynamicky z webu Azure Portal jako vlastnost systému (-DAPPLICATION_INSIGHTS_IKEY=váš_ikey). Pokud není definovaná žádná vlastnost, hledá se proměnná prostředí (APPLICATION_INSIGHTS_IKEY) v nastavení aplikace Azure. Pokud ani jedna vlastnost není definovaná, použije se výchozí InstrumentationKey ze souboru ApplicationInsights.xml. Tato posloupnost pomáhá spravovat různé klíče InstrumentationKey pro různá prostředí dynamicky.
 
 ### Alternativní způsoby nastavení klíče instrumentace
@@ -371,7 +371,7 @@ Službu Application Insights můžete použít k nařezání a rozčlenění pro
 Teď, když jste nainstalovali sadu SDK, můžete použít rozhraní API k odeslání vlastní telemetrie.
 
 * [Sledujte vlastní události a metriky][rozhraní api] a dozvíte se, jak uživatelé pracují s vaší aplikací.
-* [Vyhledávejte diagnostiku událostí a protokolů][] pro pomoc s diagnostikou problémů.
+* [Vyhledávejte diagnostiku událostí a protokolů][diagnostických vyhledávání] pro pomoc s diagnostikou problémů.
 
 
 ## Testy dostupnosti webu
@@ -402,7 +402,7 @@ Další informace naleznete ve [Středisku pro vývojáře Java](/develop/java/)
 [rozhraní api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [dostupnosti]: app-insights-monitor-web-app-availability.md
-[diagnostika]: app-insights-diagnostic-search.md
+[diagnostických vyhledávání]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metriky]: app-insights-metrics-explorer.md

@@ -52,7 +52,7 @@ Přihlaste se k portálu [Azure][] a vytvořte nový prostředek Application Ins
 
 [Role][prostředků] v Azure je instance služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
 
-Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v metrikách [Průzkumníku metrik][].
+Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v metrikách [Průzkumníku metrik][metriky].
 
 #### Zkopírovat klíč instrumentace
 
@@ -256,10 +256,10 @@ Pokud je tato aplikace součástí větší aplikace, můžete chtít použít p
 [apikey]: app-insights-api-custom-events-metrics.md#ikey
 [dostupnosti]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
-[klient]: app-insights-javascript.md
-[ zjistit]: app-insights-detect-triage-diagnose.md
+[JavaScript SDK]: app-insights-javascript.md
+[zjistit]: app-insights-detect-triage-diagnose.md
 [diagnostiky]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
+[známí uživatelé]: app-insights-overview-usage.md
 [metriky]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [výkon]: app-insights-web-monitor-performance.md

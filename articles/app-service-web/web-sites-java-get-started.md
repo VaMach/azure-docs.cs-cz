@@ -181,9 +181,9 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 <!-- IMG List -->
 
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
-[nováwebováaplikace2]: ./media/web-sites-java-get-started/newwebapp2.png
-[výběrwebovéaplikace]: ./media/web-sites-java-get-started/selectwebapp.png
-[verze]: ./media/web-sites-java-get-started/versions.png
+[newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
+[selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
+[versions]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png

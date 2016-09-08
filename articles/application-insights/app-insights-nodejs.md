@@ -86,7 +86,7 @@ Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo
 
 ![Proklikejte se k dalším datům](./media/app-insights-asp-net-manual/12-first-perf.png)
 
-Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][výkon]
+Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][Průzkumníku metrik]
 
 #### Žádná data?
 
@@ -217,15 +217,15 @@ server.on("listening", () => {
 
 <!--Link references-->
 
-[knowUsers]: app-insights-overview-usage.md
-[metriky]: app-insights-metrics-explorer.md
-[výkon]: app-insights-web-monitor-performance.md
-[portál]: http://portal.azure.com/
+[Azure]: app-insights-overview-usage.md
+[Průzkumníku metrik]: app-insights-metrics-explorer.md
+[prostředků]: app-insights-web-monitor-performance.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[prostředků]: app-insights-resources-roles-access-control.md
+[roles]: app-insights-resources-roles-access-control.md
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 
