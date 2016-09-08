@@ -86,7 +86,7 @@ Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo
 
 ![Proklikejte se k dalším datům](./media/app-insights-asp-net-manual/12-first-perf.png)
 
-Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][výkon]
+Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][Průzkumníku metrik]
 
 #### Žádná data?
 
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!----HONumber=Aug16_HO4-->
 
 
