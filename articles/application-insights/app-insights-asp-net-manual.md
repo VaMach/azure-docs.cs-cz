@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami]\[ zjistit] a [objevit, jak vaši aplikaci používají]\[známí uživatelé]. Lze ji používat s různými typy aplikací. Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na virtuálních počítačích Azure a také webových aplikacích Azure.
+Visual Studio Application Insights monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami][zjistit] a [objevit, jak vaši aplikaci používají][známí uživatelé]. Lze ji používat s různými typy aplikací. Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na virtuálních počítačích Azure a také webových aplikacích Azure.
 
 
 
@@ -272,6 +272,6 @@ Pokud je tato aplikace součástí větší aplikace, můžete chtít použít p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
