@@ -513,11 +513,11 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 [Python Tools pro Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pro Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Dokumentace k nástrojům Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
+[Dokumentace nástrojů Python Tools pro Visual Studio]: http://aka.ms/ptvsdocs
 [Dokumentace rozhraní Django]: https://www.djangoproject.com/
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!-----HONumber=Aug16_HO4-->
 
 
