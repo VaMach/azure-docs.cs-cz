@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/07/2016"
     ms.author="awills"/>
 
 # Sledování dostupnosti a odezvy libovolných webů
 
-Po nasazení webové aplikace na libovolného hostitele můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Application Insights v sadě Visual Studio](app-insights-overview.md) odesílá webové požadavky v pravidelných intervalech z bodů po celém světě a může vás upozornit v případě, že aplikace reaguje pomalu nebo vůbec.
+Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Application Insights v sadě Visual Studio](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
 
 ![Příklad webového testu](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Webové testy můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, kte
 
 Existují dva typy webového testu:
 
-* [Testování ping adresy URL](#set-up-a-url-ping-test): jednoduchý test, který můžete vytvořit na portálu Azure.
+* [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure.
 * [Vícekrokový test webu](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Ultimate nebo Visual Studio Enterprise a odeslat na portál.
 
 Můžete vytvořit až 10 webových testů na prostředek aplikace.
 
+## <a name="create"></a>1. Vytvoření prostředku pro testovacích sestavy
 
-## Nastavení testu příkazu ping adresy URL
-
-### <a name="create"></a>1. Chcete vytvořit nový prostředek?
-
-Tento krok přeskočte, pokud jste již [nastavili prostředek Application Insights][start] pro tuto aplikaci a chcete zobrazit data dostupnosti na stejném místě.
+Tento krok přeskočte, pokud jste již [nastavili prostředek Application Insights][start] pro tuto aplikaci a chcete zobrazit sestavy dostupnosti na stejném místě.
 
 Zaregistrujte se na portálu [Microsoft Azure](http://azure.com), přejděte na [portál Azure](https://portal.azure.com) a vytvořte prostředek Application Insights.
 
 ![Nový > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Pro nový prostředek se otevře okno Přehled. To můžete kdykoli najít na [portálu Azure](https://portal.azure.com) kliknutím na tlačítko **Procházet**.
+Kliknutím na možnost **Všechny prostředky** otevřete okno Přehled pro nový prostředek.
 
-### <a name="setup"></a>2. Vytvoření webového testu
+## <a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
 
 V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte na něj pro otevření okna webové testy pro vaši aplikaci a přidejte webový test.
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **Adresa URL** musí být viditelná z veřejného internetu. Může obsahovat řetězec dotazu&#151; takže také například můžete odněkud získat databáze. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
-- **Analyzovat závislé požadavky**: obrázky, skripty, soubory stylu a další materiály na stránce jsou požadovány v rámci testu. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří.
+- **Analyzovat závislé požadavky**: Obrázky, skripty, soubory stylu a další materiály na stránce jsou požadovány v rámci testu a zaznamenaná doba odezvy zahrnuje tyto časy. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří.
 - **Povolit opakování**: Pokud se test nezdaří, zopakuje se za krátkou dobu. Selhání je nahlášeno pouze v případě tří po sobě jdoucích neúspěšných pokusů. Následné testy jsou pak provedeny s obvyklou frekvencí testu. Opakování je dočasně pozastaveno do dalšího úspěchu. Toto pravidlo platí nezávisle na každém umístění testu. (Doporučujeme toto nastavení. V průměru přibližně 80 % selhání zmizí při opakování.)
 - **Frekvence testů**: Nastaví, jak často se test spustí z umístění každého testu. S pětiminutovou četností a pěti testovanými místy bude váš web testován v průměru každou minutu.
 - **Testovací umístění** jsou místa, ze kterých naše servery odesílají webové požadavky na adresu URL. Zvolte více než jeden, aby bylo možné rozlišit problémy ve vašem webu od problémů se sítí. Můžete vybrat až 16 umístění.
@@ -68,14 +65,14 @@ V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte n
 
     Můžete nastavit [webhook](../azure-portal/insights-webhooks-alerts.md), který je volán, když je vydána výstraha. (Všimněte si, že v současné době parametry dotazu neprocházejí jako vlastnosti.)
 
-#### Testování více adres URL
+### Testování více adres URL
 
 Přidat další testy Pro příklad, a také jako testování domovské stránky, můžete zajistit, že vaše databáze se spouští otestováním adresy URL pro hledání.
 
 
-### <a name="monitor"></a>3. Zobrazit sestavy dostupnosti
+## <a name="monitor"></a>3. Zobrazení výsledků testu webu
 
-Po 1–2 minutách klikněte na tlačítko **Aktualizovat** v okně dostupnost / testy webu. (Automaticky se neobnoví.)
+Po 1–2 minutách se zobrazí výsledky: 
 
 ![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Kliknutím na libovolný panel v grafu souhrnu získáte podrobnější zobrazen
 
 Tyto grafy kombinují výsledky pro všechny webové testy aplikace.
 
-#### Komponenty webové stránky
 
-Obrázky, šablony stylů, skripty a další statické součásti webové stránky, které testujete, jsou požadovány v jako část testu.  
-
-Doba zaznamenané odezvy je čas potřebný k dokončení načítání pro všechny součásti.
-
-Pokud se jakákoliv komponenta nepodaří načíst, test se označí jako nezdařený.
-
-## <a name="failures"></a>Pokud vidíte chyby...
+## <a name="failures"></a>Pokud vidíte selhání
 
 Klikněte na červenou tečku.
 
@@ -336,6 +326,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

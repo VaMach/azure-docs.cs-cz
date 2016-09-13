@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Jak vytvořit lístek podpory pro SQL Data Warehouse
  
@@ -38,7 +38,7 @@ Pokud byste měli s SQL Data Warehouse nějaké problémy, můžete si vytvořit
 
     ![Typ žádosti](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Ve výchozím nastavení obsahuje každý server SQL (např. myserver.database.windows.net) **kvóty DTU** o hodnotě 45 000. Tato kvóta je jednoduše bezpečnostní omezení. Kvótu můžete zvýšit vytvořením lístku podpory a výběrem *kvóty* jako typu požadavku. Chcete-li vypočítat potřeby DTU, budete muset vědět, že každá 100 [DWU][] SQL Data Warehouse spotřebovává 750 DTU. Proto výchozí kvóta 45 000 vám umožní vytvořit až DW6000 (45 000 / 750) nebo několik menších databází s menším počtem DWU. Pokud například chcete hostovat dvě DW6000 na jednom serveru SQL, měli byste požadovat kvóty DTU o hodnotě 90 000.  Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. 
+    >[AZURE.NOTE]  Ve výchozím nastavení obsahuje každý server SQL (např. myserver.database.windows.net) **kvóty DTU** o hodnotě 45 000. Tato kvóta je jednoduše bezpečnostní omezení. Kvótu můžete zvýšit vytvořením lístku podpory a výběrem *kvóty* jako typu požadavku. Chcete-li vypočítat potřebnou DTU, vynásobte celkovou potřebnou [DWU][] číslem 7,5. Pokud například chcete hostovat dvě DW6000 na jednom serveru SQL, měli byste požadovat kvóty DTU o hodnotě 90 000.  Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. 
 
 5. Vyberte **předplatné**, pod které spadá databáze s problémem, který chcete nahlásit.
 
@@ -105,6 +105,6 @@ Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

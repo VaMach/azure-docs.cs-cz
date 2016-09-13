@@ -34,14 +34,14 @@ U-SQL je mimořádně škálovatelný a vysoce rozšiřitelný jazyk pro přípr
 
     Po instalaci nástrojů Data Lake pro Visual Studio se v Průzkumníku serveru pod uzlem „Azure“ zobrazí uzel „Data Lake Analytics“ (Průzkumníka serveru můžete otevřít stisknutím kombinace kláves Ctrl+Alt+S).
 
-- **Projděte si následující dvě části tématu [Začínáme s Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md)**.
+- **Projděte si následující dvě části tématu [Začínáme s Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md)**.
 
     - [Vytvoření účtu Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
     - [Nahrání souboru SearchLog.tsv do výchozího účtu Data Lake Storage](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Pro usnadnění práce najdete v tématu [Ukázkový Appx-A prostředí PowerShell pro přípravu kurzu](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial) ukázkový skript prostředí PowerShell pro vytvoření analytické služby Data Lake a nahrání zdrojového datového souboru.
 
-    Nástroje Data Lake nepodporují vytváření účtů Data Lake Analytics. Účet je proto nutné vytvořit pomocí Portálu Azure, prostředí Azure PowerShell, sady .NET SDK nebo rozhraní Azure CLI. Pokud chcete spustit úlohu Data Lake Analytics, budete potřebovat data. Ačkoli nástroje Data Lake podporují nahrávání dat, pro větší přehlednost tohoto kurzu nahrajete ukázková data pomocí portálu.
+    Nástroje Data Lake nepodporují vytváření účtů Data Lake Analytics. Účet je proto nutné vytvořit pomocí webu Azure Portal, prostředí Azure PowerShell, sady .NET SDK nebo rozhraní Azure CLI. Pokud chcete spustit úlohu Data Lake Analytics, budete potřebovat data. Ačkoli nástroje Data Lake podporují nahrávání dat, pro větší přehlednost tohoto kurzu nahrajete ukázková data pomocí portálu.
 
 ## Připojení k Azure
 
@@ -50,7 +50,7 @@ U-SQL je mimořádně škálovatelný a vysoce rozšiřitelný jazyk pro přípr
 1. Otevřete sadu Visual Studio.
 2. V nabídce **Zobrazení** klikněte na tlačítko **Průzkumník serveru** a otevřete Průzkumníka serveru. Můžete také stisknout kombinaci kláves **[CTRL]+[ALT]+S**.
 3. Klikněte pravým tlačítkem na **Azure**, klikněte na položku „Připojit k předplatnému Microsoft Azure“ a postupujte podle pokynů.
-4. V **Průzkumníku serveru** rozbalte položku **Azure** a pak rozbalte položku **Data Lake Analytics**. Zobrazí se seznam účtů Data Lake Analytics, pokud nějaké máte. Účty Data Lake Analytics nelze vytvářet ze sady Visual Studio. Pokud chcete vytvořit účet, informace najdete v tématu [Začínáme s Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md) nebo [Začínáme s Azure Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+4. V **Průzkumníku serveru** rozbalte položku **Azure** a pak rozbalte položku **Data Lake Analytics**. Zobrazí se seznam účtů Data Lake Analytics, pokud nějaké máte. Účty Data Lake Analytics nelze vytvářet ze sady Visual Studio. Pokud chcete vytvořit účet, informace najdete v tématu [Začínáme s Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md) nebo [Začínáme s Azure Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Nahrání zdrojových datových souborů
 
@@ -279,9 +279,10 @@ Následující postup funguje pouze v sadě Visual Studio 2015. Ve starší sad�
 
 Pokud chcete začít s Data Lake Analytics pomocí různých nástrojů, projděte si témata:
 
-- [Začínáme s Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md)
+- [Začínáme s Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Začínáme s Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Začínáme s Data Lake Analytics pomocí sady .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Ladění kódu C# v úlohách U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 
 Další témata týkající se vývoje:
 
@@ -364,6 +365,6 @@ Následující skript prostředí PowerShell vám připraví účet Azure Data L
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

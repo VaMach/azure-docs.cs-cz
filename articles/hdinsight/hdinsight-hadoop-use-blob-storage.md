@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ Navíc služba HDInsight poskytuje schopnost přístupu k datům, která jsou ul
 
 Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření HDInsight je jako výchozí systém souborů nastaven Účet úložiště Azure a konkrétní kontejner Úložiště objektů blob v Azure z tohoto účtu.
 
-Kromě tohoto účtu úložiště můžete během procesu vytváření přidat další účty úložiště ze stejného předplatného Azure nebo různých předplatných Azure. Pokyny pro přidání dalších účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation].
+Kromě tohoto účtu úložiště můžete během procesu vytváření nebo až po vytvoření clusteru přidat další účty úložiště ze stejného předplatného Azure nebo různých předplatných Azure. Pokyny pro přidání dalších účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation].
 
 - **Kontejnery v účtech úložiště, které jsou připojeny ke clusteru:** Vzhledem k tomu, že název účtu a klíč jsou během vytváření přidružené  ke clusteru, máte plný přístup k objektům blob v těchto kontejnerech.
 
@@ -301,6 +301,6 @@ Další informace naleznete v tématu:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

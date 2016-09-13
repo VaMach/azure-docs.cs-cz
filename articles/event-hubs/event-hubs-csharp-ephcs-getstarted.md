@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
+    ms.date="09/02/2016"
     ms.author="sethm"/>
 
 # Začínáme se službou Event Hubs
@@ -96,6 +96,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

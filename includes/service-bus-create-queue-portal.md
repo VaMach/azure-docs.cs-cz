@@ -26,6 +26,6 @@ Ujistěte se, že jste již vytvořili obor názvů sběrnice, jak je znázorně
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

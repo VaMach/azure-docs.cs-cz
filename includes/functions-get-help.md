@@ -5,6 +5,6 @@ Ptejte se ve fórech Azure. - [Navštivte web MSDN.](http://go.microsoft.com/fwl
 Dotazy označte klíčovým slovem `azure-functions`. - [Navštivte web Stack Overflow.](http://stackoverflow.com/questions/tagged/azure-functions)
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

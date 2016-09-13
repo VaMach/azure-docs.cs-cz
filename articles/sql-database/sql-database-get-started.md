@@ -1,6 +1,6 @@
 <properties
     pageTitle="Kurz k SQL Database: Vytvoření databáze SQL | Microsoft Azure"
-    description="Naučte se, jak vytvářet logické servery služby SQL Database, pravidla brány firewall, databáze SQL, vzorová data, jak se propojovat s klientskými nástroji a jak konfigurovat uživatele a pravidla brány firewall pro databázi."
+    description="Zjistěte, jak nastavit logický server služby SQL Database, pravidlo brány firewall serveru, databáze SQL a ukázková data. Zjistíte také, jak se připojit pomocí nástrojů klienta, konfigurovat uživatele a nastavit pravidlo brány firewall databáze."
     keywords="kurz k sql database, vytvoření databáze sql"
     services="sql-database"
     documentationCenter=""
@@ -18,7 +18,8 @@
     ms.date="07/05/2016"
     ms.author="carlrab"/>
 
-# Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí portálu Azure
+
+# Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí webu Azure Portal
 
 **Izolovaná databáze**
 
@@ -29,11 +30,11 @@
 
 V tomto kurzu se naučíte, jak pomocí portálu Azure Portal:
 
-- vytvořit logický server služby SQL Database pro hostování databází SQL,
+- Vytvořit logický server služby SQL Database pro hostování databází SQL,
 - vytvořit databázi SQL bez dat, s ukázkovými daty nebo s daty ze zálohy databáze SQL,
 - vytvořit pravidlo brány firewall na úrovni serveru pro jednu IP adresu nebo rozsah IP adres.
 
-Pomocí těchto odkazů můžete stejné úlohy provádět buď pomocí [C#](sql-database-get-started-csharp.md), nebo v [prostředí PowerShell](sql-database-get-started-powershell.md).
+Stejné úlohy můžete provádět i pomocí jazyka [C#](sql-database-get-started-csharp.md) nebo prostředí [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -46,17 +47,17 @@ Pomocí těchto odkazů můžete stejné úlohy provádět buď pomocí [C#](sql
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Další kroky
-Nyní jste dokončili kurz SQL Database a vytvořili jste databázi s ukázkovými daty. Jste tedy připraveni na zkoumání použití některých oblíbených nástrojů.
+Nyní jste dokončili kurz k SQL Database a vytvořili jste databázi s ukázkovými daty. Jste tedy připraveni prozkoumávat pomocí svých oblíbených nástrojů.
 
-- Pokud jste obeznámeni s Transact-SQL a SQL Server Management Studiem, naučte se, jak [se k databázi SQL připojit a zadávat dotazy pomocí SSMS](sql-database-connect-query-ssms.md).
+- Pokud jste obeznámeni s jazykem Transact-SQL a aplikací SQL Server Management Studio (SSMS), zjistěte, jak [se pomocí SSMS k databázi SQL připojit a zadávat dotazy](sql-database-connect-query-ssms.md).
 
-- Pokud znáte dobře Excel, přečtěte si, jak se [připojit k databázi SQL z Excelu](sql-database-connect-excel.md).
+- Pokud znáte Excel, zjistěte, jak se [připojit k databázi SQL v Azure pomocí aplikace Excel](sql-database-connect-excel.md).
 
-- Jestli jste už připravení na psaní kódu, zvolte si programovací jazyk v článku [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md)
+- Jste-li připraveni na psaní kódu, zvolte si programovací jazyk v tématu [Knihovny pro připojení ke službě SQL Database a systému SQL Server](sql-database-libraries.md).
 
-- Pokud do služby Azure přesouváte databáze z vašeho místního SQL Serveru, najdete další informace v článku [Migrace databáze do služby Azure SQL Database](sql-database-cloud-migrate.md).
+- Chcete-li do Azure přesunout databáze z místního systému SQL Server, více zjistíte v tématu [Migrace databáze do služby SQL Database](sql-database-cloud-migrate.md).
 
-- Pokud chcete do nové tabulky načíst data ze souboru CSV pomocí BCP, přečtěte si článek [Načtení dat do databáze SQL ze souboru CSV pomocí BCP](sql-database-load-from-csv-with-bcp.md).
+- Chcete-li do nové tabulky načíst data ze souboru CSV pomocí nástroje příkazového řádku BCP, více zjistíte v tématu [Načtení dat do služby SQL Database ze souboru CSV pomocí BCP](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Další zdroje
@@ -65,7 +66,6 @@ Nyní jste dokončili kurz SQL Database a vytvořili jste databázi s ukázkový
 
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

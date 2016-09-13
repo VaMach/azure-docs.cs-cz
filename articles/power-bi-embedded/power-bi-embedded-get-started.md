@@ -3,7 +3,7 @@
    description="Power BI Embedded – přidejte do své aplikace business intelligence interaktivní sestavy Power BI."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Začínáme s Microsoft Power BI Embedded
 
@@ -27,12 +27,12 @@ Prostředky pro **Microsoft Power BI Embedded** se zřizují prostřednictvím [
 ## Vytvoření kolekce pracovních prostorů
 **Kolekce pracovních prostorů** je prostředek Azure nejvyšší úrovně a kontejner pro obsah, který se vloží do vaší aplikace. **Kolekci pracovních prostorů** lze vytvořit dvěma způsoby:
 
-   -    Ručně na Portálu Azure
+   -    Ručně na webu Azure Portal
    -    Programově pomocí rozhraní API Azure ARM (Azure Resource Manager)
 
-Projděme si postup pro sestavení **kolekce pracovních prostorů** na Portálu Azure.
+Projděme si postup pro sestavení **kolekce pracovních prostorů** na webu Azure Portal.
 
-   1.   Otevřete a přihlaste se k **Portálu Azure**: [http://portal.azure.com](http://portal.azure.com).
+   1.   Otevřete a přihlaste se k **webu Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 
    2.   Klikněte na **+ Nový** na horním panelu.
 
@@ -103,6 +103,6 @@ V předchozích krocích jste vytvořili kolekci pracovních prostorů a první 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

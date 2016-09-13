@@ -19,7 +19,7 @@
 # Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell
 
 > [AZURE.SELECTOR]
-- [Portál Azure](sql-database-elastic-pool-create-portal.md)
+- [Azure Portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
@@ -28,7 +28,7 @@ Naučte se vytvářet [fond elastické databáze](sql-database-elastic-pool.md) 
 
 Běžné kódy chyb naleznete v článku [Kódy chyb SQL pro klientské aplikace SQL Database: chyby připojení k databázi a další problémy](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Fondy elastické databáze jsou aktuálně ve verzi Preview a jsou dostupné jen pro servery SQL Database verze 12. Pokud máte server SQL Database verze 11, můžete [použít PowerShell k upgradu na verzi 12 a vytvořit fond](sql-database-upgrade-server-portal.md) v jednom kroku.
+> [AZURE.NOTE] Elastické fondy jsou obecně dostupné ve všech oblastech Azure s výjimkou oblastí Střed USA – sever a Západní Indie, kde jsou aktuálně ve verzi Preview.  Obecná dostupnost elastických fondů v těchto oblastech bude zajištěna co nejdříve. Elastické fondy také v současné době nepodporují databáze [využívající OLTP nebo analýzu v paměti](sql-database-in-memory.md).
 
 
 Budete potřebovat nainstalované a spuštěné prostředí Azure PowerShell 1.0 nebo novější. Podrobné informace najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
@@ -83,6 +83,6 @@ Tento skript vytvoří novou skupinu prostředků Azure a nový server. Po výzv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -99,7 +99,7 @@ Microsoft provozuje izolovaná cloudová prostředí pro speciální geopolitick
 
 ### Možnosti podporované šířky pásma
 
-Okruhy ExpressRoute můžete zakoupit pro širokou škálu šířek pásma. Seznam podporovaných šířek pásma je uvedený dál. U svého poskytovatele připojení zkontrolujte, které z podporovaných šířek pásma poskytuje.
+Okruhy ExpressRoute můžete zakoupit pro širokou škálu šířek pásma. Seznam podporovaných šířek pásma je uveden níže. U svého poskytovatele připojení zkontrolujte, které z podporovaných šířek pásma poskytuje.
 
 - 50 Mb/s
 - 100 Mb/s
@@ -138,6 +138,6 @@ Můžete si vybrat fakturační model, který vám nejlépe vyhovuje. Zvolte si 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

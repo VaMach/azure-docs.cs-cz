@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Přehled přenosu zpráv přes předávací službu Service Bus | Microsoft Azure"
+    pageTitle="Přehled předávání Service Bus | Microsoft Azure"
     description="Přehled předávání v Service Bus."
     services="service-bus"
     documentationCenter=".net"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="05/06/2016"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 
-# Přenos zpráv přes předávací službu Service Bus
+# Přehled předávání Service Bus
 
-Ústřední součást služby Service Bus je centralizovaná předávací služba (ale s vysoce vyváženou zátěží), která vám umožní sestavovat hybridní aplikace, které poběží v datovém centru Azure i ve vašem lokálním podnikovém prostředí.  Předávací služba podporuje různé přenosové protokoly a standardy webových služeb. Mezi ty patří SOAP, WS-*, a dokonce i REST. Předávání přes Service Bus vašim hybridním službám usnadňuje práci tím, že vám umožní bezpečně vystavit služby Windows Communication Foundation (WCF), které se nacházejí v podnikové síti, veřejnému cloudu, a to bez nutnosti otevřít spojení ve firewallu nebo udělat nežádoucí změny v infrastruktuře podnikové sítě. 
+Hlavní součástí služby Service Bus je centralizovaná *předávací* služba (ale s vysokým vyrovnáváním zatížení), která vám umožní sestavovat hybridní aplikace, které poběží v datovém centru Azure i ve vašem místním podnikovém prostředí.  Předávání Service Bus podporuje různé přenosové protokoly a standardy webových služeb. Mezi ty patří SOAP, WS-*, a dokonce i REST. Služba předávání vašim hybridním aplikacím usnadňuje práci tím, že vám umožní bezpečně vystavit veřejnému cloudu služby technologie Windows Communication Foundation (WCF), které se nacházejí v podnikové síti, a to bez nutnosti otevřít připojení brány firewall nebo udělat výraznější změny v infrastruktuře podnikové sítě. 
 
 ![Koncepty předávání](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -34,11 +34,11 @@ Spojení mezi lokální službou a předávací službou vytvoříte pomocí sku
 Pokud se o předávání přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
 - [Přehled architektury služby Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Jak používat službu předávání přes Service Bus](service-bus-dotnet-how-to-use-relay.md)
+- [Jak používat službu Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

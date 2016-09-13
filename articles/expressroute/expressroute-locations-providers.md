@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Partneři ExpressRoute a umístění partnerského vztahu
@@ -31,7 +31,7 @@ Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopol
 |---|---|---|
 |**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Jižní Amerika**|Brazílie – jih|Sao Paulo|
-|**Evropa**|Severní Evropa, Západní Evropa|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
+|**Evropa**|Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
 |**Asie**|Východní Asie, Jihovýchodní Asie|Hongkong, Singapur|
 |**Japonsko**|Japonsko – západ, Japonsko – východ|Ósaka, Tokio|
 |**Austrálie**|Austrálie – jihovýchod, Austrálie – východ|Melbourne, Sydney|
@@ -80,7 +80,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Telstra Corporation, Verizon |
+| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -158,6 +158,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

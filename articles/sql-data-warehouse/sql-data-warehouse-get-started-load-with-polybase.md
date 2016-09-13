@@ -3,7 +3,7 @@
    description="Zjistěte, co je PolyBase a jak tuto funkci používat pro scénáře datových skladů."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
@@ -72,7 +72,7 @@ Ukázkový textový soubor připravíte takto:
 
 Vyhledání vašeho koncového bodu Služby objektů blob:
 
-1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
+1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. V okně Účet úložiště klikněte na Objekty blob.
 
@@ -86,7 +86,7 @@ Vyhledání vašeho koncového bodu Služby objektů blob:
 
 Vyhledání klíče účtu úložiště Azure:
 
-1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
+1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. Vyberte **Všechna nastavení** > **Přístupové klíče**.
 4. Kliknutím na políčko pro kopírování si zkopírujte jeden ze svých přístupových klíčů do schránky.
@@ -103,7 +103,7 @@ Zkopírování vašich dat do Azure Blob Storage:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Spuštěním následujícího příkazu nahrajte soubor: Zadejte svoji adresu URL koncového bodu Služby objektů blob pro <blob service endpoint URL> a klíč účtu úložiště Azure pro <klíč_účtu_úložiště_azure>.
+1. Spuštěním následujícího příkazu nahrajte soubor: Zadejte svoji adresu URL koncového bodu služby Blob Service pro <blob service endpoint URL> a klíč účtu úložiště Azure pro <klíč_účtu_úložiště_azure>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -287,6 +287,6 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

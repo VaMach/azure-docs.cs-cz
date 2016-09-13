@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Použití aplikace Fiddler k vyhodnocování a testování rozhraní REST API služby Azure Search
@@ -241,6 +241,6 @@ Informace o bezkódovém přístupu k správě a používání služby Azure Sea
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

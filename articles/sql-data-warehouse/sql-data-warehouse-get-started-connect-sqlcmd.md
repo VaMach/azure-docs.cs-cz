@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Dotazování Azure SQL Data Warehouse (sqlcmd)
 
@@ -24,7 +24,7 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Tento návod používá nástroj příkazového řádku [sqlcmd][] k dotazování Azure SQL Data Warehouse.  
+Tento návod používá k dotazování služby Azure SQL Data Warehouse nástroj příkazového řádku [sqlcmd][].  
 
 ## 1. Připojení
 
@@ -32,9 +32,12 @@ Chcete-li začít s nástrojem [sqlcmd][], otevřete příkazový řádek a zade
 
 + **Server (-S):** Server v následující podobě: `<`název serveru`>`.database.windows.net
 + **Database (-d):** Název databáze
++ **Enable Quoted Identifiers (-I):** Aby bylo možné se připojit k instanci služby SQL Data Warehouse, musí být povolené identifikátory v uvozovkách.
+
+Chcete-li používat ověřování systému SQL Server, je třeba přidat parametry uživatelského jména a hesla:
+
 + **User (-U):** Uživatel serveru v následující podobě: `<`Uživatel`>`
 + **Password (-P):** Heslo přidružené k uživateli
-+ **Enable Quoted Identifiers (-I):** Aby bylo možné se připojit k instanci SQL Data Warehouse, musí být povolené identifikátory v uvozovkách.
 
 Připojovací řetězec může například vypadat následovně:
 
@@ -42,7 +45,17 @@ Připojovací řetězec může například vypadat následovně:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] Možnost -I, která umožňuje identifikátory v uvozovkách, je momentálně nutná pro připojení k SQL Data Warehouse.
+Chcete-li používat integrované ověřování v Azure Active Directory, je třeba přidat parametry Azure Active Directory:
+
++ **Azure Active Directory Authentication (-G):** Pro ověřování používat Azure Active Directory
+
+Připojovací řetězec může například vypadat následovně:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Abyste mohli provádět ověřování pomocí Active Directory, je třeba [povolit ověřování Azure Active Directory](sql-data-warehouse-authentication.md).
 
 ## 2. Dotaz
 
@@ -81,6 +94,6 @@ Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možno
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

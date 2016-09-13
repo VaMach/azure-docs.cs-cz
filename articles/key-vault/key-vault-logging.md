@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="08/31/2016"
     ms.author="cabailey"/>
 
 # Protokolování v Azure Key Vault #
@@ -25,7 +25,7 @@ Poté, co jste vytvořili jeden nebo více trezorů klíčů, budete pravděpodo
 Informace o protokolování jsou přístupné do 10 minut od proběhnutí operace trezoru klíčů. Ve většině případů to bude rychlejší.  Správa protokolů v účtu úložiště je pouze na vás:
 
 - Zabezpečte protokoly pomocí standardních metod řízení přístupu Azure a určete, kdo k nim má přístup.
-- Odstraňte protokoly, které už nechcete uchovávat v účtu úložiště. 
+- Odstraňte protokoly, které už nechcete uchovávat v účtu úložiště.
 
 Tento kurz vám pomůže začít s protokolováním v Azure Key Vault, vytvořením vlastního účtu úložiště, povolením protokolování a interpretací shromážděných informací.  
 
@@ -51,7 +51,7 @@ K dokončení tohoto kurzu potřebujete:
 
 Spusťte relaci Azure PowerShellu a přihlaste se k účtu Azure pomocí následujícího příkazu:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 V automaticky otevřeném okně prohlížeče zadejte svoje uživatelské jméno a heslo k účtu Azure. Azure PowerShell získá všechna předplatná přidružená k tomuto účtu a ve výchozím nastavení použije první předplatné.
 
@@ -68,7 +68,7 @@ Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace
 
 ## <a id="storage"></a>Vytvořit pro svoje protokoly nový účet úložiště ##
 
-Pro svoje protokoly můžete použít i stávající účet úložiště, my však vytvoříme nový účet úložiště, který bude vyhrazený pro protokoly Key Vault. Abychom si usnadnili práci při pozdějším zadávání, uložíme si podrobnosti do proměnné s názvem **sa**. 
+Pro svoje protokoly můžete použít i stávající účet úložiště, my však vytvoříme nový účet úložiště, který bude vyhrazený pro protokoly Key Vault. Abychom si usnadnili práci při pozdějším zadávání, uložíme si podrobnosti do proměnné s názvem **sa**.
 
 Pro další usnadnění správy použijeme také stejnou skupinu prostředků, jako ta, která obsahuje náš trezor klíčů. Z [kurzu Začínáme](key-vault-get-started.md) je název této skupiny prostředků **ContosoResourceGroup** a budeme pokračovat v používání umístění ve východní Asii. Tyto hodnoty nahraďte příslušnými vlastními hodnotami:
 
@@ -86,21 +86,29 @@ V našem kurzu Začínáme byl název trezoru klíčů **ContosoKeyVault**, bude
 
 ## <a id="enable"></a>Povolte protokolování ##
 
-K povolení protokolování pro Key Vault použijeme rutinu Set-AzureRmDiagnosticSetting spolu s proměnnými, které jsme vytvořili pro nový účet úložiště a nový trezor zámků. Také nastavíme příznak **- Enabled** na **$true** a kategorii změníme na AuditEvent (jediná kategorie pro protokolování v Key Vault):
+K povolení protokolování pro Key Vault použijeme rutinu Set-AzureRmDiagnosticSetting spolu s proměnnými, které jsme vytvořili pro nový účet úložiště a nový trezor zámků. Také nastavíme příznak **-Enabled** na **$true** a kategorii nastavíme na AuditEvent (jediná kategorie pro protokolování ve službě Key Vault):
 
-   
+
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
-
 
 Výstup mimo jiné obsahuje:
 
-**Logs**
+    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
+    ServiceBusRuleId   :
+    StorageAccountName :
+        Logs
+        Enabled           : True
+        Category          : AuditEvent
+        RetentionPolicy
+        Enabled : False
+        Days    : 0
 
-**Enabled : True**
-
-**Category : AuditEvent**
 
 To potvrzuje, že je protokolování pro váš trezor klíčů nyní povolené a že ukládá informace do účtu úložiště.
+
+Volitelně můžete pro své protokoly nastavit také zásady uchovávání informací tak, aby se starší protokoly automaticky odstraňovaly. Například po nastavení zásad uchovávání informací pomocí příznaku **-RetentionEnabled** nastaveného na **$true** a parametru **-RetentionInDays** nastaveného na **90** budou protokoly starší než 90 dnů automaticky odstraněny.
+
+    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Co je protokolováno:
 
@@ -130,13 +138,13 @@ Výstup bude vypadat nějak takto:
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
- 
+
 
 Jak je vidět na výpisu, objekty blob se řídí zásadou vytváření názvů: **resourceId =<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
 
 Hodnoty data a času používají UTC.
 
-Vzhledem k tomu, že lze použít stejný účet úložiště k shromažďování protokolů z více prostředků, je úplné ID prostředku v názvu objektu blob velmi užitečné v případě, že chcete získat nebo stáhnout pouze určité objekty blob. Ale předtím se podíváme na to, jak stáhnout všechny objekty blob. 
+Vzhledem k tomu, že lze použít stejný účet úložiště k shromažďování protokolů z více prostředků, je úplné ID prostředku v názvu objektu blob velmi užitečné v případě, že chcete získat nebo stáhnout pouze určité objekty blob. Ale předtím se podíváme na to, jak stáhnout všechny objekty blob.
 
 Nejprve vytvořte složku, kam stáhnete objekty blob. Příklad:
 
@@ -169,7 +177,7 @@ Chcete-li stahovat objekty blob selektivně, použijte zástupné znaky. Příkl
 Nyní jste připraveni podívat se, co je v protokolech. Ale ještě předtím si ukážeme další dva parametry Get-AzureRmDiagnosticSetting, které byste mohli potřebovat:
 
 - Dotaz na stav nastavení diagnostiky pro prostředek vašeho trezoru klíčů provedete pomocí: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
- 
+
 - Zakázat protokolování prostředku vašeho trezoru klíčů můžete pomocí: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
@@ -178,7 +186,7 @@ Nyní jste připraveni podívat se, co je v protokolech. Ale ještě předtím s
 Jednotlivé objekty blob jsou uloženy jako text ve formátu JSON blob. Toto je příklad položky protokolu ze spuštění příkazu `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
-        "records": 
+        "records":
         [
             {
                 "time": "2016-01-05T01:32:01.2691226Z",
@@ -218,14 +226,14 @@ Následující tabulka obsahuje seznam názvů polí a popisy.
 | identity      | Identita z tokenu, který byl předložený při provádění požadavku REST API. Obvykle to je položka „user“, „service principal“ nebo kombinace „user+appId“ jako v případě požadavku pocházejícího z rutiny Azure PowerShellu.|
 | properties      | Toto pole bude obsahovat různé informace v závislosti na operaci (operationName). Ve většině případů obsahuje informace o klientovi (řetězec useragent předaný klientem), přesný identifikátor URI požadavku REST API a stavový kód HTTP. Navíc, pokud je jako výsledek požadavku (například KeyCreate nebo VaultGet) vrácen objekt, bude obsahovat také identifikátor URI klíče (jako „id“), identifikátor URI trezoru nebo identifikátor URI tajného klíče.|
 
- 
+
 
 
 Hodnoty pole **operationName** jsou ve formátu ObjectVerb. Příklad:
 
-- Všechny operace nad trezory klíčů jsou ve formátu „Vault`<action>`“, jako například `VaultGet` nebo `VaultCreate`. 
+- Všechny operace nad trezory klíčů jsou ve formátu „Vault`<action>`“, jako například `VaultGet` nebo `VaultCreate`.
 
-- Všechny operace nad klíči jsou ve formátu „Key`<action>`“, jako například `KeySign` nebo `KeyList`. 
+- Všechny operace nad klíči jsou ve formátu „Key`<action>`“, jako například `KeySign` nebo `KeyList`.
 
 - Všechny operace nad tajnými klíči jsou ve formátu „Secret`<action>`“, jako například `SecretGet` nebo `SecretListVersions`.
 
@@ -270,11 +278,12 @@ Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na kurz 
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
 
-Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
+Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
 
 
-<!---HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO1-->
 
 

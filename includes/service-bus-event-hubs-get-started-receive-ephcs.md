@@ -4,17 +4,21 @@
 
 Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azure Storage][]:
 
-1. Přihlaste se na [portál Azure Classic][] a v dolní části obrazovky klikněte na **NOVÝ**.
+1. Přihlaste se na web [Azure Portal][] a v levém horním rohu obrazovky klikněte na **Nový**.
 
-2. Klikněte na **Data Services**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
+2. Klikněte na **Data + Úložiště** a poté klikněte na **Účet úložiště**.
 
-    ![][11]
+    ![][1]
 
-3. Klikněte na nově vytvořený účet úložiště a potom klikněte na **Spravovat přístupové klíče**:
+3. V okně **Vytvořit účet úložiště** zadejte název účtu úložiště. Zvolte předplatné Azure, skupinu prostředků a umístění, ve kterém se má prostředek vytvořit. Poté klikněte na **Vytvořit**.
 
-    ![][12]
+    ![][2]
 
-    Primární přístupový klíč si zkopírujte pro pozdější použití v tomto kurzu.
+4. V seznamu účtů úložiště klikněte na nově vytvořený účet úložiště.
+
+5. V okně účtu úložiště klikněte na **Přístupové klávesy**. Zkopírujte hodnotu **key1** pro pozdější použití v tomto kurzu.
+
+    ![][3]
 
 4. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt nazvěte **Receiver** (Příjemce).
 
@@ -121,21 +125,22 @@ Pokud chcete [EventProcessorHost][] používat, musíte mít [Účet služby Azu
 [Přehled služby Event Hubs]: event-hubs-overview.md
 [Průvodce programováním pro službu Event Hubs]: event-hubs-programming-guide.md
 [Škálované zpracování událostí]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Účet služby Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
+[Účet služby Azure Storage]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portál Azure Classic]: http://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

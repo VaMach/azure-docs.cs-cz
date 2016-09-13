@@ -87,7 +87,7 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [funkcích ověřování]: ./app-service-mobile-auth.md
 [datových funkcích]: ./app-service-mobile-offline-data-sync.md
-[funkcích pro nabízená oznámení]: ../notification-hubs/notification-hubs-overview.md
+[funkcích pro nabízená oznámení]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -105,6 +105,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

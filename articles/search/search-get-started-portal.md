@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="05/17/2016" 
+    ms.date="08/29/2016" 
     ms.author="heidist"/>
 
 # Začínáme s Azure Search v portálu
@@ -27,7 +27,7 @@ Kurz předpokládá využití [ukázkové databáze Azure DocumentDB](#apdx-samp
  
 ## Vyhledání služby
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
 2. Otevřete řídící panel služby Azure Search. Zde je několik způsobů, jak najít řídicí panel.
     - Na panelu vlevo klikněte na **Vyhledávací služby**. Panel vlevo obsahuje seznam všech služeb zřízených v rámci vašeho předplatného. Pokud byla definována vyhledávací služba, zobrazí se v seznamu **Vyhledávací služby**.
@@ -186,6 +186,6 @@ Měli byste obdržet výstup ve formátu JSON, který začíná dokumentem s č�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

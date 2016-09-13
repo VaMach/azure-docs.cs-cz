@@ -13,11 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/29/2016"
+    ms.date="09/07/2016"
     ms.author="juliako"/>
 
 
 # Vytvoření účtu Azure Media Services pomocí webu Azure Portal
+
+> [AZURE.SELECTOR]
+- [Portál](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -36,7 +41,7 @@ Přístup ke službě Media Services vyžaduje dva přidružené účty:
     AMS je nyní dostupná také v následujících datových centrech: Brazílie – jih, Indie – západ, Indie – jih a Indie – střed. V současnosti můžete web Azure Portal používat k vytvoření účtů Media Service a k provádění různých úloh popsaných tady. Funkce Live Encoding ale v těchto datových center není povolená. Kromě toho nejsou v těchto datových centrech dostupné všechny typy jednotek rezervovaných pro kódování.
     
     - Brazílie – jih: Dostupné jsou jenom jednotky rezervované pro kódování typu Standard a Basic.
-    - Indie – západ, Indie – jih, pro mediální soubory a musí být umístěný ve stejné zeměpisné oblasti jako účet Media Services. Při vytváření účtu Media Services můžete zvolit buď stávající účet úložiště ve stejné oblasti, nebo můžete vytvořit nový účet úložiště ve stejné oblasti. Pokud odstraníte účet Media Services, objekty blob v souvisejícím účtu úložiště odstraněny nebudou.
+    - Indie – západ, Indie – jih: Poskytují úložiště objektů blob pro mediální soubory. Účty úložiště musí být umístěné ve stejné zeměpisné oblasti jako účet Media Services. Při vytváření účtu Media Services můžete zvolit buď stávající účet úložiště ve stejné oblasti, nebo můžete vytvořit nový účet úložiště ve stejné oblasti. Pokud odstraníte účet Media Services, objekty blob v souvisejícím účtu úložiště odstraněny nebudou.
 
 ## Vytvoření účtu AMS
 
@@ -102,6 +107,6 @@ Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -26,7 +26,7 @@ Třeba prostředky používané pro vývoj nebo testování můžou mít jiné p
 
 ## Nastavení zásad zabezpečení pro předplatné
 
-Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skupinu prostředků. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Otevřete Azure Portal a při konfiguraci zásad zabezpečení v Security Center postupujte podle předchozích kroků:
+Zásady zabezpečení se dají nakonfigurovat pro každé předplatné nebo skupinu prostředků. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Otevřete Azure Portal a při konfiguraci zásad zabezpečení v Security Center postupujte podle následujících kroků:
 
 1. Na řídicím panelu Security Center klikněte na dlaždici **Zásady**.
 
@@ -108,6 +108,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -12,15 +12,15 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Pomocí následujícího postupu můžete na portálu Azure vytvořit novou databázi SQL Azure na novém nebo stávajícími logickém serveru služby SQL Database.
 
-1. Pokud nejste připojení, připojte se k [portálu Azure](http://portal.azure.com).
-2. Klikněte na **Nový**, zadejte **SQL Database** a potom klikněte na **SQL Database (nová databáze)**.
+1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
+2. Klikněte na **Nový**, zadejte **SQL Database** a poté klikněte na **SQL Database (nová databáze)**.
 
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Klikněte na SQL Database (nová databáze).
+3. Klikněte na **SQL Database (nová databáze)**.
 
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-   
+
 4. Kliknutím na **Vytvořit** vytvořte ve službě SQL Database novou databázi.
 
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
@@ -28,18 +28,18 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
 5. Zadejte hodnoty následujících vlastností serveru:
 
  - Název databáze
- - Předplatné (jenom pokud máte více předplatných)
- - Skupina prostředků (pokud teprve začínáte, použijte skupinu prostředků logického serveru)
- - Vyberte zdroj (můžete zvolit prázdnou databázi, ukázková data nebo zálohu databáze Azure – pokud chcete migrovat místní databázi SQL Serveru nebo načíst data pomocí BCP, přejděte na odkazy na konci tohoto článku).
- - Server (nový nebo stávající logický server)
- - Heslo správce serveru
+ - Předplatné: Platí pouze pokud máte více předplatných.
+ - Skupina prostředků: Pokud teprve začínáte, použijte skupinu prostředků logického serveru.
+ - Vyberte zdroj: Můžete zvolit prázdnou databázi, ukázková data nebo zálohu databáze Azure. Chcete-li migrovat místní databázi systému SQL Server nebo načíst data pomocí nástroje příkazového řádku BCP, na konci tohoto článku najdete odkazy.
+ - Server: Nový nebo stávající logický server.
+ - Přihlašovací jméno správce serveru
  - Heslo
- - Cenová úroveň (pokud teprve začínáte, použijte výchozí hodnotu S0)
- - Kolace (jenom pokud vyberete prázdnou databázi)
+ - Cenová úroveň: Pokud teprve začínáte, použijte výchozí hodnotu S0.
+ - Kolace: Platí pouze pokud byla zvolena prázdná databáze.
 
-        ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Klikněte na **Vytvořit** a v oznamovací oblasti uvidíte, že se zahájilo nasazení.
+6.  Klikněte na možnost **Vytvořit**. V oznamovací oblasti uvidíte, že nasazení bylo zahájeno.
 
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
@@ -49,6 +49,6 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

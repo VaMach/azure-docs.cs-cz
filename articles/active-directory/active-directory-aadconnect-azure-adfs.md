@@ -1,7 +1,7 @@
 <properties
     pageTitle="Služba AD FS (Active Directory Federation Services) v Azure | Microsoft Azure"
     description="V tomto dokumentu se dozvíte, jak nasadit služby AD FS v Azure a zajistit vysokou dostupnost."
-    keywords="úvod do služby AD FS, Azure, přehled služby Azure AD Connect, služba AD FS v Azure, IaaS, ADFS"
+    keywords="nasazení AD FS v Azure, nasazení Azure AD FS, Azure AD FS, Azure ADFS, nasazení AD FS, nasazení AD FS, AD FS v Azure, nasazení ADFS v Azure, nasazení AD FS v Azure, AD FS Azure, úvod do služby AD FS, Azure, AD FS v Azure, IAAS, ADFS, přesunutí AD FS do Azure"
     services="active-directory"
     documentationCenter=""
     authors="anandyadavmsft"
@@ -311,6 +311,7 @@ Po úspěšném přihlášení zobrazí zprávu o úspěchu, jak je uvedeno ní�
 
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurace a správa služby AD FS pomocí služby Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
@@ -318,7 +319,6 @@ Po úspěšném přihlášení zobrazí zprávu o úspěchu, jak je uvedeno ní�
 
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

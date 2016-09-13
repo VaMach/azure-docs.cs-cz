@@ -6,6 +6,6 @@
 - [Ruby](active-directory-b2c-devquickstarts-graph-ruby.md)
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

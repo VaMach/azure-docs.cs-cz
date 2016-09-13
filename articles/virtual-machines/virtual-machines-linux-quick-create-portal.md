@@ -21,7 +21,6 @@
 
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí Portálu
 
-> [AZURE.NOTE] Pokud máte chvíli čas, pomozte nám vylepšit dokumentaci virtuálního počítače s Linuxem v Azure pomocí tohoto [rychlého průzkumu](https://aka.ms/linuxdocsurvey) vašich zkušeností. Každá odpověď nám pomůže splnit vaše potřeby.
 
 Tento článek ukazuje, jak rychle vytvořit virtuální počítač s Linuxem pomocí [webu Azure Portal](https://portal.azure.com/). Jediným požadavkem je mít [účet Azure](https://azure.microsoft.com/pricing/free-trial/) a [soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
@@ -81,6 +80,6 @@ Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli o
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

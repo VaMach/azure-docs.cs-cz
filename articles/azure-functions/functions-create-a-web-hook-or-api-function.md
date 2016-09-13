@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/07/2016"
+   ms.date="08/30/2016"
    ms.author="glenga"/>
    
 # Vytvoření funkce Azure volané webhookem nebo rozhraním API
@@ -95,6 +95,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -345,7 +345,7 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         }
 
 
-9. Přidejte tyto další metody do `MainActivity` pro ověření stavu aplikace a stavu sestavy ve vaší aplikaci.
+9. Přidejte  tyto další metody do `MainActivity` pro ověření stavu aplikace a stavu sestavy ve vaší aplikaci.
 
         @Override
         protected void onStart() {
@@ -717,7 +717,7 @@ Jako další krok doporučujeme tutoriál [Použití centra oznámení pro nabí
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, podívejte se na tutoriál [Používání centra oznámení k odesílání novinek].
 
-Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyny ke službě Notification Hubs].
+Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyny centra oznámení].
 
 <!-- Images. -->
 
@@ -728,13 +728,13 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Odkazování na projekt knihovny]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portál Azure Classic]: https://manage.windowsazure.com/
-[Pokyny ke službě Notification Hubs]: notification-hubs-push-notification-overview.md
-[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-android-notify-users.md
-[Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Pokyny centra oznámení]: notification-hubs-push-notification-overview.md
+[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 
