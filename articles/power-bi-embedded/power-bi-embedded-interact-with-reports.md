@@ -3,7 +3,7 @@
    description="Power BI Embedded, interakce se sestavami pomocí rozhraní API pro JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # Interakce se sestavami Power BI pomocí rozhraní API pro JavaScript
 
@@ -139,6 +139,6 @@ Další informace o rozhraní API pro JavaScript Power BI najdete pod následuj�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

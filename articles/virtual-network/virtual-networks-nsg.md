@@ -42,8 +42,8 @@ Pravidla NSG obsahují následující vlastnosti.
 |**Protocol (Protokol)**|Protokol, který je nutné u pravidla splnit|TCP, UDP nebo \*|Použití \* jako protokolu zahrnuje protokol ICMP (pouze provoz typu East-West) a protokoly UDP a TCP a může snížit počet pravidel, která budete potřebovat.<br/>Použití \* ale současně může být příliš široké, a proto se vždy ujistěte, že je tento přístup skutečně nutný.|
 |**Rozsah zdrojových portů**|Rozsah zdrojových portů, který je nutné u pravidla splnit|Jedno číslo portu od 1 do 65535, rozsah portů (tj. 1–65635) nebo \* (pro všechny porty)|Zdrojové porty můžou být dočasné. Pokud váš klientský program nepoužívá konkrétní port, ve většině případů prosím použijte „*“.<br/>Snažte se co nejvíc používat rozsahy portů, aby nebylo potřeba více pravidel.<br/>Není možné seskupit několik portů nebo rozsahů portů oddělených čárkami.
 |**Rozsah cílových portů**|Rozsah cílových portů, který je nutné u pravidla splnit|Jedno číslo portu od 1 do 65535, rozsah portů (tj. 1–65535) nebo \* (pro všechny porty)|Snažte se co nejvíc používat rozsahy portů, aby nebylo potřeba více pravidel.<br/>Není možné seskupit několik portů nebo rozsahů portů oddělených čárkami.
-|**Předpona zdrojové adresy**|Předpona zdrojové adresy nebo značka, které je nutné u pravidla splnit|Jedna IP adresa (tj. 10.10.10.10), podsíť IP (tj. 192.168.1.0/24), [výchozí značka](#Default-Tags) nebo * (pro všechny adresy)|Zvažte použití rozsahů, výchozích značek a *, abyste snížili počet pravidel.|
-|**Předpona cílové adresy**|Předpona cílové adresy nebo značka, které je nutné u pravidla splnit|Jedna IP adresa (tj. 10.10.10.10), podsíť IP (tj. 192.168.1.0/24), [výchozí značka](#Default-Tags) nebo * (pro všechny adresy)|Zvažte použití rozsahů, výchozích značek a *, abyste snížili počet pravidel.|
+|**Předpona zdrojové adresy**|Předpona zdrojové adresy nebo značka, které je nutné u pravidla splnit|Jedna IP adresa (tj. 10.10.10.10), podsíť IP (tj. 192.168.1.0/24), [výchozí značka](#default-tags) nebo * (pro všechny adresy)|Zvažte použití rozsahů, výchozích značek a *, abyste snížili počet pravidel.|
+|**Předpona cílové adresy**|Předpona cílové adresy nebo značka, které je nutné u pravidla splnit|Jedna IP adresa (tj. 10.10.10.10), podsíť IP (tj. 192.168.1.0/24), [výchozí značka](#default-tags) nebo * (pro všechny adresy)|Zvažte použití rozsahů, výchozích značek a *, abyste snížili počet pravidel.|
 |**Směr**|Směr provozu, který je nutné u pravidla splnit|Příchozí nebo odchozí|Pravidla pro příchozí a odchozí provoz se zpracovávají odděleně podle směru.|
 |**Priorita**|Pravidla se kontrolují v pořadí podle priority, a jakmile se některé pravidlo použije, žádná další se již nekontrolují.|Číslo v rozsahu od 100 do 4096|Doporučujeme u jednotlivých pravidel zadat priority v krocích po 100, aby byl mezi stávajícími pravidly prostor pro další.|
 |**Access**|Typ přístupu, který se použije v případě splnění pravidla|Povolit nebo odepřít|Pamatujte, že pokud se pro paket nenajde pravidlo povolení, bude se paket ignorovat.|
@@ -124,13 +124,13 @@ Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Cl
 
 |Nástroj pro nasazení|Classic|Resource Manager|
 |---|---|---|
-|Portál Classic|![Ne][red]|![Ne][red]|
-|portál Azure|![Ano][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ano][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ano][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ano][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ano][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ano][green]|
-|Šablona ARM|![Ne][red]|[](virtual-networks-create-nsg-arm-template.md)![Ano][green]|
+|Portál Classic|![Ne](./media/virtual-network-nsg-overview/red.png)|![Ne](./media/virtual-network-nsg-overview/red.png)|
+|portál Azure|![Ano](./media/virtual-network-nsg-overview/green.png)|[![Ano][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Ano][green]](virtual-networks-create-nsg-classic-ps.md)|[![Ano][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Ano][green]](virtual-networks-create-nsg-classic-cli.md)|[![Ano][green]](virtual-networks-create-nsg-arm-cli.md)|
+|Šablona ARM|![Ne](./media/virtual-network-nsg-overview/red.png)|[![Ano][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Klíč**|![Ano][green] Podporuje se. Kliknutím zobrazíte článek.|![Ne][red] Nepodporuje se.|
+|**Klíč**|![Ano](./media/virtual-network-nsg-overview/green.png) Podporuje se.|![Ne](./media/virtual-network-nsg-overview/red.png) Nepodporuje se.|
 |---|---|---|
 
 ## Plánování
@@ -278,12 +278,12 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 - [Nasazení skupin NSG v modelu Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Správa protokolů NSG](virtual-network-nsg-manage-log.md).
 
-[zelená]: ./media/virtual-network-nsg-overview/green.png
+[green]: ./media/virtual-network-nsg-overview/green.png
 [žlutá]: ./media/virtual-network-nsg-overview/yellow.png
 [červená]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

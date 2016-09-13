@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/30/2016"
     ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 Sada SDK poskytuje automatický sběr hodnot příchozích požadavků HTTP a odpovědí, čítačů výkonu (procesor, paměť, RPS) a neošetřených výjimek. Kromě toho můžete přidat vlastní volání ke sledování závislostí, metrik a dalších událostí.
 
-![Příklady tabulek sledování výkonu](./media/app-insights-asp-net-manual/10-perf.png)
+![Příklady tabulek sledování výkonu](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Než začnete
@@ -40,7 +40,7 @@ Budete potřebovat:
 
 Přihlaste se k portálu [Azure][] a vytvořte nový prostředek Application Insights. [Role][prostředků] v Azure je instance služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
 
-![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Vyberte jako typ aplikace Jiný. Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v metrikách [Průzkumníku metrik][].
 
@@ -48,7 +48,7 @@ Vyberte jako typ aplikace Jiný. Volba typu aplikace nastaví výchozí obsah ok
 
 Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá data do prostředku.
 
-![Klikněte na tlačítko Vlastnosti, vyberte klíč a stiskněte klávesy ctrl + C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Klikněte na tlačítko Vlastnosti, vyberte klíč a stiskněte klávesy ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Nainstalujte sadu SDK do aplikace
@@ -84,9 +84,9 @@ Přihlaste se do [portálu Azure](https://portal.azure.com) a procházejte do zd
 
 Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo dva body. Příklad:
 
-![Proklikejte se k dalším datům](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Proklikejte se k dalším datům](./media/app-insights-windows-services/12-first-perf.png)
 
-Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][Průzkumníku metrik]
+Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][výkon]
 
 #### Žádná data?
 
@@ -212,20 +212,24 @@ server.on("listening", () => {
 });
 ```
 
+## Další kroky
+
+* [Monitorování vaší telemetrie na portálu](app-insights-dashboards.md)
+* [Psaní analytických dotazů nad vaší telemetrií (app-insights-analytics-tour.md)
 
 
 
 <!--Link references-->
 
-[Azure]: app-insights-overview-usage.md
+[známí uživatelé]: app-insights-overview-usage.md
 [Průzkumníku metrik]: app-insights-metrics-explorer.md
-[prostředků]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
+[výkon]: app-insights-web-monitor-performance.md
+[portál]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
+[prostředků]: app-insights-resources-roles-access-control.md
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

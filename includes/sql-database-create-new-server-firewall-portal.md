@@ -11,44 +11,43 @@ articles/sql-database/sql-database-configure-firewall-settings
 -->
 ## Vytvoření nové brány firewall na úrovni serveru SQL Azure
 
-Pomocí následujícího postupu vytvořte na portálu Azure pravidlo brány firewall na úrovni serveru, které umožní připojení z určité IP adresy (vašeho klientského počítače) nebo celého rozsahu IP adres k logickému serveru SQL. 
+Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brány firewall na úrovni serveru, které umožní připojení z jednotlivé IP adresy (vašeho klientského počítače) nebo celého rozsahu IP adres k logickému serveru služby SQL Database.
 
-1. Pokud nejste připojení, připojte se k [portálu Azure](http://portal.azure.com).
-2. Ve výchozím okně klikněte na **SQL Server**.
+1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
+2. Ve výchozím okně klikněte na **Servery SQL**.
 
-    ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-2. V okně SQL Server klikněte server SQL, na kterém chcete pravidlo brány firewall vytvořit. 
+3. V okně **Servery SQL** klikněte na server, na kterém se má pravidlo brány firewall vytvořit.
 
-    ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-           
-3. Zkontrolujte vlastnosti serveru.
+    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 
-    ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-      
-4. V okně Nastavení klikněte na tlačítko **Brána firewall**.
+4. Zkontrolujte vlastnosti serveru.
 
-    ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
-    
+    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 
-    > [AZURE.NOTE] K oknu pro **nastavení firewallu** na úrovni serveru se dostanete také z okna Databáze.
+5. V okně **Nastavení** klikněte na **Brána firewall**.
 
-5. Klikněte na **Přidat IP adresu klienta**. Azure potom vytvoří pravidlo pro IP adresu vašeho klienta.
+    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
 
-      ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+    > [AZURE.NOTE] K oknu **Nastavení brány firewall** na úrovni serveru se dostanete také z panelu nástrojů v okně **Databáze**.
 
-6. Případně můžete kliknout na přidanou IP adresu a upravit adresu brány firewall. Tím povolíte přístup k rozsahu IP adres.
+6. Klikněte na **Přidat IP adresu klienta** a Azure vytvoří pravidlo pro vaši IP adresu klienta.
 
-      ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
-    
-7. Klikněte na tlačítko **Uložit** a vytvořte tak pravidlo brány firewall na úrovni serveru.
+      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
-     ![Nová serverová brána firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
+7. Případně můžete kliknout na přidanou IP adresu a upravit adresu brány firewall. Tím povolíte přístup k rozsahu IP adres.
 
-    >[AZURE.IMPORTANT] IP adresa klienta se může občas změnit a vy pak nebudete mít přístup k serveru, dokud nevytvoříte nové pravidlo brány firewall. Svoji IP adresu můžete zkontrolovat pomocí aplikace [Bing](http://www.bing.com/search?q=my%20ip%20address). Potom můžete přidat jednu IP adresu nebo rozsah IP adres. Podrobnosti najdete v tématu [Správa nastavení brány firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
+      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
 
+8. Klikněte na tlačítko **Uložit** a vytvořte tak pravidlo brány firewall na úrovni serveru.
+
+     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
+
+    >[AZURE.IMPORTANT] Vaše IP adresa klienta se občas může změnit a vy pak nebudete mít přístup k serveru, dokud nevytvoříte nové pravidlo brány firewall. IP adresu můžete zkontrolovat pomocí [Bing](http://www.bing.com/search?q=my%20ip%20address). Poté přidejte jednu IP adresu nebo rozsah IP adres. Podrobnosti najdete v tématu [Správa nastavení brány firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO1-->
 
 

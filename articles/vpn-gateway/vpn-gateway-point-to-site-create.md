@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Konfigurace připojení VPN typu Point-to-Site ke službě Azure Virtual Network pomocí klasického portálu | Microsoft Azure"
-   description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení VPN typu Point-to-Site."
+   pageTitle="Konfigurace připojení brány VPN typu Point-to-Site ke službě Azure Virtual Network pomocí klasického portálu | Microsoft Azure"
+   description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Klasický portál](vpn-gateway-point-to-site-create.md)
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení mezi jednotlivým klientským počítačem a virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
+Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
 
 Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **modelu nasazení Classic** s použitím portálu Classic. V současné době nelze tuto konfiguraci pro model nasazení Classic vytvořit v plném rozsahu v rámci webu Azure Portal.
 
@@ -144,16 +144,30 @@ Chcete-li se připojit k virtuální síti, je potřeba nakonfigurovat také kli
 
 3. Po vygenerování a stažení balíčku klienta VPN z portálu Azure Classic můžete balíček klienta nainstalovat na klientský počítač, ze kterého se chcete připojit k virtuální síti. Pokud plánujete nainstalovat balíček klienta VPN na více klientských počítačů, ujistěte se, že je na každém z nich nainstalovaný také klientský certifikát.
 
-### Část 2: Instalace balíčku konfigurace VPN na klienta a zahájení připojení
+### Část 2: Instalace konfiguračního balíčku sítě VPN na klienta
 
-1. Zkopírujte konfigurační soubor do počítače, který chcete připojit k virtuální síti a dvakrát klikněte na soubor .exe. Jakmile je balíček nainstalován, můžete zahájit připojení VPN. Konfigurační balíček není podepsán společností Microsoft. Balíček můžete chtít podepsat pomocí podpisové služby vaší organizace, nebo podepsat sami pomocí nástroje [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Balíček lze použít i bez podepsání. Nicméně pokud balíček není podepsaný, zobrazí se během instalace balíčku upozornění.
-2. Na klientském počítači přejděte na připojení VPN a vyhledejte právě vytvořené připojení VPN. Bude mít stejný název jako vaše virtuální síť. Klikněte na **Připojit**.
-3. Zobrazí se místní zpráva, která slouží k vytvoření certifikátu podepsaného svým držitelem pro koncový bod služby Gateway. Klikněte na **Pokračovat** pro použití zvýšených oprávnění.
-4. Připojení spustíte kliknutím na tlačítko **Připojit** na stavové stránce **Připojení**.
-5. Pokud uvidíte obrazovku **Výběr certifikátu**, ujistěte se, že zobrazený klientský certifikát je ten, který chcete pro připojení použít. Pokud není, vyberte pomocí šipky rozevíracího seznamu správný certifikát, a poté klikněte na **OK**.
-6. Nyní jste připojeni ke svojí virtuální síti a máte úplný přístup ke všem službám a virtuálním počítačům hostovaným ve virtuální síti.
+1. Zkopírujte konfigurační soubor do počítače, který chcete připojit k virtuální síti a dvakrát klikněte na soubor .exe. 
 
-### Část 3: Ověření připojení VPN
+2. Jakmile je balíček nainstalován, můžete zahájit připojení VPN. Konfigurační balíček není podepsán společností Microsoft. Balíček můžete chtít podepsat pomocí podpisové služby vaší organizace, nebo podepsat sami pomocí nástroje [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Balíček lze použít i bez podepsání. Nicméně pokud balíček není podepsaný, zobrazí se během instalace balíčku upozornění.
+
+3. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Zobrazí se příslušné připojení. Bude uveden název virtuální sítě, ke kterému se bude počítač připojovat. Název bude vypadat podobně jako tento: 
+
+    ![Klient VPN](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Část 3: Připojení k Azure
+
+1. Chcete-li se připojit ke své síti VNet, přejděte na klientském počítači na připojení VPN a vyhledejte připojení VPN, které jste vytvořili. Bude mít stejný název jako vaše virtuální síť. Klikněte na **Připojit**. Může se zobrazit místní zpráva týkající se použití certifikátu. Pokud k tomu dojde, klikněte na možnost **Pokračovat**, abyste použili zvýšená oprávnění. 
+
+2. Připojení spustíte kliknutím na tlačítko **Připojit** na stavové stránce **Připojení**. Pokud uvidíte obrazovku **Výběr certifikátu**, ujistěte se, že zobrazený klientský certifikát je ten, který chcete pro připojení použít. Pokud není, vyberte pomocí šipky rozevíracího seznamu správný certifikát, a poté klikněte na **OK**.
+
+    ![Klient VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Připojení by nyní mělo být navázáno.
+
+    ![Klient VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Část 4: Ověření připojení VPN
 
 1. Chcete-li ověřit, zda je připojení VPN aktivní, v příkazovém řádku se zvýšenými oprávněními spusťte příkaz *ipconfig/all*.
 2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z rozsahu adres připojení typu Point-to-Site, který jste určili během vytváření vaší virtuální sítě. Výsledek by se měl podobat následujícímu příkladu:
@@ -181,6 +195,6 @@ Další informace o virtuálních sítích najdete na stránce [Dokumentace k vi
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

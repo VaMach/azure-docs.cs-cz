@@ -19,8 +19,6 @@
 
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku (CLI)
 
-> [AZURE.NOTE] Pokud máte chvíli čas, pomozte nám vylepšit dokumentaci virtuálního počítače s Linuxem v Azure pomocí tohoto [rychlého průzkumu](https://aka.ms/linuxdocsurvey) vašich zkušeností. Každá odpověď nám pomůže splnit vaše potřeby.
-
 Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` rozhraní příkazového řádku Azure CLI. Příkaz `quick-create` nasadí virtuální počítač se základní okolní infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu.  Článek vyžaduje účet Azure ([získat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)) a rozhraní příkazového řádku [Azure CLI](../xplat-cli-install.md) (`azure login`), které je přihlášené a v režimu Resource Manageru (`azure config mode arm`).  Virtuální počítač s Linuxem můžete také rychle nasadit pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Rychlý přehled příkazu
@@ -172,6 +170,6 @@ Příkaz `azure vm quick-create` představuje způsob, jak rychle nasadit virtu�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

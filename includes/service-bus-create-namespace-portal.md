@@ -40,6 +40,6 @@
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

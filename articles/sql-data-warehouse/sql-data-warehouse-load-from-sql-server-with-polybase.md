@@ -3,7 +3,7 @@
    description="Využívá bcp k exportu dat z SQL Serveru do plochých souborů, AZCopy k importu dat do Azure Blob Storage a PolyBase ke zpracování příjmu dat do Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
@@ -72,7 +72,7 @@ Ukázkový textový soubor připravíte takto:
 
 Vyhledání vašeho koncového bodu Služby objektů blob:
 
-1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
+1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. V okně Účet úložiště klikněte na Objekty blob.
 
@@ -86,7 +86,7 @@ Vyhledání vašeho koncového bodu Služby objektů blob:
 
 Vyhledání klíče účtu úložiště Azure:
 
-1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
+1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. Vyberte **Všechna nastavení** > **Přístupové klíče**.
 4. Kliknutím na políčko pro kopírování si zkopírujte jeden ze svých přístupových klíčů do schránky.
@@ -286,6 +286,6 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

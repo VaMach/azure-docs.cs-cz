@@ -150,8 +150,8 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
 
     Nezapomeňte aktualizovat tyto tři zástupné symboly v následujícím kódu pro třídu `NotificationSettings`:
     * **ID odesílatele**: číslo projektu, které jste získali výše u [konzoly Google Cloud](http://cloud.google.com/console).
-    * **HubListenConnectionString**: připojovací řetězec **DefaultListenAccessSignature** pro rozbočovač. Tento připojovací řetězec můžete zkopírovat kliknutím na položku **Zásady přístupu** v okně **Nastavení** rozbočovače na [Portálu Azure].
-    * **HubName**: použije název centra oznámení, který se zobrazí v centru okna na [Portálu Azure].
+    * **HubListenConnectionString**: připojovací řetězec **DefaultListenAccessSignature** pro rozbočovač. Tento připojovací řetězec můžete zkopírovat kliknutím na položku **Zásady přístupu** v okně **Nastavení** rozbočovače na [Azure Portal].
+    * **HubName**: použije název centra oznámení, který se zobrazí v centru okna na webu [Azure Portal].
 
     `NotificationSettings` kód:
 
@@ -430,7 +430,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
 
 ##Odeslání nabízených oznámení
 
-Můžete otestovat přijímání nabízených oznámení ve vaší aplikaci jejich odesláním prostřednictvím [Portálu Azure] – hledejte část **Poradce při potížích** v okně centra, jak je uvedeno níže.
+Můžete otestovat přijímání nabízených oznámení ve vaší aplikaci jejich odesláním prostřednictvím [Azure Portal] – hledejte část **Poradce při potížích** v okně centra, jak je uvedeno níže.
 
 ![Azure Notification Hubs – testovací odeslání](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -468,7 +468,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
 
 3. Do souboru `NotificationSetting.java` přidejte následující nastavení na třídu `NotificationSettings`.
 
-    Aktualizujte `HubFullAccess` pomocí připojovacího řetězce **DefaultFullSharedAccessSignature** pro centrum. Tento připojovací řetězec lze kopírovat z [Portálu Azure] kliknutím na položku **zásady přístupu** v okně **Nastavení** pro vaše centrum oznámení.
+    Aktualizujte `HubFullAccess` pomocí připojovacího řetězce **DefaultFullSharedAccessSignature** pro centrum. Tento připojovací řetězec lze kopírovat z [Azure Portal] kliknutím na položku **zásady přístupu** v okně **Nastavení** pro vaše centrum oznámení.
 
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
@@ -723,12 +723,12 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 [Odkazování na projekt knihovny]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portál Azure Classic]: https://manage.windowsazure.com/
 [Pokyny centra oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
-[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-android-notify-users.md
-[Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-breaking-news.md
-[Portálu Azure]: https://portal.azure.com
+[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Azure Portal]: https://portal.azure.com
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

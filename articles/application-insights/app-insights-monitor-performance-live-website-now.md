@@ -283,11 +283,7 @@ Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šab
 * [Přidání využití telemetrie webového klienta][] pro zobrazení výjimek z kódu webové stránky a umožnění vložení trasovacího volání.
 * [Přidání Application Insights SDK do vašeho kódu webové služby][greenbrown] tak, abyste mohli vložit trasování a protokol volání do kódu serveru.
 
-## Video
 
-#### Sledování výkonu
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -302,6 +298,6 @@ Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šab
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

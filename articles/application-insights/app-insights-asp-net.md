@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Nastavte analýzy webových aplikací pro ASP.NET pomocí Application Insights" 
+    pageTitle="Nastavení analýzy webových aplikací pro ASP.NET pomocí Application Insights | Microsoft Azure" 
     description="Nakonfigurujte výkon, dostupnost a analýzy využití pro váš web ASP.NET hostovaný místně nebo v Azure." 
     services="application-insights" 
     documentationCenter=".net"
@@ -118,17 +118,17 @@ Takže příkaz provedl tři věci:
 2. Vytvořte prostředek Application Insights na [portálu Azure](https://portal.azure.com/). Toto je místo, kde uvidíte vaše data. Načítá *klíč instrumentace*, který identifikuje prostředek.
 3. Vloží klíč instrumentace do `ApplicationInsights.config` tak, aby sada SDK mohla odesílat telemetrii do portálu.
 
-Pokud chcete, můžete tyto kroky provést ručně pro [ASP.NET 4](app-insights-asp-net-manual.md) nebo [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Pokud chcete, můžete tyto kroky provést ručně pro [ASP.NET 4](app-insights-windows-services.md) nebo [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ### Postup upgradu na budoucí verze sady SDK
 
-K upgradu [novou verzi sady SDK](app-insights-release-notes-dotnet.md) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte Microsoft.ApplicationInsights.Web a zvolte Upgradovat.
+K upgradu [novou verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte Microsoft.ApplicationInsights.Web a zvolte Upgradovat.
 
 Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložte jeho kopii před upgradem a následně slučte změny do nové verze.
 
 
 
-## Co dále?
+## Další kroky
 
 | | 
 |---|---
@@ -144,6 +144,6 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

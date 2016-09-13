@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/01/2016"
     ms.author="awills"/>
 
 # Developer Analytics: jazyky, platformy a integrace
@@ -22,8 +22,6 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 ## Jazyky
 
 + [C#|VB (.NET)](app-insights-asp-net.md)
-+ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
-+ [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Webové stránky JavaScript](app-insights-web-track-usage.md)
 + [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -37,7 +35,7 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 + [Úhlová](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET – pro aplikace, které jsou již nasazeny](app-insights-monitor-performance-live-website-now.md)
-+ [ASP.NET 5](app-insights-asp-net-five.md)
++ [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Webové aplikace Azure a virtuální počítače](../azure-portal/insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151; včetně webových a pracovních rolí
@@ -47,12 +45,14 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE – pro aplikace, které jsou již nasazeny](app-insights-java-live.md)
+* [Aplikace systému Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Univerzální aplikace pro Windows](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md) (HockeyApp)
-+ [Windows Store C++](app-insights-windows-cpp.md) (HockeyApp)
+* [Aplikace pro Windows Phone 8 a 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
+* [Aplikace pro grafický subsystém Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 + [Aplikace pracovní plochy Windows, služby a pracovní role](app-insights-windows-desktop.md)
 + [Cokoliv jiného](#projects)
 
@@ -87,6 +87,6 @@ Pokud ještě není SDK k dispozici pro váš jazyk nebo platformu, možná si c
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

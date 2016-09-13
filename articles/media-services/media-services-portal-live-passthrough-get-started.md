@@ -13,14 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/30/2016" 
+    ms.date="09/05/2016" 
     ms.author="juliako"/>
 
 
 #Jak provést živé streamování pomocí místních kodérů na portálu Azure
 
-Tento kurz vás provede kroky pro vytvoření **Kanálu**, který je nakonfigurován pro průchozí doručování. 
+> [AZURE.SELECTOR]
+- [Portál]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Tento kurz vás provede kroky pro vytvoření **Kanálu**, který je nakonfigurován pro průchozí doručování. 
 
 ##Požadavky
 
@@ -73,12 +77,13 @@ Pokud chcete zobrazit upozornění a chyby, vytvořené na portálu Azure, klikn
 
 ##Konfigurace koncových bodů streamování 
 
-Služba Media Services poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů.
+Media Services poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit a platit za soubory pouze v jednom formátu úložiště a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
 
 Pokud chcete využít výhody dynamického balení, získejte alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat.  
 
 Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
 
+1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
 1. V okně **Nastavení** klikněte na **Koncové body streamování**. 
 
 2. Klikněte na výchozí koncový bod streamování. 
@@ -87,7 +92,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
 
 3. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
 
-    ![Jednotky streamování](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+    ![Jednotky streamování](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Kliknutím na tlačítko **Uložit** uložte provedené změny.
 
@@ -99,7 +104,7 @@ Kanál je přidružený k událostem a programům, které vám umožňují říd
     
 Nastavením délky **archivačního okna** můžete určit počet hodin, po které chcete uchovávat zaznamenaný obsah programu. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
 
-Každá událost je přidružena k assetu. Pokud chcete publikovat událost, musíte pro přidružený asset vytvořit lokátor OnDemand. Tento lokátor vám umožní sestavit adresu URL pro streamování, kterou potom poskytnete svým klientům.
+Každá událost je přidružena k assetu. Chcete-li publikovat událost, musíte pro přidružený prostředek vytvořit lokátor OnDemand. Tento lokátor vám umožní sestavit adresu URL pro streamování, kterou následně poskytnete svým klientům.
 
 Kanál podporuje až tři současně spuštěné programy, takže si můžete vytvořit několik archivů stejného příchozího datového proudu. To vám umožní podle potřeby publikovat a archivovat různé části události. Požadavek vaší firmy může být například takový, že chcete archivovat 6 hodin programu, ale vysílat jenom posledních 10 minut. K tomu potřebujete vytvořit dva současně spuštěné programy. Jeden program nastavíte, aby archivoval 6 hodin události, ale tento program nebudete publikovat. Druhý program nastavíte, aby archivoval 10 minut a tento program budete publikovat.
 
@@ -115,7 +120,7 @@ Pokud chcete archivovaný obsah zachovat, ale nechcete ho zpřístupňovat pro s
 
 ###Použití portálu k vytvoření kanálu 
 
-Tato část ukazuje způsob použití funkce **Rychle vytvořit** k vytvoření průchozího kanálu.
+Tento oddíl ukazuje, jak vytvořit průchozí kanál pomocí možnosti **Rychle vytvořit**.
 
 Další podrobnosti o průchozích kanálech v [Živé streamování s místními kodéry, které vytvářejí proudy s více přenosovými rychlostmi.](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -132,9 +137,13 @@ Další podrobnosti o průchozích kanálech v [Živé streamování s místním
 
     Tím vytvoříte průchozí kanál s protokolem ingestování RTMP.
 
-    Kanál také přidá, spustí a publikuje výchozí živou událost nebo program. Tato událost má nakonfigurovanou délku archivačního okna 8 hodin. 
+##Vytvoření událostí
 
-    Když chcete přidat další události, stiskněte tlačítko **Živá událost**.
+1. Vyberte kanál, ke kterému chcete přidat událost.
+2. Stiskněte tlačítko **Živá událost**.
+
+![Událost](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Získání ingestovaných adres URL
 
@@ -161,11 +170,13 @@ Další podrobnosti o průchozích kanálech v [Živé streamování s místním
 
 I po zastavení a odstranění události můžou uživatelé streamovat archivovaný obsah jako video na vyžádání, a to tak dlouho, dokud asset neodstraníte. Asset nemůžete odstranit, pokud ho událost používá. Nejdřív odstraňte událost. 
 
-Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlačítko **Prostředky**.
+Chcete-li spravovat prostředky, vyberte **Nastavení** a klikněte na **Prostředky**.
 
 ![Prostředky](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Mapy kurzů k Media Services
+##Další krok
+
+Prohlédněte si mapy kurzů k Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,6 +186,6 @@ Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlač�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

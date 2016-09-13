@@ -48,7 +48,7 @@ V této části vytvoříte konzolovou aplikaci softwaru Node.js, která v regis
     npm init
     ```
 
-2. Na příkazovém řádku ve složce **createdeviceidentity** spusťte následující příkaz k instalaci balíčku **azure-iothub**:
+2. V příkazovém řádku ve složce **createdeviceidentity** spusťte následující příkaz k instalaci balíčku sady SDK pro služby **azure-iothub**:
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ V této části vytvoříte konzolovou aplikaci softwaru Node.js, která simuluj
     npm init
     ```
 
-2. Na příkazovém řádku ve složce **simulateddevice** spusťte následující příkaz k instalaci balíčku **azure-iot-device-amqp**:
+2. V příkazovém řádku ve složce **simulateddevice** spusťte následující příkaz k instalaci balíčku sady SDK pro zařízení **azure-iot-device** a balíčku **azure-iot-device-amqp**:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -272,7 +272,7 @@ Nyní můžete spustit aplikace.
 
     ![][8]
 
-3. Na dlaždici **Využití** v [Azure Portal][lnk-portal] se zobrazuje počet zpráv odeslaných do služby:
+3. Na dlaždici **Využití** v [portálu Azure][lnk-portal] se zobrazuje počet zpráv odeslaných do služby:
 
     ![][43]
 
@@ -313,6 +313,7 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!---HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO1-->
 
 

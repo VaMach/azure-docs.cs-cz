@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/29/2016"
+    ms.date="09/01/2016"
     ms.author="anhoh"/>
 
 # Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
@@ -25,7 +25,7 @@
 
 Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až získáte projekt Rychlý start nebo projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
 
-- **[Rychlý start](#quickstart)**: Stáhněte si ukázkový projekt a přidejte své informace o připojení, abyste získali fungující aplikaci DocumentDB za méně než 5 minut.
+- **[Rychlý start](#quickstart)**: Stáhněte si ukázkový projekt, přidejte své informace o připojení a získejte fungující aplikaci DocumentDB za méně než 10 minut.
 - **[Kurz](#tutorial)**: Vytvořte aplikaci Rychlý start od začátku během 30 minut.
 
 ## Požadavky
@@ -36,7 +36,7 @@ Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až získáte proje
 
 ## Rychlý start
 
-1. Stáhněte si ukázkový projekt z [Githubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Stáhněte si soubor .zip s ukázkovým projektem z [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) nebo si jej naklonujte z repositáře [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Pomocí webu Azure Portal [vytvořte účet DocumentDB](documentdb-create-account.md).
 3. V souboru App.config nahraďte hodnoty EndpointUri a PrimaryKey pomocí hodnot načtených z webu [Azure Portal](https://portal.azure.com/) přechodem do okna **DocumentDB (NoSQL)**, kliknutím na **Název účtu** a pak kliknutím na **Klíče** v nabídce prostředků.
     ![Snímek obrazovky hodnot EndpointUri a PrimaryKey, které se mají nahradit v souboru App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
@@ -607,6 +607,6 @@ Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou apl
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

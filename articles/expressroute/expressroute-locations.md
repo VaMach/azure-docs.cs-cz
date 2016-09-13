@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Partneři ExpressRoute a umístění partnerského vztahu
@@ -31,7 +31,7 @@ Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopol
 |---|---|---|
 |**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Jižní Amerika**|Brazílie – jih|Sao Paulo|
-|**Evropa**|Severní Evropa, Západní Evropa|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
+|**Evropa**|Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
 |**Asie**|Východní Asie, Jihovýchodní Asie|Hongkong, Singapur|
 |**Japonsko**|Japonsko – západ, Japonsko – východ|Ósaka, Tokio|
 |**Austrálie**|Austrálie – jihovýchod, Austrálie – východ|Melbourne, Sydney|
@@ -83,7 +83,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **MTN** | Podporuje se | Podporuje se | Londýn |
 | **NEXTDC** | Podporuje se | Podporuje se | Melbourne, Sydney |
 | **NTT Communications** | Podporuje se | Podporuje se | Londýn, Los Angeles, Ósaka, Tokio |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Podporuje se | Podporuje se | Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Podporuje se | Podporuje se | Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Washington DC |
 | **PCCW Global Limited** | Podporuje se | Podporuje se | Hongkong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Podporuje se | Podporuje se | Singapur |
 | **Softbank** | Podporuje se | Podporuje se | Ósaka, Tokio | 
@@ -173,6 +173,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

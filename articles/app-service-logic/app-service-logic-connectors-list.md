@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="09/01/2016"
     ms.author="mandia"/>
 
 
@@ -35,9 +35,7 @@ Name (Název) | Popis
 [Překladač Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Pomocí služby Bing můžete přeložit text do jiného jazyka.
 [HTTP](app-service-logic-connector-http.md) | Naslouchací proces HTTP otevře koncový bod, který funguje jako server HTTP a naslouchá příchozím požadavkům HTTP nebo HTTPS. Akce HTTP nevyžaduje aplikaci API a je nativně podporována v rámci Logic Apps.
 [Aplikace Microsoft Office 365](app-service-logic-connector-office365.md) | Konektor Office 365 může odesílat a přijímat e-maily, řídit kalendář a spravovat kontakty pomocí vašeho účtu Office 365.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | Z Intuit QuickBooks můžete provádět různé úlohy, včetně vytváření a aktualizací různých entit (jako jsou zákazníci, položky, faktury atd.) a dotazování na ně.
 [Slack](app-service-logic-connector-slack.md) | Umožňuje připojení k systému Slack a publikování zpráv do kanálů Slack.
-[Wait](app-service-logic-connector-wait.md) | Pomocí tohoto konektoru můžete zpozdit provádění vaší aplikace. Aplikaci může pozdržet pro určitou dobu nebo do výskytu v určitém čase.
 
 
 ## Konektory pro integraci ve velkých firmách
@@ -61,9 +59,6 @@ Název  | Popis
 [Informix](app-service-logic-connector-informix.md) | Připojí se k databázi IBM Informix lokálně a na virtuálním počítači Azure s operačním systémem Windows. Může namapovat operace Web API a OData API k příkazům jazyka Informix Structured Query Language.<br/><br/>Žádné triggery. Akce zahrnují výběr tabulky, vložení, aktualizaci, odstranění a vlastní příkaz.<br/><br/>Při lokálním použití lze využít VPN nebo Azure ExpressRoute. Tento konektor zahrnuje také Microsoft Client for DRDA, aby se bylo možné připojit k serveru Informix přes síť TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Připojí se k lokálnímu systému SQL Server nebo k Azure SQL Database. Můžete vytvářet, aktualizovat, načítat a odstraňovat položky v tabulce databáze SQL.
 MQ | Připojí se k systému IBM WebSphere MQ Server verze 8, a to lokálně a na virtuálním počítači Azure s operačním systémem Windows. Při lokálním použití lze využít VPN nebo Azure ExpressRoute. Tento konektor zahrnuje také Microsoft Client for MQ.<br/><br/>Žádné triggery. Žádná akce.<br/><br/>**Poznámka:** Aktuálně nelze používat s Logic Apps.
-[Oracle Database](app-service-logic-connector-oracle.md) | Připojí se k lokální Oracle Database a může vytvářet, aktualizovat, načítat a odstraňovat položky v databázové tabulce.
-[POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Připojí se k serveru POP3, aby bylo možné načítat e-maily s přílohami.
-[SAP](app-service-logic-connector-sap.md) | Připojí se k lokálnímu serveru SAP a provádí volání RFC, BAPI a tRFC a odesílá IDOC.
 
 ## Konektory jako triggery
 Několik konektorů poskytuje triggery pro Logic Apps. Tyto triggery jsou dvou typů:
@@ -86,6 +81,6 @@ Konektory lze použít také jako akce v rámci vaší aplikace logiky. Akce jso
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

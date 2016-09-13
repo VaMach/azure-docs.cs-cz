@@ -27,7 +27,7 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Naučte se používat sadu .NET SDK pro Azure Data Lake Store k vytvoření účtu Azure Data Lake a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
+Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) k vytvoření účtu Azure Data Lake a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Požadavky
 
@@ -220,6 +220,8 @@ Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použ
         var uploader = new DataLakeStoreUploader(parameters, frontend);
         uploader.Execute();
     }
+
+DataLakeStoreUploader podporuje rekurzivní odesílání a stahování z místní cesty k souboru (nebo složce) do Data Lake Store.    
 
 ## Získání informací o souboru nebo adresáři
 
@@ -525,9 +527,11 @@ Nakonec se ujistěte, že na počítači existuje místní cesta a název soubor
 - [Zabezpečení dat v Data Lake Store](data-lake-store-secure-data.md)
 - [Použití Azure Data Lake Analytics s Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Referenční dokumentace sady SDK rozhraní .NET služby Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Referenční dokumentace architektury REST služby Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

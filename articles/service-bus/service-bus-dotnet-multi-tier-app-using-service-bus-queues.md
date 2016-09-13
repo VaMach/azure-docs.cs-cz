@@ -12,8 +12,8 @@
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 # Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
@@ -464,6 +464,6 @@ Další informace o víceúrovňových scénářích najdete v:
   
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Konfigurace připojení VPN typu Point-to-Site k virtuální síti pomocí modelu nasazení Resource Manageru | Microsoft Azure"
-   description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení VPN typu Point-to-Site."
+   pageTitle="Konfigurace připojení brány VPN typu Point-to-Site k virtuální síti pomocí modelu nasazení Resource Manager | Microsoft Azure"
+   description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -22,7 +22,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Klasický portál](vpn-gateway-point-to-site-create.md)
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení mezi jednotlivým klientským počítačem a virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. 
+Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. 
 
 Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **modelu nasazení Resource Manager**. Kroky vyžadují prostředí PowerShell. V současné době nelze toto řešení vytvořit v rámci webu Azure Portal v plném rozsahu.
 
@@ -65,7 +65,7 @@ Pro tuto konfiguraci používáme následující hodnoty. Nastavíme proměnné 
 
 - Ověřte, že máte předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
     
-- Nainstalujte rutiny prostředí PowerShell pro Azure Resource Manager (verze 1.0.2 nebo novější). Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
+- Nainstalujte rutiny prostředí PowerShell pro Azure Resource Manager (verze 1.0.2 nebo novější). Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Při práci s prostředím PowerShell pro tuto konfiguraci se ujistěte, že jej spouštíte jako správce. 
 
 ## <a name="declare"></a>Část 1 – Přihlášení a nastavení proměnných
 
@@ -176,15 +176,24 @@ Klienti připojení k Azure s použitím P2S musí mít nainstalovaný certifik�
 
     ![Klient VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Část 6 – Instalace certifikátu klienta
-    
-Vygenerujte a nainstalujte klientské certifikáty (soubory *.pfx) vytvořené z kořenového certifikátu do klientských počítačů. Můžete použít libovolnou metodu instalace, se kterou jste obeznámeni.
+## <a name="cc"></a>Část 6 – Vygenerování klientského certifikátu
 
-Pokud používáte kořenový certifikát podepsaný svým držitelem a nevíte, jak vygenerovat certifikát klienta, můžete postupovat podle [tohoto článku](vpn-gateway-certificates-point-to-site.md). Pokud pracujete s podnikovým řešením, ujistěte se, že vydáváte certifikáty klienta s hodnotou běžného názvu ve formátu „jméno@vaše_doména.com“, a nikoli ve formátu „název_domény_NETBIOS\uživatelské jméno“.
+Dále vygenerujte certifikáty klientů. Můžete buď vygenerovat jedinečný certifikát pro každého klienta, který se připojí, nebo můžete použít stejný certifikát na více klientů. Výhodou generování jedinečných certifikátů pro klienty je možnost v případě potřeby jednotlivý certifikát odvolat. V opačném případě, pokud všichni používají stejný certifikát klienta a zjistíte, že pro jednoho klienta je třeba tento certifikát odvolat, bude nutné vygenerovat a nainstalovat nové certifikáty pro všechny klienty, u nichž je odvolaný certifikát taktéž používán k ověření.
 
-Certifikát klienta můžete nainstalovat přímo na počítači dvojitým kliknutím na soubor .pfx.
+- Pokud používáte podnikové certifikační řešení, vygenerujte certifikát klienta se společným názvem ve formátu „jmeno@vasedomena.com", spíše než formátu NetBIOS „Doména\uživatelské jméno“. 
 
-## Část 7 – Připojení k Azure
+- Používáte-li certifikát podepsaný svým držitelem, naleznete informace o vygenerování certifikátu klienta v tématu [Práce s kořenovými certifikáty podepsanými svými držiteli pro účely konfigurace připojení Point-to-Site](vpn-gateway-certificates-point-to-site.md).
+
+## Část 7 – Instalace klientského certifikátu
+
+Nainstalujte certifikát klienta v každém počítači, který se má připojovat k virtuální síti. Klientský certifikát je vyžadován pro ověřování. Instalaci klientského certifikátu lze buď automatizovat, nebo ji lze provádět ručně. Následující kroky vás provedou procesem exportu a ruční instalace klientského certifikátu.
+
+1. Chcete-li exportovat klientský certifikát, použijte nástroj *certmgr.msc*. Klikněte pravým tlačítkem na klientský certifikát, který chcete exportovat, klikněte na **všechny úlohy**, a poté klikněte na **exportovat**.
+2. Exportujte klientský certifikát s privátním klíčem. Jedná se o soubor *.pfx*. Ujistěte se, že jste si poznamenali nebo si pamatujete heslo (klíč), které jste pro tento certifikát nastavili.
+3. Zkopírujte soubor *.pfx* na klientský počítač. Na klientském počítači spusťte instalaci dvojím kliknutím na soubor *.pfx*. Až budete vyzváni, zadejte heslo. Neměňte umístění instalace.
+
+
+## Část 8 – Připojení k Azure
 
 1. Chcete-li se připojit ke své síti VNet, přejděte na klientském počítači na připojení VPN a vyhledejte připojení VPN, které jste vytvořili. Bude mít stejný název jako vaše virtuální síť. Klikněte na **Připojit**. Může se zobrazit místní zpráva týkající se použití certifikátu. Pokud k tomu dojde, klikněte na možnost **Pokračovat**, abyste použili zvýšená oprávnění. 
 
@@ -196,7 +205,7 @@ Certifikát klienta můžete nainstalovat přímo na počítači dvojitým klikn
 
     ![Klient VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Část 8 – Ověření stavu připojení
+## Část 9 – Ověření připojení
 
 1. Chcete-li ověřit, zda je připojení VPN aktivní, v příkazovém řádku se zvýšenými oprávněními spusťte příkaz *ipconfig/all*.
 
@@ -306,6 +315,6 @@ Do virtuální sítě můžete přidat virtuální počítač. Kroky jsou uveden
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

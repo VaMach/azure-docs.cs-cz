@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="funkce azure, funkce, zpracování událostí, webhook, dynamické výpočty, architektura bez serverů"/>
 
 <tags
    ms.service="functions"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/29/2016"
    ms.author="cfowler;mahender;glenga"/>
    
    
@@ -93,6 +93,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 
