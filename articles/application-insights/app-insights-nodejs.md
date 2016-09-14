@@ -38,7 +38,7 @@ Budete potřebovat:
 
 ## <a name="add"></a>Vytvořte prostředek Application Insights
 
-Přihlaste se k portálu [Azure][] a vytvořte nový prostředek Application Insights. [Role][prostředků] v Azure je instance služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
+Přihlaste se k portálu [Azure][portál] a vytvořte nový prostředek Application Insights. [Role][prostředků] v Azure je instance služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
 
 ![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Další kroky
 
 * [Monitorování vaší telemetrie na portálu](app-insights-dashboards.md)
-* [Psaní analytických dotazů nad vaší telemetrií (app-insights-analytics-tour.md)
+* [Psaní analytických dotazů nad vaší telemetrií](app-insights-analytics-tour.md)
 
 
 
@@ -230,6 +230,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=sep16_HO1-->
+<!---HONumber=sep16_HO1-->
 
 
