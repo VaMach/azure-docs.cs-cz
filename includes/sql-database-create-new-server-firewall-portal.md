@@ -48,6 +48,6 @@ Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brán
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep14_HO2-->
 
 

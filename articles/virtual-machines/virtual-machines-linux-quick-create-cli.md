@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku (CLI) | Microsoft Azure"
-   description="Virtuální počítače s Linuxem si můžete vytvořit také pomocí rozhraní příkazového řádku (CLI)."
+   pageTitle="Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku | Microsoft Azure"
+   description="Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -13,91 +13,102 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="08/18/2016"
+   ms.date="09/08/2016"
    ms.author="v-livech"/>
 
 
-# Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku (CLI)
+# Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku
 
-Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` rozhraní příkazového řádku Azure CLI. Příkaz `quick-create` nasadí virtuální počítač se základní okolní infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu.  Článek vyžaduje účet Azure ([získat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)) a rozhraní příkazového řádku [Azure CLI](../xplat-cli-install.md) (`azure login`), které je přihlášené a v režimu Resource Manageru (`azure config mode arm`).  Virtuální počítač s Linuxem můžete také rychle nasadit pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` v rozhraní příkazového řádku (CLI) Azure. Příkaz `quick-create` nasadí virtuální počítač se základní zabezpečenou infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu. Tento článek vyžaduje
 
-## Rychlý přehled příkazu
+- účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)),
 
-Jeden příkaz pro nasazení virtuálního počítače s CoreOS a připojení klíče SSH:
+- [rozhraní příkazového řádku Azure](../xplat-cli-install.md) s přihlášením `azure login`.
+
+- Rozhraní příkazového řádku Azure _musí být v _režimu Azure Resource Manager`azure config mode arm`.  
+
+Virtuální počítač s Linuxem můžete rychle nasadit také pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+
+## Rychlé příkazy
+
+Následující příklad ukazuje, jak nasadit virtuální počítač s CoreOS a připojit klíč SSH (Secure Shell). Vaše argumenty ale mohou být jiné.
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-## Nasazení virtuálního počítače s Linuxem
+Následující části popisují tento příkaz a jeho požadavky, pokud se k distribuci Linuxu použije Ubuntu Server 14.04 LTS.  
 
-Nyní si příkaz projdeme a vysvětlíme každý krok použití Red Hat Enterprise Linuxu 7.2.  
+## Aliasy quick-create pro virtuální počítače
 
-## Použití aliasu ImageURN
-
-Příkaz `quick-create` rozhraní příkazového řádku Azure CLI má aliasy namapované na nejběžnější distribuce operačního systému. Následující tabulka uvádí aliasy distribucí (pro Azure CLI verze 0.10).  Pro všechna nasazení vytvořená pomocí příkazu `quick-create` se pro virtuální počítače ve výchozím nastavení používá úložiště SSD, které nabízí vysoký výkon.
+Rychlým způsobem, jak zvolit distribuci, je použít aliasy rozhraní příkazového řádku Azure namapované na nejběžnější distribuce operačních systémů. Tyto aliasy jsou uvedené v následující tabulce (pro rozhraní příkazového řádku Azure verze 0.10). Všechna nasazení, která využívají `quick-create`, standardně směřují na virtuální počítače zálohované úložišti SSD (solid-state drive), která nabízejí rychlejší zřizování a vysoce výkonný přístup na disk. (Tyto aliasy představují jenom nepatrnou část dostupných distribucí na platformě Azure. Další image můžete vyhledat v Azure Marketplace pomocí [hledání image](virtual-machines-linux-cli-ps-findimage.md), nebo můžete [nahrát vlastní image](virtual-machines-linux-create-upload-generic.md).)
 
 | Alias     | Vydavatel | Nabídka        | Skladová jednotka (SKU)         | Verze |
 |:----------|:----------|:-------------|:------------|:--------|
-| CentOS    | OpenLogic | Centos       | 7.2         | nejnovější  |
+| CentOS    | OpenLogic | CentOS       | 7.2         | nejnovější  |
 | CoreOS    | CoreOS    | CoreOS       | Stable      | nejnovější  |
 | Debian    | credativ  | Debian       | 8           | nejnovější  |
 | openSUSE  | SUSE      | openSUSE     | 13.2        | nejnovější  |
-| RHEL      | Redhat    | RHEL         | 7.2         | nejnovější  |
-| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | nejnovější  |
+| RHEL      | Red Hat    | RHEL         | 7.2         | nejnovější  |
+| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | nejnovější  |
 
+V následujících částech se používá alias `UbuntuLTS` pro možnost **ImageURN** (`-Q`) k nasazení serveru Ubuntu 14.04.4 LTS.
 
+## Podrobný postup
 
-Pro možnost **ImageURN** (`-Q`) použijeme hodnotu `RHEL`, aby byl nasazen virtuální počítač s Linuxem ve verzi RedHat Enterprise Linux 7.2. Tyto aliasy `quick-create` představují nepatrnou část dostupného operačního systému na platformě Azure.  Vyhledejte další image na webu Marketplace pomocí [hledání image](virtual-machines-linux-cli-ps-findimage.md), nebo můžete [nahrát vlastní image](virtual-machines-linux-create-upload-generic.md).
+V předchozím příkladu `quick-create` se příznak `-M` využíval jenom k identifikaci veřejného klíče SSH pro odeslání a hesla SSH byla zakázaná, takže se zobrazí výzva k zadání těchto údajů:
 
-V následující ukázce použití příkazu nahraďte výzvy hodnotami ze svého vlastního prostředí.
+- název skupiny prostředků (pro první skupinu prostředků Azure to obvykle může být libovolný řetězec)
+- název virtuálního počítače
+- umístění (vhodné výchozí nastavení je westus nebo westeurope)
+- linux (aby se v Azure vědělo, který operační systém chcete)
+- uživatelské jméno
 
-Postupujte podle jednotlivých výzev a zadejte vlastní názvy.
+V následujícím příkladu jsou všechny tyto hodnoty zadané, takže už není potřeba zobrazovat žádné další výzvy. Pokud jako soubor veřejného klíče ve formátu ssh-rsa používáte `~/.ssh/id_rsa.pub`, funguje tak, jak je.
 
 ```bash
-azure vm quick-create -M ~/.ssh/id_rsa.pub -Q RHEL
+azure vm quick-create \
+-g exampleResourceGroup \
+-n exampleVMName \
+-l westus \
+-y Linux \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub \
+-Q UbuntuLTS
 ```
 
 Výstup by měl vypadat jako následující výstupní blok.
 
 ```bash
 info:    Executing command vm quick-create
-Resource group name: rhel-quick
-Virtual machine name: rhel
-Location name: westus
-Operating system Type [Windows, Linux]: linux
-User name: ops
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "rhel"
-info:    Verifying the public key SSH file: /Users/ops/.ssh/id_rsa.pub
++ Looking up the VM "exampleVMName"
+info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli1630678171193501687
-info:    Could not find the storage account "cli1630678171193501687", trying to create new one
-+ Creating storage account "cli1630678171193501687" in "westus"
-+ Looking up the storage account cli1630678171193501687
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-info:    An nic with given name "rhel-westu-1630678171-nic" not found, creating a new one
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
++ Looking up the storage account cli16330708391032639673
++ Looking up the NIC "examp-westu-1633070839-nic"
+info:    An nic with given name "examp-westu-1633070839-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-1633070839-vnet"
 info:    Preparing to create new virtual network and subnet
-+ Creating a new virtual network "rhel-westu-1630678171-vnet" [address prefix: "10.0.0.0/16"] with subnet "rhel-westu-1630678171-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
-+ Looking up the subnet "rhel-westu-1630678171-snet" under the virtual network "rhel-westu-1630678171-vnet"
+/ Creating a new virtual network "examp-westu-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-1633070839-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-1633070839-vnet"
++ Looking up the subnet "examp-westu-1633070839-snet" under the virtual network "examp-westu-1633070839-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-info:    PublicIP with given name "rhel-westu-1630678171-pip" not found, creating a new one
-+ Creating public ip "rhel-westu-1630678171-pip"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-+ Creating NIC "rhel-westu-1630678171-nic"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the storage account clisto909893658rhel
-+ Creating VM "rhel"
-+ Looking up the VM "rhel"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/rhel-quick/providers/Microsoft.Compute/virtualMachines/rhel
++ Looking up the public ip "examp-westu-1633070839-pip"
+info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creating a new one
++ Creating public ip "examp-westu-1633070839-pip"
++ Looking up the public ip "examp-westu-1633070839-pip"
++ Creating NIC "examp-westu-1633070839-nic"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the storage account clisto1710997031examplev
++ Creating VM "exampleVMName"
++ Looking up the VM "exampleVMName"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the public ip "examp-westu-1633070839-pip"
+data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
 data:    ProvisioningState               :Succeeded
-data:    Name                            :rhel
+data:    Name                            :exampleVMName
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
@@ -106,22 +117,22 @@ data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :RedHat
-data:        Offer                       :RHEL
-data:        Sku                         :7.2
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :clic5abbc145c0242c1-os-1462425492101
+data:        Name                        :clic7fadb847357e9cf-os-1473374894359
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1630678171193501687.blob.core.windows.net/vhds/clic5abbc145c0242c1-os-1462425492101.vhd
+data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :rhel
-data:      User Name                     :ops
+data:      Computer Name                 :exampleVMName
+data:      User Name                     :exampleAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -129,47 +140,73 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-0F-DD
+data:          MAC Address               :00-0D-3A-33-42-FB
 data:          Provisioning State        :Succeeded
-data:          Name                      :rhel-westu-1630678171-nic
+data:          Name                      :examp-westu-1633070839-nic
 data:          Location                  :westus
-data:            Public IP address       :104.42.236.196
-data:            FQDN                    :rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+data:            Public IP address       :138.91.247.29
+data:            FQDN                    :examp-westu-1633070839-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://clisto909893658rhel.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://clisto1710997031examplev.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-SSH do vašeho virtuálního počítače na portu 22 a veřejná adresa IP, která je uvedená ve výstupu. (Můžete také použít uvedený plně kvalifikovaný název domény.)
+Přihlaste se do vašeho virtuálního počítače pomocí veřejné IP adresy, která je uvedená ve výstupu. Můžete také využít uvedený plně kvalifikovaný název domény.
 
 ```bash
-ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
+
 Proces přihlášení by měl vypadat přibližně takto:
 
 ```bash
-The authenticity of host 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com (104.42.236.196)' can't be established.
-RSA key fingerprint is 0e:81:c4:36:2d:eb:3c:5a:dc:7e:65:8a:3f:3e:b0:cb.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,104.42.236.196' (RSA) to the list of known hosts.
-[ops@rhel ~]$ ls -a
-.  ..  .bash_logout  .bash_profile  .bashrc  .cache  .config  .ssh
+Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Thu Sep  8 22:50:57 UTC 2016
+
+  System load: 0.63              Memory usage: 2%   Processes:       81
+  Usage of /:  39.6% of 1.94GB   Swap usage:   0%   Users logged in: 0
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+exampleAdminUser@exampleVMName:~$
 ```
 
 ## Další kroky
 
-Příkaz `azure vm quick-create` představuje způsob, jak rychle nasadit virtuální počítač, abyste se mohli přihlásit k prostředí Bash a začít pracovat. Použitím příkazu `vm quick-create` nezískáte další výhody komplexního prostředí.  Pokud budete chtít nasadit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků.
+Příkaz `azure vm quick-create` představuje způsob, jak rychle nasadit virtuální počítač, abyste se mohli přihlásit k prostředí Bash a začít pracovat. Použití `vm quick-create` ale neposkytuje větší možnosti kontroly ani neumožňuje vytvářet složitější prostředí.  Pokud budete chtít nasadit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků:
 
 - [Vytvoření konkrétního nasazení pomocí šablony Azure Resource Manageru](virtual-machines-linux-cli-deploy-templates.md)
-- [Přímé vytvoření vlastního prostředí pro virtuální počítač s Linuxem pomocí rozhraní příkazového řádku Azure CLI](virtual-machines-linux-create-cli-complete.md).
+- [Přímé vytvoření vlastního prostředí pro virtuální počítač s Linuxem pomocí rozhraní příkazového řádku Azure](virtual-machines-linux-create-cli-complete.md)
 - [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
+K [rychlému vytvoření linuxového virtuálního počítače jako hostitele Docker můžete také využít ovladač Azure `docker-machine` s různými příkazy](virtual-machines-linux-docker-machine.md).
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=sep14_HO2-->
 
 

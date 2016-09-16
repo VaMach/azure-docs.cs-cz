@@ -119,6 +119,6 @@ Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep12_HO2-->
 
 
