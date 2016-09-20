@@ -5,7 +5,7 @@
     keywords="co je Azure AD Connect, instalace služby Active Directory, požadované součásti služby Azure AD"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
 
 # Vlastní instalace služby Azure AD Connect
@@ -58,7 +58,7 @@ Tento účet slouží jenom k vytvoření účtu služby v Azure AD, a po dokon�
 ![Přihlášení uživatele](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
 Pokud má účet globálního správce povolené ověřování MFA, bude nutné znovu zadat heslo v automaticky otevřeném okně pro přihlášení a provést ověřovací test MFA. Ověřovacím testem může být zadání ověřovacího kódu nebo telefonní hovor.  
-![Přihlášení uživatele s ověřováním MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+![Přihlášení uživatele s MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 Účet globálního správce může taky mít povolenou technologii [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
@@ -67,7 +67,7 @@ Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [
 ## Stránky v části Synchronizace
 
 ### Připojení adresářů
-Aby se služba Azure AD Connect mohla připojit k službě Active Directory Domain Services, potřebuje přihlašovací údaje účtu s dostatečnými oprávněními. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. FABRIKAM\syncuser nebo fabrikam.com\syncuser. Tento účet může být běžný uživatelský účet, protože potřebuje pouze výchozí oprávnění ke čtení. Je ale možné, že v závislosti na scénáři budete potřebovat větší oprávnění. Další informace najdete v tématu [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Aby se služba Azure AD Connect mohla připojit k službě Active Directory Domain Services, potřebuje přihlašovací údaje účtu s dostatečnými oprávněními. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. jako FABRIKAM\syncuser nebo fabrikam.com\syncuser. Tento účet může být běžný uživatelský účet, protože potřebuje pouze výchozí oprávnění ke čtení. Je ale možné, že v závislosti na scénáři budete potřebovat větší oprávnění. Další informace najdete v tématu [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -75,7 +75,7 @@ Aby se služba Azure AD Connect mohla připojit k službě Active Directory Doma
 Tato stránka vám umožní zkontrolovat domény hlavního názvu uživatele (UPN), které se nacházejí v místní službě AD DS a které byly ověřeny v Azure AD. Tato stránka vám také umožní konfigurovat atribut userPrincipalName, který chcete použít.
 
 ![Neověřené domény](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-Zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**. Ujistěte se, že ty, které používáte, byly ověřeny ve službě Azure AD. Po ověření domén klikněte na symbol obnovení. Další informace najdete v tématu [přidání a ověření domény](active-directory-add-domain.md)
+Zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**. Ujistěte se, že domény, které používáte, byly ověřeny v Azure AD. Po ověření domén klikněte na symbol obnovení. Další informace najdete v tématu [přidání a ověření domény](active-directory-add-domain.md)
 
 **UserPrincipalName** – Atribut userPrincipalName je atribut, který uživatelé používají při přihlášení k Azure AD a Office 365. Použité domény, označované také jako přípona UPN, je nutné před synchronizací uživatelů ověřit ve službě Azure AD. Společnost Microsoft doporučuje ponechat výchozí atribut userPrincipalName. Pokud tento atribut není směrovatelný a nedá se ověřit, je možné vybrat jiný atribut. Jako atribut, který uchovává přihlašovací ID, můžete například vybrat e-mail. Použití jiného atributu než userPrincipalName se nazývá **Alternativní ID**. Hodnota atributu Alternativní ID se musí řídit standardem RFC822. Alternativní ID se dá použít se synchronizací hesla i federací.
 
@@ -157,10 +157,10 @@ Konfigurace služby AD FS se službou Azure AD Connect je jednoduchá a dá se p
 
 - Windows Server 2012 R2 pro federační server s povolenou vzdálenou správou
 - Windows Server 2012 R2 pro proxy server webové aplikace s povolenou vzdálenou správou
-- Certifikát protokolu SSL pro název služby FS, který chcete použít (např. sts.contoso.com)
+- Certifikát protokolu SSL pro název služby FS (Federation Service), který chcete použít (například sts.contoso.com)
 
 ### Předpoklady konfigurace služby AD FS
-Pokud chcete konfigurovat farmu služby AD FS pomocí Azure AD Connect, zkontrolujte prosím, zda je na vzdálených serverech povolená služba WinRM. Také si prosím projděte požadavek na porty uvedený v části [Tabulka 3 – Azure AD Connect a federační servery / WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+Chcete-li konfigurovat farmu služby AD FS pomocí služby Azure AD Connect, ujistěte se, že je na vzdálených serverech povolená služba WinRM. Kromě toho si projděte požadavek na porty uvedený v oddílu [Tabulka 3 – Azure AD Connect a federační servery/protokol WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### Vytvoření nové farmy služby AD FS nebo použití existující farmy služby AD FS
 Můžete použít existující farmu služby AD FS nebo můžete vytvořit novou farmu služby AD FS. Pokud se rozhodnete vytvořit novou, je nutné zadat certifikát protokolu SSL. Pokud je certifikát protokolu SSL chráněný heslem, budete vyzváni k zadání hesla.
@@ -170,7 +170,7 @@ Můžete použít existující farmu služby AD FS nebo můžete vytvořit novou
 Pokud se rozhodnete použít existující farmu služby AD FS, přejdete přímo na obrazovku konfigurace vztahu důvěryhodnosti mezi službou AD FS a Azure AD.
 
 ### Zadání serverů služby AD FS
-Zadejte servery, na které chcete nainstalovat službu AD FS. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Před provedením této konfigurace připojte všechny servery k službě Active Directory. Společnost Microsoft doporučuje nainstalovat jeden server služby AD FS pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery.
+Zadejte servery, na které chcete nainstalovat službu AD FS. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Před provedením této konfigurace připojte všechny servery k službě Active Directory. Společnost Microsoft doporučuje instalaci jednoho serveru služby AD FS pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery.
 
 >[AZURE.NOTE]
 Před provedením této konfigurace se ujistěte, jestli jsou všechny servery připojené k doméně AD.
@@ -178,7 +178,7 @@ Před provedením této konfigurace se ujistěte, jestli jsou všechny servery p
 ![Servery služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### Zadání proxy serverů webových aplikací
-Zadejte servery, které chcete použít jako proxy servery webových aplikací. Proxy server webových aplikací je nasazen do (extranetového) DMZ a podporuje požadavky na ověření z extranetu. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Společnost Microsoft doporučuje nainstalovat jeden proxy server webových aplikací pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery. Doporučujeme použít stejný počet proxy serverů k uspokojení ověřování z intranetu.
+Zadejte servery, které chcete použít jako proxy servery webových aplikací. Proxy server webových aplikací je nasazen do (extranetového) DMZ a podporuje požadavky na ověření z extranetu. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Společnost Microsoft doporučuje instalaci jednoho proxy serveru webové aplikace pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery. Doporučujeme použít stejný počet proxy serverů k uspokojení ověřování z intranetu.
 
 >[AZURE.NOTE]
 <li> Pokud používáte účet, který není místním správcem na serverech služby AD FS, zobrazí se výzva k zadání pověření správce.</li>
@@ -232,7 +232,7 @@ V pracovním režimu je možné provést požadované změny synchronizačního 
 Další informace najdete v tématu [Pracovní režim](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Ověření konfigurace federace
-Služba Azure AD Connect ověří nastavení DNS, když kliknete na tlačítko Ověřit.
+Když kliknete na tlačítko Ověřit, služba Azure AD Connect ověří nastavení DNS za vás.
 
 ![Dokončit](./media/active-directory-aadconnect-get-started-custom/completed.png)
 
@@ -266,6 +266,6 @@ Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby A
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

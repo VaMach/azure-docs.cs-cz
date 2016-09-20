@@ -40,6 +40,6 @@ Podrobnosti o pojmenovávání sdílených složek, adresářů a souborů najde
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

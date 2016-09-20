@@ -128,7 +128,7 @@ SAS účtu deleguje přístup k prostředkům v jedné nebo více službách úl
 
 Nakonec můžete nastavit, že kontejner a jeho objekty blob, nebo třeba jen konkrétní objekt blob, jsou veřejně přístupné. Když nějaký kontejner nebo objekt blob označíte jako veřejně přístupný, kdokoli si ho může anonymně přečíst bez nutnosti ověření.  Veřejné kontejnery a objekty blob se hodí pro zpřístupnění prostředků, jako jsou média nebo dokumenty, které jsou hostované na webových stránkách.  Pokud chcete snížit síťovou latenci pro globální cílovou skupinu, můžete data objektů blob, která používají webové stránky, uložit do vyrovnávací paměti pomocí Azure CDN.
 
-Další informace o sdílených přístupových podpisech najdete v tématu [Sdílené přístupové podpisy: vysvětlení modelu SAS](storage-dotnet-shared-access-signature-part-1.md). Další informace o bezpečném přístupu k vašemu účtu úložiště najdete v tématech [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](storage-manage-access-to-resources.md) a [Ověření pro služby Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx).
+Další informace o sdílených přístupových podpisech najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md). Další informace o bezpečném přístupu k vašemu účtu úložiště najdete v tématech [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](storage-manage-access-to-resources.md) a [Ověření pro služby Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx).
 
 ## Replikace pro odolnost a vysokou dostupnost
 
@@ -269,6 +269,6 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

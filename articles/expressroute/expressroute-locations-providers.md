@@ -43,9 +43,9 @@ Následující tabulka obsahuje informace o oblastech a geopolitických hranicí
 
 |**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
 |---|---|---|---|
-|**Cloud vlády USA**|USA (Gov) – Iowa, USA (Gov) – Virginia|Chicago, Dallas+, New York, Washington DC|
+|**Cloud vlády USA**|USA (Gov) – Iowa, USA (Gov) – Virginia|Chicago, Dallas, New York, Washington DC|
 |**Čína**|Severní Čína, Východní Čína|Peking, Šanghaj|
-|**Německo**|Střední Německo, Východní Německo|Berlín, Frankfurt|
+|**Německo**|Střední Německo, Východní Německo|Berlín+, Frankfurt|
 
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
@@ -65,7 +65,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Čennaj** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **Dublin** | Colt |
+| **Dublin** | Colt, Telecity Group |
 | **Hongkong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londýn** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions – Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
@@ -94,7 +94,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Umístění**  |**Poskytovatelé služeb** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |  Equinix+, Verizon+ |
+| **Dallas** |  Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -158,6 +158,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

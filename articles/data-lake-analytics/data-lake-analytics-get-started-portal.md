@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Naučte se používat Portál Azure k vytváření účtů Azure Data Lake Analytics, definování úloh Data Lake Analytics v [U-SQL](data-lake-analytics-u-sql-get-started.md) a odesílání úloh do účtů Data Lake Analytics. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Naučte se používat web Azure Portal k vytváření účtů Azure Data Lake Analytics, definování úloh Data Lake Analytics v [U-SQL](data-lake-analytics-u-sql-get-started.md) a odesílání úloh do účtů Data Lake Analytics. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 V tomto kurzu budete vyvíjet úlohu, která načte soubor hodnot oddělených tabulátory (TSV) a převede jej na soubor hodnot oddělených čárkami (CSV). Pokud chcete použít jiné podporované nástroje a absolvovat stejný kurz, klikněte na karty nahoře v této části. Po úspěšném vytvoření první úlohy můžete začít psát složitější transformace dat pomocí U-SQL.
 
@@ -67,7 +67,7 @@ Portál Azure poskytuje uživatelské rozhraní pro kopírování některých uk
 
 **Postup kopírování ukázkových datových souborů**
 
-1. Na Portálu Azure klikněte v levém horním rohu na možnost **Microsoft Azure**.
+1. Na webu Azure Portal klikněte v levém horním rohu na možnost **Microsoft Azure**.
 2. Klikněte na dlaždici s názvem účtu Data Lake Analytics.  Byla sem připnuta při vytvoření účtu.
 Pokud zde účet není připnutý, přejděte k tématu [Otevření účtu Data Lake Analytics z portálu](data-lake-analytics-manage-use-portal.md#access-adla-account) a otevřete účet.
 3. Rozbalte podokno **Základy** a klikněte na možnost **Prozkoumat ukázkové úlohy**. Otevře se další okno s názvem **Ukázkové úlohy**.
@@ -158,6 +158,7 @@ Jakmile připravíte zdrojová data, můžete začít vyvíjet skript U-SQL.
 - Pokud chcete protokolovat diagnostické informace, přečtěte si téma [Zobrazení protokolů diagnostiky pro Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 
 
-<!---HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

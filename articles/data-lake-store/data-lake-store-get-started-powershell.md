@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí Azure PowerShell
@@ -34,7 +34,6 @@ Naučte se používat Azure PowerShell k vytvoření účtu Azure Data Lake Stor
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 - **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Aktivujte předplatné Azure** pro verzi Public Preview služby Data Lake Store. Viz [pokyny](data-lake-store-get-started-portal.md#signup).
 
 
 ##Instalace prostředí Azure PowerShell 1.0 nebo vyšší
@@ -143,6 +142,6 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

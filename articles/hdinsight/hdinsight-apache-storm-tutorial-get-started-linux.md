@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -193,6 +193,7 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 [preview-portal]: https://portal.azure.com/
 
 
-<!---HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

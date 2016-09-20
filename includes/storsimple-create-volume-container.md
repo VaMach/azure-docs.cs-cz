@@ -22,6 +22,6 @@
 Pokud si chcete přehrát video, které ukazuje, jak v řešení StorSimple vytvořit kontejner svazků, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

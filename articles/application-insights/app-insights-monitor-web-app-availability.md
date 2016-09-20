@@ -72,7 +72,7 @@ Přidat další testy Pro příklad, a také jako testování domovské stránky
 
 ## <a name="monitor"></a>3. Zobrazení výsledků testu webu
 
-Po 1–2 minutách se zobrazí výsledky: 
+Po 1–2 minutách se v okně Test webu zobrazí výsledky.
 
 ![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -326,6 +326,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

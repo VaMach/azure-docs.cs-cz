@@ -33,6 +33,6 @@ Pomocí [stávajícího předplatného]( https://account.windowsazure.com/Home/I
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

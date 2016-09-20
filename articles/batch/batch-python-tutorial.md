@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/17/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
 
 # Začínáme s klientem Azure Batch Python
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 V tomto článku probereme malou aplikaci Batch napsanou v Pythonu a vy se seznámíte se základními informacemi o službě [Azure Batch][azure_batch] a klientovi [Batch Python][py_azure_sdk]. Podíváme se, jak dva ukázkové skripty využívají službu Batch ke zpracování paralelní úlohy na linuxových virtuálních počítačích v cloudu, a také, jak tyto počítače komunikují se službou [Azure Storage](./../storage/storage-introduction.md) při přípravě a načítání souborů. Seznámíte se s běžným pracovním postupem aplikací Batch a získáte základní přehled o součástech služby Batch, například o úlohách, úkolech, fondech a výpočetních uzlech.
-
-> [AZURE.NOTE] Podpora Linuxu ve službě Batch je aktuálně ve verzi Preview. Některé aspekty tady popisovaných funkcí se můžou před zveřejněním změnit. [Balíčky aplikací](batch-application-packages.md) nejsou na linuxových výpočetních uzlech **aktuálně podporované**.
 
 ![Pracovní postup řešení Batch (základní)][11]<br/>
 
@@ -40,7 +38,7 @@ Tento článek předpokládá, že máte praktické znalosti Pythonu a umíte do
 
 ### Ukázka kódu
 
-[Ukázka kódu]Pythonu pro tento kurz [github_article_samples] je jednou z mnoha ukázek kódu služby Batch, které najdete v úložišti na GitHubu [azure-batch-samples][github_samples]. Všechny ukázky můžete stáhnout kliknutím na **Klonovat nebo stáhnout > Stáhnout ZIP** na domovské stránce úložiště, nebo kliknutím na přímý odkaz ke stažení [azure-batch-samples-master.zip][github_samples_zip]. Po extrahování obsahu souboru ZIP najdete oba skripty pro tento kurzu v adresáři `article_samples`:
+Pythonu pro tento kurz [Ukázka kódu][github_article_samples] je jednou z mnoha ukázek kódu služby Batch, které najdete v úložišti na GitHubu [azure-batch-samples][github_samples]. Všechny ukázky můžete stáhnout kliknutím na **Klonovat nebo stáhnout > Stáhnout ZIP** na domovské stránce úložiště, nebo kliknutím na přímý odkaz ke stažení [azure-batch-samples-master.zip][github_samples_zip]. Po extrahování obsahu souboru ZIP najdete oba skripty pro tento kurzu v adresáři `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -680,6 +678,6 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

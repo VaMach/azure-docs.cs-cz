@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="nitinme"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -216,6 +216,6 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

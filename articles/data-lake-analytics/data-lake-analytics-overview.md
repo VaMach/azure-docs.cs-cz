@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -52,7 +52,7 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
 ## Viz také
 
 - Začínáme
-    - [Začínáme s Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md)
+    - [Začínáme s Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md)
     - [Začínáme s Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Začínáme s Azure Data Lake Analytics pomocí sady Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,7 +64,7 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
     - [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - Správa
-    - [Správa Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-manage-use-portal.md)
+    - [Správa Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Správa Azure Data Lake Analytics pomocí Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Sledování úloh Azure Data Lake Analytics a odstraňování potíží pomocí Portálu Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
     - [Přístup k protokolům diagnostiky pro Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
@@ -82,6 +82,6 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

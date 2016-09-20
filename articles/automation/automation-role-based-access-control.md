@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Řízení přístupu na základě role ve službě Azure Automation
@@ -239,6 +239,6 @@ Ve výše uvedených příkladech nahraďte **přihlašovací ID**, **ID předpl
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

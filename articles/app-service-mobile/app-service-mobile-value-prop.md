@@ -37,7 +37,7 @@ Pro vývoj mobilních řešení využívajících cloud jsou důležité násled
 
   Projděte si další informace o našich [funkcích ověřování].
 
-- **Přístup k datům** – služba Azure Mobile Apps poskytuje zdroj dat OData verze 3, který skvěle funguje s mobilními zařízeními a je propojen s SQL Azure nebo lokálním SQL Serverem.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
+- **Přístup k datům** – Služba Azure Mobile Apps poskytuje zdroj dat OData verze 3, který skvěle funguje s mobilními zařízeními a je propojen se službou SQL Azure nebo místním systémem SQL Server.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
 - **Synchronizace offline dat** – naše klientské sady SDK usnadňují vytváření robustních a rychle reagujících mobilních aplikací, které budou pracovat s offline datovou sadou. Tu pak lze automaticky synchronizovat s back-endovými daty, a to i s podporou řešení konfliktů.
 
   Projděte si další informace o našich [datových funkcích].
@@ -63,7 +63,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou obecně užit
 
   Projděte si další informace o [možnostech nasazení].
 
-- **Virtuální sítě** – App Service se může připojit k lokálním prostředkům přes virtuální síť, ExpressRoute nebo hybridní připojení.
+- **Virtuální sítě** – App Service umožňuje připojení k místním prostředkům přes virtuální síť, ExpressRoute nebo hybridní připojení.
 
   Projděte si další informace pro [hybridní připojení], [virtuální sítě] a [ExpressRoute].
 
@@ -105,6 +105,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -19,7 +19,7 @@
     
 #Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
 
-Článek [Nasazení služby AD FS v Azure](.\active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.
+Článek [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.
 
 Infrastruktura služby AD FS s vysokou dostupností mezi geografickými lokalitami umožňuje využití následujících funkcí:
 
@@ -49,7 +49,7 @@ Základní principy návrhu budou stejné, jako je uvedeno v části Principy n�
 ##Kroky při integraci Azure Traffic Manageru
 
 ###Nasazení služby AD FS v nové geografické oblasti
-Při nasazování stejné topologie v nové geografické oblasti postupujte podle kroků a pokynů v [Nasazení služby AD FS v Azure](.\active-directory-aadconnect-azure-adfs.md).
+Při nasazování stejné topologie v nové geografické oblasti postupujte podle kroků a pokynů v [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md).
 
 ###Názvy DNS pro veřejné IP adresy internetových (veřejných) nástrojů pro vyrovnávání zatížení
 Jak je uvedeno výše, Azure Traffic Manager může odkazovat na názvy DNS jako koncové body. Proto je důležité vytvořit názvy DNS pro veřejné IP adresy externí nástrojů pro vyrovnávání zatížení. Následující snímek obrazovky ilustruje způsob konfigurace názvu DNS pro veřejnou IP adresu. 
@@ -135,6 +135,6 @@ Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpIniti
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

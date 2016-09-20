@@ -10,6 +10,6 @@
 - [Xamarin](../articles/storage/storage-xamarin-blob-storage.md)
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

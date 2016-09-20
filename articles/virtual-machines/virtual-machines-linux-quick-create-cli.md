@@ -207,6 +207,6 @@ K [rychlému vytvoření linuxového virtuálního počítače jako hostitele Do
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

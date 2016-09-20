@@ -29,7 +29,7 @@ Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopol
 
 |**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
 |---|---|---|
-|**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Jižní Amerika**|Brazílie – jih|Sao Paulo|
 |**Evropa**|Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih|Amsterdam, Dublin, Londýn, Newport (Wales)+, Paříž|
 |**Asie**|Východní Asie, Jihovýchodní Asie|Hongkong, Singapur|
@@ -43,9 +43,9 @@ Následující tabulka obsahuje informace o oblastech a geopolitických hranicí
 
 |**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
 |---|---|---|---|
-|**Cloud vlády USA**|USA (Gov) – Iowa, USA (Gov) – Virginia|Chicago, Dallas+, New York, Washington DC|
+|**Cloud vlády USA**|USA (Gov) – Iowa, USA (Gov) – Virginia|Chicago, Dallas, New York, Washington DC|
 |**Čína**|Severní Čína, Východní Čína|Peking, Šanghaj|
-|**Německo**|Střední Německo, Východní Německo|Berlín, Frankfurt|
+|**Německo**|Střední Německo, Východní Německo|Berlín+, Frankfurt|
 
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
@@ -88,7 +88,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Podporuje se | Podporuje se | Singapur |
 | **Softbank** | Podporuje se | Podporuje se | Ósaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Podporuje se | Podporuje se | Amsterdam, Čennaj, Hongkong, Londýn, Bombaj, Silicon Valley, Singapur, Washington DC |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Podporuje se | Podporuje se | Amsterdam, Londýn |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Podporuje se | Podporuje se | Amsterdam, Dublin, Londýn |
 | **Telefonica** | Podporuje se | Připravuje se | Sao Paulo |
 | **Telenor** | Podporuje se | Podporuje se | Amsterdam, Londýn |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Podporuje se | Připravuje se | Melbourne, Sydney |
@@ -105,7 +105,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Poskytovatel služeb**  |**Microsoft Azure** | **Office 365** | **Umístění** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Podporuje se | Podporuje se | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Podporuje se | Podporuje se | Chicago, Dallas+, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Podporuje se | Podporuje se | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Podporuje se | Podporuje se | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Podporuje se | Podporuje se | Chicago, Dallas+, New York, Washington DC |
 
@@ -173,6 +173,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

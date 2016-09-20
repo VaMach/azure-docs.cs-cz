@@ -6,6 +6,6 @@ Už jste na platformě Azure? Kliknutím na následující tlačítko vytvořít
 [![GZačínáme s Azure DevTest Labs během minut](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

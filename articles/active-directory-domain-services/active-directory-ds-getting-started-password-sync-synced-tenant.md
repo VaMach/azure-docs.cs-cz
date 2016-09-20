@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/07/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* – Povolení synchronizace hesel do služby Azure AD Domain Services
 
 ## Úloha 5: Povolení synchronizace hesel do služby AAD Domain Services u synchronizovaného klienta služby Azure AD
-Jakmile jste u svého adresáře Azure AD povolili službu Azure AD Domain Services, dalším krokem je povolit synchronizaci hesel do služby Azure AD Domain Services. To uživatelům umožní přihlásit se k doméně pomocí podnikových přihlašovacích údajů.
+Jakmile jste u svého adresáře Azure AD povolili službu Azure AD Domain Services, dalším krokem je povolit synchronizaci hesel do služby Azure AD Domain Services. Když tak učiníte, uživatelé se budou moci přihlašovat k doméně pomocí podnikových přihlašovacích údajů.
 
 Potřebný postup se liší podle toho, jestli má vaše organizace výhradně cloudový adresář Azure AD, nebo jestli má nastavenou synchronizaci s místním adresářem pomocí služby Azure AD Connect.
 
@@ -32,24 +32,24 @@ Potřebný postup se liší podle toho, jestli má vaše organizace výhradně c
 <br>
 
 ### Synchronizovaní klienti – Povolení synchronizace hodnot hash přihlašovacích údajů protokolů NTLM a Kerberos do služby Azure AD
-Pokud má klient služby Azure AD vaší organizace nastavenou synchronizaci s místním adresářem pomocí služby Azure AD Connect, službu Azure AD Connect bude nutné nakonfigurovat tak, aby synchronizovala hodnoty hash přihlašovacích údajů potřebných k ověřování pomocí protokolů NTLM a Kerberos. Ve výchozím nastavení tyto hodnoty hash nejsou do služby Azure AD synchronizovány a následující postup vám umožní povolit synchronizaci hodnot hash do klienta služby Azure AD.
+Synchronizovaný tenant služby Azure AD je nastavený na synchronizaci s místním adresářem vaší organizace pomocí služby Azure AD Connect. Azure AD Connect ve výchozím nastavení do služby Azure AD nesynchronizuje hodnoty hash přihlašovacích údajů protokolů NTLM a Kerberos. Chcete-li použít službu Azure AD Domain Services, je potřeba nakonfigurovat službu Azure AD Connect na synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos. Následujícím postupem povolíte synchronizaci požadovaných hodnot hash přihlašovacích údajů do svého tananta služby Azure AD.
 
 #### Instalace nebo aktualizace služby Azure AD Connect
 
-Bude nutné nainstalovat nejnovější doporučenou verzi služby Azure AD Connect na počítač připojený k doméně. Pokud máte existující instanci instalace služby Azure AD Connect, bude nutné ji aktualizovat tak, aby používala sestavení Azure AD Connect GA. Ujistěte se, že používáte nejnovější verzi Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.
+Je nutné na počítač připojený k doméně nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. Máte-li existující instanci instalace služby Azure AD Connect, je nutné ji aktualizovat tak, aby používala nejnovější verzi služby Azure AD Connect. Ujistěte se, že vždy používáte nejnovější verzi služby Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.
 
 **[Stažení služby Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Doporučená verze: **1.1.189.0** – publikováno 3. června 2016
+Doporučená verze: **1.1.281.0** – publikováno 7. září 2016.
 
-  > [AZURE.WARNING] Pokud chcete povolit synchronizaci starší verze hesla (nutné pro ověřování protokolů NTLM a Kerberos) do klienta služby Azure AD, JE NUTNÉ nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. V předchozích verzích služby Azure AD Connect ani u starší verze nástroje DirSync není tato funkce dostupná.
+  > [AZURE.WARNING] Chcete-li povolit synchronizaci starších verzí přihlašovacích hesel (požadovaných pro ověřování protokolů NTLM a Kerberos) do svého tenanta služby Azure AD, JE NUTNÉ nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. V předchozích verzích služby Azure AD Connect ani u starší verze nástroje DirSync není tato funkce dostupná.
 
 Pokyny k instalaci služby Azure AD Connect jsou dostupné v následujícím článku – [Začínáme se službou Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 
 #### Vynucení úplné synchronizace hesel do služby Azure AD
 
-Chcete-li vynutit úplnou synchronizaci a povolit synchronizaci hodnot hash hesel všech místních uživatelů (včetně hodnot hash přihlašovacích údajů nezbytných k ověřování pomocí protokolu NTLM nebo Kerberos) do vašeho klienta služby Azure AD, spusťte v každé doménové struktuře služby AD následující skript prostředí PowerShell.
+Chcete-li vynutit úplnou synchronizaci hesel a povolit synchronizaci hodnot hash přihlašovacích údajů všech místních uživatelů do svého tenanta služby Azure AD, spusťte následující skript prostředí PowerShell v každé doménové struktuře služby AD. Tímto skriptem povolíte synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos do svého tenanta služby Azure AD.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
@@ -65,7 +65,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
 ```
 
-Synchronizace přihlašovacích údajů do služby Azure AD bude v závislosti na velikosti adresáře (počtu uživatelů, skupin atd.) chvíli trvat. Hesla bude možné použít ve spravované doméně služby Azure AD Domain Services zanedlouho poté, co se hodnoty hash přihlašovacích údajů synchronizují do služby Azure AD.
+Synchronizace hodnot hash přihlašovacích údajů do služby Azure AD bude v závislosti na velikosti adresáře (počtu uživatelů, skupin atd.) chvíli trvat. Hesla bude možné použít ve spravované doméně služby Azure AD Domain Services zanedlouho poté, co se hodnoty hash přihlašovacích údajů synchronizují do služby Azure AD.
 
 
 <br>
@@ -82,6 +82,6 @@ Synchronizace přihlašovacích údajů do služby Azure AD bude v závislosti n
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

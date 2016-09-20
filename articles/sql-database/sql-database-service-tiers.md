@@ -19,7 +19,9 @@
 
 # Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb
 
-[Azure SQL Database](sql-database-technical-overview.md) má více úrovní služeb pro zpracování různých zátěží. [Změnit úrovně služeb](sql-database-scale-up.md) můžete kdykoli s minimální odstávkou aplikace (obecně v průměru méně než čtyři sekundy). Můžete také [vytvářet izolované databáze](sql-database-get-started.md) s definovanými vlastnostmi a cenami. Nebo můžete spravovat skupinu více databází pomocí [fondu elastické databáze](sql-database-elastic-pool-create-portal.md). V obou případech jsou dostupné úrovně **Basic**, **Standard** a **Premium**. Možnosti databáze v těchto úrovních jsou podobné pro samostatné databáze i elastické fondy, ale pro elastické fondy existují ještě další důležité okolnosti. Tento článek obsahuje podrobné informace o úrovních služeb pro samostatné databáze i pro elastické fondy.
+[Azure SQL Database](sql-database-technical-overview.md) nabízí tři úrovně služby s více úrovněmi výkonu pro zpracování různých úloh. Každá úroveň výkonu poskytuje rostoucí sadu prostředků navržených k poskytnutí stále větší propustnosti. Každou databázi můžete spravovat v její vlastní [úrovni služby](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) s vlastní úrovní výkonu. Můžete také spravovat více databází v [elastickém fondu](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) se sdílenou sadou prostředků. Prostředky dostupné pro samostatné databáze jsou vyjádřeny v jednotkách DTU (Database Transaction Unit); prostředky dostupné pro elastické fondy jsou vyjádřeny v elastických jednotkách DTU (eDTU). Další informace o jednotkách DTU a eDTU najdete v tématu [Co je DTU](sql-database-what-is-a-DTU.md). 
+
+V obou případech jsou dostupné úrovně služby **Basic**, **Standard** a **Premium**. Možnosti databáze v těchto úrovních jsou podobné pro samostatné databáze i elastické fondy, ale pro elastické fondy existují ještě další důležité okolnosti. Tento článek obsahuje podrobné informace o úrovních služeb pro samostatné databáze i pro elastické fondy.
 
 ## Úrovně služeb a možnosti databází
 Úrovně služeb Basic, Standard a Premium mají všechny dostupnost SLA 99,99 % a nabízejí předvídatelný výkon, flexibilní možnosti kontinuity podnikových procesů, funkce zabezpečení a fakturaci po hodinách. Následující tabulka obsahuje příklady úrovní služeb vhodných pro různé zátěže a aplikace.
@@ -39,24 +41,18 @@ Výkonové charakteristiky, které jsou zde uvedené, platí pro databáze vytvo
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Chcete-li lépe porozumět koncepci DTU, přečtěte si část [DTU](#understanding-dtus) v tomto tématu.
-
 >[AZURE.NOTE] Podrobné vysvětlení všech ostatních řádků v této tabulce úrovní služeb najdete v části [Možnosti a omezení úrovní služeb](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Úrovně služeb elastických fondů a měření výkonu pomocí eDTU
 Vedle vytváření a škálování samostatných databází máte také možnost spravovat skupiny databází v [elastických fondech](sql-database-elastic-pool.md). Všechny databáze v elastickém fondu sdílejí společnou sadu prostředků. Výkonové charakteristiky se měří v *transakčních jednotkách elastické databáze* (eDTU). Stejně jako u samostatných databází můžete fondy vytvářet ve třech úrovních služeb: **Basic**, **Standard** a **Premium**. I pro fondy tyto tři úrovně definují omezení celkového výkonu a několik dalších vlastností.
 
-Fondy umožňují databázím sdílet a využívat prostředky (měřené v jednotkách DTU), aniž by bylo nutné přiřazovat úroveň služeb všem databázím ve fondu. Například samostatná databáze ve fondu, který má úroveň Standard, může přecházet od využívání 0 eDTU až k maximální hodnotě eDTU, kterou jste pro danou databázi ve fondu nastavili. Fondy umožňují více databázím s různou zátěží efektivně využívat prostředky eDTU, které jsou dostupné pro celý fond. Podrobnosti viz [Cenové a výkonové požadavky fondu elastické databáze](sql-database-elastic-pool-guidance.md).
+Fondy umožňují databázím sdílet a využívat prostředky (měřené v jednotkách DTU), aniž by bylo nutné přiřazovat konkrétní úroveň výkonu všem databázím ve fondu. Například samostatná databáze ve fondu, který má úroveň Standard, může přecházet od využívání 0 eDTU až k maximální hodnotě eDTU, kterou jste pro danou databázi ve fondu nastavili. Fondy umožňují více databázím s různou zátěží efektivně využívat prostředky eDTU, které jsou dostupné pro celý fond. Podrobnosti viz [Cenové a výkonové požadavky fondu elastické databáze](sql-database-elastic-pool-guidance.md).
 
 V následující tabulce jsou popsané charakteristiky úrovní služeb fondů.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Každá databáze ve fondu současně dodržuje pravidla pro samostatné databáze určená danou úrovní služeb. Například fond s úrovní Basic má omezení maximálního počtu relací na fond 4800 – 28800, ale jednotlivé databáze ve fondu Basic mají omezení 300 relací.
-
-## Vysvětlení jednotek DTU
-
-[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
 ## Výběr úrovně služeb
 
@@ -94,6 +90,6 @@ Informace o běžných vzorech architektury dat databázových aplikací softwar
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
-# Začínáme s Azure Data Lake Store pomocí Portálu Azure
+# Začínáme s Azure Data Lake Store pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
 - [Portál](data-lake-store-get-started-portal.md)
@@ -27,23 +27,13 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Naučte se používat Portál Azure k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace o službě Data Lake Store najdete v tématu [Přehled o Azure Data Lake Store](data-lake-store-overview.md).
+Naučte se používat web Azure Portal k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace o službě Data Lake Store najdete v tématu [Přehled o Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Požadavky
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 - **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="signup"></a>Aktivace předplatného Azure pro verzi Public Preview služby Data Lake Store
-
-Nejdřív musíte požádat o aktivaci předplatného Azure pro verzi Public Preview služby Data Lake Store. Postupujte následovně.
-
-1. Přihlaste se k novému [Portálu Azure](https://portal.azure.com).
-2. Klikněte na položku **NOVÝ**, **Data + úložiště** a potom **Azure Data Lake Store**.
-3. V okně **Nová služba Data Lake Store** klikněte na tlačítko **Zaregistrovat k verzi Preview**. Přečtěte si zobrazené informace a klikněte na tlačítko **OK**. Jakmile bude předplatné aktivované pro verzi Public Preview, obdržíte e-mail.
-
-    ![Registrace k verzi Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
 
 ## Pomáhají vám při učení videa?
 
@@ -54,7 +44,7 @@ Pokud chcete začít s Data Lake Store, podívejte se na následující videa.
 
 ## Vytvoření účtu Azure Data Lake Store
 
-1. Přihlaste se k novému [Portálu Azure](https://portal.azure.com).
+1. Přihlaste se k novému [webu Azure Portal](https://portal.azure.com).
 
 2. Klikněte na položku **NOVÝ**, **Data + úložiště** a potom **Azure Data Lake Store**. Přečtěte si informace v okně **Azure Data Lake Store** a potom klikněte v levém dolním rohu okna na tlačítko **Vytvořit**.
 
@@ -140,6 +130,6 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

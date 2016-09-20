@@ -18,6 +18,10 @@
 
 # Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
+> [AZURE.SELECTOR]
+- [portál Azure](active-directory-create-users-external-azure-portal.md)
+- [Portál Azure Classic](active-directory-create-users-external.md)
+
 Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
 
 ## Přidání uživatele
@@ -86,6 +90,6 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

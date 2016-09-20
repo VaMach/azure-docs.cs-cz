@@ -95,6 +95,6 @@ Další informace o DocumentDB najdete v těchto materiálech:
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

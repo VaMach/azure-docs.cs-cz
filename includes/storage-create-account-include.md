@@ -8,6 +8,6 @@ Pokud teď nechcete vytvářet účet úložiště, můžete také pomocí emul�
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -79,7 +79,7 @@ Vytvořte soubor zip, který obsahuje všechny požadované soubory pro instalac
 
 - Všechny požadované skripty.
 
-> [AZURE.NOTE] Soubory aplikace (včetně souborů webové aplikace, pokud existuje) může být umístěn na jakémkoli veřejně přístupném koncovém bodu.
+> [AZURE.NOTE] Soubory aplikace (včetně souborů webové aplikace, pokud existuje) mohou být umístěny na jakémkoli veřejně přístupném koncovém bodu.
 
 ## Publikování aplikace
 
@@ -99,8 +99,11 @@ K publikování aplikace HDInsight postupujte podle následujících kroků:
 - [Instalace vlastní aplikace HDInsight](hdinsight-apps-install-custom-applications.md): naučte se nasazovat nepublikované aplikace HDInsight do HDInsight.
 - [Přizpůsobení clusterů HDInsight v systému Linux pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md): další informace o použití akce skriptu k instalaci dalších aplikací.
 - [Vytvoření linuxových clusterů Hadoop v HDInsight pomocí šablon Azure Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md): zjistěte, jak voláním šablon Resource Manageru vytvoříte clustery HDInsight.
+- [Použití prázdných hraničních uzlů v HDInsight](hdinsight-apps-use-edge-node.md): Zjistěte, jak lze pomocí prázdných hraničních uzlů přistupovat ke clusteru HDInsight, testovat aplikace HDInsight a hostovat aplikace HDInsight.
 
 
-<!---HONumber=Aug16_HO4-->
+
+
+<!--HONumber=sep16_HO2-->
 
 

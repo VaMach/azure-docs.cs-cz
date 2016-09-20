@@ -51,7 +51,7 @@ Podrobné informace o kapacitě úložiště a cílech výkonnosti najdete v té
 
 1. Přihlaste se k [Azure Portal Classic](https://manage.windowsazure.com).
 
-2. Na hlavním panelu v dolní části stránky klikněte na **Nový**. Vyberte **Datové služby** | **Úložiště** a klikněte na **Rychlé vytvoření**.
+2. Na hlavním panelu v dolní části stránky klikněte na **Nový**. Vyberte **Data Services** | **Úložiště** a klikněte na **Rychlé vytvoření**.
 
     ![NovýÚčetÚložiště](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
 
@@ -89,7 +89,7 @@ Každý objekt, který uložíte v úložišti Azure Storage, má jedinečnou ad
 
 Pokud je například název účtu úložiště *můj_účet_úložiště*, pak jsou výchozí koncové body pro váš účet úložiště tyto:
 
-- Služba objektů blob: http://*můj_účet_úložiště*.blob.core.windows.net
+- Služba Blob service: http://*můj_účet_úložiště*.blob.core.windows.net
 
 - Služba Table: http://*můj_účet_úložiště*.table.core.windows.net
 
@@ -113,7 +113,7 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
 
 Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupové klíče k úložišti, které se používají pro ověřování přístupu k účtu úložiště. Poskytnutím dvou přístupových klíčů k úložišti vám Azure umožňuje znovu vygenerovat klíče bez přerušení poskytování vaší služby úložiště nebo přístupu k této službě.
 
-> [AZURE.NOTE] Doporučujeme vám přístupové klíče k úložišti s nikým nesdílet. Pokud budete chtít povolit přístup k prostředkům úložiště bez poskytnutí přístupových klíčů, můžete použít *sdílený přístupový podpis*. Sdílený přístupový podpis poskytuje přístup k prostředku v rámci vašeho účtu pro časový interval, který nadefinujete, a s oprávněními, která zadáte. Další informace najdete v tématu [Sdílené přístupové podpisy: vysvětlení modelu SAS](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Doporučujeme vám přístupové klíče k úložišti s nikým nesdílet. Pokud budete chtít povolit přístup k prostředkům úložiště bez poskytnutí přístupových klíčů, můžete použít *sdílený přístupový podpis*. Sdílený přístupový podpis poskytuje přístup k prostředku v rámci vašeho účtu pro časový interval, který nadefinujete, a s oprávněními, která zadáte. Další informace najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 V [portálu Azure Classic](https://manage.windowsazure.com) na řídicím panelu nebo na stránce **Úložiště** použijte **Správu klíčů**, kde můžete zobrazit, kopírovat a opět vytvořit přístupové klíče k úložišti, které se používají pro přístup ke službám Blob, Table a Queue.
 
@@ -179,6 +179,6 @@ Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

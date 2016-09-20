@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/22/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
 
 # Přehled funkcí Batch pro vývojáře
@@ -81,8 +81,6 @@ Součástí všech výpočetních uzlů ve službě Batch také jsou:
 - Nastavení **brány firewall**, která jsou nakonfigurována pro řízení přístupu.
 - [Vzdálený přístup](#connecting-to-compute-nodes) k uzlům Windows (Remote Desktop Protocol (RDP)) i Linux (Secure Shell (SSH)).
 
-> [AZURE.NOTE] Podpora Linuxu ve službě Batch je aktuálně ve verzi Preview. Další podrobnosti najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
-
 ## Fond
 
 Fond je kolekce uzlů, na kterých běží příslušná aplikace. Fond lze vytvořit ručně nebo automaticky pomocí služby Batch při zadání práce, kterou je zapotřebí vykonat. Můžete vytvořit a spravovat fond, který splňuje požadavky na prostředky příslušné aplikace. Fond může být používán pouze účtem Batch, ve kterém byl vytvořen. Účet Batch může mít více než jeden fond.
@@ -146,7 +144,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
 - **Balíčky aplikací**
 
-    Můžete určit [balíčky aplikací](#application-packages) pro nasazení do výpočetních uzlů ve fondu. Balíčky aplikací poskytují možnost zjednodušeného nasazení a správy verzí aplikace, která provádí vaše úlohy. Balíčky aplikací, které pro fond určíte, se nainstalují na každý uzel, který se do daného fondu připojí, a také pokaždé, když se uzel restartuje nebo obnoví z image.
+    Můžete určit [balíčky aplikací](#application-packages) pro nasazení do výpočetních uzlů ve fondu. Balíčky aplikací poskytují možnost zjednodušeného nasazení a správy verzí aplikace, která provádí vaše úlohy. Balíčky aplikací, které pro fond určíte, se nainstalují na každý uzel, který se do daného fondu připojí, a také pokaždé, když se uzel restartuje nebo obnoví z image. Balíčky aplikací nejsou v současné době na linuxových výpočetních uzlech podporované.
 
 - **Konfigurace sítě**
 
@@ -521,6 +519,6 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

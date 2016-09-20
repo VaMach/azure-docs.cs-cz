@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Nasazení místního zařízení StorSimple (Update 2)
@@ -247,6 +247,6 @@ Pomocí následujících kroků na portálu pro správu vytvořte ruční záloh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

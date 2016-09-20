@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí jazyka Java
@@ -41,7 +41,6 @@ Následující odkazy obsahují umístění ke stažení sady Java SDK pro Data 
 * Java Development Kit (JDK) 8 (využívající jazyk Java verze 1.8).
 * IntelliJ nebo jiné vhodné vývojové prostředí Java. Tato položka je nepovinná, ale doporučuje se. Níže uvedené pokyny používají IntelliJ.
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Aktivujte předplatné Azure** pro verzi Public Preview služby Data Lake Store. Viz [pokyny](data-lake-store-get-started-portal.md#signup).
 * **Vytvoření aplikace Azure Active Directory**. Ověřování pomocí služby Azure Active Directory můžete provádět dvěma způsoby – **interaktivně** a **neinteraktivně**. Předpoklady se liší podle toho, jak chcete ověřovat.
     * **V případě interaktivního ověřování** – Ve službě Azure Active Directory je nutné vytvořit **nativní klientskou aplikaci**. Po vytvoření aplikace načtěte následující hodnoty týkající se aplikace.
         - Získejte **ID klienta** a **identifikátor URI přesměrování** aplikace.
@@ -282,6 +281,6 @@ Pro účely tohoto kurzu je nutné, abyste aplikaci udělili oprávnění k vytv
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

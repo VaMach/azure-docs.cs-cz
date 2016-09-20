@@ -6,7 +6,7 @@
     documentationCenter=""
     tags="azure-portal"
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -75,7 +75,7 @@ Po připojení k předplatnému Azure budete moci provádět následující akce
 
 **Pro připojení k portálu Azure ze sady Visual Studio**
 
-- Z Průzkumníka serveru rozbalte **Azure** > **HDInsight**, klikněte pravým tlačítkem na cluster HDInsight a pak klikněte na tlačítko **Spravovat Cluster portálu Azure**.
+- Z Průzkumníka serveru rozbalte **Azure** > **HDInsight**, klikněte pravým tlačítkem na cluster HDInsight a pak klikněte na tlačítko **Spravovat Cluster webu Azure Portal**.
 
 **Ze sady Visual Studio můžete klást otázky a poskytovat zpětnou vazbu**
 
@@ -286,6 +286,6 @@ V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight z
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

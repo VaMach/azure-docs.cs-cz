@@ -23,6 +23,6 @@
 Pokud si chcete přehrát video, které ukazuje, jak získat registrační klíč služby, klikněte [sem](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 
