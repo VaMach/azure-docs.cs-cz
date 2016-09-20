@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí rozhraní REST API
@@ -34,7 +34,6 @@ V tomto článku se naučíte používat rozhraní REST API WebHDFS a rozhraní 
 ## Požadavky
 
 - **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Aktivujte předplatné Azure** pro verzi Public Preview služby Data Lake Store. Viz [pokyny](data-lake-store-get-started-portal.md#signup).
 - **Vytvoření aplikace Azure Active Directory**. Ověřování pomocí služby Azure Active Directory můžete provádět dvěma způsoby – **interaktivně** a **neinteraktivně**. Předpoklady se liší podle toho, jak chcete ověřovat.
     * **V případě interaktivního ověřování** (používá se v tomto článku) – Ve službě Azure Active Directory je nutné vytvořit **nativní klientskou aplikaci**. Po vytvoření aplikace načtěte následující hodnoty týkající se aplikace.
         - Získejte **ID klienta** a **identifikátor URI přesměrování** aplikace.
@@ -278,6 +277,6 @@ Zobrazený výstup by měl vypadat asi takto:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

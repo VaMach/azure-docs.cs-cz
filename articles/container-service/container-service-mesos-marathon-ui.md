@@ -60,7 +60,7 @@ Protocol (Protokol)        | TCP
 Pokud chcete staticky namapovat port kontejneru na port agenta, budete muset použít režim JSON. Provedete to tak, že pomocí přepínače přepnete průvodce novou aplikací na **JSON Mode** (Režim JSON). Potom v části `portMappings` definice aplikace zadejte následující. Tento příklad namapuje port číslo 80 kontejneru na port číslo 80 agenta DC/OS. Po provedení této změny můžete režim JSON v průvodci opět vypnout.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Nová aplikace uživatelského rozhraní – příklad u portu číslo 80](media/dcos/dcos13.png)
@@ -103,6 +103,6 @@ Podrobná prohlídka služby Azure Container Service s Mesos
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

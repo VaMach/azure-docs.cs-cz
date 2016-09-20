@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Správa kontejnerů pomocí nástroje Docker Swarm
@@ -125,6 +125,6 @@ Přirozeně, můžete použít `docker-compose ps` k prozkoumání samotných ko
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

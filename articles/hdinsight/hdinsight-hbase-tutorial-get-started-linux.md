@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -327,6 +327,6 @@ Další informace naleznete v tématu:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

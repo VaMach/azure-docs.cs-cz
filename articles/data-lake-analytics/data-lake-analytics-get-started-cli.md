@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -165,6 +165,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

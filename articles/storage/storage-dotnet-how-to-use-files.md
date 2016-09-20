@@ -27,7 +27,7 @@
 
 Protože je sdílená složka File Storage standardní sdílnou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
 
-Sdílené složky Azure můžete vytvářet pomocí [Portálu Azure](https://portal.azure.com), rutin PowerShell pro Azure Storage, knihovny klienta Azure Storage nebo REST API pro Azure Storage. Protože jsou tyto sdílené složky sdílenými složkami SMB, můžete k nim také přistupovat přes standardní a známá rozhraní API pro souborové systémy. 
+Sdílené složky Azure můžete vytvářet pomocí [webu Azure Portal](https://portal.azure.com), rutin PowerShell pro Azure Storage, knihovny klienta Azure Storage nebo REST API pro Azure Storage. Protože jsou tyto sdílené složky sdílenými složkami SMB, můžete k nim také přistupovat přes standardní a známá rozhraní API pro souborové systémy. 
 
 Informace o používání File Storage s Linuxem najdete v tématu [Používání Azure File Storage s Linuxem](storage-how-to-use-files-linux.md).
 
@@ -61,7 +61,7 @@ Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage.
 
 ## Použijte Portál Azure ke správě složky
 
-[Portál Azure](https://portal.azure.com) zákazníkům nabízí uživatelské prostředí pro správu sdílených složek. Z portálu můžete:
+[Azure Portal](https://portal.azure.com) zákazníkům nabízí uživatelské prostředí pro správu sdílených složek. Z portálu můžete:
 
 - Vytvořit sdílenou složku
 - Ukládat soubory do sdílené složky a stahovat soubory ze sdílené složky
@@ -140,7 +140,7 @@ Klikněte na **Start** a zadejte **Windows PowerShell**, tím otevřete okno Azu
 
 ### Vytvoření kontextu pro účet úložiště a klíč
 
-Teď vytvořte kontext účtu úložiště. Kontext obsahuje název účtu úložiště a klíč účtu. Pokyny pro zkopírování klíče účtu z [Portálu Azure Portal](https://portal.azure.com) najdete v tématu [Zobrazení a zkopírování přístupových klíčů k úložišti](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Teď vytvořte kontext účtu úložiště. Kontext obsahuje název účtu úložiště a klíč účtu. Pokyny pro zkopírování klíče účtu z [webu Azure Portal](https://portal.azure.com) najdete v tématu [Zobrazení a zkopírování přístupových klíčů k úložišti](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Místo `storage-account-name` a `storage-account-key` zadejte název svého účtu úložiště a klíč v následujícím příkladu.
 
@@ -215,8 +215,8 @@ Když klient přistupuje k úložišti File, použitá verze SMB závisí na ver
 Abychom ukázali, jak připojit sdílenou složku Azure, vytvoříme teď virtuální počítač Azure s Windows a vzdáleně se k němu přihlásíme, abychom mohli připojit sdílenou složku.
 
 
-1. Nejdřív vytvořte nový virtuální počítač Azure podle pokynů v tématu [Vytvoření virtuálního počítače s Windows v Portálu Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Dál se do něj vzdáleně přihlaste podle pokynů v tématu [Přihlášení do virtuálního počítače s Windows přes Portál Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Nejdřív vytvořte nový virtuální počítač Azure podle pokynů v tématu [Vytvoření virtuálního počítače s Windows na webu Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Dál se do něj vzdáleně přihlaste podle pokynů v tématu [Přihlášení do virtuálního počítače s Windows přes web Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Ve virtuálním počítači otevřete okno PowerShell.
 
 ### Nastavení přihlašovacích údajů pro účet úložiště ve virtuálním počítači jako trvalé
@@ -424,7 +424,7 @@ V následujícím příkladu se vytvoří sdílená zásada přístupu pro sdíl
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Další informace o vytváření a použití sdílených přístupových podpisů najdete v tématech [Sdílené přístupové podpisy: vysvětlení modelu SAS](storage-dotnet-shared-access-signature-part-1.md) a [Vytvoření a použití SAS s úložištěm Blob](storage-dotnet-shared-access-signature-part-2.md).
+Další informace o vytváření a používání sdílených přístupových podpisů najdete v tématech [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md) a [Vytvoření a použití SAS se službou Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Kopírování souborů
 
@@ -531,7 +531,7 @@ Stejným způsobem můžete kopírovat objekt blob do souboru. Pokud je zdrojov�
 
 Azure Storage Analytics teď podporuje metriky pro úložiště File. S údaji z metriky můžete sledovat žádosti a diagnostikovat potíže.
 
-Metriky pro úložiště File můžete povolit v [Portálu Azure](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
+Metriky pro úložiště File můžete povolit v [webu Azure Portal](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
 
 Následující ukázka kódu ukazuje, jak můžete použít Klientskou knihovnu pro úložiště pro .NET k zapnutí metrik pro úložiště File.
 
@@ -671,6 +671,6 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

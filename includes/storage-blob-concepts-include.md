@@ -33,6 +33,6 @@ Služba Blob service obsahuje následující součásti:
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -41,7 +41,7 @@ Každý objekt, který uložíte v úložišti Azure Storage, má jedinečnou ad
 
 Pokud je například název účtu úložiště *můj_účet_úložiště*, pak jsou výchozí koncové body pro váš účet úložiště tyto:
 
-- Služba objektů blob: http://*můj_účet_úložiště*.blob.core.windows.net
+- Služba Blob service: http://*můj_účet_úložiště*.blob.core.windows.net
 
 - Služba Table: http://*můj_účet_úložiště*.table.core.windows.net
 
@@ -103,7 +103,7 @@ Pro účty úložiště Blob Storage se vám může nejenom změní cena za pře
 
 Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupové klíče k úložišti, které se používají pro ověřování přístupu k účtu úložiště. Poskytnutím dvou přístupových klíčů k úložišti vám Azure umožňuje znovu vygenerovat klíče bez přerušení poskytování vaší služby úložiště nebo přístupu k této službě.
 
-> [AZURE.NOTE] Doporučujeme vám přístupové klíče k úložišti s nikým nesdílet. Pokud budete chtít povolit přístup k prostředkům úložiště bez poskytnutí přístupových klíčů, můžete použít *sdílený přístupový podpis*. Sdílený přístupový podpis poskytuje přístup k prostředku v rámci vašeho účtu pro časový interval, který nadefinujete, a s oprávněními, která zadáte. Další informace najdete v tématu [Sdílené přístupové podpisy: vysvětlení modelu SAS](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Doporučujeme vám přístupové klíče k úložišti s nikým nesdílet. Pokud budete chtít povolit přístup k prostředkům úložiště bez poskytnutí přístupových klíčů, můžete použít *sdílený přístupový podpis*. Sdílený přístupový podpis poskytuje přístup k prostředku v rámci vašeho účtu pro časový interval, který nadefinujete, a s oprávněními, která zadáte. Další informace najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Zobrazení a zkopírování přístupových klíčů k úložišti
 
@@ -161,6 +161,6 @@ Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

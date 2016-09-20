@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Začínáme s Azure Data Lake Store pomocí sady .NET SDK
@@ -33,7 +33,6 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 * Visual Studio 2013 nebo 2015. Níže uvedené pokyny používají Visual Studio 2015.
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Aktivujte předplatné Azure** pro verzi Public Preview služby Data Lake Store. Viz [pokyny](data-lake-store-get-started-portal.md#signup).
 * **Vytvoření aplikace Azure Active Directory**. Ověřování pomocí služby Azure Active Directory můžete provádět dvěma způsoby – **interaktivně** a **neinteraktivně**. Předpoklady se liší podle toho, jak chcete ověřovat.
     * **V případě interaktivního ověřování** (používá se v tomto článku) – Ve službě Azure Active Directory je nutné vytvořit **nativní klientskou aplikaci**. Po vytvoření aplikace načtěte následující hodnoty týkající se aplikace.
         - Získejte **ID klienta** a **identifikátor URI přesměrování** aplikace.
@@ -532,6 +531,6 @@ Nakonec se ujistěte, že na počítači existuje místní cesta a název soubor
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

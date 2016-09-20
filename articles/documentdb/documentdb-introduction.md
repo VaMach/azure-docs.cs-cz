@@ -14,33 +14,26 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="07/01/2016" 
+    ms.date="09/13/2016" 
     ms.author="mimig"/>
 
 # Úvod do DocumentDB: Databáze NoSQL JSON
 
-Azure DocumentDB je plně spravovaná služba databáze NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, automatické škálování, globální distribuci a jednoduchý vývoj. Její flexibilní datový model, trvale nízké latence a bohaté schopnosti dotazování z ní činí výtečný nástroj pro web, mobilní zařízení, hry, IoT a mnoho dalších aplikací, které vyžadují bezproblémové škálování.
+##Co je DocumentDB?
 
-Rychlý způsob, jak se dozvědět informace o této databázi JSON a vidět ji v provozu, představují tyto tři kroky: 
+DocumentDB je plně spravovaná databázová služba NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, elastické škálování, globální distribuci a jednoduchý vývoj. Protože je DocumentDB databáze NoSQL bez schématu, poskytuje bohaté a známé schopnosti příkazů jazyka SQL s konsistentní nízkou latencí dat JSON – zajišťuje tak, že 99 % čtení je obslouženo do 10 milisekund a 99 % zápisů je obslouženo do 15 milisekund. Tyto jedinečné výhody činí z DocumentDB ideální řešení pro web, mobilní a herní zařízení, IoT a mnoho dalších aplikací s potřebou snadného škálování a globální replikace.
+
+## Jak mohu zjistit více o DocumentDB? 
+
+Rychlý způsob, jak se dozvědět informace o DocumentDB a vidět ji v provozu, představují tyto tři kroky: 
 
 1. Podívejte se na dvouminutové video [Co je DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/), které představuje výhody DocumentDB.
 2. Podívejte se na tříminutové video [Vytvoření DocumentDB v Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/), ve kterém se dozvíte, jak s DocumentDB začít přes Portál Azure.
 3. Navštivte [Query Playground](http://www.documentdb.com/sql/demo), kde si můžete projít různé aktivity a dozvědět se o bohatých funkcích pro dotazování dostupných v DocumentDB. Pak zamiřte na kartu Izolovaný prostor (sandbox), kde můžete spustit své vlastní dotazy SQL a experimentovat s DocumentDB.
 
-Pak se vraťte k tomuto článku, kde se tématu budeme věnovat podrobněji a kde se dozvíte odpovědi na následující otázky:  
+Poté se vraťte k tomuto článku, kde ji prozkoumáme důkladněji.  
 
--   [Co je DocumentDB a jak zvyšuje hodnotu moderních aplikací?](#what-is-azure-documentdb)
--   [Jak se v DocumentDB spravují data a jak se k nim lze dostat?](#data-management)
--   [Jak vyvíjet aplikace pomocí DocumentDB?](#develop)
--   [Co dalšího je nutné podniknout k vytvoření aplikace DocumentDB?](#next-steps)  
-
-## Co je Azure DocumentDB?  
-
-Moderní aplikace vytváří, používají a rychle odpovídají na velmi velké objemy dat. Tyto aplikace se velmi rychle vyvíjejí, stejně jako jimi využívané datové schéma. V reakci na to vývojáři stále častěji volí dokumentové databáze NoSQL bez schémat jako jednoduchá, rychlá a spolehlivá řešení k ukládání a zpracování dat, a to při zachování schopnosti rychle iterovat datové modely aplikace a nestrukturované datové kanály. Mnoho databází bez schémat však nepodporuje komplexní dotazy a zpracování transakcí, což znesnadňuje pokročilou správu dat. DocumentDB tento problém řeší. Microsoft vyvinul službu DocumentDB tak, aby tyto požadavky na správu dat pro dnešní aplikace splňovala.
-
-DocumentDB je skutečná databázová služba NoSQL bez schémat navržená pro moderní mobilní, webové a herní aplikace či aplikace IoT. DocumentDB zajišťuje, že 99 % načítaných dat je obslouženo do 10 milisekund a 99 % zapisovaných dat se zpracuje do 15 milisekund. Také poskytuje flexibilitu schémat a schopnost snadného škálování databáze podle potřeby. Nepředpokládá ani nevyžaduje žádné schéma dokumentů JSON, které indexuje. Standardně automaticky indexuje všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. DocumentDB umožňuje využívat komplexní ad hoc dotazy v jazyce SQL, podporuje dobře definované úrovně konzistence a nabízí zpracování transakcí několika dokumentů s integrovaným jazykem JavaScript, které využívá známý programovací model uložených procedur, triggerů a funkcí UDF. 
-
-Jakožto databáze JSON DocumentDB nativně podporuje dokumenty JSON, díky čemuž je možné snadno iterovat schémata aplikací a podporovat aplikace, které vyžadují dokumentové nebo tabulkové datové modely i modely typu klíč-hodnota. DocumentDB navazuje na všudypřítomnost technologií JSON a JavaScript a odstraňuje tak neshody mezi objekty definovanými v aplikaci a schématem databáze. Těsná integrace s JavaScriptem vývojářům umožňuje také efektivně a přímo spouštět logiku aplikace – přímo z databázového stroje v databázové transakci. 
+## Jaké schopnosti a klíčové funkce nabízí DocumentDB?  
 
 Azure DocumentDB nabízí následující klíčové funkce a výhody:
 
@@ -58,10 +51,11 @@ Azure DocumentDB nabízí následující klíčové funkce a výhody:
 
 -   **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s DocumentDB je jednoduché, srozumitelné a nevyžaduje, abyste se naučili pracovat s novými nástroji nebo využívali vlastní rozšíření technologií JSON nebo JavaScript. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. DocumentDB pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
 
-DocumentDB je možné použít k ukládání flexibilních datových sad, které vyžadují dotazování a zpracování transakcí. Mezi scénáře aplikací mohou patřit uživatelská data pro interaktivní webové, mobilní a herní aplikace nebo také úložiště, načítání a zpracování dat JSON vygenerovaných zařízením IoT. Databáze může uchovávat libovolné množství dokumentů JSON, protože služba DocumentDB je vhodná pro aplikace, které běží na internetu a využívají škálování.
+-   **Automatické indexování:** DocumentDB ve výchozím nastavení [automaticky indexuje](documentdb-indexing.md) všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
 
-##<a name="data-management"></a>Prostředky Azure DocumentDB
-Azure DocumentDB spravuje data prostřednictvím dobře definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
+##<a name="data-management"></a>Jak DocumentDB spravuje data?
+
+Azure DocumentDB spravuje data JSON prostřednictvím dobře definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
 
 Databázový účet DocumentDB je jedinečný obor názvů, který vám dává přístup k Azure DocumentDB. Před vytvořením databázového účtu si musíte pořídit předplatné Azure, které vám umožní přístup k různým službám Azure. 
 
@@ -73,7 +67,8 @@ Obrázek níže znázorňuje vztahy mezi prostředky DocumentDB:
 
 Databázový účet se skládá ze sady databází, kde každá obsahuje několik kolekcí, z nichž každá pak může obsahovat uložené procedury, triggery, funkce UDF, dokumenty a související přílohy. K databázi jsou také přiřazeni uživatelé. Každý má sadu oprávnění pro přístup k různým kolekcím, uloženým procedurám, triggerům, funkcím UDF, dokumentům a přílohám. Databáze, uživatelé, oprávnění a kolekce jsou systémem definované prostředky s dobře známými schématy – dokumenty, uložené procedury, triggery, funkce UDF a přílohy obsahují libovolný, uživatelem definovaný obsah JSON.  
 
-##<a name="develop"></a> Vývoj s Azure DocumentDB
+##<a name="develop"></a> Jak mohu vyvíjet aplikace s DocumentDB?
+
 Azure DocumentDB zveřejňuje prostředky přes rozhraní REST API, které je možné volat v jakémkoli jazyce schopném zasílat požadavky HTTP/HTTPS. DocumentDB dále nabízí programovací knihovny pro několik oblíbených jazyků. Tyto knihovny zjednodušují mnoho aspektů práce s Azure DocumentDB. Řeší podrobnosti, jako například ukládání adres do mezipaměti, správu výjimek, automatické opakované pokusy apod. Knihovny jsou v tuto chvíli k dispozici pro následující jazyky a platformy:  
 
 Ke stažení | Dokumentace
@@ -100,9 +95,9 @@ DocumentDB umožňuje psát logiku aplikace jako pojmenované programy vytvořen
 Spouštění JavaScriptu v rámci DocumentDB je modelováno podle konceptů podporovaných relačními databázovými systémy. JavaScript zde slouží jako moderní náhrada Transact-SQL. Všechna logika JavaScriptu se spouští v ambientní transakci ACID s izolací snímku. Pokud během spouštění JavaScript vyvolá výjimku, je celá transakce zrušena.
 
 ## Další kroky
-Pokud již máte účet Azure, můžete s DocumentDB začít na [Portálu Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [vytvořením databázového účtu DocumentDB](documentdb-create-account.md).
+Máte už účet Azure? Pak můžete začít s DocumentDB na webu [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [vytvořením databázového účtu DocumentDB](documentdb-create-account.md).
 
-Pokud účet Azure nemáte, můžete:
+Nemáte účet Azure? Můžete:
 
 - Zaregistrovat se k [bezplatné zkušební verzi Azure](https://azure.microsoft.com/free/), s níž získáte 30 dnů a 200 USD na vyzkoušení všech služeb Azure. 
 - Pokud máte předplatné MSDN, jste oprávněni získat [bezplatný kredit Azure v hodnotě 150 USD měsíčně](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), který můžete využít pro libovolnou službu Azure. 
@@ -115,6 +110,6 @@ Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu k
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

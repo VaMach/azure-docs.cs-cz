@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 # Začínáme se službou Azure IoT Hub pro rozhraní .NET
@@ -28,7 +28,7 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace systému Windows:
 
 > [AZURE.NOTE] Informace o různých sadách SDK, s jejichž pomocí můžete sestavit aplikace, které poběží v zařízení, i back-end vašeho řešení, najdete v tématu [Sady SDK služby IoT Hub][lnk-hub-sdks].
 
-K absolvování tohoto kurzu potřebujete:
+Pro absolvování tohoto kurzu potřebujete:
 
 + Microsoft Visual Studio 2015.
 
@@ -40,15 +40,15 @@ Nyní jste vytvořili službu IoT Hub a máte název hostitele a připojovací �
 
 ## Vytvoření identity zařízení
 
-V této části vytvoříte konzolovou aplikaci systému Windows, která v registru identit ve službě IoT Hub vytvoří novou identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru identit zařízení. Další informace najdete v části „Registr identit zařízení“ tématu [Příručka vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
+V této části vytvoříte konzolovou aplikaci systému Windows, která v registru identit ve službě IoT Hub vytvoří identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru identit zařízení. Další informace najdete v části „Registr identit zařízení“ tématu [Příručka vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
 
-1. V sadě Visual Studio přidejte k aktuálnímu řešení nový klasický desktopový projekt jazyka Visual C# pro systém Windows pomocí šablony projektu **konzolové aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **CreateDeviceIdentity**.
+1. V sadě Visual Studio přidejte k stávajícímu řešení klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **Konzolová aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **CreateDeviceIdentity**.
 
     ![Nový klasický desktopový projekt Visual C# pro systém Windows][10]
 
-2. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **CreateDeviceIdentity** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
+2. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **CreateDeviceIdentity** a poté klikněte na **Spravovat balíčky NuGet**.
 
-3. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **microsoft.azure.devices**, vyberte možnost **Instalovat**, nainstalujte balíček  **Microsoft.Azure.Devices** a přijměte podmínky používání. Tím se stáhne a nainstaluje balíček NuGet [sady SDK služby Microsoft Azure IoT][lnk-nuget-service-sdk] a jeho závislosti a přidá se na něj odkaz.
+3. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **microsoft.azure.devices**, vyberte **Instalovat**, čímž nainstalujete balíček **Microsoft.Azure.Devices**, a přijměte podmínky použití. Tímto postupem se stáhne a nainstaluje balíček NuGet [sady SDK služby Microsoft Azure IoT][lnk-nuget-service-sdk] a jeho závislosti a přidá se na něj odkaz.
 
     ![Okno Správce balíčků NuGet][11]
 
@@ -62,7 +62,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která v regis
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
 
-6. Do třídy **Program** přidejte následující metodu.
+6. Přidejte následující metodu do třídy **Program**:
 
         private static async Task AddDeviceAsync()
         {
@@ -79,7 +79,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která v regis
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
 
-    Tato metoda vytvoří novou identitu zařízení s ID **myFirstDevice**. (Pokud toto ID zařízení již v registru existuje, kód jednoduše načte informace o stávajícím zařízení.) Aplikace pak zobrazí primární klíč pro danou identitu. Tento klíč v simulovaném zařízení slouží k připojení do služby IoT Hub.
+    Tato metoda vytvoří identitu zařízení s ID **myFirstDevice**. (Pokud toto ID zařízení již v registru existuje, kód jednoduše načte informace o stávajícím zařízení.) Aplikace pak zobrazí primární klíč pro danou identitu. Tento klíč v simulovaném zařízení slouží k připojení ke službě IoT Hub.
 
 7. Nakonec do metody **Main** přidejte následující řádky:
 
@@ -95,17 +95,17 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která v regis
 
 ## Příjem zpráv typu zařízení-cloud
 
-V této části vytvoříte konzolovou aplikaci systému Windows, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Azure Event Hubs][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Další informace o tom, jak zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Další informace o zpracování zpráv ze služby Event Hubs naleznete v kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial]. (Tento kurz se vztahuje na koncové body kompatibilní se službou IoT Hub Event Hubs.)
+V tomto oddílu vytvoříte konzolovou aplikaci systému Windows, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Azure Event Hubs][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Další informace o tom, jak zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Další informace o zpracování zpráv ze služby Event Hubs naleznete v kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial]. (Tento kurz se vztahuje na koncové body kompatibilní se službou IoT Hub Event Hubs.)
 
 > [AZURE.NOTE] Kompatibilní koncový bod služby Event Hubs pro čtení zpráv typu zařízení-cloud vždy používá protokol AMQPS.
 
-1. V sadě Visual Studio přidejte k aktuálnímu řešení nový klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **konzolové aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt nazvěte **ReadDeviceToCloudMessages**.
+1. V sadě Visual Studio přidejte k stávajícímu řešení klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **Konzolová aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt nazvěte **ReadDeviceToCloudMessages**.
 
     ![Nový klasický desktopový projekt Visual C# pro systém Windows][10]
 
-2. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **ReadDeviceToCloudMessages** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
+2. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **ReadDeviceToCloudMessages** a poté klikněte na **Spravovat balíčky NuGet**.
 
-3. V okně **Správce balíčků NuGet** vyhledejte **WindowsAzure.ServiceBus**, vyberte možnost **Instalovat** a přijměte podmínky používání. Tím se stáhne a nainstaluje služba [Azure Service Bus][lnk-servicebus-nuget] a všechny její závislosti a přidá se na ní odkaz. Tento balíček umožní aplikaci připojení ke koncovému bodu kompatibilnímu se službou Event Hubs ve službě IoT Hub.
+3. V okně **Správce balíčků NuGet** vyhledejte **WindowsAzure.ServiceBus**, vyberte **Instalovat** a přijměte podmínky použití. Tímto postupem se stáhne a nainstaluje služba [Azure Service Bus][lnk-servicebus-nuget] a všechny její závislosti a přidá se na ni odkaz. Tento balíček umožní aplikaci připojení ke koncovému bodu kompatibilnímu se službou Event Hubs ve službě IoT Hub.
 
 4. Do horní části souboru **Program.cs** přidejte následující příkazy `using`:
 
@@ -134,7 +134,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která čte zp
             }
         }
 
-    Tato metoda používá instanci **EventHubReceiver** k příjmu zpráv ze všech oddílů pro příjem zpráv typu zařízení-cloud ve službě IoT Hub: Všimněte si, jak při vytváření objektu **EventHubReceiver** předáte parametr `DateTime.Now`, aby objekt přijímal pouze zprávy odeslané po spuštění. To je užitečné v testovacím prostředí, protože uvidíte aktuální sadu zpráv, ale v produkčním prostředí by měl kód zpracovávat všechny zprávy. Další informace naleznete v kurzu [Postupy zpracování zpráv typu zařízení-cloud ve službě IoT Hub][lnk-process-d2c-tutorial]..
+    Tato metoda používá instanci **EventHubReceiver** k příjmu zpráv ze všech oddílů pro příjem zpráv typu zařízení-cloud ve službě IoT Hub: Všimněte si, jak při vytváření objektu **EventHubReceiver** předáte parametr `DateTime.Now`, aby objekt přijímal pouze zprávy odeslané po spuštění. Tento filtr je užitečný v testovacím prostředí, protože uvidíte aktuální sadu zpráv. V produkčním prostředí byste se měli ujistit, že váš kód zpracovává všechny zprávy. Další informace naleznete v kurzu [Postupy zpracování zpráv typu zařízení-cloud ve službě IoT Hub][lnk-process-d2c-tutorial]..
 
 7. Nakonec do metody **Main** přidejte následující řádky:
 
@@ -163,13 +163,13 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která čte zp
 
 V této části vytvoříte konzolovou aplikaci systému Windows, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
-1. V sadě Visual Studio přidejte k aktuálnímu řešení nový klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **konzolové aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **SimulatedDevice**.
+1. V sadě Visual Studio přidejte k stávajícímu řešení klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **Konzolová aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **SimulatedDevice**.
 
     ![Nový klasický desktopový projekt Visual C# pro systém Windows][10]
 
-2. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **SimulatedDevice** a potom klikněte na tlačítko **Spravovat balíčky NuGet**.
+2. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **SimulatedDevice** a poté klikněte na **Spravovat balíčky NuGet**.
 
-3. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **Microsoft.Azure.Devices.Client**, vyberte možnost **Instalovat**, nainstalujte balíček  **Microsoft.Azure.Devices.Client** a přijměte podmínky používání. Tím se stáhne a nainstaluje [balíček NuGet sady SDK pro zařízení Azure IoT][lnk-device-nuget] a jeho závislosti a přidá se na něj odkaz.
+3. V okně **Správce balíčků NuGet** vyberte **Procházet**, vyhledejte **Microsoft.Azure.Devices.Client**, vyberte **Instalovat**, čímž nainstalujete balíček **Microsoft.Azure.Devices.Client**, a přijměte podmínky použití. Tímto postupem se stáhne a nainstaluje [balíček NuGet sady SDK pro zařízení Azure IoT][lnk-device-nuget] a jeho závislosti a přidá se na něj odkaz.
 
 4. Do horní části souboru **Program.cs** přidejte následující příkaz `using`:
 
@@ -218,7 +218,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která simuluj
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-  Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol HTTPS, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTPS, měli byste také přidat balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
+  Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol HTTPS, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTPS, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
 
 Tento kurz vás provede postupem vytvoření klienta zařízení IoT Hub. K přidání nezbytného kódu do klientské aplikace zařízení můžete také použít rozšíření [Připojená služba pro službu Azure IoT Hub][lnk-connected-service] aplikace Visual Studio.
 
@@ -244,9 +244,9 @@ Nyní můžete spustit aplikace.
 
 ## Další kroky
 
-V tomto kurzu jste nakonfigurovali novou službu IoT Hub v portálu a poté jste vytvořili identitu zařízení v registru identit ve službě. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. 
+V tomto kurzu jste v portálu nakonfigurovali službu IoT Hub a poté jste v registru identit této služby vytvořili identitu zařízení. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. 
 
-Pokud chcete pokračovat v seznamování se službou IoT Hub a prozkoumat další scénáře IoT, podívejte se na tyto články:
+Chcete-li pokračovat v seznamování se službou IoT Hub a prozkoumat další scénáře IoT, podívejte se na tato témata:
 
 - [Připojení zařízení][lnk-connect-device]
 - [Začínáme se správou zařízení][lnk-device-management]
@@ -284,6 +284,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

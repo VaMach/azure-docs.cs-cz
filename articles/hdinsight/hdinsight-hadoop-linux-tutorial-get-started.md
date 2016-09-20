@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/13/2016"
+    ms.date="09/14/2016"
     ms.author="jgao"/>
 
 # Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
@@ -35,15 +35,15 @@ Než začnete tento kurz, musíte mít:
 
 ## Vytvoření clusteru
 
-Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte některé úlohy a pak cluster odstraníte. V této části vytvoříte linuxový cluster Hadoop v HDInsight pomocí [Šablony Azure ARM](../resource-group-template-deploy.md). Šablona ARM je plně přizpůsobitelná; umožňuje snadné vytváření prostředků Azure stejně jako HDInsight. Zkušenosti s šablonou Azure ARM nejsou pro postup dle tohoto kurzu vyžadovány. Další metody vytváření clusterů a principy vlastnosti používaných v tomto kurzu, naleznete v části [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Šablona ARM používaná v tomto kurzu se nachází v kontejneru veřejného objektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte některé úlohy a pak cluster odstraníte. V této části vytvoříte linuxový cluster Hadoop v HDInsight pomocí [šablony Azure Resource Manageru](../resource-group-template-deploy.md). Šablona Resource Manageru je plně přizpůsobitelná a umožňuje snadné vytváření prostředků Azure, jako například HDInsight. Zkušenosti s šablonou Resource Manageru nejsou pro postup dle tohoto kurzu vyžadovány. Další metody vytváření clusterů a principy vlastnosti používaných v tomto kurzu, naleznete v části [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Šablona Resource Manageru používaná v tomto kurzu se nachází ve veřejném kontejneru objektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu ARM na portálu Azure. 
+1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na portálu Azure. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Z okna **Parametry** zadejte následující údaje:
 
-    ![Šablona ARM zahájení práce s HDInsight Linux na portálu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![šablona Resource Manageru pro zahájení práce s HDInsight Linux na portálu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
 
     - **Název clusteru**: Zadejte název pro cluster Hadoop, který chcete vytvořit.
     - **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
@@ -71,7 +71,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
 2. Zadejte uživatelské jméno a heslo Hadoop, které jste zadali v předchozí části. Výchozí uživatelské jméno **admin**.
 3. Otevřete **Zobrazení Hive**, jak je znázorněno na následujícím snímku obrazovky:
 
-    ![Výběr zobrazení ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Výběr zobrazení Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 4. V části __Editor dotazů__ stránky vložte následující příkazy HiveQL do pracovního listu:
 
         SHOW TABLES;
@@ -108,7 +108,7 @@ Po dokončení kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše da
 
 ## Další kroky
 
-V tomto návodu jste se naučili, jak vytvořit cluster HDInsight se systémem Linux pomocí šablony ARM a jak provádět základní dotazy Hive.
+V tomto kurzu jste se naučili, jak vytvořit cluster HDInsight se systémem Linux pomocí šablony Resource Manageru, a jak provádět základní dotazy Hive.
 
 Další informace o analýze dat pomocí HDInsight naleznete v následujících tématech:
 
@@ -163,6 +163,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

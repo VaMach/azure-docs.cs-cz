@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -271,6 +271,6 @@ Tyto nástroje BI vám mohou pomoci při analýze velkých objemů dat:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

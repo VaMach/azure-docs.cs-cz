@@ -1,7 +1,7 @@
 <properties
    pageTitle="Načtení dat ze souboru CSV do databáze Azure SQL Database (bcp) | Microsoft Azure"
    description="Pro malá množství dat se k importu dat do databáze SQL Azure používá bcp."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společn
 
 Pokud pro tento kurz používáte svoje vlastní data, musí vaše data používat kódování ASCII nebo UTF-16, protože bcp nepodporuje kódování UTF-8. 
 
-PolyBase podporuje UTF-8, ale zatím nepodporuje UTF-16. Je potřeba upozornit na to, že pokud chcete kombinovat používání nástroje s funkcí PolyBase, budete muset data po vyexportování z SQL Serveru převést na UTF-8. 
-
-
 ## 1. Vytvoření cílové tabulky
 
-Definujte v SQL Data Warehouse tabulku, která bude cílovou tabulkou pro načtení. Sloupce v tabulce musí odpovídat datům v jednotlivých řádcích vašeho datového souboru.
+Definujte tabulku ve službě SQL Database jako cílovou tabulku. Sloupce v tabulce musí odpovídat datům v jednotlivých řádcích vašeho datového souboru.
 
 Pokud chcete vytvořit tabulku, otevřete okno příkazového řádku a pomocí sqlcmd.exe spusťte následující příkaz:
 
@@ -129,6 +126,6 @@ Postup migrace databáze serveru SQL Server naleznete v části [Migrace databá
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

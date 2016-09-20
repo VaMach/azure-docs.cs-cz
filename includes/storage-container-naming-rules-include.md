@@ -13,6 +13,6 @@ Název kontejneru musí být platný název DNS, který odpovídá následujíc�
 > [AZURE.IMPORTANT] Upozorňujeme, že název kontejneru musí být psaný malými písmeny. Pokud v názvu kontejneru napíšete velké písmeno nebo jinak porušíte pravidla po pojmenování kontejnerů, může se zobrazit chyba 400 (Chybný požadavek). 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

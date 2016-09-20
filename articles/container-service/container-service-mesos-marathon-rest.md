@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Správa kontejnerů přes rozhraní REST API
@@ -74,8 +74,6 @@ Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON,
 Abyste mohli nasadit kontejner formátovaný Dockerem, vytvořte svůj vlastní soubor JSON nebo použijte ukázku, která je k dispozici v [ukázce Azure Container Service](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Uložte jej na dostupné místo. Pak následujícím příkazem nasaďte kontejner. Zadejte název souboru JSON.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +102,6 @@ Spusťte následující příkaz, kterým se zahájí škálování aplikace na 
 >[AZURE.NOTE] Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +145,6 @@ Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON,
 Vytvořte svůj vlastní soubor JSON nebo použijte ukázku, která je k dispozici v [ukázce Azure Container Service](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Uložte jej na dostupné místo. Pak následujícím příkazem nasaďte kontejner. Zadejte název souboru JSON.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +159,6 @@ Spusťte následující příkaz, kterým se zahájí škálování aplikace na 
 > [AZURE.NOTE] Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -177,6 +169,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

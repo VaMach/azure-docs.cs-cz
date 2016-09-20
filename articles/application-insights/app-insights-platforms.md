@@ -37,7 +37,7 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 + [ASP.NET – pro aplikace, které jsou již nasazeny](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Webové aplikace Azure a virtuální počítače](../azure-portal/insights-perf-analytics.md)
++ [Webové aplikace Azure a virtuální počítače](app-insights-azure-web-apps.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151; včetně webových a pracovních rolí
 + [CRM Online z Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -87,6 +87,6 @@ Pokud ještě není SDK k dispozici pro váš jazyk nebo platformu, možná si c
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -58,8 +58,9 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     V prohlížeči přejděte na adresu <http://localhost:3000> a ujistěte se, zda se zobrazí domovská stránka Express. Jakmile ověříte, že aplikace běží správně, zastavte ji pomocí `Ctrl-C`.
     
-1. Přihlaste se k Azure takto (je k tomu zapotřebí rozhraní příkazového řádku [Azure CLI](#prereq)):
+1. Přepněte do režimu ASM a přihlaste se k Azure (k tomu potřebujete [rozhraní příkazového řádku Azure](#prereq)):
 
+        azure config mode asm
         azure login
 
     Postupujte podle výzvy a pokračujte v přihlášení v prohlížeči pomocí účtu Microsoft, který obsahuje předplatné Azure.
@@ -245,6 +246,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

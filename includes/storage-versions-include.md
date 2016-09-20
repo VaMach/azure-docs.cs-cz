@@ -4,6 +4,6 @@ Služby Azure Storage se pravidelně aktualizují a přidává se do nich podpor
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -6,14 +6,14 @@
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="azure active directory user, azure service management, azure ad user account" />
+   keywords="uživatel azure active directory, správa služby azure, uživatelský účet azure ad" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Ověření runbooku pomocí správy služby Azure a Resource manageru
@@ -37,9 +37,9 @@ Tento článek popisuje kroky, které musíte provést při konfiguraci účtu u
 
 
 ## Vytvoření účtu Automation na portálu Azure Classic
-V této části provedete následující kroky, abyste na portálu Azure vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ASM a ARM.  
+V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ASM a ARM.  
 
->[AZURE.NOTE] Účty Automation vytvořené na portálu Azure Classic můžete spravovat pomocí portálu Azure Classic i pomocí portálu Azure nebo pomocí sady rutin. Po vytvoření účtu už nezáleží na způsobu vytváření a správy prostředků v rámci účtu. Pokud máte v úmyslu pokračovat v používání portálu Azure Classic, doporučujeme, abyste ho používali k vytváření účtů Automation místo portálu Azure.
+>[AZURE.NOTE] Účty Automation vytvořené na webu Azure Portal Classic můžete spravovat pomocí webu Azure Portal Classic i pomocí webu Azure Portal nebo pomocí sady rutin. Po vytvoření účtu už nezáleží na způsobu vytváření a správy prostředků v rámci účtu. Pokud máte v úmyslu pokračovat v používání webu Azure Portal Classic, doporučujeme, abyste ho používali k vytváření účtů Automation místo webu Azure Portal.
 
 
 1. Přihlaste se k portálu Azure Classic jako správce služby pro předplatné Azure, které chcete spravovat.
@@ -55,9 +55,9 @@ V této části provedete následující kroky, abyste na portálu Azure vytvoř
 11. Na stránce **Definování přihlašovací údaje** vyberte v rozevíracím seznamu **Typ přihlašovacích údajů** možnost **Přihlašovací údaje Windows PowerShell** a zadejte název přihlašovacích údajů.
 12. Na následující stránce **Definování přihlašovacích údajů** zadejte do pole **Uživatelské jméno** dříve vytvořené uživatelské jméno účtu uživatele AD a do pole **Heslo** a **Potvrzení hesla** zadejte heslo. Klikněte na tlačítko **OK** a uložte změny.
 
-## Vytvoření účtu Automation na portálu Azure
+## Vytvoření účtu Automation na webu Azure Portal
 
-V této části provedete následující kroky, abyste na portálu Azure vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ARM.  
+V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ARM.  
 
 1. Přihlaste se k portálu Azure jako správce služby pro předplatné Azure, které chcete spravovat.
 2. Vyberte **Účty Automation**.
@@ -89,6 +89,6 @@ Tyto řádky byste měli v runbooku opakovat po všech [kontrolních bodech](htt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -148,6 +148,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

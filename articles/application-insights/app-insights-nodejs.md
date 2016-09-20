@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Další kroky
 
 * [Monitorování vaší telemetrie na portálu](app-insights-dashboards.md)
-* [Psaní analytických dotazů nad vaší telemetrií](app-insights-analytics-tour.md)
+* [Zápis analytických dotazů nad telemetrií](app-insights-analytics-tour.md)
 
 
 
@@ -230,6 +230,6 @@ server.on("listening", () => {
 
 
 
-<!---HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -37,6 +37,6 @@ Pokud si chcete přehrát video, které ukazuje, jak připojit, inicializovat a 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

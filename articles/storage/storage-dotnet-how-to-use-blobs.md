@@ -367,7 +367,7 @@ Další informace o rozdílech mezi třemi typy objektů blob získáte v část
 Ve výchozím nastavení jsou data objektu blob ve vašem účtu úložiště dostupná pouze majiteli účtu úložiště. Ve výchozím nastavení vyžaduje ověřování požadavků na Blob storage přístupový klíč účtu. Určitá data objektu blob ale můžete zpřístupnit ostatním uživatelům. Máte dvě možnosti:
 
 - **Anonymní přístup:** můžete nastavit kontejner nebo jeho objekty blob na veřejně dostupné pro anonymní přístup. Další informace viz [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](storage-manage-access-to-resources.md).
-- **Sdílený přístupový podpis:** Klientům můžete zajistit sdílený přístupový podpis (SAS), který poskytuje delegovaný přístup k prostředku ve vašem účtu úložiště s oprávněními, která jste zadali a v intervalu, který určíte. Další informace najdete v tématu [Sdílené přístupové podpisy: vysvětlení modelu SAS](storage-dotnet-shared-access-signature-part-1.md).
+- **Sdílený přístupový podpis:** Klientům můžete zajistit sdílený přístupový podpis (SAS), který poskytuje delegovaný přístup k prostředku ve vašem účtu úložiště s oprávněními, která jste zadali a v intervalu, který určíte. Další informace najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Šifrování dat objektů blob
 
@@ -411,6 +411,6 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

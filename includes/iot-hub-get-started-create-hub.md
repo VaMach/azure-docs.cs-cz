@@ -45,6 +45,6 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

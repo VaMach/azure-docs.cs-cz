@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -55,7 +55,7 @@ Data Lake Store taky zajišťuje zabezpečení uložených dat na podnikové úr
 
 Služba Azure Data Lake Store dokáže ukládat libovolná data v nativním formátu tak, jak jsou, bez nutnosti předchozí transformace. Data Lake Store nevyžaduje, aby bylo před nahráním dat definované schéma, ale ponechává na konkrétním analytickém rámci, aby při analýze interpretoval data a definoval rámec. Díky schopnosti ukládat soubory libovolných velikostí a formátů dokáže služba Data Lake Store zpracovávat strukturovaná, částečně strukturovaná i nestrukturovaná data.
 
-Kontejnery na data Azure Data Lake Store jsou v podstatě složky a soubory. S uloženými daty pracujete pomocí sady SDK, Portálu Azure a prostředí Azure Powershell. Pokud ukládáte data do úložiště pomocí těchto rozhraní a příslušných kontejnerů, můžete ukládat jakýkoli typ dat. Služba Data Lake Store nezpracovává uložená data žádným zvláštním způsobem, který by závisel na jejich typu.
+Kontejnery na data Azure Data Lake Store jsou v podstatě složky a soubory. S uloženými daty pracujete pomocí sady SDK, webu Azure Portal a prostředí Azure Powershell. Pokud ukládáte data do úložiště pomocí těchto rozhraní a příslušných kontejnerů, můžete ukládat jakýkoli typ dat. Služba Data Lake Store nezpracovává uložená data žádným zvláštním způsobem, který by závisel na jejich typu.
 
 
 ## <a name="DataLakeStoreSecurity"></a>Zabezpečení dat v Azure Data Lake Store
@@ -88,7 +88,7 @@ K datům v Data Lake Store můžete přistupovat pomocí `adl://<data_lake_store
 
 ## Jak můžu začít používat Azure Data Lake Store?
 
-Informace o tom, jak zřídit Data Lake Store pomocí Portálu Azure, najdete v tématu [Začínáme s Data Lake Store pomocí Portálu Azure](data-lake-store-get-started-portal.md). Po zřízení Azure Data Lake můžete zjistit, jak používat nabídky velkých objemů dat, například Azure Data Lake Analytics nebo Azure HDInsight, se službou Data Lake Store. Můžete taky vytvořit aplikaci .NET, která vytvoří účet Azure Data Lake Store a bude provádět operace jako nahrávání dat, stahování dat atd.
+Informace o tom, jak zřídit Data Lake Store pomocí webu Azure Portal, najdete v tématu [Začínáme s Data Lake Store pomocí webu Azure Portal](data-lake-store-get-started-portal.md). Po zřízení Azure Data Lake můžete zjistit, jak používat nabídky velkých objemů dat, například Azure Data Lake Analytics nebo Azure HDInsight, se službou Data Lake Store. Můžete taky vytvořit aplikaci .NET, která vytvoří účet Azure Data Lake Store a bude provádět operace jako nahrávání dat, stahování dat atd.
 
 - [Začínáme s Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -115,6 +115,6 @@ Pokud se raději učíte při sledování videa, služba Data Lake Store nabíz�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

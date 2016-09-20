@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/01/2016"
+   ms.date="09/14/2016"
    ms.author="sstein"/>
 
 # Vyzkoušejte SQL Database: Použijte C# k vytvoření databáze SQL pomocí knihovny SQL Database Library pro .NET.
@@ -114,7 +114,7 @@ Nahraďte obsah souboru **Program.cs** následujícím ukázkovým kódem a aktu
         {
             // Authenticate:
             _token = GetToken(_tenantId, _applicationId, _applicationSecret);
-            Console.WriteLine("Token aquired. Expires on:" + _token.ExpiresOn);
+            Console.WriteLine("Token acquired. Expires on:" + _token.ExpiresOn);
 
             // Instantiate management clients:
             _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
@@ -293,6 +293,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

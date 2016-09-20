@@ -242,6 +242,8 @@ if (-not $is_emulated){
 
 #### Úprava souboru LaunchWorker.ps1
 
+>[AZURE.NOTE] V případě projektu **role pracovního procesu** je ke spuštění spouštěcího souboru vyžadován soubor **LauncherWorker.ps1**. U projektu **webové role** je spouštěcí soubor definován ve vlastnostech projektu.
+
 Soubor **bin\LaunchWorker.ps1** byl původně vytvořen pro větší množství přípravných prací, ve skutečnosti však tento cíl neplní. Nahraďte obsah daného souboru následujícím skriptem.
 
 Tento skript volá soubor **worker.py** z projektu v Pythonu. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
@@ -368,6 +370,6 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

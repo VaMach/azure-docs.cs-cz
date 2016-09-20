@@ -17,20 +17,17 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
-# Sestavení prvního objektu pro vytváření dat Azure pomocí rozhraní REST API služby Data Factory
+# Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí rozhraní REST API služby Data Factory
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-build-your-first-pipeline.md)
-- [Pomocí editoru služby Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Pomocí prostředí PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Pomocí šablony Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
-- [Pomocí rozhraní REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [portál Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-V tomto článku se dozvíte, jak vytvořit první objekt pro vytváření dat Azure pomocí rozhraní REST API služby Data Factory.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-## Požadavky
-
-- Pročtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md). Tento článek vám pomůže pochopit základní koncepty ve službě Azure Data Factory. 
+## Další požadavky
 - Nainstalujte na svůj počítač nástroj [Curl](https://curl.haxx.se/dlwiz/). Pomocí nástroje CURL a příkazů REST vytvoříte objekt pro vytváření dat. 
 - Postupujte podle pokynů v [tomto článku](../resource-group-create-service-principal-portal.md) a proveďte následující: 
     1. V Azure Active Directory vytvořte webovou aplikaci s názvem **ADFGetStartedApp**.
@@ -408,6 +405,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

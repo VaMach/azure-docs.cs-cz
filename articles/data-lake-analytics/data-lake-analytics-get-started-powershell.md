@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -127,7 +127,7 @@ Následující skript prostředí PowerShell ukazuje, jak získat výchozí náz
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE] Portál Azure poskytuje uživatelské rozhraní ke zkopírování ukázkových datových souborů do výchozího účtu Data Lake Store. Pokyny najdete v tématu [Začínáme s Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] web Azure Portal poskytuje uživatelské rozhraní ke zkopírování ukázkových datových souborů do výchozího účtu Data Lake Store. Pokyny najdete v tématu [Začínáme s Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
 Data Lake Analytics má také přístup k úložišti objektů Azure Blob.  Pokud chcete nahrát data do úložiště objektů Azure Blob, informace najdete v tématu [Použití prostředí Azure PowerShell s Azure Storage](../storage/storage-powershell-guide-full.md).
 
@@ -212,6 +212,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

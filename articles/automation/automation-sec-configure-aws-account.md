@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Ověření runbooků pomocí Amazon Web Services
@@ -38,6 +38,6 @@ Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

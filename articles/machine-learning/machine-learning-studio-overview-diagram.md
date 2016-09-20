@@ -1,11 +1,11 @@
 <properties
     pageTitle="Diagram s přehledem možností nástroje Machine Learning Studio | Microsoft Azure"
     description="Vytisknutelný diagram možností nástroje Azure Machine Learning Studio, který ukazuje, jak s jeho pomocí vyvinout experiment prediktivní analýzy a zprovoznit ho v cloudu Azure"
-    keywords="machine learning studio,overview diagram,download"
+    keywords="machine learning studio, diagram s přehledem, stažení"
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -50,6 +50,6 @@ Stáhněte si diagram s **přehledem možností nástroje Machine Learning Studi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

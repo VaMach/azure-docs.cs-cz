@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/13/2016"
    ms.author="ryanwi"/>
 
 # Příprava vývojového prostředí
@@ -32,10 +32,9 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 
 ## Instalace modulu runtime, sady SDK a nástrojů
 
-Instalace webové platformy nabízí tři konfigurace pro vývoj Service Fabric:
+Instalace webové platformy nabízí dvě konfigurace pro vývoj Service Fabric:
 
-- [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro Visual Studio 2015 Update 2 nebo novějších ][full-bundle-vs2015]
-- [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro Visual Studio "15" Preview][full-bundle-dev15]
+- [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro sadu Visual Studio 2015 (je vyžadována verze Visual Studio 2015 Update 2 nebo novější)][full-bundle-vs2015]
 - [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů pro Visual Studio)][core-sdk]
 
 ## Povolení spouštění skriptů prostředí PowerShell
@@ -58,13 +57,13 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Stránka kampaně Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "odkaz na VS 2015 WebPI"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "odkaz na Dev15 WebPI"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "odkaz na Core SDK WebPI"
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "odkaz na VS 2015 WebPI"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "odkaz na Dev15 WebPI"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "odkaz na Core SDK WebPI"
 [powershell5-stažení]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

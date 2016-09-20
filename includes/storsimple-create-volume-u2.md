@@ -1,23 +1,23 @@
-<!--author=SharS last changed: 02/29/2016-->
+<!--author=alkohli last changed: 08/16/2016-->
 
 #### Vytvoření svazku
 
-1. Na stránce **Rychlý start** zařízení klikněte na **Přidat svazek**. Spustí se průvodce přidáním svazku.
+1. Na stránce zařízení **Rychlý start** kliknutím na **Přidat svazek** spustíte průvodce přidáním svazku.
 
 2. V průvodci přidáním svazku v části **Základní nastavení** proveďte tyto kroky:
 
     4. Zadejte **Název** svazku.
     5. V rozevíracím seznamu **Typ použití** vyberte typ použití svazku. Pro úlohy, které vyžadují místní záruky, nízkou latenci a vyšší výkon, vyberte typ svazku **Místně vázaný**. Pro ostatní typy dat vyberte typ svazku **Vrstvený**. Pokud tento svazek používáte k archivaci dat, zaškrtněte políčko **Použít tento svazek pro archivní data s méně častým přístupem**. 
     
-        Místně vázaný svazek je tlustě zřízený a zajišťuje, že primární data uložená ve svazku zůstanou uložená v místním zařízení a nebudou distribuována do cloudu.  Pokud vytvoříte místně vázaný svazek, zařízení bude kontrolovat dostupný prostor v místních vrstvách a zřídí jejich pomocí svazek požadované velikosti. Při operaci vytváření místně vázaného svazku mohou být existující data ze zařízení distribuována do cloudu a vytvoření svazku může trvat dlouhou dobu. Celková doba závisí na velikosti zřizovaného svazku, dostupné šířce pásma sítě a datech uložených v zařízení. 
+        Místně vázaný svazek je tlustě zřízený a zajišťuje, že primární data uložená ve svazku zůstanou uložená v místním zařízení a nebudou distribuována do cloudu.  Pokud vytvoříte místně vázaný svazek, zařízení zkontroluje dostupné místo v místních vrstvách a zřídí svazek požadované velikosti. Při operaci vytváření místně vázaného svazku mohou být existující data ze zařízení distribuována do cloudu a vytvoření svazku může trvat dlouhou dobu. Celková doba závisí na velikosti zřizovaného svazku, dostupné šířce pásma sítě a datech uložených v zařízení. 
 
-        Vrstvený svazek je tence zřízený a můžete ho vytvořit velmi rychle. Pokud používáte vrstvený svazek k uchovávání archivních dat, výběrem možnosti **Použít tento svazek pro archivní data s méně častým přístupem** můžete změnit velikost deduplikačního bloku dat pro svazek na 512 kB. Pokud políčko není zaškrtnuté, příslušný vrstvený svazek bude používat velikost bloku dat 64 kB. Větší velikost deduplikačního bloku dat umožňuje zařízení urychlit přenos velkých objemů archivních dat do cloudu.
+        Vrstvený svazek je zřizovaný dynamicky a lze jej rychle vytvořit. Výběrem možnosti **Použít tento svazek pro archivní data s méně častým přístupem** u vrstveného svazku určeného k uchovávání archivních dat změníte velikost bloku odstranění duplicit vašeho svazku na 512 kB. Pokud políčko není zaškrtnuté, příslušný vrstvený svazek bude používat velikost bloku 64 kB. Větší velikost deduplikačního bloku dat umožňuje zařízení urychlit přenos velkých objemů archivních dat do cloudu.
 
     3. Zadejte hodnotu **Zřízená kapacita** svazku. Poznamenejte si kapacitu dostupnou na základě vybraného typu svazku. Zadaná velikost svazku nesmí překročit velikost dostupného místa.
 
-        Zařízení 8100 umožňuje zřizovat místně vázané svazky o velikosti až 8 TB a vrstvené svazky o velikosti až 200 TB. Větší zařízení 8600 umožňuje zřizovat místně vázané svazky o velikosti až 20 TB a vrstvené svazky o velikosti až 500 TB. Protože k hostování pracovní sady vrstvených svazků je vyžadováno volné místo v zařízení, vytváření místně vázaných svazků ovlivní volné místo dostupné ke zřizování vrstvených svazků. Pokud vytvoříte místně vázaný svazek, zmenší se dostupné volné místo potřebné k vytváření vrstvených svazků. A podobně, pokud vytvoříte vrstvený svazek, zmenší se dostupné volné místo potřebné k vytváření místně vázaných svazků. 
+        Zařízení 8100 umožňuje zřizovat místně vázané svazky o velikosti až 8.5 TB a vrstvené svazky o velikosti až 200 TB. Větší zařízení 8600 umožňuje zřizovat místně vázané svazky o velikosti až 22.5 TB a vrstvené svazky o velikosti až 500 TB. Protože k hostování fungující sady vrstvených svazků je vyžadováno volné místo v zařízení, vytváření místně vázaných svazků ovlivňuje volné místo dostupné ke zřizování vrstvených svazků. Pokud vytvoříte místně vázaný svazek, zmenší se dostupné volné místo potřebné k vytváření vrstvených svazků. Podobně pokud vytvoříte vrstvený svazek, zmenší se dostupné volné místo potřebné k vytváření místně vázaných svazků.
 
-        Pokud v zařízení 8100 zřídíte místně vázaný svazek o velikosti 8 TB (maximální možná velikost), vyčerpáte tím veškeré volné místo dostupné v zařízení. Nebudete už moct vytvořit žádné vrstvené svazky a v zařízení už nezbude žádné volné místo k hostování pracovní sady vrstveného svazku. Objem dostupného volného místa ovlivňují také vrstvené svazky. Pokud například používáte zařízení 8100, ve kterém jsou už zřízeny vrstvené svazky o velikosti 100 TB, k vytváření místně vázaných svazků zbude už jenom 4 TB dostupného volného místa.
+        Pokud v zařízení 8100 zřídíte místně vázaný svazek o velikosti 8.5 TB (maximální možná velikost), vyčerpáte tím veškeré volné místo dostupné v zařízení. Nebudete už moct vytvořit žádné vrstvené svazky a v zařízení už nezbude žádné volné místo k hostování pracovní sady vrstveného svazku. Objem dostupného volného místa ovlivňují také vrstvené svazky. Pokud například používáte zařízení 8100, ve kterém jsou už zřízeny vrstvené svazky o velikosti zhruba 106 TB, k vytváření místně vázaných svazků zbude už jenom 4 TB dostupného volného místa.
 
         Na následujícím obrázku je dialogové okno **Základní nastavení** pro místně vázaný svazek.
 
@@ -34,9 +34,9 @@
 
     1. Zadejte **Název** záznamu ACR.
     2. V části **Název iniciátoru iSCSI** zadejte kvalifikovaný název iSCSI (IQN) hostitele s Windows. Pokud název IQN nemáte, přejděte do části [Získání názvu hostitele se systémem Windows Server](#get-the-iqn-of-a-windows-server-host).
-    3. V části **Výchozí zálohování tohoto svazku?** zaškrtněte políčko **Povolit**. Výchozí zálohování vytvoří zásadu, která se spustí každý den ve 22:30 (čas zařízení) a vytvoří cloudový snímek tohoto svazku.
+    3. V části **Výchozí zálohování tohoto svazku?** zaškrtněte políčko **Povolit**. Výchozí zálohování vytvoří zásadu, která se spustí každý den ve 22:30 (čas zařízení) a vytvoří snímek tohoto svazku v cloudu.
      
-     > [AZURE.NOTE] Jakmile tady zásadu povolíte, nastavení už se nedá vrátit. Pokud budete chtít nastavení změnit, musíte upravit svazek.
+     > [AZURE.NOTE] Jakmile tady zásadu povolíte, nastavení už se nedá vrátit. Chcete-li změnit toto nastavení, musíte upravit svazek.
 
      ![Přidání svazku](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
@@ -46,6 +46,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

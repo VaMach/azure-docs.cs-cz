@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Nasazení clusteru Azure Container Service
@@ -115,8 +115,6 @@ Vytvořte skupinu prostředků Azure a cluster Container Service pomocí násled
 > [AZURE.NOTE] Při spuštění tohoto příkazu vás prostředí vyzve k zadání hodnot parametrů nasazení.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Tato verze příkazu vyžaduje, abyste parametry definovali interaktivně. Pokud chcete zadat parametry, jako je řetězec ve formátu JSON, můžete to udělat pomocí přepínače `-p`. Příklad:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Alternativně můžete poskytnout soubor parametrů ve formátu JSON pomocí přepínače `-e`:
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Pokud chcete zobrazit příklad souboru parametrů s názvem `azuredeploy.parameters.json`, vyhledejte ho v šablonách Azure Container Service na webu GitHub.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Po vytvoření skupiny prostředků můžete vytvořit cluster pomocí následujícího příkazu. Pro parametr `-TemplateUri` bude zadán identifikátor URI požadované šablony. Při spuštění tohoto příkazu vás PowerShell vyzve k zadání hodnot parametrů nasazení.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Zadání parametrů šablony
 
@@ -182,8 +174,6 @@ Pokud PowerShell znáte, víte, že mezi parametry dostupnými pro rutinu může
 Níže je celý příkaz i s vloženými parametry. Pro názvy prostředků můžete zadat vlastní hodnoty.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -197,6 +187,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

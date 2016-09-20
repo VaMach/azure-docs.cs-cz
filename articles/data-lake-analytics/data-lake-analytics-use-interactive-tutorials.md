@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Seznámení se službou Data Lake Analytics a jazykem U-SQL pomocí interaktivních kurzů Portálu Azure | Azure" 
+   pageTitle="Seznámení se službou Data Lake Analytics a jazykem U-SQL pomocí interaktivních kurzů webu Azure Portal | Azure" 
    description="Rychlý start při seznámení se službou Data Lake Analytics a jazykem U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -19,7 +19,7 @@
 
 # Použití interaktivních kurzů Azure Data Lake Analytics
 
-Portál Azure poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
+web Azure Portal poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
 
 
 >[AZURE.NOTE] Pokud chcete absolvovat stejný kurz pomocí sady Visual Studio, informace najdete v tématu [Analýza webových protokolů pomocí Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
@@ -37,7 +37,7 @@ Další kurzy najdete v tématech:
 
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
-- **Účet Data Lake Analytics**.  Viz [Začínáme s Azure Data Lake Analytics pomocí Portálu Azure](data-lake-analytics-get-started-portal.md).
+- **Účet Data Lake Analytics**.  Viz [Začínáme s Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md).
 
 ##Vytvoření účtu Data Lake Analytics 
 
@@ -47,7 +47,7 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 **Postup vytvoření účtu Data Lake Analytics**
 
-1. Přihlaste se k [Portálu Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Přihlaste se k [webu Azure Portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Kliknutím na položku **Microsoft Azure** v levém horním rohu otevřete Úvodní panel.
 3. Klikněte na dlaždici **Marketplace**.  
 3. Do vyhledávacího pole v okně **Vše** napište **Azure Data Lake Analytics** a stiskněte klávesu **ENTER**. V seznamu se zobrazí položka **Azure Data Lake Analytics**.
@@ -91,6 +91,6 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 
