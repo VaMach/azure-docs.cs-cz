@@ -24,9 +24,9 @@ Tento článek je založen na rozhraní příkazového řádku Azure CLI verze 0
 
 ## Požadavky
 
-* [Instalace rozhraní příkazového řádku Azure CLI](../xplat-cli-install.md)
+* [Instalace rozhraní příkazového řádku Azure CLI]( ../xplat-cli-install.md)
 
-* [Připojení rozhraní příkazového řádku Azure CLI k předplatnému Azure](../xplat-cli-connect.md)
+* [Připojení rozhraní příkazového řádku Azure CLI k předplatnému Azure]( ../xplat-cli-connect.md)
 
 * Přepnutí do **režimu Resource Manager**: `azure config mode arm`
 
@@ -60,7 +60,7 @@ Vytvoří nový účet Batch se zadanými parametry. Musíte zadat alespoň umí
 
 ### Propojený účet úložiště (automatické úložiště)
 
-Při vytváření můžete s účtem Batch volitelně propojit účet Storage pro **obecné účely**. Funkce [balíčků aplikací](batch-application-packages.md) účtu Batch využívá úložiště Blob Storage v propojeném účtu úložiště pro obecné účely, stejně jako knihovna .NET [Batch File Conventions](batch-task-output.md). Tyto volitelné funkce vám pomohou při nasazení aplikací spouštěných vašimi úkoly Batch a při zachování dat, které vytvářejí.
+Při vytváření můžete s účtem Batch volitelně propojit účet Storage pro **obecné účely**. Funkce [balíčků aplikací]( batch-application-packages.md) účtu Batch využívá úložiště Blob Storage v propojeném účtu úložiště pro obecné účely, stejně jako knihovna .NET [Batch File Conventions]( batch-task-output.md). Tyto volitelné funkce vám pomohou při nasazení aplikací spouštěných vašimi úkoly Batch a při zachování dat, které vytvářejí.
 
 Chcete-li propojit existující účet Azure Storage s novým účtem Batch při jeho vytváření, zadejte parametr `--autostorage-account-id`. Tato možnost vyžaduje plně kvalifikované ID prostředku účtu úložiště.
 
@@ -152,7 +152,7 @@ Vytvoří fond výpočetních uzlů v rámci služby Batch.
 
 Jak je uvedeno v [přehledu funkcí Batch](batch-api-basics.md#pool), při výběru operačního systému pro uzly ve vašem fondu máte dvě možnosti: **konfigurace virtuálního počítače** a **konfigurace služby Cloud Services**. Pomocí parametrů `--image-*` můžete vytvářet fondy Možnosti pro vytváření fondů konfigurace virtuálního počítače a pomocí parametrů `--os-family` můžete vytvářet fondů konfigurace služby Cloud Services. Parametry `--os-family` a `--image-*` nelze zadat současně.
 
-Můžete určit [balíčky aplikací](batch-application-packages.md) fondu a příkazový řádek pro [úkol při spuštění](batch-api-basics.md#start-task). Chcete-li však určit soubory prostředků pro úkol při spuštění, je třeba namísto uvedeného postupu použít [soubor JSON](#json-files).
+Můžete určit [balíčky aplikací]( batch-application-packages.md) fondu a příkazový řádek pro [úkol při spuštění](batch-api-basics.md#start-task). Chcete-li však určit soubory prostředků pro úkol při spuštění, je třeba namísto uvedeného postupu použít [soubor JSON](#json-files).
 
 Fond můžete odstranit příkazem:
 
@@ -197,7 +197,7 @@ Rozhraní příkazového řádku Batch CLI podporuje všechny tři klauzule podp
 * `--filter-clause [filter-clause]`  Vrácení pouze těch entit, které odpovídají zadanému výrazu OData.
 * `--expand-clause [expand-clause]`  Získání informací o entitách v rámci jediného základního volání REST. Klauzule expand v současné době podporuje pouze vlastnost `stats`.
 
-Podrobnosti o uvedených třech klauzulích a jejich použití v dotazech pro vypsání seznamu najdete v článku [Efektivní dotazování na službu Azure Batch](batch-efficient-list-queries.md).
+Podrobnosti o uvedených třech klauzulích a jejich použití v dotazech pro vypsání seznamu najdete v článku [Efektivní dotazování na službu Azure Batch]( batch-efficient-list-queries.md).
 
 ## Správa balíčků aplikací
 
@@ -225,7 +225,7 @@ Tento příkaz určuje balíček při vytváření fondu a je nasazen při přid
 
     azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-V současné době nelze pomocí parametrů příkazového řádku určit verzi balíčku, která se má nasadit. Než budete moci přiřadit aplikaci do fondu, je třeba nastavit pro ni výchozí verzi prostřednictvím webu Azure Portal. Postup při nastavování výchozí verze najdete v článku [Nasazení aplikací pomocí balíčků aplikací v Azure Batch](batch-application-packages.md). Můžete však určit výchozí verze, pokud namísto parametrů příkazového řádku při vytváření fondu použijete [soubor JSON](#json-files).
+V současné době nelze pomocí parametrů příkazového řádku určit verzi balíčku, která se má nasadit. Než budete moci přiřadit aplikaci do fondu, je třeba nastavit pro ni výchozí verzi prostřednictvím webu Azure Portal. Postup při nastavování výchozí verze najdete v článku [Nasazení aplikací pomocí balíčků aplikací v Azure Batch]( batch-application-packages.md). Můžete však určit výchozí verze, pokud namísto parametrů příkazového řádku při vytváření fondu použijete [soubor JSON](#json-files).
 
 >[AZURE.IMPORTANT] Chcete-li používat balíčky aplikací, je třeba [propojit účet Azure Storage](#linked-storage-account-autostorage) s vaším účtem Batch.
 
@@ -245,9 +245,9 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 
 ## Další kroky
 
-*  V článku [Nasazení aplikace pomocí balíčků aplikací v Azure Batch](batch-application-packages.md) se dozvíte, jak lze tuto funkci použít ke správě a nasazení aplikací, které spouštíte ve výpočetních uzlech Batch.
+*  V článku [Nasazení aplikace pomocí balíčků aplikací v Azure Batch]( batch-application-packages.md) se dozvíte, jak lze tuto funkci použít ke správě a nasazení aplikací, které spouštíte ve výpočetních uzlech Batch.
 
-* Další informace o snižování počtu položek a typů informací, které se vrací pro dotazy na službu Batch, najdete v článku [Efektivní dotazování na službu Batch](batch-efficient-list-queries.md).
+* Další informace o snižování počtu položek a typů informací, které se vrací pro dotazy na službu Batch, najdete v článku [Efektivní dotazování na službu Batch]( batch-efficient-list-queries.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
