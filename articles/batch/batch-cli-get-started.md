@@ -130,7 +130,7 @@ Při vytváření prostředků Batch, jako jsou fondy a úlohy, můžete určit 
 
 Ačkoli mnoho operací vytváření prostředků lze provádět pouze prostřednictvím parametrů příkazového řádku, některé funkce vyžadují soubor ve formátu JSON obsahující podrobnosti o prostředku. Soubor JSON je například třeba použít, pokud chcete určit soubory prostředků pro úkol při spuštění.
 
-Chcete-li najít soubor JSON potřebný k vytvoření prostředku, vyhledejte potřebné informace v [referenční dokumentaci rozhraní Batch REST API][rest_api] na webu MSDN. Každé téma „Přidání prostředku *typ prostředku*“ obsahuje ukázkový soubor JSON pro vytvoření prostředku, který můžete použít jako šablony pro své soubory JSON. Soubor JSON pro vytvoření fondu například najdete v části [Přidání fondu k účtu][rest_add_pool].
+Chcete-li najít soubor JSON potřebný k vytvoření prostředku, vyhledejte potřebné informace v [referenční dokumentaci rozhraní Batch REST API][rest_api] na webu MSDN. Každé téma „Přidání prostředku *typ prostředku* “ obsahuje ukázkový soubor JSON pro vytvoření prostředku, který můžete použít jako šablony pro své soubory JSON. Soubor JSON pro vytvoření fondu například najdete v části [Přidání fondu k účtu][rest_add_pool].
 
 >[AZURE.NOTE] Pokud při vytváření prostředku určíte soubor JSON, všechny ostatní parametry zadané na příkazovém řádku pro příslušný prostředek budou ignorovány.
 
@@ -256,5 +256,6 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 
 
 <!--HONumber=sep16_HO1-->
+
 
 
