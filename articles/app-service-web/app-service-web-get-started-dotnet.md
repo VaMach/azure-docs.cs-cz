@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Nasazení první webové aplikace do Azure během pěti minut | Microsoft Azure" 
+    pageTitle="Nasazení první webové aplikace v .NETu do Azure během pěti minut | Microsoft Azure" 
     description="Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service. Pusťte se hned do skutečného vývoje. Výsledky uvidíte okamžitě." 
     services="app-service\web"
     documentationCenter=""
@@ -14,19 +14,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/09/2016" 
+    ms.date="09/16/2016" 
     ms.author="cephalin"
 />
     
-# Nasazení první webové aplikace do Azure během pěti minut
+# Nasazení první webové aplikace v .NETu do Azure během pěti minut
 
-Tento kurz vám pomůže nasadit první webovou aplikaci do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci v .NETu do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Budete postupovat takto: 
 
 - Vytvoříte webovou aplikaci ve službě Azure App Service.
-- Nasadíte ukázkový kód (můžete vybrat ASP.NET, PHP, Node.js, Javu nebo Python).
+- Nasadíte ukázkový kód ASP.NET.
 - Prohlédnete si spuštění kódu naživo v produkčním prostředí.
 - Budete webovou aplikaci aktualizovat stejným způsobem, jakým byste [bez vyžádání doručili (push) potvrzené změny do Gitu](https://git-scm.com/docs/git-push).
 
@@ -44,7 +44,7 @@ Budete postupovat takto:
 
 2. V levé nabídce klikněte na **Nové** > **Web + mobilní zařízení** > **Webová aplikace**.
 
-    ![vytvoření první webové aplikace v Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. V okně pro vytvoření aplikace použijte pro novou aplikaci následující nastavení:
 
@@ -54,19 +54,19 @@ Budete postupovat takto:
 
     Až skončíte, mělo by okno pro vytvoření aplikace vypadat takto:
 
-    ![konfigurace první webové aplikace v Azure](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. V dolní části klikněte na **Vytvořit**. Kliknutím na ikonu **Oznámení** v horní části můžete zobrazit průběh akce.
 
-    ![oznámení o vytváření první webové aplikace v Azure](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. Až se nasazení dokončí, mělo by se zobrazit tato oznámení. Kliknutím na tuto zprávu otevřete okno vašeho nasazení.
 
-    ![zpráva o dokončení nasazení první webové aplikace v Azure](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. V okně **Nasazení bylo úspěšné** klikněte na odkaz **Prostředek**. Otevře se okno nové webové aplikace.
 
-    ![odkaz na prostředek v první webové aplikaci v Azure](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
 ## Nasazení kódu do webové aplikace
 
@@ -74,7 +74,7 @@ Teď do Azure pomocí Gitu nasadíme kód.
 
 5. V okně webové aplikace se posuňte dolů k položce **Možnosti nasazení** (nebo ji vyhledejte) a potom na ni klikněte. 
 
-    ![možnosti nasazení první webové aplikace v Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. Klikněte na **Zvolit zdroj** > **Místní úložiště Git** > **OK**.
 
@@ -84,28 +84,19 @@ Teď do Azure pomocí Gitu nasadíme kód.
 
 7. V okně webové aplikace se posuňte dolů k položce **Vlastnosti** (nebo ji vyhledejte) a potom na ni klikněte. Vedle položky **Adresa URL pro Git** klikněte na tlačítko **Kopírovat**.
 
-    ![okno vlastností první webové aplikace v Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
     Teď jste připraveni nasadit svůj kód pomocí Gitu.
 
 1. V terminálu příkazového řádku přejděte do pracovního adresáře (`CD`) a naklonujte ukázkovou aplikaci tímto způsobem:
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git
 
-    ![Klonování ukázkového kódu aplikace pro první webovou aplikaci v Azure](./media/app-service-web-get-started/html-git-clone.png)
-
-    Jako adresu *&lt;github_sample_url>* použijte jednu z následujících adres URL, a to v závislosti na vámi upřednostňovaném prostředí:
-
-    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
+    ![Klonování ukázkového kódu aplikace pro první webovou aplikaci v Azure](./media/app-service-web-get-started-languages/dotnet-git-clone.png)
 
 2. Přejděte do úložiště ukázkové aplikace. Příklad: 
 
-        cd app-service-web-html-get-started
+        cd app-service-web-dotnet-get-started
 
 3. Nakonfigurujte vzdálené úložiště Gitu pro aplikaci Azure pomocí adresy URL pro Git, kterou jste zkopírovali z portálu v jednom z předchozích kroků.
 
@@ -115,9 +106,9 @@ Teď do Azure pomocí Gitu nasadíme kód.
 
         git push azure master
 
-    ![Doručení kódu bez vyžádání (push) do první webové aplikace v Azure](./media/app-service-web-get-started/html-git-push.png)    
+    ![Doručení kódu bez vyžádání (push) do první webové aplikace v Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)    
 
-    Pokud jste použili jedno z jazykových rozhraní, zobrazí se jiný výstup. Důvodem je, že `git push` nejen vloží kód v Azure, ale také aktivuje úlohy nasazení v modulu pro nasazení. Máte-li v kořenovém adresáři projektu (úložiště) libovolné soubory package.json (Node.js) nebo requirements.txt (Python) nebo máte-li v projektu ASP.NET soubor packages.config, skripty nasazení vám obnoví požadované balíčky. Můžete také [povolit rozšíření Composer](web-sites-php-mysql-deploy-use-git.md#composer) a automaticky zpracovávat soubory composer.json v aplikaci PHP.
+    `git push` nejenom vloží kód do Azure, ale také obnoví požadované balíčky a sestaví binární soubory ASP.NET. 
 
 A to je vše! Váš kód teď živě běží v Azure. V prohlížeči přejděte na http://*&lt;název_aplikace>*.azurewebsites.net a prohlédněte si ho. 
 
@@ -131,14 +122,7 @@ Teď můžete pomocí Gitu kdykoli provádět doručení bez vyžádání (push)
 
 ## Další kroky
 
-Vyhledejte upřednostňované kroky při vývoji a nasazení pro vaše jazykové prostředí:
-
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+Informace o vytváření, vývoji a nasazování webových aplikací v .NETu do Azure přímo v sadě Visual Studio najdete v tématu [Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio](web-sites-dotnet-get-started.md).
 
 Další možností je pokračovat v práci s první webovou aplikací. Příklad:
 
