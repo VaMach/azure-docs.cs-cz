@@ -17,6 +17,7 @@
     ms.date="08/23/2016"
     ms.author="deonhe"/>
 
+
 # Migrace aplikací logiky na schéma verze 2015-08-01-preview
 
 Pokud chcete stávající aplikaci logiky migrovat na nové schéma, postupujte následovně:  
@@ -51,6 +52,6 @@ Na stránce Aktualizovat schéma uvidíte a získáte odkaz na dokument obsahuj�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

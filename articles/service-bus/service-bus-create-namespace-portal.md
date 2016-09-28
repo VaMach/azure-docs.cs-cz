@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
+
 # Vytvoření oboru názvů služby Service Bus pomocí portálu Azure Portal
 
 Obor názvů je společný kontejner pro všechny součásti zasílání zpráv. Součástí jednoho oboru názvů může být několik front a témat, přičemž obory názvů často slouží jako kontejnery aplikací. Obory názvů služby Service Bus je v současnosti možné vytvořit dvěma způsoby.
@@ -34,10 +35,10 @@ Blahopřejeme! Právě jste vytvořili obor názvů zasílání zpráv služby S
 
 Podívejte se na naše [úložiště GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) s ukázkami, které představují některé pokročilejší funkce zasílání zpráv služby Azure Service Bus.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

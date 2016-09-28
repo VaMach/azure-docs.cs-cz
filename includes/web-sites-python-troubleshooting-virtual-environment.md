@@ -22,7 +22,6 @@ Jedná se o alternativní postup využívající fakt, že skript nasazení odst
 Pokud jste přizpůsobili skript nasazení, můžete změnit kód v souboru deploy.cmd a vynutit, aby odstranil složku env.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

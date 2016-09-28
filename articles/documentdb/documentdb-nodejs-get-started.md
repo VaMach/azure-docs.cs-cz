@@ -17,6 +17,7 @@
   ms.date="08/11/2016"
   ms.author="anhoh"/>
 
+
 # Kurz k NoSQL Node.js: Konzolová aplikace DocumentDB Node.js  
 
 > [AZURE.SELECTOR]
@@ -623,6 +624,6 @@ Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.au
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

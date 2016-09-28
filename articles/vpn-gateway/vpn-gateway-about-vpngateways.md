@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="cherylmc" />
 
+
 # Informace o službě VPN Gateway
 
 
@@ -138,6 +139,6 @@ Plánování konfigurace brány VPN. Viz [Plánování a návrh služby VPN Gate
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

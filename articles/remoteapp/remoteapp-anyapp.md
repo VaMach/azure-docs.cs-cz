@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
 
 > [AZURE.IMPORTANT]
@@ -125,6 +126,6 @@ Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci použí
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

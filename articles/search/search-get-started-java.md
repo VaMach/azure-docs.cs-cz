@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="evboyle"/>
 
+
 # Začínáme s Azure Search v Javě
 > [AZURE.SELECTOR]
 - [Portál](search-get-started-portal.md)
@@ -23,7 +24,7 @@
 
 Naučte se sestavit vlastní vyhledávací aplikaci Java, která k hledání používá službu Azure Search. V tomto kurzu se pomocí [rozhraní REST API služby Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) vytvoří objekty a operace, které se použijí v tomto cvičení.
 
-Pokud chcete tuto ukázku spustit, musíte mít službu Azure Search, ke které se můžete zaregistrovat na [portálu Azure](https://portal.azure.com). Podrobné pokyny najdete v tématu [Vytvoření služby Azure Search na portálu](search-create-service-portal.md).
+Pokud chcete tuto ukázku spustit, musíte mít službu Azure Search, ke které se můžete zaregistrovat na webu [Azure Portal](https://portal.azure.com). Podrobné pokyny najdete v tématu [Vytvoření služby Azure Search na portálu](search-create-service-portal.md).
 
 Pro vytvoření a testování tohoto příkladu jsme použili následující software:
 
@@ -95,7 +96,7 @@ Všechny následné úpravy souborů a spouštěné příkazy se budou provádě
 
 1. V **Prohlížeči projektu**, dvakrát klikněte na soubor **config.properties**, abyste upravili nastavení konfigurace obsahující název serveru a klíč api-key.
 
-2. Podívejte se na postup uvedený dříve v tomto článku, kde jste našli adresu URL služby a klíč api-key v [portálu Azure](https://portal.azure.com), abyste získali hodnoty, které nyní zadáte do souboru **config.properties**.
+2. Podívejte se na postup uvedený dříve v tomto článku, kde jste našli adresu URL služby a klíč api-key v [webu Azure Portal](https://portal.azure.com), abyste získali hodnoty, které nyní zadáte do souboru **config.properties**.
 
 3. V souboru **config.properties** nahraďte položku „Api Key“ klíčem api-key pro vaši službu. Název služby (první komponenta adresy URL http://název_služby.search.windows.net) dále nahrazuje položku „service name“ ve stejném souboru.
 
@@ -205,6 +206,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

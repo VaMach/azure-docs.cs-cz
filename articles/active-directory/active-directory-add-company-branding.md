@@ -16,6 +16,7 @@
     ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
+
 # Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
 
 
@@ -222,6 +223,6 @@ Barva pozadí na přihlašovací stránce | Barva pozadí na přihlašovací str
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

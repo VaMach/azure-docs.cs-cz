@@ -16,6 +16,7 @@
      ms.date="08/11/2016"
      ms.author="dobett"/>
 
+
 # Začínáme se službou Azure IoT Hub pro Javu
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -496,6 +497,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
      ms.date="08/29/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
+
 # Služba Azure Backup – Nejčastější dotazy
 
 > [AZURE.SELECTOR]
@@ -262,6 +263,6 @@ Pro správné fungování agenta Azure Backup doporučujeme, aby složka mezipam
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

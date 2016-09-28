@@ -16,6 +16,7 @@
     ms.date="08/05/2016"
     ms.author="douglasl"/>
 
+
 # Začínáme spuštěním průvodce povolením funkce Stretch pro databázi
 
 Pokud chcete nakonfigurovat databázi pro funkci Stretch Database, spusťte průvodce povolením funkce Stretch pro databázi.  Toto téma popisuje informace, které je nutné zadat, a volby, které je nutné v průvodci využít.
@@ -196,6 +197,6 @@ Povolení dalších tabulek pro Stretch Database Monitorování migrace dat a sp
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

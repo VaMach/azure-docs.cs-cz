@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="awills"/>
 
+
 # Application Insights pro webové stránky
 
 
@@ -253,6 +254,6 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

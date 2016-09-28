@@ -32,7 +32,6 @@
 8. Poznamenejte si hodnotu položky **API KEY** (Klíč rozhraní API). Hodnotu klíče rozhraní API budete později potřebovat ke konfiguraci nastavení v části „Native Push“ (Nativní oznámení). Klikněte na **Done** (Hotovo).
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

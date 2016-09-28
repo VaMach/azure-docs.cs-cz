@@ -15,6 +15,7 @@
  ms.date="08/10/2016"
  ms.author="krisragh"/>
 
+
 # Začínáme se Schedulerem na portálu Azure
 
 Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto kurzu se naučíte, jak vytvořit úlohu. Taky poznáte možnosti Scheduleru pro sledování a správu.
@@ -184,6 +185,6 @@ Můžete kliknout na běh a zobrazí se **Podrobnosti historie** včetně komple
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

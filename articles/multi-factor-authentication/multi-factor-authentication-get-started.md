@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Azure Multi-Factor Authentication – začínáme" 
-    description="Zvolte pro vás ideální řešení zabezpečení multi-factor authentication položením otázky, co se pokoušíte zabezpečit a kde se nachází vaši uživatelé.  Pak vyberte cloud, server MFA nebo AD FS." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Azure Multi-Factor Authentication – začínáme"
+    description="Zvolte pro vás ideální řešení zabezpečení multi-factor authentication položením otázky, co se pokoušíte zabezpečit a kde se nachází vaši uživatelé.  Pak vyberte cloud, server MFA nebo AD FS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 #Výběr  multi-factor authentication řešení pro vás
 
@@ -30,7 +31,7 @@ V následujících částech naleznete pokyny k zodpovězení každé z těchto 
 Aby bylo možné zjistit správné řešení multi-factor authentication, nejprve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo jde například o systém vzdáleného přístupu.  Určením co se pokoušíme zabezpečit zjistíme odpověď na otázku, kde musí být povoleno ověřování multi-factor authentication.  
 
 
-Co se pokoušíte zabezpečit| Multi-Factor Authentication v cloudu|Server Multi-Factor Authentication 
+Co se pokoušíte zabezpečit| Multi-Factor Authentication v cloudu|Server Multi-Factor Authentication
 ------------- | :-------------: | :-------------: |
 Aplikace Microsoft první strany|* |* |
 Aplikace Saas v galerii aplikací|* |* |
@@ -47,10 +48,10 @@ V závislosti na tom, kde se nachází naši uživatelé můžeme určit správn
 
 
 Umístění uživatele| Řešení
-------------- | :------------- | 
+------------- | :------------- |
 Azure Active Directory| Multi-Factor Authentication v cloudu|
-Azure AD a místní AD využívající federaci se službou AD FS| Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti 
-Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – bez synchronizace hesla|Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti 
+Azure AD a místní AD využívající federaci se službou AD FS| Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti
+Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – bez synchronizace hesla|Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti
 Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – se synchronizací hesla|Multi-Factor Authentication v cloudu
 Místní služby Active Directory|Server Multi-Factor Authentication
 
@@ -60,22 +61,22 @@ V následující tabulce je uvedeno porovnání funkcí, které jsou s Multi-Fac
 ------------- | :-------------: | :-------------: |
 Oznámení mobilní aplikace jako druhý faktor | ● | ● |
 Kód ověření mobilní aplikace jako druhý faktor | ● | ●
-Telefonní hovor jako druhý faktor | ● | ● 
+Telefonní hovor jako druhý faktor | ● | ●
 Jednosměrné služby SMS jako druhý faktor | ● | ●
-Obousměrné služby SMS jako druhý faktor |  | ● 
-Tokeny hardwaru jako druhý faktor |  | ● 
+Obousměrné služby SMS jako druhý faktor |  | ●
+Tokeny hardwaru jako druhý faktor |  | ●
 Hesla aplikací pro klienty, kteří nepodporují MFA | ● |  
-Kontrola správce nad metodami ověřování | ● | ● 
+Kontrola správce nad metodami ověřování | ● | ●
 Režim kódu PIN |  | ●
 Výstraha podvodů | ● | ●
-Sestavy MFA | ● | ● 
-Jednorázové potlačení |  | ● 
-Vlastní přivítání pro telefonní hovory | ● | ● 
-Přizpůsobitelné ID volajícího pro telefonní hovory | ● | ● 
-Důvěryhodné IP adresy | ● | ● 
+Sestavy MFA | ● | ●
+Jednorázové potlačení |  | ●
+Vlastní přivítání pro telefonní hovory | ● | ●
+Přizpůsobitelné ID volajícího pro telefonní hovory | ● | ●
+Důvěryhodné IP adresy | ● | ●
 Zapamatovat MFA pro důvěryhodná zařízení  | ● |  
-Podmíněný přístup | ● | ● 
-Mezipaměť |  | ● 
+Podmíněný přístup | ● | ●
+Mezipaměť |  | ●
 
 Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentication nebo server multi-factor authentication na místě, můžete začít s nastavováním a používáním Azure Multi-Factor Authentication.   **Vyberte ikonu, která představuje váš scénář!**
 
@@ -89,8 +90,6 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

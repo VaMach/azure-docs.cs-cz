@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Dotazování indexu Azure Search pomocí REST API
 > [AZURE.SELECTOR]
 - [Přehled](search-query-overview.md)
@@ -161,6 +162,6 @@ Zjistěte více v sekci „Odpověď“ tématu [Vyhledávání dokumentů](http
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

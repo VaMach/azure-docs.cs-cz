@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Vytvoření účtu Azure Media Services pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

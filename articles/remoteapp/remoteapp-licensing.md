@@ -16,6 +16,7 @@
     ms.author="elizapo" />
 
 
+
 # Jak v Azure RemoteAppu funguje licencování?
 
 > [AZURE.IMPORTANT]
@@ -39,6 +40,6 @@ Upozorňujeme, že v cloudové kolekci nemůžete používat licence CAL ani mul
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

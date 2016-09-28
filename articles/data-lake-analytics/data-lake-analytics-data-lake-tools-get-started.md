@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Kurz: Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -365,6 +366,6 @@ Následující skript prostředí PowerShell vám připraví účet Azure Data L
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

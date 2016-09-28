@@ -18,6 +18,7 @@
     ms.author="nitinme"/>
 
 
+
 # Začínáme: vytvořte cluster Apache Spark na HDInsight Linux a spusťte interaktivní dotazy pomocí Spark SQL
 
 Naučte se vytvářet cluster Apache Spark v HDInsight a pak použijte poznámkový blok [Jupyter](https://jupyter.org) ke spouštění interaktivních dotazů Spark SQL na clusteru Spark.
@@ -216,6 +217,6 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

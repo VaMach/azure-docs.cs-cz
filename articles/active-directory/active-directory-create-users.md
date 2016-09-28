@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
+
 
 # Přidání nových uživatelů nebo uživatelů s účty Microsoft do služby Azure Active Directory
 
@@ -88,6 +89,6 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

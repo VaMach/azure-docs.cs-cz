@@ -17,6 +17,7 @@
     ms.date="08/17/2016"
     ms.author="v-livech"/>
 
+
 # Vytvoření virtuálního počítače s Linuxem pomocí šablony Azure
 
 Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí šablony Azure.  Článek vyžaduje účet Azure ([získat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)) a rozhraní příkazového řádku [Azure CLI](../xplat-cli-install.md) (`azure login`), které je přihlášené a v režimu Resource Manageru (`azure config mode arm`).  Virtuální počítač s Linuxem můžete také rychle nasadit pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md) nebo rozhraní příkazového řádku [Azure CLI](virtual-machines-linux-quick-create-cli.md).
@@ -76,6 +77,6 @@ V [galerii šablon](https://azure.microsoft.com/documentation/templates/) se pod
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

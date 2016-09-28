@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/15/2016"
+    ms.date="09/27/2016"
     ms.author="cynthn"/>
+
 
 #O virtuálních počítačích s Windows v Azure
 
@@ -42,6 +43,6 @@ Tento kurz vám pomůže rychle vytvořit virtuální počítač, takže vám uk
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

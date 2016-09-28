@@ -16,6 +16,7 @@
     ms.date="08/02/2016"
     ms.author="curtand"/>
 
+
 # Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
 > [AZURE.SELECTOR]
@@ -90,6 +91,6 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
    ms.author="larryfr"/>
 
 
+
 # Kurz Apache Storm: Začněte s ukázkami Storm Starter pro analýzy velkých objemů dat v HDInsight
 
 Apache Storm je škálovatelný výpočetní systém v reálném čase odolný proti chybám, distribuovaný určený pro zpracování datových proudů. Pomocí Storm v Azure HDInsight můžete vytvořit cloudový cluster Storm, který bude provádět analýzy velkých objemů dat v reálném čase.
@@ -194,6 +195,6 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

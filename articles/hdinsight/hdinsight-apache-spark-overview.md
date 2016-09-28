@@ -17,6 +17,7 @@
     ms.date="08/25/2016" 
     ms.author="nitinme"/>
 
+
 # Přehled: Apache Spark v Linux HDInsight
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> je opensource paralelní framework pro zpracování, který podporuje zpracování v paměti pro zvýšení výkonu velkých objemů dat analytických aplikací. Modul zpracování Spark je postaven pro rychlost, snadné použití a sofistikované analýzy. Možnosti výpočtů Spark v paměti představují dobrou volbu pro iterativní algoritmy ve výpočtech machine learning a grafů. Spark je také kompatibilní s úložištěm Azure Blob (WASB), takže existující data uložená v Azure lze snadno zpracovat prostřednictvím Spark.
@@ -137,6 +138,6 @@ Začněte vytvořením clusteru Spark na systému HDInsight Linux. Viz [Rychlý 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

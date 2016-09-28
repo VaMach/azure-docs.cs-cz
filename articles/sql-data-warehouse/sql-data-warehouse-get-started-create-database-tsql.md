@@ -17,6 +17,7 @@
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Vytvoření databáze SQL Data Warehouse pomocí jazyka Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
@@ -31,7 +32,7 @@ V tomto článku zjistíte, jak můžete k vytvoření SQL Data Warehouse použ�
 Na začátek budete potřebovat: 
 
 - **Účet Azure:** Pokud si chcete vytvořit účet, přečtěte si článek [bezplatné zkušební verzi Azure][] nebo [Kredity Azure pro předplatitele MSDN][].
-- **Azure SQL Server:** Přečtěte si článek [Vytvoření logického serveru Azure SQL Database pomocí portálu Azure][] nebo [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell][], kde najdete další podrobnosti.
+- **Azure SQL Server:** Přečtěte si článek [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][] nebo [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell][], kde najdete další podrobnosti.
 - **Skupinu prostředků:** Buď použijte stejnou skupinu prostředků jako pro Azure SQL Server, nebo zjistěte, [jak vytvořit skupinu prostředků][].
 - **Prostředí ke spuštění T-SQL:** Ke spuštění T-SQL můžete použít [Visual Studio][instalaci sady Visual Studio a rozšíření SSDT], [sqlcmd][] nebo [SSMS][].
 
@@ -67,7 +68,7 @@ Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][] n
 [vývoj]: sql-data-warehouse-overview-develop.md
 [načítání]: sql-data-warehouse-overview-load.md
 [načíst ukázková data]: sql-data-warehouse-load-sample-databases.md
-[Vytvoření logického serveru Azure SQL Database pomocí portálu Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [jak vytvořit skupinu prostředků]: ../resource-group-template-deploy-portal.md#create-resource-group
 [instalaci sady Visual Studio a rozšíření SSDT]: sql-data-warehouse-install-visual-studio.md
@@ -85,6 +86,6 @@ Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][] n
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -6,7 +6,6 @@
 |  | [Volání webového rozhraní API z webové aplikace .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) |  |
 | | [Přidání funkcí registrace a přihlášení do aplikace ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | |
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

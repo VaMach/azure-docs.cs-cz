@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Začínáme s Azure Data Lake Store pomocí jazyka Java
 
 > [AZURE.SELECTOR]
@@ -281,6 +282,6 @@ Pro účely tohoto kurzu je nutné, abyste aplikaci udělili oprávnění k vytv
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

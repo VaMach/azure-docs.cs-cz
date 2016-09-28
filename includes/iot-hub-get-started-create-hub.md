@@ -44,7 +44,6 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

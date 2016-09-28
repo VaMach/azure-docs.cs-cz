@@ -17,6 +17,7 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
+
 # Kurz: Začínáme s předkonfigurovanými řešeními
 
 ## Úvod
@@ -251,6 +252,6 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

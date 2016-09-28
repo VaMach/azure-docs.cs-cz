@@ -17,6 +17,7 @@
     ms.author="adegeo"/>
 
 
+
 # Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
 
 Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů pomocí nástrojů [Python Tools for Visual Studio][]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
@@ -370,6 +371,6 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

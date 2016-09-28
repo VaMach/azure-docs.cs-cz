@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+
 # Ověření runbooků pomocí účtu Spustit v Azure jako
 
 V tomto tématu se seznámíte se způsobem konfigurace účtu Automation na portálu Azure pomocí funkce účtu Spustit jako za účelem ověření prostředků, které spravují runbooky, buď v Azure Resource Manageru nebo ve službě Azure Service Management.
@@ -388,6 +389,6 @@ Můžete použít níže uvedený aktualizovaný ukázkový kód z ukázkového 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

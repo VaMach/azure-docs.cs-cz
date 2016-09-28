@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Nahrání dat do služby Azure Search
 > [AZURE.SELECTOR]
 - [Přehled](search-what-is-data-import.md)
@@ -47,6 +48,6 @@ Funkce indexeru je zpřístupněná na webu [Azure Portal](search-import-data-po
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

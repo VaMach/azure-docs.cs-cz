@@ -16,6 +16,7 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
+
 # Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell
 
 > [AZURE.SELECTOR]
@@ -83,6 +84,6 @@ Tento skript vytvoří novou skupinu prostředků Azure a nový server. Po výzv
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

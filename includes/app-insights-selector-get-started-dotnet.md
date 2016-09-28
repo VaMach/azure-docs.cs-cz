@@ -16,7 +16,6 @@ Nainstalujte sadu SDK a potom přidejte monitorování ostatních dat:
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

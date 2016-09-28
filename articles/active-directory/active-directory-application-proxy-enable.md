@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="kgremban"/>
 
+
 # Povolení proxy aplikace v portálu Azure
 
 Tento článek vás provede postupem, který umožňuje povolit proxy aplikace u cloudového adresáře služby Microsoft Azure AD.
@@ -92,6 +93,6 @@ Pokud máte aplikace, které jsou v různých sítích nebo na různých místec
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

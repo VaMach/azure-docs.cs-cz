@@ -17,6 +17,7 @@
     ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
+
 # Co je Azure Backup?
 Azure Backup je služba, která slouží k zálohování a obnovování vašich dat v Microsoft Cloudu. Nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením. Také pomáhá chránit prostředky, které běží v cloudu. Azure Backup poskytuje služby zotavení postavené na škálovatelné, odolné a vysoce dostupné infrastruktuře světové úrovně.
 
@@ -226,11 +227,11 @@ Tyto kurzy vám pomohou rychle zálohovat a proto ukazují pouze ten nejpřímě
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[žlutá]: ./media/backup-introduction-to-azure-backup/yellow.png
 [červená]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

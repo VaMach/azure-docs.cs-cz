@@ -16,6 +16,7 @@
     ms.date="09/08/2016"
     ms.author="marsma"/>
 
+
 # Začínáme s klientem Azure Batch Python
 
 > [AZURE.SELECTOR]
@@ -678,6 +679,6 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
    ms.author="mbaldwin"/>
 
 
+
 # Příručka pro vývojáře pro službu Azure Active Directory
 
 ## Přehled
@@ -148,6 +149,6 @@ V těchto prezentacích s přehledem vývoje aplikací pro službu Azure Active 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

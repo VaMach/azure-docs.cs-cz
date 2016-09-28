@@ -1,28 +1,29 @@
 <properties 
-    pageTitle="Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server" 
-    description="Toto je stránka Vícefaktorového ověřování Azure, která nabízí úvod do používání Azure MFA a uživatelského portálu." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server"
+    description="Toto je stránka Vícefaktorového ověřování Azure, která nabízí úvod do používání Azure MFA a uživatelského portálu."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
 
-Uživatelský portál umožňuje správci nainstalovat a konfigurovat Azure Multi-Factor Authentication User Portal. User Portal je webová stránka IIS, která uživatelům umožní se zapsat do ověření Azure Multi-Factor Authentication a spravovat své účty. Uživatel může změnit svoje telefonní číslo, změnit PIN nebo obejít ověření Azure Multi-Factor Authentication při příštím přihlášení. 
+Uživatelský portál umožňuje správci nainstalovat a konfigurovat Azure Multi-Factor Authentication User Portal. User Portal je webová stránka IIS, která uživatelům umožní se zapsat do ověření Azure Multi-Factor Authentication a spravovat své účty. Uživatel může změnit svoje telefonní číslo, změnit PIN nebo obejít ověření Azure Multi-Factor Authentication při příštím přihlášení.
 
-Uživatelé se do portálu User Portal budou přihlašovat svým normálním přihlašovacím jménem a heslem a buďto dokončí volání ověření Azure Multi-Factor Authentication, nebo se ověří tak, že odpoví na bezpečnostní otázky. Pokud je povolený zápis uživatelů, uživatel si při prvním přihlášení do portálu User Portal nastaví telefonní číslo a PIN. 
+Uživatelé se do portálu User Portal budou přihlašovat svým normálním přihlašovacím jménem a heslem a buďto dokončí volání ověření Azure Multi-Factor Authentication, nebo se ověří tak, že odpoví na bezpečnostní otázky. Pokud je povolený zápis uživatelů, uživatel si při prvním přihlášení do portálu User Portal nastaví telefonní číslo a PIN.
 
-Správci portálu User Portal můžou vytvořit a udělit oprávnění vytvářet nové uživatele a aktualizovat existující uživatele. 
+Správci portálu User Portal můžou vytvořit a udělit oprávnění vytvářet nové uživatele a aktualizovat existující uživatele.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
@@ -30,12 +31,12 @@ Správci portálu User Portal můžou vytvořit a udělit oprávnění vytváře
 
 Pro instalaci portálu User Portal na stejném serveru jako je Azure Multi-Factor Authentication Server je potřeba splnit tyto podmínky:
 
-- IIS se musí nainstalovat včetně kompatibility s asp.net a IIS 6 meta base (pro IIS 7 a novější). 
+- IIS se musí nainstalovat včetně kompatibility s asp.net a IIS 6 meta base (pro IIS 7 a novější).
 - Přihlášený uživatel musí mít práva správce počítače a případně domény.  To je potřeba kvůli tomu, že účet potřebuje oprávnění k vytvoření skupin zabezpečení Active Directory.
 
 ### Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
 
-1. V Azure Multi-Factor Authentication Serveru: klikněte na ikonu User Portal, klikněte na tlačítko Nainstalovat portál User Portal. 
+1. V Azure Multi-Factor Authentication Serveru: klikněte na ikonu User Portal, klikněte na tlačítko Nainstalovat portál User Portal.
 1. Klikněte na Další.
 1. Klikněte na Další.
 1. Pokud je počítač připojený k doméně a konfigurace Active Directory pro zabezpečení komunikace mezi portálem User Portal a službou Azure Multi-Factor Authentication není kompletní, zobrazí se krok Active Directory. Když kliknete na tlačítko Další, tato konfigurace se automaticky dokončí.
@@ -48,7 +49,7 @@ Pro instalaci portálu User Portal na stejném serveru jako je Azure Multi-Facto
 
 ## Nasazení portálu User Portal pro Azure Multi-Factor Authentication Server na samostatném serveru
 
-Chcete-li používat aplikaci Azure Multi-Factor Authentication, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s portálem User Portal: 
+Chcete-li používat aplikaci Azure Multi-Factor Authentication, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s portálem User Portal:
 
 Hardwarové a softwarové požadavky naleznete v části Požadavky na hardware a software:
 
@@ -71,7 +72,7 @@ Instalace portálu uživatele na jiném serveru než je Azure Multi-Factor Authe
 
 ### Instalace sady SDK webové služby
 
-Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure Multi-Factor Authentication Server. Klikněte na ikonu sady SDK webové služby, klikněte na tlačítko Instalovat sadu SDK webové služby... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečená certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL. 
+Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure Multi-Factor Authentication Server. Klikněte na ikonu sady SDK webové služby, klikněte na tlačítko Instalovat sadu SDK webové služby... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečená certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -101,7 +102,7 @@ Teď, když je portál nainstalovaný, musíte nakonfigurovat Azure Multi-Factor
 Server Azure Multi-Factor Authentication poskytuje pro uživatelský portál několik možností.  V následující tabulce je seznam těchto možností a vysvětlení, k čemu se používají.
 
 Nastavení uživatelského portálu|Popis|
-:------------- | :------------- | 
+:------------- | :------------- |
 Adresa URL portálu User Portal| Umožňuje vám zadat adresu URL, kde se portál hostuje.
 Primární ověření| Umožní vám vybrat typ ověření, které se má použít pro přihlášení k portálu.  Ověření Windows, Radius nebo LDAP.
 Umožnit uživatelům přihlášení|Umožní uživatelům zadat uživatelské jméno a heslo na přihlašovací stránce uživatelského portálu.  Pokud tato možnost není zapnutá, pole nebudou aktivní.
@@ -153,7 +154,7 @@ Umožní vám nastavit uživatelský portál tak, aby přijímal deklarace ident
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Důvěryhodné IP adresy
-Tato karta vám umožní zadat jednotlivé IP adresy nebo rozsahy IP adres, ze kterých pokud se uživatel přihlašuje, tak se vícefaktorové ověřování přeskočí. 
+Tato karta vám umožní zadat jednotlivé IP adresy nebo rozsahy IP adres, ze kterých pokud se uživatel přihlašuje, tak se vícefaktorové ověřování přeskočí.
 
 ![Důvěryhodné IP adresy uživatelského portálu](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -168,13 +169,13 @@ Pokud si vybere možnost Hlasový hovor nebo je tato možnost předem nastavená
 
 Pokud musí uživatel při ověření zadat PIN, zobrazí se na stránce výzva k zadání čísla PIN.  Po zadání telefonního čísla nebo telefonních čísel a čísla PIN (pokud je potřeba) uživatel klikne na tlačítko Zavolat mi nyní a ověřit mě.  Azure Multi-Factor Authentication provede ověření tím, že zavolá na hlavní telefonní číslo uživatele.  Uživatel musí hovor přijmout, zadat PIN (pokud je tato funkce aktivní) a stisknout #, tím přejde k dalšímu kroku vlastního zápisu.   
 
-Pokud si uživatel vybere možnost SMS zpráva nebo je tato možnost předem nastavená, na stránce se zobrazí výzva k zadání telefonního čísla na mobilní telefon.  Pokud musí uživatel při ověření zadat PIN, zobrazí se na stránce výzva k zadání čísla PIN.  Po zadání telefonního čísla a čísla PIN (pokud je potřeba) uživatel klikne na tlačítko Poslat mi nyní zprávu SMS a ověřit mě.  Azure Multi-Factor Authentication provede ověření tím, že na mobilní telefonní číslo uživatele pošle SMS zprávu.  Uživatel musí přijmout zprávu SMS, která obsahuje jednorázový kód (OTP), a odpovědět na ni s tímto OTP a číslem PIN (pokud je potřeba), aby mohl přejít k dalšímu kroku vlastního zápisu. 
+Pokud si uživatel vybere možnost SMS zpráva nebo je tato možnost předem nastavená, na stránce se zobrazí výzva k zadání telefonního čísla na mobilní telefon.  Pokud musí uživatel při ověření zadat PIN, zobrazí se na stránce výzva k zadání čísla PIN.  Po zadání telefonního čísla a čísla PIN (pokud je potřeba) uživatel klikne na tlačítko Poslat mi nyní zprávu SMS a ověřit mě.  Azure Multi-Factor Authentication provede ověření tím, že na mobilní telefonní číslo uživatele pošle SMS zprávu.  Uživatel musí přijmout zprávu SMS, která obsahuje jednorázový kód (OTP), a odpovědět na ni s tímto OTP a číslem PIN (pokud je potřeba), aby mohl přejít k dalšímu kroku vlastního zápisu.
 
 ![SMS uživatelského portálu](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 Pokud si uživatel vybere ověření přes mobilní aplikaci nebo je tato možnost předem nastavená, na stránce se zobrazí výzva k instalaci aplikace Azure Multi-Factor Authentication na mobilní zařízení a vygenerování aktivačního kódu na tomto mobilním zařízení.  Když uživatel nainstaluje aplikaci Azure Multi-Factor Authentication klikne pak na tlačítko Generovat aktivační kód.    
 
->[AZURE.NOTE]Pro používání aplikace Azure Multi-Factor Authentication je potřeba, aby měl uživatel ve svém mobilním zařízení zapnutý příjem nabízených oznámení. 
+>[AZURE.NOTE]Pro používání aplikace Azure Multi-Factor Authentication je potřeba, aby měl uživatel ve svém mobilním zařízení zapnutý příjem nabízených oznámení.
 
 Na stránce se pak zobrazí aktivační kód, adresa URL a čárový kód.  Pokud musí uživatel při ověření zadat PIN, zobrazí se na stránce výzva k zadání čísla PIN.  Uživatel zadá aktivační kód a adresu URL do aplikace Azure Multi-Factor Authentication nebo pomocí čtečky čárových kódů naskenuje čárový kód, pak klikne na tlačítko Aktivovat.    
 
@@ -187,10 +188,8 @@ Pokud správci nastavili Azure Multi-Factor Authentication Server tak, aby shrom
 
 Samoobslužný zápis je teď dokončený a uživatel je přihlášený do portálu User Portal.  V budoucnu se uživatel může kdykoli znovu přihlásit a pokud k tomu má oprávnění od správců, bude moct změnit svoje telefonní čísla, čísla PIN, metody ověření a bezpečnostní otázky.
 
- 
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

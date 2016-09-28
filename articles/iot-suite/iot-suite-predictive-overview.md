@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Přehled řešení předkonfigurované prediktivní údržby
 
 Předkonfigurované řešení *prediktivní údržby* je jedním z [předkonfigurovaných řešení][lnk_preconfigured_solutions] vydaných jako součást sady [Microsoft Azure IoT Suite][lnk_iot_suite]. Toto řešení integruje sběr telemetrických údajů v reálném čase ze zařízení s prediktivním modelem, který využívá technologii [Azure Machine Learning][lnk_machine_learning].
@@ -68,6 +69,6 @@ Můžete také prozkoumat některé další funkce a možnosti předkonfigurovan
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
+
 # Můj první grafický runbook
 
 > [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-PowerShell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)
@@ -218,6 +219,6 @@ Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v p�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

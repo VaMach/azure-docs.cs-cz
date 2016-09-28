@@ -11,9 +11,9 @@
     ![Stránka rychlého startu zařízení](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
 
 2. Na stránce **Základní nastavení** proveďte toto:
-  1. Zadejte **Přátelské oslovení** svého zařízení. Výchozí název zařízení odráží informace, jako je model zařízení a sériové číslo. Můžete přiřadit přátelské oslovení dlouhé až 64 znaků, které budete používat při správě zařízení.
-  2. Nastavte **Časové pásmo** podle zeměpisného umístění, ve kterém se zařízení nasazuje. Toto časové pásmo bude zařízení používat pro všechny naplánované operace.
-  3. V části **Nastavení DNS** zadejte adresu pro **Sekundární server DNS**. Pokud používáte protokol IPv6, zadá se do pole údaj na základě předpony IPv6 zadané v rozhraní Windows PowerShell. 
+  1. Zadejte **Přátelské oslovení** svého zařízení. Výchozí název zařízení odráží informace, jako je model zařízení a sériové číslo. Můžete přiřadit popisný název tvořený až 64 znaky, který budete používat při správě zařízení.
+  2. Nastavte **časové pásmo** podle zeměpisného umístění, ve kterém se zařízení nasazuje. Toto časové pásmo bude zařízení používat pro všechny naplánované operace.
+  3. V části **Nastavení DNS** zadejte adresu pro **Sekundární server DNS**. Pokud používáte protokol IPv6, zadá se do pole údaj na základě předpony protokolu IPv6 zadané v rozhraní Windows PowerShellu. 
   Pokud není sekundární server DNS nakonfigurovaný, nebudete moct konfiguraci zařízení uložit.
   4. V seznamu rozhraní s podporou iSCSI povolte aspoň jednu síť pro iSCSI. Aspoň jedno síťové rozhraní musí mít povolenou podporu cloudu a jedno rozhraní musí mít podporu iSCSI. Rozhraní DATA 0 má automaticky povolenou podporu cloudu.
  
@@ -32,7 +32,7 @@
     ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
 5. Klikněte na ikonu zaškrtnutí ![Ikona zaškrtnutí StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-  Vrátíte se na obrazovku **Rychlý start** zařízení.
+  Vrátíte se na obrazovku **Rychlý start**.
 
  > [AZURE.NOTE] Všechna ostatní nastavení zařízení můžete kdykoli upravit na stránce **Konfigurace**.
 
@@ -40,7 +40,6 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak provést minimální nastavení zařízení, klikněte [sem](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

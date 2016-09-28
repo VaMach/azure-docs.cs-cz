@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+
 # Partnerské vztahy virtuálních sítí
 
 Partnerský vztah virtuálních sítí je mechanismus, který spojuje dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. Po navázání partnerského vztahu se tyto dvě virtuální sítě pro všechny účely připojení jeví jako jedna síť. Jsou i nadále spravovány jako samostatné prostředky, ale virtuální počítače v těchto virtuálních sítích spolu mohou komunikovat přímo pomocí privátních IP adres.
@@ -90,6 +91,6 @@ Během období vyhodnocování bude funkce partnerských vztahů virtuálních s
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

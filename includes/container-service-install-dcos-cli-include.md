@@ -18,6 +18,7 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
+
 >[AZURE.NOTE] To slouží k práci s clustery ACS založenými na DC/OS. Není nutné pro clustery ACS založené na metodě Swarm.
 
 Nejdřív [se připojte ke svému clusteru ACS založenému na DC/OS](../articles/container-service/container-service-connect.md). Až to uděláte, můžete rozhraní příkazového řádku DC/OS pomocí níže uvedených příkazů nainstalovat na klientský počítač:
@@ -47,6 +48,6 @@ dcos --help
 ```
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

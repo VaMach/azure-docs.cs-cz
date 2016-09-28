@@ -9,7 +9,6 @@ Zde jsou snímky obrazovek z hotové aplikace:
 
 Ve všech dalších kurzech o používání služby Mobile Services pro aplikace pro Windows Store a Windows Phone Store se předpokládá dokončení tohoto kurzu. 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

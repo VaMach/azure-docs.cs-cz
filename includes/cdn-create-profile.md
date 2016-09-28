@@ -20,7 +20,6 @@
 
 7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

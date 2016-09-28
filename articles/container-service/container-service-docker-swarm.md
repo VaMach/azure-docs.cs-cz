@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="nepeters"/>
 
+
 # Správa kontejnerů pomocí nástroje Docker Swarm
 
 Docker Swarm poskytuje prostředí pro nasazování kontejnerizovaných úloh v celé sadě hostitelů Docker uspořádaných do fondu. Docker Swarm využívá nativní rozhraní Docker API. Workflow správy kontejnerů v nástroji Docker Swarm je téměř identický s workflow pro hostitele s jedním kontejnerem. Tento dokument poskytuje jednoduché příklady, jak nasadit kontejnerizované úlohy do instance Docker Swarm v Azure Container Service. Podrobnější dokumentaci k nástroji Docker Swarm najdete v tématu [Docker Swarm na Docker.com](https://docs.docker.com/swarm/).
@@ -125,6 +126,6 @@ Přirozeně, můžete použít `docker-compose ps` k prozkoumání samotných ko
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,21 +1,22 @@
 <properties 
-    pageTitle="Začínáme s Azure Multi-Factor Authentication Serverem" 
-    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s Azure MFA Serverem." 
+    pageTitle="Začínáme s Azure Multi-Factor Authentication Serverem"
+    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s Azure MFA Serverem."
     services="multi-factor-authentication"
-    keywords="authentication server,stránka pro aktivaci aplikace azure multi factor authentication,stažení authentication serveru" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    keywords="authentication server,stránka pro aktivaci aplikace azure multi factor authentication,stažení authentication serveru"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Začínáme s Azure Multi-Factor Authentication Serverem
 
@@ -73,7 +74,7 @@ Teď, když jste server stáhli, ho můžete nainstalovat a nastavit.  Ujistěte
 
 
 Požadavky pro Azure Multi-Factor Authentication Server|Popis|
-:------------- | :------------- | 
+:------------- | :------------- |
 Hardware|<li>200 MB volného místa na pevném disku</li><li>Procesor kompatibilní s x32 nebo x64</li><li>1 GB RAM nebo víc</li>
 Software|<li>Windows Server 2008 nebo novější, pokud je hostitelem OS serveru</li><li>Windows 7 nebo novější, pokud je hostitelem OS klienta</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 nebo novější, pokud instalujete uživatelský portál nebo sadu SDK webové služby</li>
 
@@ -122,7 +123,7 @@ Předchozí kroky ukazují expresní nastavení pomocí průvodce konfigurací. 
 
 ##Import uživatelů ze služby Active Directory
 
-Server nainstalovaný a nakonfigurovaný a teď můžete do Azure MFA Serveru snadno importovat uživatele. 
+Server nainstalovaný a nakonfigurovaný a teď můžete do Azure MFA Serveru snadno importovat uživatele.
 
 ### Import uživatelů ze služby Active Directory
 --------------------------------------------------------------------------------
@@ -164,10 +165,10 @@ Když Multi-Factor Authentication (MFA) Server používáte lokálně, uživatel
 - E-mailová adresa - volitelné
 - Telefonní číslo - při ověření přes telefonní hovor nebo SMS zprávu
 - Token zařízení - při ověření přes mobilní aplikaci
-- Režim ověřování 
-- Výsledek ověřování 
-- Název serveru MFA 
-- IP adresa serveru MFA 
+- Režim ověřování
+- Výsledek ověřování
+- Název serveru MFA
+- IP adresa serveru MFA
 - IP adresa klienta – pokud je dostupná
 
 
@@ -179,7 +180,7 @@ Vedle těchto polí se s ověřovacími údaji uloží taky výsledek ověření
 Další informace o pokročilém nastavení a konfiguraci najdete v této tabulce.
 
 Metoda|Popis
-:------------- | :------------- | 
+:------------- | :------------- |
 [Uživatelský portál](multi-factor-authentication-get-started-portal.md)|  Informace o vytvoření a nastavení uživatelského portálu včetně nasazení a samoobslužného provozu pro uživatele.
 [Služba AD FS (Active Directory Federation Service)](multi-factor-authentication-get-started-adfs.md)|Informace o nastavení ověřování Azure Multi-Factor Authentication s AD FS.
 [Ověřování RADIUS](multi-factor-authentication-get-started-server-radius.md)|  Informace o vytvoření a nastavení Azure MFA Serveru s protokolem RADIUS.
@@ -192,6 +193,6 @@ Metoda|Popis
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

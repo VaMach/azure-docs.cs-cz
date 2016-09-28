@@ -19,7 +19,6 @@ V této části provedete testování nové aplikace v lokálně spuštěné mob
 
     Tím odešlete do místní mobilní služby požadavek POST. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí pomocí mobilní služby a v druhém sloupci aplikace se zobrazí data.
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
+
 
 # Práce s šablonami Azure Resource Manageru ve Visual Studio Code
 
@@ -138,6 +139,6 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

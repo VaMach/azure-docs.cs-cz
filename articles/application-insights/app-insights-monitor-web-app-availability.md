@@ -15,6 +15,7 @@
     ms.date="09/07/2016"
     ms.author="awills"/>
 
+
 # Sledování dostupnosti a odezvy libovolných webů
 
 Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Application Insights v sadě Visual Studio](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
@@ -326,6 +327,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Co jsou image šablon Azure Remote Appu?
 
 > [AZURE.IMPORTANT]
@@ -109,6 +110,6 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

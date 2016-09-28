@@ -13,7 +13,6 @@
 
 6. V dolní části stránky klikněte na **Uložit**.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Práce s Application Insights v sadě Visual Studio
 
 V sadě Visual Studio (2015 a novější) můžete analyzovat výkon a diagnostikovat problémy v ladění i v produkčním prostředí pomocí telemetrie z [Visual Studio Application Insights](app-insights-overview.md).
@@ -112,6 +113,6 @@ Pokud chcete vyhledat anomálie v datech, vyberte jednu z možností anomálií 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

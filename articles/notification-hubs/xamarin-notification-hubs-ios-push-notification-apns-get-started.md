@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Nabízená oznámení iOS s centry oznámení pro aplikace Xamarin
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -55,7 +56,7 @@ Tato části vás provede vytvořením nového centra oznámení a konfigurací 
 
 <ol start="7">
 <li>
-<p>Jelikož chceme konfigurovat připojení služby APN na portálu Azure, otevřete své nastavení centra oznámení a klikněte na <b>služby oznámení</b> a pak klikněte na položku <b>Apple (APNS)</b> v seznamu. Po dokončení klikněte na položku <b>Nahrát certifikát</b> a vyberte certifikát <b>.p12</b>, který jste dříve exportovali, a také heslo pro certifikát.</p>
+<p>Jelikož chceme konfigurovat připojení služby APN na webu Azure Portal, otevřete své nastavení centra oznámení a klikněte na <b>služby oznámení</b> a pak klikněte na položku <b>Apple (APNS)</b> v seznamu. Po dokončení klikněte na položku <b>Nahrát certifikát</b> a vyberte certifikát <b>.p12</b>, který jste dříve exportovali, a také heslo pro certifikát.</p>
 <p>Je nutné vybrat režim <b>Sandboxu</b> vzhledem k tomu, že budete odesílat nabízené zprávy ve vývojovém prostředí. Používejte pouze nastavení <b>Výroba</b>, pokud chcete zasílat nabízená oznámení uživatelům, kteří si již zakoupili aplikaci z obchodu s aplikacemi.</p>
 </li>
 </ol>
@@ -190,7 +191,7 @@ Nabízená oznámení můžete otestovat ve vaší aplikaci odesláním oznámen
 
 Nabízená oznámení se většinou posílají pomocí služby backend, jako je služba Mobile Services, nebo v technologii ASP.NET pomocí kompatibilní knihovny. Můžete také použít rozhraní REST API k přímému zasílání oznámení, pokud pro váš scénář není dostupná knihovna. 
 
-V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z back-endu ASP.NET doporučujeme absolvovat kurz [Použití Notification Hubs k odesílání nabízených oznámení uživatelům](notification-hubs-aspnet-backend-ios-apple-apns-notification.md). Následující přístupy lze však použít pro zasílání oznámení:
+V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme absolvovat kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům](notification-hubs-aspnet-backend-ios-apple-apns-notification.md). Následující přístupy lze však použít pro zasílání oznámení:
 
 * **Rozhraní REST**: nabízené oznámení můžete podporovat na jakékoli backend platformě pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -198,7 +199,7 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 
 * **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Mobilní služby Azure**: pro příklad odesílání nabízených oznámení z mobilních služeb Azure backend, které jsou integrovány v centrech oznámení, si projděte téma „Začínáme s nabízenými oznámeními v mobilních službách“ ([.NET backend](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)).
+* **Azure Mobile Services**: pro příklad odesílání nabízených oznámení z Azure Mobile Services backend, které jsou integrovány v centrech oznámení, si projděte téma „Začínáme s nabízenými oznámeními v Mobile Services“ ([.NET backend](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)).
 
 * **Java/PHP**: příklad odesílání nabízených oznámení pomocí rozhraní REST API najdete v části „Jak používat Notification Hubs z Javy/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
@@ -288,7 +289,7 @@ Při odesílání oznámení pomocí mobilních služeb využijte téma [Začín
 
 ##Další kroky
 
-V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení iOS. Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití centra oznámení pro nabízená oznámení uživatelům]. Pokud chcete segmentovat uživatele podle zájmových skupin, můžete si přečíst kurz [Používání centra oznámení k odesílání novinek]. Další informace o tom, jak používat centra oznámení, naleznete v tématu [Průvodce centry oznámení] a v tématu [Centra oznámení s postupy pro iOS].
+V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení iOS. Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Pokud chcete segmentovat uživatele podle zájmových skupin, můžete si přečíst kurz [Používání centra oznámení k odesílání novinek]. Další informace o tom, jak používat centra oznámení, naleznete v tématu [Průvodce centry oznámení] a v tématu [Centra oznámení s postupy pro iOS].
 
 
 <!-- Images. -->
@@ -317,7 +318,7 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 [Instalaci Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Použití centra oznámení pro nabízená oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
+[Použití Notification Hubs k odeslání nabízených oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
 [Používání centra oznámení k odesílání novinek]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Průvodci programováním místních a nabízených oznámení]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
@@ -331,6 +332,6 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

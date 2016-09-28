@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Nasměrování internetové domény společnosti na doménu Azure Traffic Manageru
 
 Chcete-li název domény vaší společnosti nasměrovat na název domény Traffic Manageru, upravte záznamu prostředku DNS na serveru DNS pro internet tak, aby používal typ záznamu CNAME, který mapuje název domény vaší společnosti na název domény vašeho profilu Traffic Manageru. Název domény Traffic Manageru se zobrazuje v části **Obecné** na stránce Konfigurace pro příslušný profil Traffic Manageru.
@@ -37,6 +38,6 @@ Veškeré požadavky na provoz pro název *www.contoso.com* teď budou směrová
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

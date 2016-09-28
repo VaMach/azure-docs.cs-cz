@@ -17,6 +17,7 @@
     ms.date="09/13/2016" 
     ms.author="mimig"/>
 
+
 # Úvod do DocumentDB: Databáze NoSQL JSON
 
 ##Co je DocumentDB?
@@ -110,6 +111,6 @@ Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu k
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

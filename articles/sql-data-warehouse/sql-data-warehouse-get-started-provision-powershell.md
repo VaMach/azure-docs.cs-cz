@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Vytvoření SQL Data Warehouse pomocí prostředí PowerShell
 
 > [AZURE.SELECTOR]
@@ -109,6 +110,6 @@ Pokud vás zajímají další informace o tom, jak SQL Data Warehouse spravovat 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

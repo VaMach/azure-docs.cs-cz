@@ -35,7 +35,6 @@ Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální p
     ![Připojení přes SSMS](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

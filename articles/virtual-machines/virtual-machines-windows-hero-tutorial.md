@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="cynthn"/>
 
+
 # Vytvoření vašeho prvního virtuálního počítače s Windows na Portálu Azure
 
 Tento kurz vám ukáže, jak si snadno během několika málo minut vytvořit virtuální počítač s Windows pomocí webu Azure Portal.  
@@ -119,6 +120,6 @@ Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

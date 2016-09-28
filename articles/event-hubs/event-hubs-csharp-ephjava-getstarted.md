@@ -3,7 +3,7 @@
     description="Tento kurz vám pomůže začít používat službu Azure Event Hubs a posílat události v jazyce C# a přijímat je v jazyce Java za použití třídy EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/16/2016"
-    ms.author="jotaub"/>
+    ms.date="09/27/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Začínáme se službou Event Hubs
 
@@ -73,6 +74,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="carlrab"/>
 
+
 # Volba cloudového řešení systému SQL Server: Azure SQL (PaaS) Database nebo SQL Server na virtuálních počítačích Azure (IaaS)
 
 Azure nabízí pro hostování úloh SQL Serveru v Microsoft Azure dvě možnosti:
@@ -159,6 +160,6 @@ Tento článek se věnoval SQL Database a SQL Serveru na virtuálních počíta�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

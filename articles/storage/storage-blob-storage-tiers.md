@@ -3,8 +3,8 @@
     description="Úrovně úložiště služby Azure Blob Storage umožňují vybrat si cenově výhodné úložiště pro data objektů podle toho, jak často k nim chcete přistupovat. Úroveň studeného úložiště Azure je optimalizovaná pro data, která se využívají méně často."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
+
 
 
 # Azure Blob Storage: Horká a studená úroveň úložiště
@@ -137,7 +138,7 @@ V tomto oddílu si předvedeme následující scénáře použití rozhraní Azu
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. V nabídce centra vyberte **Nový** > **Data + úložiště** > **Účet úložiště**.
+2. V nabídce centra vyberte **Nový** > **Data a úložiště** > **Účet úložiště**.
 
 3. Zadejte název účtu úložiště.
 
@@ -355,6 +356,6 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

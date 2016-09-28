@@ -19,6 +19,7 @@
 
 
 
+
 # Připojení k SQL Database pomocí sady Visual Studio
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Po připojení k databázi nyní následující kroky ilustrují, jak spustit je
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

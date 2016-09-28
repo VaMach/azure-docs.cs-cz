@@ -18,6 +18,7 @@
    ms.date="03/09/2016"
    ms.author="yochayk@microsoft.com"/>
    
+
 # Vytvoření funkce Azure s vazbou na službu Azure
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
@@ -30,6 +31,6 @@ V tomto krátkém videu se dozvíte, jak vytvořit funkci Azure, která naslouch
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

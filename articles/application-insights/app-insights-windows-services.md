@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Ruční konfigurace Application Insights pro aplikace ASP.NET 4
 
 *Application Insights je ve verzi Preview.*
@@ -165,6 +166,6 @@ Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-ne
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

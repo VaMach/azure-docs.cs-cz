@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Používání Outlooku v Azure RemoteAppu
 
 > [AZURE.IMPORTANT]
@@ -36,6 +37,6 @@ Outlook 2016 nabízí řešení tohoto problému tím, že přináší nové mo�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

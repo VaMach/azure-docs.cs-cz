@@ -5,7 +5,7 @@
     services="stream-analytics" 
     documentationCenter="" 
     authors="jeffstokes72" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags 
@@ -14,8 +14,9 @@
     ms.topic="get-started-article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/04/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeffstok"/>
+
 
 
 # Co je služba Stream Analytics?
@@ -58,6 +59,6 @@ Přečetli jste si úvod do služby Stream Analytics, spravované služby pro an
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

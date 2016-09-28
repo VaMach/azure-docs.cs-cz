@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="sonyama;barbkess"/>
 
+
 # Jak vytvořit lístek podpory pro SQL Data Warehouse
  
 Pokud byste měli s SQL Data Warehouse nějaké problémy, můžete si vytvořit lístek podpory, aby vám mohl náš technický tým pomoct.
@@ -105,6 +106,6 @@ Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

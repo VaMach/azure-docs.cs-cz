@@ -18,6 +18,7 @@
    ms.date="08/30/2016"
    ms.author="glenga"/>
    
+
 # Vytvoření funkce Azure volané webhookem nebo rozhraním API
 
 Azure Functions je výpočetní prostředí na vyžádání založené na událostech. Umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
@@ -95,6 +96,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

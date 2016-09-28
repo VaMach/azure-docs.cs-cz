@@ -7,7 +7,6 @@ Pokud chcete zjistit veřejnou IP adresu brány virtuální sítě pomocí prost
 
 Veřejnou IP adresu své brány virtuální sítě najdete také na portálu Azure. Přejděte na **Brány virtuální sítě** a potom klikněte na název své brány.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

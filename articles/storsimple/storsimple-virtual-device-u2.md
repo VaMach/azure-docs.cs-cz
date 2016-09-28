@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Nasazení a správa virtuálního zařízení StorSimple v Azure
 
 
@@ -283,6 +284,6 @@ Pokud virtuální zařízení odstraníte nebo vypnete, zobrazí se na stránce 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

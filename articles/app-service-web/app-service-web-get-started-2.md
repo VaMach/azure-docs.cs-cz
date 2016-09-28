@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
 
+
 # Přidání funkce do první webové aplikace
 
 V části [Nasazení webové aplikace do Azure během 5 minut](app-service-web-get-started.md) jste nasadili ukázkovou webovou aplikaci do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md). V tomto článku do nasazené webové aplikace rychle přidáte některé skvělé funkce. Během několik minut provedete tyto úkony:
@@ -157,6 +158,6 @@ Zkontrolujte, zda webová aplikace není zranitelná moderními hrozbami, a to p
 - [Seznámení s fungováním služby App Service](../app-service/app-service-how-works-readme.md) 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

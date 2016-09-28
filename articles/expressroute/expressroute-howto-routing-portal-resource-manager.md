@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
+
 # Vytvoření a úprava směrování pro okruh ExpressRoute
 
 
@@ -240,6 +241,6 @@ Dalším krokem je [Propojení virtuální sítě s okruhem ExpressRoute](expres
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

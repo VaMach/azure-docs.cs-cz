@@ -11,7 +11,6 @@ Třeba doména „contoso.com“ může obsahovat několik záznamů DNS, třeba
 
 - Pokud má víc zón stejný název, každé instanci se přiřadí různé adresy názvového serveru a jenom jedna instance může být delegovaná z nadřazené domény. Další informace najdete v tématu [Delegování domény do DNS Azure](../articles/dns/dns-domain-delegation.md).
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

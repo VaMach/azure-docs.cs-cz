@@ -13,8 +13,9 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
+
 
 
 # Sada IoT Gateway (beta verze) – začátky použití v systému Linux
@@ -60,6 +61,13 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
           "module path" : "./build/modules/hello_world/libhello_world_hl.so",
           "args" : null
         }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
+        }
       ]
     }
     ```
@@ -78,6 +86,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

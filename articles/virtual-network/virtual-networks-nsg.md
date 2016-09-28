@@ -15,6 +15,7 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
+
 # Co je skupina zabezpečení sítě (NSG)?
 
 Skupina zabezpečení sítě (NSG) obsahuje seznam pravidel seznamu řízení přístupu (ACL), která instancím virtuálních počítačů ve službě Virtual Network povolují nebo odpírají síťový provoz. Skupiny NSG můžou být přidružené buď k podsítím, nebo k jednotlivým instancím virtuálních počítačů v této podsíti. Pokud je skupina NSG přidružená k podsíti, pravidla seznamu ACL platí pro všechny instance virtuálních počítačů v této podsíti. Provoz směřující do konkrétního virtuálního počítače se navíc dá dál omezit tím, že se přímo k tomuto virtuálnímu počítači přidruží skupina NSG.
@@ -284,6 +285,6 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

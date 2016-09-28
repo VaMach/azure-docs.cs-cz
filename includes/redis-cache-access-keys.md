@@ -14,7 +14,6 @@ Pokud chcete získat přístupové klíče, klikněte na **Přístupové klíče
 
 ![Přístupové klíče mezipaměti Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

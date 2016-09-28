@@ -16,6 +16,7 @@
     ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
+
 # Přizpůsobení vyexportované šablony Azure Resource Manageru
 
 Tento článek ukazuje, jak upravit vyexportovanou šablonu, abyste ji mohli předat další hodnoty jako parametry. Vychází z kroků provedených v článku [Export šablony Resource Manageru](resource-manager-export-template.md), není je ale nutné dokončit před prováděním tohoto postupu. V tomto článku najdete požadovanou šablonu a skripty.
@@ -236,6 +237,6 @@ V tomto článku si ukážeme obě možnosti.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

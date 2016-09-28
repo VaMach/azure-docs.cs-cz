@@ -2,7 +2,6 @@ Virtuální síť Azure (VNet) je reprezentace vaší vlastní sítě v cloudu. 
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

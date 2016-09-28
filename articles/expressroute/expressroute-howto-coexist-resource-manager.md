@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="charleywen"/>
 
+
 # Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe
 
 > [AZURE.SELECTOR]
@@ -196,6 +197,6 @@ Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastěj
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

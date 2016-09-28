@@ -18,6 +18,7 @@
     ms.author="cgronlun;tedway;olgali"/>
 
 
+
 # Úvod do strojového učení v cloudu
 
 ## Co je strojové učení?
@@ -127,6 +128,6 @@ Se základy prediktivní analýzy a strojového učení se můžete seznámit v 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

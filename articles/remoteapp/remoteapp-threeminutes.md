@@ -18,6 +18,7 @@
 
 
 
+
 # Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
 
 > [AZURE.IMPORTANT]
@@ -40,6 +41,6 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

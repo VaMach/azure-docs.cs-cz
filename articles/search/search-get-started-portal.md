@@ -17,6 +17,7 @@
     ms.date="08/29/2016" 
     ms.author="heidist"/>
 
+
 # Začínáme s Azure Search v portálu
 
 Tento úvod bez kódu vám pomůže začít s Microsoft Azure Search pomocí funkcí integrovaných přímo v portálu. 
@@ -186,6 +187,6 @@ Měli byste obdržet výstup ve formátu JSON, který začíná dokumentem s č�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

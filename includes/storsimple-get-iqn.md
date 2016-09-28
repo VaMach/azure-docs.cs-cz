@@ -11,7 +11,6 @@
 3. Uložte tento řetězec.
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

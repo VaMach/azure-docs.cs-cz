@@ -34,7 +34,6 @@ Pokud tyto soubory neexistují, Azure vytvoří dočasný skript nasazení a spu
 [rozhraní příkazového řádku Azure]: http://azure.microsoft.com/downloads/
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

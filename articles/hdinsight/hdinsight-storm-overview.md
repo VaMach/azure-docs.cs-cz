@@ -17,6 +17,7 @@
    ms.date="07/27/2016"
    ms.author="larryfr"/>
 
+
 #Úvod do Apache Storm v HDInsight: analýzy v reálném čase pro Hadoop
 
 Apache Storm v HDInsight vám umožní vytvářet distribuovaná analytická řešení v reálném čase v prostředí Azure pomocí [Apache Hadoop](http://hadoop.apache.org).
@@ -227,6 +228,6 @@ Další informace o řešení pro analýzu v reálném čase s Apache Storm v HD
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Návod pro předkonfigurované řešení prediktivní údržby
 
 ## Úvod
@@ -135,6 +136,6 @@ Můžete si taky prostudovat některé další funkce a možnosti předkonfiguro
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

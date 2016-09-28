@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # SQL Azure s Azure RemoteAppem
 
 > [AZURE.IMPORTANT]
@@ -44,7 +45,7 @@ Přečtěte si [jak konfigurovat bránu firewall databáze Azure SQL](../sql-dat
 
 Když se počítač pokusí z internetu připojit k databázovému serveru, brána firewall pomocí úplné sady pravidel brány firewall na úrovni serveru a (pokud je to nutné) na úrovni databáze zkontroluje zdrojovou IP adresu požadavku. „Pokud je IP adresa požadavku v jednom z rozsahů určených v pravidlech brány firewall na úrovni serveru, připojení k vašemu serveru služby Azure SQL Database je povoleno.“ Lze tedy používat rozsahy IP adres, a není nutné používat pouze jednotlivé zdrojové IP adresy.
 
-Rozsah IP adres určete pomocí podrobných pokynů v tématu [Postup: Konfigurace nastavení brány firewall pro službu SQL Database pomocí portálu Azure](../sql-database/sql-database-configure-firewall-settings.md). Při konfiguraci pravidel brány firewall pro SQL zadejte rozsah IP adres podsítě, která je určena pro kolekci Azure RemoteAppu. To by mělo serverům ARA umožňovat připojení k databázi SQL, i když budou mít dynamicky přidělované IP adresy.
+Rozsah IP adres určete pomocí podrobných pokynů v tématu [Postup: Konfigurace nastavení brány firewall pro službu SQL Database pomocí webu Azure Portal](../sql-database/sql-database-configure-firewall-settings.md). Při konfiguraci pravidel brány firewall pro SQL zadejte rozsah IP adres podsítě, která je určena pro kolekci Azure RemoteAppu. To by mělo serverům ARA umožňovat připojení k databázi SQL, i když budou mít dynamicky přidělované IP adresy.
 
 ## Řešení potíží
 Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající databázi SQL, která je také hostovaná v Azure, nebo místní databázi nízký výkon, může to být z několika důvodů.  
@@ -56,6 +57,6 @@ Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající data
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

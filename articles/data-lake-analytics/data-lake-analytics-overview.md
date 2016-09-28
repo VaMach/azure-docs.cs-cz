@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Přehled Microsoft Azure Data Lake Analytics
 
 ## Co je Azure Data Lake Analytics?
@@ -82,6 +83,6 @@ Azure Data Lake Analytics je nová služba, díky níž se dají snadno analyzov
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

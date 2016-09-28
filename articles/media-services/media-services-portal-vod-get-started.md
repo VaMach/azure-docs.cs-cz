@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -234,6 +235,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

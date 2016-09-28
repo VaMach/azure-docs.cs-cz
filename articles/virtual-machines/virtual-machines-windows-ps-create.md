@@ -17,6 +17,7 @@
     ms.date="06/07/2016"
     ms.author="davidmu"/>
 
+
 # Vytvoření virtuálního počítače s Windows pomocí Resource Manageru a PowerShellu
 
 Tento článek ukazuje, jak rychle vytvořit virtuální počítač Azure s Windows Serverem a prostředky, které potřebuje, pomocí [Resource Manageru](../resource-group-overview.md) a prostředí PowerShell. 
@@ -174,6 +175,6 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 #Jak provést živé streamování pomocí místních kodérů na portálu Azure
 
 > [AZURE.SELECTOR]
@@ -186,6 +187,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
     ms.date="08/30/2016" 
     ms.author="daviste"/>
     
+
 # Telemetrie Application Insights ve Visual Studio CodeLens
 
 Metody v kódu vaší webové aplikace mohou být opatřeny poznámkami s telemetrií o výjimkách za běhu a časech odezvy na požadavky. Pokud ve své aplikaci nainstalujete [Visual Studio Application Insights](app-insights-overview.md), telemetrie se zobrazí ve Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) s poznámkami v horní části každé funkce, kde jste zvyklí vídat užitečné informace, jako například počet míst, ze kterých se na funkci odkazuje, nebo jméno poslední osoby, která ji upravila.
@@ -72,6 +73,6 @@ Chcete-li zobrazit podrobnosti, klikněte na indikátor požadavků CodeLens:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -7,7 +7,6 @@
 3. Klikněte na **Vypnout**.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

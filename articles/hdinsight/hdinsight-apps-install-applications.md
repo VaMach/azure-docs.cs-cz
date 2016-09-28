@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Instalace aplikací HDInsight
 
 Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux. Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se seznámíte s postupem instalace publikované aplikace. Pokud instalujete vlastní aplikaci, přečtěte si článek [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md). 
@@ -126,6 +127,6 @@ Viz článek [Řešení potíží instalace](hdinsight-apps-install-custom-appli
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

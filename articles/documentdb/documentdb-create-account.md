@@ -17,6 +17,7 @@
     ms.date="09/12/2016"
     ms.author="mimig"/>
 
+
 # Jak vytvořit účet NoSQL DocumentDB na webu Azure Portal
 
 > [AZURE.SELECTOR]
@@ -95,6 +96,6 @@ Další informace o DocumentDB najdete v těchto materiálech:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

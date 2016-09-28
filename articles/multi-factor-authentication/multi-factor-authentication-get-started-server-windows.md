@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Ověření Windows a server Azure Multi-Factor Authentication" 
-    description="Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Ověření Windows a server Azure Multi-Factor Authentication"
+    description="Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Ověření Windows a server Azure Multi-Factor Authentication
 
@@ -31,7 +32,7 @@
 
 
 >[AZURE.NOTE]Tato funkce není podporována pro zabezpečené terminálové služby v systému Windows Server 2012 R2.
- 
+
 
 
 
@@ -47,11 +48,11 @@
 7. Klikněte na tlačítko Přidat... .
 8. Vyberte jednu IP adresu, pokud chcete přeskočit jednu IP adresu.
 9. Vyberte rozsah IP adres, pokud chcete přeskočit celý rozsah IP adres. Příklad 10.63.193.1–10.63.193.100.
-10. Pokud chcete zadat rozsahu IP adres pomocí zápisu podsítě, vyberte podsíť. Zadejte počáteční IP adresu podsítě a vyberte příslušnou síťovou masku z rozevíracího seznamu. 
+10. Pokud chcete zadat rozsahu IP adres pomocí zápisu podsítě, vyberte podsíť. Zadejte počáteční IP adresu podsítě a vyberte příslušnou síťovou masku z rozevíracího seznamu.
 11. Klikněte na tlačítko OK.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

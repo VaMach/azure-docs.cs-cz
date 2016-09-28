@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+
 # Ověření runbooku pomocí správy služby Azure a Resource manageru
 
 Tento článek popisuje kroky, které musíte provést při konfiguraci účtu uživatele Azure AD pro runbooky služby Azure Automation, které běží s prostředky ASM (správa služby Azure) a ARM (Azure Resource Manager).  I když toto zůstává podporovanou identitou ověřování pro runbooky založené na ARM, doporučujeme používat nový účet Spustit v Azure jako.       
@@ -89,6 +90,6 @@ Tyto řádky byste měli v runbooku opakovat po všech [kontrolních bodech](htt
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

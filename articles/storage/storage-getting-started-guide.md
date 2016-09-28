@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Zprovoznění aplikace Azure Storage v pěti minutách | Microsoft Azure" 
-    description="Ukážeme si, jak rychle začít používat Microsoft Azure Blobs, Table a Queues pomocí ukázkových projektů Rychlý start Azure Storage, sady Visual Studio a emulátoru úložiště Azure. Zprovozněte si svoji první aplikaci Azure Storage za pět minut." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="carmonm" 
+<properties
+    pageTitle="Zprovoznění aplikace Azure Storage v pěti minutách | Microsoft Azure"
+    description="Ukážeme si, jak rychle začít používat Microsoft Azure Blobs, Table a Queues pomocí ukázkových projektů Rychlý start Azure Storage, sady Visual Studio a emulátoru úložiště Azure. Zprovozněte si svoji první aplikaci Azure Storage za pět minut."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
     editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="get-started-article" 
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
-# Zprovoznění aplikace Azure Storage v pěti minutách 
+
+# Zprovoznění aplikace Azure Storage v pěti minutách
 
 ## Přehled
 
-Pomocí služby Azure Storage můžete snadno a rychle začít vyvíjet aplikace. V tomto kurzu si ukážeme, jak rychle zprovoznit a spustit aplikaci Azure Storage. Použijete šablony Rychlý start, které jsou součástí sady Azure SDK for .NET. Tyto ukázkové projekty obsahují připravený kód, na kterém si ukážeme některé základní scénáře programování s Azure Storage. 
+Pomocí služby Azure Storage můžete snadno a rychle začít vyvíjet aplikace. V tomto kurzu si ukážeme, jak rychle zprovoznit a spustit aplikaci Azure Storage. Použijete šablony Rychlý start, které jsou součástí sady Azure SDK for .NET. Tyto ukázkové projekty obsahují připravený kód, na kterém si ukážeme některé základní scénáře programování s Azure Storage.
 
 Než se na tento kód podíváme, můžete si v části [Další kroky](#next-steps) přečíst další informace o Azure Storage.
 
@@ -28,11 +29,11 @@ Než se na tento kód podíváme, můžete si v části [Další kroky](#next-st
 
 Než začnete, bude nutné splnit následující požadavky:
 
-1. Pro zkompilování a vybuildování aplikace budete muset mít na počítači nainstalovanou verzi sady [Visual Studio](https://www.visualstudio.com/). 
+1. Pro zkompilování a vybuildování aplikace budete muset mít na počítači nainstalovanou verzi sady [Visual Studio](https://www.visualstudio.com/).
 
 2. Nainstalujte si nejnovější verzi sady [Azure SDK for .NET](https://azure.microsoft.com/downloads/). Tato sada SDK obsahuje ukázkové projekty Azure QuickStart, emulátor úložiště Azure a [Klientskou knihovnu pro úložiště Azure pro .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-3. Na počítači musíte mít nainstalované rozhraní [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653). To je nutné pro ukázkové projekty Azure QuickStart, které budeme používat v tomto kurzu. 
+3. Na počítači musíte mít nainstalované rozhraní [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653). To je nutné pro ukázkové projekty Azure QuickStart, které budeme používat v tomto kurzu.
 
     Pokud si nejste jistí, kterou verzi rozhraní .NET Framework máte na počítači nainstalovanou, projděte si téma [Postupy: Zjištění nainstalovaných verzí rozhraní .NET Framework](https://msdn.microsoft.com/vstudio/hh925568.aspx). Také můžete stisknout tlačítko **Start** nebo klávesu Windows a napsat **Ovládací panely**. Pak klikněte na **Programy** > **Programy a funkce** a zjistěte, jestli je rozhraní .NET Framework 4.5 v seznamu nainstalovaných programů.
 
@@ -47,14 +48,14 @@ Jakmile budete mít účet úložiště Azure, můžete si pomocí jednoho z uk�
 
 1. Spusťte Visual Studio.
 2. V nabídce **Soubor** klikněte na **Nový projekt**.
-3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Datové služby**.
+3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
     a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
     b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
     - 3.c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
-    
+
     ![Ukázkové projekty Azure Rychlý start][Image1]
 
-Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho budete chtít projít, vyberte v sadě Visual Studio v nabídce **Zobrazení** možnost **Průzkumník řešení**. Potom poklikejte na soubor Program.cs. 
+Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho budete chtít projít, vyberte v sadě Visual Studio v nabídce **Zobrazení** možnost **Průzkumník řešení**. Potom poklikejte na soubor Program.cs.
 
 Dále pak stáhněte ukázkovou aplikaci:
 
@@ -79,23 +80,23 @@ Vyzkoušejte si to: vytvoříme jednoduchou aplikaci Azure Storage pomocí jedno
 
 1. Spusťte Visual Studio.
 2. V nabídce **Soubor** klikněte na **Nový projekt**.
-3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Datové služby**.
-   a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
-   b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.   
+3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
+    a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
+    b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
     c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
-    
+
     ![Ukázkové projekty Azure Rychlý start][Image1]
 
 4.  V sadě Visual Studio v nabídce **Zobrazení** vyberte **Průzkumník řešení**. Otevřete soubor App.config a odkomentujte připojovací řetězec pro svůj účet úložiště Azure, pokud jste ho už přidali. Potom odkomentujte připojovací řetězec pro emulátor úložiště Azure:
 
     `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
-Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho budete chtít projít, vyberte v sadě Visual Studio v nabídce **Zobrazení** možnost **Průzkumník řešení**. Potom poklikejte na soubor Program.cs. 
+Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho budete chtít projít, vyberte v sadě Visual Studio v nabídce **Zobrazení** možnost **Průzkumník řešení**. Potom poklikejte na soubor Program.cs.
 
 Dále pak spusťte ukázkovou aplikaci v emulátoru úložiště Azure:
 
 1.  Stiskněte tlačítko **Start** nebo klávesu Windows, vyhledejte *Emulátor úložiště Microsoft Azure* a spusťte aplikaci. Po spuštění emulátoru uvidíte ikonu a oznámení v oblasti zobrazení úkolů systému Windows.
-2.  V sadě Visual Studio klikněte na v nabídce **Sestavení** na **Sestavit řešení**. 
+2.  V sadě Visual Studio klikněte na v nabídce **Sestavení** na **Sestavit řešení**.
 3.  Stisknutím klávesy **F11** v nabídce **Ladění** spustíte řešení v krokovacím režimu. Stisknutím klávesy **F5** spustíte řešení od začátku do konce.
 
 ## Další kroky
@@ -114,10 +115,9 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [REST API služby Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
- 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

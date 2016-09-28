@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Koncepty, terminologie a hierarchie entit Scheduleru
 
 ## Hierarchie entit Scheduleru
@@ -220,6 +221,6 @@ Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval me
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

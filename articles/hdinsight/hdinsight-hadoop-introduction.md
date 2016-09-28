@@ -18,6 +18,7 @@
    ms.author="cgronlun"/>
 
 
+
 # Co je Hadoop v cloudu? Úvod do ekosystému Hadoop v prostředí HDInsight
 
 iSeznamte se se systémem Hadoop, jeho ekosystémem a velkými objemy dat v prostředí Azure HDInsight: Co je Hadoop v prostředí HDInsight a jaké jsou komponenty systému Hadoop, obvyklá terminologie a scénáře analýzy velkých objemů dat? Také se dozvíte o kurzech systému Hadoop, dokumentaci a prostředcích pro používání systému Hadoop v cloudu v prostředí HDInsight.
@@ -271,6 +272,6 @@ Tyto nástroje BI vám mohou pomoci při analýze velkých objemů dat:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

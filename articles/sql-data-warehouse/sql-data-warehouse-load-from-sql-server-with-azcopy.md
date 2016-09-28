@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # Načtení dat z SQL Serveru do Azure SQL Data Warehouse (AZCopy)
 
 Pomocí nástrojů příkazového řádku bcp a AZCopy můžete načíst data z SQL Serveru do Azure Blob Storage. Pak pomocí PolyBase nebo Azure Data Factory načtete data do Azure SQL Data Warehouse. 
@@ -174,6 +175,6 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

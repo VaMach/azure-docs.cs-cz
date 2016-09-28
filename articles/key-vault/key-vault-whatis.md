@@ -18,6 +18,7 @@
 
 
 
+
 # Co je Azure Key Vault?
 
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -69,6 +70,6 @@ Další informace o používání klíčů a tajných klíčů s Azure Key Vault
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

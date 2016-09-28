@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication" 
-    description="Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication"
+    description="Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
 
-Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Authentication vyžaduje odinstalaci PhoneFactor agenta a přidružených součásti před instalací serveru Multi-Factor Authentication a jeho přidružených součásti. 
+Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Authentication vyžaduje odinstalaci PhoneFactor agenta a přidružených součásti před instalací serveru Multi-Factor Authentication a jeho přidružených součásti.
 
 ## Postup upgradu agenta PhoneFactor na server Azure Multi-Factor Authentication
 <ol>
@@ -53,7 +54,7 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 
 <li>Pokud byla sada Web Service SDK dříve nainstalována, nainstalujte novou sadu Web Service SDK prostřednictvím uživatelského rozhraní serveru Multi-Factor Authentication. Všimněte si, že výchozí název virtuálního adresáře je nyní „MultiFactorAuthWebServiceSdk“ místo „PhoneFactorWebServiceSdk“. Pokud chcete použít předchozí název, musíte změnit název virtuálního adresáře během instalace. Jinak pokud povolíte instalaci použít nový výchozí název, budete muset změnit adresu URL ve všech aplikacích, které odkazují na sadu Web Service SDK, například portál User Portal a Webová služba mobilní aplikace, aby odkazovaly na správné místo.
 
-<li>Pokud bylo rozhraní User Portal dříve nainstalováno na serveru agenta PhoneFactor, nainstalujte nový uživatelský portál Multi-Factor Authentication prostřednictvím uživatelského rozhraní serveru Multi-Factor Authentication. Všimněte si, že výchozí název virtuálního adresáře je nyní „MultiFactorAuth“ místo „PhoneFactor“. Pokud chcete použít předchozí název, musíte změnit název virtuálního adresáře během instalace. Jinak pokud povolíte instalaci pro použití nového výchozího názvu, doporučujeme kliknout na ikonu portálu pro uživatele na serveru Multi-Factor Authentication a aktualizovat adresu URL portálu pro uživatele na kartě Nastavení. 
+<li>Pokud bylo rozhraní User Portal dříve nainstalováno na serveru agenta PhoneFactor, nainstalujte nový uživatelský portál Multi-Factor Authentication prostřednictvím uživatelského rozhraní serveru Multi-Factor Authentication. Všimněte si, že výchozí název virtuálního adresáře je nyní „MultiFactorAuth“ místo „PhoneFactor“. Pokud chcete použít předchozí název, musíte změnit název virtuálního adresáře během instalace. Jinak pokud povolíte instalaci pro použití nového výchozího názvu, doporučujeme kliknout na ikonu portálu pro uživatele na serveru Multi-Factor Authentication a aktualizovat adresu URL portálu pro uživatele na kartě Nastavení.
 
 <li>Pokud byly portál pro uživatele nebo webové služby mobilní aplikace dříve nainstalovány na jiném serveru než agent PhoneFactor:
 <ol>
@@ -64,13 +65,7 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 <li>Přejděte do umístění instalace webové služby mobilní aplikace (např. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) a upravte soubor web.config. Zkopírujte hodnoty v oddílech appSettings a applicationSettings z původního souboru web.config, který byl zálohován před upgradem, do nového souboru web.config. Pokud byl při instalaci sady Web Service SDK zachován výchozí název virtuálního adresáře, změňte adresu URL v části applicationSettings tak, aby odkazovala na správné místo. Pokud byly v předchozím soubor web.config změněny ostatní výchozí hodnoty, tyto změny budou stejně použity na nový soubor web.config.</li></ol>
 
 
- 
 
-
- 
-
-
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

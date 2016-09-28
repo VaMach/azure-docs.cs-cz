@@ -16,6 +16,7 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
+
 # Přehled Azure Data Lake Store
 
 Azure Data Lake Store je celopodnikové, flexibilně škálovatelné úložiště pro analytické úlohy s velkými objemy dat. Azure Data Lake umožňuje zaznamenávat data libovolné velikosti, typu a rychlosti příjmu do jediného místa pro účely provozní a zjišťovací analýzy.
@@ -115,6 +116,6 @@ Pokud se raději učíte při sledování videa, služba Data Lake Store nabíz�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

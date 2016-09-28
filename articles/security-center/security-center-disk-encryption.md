@@ -16,6 +16,7 @@
    ms.date="05/27/2016"
    ms.author="tomsh"/>
 
+
 # Šifrování virtuálního počítače Azure
 Azure Security Center vás upozorní, pokud máte virtuální počítače, které nejsou šifrované. Tyto výstrahy se zobrazují jako upozornění s vysokou závažností. Doporučuje se tyto virtuální počítače zašifrovat.
 
@@ -148,7 +149,7 @@ Druhý způsob spočívá v tom, že kliknete v podokně skriptu (horní podokno
 
 Bz ohledu na způsob, který použijete, se zobrazí dialogové okno informující o tom, že dokončení této operace bude trvat 10 až 15 minut. Klikněte na **Ano**.
 
-V průběhu šifrování se můžete vrátit na portál Azure a prohlédnout si stav virtuálního počítače. Na levé straně stránky klikněte na **Virtual Machines** a potom v okně **Virtual Machines** klikněte na název virtuálního počítače, který šifrujete. V zobrazeném okně uvidíte, že jako **stav** se uvádí **aktualizace**. To znamená, že probíhá šifrování.
+V průběhu šifrování se můžete vrátit na web Azure Portal a prohlédnout si stav virtuálního počítače. Na levé straně stránky klikněte na **Virtual Machines** a potom v okně **Virtual Machines** klikněte na název virtuálního počítače, který šifrujete. V zobrazeném okně uvidíte, že jako **stav** se uvádí **aktualizace**. To znamená, že probíhá šifrování.
 
 ![Další podrobnosti o virtuálním počítači](./media/security-center-disk-encryption\security-center-disk-encryption-fig9.png)
 
@@ -156,7 +157,7 @@ Vraťte se do Integrovaného skriptovacího prostředí (ISE) v prostředí Powe
 
 ![Výstup prostředí PowerShell](./media/security-center-disk-encryption\security-center-disk-encryption-fig10.png)
 
-Abyste se přesvědčili, že virtuální počítač je zašifrovaný, vraťte se na portál Azure a klikněte na **Virtual Machines** na levé straně stránky. Klikněte na název virtuálního počítače, který jste zašifrovali. V okně **Nastavení** klikněte na **Disky**.
+Abyste se přesvědčili, že virtuální počítač je zašifrovaný, vraťte se na web Azure Portal a klikněte na **Virtual Machines** na levé straně stránky. Klikněte na název virtuálního počítače, který jste zašifrovali. V okně **Nastavení** klikněte na **Disky**.
 
 ![Možnosti nastavení](./media/security-center-disk-encryption\security-center-disk-encryption-fig11.png)
 
@@ -176,6 +177,6 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

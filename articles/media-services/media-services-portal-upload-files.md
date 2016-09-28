@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Odeslání souborů do účtu Azure Media Services pomocí webu Azure Portal 
 
 > [AZURE.SELECTOR]
@@ -61,6 +62,6 @@ Nyní můžete kódovat nahrané assety. Další informace najdete v tématu [K�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

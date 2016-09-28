@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="tarcher" />
 
+
 # Začínáme se Storage Explorerem (Preview)
 
 ## Přehled 
@@ -231,6 +232,6 @@ Když budete chtít hledání vymazat, vyberte ve vyhledávacím poli tlačítko
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

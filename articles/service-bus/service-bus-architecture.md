@@ -15,6 +15,7 @@
     ms.date="07/11/2016"
     ms.author="sethm" />
 
+
 # Architektura služby Service Bus
 
 Tento článek popisuje architekturu zpracování zpráv a přenosů služby Azure Service Bus.
@@ -61,6 +62,6 @@ Teď, když znáte přehled architektury služby Service Bus, ji můžete začí
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

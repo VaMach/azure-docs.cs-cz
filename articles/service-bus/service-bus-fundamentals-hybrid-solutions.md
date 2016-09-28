@@ -16,6 +16,7 @@
     ms.date="08/31/2016" 
     ms.author="sethm"/>
 
+
 # Azure Service Bus
 
 Ať už aplikace nebo služba běží v cloudu nebo lokálně, často potřebuje komunikovat s jinými aplikacemi nebo službami. Microsoft Azure nabízí službu Service Bus, která právě toto výrazně usnadňuje. V tom to článku se podíváme na tuto technologii a na to, proč byste ji mohli chtít používat.
@@ -122,6 +123,6 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

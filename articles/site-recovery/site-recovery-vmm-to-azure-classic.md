@@ -16,6 +16,7 @@
     ms.date="05/06/2016"
     ms.author="raynew"/>
 
+
 #  Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure
 
 > [AZURE.SELECTOR]
@@ -385,6 +386,6 @@ Další informace o [nastavení plánů obnovení](site-recovery-create-recovery
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

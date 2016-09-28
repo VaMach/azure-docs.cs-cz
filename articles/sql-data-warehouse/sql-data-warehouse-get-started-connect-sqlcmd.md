@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="barbkess;sonyama"/>
 
+
 # Dotazování Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
@@ -94,6 +95,6 @@ Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možno
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

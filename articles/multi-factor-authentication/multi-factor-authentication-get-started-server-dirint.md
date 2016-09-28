@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Integrace adresáře mezi službami Azure Multi-Factor Authentication a Active Directory" 
-    description="Toto je stránka vícefaktorového ověření Azure, která popisuje postup integrace Azure Multi-Factor Authentication Serveru se službou Active Directory pro synchronizaci adresářů." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Integrace adresáře mezi službami Azure Multi-Factor Authentication a Active Directory"
+    description="Toto je stránka vícefaktorového ověření Azure, která popisuje postup integrace Azure Multi-Factor Authentication Serveru se službou Active Directory pro synchronizaci adresářů."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Integrace adresáře mezi Azure MFA Serverem a službou Active Directory
 
-V části Integrace adresáře můžete nakonfigurovat server pro integraci se službou Active Directory nebo jiným adresářem LDAP.  Můžete tu taky nastavit atributy podle schématu adresáře a zapnout automatickou synchronizaci uživatelů. 
+V části Integrace adresáře můžete nakonfigurovat server pro integraci se službou Active Directory nebo jiným adresářem LDAP.  Můžete tu taky nastavit atributy podle schématu adresáře a zapnout automatickou synchronizaci uživatelů.
 
 ## Nastavení
 Ve výchozím nastavení je Azure Multi-Factor Authentication Server nakonfigurovaný pro import nebo synchronizaci uživatelů ze služby Active Directory.  Tato karta vám umožní potlačit výchozí chování a vytvořit vazbu na jiný adresář LDAP, adresář ADAM, nebo konkrétní ovladač domény Active Directory.  Taky umožňuje použití Ověřování pomocí protokolu LDAP na proxy serveru LDAP nebo pro Vázání protokolu LDAP jako cíl pro RADIUS, předběžné ověření pro Ověřování IIS nebo pro primární ověření pro portál User Portal.  V následující tabulce jsou popsaná jednotlivá nastavení.
@@ -126,7 +127,7 @@ Tlačítko **Odstranit** umožní správci odstranit jednu nebo víc synchroniza
 
 >[AZURE.WARNING]Jakmile se záznam synchronizační položky odstraní, už se nedá obnovit. Pokud omylem odstraníte záznam synchronizační položky, budete ho muset znovu přidat.
 
-Synchronizační položka nebo položky se odstranily z Multi-Factor Auth Serveru.  Multi-Factor Auth Server nebude tyto synchronizační položky dál zpracovávat. 
+Synchronizační položka nebo položky se odstranily z Multi-Factor Auth Serveru.  Multi-Factor Auth Server nebude tyto synchronizační položky dál zpracovávat.
 
 Tlačítka Přesunout nahoru a Přesunout dolů umožňují správci změnit pořadí synchronizačních položek.  Pořadí je důležité, protože jeden uživatel může být členem víc než jedné synchronizační položky (např. kontejneru a skupiny zabezpečení).  Při synchronizaci se na uživatele použije nastavení z první synchronizační položky v seznamu, ke které je uživatel přidružený.  Synchronizační položky by se proto měly seřadit podle priority.
 
@@ -139,6 +140,6 @@ Můžete zřídit další Multi-Factor Auth Servery, které budou sloužit jako 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

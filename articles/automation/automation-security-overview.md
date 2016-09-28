@@ -16,6 +16,7 @@
    ms.date="07/29/2016"
    ms.author="magoedte" />
 
+
 # Zabezpečení služby Azure Automation
 Azure Automation umožňuje automatizovat úlohy s prostředky v Azure, místně a u jiných poskytovatelů cloudu, například Amazon Web Services (AWS).  Aby mohl runbook provádět požadované akce, musí mít oprávnění pro bezpečný přístup k prostředkům s minimálními požadovanými právy v rámci předplatného.  
 Tento článek se bude zabývat různými scénáři ověřování, které Azure Automation podporuje, a ukáže vám, jak začít pracovat s ohledem na prostředí, které nebo která potřebujete spravovat.  
@@ -55,6 +56,6 @@ Přihlašovací údaje služby Amazon Web Services | Amazon Web Services | [Ově
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

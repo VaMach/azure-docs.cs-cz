@@ -15,6 +15,7 @@
     ms.date="08/08/2016" 
     ms.author="daviste"/>
     
+
 # Analýza trendů v sadě Visual Studio
 
 Nástroj Trendy Application Insights vizualizuje průběžné změny důležitých telemetrických událostí v aplikaci. Díky tomu můžete rychle identifikovat problémy a anomálie. Nástroj Trendy vám dodá podrobnější diagnostické informace, abyste mohli zlepšit výkon aplikace, sledovat příčiny výjimek a získat přehledy z vlastních událostí.
@@ -102,6 +103,6 @@ Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,8 +3,8 @@
     description="Tento článek popisuje, jak začít se službami Azure Multi-Factor Authentication a AD FS v systému Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
-    authors="billmath"
-    manager="stevenpo"
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/04/2016"
-    ms.author="billmath"/>
+    ms.author="kgremban"/>
+
 
 
 # Zabezpečení cloudových a místních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s Windows Server 2012 R2
@@ -88,6 +89,6 @@ V nástroji PowerShell spusťte skript \Program Files\Multi-Factor Authenticatio
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

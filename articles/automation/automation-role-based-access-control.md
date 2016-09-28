@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
+
 # Řízení přístupu na základě role ve službě Azure Automation
 
 ## Řízení přístupu na základě role
@@ -239,6 +240,6 @@ Ve výše uvedených příkladech nahraďte **přihlašovací ID**, **ID předpl
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="09/01/2016" 
     ms.author="mandia"/>
 
+
 # Co jsou konektory a aplikace API pro BizTalk
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
@@ -55,6 +56,6 @@ Obchodní pravidla v sobě nesou zásady a rozhodnutí řídící podnikové pro
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

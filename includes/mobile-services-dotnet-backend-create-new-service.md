@@ -21,7 +21,6 @@ Podle těchto pokynů vytvořte novou mobilní službu.
 Teď jste vytvořili novou mobilní službu, kterou můžou používat vaše mobilní aplikace.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

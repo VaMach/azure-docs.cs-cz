@@ -13,7 +13,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="minet" />
+    ms.author="minet;robinsh" />
+
 
 # Začínáme s Azure File Storage ve Windows
 
@@ -27,7 +28,7 @@
 
 Protože je sdílená složka File Storage standardní sdílnou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
 
-Sdílené složky Azure můžete vytvářet pomocí [webu Azure Portal](https://portal.azure.com), rutin PowerShell pro Azure Storage, knihovny klienta Azure Storage nebo REST API pro Azure Storage. Protože jsou tyto sdílené složky sdílenými složkami SMB, můžete k nim také přistupovat přes standardní a známá rozhraní API pro souborové systémy. 
+Sdílené složky Azure můžete vytvářet pomocí [webu Azure Portal](https://portal.azure.com), rutin PowerShell pro Azure Storage, knihovny klienta Azure Storage nebo REST API pro Azure Storage. Protože jsou tyto sdílené složky sdílenými složkami SMB, můžete k nim také přistupovat přes standardní a známá rozhraní API pro souborové systémy.
 
 Informace o používání File Storage s Linuxem najdete v tématu [Používání Azure File Storage s Linuxem](storage-how-to-use-files-linux.md).
 
@@ -67,7 +68,7 @@ Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage.
 - Ukládat soubory do sdílené složky a stahovat soubory ze sdílené složky
 - Sledovat aktuální využití každé sdílené složky
 - Upravit kvótu velikosti sdílené složky
-- Pomocí příkazu `net use` připojit sdílenou složku z klienta Windows 
+- Pomocí příkazu `net use` připojit sdílenou složku z klienta Windows
 
 ### Vytvoření sdílené složky
 
@@ -85,7 +86,7 @@ Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage.
 
     ![Snímek obrazovky, který ukazuje vytvoření sdílené složky v portálu.](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 
-5. Klikněte na „Sdílené složky“ a pomocí odkazu vytvořte svou první sdílenou složku. 
+5. Klikněte na „Sdílené složky“ a pomocí odkazu vytvořte svou první sdílenou složku.
 
     ![Snímek obrazovky, který ukazuje vytvoření sdílené složky v portálu.](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 
@@ -119,7 +120,7 @@ Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage.
 
     ![Snímek obrazovky, který ukazuje připojení sdílené složky.](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-    >[AZURE.TIP] Pokud chcete najít přístupový klíč účtu úložiště pro připojení, klikněte na **Nastavení** účtu úložiště, a potom klikněte na **Přístupové klíče**. 
+    >[AZURE.TIP] Pokud chcete najít přístupový klíč účtu úložiště pro připojení, klikněte na **Nastavení** účtu úložiště, a potom klikněte na **Přístupové klíče**.
 
     ![Snímek obrazovky, který ukazuje vyhledání přístupového klíče účtu úložiště.](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -191,18 +192,18 @@ Od Azure PowerShell verze 0.9.7 můžete kopírovat soubor do jiného souboru, s
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Připojení sdílené složky 
+## Připojení sdílené složky
 
-Díky podpoře SMB 3.0 teď úložiště File podporuje šifrování a trvalé popisovače od klientů SMB 3.0. Podpora šifrování znamená, že klienti SMB 3.0 můžou připojit sdílenou složku odkudkoli, jako třeba z: 
+Díky podpoře SMB 3.0 teď úložiště File podporuje šifrování a trvalé popisovače od klientů SMB 3.0. Podpora šifrování znamená, že klienti SMB 3.0 můžou připojit sdílenou složku odkudkoli, jako třeba z:
 
 - Virtuálního počítače Azure ve stejné oblasti (podporuje se už v SMB 2.1)
 - Virtuálního počítače Azure v jiné oblasti (jen SMB 3.0)
-- Aplikace lokálního klienta (jen SMB 3.0) 
+- Aplikace lokálního klienta (jen SMB 3.0)
 
 Když klient přistupuje k úložišti File, použitá verze SMB závisí na verzi SMB podporované operačním systémem. V tabulce dole je přehled podpory pro klienty Windows. Další informace o [verzích SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx) najdete v tomto blogu.
 
 | Klient Windows         | Podporovaná verze SMB |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7              | SMB 2.1               |
 | Windows Server 2008 R2 | SMB 2.1               |
 | Windows 8              | SMB 3.0               |
@@ -249,12 +250,12 @@ Teď můžete se sdílenou složkou pracovat z virtuálního počítače stejně
 
 Sdílenou složku taky můžete připojit z role, která běží v cloudové službě Azure, když se do ní vzdáleně přihlásíte.
 
-### Připojení sdílené složky z lokálního klienta s Windows 
+### Připojení sdílené složky z lokálního klienta s Windows
 
 Pokud se chcete připojit ke sdílené složce z lokálního klienta, musíte nejdřív udělat tři kroky:
 
-- Nainstalovat verzi Windows, která podporuje SMB 3.0. Windows využije šifrování v SMB 3.0 pro bezpečný přenos dat mezi vaším lokálním klientem a sdílenou složkou Azure v cloudu. 
-- V místní síti otevřete přístup k internetu pro port 445 (odchozí TCP), protože to potřebuje protokol SMB. 
+- Nainstalovat verzi Windows, která podporuje SMB 3.0. Windows využije šifrování v SMB 3.0 pro bezpečný přenos dat mezi vaším lokálním klientem a sdílenou složkou Azure v cloudu.
+- V místní síti otevřete přístup k internetu pro port 445 (odchozí TCP), protože to potřebuje protokol SMB.
 
 > [AZURE.NOTE] Někteří poskytovatelé internetu můžou port 445 blokovat, v takovém případě se s nimi budete muset domluvit.
 
@@ -270,7 +271,7 @@ Pokud chcete novou aplikaci vytvořit ve Visual Studiu a nainstalovat balíček 
 2. Zadejte název konzolové aplikace a klikněte na **OK**.
 3. Po vytvoření projektu klikněte v Průzkumníku řešení pravým tlačítkem na projekt a vyberte **Správa balíčků NuGet**. Vyhledejte online text „WindowsAzure.Storage“ a klikněte na **Instalovat**, tím se nainstaluje balíček Klientské knihovny pro úložiště Azure pro .NET a její závislosti.
 
-Příklady kódu v tomto článku také používají [Knihovnu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx) k získání připojovacího řetězce úložiště ze souboru app.config v konzolové aplikaci. S nástrojem Azure Configuration Manager můžete získat připojovací řetězec na modulu runtime bez ohledu na to, jestli vaše aplikace běží v Microsoft Azure nebo je spuštěná z desktopové, mobilní nebo webové aplikace. 
+Příklady kódu v tomto článku také používají [Knihovnu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx) k získání připojovacího řetězce úložiště ze souboru app.config v konzolové aplikaci. S nástrojem Azure Configuration Manager můžete získat připojovací řetězec na modulu runtime bez ohledu na to, jestli vaše aplikace běží v Microsoft Azure nebo je spuštěná z desktopové, mobilní nebo webové aplikace.
 
 Pokud chcete nainstalovat balíček Azure Configuration Manager, klikněte pravým tlačítkem na projekt a vyberte **Správa balíčků NuGet**. Vyhledejte online text „ConfigurationManager“ a klikněte na **Instalovat**, tím balíček nainstalujete.
 
@@ -540,7 +541,7 @@ Nejdříve do souboru program.cs vedle příkazů, které jste přidali výše, 
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdílený `ServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.Shared.Protocol`, úložiště File používá vlastní typ `FileServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.File.Protocol`. Aby se ale následující kód mohl zkompilovat, musí se z vašeho kódu odkazovat oba obory názvů. 
+Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdílený `ServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.Shared.Protocol`, úložiště File používá vlastní typ `FileServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.File.Protocol`. Aby se ale následující kód mohl zkompilovat, musí se z vašeho kódu odkazovat oba obory názvů.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -584,37 +585,37 @@ Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdíle
 
 ## Nejčastější dotazy týkající se úložiště File
 
-1. **Podporuje úložiště File ověření založené na Active Directory?** 
+1. **Podporuje úložiště File ověření založené na Active Directory?**
 
-    Aktuálně nepodporujeme ověření založené na AD nebo ACL, je to však na našem seznamu požadovaných funkcí. Prozatím se k ověření ke sdílené složce používají klíče účtů Azure Storage. Nabízíme alternativní řešení, které využívá sdílené přístupové podpisy (SAS) přes REST API nebo knihovny klienta. Pomocí SAS můžete vygenerovat tokeny se specifickými oprávněními, které jsou platné po nastavenou dobu. Například můžete pro daný soubor vygenerovat token s přístupem jen pro čtení. Každý, kdo takový token má po dobu jeho platnosti, má k souboru přístup jen pro čtení. 
+    Aktuálně nepodporujeme ověření založené na AD nebo ACL, je to však na našem seznamu požadovaných funkcí. Prozatím se k ověření ke sdílené složce používají klíče účtů Azure Storage. Nabízíme alternativní řešení, které využívá sdílené přístupové podpisy (SAS) přes REST API nebo knihovny klienta. Pomocí SAS můžete vygenerovat tokeny se specifickými oprávněními, které jsou platné po nastavenou dobu. Například můžete pro daný soubor vygenerovat token s přístupem jen pro čtení. Každý, kdo takový token má po dobu jeho platnosti, má k souboru přístup jen pro čtení.
 
     SAS se podporuje jen přes REST API nebo knihovny klienta. Když připojíte sdílenou složku přes protokol SMB, nemůžete použít SAS pro delegování přístupu k jejímu obsahu.
 
 2. **Jsou sdílené složky Azure File viditelné veřejně přes internet nebo jsou dostupné jen přes Azure?**
- 
+
     Když je otevřený port 445 (odchozí TCP) a váš klient podporuje protokol SMB 3.0 (*např.*, Windows 8 nebo Windows Server 2012), je vaše sdílená složka dostupná přes internet.  
 
-3. **Počítá se síťový provoz mezi virtuálním počítačem Azure a sdílenou složkou jako externí datové přenosy, které jsou zpoplatněné nad rámec předplatného?** 
+3. **Počítá se síťový provoz mezi virtuálním počítačem Azure a sdílenou složkou jako externí datové přenosy, které jsou zpoplatněné nad rámec předplatného?**
 
     Pokud jsou sdílená složka a virtuální počítač v různých oblastech, provoz mezi nimi bude účtován jako externí datové přenosy.
- 
-4. **Pokud síťový provoz probíhá mezi virtuálním počítačem a sdílenou složkou ve stejné oblasti, je bezplatný?** 
+
+4. **Pokud síťový provoz probíhá mezi virtuálním počítačem a sdílenou složkou ve stejné oblasti, je bezplatný?**
 
     Ano. Je bezplatný, pokud probíhá v jedné a té samé oblasti.
 
-5. **Závisí připojení z lokálních virtuálních počítačů k Azure File Storage na Azure ExpressRoute?** 
+5. **Závisí připojení z lokálních virtuálních počítačů k Azure File Storage na Azure ExpressRoute?**
 
     Ne. Pokud nemáte ExpressRoute, můžete ke sdílené složce přistupovat z lokálního prostředí za předpokladu, že máte port 445 (odchozí TCP) otevřený pro přístup k internetu. Pokud ale chcete, ExpressRoute s úložištěm File použít můžete.
 
 6. **Je „určující sdílená složka“ pro cluster s podporou převzetí služeb při selhání jedním z případů využití Azure File Storage?**
 
     To se aktuálně nepodporuje.
- 
+
 7. **Úložiště File se teď replikuje jen přes LRS nebo GRS, je to tak?**  
 
     Plánujeme podporu pro RA-GRS, ale nemáme pro to teď žádný časový horizont.
 
-8. **Kdy můžu začít používat existující účty úložiště pro Azure File Storage?** 
+8. **Kdy můžu začít používat existující účty úložiště pro Azure File Storage?**
 
     Služba Azure File Storage je teď zapnutá pro všechny účty úložiště.
 
@@ -636,7 +637,7 @@ Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdíle
 
 13. **Vydali jsme opravu problému s nízkou rychlostí Azure Files.**
 
-    Tým Windows nedávno vydal opravu problému s nízkou rychlostí, když zákazník přistupuje k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2. Další informace najdete v článku znalostní báze [Pomalý výkon při přístupu k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2](https://support.microsoft.com/en-us/kb/3114025). 
+    Tým Windows nedávno vydal opravu problému s nízkou rychlostí, když zákazník přistupuje k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2. Další informace najdete v článku znalostní báze [Pomalý výkon při přístupu k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
 
 14. **Používání Azure File Storage s IBM MQ**
 
@@ -665,12 +666,12 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 ### Příspěvky na blozích
 
 - [Úložiště Azure File je nyní dostupné pro veřejnost](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Nastavení trvalých připojení k Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

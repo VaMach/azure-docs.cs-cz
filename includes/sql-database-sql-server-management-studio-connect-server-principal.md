@@ -45,7 +45,6 @@ Chyby a časové limity připojení mohou být způsobeny také problémy s při
 
 
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

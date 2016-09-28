@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/23/2016"
+    ms.date="09/16/2016"
     ms.author="raynew"/>
+
 
 # Replikace virtuálních počítačů Hyper-V v clouduech VMM do Azure přes Azure Site Recovery pomocí portálu Azure | Microsoft Azure
 
@@ -574,6 +575,6 @@ Po nasazení a zprovoznění nasazení si můžete přečíst [další informace
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

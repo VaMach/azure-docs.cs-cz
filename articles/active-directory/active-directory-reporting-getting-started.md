@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -15,6 +15,7 @@
    ms.workload="identity"
    ms.date="03/07/2016"
    ms.author="dhanyahk"/>
+
 
 # Začínáme s generováním sestav v Azure Active Directory
 
@@ -158,6 +159,6 @@ Pro zpětnou vazbu, pomoc a případné dotazy slouží e-mailová adresa [aadre
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

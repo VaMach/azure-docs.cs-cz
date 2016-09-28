@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Instrumentace webových aplikací za běhu pomocí nástrojů Application Insights
 
 *Application Insights je ve verzi Preview.*
@@ -298,6 +299,6 @@ Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šab
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

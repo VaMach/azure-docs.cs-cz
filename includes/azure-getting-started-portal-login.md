@@ -32,7 +32,6 @@ Pomocí [stávajícího předplatného]( https://account.windowsazure.com/Home/I
    ![Přihlášení](./media/azure-getting-started-portal-login/login.png)
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

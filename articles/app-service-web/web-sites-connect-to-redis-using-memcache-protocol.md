@@ -16,6 +16,7 @@
     ms.date="02/29/2016"
     ms.author="cfowler"/>
 
+
 # Připojení webové aplikace ve službě Azure App Service k Redis Cache prostřednictvím protokolu Memcache
 
 V tomto článku se dozvíte, jak připojit webovou aplikaci WordPress ve službě [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) k službě [Azure Redis Cache][12] pomocí protokolu [Memcache][13]. Máte-li stávající webovou aplikaci, která k ukládání do mezipaměti v paměti používá server s protokolem Memcache, můžete migrovat do služby Azure App Service a použít řešení ukládání do mezipaměti první strany v Microsoft Azure s malými či žádnými změnami kódu své aplikace. Můžete také použít stávající odborné znalosti protokolu Memcache k vytvoření vysoce škálovatelných distribuovaných aplikací ve službě Azure App Service se službou Azure Redis Cache k ukládání do mezipaměti v paměti, a to pomocí oblíbených rozhraní aplikací, jako jsou .NET, PHP, Node.js, Java a Python.  
@@ -37,7 +38,7 @@ Jakmile nasadíte škálovatelný web WordPress a zřídíte instanci služby Re
 
 ## Povolení shimu Web Apps Memcache
 
-Chcete-li konfigurovat Memcache shim, je nutné vytvořit tři nastavení aplikace. To lze provést různými metodami, včetně [portálu Azure](http://go.microsoft.com/fwlink/?LinkId=529715), [klasického portálu][3], [rutin prostředí Azure PowerShell ][5] nebo [rozhraní příkazového řádku Azure CLI][5]. Pro účely tohoto příspěvku provedeme nastavení aplikace pomocí [portálu Azure][4]. Následující hodnoty lze získat v okně **Nastavení** vaší instance služby Redis Cache.
+Chcete-li konfigurovat Memcache shim, je nutné vytvořit tři nastavení aplikace. To lze provést různými metodami, včetně [webu Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [klasického portálu][3], [rutin prostředí Azure PowerShell ][5] nebo [rozhraní příkazového řádku Azure CLI][5]. Pro účely tohoto příspěvku provedeme nastavení aplikace pomocí [webu Azure Portal][4]. Následující hodnoty lze získat v okně **Nastavení** vaší instance služby Redis Cache.
 
 ![Okno nastavení služby Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -85,7 +86,7 @@ Stáhněte si odkaz Non-Thread Safe (NTS) x86 pro verzi PHP, která je povolena 
 
 ### Povolení rozšíření php_memcache
 
-Po stažení extrahujte soubor **php\_memcache.dll** a nahrajte jej do adresáře **d:\\domácí\\lokality\\wwwroot\\bin\\ext\\**. Po nahrání souboru php_memcache.dll do webové aplikace je nutné povolit rozšíření modulu PHP Runtime. Chcete-li povolit rozšíření Memcache na portálu Azure, otevřete okno **Nastavení aplikace** webové aplikace a přidejte nové nastavení aplikace, jehož klíč je **PHP\_EXTENSIONS** a jehož hodnota je **bin\\ext\\php_memcache.dll**.
+Po stažení extrahujte soubor **php\_memcache.dll** a nahrajte jej do adresáře **d:\\domácí\\lokality\\wwwroot\\bin\\ext\\**. Po nahrání souboru php_memcache.dll do webové aplikace je nutné povolit rozšíření modulu PHP Runtime. Chcete-li povolit rozšíření Memcache na webu Azure Portal, otevřete okno **Nastavení aplikace** webové aplikace a přidejte nové nastavení aplikace, jehož klíč je **PHP\_EXTENSIONS** a jehož hodnota je **bin\\ext\\php_memcache.dll**.
 
 
 > [AZURE.NOTE] Je-li nutné, aby webová aplikace načetla více rozšíření PHP, hodnota PHP_EXTENSIONS by měla obsahovat čárkami oddělený seznam relativních cest k souborům DLL.
@@ -140,7 +141,7 @@ Všechny kroky k povolení shimu Memcache služby Web Apps jsou nyní dokončeny
 
 >[AZURE.NOTE] V době napsání tohoto článku rozhraní příkazového řádku Redis nepodporuje připojení SSL, proto jsou nezbytné následující kroky.
 
-Na portálu Azure přejděte k instanci služby Redis Cache, kterou jste pro tuto webovou aplikaci vytvořili. Jakmile se otevře okno požadované mezipaměti, klikněte na ikonu **Nastavení**.
+Na webu Azure Portal přejděte k instanci služby Redis Cache, kterou jste pro tuto webovou aplikaci vytvořili. Jakmile se otevře okno požadované mezipaměti, klikněte na ikonu **Nastavení**.
 
 ![Tlačítko Nastavení služby Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 
@@ -152,7 +153,7 @@ Klikněte na možnost **Ne** v položce **Povolit přístup jen přes SSL**.
 
 ![Přístupový port služby Azure Redis Cache pouze SSL](./media/web-sites-connect-to-redis-using-memcache-protocol/17-azure-redis-cache-access-port-ssl-only.png)
 
-Uvidíte, že je nyní nastaven port bez SSL. Klikněte na možnost **Uložit**.
+Uvidíte, že je nyní nastaven port bez SSL. Klikněte na **Uložit**.
 
 ![Přístupový portál Redis bez SSL služby Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
@@ -176,7 +177,7 @@ Volání k vypsání klíčů by mělo vrátit hodnotu. Pokud ne, zkuste přejí
 
 Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v paměti, která pomáhá zvýšit propustnost. Nezapomeňte, že Web Apps Memcache Shim lze použít s libovolným klientem Memcache bez ohledu na programovací jazyk či rozhraní aplikace. Chcete-li poskytnout zpětnou vazbu nebo položit dotazy týkající se shimu Web Apps Memcache, zveřejněte příspěvek na [fórech MSDN][10] nebo [Stackoverflow][11].
 
->[AZURE.NOTE] Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
+>[AZURE.NOTE] Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
 ## Co se změnilo
 * Průvodce změnou z webů na služby App Service naleznete v tématu: [Služba Azure App Service a její vliv na stávající služby Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -199,6 +200,6 @@ Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v pamět
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

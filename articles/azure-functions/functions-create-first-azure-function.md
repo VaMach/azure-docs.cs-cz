@@ -18,6 +18,7 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
+
 #Vytvoření první funkce Azure
 
 ##Přehled
@@ -76,6 +77,6 @@ Azure Functions využívá platformu Azure App Service pro základní funkce, ja
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

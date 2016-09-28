@@ -16,6 +16,7 @@
    ms.date="07/05/2016"
    ms.author="mblythe"/>
 
+
 # Začínáme s Microsoft Power BI Embedded
 
 **Power BI Embedded** je služba Azure, který vývojářům aplikací umožňuje přidávání interaktivních sestav Power BI do jejich vlastních aplikací. **Power BI Embedded** funguje se stávajícími aplikacemi bez nutnosti přepracování nebo změny způsobu, jakým se uživatelé přihlašují.
@@ -103,6 +104,6 @@ V předchozích krocích jste vytvořili kolekci pracovních prostorů a první 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

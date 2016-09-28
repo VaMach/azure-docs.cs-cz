@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Koncepty Azure Mobile Engagementu
 
 Mobile Engagement definuje několik konceptů, které jsou společné pro všechny podporované platformy. Tento článek tyto koncepty stručně popisuje.
@@ -87,6 +88,6 @@ Celý strom párů klíč/hodnota se ukládá jako objekt JSON. Nicméně pouze 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

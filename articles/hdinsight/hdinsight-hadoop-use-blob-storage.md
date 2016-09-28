@@ -19,6 +19,7 @@
     ms.author="jgao"/>
 
 
+
 # Použití HDFS kompatibilního Úložiště objektů blob v Azure s Hadoop v HDInsight
 
 Naučte se používat nízkonákladové Úložiště objektů blob v Azure s HDInsight, vytvořte si účet Azure storage a kontejner Blob storage a pak adresujte obsažená data.
@@ -301,6 +302,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

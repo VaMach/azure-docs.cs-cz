@@ -30,7 +30,6 @@ Pokud chcete vytvořit sadu záznamů se zástupným znakem, použijte název sa
 Sady záznamů CNAME nemůžou existovat současně s jinými sadami záznamů se stejným názvem. Nemůžete například současně vytvořit sadu záznamů CNAME s relativním názvem „www“ a záznam A s relativním názvem „www“. Protože vrchol zóny (název = „@“) vždy obsahuje sady záznamů NS a SOA, které byly vytvořené při vytvoření zóny, nemůžete na vrcholu zóny vytvořit sadu záznamů CNAME. Tato omezení pocházejí z norem DNS a nepředstavují omezení Azure DNS.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

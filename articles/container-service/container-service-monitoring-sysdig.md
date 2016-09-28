@@ -18,6 +18,7 @@
    ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
+
 # Monitorování clusteru služby Azure Container Service pomocí služby Sysdig
 
 V tomto článku nasadíme na všechny agentské uzly v clusteru služby Azure Container Service agenty služby Sysdig. Pro tuto konfiguraci potřebujete účet se službou Sysdig. 
@@ -55,6 +56,6 @@ Teď nastavte instance na hodnotu 10000000, aby služba Sysdig při každém př
 Po instalaci balíčku přejděte zpátky do uživatelského rozhraní služby Sysdig. Teď už budete moc prozkoumávat různé metriky využití kontejnerů v clusteru. 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

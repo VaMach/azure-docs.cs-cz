@@ -18,6 +18,7 @@
    ms.date="06/05/2016"
    ms.author="glenga"/>
    
+
 # Vytvoření funkce Azure pro zpracování událostí
 
 Azure Functions je výpočetní prostředí na vyžádání založené na událostech, které umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
@@ -77,7 +78,7 @@ Další informace o službě Azure Functions najdete v těchto tématech.
 
 + [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
 Referenční informace pro programátory týkající se kódování funkcí a definování triggerů a vazeb.
-+ [Testování funkcí Azure Functions](functions-test-a-function.md)  
++ [Testování Azure Functions](functions-test-a-function.md)  
 Toto téma popisuje různé nástroje a techniky pro testování funkcí.
 + [Postup škálování Azure Functions](functions-scale.md)  
 Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (včetně plánu služby Dynamic), a výběr správného plánu.  
@@ -86,6 +87,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

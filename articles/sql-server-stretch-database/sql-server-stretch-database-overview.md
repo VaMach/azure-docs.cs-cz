@@ -16,6 +16,7 @@
     ms.date="06/27/2016"
     ms.author="douglasl"/>
 
+
 # Přehled funkce Stretch Database
 
 Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure.
@@ -26,7 +27,7 @@ Pokud chcete ihned začít používat funkci Stretch Database, najdete informace
 Funkce Stretch Database poskytuje následující výhody:
 
 ### Poskytuje efektivní přístup pro studená data
-Díky funkci SQL Server Stretch Database lze dynamicky roztahovat teplá i studená data z SQL Serveru do Microsoft Azure. Na rozdíl od typického úložiště pomaleji přístupných dat jsou vaše data vždy online a k dispozici pro dotazy. Můžete poskytovat delší časové intervaly uchovávání dat i pro rozsáhlé tabulky, jako je třeba historie objednávek zákazníků, aniž by vás to zruinovalo. Využívejte nízké náklady na řešení Azure ve srovnání s místním úložištěm náročným na škálování. Můžete zvolit cenovou úroveň a konfigurovat nastavení na portálu Azure, takže si zachováte kontrolu nad náklady. Škálovat lze podle potřeby nahoru nebo dolů. Na stránce [Ceník funkce SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) najdete podrobnější informace.
+Díky funkci SQL Server Stretch Database lze dynamicky roztahovat teplá i studená data z SQL Serveru do Microsoft Azure. Na rozdíl od typického úložiště pomaleji přístupných dat jsou vaše data vždy online a k dispozici pro dotazy. Můžete poskytovat delší časové intervaly uchovávání dat i pro rozsáhlé tabulky, jako je třeba historie objednávek zákazníků, aniž by vás to zruinovalo. Využívejte nízké náklady na řešení Azure ve srovnání s místním úložištěm náročným na škálování. Můžete zvolit cenovou úroveň a konfigurovat nastavení na webu Azure Portal, takže si zachováte kontrolu nad náklady. Škálovat lze podle potřeby nahoru nebo dolů. Na stránce [Ceník funkce SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) najdete podrobnější informace.
 
 ### Nevyžaduje změny dotazů ani aplikací
 Využívejte bezproblémový přístup ke svým datům v SQL Serveru bez ohledu na to, jestli jsou umístěná lokálně, nebo roztažená do cloudu.  Můžete nastavit zásady, které určují, kde jsou data uložena, a SQL Server provede přesun dat na pozadí. Celá tabulka je neustále online a k dispozici pro dotazy. Funkce Stretch Database navíc nevyžaduje žádné změny existujících dotazů ani aplikací – umístění dat je pro aplikaci zcela transparentní.
@@ -82,6 +83,6 @@ S využitím Poradce pro funkci Stretch Database, který je funkcí Poradce pro 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

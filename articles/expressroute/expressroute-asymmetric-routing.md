@@ -15,6 +15,7 @@
    ms.date="08/23/2016"
    ms.author="osamazia"/>
 
+
 # Asymetrické směrování s několika síťovými cestami
 
 Tento článek vysvětluje, jak může dopředný a zpětný síťový provoz využívat různé trasy, pokud je mezi zdrojem a cílem v síti k dispozici více cest.
@@ -79,6 +80,6 @@ Nejlepším způsobem, jak zajistit, že provoz z vaší sítě prochází oček
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

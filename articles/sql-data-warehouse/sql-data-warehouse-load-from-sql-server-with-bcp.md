@@ -17,6 +17,7 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
+
 # Načtení dat z SQL Serveru do Azure SQL Data Warehouse (ploché soubory)
 
 > [AZURE.SELECTOR]
@@ -204,6 +205,6 @@ Další informace o vytvoření tabulky v SQL Data Warehouse viz [Přehled tabul
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

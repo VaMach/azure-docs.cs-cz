@@ -17,6 +17,7 @@
    ms.author="edmaca"/>
 
 
+
 # Použití interaktivních kurzů Azure Data Lake Analytics
 
 web Azure Portal poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
@@ -91,6 +92,6 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

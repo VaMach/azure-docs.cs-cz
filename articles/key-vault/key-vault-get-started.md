@@ -16,6 +16,7 @@
     ms.date="07/15/2016"
     ms.author="cabailey"/>
 
+
 # Začínáme s Azure Key Vault #
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -247,6 +248,6 @@ Programátorské reference najdete v [příručce pro vývojáře Azure Key Vaul
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

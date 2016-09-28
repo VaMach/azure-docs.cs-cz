@@ -69,7 +69,6 @@ Existující virtuální prostředí v aplikaci se doporučuje odstranit, abyste
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

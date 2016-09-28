@@ -47,7 +47,6 @@ Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brán
     >[AZURE.IMPORTANT] Vaše IP adresa klienta se občas může změnit a vy pak nebudete mít přístup k serveru, dokud nevytvoříte nové pravidlo brány firewall. IP adresu můžete zkontrolovat pomocí [Bing](http://www.bing.com/search?q=my%20ip%20address). Poté přidejte jednu IP adresu nebo rozsah IP adres. Podrobnosti najdete v tématu [Správa nastavení brány firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

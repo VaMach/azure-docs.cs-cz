@@ -17,6 +17,7 @@
    ms.date="06/16/2016"
    ms.author="yushwang"/>
 
+
 # Přehled protokolu BGP se službou Azure VPN Gateways
 
 Tento článek obsahuje přehled o podpoře protokolu BGP (Border Gateway Protocol) ve službě Azure VPN Gateways.
@@ -70,6 +71,6 @@ V tématu [Začínáme s protokolem BGP na branách Azure VPN](./vpn-gateway-bgp
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -27,7 +27,6 @@ Před vytvořením účtu úložiště si musíte pořídit předplatné Azure. 
 Informace o vytvoření účtu úložiště najdete v článku [Vytvoření účtu úložiště](../articles/storage/storage-create-storage-account.md#create-a-storage-account). V rámci jednoho předplatného můžete vytvořit až 100 účtů úložiště s jedinečným názvem. Podrobné informace o omezeních účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](../articles/storage/storage-scalability-targets.md).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

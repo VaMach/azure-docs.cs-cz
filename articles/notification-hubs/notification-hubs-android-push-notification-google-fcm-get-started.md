@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="wesmc"/>
 
+
 # Odesílání nabízených oznámení do systému Android pomocí Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -735,6 +736,6 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

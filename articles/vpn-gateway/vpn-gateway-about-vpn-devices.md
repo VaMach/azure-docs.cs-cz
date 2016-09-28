@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="yushwang;cherylmc" />
 
+
 # Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
 
 Ke konfiguraci připojení typu Site-to-Site (S2S) VPN je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace. 
@@ -164,6 +165,6 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

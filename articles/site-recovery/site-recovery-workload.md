@@ -16,6 +16,7 @@
     ms.date="07/06/2016" 
     ms.author="raynew"/>
 
+
 # Jaké úlohy je možné chránit pomocí Azure Site Recovery?
 
 
@@ -152,6 +153,6 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

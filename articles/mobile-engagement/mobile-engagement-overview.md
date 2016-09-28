@@ -16,6 +16,7 @@
     ms.date="01/04/2016"
     ms.author="piyushjo;matt-gibbs" />
 
+
 #Přehled Azure Mobile Engagementu
 
 Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení uživatelů, která na základě dat poskytuje přehledy o využití aplikace, segmentaci uživatelů v reálném čase a umožňuje zasílat kontextová nabízená oznámení a zprávy v aplikaci.
@@ -53,6 +54,6 @@ Společnost Microsoft se dlouhodobě zavázala k ochraně vašeho soukromí, kte
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
