@@ -16,6 +16,7 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+
 # Řešení pro Batch a prostředí HPC v cloudu Azure
 
 Azure nabízí efektivní a škálovatelná cloudová řešení pro dávky (batch) a vysokovýkonné výpočetní prostředí (HPC) – taky známé jako *Big Compute* (provádění výpočtů ve velkém měřítku). Přečtěte si zde o úlohách řešení Big Compute a službách Azure, které je podporují, nebo přejděte přímo na [scénáře řešení](#scenarios) dále v tomto článku. Tento článek je zaměřen především na lidi, kteří mají na starosti technická rozhodnutí ve firmě, manažery pro IT a nezávislé dodavatele softwaru, ale i ostatní vývojáři a profesionálové v oblasti IT ho mohou využít k bližšímu seznámení s těmito řešeními. 
@@ -159,6 +160,6 @@ K připojení vašeho řešení Big Compute k místním prostředkům nebo prost
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

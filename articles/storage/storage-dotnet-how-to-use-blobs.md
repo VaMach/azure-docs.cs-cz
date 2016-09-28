@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="jwillis;tamram"/>
+
 
 
 # Začínáme s úložištěm Azure Blob pomocí rozhraní .NET
@@ -45,7 +46,7 @@ Tenhle kurz ukazuje, jak napsat kód .NET pro některé běžné scénáře s vy
 
 ### Další ukázky
 
-Další příklady použití Blob Storage najdete v článku [Začínáme s Azure Blob Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu. 
+Další příklady použití Blob Storage najdete v článku [Začínáme s Azure Blob Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu.
 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -374,7 +375,7 @@ Ve výchozím nastavení jsou data objektu blob ve vašem účtu úložiště do
 Úložiště Azure podporuje šifrování dat objektů blob na straně klienta i na serveru:
 
 - **Šifrování na straně klienta:** Klientská knihovna pro úložiště pro .NET podporuje šifrování dat v rámci klientské aplikace před nahráním do úložiště Azure a dešifrování dat při stahování do klienta. Knihovna také podporuje integraci se službou Azure Key Vault pro správu klíčů účtu úložiště. Další informace viz [Šifrování na straně klienta s .NET pro úložiště Microsoft Azure](storage-client-side-encryption.md). Viz také [Kurz: Šifrování a dešifrování objektů blob v úložišti Microsoft Azure pomocí služby Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Šifrování na straně serveru**: Úložiště Azure nyní podporuje šifrování na straně serveru. Viz [Šifrování služby Azure Storage Service pro Neaktivní uložená data (Náhled)](storage-service-encryption.md). 
+- **Šifrování na straně serveru**: Úložiště Azure nyní podporuje šifrování na straně serveru. Viz [Šifrování služby Azure Storage Service pro Neaktivní uložená data (Náhled)](storage-service-encryption.md).
 
 ## Další kroky
 
@@ -411,6 +412,6 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="09/01/2016"
     ms.author="casoper"/>
 
+
 # Přehled služby Content Delivery Network (CDN) Azure
 
 > [AZURE.NOTE] Tento dokument popisuje, co je služba Content Delivery Network (CDN) Azure, jak funguje, a funkce všech produktů CDN Azure.  Chcete-li tyto informace přeskočit a rovnou přejít ke kurzu jak vytvořit koncový bod CDN, přejděte na [Používání CDN Azure](cdn-create-new-endpoint.md).  Chcete-li zobrazit aktuální seznam umístění uzlů CDN, přejděte na [Umístění POP v síti CDN](cdn-pop-locations.md).
@@ -89,6 +90,6 @@ Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/p
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.author="wesmc"/>
 
 
+
 #Azure Notification Hubs
 
 ##Přehled
@@ -177,6 +178,6 @@ Zde jsou odkazy na relevantní spravovaná rozhraní API pro .NET:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

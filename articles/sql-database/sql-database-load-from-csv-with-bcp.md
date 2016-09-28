@@ -17,6 +17,7 @@
    ms.author="carlrab"/>
 
 
+
 # Načtení dat ze souboru CSV do Azure SQL Data Warehouse (ploché soubory)
 
 Nástroj příkazového řádku bcp můžete použít k importu dat ze souboru CSV do databáze Azure SQL Database.
@@ -126,6 +127,6 @@ Postup migrace databáze serveru SQL Server naleznete v části [Migrace databá
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

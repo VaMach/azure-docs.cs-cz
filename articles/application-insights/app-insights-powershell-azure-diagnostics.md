@@ -15,6 +15,7 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
+
 # Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights
 
 [Microsoft Azure](https://azure.com) může být [konfigurované k odesílání Azure Diagnostics](app-insights-azure-diagnostics.md) do [Visual Studio Application Insights](app-insights-overview.md). Diagnostika se týká cloudových služeb Azure a virtuálních počítačů Azure. Doplňují telemetrii, kterou odesíláte z aplikace pomocí Application Insights SDK. Jako součást automatizace procesu vytváření nových prostředků v Azure můžete nakonfigurovat diagnostiku pomocí prostředí PowerShell.
@@ -120,6 +121,6 @@ Chcete-li odebrat rozšíření diagnostiky pro každou jednotlivou roli:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

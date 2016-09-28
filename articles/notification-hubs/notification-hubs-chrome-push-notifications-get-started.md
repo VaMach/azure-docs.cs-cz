@@ -17,6 +17,7 @@
     ms.date="07/22/2016"
     ms.author="wesmc"/>
 
+
 # Odesílání nabízených oznámení do aplikací pro Chrome přes Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -480,6 +481,6 @@ Pokud chcete své uživatele rozdělit podle specifických skupin, můžete post
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

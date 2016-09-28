@@ -15,6 +15,7 @@
    ms.date="06/20/2016"
    ms.author="ganesr"/>
 
+
 # Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
 
 Tento článek obsahuje přehled toho, co znamená přesun okruhu Azure ExpressRoute z modelu nasazení Classic do Azure Resource Manager.
@@ -112,6 +113,6 @@ Postupujte podle pokynů uvedených v tématu [Přesun okruhu ExpressRoute z mod
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

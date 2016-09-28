@@ -17,6 +17,7 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
+
 # Vytvoření databáze SQL a provádění běžných úloh úvodního nastavení databáze pomocí rutin prostředí PowerShell
 
 
@@ -142,6 +143,6 @@ Po vytvoření databáze SQL a provedení běžných úloh její úvodního nast
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

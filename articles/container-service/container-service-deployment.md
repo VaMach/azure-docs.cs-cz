@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="rogardle"/>
 
+
 # Nasazení clusteru Azure Container Service
 
 Azure Container Service umožňuje rychlé nasazení oblíbených open-source řešení pro clustering a orchestraci kontejnerů. Pomocí Azure Container Service můžete nasadit clustery DC/OS a Docker Swarm s pomocí šablon Azure Resource Manager nebo Portálu Azure. Tyto clustery nasadíte pomocí sad škálování virtuálních počítačů Azure, a díky tomu bude u nich možné využívat nabídky Azure v oblasti sítí a úložišť. Pro přístup k Azure Container Service potřebujete předplatné Azure. Pokud žádné nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
@@ -187,6 +188,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

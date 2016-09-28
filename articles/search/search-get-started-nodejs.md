@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="evboyle"/>
 
+
 # Začínáme s Azure Search v NodeJS
 > [AZURE.SELECTOR]
 - [Portál](search-get-started-portal.md)
@@ -25,7 +26,7 @@ Naučte se sestavit vlastní vyhledávací aplikaci NodeJS, která k hledání p
 
 Tento kód jsme vyvinuli a testovali pomocí [NodeJS](https://nodejs.org) a NPM, [Sublime Text 3](http://www.sublimetext.com/3) a prostředí Windows PowerShell v systému Windows 8.1.
 
-Pokud chcete tuto ukázku spustit, musíte mít službu Azure Search, ke které se můžete zaregistrovat na [Portálu Azure](https://portal.azure.com). Podrobné pokyny najdete v tématu [Vytvoření služby Azure Search na portálu](search-create-service-portal.md).
+Pokud chcete tuto ukázku spustit, musíte mít službu Azure Search, ke které se můžete zaregistrovat na webu [Azure Portal](https://portal.azure.com). Podrobné pokyny najdete v tématu [Vytvoření služby Azure Search na portálu](search-create-service-portal.md).
 
 ## Informace o datech
 
@@ -122,6 +123,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

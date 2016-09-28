@@ -29,7 +29,6 @@ Dokončili jste konfiguraci zařízení.
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit zálohu StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

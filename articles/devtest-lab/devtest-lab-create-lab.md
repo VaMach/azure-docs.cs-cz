@@ -16,6 +16,7 @@
     ms.date="09/12/2016"
     ms.author="tarcher"/>
 
+
 # Vytvoření testovacího prostředí v Azure DevTest Labs
 
 ## Požadavky
@@ -69,6 +70,6 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 - [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md)
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

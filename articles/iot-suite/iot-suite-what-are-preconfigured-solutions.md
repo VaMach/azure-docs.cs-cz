@@ -17,6 +17,7 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
+
 # Co jsou předkonfigurovaná řešení Azure IoT Suite?
 
 Předkonfigurovaná řešení Azure IoT Suite jsou implementací běžných vzorů řešení IoT, která můžete nasadit v Azure pomocí svého předplatného. Předkonfigurovaná řešení můžete použít následovně:
@@ -132,6 +133,6 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

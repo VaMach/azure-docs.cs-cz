@@ -16,6 +16,7 @@
    ms.date="08/26/2016"
    ms.author="mblythe"/>
 
+
 # Interakce se sestavami Power BI pomocí rozhraní API pro JavaScript
 
 Rozhraní API pro JavaScript Power BI umožňuje snadné vkládání sestav Power BI do vašich aplikací. Prostřednictvím tohoto rozhraní API mohou vaše aplikace programově interagovat s různými elementy sestav, jako jsou stránky a filtry. Díky této interaktivitě se sestavy Power BI stanou integrálnější součástí vaší aplikace.
@@ -139,6 +140,6 @@ Další informace o rozhraní API pro JavaScript Power BI najdete pod následuj�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

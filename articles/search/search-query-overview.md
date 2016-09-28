@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Dotazování indexu Azure Search
 > [AZURE.SELECTOR]
 - [Přehled](search-query-overview.md)
@@ -60,6 +61,6 @@ Ve službě Azure Search je zvýrazňování přesné části výsledků vyhled�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

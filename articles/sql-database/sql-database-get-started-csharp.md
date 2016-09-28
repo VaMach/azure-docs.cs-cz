@@ -17,6 +17,7 @@
    ms.date="09/14/2016"
    ms.author="sstein"/>
 
+
 # Vyzkoušejte SQL Database: Použijte C# k vytvoření databáze SQL pomocí knihovny SQL Database Library pro .NET.
 
 
@@ -293,6 +294,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -12,7 +12,6 @@
 4. Klikněte na kartu **Cloud Messaging** v nastavení projektu a zkopírujte hodnotu **Klíč serveru** a **ID odesílatele**.  Tyto hodnoty se později použijí ke konfiguraci centra oznámení zásad přístupu a vaší obslužné rutina oznámení v aplikaci.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

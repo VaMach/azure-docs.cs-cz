@@ -107,7 +107,6 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

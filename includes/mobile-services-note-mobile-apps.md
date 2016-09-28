@@ -5,7 +5,6 @@
 > Pokud chcete začít používat Azure Mobile Apps, projděte si [centrum dokumentace k funkci Azure Mobile Apps](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
+
 # Názorný průvodce šablonou Resource Manageru
 
 Jednou ze základních otázek při vytváření šablon je, jak vůbec začít. Dá se začít prázdnou šablonou, využít základní strukturu popsanou v článku věnovaném [vytváření šablon](resource-group-authoring-templates.md#template-format) a přidat prostředky a příslušné parametry a proměnné. Dobrou alternativou by také bylo projít si [galerii pro rychlý start](https://github.com/Azure/azure-quickstart-templates) a najít scénáře podobné tomu, který se pokoušíte vytvořit. Můžete sloučit několik šablon nebo upravit stávající šablonu tak, aby vyhovovala vašemu konkrétnímu scénáři. 
@@ -583,6 +584,6 @@ Tuto šablonu můžete znovu nasadit pomocí stejných příkazů, které jste p
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

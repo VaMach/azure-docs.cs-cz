@@ -15,6 +15,7 @@
      ms.date="07/28/2016" 
      ms.author="casoper"/>
 
+
 # Používání Azure CDN  
 
 Toto téma vás provede povolením Azure CDN prostřednictvím vytvoření nového profilu a koncového bodu CDN.
@@ -35,7 +36,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
 **Postup vytvoření nového koncového bodu CDN**
 
-1. Na [Portálu Azure](https://portal.azure.com) přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
+1. Na [webu Azure Portal](https://portal.azure.com) přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
 
     Otevře se okno Profil CDN.
 
@@ -92,13 +93,13 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 - [Vyprázdnění koncového bodu Azure CDN](cdn-purge-endpoint.md)
 - [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md)
 
-[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+[cdn-profil-nastavení]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-nový-koncový bod-tlačítko]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-přidání-koncový bod]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-koncový bod-úspěch]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

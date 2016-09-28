@@ -19,6 +19,7 @@
     ms.author="v-livech"
 />
 
+
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí Portálu
 
 
@@ -80,6 +81,6 @@ Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

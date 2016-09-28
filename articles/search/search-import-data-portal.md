@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="heidist"/>
 
+
 # Import dat do služby Azure Search pomocí portálu
 
 Azure Portal poskytuje v řídicím panelu služby Azure Search průvodce **Importem dat** pro načítání dat do indexu. 
@@ -122,6 +123,6 @@ Další informace o indexerech najdete na těchto odkazech:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

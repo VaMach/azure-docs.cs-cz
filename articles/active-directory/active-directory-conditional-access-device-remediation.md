@@ -18,6 +18,7 @@
     ms.author="markvi"/>
 
 
+
 # Řešení potíží: Odsud se tam nelze dostat
 
 Při přístupu k aplikaci, například SharePoint Online, se zobrazila stránka s informací o odepření přístupu.  
@@ -142,6 +143,6 @@ Pokyny pro telefony a tablety s Androidem připravujeme.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

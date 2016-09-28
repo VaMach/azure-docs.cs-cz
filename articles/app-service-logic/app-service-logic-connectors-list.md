@@ -17,6 +17,7 @@
     ms.author="mandia"/>
 
 
+
 # Seznam konektorů a aplikací API k použití ve vašich Logic Apps
 >[AZURE.NOTE] Tato verze článku se vztahuje na verzi schématu Logic Apps ve verzi 2014-12-01-preview. Informace k Logic Apps ve verzi obecné dostupnosti najdete v tématu [Nový seznam konektorů](../connectors/apis-list.md).
 
@@ -81,6 +82,6 @@ Konektory lze použít také jako akce v rámci vaší aplikace logiky. Akce jso
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

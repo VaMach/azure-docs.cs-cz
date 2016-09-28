@@ -17,6 +17,7 @@
     ms.date="07/28/2016"
     ms.author="cynthn"/>
 
+
 # Jak se připojit a přihlásit k virtuálnímu počítači s Windows v Azure 
 
 
@@ -47,6 +48,6 @@ Pokud při připojování nastanou problémy, přečtěte si článek [Řešení
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

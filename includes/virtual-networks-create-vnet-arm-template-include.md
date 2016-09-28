@@ -58,7 +58,6 @@ Z webu github si můžete stáhnout existující šablonu ARM k vytvoření sít
 11. Uložte soubor.
   
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

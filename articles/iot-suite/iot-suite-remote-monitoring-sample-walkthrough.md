@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+
 # Návod pro předkonfigurované řešení vzdáleného monitorování
 
 ## Úvod
@@ -241,6 +242,6 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

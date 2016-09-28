@@ -16,6 +16,7 @@
      ms.date="09/12/2016"
      ms.author="dobett"/>
 
+
 # Začínáme se službou Azure IoT Hub pro Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -314,6 +315,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

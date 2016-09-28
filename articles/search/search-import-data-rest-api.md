@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Odesílání dat do služby Azure Search pomocí REST API
 > [AZURE.SELECTOR]
 - [Přehled](search-what-is-data-import.md)
@@ -170,6 +171,6 @@ Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

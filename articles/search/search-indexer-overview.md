@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Indexery ve službě Azure Search
 > [AZURE.SELECTOR]
 - [Přehled](search-indexer-overview.md)
@@ -79,6 +80,6 @@ Teď jste získali základní představu. V dalším kroku se zaměříme na po�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

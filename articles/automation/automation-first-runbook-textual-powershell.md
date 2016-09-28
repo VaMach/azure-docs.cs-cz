@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
+
 # Můj první powershellový runbook
 
 > [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-PowerShell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)  
@@ -167,6 +168,6 @@ Powershellové runbooky mají stejný životní cyklus, možnosti a správu jako
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

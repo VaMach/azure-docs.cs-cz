@@ -70,7 +70,6 @@ Pokud se chcete zaměřit na emulátor úložiště, můžete vytvořit zástupc
 
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

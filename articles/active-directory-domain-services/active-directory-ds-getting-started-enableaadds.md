@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Služba Azure AD Domain Services *(ve verzi Preview)* – Povolení služby Azure AD Domain Services
 
 ## Úloha 3: Povolení služby Azure AD Domain Services
@@ -96,6 +97,6 @@ Další úlohou konfigurace je [aktualizace DNS pro virtuální síť Azure](act
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

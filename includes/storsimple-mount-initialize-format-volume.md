@@ -36,7 +36,6 @@ Pokud si chcete přehrát video, které ukazuje, jak připojit, inicializovat a 
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

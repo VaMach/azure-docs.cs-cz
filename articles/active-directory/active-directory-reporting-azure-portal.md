@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="markvi"/>
 
+
 # Generování sestav v Azure Active Directory – verze Preview
 
 *Tato dokumentace je součástí [Příručky generování sestav v Azure Active Directory](active-directory-reporting-guide.md).*
@@ -219,6 +220,6 @@ Přečtěte si článek [Příručka generování sestav v Azure Active Director
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
     ms.date="08/10/2016"
     ms.author="jgao"/>
 
+
 # Začněte používat nástroje Visual Studio Hadoop pro HDInsight ke spouštění dotazů Hive
 
 Naučte se používat nástroje HDInsight pro Visual Studio k připojení ke clusterům HDInsight a odesílání dotazů Hive. Další informace o používání HDInsight naleznete v části [Úvod do HDInsight][hdinsight.introduction] a [Začínáme s HDInsight][hdinsight.get.started]. Další informace o připojování ke clusteru Storm naleznete v tématu [Vývoj C# topologií pro Apache Storm v HDInsight pomocí sady Visual Studio][hdinsight.storm.visual.studio.tools].
@@ -286,6 +287,6 @@ V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight z
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
+
 # Publikování aplikací pro jednotlivé uživatele v kolekci Azure RemoteAppu (verze Preview)
 
 > [AZURE.IMPORTANT]
@@ -107,6 +108,6 @@ Pokud jste se dosud neúčastnili žádného vyhodnocování verzí Preview, pou
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

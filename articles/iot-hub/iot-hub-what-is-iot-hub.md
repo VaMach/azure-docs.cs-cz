@@ -16,6 +16,7 @@
  ms.date="08/25/2016"
  ms.author="dobett"/>
 
+
 # Co je Azure IoT Hub?
 
 Vítá vás služba Azure IoT Hub. Tento článek obsahuje přehled služby Azure IoT Hub a popisuje důvody implementace řešení internetu věcí (IoT) pomocí této služby.
@@ -125,6 +126,6 @@ Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kur
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

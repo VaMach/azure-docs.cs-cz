@@ -16,6 +16,7 @@
     ms.date="09/14/2016"
     ms.author="sstein"/>
 
+
 # Vytvoření fondu elastické databáze v jazyce C&#x23;
 
 > [AZURE.SELECTOR]
@@ -317,6 +318,6 @@ Následující skript prostředí PowerShell vytvoří aplikaci Active Directory
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

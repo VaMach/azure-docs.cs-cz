@@ -90,7 +90,6 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

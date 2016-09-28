@@ -17,6 +17,7 @@
     ms.date="08/05/2016"
     ms.author="garye;haining"/>
 
+
 # Modul PowerShell pro Microsoft Azure Machine Learning
 
 Modul PowerShell pro Azure Machine Learning je výkonný nástroj, který umožňuje spravovat pracovní prostory, experimenty, datové sady či webové služby v prostředí Windows PowerShell.
@@ -57,6 +58,6 @@ Modul PowerShell bude dál vylepšován a rozšiřován i v současném období 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Začínáme s Azure Data Lake Store pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
@@ -130,6 +131,6 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -28,7 +28,6 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit novou službu StorSimple Manager, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

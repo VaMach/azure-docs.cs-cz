@@ -29,7 +29,6 @@ Hledali jste informace, které se týkají vašeho řešení a nejsou zde uveden
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

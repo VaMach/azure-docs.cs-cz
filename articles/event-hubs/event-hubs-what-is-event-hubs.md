@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="sethm"/>
 
+
 # Co je služba Azure Event Hubs?
 
 Vysoce škálovatelná služba Azure Event Hubs slouží ke zpracování příchozích dat. Dokáže přijímat miliony událostí za sekundu a umožňuje zpracovávat a analyzovat masivní objemy dat vytvářených zařízeními a aplikacemi připojenými k vaší síti. Služba Event Hubs slouží jako „vstupní brána“ pro kanál události. Jakmile jsou data shromážděna do centra událostí, lze je transformovat a ukládat pomocí libovolného zprostředkovatele datové analýzy v reálném čase nebo adaptérů pro dávkování či ukládání. Event Hubs oddělí vytvoření proudu událostí od spotřeby těchto události, aby spotřebitelé událostí mohli k událostem přistupovat podle svého vlastního plánu. Další informace a technické podrobnosti najdete v tématu [Přehled služby Event Hubs](event-hubs-overview.md).
@@ -45,6 +46,6 @@ Podrobné informace o službě Event Hubs nejdete v následujících tématech.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

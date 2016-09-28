@@ -16,6 +16,7 @@
     ms.date="07/16/2016"
     ms.author="jehollan"/>
 
+
 # Vytvoření nové aplikace logiky propojením služeb SaaS
 
 Toto téma popisuje, jak během několika minut začít s [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). Projdeme jednoduchý pracovní postup, který vám umožní odeslat zajímavé tweety na váš e-mail.
@@ -68,6 +69,6 @@ Za méně než 5 minut jste dokázali nastavit jednoduchou aplikaci logiky, kter
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

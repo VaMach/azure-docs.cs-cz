@@ -17,6 +17,7 @@
     ms.date="09/01/2016"
     ms.author="anhoh"/>
 
+
 # Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
 
 > [AZURE.SELECTOR]
@@ -607,6 +608,6 @@ Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou apl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

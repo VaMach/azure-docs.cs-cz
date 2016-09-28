@@ -17,6 +17,7 @@
      ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
+
 # Trezor služby Recovery Services – nejčastější dotazy
 
 > [AZURE.SELECTOR]
@@ -45,6 +46,6 @@ Při migraci virtuálních počítačů z klasického režimu do režimu Resourc
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

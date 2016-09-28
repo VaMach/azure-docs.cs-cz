@@ -1,6 +1,6 @@
 <properties
     pageTitle="Vytvoření webové aplikace WordPress ve službě Azure App Service | Microsoft Azure"
-    description="Naučte se vytvořit novou webovou aplikaci Azure pro blog WordPress pomocí portálu Azure."
+    description="Naučte se vytvořit novou webovou aplikaci Azure pro blog WordPress pomocí webu Azure Portal."
     services="app-service\web"
     documentationCenter="php"
     authors="rmcmurray"
@@ -15,6 +15,7 @@
     ms.topic="hero-article"
     ms.date="08/11/2016"
     ms.author="robmcm"/>
+
 
 # Vytvoření webové aplikace WordPress ve službě Azure App Service
 
@@ -32,7 +33,7 @@ Co se dozvíte:
 * Postup vytvoření webové aplikace založené na šabloně ve službě Azure App Service.
 * Postup konfigurace nastavení služby Azure App Service pro novou webovou aplikaci a databázi.
 
-Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP](/develop/nodejs/) v tomto příkladu aplikace WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), [Python](/develop/python/) a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [portál Azure](https://portal.azure.com/). 
+Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP](/develop/nodejs/) v tomto příkladu aplikace WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), [Python](/develop/python/) a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [web Azure Portal](https://portal.azure.com/). 
 
 Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL. Chcete-li jako databázi raději použít SQL Database, informace naleznete v [Projektu Nami](http://projectnami.org/). **Projekt Nami** je rovněž k dispozici prostřednictvím Azure Marketplace.
 
@@ -43,7 +44,7 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
 
 ## Výběr aplikace WordPress a konfigurace pro službu Azure App Service
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k [webu Azure Portal](https://portal.azure.com/).
 
 2. Klikněte na možnost **Nové**.
     
@@ -93,7 +94,7 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
 
 ## Spuštění a správa webové aplikace WordPress
     
-7. Až budete s vytvářením webové aplikace hotovi, přejděte na portálu Azure do skupiny prostředků, v níž jste aplikaci vytvořili, a zde se zobrazí webová aplikace a databáze.
+7. Až budete s vytvářením webové aplikace hotovi, přejděte na webu Azure Portal do skupiny prostředků, v níž jste aplikaci vytvořili, a zde se zobrazí webová aplikace a databáze.
 
     Dodatečný prostředek s ikonou žárovky je služba [Application Insights](/services/application-insights/), která pro vaši webovou aplikaci zajišťuje služby monitorování.
 
@@ -130,6 +131,6 @@ Další informace týkající se práce s webovými aplikacemi App Service Web A
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

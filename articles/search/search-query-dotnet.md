@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
+
 # Dotazování indexu Azure Search pomocí .NET SDK
 > [AZURE.SELECTOR]
 - [Přehled](search-query-overview.md)
@@ -164,6 +165,6 @@ Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

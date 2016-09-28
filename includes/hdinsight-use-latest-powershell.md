@@ -3,7 +3,6 @@
 > Podle postupu v tématu [Instalace a konfigurace prostředí Azure PowerShell](../articles/powershell-install-configure.md) si nainstalujte nejnovější verzi prostředí Azure PowerShell. Pokud máte skripty, které je potřeba upravit tak, aby používaly nové rutiny, které pracují s nástrojem Azure Resource Manager, najdete další informace v tématu [Migrace na vývojové nástroje založené na Azure Resource Manageru pro clustery služby HDInsight](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

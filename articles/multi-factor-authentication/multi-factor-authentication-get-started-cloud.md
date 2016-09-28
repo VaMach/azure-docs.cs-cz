@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Začínáme s ověřováním Microsoft Azure Multi-Factor Authenticatin v cloudu" 
-    description="Toto je stránka ověřování Azure Multi-Factor Authentication, která popisuje, jak začít s Azure MFA v cloudu." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Začínáme s ověřováním Microsoft Azure Multi-Factor Authenticatin v cloudu"
+    description="Toto je stránka ověřování Azure Multi-Factor Authentication, která popisuje, jak začít s Azure MFA v cloudu."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Začínáme s ověřováním Azure Multi-Factor Authenticatin v cloudu
 V následujícím článku se dozvíte, jak začít používat Azure Multi-Factor Authentication v cloudu.
@@ -24,16 +25,16 @@ V následujícím článku se dozvíte, jak začít používat Azure Multi-Facto
 ![MFA v cloudu](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
 ## Požadavky
-Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, je třeba splnit následující předpoklady. 
+Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, je třeba splnit následující předpoklady.
 
 
 
 
 - [Zaregistrujte si předplatné Azure](https://azure.microsoft.com/pricing/free-trial/) – pokud ještě nemáte předplatné Azure, musíte se zaregistrovat. Pokud právě začínáte a používáte Azure MFA, můžete použít zkušební verzi předplatného
-2. [Vytvořte poskytovatele ověřování Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md) a přiřaďte ho do adresáře nebo [přiřaďte licence uživatelům](multi-factor-authentication-get-started-assign-licenses.md) 
+2. [Vytvořte poskytovatele ověřování Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md) a přiřaďte ho do adresáře nebo [přiřaďte licence uživatelům](multi-factor-authentication-get-started-assign-licenses.md)
 
-> [AZURE.NOTE]  Licence jsou k dispozici pro uživatele, kteří mají Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite (EMS).  MFA je zahrnuto v Azure AD Premium a EMS. Pokud máte dostatek licencí, nemusíte vytvářet poskytovatele ověřování. 
-        
+> [AZURE.NOTE]  Licence jsou k dispozici pro uživatele, kteří mají Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite (EMS).  MFA je zahrnuto v Azure AD Premium a EMS. Pokud máte dostatek licencí, nemusíte vytvářet poskytovatele ověřování.
+
 
 ## Zapnutí ověřování Multi-Factor Authentication pro uživatele
 Pokud chcete zapnout ověřování Multi-Factor Authentication pro uživatele, jednoduše změňte stav uživatele ze zakázaného na povolený.  Další informace týkající se stavů uživatele naleznete v části [Stavy uživatele v Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -52,7 +53,7 @@ Pomocí následujícího postupu povolte MFA pro uživatele.
 6.  Otevře se nová karta prohlížeče.  Najděte uživatele, u kterého chcete povolit Multi-Factor Authentication. Možná bude třeba změnit zobrazení v horní části. Ujistěte se, zda je stav **zakázáno.**
 ![Povolte uživatele](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  **Zaškrtněte** políčko vedle svého názvu.
-7.  Na pravé straně klikněte na tlačítko **Povolit**. 
+7.  Na pravé straně klikněte na tlačítko **Povolit**.
 ![Povolit uživatele](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Klikněte na tlačítko **Povolit Multi-Factor Auth**.
 ![Povolit uživatele](./media/multi-factor-authentication-get-started-cloud/enable2.png)
@@ -71,7 +72,7 @@ Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD 
 - Zakázáno  
 
 > [AZURE.IMPORTANT]  Upozorňujeme, že pokud přejdete přímo ze stavu Zakázáno do stavu Vynuceno, zastaralí klienti ověřování přestanou pracovat, protože uživatel neprošel registrací MFA a nezískal [heslo aplikace](multi-factor-authentication-whats-next.md#app-passwords).  Pokud máte zastaralé klienty ověřování a potřebujete hesla aplikace, pak doporučujeme přejít ze stavu Zakázáno do Povoleno.  To vám umožní uživatelům zaregistrovat a získat jejich hesla aplikací.   
-        
+
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -79,7 +80,7 @@ Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD 
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 Použití prostředí PowerShell představuje možnost pro hromadné povolení uživatelů.  Aktuálně neexistuje žádná funkce hromadného povolení na portálu Azure a je nutné vybrat jednotlivé uživatele zvlášť.  To může být poměrně náročný úkol, pokud máte mnoho uživatelů.  Vytvořením skriptu prostředí PowerShell pomocí výše uvedeného můžete projít seznam uživatelů a povolit je.  Zde naleznete příklad:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -98,6 +99,6 @@ Nyní, když máte nastavené Multi-Factor Authentication v cloudu, můžete kon
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

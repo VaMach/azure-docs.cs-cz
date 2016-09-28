@@ -7,7 +7,6 @@ Projekt mobilní služby umožňuje místní spuštění nové mobilní služby.
 2. Stisknutím klávesy **F5** projekt znovu sestavte a spusťte místní mobilní službu. Po úspěšném spuštění mobilní služby se zobrazí webová stránka.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

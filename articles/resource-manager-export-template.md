@@ -16,6 +16,7 @@
     ms.date="08/03/2016"
     ms.author="tomfitz"/>
 
+
 # Vyexportování šablony Azure Resource Manageru z existujících prostředků
 
 Resource Manager vám umožňuje exportovat šablonu Resource Manageru z existujících prostředků ve vašem předplatném. Z vygenerované šablony pak zjistíte syntaxi šablony a podle potřeby pak můžete automatizovat opakované nasazení svého řešení.
@@ -306,6 +307,6 @@ Blahopřejeme! Naučili jste se, jak vyexportovat šablonu z prostředků, kter�
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

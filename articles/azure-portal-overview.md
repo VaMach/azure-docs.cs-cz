@@ -16,6 +16,7 @@
     ms.date="12/16/2015"
     ms.author="dwrede"/>
 
+
 # Přehled Portálu Microsoft Azure
 
 Portál Microsoft Azure je centrálním místem, kde můžete zřizovat a spravovat prostředky Azure.  V tomto kurzu se seznámíme s Portálem a ukážeme si, jak používat některé z těchto klíčových funkcí:
@@ -24,7 +25,7 @@ Portál Microsoft Azure je centrálním místem, kde můžete zřizovat a spravo
 - **Konzistentní stránky (okna) správy**, které vám umožní spravovat širokou škálu služeb Azure s konzistentním zobrazování nastavení, akcí, fakturačních informací, monitorování stavu, dat o využití a spousty dalších věcí.
 - **Možnosti přizpůsobení**, které vám umožňují vytvořit vlastní úvodní obrazovku s informacemi, které chcete, aby se zobrazily vždy, když se přihlásíte.  Můžete si také přizpůsobit kterékoli z oken obsahujících dlaždice.
 
- ![Orientace v uživatelském rozhraní Portálu Azure][UIOrientation]
+ ![Orientace v uživatelském rozhraní webu Azure Portal][UIOrientation]
 
 ## Než začnete
 
@@ -34,7 +35,7 @@ Abyste mohli absolvovat tento kurz, budete potřebovat platné předplatné Azur
 
 Azure má Marketplace s tisíci položkami, které můžete vytvořit z jednoho místa.  Řekněme, že chcete vytvořit nový virtuální počítač s Windows Serverem 2012.  Vašim vstupním bodem do kurátorované sady vybraných kategorií z Marketplace je centrum +NOVÝ.  Každá kategorie obsahuje menší skupinu vybraných položek spolu s odkazem na kompletní nabídku Marketplace se všemi kategoriemi a vyhledáváním. Když budete chtít vytvořit nový virtuální počítač s Windows Serverem 2012, udělejte toto:  
 
-1.  Windows Server 2012 je mezi vybranými položkami, takže ho můžete vybrat z kategorie Výpočty.  
+1.  Windows Server 2012 je mezi vybranými položkami, takže ho můžete vybrat z kategorie Compute.  
 2.  Vyplňte ve formuláři základní údaje.
 3.  Klikněte na Vytvořit. Virtuální počítač se začne okamžitě zřizovat.
 
@@ -100,6 +101,6 @@ Portál Microsoft Azure radikálně zjednodušuje vytváření a správu aplikac
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

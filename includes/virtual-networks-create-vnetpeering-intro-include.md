@@ -7,7 +7,6 @@ Přehled partnerských vztahů virtuálních sítí je ve verzi public preview. 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

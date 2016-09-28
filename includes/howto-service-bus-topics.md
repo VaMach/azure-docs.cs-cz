@@ -16,53 +16,46 @@ Pokud chcete začít používat témata a předplatné služby Service Bus v Azu
 
 Vytvoření oboru názvů:
 
-1.  Přihlaste se na [portál Azure Classic][].
+1. Přihlaste se k webu [Azure Portal][].
 
-2.  V levém navigačním podokně portálu klikněte na **Service Bus**.
+2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 
-3.  V dolním podokně portálu klikněte na **Vytvořit**.   
-    ![][0]
+4. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 
-4.  V dialogovém okně **Přidat nový obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.   
-    ![][2]
+5. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
 
-5.  Po kontrole dostupnosti oboru názvů vyberte zemi nebo oblast, ve které chcete obor názvů hostovat (nezapomeňte použít stejnou zemi nebo oblast, ve které nasazujete svoje výpočetní prostředky).
+7. V poli **Předplatné** zvolte předplatné Azure, ve které chcete vytvořit obor názvů.
 
-    > [AZURE.IMPORTANT] Vyberte **stejnou oblast**, kterou chcete zvolit pro nasazení aplikace. Tím získáte nejlepší výkon.
+9. V poli **Skupina prostředků** zvolte existující skupinu prostředků, ve které bude obor názvů fungovat, nebo vytvořte novou.      
 
-6.  V ostatních polích dialogového okna nechte výchozí hodnoty (**Zasílání zpráv** a **Úroveň Standard**) a potom klikněte na značku zaškrtnutí OK. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
+8. V poli **Umístění**, vyberte zemi nebo oblast, ve které by měl být oboru názvů hostován.
 
-    ![][6]
+    ![Vytvoření oboru názvů][create-namespace]
 
-## Získání výchozích přihlašovacích údajů pro správu oboru názvů
+6. Klikněte na tlačítko **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
+ 
+### Získání přihlašovacích údajů
 
-Abyste mohli provádět operace správy, například vytváření tématu nebo předplatného v novém oboru názvů, potřebujete získat přihlašovací údaje pro správu oboru názvů. Tyto přihlašovací údaje můžete získat na portálu.
+1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
+ 
+3. V okně **Obor názvů Service Bus** klikněte na **Zásady sdíleného přístupu**.
 
-### Získání přihlašovacích údajů pro správu na portálu
+4. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
 
-1.  V levém navigačním podokně klikněte na uzel **Service Bus** a zobrazte seznam dostupných oborů názvů:   
-    ![][0]
+    ![connection-info][connection-info]
 
-2.  V zobrazeném seznamu vyberte právě vytvořený obor názvů:   
-    ![][3]
+5. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití.
 
-3.  Klikněte na **Informace o připojení**.   
-    ![][4]
+    ![connection-string][connection-string]
 
-4.  V dialogovém okně **Informace o přístupovém připojení** najděte připojovací řetězec, který obsahuje klíč SAS a název klíče. Tyto hodnoty si poznamenejte, protože je budete později potřebovat k provádění operací s oborem názvů. 
-
-
-  [portál Azure Classic]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+[Azure Portal]: https://portal.azure.com
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -4,13 +4,13 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
 
 1. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt pojmenujte **Odesílatel**.
 
-    ![][7]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. V Průzkumníku řešení klikněte pravým tlačítkem na řešení a potom na **Spravovat balíčky NuGet pro řešení**. 
 
 3. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Zkontrolujte, jestli je v okně **Verze** uvedený název projektu (**Odesílatel**). Klikněte na **Instalovat** a přijměte podmínky použití. 
 
-    ![][8]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
     Visual Studio stáhne a nainstaluje [balíček NuGet knihovny Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) a přidá se na něj odkaz.
 
@@ -66,11 +66,6 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
     ```
 
 
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

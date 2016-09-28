@@ -16,6 +16,7 @@
     ms.date="07/24/2016"
     ms.author="swkrish"/>
 
+
 # Azure Active Directory B2C: Registrace a přihlašování uživatelů aplikace
 
 Azure Active Directory B2C je komplexní cloudové řešení pro správu identit pro webové a mobilní aplikace určené uživatelům. Jedná se o vysoce dostupnou globální službu, která je škálovatelná pro stovky milionů uživatelských identit. Azure Active Directory B2C je postavené na platformě zabezpečené na podnikové úrovni a chrání tak vaše aplikace, firmu i uživatele.
@@ -68,6 +69,6 @@ Doporučujeme vám získávat oznámení o bezpečnostních incidentech tak, že
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

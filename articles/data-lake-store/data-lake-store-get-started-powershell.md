@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Začínáme s Azure Data Lake Store pomocí Azure PowerShell
 
 > [AZURE.SELECTOR]
@@ -142,6 +143,6 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

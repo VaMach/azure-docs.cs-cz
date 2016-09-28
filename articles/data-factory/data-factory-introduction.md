@@ -17,6 +17,7 @@
     ms.date="09/08/2016" 
     ms.author="spelluru"/>
 
+
 # Úvod do služby Azure Data Factory, služby pro integraci dat v cloudu
 
 ## Co je služba Azure Data Factory? 
@@ -78,6 +79,6 @@ Kurz | Popis
 [Vytvoření datového kanálu pro přesun dat mezi místním úložištěm dat a cloudovým úložištěm dat pomocí Brány správy dat](data-factory-move-data-between-onprem-and-cloud.md) | V tomto kurzu sestavíte objekt pro vytváření dat s kanálem, který **přesouvá data** z databáze **místního** systému SQL Server do objektu blob Azure. Jako součást návodu nainstalujete a nakonfigurujete ve svém počítači Bránu správy dat. 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

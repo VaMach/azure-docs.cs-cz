@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Vytvoření indexu Azure Search pomocí rozhraní REST API
 > [AZURE.SELECTOR]
 - [Přehled](search-what-is-an-index.md)
@@ -108,6 +109,6 @@ Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah]
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

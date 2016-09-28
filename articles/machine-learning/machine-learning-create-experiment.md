@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="garye"/>
 
+
 # Kurz Machine Learningu: Vytvoření prvního experimentu z oblasti datové vědy v nástroji Azure Machine Learning Studio
 
 Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Vytvoříme model lineární regrese, který bude předpovídat cenu automobilu podle různých proměnných, třeba značky a technických specifikací. K tomu využijeme Azure Machine Learning Studio, ve kterém budeme vyvíjet a iterovat jednoduchý experiment prediktivní analýzy.
@@ -249,6 +250,6 @@ Rozsáhlejší a podrobnější návod k technikám prediktivního modelování 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

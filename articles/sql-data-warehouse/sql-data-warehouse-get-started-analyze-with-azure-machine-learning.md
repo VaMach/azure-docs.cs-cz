@@ -16,6 +16,7 @@
    ms.date="09/14/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
+
 # Analýza dat pomocí Azure Machine Learning
 
 > [AZURE.SELECTOR]
@@ -148,6 +149,6 @@ Další informace o vytváření prediktivních modelů strojového učení najd
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

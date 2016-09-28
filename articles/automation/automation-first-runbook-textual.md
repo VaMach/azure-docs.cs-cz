@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
+
 # Můj první runbook pracovního postupu PowerShellu
 
 > [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-PowerShell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)
@@ -165,6 +166,6 @@ Náš runbook aktuálně spouští virtuální počítač, který jsme do něj p
 -  Další informace o funkci podpory powershellových skriptů najdete v článku [Nativní podpora powershellových skriptů ve službě Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

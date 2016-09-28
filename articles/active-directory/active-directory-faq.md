@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markusvi"/>
 
+
 # Nejčastější dotazy ke službě Azure Active Directory
 
 Azure Active Directory je komplexní řešení Identity jako služby (IDaaS), které pokrývá všechny prvky identity, řízení přístupu a zabezpečení.
@@ -207,6 +208,6 @@ Další informace najdete v tématu [Automatizace zřizování uživatelů a jeh
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

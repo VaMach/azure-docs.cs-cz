@@ -30,7 +30,6 @@
 7. Kliknutím na **Otevřít** spustíte sériovou relaci.
  
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

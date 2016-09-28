@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="cgronlun;chhavib;olgali"/>
 
+
 # Vytváření nových experimentů Machine Learningu na základě kopírování ukázkových experimentů
 Naučte se pracovat s experimenty pomocí ukázek z [Cortana Intelligence Galerie](http://gallery.cortanaintelligence.com/), místo abyste vytvářeli experimenty Machine Learningu od začátku. Ukázky můžete použít k sestavení vlastních řešení Machine Learningu.
 
@@ -70,6 +71,6 @@ V pracovním prostoru se vytvoří nový experiment, ve kterém ukázkový exper
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/25/2016"
     ms.author="spelluru"/>
 
+
 # Přijmutí služby Azure Data Catalog
 Tento článek vám pomůže přijmout službu **Azure Data Catalog** ve vaší organizaci. Chcete-li úspěšně přijmout službu **Azure Data Catalog**, budete se muset zaměřit na tři klíčové položky: definovat svou vizi, identifikovat klíčové případy obchodního použití v rámci vaší organizace a zvolit pilotní projekt.
 
@@ -175,6 +176,6 @@ Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší or
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

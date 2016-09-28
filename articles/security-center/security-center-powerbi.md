@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 # Přehledné znázornění dat z Azure Security Center v řešení Power BI
 [Řídicí panel Power BI](http://aka.ms/azure-security-center-power-bi) pro Azure Security Center umožňuje zobrazovat, analyzovat a filtrovat doporučení a výstrahy zabezpečení odkudkoli, třeba i z vašeho mobilního zařízení. Pomocí řídicího panelu Power BI můžete odhalovat trendy a vzorce útoků – stačí zobrazit výstrahy zabezpečení podle prostředku nebo zdrojové IP adresy a nevyřešená rizika zabezpečení podle prostředku nebo stáří. 
@@ -26,7 +27,7 @@ K sestavám Power BI můžete získat přístup také pomocí řídicího panelu
 
 1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Prozkoumání v Power BI**.
 
-    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png) 
+    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
 
 2. Napravo se otevře okno **Prozkoumání v Power BI**, jak vidíte na následující obrazovce:
 
@@ -113,10 +114,10 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 - [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md) – Zjistěte, jak se v Azure Security Center konfigurují zásady zabezpečení.
 - [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 - [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
-- [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
+- [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

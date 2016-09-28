@@ -17,6 +17,7 @@
     ms.date="07/06/2016"
     ms.author="iainfou"/>
 
+
 # Různé způsoby, jak vytvořit virtuální počítač s Linuxem pomocí Resource Manageru
 
 Azure umožňuje vytvářet virtuální počítače pomocí modelu nasazení s využitím Resource Manageru různými způsoby – podle potřeb uživatelů a pro konkrétní účely. Tento článek shrnuje tyto rozdíly a volby, které můžete zvolit pro vytvoření virtuálních počítačů s Linuxem.
@@ -123,6 +124,6 @@ Pokud budete potřebovat image se zvláštními úpravami, můžete *zachytit* e
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

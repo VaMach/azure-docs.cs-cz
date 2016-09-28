@@ -4,7 +4,6 @@ Pokud chcete povolit port bez SSL, pomocí možnosti [Procházet](../articles/re
 
 
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

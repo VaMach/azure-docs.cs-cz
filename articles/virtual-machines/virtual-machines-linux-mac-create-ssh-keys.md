@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="v-livech"/>
 
+
 # Vytvoření klíčů SSH na Linuxu a Macu pro virtuální počítače s Linuxem v Microsoft Azure
 
 Pomocí páru klíčů SSH můžete v Azure vytvořit službu Virtual Machines, která ve výchozím nastavení používá klíče SSH k ověřování. Není potom potřeba používat k přihlášení hesla.  Hesla se dají uhodnout a jejich používání může vaše virtuální počítače vystavit útokům hrubou silou při pokusech o jejich uhodnutí. Virtuální počítače vytvářené pomocí šablon Azure nebo `azure-cli` mohou jako součást svého nasazení zahrnovat veřejný klíč SSH. Po nasazení potom není potřeba provádět konfiguraci.  Pokud se k virtuálnímu počítači s Linuxem připojujete z Windows, přečtěte si [tento dokument](virtual-machines-linux-ssh-from-windows.md).
@@ -245,6 +246,6 @@ Dalším krokem je vytvoření virtuálního počítače Azure s Linuxem pomocí
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

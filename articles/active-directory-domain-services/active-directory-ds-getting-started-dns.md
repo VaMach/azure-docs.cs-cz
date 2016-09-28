@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Domain Services *(Preview)* – Aktualizace nastavení DNS pro virtuální síť Azure
 
 ## Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
@@ -53,6 +54,6 @@ Dalším úkolem konfigurace je [povolení synchronizace hesel do služby Azure 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

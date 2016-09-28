@@ -7,7 +7,6 @@ Nejjednodušší způsob, jak vytvořit první účet úložiště Azure, je pom
 Pokud teď nechcete vytvářet účet úložiště, můžete také pomocí emulátoru úložiště Azure spustit a otestovat kód v místním prostředí. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../articles/storage/storage-use-emulator.md).
  
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

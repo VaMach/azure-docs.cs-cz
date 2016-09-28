@@ -16,6 +16,7 @@
     ms.date="08/15/2016"
     ms.author="curtand"/>
 
+
 # Jak je předplatné Azure propojeno se službou Azure Active Directory
 
 V tomto tématu najdete informace o přihlášení do služby Microsoft Azure a souvisejících problémech, jako je například vztah mezi předplatným služby Azure a službou Azure Active Directory (Azure AD).
@@ -141,6 +142,6 @@ Abyste mohli na portálu Azure Classic spravovat oba adresáře, postupujte nás
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

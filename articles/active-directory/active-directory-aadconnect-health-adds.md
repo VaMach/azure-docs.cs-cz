@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="arluca"/>
 
+
 # Používání služby Azure AD Connect Health se službou AD DS
 Následující dokumentace se věnuje monitorování služby Active Directory Domain Services pomocí služby Azure AD Connect Health. Patří sem služby AD DS nainstalované v systému Windows Server 2008 R2, Windows Server 2012 a Windows Server 2012 R2.
 
@@ -62,6 +63,6 @@ Ve výchozím nastavení jsme předem vybrali čtyři čítače výkonu. Kliknut
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

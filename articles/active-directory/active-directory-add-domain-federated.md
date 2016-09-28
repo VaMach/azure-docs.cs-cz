@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Přidání vlastního názvu domény do Azure Active Directory
 
 Můžete si nakonfigurovat vlastní název domény, například contoso.com, aby uživatelé webu contoso.com mohli využívat jednotné federované přihlašování z podnikové sítě. Pokud už využíváte službu AD FS (Active Directory Federation Services) nebo jiný federační server spuštěný v podnikové síti, můžete službu Azure AD nakonfigurovat pomocí nástroje Azure AD Connect tak, aby používala vlastní název domény. Azure AD Connect můžete použít také k nasazení nového prostředí služby AD FS a k jeho konfiguraci pro jednotné federované přihlašování do Azure AD.
@@ -66,7 +67,7 @@ Pokud nemůžete vlastní název domény ověřit, zkuste následující postup.
 
 ## Přidání dalších vlastních názvů domén
 
-Pokud vaše organizace používá více vlastních názvů domén, například „contoso.com“ a „contosobank.com“, můžete přidat všechny (až do maximálního počtu 900 názvů domén). Všechny svoje názvy domén můžete přidat opakováním postupu popsaného v tomto článku.
+Pokud vaše organizace používá několik vlastních názvů domén, například contoso.com a contosobank.com, můžete je přidat všechny (až do maximálního počtu 900 názvů domén). Všechny názvy domén můžete přidat opakováním postupu popsaného v tomto článku.
 
 ## Další kroky
 
@@ -77,6 +78,6 @@ Pokud vaše organizace používá více vlastních názvů domén, například �
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

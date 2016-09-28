@@ -4,7 +4,6 @@
 2. Přihlaste se pomocí přihlašovacích údajů služby Azure a v části **Stávající Mobile Services** vyberte svoji službu. Visual Studio stáhne vaše nastavení publikování přímo z Azure. Nakonec klikněte na **Publikovat**.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -30,7 +30,6 @@ Pokud chcete vytvořit síť VNet pomocí portálu Azure, použijte následujíc
 
     ![Dlaždice Vytváření virtuální sítě](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

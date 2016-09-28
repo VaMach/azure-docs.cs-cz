@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/03/2016"
-    ms.author="krisagh"/>
+    ms.author="glennga"/>
+
 
 # <a name="getting-started"> </a>Co jsou Mobile Apps?
 
@@ -105,6 +106,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

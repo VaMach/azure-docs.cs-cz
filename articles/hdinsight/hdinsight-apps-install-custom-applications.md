@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Instalace vlastních aplikací HDInsight
 
 Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux.  Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se dozvíte, jak nainstalovat aplikaci HDInsight, která nebyla publikována na portálu Azure v HDInsight. Aplikace, kterou nainstalujete se jmenuje [Hue](http://gethue.com/). 
@@ -147,6 +148,6 @@ Pomocí Azure CLI můžete odstranit cluster nebo skupinu prostředků. Viz tém
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

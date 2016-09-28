@@ -16,6 +16,7 @@
     ms.date="09/28/2015"
     ms.author="dastrock"/>
 
+
 # Získání klienta Azure Active Directory
 
 V Azure Active Directory (Azure AD) představuje [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) zástupce organizace.  Je vyhrazenou instancí služby Azure AD, kterou obdrží a vlastní organizace, když si zaregistruje cloudovou službu společnosti Microsoft, například Azure, Microsoft Intune nebo Office 365.  Každý klient Azure AD se odlišuje a je oddělený od ostatních klientů Azure AD.  
@@ -67,6 +68,6 @@ Součástí registrace do služby Azure je zadání údajů z platební karty.  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

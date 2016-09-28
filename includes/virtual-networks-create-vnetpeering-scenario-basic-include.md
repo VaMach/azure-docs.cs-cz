@@ -6,7 +6,6 @@ V tomto scénáři vytvoříte partnerské vztahy mezi dvěma virtuálními sít
 
 Vytvoření partnerských vztahů mezi virtuálními sítěmi umožní úplnou konektivitu mezi celým adresním prostorem těchto virtuálních sítí.    
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.author="piyushjo"/>
 
 
+
 # Vytvoření aplikace Azure Mobile Engagement
 
 Tento článek ukazuje, jak metodou **Rychlé vytvoření** vytvořit novou aplikaci **Azure Mobile Engagement**. Také se zde dozvíte, jak se orientovat na portálu **Mobile Engagement**, když chcete spustit sledování a správu aplikací. 
@@ -50,6 +51,6 @@ Jakmile jste na portálu Mobile Engagement, můžete analyzovat, vytvářet a sp
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

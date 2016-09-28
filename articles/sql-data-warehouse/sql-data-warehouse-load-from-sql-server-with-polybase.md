@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
 
 > [AZURE.SELECTOR]
@@ -286,6 +287,6 @@ Projděte si [průvodce funkcí PolyBase][], kde najdete další informace, kter
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

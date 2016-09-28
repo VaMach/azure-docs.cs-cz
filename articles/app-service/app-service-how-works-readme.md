@@ -17,6 +17,7 @@
     ms.date="02/10/2016" 
     ms.author="yochay"/>
 
+
 # Jak funguje App Service
 
 Azure App Service je cloudová služba navržená k řešení praktických problémů, kterým čelí dnešní vývojáři. App Service se zaměřuje na zajištění vysoké produktivity při vývoji bez omezení potřeby zajistit aplikace v cloudovém měřítku. App Service navíc poskytuje funkce a rozhraní, které jsou nezbytné k vytváření podnikových obchodních aplikací, a současně podporuje vývojáře prostřednictvím nejoblíbenějších vývojových jazyků (.NET, Java, PHP, Node.JS a Python).
@@ -42,6 +43,6 @@ V kostce řečeno, funkce App Service umožňují vývojářům soustředit se n
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,7 +16,6 @@ Závěrečná fáze tohoto kurzu je sestavení a spuštění nové aplikace.
     </div>
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

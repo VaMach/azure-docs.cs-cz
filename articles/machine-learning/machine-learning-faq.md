@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="garye"/>
 
+
 # Časté otázky ke službě Azure Machine Learning: fakturace, schopnosti, omezení a podpora
 
 Toto téma s častými otázkami odpovídá na dotazy ke cloudové službě Azure Machine Learning, která slouží k vývoji prediktivních modelů a zprovozňování řešení prostřednictvím webových služeb. Jde o dotazy k používání služby, včetně modelu fakturace, schopností, omezení a podpory.
@@ -588,6 +589,6 @@ Přístup hosta je omezený zkušební přístup, který umožňuje vytvářet a
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

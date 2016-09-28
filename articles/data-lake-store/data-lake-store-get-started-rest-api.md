@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Začínáme s Azure Data Lake Store pomocí rozhraní REST API
 
 > [AZURE.SELECTOR]
@@ -277,6 +278,6 @@ Zobrazený výstup by měl vypadat asi takto:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

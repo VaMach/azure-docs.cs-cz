@@ -16,6 +16,7 @@
    ms.date="08/11/2016"
    ms.author="yurid"/>
 
+
 # Průvodce plánováním a provozem služby Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), IT architektům, analytikům zabezpečení informací a správcům cloudů, jejichž společnosti hodlají začít používat Azure Security Center.
 
@@ -244,6 +245,6 @@ V tomto dokumentu jste zjistili, jak naplánovat přechod na službu Security Ce
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

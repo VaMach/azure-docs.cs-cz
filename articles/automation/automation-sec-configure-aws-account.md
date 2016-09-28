@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte"/>
 
+
 # Ověření runbooků pomocí Amazon Web Services
 Automatizaci běžných úkolů pomocí prostředků ve službě Amazon Web Services můžete provést pomocí runbooků Automation v Azure.  V AWS můžete automatizovat celou řadu úloh pomocí runbooků Automation, stejně to děláte s prostředky v Azure.  Potřebujete jen dvě věci:
 
@@ -38,6 +39,6 @@ Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

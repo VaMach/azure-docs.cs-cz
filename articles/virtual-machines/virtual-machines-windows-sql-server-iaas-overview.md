@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="jroth"/>
 
+
 # Přehled SQL Serveru v Azure Virtual Machines
 
 Toto téma popisuje možnosti spouštění SQL Serveru ve službě Azure Virtual Machines a uvádí [odkazy na image na portálu](#option-1-deploy-a-sql-vm-per-minute-licensing) a přehled [běžných úkolů](#manage-your-sql-vm).
@@ -96,6 +97,6 @@ Máte nějaký další dotaz? Nejdříve si projděte [Nejčastější dotazy k 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

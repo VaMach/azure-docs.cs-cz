@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="yurid"/>
 
+
 # Funkce detekce ve službě Azure Security Center
 Tento dokument popisuje pokročilé schopnosti detekce služby Azure Security Center, které pomáhají při identifikaci aktivních hrozeb cílených na prostředky Microsoft Azure, a poskytuje vám informace potřebné pro rychlou reakci na tyto hrozby.
 
@@ -90,6 +91,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center funguje d
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

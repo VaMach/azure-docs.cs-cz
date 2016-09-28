@@ -55,7 +55,6 @@ Pokud vytváříte záznam SRV v kořenu zóny, můžete v názvu záznamu uvés
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

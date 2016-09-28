@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/22/2016"
+    ms.date="09/21/2016"
     ms.author="haining;garye" />
+
 
 
 # Diagram s přehledem možností nástroje Machine Learning Studio
@@ -50,6 +51,6 @@ Stáhněte si diagram s **přehledem možností nástroje Machine Learning Studi
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

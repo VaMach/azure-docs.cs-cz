@@ -16,6 +16,7 @@
     ms.author="daviste"/>
 
 
+
 # Nastavte Application Insights pro ASP.NET
 
 [Visual Studio Application Insights](app-insights-overview.md) monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami](app-insights-detect-triage-diagnose.md) a [zjistit, jak se vaše aplikace používá](app-insights-overview-usage.md).  Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na cloudových virtuálních počítačích a také webových aplikacích Azure.
@@ -144,6 +145,6 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

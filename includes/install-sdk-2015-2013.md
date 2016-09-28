@@ -7,7 +7,6 @@ Pokud nemáte nainstalovanou sadu Visual Studio, použijte odkaz na Visual Studi
 >[AZURE.NOTE] V závislosti na tom, kolik závislostí sady SDK už na počítači máte, může instalace sady SDK trvat dlouhou dobu: několik minut, půl hodiny nebo i déle.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Načtení dat z Azure Blob Storage do Azure SQL Data Warehouse (Azure Data Factory)
 
 > [AZURE.SELECTOR]
@@ -240,6 +241,6 @@ Tato témata obsahují podrobné informace o službě Azure Data Factory. Jsou v
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

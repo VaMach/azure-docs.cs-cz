@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Vzdálená plocha brány a server Azure Multi-Factor Authentication využívající protokol RADIUS" 
-    description="Toto je stránka ověřování Azure Multi-Factor Authentication, která vám pomůže při nasazení brány vzdálené plochy (RD) a serveru Azure Multi-Factor Authentication využívajícím protokol RADIUS." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Vzdálená plocha brány a server Azure Multi-Factor Authentication využívající protokol RADIUS"
+    description="Toto je stránka ověřování Azure Multi-Factor Authentication, která vám pomůže při nasazení brány vzdálené plochy (RD) a serveru Azure Multi-Factor Authentication využívajícím protokol RADIUS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Brána vzdálené plochy Azure Multi-Factor Authentication Server pomocí protokolu RADIUS
 
@@ -55,12 +56,12 @@ Server Azure Multi-Factor Authentication je nakonfigurován jako proxy server pr
 1. Otevřete server Azure Multi-Factor Authentication a klikněte na ikonu ověření služby RADIUS. Zaškrtněte políčko Povolit ověřování pomocí protokolu RADIUS.
 2. Na kartě klienti ověřte, zda se porty shodují s tím, co je nakonfigurováno na serveru NPS a klikněte na tlačítko Přidat... . Přidejte IP adresu serveru Brány VP, název aplikace (volitelný) a sdílený tajný klíč. Sdílený tajný klíč bude muset být stejný jak na serveru Azure Multi-Factor Authentication, tak i v Bráně VP.
 3. Klikněte na kartu Cíl a zvolte přepínač serveru RADIUS.
-4. Klikněte na tlačítko Přidat... . Zadejte IP adresu, sdílený tajný klíč a porty serveru NPS. Pokud nepoužíváte centrální server NPS, klient protokolu RADIUS a cíl RADIUS budou stejné. Sdílený tajný klíč musí odpovídat jednomu nastavení v oddílu klienta protokolu RADIUS serveru NPS. 
+4. Klikněte na tlačítko Přidat... . Zadejte IP adresu, sdílený tajný klíč a porty serveru NPS. Pokud nepoužíváte centrální server NPS, klient protokolu RADIUS a cíl RADIUS budou stejné. Sdílený tajný klíč musí odpovídat jednomu nastavení v oddílu klienta protokolu RADIUS serveru NPS.
 
 ![Ověřování Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

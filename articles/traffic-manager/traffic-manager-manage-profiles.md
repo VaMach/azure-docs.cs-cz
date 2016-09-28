@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Správa profilu Azure Traffic Manageru
 
 Prostřednictvím profilu Traffic Manageru můžete určovat koncové body služeb Cloud Services nebo webů, které budou monitorovány Traffic Managerem, a metodu směrování provozu, kterou chcete používat pro distribuci připojení do těchto koncových bodů.
@@ -86,6 +87,6 @@ Můžete zobrazit historii změn pro svůj profil Traffic Manageru na portálu A
 [Řešení potíží při sníženém výkonu Traffic Manageru](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

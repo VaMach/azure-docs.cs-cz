@@ -19,6 +19,7 @@
     ms.author="joseidz"/>
 
 
+
 # Kurz k SQL Database: Připojení Excelu k Azure SQL Database a vytvoření sestavy
 
 > [AZURE.SELECTOR]
@@ -86,6 +87,6 @@ Máte vytvořené připojení a také soubor s daty a informacemi o připojení,
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

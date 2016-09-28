@@ -3,7 +3,7 @@
     description="Tento kurz vám pomůže naučit se základy používání služby Azure Event Hubs s jazykem C# a knihovny EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="09/02/2016"
-    ms.author="sethm"/>
+    ms.author="jotaub;sethm"/>
+
 
 # Začínáme se službou Event Hubs
 
@@ -96,6 +97,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,6 +19,7 @@
    ms.author="rogardle"/>
 
 
+
 # Připojení ke clusteru Azure Container Service
 
 Clustery DC/OS a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST. Tyto koncové body ale nejsou k dispozici pro vnější svět. Pokud chcete tyto koncové body spravovat, je nutné vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu SSH můžete proti koncovým bodům clusteru spouštět příkazy a na svém vlastním systému si můžete přes prohlížeč zobrazit uživatelské rozhraní clusteru. Tento dokument vás provede vytvořením tunelu SSH z Linuxu, OS X a Windows.
@@ -120,6 +121,6 @@ Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

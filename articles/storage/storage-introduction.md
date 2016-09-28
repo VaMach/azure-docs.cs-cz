@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="vamshik;tamram"/>
+
 
 # Úvod do Microsoft Azure Storage
 
@@ -132,14 +133,14 @@ Další informace o sdílených přístupových podpisech najdete v tématu [Pou
 
 ## Replikace pro odolnost a vysokou dostupnost
 
-Data v účtu úložiště Microsoft Azure se vždy replikují, protože se tím zajistí jejich odolnost a vysoká dostupnost a splní se tím nároky [SLA pro úložiště](https://azure.microsoft.com/support/legal/sla/storage/) i při krátkodobém výpadku hardwaru. 
+Data v účtu úložiště Microsoft Azure se vždy replikují, protože se tím zajistí jejich odolnost a vysoká dostupnost a splní se tím nároky [SLA pro úložiště](https://azure.microsoft.com/support/legal/sla/storage/) i při krátkodobém výpadku hardwaru.
 
 V článku [Oblasti Azure](https://azure.microsoft.com/regions/#services) najdete další informace o tom, které služby jsou dostupné v jednotlivých oblastech.
 
 Při vytvoření účtu úložiště si musíte vybrat jednu z těchto možností replikace:  
 
 - **Místně redundantní úložiště (LRS).** Místně redundantní úložiště udržuje tři kopie dat. LRS se replikuje třikrát v rámci jednoho zařízení v jedné oblasti. LRS chrání vaše data před běžnými výpadky hardwaru, ale ne před výpadkem celého zařízení.  
-  
+
     LRS se nabízí se slevou. Pro maximální odolnost doporučujeme použít geograficky redundantní úložiště popsané dole.
 
 
@@ -148,8 +149,8 @@ Při vytvoření účtu úložiště si musíte vybrat jednu z těchto možnost�
     ZRS poskytuje větší odolnost než LRS, ale pro maximální odolnost doporučujeme použít geograficky redundantní úložiště popsané dole.  
 
     > [AZURE.NOTE] ZRS je aktuálně dostupné jen pro objekty blob bloku a podporuje se od verze 2014-02-14.
-    > 
-    > Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS. 
+    >
+    > Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS.
 
 - **Geograficky redundantní úložiště (GRS)** GRS udržuje šest kopií dat. S GRS data se replikují třikrát v rámci primární oblasti a třikrát v sekundární oblasti stovky kilometrů od primární oblasti, takže poskytuje nejvyšší úroveň odolnosti. V případě výpadku primární oblasti převezme služby sekundární oblast. GRS zajistí, aby vaše data byla odolná ve dvou oblastech.
 
@@ -158,7 +159,7 @@ Při vytvoření účtu úložiště si musíte vybrat jednu z těchto možnost�
 - **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)** Při vytváření účtu úložiště se automaticky povolí geograficky redundantní úložiště jen pro čtení. Geograficky redundantní úložiště s přístupem pro čtení replikuje data do sekundárního geografického umístění a v sekundárním umístění poskytne k datům přístup pro čtení. Geograficky redundantní úložiště s přístupem pro čtení vám umožní přistupovat k datům z primárního nebo sekundárního umístění pro případ, že bude jedno umístění nedostupné.
 
     > [AZURE.IMPORTANT] Pokud jste při vytváření účtu nezvolili replikaci ZRS, můžete způsob replikace později změnit. Pokud ale z LRS přejdete na GRS nebo RA-GRS, může se vám účtovat jednorázový poplatek za přenos dat.
- 
+
 Další informace o replikaci úložiště najdete v tématu [Replikace Azure Storage](storage-redundancy.md).
 
 Informace o cenách a sazbách pro jednotlivé způsoby replikace úložiště najdete v tématu [Azure Storage – Ceny](https://azure.microsoft.com/pricing/details/storage/).
@@ -269,6 +270,6 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

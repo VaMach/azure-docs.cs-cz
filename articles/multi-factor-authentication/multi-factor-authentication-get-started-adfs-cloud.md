@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS" 
-    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s vícefaktorovým ověřováním Azure a službami AD FS v cloudu." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS"
+    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s vícefaktorovým ověřováním Azure a službami AD FS v cloudu."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
 
 Pokud je vaše organizace federovaná pomocí služby Azure Active Directory a vy máte prostředky, které jsou dostupné přes Azure AD, můžete použít k zabezpečení těchto prostředků ověřování Azure Multi-Factor Authentication nebo Active Directory Federation Services. Následující postupy použijte k zabezpečení prostředků Azure Active Directory s ověřováním Azure Multi-Factor Authentication nebo Active Directory Federation Services.
 
-## Zabezpečení prostředků Azure AD pomocí služby AD FS proveďte následující: 
+## Zabezpečení prostředků Azure AD pomocí služby AD FS proveďte následující:
 
 
 
@@ -71,7 +72,7 @@ První věc, kterou je potřeba udělat, je konfigurace deklarací identity slu�
 10. V průvodci Přidat transformované pravidlo deklarace identity vyberte možnost Odeslat deklarace identity pomocí vlastního pravidla z rozevíracího seznamu a klikněte na tlačítko Další.
 11. V rozevíracím seznamu pod položkou Název pravidla deklarace identity: zadejte Zachovat přihlášené uživatele.
 12. Do pole Vlastní pravidlo zadejte:
-        
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -100,12 +101,6 @@ A to je vše! Od tohoto okamžiku musí federovaní uživatelé služeb Office 3
 
 
 
-
-
-
-
-
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

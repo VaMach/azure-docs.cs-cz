@@ -17,6 +17,7 @@
     ms.date="07/13/2016"
     ms.author="anandy;billmath"/>
 
+
 # Nasazení služby AD FS v Azure 
 
 Služby AD FS nabízí zjednodušené možnosti zabezpečené federace identit a jednotného přihlašování na webu (SSO). Federace pomocí Azure AD nebo O365 uživatelům umožňuje ověřování pomocí místních přihlašovacích údajů a přístup ke všem prostředkům v cloudu. V důsledku toho je důležité mít vysoce dostupnou infrastrukturu služby AD FS, která zajistí přístup k místním prostředkům i k prostředkům v cloudu. Nasazení služby AD FS v Azure může zajistit požadovanou vysokou dostupnost při minimálním úsilí.
@@ -319,6 +320,6 @@ Po úspěšném přihlášení zobrazí zprávu o úspěchu, jak je uvedeno ní�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/12/2016"
     ms.author="asteen"/>
 
+
 # Začínáme se správou hesel
 
 > [AZURE.IMPORTANT] **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md).
@@ -361,6 +362,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

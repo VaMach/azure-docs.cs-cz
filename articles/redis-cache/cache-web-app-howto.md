@@ -16,6 +16,7 @@
     ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
+
 # Vytvoření webové aplikace s Redis Cache
 
 > [AZURE.SELECTOR]
@@ -852,6 +853,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

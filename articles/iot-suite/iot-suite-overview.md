@@ -17,6 +17,7 @@
      ms.date="08/09/2016"
      ms.author="dobett"/>
 
+
 # Co je Azure IoT Suite?
 
 Služby v sadě Azure IoT Suite nabízejí celou řadu funkcí. Tyto služby na úrovni řešení pro velké firmy umožňují:
@@ -67,6 +68,6 @@ Teď, když máte přehled o tom, co sada IoT Suite dokáže a jaké jsou její 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

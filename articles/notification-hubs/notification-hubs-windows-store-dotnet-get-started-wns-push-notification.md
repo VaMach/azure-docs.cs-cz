@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="wesmc"/>
 
+
 # Začínáme používat službu Notification Hubs pro aplikace Univerzální platformy Windows
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -178,7 +179,7 @@ Příjem oznámení ve vaší aplikaci můžete rychle otestovat zasláním ozn�
 
 Nabízená oznámení se většinou posílají ve službě back-end, jako je služba Mobile Services, nebo v technologii ASP.NET pomocí kompatibilní knihovny. Můžete také použít rozhraní API REST k přímému zasílání oznámení, pokud pro vaše prostředí back-end není dostupná žádná knihovna. 
 
-V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]. Následující přístupy lze však použít pro zasílání oznámení:
+V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme absolvovat kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Následující přístupy lze však použít pro zasílání oznámení:
 
 * **Rozhraní REST**: oznámení můžete podporovat na jakékoli backend platformě pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -248,7 +249,7 @@ Všechny podporované datové části v tématech [katalog informační zprávy]
 
 ##Další kroky
 
-V tomto jednoduchém příkladu jste zaslali oznámení vysílání pro všechna vaše zařízení systému Windows pomocí portálu nebo aplikace konzoly. Jako další krok doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
+V tomto jednoduchém příkladu jste zaslali oznámení vysílání pro všechna vaše zařízení systému Windows pomocí portálu nebo aplikace konzoly. Jako další krok doporučujeme tutoriál [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, přečtěte si kurz [Používání centra oznámení k odesílání novinek]. 
 
@@ -267,7 +268,7 @@ Další obecné informace o službě Notification Hubs najdete v tématu [Průvo
 
 <!-- URLs. -->
 
-[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Použití Notification Hubs k odeslání nabízených oznámení uživatelům]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [katalog informační zprávy]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
@@ -276,6 +277,6 @@ Další obecné informace o službě Notification Hubs najdete v tématu [Průvo
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

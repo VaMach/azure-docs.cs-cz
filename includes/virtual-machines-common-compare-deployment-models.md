@@ -47,7 +47,7 @@ V této části probereme několik nejdůležitějších koncepčních rozdílů
 
 Práci se šablonami Azure můžete zahájit využitím různých nástrojů, které máme pro vývoj a nasazení na platformu.
 
-### Portál Azure
+### portál Azure
 
 Portál Azure bude stále nabízet možnost pro nasazení služby Virtual Machines s klasickým modelem nasazení a služby Virtual Machines s modelem nasazení Resource Manageru současně. Portál Azure také umožní i nasazení vlastní šablony.
 
@@ -65,7 +65,7 @@ V nejnovější verzi sady Azure SDK pro sadu Visual Studio můžete vytvářet 
 
 ### Rozhraní REST API
 
-Podrobnou dokumentaci k REST API pro poskytovatele výpočetních a síťových prostředků a prostředků úložiště najdete [tady](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Podrobnou dokumentaci k REST API pro poskytovatele prostředků CRP (Compute Resource Provider), NRP (Network Resource Provider) a SRP (Storage Resource Provider) najdete [tady](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
 ## Nejčastější dotazy
 
@@ -85,16 +85,11 @@ Kvóty pro služby Virtual Machines, Virtual Network a účty služby Storage vy
 
 Všechny vámi vytvořené automatizace a skripty budou fungovat v existujících službách Virtual Machines a Virtual Network, které byly vytvořeny v rámci režimu Azure Service Management. Skripty je však potřeba aktualizovat, aby používaly nové schéma pro vytváření stejných prostředků prostřednictvím nového režimu správce Azure Resource Manager.
 
-**Můžu služby Virtual vytvořené pomocí nových rozhraní API správce Azure Resource Manager připojit ke svému okruhu Express Route?**
-
-Toto se aktuálně nepodporuje. Služby Virtual Network vytvořené pomocí nových rozhraní API správce Azure Resource Manager nemůžete připojit ke svému okruhu Express Route. Tato funkčnost bude podporovaná v budoucnu.
-
 **Kde najdu příklady šablon správce Azure Resource Manager?**
 
 Ucelenou sadu úvodních šablon najdete v [rychlých šablonách správce Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0" 
-    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s vícefaktorovým ověřováním Azure a službami AD FS 2.0." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0"
+    description="Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s vícefaktorovým ověřováním Azure a službami AD FS 2.0."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 # Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0
 
 Pokud je vaše organizace federovaná pomocí Azure Active Directory a chcete zabezpečit některé lokální nebo cloudové prostředky, můžete k tomu použít Azure Multi-Factor Authentication Sever a nastavit ho na spolupráci s AD FS, aby se pro koncové body vysoké hodnoty spouštělo vícefaktorové ověření.
@@ -23,7 +24,7 @@ Tato dokumentace popisuje používání Azure Multi-Factor Authentication Server
 
 
 ## Proxy server služby AD FS 2.0
-Pro zabezpečení AD FS 2.0 pomocí serveru proxy nainstalujte Azure Multi-Factor Authentication Server na server proxy služby ADFS a nakonfigurujte ho podle následujícího postupu. 
+Pro zabezpečení AD FS 2.0 pomocí serveru proxy nainstalujte Azure Multi-Factor Authentication Server na server proxy služby ADFS a nakonfigurujte ho podle následujícího postupu.
 
 ### Zabezpečení AD FS 2.0 pomocí serveru proxy
 
@@ -63,7 +64,7 @@ Pro zabezpečení AD FS 2.0 pomocí serveru proxy nainstalujte Azure Multi-Facto
 
 ## AD FS 2.0 Direct bez serveru proxy
 
-Pro zabezpečení AD FS 2.0 bez použití serveru proxy nainstalujte Azure Multi-Factor Authentication Server na server ADFS a nakonfigurujte ho podle následujícího postupu. 
+Pro zabezpečení AD FS 2.0 bez použití serveru proxy nainstalujte Azure Multi-Factor Authentication Server na server ADFS a nakonfigurujte ho podle následujícího postupu.
 
 ### Zabezpečení AS FS 2.0 bez serveru proxy
 1. V Azure Multi-Factor Authentication Serveru klikněte v levé nabídce na ikonu Ověřování IIS.
@@ -80,7 +81,7 @@ Pro zabezpečení AD FS 2.0 bez použití serveru proxy nainstalujte Azure Multi
 
 
 ## Důvěryhodné IP adresy
-Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Multi-Factor Authentication u požadavků webů pocházejících z konkrétní IP adresy nebo podsítě. Například můžete chtít vyloučit uživatele z ověřování Azure Multi-Factor Authentication při přihlašování z kanceláře. V takovém případě zadáte podsíť office jako položku důvěryhodné adresy IP. 
+Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Multi-Factor Authentication u požadavků webů pocházejících z konkrétní IP adresy nebo podsítě. Například můžete chtít vyloučit uživatele z ověřování Azure Multi-Factor Authentication při přihlašování z kanceláře. V takovém případě zadáte podsíť office jako položku důvěryhodné adresy IP.
 
 ### Konfigurace důvěryhodných adres IP
 
@@ -93,10 +94,8 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

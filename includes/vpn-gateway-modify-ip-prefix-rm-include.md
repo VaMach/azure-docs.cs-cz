@@ -49,7 +49,6 @@ Pokud jste vytvořili připojení k bráně a chcete přidat nebo odebrat předp
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
    ms.author="guscatal;elizapo"/>
 
 
+
 # Získejte stejné funkce Office 365 na jakémkoliv zařízení s Azure RemoteAppem
 
 > [AZURE.IMPORTANT]
@@ -29,7 +30,7 @@ Dosáhnete toho pomocí Azure RemoteAppu hostováním Office 365 na škálovatel
 ## Vytvoření cloudové kolekce
 
 Po vytvoření účtu Azure nejprve kliknutím na odkaz na levém okraji stránky přejděte na stránku **remoteapp**.
-![Azure RemoteApp na portálu Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+![Azure RemoteApp na webu Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
 Pokračujte kliknutím na **NOVÝ** na dolním okraji stránky a rychle vytvořte kolekci. Zadejte název, oblast, předplatné, plán a image Office Proffesional 2013, který nabízíme.
 ![Dialog Vytvořit](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
@@ -72,6 +73,6 @@ Když kliknete na kteroukoliv z těchto položek, aplikace by se měla spustit v
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

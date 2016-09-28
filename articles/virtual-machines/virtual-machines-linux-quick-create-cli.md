@@ -17,6 +17,7 @@
    ms.author="v-livech"/>
 
 
+
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku
 
 Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` v rozhraní příkazového řádku (CLI) Azure. Příkaz `quick-create` nasadí virtuální počítač se základní zabezpečenou infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu. Tento článek vyžaduje
@@ -207,6 +208,6 @@ K [rychlému vytvoření linuxového virtuálního počítače jako hostitele Do
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

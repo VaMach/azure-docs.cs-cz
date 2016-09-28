@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
+
 # Připojení k SQL Database přes SQL Server Management Studio a provedení ukázkového dotazu T-SQL
 
 > [AZURE.SELECTOR]
@@ -67,6 +68,6 @@ Další informace o SSMS najdete v tématu [Použití SQL Server Management Stud
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

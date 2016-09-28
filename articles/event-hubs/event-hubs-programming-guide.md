@@ -15,6 +15,7 @@
     ms.date="08/16/2016"
     ms.author="sethm" />
 
+
 # Průvodce programováním pro službu Event Hubs
 
 Toto téma popisuje programování pro Azure Event Hubs pomocí sady Azure .NET SDK. Předpokládá se předběžná znalost služby Event Hubs. Koncepční přehled služby Event Hubs naleznete v tématu [Přehled služby Event Hubs](event-hubs-overview.md).
@@ -187,6 +188,6 @@ Další informace o scénářích služby Event Hubs naleznete pod těmito odkaz
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="06/16/2016"
     ms.author="piyushjo" />
 
+
 # Začínáme s Azure Mobile Engagementem pro aplikace pro Xamarin.Android
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -149,6 +150,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

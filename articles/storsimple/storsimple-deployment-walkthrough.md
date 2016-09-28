@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Nasazení místního zařízení StorSimple
 
 > [AZURE.SELECTOR]
@@ -296,6 +297,6 @@ Pomocí následujících kroků na portálu Azure Classic vytvořte ruční zál
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

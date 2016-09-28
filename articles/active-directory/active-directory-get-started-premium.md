@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+
 # Začínáme se službou Azure Active Directory Premium
 
 
@@ -164,6 +165,6 @@ Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se li�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

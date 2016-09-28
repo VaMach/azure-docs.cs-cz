@@ -16,6 +16,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Použití aplikace Fiddler k vyhodnocování a testování rozhraní REST API služby Azure Search
 > [AZURE.SELECTOR]
 - [Přehled](search-query-overview.md)
@@ -241,6 +242,6 @@ Informace o bezkódovém přístupu k správě a používání služby Azure Sea
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

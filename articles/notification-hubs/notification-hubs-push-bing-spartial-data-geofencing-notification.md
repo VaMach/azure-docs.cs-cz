@@ -17,6 +17,7 @@
     ms.date="05/31/2016"
     ms.author="dendeli"/>
     
+
 # Nabízená oznámení v monitorované geografické zóně s Azure Notification Hubs a Bing Spatial Data
  
  > [AZURE.NOTE] K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
@@ -208,7 +209,7 @@ Nastavte projekt `AppBackend` jako **Spouštěný projekt** a spusťte jej.
 
 Projekt je již nakonfigurován tak, aby cílovým zařízením odesílal nabízená oznámení, proto budeme potřebovat udělat jen dvě věci – použít správný připojovací řetězec centra oznámení a přidat identifikaci hranice, aby se oznámení odesílalo jenom v případě, že se uživatel nachází uvnitř monitorové geografické zóny.
 
-Pro konfiguraci připojovacího řetězce otevřete ve složce `Models` soubor `Notifications.cs`. Funkce `NotificationHubClient.CreateClientFromConnectionString` by měla obsahovat informace o centru oznámení, které můžete získat na [Portálu Azure](https://portal.azure.com) (podívejte se do okna **Zásady přístupu** v **Nastavení**). Uložte aktualizovaný konfigurační soubor.
+Pro konfiguraci připojovacího řetězce otevřete ve složce `Models` soubor `Notifications.cs`. Funkce `NotificationHubClient.CreateClientFromConnectionString` by měla obsahovat informace o centru oznámení, které můžete získat na [webu Azure Portal](https://portal.azure.com) (podívejte se do okna **Zásady přístupu** v **Nastavení**). Uložte aktualizovaný konfigurační soubor.
 
 Nyní potřebujeme vytvořit model pro výsledek rozhraní API Map Bing. Nejjednodušší způsob, jak toho docílit, je kliknout pravým tlačítkem na složku `Models` a vybrat **Přidat** > **Třída**. Pojmenujte ji `GeofenceBoundary.cs`. Poté zkopírujte JSON z odpovědi rozhraní API, kterou jsme probírali v prvním oddílu. V nástroji Visual Studio pak použijte **Upravit** > **Vložit jinak** > **Vložit formát JSON jako třídy**. 
 
@@ -337,7 +338,7 @@ Přejděte na Dev Center a otevřete aplikaci, kterou jste právě vytvořili. K
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-Na webu si poznamenejte **Tajný klíč aplikace** a **SID balíčku**. Obojí budete potřebovat na Portálu Azure – otevřete své centrum oznámení, klikněte na **Nastavení** > **Notification Services** > **Služba nabízených oznámení Windows (WNS)** a do povinných polí zadejte příslušné informace.
+Na webu si poznamenejte **Tajný klíč aplikace** a **SID balíčku**. Obojí budete potřebovat na webu Azure Portal – otevřete své centrum oznámení, klikněte na **Nastavení** > **Notification Services** > **Služba nabízených oznámení Windows (WNS)** a do povinných polí zadejte příslušné informace.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
@@ -384,6 +385,6 @@ Další podrobnosti týkající se schopností Notification Hubs najdete na [por
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

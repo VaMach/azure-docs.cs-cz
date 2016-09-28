@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="glenga"/>
 
+
 # <a name="getting-started"> </a>Začínáme s Mobile Services a Sencha Touch
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -726,6 +727,6 @@ Další informace o začátcích se Sencha Touch naleznete v úplné sadě [prů
 [portál Azure Classic]: https://manage.windowsazure.com/
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

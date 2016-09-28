@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="carlrab"/>
 
+
 # Kurz k SQL Database: Vytvoření uživatelského účtu databáze SQL pro přístup k databázi a její správu
 
 
@@ -54,6 +55,6 @@ Nyní jste dokončili kurz SQL Database – vytvořili jste uživatelský účet
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

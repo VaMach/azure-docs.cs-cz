@@ -16,6 +16,7 @@
     ms.date="08/24/2016"
     ms.author="sdanie"/>
 
+
 # Použití Azure Redis Cache s Javou
 
 > [AZURE.SELECTOR]
@@ -82,6 +83,6 @@ Někteří klienti Redis nepodporují SSL a ve výchozím nastavení je [port be
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

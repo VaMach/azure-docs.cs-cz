@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
 
 > [AZURE.SELECTOR]
@@ -163,6 +164,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

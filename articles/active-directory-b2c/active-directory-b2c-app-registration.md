@@ -17,6 +17,7 @@
     ms.author="swkrish"/>
 
 
+
 # Azure Active Directory B2C: Registrace vaší aplikace
 
 ## Požadavek
@@ -56,6 +57,6 @@ Nyní, když máte aplikaci registrovanou v Azure AD B2C, můžete dokončit jed
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

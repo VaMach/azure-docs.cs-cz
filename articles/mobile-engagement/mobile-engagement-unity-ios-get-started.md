@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Začínáme s Azure Mobile Engagementem pro nasazení aplikací Unity v systému iOS
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -135,6 +136,6 @@ V aplikaci není nutné provádět žádnou další konfiguraci k odběru oznám
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

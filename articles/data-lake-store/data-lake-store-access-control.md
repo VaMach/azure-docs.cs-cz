@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="nitinme"/>
 
+
 # Řízení přístupu v Azure Data Lake Store
 
 Data Lake Store implementuje model řízení přístupu, který je odvozen z HDFS a následně z modelu řízení přístupu POSIX. Tento článek shrnuje základy modelu řízení přístupu pro Data Lake Store. Další informace o modelu řízení přístupu HDFS najdete v příručce [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Průvodce oprávněními v HDFS).
@@ -313,6 +314,6 @@ Ne.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

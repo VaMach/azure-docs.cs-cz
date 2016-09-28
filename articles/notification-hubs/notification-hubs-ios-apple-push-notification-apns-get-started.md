@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -495,7 +496,7 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 [Live SDK pro Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Začínáme používat Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[portál Azure Classic]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -508,6 +509,6 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 [Azure Portal]: https://portal.azure.com
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

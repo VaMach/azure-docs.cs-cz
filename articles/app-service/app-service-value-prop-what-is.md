@@ -17,11 +17,12 @@
     ms.date="05/25/2016" 
     ms.author="omark"/>
 
+
 # Co je Azure App Service?
 
 *App Service* je služba Microsoft Azure typu [platforma jako služba](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS). Webové a mobilní aplikace můžete vytvářet pro libovolnou platformu nebo zařízení. Své aplikace můžete integrovat s řešeními SaaS a propojovat s lokálními aplikacemi. A lze také automatizovat firemní procesy. Azure spouští vaše aplikace na plně spravovaných virtuálních počítačích (VM) se sdílenými prostředky, které si sami zvolíte, nebo na vyhrazených virtuálních počítačích. 
 
-App Service zahrnuje webové a mobilní funkce, které jsme dříve nabízeli samostatně jako Weby Azure a Mobilní služby Azure.  Obsahuje také nové možnosti pro automatizaci obchodních procesů a hostování cloudových rozhraní API. Jako jediná integrovaná služba vám App Service umožňuje vytvářet různé komponenty – weby, back-endy mobilních aplikací, rozhraní RESTful API a firemní procesy – v jediném řešení.
+App Service zahrnuje webové a mobilní funkce, které jsme dříve nabízeli samostatně jako Weby Azure a Azure Mobile Services.  Obsahuje také nové možnosti pro automatizaci obchodních procesů a hostování cloudových rozhraní API. Jako jediná integrovaná služba vám App Service umožňuje vytvářet různé komponenty – weby, back-endy mobilních aplikací, rozhraní RESTful API a firemní procesy – v jediném řešení.
 
 Následující 4minutové video stručně shrnuje, v čem se App Service podobá dřívějším nabídkám Azure a co nabízí nového.
 
@@ -37,7 +38,7 @@ Toto jsou některé klíčové funkce a možnosti služby App Service:
  
 - **Globální škálování s vysokou dostupností:** Můžete ručně i automaticky škálovat pro účely [vertikálního](../app-service-web/web-sites-scale.md) nebo [horizontálního](../azure-portal/insights-how-to-scale.md) navýšení kapacity. Aplikace je možné hostovat kdekoli v globální infrastruktuře datacenter Microsoftu a smlouva [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) pro App Service zaručuje vysokou dostupnost.
 
-- **Připojení k platformám SaaS a lokálním datům:** Můžete si vybírat z více než 50 [konektorů](../connectors/apis-list.md) pro firemní systémy (například SAP, Siebel nebo Oracle), služby SaaS (například služby Salesforce nebo Office 365) a internetové služby (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [virtuálních sítí Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Připojení k platformám SaaS a lokálním datům:** Můžete si vybírat z více než 50 [konektorů](../connectors/apis-list.md) pro firemní systémy (například SAP, Siebel nebo Oracle), služby SaaS (například služby Salesforce nebo Office 365) a internetové služby (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Zabezpečení a dodržování předpisů** – Služba App Service je [kompatibilní se standardy ISO, SOC a PCI](https://www.microsoft.com/TrustCenter/).
 
@@ -82,6 +83,6 @@ Nebo si můžete otevřít [bezplatný účet Azure](https://azure.microsoft.com
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

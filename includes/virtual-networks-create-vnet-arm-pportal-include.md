@@ -36,7 +36,6 @@ Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře
     ![Seznam podsítí v síti VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

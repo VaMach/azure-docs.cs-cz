@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="danlep"/>
 
+
 # Začínáme s prostředím PowerShell ve službě Azure Batch
 Pomocí rutin prostředí PowerShell služby Batch můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí pomocí rozhraní API služby Batch, webu Azure Portal a rozhraní příkazového řádku (CLI) Azure. Tento článek obsahuje rychlý úvod do rutin, s jejichž pomocí můžete spravovat účty Batch a pracovat s prostředky služby Batch, jako jsou fondy, úlohy a úkoly. Tento článek popisuje rutiny v prostředí Azure PowerShell verze 1.6.0.
 
@@ -169,6 +170,6 @@ Rutiny služby Batch mohou využívat kanál prostředí PowerShell k odesílán
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

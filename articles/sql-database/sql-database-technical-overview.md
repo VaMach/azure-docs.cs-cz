@@ -17,6 +17,7 @@
    ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
+
 # Co je SQL Database? Úvod do služby SQL Database
 
 SQL Database je cloudová služba poskytující relační databáze založené na předním databázovém stroji Microsoft SQL Server a schopné obsloužit i kriticky důležité aplikace. SQL Database nabízí předvídatelný výkon, škálovatelnost bez přerušení provozu, kontinuitu podnikových procesů a ochranu dat – to vše téměř bez nutnosti jakékoli správy. Můžete se zaměřit na rychlý vývoj aplikací a zkrácení doby dodání produktu na trh, namísto správy virtuálních počítačů a infrastruktury. Protože je služba SQL Database založena na databázovém stroji [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), podporuje stávající nástroje, knihovny a rozhraní API což usnadňuje přesunutí a rozšíření do cloudu.
@@ -61,6 +62,6 @@ Nyní, když jste si přečetli úvod do služby SQL Database a znáte odpověď
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="cabailey"/>
 
+
 # Protokolování v Azure Key Vault #
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -284,6 +285,6 @@ Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

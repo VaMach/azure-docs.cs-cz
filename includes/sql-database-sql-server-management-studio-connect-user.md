@@ -40,7 +40,6 @@ Nejčastější příčinou chyb připojení jsou chyby v názvu serveru (nezapo
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

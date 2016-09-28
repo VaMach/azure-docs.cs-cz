@@ -19,6 +19,7 @@
     ms.author="carlrab"/>
 
 
+
 # Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
@@ -139,6 +140,6 @@ Nyní jste dokončili kurz k SQL Database a vytvořili jste databázi s ukázkov
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -52,7 +52,6 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

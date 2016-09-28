@@ -17,7 +17,6 @@ V tomto kurzu získáte informace o následujících postupech:
 - vytvoření identity zařízení ve službě IoT Hub
 - vytvoření simulovaného zařízení, která odesílá telemetrické zprávy do back-endu vašeho cloudu a přijímá příkazy z back-endu vašeho cloudu
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

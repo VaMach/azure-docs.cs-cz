@@ -16,6 +16,7 @@
     ms.date="07/07/2016"
     ms.author="wesmc;ricksal"/>
 
+
 # Azure Mobile Engagement – příručka Začínáme s osvědčenými postupy
 
 ## Přehled
@@ -409,6 +410,6 @@ Až získáte dostatek zkušeností, můžete zvážit rozšíření svých prog
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

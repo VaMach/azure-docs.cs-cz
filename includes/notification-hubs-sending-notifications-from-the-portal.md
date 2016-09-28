@@ -15,7 +15,6 @@ V další části tohoto kurzu se dozvíte, jak zaslat oznámení přímo do va�
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

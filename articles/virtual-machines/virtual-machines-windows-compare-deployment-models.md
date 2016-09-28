@@ -17,6 +17,7 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
+
 # Poskytovatelé prostředků Compute Resource Provider, Network Resource Provider a Storage Resource Provider pro aplikace Windows v rámci modelu nasazení Azure Resource Manager
 
 Zahrnutí funkcí výpočtů (služba Compute), sítě (služba Network) a úložiště (služba Storage) při využívání modelu nasazení Azure Resource Manager zásadně zjednoduší nasazení a správu komplexních aplikací běžících na IaaS. Řada aplikací vyžaduje kombinaci prostředků, včetně prostředků služeb Virtual Network, Storage Account, Virtual Machine a Network Interface. Model nasazení Azure Resource Manager nabízí možnost vytvořit šablonu JSON a nasadit a spravovat všechny tyto prostředky společně jako jednu aplikaci.
@@ -25,6 +26,6 @@ Zahrnutí funkcí výpočtů (služba Compute), sítě (služba Network) a úlo�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

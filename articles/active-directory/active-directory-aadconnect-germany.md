@@ -17,6 +17,7 @@
     ms.date="09/08/2016"
     ms.author="billmath"/>
 
+
 #Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
 
 ## Úvod
@@ -69,6 +70,6 @@ Hledáte-li další informace a doprovodné materiály k vlastním nastavením n
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

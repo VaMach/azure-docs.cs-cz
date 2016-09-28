@@ -15,6 +15,7 @@
     ms.date="09/01/2016"
     ms.author="awills"/>
 
+
 # Developer Analytics: jazyky, platformy a integrace
 
 Tyto položky jsou implementace [Application Insights](app-insights-overview.md), o kterých jsme se dozvěděli. Zahrnují také některé, které dodávají třetí strany.
@@ -87,6 +88,6 @@ Pokud ještě není SDK k dispozici pro váš jazyk nebo platformu, možná si c
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

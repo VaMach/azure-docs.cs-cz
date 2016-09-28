@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Nasazení místního zařízení StorSimple (Update 1)
 
 > [AZURE.SELECTOR]
@@ -292,6 +293,6 @@ Pokyny k instalaci a konfiguraci funkce MPIO pro zařízení StorSimple připoje
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

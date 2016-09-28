@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="wesmc"/>
 
+
 # Začínáme s použitím Notification Hubs pomocí Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -505,6 +506,6 @@ Pro odeslání testovacího oznámení můžete použít kartu ladění na port�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

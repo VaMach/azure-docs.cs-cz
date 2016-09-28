@@ -18,13 +18,14 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
+
 # Začínáme se soukromými šablonami na portálu Azure
 
 Šablona [Azure Resource Manageru](../resource-group-authoring-templates.md) je deklarativní šablona, která slouží k definování nasazení. Můžete definovat, které prostředky se mají pro řešení nasadit, a určit parametry a proměnné, které vám umožní zadat hodnoty pro různá prostředí. Šablona se skládá z JSON a z výrazů, které můžete použít k vytvoření hodnot pro nasazení.
 
-Můžete použít novou schopnost **Šablony** v [portálu Azure](https://portal.azure.com) spolu s poskytovatelem prostředků **Microsoft.Gallery** jako rozšíření [Azure Marketplace](https://azure.microsoft.com/marketplace/) a umožnit tak uživatelům vytváření, správu a nasazování soukromých šablon z osobní knihovny.
+Můžete použít novou schopnost **Šablony** v [webu Azure Portal](https://portal.azure.com) spolu s poskytovatelem prostředků **Microsoft.Gallery** jako rozšíření [Azure Marketplace](https://azure.microsoft.com/marketplace/) a umožnit tak uživatelům vytváření, správu a nasazování soukromých šablon z osobní knihovny.
 
-Tento dokument vás provede přidáním, správou a sdílením soukromé **šablony** pomocí portálu Azure.
+Tento dokument vás provede přidáním, správou a sdílením soukromé **šablony** pomocí webu Azure Portal.
 
 ## Doprovodné materiály
 
@@ -136,6 +137,6 @@ Klikněte na **Vybrat** a **Ok**. Nyní vidíte uživatele a skupiny, které jst
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

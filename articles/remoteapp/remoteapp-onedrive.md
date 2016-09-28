@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # OneDrive pro firmy a Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -26,6 +27,6 @@ Synchronizační agent OneDrivu pro firmy se nepodporuje s Azure RemoteAppem.
 OneDrive pro firmy můžete zahrnout do kolekce a používat s Office 365. 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

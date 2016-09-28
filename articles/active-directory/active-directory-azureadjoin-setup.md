@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
+    ms.date="09/27/2016"
     ms.author="femila"/>
+
 
 # Nastavení služby Azure AD Join v organizaci
 
@@ -57,6 +58,6 @@ Pokud chcete uživatelům umožnit, aby si nastavili službu Azure AD Join, mů�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 
