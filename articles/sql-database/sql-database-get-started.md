@@ -140,6 +140,6 @@ Nyní jste dokončili kurz k SQL Database a vytvořili jste databázi s ukázkov
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!----HONumber=Sep16_HO3-->
 
 
