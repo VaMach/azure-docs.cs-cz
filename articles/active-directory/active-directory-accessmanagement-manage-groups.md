@@ -1,12 +1,11 @@
-<vlastnosti
-
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+<properties
+	pageTitle="Správa skupin ve službě Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure users using Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -14,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="08/10/2016"
     ms.author="curtand"/>
 
 
@@ -115,6 +114,7 @@ Následující články poskytují další informace o službě Azure Active Dir
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!---HONumber=Aug16_HO4-->
 
 
