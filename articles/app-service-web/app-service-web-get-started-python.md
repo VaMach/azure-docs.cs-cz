@@ -18,25 +18,23 @@
     ms.author="cephalin"
 />
     
+
 # Nasazení první webové aplikace v Pythonu do Azure během pěti minut
 
 Tento kurz vám pomůže nasadit první webovou aplikaci v Pythonu do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) 
-a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Budete postupovat takto: 
+Vaším úkolem je: 
 
-- Vytvoříte webovou aplikaci ve službě Azure App Service.
-- Nasadíte ukázkový kód Pythonu.
-- Prohlédnete si spuštění kódu naživo v produkčním prostředí.
-- Budete webovou aplikaci aktualizovat stejným způsobem, jakým byste [bez vyžádání doručili (push) potvrzené změny do Gitu](https://git-scm.com/docs/git-push).
+- Vytvořit webovou aplikaci ve službě Azure App Service.
+- Nasadit ukázkový kód Pythonu.
+- Sledovat spuštění kódu naživo v produkčním prostředí.
+- Aktualizovat webovou aplikaci stejným způsobem, jakým byste [nuceně doručili (push) potvrzené změny do Git](https://git-scm.com/docs/git-push).
 
 ## Požadavky
 
 - [Nainstalovat Git](http://www.git-scm.com/downloads). Ověřit, že instalace proběhla úspěšně, a to spuštěním `git --version` z nového příkazového řádku Windows, okna PowerShellu, prostředí Linuxu nebo terminálu OS X.
-- Získat účet Microsoft Azure. Pokud nemáte účet, můžete se 
-[zaregistrovat k bezplatné zkušební verzi](/pricing/free-trial/?WT.mc_id=A261C142F) nebo si 
-[aktivovat výhody předplatitele Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Získat účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi](/pricing/free-trial/?WT.mc_id=A261C142F) nebo si [aktivovat výhody předplatitele Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] [App Service si můžete vyzkoušet](http://go.microsoft.com/fwlink/?LinkId=523751) bez účtu Azure. Můžete si vytvořit úvodní aplikaci a celou hodinu si s ní hrát, bez platebních karet a bez závazků.
 
@@ -99,19 +97,19 @@ Teď do Azure pomocí Gitu nasadíme kód.
 
     Jako adresu *&lt;github_sample_url>* použijte jednu z následujících adres URL, a to v závislosti na vámi upřednostňovaném prostředí:
 
-2. Přejděte do úložiště ukázkové aplikace. Příklad: 
+2. Přejděte do úložiště ukázkové aplikace. Například: 
 
         cd app-service-web-html-get-started
 
-3. Nakonfigurujte vzdálené úložiště Gitu pro aplikaci Azure pomocí adresy URL pro Git, kterou jste zkopírovali z portálu v jednom z předchozích kroků.
+3. Nakonfigurujte vzdálené úložiště Git pro aplikaci Azure pomocí adresy URL pro Git, kterou jste zkopírovali z portálu v jednom z předchozích kroků.
 
         git remote add azure <giturlfromportal>
 
-4. Nasaďte ukázkový kód do aplikace Azure stejným způsobem, jakým byste bez vyžádání doručili (push) libovolný kód prostřednictvím Gitu:
+4. Nasaďte ukázkový kód do aplikace Azure stejným způsobem, jakým byste doručili bez vyžádání (push) libovolný kód prostřednictvím Gitu:
 
         git push azure master
 
-    ![Doručení kódu bez vyžádání (push) do první webové aplikace v Azure](./media/app-service-web-get-started-languages/python-git-push.png)    
+    ![Nucené doručení (push) kódu do první webové aplikace v Azure](./media/app-service-web-get-started-languages/python-git-push.png)    
 
     Pokud jste použili jedno z jazykových rozhraní, zobrazí se jiný výstup. Důvodem je, že `git push` nejen vloží kód v Azure, ale také aktivuje úlohy nasazení v modulu pro nasazení. Pokud máte v kořenovém adresáři (úložišti) projektu soubor requirements.txt, skript nasazení obnoví požadované balíčky za vás. 
 
@@ -119,7 +117,7 @@ A to je vše! Váš kód teď živě běží v Azure. V prohlížeči přejděte
 
 ## Provádění aktualizací aplikace
 
-Teď můžete pomocí Gitu kdykoli provádět doručení bez vyžádání (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení kódu. Pokud například chcete bez vyžádání doručit (push) novou změnu, kterou jste místně otestovali, stačí z kořenového adresáře projektu (úložiště) spustit následující příkazy:
+Nyní můžete pomocí Git kdykoli provádět nucené doručení (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení kódu. Například pokaždé, když chcete nuceně doručit (push) novou změnu, kterou jste místně otestovali, stačí spustit následující příkazy z kořenového adresáře projektu (úložiště):
 
     git add .
     git commit -m "<your_message>"
@@ -142,6 +140,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

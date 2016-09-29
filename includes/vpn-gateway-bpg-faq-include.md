@@ -37,7 +37,7 @@ V tuto chvíli to není možné.
 
 #### Mohu inzerovat přesné předpony jako předpony mé virtuální sítě?
 
-Ne, inzerování stejných předpon jako předpon adres virtuální sítě bude blokováno nebo filtrováno platformou Azure.
+Ne, inzerování stejných předpon jako předpon adres virtuální sítě bude blokováno nebo filtrováno platformou Azure. Můžete ale inzerovat předponu, která je nadmnožinou toho, co máte ve své virtuální síti. Vaše virtuální síť může například používat adresní prostor 10.10.0.0/16 a přitom můžete inzerovat 10.0.0.0/8.
 
 ### Je možné použít protokol BGP u připojení mezi sítěmi VNet?
 
@@ -80,7 +80,6 @@ Azure Local Network Gateway určuje počáteční předpony adres pro místní s
 Do zařízení VPN je nutné přidat směrování hostitele IP adresy partnera BGP Azure odkazující na tunel VPN IPsec S2S. Pokud je například IP adresa partnera BGP Azure 10.12.255.30, je nutné přidat směrování hostitele pro adresu 10.12.255.30 s rozhraním nexthop odpovídajícího rozhraní tunelu IPsec ve vašem zařízení VPN.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

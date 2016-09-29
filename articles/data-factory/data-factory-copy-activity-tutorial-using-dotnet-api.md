@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/19/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření dat Azure pomocí rozhraní .NET API. Kanál v objektu pro vytváření dat využívá aktivitu kopírování, s jejíž pomocí kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database.
 
@@ -34,7 +35,7 @@ Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Akt
 > Tento článek nepopisuje všechny možnosti rozhraní .NET API služby Data Factory. Podrobné informace o sadě Data Factory .NET SDK najdete v [referencích k rozhraní .NET API služby Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). 
 
 ## Požadavky
-- Projděte si [přehled kurzu a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete podrobné informace o kurzu a kompletní seznam požadavků. 
+- Projděte si [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete informace o kurzu, a proveďte **nutné** kroky. 
 - Visual Studio 2012 nebo 2013 nebo 2015
 - Stáhněte sadu [Azure .NET SDK](http://azure.microsoft.com/downloads/) a nainstalujte ji.
 - Azure Powershell Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte prostředí Azure PowerShell. K vytvoření aplikace v Azure Active Directory použijete Azure PowerShell.
@@ -460,6 +461,6 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

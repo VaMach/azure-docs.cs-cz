@@ -17,15 +17,16 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurace připojení typu Point-to-Site k virtuální síti prostřednictvím portálu Classic
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Klasický portál](vpn-gateway-point-to-site-create.md)
+- [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic – klasický portál](vpn-gateway-point-to-site-create.md)
 
 Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
 
-Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **modelu nasazení Classic** s použitím portálu Classic. V současné době nelze tuto konfiguraci pro model nasazení Classic vytvořit v plném rozsahu v rámci webu Azure Portal.
+Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **klasickém modelu nasazení** s použitím **klasického portálu**. V současné době nelze tuto konfiguraci pro klasický model nasazení vytvořit v plném rozsahu jen z webu Azure Portal. Některé kroky můžete provést na webu Azure Portal, ale ke stažení konfigurace klienta VPN je nutné použít PowerShell .
 
 Připojení typu Point-to-Site k fungování nevyžadují zařízení VPN ani veřejnou IP adresu. Připojení VPN je vytvořeno spuštěním připojení na klientském počítači. Další informace o připojeních typu Point-to-Site najdete v tématech [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md#point-to-site-connections) a [Plánování a navrhování](vpn-gateway-plan-design.md).
 
@@ -55,7 +56,7 @@ Konfigurace pro připojení typu Point-to-Site je rozdělena do čtyř oddílů.
 
 ### Část 1: Vytvoření virtuální sítě
 
-1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com/). Tyto kroky používají klasický portál, nikoli portál Azure. V současné době nelze připojení P2S vytvořit pomocí portálu Azure.
+1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com/). Tyto kroky používají portál Classic, nikoli Azure Portal. V současné době nelze připojení P2S vytvořit pomocí webu Azure Portal.
 
 2. V levém dolním rohu obrazovky klikněte na **Nový**. V podokně navigace klikněte na **Network Services**, a poté klikněte na **Virtual Network**. Kliknutím na **Vytvořit vlastní** spustíte průvodce konfigurací.
 
@@ -195,6 +196,6 @@ Další informace o virtuálních sítích najdete na stránce [Dokumentace k vi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

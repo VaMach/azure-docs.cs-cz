@@ -1,6 +1,6 @@
 <properties
     pageTitle="Vytvoření účtu Azure Batch | Microsoft Azure"
-    description="Naučte se vytvořit účet Azure Batch na portálu Azure, abyste mohli spouštět velké paralelní úlohy v cloudu."
+    description="Naučte se vytvořit účet Azure Batch na webu Azure Portal, abyste mohli spouštět velké paralelní úlohy v cloudu."
     services="batch"
     documentationCenter=""
     authors="mmacy"
@@ -13,22 +13,23 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/26/2016"
+    ms.date="09/21/2016"
     ms.author="marsma"/>
+
 
 # Vytvoření účtu Azure Batch na webu Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure portal](batch-account-create-portal.md)
+- [Azure Portal](batch-account-create-portal.md)
 - [Knihovna Batch Management .NET](batch-management-dotnet.md)
 
 Přečtěte si, jak vytvořit účet Azure Batch na webu [Azure Portal][azure_portal] a kde najít důležité vlastnosti účtu, jako jsou přístupové klíče a adresy URL účtu. Probereme také ceny účtů Batch a propojení účtu Azure Storage s účtem Batch, mohli používat [balíčky aplikací](batch-application-packages.md) a [zachovat výstup úloh a úkolů](batch-task-output.md).
 
 ## Vytvoření účtu Batch
 
-1. Přihlaste se k [portálu Azure][azure_portal].
+1. Přihlaste se k webu [Azure Portal][azure_portal].
 
-2. Klikněte na **Nový** > **Virtuální počítače** > **Služba Batch**.
+2. Klikněte na **Nový** > **Compute** > **Batch Service**.
 
     ![Batch na webu Marketplace][marketplace_portal]
 
@@ -127,6 +128,6 @@ Kromě webu Azure Portal můžete účty Batch vytvářet a spravovat následuj�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

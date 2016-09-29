@@ -1,6 +1,6 @@
 <properties
-    pageTitle="První pohled: chraňte virtuální počítače Azure pomocí trezoru Služeb zotavení | Microsoft Azure"
-    description="Virtuální počítače Azure s trezorem Služeb zotavení. Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem, virtuálních počítačů nasazených službou Classic a virtuálních počítačů služby Storage úrovně Premium. Vytvoření a registrace trezoru Služeb zotavení. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
+    pageTitle="První pohled: chraňte virtuální počítače Azure pomocí trezoru Recovery Services | Microsoft Azure"
+    description="Virtuální počítače Azure s trezorem Recovery Services. Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem, virtuálních počítačů nasazených službou Classic a virtuálních počítačů služby Storage úrovně Premium. Vytvoření a registrace trezoru Recovery Services. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
@@ -14,17 +14,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/03/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
 
 
-# První pohled: Virtuální počítače Azure s úložištěm obnovení služeb
+
+# První pohled: Ochrana virtuálních počítačů s trezorem Recovery Services
 
 > [AZURE.SELECTOR]
-- [První pohled: Virtuální počítače s trezorem Služeb zotavení](backup-azure-vms-first-look-arm.md)
-- [První pohled: Virtuální počítače Azure s trezorem zálohování](backup-azure-vms-first-look.md)
+- [Ochrana virtuálních počítačů s trezorem Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Ochrana virtuálních počítačů s trezorem záloh](backup-azure-vms-first-look.md)
 
-Tento kurz vás provede kroky pro vytvoření trezoru Služeb zotavení a zálohování virtuálních počítačů (VM) Azure. Trezory Služeb zotavení chrání:
+Tento kurz vás provede kroky pro vytvoření trezoru Recovery Services a zálohování virtuálních počítačů (VM) Azure. Trezory Recovery Services chrání:
 
 - Virtuální počítače nasazené Azure Resource Managerem
 - Klasické virtuální počítače
@@ -34,52 +35,54 @@ Tento kurz vás provede kroky pro vytvoření trezoru Služeb zotavení a záloh
 
 Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium naleznete v tématu [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms).
 
->[AZURE.NOTE] Tento kurz předpokládá, že už máte virtuální počítač ve svém předplatném Azure a že jste zavedli opatření, která umožní službě zálohování přístup k virtuálnímu počítači. Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Klasický](../resource-manager-deployment-model.md). Tento článek slouží k použití s Resource Managerem a s virtuálními počítači nasazenými Resource Managerem.
+>[AZURE.NOTE] Tento kurz předpokládá, že už máte virtuální počítač ve svém předplatném Azure a že jste zavedli opatření, která umožní službě zálohování přístup k virtuálnímu počítači.
 
-Zde jsou hlavní kroky, které dokončíte.  
+[AZURE.INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-1. Vytvoření trezoru Služeb zotavení pro virtuální počítač.
-2. Použití portálu Azure k vybrání scénáře, nastavení zásady a identifikaci položek, které mají být chráněné.
+Dokončíte tyto hlavní kroky.  
+
+1. Vytvoření trezoru Recovery Services pro virtuální počítač.
+2. Použití webu Azure Portal k výběru scénáře, nastavení zásady a identifikaci položek, které mají být chráněné.
 3. Spuštění prvotního zálohování.
 
 
 
-## Krok 1 – Vytvoření trezoru Služeb zotavení pro virtuální počítač
+## Vytvoření trezoru Recovery Services pro virtuální počítač
 
-Trezor záloh Služeb zotavení je entita, která ukládá všechny vytvořené zálohy a body obnovení. Trezor Služeb zotavení obsahuje také zásadu zálohování, která se používá pro chráněné virtuální počítače.
+Trezor Recovery Services je entita, která ukládá všechny vytvořené zálohy a body obnovení. Trezor Recovery Services obsahuje také zásadu zálohování, která se používá pro chráněné virtuální počítače.
 
->[AZURE.NOTE] Zálohování virtuálního počítače je místní proces. Virtuální počítače z jedné oblasti nelze zálohovat do trezoru Služeb zotavení v jiné oblasti. Pro každou oblast Azure s virtuálními počítači, které se mají zálohovat, tedy musí existovat alespoň jeden trezor Služeb zotavení.
+>[AZURE.NOTE] Zálohování virtuálního počítače je místní proces. Virtuální počítače z jedné oblasti nelze zálohovat do trezoru Recovery Services v jiné oblasti. Pro každou oblast Azure s virtuálními počítači, které se mají zálohovat, tedy musí existovat alespoň jeden trezor Recovery Services.
 
 
-Vytvoření trezoru Služeb zotavení:
+Vytvoření trezoru Recovery Services:
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. V nabídce centra klikněte na **Procházet** a v seznamu prostředků zadejte **Služby zotavení**. Během zadávání se seznam bude filtrovat podle zadávaného textu. Klikněte na **Trezor Služeb zotavení**.
+2. V nabídce centra klikněte na **Procházet** a v seznamu prostředků zadejte **Recovery Services**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Trezor Recovery Services**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Zobrazí se seznam trezorů Služeb zotavení.
+    Zobrazí se seznam trezorů Recovery Services.
 
-3. V nabídce **Trezory Služeb zotavení** klikněte na **Přidat**.
+3. V nabídce **Trezory Recovery Services** klikněte na **Přidat**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Vytvoření trezoru Recovery Services – krok 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    Otevře se okno trezoru Služeb zotavení s výzvou k zadání **Názvu**, **Předplatného**, **Skupiny prostředků** a **Oblasti**.
+    Otevře se okno trezoru Recovery Services s výzvou k vyplnění polí **Název**, **Předplatné**, **Skupina prostředků** a **Oblast**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Vytvoření trezoru Recovery Services – krok 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
 4. Jako **Název** zadejte popisný název pro identifikaci trezoru. Název musí být jedinečný v rámci předplatného Azure. Zadejte název v rozsahu 2 až 50 znaků. Musí začínat písmenem a může obsahovat pouze písmena, číslice a pomlčky.
 
-5. Kliknutím na **Předplatné** zobrazíte seznam dostupných předplatných. Pokud si nejste jisti, jaké předplatné použít, použijte výchozí (nebo navrhované) předplatné. Více možností bude dostupných pouze pokud je váš účet organizace přidružený k více předplatným Azure.
+5. Kliknutím na **Předplatné** zobrazíte seznam dostupných předplatných. Pokud si nejste jisti, jaké předplatné použít, použijte výchozí (nebo navrhované) předplatné. Více možností je dostupných, jen pokud je váš účet organizace přidružený k více předplatným Azure.
 
-6. Kliknutím na **Skupina prostředků** zobrazíte seznam dostupných skupin prostředků, nebo klikněte na **Nová**, chcete-li vytvořit novou skupinu prostředků. Úplnější informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md)
+6. Klikněte na **Skupina prostředků** a zobrazte seznam dostupných skupin prostředků, nebo klikněte na **Nová** a vytvořte novou skupinu prostředků. Úplnější informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md)
 
 7. Klikněte na **Oblast** a vyberte zeměpisnou oblast trezoru. Trezor **musí** být ve stejné oblasti jako virtuální počítače, které chcete chránit.
 
-    >[AZURE.IMPORTANT] Pokud si nejste jisti oblastí, ve které jsou vaše virtuální počítače, zavřete dialogové okno vytvoření trezoru a na portálu přejděte na seznam virtuálních počítačů. Pokud máte virtuální počítače v několika oblastech, bude potřeba vytvořit trezor Služeb zotavení v každé oblasti. Vytvořte trezor nejprve v první oblasti, poté přejděte k další oblasti. Není potřeba specifikovat účty úložiště pro ukládání zálohovaných dat – trezor Služeb zotavení a služba Azure Backup se o to postarají automaticky.
+    >[AZURE.IMPORTANT] Pokud si nejste jisti oblastí, ve které jsou vaše virtuální počítače, zavřete dialogové okno vytvoření trezoru a na portálu přejděte na seznam virtuálních počítačů. Pokud máte virtuální počítače v několika oblastech, vytvořte trezor Recovery Services v každé z nich. Vytvořte trezor nejprve v první oblasti, poté přejděte k další oblasti. Není potřeba specifikovat účty úložiště pro ukládání zálohovaných dat – trezor Recovery Services a služba Azure Backup se o to postarají automaticky.
 
-8. Klikněte na možnost **Vytvořit**. Vytvoření trezoru Služeb zotavení může chvíli trvat. Sledujte oznámení o stavu v horní pravé části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Služeb zotavení.
+8. Klikněte na možnost **Vytvořit**. Vytvoření trezoru Recovery Services může chvíli trvat. Sledujte oznámení o stavu v horní pravé části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Recovery Services.
 
     ![Seznam trezorů záloh](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -87,7 +90,7 @@ Teď, když jste vytvořili trezor, se naučte, jak nastavit replikaci úložiš
 
 ### Nastavení replikace úložiště
 
-Možnost replikace úložiště umožňuje výběr mezi geograficky redundantním úložištěm a místně redundantním úložištěm. Ve výchozím nastavení má váš trezor nastavené geograficky redundantní úložiště. Ponechte možnost geograficky redundantní úložiště, pokud se jedná o vaši primární zálohu. Zvolte místně redundantní úložiště, pokud chcete levnější možnost, která není tak trvanlivá. Další informace o možnostech [geograficky redundantního](../storage/storage-redundancy.md#geo-redundant-storage) a [místně redundantního](../storage/storage-redundancy.md#locally-redundant-storage) úložiště naleznete v tématu [Přehled replikace Azure Storage](../storage/storage-redundancy.md).
+Možnost replikace úložiště umožňuje výběr mezi geograficky redundantním úložištěm a místně redundantním úložištěm. Ve výchozím nastavení má váš trezor nastavené geograficky redundantní úložiště. Ponechte možnost geograficky redundantní úložiště, pokud se jedná o vaši primární zálohu. Pokud chcete levnější možnost, která není tak trvanlivá, vyberte místně redundantní úložiště. Další informace o možnostech [geograficky redundantního](../storage/storage-redundancy.md#geo-redundant-storage) a [místně redundantního](../storage/storage-redundancy.md#locally-redundant-storage) úložiště naleznete v tématu [Přehled replikace Azure Storage](../storage/storage-redundancy.md).
 
 Chcete-li upravit nastavení replikace úložiště:
 
@@ -99,25 +102,25 @@ Chcete-li upravit nastavení replikace úložiště:
 
     Po výběru možnosti úložiště pro svůj trezor jste připraveni k přidružení virtuálního počítače k trezoru. Chcete-li začít přidružení, měli byste vyhledat a zaregistrovat virtuální počítače Azure.
 
-## Krok 2 – Výběr cíle zálohování, nastavení zásad a určení položek k ochraně
+## Výběr cíle zálohování, nastavení zásad a určení položek k ochraně
 
-Před registrací virtuálních počítačů k trezoru spusťte proces vyhledávání, abyste se ujistili, že byly identifikované všechny nové virtuální počítače přidané k předplatnému. Proces se dotáže Azure na seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast. Na portálu Azure výraz scénář vyjadřuje, co chcete vložit do trezoru služeb zotavení. Zásada je plán, jak často a kdy jsou pořizovány body obnovení. Zásada také obsahuje rozsah uchování bodů obnovení.
+Před registrací virtuálních počítačů k trezoru spusťte proces vyhledávání, abyste se ujistili, že byly identifikované všechny nové virtuální počítače přidané k předplatnému. Proces se dotáže Azure na seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast. Na webu Azure Portal výraz scénář vyjadřuje, co chcete vložit do trezoru Recovery Services. Zásada je plán, jak často a kdy jsou pořizovány body obnovení. Zásada také obsahuje rozsah uchování bodů obnovení.
 
-1. Pokud již máte otevřený trezor Služeb zotavení, pokračujte ke kroku 2. Pokud nemáte otevřený trezor Služeb zotavení, ale jste na portálu Azure, klikněte na **Procházet** v Nabídce centra.
+1. Pokud již máte otevřený trezor Recovery Services, pokračujte ke kroku 2. Pokud nemáte otevřený trezor Recovery Services, ale jste na webu Azure Portal, klikněte na **Procházet** v Nabídce centra.
 
-  - V seznamu prostředků zadejte **Služby zotavení**.
-  - Během zadávání se seznam bude filtrovat podle zadávaného textu. Až uvidíte **Trezory Služeb zotavení**, klikněte na ně.
+  - V seznamu prostředků zadejte **Recovery Services**.
+  - Seznam se průběžně filtruje podle zadávaného textu. Až uvidíte **Trezory Recovery Services**, klikněte na ně.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Objeví se seznam trezorů Služeb zotavení.
-  - Ze seznamu trezorů Služeb zotavení vyberte trezor.
+    Objeví se seznam trezorů Recovery Services.
+  - Ze seznamu trezorů Recovery Services vyberte trezor.
 
     Otevře se řídicí panel vybraného trezoru.
 
     ![Otevřené okno trezoru](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-2. Kliknutím na **Zálohování** v nabídce řídícího panelu trezoru otevřete okno Zálohování.
+2. Kliknutím na **Zálohování** v nabídce řídicího panelu trezoru otevřete okno Zálohování.
 
     ![Otevřené okno Zálohování](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
@@ -139,7 +142,7 @@ Před registrací virtuálních počítačů k trezoru spusťte proces vyhledáv
 
     ![Výběr zásady zálohování](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    Podrobnosti o výchozí zásadě jsou uvedené v podrobnostech. Chcete-li vytvořit novou zásadu, vyberte z rozevírací nabídky **Vytvořit novou**. Rozevírací nabídka také nabízí možnost přepnout čas pořizování snímků na 19:00. Pokyny k definování zásad zálohování naleznete v tématu [Definování zásad zálohování](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Po kliknutí na **OK** je zásada zálohování přidružená k trezoru.
+    Detaily výchozí zásady jsou uvedené v podrobnostech. Pokud chcete vytvořit zásadu, vyberte v rozevírací nabídce **Vytvořit novou**. Rozevírací nabídka také nabízí možnost přepnout čas pořizování snímků na 19:00. Pokyny k definování zásad zálohování naleznete v tématu [Definování zásad zálohování](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Po kliknutí na **OK** je zásada zálohování přidružená k trezoru.
 
     Dále vyberte virtuální počítače, které se mají přidružit k trezoru.
 
@@ -147,20 +150,20 @@ Před registrací virtuálních počítačů k trezoru spusťte proces vyhledáv
 
     ![Výběr úlohy](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
 
-    Pokud nevidíte požadovaný virtuální počítač, zkontrolujte, zda je ve stejné oblasti Azure jako trezor Služeb zotavení.
+    Pokud nevidíte požadovaný virtuální počítač, zkontrolujte, zda je ve stejné oblasti Azure jako trezor Recovery Services.
 
 7. Teď, když jste definovali všechna nastavení trezoru, klikněte v okně Zálohování na **Povolit zálohování** v dolní části stránky. To nasadí zásadu pro trezor a virtuální počítače.
 
     ![Povolení zálohování](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
 
-## Krok 3 – Prvotní zálohování
+## Prvotní zálohování
 
 Nasazení zásady zálohování na virtuální počítač neznamená, že jsou data zálohovaná. Ve výchozím nastavení je prvním plánovaným zálohováním (definovaným v zásadě zálohování) prvotní zálohování. Než proběhne prvotní zálohování, bude Stav poslední zálohy v okně **Úlohy zálohování** ukazovat **Upozornění (nedokončené prvotní zálohování)**.
 
 ![Zálohování čeká na zpracování](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Pokud nemá prvotní zálohování začít velmi brzy, doporučujeme spustit **Zálohovat nyní**.
+Pokud nemá prvotní zálohování brzy začít, doporučujeme spustit **Zálohovat nyní**.
 
 Chcete-li spustit **Zálohovat nyní**:
 
@@ -203,7 +206,7 @@ Následující tabulka poskytuje další informace o agentu virtuálního počí
 
 | **Operace** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalace agenta virtuálního počítače | <li>Stáhněte si a nainstalujte [MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). K dokončení instalace budete potřebovat oprávnění správce. <li>[Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. | <li> Nainstalujte nejnovějšího [agenta systému Linux](https://github.com/Azure/WALinuxAgent) z Githubu. K dokončení instalace budete potřebovat oprávnění správce. <li> [Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. |
+| Instalace agenta virtuálního počítače | <li>Stáhněte si a nainstalujte [MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). K dokončení instalace je potřeba oprávnění správce. <li>[Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. | <li> Nainstalujte nejnovějšího [agenta systému Linux](https://github.com/Azure/WALinuxAgent) z Githubu. K dokončení instalace je potřeba oprávnění správce. <li> [Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. |
 | Aktualizace agenta virtuálního počítače | Aktualizace agenta virtuálního počítače je stejně jednoduchá, jako přeinstalace [binárních souborů agenta virtuálního počítače](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. | Postupujte podle pokynů v tématu [Aktualizace agenta virtuálního počítače s Linuxem](../virtual-machines-linux-update-agent.md). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |
 | Ověření instalace agenta virtuálního počítače | <li>Ve virtuálním počítači Azure přejděte do složky *C:\WindowsAzure\Packages*. <li>Měl by být přítomný soubor WaAppAgent.exe.<li> Pravým tlačítkem myši klikněte na soubor, přejděte na **Vlastnosti** a poté vyberte kartu **Podrobnosti**. Pole Verze produktu by mělo být 2.6.1198.718 nebo vyšší. | Není dostupné. |
 
@@ -212,10 +215,10 @@ Následující tabulka poskytuje další informace o agentu virtuálního počí
 
 Když je agent virtuálního počítače nainstalovaný na virtuálním počítači, služba Azure Backup nainstaluje do agenta virtuálního počítače rozšíření zálohování. Služba Azure Backup bezproblémově upgraduje a opravuje rozšíření zálohování bez dalšího zásahu uživatele.
 
-Rozšíření zálohování je službou Backup nainstalováno bez ohledu na to, zda je virtuální počítač spuštěný, nebo ne. Spuštěný virtuální počítač poskytuje největší šanci získání bodu obnovení, který je konzistentní v rámci aplikace. Služba Azure Backup nicméně bude pokračovat v zálohování virtuálního počítače i když je vypnutý a rozšíření nebylo možné nainstalovat. To se označuje jako Virtuální počítač v režimu offline. V takovém případě bude bod obnovení *konzistentní pro případ chyby*.
+Rozšíření zálohování je službou Backup nainstalováno, jakmile je virtuální počítač spuštěný. Spuštěný virtuální počítač poskytuje největší šanci získání bodu obnovení, který je konzistentní v rámci aplikace. Služba Azure Backup nicméně bude pokračovat v zálohování virtuálního počítače, i když je vypnutý a rozšíření nebylo možné nainstalovat. To se označuje jako Virtuální počítač v režimu offline. V takovém případě bude bod obnovení *konzistentní pro případ chyby*.
 
 ## Informace o řešení potíží
-Máte-li problémy s plněním některých úkolů v tomto článku, obraťte se prosím na [Pokyny při řešení potíží](backup-azure-vms-troubleshoot.md).
+Pokud máte problémy s plněním některých úkolů v tomto článku, obraťte se na [Pokyny při řešení potíží](backup-azure-vms-troubleshoot.md).
 
 
 ## Máte dotazy?
@@ -223,6 +226,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

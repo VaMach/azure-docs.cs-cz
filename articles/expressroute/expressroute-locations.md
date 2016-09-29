@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/07/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
+
 
 # Partneři ExpressRoute a umístění partnerského vztahu
 
@@ -66,7 +67,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Podporuje se | Podporuje se | Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
 |**CenturyLink** | Připravuje se | Připravuje se| Silicon Valley |
 |**China Telecom Global** | Podporuje se | Nepodporuje se | Hongkong |
-|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Podporuje se | Připravuje se | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Podporuje se | Připravuje se | Dallas, Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Podporuje se | Podporuje se | Amsterdam, Dublin, Londýn, Tokio |
 | **Comcast** | Podporuje se | Podporuje se | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Podporuje se | Podporuje se | Los Angeles | 
@@ -173,6 +174,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

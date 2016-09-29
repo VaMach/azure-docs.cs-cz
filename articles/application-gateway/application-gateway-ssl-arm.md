@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
+
 
 # Konfigurace aplikační brány pro přesměrování zpracování SSL pomocí Azure Resource Manageru
 
@@ -44,14 +45,14 @@
 
 Pro konfiguraci certifikátů SSL by se měl změnit protokol v **HttpListener** na *Https* (rozlišování velkých a malých písmen). Element **SslCertificate** se přidá do **HttpListener** s hodnotou proměnné nakonfigurovanou pro certifikát SSL. Front-end port se musí aktualizovat na hodnotu 443.
 
-**Když chcete povolit spřažení na základě souborů cookie**: aplikační brána se může nakonfigurovat tak, aby se žádost od klientské relace vždy směrovala na stejný virtuální počítač v prostředí webové serverové farmy. To se provádí injektáží souboru cookie relace, který umožňuje bráně řízení provozu odpovídajícím způsobem. Když chcete povolit spřažení na základě souboru cookie, nastavte **CookieBasedAffinity** na *Povoleno* v elementu **BackendHttpSettings**.
+**Když chcete povolit spřažení na základě souborů cookie**: aplikační brána se může nakonfigurovat tak, aby se žádost od klientské relace vždy směrovala na stejný virtuální počítač v prostředí webové serverové farmy. Takový scénář se provádí injektáží souboru cookie relace, který bráně umožňuje řídit provoz odpovídajícím způsobem. Když chcete povolit spřažení na základě souboru cookie, nastavte **CookieBasedAffinity** na *Povoleno* v elementu **BackendHttpSettings**.
 
 
 ## Vytvoření služby Application Gateway
 
 Rozdíl mezi použitím modelu nasazení Azure Classic a Azure Resource Manager je v tom, v jakém pořadí tvoříte aplikační bránu, a v položkách, které konfigurujete.
 
-S Resource Managerem se všechny položky, které tvoří službu Application Gateway, konfigurují individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
+S Resource Managerem se všechny komponenty služby Application Gateway konfigurují individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
 
 
 Tady jsou kroky, které se musí udělat k vytvoření aplikační brány:
@@ -69,8 +70,6 @@ Ujistěte se, že jste přepnuli režim prostředí PowerShell tak, aby se mohly
 ### Krok 1
 
     Login-AzureRmAccount
-
-
 
 ### Krok 2
 
@@ -106,90 +105,91 @@ Následující příklad ukazuje, jak vytvořit virtuální síť pomocí Resour
 
     $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-To přiřadí proměnné podsítě rozsah adres 10.0.0.0/24, který se použije k vytvoření virtuální sítě.
+Tento vzorový kód přiřadí proměnné podsítě rozsah adres 10.0.0.0/24, který se použije k vytvoření virtuální sítě.
 
 ### Krok 2
+
     $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Tím se vytvoří virtuální síť s názvem „appgwvnet“ v prostředku skupiny „appgw-rg“ pro oblast Západní USA pomocí předpony 10.0.0.0/16 s podsítí 10.0.0.0/24.
+Tímhle vzorovým kódem se vytvoří virtuální síť s názvem „appgwvnet“ ve skupině prostředků „appgw-rg“ pro oblast Západní USA pomocí předpony 10.0.0.0/16 s podsítí 10.0.0.0/24.
 
 ### Krok 3
 
     $subnet = $vnet.Subnets[0]
 
-Tím se přiřadí objekt podsítě k proměnné $subnet pro další kroky.
+Tímto vzorovým kódem se přiřadí objekt podsítě k proměnné $subnet pro další kroky.
 
 ## Vytvoření veřejné IP adresy pro front-end konfiguraci
 
     $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Tím se vytvoří prostředek veřejné IP adresy „publicIP01“ v prostředku skupiny „appgw-rg“ pro oblast Západní USA.
+Tímhle vzorovým kódem se vytvoří prostředek veřejné IP adresy „publicIP01“ ve skupině prostředků „appgw-rg“ pro oblast Západní USA.
 
 
-## Vytvoření objektu konfigurace služby Application Gateway
+## Vytvořte objekt konfigurace aplikační brány 
 
 ### Krok 1
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Tím se vytvoří konfigurace IP aplikační brány s názvem „gatewayIP01“. Při spuštění služby Application Gateway se předá IP adresa z nakonfigurované podsítě a síťový provoz se bude směrovat na IP adresy ve fondu back-end IP adres. Uvědomte si, že každá instance vyžaduje jednu IP adresu.
+Tímto vzorovým kódem se vytvoří konfigurace IP aplikační brány s názvem „gatewayIP01“. Při spuštění služby Application Gateway se předá IP adresa z nakonfigurované podsítě a síťový provoz se bude směrovat na IP adresy ve fondu back-end IP adres. Uvědomte si, že každá instance vyžaduje jednu IP adresu.
 
 ### Krok 2
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Tím se konfiguruje fond back-end IP adresy s názvem „pool01“ s IP adresami „134.170.185.46, 134.170.188.221,134.170.185.50“. Jsou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Nahraďte IP adresy z výše uvedeného příkladu IP adresami koncových bodů vaší webové aplikace.
+Tímhle vzorovým kódem se konfiguruje fond back-end IP adres s názvem „pool01“ na IP adresy 134.170.185.46, 134.170.188.221, 134.170.185.50. Jsou to IP adresy, které přijímají síťový provoz, který přichází z koncového bodu front-end IP adresy. Nahraďte IP adresy z předchozího příkladu IP adresami koncových bodů vaší webové aplikace.
 
 ### Krok 3
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Tím se nakonfiguruje nastavení aplikační brány „poolsetting01“ pro síťový provoz s vyrovnáváním zatížení ve fondu back-end.
+Tímto vzorovým kódem se nakonfiguruje nastavení aplikační brány „poolsetting01“ pro síťový provoz s vyrovnáváním zatížení ve fondu back-end.
 
 ### Krok 4
 
     $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-Tím se nakonfiguruje port front-end IP adresy s názvem „frontendport01“ pro koncový bod veřejné IP adresy.
+Tímhle vzorovým kódem se nakonfiguruje port front-end IP adresy s názvem „frontendport01“ pro koncový bod veřejné IP adresy.
 
 ### Krok 5
 
     $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-Tím se nakonfiguruje certifikát používaný pro připojení SSL. Certifikát musí být ve formátu .pfx, heslo musí mít 4 až 12 znaků.
+Tímto vzorovým kódem se nakonfiguruje certifikát používaný pro připojení SSL. Certifikát musí být ve formátu .pfx, heslo musí mít 4 až 12 znaků.
 
 ### Krok 6
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-Tím se vytvoří konfigurace front-end IP adresy s názvem „fipconfig01“ a přidruží se veřejná IP adresa s konfigurací front-end IP adresy.
+Tímhle vzorovým kódem se vytvoří konfigurace front-end IP adresy s názvem „fipconfig01“ a přidruží se veřejná IP adresa s konfigurací front-end IP adresy.
 
 ### Krok 7
 
     $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
-Tím se vytvoří naslouchací proces nazvaný „listener01“ a přiřadí front-end port ke konfiguraci a certifikátu front-end IP adresy.
+Tímto vzorovým kódem se vytvoří naslouchací proces nazvaný „listener01“ a přiřadí front-end port ke konfiguraci a certifikátu front-end IP adresy.
 
 ### Krok 8
 
     $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Tím se vytvoří pravidlo směrování pro vyrovnávání zatížení s názvem „rule01“, které konfiguruje chování nástroje pro vyrovnávání zatížení.
+Tímhle vzorovým kódem se vytvoří pravidlo směrování pro vyrovnávání zatížení s názvem „rule01“, které konfiguruje chování nástroje pro vyrovnávání zatížení.
 
 ### Krok 9
 
     $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Tím se nakonfiguruje velikost instance aplikační brány.
+Tímto vzorovým kódem se nakonfiguruje velikost instance aplikační brány.
 
->[AZURE.NOTE]  Výchozí hodnota *InstanceCount* je 2, přičemž maximální hodnota je 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Standard_Small, Standard_Medium a Standard_Large.
+>[AZURE.NOTE]  Výchozí hodnota pro *InstanceCount* je 2 s maximální hodnotou 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Standard_Small, Standard_Medium a Standard_Large.
 
 ## Vytvořte aplikační bránu pomocí New-AzureApplicationGateway
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Tímhle se vytvoří aplikační brána se všemi položkami konfigurace z výše uvedených kroků. V příkladu se aplikační brána nazývá „appgwtest“.
+Tenhle vzorový kód vytvoří službu Application Gateway se všemi položkami konfigurace z předchozích kroků. V příkladu se aplikační brána nazývá „appgwtest“.
 
 ## Další kroky
 
@@ -197,11 +197,11 @@ Pokud chcete provést konfiguraci aplikační brány pro použití s interním n
 
 Pokud chcete další informace o obecných možnostech vyrovnávání zatížení, přečtěte si část:
 
-- [Nástroj pro vyrovnávání zatížení Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

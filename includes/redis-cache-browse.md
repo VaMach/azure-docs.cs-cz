@@ -1,8 +1,8 @@
-K mezipamětem můžete na portálu [Azure Portal](https://portal.azure.com) získat přístup v okně **Procházet**.
+K mezipamětem můžete na webu [Azure Portal](https://portal.azure.com) získat přístup v okně **Procházet**.
 
-![Okno Procházet mezipaměti Azure Redis](media/redis-cache-browse/redis-cache-browse.png)
+![Okno procházení Azure Redis Cache](media/redis-cache-browse/redis-cache-browse.png)
 
-Své mezipaměti zobrazíte kliknutím na **Procházet > Mezipaměti Redis**. Pokud jste nedávno přešli na některou mezipaměť Redis, můžete přímo v seznamu kliknout na **Mezipaměti Redis Cache**, aniž byste museli kliknout na **Procházet**.
+Pokud chcete zobrazit mezipaměti, klikněte na **Další služby > Mezipaměti Redis**. Pokud jste nedávno přešli na některou mezipaměť Redis, můžete přímo v seznamu kliknout na **Mezipaměti Redis**, aniž byste předtím museli kliknout na **Další služby**.
 
 Výběrem požadované mezipaměti zobrazíte její podrobnosti.
 
@@ -12,7 +12,6 @@ Pokud chcete určitou mezipaměť zobrazit a nakonfigurovat, klikněte na **Nast
 
 ![Všechna nastavení mezipaměti Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

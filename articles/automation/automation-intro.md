@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="what is automation, azure automation, azure automation examples"/>
+    keywords="co je automatizace, azure automation, příklady azure automation"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -15,6 +15,7 @@
     ms.topic="get-started-article" 
     ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
+
 
 # Přehled Azure Automation
 
@@ -40,9 +41,9 @@ Runbooky v Azure Automation staví na prostředí Windows PowerShell nebo na pra
 
 ## Vytvoření runbooků pomocí Azure Automation 
 
-Můžete [vytvářet vlastní runbooky](automation-creating-importing-runbook.md) od nuly nebo můžete podle svých potřeb upravovat runbooky z [galerie runbooků](http://msdn.microsoft.com/library/azure/dn781422.aspx). Existují tři různé [typy runbooků](automation-runbook-types.md), ze kterých si můžete vybrat podle svých požadavků a podle prostředí PowerShell. Pokud chcete raději pracovat přímo s kódem PowerShellu, můžete použít [runbook PowerShellu](automation-runbook-types.md#powershell-runbooks) nebo [runbook pracovního postupu PowerShellu](automation-runbook-types.md#powershell-workflow-runbooks), který upravíte v režimu offline nebo pomocí [textového editoru](http://msdn.microsoft.com/library/azure/dn879137.aspx) na portálu Azure. Pokud dáváte přednost úpravě runbooku bez zasahování přímo do kódu, můžete pomocí [grafického editoru](automation-graphical-authoring-intro.md) na portálu Azure vytvořit [grafický runbook](automation-runbook-types.md#graphical-runbooks). 
+Můžete [vytvářet vlastní runbooky](automation-creating-importing-runbook.md) od nuly nebo můžete podle svých potřeb upravovat runbooky z [galerie runbooků](http://msdn.microsoft.com/library/azure/dn781422.aspx). Existují tři různé [typy runbooků](automation-runbook-types.md), ze kterých si můžete vybrat podle svých požadavků a podle prostředí PowerShell. Pokud chcete raději pracovat přímo s kódem PowerShellu, můžete použít [runbook PowerShellu](automation-runbook-types.md#powershell-runbooks) nebo [runbook pracovního postupu PowerShellu](automation-runbook-types.md#powershell-workflow-runbooks), který upravíte v režimu offline nebo pomocí [textového editoru](http://msdn.microsoft.com/library/azure/dn879137.aspx) na webu Azure Portal. Pokud dáváte přednost úpravě runbooku bez zasahování přímo do kódu, můžete pomocí [grafického editoru](automation-graphical-authoring-intro.md) na webu Azure Portal vytvořit [grafický runbook](automation-runbook-types.md#graphical-runbooks). 
 
-Raději se díváte, než čtete? Podívejte se na níže uvedené video z relace Microsoft Ignite v květnu 2015. Poznámka: Koncepty a funkce popsané v tomto videu jsou sice správné, ale služba Azure Automation se od okamžiku záznamu tohoto videa posunula hodně dopředu a obsahuje teď rozsáhlejší uživatelské rozhraní na portálu Azure a podporuje další funkce.
+Raději se díváte, než čtete? Podívejte se na níže uvedené video z relace Microsoft Ignite v květnu 2015. Poznámka: Koncepty a funkce popsané v tomto videu jsou sice správné, ale služba Azure Automation se od okamžiku záznamu tohoto videa posunula hodně dopředu a obsahuje teď rozsáhlejší uživatelské rozhraní na webu Azure Portal a podporuje další funkce.
 
 > [AZURE.VIDEO microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation]
 
@@ -61,7 +62,7 @@ Raději se díváte, než čtete? Podívejte se na níže uvedené video z relac
 
 ## Získávání modulů a konfigurací 
 
-[Moduly PowerShellu](automation-runbook-gallery.md#modules-in-powershell-gallery) obsahující rutiny, které můžete použít v runboocích a konfiguracích DSC, můžete získat z [galerie prostředí PowerShell](http://www.powershellgallery.com/). Tuto galerii můžete spustit z portálu Azure a moduly můžete importovat přímo do Azure Automation nebo si je můžete stáhnout a naimportovat je ručně. Moduly nemůžete instalovat přímo z portálu Azure, ale můžete si je stáhnout a nainstalovat je stejně jako ostatní moduly. 
+[Moduly PowerShellu](automation-runbook-gallery.md#modules-in-powershell-gallery) obsahující rutiny, které můžete použít v runboocích a konfiguracích DSC, můžete získat z [galerie prostředí PowerShell](http://www.powershellgallery.com/). Tuto galerii můžete spustit na webu Azure Portal a moduly můžete importovat přímo do Azure Automation nebo si je můžete stáhnout a naimportovat je ručně. Moduly nemůžete instalovat přímo z webu Azure Portal, ale můžete si je stáhnout a nainstalovat je stejně jako ostatní moduly. 
 
 
 ## Příklad použití Azure Automation v praxi 
@@ -104,6 +105,6 @@ K dispozici jsou různé druhy zdrojů, ze kterých můžete získat další inf
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

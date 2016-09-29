@@ -14,19 +14,19 @@
 
     ![Vytvoření oboru názvů][create-namespace]
 
-6. Klikněte na tlačítko **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
+6. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
  
 ### Získání přihlašovacích údajů pro správu
 
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
  
-3. V okně **Obor názvů Service Bus** klikněte na **Zásady sdíleného přístupu**.
+3. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
 
 4. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
 
     ![connection-info][connection-info]
 
-5. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití.
+5. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití. Vložte tuto hodnotu do Poznámkového bloku nebo jiného dočasného umístění.
 
     ![connection-string][connection-string]
 
@@ -39,7 +39,6 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

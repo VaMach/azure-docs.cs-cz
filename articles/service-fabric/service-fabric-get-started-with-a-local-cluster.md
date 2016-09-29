@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Začínáme s nasazením a upgradem aplikací v místním clusteru
 Sada Azure Service Fabric SDK zahrnuje úplné místní vývojové prostředí, pomocí kterého můžete rychle začít nasazovat a spravovat aplikace v místním clusteru. V tomto článku vytvoříte místní cluster, nasadíte do něj existující aplikaci a potom ji upgradujete na novou verzi, to všechno z prostředí Windows PowerShell.
@@ -193,11 +194,41 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Apl
 
 3. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
 
-4. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Upozorňujeme, že pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Místní cluster odeberte jenom v případě, že se ho nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
+4. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Místní cluster odeberte jenom v případě, že se ho nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
+
+## Režim clusteru s jedním a pěti uzly
+
+Když s pomocí místního clusteru vyvíjíte aplikace, často potřebujete rychle střídat psaní kódu, ladění, změny kódu, ladění atd. Abyste mohli pracovat optimálněji, místní cluster může běžet ve dvou režimech: 1 uzel nebo 5 uzlů. Oba režimy mají své výhody.
+V případě clusteru s pěti uzly pracujete se skutečným clusterem. Můžete testovat scénáře převzetí služeb při selhání, pracovat s více instancemi a replikami služeb.
+Režim clusteru s jedním uzlem je optimalizovaný pro rychlá nasazení a registrace služeb, abyste mohli rychleji validovat kód za běhu Service Fabric.
+
+Ani režim jednoho, ani režim pěti uzlů není emulátor nebo simulátor. Spouští stejný kód platformy, jaký najdete i v clusterech s víc počítači.
+
+> [AZURE.NOTE] Tato funkce je dostupná v SDK verze 5.2 a vyšší.
+
+Pokud chcete režim clusteru změnit na cluster s jedním uzlem, použijte nástroj Service Fabric Local Cluster Manager nebo postupujte tímto způsobem v PowerShellu:
+
+1. Jako správce spusťte nové okno prostředí PowerShell.
+
+2. Spusťte instalační skript clusteru z této složky sady SDK:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Instalace clusteru bude chvíli trvat. Po dokončení instalace byste měli vidět výstup podobný tomuhle:
+    
+    ![Výstup po instalaci clusteru][cluster-setup-success-1-node]
+
+Pokud používáte nástroj Service Fabric Local Cluster Manager:
+
+![Přepnutí režimu clusteru][switch-cluster-mode]
+
+> [AZURE.WARNING] Při změně režimu clusteru se aktuální cluster odebere ze systému a vytvoří se cluster nový. Data, která jste do clusteru uložili, budou při změně režimu clusteru odstraněna.
 
 ## Další kroky
 - Provedli jste nasazení a upgrade některých předem sestavených aplikací a teď si můžete zkusit [sestavit vlastní aplikaci v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- Všechny akce, které jsme v tomto článku prováděli v místním clusteru, se dají provádět i v [clusteru Azure](service-fabric-cluster-creation-via-portal.md).
+- Všechny akce, které jsme v tomto článku prováděli v místním clusteru, se dají provádět i v [Azure Clusteru](service-fabric-cluster-creation-via-portal.md).
 - V tomto článku jsme popisovali jenom jednoduchý upgrade. Další informace o výkonu a flexibilitě upgradů Service Fabric najdete v [dokumentaci upgradů](service-fabric-application-upgrade.md).
 
 <!-- Images -->
@@ -217,9 +248,11 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Apl
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

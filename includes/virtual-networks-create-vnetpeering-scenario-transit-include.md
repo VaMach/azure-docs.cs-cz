@@ -5,11 +5,11 @@ V tomto scénáři existují dvě virtuální sítě v předplatném, HubVNet a 
 
 ![Přenos NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-POZNÁMKA: Pro jednoduchost předpokládejte, že všechny zdejší virtuální sítě představují stejné předplatné. Funguje to ovšem i pro scénáře různého předplatného. 
+> [AZURE.NOTE] Pro jednoduchost předpokládejte, že všechny zdejší virtuální sítě jsou v rámci stejného předplatného. Funguje to ovšem i pro scénáře různého předplatného.
 
 Klíčovou vlastností pro povolení směrování přenosu je parametr „Povolit přesměrovaný provoz“. Ten umožňuje přijímání a odesílání přenosů z/do NVA v partnerských virtuálních sítích.  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

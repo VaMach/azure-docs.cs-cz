@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="carlrab"/>
 
+
 # Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb
 
 [Azure SQL Database](sql-database-technical-overview.md) nabízí tři úrovně služby s více úrovněmi výkonu pro zpracování různých úloh. Každá úroveň výkonu poskytuje rostoucí sadu prostředků navržených k poskytnutí stále větší propustnosti. Každou databázi můžete spravovat v její vlastní [úrovni služby](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) s vlastní úrovní výkonu. Můžete také spravovat více databází v [elastickém fondu](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) se sdílenou sadou prostředků. Prostředky dostupné pro samostatné databáze jsou vyjádřeny v jednotkách DTU (Database Transaction Unit); prostředky dostupné pro elastické fondy jsou vyjádřeny v elastických jednotkách DTU (eDTU). Další informace o jednotkách DTU a eDTU najdete v tématu [Co je DTU](sql-database-what-is-a-DTU.md). 
@@ -62,7 +63,7 @@ Při rozhodování o úrovni služby začněte určením, zda má být databáze
 
 Při rozhodování o úrovni služeb pro samostatnou databázi začněte určením databázové funkce, kterou je třeba zvolit pro vaši verzi databáze SQL:
 
-- Velikost databáze (maximálně 5 GB pro Basic, maximálně 250 GB pro Standard a maximálně 500 GB až 1 TB pro Premium – v závislosti na úrovni výkonu)
+- Velikost databáze (maximálně 2 GB pro Basic, maximálně 250 GB pro Standard a maximálně 500 GB až 1 TB pro Premium – v závislosti na úrovni výkonu)
 - Období uchovávání záloh databáze (7 dní pro Basic, 35 dní pro Standard a 35 dní pro Premium)
 
 Po určení edice databáze SQL jste připraveni k určení úrovně výkonu pro databázi (počet DTU). Můžete provést odhad a následně [dynamicky škálovat nahoru nebo dolů](sql-database-scale-up.md) na základě skutečných zkušeností. Můžete také použít [Kalkulačku DTU](http://dtucalculator.azurewebsites.net/) a odhadnout počet potřebných DTU. 
@@ -86,10 +87,10 @@ Po určení úrovně služeb pro váš fond jste připraveni k určení úrovně
 
 ## Další zdroje
 
-Informace o běžných vzorech architektury dat databázových aplikací softwaru s více klienty jako služby (SaaS) naleznete v části [Vzory návrhu pro aplikace SaaS s více klienty s databází Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Informace o běžných vzorech architektury dat databázových aplikací softwaru s více tenanty jako služby (SaaS) naleznete v části [Vzory návrhu pro aplikace SaaS s více tenanty s databází Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

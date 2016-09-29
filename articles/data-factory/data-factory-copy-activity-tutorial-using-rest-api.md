@@ -13,22 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/17/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní REST API
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření dat Azure pomocí rozhraní REST API. Kanál v objektu pro vytváření dat využívá aktivitu kopírování, s jejíž pomocí kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database.
-
-Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md).   
 
 > [AZURE.NOTE] 
 > Tento článek nepopisuje všechny možnosti rozhraní REST API služby Data Factory. Úplnou dokumentaci o rutinách služby Data Factory najdete v článku [Rozhraní REST API služby Data Factory - referenční informace](https://msdn.microsoft.com/library/azure/dn906738.aspx).
@@ -36,7 +35,7 @@ Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Akt
 
 ## Požadavky
 
-- Projděte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Projděte si [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky.
 - Nainstalujte na svůj počítač nástroj [Curl](https://curl.haxx.se/dlwiz/). Pomocí nástroje Curl a příkazů REST vytvoříte objekt pro vytváření dat. 
 - Postupujte podle pokynů v [tomto článku](../resource-group-create-service-principal-portal.md) a proveďte následující: 
     1. V Azure Active Directory vytvořte webovou aplikaci s názvem **ADFCopyTutorialApp**.
@@ -302,7 +301,7 @@ V tomto kroku vytvoříte objekt služby Azure Data Factory s názvem **ADFCopyT
 
 Je třeba počítat s následujícím:
  
-- Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba: **Název objektu pro vytváření dat "ADFCopyTutorialDF" není k dispozici**, proveďte následující akce:  
+- Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba **Název objektu pro vytváření dat „ADFCopyTutorialDF“ není k dispozici**, proveďte následující kroky:  
     1. Změňte název (například yournameADFCopyTutorialDF) v souboru **datafactory.json**.
     2. V prvním příkazu, kde je proměnné **$cmd** přiřazena hodnota, nahraďte ADFCopyTutorialDF novým názvem a spusťte příkaz. 
     3. Spuštěním následujících dvou příkazů vyvoláte rozhraní REST API za účelem vytvoření objektu pro vytváření dat a tisku výsledků operace. 
@@ -494,6 +493,6 @@ V tomto kurzu jste pomocí rozhraní REST API vytvořili objekt pro vytváření
  
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

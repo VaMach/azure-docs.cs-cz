@@ -16,28 +16,26 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí šablony Azure Resource Manageru
 > [AZURE.SELECTOR]
+- [Přehled a požadavky](data-factory-build-your-first-pipeline.md)
 - [portál Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí šablony Azure Resource Manageru.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
-
-## Další požadavky
-Kromě požadavků uvedených v předchozích oddílech s požadavky nainstalujte následující:
-
-- **Nainstalujte prostředí Azure PowerShell**. Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
+## Požadavky
+- Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
+- Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
 - Informace o šablonách Azure Resource Manageru najdete v článku [Vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md). 
 
 ## Vytvoření šablony Resource Manageru
 
-Ve složce **C:\ADFGetStarted** vytvořte soubor JSON s názvem **ADFTutorialARM.json** s následujícím obsahem: 
-
-Šablona umožňuje vytvořit následující entity služby Data Factory.
+V tomto oddílu vytvoříte následující entity služby Data Factory: 
 
 1. **Objekt pro vytváření dat** s názvem **TutorialDataFactoryARM**. Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Může obsahovat například aktivitu kopírování, která slouží ke kopírování dat ze zdrojového do cílového úložiště dat, a aktivitu Hivu HDInsight pro spuštění skriptu Hive, který umožňuje transformovat vstupní data. 
 2. Dvě **propojené služby**: **StorageLinkedService** a **HDInsightOnDemandLinkedService**. Tyto propojené služby připojují k vašemu objektu pro vytváření dat účet služby Azure Storage a cluster Azure HDInsight na vyžádání. Účet služby Azure Storage v této ukázce obsahuje vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Určete, jaké úložiště dat a výpočetní služby se ve vašem scénáři používají, a vytvořením propojených služeb propojte tyto služby s objektem pro vytváření dat. 
@@ -45,8 +43,9 @@ Ve složce **C:\ADFGetStarted** vytvořte soubor JSON s názvem **ADFTutorialARM
 
 Kliknutím na kartu **Pomocí editoru služby Data Factory** přepnete na článek, který obsahuje podrobnosti o vlastnostech formátu JSON použitých v této šabloně.
 
-> [AZURE.IMPORTANT] Změňte hodnoty proměnných **storageAccountName** a **storageAccountKey**. Změňte i proměnnou **dataFactoryName**, protože název musí být jedinečný.
+Ve složce **C:\ADFGetStarted** vytvořte soubor JSON s názvem **ADFTutorialARM.json** s následujícím obsahem:
 
+> [AZURE.IMPORTANT] Změňte hodnoty proměnných **storageAccountName** a **storageAccountKey**. Změňte i proměnnou **dataFactoryName**, protože název musí být jedinečný.
 
     {
         "contentVersion": "1.0.0.0",
@@ -226,10 +225,10 @@ Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](dat
 
 ## Vytvoření objektu pro vytváření dat
 
-1. Otevřete prostředí **Azure PowerShell** a spusťte následující příkaz. 
-    - Spusťte příkaz **Login-AzureRmAccount** a zadejte uživatelské jméno a heslo, které používáte k přihlášení na webu Azure Portal.  
-    - Spuštěním následujícího příkazu vyberte předplatné, ve kterém chcete objekt pro vytváření dat vytvořit.
-            Get-AzureRmSubscription -název_předplatného <SUBSCRIPTION NAME> | Set-AzureRmContext
+1. Otevřete prostředí **Azure PowerShell** a spusťte následující příkaz: 
+    - Spusťte příkaz `Login-AzureRmAccount` a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.  
+    - Spuštěním příkazu `Get-AzureRmSubscription` zobrazte všechna předplatná pro tento účet.
+    - Spusťte příkaz `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` a vyberte předplatné, se kterým chcete pracovat. Mělo by to být stejné předplatné, které jste použili na webu Azure Portal.
 1. Spuštěním následujícího příkazu nasaďte entity služby Data Factory pomocí šablony Resource Manageru, kterou jste vytvořili v kroku 1. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -247,7 +246,7 @@ Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](dat
 8. V Zobrazení diagramu dvakrát klikněte na datovou sadu **AzureBlobOutput**. Zobrazí se řez, který se právě zpracovává.
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Po dokončení zpracování bude řez ve stavu **Připraveno**. Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). 
+9. Po dokončení zpracování bude řez ve stavu **Připraveno**. Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Pokud je řez ve stavu **Připraveno**, zkontrolujte, jestli se ve složce **partitioneddata** v kontejneru **adfgetstarted** ve službě Blob Storage nachází výstupní data.  
@@ -308,6 +307,6 @@ Tato šablona vytvoří objekt pro vytváření dat s názvem GatewayUsingArmDF,
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

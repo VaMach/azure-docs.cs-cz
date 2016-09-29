@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
+
 
 # Vytvoření a nasazení skupiny prostředků Azure pomocí sady Visual Studio
 
@@ -47,7 +48,7 @@ V tomto postupu vytvoříte projekt skupiny prostředků Azure pomocí šablony 
 
     ![zobrazení uzlů](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Vzhledem k tomu, žen jsme pro tento příklad vybrali šablonu Web app + SQL, zobrazí se následující soubory. 
+    Vzhledem k tomu, že jsme pro tento příklad vybrali šablonu Web app + SQL, zobrazí se následující soubory: 
 
   	|Název souboru|Popis|
   	|---|---|
@@ -75,7 +76,7 @@ Pokud chcete přidat prostředek, můžete buď použít tlačítko **Přidat pr
 
 ![přidání prostředku](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-V tomto kurzu vyberte **účet úložiště** a pojmenujte ho. Název účtu úložiště musí obsahovat jenom čísla a malá písmena a musí být kratší než 24 znaků. Projekt k zadanému názvu přidá jedinečný 13znakový řetězec, proto zkontrolujte, že váš název neobsahuje více než 11 znaků.
+V tomto kurzu vyberte **účet úložiště** a pojmenujte ho. Zadejte název, který nebude delší než 11 znaků. Obsahovat smí jenom čísla a malá písmena.
 
 ![přidání úložiště](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -127,30 +128,37 @@ Nyní jste připraveni svůj projekt nasadit. Když nasadíte projekt skupiny pr
 
     ![Dialogové okno vytvoření skupiny prostředků](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. Kliknutím na **Upravit parametry** můžete upravit parametry pro nasazení. Zadejte hodnoty parametrů a stiskněte **Uložit**.
+1. Výběrem tlačítka **Upravit parametry** můžete upravit parametry pro nasazení.
+
+    ![Tlačítko Upravit parametry](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Zadejte hodnoty prázdných parametrů a stiskněte tlačítko **Uložit**. Prázdnými parametry jsou **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** a **databaseName**.
+
+    **hostingPlanName** určuje název [plánu služby App Service](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), který chcete vytvořit. 
+    
+    **administratorLogin** určuje uživatelské jméno správce SQL Serveru. Nepoužívejte běžné názvy správců, například **sa** nebo **admin**. 
+    
+    **administratorLoginPassword** určuje heslo správce SQL Serveru. Možnost **Ukládat hesla do souboru parametrů jako prostý text** není bezpečná. Proto ji nepoužívejte. Vzhledem k tomu, že heslo není uložené jako prostý text, budete ho během nasazení muset zadat znovu. 
+    
+    **databaseName** určuje název databáze, kterou chcete vytvořit. 
 
     ![Dialogové okno Upravit parametry](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    Možnost **Ukládat hesla do souboru parametrů jako prostý text** není bezpečná.
-
-1. Stisknutím tlačítka **Nasadit** nasadíte projekt do Azure. Průběh nasazení uvidíte v okně **Výstup**. Nasazení může v závislosti na konfiguraci trvat několik minut. V konzole PowerShell po zobrazení výzvy zadejte heslo správce databáze. Pokud se průběh nasazení zastaví, může to být proto, že proces čeká na zadání hesla v konzole PowerShell.
+1. Stisknutím tlačítka **Nasadit** nasadíte projekt do Azure. Otevře se powershellová konzola mimo instanci sady Visual Studio. Po zobrazení výzvy zadejte v powershellové konzole heslo správce SQL Serveru. **Konzole PowerShellu může být skrytá za jinými položkami nebo minimalizovaná na hlavním panelu.** Najděte ji, vyberte ji a zadejte heslo.
 
     >[AZURE.NOTE] Sada Visual Studio vás může požádat o instalaci rutin Azure PowerShell. Rutiny Azure PowerShell jsou zapotřebí k úspěšnému nasazení skupin prostředků. Pokud k tomu budete vyzváni, nainstalujte je.
     
-1. Po nasazení se zobrazí zpráva v okně **Výstup**, zhruba v tomto tvaru:
+1. Nasazení může zabrat několik minut. V oknech **Výstup** se zobrazí stav nasazení. Po dokončení nasazení vám poslední zpráva oznámí úspěšné nasazení. Bude vypadat zhruba následovně:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 
-1. V prohlížeči otevřete [Portál Azure](https://portal.azure.com/) a přihlaste se do svého účtu. Chcete-li skupinu prostředků zobrazit, klikněte na odkaz **Skupiny prostředků** a pak na skupinu, do které jste provedli nasazení.
+
+1. V prohlížeči otevřete web [Azure portal](https://portal.azure.com/) a přihlaste se ke svému účtu. Chcete-li skupinu prostředků zobrazit, klikněte na odkaz **Skupiny prostředků** a pak na skupinu, do které jste provedli nasazení.
 
     ![výběr skupiny](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Zobrazí se všechny nasazené prostředky.
+1. Zobrazí se všechny nasazené prostředky. Všimněte si, že název účtu úložiště není přesně stejný jako název, který jste zadali během přidávání tohoto prostředku. Účet úložiště musí být jedinečný. Šablona k názvu automaticky přidá řetězec znaků, které zajistí jedinečnost názvu. 
 
     ![zobrazení prostředků](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +170,11 @@ Nyní jste připraveni svůj projekt nasadit. Když nasadíte projekt skupiny pr
 
 V tomto okamžiku jste nasadili infrastrukturu pro vaši aplikaci, ale zatím není v projektu nasazený žádný kód. Toto téma ukazuje, jak nasadit webovou aplikaci a tabulky SQL Database. Pokud nasazujete namísto webové aplikace virtuální počítač, budete v něm asi chtít spouštět nějaký kód. Proces nasazení kódu pro webovou aplikaci nebo pro virtuální počítač je téměř stejný.
 
-1. V řešení sady Visual Studio přidejte **ASP.NET Web Application** (Webová aplikace ASP.NET). 
+1. Přidejte projekt do řešení sady Visual Studio. Klikněte pravým tlačítkem na řešení a vyberte **Přidat** > **Nový projekt**.
+
+    ![přidání projektu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Přidejte **webovou aplikaci ASP.NET**. 
 
     ![přidání webové aplikace](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,41 +182,59 @@ V tomto okamžiku jste nasadili infrastrukturu pro vaši aplikaci, ale zatím ne
 
     ![výběr MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Po tom, co sada Visual Studio vytvoří webovou aplikaci, přidejte v projektu skupiny prostředků odkaz na projekt webové aplikace.
+1. Když sada Visual Studio vytvoří webovou aplikaci, uvidíte oba projekty v řešení.
+
+    ![zobrazení projektů](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Teď potřebujete zajistit, aby projekt skupiny prostředků věděl o novém projektu. Vraťte se do projektu skupiny prostředků (AzureResourceGroup1). Klikněte pravým tlačítkem na **Odkazy** a vyberte **Přidat odkaz**.
+
+    ![přidání odkazu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Vyberte vámi vytvořený projekt webové aplikace.
 
     ![přidání odkazu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Přidáním odkazu propojíte projekt webové aplikace s projektem skupiny prostředků a automaticky nastavíte tři klíčové vlastnosti.  
+    Přidáním odkazu propojíte projekt webové aplikace s projektem skupiny prostředků a automaticky nastavíte tři klíčové vlastnosti. Tyto vlastnosti se zobrazují v okně **Vlastnosti**.
+
+      ![zobrazení odkazu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - Pole **Additional Properties** (Další vlastnosti) obsahuje pracovní umístění balíčku pro nasazení webu, který se vloží do úložiště Azure. 
+    Mezi vlastnosti patří:
+
+    - Pole **Additional Properties** (Další vlastnosti) obsahuje pracovní umístění balíčku pro nasazení webu, který se vloží do úložiště Azure. Poznamenejte si složku (ExampleApp) a soubor (package.zip). Tyto hodnoty budete zadávat jako parametry při nasazování aplikace. 
     - Pole **Include File Path** (Cesta k souboru pro zahrnutí) obsahuje cestu, kde je balíček vytvořen. Pole **Include Targets** (Zahrnout cíle) obsahuje příkaz, který proces nasazení provede. 
     - Výchozí hodnota **Build;Package** umožňuje sestavení a vytvoření balíčku pro nasazení webu (package.zip).  
     
     Profil publikování není potřeba, protože nasazení získá informace potřebné k vytvoření balíčku z nastavených vlastností.
-    
-      ![zobrazení odkazu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Přidejte k šabloně prostředek a tentokrát vyberte **Web Deploy for Web Apps** (Nasazení webu pro webové aplikace). 
+1. Přidejte prostředek do šablony.
+
+    ![přidání prostředku](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Tentokrát vyberte **Nasazení webu pro webové aplikace**. 
 
     ![přidání nasazení webu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Znovu nasaďte projekt skupiny prostředků do skupiny prostředků. Tentokrát použijeme několik nových parametrů. Není třeba zadávat hodnoty pro **_artifactsLocation** nebo **_artifactsLocationSasToken**, ty sada Visual Studio vygeneruje automaticky. Nastavte cestu a název souboru balíčku pro nasazení.
+1. Znovu nasaďte projekt skupiny prostředků do skupiny prostředků. Tentokrát použijeme několik nových parametrů. Není třeba zadávat hodnoty pro **_artifactsLocation** nebo **_artifactsLocationSasToken**, ty sada Visual Studio vygeneruje automaticky. Název složky a souboru jste však nastavili do cesty, která obsahuje balíček pro nasazení (zobrazené na následujícím obrázku jako **ExampleAppPackageFolder** a **ExampleAppPackageFileName**). Zadejte hodnoty, které jste viděli v referenčních vlastnostech (**ExampleApp** a **package.zip**).
 
     ![přidání nasazení webu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Pro **Artifact storage account** (Účet úložiště artefaktů) můžete použít účet nasazený s touto skupinou prostředků.
+    V případě možnosti **Účet úložiště artefaktů** vyberte účet nasazený s touto skupinou prostředků.
     
-Po dokončení nasazení můžete přejít na web a ověřit, že jste úspěšně nasadili výchozí aplikaci ASP.NET.
+1. Po dokončení nasazení vyberte na portálu svojí webovou aplikaci. Vyberte adresu URL a přejděte na web.
 
-![zobrazení nasazené aplikace](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![procházení webu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Všimněte si, že jste úspěšně nasadili výchozí aplikaci ASP.NET.
+
+    ![zobrazení nasazené aplikace](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Další kroky
 
-- Informace o správě prostředků prostřednictvím portálu najdete v tématu [Použití portálu Azure ke správě prostředků Azure](./azure-portal/resource-group-portal.md).
+- Další informace o správě prostředků prostřednictvím tohoto portálu najdete v článku [Použití webu Azure Portal ke správě prostředků Azure](./azure-portal/resource-group-portal.md).
 - Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

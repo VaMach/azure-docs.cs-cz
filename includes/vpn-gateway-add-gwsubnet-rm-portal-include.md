@@ -1,22 +1,19 @@
-1. Na portálu přejděte na virtuální síť, ke které chcete připojit bránu. V okně vaší virtuální sítě kliknutím na ikonu **Nastavení** v horní části okna rozbalte okno Nastavení. 
+1. Na portálu přejděte na virtuální síť, ke které chcete připojit bránu.
 
-2. V okně **Nastavení** kliknutím na **Podsítě** rozbalte okno Podsítě.
+2. V okně vaší virtuální sítě v části **Nastavení** klikněte na **Podsítě** a rozbalte okno Podsítě.
 
-3. V okně **Podsítě** kliknutím na **Přidat** rozbalte okno **Přidat podsíť**.
+3. V horní části okna **Podsítě** klikněte na **+Podsíť brány**. Tím otevřete okno **Přidat podsíť**. **Název** podsítě se automaticky vyplní hodnotou GatewaySubnet. To je požadovaná hodnota, aby služba Azure podsíť rozpoznala jako podsíť brány.
 
     ![Přidání podsítě brány](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
 
-4. V okně **Přidat podsíť** pojmenujte podsíť názvem **GatewaySubnet**. Pokud ji pojmenujete jinak, brána nebude fungovat.
+4. Blok CIDR rozsahu adres můžete v případě potřeby změnit. Zkontrolujte požadavky na konkrétní konfiguraci a potvrdit doporučený blok CIDR.
 
-5. Zadejte **Rozsah IP adres** vaší brány.
-
-6. Vytvořte podsíť kliknutím na tlačítko **OK** v dolní části okna.
+5. Vytvořte podsíť kliknutím na tlačítko **OK** v dolní části okna.
 
 
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

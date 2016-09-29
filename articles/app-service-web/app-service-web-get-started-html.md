@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Nasazení první webové aplikace do Azure během pěti minut | Microsoft Azure" 
+    pageTitle="Nasazení vaší první webové aplikace do Azure během pěti minut | Microsoft Azure" 
     description="Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service. Pusťte se hned do skutečného vývoje. Výsledky uvidíte okamžitě." 
     services="app-service\web"
     documentationCenter=""
@@ -18,7 +18,8 @@
     ms.author="cephalin"
 />
     
-# Nasazení první webové aplikace do Azure během pěti minut
+
+# Nasazení vaší první webové aplikace do Azure během pěti minut
 
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci HTML+CSS do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -28,7 +29,7 @@ Budete postupovat takto:
 - Vytvoříte webovou aplikaci ve službě Azure App Service.
 - Nasadíte do ní HTML a CSS.
 - Prohlédnete si stránky naživo v produkčním prostředí.
-- Budete obsah aktualizovat stejným způsobem, jakým byste [bez vyžádání doručili (push) potvrzené změny do Gitu](https://git-scm.com/docs/git-push).
+- Aktualizujete obsah stejným způsobem, jakým byste [bez vyžádání doručili (push) potvrzené změny do Gitu](https://git-scm.com/docs/git-push).
 
 ## Požadavky
 
@@ -94,25 +95,25 @@ Teď do Azure pomocí Gitu nasadíme obsah.
 
     ![Klonování ukázkového kódu aplikace pro první webovou aplikaci v Azure](./media/app-service-web-get-started-languages/html-git-clone.png)
 
-2. Přejděte do úložiště ukázkové aplikace. Příklad: 
+2. Přejděte do úložiště ukázkové aplikace. Například: 
 
         cd app-service-web-html-get-started
 
-3. Nakonfigurujte vzdálené úložiště Gitu pro aplikaci Azure pomocí adresy URL pro Git, kterou jste zkopírovali z portálu v jednom z předchozích kroků.
+3. Nakonfigurujte vzdálené úložiště Git pro aplikaci Azure pomocí adresy URL pro Git, kterou jste zkopírovali z portálu v jednom z předchozích kroků.
 
         git remote add azure <giturlfromportal>
 
-4. Nasaďte ukázkový kód do aplikace Azure stejným způsobem, jakým byste bez vyžádání doručili (push) libovolný kód prostřednictvím Gitu:
+4. Nasaďte ukázkový kód do aplikace Azure stejným způsobem, jakým byste doručili bez vyžádání (push) libovolný kód prostřednictvím Gitu:
 
         git push azure master
 
-    ![Doručení kódu bez vyžádání (push) do první webové aplikace v Azure](./media/app-service-web-get-started-languages/html-git-push.png)    
+    ![Nucené doručení (push) kódu do první webové aplikace v Azure](./media/app-service-web-get-started-languages/html-git-push.png)    
 
 A to je vše! Váš kód teď živě běží v Azure. V prohlížeči přejděte na http://*&lt;název_aplikace>*.azurewebsites.net a prohlédněte si ho. 
 
 ## Provádění aktualizací aplikace
 
-Teď můžete pomocí Gitu kdykoli provádět doručení bez vyžádání (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení obsahu. Pokud například chcete bez vyžádání doručit (push) novou změnu, kterou jste místně otestovali, stačí z kořenového adresáře projektu (úložiště) spustit následující příkazy:
+Nyní můžete pomocí Git kdykoli provádět nucené doručení (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení obsahu. Například pokaždé, když chcete nuceně doručit (push) novou změnu, kterou jste místně otestovali, stačí spustit následující příkazy z kořenového adresáře projektu (úložiště):
 
     git add .
     git commit -m "<your_message>"
@@ -137,6 +138,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

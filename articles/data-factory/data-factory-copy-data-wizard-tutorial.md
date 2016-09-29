@@ -10,24 +10,26 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
+    ms.tgt_pltfrm="na" **
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md) 
-- [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 V tomto kurzu vytvoříte v objektu pro vytváření dat kanál s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory. Nejprve vytvoříte objekt pro vytváření dat pomocí webu Azure Portal. Následně pomocí průvodce kopírováním vytvoříte pro službu Data Factory propojené služby, datové sady a kanál s aktivitou kopírování, která zkopíruje data ze služby Azure Blob Storage do Azure SQL Database. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 
-> [AZURE.IMPORTANT] Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte požadované kroky.
+> [AZURE.IMPORTANT] Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky.
 
 ## Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
@@ -40,7 +42,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     1. Do pole **Název** zadejte **ADFTutorialDataFactory**. 
     
         ![Okno Nový objekt pro vytváření dat](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-    2. Klikněte na **NÁZEV SKUPINY PROSTŘEDKŮ** a postupujte takto:
+    2. Klikněte na **NÁZEV SKUPINY PROSTŘEDKŮ** a proveďte následující kroky:
         1. Klikněte na **Vytvořit novou skupinu prostředků**.
         2. V okně **Vytvořit skupinu prostředků** zadejte do pole **Název** skupiny prostředků název **ADFTutorialResourceGroup** a klikněte na **OK**. 
 
@@ -57,7 +59,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     > [AZURE.NOTE] Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.  
 
 9. Klikněte na položku **OZNÁMENÍ** vlevo a podívejte se na případná oznámení procesu vytváření. Pokud máte otevřené okno **OZNÁMENÍ**, zavřete ho kliknutím na tlačítko **X**. 
-10. Po vytvoření se zobrazí okno **OBJEKT PRO VYTVÁŘENÍ DAT**, jak je znázorněno na následujícím obrázku.
+10. Po vytvoření se zobrazí okno **OBJEKT PRO VYTVÁŘENÍ DAT**, jak je znázorněno na následujícím obrázku:
 
     ![Domovská stránka objektu pro vytváření dat](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -88,7 +90,10 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     3. Klikněte na **Další**. 
 
     ![Nástroj pro kopírování – volba vstupního souboru nebo složky](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. Na stránce **File format settings** (Nastavení formátu souboru) vyberte **výchozí** hodnoty a klikněte na **Další**.
+7. Na stránce **Zvolte vstupní soubor nebo složku** klikněte na **Další**. Nezaškrtávejte políčko **Binární kopie**. 
+
+    ![Nástroj pro kopírování – volba vstupního souboru nebo složky](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. Na stránce **File format settings** (Nastavení formátu souboru) vyberte **výchozí** hodnoty a klikněte na **Další**.
 
     ![Nástroj pro kopírování – nastavení formátu souboru](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Na stránce cílového úložiště dat klikněte na dlaždici **Azure SQL Database** a potom klikněte na **Další**.
@@ -102,11 +107,12 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 
     ![Nástroj pro kopírování – mapování tabulek](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Na stránce **Schema mapping** (Mapování schématu) klikněte na tlačítko **Další**.
+11. Na stránce **Nastavení výkonu** klikněte na **Další**. 
 11. Na stránce **Souhrn** zkontrolujte informace a klikněte na **Dokončit**. Průvodce v objektu pro vytváření dat (ze kterého jste průvodce kopírováním spustili) vytvoří dvě propojené služby, dvě datové sady (vstupní a výstupní) a jeden kanál. 
-12. Na stránce **Nasazení bylo úspěšné** klikněte na **Click here to monitor copy pipeline** (Kliknutím sem můžete monitorovat kanál kopírování).
+12. Na stránce **Nasazení bylo úspěšné** klikněte na odkaz **Kliknutím sem můžete monitorovat kanál kopírování**.
 
     ![Nástroj pro kopírování – nasazení bylo úspěšné](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Pomocí pokynů v tématu [Monitorování a správa kanálu pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) zjistíte, jak můžete vytvořený kanál monitorovat.
+13. Pomocí pokynů v tématu [Monitorování a správa kanálu pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) zjistíte, jak můžete vytvořený kanál monitorovat. Kliknutím na ikonu **Aktualizovat** v seznamu **OKNA AKTIVIT** zobrazíte řez. 
 
     ![Monitorovací aplikace](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -121,6 +127,6 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

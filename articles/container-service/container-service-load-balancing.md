@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vyrovnání zatížení v clusteru Azure Container Service | Microsoft Azure"
-   description="V clusteru Azure Container Service můžete vyrovnávat zatížení."
+   pageTitle="Vyrovnání zatížení kontejnerů v clusteru Azure Container Service | Microsoft Azure"
+   description="Článek popisuje, jak se vyrovnává zatížení více kontejnerů v clusteru Azure Container Service."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,10 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Vyrovnání zatížení v clusteru Azure Container Service
 
-V tomto článku nastavíme webový front end ve službě Azure Container Service spravované systémem DC/OS. Také nakonfigurujeme nástroj Marathon-LB, abyste mohli vertikálně navýšit kapacitu aplikace.
+# Vyrovnání zatížení kontejnerů v clusteru Azure Container Service
+
+V tomto článku se podíváme, jak se pomocí nástroje Marathon-LB vytváří vnitřní nástroj pro vyrovnávání zatížení v prostředí Azure Container Service spravovaném systémem DC/OS. To vám umožní horizontálně škálovat aplikace. Taky vám to umožní využít veřejný i soukromý cluster v tom smyslu, že na veřejný umístíte nástroje pro vyrovnávání zatížení, zatímco na soukromý kontejnery aplikací.
 
 ## Požadavky
 
@@ -55,9 +56,11 @@ Po instalaci rozhraní příkazového řádku DC/OS a ověření, že se můžet
 dcos package install marathon-lb
 ```
 
+Tento příkaz na veřejný cluster automaticky nainstaluje nástroj pro vyrovnávání zatížení.
+
 ## Nasazení webové aplikace s vyrovnáváním zatížení
 
-Teď už máme balíček marathon-lb a můžeme nasadit jednoduchý webový server s použitím následující konfigurace:
+Jakmile máme balíček marathon-lb, můžeme nasadit kontejner aplikace, u kterého chceme vyrovnávat zatížení. V tomto příkladu nasadíme pomocí následující konfigurace jednoduchý webový server:
 
 ```json
 {
@@ -100,6 +103,8 @@ Teď už máme balíček marathon-lb a můžeme nasadit jednoduchý webový serv
   * Nastavte `hostPort` na 0. To znamená, že nástroj Marathon libovolně přidělí některý z dostupných portů.
   * Nastavte `instances` na počet instancí, které chcete vytvořit. Tento počet instancí lze kdykoli později zvýšit nebo snížit.
 
+Mějte na paměti, že Marathon se ve výchozím nastavení nasazuje na soukromý cluster. To znamená, že výše popsané nasazení bude přístupné jen prostřednictvím nástroje pro vyrovnávání zatížení, což právě většinou chceme.
+
 ### Nasazení pomocí webového uživatelského rozhraní DC/OS
 
   1. Navštivte stránku nástroje Marathon na adrese http://localhost/marathon (po nastavení [tunelu SSH ](container-service-connect.md) a kliknutí na `Create Appliction`
@@ -141,6 +146,6 @@ Další informace o nástroji [marathon-lb](https://dcos.io/docs/1.7/usage/servi
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Začínáme s Azure Mobile Engagementem pro iOS v Objective C"
+    pageTitle="Začínáme s Azure Mobile Engagementem pro iOS v Objective C | Microsoft Azure"
     description="Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace pro iOS."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/14/2016"
     ms.author="piyushjo" />
+
 
 # Začínáme s Azure Mobile Engagementem pro aplikace pro iOS v Objective C
 
@@ -25,8 +26,8 @@ V tomto kurzu vytvoříte prázdnou aplikaci iOS, která bude shromažďovat zá
 
 V tomto kurzu budete potřebovat následující:
 
-+ XCode 6 nebo XCode 7, které můžete nainstalovat z MAC App Storu
-+  [Mobile Engagement iOS SDK]
++ XCode 8, který si můžete nainstalovat z MAC App Storu
++ [Mobile Engagement iOS SDK]
 
 Ve všech dalších kurzech k Mobile Engagement týkajících se aplikací pro iOS se předpokládá dokončení tohoto kurzu.
 
@@ -116,7 +117,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 2. Vyberte **Add file to** (Přidat soubor).
 3. Přejděte do složky, do které jste extrahovali sadu SDK.
 4. Vyberte složku `EngagementReach`.
-5. Klikněte na tlačítko **Add** (Přidat).
+5. Klikněte na tlačítko **Přidat**.
 
 ### Úprava delegáta aplikace
 
@@ -183,6 +184,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

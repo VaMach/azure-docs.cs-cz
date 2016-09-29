@@ -17,6 +17,7 @@
     ms.author="kgremban"/>
 
 
+
 # Publikování aplikací pomocí proxy aplikace služby Azure AD
 
 Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních procesů publikováním místních aplikací, aby byly přístupné přes internet. V tomto bodě byste už měli mít [povolenou proxy aplikaci v portálu Azure Classic](active-directory-application-proxy-enable.md). Tento článek vám ukáže postup, jak publikovat aplikace, které běží v místní síti, a jak poskytnout zabezpečený vzdálený přístup mimo síť. Po dokončení tohoto článku budete připravení ke konfiguraci aplikace pomocí individuálních informací nebo požadavků na zabezpečení.
@@ -103,6 +104,6 @@ Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://b
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

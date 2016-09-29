@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
+
 
 #Použití SSH se systémem Linux Hadoop v HDInsight ze systému OS X, Linux a Unix.
 
@@ -43,11 +44,11 @@ NEBO
 
 ##Co je SSH?
 
-SSH je nástroj pro přihlašování a vzdálené spouštění příkazů na vzdáleném serveru. Se systémem Linux HDInsight SSH vytvoří šifrované připojení k hlavnímu uzlu clusteru a poskytuje příkazový řádek, který použijete k zadávání příkazů. Příkazy jsou poté provedeny přímo na serveru.
+SSH je nástroj pro přihlašování a vzdálené spouštění příkazů na vzdáleném serveru. U služby HDInsight se systémem Linux vytváří SSH šifrované připojení k hlavnímu uzlu clusteru a poskytuje příkazový řádek, který použijete k zadávání příkazů. Příkazy jsou poté provedeny přímo na serveru.
 
 ###Uživatelské jméno SSH
 
-Uživatelské jméno SSH je jméno sloužící k ověření clusteru HDInsight. Když zadáte uživatelské jméno SSH při vytváření clusteru, vytvoří se tento uživatel na všech uzlech v clusteru. Jakmile je cluster vytvořen, můžete použít toto uživatelské jméno pro připojení k hlavním uzlům clusteru HDInsight. Z hlavních uzlů se pak můžete připojit k jednotlivým pracovním uzlům.
+Uživatelské jméno SSH je jméno sloužící k ověření clusteru HDInsight. Když zadáte uživatelské jméno SSH při vytváření clusteru, vytvoří se tento uživatel na všech uzlech v clusteru. Jakmile je cluster vytvořen, můžete použít toto uživatelské jméno pro připojení k hlavním uzlům clusteru HDInsight. Z hlavních uzlů se poté můžete připojit k jednotlivým pracovním uzlům.
 
 ###Heslo nebo veřejný klíč SSH
 
@@ -122,13 +123,13 @@ Z relace terminálové služby se připojte pomocí příkazu SSH k hlavnímu uz
 
 * **Adresa SSH** - Existují dvě adresy, které slouží k připojení ke clusteru pomocí protokolu SSH:
 
-    * **Připojte se k hlavnímu uzlu**: Název clusteru, za nímž následuje **-ssh.azurehdinsight.net**. Například **mycluster-ssh.azurehdinsight.net**.
+    * **Připojení k hlavnímu uzlu**: Název clusteru, za nímž následuje **-ssh.azurehdinsight.net**. Například **mycluster-ssh.azurehdinsight.net**.
     
     * **Připojit k uzlu edge**: Když je váš cluster R serverem v HDInsight, cluster bude také obsahovat hraniční uzel, na který lze přistupovat pomocí **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, kde __CLUSTERNAME__ je název clusteru.
 
 * **Uživatelské jméno** - Uživatelské jméno SSH, které jste zadali při vytvoření clusteru.
 
-Následující příklad se připojí k hlavního uzlu 0 v **mycluster** jako uživatel **me**:
+Následující příklad se připojí k primárnímu hlavnímu uzlu clusteru **mycluster** jako uživatel **me**:
 
     ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,11 +141,11 @@ Když jste použili klíč SSH, který je zabezpečen pomocí přístupového he
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Pokud se připojujete pomocí adresy pro hlavní uzel a není určen port, SSH určí jako výchozí port 22, který se připojí k hlavnímu uzlu 0 v clusteru HDInsight. Když používáte port 23, budete se připojovat k hlavnímu uzlu 1. Další informace o hlavních uzlech naleznete v tématu [Dostupnost a spolehlivost Hadoop clusterů v HDInsight](hdinsight-high-availability-linux.md).
+Pokud se připojujete pomocí adresy pro hlavní uzel a neurčíte port, SSH určí jako výchozí port 22, který se připojí k primárnímu hlavnímu uzlu v clusteru HDInsight. Použijete-li port 23, připojíte se k sekundárnímu hlavnímu uzlu. Další informace o hlavních uzlech najdete v tématu [Dostupnost a spolehlivost clusterů Hadoop ve službě HDInsight](hdinsight-high-availability-linux.md).
 
 ###Připojování k pracovním uzlům
 
-Pracovní uzly nejsou přímo dostupné z oblasti mimo datové centrum Azure, ale jsou dostupné z hlavního uzlu clusteru pomocí protokolu SSH.
+Pracovní uzly nejsou přímo dostupné z oblasti mimo datové centrum Azure, ale jsou dostupné z hlavního uzlu clusteru přes SSH.
 
 Když k ověření uživatelského účtu používáte klíč SSH, musíte u svého klienta dokončit následující kroky:
 
@@ -195,9 +196,9 @@ Pomocí následujících kroků se připojte k pracovním uzlům pro váš clust
 
     > [AZURE.NOTE] Pokud použijete heslo k ověřování relace SSH, zobrazí se výzva k opětovnému zadání hesla. Pokud používáte klíč SSH, je třeba připojení dokončit bez zobrazování výzev.
 
-4. Po vytvoření relace se výzva terminálu změní z `username@hn0-clustername` na `username@wk0-clustername`, což značí, že jste připojeni k pracovnímu uzlu. Všechny příkazy, které spustíte v tomhle okamžiku, se spustí v pracovním uzlu.
+4. Po vytvoření relace se výzva terminálu změní z `username@hn#-clustername` na `username@wk#-clustername`, což značí, že jste připojeni k pracovnímu uzlu. Všechny příkazy, které spustíte v tomhle okamžiku, se spustí v pracovním uzlu.
 
-4. Po dokončení provádění akcí v pracovním uzlu použijte příkaz `exit` k ukončení relace k uzlu pracovníka. Tím se vrátíte do řádku `username@hn0-clustername`.
+4. Po dokončení provádění akcí v pracovním uzlu použijte příkaz `exit` k ukončení relace k uzlu pracovníka. Tím se vrátíte do řádku `username@hn#-clustername`.
 
 ##Přidat další účty
 
@@ -249,6 +250,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

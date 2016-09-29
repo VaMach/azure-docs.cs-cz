@@ -1,6 +1,6 @@
 <properties
    pageTitle="Začínáme s aplikací Azure AD Privileged Identity Management | Microsoft Azure"
-   description="Přečtěte si, jak spravovat privilegované identity pomocí aplikace Azure Active Directory Privileged Identity Management na portálu Azure."
+   description="Přečtěte si, jak spravovat privilegované identity pomocí aplikace Azure Active Directory Privileged Identity Management na webu Azure Portal."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,32 +13,40 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/29/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
+
 
 # Začínáme s aplikací Azure AD Privileged Identity Management
 
 
-Aplikace Azure Active Directory (AD) Privileged Identity Management vám umožní spravovat, řídit a monitorovat privilegované identity a přístup k prostředkům v Azure AD i v jiných online službách Microsoft, jako jsou Office 365 nebo Microsoft Intune.  
+Pomocí aplikace Azure Active Directory (AD) Privileged Identity Management můžete spravovat, řídit a sledovat přístup v rámci organizace. To zahrnuje přístup k prostředkům v Azure AD a dalších online službách Microsoftu jako Office 365 nebo Microsoft Intune.
 
-Tento článek vysvětluje, jak přidat aplikaci Azure AD PIM do řídicího panelu portálu Azure.
+Tento článek vysvětluje, jak přidat aplikaci Azure AD PIM do řídicího panelu webu Azure Portal.
 
 ## Přidání aplikace Privileged Identity Management
 
-Před použitím aplikace Azure AD Privileged Identity Management musíte tuto aplikaci přidat do řídicího panelu portálu Azure.
+Před použitím aplikace Azure AD Privileged Identity Management musíte tuto aplikaci přidat do řídicího panelu webu Azure Portal.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/) jako globální správce adresáře.
-2. Pokud má vaše organizace více než jeden adresář, klikněte na své uživatelské jméno v pravém horním rohu na portálu Azure a vyberte adresář, kde budete používat PIM.
-3. Vyberte **Nové** > **Zabezpečení + Identita** > **Azure AD Privileged Identity Management**.
-
-    ![Povolení PIM na portálu][1]
-
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/) jako globální správce adresáře.
+2. Pokud má vaše organizace víc než jeden adresář, vyberte své uživatelské jméno v pravém horním rohu webu Azure Portal. Vyberte adresář, kde budete PIM používat.
+3. Vyberte **Další služby** a pomocí pole Filtr najděte **Azure AD Privileged Identity Management**.
 4. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na **Vytvořit**. Aplikace Privileged Identity Management se otevře.
 
 
 Pokud jste první, kdo bude ve vašem adresáři používat aplikaci Azure AD Privileged Identity Management, [průvodce zabezpečením](active-directory-privileged-identity-management-security-wizard.md) vás provede počátečním přiřazením. Automaticky se pak stanete prvním **správcem zabezpečení** a **správcem privilegovaných rolí** adresáře. Pouze správce privilegovaných rolí má přístup k této aplikaci za účelem správy přístupu pro další správce.  
 
-Pokud jste byli přiřazeni k jedné nebo více rolím, budete mít k dispozici možnost **Aktivovat moje role**. Pokud jste správcem privilegovaných rolí, zobrazí se také možnost **Spravovat privilegované role**.  
+## Přechod k úkolům
+
+Po nastavení Azure AD Privileged Identity Management se vždy, když aplikaci otevřete, zobrazí navigační okno. Pomocí tohoto okna provádějte úkoly správy identity.
+
+![Úkoly nejvyšší úrovně v PIM – snímek obrazovky](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
+
+- **Aktivovat moje role** – přejdete k seznamu rolí, které vám jsou přiřazeny. Tam můžete aktivovat role, ke kterým máte oprávnění.
+
+- **Spravovat privilegované role** – zobrazí řídicí panel pro správce privilegovaných rolí, odkud se dá spravovat přiřazení rolí, měnit nastavení aktivace rolí, začít kontrolu přístupu atd. Možnosti na tomto řídicím panelu se zobrazují jen správcům privilegovaných rolí.
+
+- **Zkontrolovat privilegovaný přístup** – přejdete ke kontrolám přístupu, které je potřeba dokončit, ať už kontrolujete přístup sobě nebo někomu jinému. 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -54,6 +62,6 @@ Pokud jste byli přiřazeni k jedné nebo více rolím, budete mít k dispozici 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

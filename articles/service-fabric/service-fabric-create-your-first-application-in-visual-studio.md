@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
+
 
 # Vytvoření první aplikace Azure Service Fabric v sadě Visual Studio
 
@@ -110,6 +111,14 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 
     ![Prohlížeč diagnostických událostí po převzetí služeb při selhání][diagnostic-events-viewer-detail-post-failover]
 
+## Přepnutí režimu clusteru
+
+Místní cluster pro vývoj je ve výchozím nastavení nakonfigurován tak, aby běžel jako cluster s pěti uzly, což se hodí při ladění služeb nasazených na více uzlech. Nasazení aplikace do clusteru pro vývoj s pěti uzly může ovšem určitý čas trvat. Pokud chcete rychle iterovat změny bez toho, aby vaše aplikace běžela na pěti uzlech, můžete cluster pro vývoj přepnout do režimu jednoho uzlu. Jestliže chcete svůj kód spustit na clusteru s jedním uzlem, klikněte na hlavním panelu systému pravým tlačítkem na nástroj Local Cluster Manager a vyberte **Přepnout režim clusteru -> 1 uzel**.  
+
+![Přepnutí režimu clusteru][switch-cluster-mode]
+
+Po změně režimu clusteru se cluster pro vývoj restartuje a zároveň se z něj odeberou všechny na něm zřízené nebo spuštěné aplikace.
+
 ## Čištění
 
   Před zabalení je dobré si uvědomit, že místní cluster je naprosto skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
@@ -138,9 +147,10 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 
