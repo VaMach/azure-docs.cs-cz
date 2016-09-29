@@ -19,9 +19,10 @@
    ms.author="cfowler;mahender;glenga"/>
    
    
+
 # Přehled Azure Functions
 
-Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Díky tomu se dál zvýší produktivita vývoje, a navíc můžete použít jazyk podle vlastní volby, například C#, Node.js, Python nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure.
+Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Díky tomu se ještě zvýší produktivita vývoje, a navíc můžete použít jazyk podle vlastní volby, například C#, F# Node.js, Python nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure.
 
 Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začít používat Azure Functions, začněte tématem [Vytvoření první funkce Azure](functions-create-first-azure-function.md). Pokud hledáte další odborné informace o Functions, přejděte k části [referenční informace pro vývojáře](functions-reference.md).
 
@@ -29,7 +30,7 @@ Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začí
 
 Toto jsou některé klíčové funkce Azure Functions:
     
-* **Volba jazyka** – Pište funkce pomocí jazyka C#, Node.js, Python, F#, PHP, Batch, Bash, Java nebo libovolného spustitelného souboru.  
+* **Volba jazyka** – Pište funkce pomocí jazyka C#, F#, Node.js, Python, F#, PHP, Batch, Bash, Java nebo libovolného spustitelného jazyka.
 * **Cenový model platba za použití** – Platíte jen za čas, kdy byl kód spuštěný. Prostudujte plán služby App Service Dynamic jako jednu z možností uvedených níže v [části týkající se cen](#pricing).  
 * **Přineste si vlastní závislosti** – Functions podporuje NuGet a NPM, takže můžete používat své oblíbené knihovny.  
 * **Integrované zabezpečení** – Chraňte funkce aktivované protokolem HTTP pomocí poskytovatelů OAuth, jako jsou Azure Active Directory, Facebook, Google, Twitter a účet Microsoft.  
@@ -93,6 +94,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

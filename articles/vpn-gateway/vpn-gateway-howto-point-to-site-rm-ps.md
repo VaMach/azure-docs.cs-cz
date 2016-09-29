@@ -16,11 +16,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc" />
 
+
 # Konfigurace připojení Point-to-Site k virtuální síti pomocí prostředí PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Klasický portál](vpn-gateway-point-to-site-create.md)
+- [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic – klasický portál](vpn-gateway-point-to-site-create.md)
 
 Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. 
 
@@ -111,7 +112,7 @@ V této části se přihlásíte a deklarujete hodnoty používané pro tuto kon
 
         New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Vytvořte konfigurace podsítí pro virtuální síť, podsítě pojmenujte *FrontEnd*, *BackEnd* a *GatewaySubnet*. Tyto předpony musí být součástí adresního prostoru sítě VNet deklarovaného výše.
+2. Vytvořte konfigurace podsítí pro virtuální síť, podsítě pojmenujte *FrontEnd*, *BackEnd* a *GatewaySubnet*. Tyto předpony musí být součástí adresního prostoru virtuální sítě deklarovaného výše.
 
         $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
         $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -172,7 +173,7 @@ Klienti připojení k Azure s použitím P2S musí mít nainstalovaný certifik�
 
 3. Zkopírujte a vložte vrácený odkaz do webového prohlížeče a stáhněte balíček. Pak balíček nainstalujte do klientského počítače.
 
-4. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Zobrazí se příslušné připojení. Bude uveden název virtuální sítě, ke kterému se bude počítač připojovat. Název bude vypadat podobně jako tento: 
+4. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Zobrazí se příslušné připojení. Bude uveden název virtuální sítě, ke které se bude počítač připojovat. Název bude vypadat podobně jako tento příklad: 
 
     ![Klient VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
@@ -234,11 +235,11 @@ Do Azure můžete přidat až 20 souborů .cer s důvěryhodnými kořenovými c
 
 1. Vytvořte a připravte nový kořenový certifikát, který přidáte do Azure. Exportujte veřejný klíč ve formátu X.509, kódování Base-64 (CER) a otevřete jej v textovém editoru. Pak zkopírujte pouze část uvedenou níže. 
  
-    Zkopírujte hodnoty, jak je znázorněno v následujícím příkladu.
+    Zkopírujte hodnoty, jak je znázorněno v následujícím příkladu:
 
     ![certifikát](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
     
-2. V následujícím příkladu zadejte název certifikátu a informace o klíči jako proměnnou. Nahraďte informace vlastními údaji.
+2. Zadejte název certifikátu a informace o klíči jako proměnnou. Nahraďte tyto informace svými vlastními, jak je ukázáno na následujícím příkladu:
 
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
         $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -315,6 +316,6 @@ Do virtuální sítě můžete přidat virtuální počítač. Kroky jsou uveden
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

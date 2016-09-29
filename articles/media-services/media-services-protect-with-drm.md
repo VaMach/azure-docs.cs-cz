@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Použití běžného dynamického šifrování PlayReady nebo Widevine"
+    pageTitle="Použití běžného dynamického šifrování PlayReady nebo Widevine | Microsoft Azure"
     description="Služba Microsoft Azure Media Services umožňuje doručovat datové proudy MPEG-DASH, technologie Smooth Streaming a Http-Live-Streaming (HLS) chráněné pomocí Microsoft PlayReady DRM. Umožňuje také doručovat datové proudy DASH šifrované pomocí Widevine DRM. Toto téma ukazuje, jak dynamicky šifrovat pomocí PlayReady DRM nebo Widevine DRM."
     services="media-services"
     documentationCenter=""
-    authors="Juliako,Mingfeiy"
+    authors="juliako"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="06/22/2016"
+    ms.date="09/27/2016"
     ms.author="juliako"/>
+
 
 
 #Použití běžného dynamického šifrování PlayReady nebo Widevine
@@ -37,7 +38,7 @@ Abyste mohli využívat dynamické šifrování, je třeba mít asset, který ob
 
 Toto téma bude užitečné pro vývojáře pracující na aplikacích, které doručují média chráněná několika technologiemi DRM, např. PlayReady a Widevine. Téma ukazuje, jak nakonfigurovat službu doručování licencí PlayReady pomocí zásad autorizace tak, aby licence PlayReady nebo Widevine mohli dostávat pouze autorizovaní klienti. Také ukazuje, jak používat dynamické šifrování s licencemi DRM PlayReady nebo Widevine přes streamování DASH.
 
->[AZURE.NOTE]Pokud chcete začít používat dynamické šifrování, musíte nejprve získat alespoň jednu jednotku škálování (také označovanou jako jednotka streamování). Další informace najdete v článku o [škálování služby Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Pokud chcete začít používat dynamické šifrování, musíte nejprve získat alespoň jednu jednotku škálování (také označovanou jako jednotka streamování). Další informace najdete v článku o [škálování služby Media Service](media-services-portal-manage-streaming-endpoints.md).
 
 
 ##Stažení ukázky
@@ -48,15 +49,15 @@ Ukázku popsanou v tomto článku si můžete stáhnout [tady](https://github.co
 
 Níže jsou uvedeny základní kroky, které je třeba provést, pokud své assety chráníte pomocí technologie PlayReady, používáte službu doručování licencí Media Services a také používáte dynamické šifrování.
 
-1. Vytvořte asset a nahrajte do něj soubory. 
+1. Vytvořte asset a nahrajte do něj soubory.
 1. Zakódujte asset obsahující soubor do sady souborů MP4 s adaptivní přenosovou rychlostí.
-1. Vytvořte klíč k obsahu a přiřaďte jej k zakódovanému assetu. Klíč k obsahu ve službě Media Services obsahuje šifrovací klíč assetu. 
+1. Vytvořte klíč k obsahu a přiřaďte jej k zakódovanému assetu. Klíč k obsahu ve službě Media Services obsahuje šifrovací klíč assetu.
 1. Nakonfigurujte zásady autorizace pro klíč k obsahu. Zásady autorizace pro klíč k obsahu musíte vy nakonfigurovat a klient splnit, aby bylo možné mu klíč k obsahu doručit.
 
-    Při vytváření zásad autorizace pro klíč k obsahu je třeba zadat následující: metodu doručení  (PlayReady nebo Widevine), omezení (otevřené nebo s tokenem) a informace specifické pro daný typ doručení klíče, které definují, jak je klientovi klíč doručen (šablona licence [PlayReady](media-services-playready-license-template-overview.md) nebo [Widevine](media-services-widevine-license-template-overview.md)). 
-1. Konfigurace zásad doručení pro asset. Konfigurace zásad doručení zahrnuje: doručovací protokol (například MPEG DASH, HLS, HDS, technologie Smooth Streaming nebo všechny), typ dynamického šifrování (například Common Encryption), adresu URL pro získání licence PlayReady nebo Widevine. 
- 
-    Na každý protokol stejného assetu můžete použít jiné zásady. Můžete například použít šifrování PlayReady na protokol Smooth/DASH a šifrování pomocí standardu AES Envelope na protokol HLS. Veškeré protokoly, které nejsou v zásadách doručení definovány (například když přidáte jedinou zásadu, která jako protokol určuje pouze HLS), budou při streamování blokovány. Výjimkou je, pokud nemáte definovány vůbec žádné zásady doručení assetu. Pak budou všechny protokoly povolené v nešifrované podobě.
+Při vytváření zásad autorizace pro klíč k obsahu je třeba zadat následující: metodu doručení  (PlayReady nebo Widevine), omezení (otevřené nebo s tokenem) a informace specifické pro daný typ doručení klíče, které definují, jak je klientovi klíč doručen (šablona licence [PlayReady](media-services-playready-license-template-overview.md) nebo [Widevine](media-services-widevine-license-template-overview.md)).
+1. Konfigurace zásad doručení pro asset. Konfigurace zásad doručení zahrnuje: doručovací protokol (například MPEG DASH, HLS, HDS, technologie Smooth Streaming nebo všechny), typ dynamického šifrování (například Common Encryption), adresu URL pro získání licence PlayReady nebo Widevine.
+
+Na každý protokol stejného assetu můžete použít jiné zásady. Můžete například použít šifrování PlayReady na protokol Smooth/DASH a šifrování pomocí standardu AES Envelope na protokol HLS. Veškeré protokoly, které nejsou v zásadách doručení definovány (například když přidáte jedinou zásadu, která jako protokol určuje pouze HLS), budou při streamování blokovány. Výjimkou je, pokud nemáte definovány vůbec žádné zásady doručení assetu. Pak budou všechny protokoly povolené v nešifrované podobě.
 1. Pokud chcete získat adresu URL streamování vytvořte lokátor OnDemand.
 
 Kompletní příklad rozhraní .NET najdete na konci tématu.
@@ -65,17 +66,17 @@ Následující obrázek znázorňuje pracovní postup popsaný výše. Zde se k 
 
 ![Ochrana technologií PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Zbývající část tohoto tématu poskytuje podrobné vysvětlení, ukázky kódů a odkazy na témata, která ukazují, jak dokončit výše popsané úlohy. 
+Zbývající část tohoto tématu poskytuje podrobné vysvětlení, ukázky kódů a odkazy na témata, která ukazují, jak dokončit výše popsané úlohy.
 
 ##Aktuální omezení
 
 Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit přidružený lokátor (pokud existuje) a vytvořit nový.
 
-Omezení při šifrování s technologií Widevine ve službě Azure Media Services: v současné době není podporováno více klíčů k obsahu. 
+Omezení při šifrování s technologií Widevine ve službě Azure Media Services: v současné době není podporováno více klíčů k obsahu.
 
 ##Vytvoření assetu a nahrání souborů do assetu
 
-Aby bylo možné spravovat, kódovat a streamovat videa, musíte nejprve nahrát obsah do služby Microsoft Azure Media Services. Po nahrání bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování. 
+Aby bylo možné spravovat, kódovat a streamovat videa, musíte nejprve nahrát obsah do služby Microsoft Azure Media Services. Po nahrání bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování.
 
 Podrobné informace najdete v článku o [nahrání souborů do účtu služby Media Services](media-services-dotnet-upload-files.md).
 
@@ -84,7 +85,7 @@ Podrobné informace najdete v článku o [nahrání souborů do účtu služby M
 V případě dynamického šifrování je třeba pouze vytvořit asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Potom, na základě formátu určeného v manifestu a požadavku na fragment, server streamingu na vyžádání zajistí, abyste datový proud obdrželi v protokolu podle vašeho výběru. Díky tomu pak stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů. Další informace najdete v tématu [Přehled dynamického balení](media-services-dynamic-packaging-overview.md).
 
 Pokyny ke kódování najdete v článku o [kódování assetu pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
-    
+
 
 ##<a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu.
 
@@ -329,7 +330,7 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
         
                 static public IContentKey CreateCommonTypeContentKey(IAsset asset)
                 {
-                    // Create envelope encryption content key
+                    
                     Guid keyId = Guid.NewGuid();
                     byte[] contentKey = GetRandomBuffer(16);
         
@@ -544,6 +545,8 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
         
                         };
         
+                    // In this case we only specify Dash streaming protocol in the delivery policy,
+                    // All other protocols will be blocked from streaming.
                     var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                             "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -609,7 +612,9 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
         }
 
 
-##Mapy kurzů ke službě Media Services
+## Další krok
+
+Prohlédněte si mapy kurzů k Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -628,6 +633,6 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,7 +3,7 @@
     description="Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí webu Azure Portal." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na" 
     ms.topic="get-started-article"
     ms.date="09/06/2016"
-    ms.author="juliako"/>
+    ms.author="juliako;juliako"/>
+
 
 
 #Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
@@ -200,7 +201,7 @@ Pokud kliknete na tlačítko **Zrušit streamování**, zastaví se všechny ži
 
 ##Sledování události
 
-Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na portálu Azure nebo zkopírujte adresu URL streamování a použijte přehrávač dle svého výběru. 
+Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na webu Azure Portal nebo zkopírujte adresu URL streamování a použijte přehrávač dle svého výběru. 
  
 ![Vytvořeno](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
@@ -241,6 +242,7 @@ Prohlédněte si mapy kurzů k Media Services.
  
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

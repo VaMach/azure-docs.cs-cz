@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Přehled a běžné scénáře Azure Media Services" 
+    pageTitle="Přehled a běžné scénáře Azure Media Services | Microsoft Azure" 
     description="Toto téma nabízí přehled Azure Media Services." 
     services="media-services" 
     documentationCenter="" 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="08/07/2016"
+    ms.date="09/19/2016"
     ms.author="juliako;anilmur"/>
+
 
 #Přehled a běžné scénáře Azure Media Services
 
@@ -24,19 +25,19 @@ Pomocí Media Services můžete vytvářet pracovní postupy od začátku až do
 
 Svůj obsah můžete streamovat nebo doručovat na vyžádání. Toto téma představuje běžné scénáře doručování obsahu [živě](media-services-overview.md#live_scenarios) nebo [na vyžádání](media-services-overview.md#vod_scenarios). Téma obsahuje i odkazy na další související témata.
 
-## Sady SDK a nástroje 
+## Sady SDK a nástroje
 
 Pokud chcete vytvořit řešení Media Services, můžete použít následující pomůcky:
 
 - [Rozhraní REST API služby Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Jednu z dostupných klientských sad SDK: 
-    - [Azure Media Services SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), 
-    - [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), 
-    - [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
-    - [Azure Media Services pro Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jedná se o verzi sady SDK, kterou nevytvořil Microsoft. Spravuje ji komunita a aktuálně nemá 100% pokrytí rozhraní API pro AMS.) 
-- Existující nástroje: 
-    - [Portál Azure Classic](http://manage.windowsazure.com/) 
-    - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) je aplikace napsaná v jazyce Winforms/C# pro Windows.)
+- Jednu z dostupných klientských sad SDK:
+- [Azure Media Services SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services),
+- [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java),
+- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+- [Azure Media Services pro Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jedná se o verzi sady SDK, kterou nevytvořil Microsoft. Spravuje ji komunita a aktuálně nemá 100% pokrytí rozhraní API pro AMS.)
+- Existující nástroje:
+- [Portál Azure Classic](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) je aplikace napsaná v jazyce Winforms/C# pro Windows.)
 
 ##Mapy kurzů ke službě Media Services
 
@@ -48,19 +49,19 @@ Mapu kurzů k AMS můžete zobrazit tady:
 ##Požadavky
 
 Pokud chcete začít používat Azure Media Services, potřebujete následující:
- 
+
 3. Účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com).
 2. Účet Azure Media Services. K vytvoření účtu Azure Media Services použijte portál Azure Classic, .NET nebo REST API. Další informace najdete v článku o [vytvoření účtu](media-services-create-account.md).
-3. (Volitelné) Nastavte vývojové prostředí. Jako vývojové prostředí si zvolte .NET nebo REST API. Další informace najdete v článku o [nastavení prostředí](media-services-dotnet-how-to-use.md). 
+3. (Volitelné) Nastavte vývojové prostředí. Jako vývojové prostředí si zvolte .NET nebo REST API. Další informace najdete v článku o [nastavení prostředí](media-services-dotnet-how-to-use.md).
 
-    Seznamte se také s postupem [připojení](media-services-dotnet-connect-programmatically.md) prostřednictvím kódu programu.
-4. (Doporučené) Přidělte jednu nebo několik jednotek škálování. Doporučujeme, abyste aplikacím v produkčním prostředí přidělili jednu nebo několik jednotek škálování.   Další informace najdete v článku o [správě koncových bodů streamování](media-services-manage-origins.md).
+Seznamte se také s postupem [připojení](media-services-dotnet-connect-programmatically.md) prostřednictvím kódu programu.
+4. (Doporučené) Přidělte jednu nebo několik jednotek škálování. Doporučujeme, abyste aplikacím v produkčním prostředí přidělili jednu nebo několik jednotek škálování.   Další informace najdete v článku o [správě koncových bodů streamování](media-services-portal-manage-streaming-endpoints.md).
 
 ##Koncepty a přehled
 
 Informace o konceptech Azure Media Services najdete v článku [Koncepty](media-services-concepts.md).
 
-Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Doručování média na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
 
@@ -135,14 +136,14 @@ Na práci s živým streamováním se běžně podílejí následující kompone
 - Kamera používaná k vysílání události.
 - Kodér videa pro kódování v reálném čase, který převádí signály z kamery do datových proudů, které se odesílají do služby živého streamování.
 
-    Volitelně několik živých, časově synchronizovaných kodérů. V případě důležitých živých událostí, které vyžadují velmi vysokou dostupnost a kvalitní uživatelský dojem, doporučujeme využívat redundantní kodéry v režimu aktivní/aktivní s časovou synchronizací, abyste dosáhli bezproblémového převzetí služeb při selhání bez ztráty dat.
+Volitelně několik živých, časově synchronizovaných kodérů. V případě důležitých živých událostí, které vyžadují velmi vysokou dostupnost a kvalitní uživatelský dojem, doporučujeme využívat redundantní kodéry v režimu aktivní/aktivní s časovou synchronizací, abyste dosáhli bezproblémového převzetí služeb při selhání bez ztráty dat.
 - Služba živého streamování, která umožňuje následující:
-    
-    - ingestovat živý obsah pomocí různých protokolů pro živé streamování (například RTMP nebo technologie Smooth Streaming),
-    - (volitelně) kódovat datový proud na datový proud s adaptivní přenosovou rychlostí
-    - zobrazit náhled živého datového proudu,
-    - zaznamenávat a ukládat ingestovaný obsah, abyste ho mohli streamovat později (video na vyžádání)
-    - doručovat obsah prostřednictvím běžných streamovacích protokolů (například MPEG DASH, Smooth, HLS, HDS) přímo k vašim zákazníkům nebo do sítě pro doručování obsahu (CDN) pro další distribuci.
+
+- ingestovat živý obsah pomocí různých protokolů pro živé streamování (například RTMP nebo technologie Smooth Streaming),
+- (volitelně) kódovat datový proud na datový proud s adaptivní přenosovou rychlostí
+- zobrazit náhled živého datového proudu,
+- zaznamenávat a ukládat ingestovaný obsah, abyste ho mohli streamovat později (video na vyžádání)
+- doručovat obsah prostřednictvím běžných streamovacích protokolů (například MPEG DASH, Smooth, HLS, HDS) přímo k vašim zákazníkům nebo do sítě pro doručování obsahu (CDN) pro další distribuci.
 
 
 **Microsoft Azure Media Services** (AMS) nabízí možnost ingestovat, kódovat, zobrazovat náhled, ukládat a doručovat obsah vašeho živého streamování.
@@ -155,8 +156,8 @@ Ve službě Azure Media Services se o zpracování všech funkcí živého strea
 
 - Místní kodéru pro kódování v reálném čase odešle **RTMP** nebo **technologie Smooth Streaming** (fragmentovaný soubor MP4) s více přenosovými rychlostmi do kanálu, který je nakonfigurovaný na **průchozí** doručování.  **Průchozí** doručování nastává, když ingestované datové proudy prochází **kanálem** bez dalšího zpracování. K získání výstupu technologie Smooth Streaming s více přenosovými rychlostmi můžete použít následující kodéry pro kódování v reálném čase: Elemental, Envivio, Cisco.  Následující kodéry pro kódování v reálném čase dodávají na výstupu RTMP: Adobe Flash Live, Telestream Wirecast a transkodéry Tricaster.  Kodér pro kódování v reálném čase může také odesílat datový proud s jednou přenosovou rychlostí do kanálu, který nemá povolené kódování v reálném čase, ale tato konfigurace se nedoporučuje. Služba Media Services doručí datový proud zákazníkům na vyžádání.
 
-    >[AZURE.NOTE] Použití průchozí metody je nejekonomičtější způsob, jak živě streamovat při pořádání několika událostí po delší dobu, když jste už investovali do místních kodérů. Viz podrobnosti o [cenách](/pricing/details/media-services/).
-    
+>[AZURE.NOTE] Použití průchozí metody je nejekonomičtější způsob, jak živě streamovat při pořádání několika událostí po delší dobu, když jste už investovali do místních kodérů. Viz podrobnosti o [cenách](/pricing/details/media-services/).
+
 - Místní kodér pro kódování v reálném čase odešle datový proud s jednou přenosovou rychlostí do kanálu, který má povolené kódování v reálném čase pomocí služby Media Services, v jednom z následujících formátů: RTP (MPEG-TS), RTMP nebo technologie Smooth Streaming (fragmentovaný soubor MP4). Kanál potom provede kódování v reálném čase pro příchozí datový proud s jednou přenosovou rychlostí v reálném čase na datový proud videa s více přenosovými rychlostmi (adaptivní). Služba Media Services doručí datový proud zákazníkům na vyžádání.
 
 
@@ -185,7 +186,7 @@ Služba Azure Media Services nabízí nástroje, které potřebujete k vytvořen
 
 ##Povolení Azure CDN
 
-Služba Media Services podporuje integraci s Azure CDN. Informace o povolení Azure CDN najdete v článku o [správě koncových bodů streamování v účtu Media Services](media-services-manage-origins.md#enable_cdn).
+Služba Media Services podporuje integraci s Azure CDN. Informace o povolení Azure CDN najdete v článku o [správě koncových bodů streamování v účtu Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ##Škálování účtu Media Services
 
@@ -193,7 +194,7 @@ Službu **Media Services** můžete škálovat tak, že určíte počet **jednot
 
 Svůj účet Media Services můžete škálovat také tím, že k němu přidáte účty úložiště. Každý účet úložiště je omezen na 500 TB. Pokud chcete úložiště rozšířit nad jeho výchozí omezení, můžete k jednomu účtu Media Services připojit více účtů úložiště.
 
-[Toto](media-services-how-to-scale.md) téma obsahuje odkazy na související témata.
+[Toto](media-services-portal-scale-streaming-endpoints.md) téma obsahuje odkazy na související témata.
 
 ##Podpora
 
@@ -222,6 +223,6 @@ Další informace najdete v článku [Microsoft Azure SLA](https://azure.microso
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

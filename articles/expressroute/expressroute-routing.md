@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
+
 
 
 # Požadavky na směrování služby ExpressRoute  
@@ -78,7 +79,7 @@ Výměna směrování bude přes protokol EBGP. Relace EBGP se vytvoří mezi sm
 
 ## Čísla autonomního systému
 
-Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS. Na straně partnerského vztahu (u zákazníka nebo poskytovatele) může být AS veřejným číslem ASN, pokud lze ověřit, že jste jeho vlastníkem, nebo soukromým číslem ASN pro privátní partnerský vztah a vyžaduje veřejné ASN pro veřejné partnerské vztahy a partnerské vztahy Microsoftu. 
+Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS. Na straně partnerského vztahu (u zákazníka nebo poskytovatele) může být AS veřejným číslem ASN, pokud lze ověřit, že jste jeho vlastníkem, nebo soukromým číslem ASN.
 
 Neuplatňují se žádné požadavky týkající se symetrie přenosu dat v primární a sekundární cestě žádného daného okruhu. Cesty vpřed a zpět můžou procházet různými dvojicemi směrovačů. Identické trasy musí být inzerovány buď z primární, nebo ze sekundární strany přes kterékoli dané dvojice okruhů, které vám patří. Metriky tras nemusejí být identické.
 
@@ -179,6 +180,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

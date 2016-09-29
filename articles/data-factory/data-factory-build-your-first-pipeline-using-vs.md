@@ -16,24 +16,28 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí sady Microsoft Visual Studio
 > [AZURE.SELECTOR]
+- [Přehled a požadavky](data-factory-build-your-first-pipeline.md)
 - [portál Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+V tomto článku vytvoříte svůj první objekt pro vytváření dat Azure pomocí sady Microsoft Visual Studio.
 
-## Další požadavky
-2. K publikování entit služby Data Factory ze sady Visual Studio do služby Azure Data Factory musíte být **správce předplatného Azure**.   
+## Požadavky
+1. Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
+2. K publikování entit služby Data Factory ze sady Visual Studio do služby Azure Data Factory musíte být **správce předplatného Azure**.
 3. Na počítači musíte mít nainstalované tyto položky: 
     - Visual Studio 2013 nebo Visual Studio 2015.
     - Stáhněte si sadu Azure SDK pro Visual Studio 2013 nebo Visual Studio 2015. Přejděte na [stránku položek ke stažení pro Azure](https://azure.microsoft.com/downloads/) a klikněte na **VS 2013** nebo **VS 2015** v části **.NET**.
     - Stáhněte si nejnovější modul plug-in Azure Data Factory pro Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) nebo [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Pokud používáte sadu Visual Studio 2013, můžete modul plug-in taky aktualizovat, a to pomocí tohoto postupu: V nabídce klikněte na **Nástroje** -> **Rozšíření a aktualizace** -> **Online** -> **Galerie sady Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio** (Nástroje Microsoft Azure Data Factory pro Visual Studio) -> **Aktualizovat**. 
  
-Následující podrobné postupy vám ukážou, jak vytvářet a nasazovat entity služby Data Factory.
+Nyní použijeme sadu Visual Studio k vytvoření objektu pro vytváření dat Azure. 
+
 
 ## Vytvoření projektu v sadě Visual Studio 
 1. Spusťte **Visual Studio 2013** nebo **Visual Studio 2015**. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**. Mělo by se zobrazit dialogové okno **Nový projekt**.  
@@ -267,15 +271,19 @@ Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se n
 
 21. Na stránce konfigurace objektu pro vytváření dat postupujte takto: 
     1. Vyberte možnost **Create New Data Factory** (Vytvořit nový objekt pro vytváření dat).
-    2. Do pole **Název** zadejte **FirstDataFactoryUsingVS**. 
+    2. Zadejte jedinečný **název** objektu pro vytváření dat. Například: **FirstDataFactoryUsingVS09152016**. Název musí být globálně jedinečný.  
     
-        > [AZURE.IMPORTANT] Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-3. V poli **Předplatné** vyberte správné předplatné. 4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit. 5. Vyberte **oblast** pro objekt pro vytváření dat. 6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.) 
+        > [AZURE.IMPORTANT] Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+3. V poli **Předplatné** vyberte správné předplatné.
+     
+        > [AZURE.IMPORTANT] Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.  
+    4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit. 5. Vyberte **oblast** pro objekt pro vytváření dat. 6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.) 
 23. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.     
 24. Zkontrolujte souhrn a klikněte na **Další**. Spustí se proces nasazení a zobrazí se **Stav nasazení**.
 25. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit. 
 
-Je třeba počítat s následujícím: 
+ 
+Všimněte si těchto důležitých bodů: 
 
 - Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
 
@@ -288,15 +296,17 @@ Je třeba počítat s následujícím:
             Get-AzureRmResourceProvider
     - Přihlaste se na web [Azure Portal](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
 -   Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
--   Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
+-   Chcete-li vytvářet instance služby Data Factory, musíte být správce nebo spolusprávce předplatného Azure.
 
  
 ## Monitorování kanálu
 
+### Monitorování kanálu pomocí Zobrazení diagramu
 6. Přihlaste se na web [Azure Portal](https://portal.azure.com/) a postupujte takto:
-    1. Klikněte na **Procházet** a vyberte **Datové továrny**.
+    1. Klikněte na **Další služby** a poté na **Objekty pro vytváření dat**.
         ![Procházet -> Datové továrny](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
-    2. V seznamu objektů pro vytváření dat vyberte **FirstDataFactoryUsingVS**. 
+    2. Ze seznamu objektů pro vytváření dat vyberte název svého objektu pro vytváření dat (například: **FirstDataFactoryUsingVS09152016**). 
+        ![Výběr objektu pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. Na domovské stránce objektu pro vytváření dat klikněte na **Diagram**.
   
     ![Dlaždice Diagram](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -319,17 +329,36 @@ Je třeba počítat s následujícím:
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Po dokončení zpracování bude řez ve stavu **Připraveno**.
-    >[AZURE.IMPORTANT] Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut).  
+    >[AZURE.IMPORTANT] Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.  
 
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
     
 10. Pokud je řez ve stavu **Připraveno**, zkontrolujte, jestli se ve složce **partitioneddata** v kontejneru **adfgetstarted** ve službě Blob Storage nachází výstupní data.  
  
     ![Výstupní data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Kliknutím na řez otevřete okno **Datový řez** s podrobnostmi o řezu.
+
+    ![Podrobnosti o datovém řezu](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+12. Kliknutím na spuštění aktivity v **seznamu spuštění aktivit** zobrazíte podrobnosti o spuštění aktivity (v našem scénáři aktivity Hivu) v okně **Podrobnosti o spuštění aktivit**.   
+    ![Podrobnosti o spuštění aktivit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    
+    V souborech protokolů můžete zobrazit provedený dotaz Hivu s informacemi o jeho stavu. Tyto protokoly jsou užitečné při řešení potíží.  
+ 
 
 Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto kurzu, pomocí webu Azure Portal najdete v článku [Monitorování datových sad a kanálu](data-factory-monitor-manage-pipelines.md).
 
-K monitorování datových kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v článku [Monitorování a správa kanálů služby Azure Data Factory pomocí monitorovací aplikace](data-factory-monitor-manage-app.md). 
+### Monitorování kanálu pomocí aplikace pro monitorování a správu
+K monitorování kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v tématu [Monitorování a správa kanálů služby Azure Data Factory pomocí aplikace pro monitorování a správu](data-factory-monitor-manage-app.md).
+
+1. Klikněte na dlaždici Monitorování a správa.
+
+    ![Dlaždice Monitorování a správa](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png) 
+2. Měla by se zobrazit aplikace pro monitorování a správu. Změňte hodnoty **Čas spuštění** a **Čas ukončení** tak, aby odpovídaly času spuštění (01.04.2016 00:00) a ukončení (02.04.2016 00:00) vašeho kanálu, a klikněte na **Použít**.
+
+    ![Aplikace pro monitorování a správu](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png) 
+3. Výběrem okna aktivity v seznamu Okna aktivit zobrazíte podrobnosti. 
+    ![Podrobnosti o okně aktivity](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] Po úspěšném zpracování řezu se vstupní soubor odstraní. Pokud tedy chcete spustit řez znovu nebo si znovu projít tento kurz, načtěte vstupní soubor (input.log) do složky inputdata v kontejneru adfgetstarted.
  
@@ -477,6 +506,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

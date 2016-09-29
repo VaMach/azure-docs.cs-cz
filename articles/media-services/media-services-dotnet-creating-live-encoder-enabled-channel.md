@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET" 
+    pageTitle="Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET | Microsoft Azure" 
     description="Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí sady .NET SDK." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/15/2016"
+    ms.author="juliako;anilmur"/>
+
 
 
 #Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET
@@ -518,7 +519,9 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
     }   
 
 
-##Další kroky: Mapy kurzů ke službě Media Services
+##Další krok
+
+Prohlédněte si mapy kurzů k Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -532,6 +535,6 @@ Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějak�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic – klasický portál](vpn-gateway-site-to-site-create.md)
 
 
 Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti pomocí **modelu nasazení Azure Resource Manager** a webu Azure Portal. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
@@ -156,6 +157,6 @@ Připojení VPN můžete ověřit v portálu nebo pomocí prostředí PowerShell
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

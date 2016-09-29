@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Vytvoření virtuální sítě pomocí připojení Site-to-Site s použitím prostředí PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic – klasický portál](vpn-gateway-site-to-site-create.md)
 
 Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti pomocí **modelu nasazení Azure Resource Manager**. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
@@ -148,7 +149,7 @@ Dále si vyžádáte veřejnou IP adresu, která bude přidělena pro vaši brá
 
 Brána Azure VPN pro model nasazení Resource Manager v současné době podporuje pouze veřejné IP adresy pomocí metody dynamického přidělení. To ale neznamená, že se IP adresa změní. Změna IP adresy brány Azure VPN proběhne pouze v případě odstranění a nového vytvoření brány. V případě změny velikosti, resetování nebo jiné operace údržby/upgradu vaší brány Azure VPN se veřejná IP adresa brány nezmění.
 
-Použijte následující ukázku prostředí PowerShell.
+Použijte následující ukázku prostředí PowerShell:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -225,6 +226,6 @@ Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podl
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

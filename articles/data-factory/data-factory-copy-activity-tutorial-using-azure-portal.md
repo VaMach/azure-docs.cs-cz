@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí editoru služby Data Factory | Microsoft Azure" 
+    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal | Microsoft Azure" 
     description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí editoru služby Data Factory na webu Azure Portal." 
     services="data-factory" 
     documentationCenter="" 
@@ -13,32 +13,35 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
 
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí editoru služby Data Factory
+
+# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
 
-Tento kurz obsahuje následující kroky:
+V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření dat Azure pomocí webu Azure Portal. Kanál v objektu pro vytváření dat využívá aktivitu kopírování, s jejíž pomocí kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database.
+
+Zde jsou kroky, které provedete v rámci tohoto kurzu:
 
 Krok | Popis
 -----| -----------
 [Vytvoření služby Azure Data Factory](#create-data-factory) | V tomto kroku vytvoříte objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.  
 [Vytvoření propojených služeb](#create-linked-services) | V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService** a **AzureSqlLinkedService**. AzureStorageLinkedService propojuje službu Azure Storage a AzureSqlLinkedService propojuje službu Azure SQL Database k objektu ADFTutorialDataFactory. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data budou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.      
-[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V předchozím kroku jste vytvořili propojené služby, které odkazují na úložiště dat, která obsahují vstupní a výstupní data. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data uložená v úložištích dat. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data. Zadejte také další vlastnosti, jako je například struktura, dostupnost a další. 
+[Vytvoření vstupní a výstupní datové sady](#create-datasets) | V předchozím kroku jste vytvořili propojené služby, které odkazují na úložiště dat, která obsahují vstupní a výstupní data. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data uložená v úložištích dat. Pro EmpTableFromBlob zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro EmpSQLTable zadáte tabulku SQL, do které se uloží výstupní data. Zadáte také další vlastnosti, jako jsou například struktura, dostupnost a zásady. 
 [Vytvoření kanálu](#create-pipeline) | V tomto kroku vytvoříte v objektu ADFTutorialDataFactory kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 [Monitorování kanálu](#monitor-pipeline) | V tomto kroku budete monitorovat řezy vstupní a výstupní tabulky pomocí webu Azure Portal.
 
 > [AZURE.IMPORTANT] 
-> Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte nutné kroky.
+> Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky.
 
 ## Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
@@ -51,7 +54,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     1. Do pole **Název** zadejte **ADFTutorialDataFactory**. 
     
         ![Okno Nový objekt pro vytváření dat][image-data-factory-getstarted-new-data-factory-blade]
-    2. Klikněte na **NÁZEV SKUPINY PROSTŘEDKŮ** a postupujte takto:
+    2. Klikněte na **NÁZEV SKUPINY PROSTŘEDKŮ** a proveďte následující kroky:
         1. Klikněte na **Vytvořit novou skupinu prostředků**.
         2. V okně **Vytvořit skupinu prostředků** zadejte do pole **Název** skupiny prostředků název **ADFTutorialResourceGroup** a klikněte na **OK**. 
 
@@ -72,7 +75,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     > Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
 
 9. Klikněte na položku **OZNÁMENÍ** vlevo a podívejte se na případná oznámení procesu vytváření. Pokud máte otevřené okno **OZNÁMENÍ**, zavřete ho kliknutím na tlačítko **X**. 
-10. Po vytvoření se zobrazí okno **OBJEKT PRO VYTVÁŘENÍ DAT**, jak vidíte níže.
+10. Po vytvoření se zobrazí okno **OBJEKT PRO VYTVÁŘENÍ DAT**, jak je znázorněno na obrázku.
 
     ![Domovská stránka objektu pro vytváření dat][image-data-factory-get-stated-factory-home-page]
 
@@ -182,7 +185,7 @@ Tabulka je obdélníková datová sada a má schéma. V tomto kroku vytvoříte 
 2. Tabulku **EmpTableFromBlob** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Potvrďte, že se v záhlaví okna editoru zobrazila zpráva **ÚSPĚŠNÉ VYTVOŘENÍ TABULKY**.
 
 ### Vytvoření výstupní datové sady
-V této části kroku vytvoříte výstupní datovou sadu s názvem **EmpSQLTable**. Tato datová sada odkazuje na tabulku SQL v Azure SQL Database reprezentované službou **AzureSqlLinkedService**. 
+V této části kroku vytvoříte výstupní datovou sadu s názvem **EmpSQLTable**. Tato datová sada odkazuje na tabulku SQL ve službě Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. 
 
 1. V **editoru** služby Data Factory klikněte na panelu nástrojů na tlačítko **Nová datová sada** a v rozevírací nabídce klikněte na **Tabulka Azure SQL**. 
 2. Nahraďte kód JSON v pravém podokně následujícím fragmentem kódu JSON:
@@ -303,7 +306,7 @@ V tomto kroku vytvoříte kanál pomocí **aktivity kopírování**, který pou�
 
     ![Okno objekt pro vytváření dat – dlaždice Diagram][image-datafactoryblade-diagramtile]
 
-2. Zobrazený diagram by měl vypadat přibližně takto: 
+2. Zobrazený diagram by měl vypadat přibližně jako na následujícím obrázku: 
 
     ![Zobrazení diagramu][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +333,7 @@ V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objekt
     ![Datové sady s vybraným objektem EmpTableFromBlob][image-data-factory-get-started-datasets-emptable-selected]   
 5. Všimněte si, že se už vytvořily datové řezy až do aktuálního času a jsou ve stavu **Připraveno**, protože soubor **emp.txt** celou dobu existuje v kontejneru objektů blob: **adftutorial\input**. Potvrďte, že se žádné řezy nezobrazují v části **Řezy, které v poslední době selhaly** dole.
 
-    Oba seznamy **Řezy, které se v poslední době aktualizovaly** a **Řezy, které v poslední době selhaly** jsou řazené podle **DOBY POSLEDNÍ AKTUALIZACE**. Doba aktualizace řezu se změní v následujících situacích. 
+    Oba seznamy **Řezy, které se v poslední době aktualizovaly** a **Řezy, které v poslední době selhaly** jsou řazené podle **DOBY POSLEDNÍ AKTUALIZACE**. Doba aktualizace řezu se změní v následujících situacích: 
     
     Pokud chcete rozsáhlejší větší seznam řezů, klikněte na název seznamů nebo na **... (tři tečky)**. Řezy můžete filtrovat kliknutím na **Filtr** v panelu nástrojů.  
     
@@ -462,6 +465,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
  
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

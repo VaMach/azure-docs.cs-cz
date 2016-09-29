@@ -19,6 +19,7 @@
 
 
 
+
 # Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight 
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
@@ -39,9 +40,9 @@ Než zahájíte tento kurz HBase, musíte mít následující:
 
 ## Vytvoření clusteru HBase
 
-Následující postup použijte k vytvoření clusteru HBase pomocí šablony Azure ARM. Pro lepší pochopení parametrů použitých v postupu a dalších metod vytvoření clusteru si projděte téma [Vytvoření Hadoop clusterů se systémem Linux v HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Následující postup vytvoří cluster HBase pomocí šablony Azure Resource Manageru. Pro lepší pochopení parametrů použitých v postupu a dalších metod vytvoření clusteru si projděte téma [Vytvoření Hadoop clusterů se systémem Linux v HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknutím na následující obrázek otevřete šablonu ARM na portálu Azure. Šablona ARM se nachází ve veřejném kontejneru blob. 
+1. Kliknutím na následující obrázek otevřete šablonu na webu Azure Portal. Šablona se nachází ve veřejném kontejneru objektů blob. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -247,7 +248,7 @@ SSH lze také použít k tunelování místních požadavků, například webov�
 4. Z možností Základní pro vaši obrazovku relace PuTTY zadejte následující hodnoty:
 
     - **Název hostitele**: adresa SSH serveru HDInsight v názvu hostitele (nebo IP adresa). Adresa SSH je váš název clusteru, pak **-ssh.azurehdinsight.net**. Například *mycluster-ssh.azurehdinsight.net*.
-    - **Port**: 22. SSH port hlavního uzlu 0 je 22.  
+    - **Port**: 22. Port SSH na primárním hlavním uzlu je 22.  
 5. V části **Kategorie** nalevo od dialogového okna rozbalte položku **Připojení**, rozbalte položku **SSH** a pak klikněte na tlačítko **Tunely**.
 6. Uveďte následující informace o možnostech řízení formuláře přesměrování portu SSH:
 
@@ -327,6 +328,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

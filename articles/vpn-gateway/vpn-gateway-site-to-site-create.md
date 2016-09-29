@@ -17,15 +17,15 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí portálu Azure Classic
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic – klasický portál](vpn-gateway-site-to-site-create.md)
 
-
-Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti pomocí **modelu nasazení Classic** a portálu Classic. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace. V současné době nelze vytvořit end-to-end konfiguraci Site-to-Site pro model klasického nasazení pomocí portálu Azure.
+Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN typu Site-to-Site k místní síti pomocí **modelu nasazení Classic** a portálu Classic. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace. V současné době nelze vytvořit end-to-end konfiguraci Site-to-Site pro model klasického nasazení pomocí webu Azure Portal.
 
 ![Diagram Site-to-site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
@@ -55,11 +55,11 @@ Před zahájením konfigurace ověřte, zda máte následující.
 
 2. V levém dolním rohu obrazovky klikněte na **Nový**. V podokně navigace klikněte na **Network Services**, a poté klikněte na **Virtual Network**. Kliknutím na **Vytvořit vlastní** spustíte průvodce konfigurací.
 
-3. Chcete-li vytvořit virtuální síť, na následujících stránkách vyplňte informace.
+3. Pokud chcete vytvořit virtuální síť, zadejte konfigurační nastavení na následujících stránkách:
 
 ## Stránka Podrobnosti virtuální sítě
 
-Zadejte následující informace.
+Zadejte následující informace:
 
 - **Název**: Zadejte název virtuální sítě. Například *EastUSVNet*. Tento název virtuální sítě budete používat při nasazování virtuálních počítačů a instancí PaaS, proto jej nenastavujte příliš komplikovaný.
 - **Umístění**: Umístění přímo souvisí s fyzickým umístěním (oblastí), kde chcete mít umístěné prostředky (virtuální počítače). Například pokud chcete, aby virtuální počítače, které do této virtuální sítě nasadíte, byly fyzicky umístěné ve *východní USA*, vyberte toto umístění. Oblast přidruženou k virtuální síti nebude možné po jejím vytvoření změnit.
@@ -109,6 +109,6 @@ Po dokončení připojení můžete do virtuálních sítí přidávat virtuáln
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

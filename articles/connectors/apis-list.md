@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/23/2016"
+    ms.date="09/20/2016"
     ms.author="deonhe"/>
+
 
 # Seznam konektorů
 
@@ -26,18 +27,18 @@ Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pra
 |Konektory||||
 |-----------|-----------|-----------|-----------|
 |[![Ikona rozhraní API][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc]|[![Ikona rozhraní API][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![Ikona rozhraní API][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![Ikona rozhraní API][Boxicon]<br/>**Box**][Boxdoc]|
-|[![Ikona rozhraní API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|[![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc]|
-|[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc]|[![Ikona rozhraní API][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![Ikona rozhraní API][Google-Driveicon]<br/>**Disk Google**][Google-Drivedoc]|![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google**|
-|![Ikona rozhraní API][Google-Tasksicon]<br/>**Google Tasks**|![Ikona rozhraní API][Google~Calendaricon]<br/>**Kalendář<br/>Google**|[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|
-|[![Ikona rozhraní API][HTTP~Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP~Requestdoc]|[![Ikona rozhraní API][HTTP~Responseicon]<br/>**Odezva<br/>HTTP**][HTTP~Responsedoc]|![Ikona rozhraní API][Instagramicon]<br/>**Instagram**|[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|
-|![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill**|[![Ikona rozhraní API][Nested~Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested~Logic-Appdoc]|[![Ikona rozhraní API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![Ikona rozhraní API][Office-365~Usersicon]<br/>**Uživatelé<br/>Office 365**][Office-365~Usersdoc]|
-|[![Ikona rozhraní API][Office-365~Videoicon]<br/>**Video<br/>Office 365**][Office-365~Videodoc]|[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona rozhraní API][OneDrive-for~Businessicon]<br/>**OneDrive pro<br/>firmy**][OneDrive-for~Businessdoc]|[![Ikona rozhraní API][Outlookicon]<br/>**Outlook**][Outlookdoc]|
-|[![Ikona rozhraní API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona rozhraní API][Queryicon]<br/>**Dotaz**][Querydoc]|[![Ikona rozhraní API][Recurrenceicon]<br/>**Opakování**][Recurrencedoc]|[![Ikona rozhraní API][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona rozhraní API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona rozhraní API][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![Ikona rozhraní API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona rozhraní API][Slackicon]<br/>**Slack**][Slackdoc]|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|
-|[![Ikona rozhraní API][SQLicon]<br/>**SQL**][SQLdoc]|[![Ikona rozhraní API][Translatoricon]<br/>**Překladač**][Translatordoc]|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|
-|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**||||
+|[![Ikona rozhraní API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
+|[![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc]|[![Ikona rozhraní API][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![Ikona rozhraní API][Google-Driveicon]<br/>**Disk Google**][Google-Drivedoc]|
+|![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google**|![Ikona rozhraní API][Google-Tasksicon]<br/>**Google Tasks**|![Ikona rozhraní API][Google~Calendaricon]<br/>**Kalendář<br/>Google**|[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![Ikona rozhraní API][HTTP~Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP~Requestdoc]|[![Ikona rozhraní API][HTTP~Responseicon]<br/>**Odezva<br/>HTTP**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][informixdoc]|
+|![Ikona rozhraní API][Instagramicon]<br/>**Instagram**|[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill**|[![Ikona rozhraní API][Nested~Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested~Logic-Appdoc]|
+|[![Ikona rozhraní API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![Ikona rozhraní API][Office-365~Usersicon]<br/>**Uživatelé<br/>Office 365**][Office-365~Usersdoc]|[![Ikona rozhraní API][Office-365~Videoicon]<br/>**Video<br/>Office 365**][Office-365~Videodoc]|[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
+|[![Ikona rozhraní API][OneDrive-for~Businessicon]<br/>**OneDrive pro<br/>firmy**][OneDrive-for~Businessdoc]|[![Ikona rozhraní API][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![Ikona rozhraní API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona rozhraní API][Queryicon]<br/>**Dotaz**][Querydoc]|
+|[![Ikona rozhraní API][Recurrenceicon]<br/>**Opakování**][Recurrencedoc]|[![Ikona rozhraní API][RSSicon]<br/>**RSS**][RSSdoc]|[![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona rozhraní API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona rozhraní API][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![Ikona rozhraní API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona rozhraní API][Slackicon]<br/>**Slack**][Slackdoc]|
+|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|[![Ikona rozhraní API][SQLicon]<br/>**SQL**][SQLdoc]|[![Ikona rozhraní API][Translatoricon]<br/>**Překladač**][Translatordoc]|
+|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|
+|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**||
 
 > [AZURE.NOTE] Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si aplikaci logiky](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete okamžitě vytvořit jednoduchou aplikaci logiky s krátkou životností. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
@@ -72,10 +73,12 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Umožňuje připojení k objektům blob Azure ke správě souborů v kontejnerech objektů blob."
 [boxDoc]: ./connectors-create-api-box.md "Umožňuje připojení k Boxu a odesílání, získávání, odstraňování, zobrazování seznamů a další operace se soubory."
 [crm-onlinedoc]: ./connectors-create-api-crmonline.md "Umožňuje připojení k aplikaci Dynamics CRM Online a provádění dalších akcí s daty aplikace CRM Online."
+[db2doc]: ./connectors-create-api-db2.md "Umožňuje připojení k IBM DB2 (v cloudu nebo na místě) za účelem aktualizace řádku, získání tabulky a dalších akcí."
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Umožňuje připojení k Dropboxu a odesílání, získávání, odstraňování, zobrazování seznamů a další operace se soubory."
 [facebookdoc]: ./connectors-create-api-facebook.md "Umožňuje připojení k Facebooku, přidávání příspěvků na Timeline, získávání kanálů stránek a provádění dalších akcí."
 [ftpdoc]: ./connectors-create-api-ftp.md "Umožňuje připojení k serverům FTP/FTPS a provádění různých úloh protokolu FTP, včetně odesílání, získávání a odstraňování souborů a provádění dalších akcí."
 [google-drivedoc]: ./connectors-create-api-googledrive.md "Umožňuje připojení ke GoogleDrivu a interagování s daty."
+[informixdoc]: ./connectors-create-api-informix.md "Umožňuje připojení k Informix (v cloudu nebo na místě) za účelem přečtení řádku, získání seznamu tabulek a dalších akcí."
 [translatordoc]: ./connectors-create-api-microsofttranslator.md
 [office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "Konektor Office 365 umožňuje odesílat a přijímat e-maily, spravovat kalendář a spravovat kontakty pomocí účtu Office 365."
 [office-365~usersdoc]: ./connectors-create-api-office365-users.md
@@ -133,13 +136,22 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 <!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
+[Azure~Functionsicon]: ./media/apis-list/function.png
 [Boxicon]: ./media/apis-list/box.png
-[FTPicon]: ./media/apis-list/ftp.png
-[GitHubicon]: ./media/apis-list/github.png
 [CRM-Onlineicon]: ./media/apis-list/dynamicscrmonline.png
+[DB2icon]: ./media/apis-list/db2.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FTPicon]: ./media/apis-list/ftp.png
+[GitHubicon]: ./media/apis-list/github.png
 [Google-Driveicon]: ./media/apis-list/googledrive.png
+[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
+[Google-Tasksicon]: ./media/apis-list/googletasks.png
+[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
+[HTTPicon]: ./media/apis-list/http.png
+[HTTP~Requesticon]: ./media/apis-list/request.png
+[HTTP~Responseicon]: ./media/apis-list/response.png
+[Informixicon]: ./media/apis-list/informix.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Translatoricon]: ./media/apis-list/microsofttranslator.png
 [Office-365~Outlookicon]: ./media/apis-list/office365.png
@@ -163,21 +175,14 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 [Twittericon]: ./media/apis-list/twitter.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
-[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
-[Google-Tasksicon]: ./media/apis-list/googletasks.png
-[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [SparkPosticon]: ./media/apis-list/sparkpost.png
 [Instagramicon]: ./media/apis-list/instagram.png
 [YouTubeicon]: ./media/apis-list/youtube.png
-[HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
@@ -192,6 +197,6 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

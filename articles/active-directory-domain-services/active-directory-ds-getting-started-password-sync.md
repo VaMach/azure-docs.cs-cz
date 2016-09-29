@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/08/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)* – Povolení synchronizace hesel do služby Azure AD Domain Services
+
+# Povolení synchronizace hesel do služby Azure AD Domain Services
 V předchozích úlohách jste pro svého tenanta Azure AD povolili službu Azure AD Domain Service. Dalším krokem je povolení synchronizace hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos do služby Azure AD Domain Services. Jakmile je synchronizace přihlašovacích údajů nastavená, uživatelé se do spravované domény mohou přihlásit pomocí podnikových přihlašovacích údajů.
 
 Potřebný postup se liší podle toho, jestli má vaše organizace výhradně cloudového tenanta Azure AD, nebo jestli má nastavenou synchronizaci s místním adresářem pomocí služby Azure AD Connect.
@@ -35,7 +36,7 @@ Azure AD Domain Services k ověřování uživatelů na spravované doméně vy�
 
 > [AZURE.NOTE] Pokud má vaše organizace výhradně cloudového tenanta Azure AD, uživatelé, kteří potřebují používat službu Azure AD Domain Services, si musí změnit heslo.
 
-Tento proces změny hesla způsobí, že služba Azure AD vygeneruje hodnoty hash přihlašovacích údajů vyžadované službou Azure AD Domain Services pro ověřování pomocí protokolu Kerberos a NTLM. Můžete buď ukončit platnost hesel všech uživatelů v klientovi, kteří potřebují používat službu Azure AD Domain Services, nebo dát těmto uživatelům pokyny ke změně hesla.
+Tento proces změny hesla způsobí, že služba Azure AD vygeneruje hodnoty hash přihlašovacích údajů vyžadované službou Azure AD Domain Services pro ověřování pomocí protokolu Kerberos a NTLM. Můžete buď ukončit platnost hesel všech uživatelů v tenantovi, kteří potřebují používat službu Azure AD Domain Services, nebo dát těmto uživatelům pokyny ke změně hesla.
 
 
 ### Povolení generování hodnot hash přihlašovacích údajů protokolů NTLM a Kerberos u výhradně cloudového tenanta Azure AD
@@ -61,11 +62,11 @@ Jakmile si změníte heslo, nové heslo bude zanedlouho použitelné ve službě
 
 ## Související obsah
 
-- [Povolení synchronizace hesel do služby AAD Domain Services u synchronizovaného tenanta Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Postup aktualizace vlastního hesla](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Začínáme se správou hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+
+- [Povolení synchronizace hesel do služby AAD Domain Services u synchronizovaného tenanta Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Správa spravované domény služby Azure AD Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -75,6 +76,6 @@ Jakmile si změníte heslo, nové heslo bude zanedlouho použitelné ve službě
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

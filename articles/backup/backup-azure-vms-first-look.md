@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/29/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
+
 
 
 # První pohled: Zálohování virtuálních počítačů Azure
 
 > [AZURE.SELECTOR]
-- [První pohled: Virtuální počítače s trezorem Služeb zotavení](backup-azure-vms-first-look-arm.md)
-- [První pohled: Virtuální počítače Azure s trezorem zálohování](backup-azure-vms-first-look.md)
+- [Ochrana virtuálních počítačů s trezorem Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Ochrana virtuálních počítačů Azure s trezorem zálohování](backup-azure-vms-first-look.md)
 
 Tento kurz vás provede kroky pro zálohování virtuálních počítačů (VM) Azure do trezoru zálohování v Azure. Tento článek popisuje model Classic nebo model nasazení portálu Service Manager pro zálohování virtuálních počítačů. Pokud máte zájem o zálohování virtuálních počítačů do trezoru Recovery Services, který patří do skupiny prostředků, přečtěte si téma [První pohled: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md). Pro úspěšné dokončení tohoto kurzu musí být splněny tyto požadavky:
 
@@ -38,7 +39,7 @@ Zálohování virtuálního počítače se skládá z pěti hlavních kroků:
 
 ![Zobrazení procesu zálohování virtuálního počítače na nejvyšší úrovni](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Klasický](../resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače založené na správci prostředků. Podrobnosti o zálohování virtuálních počítačů do trezoru Recovery Services naleznete v tématu [První seznámení: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Classic](../resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače založené na správci prostředků. Podrobnosti o zálohování virtuálních počítačů do trezoru Recovery Services naleznete v tématu [První seznámení: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -48,11 +49,11 @@ Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obn
 
 1. Přihlaste se k [portálu Azure Classic](http://manage.windowsazure.com/).
 
-2. V levém dolním rohu portálu Azure klikněte na **Nový**.
+2. V levém dolním rohu webu Azure Portal klikněte na **Nový**.
 
     ![Možnost Nový](./media/backup-azure-vms-first-look/new-button.png)
 
-3. V průvodci Rychlého vytvoření klikněte na **Datové služby** > **Služby zotavení** > **Trezor záloh** > **Rychle vytvořit**.
+3. V průvodci Rychlého vytvoření klikněte na **Datové služby** > **Recovery Services** > **Trezor záloh** > **Rychle vytvořit**.
 
     ![Vytvoření trezoru záloh](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
@@ -72,11 +73,11 @@ Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obn
 
     ![Informační zpráva vytvoření trezoru](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    Objeví se zpráva s potvrzením, že trezor byl úspěšně vytvořený. Na stránce **Služby zotavení** je označené jako **Aktivní**.
+    Objeví se zpráva s potvrzením, že trezor byl úspěšně vytvořený. Na stránce **Recovery Services** je označené jako **Aktivní**.
 
     ![Informační zpráva vytvoření trezoru](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
-8. V seznamu trezorů na stránce **Služby zotavení** vyberte vytvořený trezor pro spuštění stránky **Rychlý start**.
+8. V seznamu trezorů na stránce **Recovery Services** vyberte vytvořený trezor pro spuštění stránky **Rychlý start**.
 
     ![Seznam trezorů záloh](./media/backup-azure-vms-first-look/active-vault-demo.png)
 
@@ -96,7 +97,7 @@ Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhl
 
 1. Přihlaste se k [portálu Azure Classic](http://manage.windowsazure.com/).
 
-2. Na portálu Azure Classic klikněte na **Služby zotavení** pro otevření seznamu trezorů Služeb zotavení.
+2. Na portálu Azure Classic klikněte na **Recovery Services** a otevře se seznam trezorů Recovery Services.
     ![Výběr úlohy](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
 3. Ze seznamu trezorů vyberte trezor pro zálohování virtuálního počítače.
@@ -153,7 +154,7 @@ Pokud byl virtuální počítač přenesen z místního datového centra, pravd�
 ## Krok 4 – Vytvoření zásady zálohování
 Předtím, než aktivujete úlohu prvotního zálohování, nastavte plán pořizování snímků zálohy. Plán pořizování snímků záloh a doba jejich uchování se nazývá zásada zálohování. Informace o zachování jsou založené na trojgeneračním schématu rotace záloh.
 
-1. Na portálu Azure Classic přejděte ve **Službách zotavení** do trezoru záloh a klikněte na **Registrované položky**.
+1. Na portálu Azure Classic přejděte v **Recovery Services** do trezoru záloh a klikněte na **Registrované položky**.
 2. Z rozevírací nabídky vyberte **Virtuální počítač Azure**
 
     ![Výběr úlohy v portálu](./media/backup-azure-vms/select-workload.png)
@@ -225,6 +226,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

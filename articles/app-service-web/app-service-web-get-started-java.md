@@ -18,16 +18,17 @@
     ms.author="cephalin"
 />
     
+
 # Nasazení první webové aplikace v Javě do Azure během pěti minut
 
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci v Javě do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Budete postupovat takto: 
+Vaším úkolem je: 
 
-- Vytvoříte webovou aplikaci ve službě Azure App Service.
-- Nasadíte ukázkovou aplikaci v Javě.
-- Prohlédnete si spuštění kódu naživo v produkčním prostředí.
+- Vytvořit webovou aplikaci ve službě Azure App Service.
+- Nasadit ukázkovou aplikaci v Javě.
+- Sledovat spuštění kódu naživo v produkčním prostředí.
 
 ## Požadavky
 
@@ -91,7 +92,7 @@ Teď nasadíme aplikaci v Javě do Azure pomocí FTPS.
 
     Teď jste připraveni nasadit svou aplikaci v Javě pomocí FTPS.
 
-8. V klientovi FTP/FTPS se přihlaste k serveru FTP webové aplikace Azure pomocí hodnoty, které jste zkopírovali v posledním kroku. Použijte heslo nasazení, který jste vytvořili dříve.
+8. V klientovi FTP/FTPS se přihlaste k serveru FTP webové aplikace Azure pomocí hodnoty, které jste zkopírovali v posledním kroku. Použijte heslo nasazení, které jste vytvořili dříve.
 
     Následující snímek obrazovky ukazuje přihlášení pomocí FileZilly.
 
@@ -129,6 +130,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

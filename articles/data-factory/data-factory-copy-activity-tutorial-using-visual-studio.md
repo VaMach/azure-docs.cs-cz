@@ -16,33 +16,34 @@
     ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
+
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio
 > [AZURE.SELECTOR]
-- [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Pomocí editoru služby Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Pomocí prostředí PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Pomocí průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 
-V tomto kurzu provedete pomocí sady Visual Studio 2013 následující:
+V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření dat Azure pomocí sady Visual Studio. Kanál v objektu pro vytváření dat využívá aktivitu kopírování, s jejíž pomocí kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database.
+
+Zde jsou kroky, které provedete v rámci tohoto kurzu:
 
 1. Vytvoříte dvě propojené služby: **AzureStorageLinkedService1** a **AzureSqlLinkedService1**. AzureStorageLinkedService1 propojuje službu Azure Storage a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactoryVS**. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data jsou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.
-2. Vytvoříte dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data. Zadejte také další vlastnosti, jako je například struktura, dostupnost atd.
+2. Vytvoříte dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data. Zadáte také další vlastnosti, jako jsou například struktura, dostupnost a zásady.
 3. Vytvoříte v objektu ADFTutorialDataFactoryVS kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 4. Vytvoříte objekt pro vytváření dat a nasadíte propojené služby, tabulky a kanál.    
 
 ## Požadavky
 
-1. Pročtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-    
-    > [AZURE.IMPORTANT] Než budete pokračovat, dokončete další předpoklady. 
+1. Přečtěte si článek [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky. 
 2. K publikování entit Data Factory do Azure Data Factory musíte být **správce předplatného Azure**.  
 3. Na počítači musíte mít nainstalované tyto položky: 
     - Visual Studio 2013 nebo Visual Studio 2015.
     - Stáhněte si sadu Azure SDK pro Visual Studio 2013 nebo Visual Studio 2015. Přejděte na [stránku položek ke stažení pro Azure](https://azure.microsoft.com/downloads/) a klikněte na **VS 2013** nebo **VS 2015** v části **.NET**.
-    - Stáhněte si nejnovější modul plug-in Azure Data Factory pro Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) nebo [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Pokud používáte sadu Visual Studio 2013, můžete modul plug-in taky aktualizovat, a to pomocí tohoto postupu: V nabídce klikněte na **Nástroje** -> **Rozšíření a aktualizace** -> **Online** -> **Galerie sady Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio** (Nástroje Microsoft Azure Data Factory pro Visual Studio) -> **Aktualizovat**. 
+    - Stáhněte si nejnovější modul plug-in Azure Data Factory pro Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) nebo [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Pokud používáte sadu Visual Studio 2013, můžete modul plug-in také aktualizovat provedením následujících kroků: V nabídce klikněte na **Nástroje**  ->  **Rozšíření a aktualizace**  ->  **Online**  ->  **Galerie sady Visual Studio**  ->  **Nástroje služby Microsoft Azure Data Factory pro Visual Studio**  ->  **Aktualizovat**. 
  
 
 
@@ -212,7 +213,7 @@ Dosud jste vytvořili vstupní a výstupní propojené služby a tabulky. Teď v
 
     ![Dialogové okno publikování](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
 
-21. Na stránce konfigurace objektu pro vytváření dat postupujte takto: 
+21. Na stránce Konfigurace objektu pro vytváření dat proveďte následující kroky: 
     1. Vyberte možnost **Create New Data Factory** (Vytvořit nový objekt pro vytváření dat).
     2. Zadejte **VSTutorialFactory** jako **Název**.  
     
@@ -262,7 +263,7 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
     ![Export objektu pro vytváření dat do projektu VS](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Aktualizace nástrojů služby Data Factory pro Visual Studio
-Pokud chcete aktualizovat nástroje služby Azure Data Factory pro Visual Studio, postupujte takto:
+Chcete-li aktualizovat nástroje služby Azure Data Factory pro Visual Studio, proveďte následující kroky:
 
 1. V nabídce klikněte na **Nástroje** a vyberte **Rozšíření a aktualizace**. 
 2. V levém podokně vyberte **Aktualizace** a vyberte **Galerie sady Visual Studio**.
@@ -281,6 +282,6 @@ Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,30 +17,23 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
+
 # Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí prostředí Azure PowerShell
 > [AZURE.SELECTOR]
+- [Přehled a požadavky](data-factory-build-your-first-pipeline.md)
 - [portál Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí prostředí Azure PowerShell. 
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+## Požadavky
 
-## Další požadavky
-Vedle požadavků uvedených v tématu Přehled kurzu musíte nainstalovat tyto položky:
-
-- **Azure PowerShell**. Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
+- Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
+- Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
 - (volitelné) Tento článek nepopisuje všechny rutiny služby Data Factory. Úplnou dokumentaci o rutinách služby Data Factory najdete v článku [Referenční informace o rutinách služby Data Factory](https://msdn.microsoft.com/library/dn820234.aspx). 
-
-Pokud používáte prostředí Azure PowerShell **verze nižší než 1.0**, musíte použít rutiny popsané [tady](https://msdn.microsoft.com/library/azure/dn820234.aspx). Než začnete používat rutiny služby Data Factory, budete také muset spustit následující příkazy: 
- 
-1. Otevřete prostředí Azure PowerShell a spusťte následující příkazy. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
-    1. Spusťte příkaz `Add-AzureAccount` a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
-    2. Spuštěním příkazu `Get-AzureSubscription` zobrazte všechna předplatná pro tento účet.
-    3. Spusťte příkaz `Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext` a vyberte předplatné, se kterým chcete pracovat. Místo **NazevPredplatnehoAzure** uveďte název svého předplatného Azure.
-4. Přepněte do režimu Azure Resource Manager – v něm jsou k dispozici rutiny služby Azure Data Factory: `Switch-AzureMode AzureResourceManager`.
 
 ## Vytvoření objektu pro vytváření dat
 
@@ -49,8 +42,8 @@ V tomto kroku vytvoříte pomocí prostředí Azure PowerShell objekt pro vytvá
 1. Otevřete prostředí Azure PowerShell a spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
     - Spusťte příkaz `Login-AzureRmAccount` a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.  
     - Spuštěním příkazu `Get-AzureRmSubscription` zobrazte všechna předplatná pro tento účet.
-    - Spusťte příkaz `Select-AzureRmSubscription <Name of the subscription>` a vyberte předplatné, se kterým chcete pracovat. Mělo by to být stejné předplatné, které jste použili na webu Azure Portal.
-3. Spuštěním následujícího příkazu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**.
+    - Spusťte příkaz `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` a vyberte předplatné, se kterým chcete pracovat. Mělo by to být stejné předplatné, které jste použili na webu Azure Portal.
+3. Spuštěním následujícího příkazu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**:
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -67,11 +60,11 @@ Je třeba počítat s následujícím:
 - Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
 - Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
 
-    - V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu. 
+    - Spuštěním následujícího příkazu v prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Spuštěním následujícího příkazu si můžete ověřit, jestli je zprostředkovatel služby Data Factory zaregistrovaný. 
+        Spuštěním následujícího příkazu si můžete ověřit, zda je zprostředkovatel služby Data Factory zaregistrovaný: 
     
             Get-AzureRmResourceProvider
     - Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
@@ -197,7 +190,7 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
   	| frequency/interval | Frekvence je nastavená na hodnotu Month (Měsíc) a interval je 1, takže vstupní řezy jsou dostupné jednou za měsíc. | 
   	| external | Pokud vstupní data nevygenerovala služba Data Factory, je tato vlastnost nastavená na hodnotu true. | 
 
-2. V prostředí Azure PowerShell spuštěním následujícího příkazu vytvořte datovou sadu služby Data Factory.
+2. Spuštěním následujícího příkazu v prostředí Azure PowerShell vytvořte datovou sadu služby Data Factory:
 
         New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 
@@ -227,7 +220,7 @@ Nyní vytvoříte výstupní datovou sadu, která bude představovat výstupní 
 
     Kód JSON definuje datovou sadu s názvem **AzureBlobOutput**, která představuje výstupní data pro aktivitu v kanálu. Kromě toho určuje, že se mají výsledky ukládat do kontejneru objektů blob s názvem **adfgetstarted** do složky s názvem **partitioneddata**. Oddíl **availability** určuje, že se výstupní sada vytváří jednou měsíčně.
 
-2. V prostředí Azure PowerShell spuštěním následujícího příkazu vytvořte datovou sadu služby Data Factory.
+2. Spuštěním následujícího příkazu v prostředí Azure PowerShell vytvořte datovou sadu služby Data Factory:
 
         New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
@@ -307,15 +300,15 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
 
 2. Spuštěním rutiny **Get-AzureRmDataFactorySlice** získejte podrobnosti o všech řezech tabulky **EmpSQLTable**, která je výstupní tabulkou kanálu.  
 
-        Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+        Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
     Všimněte si, že hodnota StartDateTime, kterou tady určíte, je stejná jako počáteční čas uvedený v kódu JSON kanálu. Zobrazený výstup by měl vypadat přibližně takto:
 
         ResourceGroupName : ADFTutorialResourceGroup
         DataFactoryName   : FirstDataFactoryPSH
         DatasetName       : AzureBlobOutput
-        Start             : 2/1/2014 12:00:00 AM
-        End               : 3/1/2014 12:00:00 AM
+        Start             : 4/1/2016 12:00:00 AM
+        End               : 4/2/2016 12:00:00 AM
         RetryCount        : 0
         State             : InProgress
         SubState          :
@@ -325,7 +318,7 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
 
 3. Spuštěním rutiny **Get-AzureRmDataFactoryRun** získáte podrobnosti o spouštění aktivity pro určitý řez.
 
-        Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+        Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
     Zobrazený výstup by měl vypadat přibližně takto:
         
@@ -336,8 +329,8 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
         ProcessingStartTime : 12/18/2015 4:50:33 AM
         ProcessingEndTime   : 12/31/9999 11:59:59 PM
         PercentComplete     : 0
-        DataSliceStart      : 2/1/2014 12:00:00 AM
-        DataSliceEnd        : 3/1/2014 12:00:00 AM
+        DataSliceStart      : 4/1/2016 12:00:00 AM
+        DataSliceEnd        : 4/2/2016 12:00:00 AM
         Status              : AllocatingResources
         Timestamp           : 12/18/2015 4:50:33 AM
         RetryAttempt        : 0
@@ -352,7 +345,10 @@ V tomto kroku budete pomocí prostředí Azure PowerShell monitorovat, co se dě
     ![Výstupní data](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 
-> [AZURE.IMPORTANT] Po úspěšném zpracování řezu se vstupní soubor odstraní. Pokud tedy chcete spustit řez znovu nebo si znovu projít tento kurz, načtěte vstupní soubor (input.log) do složky inputdata v kontejneru adfgetstarted.
+> [AZURE.IMPORTANT] 
+> Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.  
+> 
+> Po úspěšném zpracování řezu se vstupní soubor odstraní. Pokud tedy chcete spustit řez znovu nebo si znovu projít tento kurz, načtěte vstupní soubor (input.log) do složky inputdata v kontejneru adfgetstarted.
 
 ## Souhrn 
 V tomto kurzu jste vytvořili objekt pro zpracování dat Azure, který zpracovává data pomocí skriptu Hive v clusteru HDInsight Hadoop. Pomocí editoru služby Data Factory na webu Azure Portal jste provedli tyto kroky:  
@@ -381,6 +377,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
