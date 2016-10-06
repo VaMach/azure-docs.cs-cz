@@ -106,6 +106,8 @@ Obecně je vhodné pracovat se šablonou, která nasadí veškerou infrastruktur
 
 I když každé nasazení zobrazuje pouze změny, které jste provedli ve vaší skupině prostředků, můžete šablonu kdykoli vyexportovat a zobrazit si atributy celé skupiny prostředků.  
 
+> [AZURE.NOTE] Nejde exportovat šablonu pro skupinu prostředků, která má víc než 200 prostředků.
+
 1. Pokud chcete zobrazit šablonu pro skupinu prostředků, vyberte **Skript automatizace**.
 
       ![export skupiny prostředků](./media/resource-manager-export-template/export-resource-group.png)
@@ -307,6 +309,6 @@ Blahopřejeme! Naučili jste se, jak vyexportovat šablonu z prostředků, kter�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

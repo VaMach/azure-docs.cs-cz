@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/27/2016"
    ms.author="cherylmc"/>
 
 
@@ -26,12 +26,12 @@
 
 Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
 
-Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **klasickém modelu nasazení** s použitím **klasického portálu**. V současné době nelze tuto konfiguraci pro klasický model nasazení vytvořit v plném rozsahu jen z webu Azure Portal. Některé kroky můžete provést na webu Azure Portal, ale ke stažení konfigurace klienta VPN je nutné použít PowerShell .
+Tento článek vás provede vytvořením virtuální sítě s připojením Point-to-Site v **klasickém modelu nasazení** s použitím **klasického portálu**.
 
 Připojení typu Point-to-Site k fungování nevyžadují zařízení VPN ani veřejnou IP adresu. Připojení VPN je vytvořeno spuštěním připojení na klientském počítači. Další informace o připojeních typu Point-to-Site najdete v tématech [Služba VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md#point-to-site-connections) a [Plánování a navrhování](vpn-gateway-plan-design.md).
 
 
-**Modely nasazení a nástroje pro připojení typu Point-to-Site**
+### Modely a metody nasazení pro přípojení P2S
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
@@ -196,6 +196,6 @@ Další informace o virtuálních sítích najdete na stránce [Dokumentace k vi
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

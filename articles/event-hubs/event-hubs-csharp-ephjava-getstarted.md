@@ -74,6 +74,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

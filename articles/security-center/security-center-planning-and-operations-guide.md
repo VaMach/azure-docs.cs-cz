@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -232,7 +232,9 @@ Následující příklad ukazuje probíhající podezřelé aktivity protokolu R
 
 Jak vidíte, toto okno obsahuje podrobné informace o čase útoku, zdrojovému názvu hostitele a cílovém virtuálním počítači a obsahuje také doporučené kroky. Za některých okolností může být sekce informací o zdroji útoku prázdná. Další informace o tomto typu chování najdete v článku [Chybějící informace o zdroji ve výstrahách služby Azure Security Center](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/).
 
-> [AZURE.NOTE] Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagovat na incidenty pomocí služeb Azure Security Center a Microsoft Operations Management Suite) najdete ukázky, které vám pomůžou pochopit, jak je možné v jednotlivých fázích využít službu Security Center.
+Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagovat na incidenty pomocí služeb Azure Security Center a Microsoft Operations Management Suite) najdete ukázky, které vám pomůžou pochopit, jak je možné v jednotlivých fázích využít službu Security Center.
+
+> [AZURE.NOTE] Přečtěte si téma [Využití Azure Security Center při reakci na incidenty](security-center-incident-response.md), abyste se dozvěděli informace o použití funkcí Security Center během procesu Reakce na incidenty. 
 
 ## Viz také
 V tomto dokumentu jste zjistili, jak naplánovat přechod na službu Security Center. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
@@ -245,6 +247,6 @@ V tomto dokumentu jste zjistili, jak naplánovat přechod na službu Security Ce
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

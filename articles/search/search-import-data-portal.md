@@ -35,7 +35,7 @@ Tento pracovní postup můžete vyzkoušet v DocumentDB s použitím vzorových 
 
 ## Zdroje dat podporované Průvodcem importem dat
 
-Nástroje a automatizace indexování jsou dostupné pro následující zdroje dat: 
+Průvodce importem dat podporuje následující zdroje dat: 
 
 - Azure SQL Database
 - Relační data systému SQL Server na virtuálním počítači Azure
@@ -123,6 +123,6 @@ Další informace o indexerech najdete na těchto odkazech:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

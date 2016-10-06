@@ -112,8 +112,7 @@ Podsíť IP|Síťová maska|Rozsah IP adres
 2. Na obrazovce Výběr instalační složky zkontrolujte, že je složka zadaná správně, a klikněte na Další.
 3. Až instalace skončí, klikněte na Dokončit.  Spustí se průvodce konfigurací.
 4. Na úvodní obrazovce průvodce instalací označte zatržítko **Vynechat použití průvodce konfigurací ověřování** a klikněte na **Další**.  Průvodce se zavře a spustí se server.
-![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Zpátky na stránce, odkud jste server stáhli, klikněte na tlačítko **Vytvoření přihlašovacích údajů pro aktivaci**.  Tyto údaje zkopírujte do příslušných polí v Azure MFA Serveru a klikněte na **Aktivovat**.
 
 
@@ -193,6 +192,6 @@ Metoda|Popis
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

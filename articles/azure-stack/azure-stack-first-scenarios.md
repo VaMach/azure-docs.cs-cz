@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Hlavní úkoly v Azure Stack POC | Microsoft Azure"
-    description="Dozvíte se, jak vytvořit plán a nabídku i jak se potom přihlásit k odběru nabídku a využít poskytované služby k vytvoření virtuálního počítače."
+    pageTitle="Azure Stack POC key tasks | Microsoft Azure"
+    description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -17,30 +17,20 @@
     ms.author="erikje"/>
 
 
-# První úkoly v Azure Stack POC
+# Azure Stack POC first tasks
 
-Základní prvky Azure Stack – [plány, nabídky a předplatné](azure-stack-key-features.md#services-plans-offers-and-subscriptions) – poskytují tenantům služby IaaS jako virtuální počítače a weby. Právě tyhle služby jsou pro tenanty klíčové.
+Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-Po [nasazení](azure-stack-deploy.md) a [přihlášení](azure-stack-connect-azure-stack.md) k Azure Stack POC proveďte následující kroky.
+1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
 
-Nejdřív [se přihlaste jako správce služeb](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) a potom:
+2.  [Create a storage account](azure-stack-provision-storage-account.md).
 
-1.  [Vytvořte plán](azure-stack-create-plan.md) zahrnující výpočetní a síťové služby a služby úložiště.
+## Next steps
 
-2.  [Vytvořte nabídku](azure-stack-create-offer.md) obsahující tento plán.
-
-Pak [se přihlaste jako tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) a:
-
-1.  [Přihlaste se k odběru nabídky](azure-stack-subscribe-plan-provision-vm.md) a získejte přístup k jejím plánům.
-
-2.  [Služby](azure-stack-provision-vm.md) zahrnuté v plánu nabídky použijte k vytvoření virtuálního počítače.
-
-## Další kroky
-
-[Vytvoření plánu](azure-stack-create-plan.md)
+[Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

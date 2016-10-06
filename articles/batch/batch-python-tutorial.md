@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="09/08/2016"
+    ms.date="09/27/2016"
     ms.author="marsma"/>
 
 
@@ -46,9 +46,33 @@ Pythonu pro tento kurz [Ukázka kódu][github_article_samples] je jednou z mnoha
 
 ### Prostředí Python
 
-Abyste mohli spustit ukázkový skript *python_tutorial_client.py* na místní pracovní stanici, budete potřebovat **překladač Pythonu**, který je kompatibilní s verzí **2.7** nebo **3.3–3.5**. Skript byl otestován v Linuxu i Windows.
+Abyste mohli spustit ukázkový skript *python_tutorial_client.py* na místní pracovní stanici, budete potřebovat **překladač Pythonu**, který je kompatibilní s verzí **2.7** nebo **3.3+**. Skript byl otestován v Linuxu i Windows.
 
-Také budete muset nainstalovat balíčky Pythonu pro **Azure Batch** a **Azure Storage**. Můžete to provést pomocí příkazu **pip** a souboru *requirements.txt*, které jsou k dispozici zde:
+### závislosti kryptografie
+
+Je nutné nainstalovat závislosti pro knihovnu [kryptografie][crypto], které vyžadují balíčky Pythonu `azure-batch` a `azure-storage`. Proveďte jednu z následujících operací, které jsou vhodné pro vaši platformu, nebo si přečtěte podrobnosti o [instalaci kryptografie][crypto_install], kde najdete další informace:
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] Pokud instalujete Python 3.3+ na Linuxu, použijte pro závislosti Pythonu ekvivalenty python3. Například na Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Balíčky Azure
+
+Následně nainstalujte balíčky Pythonu pro **Azure Batch** a **Azure Storage**. Můžete to provést pomocí příkazu **pip** a souboru *requirements.txt*, které jsou k dispozici zde:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -58,8 +82,8 @@ Zadejte následující příkaz **pip** pro instalaci balíčků Batch a Storage
 
 Nebo můžete balíčky Pythonu [azure-batch][pypi_batch] a [azure-storage][pypi_storage] nainstalovat ručně:
 
-`pip install azure-batch==0.30.0rc4`<br/>
-`pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/>
+`pip install azure-storage`
 
 > [AZURE.TIP] Pokud používáte neprivilegovaný účet, může být potřeba, abyste k příkazům přidali předponu `sudo`, například `sudo pip install -r requirements.txt`. Další informace o instalaci balíčků Python najdete v článku [Instalace balíčků][pypi_install] na readthedocs.io.
 
@@ -271,7 +295,7 @@ Na účtu Batch potom pomocí volání `create_pool` vytvoří fond výpočetní
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -280,10 +304,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -299,24 +322,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -327,7 +358,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 Při vytváření fondu můžete definovat [PoolAddParameter][py_pooladdparam], který určuje několik vlastností fondu:
@@ -336,7 +366,7 @@ Při vytváření fondu můžete definovat [PoolAddParameter][py_pooladdparam], 
 
 - **Počet výpočetních uzlů** (*target_dedicated* – povinné)<p/>Tato vlastnost určuje, kolik virtuálních počítačů má být ve fondu nasazeno. Je důležité, abyste si všimli, že všechny účty Batch mají výchozí **kvótu**, která omezuje počet **jader** (a tedy výpočetních uzlů) na účtu Batch. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) (například maximální počet jader na účtu Batch) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Možná vás někdy napadne otázka, proč váš fond nedosahuje víc než X uzlů. příčinou může být tato kvóta na jádra.
 
-- **Operační systém** uzlů (*virtual_machine_configuration* **nebo** *cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config], kterou jsme získali díky pomocné funkci `get_vm_config_for_distro`. Tato pomocná funkce využívá [list_node_agent_skus][py_list_skus], aby získala a vybrala image v seznamu kompatibilních imagů z [Marketplace virtuálních počítačů Azure][vm_marketplace]. Místo toho můžete určit [CloudServiceConfiguration][py_cs_config] a vytvořit fond uzlů Windows ze služby Cloud Services. Další informace o těchto dvou konfiguracích najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
+- **Operační systém** uzlů (*virtual_machine_configuration* **nebo** *cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config]. Funkce `select_latest_verified_vm_image_with_node_agent_sku` v `common.helpers` zjednodušuje práci s imagemi z [Azure Virtual Machines Marketplace][vm_marketplace]. Další informace o používání imagí z Marketplace najdete v tématu [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
 
 - **Velikost výpočetních uzlů** (*vm_size* – povinné)<p/>Vzhledem k tomu, že zadáváme linuxové uzly pro naší [VirtualMachineConfiguration][py_vm_config], zadáme velikost virtuálního počítače (`STANDARD_A1` v této ukázce) podle článku [Velikosti virtuálních počítačů v Azure](../virtual-machines/virtual-machines-linux-sizes.md). Další informace opět najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
 
@@ -575,7 +605,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 Při spuštění skriptu *python_tutorial_client.py* z [ukázky kódu][github_article_samples] pro tento kurz bude výstup konzoly podobný následujícímu. Zatímco se vytvářejí a spouští výpočetní uzly fondu a provádí se příkazy ve spouštěcím úkolu fondu, uvidíte pozastavení na `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte web [Azure Portal][azure_portal]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [portál Azure][azure_portal] nebo [průzkumník služby Microsoft Azure Storage][storage_explorers] .
 
-Typická doba provádění je **přibližně 5–7 minut**, když aplikaci spouštíte v její výchozí konfiguraci.
+>[AZURE.TIP] Z adresáře `azure-batch-samples/Python/Batch/article_samples` spusťte skript *python_tutorial_client.py*. Protože pro import modulu `common.helpers` používá relativní cestu, může se při spuštění mimo tento adresář zobrazit chyba `ImportError: No module named 'common'`.
+
+Typická doba provádění je **přibližně 5-7 minut**, pokud ukázku spustíte ve výchozí konfiguraci.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -620,6 +652,8 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -679,6 +713,6 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

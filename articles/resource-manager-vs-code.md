@@ -139,6 +139,6 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

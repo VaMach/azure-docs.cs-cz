@@ -30,7 +30,7 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí prostřed�
 
 1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 
-        > [AZURE.NOTE] Rutina prostředí PowerShell pro správu partnerských vztahů virtuálních sítí je dodávána s prostředím [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] Rutina prostředí PowerShell pro správu partnerských vztahů virtuálních sítí je dodávána s prostředím [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Čtení objektů virtuální sítě:
 
@@ -48,7 +48,8 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí prostřed�
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Initiated
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -70,7 +71,8 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí prostřed�
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet2
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -92,7 +94,8 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí prostřed�
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -125,6 +128,7 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí prostřed�
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
+        PeeringState        : Connected
         ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -237,6 +241,6 @@ Partnerský vztah mezi klasickou virtuální sítí a virtuální sítí Azure R
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

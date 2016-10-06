@@ -3,7 +3,7 @@
     description="Postup přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu v Azure"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="curtand"
     manager="femila"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
-    ms.author="MarkVi"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
 # Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
@@ -30,7 +30,7 @@ Toto téma popisuje možnosti přizpůsobení přihlašovací stránky a stránk
 
 > [AZURE.NOTE]
 >
-- Firemní branding je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
+- Firemní branding je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory nebo jste uživatelem Office 365. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
 - Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -223,6 +223,6 @@ Barva pozadí na přihlašovací stránce | Barva pozadí na přihlašovací str
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

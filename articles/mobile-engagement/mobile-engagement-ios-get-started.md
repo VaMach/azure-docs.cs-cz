@@ -63,28 +63,24 @@ Pomocí XCodu si vytvoříme základní aplikaci, na které si tuto integraci p�
 
     ![][3]
 
-6. V případě **XCode 7** – přidejte `libxml2.tbd` namísto `libxml2.dylib`.
-
-7. Přejděte zpět na portál Azure na stránku **Connection Info** (Informace o připojení) vaší aplikace a zkopírujte připojovací řetězec.
+6. Přejděte zpět na portál Azure na stránku **Connection Info** (Informace o připojení) vaší aplikace a zkopírujte připojovací řetězec.
 
     ![][4]
 
-8. Do souboru **AppDelegate.m** přidejte následující řádek kódu.
+7. Do souboru **AppDelegate.m** přidejte následující řádek kódu.
 
         #import "EngagementAgent.h"
 
-9. Nyní vložte připojovací řetězec do delegáta `didFinishLaunchingWithOptions`.
+8. Nyní vložte připojovací řetězec do delegáta `didFinishLaunchingWithOptions`.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
-            [...]
-            //[EngagementAgent setTestLogEnabled:YES];
-   
+            [...]   
             [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
             [...]
         }
 
-10. `setTestLogEnabled` je volitelný příkaz, který protokolům SDK umožňuje identifikovat problémy. 
+9. `setTestLogEnabled` je volitelný příkaz, který protokolům SDK umožňuje identifikovat problémy. 
 
 ##<a id="monitor"></a>Povolení sledování v reálném čase
 
@@ -124,6 +120,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 1. V souboru **AppDeletegate.m** importujte modul Engagement Reach.
 
         #import "AEReachModule.h"
+        #import <UserNotifications/UserNotifications.h>
 
 2. V metodě `application:didFinishLaunchingWithOptions` vytvořte modul kampaně Reach a předejte jej do existujícího inicializačního řádku Engagement:
 
@@ -138,12 +135,19 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 1. Do metody `application:didFinishLaunchingWithOptions` přidejte následující řádek:
 
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+        if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+        {
+            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+            {
+                [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+            }else
+            {
+                [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+            }
             [application registerForRemoteNotifications];
         }
-        else {
-
+        else
+        {
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
@@ -184,6 +188,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

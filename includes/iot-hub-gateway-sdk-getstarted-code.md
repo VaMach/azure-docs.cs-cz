@@ -36,7 +36,7 @@ Tato část popisuje některé klíčové části kódu v ukázce Hello World.
 
 ### Vytvoření brány
 
-Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (sběrnici zpráv), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. Sada SDK poskytuje funkci **Gateway_Create_From_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway_Create_From_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst. 
+Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (zprostředkovatele), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. Sada SDK poskytuje funkci **Gateway_Create_From_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway_Create_From_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst. 
 
 Kód pro proces brány lze najít v ukázce Hello World v souboru [main.c][lnk-main-c]. Níže uvedený fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší. 
 
@@ -65,21 +65,34 @@ Soubor nastavení JSON obsahuje seznam modulů, které se mají načíst. Každ�
 - **module_path**: cesta ke knihovně obsahující modul. V systému Linux se jedná o soubor .so, v systému Windows o soubor .dll.
 - **args**: libovolné konfigurační informace, které modul vyžaduje.
 
-Následující příklad ukazuje soubor nastavení JSON, který se používá ke konfiguraci ukázky Hello World v systému Linux. Jestli modul vyžaduje argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru. Modul Hello World nepřebírá žádné argumenty:
+Soubor JSON obsahuje také propojení mezi moduly, která se předají do zprostředkovatele. Propojení má dvě vlastnosti:
+- **source**: název modulu z části `modules` nebo „\*“
+- **sink**: název modulu z části `modules`
+
+Každé propojení definuje trasu a směr zpráv. Zprávy z modulu `source` se doručí do modulu `sink`. Hodnota `source` může být nastavená na „\*“, což značí, že modul `sink` bude přijímat zprávy ze všech modulů.
+
+Následující příklad ukazuje soubor nastavení JSON, který se používá ke konfiguraci ukázky Hello World v systému Linux. Všechny zprávy vytvořené modulem `hello_world` budou využité modulem `logger`. Jestli modul vyžaduje argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru. Modul Hello World nepřebírá žádné argumenty:
 
 ```
 {
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
             "args" : null
+        }
+    ],
+    "links" :
+    [
+        {
+            "source" : "hello_world",
+            "sink" : "logger"
         }
     ]
 }
@@ -92,24 +105,24 @@ Kód, který používá modul Hello World k publikování zpráv, najdete v soub
 ```
 int helloWorldThread(void *param)
 {
-    // Create data structures used in function.
+    // create data structures used in function.
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
     
-    // Add a property named "helloWorld" with a value of "from Azure IoT
+    // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
+    // set the content for the message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // Set the properties for the message
+    // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
     
-    // Create a message based on the msgConfig structure
+    // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -121,8 +134,8 @@ int helloWorldThread(void *param)
         }
         else
         {
-            // Publish the message to the bus
-            (void)MessageBus_Publish(handleData->busHandle, helloWorldMessage);
+            // publish the message to the broker
+            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
 
@@ -137,7 +150,7 @@ int helloWorldThread(void *param)
 
 ### Zpracování zpráv modulu Hello World
 
-Modul Hello World nikdy nemusí zpracovávat všechny zprávy, které publikují ostatní moduly na sběrnici zpráv. To provádí implementace zpětného volání zpráv v modulu Hello World ve funkci no-op.
+Modul Hello World nikdy nemusí zpracovávat jakékoli zprávy, které do zprostředkovatele publikují ostatní moduly. To provádí implementace zpětného volání zpráv v modulu Hello World ve funkci no-op.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -148,9 +161,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### Publikování a zpracování zpráv protokolovacího modulu
 
-Protokolovací modul přijímá zprávy ze sběrnice zpráv a zapisuje je do souboru. Nepublikuje žádné zprávy na sběrnici zpráv. Z toho důvodu protokolovací modul nikdy nevolá funkci **MessageBus_Publish**.
+Protokolovací modul přijímá zprávy od zprostředkovatele a zapisuje je do souboru. Nikdy publikuje žádné zprávy. Z toho důvodu protokolovací modul nikdy nevolá funkci **Broker_Publish**.
 
-Funkce **Logger_Recieve** v souboru [logger.c][lnk-logger-c] je funkce zpětného volání, která je vyvolána sběrnicí zpráv při doručení zprávy protokolovacímu modulu. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
+Funkce **Logger_Recieve** v souboru [logger.c][lnk-logger-c] je funkce zpětného volání, kterou zprostředkovatel vyvolá při doručení zprávy protokolovacímu modulu. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -205,6 +218,6 @@ Další informace o použití sady Gateway SDK naleznete v následujících tém
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

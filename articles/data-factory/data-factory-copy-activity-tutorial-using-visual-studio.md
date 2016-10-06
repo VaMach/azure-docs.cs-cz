@@ -31,10 +31,16 @@ V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření da
 
 Zde jsou kroky, které provedete v rámci tohoto kurzu:
 
-1. Vytvoříte dvě propojené služby: **AzureStorageLinkedService1** a **AzureSqlLinkedService1**. AzureStorageLinkedService1 propojuje službu Azure Storage a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactoryVS**. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data jsou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.
-2. Vytvoříte dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data. Zadáte také další vlastnosti, jako jsou například struktura, dostupnost a zásady.
-3. Vytvoříte v objektu ADFTutorialDataFactoryVS kanál s názvem **ADFTutorialPipeline**. Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
-4. Vytvoříte objekt pro vytváření dat a nasadíte propojené služby, tabulky a kanál.    
+1. Vytvoříte dvě propojené služby: **AzureStorageLinkedService1** a **AzureSqlLinkedService1**. 
+
+    AzureStorageLinkedService1 propojuje službu Azure Storage a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactoryVS**. Vstupní data pro kanál se nachází v kontejneru objektů blob v Azure Blob Storage a výstupní data jsou uložena v tabulce v Azure SQL Database. Proto přidáváte tyto dvě úložiště dat jako propojené služby objektu pro vytváření dat.
+2. Vytvoříte dvě datové sady: **InputDataset** a **OutputDataset**, které představují vstupní a výstupní data uložená v úložištích dat. 
+
+    Pro InputDataset zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro OutputDataset zadáte tabulku SQL, do které se uloží výstupní data. Zadáte také další vlastnosti, jako jsou například struktura, dostupnost a zásady.
+3. Vytvoříte v objektu ADFTutorialDataFactoryVS kanál s názvem **ADFTutorialPipeline**. 
+
+    Kanál má **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
+4. Vytvořte objekt pro vytváření dat s názvem **VSTutorialFactory**. Nasaďte objekt pro vytváření dat a všechny entity služby Data Factory (propojené služby, tabulky a kanál).    
 
 ## Požadavky
 
@@ -43,9 +49,7 @@ Zde jsou kroky, které provedete v rámci tohoto kurzu:
 3. Na počítači musíte mít nainstalované tyto položky: 
     - Visual Studio 2013 nebo Visual Studio 2015.
     - Stáhněte si sadu Azure SDK pro Visual Studio 2013 nebo Visual Studio 2015. Přejděte na [stránku položek ke stažení pro Azure](https://azure.microsoft.com/downloads/) a klikněte na **VS 2013** nebo **VS 2015** v části **.NET**.
-    - Stáhněte si nejnovější modul plug-in Azure Data Factory pro Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) nebo [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Pokud používáte sadu Visual Studio 2013, můžete modul plug-in také aktualizovat provedením následujících kroků: V nabídce klikněte na **Nástroje**  ->  **Rozšíření a aktualizace**  ->  **Online**  ->  **Galerie sady Visual Studio**  ->  **Nástroje služby Microsoft Azure Data Factory pro Visual Studio**  ->  **Aktualizovat**. 
- 
-
+    - Stáhněte si nejnovější modul plug-in Azure Data Factory pro Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) nebo [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Modul plug-in můžete taky aktualizovat, a to pomocí tohoto postupu: V nabídce klikněte na **Nástroje** -> **Rozšíření a aktualizace** -> **Online** -> **Galerie sady Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio** (Nástroje Microsoft Azure Data Factory pro Visual Studio) -> **Aktualizovat**.
 
 ## Vytvoření projektu v sadě Visual Studio 
 1. Spusťte **Visual Studio 2013**. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**. Mělo by se zobrazit dialogové okno **Nový projekt**.  
@@ -58,7 +62,7 @@ Zde jsou kroky, které provedete v rámci tohoto kurzu:
     ![Průzkumník řešení](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
 
 ## Vytvoření propojených služeb
-Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Úložištěm dat může být Azure Storage, Azure SQL Database nebo místní databáze SQL Serveru.
+Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Všechny zdroje a jímky podporované aktivitou kopírování najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md##supported-data-stores-and-formats). Seznam výpočetních služeb podporovaných službou Data Factory najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md). V tomto kurzu žádné výpočetní služby nepoužijete. 
 
 V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService1** a **AzureSqlLinkedService1**. Propojená služba AzureStorageLinkedService1 propojuje účet úložiště Azure a AzureSqlLinkedService1 propojuje službu Azure SQL Database k objektu pro vytváření dat **ADFTutorialDataFactory**. 
 
@@ -69,31 +73,36 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService1*
 
     ![Nová propojená služba](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
  
-3. Položky **accountname** a **accountkey** nahraďte názvem účtu úložiště Azure a jeho klíčem. 
+3. Hodnoty `<accountname>` a `<accountkey>`* nahraďte názvem účtu služby Azure Storage a jeho klíčem. 
 
     ![Propojená služba Azure Storage](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 
 4. Uložte soubor **AzureStorageLinkedService1.json**.
 
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service).
+
 ### Vytvoření propojené služby Azure SQL
 
 5. V **Průzkumníku řešení** znovu klikněte pravým tlačítkem myši na uzel **Propojené služby**, přejděte na **Přidat** a klikněte na **Nová položka**. 
 6. Tentokrát vyberte **Propojená služba Azure SQL** a klikněte na **Přidat**. 
-7. V souboru **AzureSqlLinkedService1.json** nahraďte položky **servername**, **databasename**, **username@servername** a **password** názvem serveru SQL Azure, názvem databáze, uživatelským účtem a heslem.    
+7. V souboru **AzureSqlLinkedService1.json** nahraďte hodnoty `<servername>`, `<databasename>`, `<username@servername>` a `<password>` názvy svého serveru Azure SQL, databáze, uživatelského účtu a heslem.    
 8.  Uložte soubor **AzureSqlLinkedService1.json**. 
 
+> [AZURE.NOTE]
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 ## Vytvoření datových sad
-V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService1** a **AzureSqlLinkedService1**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactory**. V tomto kroku nadefinujete dvě tabulky objektu pro vytváření dat, **EmpTableFromBlob** a **EmpSQLTable**, které představují vstupní a výstupní data, která jsou uložená v úložištích dat, na která odkazují objekty AzureStorageLinkedService1 a AzureSqlLinkedService1. Pro EmpTableFromBlob zadejte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro EmpSQLTable zadejte tabulky SQL, do které se ukládají výstupní data.
+V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService1** a **AzureSqlLinkedService1**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactory**. V tomto kroku nadefinujete dvě datové sady – **InputDataset** a **OutputDataset** – které představují vstupní a výstupní data uložená v úložištích dat, na která odkazují objekty AzureStorageLinkedService1 a AzureSqlLinkedService1. Pro InputDataset zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty. Pro OutputDataset zadáte tabulku SQL, do které se uloží výstupní data.
 
 ### Vytvoření vstupní datové sady
+V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentovaný propojenou službou **AzureStorageLinkedService1**. Tabulka je obdélníková datová sada a je jediným typem datové sady, který je nyní podporovaný. 
 
 9. V **Průzkumníku řešení** klikněte pravým tlačítkem myši na **Tabulky**, přejděte na **Přidat** a klikněte na **Nová položka**.
 10. V dialogovém okně **Přidat novou položku** vyberte v seznamu možnost **Azure Blob** a klikněte na **Přidat**.   
 10. Nahraďte text JSON následujícím textem a uložte soubor **AzureBlobLocation1.json**. 
 
         {
-          "name": "EmpTableFromBlob",
+          "name": "InputDataset",
           "properties": {
             "structure": [
               {
@@ -122,14 +131,42 @@ V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedServ
           }
         }
 
+     Je třeba počítat s následujícím: 
+    
+    - Vlastnost **type** datové sady je nastavená na **AzureBlob**.
+    - Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. Tuto propojenou službu jste vytvořili v kroku 2.
+    - Vlastnost **folderPath** je nastavená na kontejner **adftutorial**. Můžete také zadat název objektu blob ve složce pomocí vlastnosti **fileName**. Pokud neurčíte název objektu blob, budou za vstupní data považována data ze všech objektů blob v kontejneru.  
+    - Vlastnost **type** formátu je nastavená na **TextFormat**.
+    - V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce kontejneru objektů blob (**adftutorial**), který jste zadali. 
+    
+    Pokud pro **vstupní** datovou sadu nezadáte vlastnost **fileName**, považují se za vstupy všechny soubory a objekty blob ze vstupní složky (**folderPath**). Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
+ 
+    Pokud nezadáte **fileName** pro **výstupní tabulku**, generované soubory v **folderPath** se pojmenují podle následujícího formátu: Data.&lt;identifikátor GUID\&gt;.txt (například: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+
+    Pokud chcete nastavit **folderPath** a **fileName** dynamicky podle času **SliceStart**, použijte vlastnost **partitionedBy**. V následujícím příkladu folderPath používá rok, měsíc a den z vlastnosti SliceStart (čas zahájení zpracování řezu) a fileName používá hodinu z vlastnosti SliceStart. Pokud například začne být řez vytvářen v době 2016-09-20T08:00:00, vlastnost folderName je nastavená na wikidatagateway/wikisampledataout/2016/09/20 a vlastnost fileName je nastavená na 08.csv. 
+
+            "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+            "fileName": "{Hour}.csv",
+            "partitionedBy": 
+            [
+                { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+
+> [AZURE.NOTE]
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+
 ### Vytvoření výstupní datové sady
+V tomto kroku vytvoříte výstupní datovou sadu s názvem **OutputDataset**. Tato datová sada odkazuje na tabulku SQL ve službě Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService1**. 
 
 11. V **Průzkumníku řešení** klikněte opět pravým tlačítkem myši na **Tabulky**, přejděte na **Přidat** a klikněte na **Nová položka**.
 12. V dialogovém okně **Přidat novou položku** vyberte **Azure SQL** a klikněte na **Přidat**. 
 13. Nahraďte text JSON následujícím textem JSON a uložte soubor **AzureSqlTableLocation1.json**.
 
         {
-          "name": "EmpSQLTable",
+          "name": "OutputDataset",
           "properties": {
             "structure": [
               {
@@ -153,6 +190,17 @@ V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedServ
           }
         }
 
+     Je třeba počítat s následujícím: 
+    
+    - Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
+    - Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService** (tuto propojenou službu jste vytvořili v kroku 2).
+    - Vlastnost **tablename** je nastavená na **emp**.
+    - V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
+
+> [AZURE.NOTE]
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+
 ## Vytvoření kanálu 
 Dosud jste vytvořili vstupní a výstupní propojené služby a tabulky. Teď vytvoříte kanál s **aktivitou kopírování** ke kopírování dat z objektu blob Azure do Azure SQL Database. 
 
@@ -168,16 +216,15 @@ Dosud jste vytvořili vstupní a výstupní propojené služby a tabulky. Teď v
             "activities": [
               {
                 "name": "CopyFromBlobToSQL",
-                "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
                 "type": "Copy",
                 "inputs": [
                   {
-                    "name": "EmpTableFromBlob"
+                    "name": "InputDataset"
                   }
                 ],
                 "outputs": [
                   {
-                    "name": "EmpSQLTable"
+                    "name": "OutputDataset"
                   }
                 ],
                 "typeProperties": {
@@ -205,30 +252,49 @@ Dosud jste vytvořili vstupní a výstupní propojené služby a tabulky. Teď v
           }
         }
 
+    Je třeba počítat s následujícím:
+
+    - V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **Copy**.
+    - Vstup aktivity je nastavený na **InputDataset** a výstup aktivity je nastavený na **OutputDataset**.
+    - V části **typeProperties** je jako typ zdroje určen **BlobSource** a jako typ jímky **SqlSink**.
+
+    Nahraďte hodnotu vlastnosti **start** aktuálním dnem a **end** následujícím dnem. Můžete zadat jenom část data a přeskočit část času. Například „2016-02-03“ je ekvivalentní hodnotě „2016-02-03T00:00:00Z“.
+    
+    Počáteční a koncové hodnoty data a času musí být ve [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Například: 2016-10-14T16:32:41Z. Čas hodnoty **end** je nepovinný, ale my ho v tomto kurzu použijeme. 
+    
+    Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Pokud chcete kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9999-09-09**.
+    
+    V předchozím příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
+
 ## Publikování/nasazení entit služby Data Factory
-  
+V tomto kroku publikujete entity služby Data Factory (propojené služby, datové sady a kanál), které jste vytvořili dříve. Také zadáte název nově vytvořeného objektu pro vytváření dat, do kterého se tyto entity načtou.  
+
 18. V Průzkumníku řešení klikněte pravým tlačítkem na požadovaný projekt a poté klikněte na **Publikovat**. 
 19. Pokud se zobrazí dialogové okno **Přihlásit se pomocí účtu Microsoft**, zadejte přihlašovací údaje k účtu s předplatným Azure a klikněte na **Přihlásit**.
 20. Mělo by se zobrazit následující dialogové okno:
 
     ![Dialogové okno publikování](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
-
 21. Na stránce Konfigurace objektu pro vytváření dat proveďte následující kroky: 
     1. Vyberte možnost **Create New Data Factory** (Vytvořit nový objekt pro vytváření dat).
     2. Zadejte **VSTutorialFactory** jako **Název**.  
     
-        > [AZURE.NOTE]  
-        > Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se při publikování zobrazí chyba týkající se názvu objektu pro vytváření dat, změňte název objektu pro vytváření dat (třeba na váš_název_VSTutorialFactory) a zkuste publikování znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-        
-    3. V poli **Předplatné** vyberte správné předplatné. 
-    4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit. 
-    5. Vyberte **oblast** pro objekt pro vytváření dat. 
-    6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). 
-23. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.     
+        > [AZURE.IMPORTANT]  
+        > Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se při publikování zobrazí chyba týkající se názvu objektu pro vytváření dat, změňte název objektu pro vytváření dat (třeba na váš_název_VSTutorialFactory) a zkuste publikování znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.     
+    3. V poli **Předplatné** vyberte své předplatné Azure.
+     
+        > [AZURE.IMPORTANT] Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.  
+    4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit. 5. Vyberte **oblast** pro objekt pro vytváření dat. V rozevíracím seznamu jsou uvedené pouze oblasti podporované službou Data Factory.
+6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky).
+    
+        ![Stránka konfigurace služby Data Factory](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
+23. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.
+    
+    ![Stránka publikování položek](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)     
 24. Zkontrolujte souhrn a klikněte na **Další**. Spustí se proces nasazení a zobrazí se **Stav nasazení**.
-25. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit. 
 
-Je třeba počítat s následujícím: 
+    ![Stránka souhrnu publikování](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
+25. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit. 
+    ![Stránka stavu nasazení](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) Je třeba počítat s následujícím: 
 
 - Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
 
@@ -241,7 +307,8 @@ Je třeba počítat s následujícím:
             Get-AzureRmResourceProvider
     - Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
 -   Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
--   Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
+
+> [AZURE.IMPORTANT] Chcete-li vytvářet instance služby Data Factory, musíte být správce nebo spolusprávce předplatného Azure.
 
 ## Souhrn
 V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírování dat z objektu blob Azure do Azure SQL Database. Visual Studio jste použili k vytvoření objektu pro vytváření dat, propojených služeb, datových sad a kanálu. Zde jsou základní kroky, které jste v tomto kurzu provedli:  
@@ -282,6 +349,6 @@ Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

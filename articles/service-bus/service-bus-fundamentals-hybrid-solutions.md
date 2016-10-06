@@ -111,9 +111,9 @@ Propojení aplikací vždy patřilo k budování kompletních řešení a množs
 
 Dozvěděli jste se základní informace službě Azure Service Bus, další informace se dozvíte na následujících odkazech.
 
-- Jak používat [fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- Jak používat [témata Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Jak používat [předávání přes Service Bus](service-bus-dotnet-how-to-use-relay.md)
+- Jak používat [fronty Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Jak používat [témata Service Bus](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Jak používat [předávání přes Service Bus](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Ukázky služby Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -123,6 +123,6 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

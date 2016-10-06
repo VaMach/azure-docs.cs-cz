@@ -21,16 +21,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasadit ji do [web app] ve službě [Azure App Service] z prostředí příkazového řádku, jako je například cmd.exe nebo bash. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
+Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do služby [Azure App Service] z prostředí příkazového řádku, jako je například cmd.exe nebo bash. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
+
 
 <a name="prereq"></a>
 ## Požadavky
 
-- **Node.js** ([Nainstalujete kliknutím sem.][NODEJS])
-- **Bower** ([Nainstalujete kliknutím sem.][BOWER])
-- **Yeoman** ([Nainstalujete kliknutím sem.][YEOMAN])
-- **Git** ([Nainstalujete kliknutím sem.][GIT])
-- **Azure CLI** ([Nainstalujete kliknutím sem.][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi] nebo si [aktivovat výhody předplatitele Visual Studio].
 
 ## Vytvoření a nasazení jednoduché webové aplikace Node.js
@@ -59,20 +60,20 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     V prohlížeči přejděte na adresu <http://localhost:3000> a ujistěte se, zda se zobrazí domovská stránka Express. Jakmile ověříte, že aplikace běží správně, zastavte ji pomocí `Ctrl-C`.
     
-1. Přepněte do režimu ASM a přihlaste se k Azure (k tomu potřebujete [rozhraní příkazového řádku Azure](#prereq)):
+1. Přepněte do režimu ASM a přihlaste se k Azure (potřebujete [Azure CLI](#prereq)):
 
         azure config mode asm
         azure login
 
     Postupujte podle výzvy a pokračujte v přihlášení v prohlížeči pomocí účtu Microsoft, který obsahuje předplatné Azure.
 
-2. Ujistěte se, zda se stále nacházíte v kořenovém adresáři aplikace, a poté následujícím příkazem vytvořte prostředek aplikace služby App Service v Azure s jedinečným názvem aplikace; například: http://{názevaplikace}.azurewebsites.net
+2. Ujistěte se, že se stále nacházíte v kořenovém adresáři aplikace, a poté následujícím příkazem vytvořte prostředek aplikace služby App Service v Azure s jedinečným názvem aplikace. Například: http://{název_aplikace}.azurewebsites.net
 
         azure site create --git {appname}
 
     Po zobrazení výzvy vyberte oblast Azure, do které chcete provést nasazení. Pokud jste u předplatného Azure dosud nenastavili přihlašovací údaje pro nasazení Git/FTP, budete rovněž vyzváni k jejich vytvoření.
 
-3. Z kořenového adresáře aplikace otevřete soubor ./config/config.js a změňte produkční port na možnost `process.env.port`. Vlastnost `production` v objektu `config` by měla odpovídat následujícímu příkladu.
+3. Z kořenového adresáře aplikace otevřete soubor ./config/config.js a změňte produkční port na možnost `process.env.port`. Vlastnost `production` v objektu `config` by měla odpovídat následujícímu příkladu:
 
         production: {
             root: rootPath,
@@ -84,13 +85,19 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js][NODEJS] a nasad
 
     Aplikaci Node.js to umožní reagovat na webové požadavky na výchozím portu, jemuž modul iisnode naslouchá.
     
+4. Otevřete soubor ./package.json a přidejte vlastnost `engines` do části [zadejte požadovanou verzi Node.js](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Uložte změny a poté pomocí Git nasaďte aplikaci do Azure:
 
         git add .
         git commit -m "{your commit message}"
         git push azure master
 
-    Generátor Express již poskytuje soubor .gitignore, takže `git push` nebude využívat šířku pásma k nahrání node_modules / adresáře.
+    Generátor Express již poskytuje soubor .gitignore, takže příkaz `git push` nebude využívat šířku pásma při pokusu o nahrání adresáře node_modules/.
 
 5. Nakonec spusťte živou aplikaci Azure v prohlížeči:
 
@@ -125,13 +132,14 @@ Následující kurzy vás seznámí s tím, jak pracovat s konkrétním rozhran�
 - [Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure App Service]
 - [Použití io.js s aplikacemi Azure App Service Web Apps]
 
+<a name="version"></a>
 ## Použití konkrétního modulu Node.js
 
-Při obvyklém pracovním postupu můžete službě App Service říci, aby používala konkrétní modul Node.js, a to stejným způsobem, jakým byste běžně postupovali v package.json.
+Při obvyklém pracovním postupu říkáte službě App Service, aby používala konkrétní modul Node.js, a to stejným způsobem, jakým byste běžně postupovali v souboru package.json.
 Příklad:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 Modul nasazení Kudu určí, který modul Node.js se má použít, a to v následujícím pořadí:
@@ -140,10 +148,12 @@ Modul nasazení Kudu určí, který modul Node.js se má použít, a to v násle
 - Poté zjišťuje, zda je v souboru package.json zadána položka `"node": "..."` v objektu `engines`. Pokud ano, použije ji.
 - Ve výchozím nastavení vybere výchozí Node.js.
 
+>[AZURE.NOTE] Doporučujeme explicitně definovat, který modul Node.js chcete použít. Výchozí verze Node.js se může změnit a ve vaší webové aplikaci může docházet k chybám, protože výchozí verze Node.js není vhodná pro vaši aplikaci.
+
 <a name="iisnodelog"></a>
 ## Získání protokolů stdout a stderr z modulu iisnode
 
-Chcete-li číst protokoly modulu iisnode, použijte následující postup.
+Chcete-li si přečíst protokoly iisnode, postupujte následovně.
 
 > [AZURE.NOTE] Po dokončení tohoto postupu nemusí soubory protokolů existovat, dokud nedojde k chybě.
 
@@ -162,13 +172,13 @@ Chcete-li číst protokoly modulu iisnode, použijte následující postup.
         git commit -m "{your commit message}"
         git push azure master
    
-   Modul iisnode je nyní nakonfigurován. Následující kroky ukazují, jak k těmto protokolům získat přístup.
+    Modul iisnode je nyní nakonfigurován. Následující kroky ukazují, jak k těmto protokolům získat přístup.
      
 4. Otevřete v prohlížeči konzolu pro ladění Kudu pro aplikaci, která se nachází na adrese:
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Upozorňujeme, že tato adresa URL se liší od adresy URL webové aplikace, neboť rozšiřuje název DNS o řetězec „*.scm“.* . Pokud adresu URL takto nerozšíříte, obdržíte chybu 404.
+    Tato adresa URL se liší od adresy URL webové aplikace, neboť rozšiřuje název DNS o řetězec „*.scm.*“. . Pokud adresu URL takto nerozšíříte, obdržíte chybu 404.
 
 5. Přejděte do adresáře D:\home\site\wwwroot\iisnode
 
@@ -223,20 +233,20 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [aktivovat výhody předplatitele Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Nasazení webové aplikace Sails.js do služby Azure App Service]: ./app-service-web-nodejs-sails.md
 [Seznámení se super tajnou konzolou pro ladění modulu Kudu]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Generátor Express pro Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [Použití io.js s aplikacemi Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [zaregistrovat k bezplatné zkušební verzi]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web app]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -247,6 +257,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

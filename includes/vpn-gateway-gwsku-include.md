@@ -1,7 +1,11 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput to the virtual network.
+Při vytváření brány virtuální sítě musíte určit SKU brány, které chcete použít. Pokud vyberete vyšší SKU brány, přidělí se pro bránu víc procesorů a šířky pásma sítě, a v důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
 
-VPN Gateway can use the following SKUs:
+VPN Gateway může používat následující SKU:
 
 - Basic
 - Standard
-- HighPerformance
+- Vysokovýkonné
+
+<!--HONumber=Sep16_HO4-->
+
+

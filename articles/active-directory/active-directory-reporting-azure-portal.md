@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 
@@ -27,7 +27,7 @@ Existují dvě hlavní oblasti vytváření sestav:
 
 - **Aktivity přihlašování** – informace o použití spravovaných aplikací a aktivitách přihlašování uživatelů
 
-- **Aktivity systému** – informace auditu o uživatelích a správě skupin, spravovaných aplikacích a aktivitách adresářů
+- **Protokoly auditu** – informace aktivit systému o správě uživatelů a skupin, spravovaných aplikacích a aktivitách adresářů
 
 V závislosti na rozsahu hledaných dat můžete k těmto sestavám přistupovat po kliknutí buď na možnost **Uživatelé a skupiny**, nebo na možnost **Podnikové aplikace** v seznamu služeb na webu [Azure Portal](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ Metoda hledání umožňuje omezit obor přihlášení na konkrétní **uživate
 
 ![Vytváření sestav](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Aktivity systému
+## Protokoly auditu
 
 Protokoly auditování v Azure Active Directory obsahují záznamy aktivit systému kvůli dodržování předpisů.
 
@@ -220,6 +220,6 @@ Přečtěte si článek [Příručka generování sestav v Azure Active Director
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -158,6 +158,6 @@ Jakmile připravíte zdrojová data, můžete začít vyvíjet skript U-SQL.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

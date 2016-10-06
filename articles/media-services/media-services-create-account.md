@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/26/2016"
     ms.author="juliako"/>
+
 
 
 # Vytvoření účtu Azure Media Services
@@ -108,6 +109,6 @@ Kromě toho můžete zobrazit kód, který používá sada Azure Media Services 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

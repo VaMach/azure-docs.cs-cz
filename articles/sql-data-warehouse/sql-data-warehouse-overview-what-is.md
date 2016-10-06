@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+
 
 
 # Co je Azure SQL Data Warehouse?
@@ -142,16 +143,17 @@ PolyBase vám umožňuje využít data z různých zdrojů pomocí stejných př
 
 - PolyBase nedělá při integraci žádné rozdíly. Zpřístupňuje stejné prvky a funkce všem zdrojům, které podporuje. PolyBase čte data v mnoha různých formátech, včetně souborů s oddělovači a souborů ORC.
 
-- PolyBase lze použít pro přístup k úložišti objektů blob, které se také používá jako úložiště clusteru služby HD Insight. To umožňuje přístup ke stejným datům pomocí relačních a nerelačních nástrojů.
+- PolyBase lze použít pro přístup k úložišti objektů blob, které se také používá jako úložiště clusteru HDInsight. To umožňuje přístup ke stejným datům pomocí relačních a nerelačních nástrojů.
 
 ## Další kroky
 
 Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychle [vytvořit SQL Data Warehouse][] a [načíst ukázková data][]. Pokud s Azure začínáte, můžete využít [Glosář Azure][], kde najdete potřebnou terminologii. Můžete se taky podívat na některé z těchto dalších zdrojů služby SQL Data Warehouse.  
 
+- [Úspěšné zákaznické implementace]
 - [Blogy]
 - [Žádosti o funkce]
 - [Videa]
-- [Blogy týmu CAT]
+- [Blogy zákaznického poradního týmu]
 - [Vytvoření lístku podpory]
 - [Fórum MSDN]
 - [Fórum Stack Overflow]
@@ -162,20 +164,21 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Vytvoření lístku podpory]: sql-data-warehouse-get-started-create-support-ticket.md
-[načíst ukázková data]: sql-data-warehouse-load-sample-databases.md
-[vytvořit SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Dokumentace k migraci]: sql-data-warehouse-overview-migrate.md
-[Partneři řešení SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
-[Přehled integrovaných nástrojů]: sql-data-warehouse-overview-integrate.md
-[Přehled zálohování a obnovení]: sql-data-warehouse-restore-database-overview.md
+[Vytvoření lístku podpory]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[načíst ukázková data]: ./sql-data-warehouse-load-sample-databases.md
+[vytvořit SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Dokumentace k migraci]: ./sql-data-warehouse-overview-migrate.md
+[Partneři řešení SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
+[Přehled integrovaných nástrojů]: ./sql-data-warehouse-overview-integrate.md
+[Přehled zálohování a obnovení]: ./sql-data-warehouse-restore-database-overview.md
 [Glosář Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Úspěšné zákaznické implementace]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blogy]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogy týmu CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogy zákaznického poradního týmu]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Žádosti o funkce]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum MSDN]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
@@ -184,6 +187,6 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,59 +1,66 @@
 <properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Přehled cenových úrovní zasílání zpráv Service Bus Premium a Standard | Microsoft Azure"
+    description="Zasílání zpráv Service Bus na úrovni Premium a Standard"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2016"
-	ms.author="darosa;sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2016"
+    ms.author="darosa;sethm"/>
 
-# Service Bus Premium and Standard messaging tiers 
 
-Service Bus messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
+# Úrovně zasílání zpráv Service Bus Premium a Standard 
 
-The *Premium* tier of Service Bus messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus messaging are designed to serve different use cases.
+Zasílání zpráv Service Bus, které zahrnuje entity zasílání zpráv, jako jsou fronty a témata, v sobě kombinuje funkce pro zasílání zpráv v rámci podniku s bohatou sémantikou publikování a odběru na úrovni cloudu. Zasílání zpráv Service Bus se používá jako páteřní prvek mnoha sofistikovaných cloudových řešení.
 
-Some high-level differences are highlighted in the table below.
+Úroveň *Premium* zasílání zpráv Service Bus řeší běžné požadavky zákazníků z pohledu rozsahu, výkonu a dostupnosti pro klíčové aplikace. Přestože mají tyto dvě úrovně skoro stejné sady funkcí, jsou určené pro použití v odlišných situacích.
+
+Několik nejvýraznějších rozdílů je v tabulce dole.
 
 | Premium                               | Standard                       |
 |---------------------------------------|--------------------------------|
-| High throughput                       | Variable throughput            |
-| Predictable performance               | Variable latency               |
-| Predictable pricing                   | Pay as you go variable pricing |
-| Ability to scale up and down workload | N/A                            |
-| Message size > 256KB                  | Message size is 256KB          |
+| Vysoká propustnost                       | Variabilní propustnost            |
+| Předvídatelný výkon               | Variabilní latence               |
+| Předvídatelná cena                   | Variabilní průběžná cena  |
+| Možnost navýšit a snížit zátěž | Není k dispozici                            |
+| Velikost zprávy > 256 KB                  | Velikost zprávy je 256 KB          |
 
-**Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
+**Zasílání zpráv Azure Service Bus Premium** zajišťuje izolaci prostředků ve vrstvě CPU a paměti, takže každá úloha zákazníka běží izolovaně. Kontejner prostředků se nazývá *jednotka zasílání zpráv*. Každému prémiovému obor názvů se přiřadí aspoň jedna jednotka zasílání zpráv. Pro každý obor názvů Service Bus Premium můžete koupit 1, 2 nebo 4 jednotky zasílání zpráv. Jedna úloha nebo entita může zabírat několik jednotek zasílání zpráv a počet jednotek zasílání zpráv se dá změnit podle libosti, ale fakturuje se podle 24hodinoví/denní sazby. Výsledkem je předvídatelný a opakovatelný výkon vašeho řešení postaveného na Service Bus.
 
-Not only is this performance more predictable and available, but it is also faster. Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is much faster than with the Standard tier.
+Vedle toho, že je tento výkon předvídatelnější, je také rychlejší. Zasílání zpráv Service Bus Premium staví na enginu úložiště představeném ve službě [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Se zasíláním zpráv na úrovni Premium je výkon ve špičce mnohem vyšší než na úrovni Standard.
 
-## Premium Messaging technical differences
+## Technické rozdíly zasílání zpráv na úrovni Premium
 
-The following are a few differences between Premium and Standard messaging tiers.
+Toto je několik rozdílů mezi úrovněmi zasílání zpráv Premium a Standard.
 
-### Partitioned queues and topics
+### Dělené fronty a témata
 
-Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Dělené fronty a témata jsou podporované v zasílání zpráv na úrovni Premium, ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovních Standard a Basic. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. Další informace o dělení najdete v oddílu [Dělené fronty a témata](service-bus-partitioning.md).
 
-### Express entities
+### Expresní entity
 
-Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
+Protože zasílání zpráv na úrovni Premium běží v kompletně izolovaném prostředí, nejsou expresní entity v oborech názvů úrovně Premium podporované. Další informace o expresní funkci najdete v popisu vlastnosti [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
-## Next steps
+## Další kroky
 
-To learn more about Service Bus messaging, see the following topics.
+Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
-- [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Představení zasílání zpráv Azure Service Bus Premium (příspěvek na blogu)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Představení zasílání zpráv Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
+- [Přehled architektury služby Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Jak používat fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

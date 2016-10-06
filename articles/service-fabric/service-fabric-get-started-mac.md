@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Set up your development environment on Mac OS X | Microsoft Azure"
-   description="Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X."
+   pageTitle="Nastavení vývojového prostředí v Mac OS X | Microsoft Azure"
+   description="Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace v Mac OS X."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -16,92 +16,99 @@
    ms.date="09/25/2016"
    ms.author="seanmck"/>
 
-# Set up your development environment on Mac OS X
+
+# Nastavení vývojového prostředí v Mac OS X
 
 > [AZURE.SELECTOR]
 -[ Windows](service-fabric-get-started.md)
 - [Linux](service-fabric-get-started-linux.md)
 - [OSX](service-fabric-get-started-mac.md)
 
-You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
+Pomocí Mac OS X můžete sestavit aplikace Service Fabric, které poběží na clusterech s Linuxem. Tento článek popisuje nastavení počítače Mac pro vývoj.
 
-## Prerequisites
+## Požadavky
 
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
+Service Fabric nefunguje v OS X nativně. Pro spuštění místního clusteru služby Service Fabric poskytujeme předem nakonfigurovaný virtuální počítač se systémem Ubuntu pomocí aplikací Vagrant a VirtualBox. Než začnete, budete potřebovat:
 
-- [Vagrant (v1.8.4 or later)](http://wwww.vagrantup.com/downloads)
+- [Vagrant (verzi 1.8.4 nebo novější)](http://wwww.vagrantup.com/downloads)
 - [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Create the local VM
+## Vytvoření místního virtuálního počítače
 
-To create the local VM containing a 5-node Service Fabric cluster, do the following:
+Chcete-li vytvořit místní virtuální počítač s clusterem služby Service Fabric s 5 uzly, postupujte následovně:
 
-1. Clone the Vagrantfile repo
+1. Naklonujte úložiště Vagrantfile.
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
 
-2. Navigate to the local clone of the repo
+2. Přejděte do místního klonu úložiště.
 
     ```bash
     cd service-fabric-linux-vagrant-onebox
     ```
 
-3. (Optional) Modify the default VM settings
+3. (Volitelné) Upravte výchozí nastavení virtuálního počítače.
 
-    By default, the local VM is configured as follows:
+    Ve výchozím nastavení je místní virtuální počítač nakonfigurován takto:
 
-    - 3 GB of memory allocated
-    - Private host network configured at IP 192.168.50.50 enabling passthrough of traffic from the Mac host
+    - 3 GB přidělené paměti
+    - Privátní hostitelská síť nakonfigurovaná na IP adresu 192.168.50.50, která umožňuje průchod přenosu dat z hostitelského počítače Mac
 
-    You can change either of these settings or add other configuration to the VM in the Vagrantfile. See the [Vagrant documentation](http://www.vagrantup.com/docs) for the full list of configuration options.
+    Ve Vagrantfile můžete změnit kterékoli z těchto nastavení nebo k virtuálnímu počítači přidat další konfiguraci. Úplný seznam možností konfigurace najdete v [dokumentaci k Vagrant](http://www.vagrantup.com/docs).
 
-4. Create the VM
+4. Vytvořte virtuální počítač.
 
     ```bash
     vagrant up
     ```
 
-    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you will see a message in the output indicating that the cluster is starting up.
+    Tento krok stáhne předem nakonfigurovanou image virtuálního počítače, místně jej spustí a následně v něm nastaví místní cluster služby Service Fabric. Očekávejte, že tento proces zabere několik minut. Pokud se instalace úspěšně dokončí, zobrazí se ve výstupu zpráva s oznámením, že se spouští cluster.
 
-    ![Cluster setup starting following VM provisioning][cluster-setup-script]
+    ![Spouštění instalace clusteru po zřízení virtuálního počítače][cluster-setup-script]
 
-5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
+5. Otestujte správné nastavení clusteru tak, že přejdete do Service Fabric Exploreru na adrese http://192.168.50.50:19080/Explorer (za předpokladu, že jste ponechali výchozí IP adresu privátní sítě).
 
-    ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
+    ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]
 
 
-## Install the Service Fabric plugin for Eclipse Neon (optional)
+## Instalace modulu plug-in služby Service Fabric pro Eclipse Neon (volitelné)
 
-Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services.
+Service Fabric poskytuje modul plug-in pro integrovaná vývojové prostředí Eclipse Neon, který může zjednodušit proces sestavování a nasazování služeb v Javě.
 
-1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
+1. V nástroji Eclipse se ujistěte, že máte nainstalovanou verzi Buildship 1.0.17 nebo novější. Verze nainstalovaných komponent můžete zkontrolovat tak, že zvolíte **Nápověda > Podrobnosti o instalaci**. Buildship můžete aktualizovat pomocí pokynů [zde][buildship-update].
 
-2. To install the Service Fabric plugin, choose **Help > Install New Software...**
+2. Chcete-li nainstalovat modul plug-in Service Fabric, zvolte **Nápověda > Instalace nového softwaru**.
 
-3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
+3. Do textového pole „Pracovat s“ zadejte: http://dl.windowsazure.com/eclipse/servicefabric.
 
-4. Click Add.
+4. Klikněte na Přidat.
 
-    ![Eclipse Neon plugin for Service Fabric][sf-eclipse-plugin-install]
+    ![Modul plug-in Eclipse Neon pro Service Fabric][sf-eclipse-plugin-install]
 
-5. Choose the Service Fabric plugin and click next.
+5. Zvolte modul plug-in služby Service Fabric a klikněte na Další.
 
-6. Proceed through the installation and accept the end-user license agreement.
+6. Pokračujte v instalaci a přijměte licenční smlouvu pro koncového zákazníka.
 
-## Next steps
+## Další kroky
 
-- [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [Vytvoření první aplikace Service Fabric pro Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
 
-- [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
-- [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-- [Understand the Service Fabric application model](service-fabric-application-model.md)
+- [Vytvoření clusteru služby Service Fabric na webu Azure Portal](service-fabric-cluster-creation-via-portal.md)
+- [Vytvoření clusteru služby Service Fabric pomocí Azure Resource Manageru](service-fabric-cluster-creation-via-arm.md)
+- [Pochopení aplikačního modelu služby Service Fabric](service-fabric-application-model.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

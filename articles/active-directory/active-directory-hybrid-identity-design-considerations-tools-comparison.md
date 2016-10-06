@@ -99,6 +99,6 @@ Přečtěte si další informace o [Integrování místních identit do služby 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

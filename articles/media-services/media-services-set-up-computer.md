@@ -57,6 +57,6 @@ Zvolte .NET nebo REST API a naprogramujte připojení k Azure Media Services.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

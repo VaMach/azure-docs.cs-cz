@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Zabezpečení cloudových a místních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s Windows Server 2012 R2 AD FS | Microsoft Azure"
+    pageTitle="MFA Server s AD FS ve Windows Serveru 2012 R2 | Microsoft Azure"
     description="Tento článek popisuje, jak začít se službami Azure Multi-Factor Authentication a AD FS v systému Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/04/2016"
+    ms.date="09/22/2016"
     ms.author="kgremban"/>
 
 
 
-# Zabezpečení cloudových a místních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s Windows Server 2012 R2
+# Zabezpečení cloudových a místních prostředků pomocí Azure Multi-Factor Authentication Serveru s AD FS ve Windows Serveru 2012 R2
 
 Pokud v organizaci používáte službu AD FS (Active Directory Federation Services) a chcete zabezpečit cloudové či místní prostředky, můžete nasadit a nakonfigurovat Azure Multi-Factor Authentication Server pro práci se službou AD FS. Tato konfigurace aktivuje u citlivých koncových bodů vícefaktorové ověřování.
 
@@ -75,20 +75,61 @@ Multi-Factor Authentication Server máte teď nastavený jako dodatečného posk
 3. Spusťte instalační soubor MultiFactorAuthenticationAdfsAdapterSetup64.msi.
 4. V instalačním programu adaptéru Multi-Factor Authentication AD FS spusťte instalaci kliknutím na tlačítko **Další**.
 5. Po dokončení instalace klikněte na **Zavřít**.
-6. V souboru MultiFactorAuthenticationAdfsAdapter.config udělejte tyto změny:
 
-|MultiFactorAuthenticationAdfsAdapter.config Krok| Dílčí krok|
-|:------------- | :------------- |
-|Uzel **UseWebServiceSdk** nastavte na **true**.||
-|Hodnotu **WebServiceSdkUrl** nastavte na URL sady SDK webové služby pro Multi-Factor Authentication.</br></br>Příklad:  **https://contoso.com/&lt;název_certifikátu&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>Kde název_certifikátu je název vašeho certifikátu. ||
-|Nakonfigurujte sadu SDK webové služby.<br><br>*1. možnost*: Pomocí uživatelského jména a hesla|<ol type="a"><li>Hodnotu **WebServiceSdkUsername** nastavte na účet, který je členem skupiny zabezpečení PhoneFactor Admins. Zadávejte ve formátu &lt;doména&gt;&#92;&lt;uživatelské jméno&gt;.<li>Hodnotu **WebServiceSdkPassword** nastavte na odpovídající heslo k tomuto účtu.</li></ol>
-|Nakonfigurujte sadu SDK webové služby (*pokračování*).<br><br>*2. možnost*: Pomocí klientského certifikátu|<ol type="a"><li>Od certifikační autority získejte klientský certifikát pro server, na kterém běží sada SDK webové služby. Přečtěte si, jak [získat klientský certifikát](https://technet.microsoft.com/library/cc770328.aspx).</li><li>Importujte klientský certifikát do osobního úložiště certifikátů na místním serveru, kde běží sada SDK webové služby. Poznámka: Ujistěte se, že se veřejný certifikát této autority nachází v úložišti certifikátů Důvěryhodné kořenové certifikáty.</li><li>Exportujte veřejný a privátní klíč klientského certifikátu do souboru .pfx.</li><li>Exportujte veřejný klíč ve formátu Base64 do souboru .cer.</li><li>Ve Správci serveru zkontrolujte, že je nainstalovaná funkce Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication. Pokud nainstalovaná není, přidejte ji kliknutím na **Přidat role a funkce**.</li><li>Ve Správci IIS na webové stránce, která obsahuje virtuální adresář sady SDK webové služby, poklikejte na **Editor konfigurace**. Poznámka: Dejte pozor, abyste tenhle krok provedli na úrovni webové stránky, ne na úrovni virtuálního adresáře.</li><li>Přejděte do oddílu **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.</li><li>Hodnotu **enabled** nastavte na **true**.</li><li>Hodnotu **oneToOneCertificateMappingsEnabled** nastavte také na **true**.</li><li>Klikněte na tlačítko **...** vedle položky **oneToOneMappings** a potom klikněte na odkaz **Přidat**.</li><li>Otevřete soubor .cer s klíčem ve formátu Base64, který jste exportovali. Odeberte řetězce *-----BEGIN CERTIFICATE-----* a *-----END CERTIFICATE-----* a veškerá zalomení řádků. Výsledný řetězec zkopírujte.</li><li>Hodnotu **certificate** nastavte na řetězec zkopírovaný v předchozím kroku.</li><li>Hodnotu **enabled** nastavte na **true**.</li><li>Nastavte **userName** na účet, který je členem skupiny zabezpečení PhoneFactor Admins. Zadávejte ve formátu &lt;doména&gt;&#92;&lt;uživatelské jméno&gt;.</li><li>Heslo nastavte na odpovídající heslo k tomuto účtu a pak Editor konfigurace zavřete.</li><li>Klikněte na odkaz **Použít**.</li><li>Ve virtuálním adresáři sady SDK webové služby poklikejte na možnost **Ověřování**.</li><li>Zkontrolujte, že jsou možnosti **Zosobnění technologie ASP.NET** a **Základní ověřování** **zapnuté** a všechny ostatní položky **vypnuté**.</li><li>Ve virtuálním adresáři sady SDK webové služby poklikejte na **Nastavení SSL**.</li><li>Nastavte **Klientské certifikáty** na **Přijmout** a klikněte na **Použít**.</li><li>Soubor .pfx, který jste exportovali, zkopírujte na server, kde běží adaptér AD FS.</li><li>Importujte soubor .pfx do osobního úložiště certifikátů na místním počítači.</li><li>Klikněte pravým tlačítkem, vyberte možnost **Spravovat soukromé klíče** a účtu, který jste použili pro přihlášení ke službě AD FS, udělte oprávnění ke čtení.</li><li>Otevřete klientský certifikát a zkopírujte kryptografický otisk z karty **Podrobnosti**.</li><li>V souboru MultiFactorAuthenticationAdfsAdapter.config nastavte **WebServiceSdkCertificateThumbprint** na řetězec zkopírovaný v předchozím kroku.</li></ol>
-| Upravte skript Register-MultiFactorAuthenticationAdfsAdapter.ps1 tak, že na konec příkazu `Register-AdfsAuthenticationProvider` přidáte *-ConfigurationFilePath &lt;cesta&gt;*, kde *&lt;cesta&gt;* je úplná cesta k souboru MultiFactorAuthenticationAdfsAdapter.config.||
+## Úprava souboru MultiFactorAuthenticationAdfsAdapter.config
 
-V nástroji PowerShell spusťte skript \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1, kterým adaptér zaregistrujete. Adaptér je zaregistrovaný jako WindowsAzureMultiFactorAuthentication. Aby se registrace projevila, je potřeba restartovat službu AD FS.
+Postupujte podle těchto kroků a upravte soubor MultiFactorAuthenticationAdfsAdapter.config:
+
+1. Uzel **UseWebServiceSdk** nastavte na **true**.  
+2. Hodnotu **WebServiceSdkUrl** nastavte na URL sady SDK webové služby pro Multi-Factor Authentication. Například: **https://contoso.com/&lt;název_certifikátu&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**, kde název_certifikátu je název vašeho certifikátu.  
+3. Upravte skript Register-MultiFactorAuthenticationAdfsAdapter.ps1 tak, že na konec příkazu `Register-AdfsAuthenticationProvider` přidáte *-ConfigurationFilePath &lt;cesta&gt;*, kde *&lt;cesta&gt;* je úplná cesta k souboru MultiFactorAuthenticationAdfsAdapter.config.
+
+### Konfigurace sady SDK webové služby pomocí uživatelského jména a hesla
+
+Por konfiguraci sady SDK webové služby existují dvě možnosti. První možností je použití uživatelského jména a hesla, druhou je použití klientského certifikátu. Pro první možnost postupujte podle těchto kroků, nebo je přeskočte, pokud chcete použít druhou možnost.  
+
+1. Hodnotu **WebServiceSdkUsername** nastavte na účet, který je členem skupiny zabezpečení PhoneFactor Admins. Zadávejte ve formátu &lt;doména&gt;&#92;&lt;uživatelské jméno&gt;.  
+2. Hodnotu **WebServiceSdkPassword** nastavte na odpovídající heslo k tomuto účtu.
+
+### Konfigurace sady SDK webové služby pomocí klientského certifikátu
+
+Pokud nechcete použít uživatelské jméno a heslo, postupujte podle těchto kroků a nakonfigurujte sadu SDK webové služby pomocí klientského certifikátu.
+
+1. Od certifikační autority získejte klientský certifikát pro server, na kterém běží sada SDK webové služby. Přečtěte si, jak [získat klientský certifikát](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Importujte klientský certifikát do osobního úložiště certifikátů na místním serveru, kde běží sada SDK webové služby. Poznámka: Ujistěte se, že se veřejný certifikát této autority nachází v úložišti certifikátů Důvěryhodné kořenové certifikáty.  
+3. Exportujte veřejný a privátní klíč klientského certifikátu do souboru .pfx.  
+4. Exportujte veřejný klíč ve formátu Base64 do souboru .cer.  
+5. Ve Správci serveru zkontrolujte, že je nainstalovaná funkce Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication. Pokud nainstalovaná není, přidejte ji kliknutím na **Přidat role a funkce**.  
+6. Ve Správci IIS na webové stránce, která obsahuje virtuální adresář sady SDK webové služby, poklikejte na **Editor konfigurace**. Poznámka: Dejte pozor, abyste tenhle krok provedli na úrovni webové stránky, ne na úrovni virtuálního adresáře.  
+7. Přejděte do oddílu **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
+8. Hodnotu **enabled** nastavte na **true**.  
+9. Hodnotu **oneToOneCertificateMappingsEnabled** nastavte také na **true**.  
+10. Klikněte na tlačítko **...** vedle položky **oneToOneMappings** a potom klikněte na odkaz **Přidat**.  
+11. Otevřete soubor .cer s klíčem ve formátu Base64, který jste exportovali. Odeberte řetězce *-----BEGIN CERTIFICATE-----* a *-----END CERTIFICATE-----* a veškerá zalomení řádků. Výsledný řetězec zkopírujte.  
+12. Hodnotu **certificate** nastavte na řetězec zkopírovaný v předchozím kroku.  
+13. Hodnotu **enabled** nastavte na **true**.  
+14. Nastavte **userName** na účet, který je členem skupiny zabezpečení PhoneFactor Admins. Zadávejte ve formátu &lt;doména&gt;&#92;&lt;uživatelské jméno&gt;.  
+15. Heslo nastavte na odpovídající heslo k tomuto účtu a pak Editor konfigurace zavřete.  
+16. Klikněte na odkaz **Použít**.  
+17. Ve virtuálním adresáři sady SDK webové služby poklikejte na možnost **Ověřování**.  
+18. Zkontrolujte, že jsou možnosti **Zosobnění technologie ASP.NET** a **Základní ověřování** **zapnuté** a všechny ostatní položky **vypnuté**.  
+19. Ve virtuálním adresáři sady SDK webové služby poklikejte na **Nastavení SSL**.  
+20. Nastavte **Klientské certifikáty** na **Přijmout** a klikněte na **Použít**.  
+21. Soubor .pfx, který jste exportovali, zkopírujte na server, kde běží adaptér AD FS.  
+22. Importujte soubor .pfx do osobního úložiště certifikátů na místním počítači.  
+23. Klikněte pravým tlačítkem, vyberte možnost **Spravovat soukromé klíče** a účtu, který jste použili pro přihlášení ke službě AD FS, udělte oprávnění ke čtení.  
+24. Otevřete klientský certifikát a zkopírujte kryptografický otisk z karty **Podrobnosti**.  
+25. V souboru MultiFactorAuthenticationAdfsAdapter.config nastavte **WebServiceSdkCertificateThumbprint** na řetězec zkopírovaný v předchozím kroku.  
+
+
+V prostředí PowerShell spusťte skript \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1. Adaptér je zaregistrovaný jako WindowsAzureMultiFactorAuthentication. Aby se registrace projevila, je potřeba restartovat službu AD FS.
+
+## Související témata
+
+Pomoc při řešení potíží najdete v tématu [Nejčastější dotazy ke službě Azure Multi-Factor Authentication](multi-factor-authentication-faq.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

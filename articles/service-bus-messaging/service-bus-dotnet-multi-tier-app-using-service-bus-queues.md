@@ -1,525 +1,433 @@
 <properties
-	pageTitle=".NET multi-tier application | Microsoft Azure"
-	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Vícevrstvá aplikace .NET | Microsoft Azure"
+    description="Kurz .NET, který vám pomůže vytvořit vícevrstvou aplikaci v Azure, která používá fronty Service Bus ke komunikaci mezi vrstvami."
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="sethm"/>
 
-# .NET multi-tier application using Azure Service Bus queues
 
-## Introduction
+# Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
 
-Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment. The steps assume you have no prior experience using Azure.
+## Úvod
 
-You will learn the following:
+Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí. Tyto kroky předpokládají, že nemáte žádné předchozí zkušenosti s používáním Azure.
 
--   How to enable your computer for Azure development with a
-    single download and install.
--   How to use Visual Studio to develop for Azure.
--   How to create a multi-tier application in Azure using web
-    and worker roles.
--   How to communicate between tiers using Service Bus queues.
+Naučíte se:
+
+-   Jak ve svém počítači vytvořit prostředí pro vývoj pro Azure stažením a instalací jednoho balíčku.
+-   Jak používat Visual Studio k vývoji pro Azure.
+-   Jak vytvořit vícevrstvou aplikaci v Azure pomocí webových rolí a rolí pracovního procesu.
+-   Jak komunikovat mezi vrstvami pomocí front Service Bus.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+V tomto kurzu sestavíte a spustíte vícevrstvou aplikaci v cloudové službě Azure. Front-endem bude webová role ASP.NET MVC a back-endem bude role pracovního procesu, která používá frontu Service Bus. Můžete vytvořit stejnou vícevrstvou aplikaci s front-endem jako webový projekt, který je nasazený do webové stránky Azure namísto cloudové služby. Pokyny k tomu, co je potřeba udělat jinak na front-endu webové stránky Azure, najdete v části [Další kroky](#nextsteps). Taky můžete vyzkoušet kurz [Hybridní lokální/cloudová aplikace .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-The following screen shot shows the completed application.
+Na následujícím snímku obrazovky je vidět hotová aplikace.
 
 ![][0]
 
-## Scenario overview: inter-role communication
+## Přehled scénáře: komunikace mezi rolemi
 
-To submit an order for processing, the front-end UI component, running
-in the web role, must interact with the middle tier logic running in
-the worker role. This example uses Service Bus brokered messaging for
-the communication between the tiers.
+Abyste mohli odeslat objednávku ke zpracování, musí komponenta uživatelského prostředí front-endu, která běží ve webové roli, pracovat s logikou střední úrovně běžící v roli pracovního procesu. Tento příklad používá zprostředkované zasílání zpráv pro komunikaci mezi vrstvami.
 
-Using brokered messaging between the web and middle tiers decouples the
-two components. In contrast to direct messaging (that is, TCP or HTTP),
-the web tier does not connect to the middle tier directly; instead it
-pushes units of work, as messages, into Service Bus, which reliably
-retains them until the middle tier is ready to consume and process them.
+Pomocí zprostředkovaného zasílání zpráv mezi webem a prostředními úrovněmi odděluje obě části. Na rozdíl od přímého přenosu zpráv (tzn. TCP nebo HTTP) se webová úroveň nemusí k prostřední úrovni připojit přímo, namísto toho odesílá pracovní jednotky jako zprávy do služby Service Bus, která je spolehlivě uchová, dokud nebude prostřední vrstva připravená je spotřebovat a zpracovat.
 
-Service Bus provides two entities to support brokered messaging:
-queues and topics. With queues, each message sent to the queue is
-consumed by a single receiver. Topics support the publish/subscribe
-pattern in which each published message is made available to a subscription registered with the topic. Each subscription logically
-maintains its own queue of messages. Subscriptions can also be
-configured with filter rules that restrict the set of messages passed to
-the subscription queue to those that match the filter. The following example uses
-Service Bus queues.
+Service Bus nabízí dvě entity, které podporují zprostředkované zasílání zpráv: fronty a témata. V případě front se každá zpráva odeslaná do fronty spotřebuje jedním příjemcem. Témata podporují chování typu publikovat/odebírat, ve kterém je každá publikovaná zpráva zpřístupněná odběru registrovanému pro dané téma. Každý odběr logicky uchovává svoji vlastní frontu zpráv. Odběry se taky dají konfigurovat pomocí pravidel filtrů, které omezují skupinu zpráv předávaných do fronty odběru na takové, které odpovídají filtru. Následující příklad používá fronty Service Bus.
 
 ![][1]
 
-This communication mechanism has several advantages over direct
-messaging:
+Tento komunikační mechanizmus má několik výhod oproti přímému přenosu zpráv.
 
--   **Temporal decoupling.** With the asynchronous messaging pattern,
-    producers and consumers need not be online at the same time. Service
-    Bus reliably stores messages until the consuming party is ready to
-    receive them. This enables the components of the distributed
-    application to be disconnected, either voluntarily, for example, for
-    maintenance, or due to a component crash, without impacting the
-    system as a whole. Furthermore, the consuming application might only
-    need to come online during certain times of the day.
+-   **Časové oddělení.** S asynchronním vzorcem zasílání zpráv nemusí být producenti a spotřebitelé online ve stejnou dobu. Service Bus spolehlivě uchová zprávy, dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na systém jako celek. Navíc stačí, aby spotřebitelská aplikace byla online i jen v určitou dobu během dne.
 
--   **Load leveling.** In many applications, system load varies over
-    time, while the processing time required for each unit of work is
-    typically constant. Intermediating message producers and consumers
-    with a queue means that the consuming application (the worker) only needs to be provisioned to accommodate average load rather than peak
-    load. The depth of the queue grows and contracts as the incoming
-    load varies. This directly saves money in terms of the amount of
-    infrastructure required to service the application load.
+-   **Vyrovnávání zátěže.** V mnoha aplikacích se zátěž na systém může postupně měnit, zatímco doba nutná ke zpracování pracovní jednotky je obvykle stálá. Propojovací producenti a spotřebitelé zpráv s frontou – to znamená, že spotřebitelskou aplikaci (pracovní proces) stačí zřídit jen na obvyklou zátěž, ne na zátěž ve špičce. S měnící se příchozí zátěží se mění hloubka fronty. To znamená přímou úsporu nákladů ve smyslu infrastruktury nutné pro zvládání zatížení aplikace.
 
--   **Load balancing.** As load increases, more worker processes can be
-    added to read from the queue. Each message is processed by only one
-    of the worker processes. Furthermore, this pull-based load balancing
-    enables optimal use of the worker machines even if the
-    worker machines differ in terms of processing power, as they will
-    pull messages at their own maximum rate. This pattern is often
-    termed the *competing consumer* pattern.
+-   **Vyrovnávání zatížení.** Když se zátěž zvyšuje, můžou se přidat další pracovní procesy, které budou číst zprávy z fronty. Každou zprávu zpracovává jen jeden pracovní proces. Toto vyrovnávání zátěže podle požadavků umožňuje optimální využívání pracovních počítačů i v případě, že se pracovní počítače liší z hlediska výkonu, protože zprávy žádaný a zpracovávají svou vlastním maximální rychlostí. Tomuto chování se často říká *konkurence mezi spotřebiteli*.
 
     ![][2]
 
-The following sections discuss the code that implements this architecture.
+V následující části se probírá kód, který tuto architekturu implementuje.
 
-## Set up the development environment
+## Nastavení vývojového prostředí
 
-Before you can begin developing Azure applications, get the tools and set up your development environment.
+Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
-1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
+1.  Nainstalujte si Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK][].
 
-2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+2.  Klikněte na **Instalovat sadu SDK** pro verzi Visual Studia, kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
 
-4.  When prompted to run or save the installer, click **Run**.
+4.  Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 
-5.  In the **Web Platform Installer**, click **Install** and proceed with the installation.
+5.  V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
 
-6.  Once the installation is complete, you will have everything
-    necessary to start to develop the app. The SDK includes tools that let you
-    easily develop Azure applications in Visual Studio. If you
-    do not have Visual Studio installed, the SDK also installs the free
-    Visual Studio Express.
+6.  Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu. Pokud nemáte Visual Studio nainstalované, SDK taky nainstaluje bezplatnou verzi Visual Studio Express.
 
-## Create a namespace
+## Vytvoření oboru názvů
 
-The next step is to create a service namespace, and obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for
-each application exposed through Service Bus. A SAS key is
-generated by the system when a namespace is
-created. The combination of namespace and SAS key
-provides the credentials for Service Bus to authenticate access to an
-application.
+Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje klíč SAS při vytvoření oboru názvů. Kombinace oboru názvů a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a web role
+## Vytvoření webové role
 
-In this section, you build the front end of your application. First, you
-create the pages that your application displays.
-After that, add code that submits items to a Service Bus
-queue and displays status information about the queue.
+V této části vytvoříte front-end své aplikace. Nejdřív vytvoříte stránky, které vaše aplikace zobrazí.
+Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí informace o stavu fronty.
 
-### Create the project
+### Vytvoření projektu
 
-1.  Using administrator privileges, start Microsoft Visual
-    Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
-    discussed later in this article, requires that Visual Studio be
-    started with administrator privileges.
+1.  Spusťte Visual Studio s právy správce. Visual Studio spustíte jako správce tak, že na ikonu programu **Visual Studio** kliknete pravým tlačítkem a vyberete možnost **Spustit jako správce**. Emulátor výpočtů v Azure, který se bude probírat později v tomto článku, potřebuje, aby bylo Visual Studio spuštěné s právy správce.
 
-    In Visual Studio, on the **File** menu, click **New**, and then
-    click **Project**.
+    Ve Visual Studiu v nabídce **Soubor** klikněte na **Nový** a pak na **Projekt**.
 
-2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
-    then click **Azure Cloud Service**. Name the project
-    **MultiTierApp**. Then click **OK**.
+2.  V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Cloud** a pak na **Cloudová služba Azure**. Jako název projektu zadejte **MultiTierApp**. Pak klikněte na **OK**.
 
     ![][9]
 
-3.  From **.NET Framework 4.5** roles, double-click **ASP.NET Web
-    Role**.
+3.  Z rolí **.NET Framework 4.5** poklikáním vyberte **Webovou roli ASP.NET**.
 
     ![][10]
 
-4.  Hover over **WebRole1** under **Azure Cloud Service solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**. Then click **OK**. (Make sure you enter "Frontend" with a lower-case 'e,' not "FrontEnd".)
+4.  Najeďte kurzorem na **WebRole1** v části **řešení Cloudové služby Azure**, klikněte na ikonu tužky a přejmenujte webovou roli na **FrontendWebRole**. Pak klikněte na **OK**. (Ujistěte se, že „Frontend“ zadáte s malým „e“ tzn. nikoli „FrontEnd“.)
 
     ![][11]
 
-5.  From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
+5.  V dialogovém okně **Nový projekt ASP.NET** v seznamu **Vyberte šablonu** klikněte na **MVC**.
 
     ![][12]
 
-6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+6. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **Změna ověřování**. V dialogovém okně **Změna ověřování** klikněte na možnost **Bez ověřování** a poté klikněte na tlačítko **OK**. V tomto kurzu nasazujete aplikaci, která nepotřebuje přihlášení uživatele.
 
-	![][16]
+    ![][16]
 
-7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
+7. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **OK** a vytvořte tak projekt.
 
-6.  In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
-    **Manage NuGet Packages**.
+6.  V **Průzkumníku řešení** v projektu **FrontendWebRole** klikněte pravým tlačítkem na** Reference**, a pak klikněte na **Správa balíčků NuGet**.
 
-7.  Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+7.  Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Klikněte na **Instalovat** a přijměte podmínky použití.
 
     ![][13]
 
-	Note that the required client assemblies are now referenced and some new code files have been added.
+    Poznámka: Teď jsou vytvořené reference na sestavení klienta a přidané některé nové soubory s kódem.
 
-9.  In **Solution Explorer**, right-click **Models** and click **Add**,
-    then click **Class**. In the **Name** box, type the name
-    **OnlineOrder.cs**. Then click **Add**.
+9.  V **Průzkumníku řešení** klikněte pravým tlačítkem na **Modely**, pak klikněte na **Přidat** a pak na **Třída**. Do pole **Název** zadejte název **OnlineOrder.cs**. Pak klikněte na **Přidat**.
 
-### Write the code for your web role
+### Napsání kódu pro vaši webovou roli
 
-In this section, you create the various pages that your application displays.
+V této části vytvoříte stránky, které vaše aplikace zobrazí.
 
-1.  In the OnlineOrder.cs file in Visual Studio, replace the
-    existing namespace definition with the following code:
+1.  V souboru OnlineOrder.cs ve Visual Studiu nahraďte existující definici oboru názvů následujícím kódem.
 
-	```
-	namespace FrontendWebRole.Models
-	{
-	    public class OnlineOrder
-	    {
-	        public string Customer { get; set; }
-	        public string Product { get; set; }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Models
+    {
+        public class OnlineOrder
+        {
+            public string Customer { get; set; }
+            public string Product { get; set; }
+        }
+    }
+    ```
 
-2.  In **Solution Explorer**, double-click
-    **Controllers\HomeController.cs**. Add the following **using**
-    statements at the top of the file to include the namespaces for the
-    model you just created, as well as Service Bus.
+2.  V **Průzkumníku řešení** poklikejte na **Controllers\HomeController.cs**. Na začátek souboru přidejte následující příkazy **using**, které přidají obory názvů pro model, který jste právě vytvořili, a pro Service Bus.
 
-	```
-	using FrontendWebRole.Models;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	```
+    ```
+    using FrontendWebRole.Models;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    ```
 
-3.  Also in the HomeController.cs file in Visual Studio, replace the
-    existing namespace definition with the following code. This code
-    contains methods for handling the submission of items to the queue.
+3.  v souboru HomeController.cs ve Visual Studiu taky místo existující definice oboru názvů zadejte následující kód. Tento kód obsahuje metody pro zpracování odesílání položek do fronty.
 
-	```
-	namespace FrontendWebRole.Controllers
-	{
-	    public class HomeController : Controller
-	    {
-	        public ActionResult Index()
-	        {
-	            // Simply redirect to Submit, since Submit will serve as the
-	            // front page of this application.
-	            return RedirectToAction("Submit");
-	        }
-	
-	        public ActionResult About()
-	        {
-	            return View();
-	        }
-	
-	        // GET: /Home/Submit.
-	        // Controller method for a view you will create for the submission
-	        // form.
-	        public ActionResult Submit()
-	        {
-	            // Will put code for displaying queue message count here.
-	
-	            return View();
-	        }
-	
-	        // POST: /Home/Submit.
-	        // Controller method for handling submissions from the submission
-	        // form.
-	        [HttpPost]
-			// Attribute to help prevent cross-site scripting attacks and
-			// cross-site request forgery.  
-			[ValidateAntiForgeryToken]
-	        public ActionResult Submit(OnlineOrder order)
-	        {
-	            if (ModelState.IsValid)
-	            {
-	                // Will put code for submitting to queue here.
-	
-	                return RedirectToAction("Submit");
-	            }
-	            else
-	            {
-	                return View(order);
-	            }
-	        }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Controllers
+    {
+        public class HomeController : Controller
+        {
+            public ActionResult Index()
+            {
+                // Simply redirect to Submit, since Submit will serve as the
+                // front page of this application.
+                return RedirectToAction("Submit");
+            }
+    
+            public ActionResult About()
+            {
+                return View();
+            }
+    
+            // GET: /Home/Submit.
+            // Controller method for a view you will create for the submission
+            // form.
+            public ActionResult Submit()
+            {
+                // Will put code for displaying queue message count here.
+    
+                return View();
+            }
+    
+            // POST: /Home/Submit.
+            // Controller method for handling submissions from the submission
+            // form.
+            [HttpPost]
+            // Attribute to help prevent cross-site scripting attacks and
+            // cross-site request forgery.  
+            [ValidateAntiForgeryToken]
+            public ActionResult Submit(OnlineOrder order)
+            {
+                if (ModelState.IsValid)
+                {
+                    // Will put code for submitting to queue here.
+    
+                    return RedirectToAction("Submit");
+                }
+                else
+                {
+                    return View(order);
+                }
+            }
+        }
+    }
+    ```
 
-4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
+4.  V nabídce **Sestavení** klikněte na **Sestavit řešení** a vyzkoušejte přesnost své dosavadní práce.
 
-5.  Now, create the view for the `Submit()` method you
-    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
-    **Add View**.
+5.  Teď vytvořte zobrazení pro metodu `Submit()`, kterou jste vytvořili předtím. Klikněte pravým tlačítkem do metody `Submit()` (přetížení `Submit()`, které nepřijímá žádné parametry), a pak vyberte **Přidat zobrazení**.
 
     ![][14]
 
-6.  A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, click the **OnlineOrder** class.
+6.  Objeví se dialogové okno pro vytvoření zobrazení. V seznamu **Šablona** vyberte **Vytvořit**. V seznamu **Třída modelu** klikněte na třídu **OnlineOrder**.
 
     ![][15]
 
-7.  Click **Add**.
+7.  Klikněte na tlačítko **Přidat**.
 
-8.  Now, change the displayed name of your application. In **Solution Explorer**, double-click the
-    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
-    Studio editor.
+8.  Teď změňte zobrazený název vaší aplikace. V **Průzkumníku řešení** poklikejte na soubor **Views\Shared\\_Layout.cshtml** a otevře se v editoru Visual Studio.
 
-9.  Replace all occurrences of **My ASP.NET Application** with
-    **LITWARE'S Products**.
+9.  Všechny výskyty **My ASP.NET Application** změňte na **LITWARE'S Products**.
 
-10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
+10. Odstraňte odkazy **Home**, **About** a **Contact**. Odstraňte zvýrazněný uzel:
 
-	![][28]
+    ![][28]
 
-11. Finally, modify the submission page to include some information about
-    the queue. In **Solution Explorer**, double-click the
-    **Views\Home\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after `<h2>Submit</h2>`. For now,
-    the `ViewBag.MessageCount` is empty. You will populate it later.
+11. Nakonec upravte stránku pro odesílání tak, aby obsahovala nějaké informace o frontě. V **Průzkumníku řešení** poklikejte na soubor **Views\Home\Submit.cshtml** a otevře se v editoru Visual Studio. Po `<h2>Submit</h2>` přidejte následující řádek. Hodnota `ViewBag.MessageCount` je zatím prázdná. Zaplníte ji později.
 
-	```
-	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
-	```
+    ```
+    <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+    ```
 
-12. You now have implemented your UI. You can press **F5** to run your
-    application and confirm that it looks as expected.
+12. Teď je implementované vaše uživatelské prostředí. Stisknutím klávesy **F5** můžete spustit svoji aplikaci a zkontrolovat, že vypadá tak, jak má.
 
     ![][17]
 
-### Write the code for submitting items to a Service Bus queue
+### Napsání nového kódu pro odesílání položek do fronty Service Bus
 
-Now, add code for submitting items to a queue. First, you
-create a class that contains your Service Bus queue connection
-information. Then, initialize your connection from
-Global.aspx.cs. Finally, update the submission code you
-created earlier in HomeController.cs to actually submit items to a
-Service Bus queue.
+Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte třídu, která obsahuje informace o připojení k vaší frontě Service Bus. Potom inicializujte připojení ze souboru Global.aspx.cs. Nakonec aktualizujte kód pro odesílání, který jste vytvořili předtím v souboru HomeController.cs tak, aby položky odesílal do fronty Service Bus.
 
-1.  In **Solution Explorer**, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
+1.  V **Průzkumníku řešení** klikněte pravým tlačítkem na **FrontendWebRole** (pravým tlačítkem klikněte na projekt, ne na roli). Klikněte na **Přidat** a potom na **Třída**.
 
-2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
+2.  Zadejte název třídy **QueueConnector.cs**. Klikněte na **Přidat** a třída se vytvoří.
 
-3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
+3.  Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z webu Azure Portal.
 
-	```
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	
-	namespace FrontendWebRole
-	{
-	    public static class QueueConnector
-	    {
-	        // Thread-safe. Recommended that you cache rather than recreating it
-	        // on every request.
-	        public static QueueClient OrdersQueueClient;
-	
-	        // Obtain these values from the portal.
-	        public const string Namespace = "your Service Bus namespace";
-	
-	        // The name of your queue.
-	        public const string QueueName = "OrdersQueue";
-	
-	        public static NamespaceManager CreateNamespaceManager()
-	        {
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var uri = ServiceBusEnvironment.CreateServiceUri(
-	                "sb", Namespace, String.Empty);
-	            var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-	                "RootManageSharedAccessKey", "yourKey");
-	            return new NamespaceManager(uri, tP);
-	        }
-	
-	        public static void Initialize()
-	        {
-	            // Using Http to be friendly with outbound firewalls.
-	            ServiceBusEnvironment.SystemConnectivity.Mode =
-	                ConnectivityMode.Http;
-	
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var namespaceManager = CreateNamespaceManager();
-	
-	            // Create the queue if it does not exist already.
-	            if (!namespaceManager.QueueExists(QueueName))
-	            {
-	                namespaceManager.CreateQueue(QueueName);
-	            }
-	
-	            // Get a client to the queue.
-	            var messagingFactory = MessagingFactory.Create(
-	                namespaceManager.Address,
-	                namespaceManager.Settings.TokenProvider);
-	            OrdersQueueClient = messagingFactory.CreateQueueClient(
-	                "OrdersQueue");
-	        }
-	    }
-	}
-	```
+    ```
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    
+    namespace FrontendWebRole
+    {
+        public static class QueueConnector
+        {
+            // Thread-safe. Recommended that you cache rather than recreating it
+            // on every request.
+            public static QueueClient OrdersQueueClient;
+    
+            // Obtain these values from the portal.
+            public const string Namespace = "your Service Bus namespace";
+    
+            // The name of your queue.
+            public const string QueueName = "OrdersQueue";
+    
+            public static NamespaceManager CreateNamespaceManager()
+            {
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var uri = ServiceBusEnvironment.CreateServiceUri(
+                    "sb", Namespace, String.Empty);
+                var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                    "RootManageSharedAccessKey", "yourKey");
+                return new NamespaceManager(uri, tP);
+            }
+    
+            public static void Initialize()
+            {
+                // Using Http to be friendly with outbound firewalls.
+                ServiceBusEnvironment.SystemConnectivity.Mode =
+                    ConnectivityMode.Http;
+    
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var namespaceManager = CreateNamespaceManager();
+    
+                // Create the queue if it does not exist already.
+                if (!namespaceManager.QueueExists(QueueName))
+                {
+                    namespaceManager.CreateQueue(QueueName);
+                }
+    
+                // Get a client to the queue.
+                var messagingFactory = MessagingFactory.Create(
+                    namespaceManager.Address,
+                    namespaceManager.Settings.TokenProvider);
+                OrdersQueueClient = messagingFactory.CreateQueueClient(
+                    "OrdersQueue");
+            }
+        }
+    }
+    ```
 
-4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
+4.  Teď musíte zajistit, aby se vaše metoda **Initialize** volala. V **Průzkumníku řešení** poklikejte na **Global.asax\Global.asax.cs**.
 
-5.  Add the following line of code at the end of the **Application_Start** method.
+5.  Přidejte následující řádek na konec metody **Application_Start**.
 
-	```
-	FrontendWebRole.QueueConnector.Initialize();
-	```
+    ```
+    FrontendWebRole.QueueConnector.Initialize();
+    ```
 
-6.  Finally, update the web code you created earlier, to
-    submit items to the queue. In **Solution Explorer**,
-    double-click **Controllers\HomeController.cs**.
+6.  Nakonec aktualizujte webový kód, který jste vytvořili předtím, aby se položky odesílaly do fronty. V **Průzkumníku řešení** poklikejte na **Controllers\HomeController.cs**.
 
-7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
-    for the queue.
+7.  Aktualizujte metodu `Submit()` (přetížení, které nepřijímá žádné parametry) následujícím způsobem, aby se získal počet zpráv pro frontu.
 
-	```
-	public ActionResult Submit()
-	{
-	    // Get a NamespaceManager which allows you to perform management and
-	    // diagnostic operations on your Service Bus queues.
-	    var namespaceManager = QueueConnector.CreateNamespaceManager();
-	
-	    // Get the queue, and obtain the message count.
-	    var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-	    ViewBag.MessageCount = queue.MessageCount;
-	
-	    return View();
-	}
-	```
+    ```
+    public ActionResult Submit()
+    {
+        // Get a NamespaceManager which allows you to perform management and
+        // diagnostic operations on your Service Bus queues.
+        var namespaceManager = QueueConnector.CreateNamespaceManager();
+    
+        // Get the queue, and obtain the message count.
+        var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+        ViewBag.MessageCount = queue.MessageCount;
+    
+        return View();
+    }
+    ```
 
-8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
-    order information to the queue.
+8.  Aktualizujte metodu `Submit(OnlineOrder order)` (přetížení, které přijímá jeden parametr) následujícím způsobem, aby se do fronty odesílaly informace o objednávce.
 
-	```
-	public ActionResult Submit(OnlineOrder order)
-	{
-	    if (ModelState.IsValid)
-	    {
-	        // Create a message from the order.
-	        var message = new BrokeredMessage(order);
-	
-	        // Submit the order.
-	        QueueConnector.OrdersQueueClient.Send(message);
-	        return RedirectToAction("Submit");
-	    }
-	    else
-	    {
-	        return View(order);
-	    }
-	}
-	```
+    ```
+    public ActionResult Submit(OnlineOrder order)
+    {
+        if (ModelState.IsValid)
+        {
+            // Create a message from the order.
+            var message = new BrokeredMessage(order);
+    
+            // Submit the order.
+            QueueConnector.OrdersQueueClient.Send(message);
+            return RedirectToAction("Submit");
+        }
+        else
+        {
+            return View(order);
+        }
+    }
+    ```
 
-9.  You can now run the application again. Each time you submit an
-    order, the message count increases.
+9.  Teď můžete aplikaci znovu spustit. Pokaždé, když odešlete odbejdnávku, počet zpráv se zvýší.
 
     ![][18]
 
-## Create the worker role
+## Vytvoření role pracovního procesu
 
-You will now create the worker role that processes the order
-submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. You already obtained the required credentials from the portal.
+Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objednávek. Tento příklad používá šablonu Visual Studia **Role pracovního procesu s frontou Service Bus**. Potřebné pověření jste už získali z portálu.
 
-1. Make sure you have connected Visual Studio to your Azure account.
+1. Zkontrolujte, že máte Visual Studio připojené ke svému účtu Azure.
 
-2.  In Visual Studio, in **Solution Explorer** right-click the
-    **Roles** folder under the **MultiTierApp** project.
+2.  Ve Visual Studiu v **Průzkumníku řešení** klikněte pravým tlačítkem na složku **Roles** v projektu **MultiTierApp**.
 
-3.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog box appears.
+3.  Klikněte na **Přidat**, a pak klikněte na **Nový projekt role pracovního procesu**. Zobrazí se dialogové okno **Přidat nový projekt role**.
 
-	![][26]
+    ![][26]
 
-4.  In the **Add New Role Project** dialog box, click **Worker Role with Service Bus Queue**.
+4.  V dialogovém okně **Přidat nový projekt role** klikněte na **Role pracovního procesu s frontou Service Bus**.
 
-	![][23]
+    ![][23]
 
-5.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
+5.  Do pole **Název** zadejte název projektu **OrderProcessingRole**. Pak klikněte na **Přidat**.
 
-6.  Copy the connection string that you obtained in step 9 of the "Create a Service Bus namespace" section to the clipboard.
+6.  Připojovací řetězec, který jste získali v kroku 9 v části „Vytvoření oboru názvů Service Bus“ zkopírujte do schránky.
 
-7.  In **Solution Explorer**, right-click the **OrderProcessingRole** you created in step 5 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
+7.  V **Průzkumníku řešení** klikněte pravým tlačítkem na roli **OrderProcessingRole**, které jste vytvořili v kroku 5 (ujistěte se, že kliknete pravým tlačítkem na **OrderProcessingRole** v seznamu **Role**, ne na třídu). Potom klikněte na **Vlastnosti**.
 
-8.  On the **Settings** tab of the **Properties** dialog box, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 6.
+8.  Na kartě **Nastavení** v dialogovém okně **Vlastnosti** klikněte do pole **Hodnota** pro **Microsoft.ServiceBus.ConnectionString** a vložte hodnotu koncového bodu, kterou jste zkopírovali v kroku 6.
 
-	![][25]
+    ![][25]
 
-9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
+9.  Vytvořte třídu **OnlineOrder**, která bude zastupovat objednávky při jejich zpracování z fronty. Můžete znovu použít třídu, kterou jste už vytvořili. V **Průzkumníku řešení** klikněte pravým tlačítkem na třídu **OrderProcessingRole** (pravým tlačítkem klikněte ikonu třídy, ne na roli). Klikněte na **Přidat**, pak klikněte na **Existující položka**.
 
-10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
+10. Přejděte do podsložky pro **FrontendWebRole\Models** a poklikejte na **OnlineOrder.cs**, tím ho přidáte do projektu.
 
-11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
+11. Ve **WorkerRole.cs** změňte hodnotu proměnné **QueueName** z `"ProcessingQueue"` na `"OrdersQueue"`, jak je vidět v následujícím kódu.
 
-	```
-	// The name of your queue.
-	const string QueueName = "OrdersQueue";
-	```
+    ```
+    // The name of your queue.
+    const string QueueName = "OrdersQueue";
+    ```
 
-12. Add the following using statement at the top of the WorkerRole.cs file.
+12. Na začátek souboru WorkerRole.cs přidejte následující příkaz using.
 
-	```
-	using FrontendWebRole.Models;
-	```
+    ```
+    using FrontendWebRole.Models;
+    ```
 
-13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
+13. Ve funkci `Run()` ve volání `OnMessage()` místo obsahu klauzule `try` vložte následující kód.
 
-	```
-	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-	// View the message as an OnlineOrder.
-	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-	receivedMessage.Complete();
-	```
+    ```
+    Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+    // View the message as an OnlineOrder.
+    OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+    Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+    receivedMessage.Complete();
+    ```
 
-14. You have completed the application. You can test the full
-    application by right-clicking the MultiTierApp project in Solution Explorer,
-    selecting **Set as Startup Project**, and then pressing F5. Note that the
-    message count does not increment, because the worker role processes items
-    from the queue and marks them as complete. You can see the trace output of
-    your worker role by viewing the Azure Compute Emulator UI. You
-    can do this by right-clicking the emulator icon in the notification
-    area of your taskbar and selecting **Show Compute Emulator UI**.
+14. Dokončili jste aplikaci. Celou aplikaci můžete vyzkoušet tak, že v Průzkumníku řešení kliknete pravým tlačítkem na projekt MultiTierApp, vyberete **Nastavit jako spouštěný projekt**, a pak stisknete F5. Všimněte si, že počet zpráv se nezvyšuje, protože role pracovního procesu zpracovává položky z fronty a označuje je jako hotové. Výstup své role pracovního procesu můžete sledovat v uživatelském prostředí Emulátoru výpočtů v Azure. To můžete udělat tak, že v oznamovací oblasti hlavního panelu kliknete pravým tlačítkem na ikonu emulátoru a vyberte **Zobrazit uživatelské prostředí emulátoru služby Compute**.
 
     ![][19]
 
     ![][20]
 
-## Next steps  
+## Další kroky  
 
-To learn more about Service Bus, see the following resources:  
+Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Service Bus service page][sbwacom]  
-* [How to Use Service Bus Queues][sbwacomqhowto]  
+* [Stránka služeb Service Bus][sbwacom]  
+* [Jak používat fronty služby Service Bus][sbwacomqhowto]  
 
-To learn more about multi-tier scenarios, see:  
+Další informace o víceúrovňových scénářích najdete v:  
 
-* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
+* [Vícevrstvá aplikace .NET cloudových služeb Azure, která používá tabulky, fronty a objekty blob][mutitierstorage]  
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -555,3 +463,8 @@ To learn more about multi-tier scenarios, see:
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
+
+
+<!--HONumber=Sep16_HO4-->
+
+

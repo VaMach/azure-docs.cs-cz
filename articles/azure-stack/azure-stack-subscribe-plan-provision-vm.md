@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Přihlášení k odběru nabídky a následné zřízení virtuálního počítače v Azure Stack (tenant) | Microsoft Azure"
-    description="Zjistíte, jak se v Azure Stack jako tenant přihlásit k odběru nabídky a pak zřídit virtuální počítač."
+    pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant) | Microsoft Azure"
+    description="As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,41 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Přihlášení k odběru nabídky
+# Subscribe to an offer
 
-[Nabídku už jste vytvořili](azure-stack-create-offer.md) a teď vyzkoušejte, jestli si tenanti můžou vytvořit předplatné (odběr).
+Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
 
-1.  Na počítači Azure Stack POC se přihlaste `https://portal.azurestack.local` jako [tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) a klikněte na **Získat předplatné**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and click **Get a Subscription**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image1.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-2.  Do pole **Zobrazovaný název** zadejte název předplatného.
+2.  In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image2.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-3.  Klikněte na **Nabídka** a ověřte si, že v okně **Vybrat nabídku** je vámi vytvořená nabídka. Klikněte na ni, klikněte na **Vybrat** a potom na **OK**.  
+4.  To view the subscription you created, click **Browse**, click **Subscriptions**, then click your new subscription.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image3.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
 
-4.  Vytvořené předplatné zobrazíte kliknutím na **Procházet** a potom na **Předplatná**.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image4.png)
-
-Po přihlášení k odběru nabídky počkejte, dokud se stav předplatného neobjeví jako synchronizovaný. Potom aktualizujte stránku portálu, aby se zobrazily služby, které jsou součástí nového předplatného.
+After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 
 
 
-## Další kroky
+## Next steps
 
-[Účty úložiště](azure-stack-provision-storage-account.md)
+[Provision a virtual machine](azure-stack-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

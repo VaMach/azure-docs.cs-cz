@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="08/29/2016"
+    ms.date="09/21/2016"
     ms.author="jroth"/>
 
 
@@ -39,10 +39,13 @@ Pokud do Azure přesouváte i jiné úlohy, například podnikovou aplikaci, má
 
 Když se rozhodnete provozovat SQL Server na virtuálních počítačích Azure, je jedním z první rozhodnutí to, jestli použít image virtuálního počítače, jejíž součástí jsou i náklady na licencování SQL Serveru. Jinak je totiž také možné využívat model BYOL (Bring Your Own License) a platit pouze za virtuální počítač. Tyto možnosti jsou popsané v následujících dvou částech článku.
 
-## Možnost 1: Nasazení virtuálního počítače s SQL (licencování za minutu)
-Následuje tabulka dostupných imagí SQL Serveru v galerii virtuálních počítačů. Po kliknutí na odkaz se začne vytvářet nový virtuální počítač SQL se zadanou verzí, edicí a operačním systémem. Všechny image zahrnují [náklady na licencování SQL Serveru](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+## Vytvoření nového virtuálního počítače s SQL Serverem
+Následující oddíly poskytují přímé odkazy na image v galerii virtuálních počítačů s SQL Serverem na webu Azure Portal. V závislosti na zvolené imagi můžete platit licenční náklady na SQL Server po minutách, nebo můžete používat vlastní licenci (BYOL).
 
-Podrobné pokyny jsou k dispozici v kurzu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
+Podrobné pokyny k tomuto procesu najdete v kurzu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
+
+## Možnost 1: Vytvoření virtuálního počítače s SQL Serverem a licencováním po minutách
+Následuje tabulka dostupných imagí SQL Serveru v galerii virtuálních počítačů. Po kliknutí na odkaz se začne vytvářet nový virtuální počítač SQL se zadanou verzí, edicí a operačním systémem.
 
 |Version|Operační systém|Edition (Edice)|
 |---|---|---|
@@ -55,12 +58,8 @@ Podrobné pokyny jsou k dispozici v kurzu [Zřízení virtuálního počítače 
 |**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
-## Možnost 2: Nasazení virtuálního počítače s SQL Serverem (BYOL)
-Druhou možností je využít model BYOL (Bring Your Own License). V tomto scénáři zaplatíte jenom za virtuální počítač bez jakýchkoli dalších poplatků za licencování SQL Serveru. Pokud budete chtít využívat vlastní licenci, použijte níže uvedenou tabulku verzí, edicí a operačních systémů SQL Serveru. Na portálu mají názvy těchto imagí předponu **{BYOL}**.
-
-> [AZURE.IMPORTANT] Abyste mohli používat image virtuálních počítačů BYOL, musíte mít smlouvu Enterprise s [Mobilitou licencí v rámci programu Software Assurance na Azure](https://azure.microsoft.com/pricing/license-mobility/). Budete také potřebovat platnou licenci pro verzi nebo edici SQL Serveru, kterou budete chtít používat. Do **10** dnů od zřízení virtuálního počítače musíte [společnosti Microsoft předat nezbytné informace v souvislosti s BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
-
-Pokyny v [kurzu zřizování](virtual-machines-windows-portal-sql-server-provision.md) platí, musíte ale používat jednu z následujících možných imagí **BYOL**. Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
+## Možnost 2: Vytvoření virtuálního počítače s SQL Serverem a stávající licencí
+Můžete také používat vlastní licenci (BYOL). V tomto scénáři zaplatíte jenom za virtuální počítač bez jakýchkoli dalších poplatků za licencování SQL Serveru. Pokud budete chtít využívat vlastní licenci, použijte níže uvedenou tabulku verzí, edicí a operačních systémů SQL Serveru. Na portálu mají názvy těchto imagí předponu **{BYOL}**.
 
 |Version|Operační systém|Edition (Edice)|
 |---|---|---|
@@ -68,8 +67,10 @@ Pokyny v [kurzu zřizování](virtual-machines-windows-portal-sql-server-provisi
 |**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
 |**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
+> [AZURE.IMPORTANT] Abyste mohli používat image virtuálních počítačů BYOL, musíte mít smlouvu Enterprise s [Mobilitou licencí v rámci programu Software Assurance na platformě Azure](https://azure.microsoft.com/pricing/license-mobility/). Budete také potřebovat platnou licenci pro verzi nebo edici SQL Serveru, kterou budete chtít používat. Do **10** dnů od zřízení virtuálního počítače musíte [společnosti Microsoft předat nezbytné informace v souvislosti s BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
+
 ## Správa vašeho virtuálního počítače s SQL Serverem
-Po zřízení virtuálního počítače s SQL Serverem je možné volitelně provést některé úlohy správy. Z určitého hlediska se SQL Server konfiguruje a spravuje stejně jako místní SQL Server. Některé úlohy jsou ale pro Azure specifické. V následujících částech se na některé z těchto oblastí podíváme podrobněji a najdete v nich také odkazy na další informace.
+Po zřízení virtuálního počítače s SQL Serverem je možné volitelně provést některé úlohy správy. V mnoha aspektech se SQL Server konfiguruje a spravuje úplně stejně jako místní instance SQL Serveru. Některé úlohy jsou ale pro Azure specifické. V následujících částech se na některé z těchto oblastí podíváme podrobněji a najdete v nich také odkazy na další informace.
 
 ### Migrace dat
 
@@ -97,6 +98,6 @@ Máte nějaký další dotaz? Nejdříve si projděte [Nejčastější dotazy k 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
