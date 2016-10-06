@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Archive the Azure Activity Log | Microsoft Azure"
 	description="Learn how to archive your Azure Activity Log for long-term retention in a storage account."
-	authors="johnkemnetz"
+	authors="swkrish"
 	manager="rboucher"
 	editor=""
 	services="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="johnkem"/>
+	ms.author="swkrish"/>
 
 # Archive the Azure Activity Log
 In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
