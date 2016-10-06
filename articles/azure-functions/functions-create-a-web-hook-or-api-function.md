@@ -43,7 +43,7 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte f
 
     ![Vytvoření nové funkce webhooku GitHubu](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
-4. Na kartě **Develop** (Vývoj) si povšimněte funkce express.js v okně **Code** (Kód). Tato funkce přijme požadavek GitHubu od webhooku komentáře k problému, vytvoří protokol problému a odešle webhooku odezvu v podobě `New GitHub comment: <Your issue comment text>`.
+4. V části **Develop** (Vývoj) si povšimněte funkce express.js v okně **Code** (Kód). Tato funkce přijme požadavek GitHubu od webhooku komentáře k problému, vytvoří protokol problému a odešle webhooku odezvu v podobě `New GitHub comment: <Your issue comment text>`.
 
 
     ![Vytvoření nové funkce webhooku GitHubu](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
@@ -96,6 +96,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

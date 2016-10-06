@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Než nasadíte Azure Stack POC | Microsoft Azure"
-    description="Seznamte se s požadavky na prostředí a hardware, které má Azure Stack POC (správce služby)."
+    pageTitle="Before you deploy Azure Stack POC | Microsoft Azure"
+    description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,142 +13,130 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/29/2016"
+    ms.date="09/27/2016"
     ms.author="erikje"/>
 
 
-# Požadavky nasazení Azure Stack
+# Azure Stack deployment prerequisites
 
-Před nasazením Azure Stack POC ([testování konceptu](azure-stack-poc.md)) se ujistěte, že váš počítač splňuje následující požadavky.
-Tyto požadavky platí jenom pro Azure Stack POC a můžou se v budoucích verzích změnit.
-
-Doporučujeme zhlédnout tento videokurz nasazení:
-
-[AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
+Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
+The Technical Preview 2 deployment requirements for the POC are the same as those required for Technical Preview 1. Therefore, you can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
 
-| Komponenta | Minimální  | Doporučené |
+| Component | Minimum  | Recommended |
 |---|---|---|
-| Diskové jednotky: Operační systém | Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) | Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) |
-| Diskové jednotky: Obecná data služby Azure Stack POC | Čtyři disky. Každý disk nabízí minimálně 140 GB místa (SSD nebo pevný disk). Použijí se všechny dostupné disky. | Čtyři disky. Každý disk nabízí minimálně 250 GB místa (SSD nebo pevný disk). Použijí se všechny dostupné disky.|
-| Výpočetní služby: Procesor | Duální soket: 12 fyzických jader (celkem)  | Duální soket: 16 fyzických jader (celkem) |
-| Výpočetní služby: Paměť | 96 GB RAM  | 128 GB RAM |
-| Výpočetní služby: BIOS | Povolená technologie Hyper-V (s podporou SLAT)  | Povolená technologie Hyper-V (s podporou SLAT) |
-| Síť: NIC | V případě NIC se vyžaduje certifikace Windows Serveru 2012 R2. Specializované funkce se nepožadují | V případě NIC se vyžaduje certifikace Windows Serveru 2012 R2. Specializované funkce se nepožadují |
-| Hardwarová certifikace loga | [Certifikováno pro Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifikováno pro Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)|
+| Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
+| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. | 4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used.|
+| Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
+| Compute: Memory | 96 GB RAM  | 128 GB RAM |
+| Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
+| Network: NIC | Windows Server 2012 R2 Certification required for NIC; no specialized features required | Windows Server 2012 R2 Certification required for NIC; no specialized features required |
+| HW logo certification | [Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)|
 
-K ověření splnění požadavků můžete použít článek [Kontrola nasazení Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1).
+**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
-**Konfigurace datových disků:** Všechny datové jednotky musí být stejného typu (buď všechny SAS, nebo všechny SATA) a mít stejnou kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
-
-**Možnosti konfigurace adaptéru HBA**
+**HBA configuration options**
  
-- (Upřednostňované) Jednoduchý adaptér HBA
-- RAID HBA – adaptér musí být konfigurovaný v režimu průchodu
-- RAID HBA – disky musí být konfigurované jako jeden disk, RAID-0
+- (Preferred) Simple HBA
+- RAID HBA – Adapter must be configured in “pass through” mode
+- RAID HBA – Disks should be configured as Single-Disk, RAID-0
 
-**Podporované kombinace sběrnice a typů médií**
+**Supported bus and media type combinations**
 
--   Pevný disk SATA
+-   SATA HDD
 
--   Pevný disk SAS
+-   SAS HDD
 
--   Pevný disk RAID
+-   RAID HDD
 
--   RAID SSD (pokud je typ média neurčeno/neznámé\*)
+-   RAID SSD (If the media type is unspecified/unknown\*)
 
--   SATA SSD + pevný disk SATA
+-   SATA SSD + SATA HDD
 
--   SAS SSD + pevný disk SAS
+-   SAS SSD + SAS HDD
 
-\* Řadiče RAID bez možnosti průchodu nerozpoznají typ média. Tyto řadiče označí pevný disk i SSD jako Neurčeno. V takovém případě se místo mezipaměťových zařízení použije SSD jako trvalé úložiště. Proto můžete na tyto disky SSD nasadit službu Microsoft Azure Stack POC.
+\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the Microsoft Azure Stack POC on those SSDs.
 
-**Příklad HBA**: LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v režimu průchodu
+**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
 
-Dostupné jsou ukázkové OEM konfigurace.
+Sample OEM configurations are available.
 
+## Operating system
 
-
-
-## Operační systém
-
-| | **Požadavky**  |
+| | **Requirements**  |
 |---|---|
-| **Verze operačního systému** | Windows Server 2016 Datacenter Edition **Technical Preview 4** s nejnovějšími důležitými aktualizacemi. Součástí staženého balíčku je WindowsServer2016Datacenter.vhdx. Můžete spustit systém VHDX a potom ho použít jako základní operační systém pro nasazení služby Azure Stack POC.|
-| **Metoda instalace** | Čistá instalace. K rychlé instalaci operačního systému do počítače s Azure Stack POC můžete použít soubor WindowsServer2016Datacenter.vhdx, který je obsažený v balíčku pro nasazení. |
-| **Připojení k doméně?** | Ne. |
+| **OS Version** | Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC.|
+
+## Deployment requirements check tool
+
+After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm that your hardware meets all of the requirements.
 
 
-## Účty Microsoft Azure Active Directory
 
-1. Vytvořte účet Azure AD, který je správcem adresáře nejméně jedné služby Azure Active Directory. Pokud už účet máte, můžete ho použít. V opačném případě si můžete účet vytvořit zdarma na adrese [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (v Číně použijte web <http://go.microsoft.com/fwlink/?LinkID=717821>.)
+## Microsoft Azure Active Directory accounts
 
-    Uložte si tyto přihlašovací údaje, abyste je mohli použít v kroku 6 postupu [Spuštění powershellového skriptu pro nasazení](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). Tento účet *správce služby* může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu může vytvářet webové cloudy, soukromé cloudy pro virtuální počítače a plány a spravovat předplatné uživatelů.
+The Microsoft Azure Stack deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account prior to running the deployment PowerShell script. This account will become the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log into your Azure Stack system’s admin portal by using this account.
 
-2. [Vytvořte](azure-stack-add-new-user-aad.md) alespoň jeden účet, abyste se mohli přihlásit ke službě Azure Stack POS jako tenant.
+1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
-  	| **Účet Azure Active Directory**  | **Podporované?** |
+    Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
+
+2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the Azure Stack POC as a tenant.
+
+  	| **Azure Active Directory account**  | **Supported?** |
   	|---|---| 
-  	| ID organizace s platným veřejným předplatným Azure  | Ano |
-  	| Účet Microsoft s platným veřejným předplatným Azure  | Ano |
-  	| ID organizace s platným čínským předplatným Azure  | Ano |
-  	| ID organizace s platným předplatným Azure pro vládu USA  | Ne |
-
->[AZURE.NOTE] Azure Stack POC podporuje jenom ověřování Azure Active Directory.
+  	| Organization ID with valid Public Azure Subscription  | Yes |
+  	| Microsoft Account with valid Public Azure Subscription  | No |
+  	| Organization ID with valid China Azure Subscription  | Yes |
+  	| Organization ID with valid US Government Azure Subscription  | Yes |
 
 
-## Network (Síť)
+## Network
 
-### Přepínač
+### Switch
 
-Jeden dostupný port na přepínači počítače POC.  
+One available port on a switch for the POC machine.  
 
-Počítač Azure Stack POC podporuje připojení k přístupovému nebo kmenovému portu přepínače. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte kmenový port nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte ID sítě VLAN zadat jako parametr nasazení. Příklad:
+The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
-    DeployAzureStack.ps1 –Verbose –PublicVLan 305
+### Subnet
 
-Zadání tohoto parametru nastavíte ID sítě VLAN jenom pro hostitele a NATVM.
+Do not connect the POC machine to the following subnets:
+- 192.168.200.0/24
+- 192.168.100.0/27
+- 192.168.101.0/26
+- 192.168.102.0/24
+- 192.168.103.0/25
+- 192.168.104.0/25
 
-### Podsíť
-
-Nepřipojujte počítač POC k podsítím 192.168.200.0/24, 192.168.100.0/24 a 192.168.133.0/24. Ty jsou vyhrazené pro interní sítě v rámci prostředí Microsoft Azure Stack POC.
+These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
 ### IPv4/IPv6
 
-Podporovaný je jenom protokol IPv4. Nemůžete vytvořit sítě IPv6.
+Only IPv4 is supported. You cannot create IPv6 networks.
 
 ### DHCP
 
-Ověřte si dostupnost serveru DHCP v síti, do které se síťová karta připojuje. Pokud server DHCP není dostupný, připravte další statickou síť IPv4 (kromě té, kterou používá hostitel). Tuto IP adresu a bránu zadejte jako parametr nasazení. Příklad:
+Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
-    DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
+### Internet access
 
-### Přístup k internetu
+Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
-Ujistěte se, že se síťová karta může připojit k internetu. IP adresa hostitele i nová IP adresa přiřazená k NATVM (pomocí DHCP nebo statické IP adresy) musí mít přístup k internetu. V rámci domén graph.windows.net a login.windows.net se používají porty 80 a 443.
+### Telemetry
 
-### Proxy server
-
-Pokud vaše prostředí vyžaduje proxy server, zadejte adresu a port proxy serveru jako parametr nasazení. Příklad:
-
-    DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080
-
-Azure Stack POC nepodporuje ověřování proxy serveru. 
-
-### Telemetrická data
-
-V síti musí být otevřený port 443 (HTTPS). Koncovým bodem klienta je https://vortex-win.data.microsoft.com.
+To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 
-## Další kroky
+## Next steps
 
-[Stažení balíčku pro nasazení Azure Stack POC](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+[Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Nasazení Azure Stack POC](azure-stack-run-powershell-script.md)
+[Deploy Azure Stack POC](azure-stack-run-powershell-script.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

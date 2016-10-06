@@ -32,7 +32,7 @@ K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka
 
 - **Jedno úložiště brány.** Úložiště brány uchovává data pro každou entitu definovanou v této jednotce škálování. Úložiště brány se implementuje nad databázi SQL Azure.
 
-- **Několik úložišť pro přenos zpráv.** Úložiště pro přenos zpráv uchovává zprávy všech front, témat a odběrů definovaných v této jednotce škálování. Taky obsahuje všechna data odběru. Pokud není zapnutá možnost [segmentované entity zasílání zpráv](service-bus-partitioning.md), mapuje se fronta nebo téma do jednoho úložiště pro přenos zpráv. Odběry jsou uložené ve stejném úložišti pro přenos zpráv jako jejich nadřazené téma. Kromě [Zasílání zpráv na úrovni Premium](service-bus-premium-messaging.md) služby Service Bus se úložiště pro zasílání zpráv implementují nad databáze Azure SQL.
+- **Několik úložišť pro přenos zpráv.** Úložiště pro přenos zpráv uchovává zprávy všech front, témat a odběrů definovaných v této jednotce škálování. Taky obsahuje všechna data odběru. Pokud není zapnutá možnost [segmentované entity zasílání zpráv](../service-bus-messaging/service-bus-partitioning.md), mapuje se fronta nebo téma do jednoho úložiště pro přenos zpráv. Odběry jsou uložené ve stejném úložišti pro přenos zpráv jako jejich nadřazené téma. Kromě [Zasílání zpráv na úrovni Premium](../service-bus-messaging/service-bus-premium-messaging.md) služby Service Bus se úložiště pro zasílání zpráv implementují nad databáze Azure SQL.
 
 ## Kontejnery
 
@@ -56,12 +56,12 @@ Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy
 
 Teď, když znáte přehled architektury služby Service Bus, ji můžete začít používat. K tomu vám pomůžou tyto odkazy:
 
-- [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
+- [Přehled přenosu zpráv ve službě Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Řešení přenosu zpráv ve frontě pomocí front Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Řešení přenosu zpráv ve frontě pomocí front Service Bus](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

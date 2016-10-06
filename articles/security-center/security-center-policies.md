@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -65,7 +65,7 @@ Zásady zabezpečení můžete nakonfigurovat pro každé předplatné nebo skup
 
 9. V okně **Zásady zabezpečení** kliknutím na **Zapnout** povolte doporučení zabezpečení, která chcete v tomto předplatném používat. Po kliknutí na **Zásady prevence** se zobrazí možnosti jako na následujícím snímku obrazovky:
 
-    ![Výběr zásad zabezpečení](./media/security-center-policies/security-center-policies-fig4-ga.png)
+    ![Výběr zásad zabezpečení](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Následující tabulku použijte jako referenci pro pochopení jednotlivých možností:
 
@@ -78,8 +78,9 @@ Následující tabulku použijte jako referenci pro pochopení jednotlivých mo�
 | Skupiny zabezpečení sítě | Doporučuje konfiguraci [skupin zabezpečení sítě](../virtual-network/virtual-networks-nsg.md), které řídí příchozí a odchozí přenosy dat do virtuálních počítačů s veřejnými koncovými body. Pokud neurčíte jinak, skupiny zabezpečení sítě nakonfigurované pro určitou podsíť se budou dědit do všech síťových rozhraní virtuálního počítače. Kromě kontroly toho, jestli je nakonfigurovaná skupina zabezpečení sítě, tato zásada také vyhodnocuje pravidla zabezpečení příchozích dat a zjišťuje pravidla, která povolují příchozí přenosy dat. |
 | Brána firewall webových aplikací | Doporučuje zřízení brány firewall webových aplikací na virtuálních počítačích, pokud je splněna jedna z následujících podmínek:</br></br>Používá se [veřejná IP adresa na úrovni instance](../virtual-network/virtual-networks-instance-level-public-ip.md) (LPIP)a pravidla zabezpečení příchozích dat pro přidruženou skupinu zabezpečení sítě jsou nastavena, aby povolovala přístup k portu 80 a 443.</br></br>Používá se IP adresa s vyrovnáváním zatížení a přidružené vyrovnávání zatížení i pravidla překladu adres příchozích dat jsou nastavené, aby povolovaly přístup k portu 80 a 443. Další informace najdete v tématu [Podpora nástroje pro vyrovnávání zatížení v Azure Resource Manageru](../load-balancer/load-balancer-arm.md). |
 | Brána firewall příští generace | Rozšiřuje ochranu sítě nad rámec skupin zabezpečení sítě, které jsou integrované v Azure. Security Center bude zjišťovat nasazení, pro která se doporučuje brána firewall příští generace, a umožní vám zřídit virtuální zařízení. |
-| Auditování SQL | Doporučuje, abyste povolili auditování přístupu ke službě Azure Database za účelem dodržování předpisů, rozšířeného zjišťování a vyšetřování. |
+| Auditování SQL a zjišťováním hrozeb | Doporučuje, abyste povolili auditování přístupu ke službě Azure Database za účelem vyšetřování dodržování předpisů a také rozšířeného zjišťování hrozeb. |
 | Transparentní šifrování dat SQL | Doporučuje povolení neuplatněného šifrování pro služby Azure SQL Database, přidružené zálohy a soubory protokolů transakcí. I v případě, že dojde k porušení zabezpečení vašich dat, nebudou čitelná. |
+| Posouzení ohrožení zabezpečení | Doporučuje, abyste na vašem virtuálním počítači nainstalovali řešení posouzení ohrožení zabezpečení. |
 
 Až nakonfigurujete všechny možnosti, klikněte na **OK** v okně **Zásady zabezpečení**, ve kterém se zobrazují doporučení, a poté v okně **Zásady zabezpečení**, které obsahuje počáteční nastavení, klikněte na **Uložit**.
 
@@ -109,6 +110,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

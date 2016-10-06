@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/20/2016"
+    ms.date="09/21/2016"
     ms.author="jroth" />
 
 
@@ -142,9 +142,9 @@ Pokud raději nechcete povolovat připojení k databázovému stroji prostředni
 - **Místní (jen uvnitř virtuálního počítače):** Umožňuje připojení k SQL Serveru pouze v rámci virtuálního počítače.
 - **Privátní (uvnitř virtuální sítě):** Umožňuje připojení k SQL Serveru z počítačů nebo služeb ve stejné virtuální síti.
 
-Obecně se doporučuje zvýšit zabezpečení výběrem nejvíce omezujícího připojení, které váš scénář umožňuje. Všechny možnosti je ale možné zabezpečit prostřednictvím pravidel skupin zabezpečení sítě a ověřování SQL Serveru a Windows.
+>[AZURE.NOTE] Image virtuálního počítače pro edici SQL Serveru Express nepovoluje automaticky protokol TCP/IP. To platí i pro veřejné a privátní možnosti připojení. Po vytvoření virtuálního počítače v edici Express je třeba [povolit protokol TCP/IP ručně](#configure-sql-server-to-listen-on-the-tcp-protocol) pomocí SQL Server Configuration Manageru.
 
->[AZURE.NOTE] Image virtuálních počítačů v edici SQL Serveru Express a Developer nepovolují automaticky protokol TCP/IP. To brání vzdálenému připojení, i pokud jste na portálu vybrali možnost Veřejné nebo Soukromé. Po vytvoření virtuálního počítače v edici Express a Developer je třeba [povolit protokol TCP/IP ručně](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) pomocí SQL Server Configuration Manageru.
+Obecně se doporučuje zvýšit zabezpečení výběrem nejvíce omezujícího připojení, které váš scénář umožňuje. Všechny možnosti je ale možné zabezpečit prostřednictvím pravidel skupin zabezpečení sítě a ověřování SQL Serveru a Windows.
 
 Pro **port** se používá výchozí hodnota 1433. Můžete ale zadat i jiné číslo portu.
 Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -268,6 +268,6 @@ Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v téma
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

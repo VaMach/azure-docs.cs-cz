@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -27,7 +27,7 @@ Tento kurz vám pomůže začít s Azure Key Vault a ukáže vám, jak v Azure v
 
 >[AZURE.NOTE]  Tento kurz neobsahuje pokyny, jak napsat aplikaci Azure obsaženou v jednom z kroků, konkrétně Autorizace aplikace pro použití klíče nebo tajného klíče v trezoru klíčů.
 >
->V současné době nelze Azure Key Vault konfigurovat na portálu Azure. Místo toho použijte tyto pokyny pro Azure PowerShell. Pokyny pro rozhraní příkazového řádku pro různé platformy naleznete v [tomto ekvivalentním kurzu](key-vault-manage-with-cli.md).
+>Tento kurz používá prostředí Azure PowerShell. Pokyny pro rozhraní příkazového řádku pro různé platformy najdete v [tomto ekvivalentním kurzu](key-vault-manage-with-cli.md).
 
 Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault?](key-vault-whatis.md).
 
@@ -74,7 +74,7 @@ Poté pro určení předplatného, které se má použít, zadejte:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
+Další informace o konfiguraci prostředí Azure PowerShell najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
 
 
 ## <a id="resource"></a>Vytvořte novou skupinu prostředků ##
@@ -86,7 +86,7 @@ Používáte-li Azure Resource Manager, pak se všechny související prostředk
 
 ## <a id="vault"></a>Vytvořte trezor klíčů ##
 
-Pro vytvoření trezoru klíčů použijte rutinu [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx). Tato rutina má tři povinné parametry: **název skupiny prostředků**, **název trezoru klíčů** a **zeměpisné umístění**.
+Pro vytvoření trezoru klíčů použijte rutinu [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx). Tato rutina má tři povinné parametry: **název skupiny prostředků**, **název trezoru klíčů** a **zeměpisné umístění**.
 
 Používáte-li například název trezoru **ContosoKeyVault**, název skupiny prostředků **ContosoResourceGroup** a umístění **Východní Asie**, zadejte:
 
@@ -99,12 +99,12 @@ Výstup této rutiny zobrazuje vlastnosti trezoru klíčů, který jste právě 
 
 Váš účet Azure je nyní oprávněn provádět nad tímto trezorem klíčů všechny operace. Zatím k tomu není oprávněn nikdo jiný.
 
->[AZURE.NOTE]  Pokud se při pokusu o vytvoření nového trezoru klíčů zobrazí chyba **Předplatné není zaregistrované pro používání oboru názvů „Microsoft.KeyVault“**, spusťte `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` a poté znovu spusťte váš příkaz New-AzureRmKeyVault. Další informace naleznete v tématu [Register-AzureRmProvider](https://msdn.microsoft.com/library/mt679020.aspx).
+>[AZURE.NOTE]  Pokud se při pokusu o vytvoření nového trezoru klíčů zobrazí chyba **Předplatné není zaregistrované pro používání oboru názvů „Microsoft.KeyVault“**, spusťte `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` a poté znovu spusťte váš příkaz New-AzureRmKeyVault. Další informace naleznete v tématu [Register-AzureRmProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx).
 >
 
 ## <a id="add"></a>Přidejte k trezoru klíč nebo tajný klíč ##
 
-Chcete-li, aby pro vás služba Azure Key Vault vytvořila softwarově chráněný klíč, použijte rutinu [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) a zadejte následující:
+Chcete-li, aby pro vás služba Azure Key Vault vytvořila softwarově chráněný klíč, použijte rutinu [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) a zadejte následující:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -164,15 +164,15 @@ Chcete-li zaregistrovat aplikaci v Azure Active Directory:
 3. Klikněte na **Aplikace**. Pokud do vašeho adresáře nebyly přidané žádné aplikace, na stránce se zobrazí pouze odkaz **Přidat aplikaci**. Klikněte na odkaz, případně klikněte na **Přidat** na panelu příkazů.
 4.  V průvodci **Přidat aplikaci** klikněte na stránce **Co si přejete udělat?** na **Přidat aplikaci, kterou vyvíjí moje organizace**.
 5.  Na stránce **Řekněte nám o své aplikaci** zadejte název vaší aplikace a poté vyberte **Webová aplikace nebo webové rozhraní API** (výchozí možnost). Klikněte na ikonu **Další**.
-6.  Na stránce **Vlastnosti aplikace** zadejte **URL pro přihlašování** a **Identifikátor ID URI Aplikace** pro svoji webovou aplikaci. Pokud vaše aplikace tyto hodnoty neobsahuje, v tomto kroku si je můžete vymyslet (například můžete do obou polí zadat http://test1.contoso.com). Není důležité, zda tyto stránky existují, důležité je, aby identifikátor ID URI aplikace byl pro každou aplikaci ve vašem adresáři jiný. Adresář tento řetězec používá k identifikaci vaší aplikace.
+6.  Na stránce **Vlastnosti aplikace** zadejte **URL pro přihlašování** a **Identifikátor ID URI Aplikace** pro svoji webovou aplikaci. Pokud vaše aplikace tyto hodnoty neobsahuje, v tomto kroku si je můžete vymyslet (například můžete do obou polí zadat http://test1.contoso.com). Nezáleží na tom, zda tyto weby existují. Důležité je, aby identifikátor URI ID aplikace byl pro každou aplikaci ve vašem adresáři jiný. Adresář tento řetězec používá k identifikaci vaší aplikace.
 7.  Změny provedené v průvodci uložíte kliknutím na ikonu **Dokončit**.
 8.  Na stránce **Rychlý start** klikněte na **Konfigurovat**.
-9.  Posuňte se k části **klíče**, vyberte dobu trvání a poté klikněte na **Uložit**. Stránka se obnoví a zobrazí hodnotu klíče. Vaši aplikaci je nutné nakonfigurovat s touto hodnotou klíče a s hodnotou **ID klienta**. (Pokyny k této konfiguraci se budou lišit podle aplikace.)
+9.  Posuňte se k části **klíče**, vyberte dobu trvání a poté klikněte na **Uložit**. Stránka se obnoví a zobrazí hodnotu klíče. Vaši aplikaci je nutné nakonfigurovat s touto hodnotou klíče a s hodnotou **ID klienta**. (Pokyny k této konfiguraci se liší podle aplikace.)
 10. Poznamenejte si hodnotu ID klienta z této stránky, v dalším kroku ji použijete pro nastavení oprávnění pro váš trezoru.
 
 ## <a id="authorize"></a>Autorizujte aplikaci pro použití klíče nebo tajného klíče ##
 
-Chcete-li autorizovat aplikaci pro přístup ke klíči nebo k tajnému klíči, použijte rutinu  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+Chcete-li autorizovat aplikaci pro přístup ke klíči nebo k tajnému klíči, použijte rutinu  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx).
 
 Máte-li například trezor s názvem **ContosoKeyVault** a ID klienta aplikace, kterou chcete ověřit, má hodnotu 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, můžete aplikaci autorizovat pro dešifrování a podepisování pomocí klíčů ve vašem trezoru spuštěním následujícího příkazu:
 
@@ -207,7 +207,7 @@ Pro import klíče ze souboru .PFX můžete ve vašem počítači použít násl
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
-Další příkaz importuje balíček „přineste si vlastní klíč“ (BYOK). To vám umožní vygenerovat klíč v místním HSM a jeho přenesení do HSM ve službě Key Vault, aniž by klíč opustil hranice HSM.
+Další příkaz importuje balíček „přineste si vlastní klíč“ (BYOK). Tento scénář umožňuje vygenerovat klíč v místním modulu HSM a přenést ho do modulů HSM ve službě Key Vault, aniž by klíč opustil hranice modulu HSM:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -215,7 +215,7 @@ Podrobnější pokyny o tom, jak generovat tento balíček BYOK naleznete v tém
 
 ## <a id="delete"></a>Odstranění trezoru klíčů, přidružených klíčů a tajných klíčů ##
 
-Pokud již nepotřebujete trezor klíčů, ani klíče a tajné klíče, které obsahuje, můžete trezor klíčů odstranit pomocí rutiny [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Pokud již nepotřebujete trezor klíčů, ani klíče a tajné klíče, které obsahuje, můžete trezor klíčů odstranit pomocí rutiny [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na navaz
 
 Chcete-li mít přehled o využívání trezoru klíčů, podívejte se na kurz [Protokolování v Azure Key Vault](key-vault-logging.md).
 
-Seznam nejnovějších rutin Azure PowerShellu pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
+Seznam nejnovějších rutin Azure PowerShellu pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx). 
  
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

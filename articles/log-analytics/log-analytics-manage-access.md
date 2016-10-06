@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Správa přístupu ke službě Log Analytics | Microsoft Azure"
-    description="Správa přístupu ke službě Log Analytics pomocí různých úloh správy prováděných s uživateli, účty, pracovními prostory OMS a účty Azure."
+    pageTitle="Manage access to Log Analytics | Microsoft Azure"
+    description="Manage access to Log Analytics using a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,291 +17,291 @@
     ms.author="banders"/>
 
 
-# Správa přístupu ke službě Log Analytics
+# Manage access to Log Analytics
 
-Pro správu přístupu ke službě Log Analytics můžete používat různé úlohy správy prováděné s uživateli, účty, pracovními prostory OMS a účty Azure. Při vytváření nového pracovního prostoru OMS (Operations Management Suite) zvolíte název pracovního prostoru, přidružíte ho ke svému účtu a zvolte zeměpisné umístění. Pracovní prostor je v podstatě kontejner, který obsahuje informace o účtu a jednoduché konfigurační informace. Vy nebo další členové vaší organizace můžete používat víc pracovních prostorů OMS ke správě různých dat, která se shromažďují ze všech částí vaší infrastruktury IT.
+To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-Článek [Začínáme se službou Log Analytics](log-analytics-get-started.md) popisuje, jak službu rychle zprovoznit a zbývající část tohoto článku popisuje podrobněji některé akce, které potřebujete pro správu přístupu k OMS.
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
 
-I když zpočátku nemusíte potřebovat všechny úlohy správy, pokrýváme v následujících částech všechny běžné úlohy, které můžete potřebovat:
+Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
 
-- Určení potřebného počtu pracovních prostorů
-- Správa účtů a uživatelů
-- Přidání skupiny do existujícího pracovního prostoru
-- Připojení existujícího pracovního prostoru k předplatnému Azure
-- Upgrade pracovního prostoru na placený datový tarif
-- Změna typu datového tarifu
-- Přidání organizace Azure Active Directory k existujícímu pracovnímu prostoru
-- Zavření pracovního prostoru OMS
+- Determine the number of workspaces you need
+- Manage accounts and users
+- Add a group to an existing workspace
+- Link an existing workspace to an Azure subscription
+- Upgrade a workspace to a paid data plan
+- Change a data plan type
+- Add an Azure Active Directory Organization to an existing workspace
+- Close your OMS workspace
 
-## Určení potřebného počtu pracovních prostorů
+## Determine the number of workspaces you need
 
-Pracovní prostor je prostředek Azure v podobě kontejneru, ve kterém se data shromažďují, agregují, analyzují a zobrazují v portálu OMS.
+A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the OMS portal.
 
-Je možné vytvořit víc pracovních prostorů OMS Log Analytics a přidělit uživatelům přístup k jednomu nebo několika z nich. Obecně je vhodné minimalizovat počet pracovních prostorů, protože vám to umožní dotazovat a korelovat nad větším objemem dat. Tato část popisuje případy, kdy je užitečné mít víc než jeden pracovní prostor.
+It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
-V současné době pracovní prostor Log Analytics nabízí:
+Today, a Log Analytics workspace provides:
 
-- Zeměpisné umístění úložiště dat
-- Členitost fakturace
-- Izolaci dat
+- A geographic location for data storage
+- Granularity for billing
+- Data isolation
 
-Na základě výše uvedených charakteristik můžete vytvořit víc pracovních prostorů, pokud:
+Based on the above characteristics, you may want to create multiple workspaces if:
 
-- Jste globální společnost a potřebujete ukládat data v různých oblastech z důvodů suverenity dat nebo dodržování předpisů.
-- Používáte Azure a chcete se vyhnout poplatkům za odchozí datové přenosy tím, že budete mít pracovní prostor Log Analytics ve stejné oblasti jako prostředky Azure, které spravuje.
-- Chcete rozdělit náklady na různá oddělení nebo obchodní skupiny na základě využití. Když vytvoříte pracovní prostor pro každé oddělení nebo obchodní skupinu, vaše vyúčtování Azure a údaje o využití budou uvádět poplatky za každý pracovní prostor zvlášť.
-- Jste poskytovatel spravované služby a potřebujete uchovávat analytická data pro každého zákazníka odděleně od dat ostatních zákazníků.
-- Spravujete víc zákazníků a chcete, aby každý zákazník, oddělení nebo obchodní skupina mohli prohlížet svá vlastní data, ale ne data jiných zákazníků, oddělení nebo obchodních skupin.
+- You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+- You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
+- You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group, your Azure bill and usage statement shows the charges for each workspace separately.
+- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
+- You manage multiple customers and you want each customer or department or business group to see their own data but not the data for other customers or departments or business groups.
 
-Při používání agentů ke shromažďování dat můžete každého agenta konfigurovat tak, aby ukládal data do požadovaného pracovního prostoru.
+When using agents to collect data, you can configure each agent to report to the required workspace.
 
-Pokud používáte System Center Operations Manager, můžete připojit každou skupinu nástroje Operations Manager jen do jednoho pracovního prostoru. Můžete nainstalovat Microsoft Monitoring Agent do počítačů spravovaných nástrojem Operations Manager a nastavit agenta tak, aby odesílal data do nástroje Operations Manager i do jiného pracovního prostoru Log Analytics.
+If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
-### Informace o pracovním prostoru
+### Workspace information
 
-Na portálu OMS můžete zobrazit informace o pracovním prostoru a určit, zda chcete zasílat informace od společnosti Microsoft.
+In the OMS portal, you can view your workspace information and choose whether you want to receive information from Microsoft.
 
-#### Zobrazení informací o pracovním prostoru
+#### View workspace information
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty).
-3. Klikněte na kartu **Workspace Information** (Informace o pracovním prostoru).  
-  ![Informace o pracovním prostoru](./media/log-analytics-manage-access/workspace-information.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab.
+3. Click the **Workspace Information** tab.  
+  ![Workspace Information](./media/log-analytics-manage-access/workspace-information.png)
 
-## Správa účtů a uživatelů
+## Manage accounts and users
 
-Každý prostor může mít více uživatelských účtů, které s ním spojená, a každý uživatelský účet (účet Microsoft nebo účtu organizace) mají přístup do více OMS pracovních prostorů.
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OMS workspaces.
 
-Ve výchozím se správcem pracovního prostoru stává účet Microsoft nebo účet organizace použitý při vytvoření pracovního prostoru. Správce pak může pozvat další účty Microsoft nebo vybrat uživatele ze služby Azure Active Directory.
+By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
 
-Udělování přístupu k pracovnímu prostoru OMS se provádí na dvou místech:
+Giving people access to the OMS workspace is controlled in 2 places:
 
-- V Azure můžete použít řízení přístupu na základě rolí k poskytnutí přístupu k předplatnému Azure a přidruženým prostředkům. To se také používá pro přístup k prostředí PowerShell a rozhraní REST API.
-- V portálu OMS se přiděluje přístup jen k samotnému portálu OMS, nikoli k přidruženému předplatnému Azure.
+- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-Pokud někomu udělíte přístup k portálu OMS, ale ne k předplatnému Azure, se kterým je propojený, pak dlaždice řešení Automation, Backup a Site Recovery nebudou takovému uživateli v portálu OMS zobrazovat žádná data.
+If you give people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles do not show any data to users when they sign-in the OMS portal.
 
-Pokud chcete, aby uživatelé mohli zobrazovat data v těchto řešeních, Povolit všem uživatelům zobrazit data v těchto řešeních, ujistěte se, mají alespoň přístup **čtenář** pro účet Automation, trezor Backup a trezor Site Recovery, které jsou propojené s pracovním prostorem OMS.   
+To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
-### Správa přístupu ke službě Log Analytics pomocí webu Azure Portal
+### Managing access to Log Analytics using the Azure portal
 
-Pokud uživatelům umožníte přístup k pracovním prostoru protokolu Log Analytics prostřednictvím oprávnění Azure, například na webu Azure Portal, pak tito uživatelé budou mít přístup i k portálu Log Analytics. Pokud jsou uživatelé na webu Azure Portal, můžou přejít na portál OMS kliknutím na úlohu **OMS Portal** při prohlížení prostředku pracovního prostoru Log Analytics.
+If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
 
-Ohledně webu Azure Portal je třeba pamatovat na několik věcí:
+Some points to keep in mind about the Azure portal:
 
-- Nejde o *řízení přístupu na základě rolí*. Pokud máte na webu Azure Portal přístup *čtenář* pro pracovní prostor Log Analytics, pak můžete provádět změny pomocí portálu OMS. Portál OMS má koncepce pouze pro uživatele Správce, Přispěvatel a Pouze pro čtení. Pokud je účet, ke kterému jste přihlášení, propojený ve službě Azure Active Directory s pracovním prostorem, budete na portálu OMS jeho správcem, v opačném případě budete přispěvatelem.
+- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
 
-- Když se přihlásíte k portálu OMS přes stránku http://mms.microsoft.com, ve výchozím nastavení uvidíte seznam **Select a workspace** (Vyberte pracovní prostor). Tento seznam obsahuje jen pracovní prostory, které byly přidány pomocí portálu OMS. Chcete-li zobrazit pracovní prostory, ke kterým máte přístup s předplatným Azure, bude třeba zadat tenanta jako část adresy URL. Příklad:
+- When you sign-in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
 
-  `mms.microsoft.com/?tenant=contoso.com` Identifikátor tenanta je často poslední částí e-mailové adresy, se kterou se přihlašujete.
+  `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you sign-in with.
 
-- Pokud je účet, ke kterému jste přihlášení, propojený ve službě Azure Active Directory s pracovním prostorem, budete na portálu OMS jeho *správcem*, v opačném případě budete přispěvatelem. Pokud váš účet není účet tenanta služby Azure Active Directory budete na portálu OMS *Uživatel*.
+- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you will be an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you will be a *User* in the OMS portal.
 
-- Pokud chcete přejít přímo na portál, ke kterému máte přístup s použitím oprávnění Azure, je třeba zadat prostředek jako část adresy URL. Tuto adresu URL můžete získat pomocí prostředí PowerShell.
+- If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
-  Například `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
+  For example,  `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  Adresa URL bude vypadat takto:
+  The URL will look like:
 `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
 
-### Správa uživatelů v portálu OMS
+### Managing users in the OMS portal
 
-Uživatele a skupiny můžete spravovat na kartě **Manage Users** (Správa uživatelů) v rámci karty **Accounts** (Účty) na stránce nastavení. Můžete tady provádět akce v následujících oddílech.  
+You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page. There, you can perform the tasks in the following sections.  
 
-![Správa uživatelů](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
 
-#### Přidání uživatele do existujícího pracovního prostoru
+#### Add a user to an existing workspace
 
-Pomocí následujícího postupu přidáte k pracovnímu prostoru OMS uživatele nebo skupinu. Uživatel nebo skupina budou moci zobrazovat a reagovat na všechny výstrahy související s tímto pracovním prostorem.
+Use the following steps to add a user or group to an OMS workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
 
->[AZURE.NOTE] Pokud chcete přidat uživatele nebo skupinu z účtu Azure Active Directory vaší organizace, je nutné nejdříve zkontrolovat, že máte účet OMS přidružený k doméně služby Active Directory. Viz [Přidání organizace Azure Active Directory k existujícímu pracovnímu prostoru](#add-an-azure-active-directory-organization-to-an-existing-workspace).
+>[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your OMS account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Manage Users** (Správa uživatelů).
-3. V oddílu **Manage Users** (Správa uživatelů) vyberte typ účtu, který chcete přidat: **Organizational Account** (Účet organizace), **Microsoft Account** (Účet Microsoft), nebo **Microsoft Support** (Podpora Microsoft).
-    - Pokud vyberete možnost Microsoft Account, zadejte e-mailovou adresu uživatele účtu Microsoft.
-    - Pokud vyberete možnost Organizational Account, můžete zadat část e-mailového aliasu nebo jména uživatele nebo skupiny a zobrazí se seznam vyhovujících uživatelů a skupin. Vyberte uživatele nebo skupinu.
-    - Pomocí účtu Microsoft Support můžete pracovníkovi podpory Microsoftu poskytnout dočasný přístup k vašemu pracovnímu prostoru kvůli odstraňování potíží.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
+    - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
+    - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] Nejlepšího výkonu dosáhnete, když omezíte počet skupin Active Directory přidružených k jednomu účtu OMS na tři – jednu pro správce, jednu pro přispěvatele a jednu pouze pro čtení. Použití více skupin může ovlivnit výkon služby Log Analytics.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-5. Vyberte typ uživatele nebo skupiny: **Správce**, **Přispěvatel** nebo **Jen pro čtení**.  
-6. Klikněte na tlačítko **Přidat**.
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+6. Click **Add**.
 
-  Pokud přidáváte účet Microsoft, bude pozvánka k připojení k danému pracovnímu prostoru odeslána na zadaný e-mail. Až uživatel provede postup připojení k OMS popsaný v e-mailové pozvánce, může zobrazit výstrahy a informace o účtu pro tento účet OMS a bude také moci zobrazit informace o uživateli na kartě **Accounts** (Účty) stránky **Settings** (Nastavení).
-  Pokud přidáváte účet organizace, uživatel bude mít přístup ke službě Log Analysis okamžitě.  
-  ![E-mailová pozvánka](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
+  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
+  If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
+  ![invitation email](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
 
-#### Úprava typu existujícího uživatele
+#### Edit an existing user type
 
-Můžete změnit roli účtu pro uživatele přidruženého k účtu OMS. Máte následující možnosti rolí:
+You can change the account role for a user associated with your OMS account. You have the following role options:
 
- - *Správce*: může spravovat uživatele, zobrazovat a reagovat na všechny výstrahy a přidávat a odebírat servery.
+ - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
 
- - *Přispěvatel*: může zobrazovat a reagovat na všechny výstrahy a přidávat a odebírat servery.
+ - *Contributor*: Can view and act on all alerts, and add and remove servers
 
- - *Jen pro čtení*: takto označení uživatelé nemůžou:
-   1. Přidávat a odebírat řešení. Galerie řešení je skrytá.
-   2. Přidávat, upravovat nebo odebírat dlaždice na řídicím panelu **My Dashboard** (Můj řídicí panel).
-   3. Zobrazit stránky **Settings** (Nastavení). Tyto stránky jsou skryté.
-   4. V zobrazení hledání jsou skryté konfigurace Power BI, uložená hledání a úlohy výstrah.
+ - *ReadOnly User*: Users marked as read-only will not be able to:
+   1. Add/remove solutions. The solution gallery is hidden.
+   2. Add/modify/remove tiles on **My Dashboard**.
+   3. View the **Settings** pages. The pages are hidden.
+   4. In the Search view, PowerBI configuration, Saved Searches, and Alerts tasks are hidden.
 
 
-#### Postup úpravy účtu
+#### To edit an account
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Manage Users** (Správa uživatelů).
-3. Vyberte roli pro uživatele, kterého chcete upravit.
-2. V potvrzovacím dialogovém okně klikněte na **Yes**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Select the role for the user that you want to change.
+2. In the confirmation dialog box, click **Yes**.
 
-### Odebrání uživatele z pracovního prostoru OMS
+### Remove a user from a OMS workspace
 
-Pomocí následujícího postupu můžete odebrat uživatele z pracovního prostoru OMS. Všimněte si, že se tím pracovní prostor uživatele nezavře. Místo toho se jen odebere přidružení mezi pracovním prostorem a uživatelem. Pokud je uživateli přidruženo několik pracovních prostorů, tento uživatel se stále bude moci přihlásit k OMS a zobrazit ostatní pracovní prostory.
+Use the following steps to remove a user from an OMS workspace. Note that this does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user will still be able to sign in to OMS and see the other workspaces.
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Manage Users** (Správa uživatelů).
-3. Klikněte na možnost **Remove** (Odebrat) vedle jména uživatele, kterého chcete odebrat.
-4. V potvrzovacím dialogovém okně klikněte na **Yes**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Click **Remove** next to the user name that you want to remove.
+4. In the confirmation dialog box, click **Yes**.
 
 
-### Přidání skupiny do existujícího pracovního prostoru
+### Add a group to an existing workspace
 
-1.  Postupujte podle kroků 1-4 v části „Přidání uživatele do existujícího pracovního prostoru“ nahoře.
-2.  V části **Choose User/Group** (Vyberte uživatele/skupinu) vyberte **Group** (Skupina).
-    ![Přidání skupiny do existujícího pracovního prostoru](./media/log-analytics-manage-access/add-group.png)
-3.  Zadejte zobrazovaný název nebo e-mailovou adresu pro skupinu, kterou chcete přidat.
-4.  Vyberte skupinu ze seznamu výsledků a klikněte na **Add** (Přidat).
+1.  Follow steps 1 -4 in “To add a user to an existing workspace”, above.
+2.  Under **Choose User/Group**, select **Group**.
+    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
+3.  Enter the Display Name or Email address for the group you’d like to add.
+4.  Select the group in the list results and then click **Add**.
 
-## Připojení existujícího pracovního prostoru k předplatnému Azure
+## Link an existing workspace to an Azure subscription
 
-Je možné vytvořit pracovní prostor z webu [microsoft.com/oms](https://microsoft.com/oms).  Pro tyto pracovní prostory ale existují určitá omezení, z nichž nejvýraznější je limit 500 MB uložených dat denně, pokud používáte bezplatný účet. Za účelem provedení změn tohoto pracovního prostoru bude třeba *propojit existující pracovní prostor s předplatným Azure*.
+It is possible to create a workspace from the [microsoft.com/oms](https://microsoft.com/oms) website.  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account. To make changes to this workspace you will need to *link your existing workspace to an Azure subscription*.
 
->[AZURE.IMPORTANT] K propojení s pracovním prostorem musí váš účet Azure již mít k tomuto pracovnímu prostoru přístup.  Jinými slovy – účet, který používáte pro přístup k webu Azure Portal, musí být **stejný** jako účet, který používáte pro přístup k pracovnímu prostoru OMS. Pokud tomu tak není, projděte si část [Přidání uživatele do existujícího pracovního prostoru](#add-a-user-to-an-existing-workspace).
+>[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-### Propojení pracovního prostoru s předplatným Azure v portálu OMS
+### To link a workspace to an Azure subscription in the OMS portal
 
-Pokud chcete propojit pracovní prostor s předplatným Azure v portálu OMS, přihlášený uživatel už musí mít placený účet Azure. Pracovní prostor, který právě používáte, se propojí s účtem Azure.
+In order to link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account. The workspace that you're actively using gets linked to the Azure account.
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Azure Subscription & Data Plan** (Předplatné a datový tarif Azure).
-3. Klikněte na datový tarif, který chcete použít.
-4. Klikněte na **Uložit**.  
-  ![Předplatné a datové tarify](./media/log-analytics-manage-access/subscription-tab.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
+3. Click the data plan that you want use.
+4. Click **Save**.  
+  ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
 
-Váš nový datový tarif se zobrazí pásu karet portálu OMS v horní části webové stránky.
+Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
 
-![Pás karet OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
-### Propojení pracovního prostoru s předplatným Azure na webu Azure Portal
+### To link a workspace to an Azure subscription in the Azure portal
 
-1.  Přihlaste se k [Azure Portal](http://portal.azure.com).
-2.  Přejděte k položce **Log Analytics (OMS)** a vyberte ji.
-3.  Uvidíte seznam existujících pracovních prostorů. Klikněte na tlačítko **Přidat**.  
-    ![Seznam pracovních prostorů](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4.  V oddílu **OMS Workspace** klikněte na možnost **Or link existing** (Nebo propojit existující).  
-    ![Propojení existujícího](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5.  Klikněte na **Configure required settings** (Konfigurovat požadovaná nastavení).  
-    ![Konfigurace požadovaných nastavení](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6.  Uvidíte seznam pracovních prostorů, které ještě nejsou propojené s vaším účtem Azure. Vyberte pracovní prostor.  
-    ![Výběr pracovního prostoru](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7.  Je-li to třeba, můžete změnit hodnoty následujících položek:
-    - Předplatné
-    - Skupina prostředků
-    - Umístění
-    - Cenová úroveň  
-        ![Změna hodnot](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8.  Klikněte na možnost **Vytvořit**. Pracovní prostor je teď propojený s vaším účtem Azure.
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Click **Add**.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-link-azure01.png)
+4.  Under **OMS Workspace**, click **Or link existing**.  
+    ![link existing](./media/log-analytics-manage-access/manage-access-link-azure02.png)
+5.  Click **Configure required settings**.  
+    ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
+6.  You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.  
+    ![select workspaces](./media/log-analytics-manage-access/manage-access-link-azure04.png)
+7.  If needed, you can change values for the following items:
+    - Subscription
+    - Resource group
+    - Location
+    - Pricing tier  
+        ![change values](./media/log-analytics-manage-access/manage-access-link-azure05.png)
+8.  Click **Create**. The workspace is now linked to your Azure account.
 
->[AZURE.NOTE] Pokud nevidíte pracovní prostor, s kterým chcete účet propojit, znamená to, že vaše předplatné Azure nemá přístup k pracovnímu prostoru OMS, který jste vytvořili na webu OMS.  Účtu budete muset udělit přístup z pracovního prostoru OMS na webu OMS. Postup najdete v části [Přidání uživatele do existujícího pracovního prostoru](#add-a-user-to-an-existing-workspace).
+>[AZURE.NOTE] If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the OMS workspace that you created using the OMS website.  You will need to grant access to this account from inside your OMS workspace using the OMS website. To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 
 
-## Upgrade pracovního prostoru na placený datový tarif
+## Upgrade a workspace to a paid data plan
 
-Ve službě OMS existují tři datové tarify pracovního prostoru: **Free**, **Standard** a **Premium**.  Pokud máte tarif *Free*, můžete narazit na omezení 500 MB dat denně.  Potřebujete-li shromažďovat víc dat, je třeba upgradovat pracovní prostor na ***průběžné platby***. Svůj datový tarif můžete změnit kdykoli.  Informace o cenách OMS najdete na stránce [podrobností o cenách](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a ***pay-as-you-go plan*** in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
->[AZURE.IMPORTANT] Tarif pracovního prostoru je možné změnit, jen když je *propojený* s předplatným Azure.  Pokud jste vytvořili pracovní prostor v Azure nebo pokud jste *již propojili* pracovní prostor s účtem, můžete tuto zprávu ignorovat.  Pokud jste vytvořili pracovní prostor na [webu OMS](http://www.microsoft.com/oms), budete muset provést postup v části [Připojení existujícího pracovního prostoru k předplatnému Azure](#link-an-existing-workspace-to-an-azure-subscription).
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
 
-### Použití nároků z doplňku OMS pro System Center
+### Using entitlements from the OMS Add-On for System Center
 
-Doplněk OMS pro System Center poskytuje nárok na tarif Premium pro službu OMS Log Analytics, popsaný v [článku o cenách OMS](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
-Při nákupu doplňku OMS pro System Center je doplněk OMS přidán jako nárok do vaší smlouvy na System Center. Jakékoli předplatné vytvořené v rámci této smlouvy může tento nárok uplatnit. Díky tomu můžete například mít několik pracovních prostorů OMS využívajících nárok vyplývající z doplňku OMS.
+When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
-Pokud se chcete ujistit, že váš pracovní prostor OMS využívá nárok plynoucí z doplňku OMS, proveďte následující:
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
 
-1. Propojte pracovní prostor OMS s předplatným Azure, které je součástí smlouvy Enterprise obsahující nákup doplňku OMS i využití předplatného Azure.
-2. Vyberte pro pracovní prostor tarif Premium.
+1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
+2. Select the Premium plan for the workspace
 
-Když kontrolujete využití na webu Azure Portal nebo na portálu OMS, neuvidíte nárok plynoucí z doplňku OMS. Tento nárok uvidíte jen na webu Enterprise Portal.  
+When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
-Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor OMS propojený, můžete použít rutinu prostředí Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
-### Využití závazků Azure ze smlouvy Enterprise
+### Using Azure Commitment from an Enterprise Agreement
 
-Pokud budete chtít využít samostatné ceny za součásti OMS, můžete platit za každou součást OMS zvlášť a jejich využití bude uvedeno na faktuře Azure.
+If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-Pokud jsou vaše předplatná Azure propojena se smlouvou Enterprise s finančním závazkem, jakékoli využití služby Log Analytics se bude automaticky strhávat ze zbývajícího finančního závazku.
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
 
-Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor OMS propojený, můžete použít rutinu prostředí Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
+If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
 
 
-### Změna pracovního prostoru na placený datový tarif
+### To change a workspace to a paid data plan
 
-1.  Přihlaste se k [Azure Portal](http://portal.azure.com).
-2.  Přejděte k položce **Log Analytics (OMS)** a vyberte ji.
-3.  Uvidíte seznam existujících pracovních prostorů. Vyberte pracovní prostor.  
-    ![Seznam pracovních prostorů](./media/log-analytics-manage-access/manage-access-change-plan01.png)
-4.  V oblasti **Settings** (Nastavení) klikněte na možnost **Pricing tier** (Cenová úroveň).  
-    ![Cenová úroveň](./media/log-analytics-manage-access/manage-access-change-plan02.png)
-5.  V oblasti **Pricing tier** (Cenová úroveň) vyberte datový tarif a klikněte na možnost **Select** (Vybrat).  
-    ![Výběr tarifu](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6.  Po aktualizaci zobrazení na webu Azure Portal uvidíte položku **Pricing tier** (Cenová úroveň) aktualizovanou na vybraný tarif.  
-    ![Změna cenové úrovně](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Select a workspace.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
+4.  Under **Settings**, click **Pricing tier**.  
+    ![pricing tier](./media/log-analytics-manage-access/manage-access-change-plan02.png)
+5.  Under **Pricing tier**, select a data plan and then click **Select**.  
+    ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6.  When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
+    ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
-Nyní můžete shromažďovat data nad rámec bezplatného objemu.
+Now you can collect data beyond the "free" data cap.
 
 
-## Přidání organizace Azure Active Directory k existujícímu pracovnímu prostoru
+## Add an Azure Active Directory Organization to an existing workspace
 
-Pracovní prostor Log Analytics (OMS) můžete přidružit k doméně Azure Active Directory. Díky tomu budete moci přidávat uživatele ze služby Active Directory přímo do pracovního prostoru OMS bez nutnosti použít samostatný účet Microsoft.
+You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
-Když vytváříte pracovní prostor z webu Azure Portal nebo propojujete pracovní prostor s předplatným Azure, služba Azure Active Directory bude propojena jako účet vaší organizace.
+When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
 
-Když vytváříte pracovní prostor z portálu OMS, budete vyzváni k propojení s předplatným Azure a s účtem organizace.
+When you create the workspace from the OMS portal you will be prompted to link to an Azure subscription and an organizational account.
 
-### Přidání organizace Azure Active Directory k existujícímu pracovnímu prostoru
+### To add an Azure Active Directory Organization to an existing workspace
 
-1. Na stránce nastavení na portálu OMS klikněte na kartu **Accounts** (Účty) a pak na kartu **Workspace Information** (Informace o pracovním prostoru).  
-2. Zkontrolujte informace o účtech organizace a klikněte na možnost **Add Organization** (Přidat organizaci).  
-    ![Přidání organizace](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Zadejte informace o identitě správce vaší domény Azure Active Directory. Následně se zobrazí potvrzení o tom, že je váš pracovní prostor propojený s doménou Azure Active Directory.
-    ![Potvrzení o propojení pracovního prostoru](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
+1. On the Settings page in OMS, click **Accounts** and then click the **Workspace Information** tab.  
+2. Review the information about organizational accounts, and then click **Add Organization**.  
+    ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
+3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
+    ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
->[AZURE.NOTE] Jakmile bude váš účet propojený s účtem organizace, nebude možné toto propojení změnit ani odebrat.
+>[AZURE.NOTE] Once your account is linked to an Organizational Account, linking cannot be removed or changed.
 
-## Zavření pracovního prostoru OMS
+## Close your OMS workspace
 
-Při zavření pracovního prostoru OMS se ze služby OMS během 30 dnů odstraní všechna související data.
+When you close an OMS workspace, all data related to your workspace is deleted from the OMS service within 30 days of closing the workspace.
 
-Pokud jste správce a k pracovnímu prostoru bylo přidruženo víc uživatelů, přidružení těchto uživatelů s pracovním prostorem se přeruší. Pokud byli tito uživatelé přidruženi s jinými pracovními prostory, můžou pokračovat v používání služby OMS s těmito prostory. Pokud ale s jinými pracovními prostory přidruženi nejsou, budou muset pro další používání služby OMS vytvořit nové pracovní prostory.
+If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using OMS with those other workspaces. However, if they are not associated with other workspaces then they will need to create a new workspace to use OMS.
 
-### Postup zavření pracovního prostoru OMS
+### To close an OMS workspace
 
-1. V nástroji OMS klikněte na dlaždici **Settings** (Nastavení).
-2. Klikněte na kartu **Accounts** (Účty) a pak na kartu **Workspace Information** (Informace o pracovním prostoru).
-3. Klikněte na možnost **Close Workspace** (Zavřít pracovní prostor).
-4. Vyberte jeden z přednastavených důvodů zavření pracovního prostoru nebo zadejte jiný důvod do textového pole.
-5. Klikněte na **Close workspace** (Zavřít pracovní prostor).
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Workspace Information** tab.
+3. Click **Close Workspace**.
+4. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
+5. Click **Close workspace**.
 
-## Další kroky
+## Next steps
 
-- Postup přidání agentů a shromažďování dat obsahuje článek [Propojení počítačů s Windows se službou Log Analytics](log-analytics-windows-agents.md).
-- Článek [Přidání řešení Log Analytics z galerie řešení](log-analytics-add-solutions.md) popisuje přidání funkcí a shromažďování dat.
-- Pokud vaše organizace používá proxy server nebo bránu firewall, postupujte podle článku [Konfigurace nastavení proxy serveru a brány firewall ve službě Log Analytics](log-analytics-proxy-firewall.md), aby agenti mohli se službou Log Analytics komunikovat.
+- See [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) to add agents and gather data.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
 
 
 

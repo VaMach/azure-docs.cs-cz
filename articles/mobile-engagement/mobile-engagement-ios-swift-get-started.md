@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Začínáme s Azure Mobile Engagementem pro iOS ve Swiftu"
+    pageTitle="Začínáme s Azure Mobile Engagementem pro iOS ve Swiftu | Microsoft Azure"
     description="Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro iOS."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
+    ms.date="09/20/2016"
     ms.author="piyushjo" />
+
 
 # Začínáme s Azure Mobile Engagementem pro aplikace pro iOS ve Swiftu
 
@@ -25,11 +26,11 @@ V tomto kurzu vytvoříte prázdnou aplikaci iOS, která bude shromažďovat zá
 
 V tomto kurzu budete potřebovat následující:
 
-+ XCode 6 nebo XCode 7, které můžete nainstalovat z MAC App Storu
++ XCode 8, který si můžete nainstalovat z MAC App Storu
 + [Mobile Engagement iOS SDK]
 + Certifikát nabízených oznámení (.p12), který můžete získat ve vývojářském centru Apple
 
-> [AZURE.NOTE] V tomto kurzu budeme používat Swift verze 2.0. 
+> [AZURE.NOTE] V tomto kurzu budeme používat Swift verze 3.0. 
 
 Ve všech dalších kurzech k Mobile Engagement týkajících se aplikací pro iOS se předpokládá dokončení tohoto kurzu.
 
@@ -61,17 +62,15 @@ Pomocí XCodu si vytvoříme základní aplikaci, na které si tuto integraci p�
 
     ![][2]
 
-5. Otevřete kartu `Build Phases` (Fáze sestavení) a v nabídce `Link Binary With Libraries` (Propojit binární kód s knihovnami) přidejte rozhraní, jak je uvedeno níže. **POZNÁMKA:** musíte zahrnout `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` :
+5. Otevřete kartu `Build Phases` (Fáze sestavení) a v nabídce `Link Binary With Libraries` (Propojit binární kód s knihovnami) přidejte rozhraní, jak je uvedeno dál:
 
     ![][3]
 
-6. V případě **XCode 7** – přidejte `libxml2.tbd` namísto `libxml2.dylib`.
-
-7. Pomocí příkazu File (Soubor) > New (Nový) > File (Soubor) > iOS > Source (Zdroj) > Header File (Soubor hlavičky) vytvořte hlavičku přemostění, abyste mohli použít rozhraní API jazyka Objective C sady SDK.
+8. Pomocí příkazu File (Soubor) > New (Nový) > File (Soubor) > iOS > Source (Zdroj) > Header File (Soubor hlavičky) vytvořte hlavičku přemostění, abyste mohli použít rozhraní API jazyka Objective C sady SDK.
 
     ![][4]
 
-8. Upravte soubor hlavičky přemostění, aby se zpřístupnil kód jazyka Objective-C Mobile Engagementu pro kód jazyka Swift, a potom přidejte následující importy:
+9. Upravte soubor hlavičky přemostění, aby se zpřístupnil kód jazyka Objective-C Mobile Engagementu pro kód jazyka Swift, a potom přidejte následující importy:
 
         /* Mobile Engagement Agent */
         #import "AEModule.h"
@@ -80,19 +79,20 @@ Pomocí XCodu si vytvoříme základní aplikaci, na které si tuto integraci p�
         #import "EngagementAgent.h"
         #import "EngagementTableViewController.h"
         #import "EngagementViewController.h"
+        #import "AEUserNotificationHandler.h"
         #import "AEIdfaProvider.h"
 
-9. V části Nastavení sestavení zkontrolujte, zda má nastavení sestavení hlavičky přemostění jazyka Objective-C v části Swift Compiler - Code Generation (Kompilátor jazyka Swift – Generování kódu) cestu k této hlavičce. Zde je příklad cesty: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (v závislosti na cestě)**
+10. V části Nastavení sestavení zkontrolujte, zda má nastavení sestavení hlavičky přemostění jazyka Objective-C v části Swift Compiler - Code Generation (Kompilátor jazyka Swift – Generování kódu) cestu k této hlavičce. Zde je příklad cesty: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (v závislosti na cestě)**
 
     ![][6]
 
-10. Přejděte zpět na portál Azure na stránce *Connection Info* (Informace o připojení) vaší aplikace a zkopírujte připojovací řetězec.
+11. Přejděte zpět na portál Azure na stránce *Connection Info* (Informace o připojení) vaší aplikace a zkopírujte připojovací řetězec.
 
     ![][5]
 
-11. Nyní vložte připojovací řetězec do delegáta `didFinishLaunchingWithOptions`.
+12. Nyní vložte připojovací řetězec do delegáta `didFinishLaunchingWithOptions`.
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
             [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -156,8 +156,9 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 1. V metodě `didFinishLaunchingWithOptions` vytvořte modul kampaně Reach a předejte jej do existujícího inicializačního řádku Engagement:
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+        {
+            let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
             EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
             [...]
             return true
@@ -166,29 +167,32 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 ###Povolení přijímání nabízených oznámení APNS v aplikaci
 1. Do metody `didFinishLaunchingWithOptions` přidejte následující řádek:
 
-        /* Ask user to receive push notifications */
         if #available(iOS 8.0, *)
         {
-           let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-           application.registerUserNotificationSettings(settings)
-           application.registerForRemoteNotifications()
+            if #available(iOS 10.0, *)
+            {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+            }else
+            {
+                let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+            }
+            application.registerForRemoteNotifications()
         }
         else
         {
-           application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+            application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
         }
 
 2. Následujícím způsobem přidejte metodu `didRegisterForRemoteNotificationsWithDeviceToken`:
 
-        func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-        {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             EngagementAgent.shared().registerDeviceToken(deviceToken)
         }
 
 3. Následujícím způsobem přidejte metodu `didReceiveRemoteNotification:fetchCompletionHandler:`:
 
-        func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-        {
+        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
         }
 
@@ -207,6 +211,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO4-->
 
 

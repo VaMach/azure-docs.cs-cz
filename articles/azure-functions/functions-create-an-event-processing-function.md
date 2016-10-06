@@ -1,7 +1,7 @@
 <properties
    pageTitle="Vytvoření funkce zpracování událostí | Microsoft Azure"
    description="Pomocí služby Azure Functions vytvoříte funkci v jazyce C#, která se spouští na základě časovače událostí."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 
@@ -45,7 +45,7 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte f
 
     ![Vytvoření nové funkce aktivované pomocí časovače](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. V části **Azure Storage Queue output** (Výstup fronty úložiště Azure) klikněte na **Select** (Vybrat) vedle položky **Storage account connection** (Připojení účtu úložiště), vyberte existující účet úložiště nebo vytvořte nový a potom klikněte na **Save** (Uložit). 
+5. V části **Azure Storage Queue output** (Výstup fronty úložiště Azure) vyberte existující položku **Storage account connection** (Připojení účtu úložiště), nebo vytvořte novou, a potom klikněte na **Save** (Uložit). 
 
     ![Vytvoření nové funkce aktivované pomocí časovače](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -87,6 +87,6 @@ Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (vč
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

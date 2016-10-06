@@ -2,7 +2,9 @@
 
 Každý záznam DNS má název a typ. Záznamy jsou uspořádány do různých typů podle dat, která obsahují. Nejběžnějším typem je záznam „A“, který mapuje název na adresu IPv4. Dalším typem je záznam „MX“, který mapuje název na poštovní server.
 
-Azure DNS podporuje všechny běžné typy záznamů DNS včetně typů A, AAAA, CNAME, MX, NS, SOA, SRV a TXT. Sady záznamů SOA se vytváří automaticky s každou zónou. Nemůžete je vytvořit samostatně. Všimněte si, že záznamy SPF musí být vytvořené pomocí záznamu typu TXT. Další informace najdete na [této stránce](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS podporuje všechny běžné typy záznamů DNS včetně typů A, AAAA, CNAME, MX, NS, PTR, SOA, SRV a TXT. Poznámky:
+- Sady záznamů SOA se vytváří automaticky s každou zónou a nejde je vytvořit samostatně.
+- Záznamy SPF musí být vytvořené pomocí záznamu typu TXT. Další informace najdete na [této stránce](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 V Azure DNS se záznamy zadávají pomocí relativních názvů. „Plně kvalifikovaný“ název domény (FQDN) obsahuje název zóny, zatímco „relativní“ název ho neobsahuje. Například relativní název záznamu „www“ v zóně „contoso.com“ dává plně kvalifikovaný název záznamu www.contoso.com.
 
@@ -30,6 +32,6 @@ Pokud chcete vytvořit sadu záznamů se zástupným znakem, použijte název sa
 Sady záznamů CNAME nemůžou existovat současně s jinými sadami záznamů se stejným názvem. Nemůžete například současně vytvořit sadu záznamů CNAME s relativním názvem „www“ a záznam A s relativním názvem „www“. Protože vrchol zóny (název = „@“) vždy obsahuje sady záznamů NS a SOA, které byly vytvořené při vytvoření zóny, nemůžete na vrcholu zóny vytvořit sadu záznamů CNAME. Tato omezení pocházejí z norem DNS a nepředstavují omezení Azure DNS.
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -136,7 +136,7 @@ Váš runbook by měl v tuto chvíli vypadat následovně: <br>![Konfigurace ov�
 Teď přidáme aktivitu **Start-AzureRmVM**, která spustí virtuální počítač.  V rámci vašeho předplatného Azure můžete vybrat jakýkoli virtuální počítač, ale prozatím jeho název pevně zakódujeme do rutiny.
 
 1. V ovládacím prvku Knihovna zadejte do textového pole hledání text **Start-AzureRm**.
-2. Přidejte aktivitu **Start-AzureRmVM** na plátno. Potom na ni klikněte a přetáhněte ji pod **Připojit se k Azure**.
+2. Přidejte aktivitu **Start-AzureRmVM** na plátno a potom na ni klikněte a přetáhněte ji pod **Zadat ID předplatného**.
 3. Pozastavte ukazatel myši nad možností **Zadat ID předplatného**, dokud se v dolní části obrazce nezobrazí kruh.  Klikněte na kruh a přetáhněte šipku na **Start-AzureRmVM**. 
 4.  Vyberte **Start-AzureRmVM**.  Pokud chcete zobrazit sady, které patří k **Start-AzureRmVM**, klikněte na **Parametry** a potom na **Sada parametrů**.  Vyberte sadu parametrů **ResourceGroupNameParameterSetName**. Všimněte si, že vedle **ResourceGroupName** a **Název** se zobrazuje vykřičník.  To znamená, že tyto parametry jsou povinné.  Všimněte si také, že oba očekávají řetězcové hodnoty.
 5.  Vyberte **Název**.  V části **Zdroj dat** vyberte **Powershellový výraz** a zadejte název virtuálního počítače (v uvozovkách), který pomocí tohoto runbooku spustíme.  Klikněte na tlačítko **OK**.<br>![Hodnota parametru názvu Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -219,6 +219,6 @@ Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v p�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

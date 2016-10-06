@@ -1,11 +1,12 @@
-<properties
-	pageTitle="Správa skupin ve službě Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure users using Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+<vlastnosti
+
+    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -13,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
@@ -76,6 +77,8 @@ Budeme popisovat úlohy prováděné na portálu Azure Classic. Další informac
 
 Ve službě Azure AD můžete velmi snadno nastavit jednoduché pravidlo a určit tak uživatele, kteří se mají stát členy skupiny. Jednoduché pravidlo je takové pravidlo, které provádí jenom jedno porovnání. Pokud je třeba některá skupina přiřazená aplikaci SaaS, můžete vytvořit pravidlo, které zajistí přidání uživatelů s názvem pracovní pozice „Obchodní zástupce“. Toto pravidlo potom udělí přístup do této aplikace SaaS všem uživatelům s touto pracovní pozicí ve vašem adresáři.
 
+Když se změní libovolné atributy uživatele, systém vyhodnotí všechna dynamická pravidla skupin v adresáři a zjistí, zda změna uživatele aktivuje nějaké přidání do skupiny nebo odebrání ze skupiny. Pokud uživatel splňuje pravidlo pro skupinu, je do této skupiny přidán jako člen. Pokud již uživatel pravidlo pro skupinu, ve které je členem, nesplňuje, je jeho členství ve skupině odebráno.
+
 > [AZURE.NOTE] Pravidlo pro dynamické členství můžete nastavit pro skupiny zabezpečení nebo pro skupiny Office 365. Vnořené členství ve skupinách se v současné době nepodporuje v případě přiřazování k aplikacím podle skupiny.
 >
 > Dynamické členství ve skupinách vyžaduje přiřazení licence služby Azure AD Premium následujícím uživatelům:
@@ -114,7 +117,6 @@ Následující články poskytují další informace o službě Azure Active Dir
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

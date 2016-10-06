@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Účty úložiště v Azure Stack | Microsoft Azure"
-    description="Dozvíte se, jak vám účty úložiště zpřístupňují služby Blob a Table."
+    pageTitle="Storage accounts in Azure Stack | Microsoft Azure"
+    description="Learn how to create an Azure Stack storage account."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,36 +13,36 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Účty úložiště v Azure Stack
+# Storage accounts in Azure Stack
 
-Účty úložiště zahrnují služby Blob a Table a unikátní obor názvů pro datové objekty úložiště. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu úložiště.
+Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-1.  Klikněte na **Nový**, potom klikněte na **Data + úložiště** a pak na účet **Úložiště**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Data + Storage** > **Storage account**.
 
-  **Důležité**: Před výběrem předplatného a skupiny prostředků nezadávejte žádný název. Pokud ho zadáte, zavřete okno a krok opakujte.
+    ![](media/azure-stack-provision-storage-account/image01.png)
 
-3.  Jestliže máte víc než jedno předplatné, zobrazí se pole **Předplatné**. Vyberte předplatné pro nový účet úložiště.
+2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
 
-4.  Určete novou skupinu prostředků nebo vyberte existující.
+    ![](media/azure-stack-provision-storage-account/image02.png)
 
-5.  Zadejte název účtu úložiště.
+3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
 
-6.  Klikněte na možnost **Vytvořit**.
+    ![](media/azure-stack-provision-storage-account/image03.png)
+    
+## Next steps
 
-## Další kroky
+[Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 
-[Použití šablon Azure Resource Manageru](azure-stack-arm-templates.md)
+[Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Informace o účtech Azure Storage](../storage/storage-create-storage-account.md)
-
-[Stáhnout příručku Azure Stack o ověřování úložišť konzistentních s Azure](http://aka.ms/azurestacktp1doc)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

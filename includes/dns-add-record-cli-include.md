@@ -39,6 +39,11 @@ V tomto příkladu vytvoříme s využitím názvu sady záznamů „@“ zázna
 
     azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Vytvoření sady záznamů PTR s jedním záznamem  
+V tomto případě „my-arpa-zone.com“ představuje zónu ARPA představující váš rozsah IP adres.  Každá sada záznamů PTR v této zóně odpovídá IP adrese v rámci tohoto rozsahu IP adres.    
+
+    azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Vytvoření sady záznamů SRV s jedním záznamem
 
 Pokud vytváříte záznam SRV v kořenu zóny, můžete v názvu záznamu uvést „_služba“ a „_protokol“. Do názvu záznamu není potřeba zahrnovat symbol „@“.
@@ -55,6 +60,6 @@ Pokud vytváříte záznam SRV v kořenu zóny, můžete v názvu záznamu uvés
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -28,7 +28,7 @@ V následujících částech naleznete pokyny k zodpovězení každé z těchto 
 
 ## Co se pokouším zabezpečit?
 
-Aby bylo možné zjistit správné řešení multi-factor authentication, nejprve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo jde například o systém vzdáleného přístupu.  Určením co se pokoušíme zabezpečit zjistíme odpověď na otázku, kde musí být povoleno ověřování multi-factor authentication.  
+Aby bylo možné zjistit správné řešení multi-factor authentication, nejprve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo jde například o systém vzdáleného přístupu.  Určením toho, co se pokoušíme zabezpečit, zjistíme odpověď na otázku, kde musí být povoleno ověřování multi-factor authentication.  
 
 
 Co se pokoušíte zabezpečit| Multi-Factor Authentication v cloudu|Server Multi-Factor Authentication
@@ -43,7 +43,7 @@ Vzdálený přístup, jako je například síť VPN, RDG| |* |
 
 ## Kde se nachází uživatelé
 
-V závislosti na tom, kde se nachází naši uživatelé můžeme určit správné řešení, které je třeba chcete, ať už jde o Multi-Factor authentication v cloudu nebo místní využití serveru MFA.
+V závislosti na tom, kde se nachází naši uživatelé můžeme určit správné řešení, které je třeba chcete, ať už jde o multi-factor authentication v cloudu nebo místní využití serveru MFA.
 
 
 
@@ -90,6 +90,6 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

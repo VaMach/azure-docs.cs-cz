@@ -13,21 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 
 # Informace o službě VPN Gateway
 
 
-Brána virtuální sítě slouží ke směrování síťového provozu mezi virtuálními sítěmi Azure a místními umístěními, stejně jako mezi virtuálními sítěmi v rámci Azure (VNet-to-VNet). Chcete-li vytvořit připojení, přidáte do virtuální sítě bránu virtuální sítě a další prostředky a jejich nastavení. 
+Brána virtuální sítě slouží ke směrování síťového provozu mezi virtuálními sítěmi Azure a místními umístěními, stejně jako mezi virtuálními sítěmi v rámci Azure (VNet-to-VNet). Při konfiguraci brány sítě VPN je třeba vytvořit a nakonfigurovat bránu virtuální sítě a připojení brány virtuální sítě.
 
-Při vytváření prostředku brány virtuální sítě je třeba zadat několik nastavení. Jedno z požadovaných nastavení je „-GatewayType“. Typ brány určuje, jak se brána připojuje. Existují dva typy brány virtuální sítě: Vpn a ExpressRoute. Pokud je síťový provoz směrován přes vyhrazené privátní připojení, použijte typ brány „ExpressRoute“. Ten se označuje také jako brána ExpressRoute. Pokud je síťový provoz směrován šifrovaně přes veřejné připojení, použijte typ brány „Vpn“. Ten se označuje také jako brána VPN. Připojení typu Site-to-Site, Point-to-Site a VNet-to-VNet používají bránu VPN.
+V modelu nasazení Resource Managerem je při vytváření prostředku brány virtuální sítě třeba zadat několik nastavení. Jedno z požadovaných nastavení je „-GatewayType“. Existují dva typy brány virtuální sítě: Vpn a ExpressRoute. 
 
-Každá virtuální síť může mít pouze jednu bránu virtuální sítě pro každý typ brány. Například můžete mít jednu bránu virtuální sítě, která má typ -GatewayType Vpn a jednu, který má typ -GatewayType ExpressRoute. Tento článek se zaměřují hlavně na službu VPN Gateway. Další informace o ExpressRoute najdete v [Technickém přehledu ExpressRoute](../expressroute/expressroute-introduction.md).
+Pokud je síťový provoz směrován přes vyhrazené privátní připojení, použijte typ brány „ExpressRoute“. Ten se označuje také jako brána ExpressRoute. Pokud je síťový provoz směrován šifrovaně přes veřejné připojení, použijte typ brány „Vpn“. Ten se označuje také jako brána VPN. Připojení typu Site-to-Site, Point-to-Site a VNet-to-VNet používají bránu VPN.
 
-Informace týkající se požadavků na brány naleznete v tématu [Požadavky na bránu](vpn-gateway-about-vpn-gateway-settings.md#requirements). Odhadovanou agregovanou propustnost obsahuje téma [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Ceny najdete v tématu [Ceny služby VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway). Omezení pro předplatné a služby naleznete v tématu [Omezení sítě](../articles/azure-subscription-service-limits.md#networking-limits).
+Každá virtuální síť může mít pouze jednu bránu virtuální sítě pro každý typ brány. Například můžete mít jednu bránu virtuální sítě, která má typ -GatewayType ExpressRoute a jednu, která má typ -GatewayType Vpn. Tento článek se zaměřují hlavně na službu VPN Gateway. Další informace o ExpressRoute najdete v [Technickém přehledu ExpressRoute](../expressroute/expressroute-introduction.md).
 
+## Ceny
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Skladové jednotky (SKU) brány
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost. Tato tabulka platí pro model nasazení Resource Manager i pro klasický model.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## Konfigurace služby VPN Gateway
 
@@ -35,7 +47,7 @@ Pokyny ke konfiguraci služby VPN Gateway se budou lišit v závislosti na model
 
 Připojení brány VPN se spoléhá na několik prostředků nakonfigurovaných se specifickými nastaveními. Většinu prostředků lze nakonfigurovat jednotlivě, nicméně v některých případech je třeba je konfigurovat v určitém pořadí. Prostředky můžete začít vytvářet a konfigurovat pomocí konfiguračního nástroje, jako je například Azure Portal. Později se můžete rozhodnout používat ke konfiguraci dalších prostředků nebo úpravám stávajících prostředků jiný nástroj, například PowerShell. V současné době nelze konfigurovat všechny prostředky a nastavení prostředků pomocí webu Azure Portal. Pokyny v článcích pro každou topologii připojení určují, kdy je zapotřebí specifický konfigurační nástroj. Informace o jednotlivých prostředcích a nastaveních služby VPN Gateway najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-Oddíly níže obsahují tabulky, které uvádějí následující informace:
+Následující oddíly obsahují tabulky, které uvádějí:
 
 - dostupný model nasazení,
 - dostupné konfigurační nástroje,
@@ -82,7 +94,7 @@ Azure v současné době nabízí dva modely nasazení: Classic a Resource Manag
 
 #### Partnerské vztahy virtuálních sítí
 
-Pokud virtuální síť splňuje určité požadavky, je možné k vytvoření připojení využít metodu VNet peering. VNet peering nepoužívá bránu virtuální sítě. Metoda [VNet peering](../virtual-network/virtual-network-peering-overview.md) je v současnosti ve verzi Preview.
+Pokud virtuální síť splňuje určité požadavky, je možné k vytvoření připojení využít metodu VNet peering. VNet peering nepoužívá bránu virtuální sítě. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Modely nasazení a metody pro VNet-to-VNet
@@ -139,6 +151,6 @@ Plánování konfigurace brány VPN. Viz [Plánování a návrh služby VPN Gate
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

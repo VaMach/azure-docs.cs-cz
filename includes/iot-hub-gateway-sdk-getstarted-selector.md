@@ -35,13 +35,15 @@ Sada SDK poskytuje abstraktní vrstvu, která umožňuje vytvářet brány spou�
 
 ### Zprávy
 
-Ačkoli je představa modulů posílajících zprávy pohodlným způsobem, jak popsat koncepci funkce brány, neodráží přesně samotnou její činnost. Moduly spolu navzájem komunikují pomocí sběrnice zpráv – publikují je na sběrnici a sběrnice je pak rozesílá všem připojeným modulům.
+Ačkoli je představa modulů posílajících zprávy pohodlným způsobem, jak popsat koncepci funkce brány, neodráží přesně samotnou její činnost. Moduly spolu navzájem komunikují pomocí zprostředkovatele – publikují do něj zprávy (bus, pubsub nebo libovolné další vzorce zasílání zpráv) a zprostředkovatel následně zprávy směruje do připojených modulů.
 
-K publikování zprávy na sběrnici používají moduly funkci **MessageBus_Publish**. Sběrnice zpráv předává zprávy ostatním modulům zavoláním funkce zpětného volání. Zpráva se skládá ze sady vlastností klíč/hodnota a obsah se předává jako blok paměti.
+K publikování zpráv do zprostředkovatele používají moduly funkci **Broker_Publish**. Zprostředkovatel předává zprávy ostatním modulům zavoláním funkce zpětného volání. Zpráva se skládá ze sady vlastností klíč/hodnota a obsah se předává jako blok paměti.
 
 ![][3]
 
-Každý modul musí provádět filtrování zpráv, protože sběrnice zpráv rozesílá zprávy všem připojeným modulům. Modul by měl reagovat jen na zprávy, které jsou pro něho určené. Filtrování zpráv ve výsledku tvoří kanál zpracování zpráv. Modul typicky vyfiltruje svoje zprávy podle jejich vlastností a identifikuje tak ty, které má zpracovat.
+### Směrování a filtrování zpráv
+
+Existují dva způsoby předávání zpráv správným modulům. Zprostředkovateli lze předat sadu propojení a ten tak zná zdroj a jímku jednotlivých modulů, nebo může modul filtrovat zprávy podle vlastností. Modul by měl postupovat pouze podle zpráv, které mu jsou určené. Propojení a filtrování zpráv ve výsledku tvoří kanál zpracování zpráv.
 
 ## Architektura ukázky Hello World
 
@@ -52,11 +54,11 @@ Ukázka Hello World ilustruje koncepty popsané v předchozí části. Ukázka H
 
 ![][4]
 
-Jak je popsáno v předchozí části, modul Hello World nepředává každých pět sekund zprávu přímo do modulu logger. Místo toho ji každých pět sekund publikuje na sběrnici zpráv.
+Jak je popsáno v předchozí části, modul Hello World nepředává každých pět sekund zprávu přímo do modulu logger. Místo toho ji každých pět sekund publikuje do zprostředkovatele.
 
-Modul logger přijímá zprávy ze sběrnice zpráv a pomocí filtračního mechanismu zkoumá jejich vlastnosti. Když logger zjistí, že by měl zprávu zpracovat, zapíše obsah zprávy do souboru.
+Protokolovací modul obdrží od zprostředkovatele zprávu a postupuje podle ní, zatímco zapisuje obsah zprávy do souboru.
 
-Modul logger ze sběrnice zprávy pouze přijímá, nikdy žádné sám nepublikuje.
+Protokolovací modul od zprostředkovatele zprávy pouze přijímá, nikdy žádné sám nepublikuje.
 
 ![][5]
 
@@ -73,6 +75,6 @@ Obrázek nahoře ukazuje architekturu ukázky Hello World a relativní cesty ke 
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

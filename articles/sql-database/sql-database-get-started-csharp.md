@@ -26,7 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Zjistěte, jak v jazyce C# vytvořit databázi Azure SQL pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Tento článek popisuje, jak vytvořit databázi pomocí jazyka SQL a C#. Chcete-li vytvářet fondy elastické databáze, přečtěte si článek [Vytvoření fondu elastické databáze](sql-database-elastic-pool-create-portal.md).
+Zjistěte, jak v jazyce C# vytvořit databázi Azure SQL pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Tento článek popisuje, jak vytvořit databázi pomocí jazyka SQL a C#. Chcete-li vytvářet fondy elastické databáze, přečtěte si článek [Vytvoření fondu elastické databáze](sql-database-elastic-pool-create-csharp.md).
 
 Azure SQL Database Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -294,6 +294,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

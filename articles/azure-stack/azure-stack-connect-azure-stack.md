@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Připojení k Microsoft Azure Stack POC | Microsoft Azure"
-    description="Naučte se připojit k portálu Azure Stack POC jako správce nebo tenant služby."
+    pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+    description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,63 +13,55 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Přihlášení k virtuálnímu počítači Azure Stack POC
+# Log in to the Azure Stack POC virtual machine
 
-K virtuálnímu počítači Azure Stack POC se můžete přihlásit jako:
+You can log in to the Azure Stack POC virtual machine as a
 
-- [**správce služby**](#log-in-as-a-service-administrator) – můžete spravovat poskytovatele prostředků, nabídky tenantů, plány, služby, kvóty a ceny.
+- [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
 
-nebo
+or
 
-- [**tenant**](#log-in-as-a-tenant) – můžete zřizovat, sledovat a spravovat služby, k jejichž odběru jste se přihlásili, například webové aplikace, úložiště a virtuální počítače.
+- [**tenant**](#log-in-as-a-tenant) to provision, monitor, and manage services that you're subscribe to, like Web Apps, storage, and virtual machines.
 
-## Přihlášení jako správce služby
+## Log in as a service administrator
 
-1.  Přihlaste se k fyzickému počítači Azure Stack POC.
+1.  Log in to the Azure Stack POC physical machine.
 
-2.  Na ploše poklikejte na ikonu **ClientVM.AzureStack.local.rdp** a otevřete připojení ke vzdálené ploše virtuálního klientského počítače.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    Tím se automaticky použije účet AzureStack\\AzureStackUser, který byl vytvořen skriptem nasazení. Po výzvě **Zadejte heslo pro předdefinovaný účet správce** použijte heslo správce, které jste zadali v kroku 5 skriptovacího procesu.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  Na ploše ClientVM.AzureStack.local poklikejte na ikonu **Portál Microsoft Azure Stack POC** (https://portal.azurestack.local/) a otevřete [portál](azure-stack-key-features.md#portal).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-4.  Přihlaste se pomocí účtu správce služby.
+4.  Log in using the service administrator account.
 
-## Přihlášení jako tenant
+## Log in as a tenant
 
-Správce služby se může přihlásit jako tenant, aby otestoval plány, nabídky a předplatné, které můžou jeho tenanti používat.
-Pokud ho ještě nemáte, [vytvořte si účet tenanta](azure-stack-add-new-user-aad.md) se kterým se potom přihlásíte.
+A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-1.  Přihlaste se k fyzickému počítači Azure Stack.
+1.  Log in to the Azure Stack physical machine.
 
-2.  Na ploše poklikejte na ikonu **ClientVM.AzureStack.local.rdp** a otevřete připojení ke vzdálené ploše virtuálního klientského počítače. 
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    Tím se automaticky použije účet AzureStack\\AzureStackUser, který byl vytvořen skriptem nasazení. Po výzvě **Zadejte heslo pro předdefinovaný účet správce** použijte heslo správce, které jste zadali v kroku 5 skriptovacího procesu.
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-3.  Na ploše ClientVM.AzureStack.local poklikejte na ikonu **Portál Microsoft Azure Stack POC** (https://portal.azurestack.local/) a otevřete [portál](azure-stack-key-features.md#portal).
+4.  Log in using a tenant account.
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
-4.  Přihlaste se pomocí účtu tenanta.
+## Next steps
 
-RDP může omezit počet uživatelů s přístupem k fyzickému hostiteli Microsoft Azure POC. Pokud chcete povolit více uživatelů, přečtěte si článek [Povolení několika souběžně připojených uživatelů](azure-stack-enable-multiple-concurrent-users.md).
-
-## Další kroky
-
-[První úkoly](azure-stack-first-scenarios.md)
+[First tasks](azure-stack-first-scenarios.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

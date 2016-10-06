@@ -270,6 +270,6 @@ Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - Sho
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

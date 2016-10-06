@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Zabezpečení dat v řešení Zabezpečení a audit pro Operations Management Suite | Microsoft Azure"
-   description="Tento dokument popisuje způsob správy a ochrany dat v řešení Zabezpečení a audit pro Operations Management Suite."
+   pageTitle="Operations Management Suite Security and Audit Solution Data Security | Microsoft Azure"
+   description="This document explains how data is managed and safeguarded in Operations Management Suite Security and Audit Solution."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,44 +17,44 @@
    ms.author="yurid"/>
 
 
-# Zabezpečení dat v řešení Zabezpečení a audit pro Operations Management Suite
+# Operations Management Suite Security and Audit solution data security
 
-[Řešení Zabezpečení a audit pro Operations Management Suite (OMS)](operations-management-suite-overview.md) pomáhá zákazníkům předcházet hrozbám, rozpoznat je a reagovat na ně tím, že shromažďuje a zpracovává data o prostředcích, k nimž patří:
+To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
 
-- Protokol událostí zabezpečení
-- Události Trasování událostí pro Windows
-- Události auditování AppLocker
-- Protokol brány Windows Firewall
-- Události Rozšířené analýzy hrozeb
-- Výsledky základního vyhodnocování
-- Výsledky antimalwarového vyhodnocování
-- Výsledky vyhodnocování aktualizací a oprav
-- Datové proudy syslog explicitně povolené v agentu
+- Security event log
+- Event Tracing for Windows (ETW) events
+- AppLocker auditing events
+- Windows Firewall log
+- Advanced Threat Analytics events
+- Results of baseline assessment
+- Results of antimalware assessment
+- Results of update/patch assessment
+- Syslogs streams that are explicitly enabled on the agent
 
-Zavázali jsme se, že soukromí a bezpečnost těchto dat budeme chránit. Společnost Microsoft dodržuje přísné pokyny pro dodržování předpisů a zabezpečení – od psaní kódu po provoz služeb.
-Tento článek popisuje způsob správy a ochrany dat v řešení Zabezpečení a audit v OMS.
+We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
+This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
 
-## Zdroje dat
+## Data sources
 
-Řešení Zabezpečení a audit v OMS analyzuje data z virtuálních a fyzických počítačů s nainstalovaným agentem OMS. Řešení Zabezpečení a audit v OMS může shromažďovat informace o konfiguraci událostí zabezpečení, jako jsou například protokoly událostí a auditu systému Windows, protokoly služby IIS a zprávy syslog. Mezi příklady těchto dat patří: typ a verze operačního systému, spuštěné procesy, název počítače, IP adresy, přihlášený uživatel a ID tenanta.  
+OMS Security and Audit Solution analyze data from your Virtual Machines and physical computers where the OMS Agent is installed. OMS Security and Audit Solution can collect configuration information about security events, such as Windows event, audit logs, IIS logs and syslog messages. Examples of such data are: operating system type and version, running processes, machine name, IP addresses, logged in user, and tenant ID.  
 
-## Ochrana dat
+## Data protection
 
-**Oddělení dat**: Data se v rámci služby ukládají logicky oddělená pro jednotlivé komponenty. Všechna data jsou označená podle organizace. Toto značení přetrvává v průběhu celého životního cyklu dat a je vyžadováno na každé úrovni služby. 
+**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
 
-**Přístup k datům**: Aby bylo možné poskytovat doporučení týkající se zabezpečení a prošetřovat potenciální ohrožení zabezpečení, mají pracovníci společnosti Microsoft přístup k informacím shromažďovaným nebo analyzovaným službami. Dodržujeme [Podmínky online služeb společnosti Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) a [Prohlášení o zásadách ochrany osobních údajů](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), ve kterých je uvedeno, že společnost Microsoft nebude informace o zákaznících používat ani z nich odvozovat další informace pro reklamní nebo podobné obchodní účely. Aby bylo možné poskytovat doporučení týkající se zabezpečení a prošetřovat potenciální ohrožení zabezpečení, mají pracovníci společnosti Microsoft přístup k informacím shromažďovaným nebo analyzovaným službami. Informace o zákaznících podle potřeby používáme pouze k poskytování služeb Azure a k účelům slučitelným s poskytováním těchto služeb. Všechna práva na vaše data zůstávají ve vašem vlastnictví.
+**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to your own data.
 
-**Použití dat**: Společnost Microsoft vylepšuje své schopnosti prevence a detekce pomocí schémat a analýzy hrozeb napříč několika klienty. Činíme tak v souladu se závazky k ochraně osobních údajů popsanými v našem [Prohlášení o zásadách ochrany osobních údajů](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-> [AZURE.NOTE] Umístění dat je konfigurováno na úrovni pracovního prostoru OMS během jeho vytváření, což je součástí procesu prvotní konfigurace řešení Zabezpečení a audit pro OMS.
+> [AZURE.NOTE] Data location is configured at the OMS workspace level, during the workspace creation, which is part of the initial OMS Security and Audit configuration process.
 
-## Viz také
+## See also
 
-V tomto dokumentu jste se dozvěděli, jakým způsobem probíhá správa a ochrana dat v OMS. Další informace o řešení Zabezpečení a audit v OMS najdete v tématech:
+In this document, you learned how data is managed and safeguarded in OMS. To learn more about OMS Security and Audit solution, see:
 
-- [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
-- [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

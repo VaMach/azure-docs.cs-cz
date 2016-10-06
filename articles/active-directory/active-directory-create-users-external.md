@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
 # Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [portál Azure](active-directory-create-users-external-azure-portal.md)
+- [portál Azure](active-directory-users-create-external-azure-portal.md)
 - [Portál Azure Classic](active-directory-create-users-external.md)
 
 Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
@@ -71,7 +71,7 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 - **Portál Azure Classic**: Umožňuje externímu uživateli, který je správcem více adresářů, spravovat každý z těchto adresářů.
 - **SharePoint Online**: Pokud je povoleno externí sdílení, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby SharePoint Online.
 - **Dynamics CRM**: Pokud je uživatel licencován prostřednictvím rozhraní PowerShell, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby Dynamics CRM.
-- **Dynamics AX**: Pokud je uživatel licencován prostřednictvím rozhraní PowerShell, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby Dynamics AX. Omezení pro [externí uživatele služby Azure AD](#known-limitations-of-azure-ad-external-users) a [uživatele typu Host](#guest-user-management-and-limitations) platí pro externí uživatele v aplikaci Dynamics AX také.
+- **Dynamics AX**: Pokud je uživatel licencován prostřednictvím rozhraní PowerShell, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby Dynamics AX. Omezení pro [externí uživatele služby Azure AD](#known-limitations-of-azure-ad-external-users) platí pro externí uživatele v aplikaci Dynamics AX také.
 
 ### Známá omezení externích uživatelů ve službě Azure AD
 
@@ -91,6 +91,6 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,10 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="09/30/2016"
     ms.author="andkjell;billmath"/>
 
+
 # Integrování místních identit do služby Azure Active Directory
+
 Azure AD Connect integruje vaše místní adresáře do služby Azure Active Directory. To umožní poskytovat společnou identitu pro uživatele pro aplikace Office 365, Azure a SaaS integrované s Azure AD. V tomto tématu vás provedeme kroky plánování, nasazení a provozu. Jedná se o kolekci odkazů na témata, která souvisejí s touto oblastí.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -165,6 +167,6 @@ Prezentace Ignite 2015 na rozšíření místních adresářů do cloudu.
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 #Sledování stavu zabezpečení v Azure Security Center
 Tento dokument vám pomůže používat možnosti sledování v Azure Security Center k monitorování dodržování zásad.
@@ -29,7 +30,7 @@ Další informace o tom, jak používat doporučení, najdete v tématu [Impleme
 
 Na dlaždici **Stav zabezpečení prostředků** můžete sledovat stav zabezpečení svých prostředků. V následujícím příkladu uvidíte řadu problémů vysoké a střední závažnosti, které vyžadují pozornost. Zásady zabezpečení, které jsou povolené, budou mít vliv na typy ovládacích prvků, které jsou monitorovány.
 
-![Stav prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Stav prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Pokud Security Center identifikuje ohrožení zabezpečení, které je třeba řešit, jako je například virtuální počítač s chybějící aktualizací zabezpečení nebo podsíť bez [skupiny zabezpečení sítě](../virtual-network/virtual-networks-nsg.md), budou zde uvedené.
 
@@ -51,7 +52,7 @@ Tato část uvádí celkový počet virtuálních počítačů, které byly inic
 
 
 ####Doporučení pro virtuální počítače
-Tato část obsahuje sadu doporučení pro každý virtuální počítač monitorovaný pomocí služby Azure Security Center. První sloupec obsahuje doporučení, druhý sloupec celkový počet virtuálních počítačů, které jsou ovlivněné tímto doporučením, a třetí sloupec zobrazuje závažnost problému, jak je uvedeno dále.
+Tato část obsahuje sadu [doporučení pro každý virtuální počítač](security-center-virtual-machine-recommendations.md) monitorovaný pomocí služby Azure Security Center. První sloupec obsahuje doporučení, druhý sloupec celkový počet virtuálních počítačů, které jsou ovlivněné tímto doporučením, a třetí sloupec zobrazuje závažnost problému, jak je uvedeno dále.
 
 ![Doporučení pro virtuální počítače](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +117,7 @@ Po kliknutí na **Sítě** na dlaždici **Stav zabezpečení prostředků** se o
 
 Podobně jako u informací o stavu prostředků virtuálních počítačů, toto okno obsahuje v horní části okna souhrnný seznam problémů a v dolní části seznam monitorovaných sítí.
 
-Část rozpisu stavu sítí uvádí možné problémy zabezpečení a nabízí doporučení. Možné problémy mohou zahrnovat:
+Část rozpisu stavu sítí uvádí možné problémy zabezpečení a nabízí [doporučení](security-center-network-recommendations.md). Možné problémy mohou zahrnovat:
 
 - Není nainstalována brána firewall příští generace (NGFW).
 - Nejsou povolené skupiny zabezpečení sítě (NSG) v podsítích.
@@ -160,8 +161,8 @@ V tomto zobrazení topologie obsahuje první úroveň položky [Virtuální sít
 
 Dolní část toto okna obsahuje doporučení pro tento virtuální počítač, podobně jako dříve. Kliknutím na doporučení získáte další informace nebo použijete potřebný ovládací prvek nebo konfiguraci zabezpečení.
 
-###Monitorování prostředků SQL
-Když kliknete na **SQL** na dlaždici **Stav zabezpečení prostředků**, otevře se okno SQL s doporučeními pro problémy, jako je nepovolení auditování nebo transparentního šifrování dat. Také obsahuje doporučení pro obecný stav databáze.
+###Monitorování dat
+Když kliknete na **Data** na dlaždici **Stav zabezpečení prostředků**, otevře se okno **SQL** s doporučeními pro problémy, jako je nepovolení auditování nebo transparentního šifrování dat. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze.
 
 ![Stav prostředků SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -203,11 +204,11 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 - [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md) – Zjistěte, jak se v Azure Security Center konfigurují zásady zabezpečení.
 - [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 - [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – Zjistěte, jak pomocí Azure Security Center sledovat stav vašich partnerských řešení.
-- [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
-- [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
+- [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby
+- [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 
@@ -38,13 +38,7 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 * **Účet Azure Data Lake Store**. Pokyny k vytvoření účtu najdete v tématu [Začínáme s Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
-* **Vytvořte aplikaci Azure Active Directory**, pokud chcete, aby se vaše aplikace automaticky ověřovala ve službě Azure Active Directory.
-
-    * **V případě neinteraktivního ověřování instančních objektů** – Ve službě Azure Active Directory je nutné vytvořit **webovou aplikaci**. Po vytvoření aplikace načtěte následující hodnoty týkající se aplikace.
-        - Získejte **ID klienta** a **tajný klíč klienta** aplikace.
-        - Přiřaďte aplikaci Azure Active Directory k roli. Tato role může být na úrovni rozsahu, ve kterém chcete aplikaci Azure Active Directory udělit oprávnění. Aplikaci můžete přiřadit například na úrovni předplatného nebo na úrovni skupiny prostředků. 
-
-    Pokyny týkající se načtení těchto hodnot, nastavení oprávnění a přiřazování rolí najdete v tématu [Vytvoření aplikace Active Directory a objektu zabezpečení pomocí portálu](../resource-group-create-service-principal-portal.md).
+* **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## Vytvoření aplikace .NET
 
@@ -97,12 +91,15 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+                private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+                    _subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -116,31 +113,41 @@ Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné m
 
 ## Authentication
 
-Následující fragment kódu můžete použít k interaktivnímu přihlašování.
+### Pokud používáte ověřování koncového uživatele
+
+Použijte tento fragment kódu se stávající aplikací „Nativní klient“ Azure AD – jedna je pro vás k dispozici níže.
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Případně můžete použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta nebo klíče pro aplikaci nebo instanční objekt.
+Ve výše uvedeném fragmentu kódu používáme doménu a ID klienta služby Azure AD, které jsou ve výchozím nastavení dostupné pro všechna předplatná Azure. Chcete-li použít vlastní doménu a ID klienta aplikace Azure AD, je nutné vytvořit nativní aplikaci Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+
+>[AZURE.NOTE] Pokyny na výše uvedených odkazech se týkají webových aplikací Azure AD. Nicméně postup je úplně stejný i pokud jste se rozhodli vytvořit místo toho nativní klientskou aplikaci. 
+
+### Pokud používáte ověřování služba-služba s tajným klíčem klienta 
+
+Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt.
+### Pokud používáte ověřování služba-služba s certifikátem
+
+Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -152,8 +159,11 @@ Třetí možností je použít následující fragment kódu k neinteraktivnímu
 
 Následující fragment kódu vytvoří účet Data Lake Store a objekty klientů systému souborů, které slouží k vydávání žádostí na službu.
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+    _adlsClient.SubscriptionId = _subId;
 
 ## Zobrazení seznamu všech účtů Data Lake Store v rámci předplatného
 
@@ -162,7 +172,7 @@ Následující fragment kódu zobrazí všechny účty Data Lake Store v rámci 
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -197,7 +207,7 @@ Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použ
         uploader.Execute();
     }
 
-DataLakeStoreUploader podporuje rekurzivní odesílání a stahování z místní cesty k souboru (nebo složce) do Data Lake Store.    
+`DataLakeStoreUploader` podporuje rekurzivní nahrávání a stahování mezi místní cestou k souboru a cestou k souboru ve službě Data Lake Store.    
 
 ## Získání informací o souboru nebo adresáři
 
@@ -266,6 +276,6 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

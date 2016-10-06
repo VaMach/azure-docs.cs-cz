@@ -672,6 +672,6 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

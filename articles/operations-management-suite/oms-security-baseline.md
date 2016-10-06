@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Standardní hodnoty řešení Zabezpečení a audit pro Operations Management Suite | Microsoft Azure"
-   description="Tento dokument popisuje, jak použít řešení Zabezpečení a audit v OMS k provedení vyhodnocení standardních hodnot u všech monitorovaných počítačů za účelem dodržování předpisů a zabezpečení."
+   pageTitle="Operations Management Suite Security and Audit Solution Baseline | Microsoft Azure"
+   description="This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,70 +17,70 @@
    ms.author="yurid"/>
 
 
-# Vyhodnocování standardních hodnot v řešení Zabezpečení a audit pro Operations Management Suite
+# Baseline Assessment in Operations Management Suite Security and Audit Solution
 
-Tento dokument vám pomůže s použitím schopností vyhodnocování standardních hodnot v [řešení Zabezpečení a audit pro Operations Management Suite (OMS)](operations-management-suite-overview.md) pro přístup ke stavu zabezpečení monitorovaných prostředků.
+This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) baseline assessment capabilities to access the secure state of your monitored resources.
 
-## Co je vyhodnocování standardních hodnot?
+## What is Baseline Assessment?
 
-Společnost Microsoft, spolu s organizacemi z oboru a vládními organizacemi po celém světě, definuje konfiguraci systému Windows, která představuje vysoce zabezpečená nastavení serverů. Tuto konfiguraci tvoří sada klíčů registru, nastavení zásad auditu, nastavení zásad zabezpečení a společností Microsoft doporučené hodnoty pro tato nastavení. Tato sada pravidel se označuje jako standardní hodnoty zabezpečení. Schopnost vyhodnocování standardních hodnot v řešení Zabezpečení a audit v OMS umožňuje bezproblémovou kontrolu dodržování předpisů na všech vašich počítačích. 
+Microsoft, together with industry and government organizations worldwide, defines a Windows configuration that represents highly secure server deployments. This configuration is a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. This set of rules is known as Security baseline. OMS Security and Audit baseline assessment capability can seamlessly scan all your computers for compliance. 
 
-Existují tři typy pravidel:
+There are three types of rules:
 
-- **Pravidla registru**: kontrolují, jestli jsou správně nastavené klíče registru.
-- **Pravidla zásad auditu**: pravidla týkající se vašich zásad auditu.
-- **Pravidla zásad zabezpečení**: pravidla týkající se oprávnění uživatele na počítači.
+- **Registry rules**: check that registry keys are set correctly.
+- **Audit policy rules**: rules regarding your audit policy.
+- **Security policy rules**: rules regarding the user’s permissions on the machine.
 
-> [AZURE.NOTE] Stručný přehled této funkce najdete v tématu [Použití zabezpečení OMS k vyhodnocení standardních hodnot konfigurace zabezpečení](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/).
+> [AZURE.NOTE] Read [Use OMS Security to assess the Security Configuration Baseline](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/) for a brief overview of this feature.
 
-## Vyhodnocování standardních hodnot zabezpečení
+## Security Baseline Assessment
 
-Můžete zkontrolovat aktuální stav vyhodnocení standardních hodnot zabezpečení pro všechny počítače monitorované řešením Zabezpečení a audit v OMS pomocí řídicího panelu.  Provedením následujících kroků otevřete řídicí panel vyhodnocování standardních hodnot zabezpečení:
+You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard.  Execute the following steps to access the security baseline assessment dashboard:
 
-1. Na hlavním řídicím panelu **Microsoft Operations Management Suite** klikněte na dlaždici **Zabezpečení a audit**.
-2. Na řídicím panelu **Zabezpečení a audit** klikněte na **Vyhodnocování standardních hodnot** v části **Domény zabezpečení**. Zobrazí se řídicí panel **Vyhodnocování standardních hodnot zabezpečení**, jak je znázorněno na následujícím obrázku:
+1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
+2. In the **Security and Audit** dashboard, click **Baseline Assessment** under **Security Domains**. The **Security Baseline Assessment** dashboard appears as shown in the following image:
     
-    ![Vyhodnocování standardních hodnot v řešení Zabezpečení a audit v OMS](./media/oms-security-baseline/oms-security-baseline-fig1.png)
+    ![OMS Security and Audit Baseline Assessment](./media/oms-security-baseline/oms-security-baseline-fig1.png)
 
-Tento řídicí panel je rozdělen na tři hlavní oblasti:
+This dashboard is divided in three major areas:
 
-- **Počítače porovnané se standardními hodnotami**: Tato část obsahuje souhrn počtu počítačů, ke kterým se zdařil přístup, a procentuální podíl počítačů, pro které bylo vyhodnocení úspěšné. Obsahuje také seznam 10 nejúspěšnějších počítačů a procentuální výsledek vyhodnocení.
-- **Stav požadovaných pravidel**: Účelem této části je zvýšit povědomí o pravidlech, která selhala, podle závažnosti a podle typu. Při pohledu na první graf je na první pohled patrné, jestli byla většina pravidel, která selhala, kritických, nebo ne. Obsahuje také seznam Top 10 pravidel, která selhala, a jejich závažnost. Druhý graf ukazuje typy pravidel, která během vyhodnocování selhala. 
-- **Počítače, u kterých nedošlo k vyhodnocení standardních hodnot**: Tato část obsahuje seznam počítačů, ke kterým se nezdařil přístup z důvodu nekompatibility operačního systému nebo selhání. 
+- **Computers compared to baseline**: this section gives a summary of the number of computers that were accessed and the percentage of computers that passed the assessment. It also gives the top 10 computers and the percentage result for the assessment.
+- **Required Rules Status**: this section has the intent to bring awareness of the failed rules by severity and failed rules by type. By looking to the first graph you can quickly identify if most the failed rules are critical, or not. It also gives a list of the top 10 failed rules and their severity. The second graph shows the type of rule that failed during the assessment. 
+- **Computers missing baseline assessment**: this section list the computers that were not accessed due to operating system incompatibility or failures. 
 
-### Přístup k počítačům porovnaným se standardními hodnotami
+### Accessing computers compared to baseline
 
-V ideálním případě jsou všechny vaše počítače kompatibilní s vyhodnocováním standardních hodnot zabezpečení. Nicméně se dá očekávat, že v některých případech tomu tak není. Je důležité zahrnout kontrolu počítačů, kterým se nepodařilo projít všemi testy vyhodnocování, jako součást procesu správy zabezpečení. Rychlý způsob, jak to vizualizovat, je výběrem možnosti **Dostupné počítače** umístěné v části **Počítače porovnané se standardními hodnotami**. Měl by se zobrazit výsledek hledání v protokolu se seznamem počítačů, jak je znázorněno na následující obrazovce:
+Ideally all your computers are be compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
 
-![Výsledky hledání dostupných počítačů](./media/oms-security-baseline/oms-security-baseline-fig2.png)
+![Computer accessed results](./media/oms-security-baseline/oms-security-baseline-fig2.png)
 
-Výsledek hledání je zobrazen ve formátu tabulky, kde první sloupec obsahuje název počítače a druhý sloupec obsahuje počet pravidel, která selhala. Chcete-li načíst informace týkající se typu pravidla, které selhalo, klikněte na počet pravidel, která selhala, vedle názvu počítače. Zobrazený výsledek by se měl podobat tomu na následujícím obrázku:
+The search result is shown in a table format, where the first column has the computer name and the second color has the number of rules that failed. To retrieve the information regarding the type of rule that failed, click in the number of failed rules besides the computer name. You should see a result similar to the one shown in the following image:
 
-![Podrobnosti o výsledku hledání dostupných počítačů](./media/oms-security-baseline/oms-security-baseline-fig3.png)
+![Computer accessed results details](./media/oms-security-baseline/oms-security-baseline-fig3.png)
 
-Tento výsledek hledání obsahuje celkový počet dostupných pravidel, počet kritických pravidel, která selhala, a počet pravidel upozornění a informací, která selhala.
+In this search result, you have the total of accessed rules, the number of critical rules that failed, the warning rules and the information failed rules.
 
-### Přístup ke stavu požadovaných pravidel
+### Accessing required rules status
 
-Po obdržení informace o procentuálním zastoupení počítačů, které prošly vyhodnocením, možná budete chtít získat další informace o tom, která pravidla selhávají podle jejich závažnosti. Tato vizualizace vám pomůže určit prioritu adresování počítačů k zajištění, aby při dalším vyhodnocení splňovaly požadavky. V části **Stav požadovaných pravidel** na dlaždici **Pravidla, která selhala, podle závažnosti** najeďte myší na část grafu Kritické a klikněte na ni. Zobrazený výsledek by měl vypadat přibližně jako na tomto obrázku:
+After obtaining the information regarding the percentage number of computers that passed the assessment, you may want to obtain more information about which rules are failing according to the criticality. This visualization helps you to prioritize which computers should be addressed first to ensure they will be compliant in the next assessment. Hover over the Critical part of the graph located in the **Failed rules by severity** tile, under **Required rules status** and click it. You should see a result similar to the following screen:
 
-![Podrobnosti o pravidlech, která selhala, podle závažnosti](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
+![Failed rules by severity details](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
 
-V tomto výsledku protokolu uvidíte typ základního pravidla, které selhalo, popis pravidla a Common Configuration Enumeration (CCE) ID tohoto pravidla zabezpečení. Tyto atributy by měly být dostačující k provedení nápravné akce, která tento problém na cílovém počítači opraví.
+In this log result you see the type of baseline rule that failed, the description of this rule, and the Common Configuration Enumeration (CCE) ID of this security rule. These attributes should be enough to perform a corrective action to fix this problem in the target computer.
 
-> [AZURE.NOTE] Další informace o CCE získáte na webu [Národní databáze ohrožení zabezpečení](https://nvd.nist.gov/cce/index.cfm).
+> [AZURE.NOTE] For more information about CCE, access the [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
 
-### Přístup k počítačům, u nichž nedošlo k vyhodnocení standardních hodnot
+### Accessing computers missing baseline assessment
 
-OMS podporuje profil standardních hodnot člena domény v systému Windows Server 2008 R2 až po Windows Server 2012 R2. Standardní hodnoty systému Windows Server 2016 ještě nejsou dokončené, ale budou přidány okamžitě po publikování. Všechny ostatní operační systémy kontrolované přes vyhodnocování standardních hodnot v řešení Zabezpečení a audit v OMS jsou uvedené v části **Počítače, u kterých nedošlo k vyhodnocení standardních hodnot**.
+OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
 
-## Viz také
+## See also
 
-V tomto dokumentu jste se dozvěděli o vyhodnocování standardních hodnot v řešení Zabezpečení a audit v OMS. Další informace o zabezpečení v OMS najdete v následujících článcích:
+In this document, you learned about OMS Security and Audit baseline assessment. To learn more about OMS Security, see the following articles:
 
-- [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
-- [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

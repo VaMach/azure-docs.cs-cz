@@ -86,6 +86,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

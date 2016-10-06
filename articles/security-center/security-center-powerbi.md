@@ -118,6 +118,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -89,6 +89,6 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

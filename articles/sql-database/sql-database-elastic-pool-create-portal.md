@@ -30,7 +30,7 @@ Tento článek popisuje, jak vytvořit [fond elastické databáze](sql-database-
 
 Můžete přidat více fondů na jeden server, ale nemůžete přidat databáze z různých serverů do stejného fondu. K vytvoření fondu potřebujete nejméně jednu databázi na serveru verze 12. Pokud žádnou nemáte, přečtěte si téma [Vytvoření první databáze Azure SQL](sql-database-get-started.md). Můžete vytvořit fond obsahující jen jednu databázi, ale fondy jsou cenově efektivní, pouze pokud obsahují více databází. Viz článek [Cenové a výkonové požadavky fondu elastické databáze](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Elastické fondy jsou obecně dostupné ve všech oblastech Azure s výjimkou oblastí Střed USA – sever a Západní Indie, kde jsou aktuálně ve verzi Preview.  Obecná dostupnost elastických fondů v těchto oblastech bude zajištěna co nejdříve. Elastické fondy také v současné době nepodporují databáze [využívající OLTP nebo analýzu v paměti](sql-database-in-memory.md).
+> [AZURE.NOTE] Elastické fondy jsou obecně dostupné ve všech oblastech Azure s výjimkou oblasti Západní Indie, kde jsou aktuálně ve verzi Preview.  Verze GA pro elastické fondy se v této oblasti objeví co nejdřív. Elastické fondy také v současné době nepodporují databáze [využívající OLTP nebo analýzu v paměti](sql-database-in-memory.md).
 
 ## Krok 1: Vytvořte nový fond
 
@@ -118,6 +118,6 @@ Po přidání databází do fondu se dynamicky vygeneruje doporučení na zákla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

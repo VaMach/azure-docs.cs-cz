@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 
@@ -132,13 +132,15 @@ Před zahájením se ujistěte, že máte k dispozici následující informace:
 
 Před provedením těchto postupů se ujistěte, že jste splnili [požadavky na virtuální zařízení](#prerequisites-for-the-virtual-device). 
 
-Po vytvoření virtuální sítě, konfiguraci služby StorSimple Manager a registraci fyzického zařízení StorSimple u služby můžete pomocí následujících kroků vytvořit a nakonfigurovat virtuální zařízení StorSimple.
+Po vytvoření virtuální sítě, konfiguraci služby StorSimple Manager a registraci fyzického zařízení StorSimple u služby můžete pomocí následujících kroků vytvořit a nakonfigurovat virtuální zařízení StorSimple. 
 
 ### Krok 1: Vytvoření virtuálního zařízení
 
 Pomocí následujících kroků vytvořte virtuální zařízení StorSimple.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Pokud se vytváření virtuálního zařízení v tomto kroku nezdaří, je možné, že nemáte připojení k internetu. Další informace najdete v oddílu [řešení potíží při selhání připojení k internetu](#troubleshoot-internet-connectivity-errors) během vytváření virtuálního zařízení.
 
 
 ### Krok 2: Konfigurace a registrace virtuálního zařízení
@@ -274,6 +276,19 @@ Pokud virtuální zařízení odstraníte nebo vypnete, zobrazí se na stránce 
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Řešení potíží s připojením k internetu 
+
+Pokud během vytváření virtuálního zařízení není k dispozici připojení k internetu, daný krok vytváření se nezdaří. Chcete-li zjistit, zda za selhání může připojení k internetu, proveďte na klasickém webu Azure Portal následující kroky:
+
+1. Vytvořte v Azure virtuální počítač s Windows Serverem 2012. Tento virtuální počítač by měl používat stejný účet úložiště, virtuální síť a podsíť jako vaše virtuální zařízení. Pokud již máte v Azure hostitele s Windows Serverem, který používá stejný účet úložiště, virtuální síť a podsíť, můžete jej také použít pro řešení potíží s připojením k internetu.
+2. Vzdáleně se přihlaste k virtuálnímu počítači, který jste vytvořili v předchozím kroku. 
+3. Na virtuálním počítači otevřete okno příkazového řádku (stiskněte Win + R a zadejte `cmd`).
+4. V příkazovém řádku spusťte následující příkaz.
+
+    `nslookup windows.net`
+
+5. Pokud se `nslookup` nezdaří, pak problém s připojením k internetu brání virtuálnímu zařízení v registraci do služby StorSimple Manager. 
+6. Proveďte požadované změny své virtuální sítě a ujistěte se, že virtuální zařízení může přistupovat k webům Azure, například „windows.net“.
 
 ## Další kroky
 
@@ -284,6 +299,6 @@ Pokud virtuální zařízení odstraníte nebo vypnete, zobrazí se na stránce 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

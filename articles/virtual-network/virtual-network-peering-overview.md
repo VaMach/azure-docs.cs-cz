@@ -32,7 +32,7 @@ Požadavky a klíčové aspekty partnerských vztahů virtuálních sítí:
 - Dvě virtuální sítě, mezi nimiž má být navázán partnerský vztah, by měly být ve stejné oblasti Azure.
 - Adresní prostory IP adres virtuálních sítí, které mají být v partnerském vztahu, by se neměly překrývat.
 - Partnerský vztah virtuálních sítí se navazuje mezi dvěma virtuálními sítěmi a nevzniká žádný odvozený tranzitivní vztah. Pokud je například virtuální síť A v partnerském vztahu s virtuální sítí B a síť B je v partnerském vztahu s virtuální sítí C, neznamená to, že se vytvoří partnerský vztah mezi virtuálními sítěmi A a C.
-- Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce.
+- Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce a že předplatná jsou přidružená stejnému tenantu Active Directory. 
 - Virtuální síť používající model nasazení Resource Manageru můžete propojit s jinou virtuální sítí, která tento model používá také, nebo s virtuální sítí, která používá klasický model nasazení. Nejde ale navázat partnerský vztah mezi dvěma virtuálními sítěmi, které obě používají klasický model nasazení.
 - Ačkoli komunikace mezi virtuálními počítači v sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače.
 
@@ -91,6 +91,6 @@ Během období vyhodnocování bude funkce partnerských vztahů virtuálních s
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

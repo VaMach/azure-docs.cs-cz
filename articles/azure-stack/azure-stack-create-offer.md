@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Vytvoření nabídky ve službě Azure Stack | Microsoft Azure"
-    description="Jako správce služby se naučte vytvořit nabídku pro své tenanty ve službě Azure Stack."
+    pageTitle="Create an offer in Azure Stack | Microsoft Azure"
+    description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,55 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Vytvoření nabídky ve službě Azure Stack
+# Create an offer in Azure Stack
 
-[Nabídky](azure-stack-key-features.md#services-plans-offers-and-subscriptions) jsou skupiny z jednoho nebo několika plánů, které poskytovatelé předkládají tenantům ke koupi (přihlášení k odběru). V tomto příkladu vytvoříte nabídku, která obsahuje [plán, který jste vytvořili](azure-stack-create-plan.md) v posledním kroku. To přidá odběratelům do nabídky možnost zřizování virtuálních počítačů.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
-1.  [Přihlaste se](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) k portálu jako správce služby.
-    ![](media/azure-stack-create-offer/image1.png)
+1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
+    ![](media/azure-stack-create-offer/image01.png)
 
-2.  Klikněte na možnost **Nové**.
+2.  In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-3.  Klikněte na **Nabídky a plány pro tenanty** a potom klikněte na **Nabídka**.
-    ![](media/azure-stack-create-offer/image2.png)
+    ![](media/azure-stack-create-offer/image01a.png)
 
-4.  V okně **Nová nabídka** vyplňte následující:
+3.  Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
-    1.  Vyplňte **Zobrazovaný název** a **Název prostředku**. Zobrazovaný název představuje popisný název nabídky. Název prostředku může vidět jenom správce. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru.
+    ![](media/azure-stack-create-offer/image02.png)
+    
+4. Click **Offers** and then click the offer you just created.
 
-    2.  Vyberte novou nebo existující **skupinu prostředků**.
+    ![](media/azure-stack-create-offer/image03.png)
 
-        ![](media/azure-stack-create-offer/image3.png)
 
-5.  Klikněte na **Základní plány** a v okně **Plán** vyberte plány, které chcete do nabídky zahrnout, a potom klikněte na **Vybrat**. Kliknutím na **Vytvořit** vytvořte svou nabídku.
+5.  Click **Change State**, and then click **Public**.
+  
+    ![](media/azure-stack-create-offer/image04.png)
 
-    ![](media/azure-stack-create-offer/image4.png)
+Offers must be made public for tenants to get the full view when subscribing. Offers can be:
 
-6.  Klikněte na **Změnit stav** a potom na **Veřejné**.
-Plány a nabídky musíte zveřejnit, abyste tenantům umožnili úplné zobrazení při přihlašování k odběru. Pokud je plán soukromý a nabídka je veřejná, tenanti budou mít přístup k nabídce, ale nebudou moct zobrazit podrobnosti plánu. Plány a nabídky můžou být:
+- **Public**: Visible to tenants.
 
-    -   **Veřejné**: Viditelné pro tenanty.
+- **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
 
-    -   **Soukromé**: Viditelné jenom pro správce služby. To je užitečné, když pracujete na návrhu plánu nebo nabídky, nebo když chce správce služby jednotlivě schvalovat každé přihlášení k odběru.
+- **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-    -   **Vyřazeno z provozu**: Uzavřené pro nové odběratele. Správce služby může možnost Vyřazeno z provozu použít k tomu, aby zabránil dalším přihlášením k odběru, ale přitom nechá aktuální předplatitele beze změny.
+Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
-    ![](media/azure-stack-create-offer/image6.png)
+## Next steps
 
-Změny plánu nebo nabídky nevidí tenant okamžitě. Aby změny viděl, musí být stav předplatného Synchronizované a potom musí tenant aktualizovat portál nebo se odhlásit a přihlásit.
-
-Dokonce i po vytvoření a synchronizaci dalšího předplatného může být nutné se odhlásit a znovu přihlásit, abyste při vytváření nových prostředků nebo skupin prostředků viděli nové předplatné v části Výběr předplatného.
-
-## Další kroky
-
-[Přihlášení k odběru nabídky a zřízení virtuálního počítače](azure-stack-subscribe-plan-provision-vm.md)
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

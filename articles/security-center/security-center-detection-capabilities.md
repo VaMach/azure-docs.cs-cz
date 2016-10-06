@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -84,6 +84,7 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center funguje d
 
 - [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md)
 - [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Výstrahy zabezpečení podle typu ve službě Azure Security Center](security-center-alerts-type.md)
 - [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se sledovat stav svých prostředků Azure.
 - [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – Zjistěte, jak pomocí Azure Security Center sledovat stav vašich partnerských řešení.
 - [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
@@ -91,6 +92,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center funguje d
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
