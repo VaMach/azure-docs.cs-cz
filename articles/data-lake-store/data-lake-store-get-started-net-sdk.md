@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -113,9 +113,9 @@ Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné m
 
 ## Authentication
 
-### Pokud používáte ověřování koncového uživatele
+### Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
 
-Použijte tento fragment kódu se stávající aplikací „Nativní klient“ Azure AD – jedna je pro vás k dispozici níže.
+Použijte tento fragment kódu se stávající aplikací „Nativní klient“ Azure AD – jedna je pro vás k dispozici níže. Chcete-li tento kurz projít rychleji, doporučujeme vám použít tento přístup.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,10 @@ Použijte tento fragment kódu se stávající aplikací „Nativní klient“ A
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Ve výše uvedeném fragmentu kódu používáme doménu a ID klienta služby Azure AD, které jsou ve výchozím nastavení dostupné pro všechna předplatná Azure. Chcete-li použít vlastní doménu a ID klienta aplikace Azure AD, je nutné vytvořit nativní aplikaci Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+Několik věcí, které je vhodné vědět o fragmentu kódu uvedeném výše.
+
+* Abychom vám umožnili projít tento kurz rychleji, využívá tento fragment kódu doménu a ID klienta služby Azure AD, které jsou ve výchozím nastavení dostupné pro všechna předplatná Azure. Můžete tedy **použít ve své aplikaci tento fragment kódu bez jakýchkoli úprav**.
+* Pokud však chcete používat vlastní doménu a ID klienta aplikace služby Azure AD, musíte vytvořit nativní aplikaci služby Azure AD a pak pro vytvořenou aplikaci použít příslušnou doménu, ID klienta a identifikátor URI pro přesměrování služby Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
 
 >[AZURE.NOTE] Pokyny na výše uvedených odkazech se týkají webových aplikací Azure AD. Nicméně postup je úplně stejný i pokud jste se rozhodli vytvořit místo toho nativní klientskou aplikaci. 
 
@@ -276,6 +279,6 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

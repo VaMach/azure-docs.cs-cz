@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/30/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Používám Mobile Services, jak mi pomůže App Service?
 
@@ -51,7 +52,7 @@ Služba *Azure App Service* nabízí širší a bohatší podporu platforem ASP.
 S Mobile Services běžely všechny instance back-end kódu na malých virtuálních počítačích. Služba *Azure App Services* umožňuje vybrat velikost virtuálního počítače z mnohem širší nabídky. Kromě toho je možné podle různých metrik výkonu rychle změnit škálování (vertikálně nebo horizontálně navýšit kapacitu), abyste zvládali zátěž vyplývající z příchozích zákaznických požadavků.
 
 ##Neustálý přehled
-Na problémy dokážete reagovat v reálném čase díky monitorování a výstrahám, které vám a vašemu týmu automaticky odešlou oznámení. Integrací pokročilé analýzy aplikací a monitorování funkcí z nástrojů New Relic a AppInsights získáte ještě podrobnější informace o výkonu mobilní aplikace. S *Azure App Service* nyní můžete nastavit upozornění na základě různých metrik výkonu, a to buď programově, nebo přes Portál Azure.
+Na problémy dokážete reagovat v reálném čase díky monitorování a výstrahám, které vám a vašemu týmu automaticky odešlou oznámení. Integrací pokročilé analýzy aplikací a monitorování funkcí z nástrojů New Relic a AppInsights získáte ještě podrobnější informace o výkonu mobilní aplikace. S *Azure App Service* nyní můžete nastavit upozornění na základě různých metrik výkonu, a to buď programově, nebo přes web Azure Portal.
 
 ##Zabezpečení prostředků
 Back-end a databáze je možné automaticky zálohovat. Kód a data jsou zabezpečeny proti havárii a lze je snadno obnovit. Díky tomu můžete řídit svou firmu s jistotou.
@@ -64,6 +65,6 @@ Výhody *App Service* pro existující Mobile Service můžete začít využíva
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

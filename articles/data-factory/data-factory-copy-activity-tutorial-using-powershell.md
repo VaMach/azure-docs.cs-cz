@@ -20,12 +20,13 @@
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí Azure PowerShellu
 > [AZURE.SELECTOR]
 - [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
 - [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+
 
 V tomto kurzu vytvoříte a budete monitorovat objekt pro vytváření dat Azure pomocí rutin Azure PowerShellu. Kanál v objektu pro vytváření dat, který vytvoříte v tomto kurzu, používá aktivitu kopírování ke kopírování dat z objektu blob Azure do Azure SQL Database.
 
@@ -465,6 +466,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

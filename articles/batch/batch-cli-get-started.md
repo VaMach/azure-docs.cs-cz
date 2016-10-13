@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Víceplatformové rozhraní příkazového řádku Azure (Azure CLI) umožňuje spravovat účty Batch a prostředky, jako jsou fondy, úlohy a úkoly v příkazových prostředích systémů Windows, Linux a Mac. Prostřednictvím rozhraní příkazového řádku Azure CLI můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí prostřednictvím rozhraní API služby Batch, webu Azure Portal a rutin prostředí PowerShell služby Batch.
 
-Tento článek je založen na rozhraní příkazového řádku Azure CLI verze 0.10.3.
+Tento článek je založen na rozhraní příkazového řádku Azure CLI verze 0.10.5.
 
 ## Požadavky
 
@@ -216,19 +216,39 @@ Vytvoření nové aplikace a přidání verze balíčku:
 
 **Aktivace** balíčku:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Nastavte pro aplikaci **výchozí verzi**:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Nasazení balíčku aplikace
 
 Při vytváření nového fondu můžete určit jeden nebo více balíčků aplikací pro nasazení. Když určíte balíček při vytváření fondu, bude nasazen v každém uzlu při jeho přidání do fondu. Balíčky se také nasazují při restartování uzlu nebo jeho obnovení z image.
 
-Tento příkaz určuje balíček při vytváření fondu a je nasazen při přidání jednotlivých uzlů do nového fondu:
+Pokud vytváříte fond pro nasazení balíčku aplikace na uzly fondu při jejich přidávání do fondu, zadejte parametr `--app-package-ref`. Parametr `--app-package-ref` přijímá seznam ID aplikací pro nasazení na výpočetní uzly (jako oddělovače seznamu se používají středníky).
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-V současné době nelze pomocí parametrů příkazového řádku určit verzi balíčku, která se má nasadit. Než budete moci přiřadit aplikaci do fondu, je třeba nastavit pro ni výchozí verzi prostřednictvím webu Azure Portal. Postup při nastavování výchozí verze najdete v článku [Nasazení aplikací pomocí balíčků aplikací v Azure Batch](batch-application-packages.md). Můžete však určit výchozí verze, pokud namísto parametrů příkazového řádku při vytváření fondu použijete [soubor JSON](#json-files).
+Pokud vytváříte fond s použitím parametrů příkazového řádku, aktuálně nelze určit, *která* verze balíčku aplikace má být nasazena na výpočetních uzlech (například „1.10-beta3“). Proto je třeba před vytvořením fondu nejprve určit výchozí verzi pro aplikace pomocí příkazu `azure batch application set [options] --default-version <version-id>` (viz předchozí část). Můžete však určit verzi balíčku pro fond, pokud namísto parametrů příkazového řádku při vytváření fondu použijete [soubor JSON](#json-files).
+
+Další informace o balíčcích aplikací najdete v článku [Nasazení aplikací pomocí balíčků aplikací Azure Batch](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Chcete-li používat balíčky aplikací, je třeba [propojit účet Azure Storage](#linked-storage-account-autostorage) s vaším účtem Batch.
+
+### Aktualizace balíčků aplikací fondu
+
+Chcete-li aktualizovat aplikace přiřazené k existujícímu fondu, spusťte příkaz `azure batch pool set` s parametrem `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Chcete-li nasadit nový balíček aplikace na výpočetní uzly, které jsou již obsaženy v existujícím fondu, musíte příslušné uzly restartovat nebo obnovit z image:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Seznam uzlů ve fondu spolu s příslušnými ID uzlu můžete získat pomocí příkazu `azure batch node list`.
+
+Mějte na paměti, že před nasazením již musíte mít aplikaci nakonfigurovanou s použitím výchozí verze (`azure batch application set [options] --default-version <version-id>`).
 
 ## Rady pro řešení potíží
 
@@ -256,6 +276,6 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

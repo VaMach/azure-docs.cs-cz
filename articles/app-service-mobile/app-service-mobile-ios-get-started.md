@@ -3,8 +3,8 @@
     description="V tomto kurzu začnete používat back-endy mobilních aplikací Azure pro vývoj pro iOS v Objective-C nebo Swiftu."
     services="app-service\mobile"
     documentationCenter="ios"
-    authors="krisragh"
-    manager="dwrede"
+    authors="yuaxu"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Vytvoření aplikace pro iOS
 
@@ -49,6 +50,6 @@ K dokončení tohoto kurzu potřebujete Mac a [účet Azure ](https://azure.micr
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

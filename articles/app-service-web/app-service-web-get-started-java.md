@@ -118,7 +118,7 @@ Pokud potřebujete provést aktualizaci, stačí pomocí klienta FTP/FTPS odesla
 
 ## Další kroky
 
-[Vytvořte webovou aplikaci v Javě pomocí šablony v Azure Marketplace](app-service-web-java-get-started.md#marketplace). Můžete mít svůj vlastní plně přizpůsobitelný kontejner Tomcat a využít známé uživatelské rozhraní správce. 
+[Vytvořte webovou aplikaci v Javě pomocí šablony v Azure Marketplace](web-sites-java-get-started.md#marketplace). Můžete mít svůj vlastní plně přizpůsobitelný kontejner Tomcat a využít známé uživatelské rozhraní správce. 
 
 Odlaďte webovou aplikaci Azure přímo v [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) nebo [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
@@ -130,6 +130,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

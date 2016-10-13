@@ -3,7 +3,7 @@
     description="V tomto kurzu začnete používat Mobile Apps pro vývoj na platformě Xamarin.iOS."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="dwrede"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/04/2016"
-    ms.author="normesta"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 
 #Vytvoření aplikace Xamarin.iOS
@@ -59,7 +60,7 @@ Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď 
 
 2. V okně nastavení mobilní aplikace klikněte na **Začínáme** > **Xamarin.iOS**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
 
-    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu na místní počítač a poznamenejte si, kam jste jej uložili.
+    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 
 3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio (nebo v nástroji Visual Studio).
 
@@ -103,6 +104,6 @@ Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď 
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Začínáme se sadou SDK IoT Hub Gateway | Microsoft Azure"
-    description="Návod pro sadu SDK Azure IoT Hub Gateway při použití systému Linux ukazuje klíčové koncepty, které byste měli při použití sady SDK Azure IoT Hub Gateway chápat."
+    description="Tento návod pro sadu SDK Azure IoT Hub Gateway využívá systém Linux pro ilustraci klíčových konceptů, které byste měli při použití sady SDK Azure IoT Hub Gateway chápat."
     services="iot-hub"
     documentationCenter=""
     authors="chipalost"
@@ -86,6 +86,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

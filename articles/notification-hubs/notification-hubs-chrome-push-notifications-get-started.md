@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-chrome"
     ms.devlang="JavaScript"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -476,11 +476,11 @@ Pokud chcete své uživatele rozdělit podle specifických skupin, můžete post
 [knihovnu crypto-js]: http://code.google.com/p/crypto-js/
 [Služba GCM s aplikacemi pro Chrome]: https://developer.chrome.com/apps/cloudMessaging
 [služba GCM (Google Cloud Messaging) pro Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Nastavení oznámení pro uživatele v Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Nejnovější zprávy přes Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Nastavení oznámení pro uživatele v Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Nejnovější zprávy přes Azure Notification Hubs]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -15,6 +15,7 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
+
 # Nejčastější dotazy k branám VPN
 
 ## Připojování k virtuálním sítím
@@ -72,7 +73,7 @@ Pokud vaše zařízení není uvedeno v seznamu jako známé kompatibilní zař�
 
 ### Proč se tunelové připojení sítě VPN založené na zásadách při nečinnosti deaktivuje?
 
-Toto je očekávané chování u bran VPN pracujících na základě zásad (označují se také výrazem statické směrování). Když je přenos přes tunelové propojení nečinný déle než 5 minut, tunelové propojení se deaktivuje. Když se provoz v některém směru obnoví, tunelové propojení se ihned aktivuje znovu. Pokud používáte brány VPN založené na směrování (také označované jako dynamické), toto chování se neprojeví.
+Toto je očekávané chování u bran VPN pracujících na základě zásad (označují se také výrazem statické směrování). Když je přenos přes tunelové propojení nečinný déle než 5 minut, tunelové propojení se deaktivuje. Když se provoz v některém směru obnoví, tunelové propojení se ihned aktivuje znovu.
 
 ### Je možné používat pro připojení k Azure softwarové sítě VPN?
 
@@ -281,6 +282,6 @@ Další informace o virtuálních sítích najdete v tématu [Nejčastější do
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO5-->
 
 

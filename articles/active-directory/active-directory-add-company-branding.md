@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 
@@ -87,14 +87,33 @@ Na přihlašovací stránce může přizpůsobit následující prvky:
 
 ![][5]
 
- Prvek stránky  | Umístění na stránce
-    ------------- | -------------
-Banner s logem | Zobrazuje se v pravé horní části stránky. Nahrazuje logo, které zobrazuje cílový web, ke kterému se přihlašujete (například Office 365 nebo Azure).
-Velký obrázek / barva pozadí | Zobrazuje se v levé části stránky. Nahrazuje obrázek, který zobrazuje cílový web, ke kterému se přihlašujete. Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma nebo na úzkých obrazovkách.
-Text na přihlašovací stránce | Zobrazuje se nad zápatím stránky, když potřebujete sdělit užitečné informace před samotným přihlášením pomocí pracovního nebo školního účtu. Můžete chtít například zobrazit telefonní číslo na oddělení technické podpory nebo právní prohlášení.
+
+
+| Prvek stránky  | Umístění na stránce |
+|:--            | ---                  |
+|Banner s logem    | Zobrazuje se v pravé horní části stránky. Nahrazuje logo, které zobrazuje cílový web, ke kterému se přihlašujete (například Office 365 nebo Azure).|
+|Velký obrázek / barva pozadí | Zobrazuje se v levé části stránky. Nahrazuje obrázek, který zobrazuje cílový web, ke kterému se přihlašujete. Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma nebo na úzkých obrazovkách.|
+|Zůstat přihlášeni | Zobrazuje se pod textovým polem Heslo. |
+|Text na přihlašovací stránce | Zobrazuje se nad zápatím stránky, když potřebujete sdělit užitečné informace před samotným přihlášením pomocí pracovního nebo školního účtu. Můžete chtít například zobrazit telefonní číslo na oddělení technické podpory nebo právní prohlášení.|
+
 
 > [AZURE.NOTE]
 Všechny prvky jsou volitelné. Pokud například určíte banner s logem, ale neurčíte žádný velký obrázek, přihlašovací stránka zobrazí vaše logo a obrázek z cílového webu (v tomto případě obrázek kalifornské dálnice z Office 365).
+
+
+Na přihlašovací stránce umožňuje zaškrtávací políčko **Zůstat přihlášeni**, aby příslušný uživatel zůstal přihlášen i po zavření a dalším spuštění prohlížeče. Na životnost relace to vliv nemá. Příslušné zaškrtávací políčko na přihlašovací stránce služby Azure Active Directory lze skrýt.
+
+Zobrazení zaškrtávacího políčka závisí na nastavení **Skrýt políčko Zůstat přihlášeni**.
+
+![][9]
+
+
+Chcete-li zaškrtávací políčko skrýt, použijte pro toto nastavení hodnotu **Skryté**. 
+
+> [AZURE.NOTE] Některé funkce služeb SharePoint Online a Office 2010 závisí na tom, zda uživatelé mohou toto políčko zaškrtnout. Pokud je nastavíte jako skryté, mohou se vašim uživatelům zobrazovat další (neočekávané) výzvy k přihlášení.
+
+
+
 
 Všechny prvky na této stránce můžete lokalizovat. Po konfiguraci „výchozí“ sady prvků přizpůsobení můžete nakonfigurovat další verze pro různá národní prostředí. Různé prvky mezi sebou můžete kombinovat. Můžete například provést následující věci:
 
@@ -220,9 +239,10 @@ Barva pozadí na přihlašovací stránce | Barva pozadí na přihlašovací str
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -4,7 +4,7 @@
     keywords="Úvod k Azure AD Connect, přehled Azure AD Connect, co je Azure AD Connect, instalace active directory"
     services="active-directory"
     documentationCenter=""
-    authors="andkjell"
+    authors="billmath"
     manager="femila"
     editor=""/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="andkjell;billmath"/>
+    ms.date="10/04/2016"
+    ms.author="billmath"/>
 
 
 # Integrování místních identit do služby Azure Active Directory
@@ -24,7 +24,7 @@ Azure AD Connect integruje vaše místní adresáře do služby Azure Active Dir
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect je nejlepší způsob, jak propojit místní adresář s Azure AD a Office 365. Teď je nejvhodnější doba pro upgrade na Azure AD Connect z Azure Active Directory Sync (DirSync) nebo Azure AD Sync pro Windows, protože tyto nástroje jsou už zastaralé a jejich podpora skončí 13. dubna 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect je nejlepší způsob, jak propojit místní adresář s Azure AD a Office 365. Teď je nejvhodnější doba pro upgrade na Azure AD Connect z Azure Active Directory Sync (DirSync) nebo Azure AD Sync pro Windows, protože tyto nástroje jsou už zastaralé a jejich podpora skončí 13. dubna 2017.]active-directory-aadconnect-dirsync-deprecated.md)
 
 ![Co je služba Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -56,9 +56,9 @@ Azure AD Connect si můžete stáhnout ze stránek [Stažení softwaru](http://g
 Řešení | Scénář
 ----- | ----- |
 Ještě než začnete – [hardware a požadavky](active-directory-aadconnect-prerequisites.md) | <li>Kroky, které je třeba provést ještě před zahájením instalace služby Azure AD Connect.</li>
-[Expresní nastavení](active-directory-aadconnect-get-started-express.md) | <li>Toto nastavení doporučujeme použít, pokud máte jednu doménovou strukturu AD.</li> <li>Uživatelé se přihlašují se stejným heslem a používá se synchronizace hesel.</li>
-[Vlastní nastavení](active-directory-aadconnect-get-started-custom.md) | <li>Toto nastavení použijte, pokud máte více doménových struktur. Podporuje mnoho místních [topologií](active-directory-aadconnect-topologies.md).</li> <li>Upravte možnost přihlašování, jako například službu AD FS pro federaci nebo použití zprostředkovatele identity od jiného výrobce.</li> <li>Přizpůsobte funkce synchronizace, jako je například filtrování nebo zpětný zápis.</li>
-[Upgrade z nástroje DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Používá se, pokud již máte existující server DirSync.</li>
+[Expresní nastavení](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>Toto nastavení doporučujeme použít, pokud máte jednu doménovou strukturu AD.</li> <li>Uživatelé se přihlašují se stejným heslem a používá se synchronizace hesel.</li>
+[Vlastní nastavení](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Toto nastavení použijte, pokud máte více doménových struktur. Podporuje mnoho místních [topologií](active-directory-aadconnect-topologies.md).</li> <li>Upravte možnost přihlašování, jako například službu AD FS pro federaci nebo použití zprostředkovatele identity od jiného výrobce.</li> <li>Přizpůsobte funkce synchronizace, jako je například filtrování nebo zpětný zápis.</li>
+[Upgrade z nástroje DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Používá se, pokud již máte existující server DirSync.</li>
 [Upgrade z Azure AD Sync nebo z Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Můžete si vybrat z několika různých metod.</li>
 
 
@@ -69,9 +69,9 @@ Ještě než začnete – [hardware a požadavky](active-directory-aadconnect-pr
 Téma |  
 --------- | ---------
 Stažení služby Azure AD Connect | [Stažení služby Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-Instalace s expresním nastavením | [Expresní instalace služby Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Instalace s expresním nastavením | [Expresní instalace služby Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby Azure AD (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Po instalaci | [Ověření instalace a přiřazení licencí ](active-directory-aadconnect-whats-next.md)
 
 ### Další informace o instalaci Azure AD Connect
@@ -82,7 +82,7 @@ Téma |
 --------- | ---------
 Podporované topologie | [Topologie pro Azure AD Connect](active-directory-aadconnect-topologies.md)
 Koncepty návrhu | [Koncepty návrhu Azure AD Connect](active-directory-aadconnect-design-concepts.md)
-Účty použité k instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Účty použité k instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 Provozní plánování | [Synchronizace Azure AD Connect: Provozní úlohy a důležité informace](active-directory-aadconnectsync-operations.md)
 Možnosti přihlášení uživatele | [Možnosti přihlášení uživatele Azure AD Connect](active-directory-aadconnect-user-signin.md)
 
@@ -167,6 +167,6 @@ Prezentace Ignite 2015 na rozšíření místních adresářů do cloudu.
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -28,11 +28,15 @@ Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v H
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Požadavky
+## Požadavky
 
 Než začnete tento kurz, musíte mít:
 
 - **Předplatné Azure**: pro vytvoření bezplatného zkušebního účet na jeden měsíc otevřete web [azure.microsoft.com/free](https://azure.microsoft.com/free).
+
+### Požadavky na řízení přístupu
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Vytvoření clusteru
 
@@ -164,6 +168,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

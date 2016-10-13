@@ -1,9 +1,9 @@
 <properties
  pageTitle="Přehled správy zařízení | Microsoft Azure"
- description="Přehled správy zařízení ve službě Azure IoT Hub: dvojčata zařízení, dotazy na zařízení, úlohy zařízení"
+ description="Přehled správy zařízení ve službě Azure IoT Hub"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,117 +13,111 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
+
 
 # Přehled správy zařízení ve službě Azure IoT Hub (preview)
 
-Správa zařízení ve službě Azure IoT Hub umožňuje na standardech založenou správu zařízení IoT, která zahrnuje vzdálenou správu, konfiguraci a aktualizaci zařízení.
+## Přístup ke správě zařízení ve službě Azure IoT
 
-Ve službě Azure IoT existují tři hlavní koncepty správy zařízení:
+Správa zařízení ve službě Azure IoT Hub poskytuje funkce a model rozšiřitelnosti pro zařízení a back-endy, díky kterým lze využívat správu zařízení ve službě IoT pro široké spektrum zařízení a protokolů ve službě IoT.  Ve službě IoT lze používat zařízení od velmi omezených snímačů a jednoúčelových mikrořadičů až po výkonnější brány, které povolují další zařízení a protokoly.  Řešení služby IoT se navíc výrazně liší ve vertikálních doménách a aplikacích s jedinečnými případy použití pro operátory v jednotlivých doménách.  Řešení služby IoT mohou využívat možnosti správy zařízení ve službě IoT Hub, vzory a knihovny kódu při povolování správy zařízení pro široké spektrum zařízení a uživatelů.  
 
-1.  **Dvojče zařízení:** Reprezentace fyzického zařízení ve službě IoT Hub.
+## Úvod
 
-2.  **Dotazy na zařízení**: Umožňuje vyhledat dvojčata zařízení a generovat souhrnnou znalost více dvojčat zařízení. Můžete například spustit dotaz pro vyhledání všech dvojčat zařízení s verzí firmwaru 1.0.
+Klíčovou součástí vytváření úspěšného řešení služby IoT je poskytnutí strategie pro způsob, kterým operátoři provádějí průběžnou správu příslušného fondu zařízení. Operátoři služby IoT vyžadují nástroje a aplikace, které jsou jednoduché a zároveň spolehlivé a které jim umožňují zaměřit se na strategičtější aspekty přidělených úloh. Služba Azure IoT Hub vám poskytuje stavební bloky pro vytváření aplikací služby IoT, které usnadňují provádění nejdůležitějších vzorů správy zařízení.
 
-3.  **Úlohy zařízení**: Akce, kterou chcete provést na jednom nebo více fyzických zařízeních, například aktualizace firmwaru, restartování nebo obnovení továrních nastavení.
+Zařízení jsou považována za spravovaná službou IoT Hub, když spustí jednoduchou aplikaci nazývanou agent monitorování zařízení, která zajišťuje zabezpečené připojení zařízení ke cloudu. Kód agenta umožňuje operátorovi na straně aplikace vzdáleně ověřit stav aplikace a provádět operace správy, například aplikovat změny konfigurace sítě nebo nasadit aktualizace firmwaru.
 
-## Dvojče zařízení
+## Principy správy zařízení ve službě IoT
 
-Dvojče je reprezentace fyzického zařízení ve službě Azure IoT. K reprezentaci dvojčat zařízení se používá objekt **Microsoft.Azure.Devices.Device**.
+Spolu se službou IoT přichází i jedinečná sada výzev pro správu a řešení musí odpovídat následujícím principům správy zařízení ve službě IoT:
 
-![][img-twin]
+![][img-dm_principles]
 
-Dvojče zařízení má následující komponenty:
+- **Škálování a automatizace**: Služba IoT vyžaduje jednoduché nástroje, které mohou automatizovat běžné úlohy a umožnit poměrně málo početnému provoznímu personálu správu miliónů zařízení. V každodenním provozu operátoři očekávají, že budou moci spravovat operace se zařízeními vzdáleně a hromadně a že budou upozorňování pouze na vznik problémů, které vyžadují jejich přímou pozornost.
 
-1.  **Pole zařízení:** Pole zařízení jsou předdefinované vlastnosti používané v zasílání zpráv a správě zařízení ve službě IoT Hub. Pomáhají službě IoT Hub identifikovat a připojit se k fyzickým zařízením. Pole zařízení nejsou synchronizována do zařízení a jsou uložena výhradně ve dvojčatech zařízení. Pole zařízení obsahují ID zařízení a ověřovací údaje.
+- **Otevřenost a kompatibilita**: Ekosystém zařízení ve službě IoT je neobyčejně různorodý. Nástroje pro správu musí být upraveny tak, aby podporovaly velké množství tříd zařízení, platforem a protokolů. Operátoři musí být schopni poskytovat podporu pro všechna zařízení od nejvíce omezených jednoprocesových čipů po výkonné a plně funkční počítače.
 
-2.  **Vlastnosti zařízení:** Vlastnosti zařízení jsou předdefinovaný slovník vlastností, které fyzické zařízení popisují. Fyzické zařízení je nadřazené každé vlastnosti zařízení a je autoritativním úložištěm každé odpovídající hodnoty. Konečná konzistentní reprezentace těchto vlastností je uložena ve dvojčeti zařízení v cloudu. Koherence a aktuálnost podléhá nastavení synchronizace, jak je popsáno v článku [Kurz: jak používat dvojče zařízení][lnk-tutorial-twin]. Mezi vlastnosti zařízení patří například verze firmwaru, stav baterie a název výrobce.
+- **Znalost kontextu**: Prostředí služby IoT prostředí jsou dynamická a neustále se mění. Spolehlivost služby je prvořadá. Operace správy zařízení musí zohledňovat časová období údržby podle smlouvy SLA, stavy sítě a výkonu, podmínky při používání a zeměpisnou polohu zařízení, aby bylo možné zajistit, že výpadek v důsledku údržby nebude mít vliv na klíčové obchodní operace a nebudou kvůli němu vznikat nebezpečné situace.
 
-3.  **Vlastnosti služby:** Vlastnosti služby jsou páry **&lt;klíč, hodnota&gt;**, které vývojář přidá do slovníku vlastností služby. Tyto vlastnosti rozšiřují datový model pro dvojče zařízení a umožní vám lépe jej charakterizovat. Vlastnosti služby nejsou synchronizovány do zařízení a jsou uloženy výhradně ve dvojčeti zařízení v cloudu. Příkladem vlastnosti služby je **&lt;NextServiceDate, 11/12/2017&gt;**, kterou lze použít k vyhledání zařízení podle data příštího servisu.
+- **Obsluha mnoha rolí**: Základním požadavkem je podpora jedinečných pracovních postupů a procesů rolí provozu služby IoT. Personál provozu musí také pracovat v souladu s danými omezeními interních oddělení IT a předávat příslušné informace o provozu zařízení nadřízeným a pracovníkům s dalšími rolemi správy.
 
-4.  **Značky:** Značky jsou podmnožinou vlastností služby, které jsou do větší míry libovolné řetězce než slovníkové vlastnosti. Lze je použít k popisu dvojčat zařízení nebo uspořádání zařízení do skupin. Značky se nesynchronizují do zařízení a jsou uloženy výhradně ve dvojčeti zařízení. Pokud například dvojče zařízení představuje fyzický nákladní vůz, můžete přidat značky pro každý typ nákladu ve voze – **jablka**, **melouny** a **brambory**.
+## Životní cyklus zařízení služby IoT 
 
-## Dotazy zařízení
+I když se projekty služby IoT značně liší, existuje množina běžných vzorů pro správu zařízení. Ve službě Azure IoT jsou tyto vzory rozpoznány v rámci životního cyklu zařízení služby IoT, který se skládá z pěti různých fází:
 
-V předchozí části jste se dozvěděli o různých součástech dvojčete zařízení. Teď si vysvětlíme, jak najít dvojčata zařízení v registru zařízení služby IoT Hub podle vlastností zařízení, vlastností služby nebo značek. Dotaz je možné použít například v situaci, kdy hledáte zařízení, která je nutné aktualizovat. Můžete zadat dotaz na všechna zařízení se zadanou verzí firmwaru a použít výsledek jako vstup pro konkrétní akci (označované ve službě IoT Hub jako úloha zařízení, což je vysvětleno v následující části).
+![][img-device_lifecycle]
 
-Dotazovat můžete podle značek a vlastnosti:
+1. **Plánování**: Umožnění, aby operátoři mohli vytvořit schéma vlastností zařízení, na základě kterého mohou snadno a přesně zadávat dotazy na skupinu zařízení pro hromadné operace správy a nastavovat je jako cíl.
 
--   Pokud chcete zadat dotaz pomocí značek, předejte pole řetězců a dotaz vrátí sadu zařízení, která mají ve značkách všechny tyto řetězce.
+    *Související stavební bloky*: [Začínáme s dvojčaty zařízení][lnk-twins-getstarted], [Postup při využívání vlastností dvojčat][lnk-twin-properties]
 
--   Pokud chcete zadat dotaz na dvojčata zařízení pomocí vlastností služby nebo vlastností zařízení, použijte dotazovací výraz JSON. Následující příklad ukazuje, jak můžete zadat dotaz na všechna zařízení s vlastností zařízení s klíčem **FirmwareVersion** a hodnotou **1.0**. Zde je vidět, že **typ** vlastnosti je **zařízení**, což znamená, že dotazujeme na základě vlastností zařízení, nikoli vlastností služby:
+2. **Zřízení**: Zabezpečené ověření nových zařízení ve službě IoT Hub a umožnění, aby operátoři mohli ihned zjišťovat možnosti a aktuální stav zařízení.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *Související stavební bloky*: [Začínáme se službou IoT Hub][lnk-hub-getstarted], [Postup při využívání vlastností dvojčat][lnk-twin-properties]
 
-## Úlohy zařízení
+3. **Konfigurace**: Provádění hromadných změn konfigurace a aktualizací firmwaru v zařízeních při zachování stavu i zabezpečení.
 
-Dalším konceptem ve správě zařízení jsou úlohy zařízení, které umožňují koordinaci vícekrokových operací na více zařízeních.
+    *Související stavební bloky*: [Postup při využívání vlastností dvojčat][lnk-twin-properties], [Metody C2D][lnk-c2d-methods], [Plánování/vysílání úloh][lnk-jobs]
 
-Správa zařízení ve službě Azure IoT Hub teď poskytuje šest typů úloh zařízení (další úlohy přidáme podle potřeb zákazníků):
+4. **Monitorování**: Monitorování celkového stavu fondu zařízení a stavu probíhajícího uvádění aktualizací, přičemž jsou operátoři upozorňování na problémy, které mohou vyžadovat jejich pozornost.
 
-- **Aktualizace firmwaru**: Aktualizuje firmware (nebo image operačního systému) na fyzickém zařízení.
-- **Restart**: Restartuje fyzické zařízení.
-- **Obnovení nastavení z výroby**: Obnoví firmware (nebo image operačního systému) fyzického zařízení na záložní image z výroby uloženou v zařízení.
-- **Aktualizace konfigurace**: Nakonfiguruje agenta klienta IoT Hub spuštěného na fyzickém zařízení.
-- **Načíst vlastnost zařízení**: Získá nejnovější hodnotu vlastnosti zařízení na fyzickém zařízení.
-- **Zapsat vlastnost zařízení**: Změní vlastnost zařízení na fyzickém zařízení.
+    *Související stavební bloky*: [Postup při využívání vlastností dvojčat][lnk-twin-properties]
 
-Podrobnosti o použití těchto úloh najdete v tématu [Dokumentace API pro jazyk C\# a node.js][lnk apidocs].
+5. **Vyřazení**: Výměna nebo zařízení nebo jejich vyloučení z provozu po selhání, po provedení cyklu upgradů nebo na konci životnosti služby.
 
-Úloha může provádět akci na více zařízeních. Při spuštění úlohy je vytvořena přidružená podřízená úloha pro každé z těchto zařízení. Podřízená úloha běží na jednom zařízení. Každá podřízená úloha má ukazatel na nadřazenou úlohu. Nadřazená úloha slouží pouze jako kontejner pro podřízené úlohy, neimplementuje žádnou logiku k rozlišení mezi typy zařízení (např. aktualizace Intel Edison versus aktualizace Raspberry Pi). Následující diagram znázorňuje vztah mezi nadřazenou úlohou, jejími podřízenými úlohami a přidruženými fyzickými zařízeními.
+    *Související stavební bloky*:
+    
+## Vzory správy zařízení ve službě IoT Hub
 
-![][img-jobs]
+Služba IoT Hub umožňuje využívání následující (počátečních) vzorů správy zařízení.  Jak je uvedeno v [kurzech][lnk-get-started], můžete tyto vzory rozšířit tak, aby odpovídaly vašemu konkrétnímu scénáři, a podle těchto základních vzorů můžete navrhovat nové vzory pro další scénáře.
 
-Dotazem na historii úloh můžete zjistit stav úloh, které jste spustili. Příklady dotazů naleznete v [naší knihovně dotazů][lnk-query-samples].
+1. **Restartování** – Aplikace back-end informuje zařízení prostřednictvím metody D2C o zahájení restartování.  Zařízení využívá ohlášené vlastnosti dvojčete zařízení k aktualizaci stavu restartování příslušného zařízení. 
 
-## Implementace zařízení
+    ![][img-reboot_pattern]
 
-Po probrání konceptů na straně služby teď přejdeme k vytvoření spravovaného fyzického zařízení. Klientská knihovna správy zařízení ve službě IoT Hub Azure umožňuje spravovat zařízení IoT pomocí služby Azure IoT Hub. Správa zahrnuje takové akce, jako je restartování, obnovení výrobních nastavení nebo aktualizace firmwaru.  V současné době poskytujeme knihovnu jazyka C nezávislou na platformě, ale brzy doplníme podporu pro další jazyky.  
+2. **Obnovení výrobního nastavení** – Aplikace back-end informuje zařízení prostřednictvím metody D2C o zahájení obnovování výrobního nastavení.  Zařízení využívá ohlášené vlastnosti dvojčete zařízení k aktualizaci stavu obnovování výrobního nastavení příslušného zařízení.
 
-Klientská knihovna správy zařízení zajišťuje v rámci správě zařízení dvě hlavní věci:
+    ![][img-facreset_pattern]
 
-- Synchronizace vlastností fyzického zařízení s odpovídajícím dvojčetem zařízení ve službě IoT Hub
-- Zařazování úloh zařízení odeslaných službou IoT Hub do zařízení
+3. **Konfigurace** – Aplikace back-end využívá požadované vlastnosti dvojčete zařízení ke konfiguraci softwaru spuštěného v příslušném zařízení.  Zařízení využívá ohlášené vlastnosti dvojčete zařízení k aktualizaci stavu konfigurace příslušného zařízení. 
 
-Další informace o těchto funkcích a implementaci na fyzickém zařízení najdete v článku [Představení klientské knihovny správu zařízení ve službě Azure IoT Hub pro jazyk C][lnk-library-c].
+    ![][img-config_pattern]
+
+4. **Aktualizace firmwaru** – Aplikace back-end informuje zařízení prostřednictvím metody D2C o zahájení aktualizace firmwaru.  Zařízení zahájí vícefázový proces stahování balíčku firmwaru, použití balíčku firmwaru a poté opětného připojení ke službě IoT Hub.  Během tohoto vícefázového procesu zařízení využívá ohlášené vlastnosti dvojčete zařízení k aktualizaci informací o průběhu zpracování a stavu zařízení. 
+
+    ![][img-fwupdate_pattern]
+
+5. **Informování o průběhu zpracování a stavu** – Aplikace back-end spouští dotazy dvojčete zařízení v sadě zařízení a předává informace o stavu a průběhu zpracování akcí spuštěných v příslušném zařízení.
+
+    ![][img-report_progress_pattern]
 
 ## Další kroky
 
-K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK zařízení IoT. Sady SDK zařízení IoT zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace naleznete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
+S použitím stavebních bloků poskytovaných službou Azure IoT Hub mohou vývojáři vytvářet aplikace služby IoT, které splňují jedinečné požadavky operátorů služby IoT v každé fázi životního cyklu zařízení.
 
 Pokud si chcete přečíst více o funkcích správy zařízení ve službě Azure IoT Hub, podívejte se na kurz [Začínáme se správou zařízení ve službě Azure IoT Hub][lnk-get-started].
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
 
-
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

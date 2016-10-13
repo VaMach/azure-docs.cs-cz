@@ -241,6 +241,6 @@ Partnerský vztah mezi klasickou virtuální sítí a virtuální sítí Azure R
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

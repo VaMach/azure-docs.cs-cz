@@ -13,11 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="09/28/2016"
    ms.author="seanmck"/>
 
 
-# Vytvoření první aplikace Azure Service Fabric v Linuxu pomocí Javy
+
+# Vytvoření první aplikace Azure Service Fabric
+
+> [AZURE.SELECTOR]
+- [C#](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu si projdeme postup vytvoření aplikace pro Linux a vytvoření služby pomocí Javy.
 
@@ -124,6 +129,6 @@ Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stav
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -24,11 +24,11 @@
 - [Nejčastější dotazy týkající se klasického režimu ve službě Backup](backup-azure-backup-faq.md)
 - [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Tento článek poskytuje informace specifické pro trezor služby Recovery Services a doplňuje článek [Nejčastější dotazy k Azure Backup](backup-azure-backup-faq). Časté otázky týkající se Azure Backup poskytují ucelený soubor otázek a odpovědí ohledně služby Azure Backup.  
+Tento článek poskytuje informace specifické pro trezor služby Recovery Services a doplňuje článek [Nejčastější dotazy k Azure Backup](backup-azure-backup-faq.md). Časté otázky týkající se Azure Backup poskytují ucelený soubor otázek a odpovědí ohledně služby Azure Backup.  
 
 Otázky týkající se služby Azure Backup můžete pokládat v části Disqus tohoto článku nebo v některém souvisejícím článku. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Trezory Recovery Services využívají Resource Manager. Jsou ještě podporované trezory Backup (klasický režim)? <br/>
+## Trezory služby Recovery Services jsou založené na Resource Manageru. Jsou trezory služby Backup (v klasickém režimu) stále podporovány? <br/>
 Ano, trezory Backup jsou stále podporovány. Trezory Backup vytvářejte na [portálu Classic](https://manage.windowsazure.com). Trezory Recovery Services vytvářejte na webu [Azure Portal](https://portal.azure.com). Důrazně ale doporučujeme, abyste si vytvořili trezor Recovery Services, protože všechna budoucí vylepšení budou dostupná jenom pro trezory Recovery Services. 
 
 ## Můžu migrovat trezor Backup do trezoru Služeb zotavení? <br/>
@@ -46,6 +46,6 @@ Při migraci virtuálních počítačů z klasického režimu do režimu Resourc
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

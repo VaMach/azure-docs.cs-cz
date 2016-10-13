@@ -15,9 +15,10 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+
 # Přehled služby Virtual Network
 
-Virtuální síť Azure je reprezentace vaší vlastní sítě v cloudu.  Je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. V rámci této sítě máte plnou kontrolu nad bloky IP adres, nastavením DNS, zásadami zabezpečení a směrovacími tabulkami. Virtuální síť taky můžete dál segmentovat do podsítí a spouštět virtuální počítače IaaS a/nebo [cloudové služby (instance rolí PaaS)](../cloud-services/cloud-services-choose-me.md). Virtuální síť můžete navíc připojit k místní síti pomocí jedné z [možností připojení](../vpn-gateway/vpn-gateway-cross-premises-options.md) dostupných v Azure. V podstatě můžete svoji síť rozšířit do Azure s úplnou kontrolou nad bloky IP adres a s výhodou poskytovatelů Azure celopodnikového rozsahu.
+Virtuální síť Azure je reprezentace vaší vlastní sítě v cloudu.  Je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. V rámci této sítě máte plnou kontrolu nad bloky IP adres, nastavením DNS, zásadami zabezpečení a směrovacími tabulkami. Virtuální síť taky můžete dál segmentovat do podsítí a spouštět virtuální počítače IaaS a/nebo [cloudové služby (instance rolí PaaS)](../cloud-services/cloud-services-choose-me.md). Virtuální síť můžete navíc připojit k místní síti pomocí jedné z [možností připojení](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) dostupných v Azure. V podstatě můžete svoji síť rozšířit do Azure s úplnou kontrolou nad bloky IP adres a s výhodou poskytovatelů Azure celopodnikového rozsahu.
 
 Pokud chcete virtuálním sítím porozumět lépe, prohlédněte si následující schéma, které znázorňuje zjednodušenou místní síť.
 
@@ -83,10 +84,10 @@ Seznamy NSG se například dají použít k zajištění zabezpečení ve virtu�
 Virtuální zařízení závisí na [trasách definovaných uživatelem a předávání IP](virtual-networks-udr-overview.md).
 
 ## Omezení
-Počet služeb Virtual Network povolených v předplatném podléhá omezením. Další informace najdete v tématu [Omezení sítí Azure](../azure-subscription-service-limits.md#networking-limits).
+Počet služeb Virtual Networks povolených v předplatném podléhá omezením. Další informace najdete v tématu [Omezení sítí Azure](../azure-subscription-service-limits.md#networking-limits).
 
 ## Ceny
-Za použití služeb Virtual Network se v Azure neúčtují žádné dodatečné poplatky. Výpočetní instance spuštěné v rámci virtuální sítě se účtují podle standardních sazeb, jak je popsáno v tématu [Ceny virtuálních počítačů Azure](https://azure.microsoft.com/pricing/details/virtual-machines/).  [Brány sítě VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) a [Veřejné IP adresy] (https://azure.microsoft.com/pricing/details/ip-addresses/) použité ve virtuální síti se taky budou účtovat podle standardních sazeb.
+Za použití služeb Virtual Networks se v Azure neúčtují žádné dodatečné poplatky. Výpočetní instance spuštěné v rámci virtuální sítě se účtují podle standardních sazeb, jak je popsáno v tématu [Ceny virtuálních počítačů Azure](https://azure.microsoft.com/pricing/details/virtual-machines/).  [Brány sítě VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) a [Veřejné IP adresy] (https://azure.microsoft.com/pricing/details/ip-addresses/) použité ve virtuální síti se taky budou účtovat podle standardních sazeb.
 
 ## Další kroky
 
@@ -97,6 +98,6 @@ Za použití služeb Virtual Network se v Azure neúčtují žádné dodatečné
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

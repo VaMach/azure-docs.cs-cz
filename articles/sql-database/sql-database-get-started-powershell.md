@@ -133,7 +133,7 @@ Následující skript prostředí PowerShell vytvoří databázi SQL a všechny 
 ## Další kroky
 Po vytvoření databáze SQL a provedení běžných úloh její úvodního nastavení jste připraveni na další krok:
 
-- [Správa databáze SQL pomocí prostředí PowerShell](sql-database-command-line-tools.md)
+- [Správa databáze SQL pomocí prostředí PowerShell](sql-database-manage-powershell.md)
 - [Připojení k SQL Database přes SQL Server Management Studio a provedení ukázkového dotazu T-SQL](sql-database-connect-query-ssms.md)
 
 
@@ -143,6 +143,6 @@ Po vytvoření databáze SQL a provedení běžných úloh její úvodního nast
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

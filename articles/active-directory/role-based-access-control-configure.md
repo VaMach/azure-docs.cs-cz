@@ -13,10 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/21/2016"
+    ms.date="09/30/2016"
     ms.author="kgremban"/>
 
+
 # Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure
+
+> [AZURE.SELECTOR]
+- [portál Azure](role-based-access-control-azure-portal.md)
+- [Portál Azure Classic](role-based-access-control-configure.md)
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
 
@@ -78,6 +83,6 @@ Přiřazování rolí a správu přístupu pomocí řízení přístupu na zákl
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

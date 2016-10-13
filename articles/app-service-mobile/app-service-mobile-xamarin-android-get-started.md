@@ -3,7 +3,7 @@
     description="V tomto kurzu začnete používat Azure Mobile Apps pro vývoj na platformě Xamarin.Android."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor="" />
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga" />
+    ms.date="10/01/2016"
+    ms.author="adrianha" />
+
 
 #Vytvoření aplikace Xamarin.Android
 
@@ -91,6 +92,6 @@ Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin.
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

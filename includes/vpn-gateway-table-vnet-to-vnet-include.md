@@ -1,15 +1,15 @@
-|  | **Klasické nasazení** | **Nasazení podle modelu Resource Manager** | **Z klasického nasazení do nasazení podle modelu Resource Manager** |
-|----------------------------------------|-------------|----------------------|---------------------------------|
-| **Portál Classic** | [Článek](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Nepodporuje se |  [Článek*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |
-| **Azure Portal** |  Nepodporuje se | Podporuje se+ |  Nepodporuje se |
-| **PowerShell** | Podporuje se | [Článek](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Článek](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+| **Model/metoda nasazení** | **Azure Portal** | **Klasický portál** | **PowerShell** |
+|---|---|---|---|
+|**Classic** | Nepodporuje se | [Článek](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Podporuje se |
+|**Resource Manager** | Nepodporuje se |Podporuje se+ | [Článek](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Připojení mezi různými modely nasazení** | [Článek*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Článek*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Článek](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
 Symbol (+) značí, že je tato metoda nasazení dostupná jenom pro sítě VNet v rámci jednoho předplatného.<br>
-Symbol * značí částečnou podporu.
+Symbol (*) značí, že tato metoda nasazení vyžaduje i prostředí PowerShell.
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -55,23 +55,22 @@ Před zahájením konfigurace ověřte, zda máte následující:
 
 Používáte-li tyto kroky jako cvičení, můžete použít ukázkové hodnoty konfigurace:
 
-- Název virtuální sítě: TestVNet1
-- Adresní prostor: 10.11.0.0/16 a 10.12.0.0/16
-- Podsítě: 
+- **Název virtuální sítě:** TestVNet1
+- **Adresní prostor:** 10.11.0.0/16 a 10.12.0.0/16
+- **Podsítě:**
     - FrontEnd: 10.11.0.0/24
     - BackEnd: 10.12.0.0/24
     - GatewaySubnet: 10.12.255.0/27
-- Skupina prostředků: TestRG1
-- Umístění: Východní USA
-- Server DNS: 8.8.8.8
-- Název brány: VNet1GW
-- Veřejná IP adresa: VNet1GWIP
-- Typ sítě VPN: Trasová
-- Typ připojení: Site-to-Site (protokol IPsec)
-- Typ brány: Síť VPN
-- Název brány místní sítě: Site2
-- Název připojení: VNet1toSite2
-
+- **Skupina prostředků:** TestRG1
+- **Umístění:** Východní USA
+- **Server DNS:** 8.8.8.8
+- **Název brány:** VNet1GW
+- **Veřejná IP adresa:** VNet1GWIP
+- **Typ sítě VPN:** Trasová
+- **Typ připojení:** Site-to-Site (protokol IPsec)
+- **Typ brány:** Síť VPN
+- **Název brány místní sítě:** Site2
+- **Název připojení:** VNet1toSite2
 
 
 ## 1. Vytvoření virtuální sítě 
@@ -90,29 +89,24 @@ Po vytvoření virtuální sítě do ní můžete přidat další adresní prost
 
 ## <a name="dns"></a>3. Určení serveru DNS
 
-Pokud vytváříte tuto konfiguraci jako cvičení, při určování serveru DNS použijte tyto [hodnoty](#values).
-
 ### Chcete-li určit server DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Vytvoření podsítě brány
 
-Před připojením virtuální sítě k bráně musíte nejdříve vytvořit podsíť brány pro virtuální síť, ke které se chcete připojit. Vytvořená podsíť brány musí mít název *GatewaySubnet*, jinak nebude správně fungovat. 
-
-Předpona podsítě brány pro některé konfigurace vyžaduje velikost podsítě /28 nebo větší, aby mohla pojmout množství IP adres ve fondu. To znamená, že předpona podsítě brány musí být /28, /27, /26 atd. V této fázi může být vhodné vytvořit větší podsíť, aby v budoucnu mohla pojmout případné dodatečné konfigurace.
+Před připojením virtuální sítě k bráně musíte nejdříve vytvořit podsíť brány pro virtuální síť, ke které se chcete připojit. Pokud je to možné, je nejlepší vytvořit podsíť brány s použitím bloku CIDR /28 nebo /27, aby byl k dispozici dostatek IP adres pro plnění dalších požadavků na konfiguraci v budoucnu.
 
 Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření podsítě brány použijte tyto [hodnoty](#values).
 
 ### Chcete-li vytvořit podsíť brány
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. Vytvoření brány virtuální sítě
 
-Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření brány použijte tyto [hodnoty](#values).
+Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření brány můžete použít [ukázkové hodnoty konfigurace](#values).
 
 ### Chcete-li vytvořit bránu virtuální sítě
 
@@ -120,9 +114,9 @@ Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření brány pou
 
 ## 6. Vytvoření brány místní sítě
 
-*Brána místní sítě* odkazuje na vaše místní umístění. Zadejte pro bránu místní sítě název, pomocí kterého se na ni bude Azure odkazovat. 
+Brána místní sítě odkazuje na vaše místní umístění. Zadejte pro bránu místní sítě název, pomocí kterého se na ni bude Azure odkazovat. 
 
-Pokud vytváříte tuto konfiguraci jako cvičení, při přidávání místní lokality použijte tyto [hodnoty](#values).
+Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření brány můžete použít [ukázkové hodnoty konfigurace](#values).
 
 ### Chcete-li vytvořit bránu místní sítě
 
@@ -157,6 +151,6 @@ Připojení VPN můžete ověřit v portálu nebo pomocí prostředí PowerShell
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 
