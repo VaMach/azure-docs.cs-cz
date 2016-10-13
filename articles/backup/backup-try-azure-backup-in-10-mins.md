@@ -3,8 +3,8 @@
    description="Postup zálohování dat Windows Serveru pomocí vytvoření trezoru, nainstalování agenta Služeb zotavení, a zálohování vašich souborů a složek do Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="postup zálohování; jak zálohovat"/>
 
@@ -14,8 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
+
 
 # První pohled: zálohování souborů a složek s Azure Backup pomocí modelu nasazení Resource Manageru
 
@@ -51,11 +52,11 @@ Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb z
 
 3. V nabídce **Trezory Služeb zotavení** klikněte na **Přidat**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
+    ![Vytvoření trezoru Recovery Services – krok 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Otevře se okno trezoru Služeb zotavení s výzvou k zadání **Názvu**, **Předplatného**, **Skupiny prostředků** a **Oblasti**.
+    Otevře se okno trezoru Recovery Services s výzvou k vyplnění polí **Název**, **Předplatné**, **Skupina prostředků** a **Oblast**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
+    ![Vytvoření trezoru Recovery Services – krok 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
 4. Jako **Název** zadejte popisný název pro identifikaci trezoru.
 
@@ -209,6 +210,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

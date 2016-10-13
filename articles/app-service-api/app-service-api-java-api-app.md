@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="rachelap"/>
 
+
 # Sestavení a nasazení aplikace API Java v Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -24,7 +25,7 @@ V tomto kurzu se dozvíte, jak vytvořit aplikaci Java a jak ji pomocí [Git] na
 
 ## Požadavky
 
-1. [Sada pro vývojáře Java 8] (nebo novější)
+1. [Sada pro vývojáře Java 8] \(nebo novější)
 1. Nástroj [Maven] nainstalovaný na počítači pro vývoj
 1. Nástroj [Git] nainstalovaný na počítači pro vývoj
 1. Placená nebo [bezplatná zkušební verze] předplatného [Microsoft Azure]
@@ -340,6 +341,6 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

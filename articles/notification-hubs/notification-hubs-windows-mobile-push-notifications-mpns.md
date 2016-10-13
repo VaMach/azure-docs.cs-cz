@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -217,7 +217,7 @@ Další informace o centrech oznámení najdete v [Průvodce centry oznámení].
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Režim ověření MPNS]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Používání centra oznámení k odesílání novinek]: notification-hubs-windows-phone-send-breaking-news.md
+[Používání centra oznámení k odesílání novinek]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [katalog informačních zpráv]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [katalog dlaždic]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [kurzu Centra oznámení – Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
@@ -225,6 +225,6 @@ Další informace o centrech oznámení najdete v [Průvodce centry oznámení].
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

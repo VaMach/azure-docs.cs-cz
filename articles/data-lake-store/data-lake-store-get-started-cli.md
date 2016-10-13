@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -38,36 +38,40 @@ Rozhraní příkazového řádku Azure je implementované v Node.js. Dá se pou�
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:
 
 - **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Rozhraní příkazového řádku Azure** – Informace týkající se instalace a konfigurace najdete v tématu [Instalace a konfigurace rozhraní příkazového řádku Azure](../xplat-cli-install.md). Po instalaci rozhraní příkazového řádku nezapomeňte restartovat počítač.
+
+## Authentication
+
+Tento článek využívá jednodušší přístup ověřování ve službě Data Lake Store, kdy se přihlašujete jako koncový uživatel. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ##Přihlášení k předplatnému Azure
 
-Postupujte podle kroků popsaných v tématu [Připojení k předplatnému Azure z rozhraní příkazového řádku Azure](../xplat-cli-connect.md) a připojte se k předplatnému pomocí metody __přihlášení__.
+1. Postupujte podle kroků popsaných v tématu [Připojení k předplatnému Azure z rozhraní příkazového řádku Azure](../xplat-cli-connect.md) a připojte se k předplatnému pomocí metody `azure login`.
+
+2. Pomocí příkazu `azure account list` zobrazte seznam předplatných spojených s vaším účtem.
+
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
+
+    Ve výstupu uvedeném výše je aktuálně povoleno předplatné **Azure-sub-1**. Druhým předplatným je **Azure-sub-2**. 
+
+3. Vyberte předplatné, v rámci kterého chcete pracovat. Pokud chcete pracovat v rámci předplatného Azure-sub-2, použijte příkaz `azure account set`.
+
+        azure account set Azure-sub-2
 
 
 ## Vytvoření účtu Azure Data Lake Store
 
 Otevřete příkazový řádek, prostředí nebo relaci terminálové služby a spusťte následující příkazy.
 
-1. Připojte se k předplatnému Azure:
-
-        azure login
-
-    Zobrazí se výzva k otevření webové stránky a zadání ověřovacího kódu. Postupujte podle pokynů na stránce a přihlaste se k předplatnému Azure.
-
 2. Přepněte do režimu Azure Resource Manager pomocí následujícího příkazu:
 
         azure config mode arm
 
-
-3. Zobrazte seznam předplatných Azure svého účtu.
-
-        azure account list
-
-
-4. Pokud máte víc předplatných Azure, následujícím příkazem nastavte předplatné, které bude rozhraní příkazového řádku Azure používat:
-
-        azure account set <subscriptionname>
 
 5. Vytvořte novou skupinu prostředků. V následujícím příkazu zadejte hodnoty parametrů, které chcete použít.
 
@@ -191,6 +195,6 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

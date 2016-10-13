@@ -41,7 +41,7 @@ Pro absolvování tohoto kurzu potřebujete:
 
 Na závěr si poznamenejte hodnotu **Primární klíč** a potom klikněte na **Zasílání zpráv**. V okně **Zasílání zpráv** si poznamenejte **název kompatibilní s centrem událostí** a **koncový bod kompatibilní s centrem událostí**. Tyto tři hodnoty budete potřebovat při vytváření aplikace **read-d2c-messages**.
 
-![][6]
+![Okno Zasílání zpráv služby IoT Hub na webu Azure Portal][6]
 
 Teď jste vytvořili službu IoT Hub, máte název hostitele služby IoT Hub, připojovací řetězec služby IoT Hub, primární klíč služby IoT Hub a název a koncový bod kompatibilní se službou Event Hubs, které potřebujete k dokončení kurzu.
 
@@ -63,7 +63,7 @@ V této části vytvoříte konzolovou aplikaci Java, která v registru identit 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -153,7 +153,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -296,7 +296,7 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -446,7 +446,7 @@ Nyní můžete spustit aplikace.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Klientská aplikace služby Java IoT Hub pro monitorování zpráv typu zařízení-cloud][7]
 
 2. V příkazovém řádku ve složce simulated-device spusťte následující příkaz, aby se do služby IoT Hub začala odesílat telemetrická data:
 
@@ -454,11 +454,11 @@ Nyní můžete spustit aplikace.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Klientská aplikace zařízení Java IoT Hub pro odesílání zpráv typu zařízení-cloud][8]
 
 3. Na dlaždici **Využití** v [portálu Azure][lnk-portal] se zobrazuje počet zpráv odeslaných do služby:
 
-    ![][43]
+    ![Dlaždice Použití webu Azure Portal se zobrazením počtu zpráv odeslaných do služby IoT Hub][43]
 
 ## Další kroky
 
@@ -482,13 +482,13 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -497,6 +497,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

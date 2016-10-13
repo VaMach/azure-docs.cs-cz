@@ -13,11 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/18/2016"
+    ms.date="09/30/2016"
     ms.author="curtand;jeffsta"/>
 
 
 # Přidání vlastního názvu domény do Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [portál Azure](active-directory-domains-add-qzure-portal.md)
+- [Portál Azure Classic](active-directory-add-domain.md)
 
 Vlastníte jeden nebo několik názvů domén, které vaše organizace používá ke své obchodní činnosti, a vaši uživatelé se do podnikové sítě přihlašují pomocí firemního názvu domény. Teď, když používáte Azure Active Directory (Azure AD), můžete do Azure AD přidat i název vaší firemní domény. V adresáři díky tomu můžete přiřazovat uživatelská jména, které jsou pro uživatele srozumitelná, například „alice@contoso.com“. Proces je jednoduchý:
 
@@ -94,6 +98,6 @@ Pokud vaše organizace používá několik vlastních názvů domén, napříkla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

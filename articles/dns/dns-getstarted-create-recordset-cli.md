@@ -3,7 +3,7 @@
    description="Jak vytvořit záznamy hostitele pro Azure DNS. Nastavení sad záznamů a záznamů pomocí rozhraní příkazového řádku"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Vytváření sad záznamů a záznamů DNS pomocí rozhraní příkazového řádku
 
@@ -68,6 +69,6 @@ Další informace o službě Azure DNS najdete v tématu [Přehled Azure DNS](dn
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

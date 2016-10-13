@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="davidmu"/>
 
 
@@ -26,7 +26,7 @@ Tento článek ukazuje, jak rychle vytvořit virtuální počítač Azure s Wind
 
 ## Krok1: Nainstalování prostředí Azure PowerShell
 
-Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o tom, jak nainstalovat nejnovější verzi Azure PowerShellu, vybrat předplatné, které chcete použít, a přihlásit se k účtu Azure.
+Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
         
 ## Krok2: Vytvoření skupiny prostředků
 
@@ -36,7 +36,7 @@ Nejdříve vytvořte skupinu prostředků.
 
         Get-AzureRmLocation | sort Location | Select Location
         
-    Mělo by se vám zobrazit přibližně toto:
+    Zobrazení by mělo být podobné následujícímu příkladu:
     
         Location
         --------
@@ -99,7 +99,7 @@ Všechny virtuální počítače jsou součástí [virtuální sítě](../virtua
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Měli byste použít hodnoty, které dávají smysl pro aplikaci a prostředí.
+    Použijte hodnoty, které dávají smysl pro vaši aplikaci a prostředí.
         
 ## Krok 5: Vytvoření veřejné IP adresy a síťového rozhraní
 
@@ -123,7 +123,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Heslo musí mít 8 až 123 znaků a musí splňovat 3 ze 4 bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    Heslo musí být 12 až 123 znaků dlouhé a musí obsahovat minimálně jedno malé písmeno, jedno velké písmeno, jednu číslici a jeden speciální znak. 
         
 2. Nahraďte hodnotu **$vmName** názvem pro virtuální počítač. Vytvořte proměnnou a konfiguraci virtuálního počítače.
 
@@ -147,7 +147,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Nahraďte hodnotu **$blobPath** cestou a názvem souboru v úložišti, který bude používat virtuální pevný disk. Soubor virtuálního pevného disku je obvykle uložen v kontejneru, například **vhds/WindowsVMosDisk.vhd**. Vytvořte proměnné.
+6. Nahraďte hodnotu **$blobPath** cestou a názvem souboru v úložišti virtuálního pevného disku. Soubor virtuálního pevného disku je obvykle uložen v kontejneru, například **vhds/WindowsVMosDisk.vhd**. Vytvořte proměnné.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -170,11 +170,11 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 ## Další kroky
 
 - Pokud byly nějaké problémy s nasazením, je dalším krokem projít si téma [Řešení potíží s nasazením skupin prostředků pomocí webu Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
-- Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md), kde najdete informace o tom, jak spravovat virtuální počítač, který jste právě vytvořili.
+- Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md), kde najdete informace o tom, jak spravovat virtuální počítač, který jste vytvořili.
 - Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md) můžete vytvořit virtuální počítač pomocí šablony.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

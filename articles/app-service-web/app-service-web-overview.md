@@ -16,6 +16,7 @@
     ms.date="08/26/2016"
     ms.author="rachelap"/>
 
+
 # Přehled Web Apps
 
 *App Service Web Apps* je plně spravovaná výpočetní platforma, která je optimalizována pro hostování webů a webových aplikací. Tato nabídka typu [platforma jako služba](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) Microsoft Azure umožňuje zaměřit se na obchodní logiku, zatímco Azure zajistí infrastrukturu pro spouštění a škálování aplikací.
@@ -23,6 +24,8 @@
 Následující 5minutové video představuje Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 ## Co je webová aplikace ve službě App Service?
 
@@ -64,6 +67,6 @@ Pokud chcete začít používat službu Azure App Service před registrací k ú
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

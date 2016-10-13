@@ -90,7 +90,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Softbank** | Podporuje se | Podporuje se | Ósaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Podporuje se | Podporuje se | Amsterdam, Čennaj, Hongkong, Londýn, Bombaj, Silicon Valley, Singapur, Washington DC |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Podporuje se | Podporuje se | Amsterdam, Dublin, Londýn |
-| **Telefonica** | Podporuje se | Připravuje se | Sao Paulo |
+| **Telefonica** | Podporuje se | Podporuje se | Sao Paulo |
 | **Telenor** | Podporuje se | Podporuje se | Amsterdam, Londýn |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Podporuje se | Připravuje se | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Podporuje se | Podporuje se | Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
@@ -174,6 +174,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

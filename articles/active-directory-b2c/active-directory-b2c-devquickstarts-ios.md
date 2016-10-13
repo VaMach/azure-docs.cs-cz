@@ -12,6 +12,7 @@
     ms.date="07/26/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: Volání webového rozhraní API z aplikace pro iOS s použitím knihovny třetích stran
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -151,7 +152,7 @@ Nyní si vše rozeberme podrobně.
 
 Jak vidíte, u `authURL`, `loginURL`, `bhh`, `tokenURL` je třeba vyplnit název klienta. Je to název klienta, který vám byl přiřazen pro klienta B2C. Například `kidventusb2c.onmicrosoft.com`. Pokud používáte naše open source knihovny identit Microsoft Azure, můžete si od nás tato data načíst přes koncový bod metadat. Náročnou práci jsme udělali za vás a tyhle hodnoty jsme extrahovali.
 
-Další informace o názvech klientů B2C najdete tady: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Hodnota `keychain` je kontejner, který knihovna NXOAuth2Client použije k vytvoření řetězce klíčů pro ukládání tokenů. Pokud chcete získat jednotné přihlašování do většího počtu aplikací, můžete v každé aplikaci specifikovat stejný řetězec klíčů, stejně jako vyžadovat použití tohoto řetězce klíčů v požadavcích XCode. Tento proces je popsán v dokumentaci Apple.
 
@@ -648,6 +649,6 @@ Nyní se můžete přesunout k pokročilejším tématům o B2C. Můžete vyzkou
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

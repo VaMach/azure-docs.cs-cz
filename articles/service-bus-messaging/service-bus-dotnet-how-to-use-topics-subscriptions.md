@@ -152,6 +152,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Odběry témat taky můžete vytvořit pomocí třídy [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Odběry mají názvy a můžou mít volitelné filtry, které omezují výběr zpráv odesílaných do virtuální fronty odběru.
 
+> [AZURE.IMPORTANT] Aby předplatné mohlo přijímat zprávy, musíte příslušné předplatné vytvořit před odesláním jakýchkoli zpráv do tématu. Pokud nejsou k dispozici žádná předplatná tématu, příslušné téma takové zprávy zahodí.
+
 ### Vytvoření odběru s výchozím filtrem (MatchAll).
 
 V případě, že při vytváření nového odběru nezadáte žádný filtr, použije se jako výchozí filtr **MatchAll**. Když použijete filtr **MatchAll**, všechny zprávy publikované do tématu se umístí do virtuální fronty odběru. Následující příklad vytvoří odběr s názvem „AllMessages“ a použije výchozí filtr **MatchAll**.
@@ -330,6 +332,6 @@ Naučili jste se základy témat a odběrů Service Bus, další informace se do
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

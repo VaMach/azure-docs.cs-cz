@@ -20,7 +20,7 @@
 
 # Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb
 
-[Azure SQL Database](sql-database-technical-overview.md) nabízí tři úrovně služby s více úrovněmi výkonu pro zpracování různých úloh. Každá úroveň výkonu poskytuje rostoucí sadu prostředků navržených k poskytnutí stále větší propustnosti. Každou databázi můžete spravovat v její vlastní [úrovni služby](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) s vlastní úrovní výkonu. Můžete také spravovat více databází v [elastickém fondu](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) se sdílenou sadou prostředků. Prostředky dostupné pro samostatné databáze jsou vyjádřeny v jednotkách DTU (Database Transaction Unit); prostředky dostupné pro elastické fondy jsou vyjádřeny v elastických jednotkách DTU (eDTU). Další informace o jednotkách DTU a eDTU najdete v tématu [Co je DTU](sql-database-what-is-a-DTU.md). 
+[Azure SQL Database](sql-database-technical-overview.md) nabízí tři úrovně služby s více úrovněmi výkonu pro zpracování různých úloh. Každá úroveň výkonu poskytuje rostoucí sadu prostředků navržených k poskytnutí stále větší propustnosti. Každou databázi můžete spravovat v její vlastní [úrovni služby](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) s vlastní úrovní výkonu. Můžete také spravovat více databází v [elastickém fondu](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) se sdílenou sadou prostředků. Prostředky dostupné pro samostatné databáze jsou vyjádřeny v jednotkách DTU (Database Transaction Unit); prostředky dostupné pro elastické fondy jsou vyjádřeny v elastických jednotkách DTU (eDTU). Další informace o jednotkách DTU a eDTU najdete v tématu [Co je DTU](sql-database-what-is-a-dtu.md). 
 
 V obou případech jsou dostupné úrovně služby **Basic**, **Standard** a **Premium**. Možnosti databáze v těchto úrovních jsou podobné pro samostatné databáze i elastické fondy, ale pro elastické fondy existují ještě další důležité okolnosti. Tento článek obsahuje podrobné informace o úrovních služeb pro samostatné databáze i pro elastické fondy.
 
@@ -91,6 +91,6 @@ Informace o běžných vzorech architektury dat databázových aplikací softwar
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

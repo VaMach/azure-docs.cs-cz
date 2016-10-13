@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -502,13 +502,13 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Začínáme s nabízenými oznámeními v mobilních službách]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Upozornění uživatelů centra oznámení Azure pro iOS pomocí backendu .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Používání centra oznámení k odesílání novinek]: notification-hubs-ios-send-breaking-news.md
+[Upozornění uživatelů centra oznámení Azure pro iOS pomocí backendu .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Používání centra oznámení k odesílání novinek]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Průvodci programováním místních a nabízených oznámení]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

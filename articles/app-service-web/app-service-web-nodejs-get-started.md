@@ -23,6 +23,7 @@
 
 Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do služby [Azure App Service] z prostředí příkazového řádku, jako je například cmd.exe nebo bash. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 <a name="prereq"></a>
 ## Požadavky
@@ -257,6 +258,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

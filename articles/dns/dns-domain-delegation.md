@@ -3,7 +3,7 @@
    description="Zjistěte, jak změnit delegování domény a pomocí názvových serverů Azure DNS umožněte hosting domén."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 
 # Delegování domény do Azure DNS
@@ -53,7 +54,7 @@ Existují dva typy serverů DNS:
 
 Klient DNS v počítačích nebo na mobilních zařízeních obvykle pro všechny dotazy DNS klientské aplikace volá rekurzivní server DNS.
 
-Když rekurzivní server DNS obdrží dotaz na záznam DNS, třeba „www.contoso.com“, nejprve musí najít názvový server, který hostuje zónu pro doménu „contoso.com“. To provede tak, že začne u kořenových názvových serverů a vyhledá názvové servery, které hostují zónu „com“. Následně se dotazuje názvových serverů „com“ a tak najde názvové servery, které hostují zónu „contoso.com“.  Nakonec se těchto názvových serverů může dotázat na „www.contoso.com“.  
+Když rekurzivní server DNS obdrží dotaz na záznam DNS, třeba „www.contoso.com“, nejprve musí najít názvový server, který hostuje zónu pro doménu „contoso.com“. To provede tak, že začne u kořenových názvových serverů a vyhledá názvové servery, které hostují zónu „com“. Následně se dotazuje názvových serverů „com“ a tak najde názvové servery, které hostují zónu „contoso.com“.  Nakonec se těchto názvových serverů může dotázat na „www.contoso.com“.
 
 Tento postup se nazývá překlad názvu DNS. Přesněji řečeno, překlad DNS zahrnuje ještě další kroky, jako třeba sledování záznamů CNAME, ale pro pochopení, jak funguje delegování DNS, to není důležité.
 
@@ -83,7 +84,7 @@ Nejjednodušší způsob, jak zobrazit názvové servery přiřazené pro vaší
 
 Azure DNS automaticky vytvoří ve vaší zóně záznamy autoritativních NS, které obsahují přiřazené názvové servery.  Chcete-li zobrazit názvy názvových serverů prostřednictvím Azure PowerShellu nebo rozhraní příkazového řádku Azure, stačí jednoduše načíst tyto záznamy.
 
-Pomocí Azure PowerShellu lze záznamy autoritativních NS načíst následujícím způsobem. Všimněte si, že název záznamu „@“ se používá k odkazování na záznamy na vrcholu zóny. 
+Pomocí Azure PowerShellu lze záznamy autoritativních NS načíst následujícím způsobem. Všimněte si, že název záznamu „@“ se používá k odkazování na záznamy na vrcholu zóny.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -146,7 +147,7 @@ Všimněte si, že nemusíte určit názvové servery Azure DNS, protože normá
 
 ## Delegování subdomén v Azure DNS
 
-Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat v Azure DNS. Předpokládejme například, že jste již v Azure nastavili a delegovali „contoso.com“, a chtěli byste nastavit samostatnou podřízenou zónu „partners.contoso.com“. 
+Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat v Azure DNS. Předpokládejme například, že jste již v Azure nastavili a delegovali „contoso.com“, a chtěli byste nastavit samostatnou podřízenou zónu „partners.contoso.com“.
 
 Nastavení subdomény probíhá podobně jako normální delegování. Jediným rozdílem je, že v kroku 3 musí být záznamy NS vytvořené v nadřazené zóně „contoso.com“ v Azure DNS místo toho, aby je nastavoval registrátor.
 
@@ -169,7 +170,7 @@ Nejdříve Vytvoříme nadřazené a podřízené zóny. Ty mohou být ve stejn�
 
 #### Krok 2. Načtení záznamů NS
 
-Dále načteme z podřízené zóny záznamy autoritativních NS, viz následující příklad.  To obsahuje názvové servery přiřazené pro podřízenou zónu. 
+Dále načteme z podřízené zóny záznamy autoritativních NS, viz následující příklad.  To obsahuje názvové servery přiřazené pro podřízenou zónu.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -208,6 +209,6 @@ Vyhledáním záznamu SOA podřízené zóny můžete ověřit, že je všechno 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

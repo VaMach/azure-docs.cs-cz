@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    pageTitle="Správa skupin ve službě Azure Active Directory | Microsoft Azure"
+    description="Postupy při vytváření a správě skupin pro správu uživatelů Azure pomocí služby Azure Active Directory."
     services="active-directory"
     documentationCenter=""
     authors="curtand"
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/29/2016"
     ms.author="curtand"/>
 
 
+
 # Správa skupin ve službě Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [portál Azure](active-directory-groups-create-azure-portal.md)
+- [Portál Azure Classic](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
 
 Jedna z funkcí správy uživatelů služby Azure Active Directory (Azure AD) je možnost vytváření skupin uživatelů. Pomocí skupiny můžete provádět úlohy správy, jako je přiřazení licencí nebo oprávnění víc uživatelům současně. Skupiny můžete použít také k přiřazení přístupových oprávnění pro:
 
@@ -116,6 +123,7 @@ Následující články poskytují další informace o službě Azure Active Dir
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO1-->
 
 

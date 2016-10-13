@@ -3,7 +3,7 @@
     description="V tomto kurzu začnete pracovat s back-endy mobilní aplikace Azure při vývoji aplikací pro Univerzální platformu Windows (UPW) v jazycích C#, Visual Basic a JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Vytvoření aplikace pro Windows
 
@@ -98,6 +99,6 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

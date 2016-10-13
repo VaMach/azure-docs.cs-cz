@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Začínáme se službou Azure Search | Microsoft Azure | Začínáme se službou Azure Search | DocumentDB | Cloudová vyhledávací služba" 
-    description="Vytvořte pomocí tohoto kurzu první řešení se službou Azure Search. Naučte se vytvořit index služby Azure Search pomocí dat DocumentDB. Toto je cvičení bez kódu založené na portálu, které používá Průvodce importem dat." 
+    pageTitle="Začínáme se službou Azure Search | Microsoft Azure | DocumentDB | Cloudová vyhledávací služba" 
+    description="Zjistěte, jak vytvořit první index služby Azure Search pomocí tohoto kurzu a ukázkových dat DocumentDB. Toto cvičení bez kódu založené na portálu využívá Průvodce importem dat." 
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="08/29/2016" 
+    ms.date="10/03/2016" 
     ms.author="heidist"/>
 
 
@@ -24,27 +24,27 @@ Tento úvod bez kódu vám pomůže začít s Microsoft Azure Search pomocí fun
 
 Kurz předpokládá využití [ukázkové databáze Azure DocumentDB](#apdx-sampledata), kterou lze jednoduše vytvořit pomocí našich dat a pokynů, ale můžete také přizpůsobit tyto kroky vaším existujícím datům v DocumentDB nebo SQL Database.
 
-> [AZURE.NOTE] Tento úvodní kurz vyžaduje [předplatné Azure](../../includes/free-trial-note.md) a [službu Azure Search](search-create-service-portal.md). 
+> [AZURE.NOTE] Tento úvodní kurz vyžaduje [předplatné Azure](/pricing/free-trial/?WT.mc_id=A261C142F) a [službu Azure Search](search-create-service-portal.md). 
  
 ## Vyhledání služby
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
 
 2. Otevřete řídící panel služby Azure Search. Zde je několik způsobů, jak najít řídicí panel.
-    - Na panelu vlevo klikněte na **Vyhledávací služby**. Panel vlevo obsahuje seznam všech služeb zřízených v rámci vašeho předplatného. Pokud byla definována vyhledávací služba, zobrazí se v seznamu **Vyhledávací služby**.
+    - Na panelu vlevo klikněte na **Vyhledávací služby**. Panel vlevo obsahuje seznam všech služeb zřízených v rámci vašeho předplatného. Pokud byla definována vyhledávací služba, zobrazuje se v seznamu položka **Služby vyhledávání**.
     - Na panelu vlevo klikněte na **Procházet** a potom zadejte do pole hledání termín „search“, abyste vytvořili seznam všech vyhledávacích služeb vytvořených v rámci vašich předplatných.
 
 ## Kontrola místa
 
-Mnoho zákazníků začíná s bezplatnou službou. Tato verze je omezená na tři indexy, tři zdroje dat a tři indexery. Než začnete, ujistěte se, že máte místo pro další položky. Tento návod vytvoří od každého objektu jeden.
+Mnoho zákazníků začíná s bezplatnou službou. Tato verze je omezená na tři indexy, tři zdroje dat a tři indexery. Než začnete, ujistěte se, že máte místo pro další položky. Tento návod vytváří od každého objektu jeden.
 
 ## Vytvoření indexu a načtení dat
 
-Vyhledávací dotazy provádějí iterace *indexu* obsahujícího data s možností vyhledávání, metadata a konstrukce používané k optimalizaci určitého chování vyhledávání. Jako první krok nadefinujete a naplníte index.
+Vyhledávací dotazy provádějí iterace *indexu* obsahujícího data s možností vyhledávání, metadata a konstrukce používané k optimalizaci určitého chování vyhledávání. Jako první krok nadefinujte a naplňte index.
 
 Existuje několik způsobů vytvoření indexu. Pokud jsou vaše data v úložišti, které může procházet služba Azure Search, jako je například SQL Azure Database, SQL Server na virtuálním počítači Azure nebo DocumentDB, můžete vytvořit a naplnit index velmi snadno pomocí *indexeru*.
 
-Aby bylo možné provést tuto úlohu z portálu, budeme předpokládat data služby DocumentDB, která lze procházet pomocí indexeru prostřednictvím **Průvodce importem dat**. 
+Aby bylo možné provést tuto úlohu z portálu, použijeme data služby DocumentDB, která lze procházet pomocí indexeru prostřednictvím **Průvodce importem dat**. 
 
 Než budete pokračovat, vytvořte [ukázkovou databázi DocumentDB](#apdx-sampledata), kterou použijeme v tomto kurzu, a pak se vraťte do této části a proveďte následující postup.
 
@@ -53,13 +53,13 @@ Než budete pokračovat, vytvořte [ukázkovou databázi DocumentDB](#apdx-sampl
 
 1. Na řídicím panelu služby Azure Search klikněte na panelu příkazů na **Importovat data** a spusťte průvodce, který vytvoří a naplní index.
 
-  ![][7]
+    ![][7]
 
 2. V průvodci klikněte na **Zdroj dat** > **DocumentDB** > **Název** a zadejte název zdroje dat. Zdroj dat je objekt připojení ve službě Azure Search, které lze použít s jinými indexery. Jakmile ho vytvoříte, bude ve službě k dispozici jako „stávající zdroj dat“.
 
-3. Zvolte existující účet DocumentDB, databázi a kolekci. Používáte-li vzorová data, které poskytujeme, vaše definice zdroje dat bude vypadat například takto:
+3. Zvolte existující účet DocumentDB, databázi a kolekci. Používáte-li ukázková data, která poskytujeme, vaše definice zdroje dat vypadá například takto:
 
-  ![][2]
+    ![][2]
 
 Všimněte si, že jsme přeskočili dotaz. To je proto, že nyní neimplementujeme sledování změn v naší datové sadě. Pokud vaše datová sada obsahuje pole, které uchovává informace o čase aktualizace záznamu, můžete nakonfigurovat indexer Azure Search, aby používal sledování změn pro selektivní aktualizace indexu.
 
@@ -150,7 +150,7 @@ Můžete vyzkoušet stejný pracovní postup s Průvodcem importem dat pro dalš
 
 V této části vytvoříme malou databázi v DocumentDB, kterou lze použít k dokončení úloh v tomto kurzu.
 
-Následující instrukce poskytují obecné pokyny, ale nejsou vyčerpávající. Pokud potřebujete další pomoc s navigací v portálu DocumentDB nebo úlohami, můžete se podívat do dokumentace DocumentDB, ale většina příkazů, které budete potřebovat, se nachází na panelu příkazů služby v horní části řídicího panelu nebo v okně databáze. 
+Následující instrukce poskytují obecné pokyny, ale nejsou vyčerpávající. Pokud potřebujete další pomoc s navigací v portálu DocumentDB nebo úlohami, můžete se podívat do dokumentace DocumentDB, ale většina příkazů, které potřebujete, se nachází na panelu příkazů služby v horní části řídicího panelu nebo v okně databáze. 
 
   ![][1]
 
@@ -187,6 +187,6 @@ Měli byste obdržet výstup ve formátu JSON, který začíná dokumentem s č�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

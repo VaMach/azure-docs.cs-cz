@@ -13,11 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 
 # Generování sestav v Azure Active Directory – verze Preview
+
+> [AZURE.SELECTOR]
+- [portál Azure](active-directory-reporting-azure-portal.md)
+- [Portál Azure Classic](active-directory-reporting-guide.md)
 
 *Tato dokumentace je součástí [Příručky generování sestav v Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -220,6 +224,6 @@ Přečtěte si článek [Příručka generování sestav v Azure Active Director
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

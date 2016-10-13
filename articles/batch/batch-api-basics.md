@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="09/08/2016"
+    ms.date="09/29/2016"
     ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 V tomto přehledu základních součástí služby Azure Batch probereme primární funkce a prostředky služby, které mohou vývojáři služby Batch použít k tvorbě rozsáhlých paralelních výpočetních řešení.
 
-Ať vyvíjíte distribuované výpočetní aplikace, nebo službu, která vystavuje přímá volání rozhraní API [Batch REST][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-technical-overview.md#batch-development-apis), budete používat mnoho prostředků a funkcí popsaných v tomto článku.
+Ať vyvíjíte distribuované výpočetní aplikace, nebo službu, která vystavuje přímá volání rozhraní [API REST][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-technical-overview.md#batch-development-apis), používáte mnoho prostředků a funkcí popsaných v tomto článku.
 
 > [AZURE.TIP] Obecný úvod do služby Batch najdete v části [Základy služby Azure Batch](batch-technical-overview.md).
 
@@ -41,9 +41,9 @@ Následující obecný pracovní postup je typický pro téměř všechny aplika
 
 6. Monitorujte průběh úlohy a načtěte výstup úkolu z Azure Storage.
 
-V následujících částech se dozvíte o těchto a o dalších prostředcích služby Batch, které umožní váš distribuovaný výpočetní scénář.
+V následujících částech se dozvíte o těchto a o dalších prostředcích služby Batch, které umožňují váš distribuovaný výpočetní scénář.
 
-> [AZURE.NOTE] K používání služby Batch budete potřebovat [účet Batch](batch-account-create-portal.md). Kromě toho budou téměř všechna řešení používat pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje pouze účty úložiště s typem **Obecné účely**, jak je popsáno v kroku č. 5 článku [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v dokumentu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
+> [AZURE.NOTE] K používání služby Batch potřebujete [účet Batch](batch-account-create-portal.md). Kromě toho téměř všechna řešení používají pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje pouze účty úložiště s typem **Obecné účely**, jak je popsáno v kroku č. 5 článku [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v dokumentu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
 
 ## Prostředky služby Batch
 
@@ -103,7 +103,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
     - *Řada operačního systému* také určuje, jaké verze rozhraní .NET jsou s operačním systémem nainstalovány.
     - Podobně jako u rolí pracovního procesu v rámci služby Cloud Services lze zadat *verzi operačního systému* (další informace o rolích pracovního procesu najdete v části [Více informací o cloudových službách](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) v článku [Přehled služby Cloud Services](../cloud-services/cloud-services-choose-me.md)).
-    - Stejně jako u rolí pracovního procesu se doporučuje jako *Verze operačního systému* zadat `*`, aby se uzly automaticky upgradovaly a nebyla potřeba žádná práce k ošetření nově vydaných verzí. Hlavním případem použití s výběrem konkrétní verze operačního systému scénář zajištění kompatibility aplikací, který umožní testovat zpětnou kompatibilitu, než se povolí aktualizace verze. Po ověření funkčnosti je možné aktualizovat *verzi operačního systému* pro fond a nainstalovat image nového operačního systému – jakékoli spuštěné úkoly budou přerušeny a znovu zařazeny do fronty.
+    - Stejně jako u rolí pracovního procesu se doporučuje jako *Verze operačního systému* zadat `*`, aby se uzly automaticky upgradovaly a nebyla potřeba žádná práce k ošetření nově vydaných verzí. Hlavním případem použití s výběrem konkrétní verze operačního systému scénář zajištění kompatibility aplikací, který umožní testovat zpětnou kompatibilitu, než se povolí aktualizace verze. Po ověření funkčnosti je možné aktualizovat *verzi operačního systému* pro fond a nainstalovat image nového operačního systému – jakékoli spuštěné úkoly se přeruší a zařadí do fronty.
 
 - **Velikost uzlů**
 
@@ -111,9 +111,9 @@ Při vytváření fondu můžete zadat následující atributy:
 
     Velikosti výpočetních uzlů z **konfigurace virtuálního počítače** jsou uvedeny v seznamech [Velikosti pro virtuální počítače v Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) a [Velikosti pro virtuální počítače v Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Služba Batch podporuje všechny velikosti VM Azure kromě `STANDARD_A0` a těch, které mají úložiště Premium (série `STANDARD_GS`, `STANDARD_DS` a `STANDARD_DSV2`).
 
-    Při volbě velikosti uzlu je třeba vzít v úvahu charakteristiky a požadavky aplikace nebo aplikací, které na výpočetních uzlech poběží. Velikost uzlu se obvykle volí s předpokladem, že na uzlu poběží současně pouze jeden úkol. K určení nejvhodnější a cenově nejefektivnější velikosti uzlu zvažte například to, jestli je aplikace vícevláknová nebo kolik paměti používá. Je možné mít [paralelně spuštěno](batch-parallel-node-tasks.md) několik úkolů a tudíž i několik instancí aplikace – v takovém případě obvykle vyberete větší uzel. Další informace najdete v následující části „Zásady plánování úkolů“.
+    Při výběru velikosti výpočetního uzlu zvažte charakteristiku a požadavky aplikací, které budete v uzlech spouštět. To, jestli je aplikace vícevláknová, kolik paměti používá, a další aspekty vám mohou pomoci při určování nejvhodnější a cenově nejefektivnější velikosti uzlu. Velikost uzlu se obvykle volí s předpokladem, že na uzlu poběží současně pouze jeden úkol. Ve výpočetních uzlech je však možné mít během zpracování úkolu [paralelně spuštěno](batch-parallel-node-tasks.md) několik úkolů (a tudíž i několik instancí aplikace). V takovém případě je běžné zvolit větší velikost uzlu, aby dostačovala i v případě zvýšené poptávky na paralelní zpracování úkolů. Další informace najdete v části [Zásady plánování úkolů](#task-scheduling-policy).
 
-    Všechny uzly ve fondu mají stejnou velikost. Jestliže chcete spustit různé aplikace s odlišnými požadavky na systém nebo úrovně zatížení, měli byste pro ně použít oddělené fondy.
+    Všechny uzly ve fondu mají stejnou velikost. Pokud máte v úmyslu spouštět aplikace s různými požadavky na systém nebo úrovně zatížení, doporučujeme vám používat oddělené fondy.
 
 - **Cílový počet uzlů**
 
@@ -133,7 +133,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
 - **Stav komunikace** výpočetních uzlů
 
-    Ve většině scénářů pracují úkoly nezávisle a nepotřebují mezi sebou komunikovat. Mohou však být některé aplikace, ve kterých úkoly musí komunikovat (jako u [scénářů MPI](batch-mpi.md)).
+    Ve většině scénářů pracují úkoly nezávisle a nepotřebují mezi sebou komunikovat. Existují však aplikace, ve kterých úkoly musí komunikovat, například [scénáře MPI](batch-mpi.md).
 
     Fond můžete nakonfigurovat tak, aby umožňoval komunikaci mezi v něm obsaženými uzly – **komunikace mezi uzly**. Pokud je komunikace mezi uzly povolena, uzly ve fondech z konfigurace služby Cloud Services mohou vzájemně komunikovat na portech vyšších než 1100. Fondy z konfigurace virtuálního počítače neomezují provoz na žádném portu.
 
@@ -141,7 +141,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
 - **Spouštěcí úkoly** pro výpočetní uzly
 
-    Volitelný *spouštěcí úkol* se spustí na každém uzlu, když se takový uzel připojí k fondu, a také pokaždé, když se uzel restartuje nebo obnoví z image. Spouštěcí úkol je obzvlášť užitečný pro přípravu výpočetních uzlů k provádění úkolů, například k instalaci aplikací, které budou vaše úkoly na výpočetních uzlech spouštět.
+    Volitelný *spouštěcí úkol* se spustí na každém uzlu, když se takový uzel připojí k fondu, a také pokaždé, když se uzel restartuje nebo obnoví z image. Spouštěcí úkol je obzvlášť užitečný pro přípravu výpočetních uzlů k provádění úkolů, jako je instalace aplikací, které budou vaše úkoly na výpočetních uzlech spouštět.
 
 - **Balíčky aplikací**
 
@@ -157,9 +157,9 @@ Při vytváření fondu můžete zadat následující atributy:
 
 Úloha je kolekce úkolů. Řídí, jak se provádí výpočet pomocí jejích úkolů na výpočetních uzlech ve fondu.
 
-- Úloha určuje **fond**, ve kterém poběží práce. Můžete vytvořit nový fond pro každou úlohu nebo použít jeden fond pro mnoho úloh. Můžete vytvořit fond pro každou úlohu, která je přidružená k plánu úlohy, nebo pro všechny úlohy, které jsou spojeny s plánem úlohy.
+- Úloha určuje **fond**, ve kterém běží práce. Můžete vytvořit nový fond pro každou úlohu nebo použít jeden fond pro mnoho úloh. Můžete vytvořit fond pro každou úlohu, která je přidružená k plánu úlohy, nebo pro všechny úlohy, které jsou spojeny s plánem úlohy.
 
-- Volitelně můžete zadat **prioritu úlohy**. Když je úloha odeslána s vyšší prioritou než aktuálně probíhající úlohy, jsou úkoly úlohy s vyšší prioritou vloženy do fronty před úkoly úloh s nižší prioritou. Úkoly s nižší prioritou, které jsou již spuštěny, nebudou zrušeny.
+- Volitelně můžete zadat **prioritu úlohy**. Když je úloha odeslána s vyšší prioritou než aktuálně probíhající úlohy, jsou úkoly úlohy s vyšší prioritou vloženy do fronty před úkoly úloh s nižší prioritou. Úkoly v rámci úloh s nižší prioritou, které jsou již spuštěny, se neruší.
 
 - Můžete použít **omezení** úlohy k zadání určitých omezení pro úlohy.
 
@@ -179,7 +179,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
 V rámci stejného účtu mají úlohy s vyšší prioritou přednost při plánování před úlohami s nižší prioritou. Úloha s vyšší hodnotou priority v jednom účtu nemá přednost při plánování před jinou úlohou s nižší hodnotou priority v jiném účtu.
 
-Plánování úloh mezi fondy je nezávislé. Mezi různými fondy není zaručeno, že úloha s vyšší prioritou bude naplánována první, pokud její přidružený fond nemá dostatek nečinných uzlů. Ve stejném fondu mají úlohy se stejnou úrovní priority stejnou šanci být naplánované.
+Plánování úloh mezi fondy je nezávislé. Mezi různými fondy není zaručeno, že úloha s vyšší prioritou je naplánována jako první, pokud její přidružený fond nemá dostatek nečinných uzlů. Ve stejném fondu mají úlohy se stejnou úrovní priority stejnou šanci být naplánované.
 
 ### Naplánované úlohy
 
@@ -207,7 +207,7 @@ Při vytvoření úkolu můžete zadat:
 
 - **Omezení**, za kterých by měl být proveden úkol. Například: maximální doba, po kterou smí úkol běžet, maximální počet pokusů o opakování neúspěšného úkolu a maximální doba, po kterou jsou zachovány soubory v pracovním adresáři úkolu.
 
-- **Balíčky aplikací** pro nasazení do výpočetního uzlu, na kterém je naplánováno spuštění úkolu. [Balíčky aplikací](#application-packages) poskytují možnost zjednodušeného nasazení a správy verzí aplikací, které provádějí vaše úkoly. Balíčky aplikací na úrovni úkolů jsou zvláště užitečné v prostředích sdíleného fondu, kde se různé úlohy spouštějí v jednom fondu a kde se fond po dokončení úlohy neodstraňuje. Pokud má vaše úloha méně úkolů než je uzlů ve fondu, balíčky aplikací úkolů můžou omezit přenosy dat, protože se aplikace může nasadit jen na uzly, které úkoly budou skutečně provádět.
+- **Balíčky aplikací** pro nasazení do výpočetního uzlu, na kterém je naplánováno spuštění úkolu. [Balíčky aplikací](#application-packages) poskytují možnost zjednodušeného nasazení a správy verzí aplikací, které provádějí vaše úkoly. Balíčky aplikací na úrovni úkolů jsou zvláště užitečné v prostředích sdíleného fondu, kde se různé úlohy spouštějí v jednom fondu a kde se fond po dokončení úlohy neodstraňuje. Pokud má vaše úloha méně úkolů, než je uzlů ve fondu, balíčky aplikací úkolů můžou omezit přenosy dat, protože se aplikace může nasadit jen na uzly, které úkoly budou skutečně provádět.
 
 Vedle úkolů, které definujete pro provádění výpočtů na uzlu, poskytuje služba Batch také následující zvláštní úkoly:
 
@@ -219,7 +219,7 @@ Vedle úkolů, které definujete pro provádění výpočtů na uzlu, poskytuje 
 
 ### Spouštěcí úkol
 
-Přidružením **spouštěcího úkolu** k fondu můžete připravit provozní prostředí jeho uzlů. Můžete například provádět instalaci aplikací, které vaše úkoly budou spouštět, nebo spouštět procesy na pozadí. Spouštěcí úkol se spustí při každém spuštění uzlu, a běží tak dlouho, dokud zůstává ve fondu, včetně okamžiků prvního přidání uzlu do fondu a jeho restartování či obnovení z image.
+Přidružením **spouštěcího úkolu** k fondu můžete připravit provozní prostředí jeho uzlů. Můžete například provádět akce, jako je instalace aplikací, které vaše úkoly spouštějí, nebo spouštění procesů na pozadí. Spouštěcí úkol se spustí při každém spuštění uzlu, a běží tak dlouho, dokud zůstává ve fondu, včetně okamžiků prvního přidání uzlu do fondu a jeho restartování či obnovení z image.
 
 Hlavní výhodou spouštěcího úkolu je, že obsahuje všechny informace potřebné ke konfiguraci výpočetního uzlu a instalaci aplikací nezbytných k provádění úkolu. Proto je zvýšení počtu uzlů ve fondu velmi jednoduché – stačí zadat nový cílový počet uzlů. Služba Batch již má všechny informace potřebné ke konfiguraci nových uzlů a jejich přípravu pro přijetí úkolů.
 
@@ -231,7 +231,7 @@ Může však také obsahovat referenční data, která budou k dispozici k použ
 
 Obvykle je žádoucí, aby služba Batch čekala na dokončení spouštěcího úkolu předtím, než bude uzel považovat za připravený k přiřazení úkolů, ale tuto možnost lze nakonfigurovat.
 
-Pokud na výpočetním uzlu selže spouštěcí úkol, je stav tohoto uzlu aktualizován, aby odrážel selhání a uzel nebude k dispozici pro úlohy, které mají být přiřazeny. Spouštěcí úkol může selhat, jestliže se vyskytl problém s kopírováním jeho souborů prostředků z úložiště nebo pokud proces spuštěný pomocí jeho příkazového řádku vrátí nenulový ukončovací kód.
+Pokud na výpočetním uzlu selže spouštěcí úkol, je stav tohoto uzlu aktualizován, aby odrážel selhání, a uzlu se nepřiřazují žádné úlohy. Spouštěcí úkol může selhat, jestliže se vyskytl problém s kopírováním jeho souborů prostředků z úložiště nebo pokud proces spuštěný pomocí jeho příkazového řádku vrátí nenulový ukončovací kód.
 
 Pokud přidáváte nebo aktualizujete spouštěcí úkol pro *existující* fond, je nutné restartovat jeho výpočetní uzly, aby se na nich spouštěcí úkol provedl.
 
@@ -260,7 +260,7 @@ Služba Batch zajišťuje úkoly přípravy úloh pro nastavení před proveden�
 - **Úkol přípravy úlohy**: Úkol přípravy úlohy je spuštěn před spuštěním jiných úkolů úlohy na všech výpočetních uzlech, na kterých je naplánované spuštění úkolů. Úkol přípravy úlohy lze například použít ke zkopírování dat, která jsou sdílena všemi úkoly, ale jsou jedinečná pro úlohu.
 - **Úkol uvolnění úlohy**: Po dokončení úlohy se na každém uzlu ve fondu, na kterém se spustil alespoň jeden úkol, spustí úkol uvolnění úlohy. Pomocí úkolu uvolnění úlohy můžete například odstranit data zkopírovaná pomocí úkolu přípravy úlohy nebo zkomprimovat a nahrát data diagnostického protokolu.
 
-Úkoly přípravy i uvolnění úloh umožňují zadat příkazový řádek, který se provede, když je úkol vyvolán. Často nabízejí funkce jako stahování souborů, provádění se zvýšenými oprávněními, vlastní proměnné prostředí, maximální dobu provádění, počet opakování a dobu uchovávání souboru.
+Úkoly přípravy i uvolnění úloh umožňují zadat příkazový řádek, který se provede, když je úkol vyvolán. Nabízejí funkce, jako například stahování souborů, provádění se zvýšenými oprávněními, vlastní proměnné prostředí, maximální dobu provádění, počet opakování a dobu uchovávání souboru.
 
 Další informace ohledně úkolů přípravy a uvolnění úloh najdete v části [Spouštění úkolů přípravy a dokončení úlohy na výpočetních uzlech Azure Batch](batch-job-prep-release.md).
 
@@ -284,30 +284,13 @@ Podívejte se na článek [Závislosti úkolů v Azure Batch](batch-task-depende
 
 ## Nastavení prostředí pro úlohy
 
-Každý úkol, který se spustí v rámci služby Batch, má přístup k proměnným prostředí, které jsou jednak nastaveny službou Batch (definovány službou, jak je popsáno v následující tabulce), jednak jde o vlastní proměnné prostředí, které si můžete nastavit pro své úkoly. Aplikace a skripty spouštěné úkoly na uzlech mají během zpracování přístup do těchto proměnných prostředí.
+Každý úkol prováděný službou Batch má přístup k proměnným prostředí, které nastaví na výpočetních uzlech. To zahrnuje proměnné prostředí, které jsou definovány službou Batch ([definované službou][msdn_env_vars]) a vlastní proměnné prostředí, které můžete definovat pro své úkoly. Aplikace a skripty zpracovávané vašimi úkoly mají během zpracování přístup k těmto proměnným prostředí.
 
 Vlastní proměnné prostředí můžete nastavit na úrovni úkolů či úloh tím, že vyplníte vlastnost *nastavení prostředí* pro tyto entity. Viz například operace [Přidávání úkolu do úlohy][rest_add_task] (Batch REST API) nebo vlastnosti [CloudTask.EnvironmentSettings][net_cloudtask_env] a [CloudJob.CommonEnvironmentSettings][net_job_env] v Batch .NET.
 
 Vaše klientská aplikace nebo služba může získat službou i uživatelem definované proměnné prostředí úkolu pomocí operace [Získat informace o úkolu][rest_get_task_info] (Batch REST) nebo přístupem k vlastnosti [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). Procesy prováděné na výpočetním uzlu mohou také přistupovat k těmto i ostatním proměnným prostředí na uzlu například pomocí známé syntaxe `%VARIABLE_NAME%` (Windows) nebo `$VARIABLE_NAME` (Linux).
 
-Následující proměnné prostředí jsou nastaveny službou Batch a jsou přístupné pro vaše úkoly:
-
-| Název proměnné prostředí       | Popis                                                              |
-|---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME`         | Název účtu, ke kterému úkol patří.                       |
-| `AZ_BATCH_JOB_ID`               | Číslo ID úlohy, ke které úkol patří.                             |
-| `AZ_BATCH_JOB_PREP_DIR`         | Úplná cesta adresáře úkolu přípravy úlohy na uzlu.         |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR` | Úplná cesta pracovního adresáře úkolu přípravy úlohy na uzlu. |
-| `AZ_BATCH_NODE_ID`              | Číslo ID uzlu, na kterém je spuštěn úkol.                         |
-| `AZ_BATCH_NODE_ROOT_DIR`        | Úplná cesta kořenového adresáře na uzlu.                         |
-| `AZ_BATCH_NODE_SHARED_DIR`      | Úplná cesta sdíleného adresáře na uzlu.                       |
-| `AZ_BATCH_NODE_STARTUP_DIR`     | Úplná cesta úkolu po spuštění výpočetního uzlu adresáře na uzlu.    |
-| `AZ_BATCH_POOL_ID`              | Číslo ID fondu, ve kterém je spuštěn úkol.                         |
-| `AZ_BATCH_TASK_DIR`             | Úplná cesta adresáře úkolu na uzlu.                         |
-| `AZ_BATCH_TASK_ID`              | Číslo ID aktuálního úkolu.                                              |
-| `AZ_BATCH_TASK_WORKING_DIR`     | Úplná cesta pracovního adresáře úkolu na uzlu.                 |
-
->[AZURE.IMPORTANT] Tyto proměnné prostředí jsou k dispozici pouze v kontextu **uživatele úkolu** – to znamená uživatelský účet v uzlu, pod kterým je úkol spuštěn. *Neuvidíte je*, pokud se k výpočetnímu uzlu [vzdáleně připojíte](#connecting-to-compute-nodes) prostřednictvím protokolu RDP (Remote Desktop) nebo Secure Shell (SSH) a vypíšete si seznam proměnných prostředí. Je to proto, že uživatelský účet, který se používá pro vzdálené připojení, není stejný jako účet, který je používán úkolem.
+Úplný seznam všech proměnných prostředí definovaných službou najdete v článku [Proměnné prostředí výpočetního uzlu][msdn_env_vars].
 
 ## Soubory a adresáře
 
@@ -347,9 +330,9 @@ Pokud chcete získat další informace o funkci balíčku aplikace, projděte si
 
 Při navrhování řešení Azure Batch musíte přijmout rozhodnutí o návrhu ohledně toho, kdy a jak jsou fondy vytvářeny a jak dlouho jsou výpočetní uzly v rámci těchto fondů udržovány dostupné.
 
-Na jednom konci spektra můžete vytvořit fond pro každou úlohu, když je úloha odeslána, a odebrat jeho uzly, jakmile úkoly dokončí provádění. Tím se maximalizuje využití, neboť uzly jsou přiděleny pouze tehdy, když je to nezbytně nutné, a vypnuty, jakmile jsou nečinné. To znamená, že úloha musí čekat, až budou uzly přiděleny. Je důležité si uvědomit, že úkoly budou naplánovány na uzly, jakmile jsou jednotlivě k dispozici, přiděleny a spouštěcí úkol je dokončen. Služba Batch před přiřazením úkolů *nečeká*, až budou všechny uzly v rámci fondu dostupné. Tím je zajištěno maximální využití všech dostupných uzlů.
+Na jednom konci spektra můžete vytvořit fond pro každou úlohu, kterou odešlete, a odstranit jej, jakmile se dokončí provádění příslušných úkolů. Tím se maximalizuje využití, neboť uzly se přidělují pouze tehdy, když je to nutné, a vypínají se, jakmile jsou nečinné. To znamená, že úloha musí čekat, až budou uzly přiděleny. Je důležité si uvědomit, že zpracování úkolů se naplánuje, jakmile jsou uzly jednotlivě k dispozici, jsou přiděleny a spouštěcí úkol je dokončen. Služba Batch před přiřazením úkolů k uzlům *nečeká*, až budou všechny uzly v rámci fondu dostupné. Tím je zajištěno maximální využití všech dostupných uzlů.
 
-Na druhém konci spektra, pokud je nejvyšší prioritou okamžité spuštění úloh, můžete fond vytvořit s předstihem, aby jeho uzly byly k dispozici před odesláním úloh. V tomto scénáři se mohou úkoly úloh spustit okamžitě, ale uzly mohou „nečinně sedět“ a čekat na přiřazení úkolů.
+Na druhém konci spektra, pokud je nejvyšší prioritou okamžité spuštění úloh, můžete fond vytvořit s předstihem, aby jeho uzly byly k dispozici před odesláním úloh. V tomto scénáři se mohou úkoly spustit okamžitě, ale uzly mohou „nečinně sedět“ a čekat na jejich přiřazení.
 
 V případě zpracovávání proměnlivého, ale stálého zatížení se obvykle používá kombinovaný přístup. Můžete mít fond, do nějž je odesíláno více úloh a který může podle zatížení úlohami měnit počet uzlů nahoru nebo dolů (viz [Škálování výpočetních prostředků](#scaling-compute-resources) v následující části). Toto přizpůsobování kapacity můžete provádět reaktivně, na základě aktuálního zatížení, nebo proaktivně, pokud lze zatížení předpovídat.
 
@@ -377,7 +360,7 @@ Další informace o automatickém škálování aplikace najdete v tématu [Auto
 
 ## Zabezpečení pomocí certifikátů
 
-Při šifrování nebo dešifrování citlivých informací pro úkoly, jako například klíč pro [účet Azure Storage][azure_storage], je obvykle třeba použít certifikáty. Z toho důvodu můžete na uzly nainstalovat certifikáty. Šifrované tajné klíče jsou předány na úkoly prostřednictvím parametrů příkazového řádku nebo vložené v jednom prostředků úkolu a nainstalované certifikáty lze použít pro jejich dešifrování.
+Při šifrování nebo dešifrování citlivých informací pro úkoly, jako je klíč pro [účet Azure Storage][azure_storage], je obvykle třeba použít certifikáty. Z toho důvodu můžete na uzly nainstalovat certifikáty. Šifrované tajné klíče jsou předány na úkoly prostřednictvím parametrů příkazového řádku nebo vložené v jednom prostředků úkolu a nainstalované certifikáty lze použít pro jejich dešifrování.
 
 K přidání certifikátu do účtu služby Batch můžete použít operaci [Přidat certifikát][rest_add_cert] (Batch REST) nebo metodu [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET). Poté můžete certifikát přidružit k novému nebo existujícímu fondu. Pokud je certifikát přidružený k fondu, služba Batch nainstaluje certifikát na každý uzel ve fondu. Služba Batch nainstaluje příslušné certifikáty při spuštění uzlu, ještě před spuštěním úkolů (včetně spouštěcího úkolu a úkolu správce úloh).
 
@@ -436,7 +419,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 - **Restartovat uzel** ([REST][rest_reboot] | [.NET][net_reboot])
 
-    Restartování uzlu může někdy odstranit latentní problémy, jako jsou zablokované nebo zhroucené procesy. Vezměte na vědomí, že spouštěcí úkol nebo úkol přípravy úlohy bude po restartování uzlu proveden, pokud jej váš fond používá.
+    Restartování uzlu může někdy odstranit latentní problémy, jako jsou zablokované nebo zhroucené procesy. Vezměte na vědomí, že spouštěcí úkol nebo úkol přípravy úlohy je po restartování uzlu proveden, pokud jej váš fond používá.
 
 - **Obnovit uzel z image** ([REST][rest_reimage] | [.NET][net_reimage])
 
@@ -448,7 +431,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 - **Zakázat plánování úkolů v uzlu** ([REST][rest_offline] | [.NET][net_offline])
 
-    To efektivně převede uzel "do režimu offline" tak, aby mu nebyly přiřazeny žádné další úlohy, ale umožňuje, aby zůstal spuštěný a ve fondu. Díky tomu můžete provést další šetření příčin selhání bez ztráty dat neúspěšného úkolu, a aniž by uzel způsobil selhání dalších úkolů. Můžete například zakázat plánování úloh na uzlu a pak se [přihlásit vzdáleně](#connecting-to-compute-nodes) a prohlédnout si protokoly událostí uzlu nebo provádět jiné řešení potíží. Jakmile dokončíte šetření, můžete převést uzel zpět do online režimu povolením plánování úkolů ([REST][rest_online] | [.NET][net_online]) nebo provést některou z dalších akcí diskutovaných výše.
+    To efektivně převede uzel „do režimu offline“ tak, aby mu nebyly přiřazeny žádné další úlohy, ale umožňuje, aby zůstal spuštěný a ve fondu. Díky tomu můžete provést další šetření příčin selhání bez ztráty dat neúspěšného úkolu, a aniž by uzel způsobil selhání dalších úkolů. Můžete například zakázat plánování úloh na uzlu a pak se [přihlásit vzdáleně](#connecting-to-compute-nodes) a prohlédnout si protokoly událostí uzlu nebo provádět jiné řešení potíží. Jakmile dokončíte šetření, můžete převést uzel zpět do online režimu povolením plánování úkolů ([REST][rest_online] | [.NET][net_online]) nebo provést některou z dalších akcí diskutovaných výše.
 
 > [AZURE.IMPORTANT] U každé akce uvedené v této části – restartování, obnovení z image, odebrání, zakázání plánování úkolů – můžete určit, jak se při provedení akce naloží s úkoly, které na uzlu aktuálně běží. Pokud například zakážete plánování úkolů na uzlu pomocí klientské knihovny Batch .NET, můžete zadat výčtovou hodnotu [DisableComputeNodeSchedulingOption][net_offline_option] a určit, jestli spuštěné úkoly ukončit (**Terminate**), znovu zařadit do fronty **Requeue** pro naplánování na jiných uzlech, nebo umožnit dokončení běžících úkolů před provedením akce (**TaskCompletion**).
 
@@ -475,6 +458,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
 [net_cloudpool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
@@ -520,6 +504,6 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -13,8 +13,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="storage-backup-recovery" 
-    ms.date="02/22/2016" 
+    ms.date="10/05/2016"
     ms.author="raynew"/>
+
 
 #  Co je Site Recovery?
 
@@ -83,6 +84,6 @@ Site Recovery může pomoci se strategií BCDR se sledováním aplikací, aby ú
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

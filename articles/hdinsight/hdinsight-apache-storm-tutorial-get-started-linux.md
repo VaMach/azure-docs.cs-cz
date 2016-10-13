@@ -25,7 +25,7 @@ Apache Storm je škálovatelný výpočetní systém v reálném čase odolný p
 
 > [AZURE.NOTE] Kroky v tomto článku vytváří cluster HDInsight se systémem Linux. Postup vytvoření Storm se systémem Windows v clusteru HDInsight, naleznete v části [Kurz Apache Storm: Začínáme s ukázkami používání analýzy dat Storm Starter v HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Než začnete
+## Požadavky
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,6 +38,10 @@ Musíte úspěšně dokončit tento kurz Apache Storm:
     - **Klienti Linux a Unix OS X**: viz [Používání SSH se systémem Linux Hadoop v HDInsight ze systému Linux, OS X nebo Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     - **Klienti Windows**: viz [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+### Požadavky na řízení přístupu
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Vytvoření clusteru Storm
 
@@ -195,6 +199,6 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

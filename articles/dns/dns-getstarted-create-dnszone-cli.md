@@ -3,7 +3,7 @@
    description="Naučte se krok za krokem vytvářet zóny DNS pro Azure DNS a začněte svoji doménu DNS hostovat pomocí rozhraní příkazového řádku"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Vytvoření zóny DNS pomocí rozhraní příkazového řádku
 
@@ -25,9 +26,9 @@
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-Tento článek vás provede jednotlivými kroky při vytváření zóny DNS pomocí rozhraní příkazového řádku. Zónu DNS taky můžete vytvořit pomocí prostředí PowerShell nebo Portálu Azure. 
+Tento článek vás provede jednotlivými kroky při vytváření zóny DNS pomocí rozhraní příkazového řádku. Zónu DNS taky můžete vytvořit pomocí prostředí PowerShell nebo Portálu Azure.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Než začnete
@@ -42,56 +43,56 @@ Můžete nainstalovat rozhraní příkazového řádku Azure CLI pro Windows, Li
 
 Všechny příkazy poskytovatele sítě v rozhraní příkazového řádku se dají najít tímto příkazem:
 
-    Azure network
+    azure network
 
 ### 2. Přepnutí režimu rozhraní příkazového řádku
 
 Azure DNS používá Azure Resource Manager. Nezapomeňte přepnout režim rozhraní příkazového řádku tak, aby se používaly příkazy ARM.
 
-    Azure config mode arm
+    azure config mode arm
 
 ### 3. Přihlášení k účtu Azure
 
 Zobrazí se výzva k ověření pomocí přihlašovacích údajů. Nezapomeňte, že lze použít pouze účty ORGID.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Výběr předplatného
 
 Zvolte předplatné Azure, které chcete použít.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Vytvoření skupiny prostředků
 
 Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. To slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Všechny prostředky DNS jsou ale globální, a ne místní, takže volba umístění skupiny prostředků nemá na Azure DNS žádný vliv.
 
-Pokud používáte některou ze stávajících skupin prostředků, můžete tento krok přeskočit. 
+Pokud používáte některou ze stávajících skupin prostředků, můžete tento krok přeskočit.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Registrace
 
 Službu Azure DNS spravuje poskytovatel prostředků Microsoft.Network. Abyste mohli používat Azure DNS, je nutné zaregistrovat předplatné Azure k používání tohoto poskytovatele prostředků. Jedná se o jednorázovou operaci u každého odběru.
 
-    Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## Krok 2 – Vytvoření zóny DNS
 
-Zóna DNS se vytvoří příkazem `azure network dns zone create`. Pokud chcete, můžete zónu DNS vytvořit společně se značkami. Značky jsou páry název-hodnota, které Azure Resource Manager používá k označování prostředků pro účely fakturace nebo seskupování. Další informace o značkách najdete v tématu [Použití značek k uspořádání prostředků Azure](../resource-group-using-tags.md). 
+Zóna DNS se vytvoří příkazem `azure network dns zone create`. Pokud chcete, můžete zónu DNS vytvořit společně se značkami. Značky jsou páry název-hodnota, které Azure Resource Manager používá k označování prostředků pro účely fakturace nebo seskupování. Další informace o značkách najdete v tématu [Použití značek k uspořádání prostředků Azure](../resource-group-using-tags.md).
 
 V Azure DNS je nutné zadávat názvy zón bez závěrečné tečky **„.“**. Například jako „**contoso.com**“ místo „**contoso.com.**“.
 
 
 ### Postup vytvoření zóny DNS
 
-Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků s názvem *MyResourceGroup*. 
+Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků s názvem *MyResourceGroup*.
 
 Nahraďte hodnoty vlastními a použijte tento příklad k vytvoření zóny DNS.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Postup vytvoření zóny DNS a značek
 
@@ -99,7 +100,7 @@ Rozhraní příkazového řádku Azure DNS podporuje určení značek zón DNS p
 
 Nahraďte hodnoty vlastními a použijte níže uvedený příklad k vytvoření zóny DNS a značek.
 
-    Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Zobrazení záznamů
 
@@ -189,6 +190,6 @@ Po vytvoření zóny DNS vytvořte [sady záznamů a záznamy](dns-getstarted-cr
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

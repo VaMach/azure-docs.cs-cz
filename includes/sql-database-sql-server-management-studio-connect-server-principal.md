@@ -41,10 +41,12 @@ Kromě názvu serveru můžete také explicitně nastavit protokol a číslo por
 
 Chyby a časové limity připojení mohou být způsobeny také problémy s připojením k síti. Řešením může být jednoduché zopakování pokusu o připojení (jestliže víte, že název serveru, přihlašovací údaje a pravidla brány firewall jsou v pořádku).
 
+Podrobnosti a další informace o problémech s připojením najdete v článku [Řešení potíží, diagnostika a předcházení chybám připojení SQL a přechodným chybám pro službu SQL Database](../articles/sql-database/sql-database-connectivity-issues.md).
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO1-->
 
 

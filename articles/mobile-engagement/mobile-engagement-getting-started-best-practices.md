@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="07/07/2016"
+    ms.date="10/04/2016"
     ms.author="wesmc;ricksal"/>
 
 
@@ -357,7 +357,7 @@ Mělo by být důkladně otestováno chování všech typů oznámení vložený
 
 #### Nastavení
 
-Nastavení Azure Mobile Engagementu je velmi snadné. Veškerá dokumentace související s uživatelským rozhraním je dostupná na webu Azure Mobile Engagementu [Jak navigovat v uživatelském rozhraní](mobile-engagement-user-interface.md).
+Nastavení Azure Mobile Engagementu je velmi snadné. Veškerá dokumentace související s uživatelským rozhraním je dostupná na webu Azure Mobile Engagementu [Jak navigovat v uživatelském rozhraní](mobile-engagement-user-interface-home.md).
 
 Doporučuje se, abyste začali nastavením správných rolí a členství v rolích pro uživatele svého projektu.  Pomůže vám to spravovat přístup všech uživatelů k platformě. Můžete použít následující role:
 
@@ -410,6 +410,6 @@ Až získáte dostatek zkušeností, můžete zvážit rozšíření svých prog
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

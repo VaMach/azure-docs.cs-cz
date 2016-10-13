@@ -17,11 +17,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurace propojení VNet-to-VNet pro Resource Manager pomocí PowerShellu
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell – Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Classic – klasický portál](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 Tento článek vás provede postupem vytváření propojení mezi virtuálními sítěmi s použitím služby VPN Gateway a modelu nasazení Resource Manager. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných.
 
@@ -29,24 +30,23 @@ Tento článek vás provede postupem vytváření propojení mezi virtuálními 
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Modely nasazení a nástroje pro propojení VNet-to-VNet
+### Modely nasazení a metody pro VNet-to-VNet
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Propojení VNet-to-VNet je možné konfigurovat v obou režimech nasazení a s použitím několika různých nástrojů. Další informace najdete v následující tabulce. Tuto tabulku aktualizujeme přidáváním nových článků, nových modulů nasazení a dalších nástrojů, které jsou pro tuto konfiguraci postupně k dispozici. Když je článek k dispozici, zařadíme do tabulky přímý odkaz na něj.
+Propojení VNet-to-VNet je možné konfigurovat v obou režimech nasazení a s použitím několika různých nástrojů. Následující tabulku aktualizujeme přidáváním nových článků a dalších nástrojů, které jsou pro tuto konfiguraci postupně k dispozici. Když je článek k dispozici, zařadíme do tabulky přímý odkaz na něj.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
-
 #### Partnerské vztahy virtuálních sítí
 
-K vytvoření propojení můžete využít metodu VNet peering, pokud konfigurace vaší virtuální sítě splňuje určité požadavky. VNet peering nepoužívá bránu virtuální sítě. Metoda [VNet peering](../virtual-network/virtual-network-peering-overview.md) je v současnosti ve verzi Preview.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## Informace o propojeních VNet-to-VNet
 
-Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN Azure VPN, která poskytuje zabezpečené tunelové propojení prostřednictvím protokolu IPsec/IKE. Virtuální sítě, které propojujete, se můžou nacházet v různých oblastech. Můžou taky patřit do různých předplatných. Dokonce můžete kombinovat komunikaci VNet-to-VNet s konfigurací s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu.
+Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN Azure VPN, která poskytuje zabezpečené tunelové propojení prostřednictvím protokolu IPsec/IKE. Virtuální sítě, které propojujete, se můžou nacházet v různých oblastech. Můžou taky patřit do různých předplatných. Dokonce můžete kombinovat komunikaci VNet-to-VNet s konfigurací s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
 
 
 ![Informace o připojeních](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -453,7 +453,7 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 3. **[Předplatné 1]** Vytvoření připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5
 
-    V tomto kroku vytvoříte propojení z virtuální sítě TestVNet1 do sítě TestVNet5. Rozdíl zde spočívá v tom, že hodnotu $vnet5gw nelze získat přímo, protože patří do jiného předplatného. Je třeba vytvořit nový objekt prostředí PowerShell s hodnotami zjištěnými z předplatného 1 v předchozích krocích. Nahraďte název, ID a sdílený klíč vlastními hodnotami. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
+    V tomto kroku vytvoříte propojení z virtuální sítě TestVNet1 do sítě TestVNet5. Rozdíl zde spočívá v tom, že hodnotu $vnet5gw nelze získat přímo, protože patří do jiného předplatného. Je třeba vytvořit nový objekt prostředí PowerShell s hodnotami zjištěnými z předplatného 1 v předchozích krocích. Postupujte podle následujícího příkladu. Nahraďte název, ID a sdílený klíč vlastními hodnotami. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
 
     Ujistěte se, že jste připojeni k předplatnému 1. 
     
@@ -487,6 +487,6 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 
