@@ -1,20 +1,21 @@
 <properties 
-   pageTitle="Konfigurace připojení brány VPN typu Point-to-Site k virtuální síti pomocí modelu nasazení Resource Manager | Microsoft Azure"
-   description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager"/>
+	pageTitle="Konfigurace připojení brány VPN typu Point-to-Site k virtuální síti pomocí modelu nasazení Resource Manager | Microsoft Azure"
+	description="Připojte se bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site."
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carmonm"
+	editor=""
+	tags="azure-resource-manager"/>
+
 <tags 
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/06/2016"
-   ms.author="cherylmc" />
+	ms.service="vpn-gateway"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="10/06/2016"
+	ms.author="cherylmc" />
 
 
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Konfigurace připojení Point-to-Site k virtuální síti pomocí prostředí PowerShell
@@ -69,7 +70,7 @@ Pro tuto konfiguraci používáme následující hodnoty. Nastavíme proměnné 
     
 - Nainstalujte rutiny prostředí PowerShell pro Azure Resource Manager (verze 1.0.2 nebo novější). Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Při práci s prostředím PowerShell pro tuto konfiguraci se ujistěte, že jej spouštíte jako správce. 
 
-## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>Část 1 – Přihlášení a nastavení proměnných
+## <a name="declare"></a>Část 1 – Přihlášení a nastavení proměnných
 
 V této části se přihlásíte a deklarujete hodnoty používané pro tuto konfiguraci. Deklarované hodnoty jsou použity v ukázkových skriptech. Změňte hodnoty tak, aby odpovídaly vašemu prostředí. Můžete také použít deklarované hodnoty a projít kroky jako cvičení.
 
@@ -178,7 +179,7 @@ Klienti připojení k Azure s použitím P2S musí mít nainstalovaný certifik�
 
     ![Klient VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>Část 6 – Vygenerování klientského certifikátu
+## <a name="cc"></a>Část 6 – Vygenerování klientského certifikátu
 
 Dále vygenerujte certifikáty klientů. Můžete buď vygenerovat jedinečný certifikát pro každého klienta, který se připojí, nebo můžete použít stejný certifikát na více klientů. Výhodou generování jedinečných certifikátů pro klienty je možnost v případě potřeby jednotlivý certifikát odvolat. V opačném případě, pokud všichni používají stejný certifikát klienta a zjistíte, že pro jednoho klienta je třeba tento certifikát odvolat, bude nutné vygenerovat a nainstalovat nové certifikáty pro všechny klienty, u nichž je odvolaný certifikát taktéž používán k ověření.
 
@@ -317,6 +318,6 @@ Do virtuální sítě můžete přidat virtuální počítač. Kroky jsou uveden
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Oct16_HO3--->
 
 

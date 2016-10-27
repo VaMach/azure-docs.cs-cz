@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Konfigurace Expressroute a připojení VPN typu site-to-site, která mohou existovat vedle sebe | Microsoft Azure"
-   description="Tento článek vás provede konfigurací ExpressRoute a připojení VPN typu site-to-site, která mohou v modelu nasazení Classic existovat vedle sebe."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"/>
+	pageTitle="Konfigurace Expressroute a připojení VPN typu site-to-site, která mohou existovat vedle sebe | Microsoft Azure"
+	description="Tento článek vás provede konfigurací ExpressRoute a připojení VPN typu site-to-site, která mohou v modelu nasazení Classic existovat vedle sebe."
+	documentationCenter="na"
+	services="expressroute"
+	authors="charwen"
+	manager="carmonm"
+	editor=""
+	tags="azure-service-management"/>
+
 <tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+	ms.service="expressroute"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="10/10/2016"
+	ms.author="charwen"/>
 
 
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Konfigurace souběžně existujících připojení ExpressRoute a S2S pro klasický model nasazení
@@ -74,7 +75,7 @@ Existují dvě sady postupů, ze kterých si můžete vybrat, když konfigurujet
     V tomto postupu bude vytvoření připojení, která mohou existovat společně, vyžadovat, abyste odstranili bránu a pak nakonfigurovali nové brány. To znamená, že budete mít během odstraňování a opětného vytváření brány a připojení výpadek připojení mezi místy, ale nebude nutné migrovat žádné virtuální počítače a služby do nové virtuální sítě. Virtuální počítače a služby budou během konfigurace brány stále schopné komunikovat prostřednictvím nástroje pro vyrovnávání zatížení, pokud jsou tak nakonfigurované.
 
 
-## <a name="<a-name="new"></a>to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
+## <a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
 
 Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření připojení ExpressRoute a VPN site-to-site, která budou existovat společně.
 
@@ -184,7 +185,7 @@ Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření 
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="<a-name="add"></a>to-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
+## <a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
 
 Pokud máte existující virtuální síť, zkontrolujte velikost podsítě brány. Pokud podsíť brány je /28 nebo /29, musíte nejdřív bránu virtuální sítě odstranit a zvýšit velikost podsítě brány. Postup v této části ukazuje, jak to provést.
 
@@ -227,6 +228,6 @@ Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastěj
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!---HONumber=Oct16_HO3-->
 
 

@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="Brána BPN virtuální sítě – nejčastější dotazy | Microsoft Azure"
-   description="Nejčastější dotazy k branám VPN. Nejčastější dotazy týkající se propojení Microsoft Azure Virtual Network mezi různými místy, připojení s hybridní konfigurací a bran VPN"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="yushwang"
-   manager="rossort"
-   editor="" />
+	pageTitle="Brána BPN virtuální sítě – nejčastější dotazy | Microsoft Azure"
+	description="Nejčastější dotazy k branám VPN. Nejčastější dotazy týkající se propojení Microsoft Azure Virtual Network mezi různými místy, připojení s hybridní konfigurací a bran VPN"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="yushwang"
+	manager="rossort"
+	editor="" />
+
 <tags 
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/10/2016"
-   ms.author="yushwang" />
+	ms.service="vpn-gateway"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2016"
+	ms.author="yushwang" />
 
 
 # <a name="vpn-gateway-faq"></a>Nejčastější dotazy k branám VPN
@@ -256,7 +257,7 @@ Provoz mezi různými virtuálními sítěmi Azure se v Azure účtuje pouze jak
 
 Ano, tato možnost je podporována. Další informace najdete v tématu [konfigurace ExpressRoute a připojení VPN typu site-to-site, která mohou existovat vedle sebe](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="<a-name="bgp"></a>bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 

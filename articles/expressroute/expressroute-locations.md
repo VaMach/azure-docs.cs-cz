@@ -1,26 +1,27 @@
 <properties
-   pageTitle="Umístění ExpressRoute | Microsoft Azure"
-   description="Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
+	pageTitle="Umístění ExpressRoute | Microsoft Azure"
+	description="Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carmonm"
+	editor="" />
+
 <tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/12/2016"
-   ms.author="cherylmc" />
+	ms.service="expressroute"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="10/12/2016"
+	ms.author="cherylmc" />
 
 
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
 
 Tabulky v tomto článku poskytují informace o poskytovatelích připojení ExpressRoute, zeměpisném pokrytí ExpressRoute, cloudových službách Microsoftu podporovaných přes ExpressRoute a systémových integrátorech (SI) ExpressRoute.
 
-## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Poskytovatelé připojení ExpressRoute
+## <a name="partners"></a>Poskytovatelé připojení ExpressRoute
 
 Služba ExpressRoute je podporovaná ve všech umístěních a oblastech Azure. Následující mapa obsahuje seznam oblastí Azure a umístění ExpressRoute. Umístění ExpressRoute odkazují na ty, kde má Microsoft partnerský vztah s několika poskytovateli služeb.
 
@@ -127,7 +128,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 | **e-shelter** | Podporuje se | Nepodporuje se | Berlín|
 | **Interxion** | Podporuje se | Nepodporuje se | Frankfurt|
 
-## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
+## <a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
 
 Pokud poskytovatel připojení není v předchozích částech uvedený, můžete přesto vytvořit připojení.
 
@@ -175,6 +176,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO2--->
 
 
