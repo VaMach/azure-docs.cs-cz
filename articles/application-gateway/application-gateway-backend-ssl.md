@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enabling SSL Policy and end to end SSL on Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway end to end SSL support."
+   pageTitle="Povolení zásad protokolu SSL a koncového šifrování protokolu SSL ve službě Application Gateway | Microsoft Azure"
+   description="Tato stránka poskytuje přehled podpory koncového šifrování protokolu SSL ve službě Application Gateway."
    documentationCenter="na"
    services="application-gateway"
    authors="amsriva"
@@ -9,38 +9,45 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-# Enabling SSL Policy and end to end SSL on Application Gateway
 
-## Overview
+# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Povolení zásad protokolu SSL a koncového šifrování protokolu SSL ve službě Application Gateway
 
-Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
+## <a name="overview"></a>Přehled
 
-End to end SSL allows you to securely transmit sensitive data to the backend encrypted while availing benefits of Layer 7 load balancing features which application gateway provides, such as cookie affinity, URL-based routing, support for routing based on sites or ability to inject X-Forwarded-* headers.
+Služba Application Gateway podporuje ukončení protokolu SSL na bráně, po čemž provoz typicky teče nešifrován na back-endové servery. To webovým serverům umožňuje snížení nákladné režie spojené s šifrováním a dešifrováním. Pro některé zákazníky je však nešifrovaná komunikace s back-endovými servery nepřijatelnou možností. Může to být z důvodu požadavků na zabezpečení nebo dodržování předpisů nebo protože aplikace může přijímat pouze zabezpečená připojení. Pro takové aplikace služba Application Gateway nyní podporuje koncové šifrování protokolu SSL.
 
-When configured with end to end SSL communication mode, application gateway terminates user SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using backend server's public key certificate before transmitting request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to Https, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
+Koncové šifrování protokolu SSL umožňuje bezpečně přenášet citlivá data do back-endu v zašifrované podobě, zatímco využívá výhody funkcí vyrovnávání zatížení vrstvy 7, které služba Application Gateway nabízí. Jedná se například o spřažení na základě souborů cookie, směrování na základě adresy URL, podpora směrování založeném na webech nebo schopnost injektovat hlavičky X-Forwarded-*.
+
+Když je nakonfigurována s režimem komunikace koncového šifrování protokolu SSL, služba Application Gateway ukončuje na bráně uživatelské relace protokolu SSL a dešifruje provoz uživatelů. Následně použije nakonfigurovaná pravidla k výběru příslušné instance back-endového fondu, na kterou provoz přesměruje. Služba Application Gateway poté zahájí nové připojení protokolem SSL k back-endovému serveru a před odesláním požadavku na back-end znovu zašifruje data pomocí certifikátu veřejného klíče back-endového serveru. Koncové šifrování protokolu SSL se povoluje nastavením nastavení protokolu v BackendHTTPSetting na hodnotu Https. Toto nastavení se následně použije na back-endový fond. Každý back-endový server v back-endovém fondu s povoleným koncovým šifrováním protokolu SSL musí být pro umožnění bezpečné komunikace nakonfigurován s certifikátem.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-In this example, requests for https://contoso.com can be routed to ContosoServerPool over HTTP, and https://fabrikam.com will be routed to FabrikamServerPool over HTTPS using end to end SSL.
+V tomto příkladu lze požadavky na https://contoso.com směrovat na FondServeruContoso prostřednictvím protokolu HTTP a požadavky na https://fabrikam.com budou směrovány na FondServeruFabrikam prostřednictvím protokolu HTTPS pomocí koncového šifrování protokolu SSL.
 
-## End to end SSL and white listing of certificates
+## <a name="end-to-end-ssl-and-white-listing-of-certificates"></a>Koncové šifrování protokolu SSL a vytváření seznamu povolených certifikátů
 
-Application gateway only communicates with known backend instances, which have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and white listed backend is then allowed and remaining result in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described above before they can be used.
+Služba Application Gateway komunikuje pouze se známými back-endovými instancemi, jejichž certifikáty jsou uvedené v seznamu povolených certifikátů ve službě Application Gateway. Chcete-li povolit vytváření seznamu povolených certifikátů, je nutné nahrát do služby Application Gateway veřejný klíč certifikátů back-endového serveru. Poté budou povolená pouze připojení ke známému back-endu uvedenému v seznamu povolených back-endů. Ostatní připojení způsobí chybu brány. Certifikáty podepsané svým držitelem slouží pouze k testování a nedoporučují se pro úlohy v produkčním prostředí. Před použitím těchto certifikátů také musí být uvedené v seznamu povolených certifikátů ve službě Application Gateway.
 
-## Application Gateway SSL Policy
+## <a name="application-gateway-ssl-policy"></a>Zásady protokolu SSL ve službě Application Gateway
 
-Application gateway also supports user configurable SSL negotiation policies, which allow customers finer grained control over SSL connections at the application gateway.
+Služba Application Gateway také podporuje uživatelsky konfigurovatelné zásady vyjednávání SSL, které zákazníkům umožňují jemnější kontrolu připojení protokolem SSL ve službě Application Gateway.
 
-1. SSL 2.0 and 3.0 are forced disabled for all Application Gateways. They are not configurable at all.
-2. SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1_0, TLSv1_1, TLSv1_2.
-3. If no SSL policy is defined all three (TLSv1_0, TLSv1_1, TLSv1_2) would be enabled.
+1. Protokoly SSL 2.0 a 3.0 jsou vynuceně zakázané pro všechny služby Application Gateway. Nelze je vůbec konfigurovat.
+2. Definice zásad protokolu SSL umožňuje zakázat libovolný z těchto 3 protokolů – TLSv1_0, TLSv1_1, TLSv1_2.
+3. Pokud nejsou definovány žádné zásady protokolu SSL, jsou povolené všechny tři protokoly (TLSv1_0, TLSv1_1, TLSv1_2).
 
-## Next steps
+## <a name="next-steps"></a>Další kroky
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway with ability to send traffic to backend in encrypted form.
+Po získání informací o koncovém šifrování protokolu SSL a zásadách protokolu SSL přejděte k tématu [Povolení kompletního protokolu SSL ve službě Application Gateway](application-gateway-end-to-end-ssl-powershell.md) a vytvořte službu Application Gateway se schopností posílat provoz do back-endu v zašifrované podobě.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

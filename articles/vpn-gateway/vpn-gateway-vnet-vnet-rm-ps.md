@@ -175,7 +175,7 @@ V příkladech používáme následující hodnoty:
 
     Tato ukázka vytvoří virtuální síť s názvem TestVNet1 a tři podsítě: jednu s názvem GatewaySubnet, jednu s názvem FrontEnd a jednu s názvem BackEnd. Při nahrazování hodnot je důležité vždy přiřadit podsíti brány konkrétní název GatewaySubnet. Pokud použijete jiný název, vytvoření brány se nezdaří. 
 
-    Následující příklad používá proměnné, které jste nastavili dříve. V příkladu používá podsíť brány možnost /27. Přestože je možné vytvořit podsíť brány s použitím tak malé podsítě, jako je /29, nedoporučuje se to. Doporučujeme použít větší velikost, například /27 nebo /26. To vám umožní využívat stávající nebo budoucí konfigurace, které mohou vyžadovat větší podsíť brány. 
+    Následující příklad používá proměnné, které jste nastavili dříve. V příkladu používá podsíť brány možnost /27. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost alespoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu. 
 
         $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
         $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -476,6 +476,9 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 ## <a name="verify"></a>Ověření připojení
 
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 
@@ -487,6 +490,6 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

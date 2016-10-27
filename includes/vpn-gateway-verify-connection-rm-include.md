@@ -1,4 +1,4 @@
-### Ověření připojení pomocí prostředí PowerShell
+### <a name="to-verify-your-connection-by-using-powershell"></a>Ověření připojení pomocí prostředí PowerShell
 
 Pomocí rutiny `Get-AzureRmVirtualNetworkGatewayConnection` s nebo bez `-Debug` můžete ověřit, že vaše připojení bylo úspěšné. 
 
@@ -34,18 +34,16 @@ Pomocí rutiny `Get-AzureRmVirtualNetworkGatewayConnection` s nebo bez `-Debug` 
             "egressBytesTransferred": 4142431
           }
 
-### Ověření připojení pomocí webu Azure Portal
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Ověření připojení pomocí webu Azure Portal
 
-Na webu Azure Portal můžete zobrazit stav připojení otevřením připojení. To lze provést několika způsoby. Níže naleznete jednu možnost jak přejít na vaše připojení.
+Na webu Azure Portal můžete zobrazit stav připojení otevřením připojení. To lze provést několika způsoby. Následující postup ukazuje jeden ze způsobů přechodu k připojení a jeho ověření.
 
-1. Na webu [Azure Portal](http://portal.azure.com) otevřete **Brány virtuální sítě**. Klikněte na název brány.
-2. V podokně v části **Nastavení** klikněte na tlačítko **Připojení**. Můžete zobrazit stav každého připojení.
-3. Pro další informace o připojení klikněte na název připojení. Na stránce Essentials týkající se připojení věnujte pozornost položce **Stav připojení**. Stav bude „Úspěšně dokončeno“ a „Připojeno“ po provedení úspěšného připojení. Tok dat můžete zkontrolovat pohledem na **Vstupující data** a **Vystupující data**.
+1. Na webu [Azure Portal](http://portal.azure.com) klikněte na **Všechny prostředky** a přejděte ke své bráně virtuální sítě.
+2. V okně vaší brány virtuální sítě klikněte na **Připojení**. Můžete zobrazit stav každého připojení.
+3. Kliknutím na název připojení, které chcete ověřit, otevřete **Základní údaje**. V části Základní údaje můžete zobrazit další informace o připojení. **Stav** bude „Úspěšně dokončeno“ a „Připojeno“ po provedení úspěšného připojení.
 
-    V příkladu níže má **Stav připojení** hodnotu „Nepřipojeno“. 
+    ![Ověření připojení](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-    ![Ověření připojení](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

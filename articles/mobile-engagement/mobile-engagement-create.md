@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/19/2016"  
+    ms.date="10/10/2016"  
     ms.author="piyushjo"/>
 
 
@@ -28,15 +28,13 @@ Nezapomeňte, že pokud chcete pro svou aplikaci shromažďovat data a odesílat
 
 ##Nastavení Mobile Engagementu pro mobilní aplikaci v Azure
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Přechod na portál Mobile Engagement
 
-Pokud chcete začít sledovat a spravovat svou aplikaci, přejděte tak na portál Mobile Engagement kliknutím na tlačítko **Zpřístupnit** (dole na stránce).
+Chcete-li začít monitorovat a spravovat svou aplikaci, přejděte na portál Mobile Engagement kliknutím na tlačítko **Portál Engagement** v horním panelu.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-Jakmile jste na portálu Mobile Engagement, můžete analyzovat, vytvářet a spravovat segmenty, oslovovat uživatele atd.:    
+Jakmile budete na portálu Mobile Engagement, můžete analyzovat, vytvářet a spravovat segmenty, oslovovat uživatele atd.:    
 
 - [Sledování dat o aplikaci v reálném čase](mobile-engagement-user-interface-monitor.md)
 - [Analýza historických dat o aplikaci](mobile-engagement-user-interface-analytics.md)
@@ -51,6 +49,6 @@ Jakmile jste na portálu Mobile Engagement, můžete analyzovat, vytvářet a sp
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

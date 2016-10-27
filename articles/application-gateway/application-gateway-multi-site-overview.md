@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Hosting multiple sites on Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway multi-site support."
+   pageTitle="Hostování více webů ve službě Application Gateway | Microsoft Azure"
+   description="Tato stránka poskytuje přehled podpory služby Application Gateway pro více webů."
    documentationCenter="na"
    services="application-gateway"
    authors="amsriva"
@@ -9,36 +9,36 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2016"
+   ms.date="10/04/2016"
    ms.author="amsriva"/>
 
-# Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure more efficient topology for your deployments by packing up to 20 websites to one application gateway. Each website could be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
+# <a name="application-gateway-multiple-site-hosting"></a>Hostování více webů ve službě Application Gateway
+
+Hostování více webů umožňuje konfigurovat více než jednu webovou aplikaci ve stejné instanci služby Application Gateway. Tato funkce umožňuje nakonfigurovat efektivnější topologii vašich nasazení tím, že přidáte až 20 webů do jedné služby Application Gateway. Každou stránku lze přesměrovat na vlastní back-endový fond. V následujícím příkladu služba Application Gateway obsluhuje provoz pro contoso.com a fabrikam.com ze dvou fondů back-endového serveru s názvy FondServeruContoso a FondServeruFabrikam.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool. 
+Požadavky na http://contoso.com jsou směrovány na FondServeruContoso a požadavky na http://fabrikam.com jsou směrovány na FondServeruFabrikam.
 
-Similarly two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using sub-domains could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.
+Podobně lze ve stejném nasazení služby Application Gateway hostovat dvě poddomény stejné nadřazené domény. Příklady použití poddomén mohou zahrnovat http://blog.contoso.com a http://app.contoso.com hostované v jednom nasazení služby Application Gateway.
 
+## <a name="host-headers-and-server-name-indication-(sni)"></a>Hlavičky hostitele a Identifikace názvu serveru (SNI)
 
-## Host headers and Server Name Indication (SNI)
-There are three common mechanisms for enabling multiple site hosting on the same infrastructure. 
+Existují tři běžné mechanismy pro povolení hostování více webů ve stejné infrastruktuře.
 
-1. Host multiple web applications each on a unique IP address.
-2. Use host name to host multiple web applications on the same IP address.
-3. Use different ports to host multiple web application on the same IP address.
+1. Hostování více webových aplikací, z nichž každá je na jedinečné IP adrese.
+2. Použití názvu hostitele k hostování více webových aplikací na stejné IP adrese.
+3. Použití různých portů k hostování více webových aplikací na stejné IP adrese.
 
-Currently an application gateway gets a single public IP address on which it listens for traffic. Therefore supporting multiple applications, each with its own IP address, is currently not supported. Application Gateway supports hosting multiple application each listening on different ports but this scenario would require the applications to accept traffic on non-standard ports and is often not a desired configuration. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The sites hosted on application gateway can also support SSL offload with Server Name Indication (SNI) TLS extension. This scenario means that the client browser and backend web farm must support HTTP/1.1 and TLS extension as defined in RFC 6066.
+V současné době získá služba Application Gateway jednu veřejnou IP adresu, na které naslouchá provozu. Proto v současné době podpora více aplikací, z nichž každá má vlastní IP adresu, není podporována. Služba Application Gateway podporuje hostování více aplikací, z nichž každá naslouchá na jiném portu, ale tento scénář by vyžadoval, aby aplikace přijímaly provoz na nestandardních portech, a tato konfigurace často není požadována. Služba Application Gateway se při hostování více než jednoho webu na stejné veřejné IP adrese a portu spoléhá na hlavičky hostitele HTTP 1.1. Weby hostované ve službě Application Gateway mohou také podporovat přesměrování zpracování SSL pomocí rozšíření protokolu TLS Identifikace názvu serveru (SNI). Tento scénář znamená, že klientský prohlížeč a back-endová webová farma musí podporovat HTTP/1.1 a rozšíření protokolu TLS, jak je definováno v dokumentu RFC 6066.
 
+## <a name="listener-configuration-element"></a>Konfigurační prvek naslouchacího procesu
 
-## Listener configuration element
-
-Existing HTTPListener configuration element is enhanced to support host name and server name indication elements, which is used by application gateway to route traffic to appropriate backend pool. The following code example is the snippet of HttpListeners element from template file.
+Existující konfigurační prvek HTTPListener je vylepšený pro podporu názvu hostitele a prvků Identifikace názvu serveru. Ty slouží k tomu, aby služba Application Gateway mohla směrovat provoz na příslušný back-endový fond. Následující ukázka kódu je fragment prvku HttpListeners ze souboru šablony.
 
     "httpListeners": [
                 {
@@ -77,47 +77,53 @@ Existing HTTPListener configuration element is enhanced to support host name and
 
 
 
-You can check out [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.
+Na stránce [Šablona Resource Manageru používající hostování více webů](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) najdete kompletní nasazení založené na šabloně.
 
-## Routing rule
+## <a name="routing-rule"></a>Pravidlo směrování
 
-There is no change required in routing rule. Routing rule 'Basic' should continue to be chosen to tie the appropriate site listener to the corresponding backend address pool.
+V pravidle směrování není požadována žádná změna. Stále byste měli volit pravidlo směrování „Základní“ k provázání příslušných naslouchacích procesů webů s odpovídajícími back-endovými fondy adres.
 
-	"requestRoutingRules": [
-	{
-		"name": "<ruleName1>",
-		"properties": {
-			"RuleType": "Basic",
-			"httpListener": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
-			},
-			"backendAddressPool": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-			},
-			"backendHttpSettings": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-			}
-		}
+    "requestRoutingRules": [
+    {
+        "name": "<ruleName1>",
+        "properties": {
+            "RuleType": "Basic",
+            "httpListener": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
+            },
+            "backendAddressPool": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+            },
+            "backendHttpSettings": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            }
+        }
 
-	},
-	{
-		"name": "<ruleName2>",
-		"properties": {
-			"RuleType": "Basic",
-			"httpListener": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
-			},
-			"backendAddressPool": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
-			},
-			"backendHttpSettings": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-			}
-		}
+    },
+    {
+        "name": "<ruleName2>",
+        "properties": {
+            "RuleType": "Basic",
+            "httpListener": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
+            },
+            "backendAddressPool": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
+            },
+            "backendHttpSettings": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            }
+        }
 
-	}
-	]
-	
-## Next steps
+    }
+    ]
 
-After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.
+## <a name="next-steps"></a>Další kroky
+
+Po získání informací o hostování více webů přejděte k tématu [Vytvoření služby Application Gateway používající hostování více webů](application-gateway-create-multisite-azureresourcemanager-powershell.md) a vytvořte službu Application Gateway se schopností podporovat více než jednu webovou aplikaci.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

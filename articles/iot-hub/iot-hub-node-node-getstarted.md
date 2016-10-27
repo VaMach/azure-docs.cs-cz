@@ -31,7 +31,7 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace Node.js:
 
 Pro absolvování tohoto kurzu potřebujete:
 
-+ Node.js verze 0.12.x nebo novější. <br/> Kapitola [Příprava vývojového prostředí][lnk-dev-setup] popisuje postup instalace softwaru Node.js pro tento návod v systému Windows nebo Linux.
++ Node.js verze 0.10.x nebo novější.
 
 + Aktivní účet Azure. (Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][lnk-free-trial]).
 
@@ -314,6 +314,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

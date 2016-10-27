@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/27/2016"
+    ms.date="10/10/2016"
     ms.author="cabailey"/>
 
 
@@ -86,7 +86,7 @@ Používáte-li Azure Resource Manager, pak se všechny související prostředk
 
 ## <a id="vault"></a>Vytvořte trezor klíčů ##
 
-Pro vytvoření trezoru klíčů použijte rutinu [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx). Tato rutina má tři povinné parametry: **název skupiny prostředků**, **název trezoru klíčů** a **zeměpisné umístění**.
+Pro vytvoření trezoru klíčů použijte rutinu [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx). Tato rutina má tři povinné parametry: **název skupiny prostředků**, **název trezoru klíčů** a **zeměpisné umístění**.
 
 Používáte-li například název trezoru **ContosoKeyVault**, název skupiny prostředků **ContosoResourceGroup** a umístění **Východní Asie**, zadejte:
 
@@ -99,12 +99,12 @@ Výstup této rutiny zobrazuje vlastnosti trezoru klíčů, který jste právě 
 
 Váš účet Azure je nyní oprávněn provádět nad tímto trezorem klíčů všechny operace. Zatím k tomu není oprávněn nikdo jiný.
 
->[AZURE.NOTE]  Pokud se při pokusu o vytvoření nového trezoru klíčů zobrazí chyba **Předplatné není zaregistrované pro používání oboru názvů „Microsoft.KeyVault“**, spusťte `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` a poté znovu spusťte váš příkaz New-AzureRmKeyVault. Další informace naleznete v tématu [Register-AzureRmProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx).
+>[AZURE.NOTE]  Pokud se při pokusu o vytvoření nového trezoru klíčů zobrazí chyba **Předplatné není zaregistrované pro používání oboru názvů „Microsoft.KeyVault“**, spusťte `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` a poté znovu spusťte váš příkaz New-AzureRmKeyVault. Další informace najdete v tématu [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
 >
 
 ## <a id="add"></a>Přidejte k trezoru klíč nebo tajný klíč ##
 
-Chcete-li, aby pro vás služba Azure Key Vault vytvořila softwarově chráněný klíč, použijte rutinu [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) a zadejte následující:
+Chcete-li, aby pro vás služba Azure Key Vault vytvořila softwarově chráněný klíč, použijte rutinu [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) a zadejte následující:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -172,7 +172,7 @@ Chcete-li zaregistrovat aplikaci v Azure Active Directory:
 
 ## <a id="authorize"></a>Autorizujte aplikaci pro použití klíče nebo tajného klíče ##
 
-Chcete-li autorizovat aplikaci pro přístup ke klíči nebo k tajnému klíči, použijte rutinu  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx).
+Chcete-li autorizovat aplikaci pro přístup ke klíči nebo k tajnému klíči, použijte rutinu  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
 
 Máte-li například trezor s názvem **ContosoKeyVault** a ID klienta aplikace, kterou chcete ověřit, má hodnotu 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, můžete aplikaci autorizovat pro dešifrování a podepisování pomocí klíčů ve vašem trezoru spuštěním následujícího příkazu:
 
@@ -215,7 +215,7 @@ Podrobnější pokyny o tom, jak generovat tento balíček BYOK naleznete v tém
 
 ## <a id="delete"></a>Odstranění trezoru klíčů, přidružených klíčů a tajných klíčů ##
 
-Pokud již nepotřebujete trezor klíčů, ani klíče a tajné klíče, které obsahuje, můžete trezor klíčů odstranit pomocí rutiny [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx):
+Pokud již nepotřebujete trezor klíčů, ani klíče a tajné klíče, které obsahuje, můžete trezor klíčů odstranit pomocí rutiny [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na navaz
 
 Chcete-li mít přehled o využívání trezoru klíčů, podívejte se na kurz [Protokolování v Azure Key Vault](key-vault-logging.md).
 
-Seznam nejnovějších rutin Azure PowerShellu pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx). 
+Seznam nejnovějších rutin Azure PowerShellu pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
  
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

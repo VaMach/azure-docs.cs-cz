@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/08/2016"
+    ms.date="10/06/2016"
     ms.author="v-livech"/>
 
 
@@ -24,7 +24,7 @@ Pomocí páru klíčů SSH můžete v Azure vytvořit službu Virtual Machines, 
 
 ## Rychlý výpis příkazu
 
-V následujících příkladech nahraďte hodnoty mezi závorkami (&lt; a &gt;) hodnotami ze svého vlastního prostředí.
+V následujících příkladech nahraďte hodnoty mezi závorkami (&lt; a &gt;) hodnotami ze svého vlastního prostředí.  Začněte změnou adresáře na `cd ~/.ssh/`. Všechny vaše klíče SSH se vytvoří v tomto adresáři.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -79,7 +79,7 @@ Azure vyžaduje minimálně 2048bitové veřejné a privátní klíče ve formá
 
 ## Použití příkazu ssh-keygen
 
-Tento příkaz vytvoří pár klíčů SSH zabezpečený (zašifrovaný) heslem pomocí 2048bitového algoritmu RSA a je pro snadnější identifikaci opatřený komentáři.
+Tento příkaz vytvoří pár klíčů SSH zabezpečený (zašifrovaný) heslem pomocí 2048bitového algoritmu RSA a je pro snadnější identifikaci opatřený komentáři.  Začněte změnou adresáře na `cd ~/.ssh/`. Všechny vaše klíče SSH se vytvoří v tomto adresáři.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -102,12 +102,12 @@ Pokud používáte klasický model nasazení (portál Azure Classic nebo rozhran
 Postup vytvoření klíče s formátem PEM z existujícího veřejného klíče SSH:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Návod pro použití příkazu ssh-keygen
 
-Podrobné vysvětlení jednotlivých kroků.  Začněte spuštěním příkazu `ssh-keygen`.
+Podrobné vysvětlení jednotlivých kroků.  Začněte změnou adresáře na `~/.ssh` a poté spusťte příkaz `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -246,6 +246,6 @@ Dalším krokem je vytvoření virtuálního počítače Azure s Linuxem pomocí
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

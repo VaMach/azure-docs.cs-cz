@@ -14,18 +14,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/16/2016"
+   ms.date="10/12/2016"
    ms.author="larryfr"/>
 
 
 
-# Kurz Apache Storm: Začněte s ukázkami Storm Starter pro analýzy velkých objemů dat v HDInsight
+# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Kurz Apache Storm: Začněte s ukázkami Storm Starter pro analýzy velkých objemů dat v HDInsight
 
 Apache Storm je škálovatelný výpočetní systém v reálném čase odolný proti chybám, distribuovaný určený pro zpracování datových proudů. Pomocí Storm v Azure HDInsight můžete vytvořit cloudový cluster Storm, který bude provádět analýzy velkých objemů dat v reálném čase.
 
 > [AZURE.NOTE] Kroky v tomto článku vytváří cluster HDInsight se systémem Linux. Postup vytvoření Storm se systémem Windows v clusteru HDInsight, naleznete v části [Kurz Apache Storm: Začínáme s ukázkami používání analýzy dat Storm Starter v HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -39,11 +39,11 @@ Musíte úspěšně dokončit tento kurz Apache Storm:
 
     - **Klienti Windows**: viz [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-### Požadavky na řízení přístupu
+### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
 
 [AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Vytvoření clusteru Storm
+## <a name="create-a-storm-cluster"></a>Vytvoření clusteru Storm
 
 V této části vytvoříte cluster HDInsight verze 3.2 (Storm verze 0.9.3) pomocí šablony Azure Resource Manageru. Informace o verzích HDInsight a jejich SLA naleznete v tématu [Správa verzí komponenty HDInsight](hdinsight-component-versioning.md). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -67,8 +67,8 @@ V této části vytvoříte cluster HDInsight verze 3.2 (Storm verze 0.9.3) pomo
 
     > Další informace o použití SSH s HDInsight naleznete v následujících článcích:
 
-    > * [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-    > * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+    > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
     
 3. Klikněte na možnost **OK** a uložte parametry.
@@ -80,7 +80,7 @@ V této části vytvoříte cluster HDInsight verze 3.2 (Storm verze 0.9.3) pomo
 6. Klikněte na **Vytvořit**. Zobrazí se nová dlaždice s názvem Odeslání nasazení pro šablonu nasazení. Vytvoření clusteru a databáze SQL trvá přibližně 20 minut.
 
 
-##Spustit ukázku Storm Starter v HDInsight
+##<a name="run-a-storm-starter-sample-on-hdinsight"></a>Spustit ukázku Storm Starter v HDInsight
 
 Ukázky [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) jsou zahrnuty v clusteru HDInsight. V následujících krocích spustíte příklad WordCount.
 
@@ -92,23 +92,23 @@ Ukázky [storm-starter](https://github.com/apache/storm/tree/master/examples/sto
         
     Další informace o použití SSH se systémem Linux HDInsight naleznete v následujících článcích:
     
-    * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému OS X, Linux a Unix.](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows)
+    * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows).
 
 2. Následující příkaz použijte ke spuštění ukázkové topologie:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Část `0.10.0.2.4.2.4-5` názvu souboru se při aktualizaci HDInsight o novější verze Stormu může změnit.
+    > [AZURE.NOTE] Část názvu souboru `*` slouží k určení čísla verze, které se mění při aktualizaci služby HDInsight.
 
     Tato akce spustí ukázkovou topologii WordCount v clusteru s popisným názvem „wordcount“. Bude náhodně generovat věty a počítat výskyt jednotlivých slov v těchto větách.
 
-    > [AZURE.NOTE] Při odesílání topologie do clusteru je nutné nejprve zkopírovat soubor jar obsahující cluster před použitím příkazu `storm`. Můžete to provést pomocí příkazu `scp` z klienta, které se soubor nachází. Například: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] Při odesílání topologie do clusteru je nutné nejprve zkopírovat soubor jar obsahující cluster před použitím příkazu `storm`. Můžete to provést pomocí příkazu `scp` z klienta, které se soubor nachází. Například `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
     > Příklad WordCount a další příklady starter storm jsou již zahrnuty v clusteru na `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-##Monitorování topologie
+##<a name="monitor-the-topology"></a>Monitorování topologie
 
 Uživatelské rozhraní Storm poskytuje webové rozhraní pro práci se spuštěnými topologiemi a je součástí clusteru HDInsight.
 
@@ -175,15 +175,15 @@ Ke sledování topologie pomocí uživatelského rozhraní Storm použijte násl
 
     Z těchto dat můžete uvidíte, že k výskytu slova **sedm** došlo 1 493 957krát. Tolikrát bylo zjištěno od spuštění této topologie.
 
-##Zastavení topologie
+##<a name="stop-the-topology"></a>Zastavení topologie
 
 Vraťte se na stránku **Souhrn topologie**, kde naleznete topologii počtu slov a pak vyberte tlačítko **Zastavit** z oddílu **Topologie akce**. Po zobrazení výzvy zadejte hodnotu 10 jako počet sekund, po které se má počkat před zastavením topologie. Po uplynutí časového limitu se již topologie nezobrazí při návštěvě oddílu **Uživatelské rozhraní Storm** řídicího panelu.
 
-##Odstranění clusteru
+##<a name="delete-the-cluster"></a>Odstranění clusteru
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##<a id="next"></a>Další kroky
+##<a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Další kroky
 
 V tomto kurzu Apache Storm jste využili Storm Starter, abyste se naučili vytvářet Storm na clusteru HDInsight a používat ovládací panel Storm k nasazení, monitorování a správě topologie Storm. Dále se naučíte, jak [Vyvíjet topologie založené na jazyce Java pomocí nástroje Maven](hdinsight-storm-develop-java-topology.md).
 
@@ -199,6 +199,6 @@ Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a 
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

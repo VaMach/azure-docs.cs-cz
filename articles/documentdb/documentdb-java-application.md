@@ -4,7 +4,7 @@
     keywords="Vývoj aplikací, databázový kurz, aplikace v jazyce java, kurz vývoje webových aplikací v jazyce java, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -15,9 +15,10 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="08/24/2016"
-    ms.author="anhoh"/>
+    ms.author="denlee"/>
 
-# Vytvoření webové aplikace Java pomocí DocumentDB
+
+# <a name="build-a-java-web-application-using-documentdb"></a>Vytvoření webové aplikace Java pomocí DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -36,7 +37,7 @@ Tento kurz o aplikaci Java vám ukáže, jak vytvořit webovou aplikaci pro spr�
 
 > [AZURE.TIP] V tomto kurzu vývoje aplikace se předpokládá, že již máte zkušenosti s jazykem Java. Pokud je pro vás Java nebo některý z [požadovaných nástrojů](#Prerequisites) nový, doporučujeme stáhnout úplný ukázkový projekt [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) z GitHubu a postupovat podle [pokynů na konci tohoto článku](#GetProject). Až jej budete mít sestavený, můžete se k tomuto článku vrátit, abyste kódu lépe porozuměli v kontextu projektu.  
 
-##<a id="Prerequisites"></a>Předpoklady pro tento kurz webové aplikace Java
+##<a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Předpoklady pro tento kurz webové aplikace Java
 Než zahájíte tento kurz vývoje aplikace, musíte mít následující:
 
 - Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -46,7 +47,7 @@ Než zahájíte tento kurz vývoje aplikace, musíte mít následující:
 
 Pokud tyto nástroje instalujete poprvé, coreservlets.com poskytuje k procesu instalace návod v části Quick Start článku [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Kurz: Instalace TomCat7 a jeho použití s Eclipse).
 
-##<a id="CreateDB"></a>Krok 1: Vytvoření databázového účtu DocumentDB
+##<a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Krok 1: Vytvoření databázového účtu DocumentDB
 
 Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [Krok 2: Vytvoření aplikace Java JSP](#CreateJSP).
 
@@ -54,7 +55,7 @@ Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete pře
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-##<a id="CreateJSP"></a>Krok 2: Vytvoření aplikace Java JSP
+##<a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Krok 2: Vytvoření aplikace Java JSP
 
 Vytvoření aplikace JSP:
 
@@ -81,7 +82,7 @@ Vytvoření aplikace JSP:
 
     ![Hello World – kurz aplikace Java](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>Krok 3: Instalace sady DocumentDB Java SDK ##
+##<a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Krok 3: Instalace sady DocumentDB Java SDK ##
 
 Nejjednodušším způsobem, jak stáhnout sadu DocumentDB Java SDK a její závislosti, je použít [Apache Maven](http://maven.apache.org/).
 
@@ -109,7 +110,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
 5. Klikněte na **OK** a Maven nainstaluje DocumentDB Java SDK.
 6. Uložte soubor pom.xml.
 
-##<a id="UseService"></a>Krok 4: Využití služby DocumentDB v aplikaci Java
+##<a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Krok 4: Využití služby DocumentDB v aplikaci Java
 
 1. Nejdříve definujme objekt TodoItem:
 
@@ -359,7 +360,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
         }
 
 
-##<a id="Wire"></a>Krok 5: Vzájemné propojení zbytku projektu vývoje aplikace Java
+##<a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Krok 5: Vzájemné propojení zbytku projektu vývoje aplikace Java
 
 Nyní když jsme dokončili ty zábavné části, zbývá již jen vytvořit rychlé uživatelské rozhraní a propojit je s objektem DAO.
 
@@ -736,7 +737,7 @@ Nyní když jsme dokončili ty zábavné části, zbývá již jen vytvořit ryc
 
 6. Až se položka zobrazí, můžete aktualizovat, zda je dokončená, přepínáním zaškrtávacího políčka a kliknutím na **Update Tasks** (Aktualizovat úkoly).
 
-##<a id="Deploy"></a>Krok 6: Nasazení aplikace Java na Weby Azure
+##<a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Krok 6: Nasazení aplikace Java na Azure Websites
 
 Díky Webům Azure je nasazování aplikací Java stejně snadné jako export aplikace jako souboru WAR a jeho nahrání buď přes správu zdrojových kódů (např. GIT), nebo FTP.
 
@@ -751,7 +752,7 @@ Díky Webům Azure je nasazování aplikací Java stejně snadné jako export ap
     Až bude soubor WAR nahrán do adresáře webapps, běhové prostředí zjistí, že jste jej přidali, a automaticky ho načte.
 4. Pokud si chcete zobrazit hotový produkt, přejděte na http://NÁZEVVAŠEHO\_WEBU\_.azurewebsites.net/azure-documentdb-java-sample/ a začněte přidávat úkoly!
 
-##<a id="GetProject"></a>Získání projektu z Githubu
+##<a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Získání projektu z Githubu
 
 Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) na GitHubu. Pokud chcete importovat projekt todo do prostředí Eclipse, ujistěte se, že máte software a prostředky uvedené v části [Předpoklady](#Prerequisites), a udělejte následující:
 
@@ -782,6 +783,6 @@ Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.c
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

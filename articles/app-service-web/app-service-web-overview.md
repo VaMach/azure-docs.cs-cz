@@ -17,7 +17,7 @@
     ms.author="rachelap"/>
 
 
-# Přehled Web Apps
+# <a name="web-apps-overview"></a>Přehled Web Apps
 
 *App Service Web Apps* je plně spravovaná výpočetní platforma, která je optimalizována pro hostování webů a webových aplikací. Tato nabídka typu [platforma jako služba](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) Microsoft Azure umožňuje zaměřit se na obchodní logiku, zatímco Azure zajistí infrastrukturu pro spouštění a škálování aplikací.
 
@@ -27,7 +27,7 @@ Následující 5minutové video představuje Azure App Service Web Apps.
 
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-## Co je webová aplikace ve službě App Service?
+## <a name="what-is-a-web-app-in-app-service?"></a>Co je webová aplikace ve službě App Service?
 
 Ve službě App Service se *webovou aplikací* rozumí výpočetní prostředky, které Azure poskytuje k hostování webu či webové aplikace.  
 
@@ -37,7 +37,7 @@ Kód může být v libovolném jazyce nebo rozhraní podporovaném službou [Azu
 
 Příklady typických aplikačních scénářů, k nimž můžete použít Web Apps, naleznete v částech [Scénáře webových aplikací](https://azure.microsoft.com/documentation/scenarios/web-app/) a **Scénáře a doporučení** v tématu [Srovnání Azure App Service, Virtual Machines, Service Fabric a Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 
-## Proč používat službu Web Apps?
+## <a name="why-use-web-apps?"></a>Proč používat službu Web Apps?
 
 Toto jsou některé klíčové funkce služby App Service, které platí pro službu Web Apps:
 
@@ -47,7 +47,7 @@ Toto jsou některé klíčové funkce služby App Service, které platí pro slu
  
 - **Globální škálování s vysokou dostupností:** Můžete ručně i automaticky škálovat pro účely [vertikálního](../app-service-web/web-sites-scale.md) nebo [horizontálního](../azure-portal/insights-how-to-scale.md) navýšení kapacity. Aplikace je možné hostovat kdekoli v globální infrastruktuře datacenter Microsoftu a smlouva [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) pro App Service zaručuje vysokou dostupnost.
 
-- **Připojení k platformám SaaS a lokálním datům:** Můžete si vybírat z více než 50 [konektorů](../connectors/apis-list.md) pro firemní systémy (například SAP, Siebel nebo Oracle), služby SaaS (například služby Salesforce nebo Office 365) a internetové služby (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Připojení k platformám SaaS a lokálním datům:** Můžete si vybírat z více než 50 [konektorů](../connectors/apis-list.md) pro firemní systémy (například SAP, Siebel nebo Oracle), služby SaaS (například služby Salesforce nebo Office 365) a internetové služby (například Facebook nebo Twitter). Získejte přístup k místním datům pomocí [hybridních připojení](../biztalk-services/integration-hybrid-connection-overview.md) a [virtuálních sítí Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Zabezpečení a dodržování předpisů** – Služba App Service je [kompatibilní se standardy ISO, SOC a PCI](https://www.microsoft.com/TrustCenter/).
 
@@ -59,7 +59,7 @@ Kromě toho může webová aplikace využívat funkce služeb [API Apps](../app-
 
 Kromě Web Apps ve službě App Service nabízí Azure další služby, které lze použít k hostování webů a webových aplikací. Pro většinu scénářů je nejlepší volbou služba Web Apps.  V případě architektury mikroslužby zvažte službu [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), a pokud potřebujete větší kontrolu nad virtuálními počítači, v nichž je kód spuštěn, zvažte službu [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Příklady typických aplikačních scénářů, k nimž můžete použít službu Web Apps, naleznete v tématu [Srovnání Azure App Service, Virtual Machines, Service Fabric a Cloud Services](choose-web-site-cloud-service-vm.md).
 
-## Začínáme
+## <a name="getting-started"></a>Začínáme
 
 Chcete-li začít nasazením ukázkového kódu do nové webové aplikace ve službě App Service, postupujte podle kurzu [Nasazení první webové aplikace do Azure během 5 minut](app-service-web-get-started.md). Budete potřebovat bezplatný účet Azure.
 
@@ -67,6 +67,6 @@ Pokud chcete začít používat službu Azure App Service před registrací k ú
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

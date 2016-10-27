@@ -69,7 +69,7 @@ Rychlé vytváření prediktivních modelů v nástroji [Machine Learning Studio
     * [Nasazování webových služeb](machine-learning-publish-a-machine-learning-web-service.md)
     * [Trénování a přeučování modelů prostřednictvím API](machine-learning-retrain-models-programmatically.md)
     * [Správa koncových bodů webové služby](machine-learning-create-endpoint.md)
-    * [Škálování webových služeb](machine-learning-scaling-endpoints.md)
+    * [Škálování webové služby](machine-learning-scaling-webservice.md)
     * [Využívání webových služeb](machine-learning-consume-web-services.md)
 
 ## Klíčová terminologie a koncepty strojového učení
@@ -128,6 +128,6 @@ Se základy prediktivní analýzy a strojového učení se můžete seznámit v 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

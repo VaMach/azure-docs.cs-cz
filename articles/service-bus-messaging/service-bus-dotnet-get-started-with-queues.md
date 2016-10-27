@@ -1,14 +1,14 @@
 <properties
     pageTitle="Začínáme s frontami služby Service Bus | Microsoft Azure"
     description="Postup při psaní konzolové aplikace v jazyce C# pro zasílání zpráv ve službě Service Bus"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Začínáme s frontami služby Service Bus
+# <a name="get-started-with-service-bus-queues"></a>Začínáme s frontami služby Service Bus
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## Co všechno zvládneme
+## <a name="what-will-be-accomplished"></a>Co všechno zvládneme
 
 V tomto kurzu provedeme tyto kroky:
 
@@ -33,7 +33,7 @@ V tomto kurzu provedeme tyto kroky:
 
 4. Napíšeme konzolovou aplikaci pro příjem zpráv.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 1. [Visual Studio 2013 nebo Visual Studio 2015](http://www.visualstudio.com). V příklady v tomto kurzu se používá Visual Studio 2015.
 
@@ -41,27 +41,27 @@ V tomto kurzu provedeme tyto kroky:
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
+## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
 
 Pokud už máte obor názvů služby Service Bus vytvořený, přejděte do části [Vytvoření fronty pomocí webu Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Vytvoření fronty pomocí webu Azure Portal
+## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Vytvoření fronty pomocí webu Azure Portal
 
 Pokud už máte frontu služby Service Bus vytvořenou, přejděte do části [Zasílání zpráv do fronty](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Zasílání zpráv do fronty
+## <a name="3.-send-messages-to-the-queue"></a>3. Zasílání zpráv do fronty
 
 Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konzolovou aplikaci v jazyce C#.
 
-### Vytvoření konzolové aplikace
+### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
 
 1. Spusťte Visual Studio a vytvořte novou konzolovou aplikaci.
 
-### Přidání balíčku Service Bus NuGet
+### <a name="add-the-service-bus-nuget-package"></a>Přidání balíčku Service Bus NuGet
 
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
 
@@ -69,7 +69,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
 
     ![Výběr balíčku NuGet][nuget-pkg]
 
-### Napsání kódu pro zaslání zprávy do fronty
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Napsání kódu pro zaslání zprávy do fronty
 
 1. Na začátek souboru Program.cs přidejte následující příkaz using.
 
@@ -116,7 +116,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
     
       ![Počet zpráv][queue-message]
     
-## 4. Přijetí zpráv z fronty
+## <a name="4.-receive-messages-from-the-queue"></a>4. Přijetí zpráv z fronty
 
 1. Vytvořte novou konzolovou aplikaci a přidejte odkaz na balíček NuGet služby Service Bus, podobně jako předtím u odesílací aplikace.
 
@@ -178,7 +178,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
   
 Blahopřejeme! Vytvořili jste frontu, zaslali jste zprávu a přijali jste zprávu.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azure-Samples/azure-servicebus-messaging-samples), které předvádějí některé pokročilejší funkce zasílání zpráv služby Azure Service Bus.
 
@@ -194,6 +194,6 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

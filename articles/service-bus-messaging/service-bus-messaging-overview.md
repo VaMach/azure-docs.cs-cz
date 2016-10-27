@@ -1,14 +1,14 @@
 <properties
     pageTitle="Přehled přenosu zpráv ve službě Service Bus | Microsoft Azure"
     description="Přenos zpráv ve službě Service Bus: flexibilní přenos dat v cloudu"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Přenos zpráv ve službě Service Bus: flexibilní přenos dat v cloudu
+# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Přenos zpráv ve službě Service Bus: flexibilní přenos dat v cloudu
 
 Microsoft Azure Service Bus je spolehlivá služba pro přenos informací. Cílem této služby je usnadnění komunikace. Když si dvě nebo více stran chce vyměňovat informace, potřebují nějaký komunikační mechanizmus. Služba Service Bus je mechanizmus pro komunikaci zprostředkovanou přes třetí stranu. Princip je podobný jako při používání poštovních a zásilkových služeb pro fyzickou poštu a zásilky. Díky poštovním službám můžeme do celého světa posílat nejrůznější dopisy a balíky, s určitými zárukami.
 
@@ -28,7 +28,7 @@ Odesílatel zprávy taky může potřebovat nejrůznější charakteristiky dod�
 
 Service Bus podporuje dva rozdílné způsoby přenosu zpráv: *Relay* a *zprostředkované zasílání zpráv*.
 
-## Service Bus Relay
+## <a name="service-bus-relay"></a>Service Bus Relay
 
 Komponenta [Relay](../service-bus-relay/service-bus-relay-overview.md) služby Service Bus je centralizovaná služba (ale s vysoce vyváženou zátěží), která podporuje různé přenosové protokoly a standardy webových služeb. Mezi ty patří SOAP, WS-*, a dokonce i REST. [Služba předávání](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) poskytuje množství různých možností předávání a může pomoct vyjednat přímé spojení typu peer-to-peer. Služba Service Bus je optimalizovaná pro vývojáře .NET, kteří používají WCF (Windows Communication Foundation) s ohledem na výkon a použitelnost, a poskytuje plný přístup ke své službě předávání přes rozhraní SOAP a REST. Díky tomu se jakékoli programovací prostředí SOAP nebo REST může integrovat se službou Service Bus.
 
@@ -38,7 +38,7 @@ Propojení místní služby se službou Relay vytvoříte pomocí skupiny „př
 
 Přenos zpráv přes službu Service Bus Relay má spoustu výhod, ale aby se zprávy mohly posílat a přijímat, musí být server i klient online současně. Tento způsob není ideální pro komunikaci ve stylu HTTP, ve které požadavky nemívají dlouhou životnost, ani pro klienty, kteří se připojují jen občas, jako jsou prohlížeče, mobilní aplikace atd. Zprostředkované zasílání zpráv podporuje oddělenou komunikaci, která má sama o sobě svoje výhody– klienti a servery se například můžou spojit podle potřeby a provádět své operace asynchronním způsobem.
 
-## Zprostředkované zasílání zpráv
+## <a name="brokered-messaging"></a>Zprostředkované zasílání zpráv
 
 Na rozdíl od přenosu zpráv přes službu Relay můžeme o [zprostředkovaném zasílání zpráv](service-bus-queues-topics-subscriptions.md) mluvit jako o asynchronním nebo „časově odděleném“. Producenti (odesílatelé) a spotřebitelé (příjemci) nemusí být online ve stejnou dobu. Infrastruktura přenosu zpráv spolehlivě uloží zprávy do „zprostředkovatele“ (například fronty), dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na celý systém. Přijímající aplikaci navíc stačí být online jen v určitou dobu – například systém pro správu inventáře stačí spustit až na konci pracovního dne.
 
@@ -46,19 +46,18 @@ Zprostředkované zasílání zpráv přes Service Bus má tři základní souč
 
 Stejně jako v případě infrastruktury přenosu zpráv přes službu Relay je funkce zprostředkovaného zasílání zpráv poskytována pro programátory v WCF a .NET Framework a také přes REST.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
-- [Základy služby Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Fronty, témata a odběry služby Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Architektura služby Service Bus](../service-bus/service-bus-architecture.md)
 - [Jak používat fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- [Jak používat témata a odběry Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Jak používat témata a odběry Service Bus](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

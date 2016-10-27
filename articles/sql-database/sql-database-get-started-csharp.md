@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/14/2016"
+   ms.date="10/04/2016"
    ms.author="sstein"/>
 
 
@@ -26,18 +26,19 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Zjistěte, jak v jazyce C# vytvořit databázi Azure SQL pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Tento článek popisuje, jak vytvořit databázi pomocí jazyka SQL a C#. Chcete-li vytvářet fondy elastické databáze, přečtěte si článek [Vytvoření fondu elastické databáze](sql-database-elastic-pool-create-csharp.md).
+Zjistěte, jak v jazyce C# vytvořit databázi Azure SQL pomocí knihovny [Microsoft Azure SQL Management Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Tento článek popisuje, jak vytvořit databázi pomocí jazyka SQL a C#. Chcete-li vytvářet fondy elastické databáze, přečtěte si článek [Vytvoření fondu elastické databáze](sql-database-elastic-pool-create-csharp.md).
 
-Azure SQL Database Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Azure SQL Database Management Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] SQL Database Library pro .NET je aktuálně ve verzi Preview.
-
+>[AZURE.NOTE] Podpora řady nových funkcí služby SQL Database je dostupná jen v případě, že používáte [model nasazení Azure Resource Manageru](../resource-group-overview.md), takže byste měli používat nejnovější knihovnu **Azure SQL Database Management Library pro .NET ([dokumenty](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [balíček NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starší [knihovny založené na modelu nasazení Classic](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) jsou podporovány jen kvůli zpětné kompatibilitě, takže doporučujeme, abyste používali novější knihovny založené na Resource Manageru.
 
 K dokončení kroků v tomto článku budete potřebovat následující:
 
 - Předplatné Azure. Pokud potřebujete předplatné Azure, jednoduše klikněte na **Bezplatný účet** v horní části této stránky a poté se vraťte a dokončete tento článek.
 - Visual Studio. Bezplatnou kopii sady Visual Studio naleznete na stránce [Soubory ke stažení pro Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+
+>[AZURE.NOTE] V tomto článku se vytváří nová, prázdná databáze SQL. Upravte metodu *CreateOrUpdateDatabase(...)* v následující ukázce tak, aby kopírovala databáze, škálovala databáze, vytvořila databázi ve fondu apod. Další informace najdete v třídách [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) a [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx).
+
 
 
 ## Vytvoření konzolové aplikace a instalace potřebných knihoven
@@ -50,7 +51,7 @@ K dokončení kroků v tomto článku budete potřebovat následující:
 Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knihovny správy (pomocí [konzoly správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klikněte na **Nástroje**  >  **Správce balíčků NuGet**  >  **Konzola správce balíčků**.
-2. Zadejte `Install-Package Microsoft.Azure.Management.Sql –Pre` a nainstalujte tak knihovnu [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+2. Zadejte `Install-Package Microsoft.Azure.Management.Sql –Pre` a nainstalujte tak nejnovější knihovnu [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Zadejte `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` a nainstalujte tak knihovnu [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Zadejte `Install-Package Microsoft.Azure.Common.Authentication –Pre` a nainstalujte tak knihovnu [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
@@ -294,6 +295,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

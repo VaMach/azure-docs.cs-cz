@@ -13,21 +13,21 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/26/2016"
-    ms.author="cbrooks;robinsh"/>
+    ms.date="10/12/2016"
+    ms.author="robinsh"/>
 
 
-# Začínáme s úložištěm Azure Queue pomocí rozhraní .NET
+# <a name="get-started-with-azure-queue-storage-using-.net"></a>Začínáme s úložištěm Azure Queue pomocí rozhraní .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 
 Úložiště Azure Queue zajišťuje cloudový přenos zpráv mezi součástmi aplikace. Při navrhování aplikací pro škálování ve větším měřítku jsou jednotlivé součásti aplikací často nepropojené, aby je bylo možné škálovat nezávisle. Queue Storage zajišťuje asynchronní přenos zpráv pro komunikaci mezi součástmi aplikace bez ohledu na to, jestli běží v cloudu, na desktopu, na místním serveru nebo na mobilním zařízení. Queue Storage také podporuje správu asynchronních úloh a pracovní postupy procesů sestavování buildů.
 
-### O tomto kurzu
+### <a name="about-this-tutorial"></a>O tomto kurzu
 
 V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scénáře s využitím služby Azure Queue Storage. Jsou například zahrnuty scénáře vytváření a odstraňování front a přidávání, čtení a odstraňování front zpráv.
 
@@ -49,7 +49,7 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 
 [AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Přidání deklarací oboru názvů
+### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
 
 Přidejte do horní části souboru `program.cs` následující příkazy `using`:
 
@@ -57,11 +57,11 @@ Přidejte do horní části souboru `program.cs` následující příkazy `using
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
-### Analýza připojovacího řetězce
+### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Vytvoření klienta Služby front
+### <a name="create-the-queue-service-client"></a>Vytvoření klienta Služby front
 
 Třída **CloudQueueClient** vám umožňuje načíst fronty uložené v rámci Queue Storage. Tady je jeden ze způsobů, jak vytvořit klienta služby:
 
@@ -69,7 +69,7 @@ Třída **CloudQueueClient** vám umožňuje načíst fronty uložené v rámci 
 
 Teď můžete napsat kód, který bude číst data z Queue Storage a bude je tam také zapisovat.
 
-## Vytvoření fronty
+## <a name="create-a-queue"></a>Vytvoření fronty
 
 Tento příklad ukazuje, jak vytvořit frontu, pokud ještě neexistuje:
 
@@ -86,7 +86,7 @@ Tento příklad ukazuje, jak vytvořit frontu, pokud ještě neexistuje:
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
 
-## Vložení zprávy do fronty
+## <a name="insert-a-message-into-a-queue"></a>Vložení zprávy do fronty
 
 Pokud chcete vložit zprávu do existující fronty, vytvořte nejdříve novou třídu **CloudQueueMessage**. Pak zavolejte metodu **AddMessage**. **CloudQueueMessage** je možné vytvořit buď z řetězce (ve formátu UTF-8), nebo z **bajtového** pole. Tady je kód, který vytvoří frontu (pokud neexistuje) a vloží zprávu „Hello, World“:
 
@@ -107,7 +107,7 @@ Pokud chcete vložit zprávu do existující fronty, vytvořte nejdříve novou 
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-## Zobrazení náhledu další zprávy
+## <a name="peek-at-the-next-message"></a>Zobrazení náhledu další zprávy
 
 Pomocí volání metody **PeekMessage** můžete prohlížet zprávy ve frontě, aniž byste je z fronty odebrali.
 
@@ -127,7 +127,7 @@ Pomocí volání metody **PeekMessage** můžete prohlížet zprávy ve frontě,
     // Display message.
     Console.WriteLine(peekedMessage.AsString);
 
-## Změna obsahu zpráv zařazených ve frontě
+## <a name="change-the-contents-of-a-queued-message"></a>Změna obsahu zpráv zařazených ve frontě
 
 Podle potřeby můžete změnit obsah zprávy přímo ve frontě. Pokud zpráva představuje pracovní úlohu, mohli byste tuto funkci použít k aktualizaci stavu pracovních úloh. Následující kód aktualizuje zprávy ve frontě o nový obsah a prodlouží časový limit viditelnosti na 60 sekund. Uloží se tím stav práce spojený se zprávou a klient získá další minutu, aby mohl pokračovat ve zpracování zprávy. Tímto způsobem může sledovat vícekrokového pracovní postupy pro zprávy ve frontě, aniž by bylo nutné v případě, že krok zpracování z důvodu selhání hardwaru nebo softwaru selže, začít znovu od začátku. Obvykle byste udržovali také hodnotu počtu opakování, a pokud by se pokus o zpracování zprávy opakoval více než *n*krát, odstranili byste ji. Je to ochrana proti tomu, aby zpráva při každém pokusu o zpracování nevyvolala chyby aplikace.
 
@@ -148,7 +148,7 @@ Podle potřeby můžete změnit obsah zprávy přímo ve frontě. Pokud zpráva 
         TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
-## Vyřazení další zprávy z fronty
+## <a name="de-queue-the-next-message"></a>Vyřazení další zprávy z fronty
 
 Váš kód vyřazuje zprávy z fronty ve dvou krocích. Zavoláním metody **GetMessage** získáte další zprávu ve frontě. Zpráva vrácená metodou **GetMessage** se stane neviditelnou pro jakýkoli jiný kód, který čte zprávy z této fronty. Ve výchozím nastavení tato zpráva zůstává neviditelná po dobu 30 sekund. Aby bylo možné odebrání zprávy z fronty dokončit, musíte také zavolat metodu **DeleteMessage**. Tento dvoukrokový proces odebrání zprávy zaručuje, aby v případě, že se vašemu kódu nepodaří zprávu zpracovat z důvodu selhání hardwaru nebo softwaru, mohla stejnou zprávu získat jiná instance vašeho kódu a bylo možné to zkusit znovu. Váš kód zavolá metodu **DeleteMessage** hned po zpracování zprávy.
 
@@ -168,7 +168,7 @@ Váš kód vyřazuje zprávy z fronty ve dvou krocích. Zavoláním metody **Get
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
 
-## Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
+## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
 
 Tento příklad ukazuje způsob použití vzoru Async-Await s běžnými rozhraním API Queue Storage. Ukázka volá asynchronní verzi každé z daných metod, jak indikuje přípona *Async* každé metody. Při použití asynchronní metody pozastaví vzor async-await místní provádění kódu až do dokončení volání. Toto chování umožňuje aktuálnímu vláknu provádět další činnosti, což pomáhá zabránit vzniku kritických bodů z hlediska výkonu a zlepšuje celkovou rychlost reakce aplikace. Další podrobnosti o použití vzoru Async-Await v rozhraní .NET najdete v tématu [Async a Await (C# a Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
@@ -197,7 +197,7 @@ Tento příklad ukazuje způsob použití vzoru Async-Await s běžnými rozhran
     await queue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
-## Využívání dalších možností pro vyřazování zpráv z fronty
+## <a name="leverage-additional-options-for-de-queuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
 
 Načítání zpráv z fronty si můžete přizpůsobit dvěma způsoby.
 Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nastavit delší nebo kratší časový limit neviditelnosti, aby měl váš kód více nebo méně času na úplné zpracování jednotlivých zpráv. V následujícím příkladu kódu se pomocí metody **GetMessages** získá 20 zpráv v jednom volání. Následně se každá zpráva zpracuje pomocí smyčky **foreach**. Také se pro každou zprávu nastaví časový limit neviditelnosti 5 minut. Pozor, 5minutový časový limit začíná pro všechny zprávy najednou, takže po uplynutí 5 minut od volání metody **GetMessages** pak budou všechny zprávy, které nebyly odstraněny, opět viditelné.
@@ -218,7 +218,7 @@ Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nast
         queue.DeleteMessage(message);
     }
 
-## Získání délky fronty
+## <a name="get-the-queue-length"></a>Získání délky fronty
 
 Podle potřeby můžete získat odhadovaný počet zpráv ve frontě. Metoda **FetchAttributes** požádá Službu front o načtení atributů fronty, včetně počtu zpráv. Vlastnost **ApproximateMessageCount** vrátí poslední hodnotu načtenou metodou **FetchAttributes** bez volání Služby front.
 
@@ -241,7 +241,7 @@ Podle potřeby můžete získat odhadovaný počet zpráv ve frontě. Metoda **F
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## Odstranění fronty
+## <a name="delete-a-queue"></a>Odstranění fronty
 
 Pokud budete chtít odstranit frontu se všemi zprávami, které v ní jsou, zavolejte metodu **Delete** pro objekt fronty.
 
@@ -258,7 +258,7 @@ Pokud budete chtít odstranit frontu se všemi zprávami, které v ní jsou, zav
     // Delete the queue.
     queue.Delete();
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Teď, když jste se naučili základy používání služby Queue Storage, podívejte se na následujících odkazech na další informace o složitějších úlohách úložiště.
 
@@ -269,18 +269,18 @@ Teď, když jste se naučili základy používání služby Queue Storage, podí
 - Projděte si další průvodce funkcemi, kde najdete další informace o dalších možnostech pro ukládání dat v Azure.
     - [Začínáme s Azure Table Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-tables.md) pro ukládání strukturovaných dat
     - [Začínáme s Azure Blob Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md) pro ukládání nestrukturovaných dat
-    - [Jak používat Azure SQL Database v aplikacích .NET](sql-database-dotnet-how-to-use.md) pro ukládání relačních dat
+    - [Připojení k SQL Database s použitím rozhraní .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) pro uložení relačních dat
 
   [Stažení a instalace sady Azure SDK pro .NET]: /develop/net/
   [Klientská knihovna pro .NET – referenční informace]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Vytvoření projektu Azure v sadě Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [Blog týmu Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+  [EDM]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

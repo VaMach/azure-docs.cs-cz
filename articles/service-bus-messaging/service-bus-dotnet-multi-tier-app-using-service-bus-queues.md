@@ -1,14 +1,14 @@
 <properties
     pageTitle="Vícevrstvá aplikace .NET | Microsoft Azure"
     description="Kurz .NET, který vám pomůže vytvořit vícevrstvou aplikaci v Azure, která používá fronty Service Bus ke komunikaci mezi vrstvami."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
+# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
 
-## Úvod
+## <a name="introduction"></a>Úvod
 
 Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí. Tyto kroky předpokládají, že nemáte žádné předchozí zkušenosti s používáním Azure.
 
@@ -38,7 +38,7 @@ Na následujícím snímku obrazovky je vidět hotová aplikace.
 
 ![][0]
 
-## Přehled scénáře: komunikace mezi rolemi
+## <a name="scenario-overview:-inter-role-communication"></a>Přehled scénáře: komunikace mezi rolemi
 
 Abyste mohli odeslat objednávku ke zpracování, musí komponenta uživatelského prostředí front-endu, která běží ve webové roli, pracovat s logikou střední úrovně běžící v roli pracovního procesu. Tento příklad používá zprostředkované zasílání zpráv pro komunikaci mezi vrstvami.
 
@@ -50,17 +50,17 @@ Service Bus nabízí dvě entity, které podporují zprostředkované zasílán�
 
 Tento komunikační mechanizmus má několik výhod oproti přímému přenosu zpráv.
 
--   **Časové oddělení.** S asynchronním vzorcem zasílání zpráv nemusí být producenti a spotřebitelé online ve stejnou dobu. Service Bus spolehlivě uchová zprávy, dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na systém jako celek. Navíc stačí, aby spotřebitelská aplikace byla online i jen v určitou dobu během dne.
+-   **Časové oddělení**. S asynchronním vzorcem zasílání zpráv nemusí být producenti a spotřebitelé online ve stejnou dobu. Service Bus spolehlivě uchová zprávy, dokud spotřebitel nebude připravený je přijmout. Díky tomu se součásti distribuované aplikace můžou odpojit, například při údržbě nebo při selhání jedné ze součástí, a přitom to nebude mít vliv na systém jako celek. Navíc stačí, aby spotřebitelská aplikace byla online i jen v určitou dobu během dne.
 
--   **Vyrovnávání zátěže.** V mnoha aplikacích se zátěž na systém může postupně měnit, zatímco doba nutná ke zpracování pracovní jednotky je obvykle stálá. Propojovací producenti a spotřebitelé zpráv s frontou – to znamená, že spotřebitelskou aplikaci (pracovní proces) stačí zřídit jen na obvyklou zátěž, ne na zátěž ve špičce. S měnící se příchozí zátěží se mění hloubka fronty. To znamená přímou úsporu nákladů ve smyslu infrastruktury nutné pro zvládání zatížení aplikace.
+-   **Vyrovnávání zátěže**. V mnoha aplikacích se zátěž na systém může postupně měnit, zatímco doba nutná ke zpracování pracovní jednotky je obvykle stálá. Propojovací producenti a spotřebitelé zpráv s frontou – to znamená, že spotřebitelskou aplikaci (pracovní proces) stačí zřídit jen na obvyklou zátěž, ne na zátěž ve špičce. S měnící se příchozí zátěží se mění hloubka fronty. To znamená přímou úsporu nákladů ve smyslu infrastruktury nutné pro zvládání zatížení aplikace.
 
--   **Vyrovnávání zatížení.** Když se zátěž zvyšuje, můžou se přidat další pracovní procesy, které budou číst zprávy z fronty. Každou zprávu zpracovává jen jeden pracovní proces. Toto vyrovnávání zátěže podle požadavků umožňuje optimální využívání pracovních počítačů i v případě, že se pracovní počítače liší z hlediska výkonu, protože zprávy žádaný a zpracovávají svou vlastním maximální rychlostí. Tomuto chování se často říká *konkurence mezi spotřebiteli*.
+-   **Vyrovnávání zatížení**. Když se zátěž zvyšuje, můžou se přidat další pracovní procesy, které budou číst zprávy z fronty. Každou zprávu zpracovává jen jeden pracovní proces. Toto vyrovnávání zátěže podle požadavků umožňuje optimální využívání pracovních počítačů i v případě, že se pracovní počítače liší z hlediska výkonu, protože zprávy žádaný a zpracovávají svou vlastním maximální rychlostí. Tomuto chování se často říká *konkurence mezi spotřebiteli*.
 
     ![][2]
 
 V následující části se probírá kód, který tuto architekturu implementuje.
 
-## Nastavení vývojového prostředí
+## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 
 Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
@@ -74,18 +74,18 @@ Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojov
 
 6.  Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu. Pokud nemáte Visual Studio nainstalované, SDK taky nainstaluje bezplatnou verzi Visual Studio Express.
 
-## Vytvoření oboru názvů
+## <a name="create-a-namespace"></a>Vytvoření oboru názvů
 
 Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje klíč SAS při vytvoření oboru názvů. Kombinace oboru názvů a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Vytvoření webové role
+## <a name="create-a-web-role"></a>Vytvoření webové role
 
 V této části vytvoříte front-end své aplikace. Nejdřív vytvoříte stránky, které vaše aplikace zobrazí.
 Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí informace o stavu fronty.
 
-### Vytvoření projektu
+### <a name="create-the-project"></a>Vytvoření projektu
 
 1.  Spusťte Visual Studio s právy správce. Visual Studio spustíte jako správce tak, že na ikonu programu **Visual Studio** kliknete pravým tlačítkem a vyberete možnost **Spustit jako správce**. Emulátor výpočtů v Azure, který se bude probírat později v tomto článku, potřebuje, aby bylo Visual Studio spuštěné s právy správce.
 
@@ -123,7 +123,7 @@ Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí
 
 9.  V **Průzkumníku řešení** klikněte pravým tlačítkem na **Modely**, pak klikněte na **Přidat** a pak na **Třída**. Do pole **Název** zadejte název **OnlineOrder.cs**. Pak klikněte na **Přidat**.
 
-### Napsání kódu pro vaši webovou roli
+### <a name="write-the-code-for-your-web-role"></a>Napsání kódu pro vaši webovou roli
 
 V této části vytvoříte stránky, které vaše aplikace zobrazí.
 
@@ -231,7 +231,7 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
 
     ![][17]
 
-### Napsání nového kódu pro odesílání položek do fronty Service Bus
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Napsání nového kódu pro odesílání položek do fronty Service Bus
 
 Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte třídu, která obsahuje informace o připojení k vaší frontě Service Bus. Potom inicializujte připojení ze souboru Global.aspx.cs. Nakonec aktualizujte kód pro odesílání, který jste vytvořili předtím v souboru HomeController.cs tak, aby položky odesílal do fronty Service Bus.
 
@@ -353,7 +353,7 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
 
     ![][18]
 
-## Vytvoření role pracovního procesu
+## <a name="create-the-worker-role"></a>Vytvoření role pracovního procesu
 
 Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objednávek. Tento příklad používá šablonu Visual Studia **Role pracovního procesu s frontou Service Bus**. Potřebné pověření jste už získali z portálu.
 
@@ -412,7 +412,7 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
 
     ![][20]
 
-## Další kroky  
+## <a name="next-steps"></a>Další kroky  
 
 Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
@@ -427,7 +427,7 @@ Další informace o víceúrovňových scénářích najdete v:
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Stažení nástrojů a sady SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -465,6 +465,6 @@ Další informace o víceúrovňových scénářích najdete v:
   
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

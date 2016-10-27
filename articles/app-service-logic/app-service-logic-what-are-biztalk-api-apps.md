@@ -38,9 +38,6 @@ V části [Ceny App Service](https://azure.microsoft.com/pricing/details/app-ser
 ## Hybridní konektory 
 Hybridní konektory dále rozšiřují využitelnost ve velkých firmách tím, že přidávají možnost připojení pro [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) a WebSphere MQ. 
 
-## Služby EAI a EDI
-Vytváření důležitých podnikových aplikací vyžaduje více než jen možnost propojení. Aplikace API pro BizTalk mají své základy ve špičkové integrační platformě Microsoftu – BizTalk Serveru – a poskytují tak funkce pro pokročilou integraci, které je možné snadno připojit k webové aplikaci, mobilní aplikaci nebo aplikaci logiky. Mezi některé z těchto integračních funkcí patří [ověření](app-service-logic-xml-validator.md), [extrahování](app-service-logic-xpath-extract.md), [transformace](app-service-logic-transform-xml-documents.md), [kodéry](app-service-logic-connector-jsonencoder.md), [správa obchodních partnerů](app-service-logic-connector-tpm.md) a podpora formátů EDI, jako jsou [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) a [AS2](app-service-logic-connector-as2.md).
-
 Další prostředky: [Konektory B2B a aplikace API](app-service-logic-b2b-connectors.md)  
 [Vytvoření procesu B2B](app-service-logic-create-a-b2b-process.md)  
 [Vytvoření smlouvy s obchodním partnerem](app-service-logic-create-a-trading-partner-agreement.md)  
@@ -56,6 +53,6 @@ Obchodní pravidla v sobě nesou zásady a rozhodnutí řídící podnikové pro
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

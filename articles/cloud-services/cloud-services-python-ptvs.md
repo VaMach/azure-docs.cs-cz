@@ -18,11 +18,11 @@
 
 
 
-# Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
 
 Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů pomocí nástrojů [Python Tools for Visual Studio][]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
  - Visual Studio 2013 nebo 2015
  - [Python Tools for Visual Studio][] (PTVS)
@@ -31,18 +31,18 @@ Tento článek obsahuje přehled používání webových rolí a rolí pracovní
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Co jsou webové role a role pracovních procesů Pythonu?
+## <a name="what-are-python-web-and-worker-roles?"></a>Co jsou webové role a role pracovních procesů Pythonu?
 
 Azure nabízí tři výpočetní modely pro provozování aplikací: [funkce Web Apps ve službě Azure App Service][prováděcí model – weby], [Azure Virtual Machines][prováděcí model – vms] a [Azure Cloud Services][prováděcí model – cloudové služby]. Všechny tři modely podporují Python. Služby Cloud Services, které obsahují webové role a role pracovních procesů, zajišťují *PaaS (Platform as a Service)*. Webová role v rámci cloudové služby poskytuje vyhrazený webový server Internetové informační služby (IIS) pro hostování front-endových webových aplikací, zatímco role pracovních procesů dokážou spouštět asynchronní, dlouhotrvající nebo trvalé úlohy, které jsou nezávislé na vstupu nebo interakci uživatelů.
 
 Další informace najdete v článku [Co je cloudová služba?].
 
-> [AZURE.NOTE] *Chcete si vytvořit jednoduchý web?*
+> [AZURE.NOTE]*Chcete si vytvořit jednoduchý web?*
 Pokud váš scénář zahrnuje jen jednoduchý front-endový web, zvažte použití odlehčené funkce Web Apps v rámci Azure App Service. V případě potřeby budete moct snadno upgradovat na Cloud Service, až se váš web rozroste a vaše požadavky se změní. Ve <a href="/develop/python/">středisku pro vývojáře programující v Pythonu</a> najdete články věnované vývoji funkce Web Apps v rámci Azure App Service.
 <br />
 
 
-## Vytvoření projektu
+## <a name="project-creation"></a>Vytvoření projektu
 
 V sadě Visual Studio můžete v dialogovém okně **Nový projekt** v části **Python** vybrat **Cloudová služba Azure**.
 
@@ -62,7 +62,7 @@ Do existující cloudové služby můžete kdykoli přidat webovou roli nebo rol
 
 Cloudové služby můžou obsahovat role implementované v různých jazycích.  Můžete mít například webovou roli Pythonu implementovanou pomocí rolí pracovního procesu Django, Python nebo C#.  Mezi svými rolemi můžete snadno komunikovat pomocí front služeb Storage nebo Service Bus.
 
-## Instalace Pythonu v cloudové službě
+## <a name="install-python-on-the-cloud-service"></a>Instalace Pythonu v cloudové službě
 
 >[AZURE.WARNING] Skripty pro nastavení, které jsou nainstalovány se službou Visual Studio (v době poslední instalace tohoto článku), nefungují. Tato část popisuje alternativní řešení.
 
@@ -113,7 +113,7 @@ Proměnné **PYTHON2** a **PYPATH** je třeba přidat do počáteční úlohy pr
 </Runtime>
 ```
 
-#### Ukázkový soubor ServiceDefinition.csdef
+#### <a name="sample-servicedefinition.csdef"></a>Ukázkový soubor ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Proměnné **PYTHON2** a **PYPATH** je třeba přidat do počáteční úlohy pr
 
 Dále vytvořte soubory **PrepPython.ps1** a **PipInstaller.ps1** ve složce **./bin** vaší role.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Tento skript nainstaluje Python. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, bude nainstalován Python 2.7; v opačném případě bude nainstalován Python 3.5.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Tento skript volá program pip a instaluje všechny závislosti v souboru **requirements.txt**. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### Úprava souboru LaunchWorker.ps1
+#### <a name="modify-launchworker.ps1"></a>Úprava souboru LaunchWorker.ps1
 
 >[AZURE.NOTE] V případě projektu **role pracovního procesu** je ke spuštění spouštěcího souboru vyžadován soubor **LauncherWorker.ps1**. U projektu **webové role** je spouštěcí soubor definován ve vlastnostech projektu.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
 Šablony služby Visual Studio měly vytvořit soubor **ps.cmd** ve složce **./bin**. Tento skript prostředí volá obálkové skripty prostředí PowerShell uvedené výše a zajišťuje protokolování na základě názvu volaného obálkového skriptu prostředí PowerShell. Pokud tento soubor nebyl vytvořen, zde je uveden jeho očekávaný obsah. 
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Spuštění v místním prostředí
+## <a name="run-locally"></a>Spuštění v místním prostředí
 
 Pokud si projekt cloudové služby nastavíte jako projekt po spuštění a stisknete F5, spustí se cloudová služba v emulátoru místního prostředí Azure.
 
@@ -309,7 +309,7 @@ Když budete chtít webové role a role pracovních procesů ladit, můžete jak
 
 ![Vlastnosti projektu po spuštění pro řešení](./media/cloud-services-python-ptvs/startup.png)
 
-## Publikování aplikací do Azure
+## <a name="publish-to-azure"></a>Publikování aplikací do Azure
 
 Když budete chtít aplikaci publikovat, klikněte pravým tlačítkem na projekt cloudové služby v řešení a pak vyberte **Publikovat**.
 
@@ -325,11 +325,11 @@ V okně výstupu uvidíte průběh a pak se zobrazí okno Protokoly aktivit Micr
 
 Pár minut bude probíhat nasazování a pak už vám na Azure začne běžet webová role a role pracovního procesu.
 
-### Prozkoumání protokolů
+### <a name="investigate-logs"></a>Prozkoumání protokolů
 
 Po spuštění virtuálního počítače cloudové služby a instalaci Pythonu si můžete prohlédnou protokoly a hledat případné zprávy o neúspěchu. Tyto protokoly jsou umístěny ve složce **C:\Resources\Directory\{role}\LogFiles**. Soubor **PrepPython.err.txt** bude obsahovat alespoň jednu chybu, protože se skript pokusil zjistit, zda je nainstalován Python, a soubor **PipInstaller.err.txt** může obsahovat zprávu ohledně zastaralé verze programu pip.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Další podrobné informace o práci s webovými rolemi a rolemi pracovních procesů v nástrojích Python Tools for Visual Studio najdete v dokumentaci k těmto nástrojům:
 
@@ -337,7 +337,7 @@ Další podrobné informace o práci s webovými rolemi a rolemi pracovních pro
 
 Další podrobnosti o používání služeb Azure z vaší webové role a role pracovního procesu, například pomocí služeb Azure Storage nebo Azure Service Bus, najdete v následujících článcích.
 
-- [Služba objektů blob][]
+- [Služba Blob][]
 - [Služba Table][]
 - [Služba front][]
 - [Fronty služby Service Bus][]
@@ -352,17 +352,17 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 [prováděcí model – cloudové služby]: cloud-services-choose-me.md
 [Středisko pro vývojáře programující v Pythonu]: /develop/python/
 
-[Služba objektů blob]: ../storage/storage-python-how-to-use-blob-storage.md
+[Služba Blob]: ../storage/storage-python-how-to-use-blob-storage.md
 [Služba front]: ../storage/storage-python-how-to-use-queue-storage.md
 [Služba Table]: ../storage/storage-python-how-to-use-table-storage.md
-[Fronty služby Service Bus]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Témata služby Service Bus]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Fronty služby Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Témata služby Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Dokumentace k nástrojům Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
+[Python Tools pro Visual Studio]: http://aka.ms/ptvs
+[Dokumentace nástrojů Python Tools pro Visual Studio]: http://aka.ms/ptvsdocs
 [Projekty cloudových služeb]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -371,6 +371,6 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

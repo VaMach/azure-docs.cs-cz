@@ -1,3 +1,4 @@
+
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
 2. Klikněte na **Nový**, pak na **Web + mobilní zařízení** a potom na **Mobile Engagement**.
@@ -38,6 +39,6 @@
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Kurz: Vytvoření kanálu pomocí průvodce kopírováním" 
+    pageTitle="Kurz: Vytvoření kanálu pomocí průvodce kopírováním | Microsoft Azure" 
     description="V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí průvodce kopírováním podporovaného službou Data Factory" 
     services="data-factory" 
     documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" **
+    ms.tgt_pltfrm="na"
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="09/16/2016" 
@@ -24,6 +24,7 @@
 - [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -120,7 +121,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     ![Nástroj pro kopírování – nastavení výkonu](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Spuštění aplikace pro monitorování a správu 
-12. Na stránce **Nasazení** klikněte na odkaz **Kliknutím sem můžete monitorovat kanál kopírování**.
+12. Na stránce **Nasazení** klikněte na následující odkaz: `Click here to monitor copy pipeline`.
 
     ![Nástroj pro kopírování – nasazení bylo úspěšné](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Pomocí pokynů v tématu [Monitorování a správa kanálu pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) zjistíte, jak můžete vytvořený kanál monitorovat. Kliknutím na ikonu **Aktualizovat** v seznamu **OKNA AKTIVIT** zobrazíte řez. 
@@ -139,6 +140,6 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 
