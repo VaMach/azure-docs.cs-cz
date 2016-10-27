@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="10/10/2016"
     ms.author="kgremban"/>
 
 
 # Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure
 
 > [AZURE.SELECTOR]
-- [portál Azure](role-based-access-control-azure-portal.md)
-- [Portál Azure Classic](role-based-access-control-configure.md)
+- [Správa přístupu podle uživatele nebo skupiny](role-based-access-control-manage-assignments.md)
+- [Správa přístupu podle prostředku](role-based-access-control-configure.md)
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
 
@@ -31,9 +31,8 @@ Na [portálu Azure](https://portal.azure.com) můžete v hlavním okně sledovat
 1. Na navigačním panelu vlevo vyberte **Skupiny prostředků**.  
     ![Skupiny prostředků – ikona](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. V okně **Skupiny prostředků** vyberte název skupiny prostředků.
-3. V okně skupiny prostředků vpravo nahoře vyberte možnost **Uživatelé**.  
-    ![Uživatelé – ikona](./media/role-based-access-control-configure/users_icon.png)
-4. V okně **Uživatelé** se zobrazují všichni uživatelé, skupiny a aplikace, kterým byl udělen přístup ke skupině prostředků.  
+3. Z nabídky vlevo vyberte **Řízení přístupu (IAM)**.  
+4. V okně Řízení přístupu se zobrazují všichni uživatelé, skupiny a aplikace, kterým byl udělen přístup ke skupině prostředků.  
 
     ![Snímek obrazovky s oknem uživatelé – zděděný a přiřazený přístup](./media/role-based-access-control-configure/view-access.png)
 
@@ -45,8 +44,7 @@ Všimněte si, že některým uživatelům byl přístup **přiřazen**, zatímc
 ## Přidání přístupu
 Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, které je v rozsahu platnosti přiřazení role.
 
-1. V okně **Uživatelé** vyberte **Přidat**.  
-    ![Přidat – ikona](./media/role-based-access-control-configure/add_icon.png)  
+1. V okně Řízení přístupu vyberte **Přidat**.  
 2. V okně **Vyberte roli** vyberte roli, kterou chcete přiřadit.
 3. Ve svém adresáři vyberte uživatele, skupinu nebo aplikaci, kterým chcete přiřadit přístup. V adresáři můžete vyhledávat pomocí zobrazovaných názvů, e-mailových adres a identifikátorů objektů.  
 
@@ -59,9 +57,8 @@ Po úspěšném přiřazení role se přiřazení zobrazí v okně **Uživatelé
 
 ## Odebrání přístupu
 
-1. V okně **Uživatelé** vyberte přiřazení role.
+1. V okně Řízení přístupu vyberte přiřazení role.
 2. V okně podrobností přiřazení vyberte **Odebrat**.  
-    ![Odebrat – ikona](./media/role-based-access-control-configure/remove_icon.png)
 3. Výběrem položky **ano** odebrání potvrďte.  
     ![Snímek obrazovky s oknem Uživatelé – odebrání role](./media/role-based-access-control-configure/remove-access1.png)
 
@@ -83,6 +80,6 @@ Přiřazování rolí a správu přístupu pomocí řízení přístupu na zákl
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

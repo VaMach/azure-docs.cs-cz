@@ -33,41 +33,40 @@ Jak tedy můžete získat klienta Azure AD?  Proces se může mírně lišit, po
 - [Nemáte nic z výše uvedeného a chcete začít od nuly](#start-from-scratch)
 
 ## Použití stávajícího předplatného služeb Office 365
-Pokud máte stávající předplatné služeb Office 365, ale nemáte předplatné Azure (a nemůžete se přihlásit k [portálu pro správu služby Azure](https://manage.windowsazure.com)), získáte přístup ke klientovi Azure AD podle [těchto pokynů](https://technet.microsoft.com/library/dn832618.aspx).
+Pokud máte stávající předplatné Office 365, již tenanta služby Azure AD máte! Můžete se přihlásit na webu [Azure Portal](https://portal.azure.com) pomocí svého účtu O365 a začít používat službu Azure AD.
 
 ## Použití předplatného MSA Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí svého individuálního účtu Microsoft, již klienta máte!  Na [portálu pro správu služby Azure](https://manage.windowsazure.com) byste měli klienta s názvem Výchozí klient najít v seznamu Všechny položky a Active Directory.  Tohoto klienta můžete klidně používat podle svých potřeb – ale možná si budete chtít vytvořit účet správce organizace.
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí svého individuálního účtu Microsoft, již klienta máte!  Při přihlášení na webu [Azure Portal](https://portal.azure.com) budete automaticky přihlášeni ke svému výchozímu tenantu. Tohoto klienta můžete klidně používat podle svých potřeb – ale možná si budete chtít vytvořit účet správce organizace.
 
 To provedete podle těchto kroků.  Případně můžete vytvořit nového klienta a vytvořit v něm správce podle podobného postupu.
 
-1.  Přihlaste se k [portálu pro správu služby Azure](https://manage.windowsazure.com) pomocí individuálního účtu
-2.  Přejděte do části Active Directory (nachází se na levém navigačního panelu)
-3.  V seznamu dostupných adresářů vyberte položku Výchozí adresář
-4.  Klikněte na odkaz Uživatelé v horní části stránky.  V seznamu se zobrazí jeden uživatel s hodnotou Účet Microsoft ve sloupci Zdrojem je
-5.  Klikněte na tlačítko Přidat uživatele v dolní části stránky
-6.  Ve formuláři pro přidání uživatele zadejte následující podrobnosti:
-    - Typ uživatele: nový uživatel ve vaší organizaci
+1.  Přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého individuálního účtu.
+2.  Na portálu přejděte do části Azure Active Directory (nachází se na levém navigačním panelu v části **Další služby**).
+3.  Měli byste být automaticky přihlášeni k výchozímu adresáři. Pokud ne, můžete adresář změnit kliknutím na název účtu v horním pravém rohu.
+4.  V části **Rychlé úlohy** zvolte **Přidat uživatele**.
+5.  Ve formuláři pro přidání uživatele zadejte následující podrobnosti:
+
+    - Název: (zvolte příslušnou hodnotu)
     - Uživatelské jméno: (zvolte uživatelské jméno pro tohoto správce.)
-    - Jméno/příjmení/zobrazované jméno: (zvolte příslušné hodnoty.)
+    - Profil: (vyplňte příslušné hodnoty pro Jméno, Příjmení, Pozice a Oddělení)
     - Role: globální správce
-    - Alternativní e-mailová adresa: (zadejte příslušné hodnoty)
-    - Volitelné: Povolení služby Multi-Factor Authentication
-    - Nakonec kliknutím na zelené tlačítko VYTVOŘIT dokončíte vytvoření uživatele (a zobrazí se dočasné heslo).
-7.  Po vyplnění formuláře pro přidání uživatele obdržíte dočasné heslo pro nového správce, které si nezapomeňte někam zapsat. Bude nutné k přihlášení tohoto nového uživatele, abyste mohli heslo změnit. Pomocí alternativní e-mailové adresy můžete také heslo odeslat přímo uživateli.
-8.  Pokud chcete dočasné heslo změnit, přihlaste se na adrese https://login.microsoftonline.com pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
+
+6.  Po vyplnění formuláře pro přidání uživatele obdržíte dočasné heslo pro nového správce, které si nezapomeňte někam zapsat. Bude nutné k přihlášení tohoto nového uživatele, abyste mohli heslo změnit. Pomocí alternativní e-mailové adresy můžete také heslo odeslat přímo uživateli.
+7.  Kliknutím na **Vytvořit** vytvořte nového uživatele.
+8.  Pokud chcete dočasné heslo změnit, přihlaste se na adrese [https://login.microsoftonline.com](https://login.microsoftonline.com) pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
 
 
 ## Použití organizačního předplatného Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na [portálu pro správu služby Azure](https://manage.windowsazure.com) byste měli klienta najít v seznamu Všechny položky a Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.  Možná si budete chtít vytvořit nového klienta pomocí tlačítka Nový v levém dolním rohu portálu.
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb. 
 
 
 ## Začátek od nuly
-Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti.  Navštivte stránku [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) a zaregistrujte se do služby Azure s novou organizací.  Jakmile proces dokončíte, bude mít svého vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na [portálu pro správu služby Azure](https://manage.windowsazure.com) klienta najdete v části Active Directory v nabídce vlevo.
+Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti.  Navštivte stránku [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) a zaregistrujte se do služby Azure s novou organizací.  Jakmile proces dokončíte, bude mít svého vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) tenanta najdete v části Azure Active Directory v nabídce vlevo.
 
 Součástí registrace do služby Azure je zadání údajů z platební karty.  Můžete bez obav pokračovat – za publikování aplikací v Azure AD ani vytváření nových klientů vám nebude nic účtováno.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

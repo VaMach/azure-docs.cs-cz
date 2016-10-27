@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="07/22/2016" 
+    ms.date="10/11/2016" 
     ms.author="sdanie"/>
 
 
@@ -34,7 +34,7 @@ Naučíte se:
 -   Jak přistupovat k datům v databázi pomocí Entity Frameworku.
 -   Jak zlepšit propustnost dat a snížit zatížení databáze díky ukládání a načítání dat pomocí Azure Redis Cache.
 -   Jak použít seřazenou sadu Redis k načtení týmů v Top 5.
--   Jak zřídit prostředky Azure pro aplikaci pomocí šablony ARM.
+-   Jak zřídit prostředky Azure pro aplikaci pomocí šablony Resource Manageru.
 -   Jak publikovat aplikaci do Azure pomocí sady Visual Studio.
 
 ## Požadavky
@@ -853,6 +853,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

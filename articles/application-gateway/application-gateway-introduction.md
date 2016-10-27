@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduction to Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie-based session affinity, and SSL offload."
+   pageTitle="Seznámení se službou Application Gateway | Microsoft Azure"
+   description="Tato stránka poskytuje přehled služby Application Gateway pro vyrovnávání zatížení vrstvy 7, včetně velikostí bran, vyrovnávání zatížení HTTP, spřažení relace na základě souborů cookie a přesměrování zpracování SSL."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,77 +9,85 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="gwallace"/>
 
-# Application Gateway overview
 
-## What is Application Gateway
+# <a name="application-gateway-overview"></a>Přehled služby Application Gateway
 
-Microsoft Azure Application Gateway provides an Application Delivery Controller (ADC) as a service, providing many layer 7 load balancing capabilities. In simple terms, it works by accepting traffic and based on rules that are defined with it, routes the traffic to the appropriate back-end instances.
+## <a name="what-is-application-gateway"></a>Co je Application Gateway
 
-Application load balancing enables IT administrators and developers to create routing rules for network traffic based on the HTTP protocol.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Služba Microsoft Azure Application Gateway poskytuje Application Delivery Controller (ADC) jako službu s mnoha možnostmi vyrovnávání zatížení vrstvy 7. Jednoduše řečeno funguje tak, že přijímá provoz a na základě pravidel definovaných ve službě provoz směruje do příslušných back-endových instancí.
 
-The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic. 
-Azure provides layer 4 load balancing through Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. 
-The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, or an external IP address.
+Vyrovnávání zatížení aplikací umožňuje správcům IT a vývojářům vytvářet pravidla směrování síťového provozu na základě protokolu HTTP.  Služba Azure Application Gateway je vysoce dostupná a měřená. Informace o smlouvě SLA a cenách najdete na příslušných stránkách [SLA](https://azure.microsoft.com/support/legal/sla/) a [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-## Features
+Služba Application Gateway používá pravidla směrování pro přenosy pomocí protokolu HTTP a poskytuje tak vyrovnávání zatížení vrstvy 7 (HTTP). Když vytvoříte službu Application Gateway, k příchozímu síťovému přenosu se přidruží koncový bod (virtuální IP adresa), která se použije jako veřejná IP adresa. Azure poskytuje vyrovnávání zatížení vrstvy 4 prostřednictvím nástroje Azure Load Balancer, který funguje na úrovni přenosu (TCP/UDP) a vyrovnává zatížení veškerého příchozího síťového přenosu do služby Application Gateway. Služba Application Gateway na základě své konfigurace směruje přenos pomocí protokolu HTTP, ať už se jedná o virtuální počítač, cloudovou službu nebo externí IP adresu.
 
-Application Gateway currently supports layer 7 application delivery with the following features:
+## <a name="features"></a>Funkce
 
-- **[Web Application Firewall (Preview)](application-gateway-webapplicationfirewall-overview.md)** - The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
-- **HTTP load balancing** - Application Gateway provides round robin load balancing. Load balancing is done at Layer 7 and is used for HTTP(S) traffic only.
-- **Cookie-based session affinity** - This feature is useful when you want to keep a user session on the same back-end. By using gateway managed cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. This feature is important in cases where session state is saved locally on the back-end server for a user session.
-- **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back to the client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
-- **[End to End SSL](application-gateway-backend-ssl.md)** - Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
-- **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
-- **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
-- **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
-- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources as well as custom probes to monitor for more specific scenarios.
+Služba Application Gateway v současné době podporuje doručování aplikací vrstvy 7 pomocí následujících funkcí:
 
-## Benefits
+- **[Firewall webových aplikací (Preview)](application-gateway-webapplicationfirewall-overview.md)** – Firewall webových aplikací (WAF) ve službě Azure Application Gateway chrání webové aplikace před běžnými webovými útoky, jako jsou například útoky prostřednictvím injektáže SQL, skriptování mezi weby a napadení relace.
+- **Vyrovnávání zatížení HTTP** – Služba Application Gateway poskytuje vyrovnávání zatížení kruhovým dotazováním. Vyrovnávání zatížení probíhá na vrstvě 7 a slouží pouze pro přenosy pomocí protokolu HTTP nebo HTTPS.
+- **Spřažení relace na základě souborů cookie** – Tato funkce je užitečná v případě, že chcete zachovat uživatelskou relaci na stejném back-endu. Pomocí souborů cookie spravovaných bránou je služba Application Gateway schopna směrovat následný provoz z uživatelské relace k zpracování do stejného back-endu. Tato funkce je důležitá v případech, kdy se stav jednotlivých uživatelských relací ukládá místně na back-endovém serveru.
+- **[Přesměrování zpracování Secure Sockets Layer (SSL)](application-gateway-ssl-arm.md)** – Tato funkce zbaví vaše webové servery nákladné úlohy dešifrování přenosu pomocí protokolu HTTPS. Díky ukončení připojení protokolem SSL ve službě Application Gateway a předání požadavku na server v nezašifrované podobě, není server zatížen dešifrováním.  Služba Application Gateway znovu šifruje odpověď před tím, než ji odešle zpět klientovi. Tato funkce je užitečná ve scénářích, kdy je back-end umístěn v rámci Azure ve stejné zabezpečené virtuální síti jako služba Application Gateway.
+- **[Konečné šifrování protokolu SSL](application-gateway-backend-ssl.md)** – Služba Application Gateway podporuje koncové šifrování provozu. Služba Application Gateway to provádí ukončením připojení protokolem SSL ve službě Application Gateway. Brána následně použije na provoz pravidla směrování, znovu zašifruje paket a předá tento paket do příslušného back-endu na základě nadefinovaných pravidel směrování. Každá odpověď webového serveru prochází ke koncovému uživateli stejným procesem.
+- **[Směrování obsahu na základě adresy URL](application-gateway-url-route-overview.md)** – Tato funkce poskytuje možnost používat různé back-endové servery pro různý provoz. Provoz pro složku na webovém serveru nebo pro síť CDN lze směrovat na různé back-endy a tím snížit nepotřebné zatížení back-endů, které neposkytují konkrétní obsah.
+- **[Směrování více webů](application-gateway-multi-site-overview.md)** – Služba Application Gateway umožňuje konsolidovat až 20 webů v jedné službě Application Gateway.
+- **[Podpora protokolu WebSocket](application-gateway-websocket.md)** – Další skvělou funkcí služby Application Gateway je nativní podpora protokolu WebSocket.
+- **[Monitorování stavu](application-gateway-probe-overview.md)** – Služba Application Gateway poskytuje výchozí monitorování stavu back-endových prostředků a vlastní monitorovací sondy pro konkrétnější scénáře.
 
-HTTP layer 7 load balancing is useful for:
+## <a name="benefits"></a>Výhody
 
-- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
-- Applications that want to free web server farms from SSL termination overhead.
-- Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
-- Applications that support websocket traffic
+Služba Application Gateway je užitečná pro:
+
+- Aplikace, které vyžadují, aby se požadavky ze stejné uživatelské/klientské relace pokaždé dostaly ke stejnému back-endovému virtuálnímu počítači. Příklady těchto aplikací by mohly být aplikace nákupních košíků a servery webové pošty.
+- Aplikace, které chtějí zbavit webové serverové farmy režie spojené s ukončováním protokolu SSL.
+- Aplikace, jako je například síť pro doručování obsahu, které vyžadují, aby bylo během jednoho dlouhotrvajícího připojení TCP více požadavků HTTP směrováno nebo směrováno s vyrovnáváním zatížení na různé back-endové servery.
+- Aplikace, které podporují přenos pomocí protokolu WebSocket.
+- Ochranu webových aplikací před běžnými webovými útoky, jako jsou například útoky prostřednictvím injektáže SQL, skriptování mezi weby a napadení relace.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
-## Gateway sizes and instances
+## <a name="gateway-sizes-and-instances"></a>Velikosti a instance brány
 
-Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
+Služba Application Gateway je v současné době nabízena ve třech velikostech: krátkodobé používání, střednědobé používání a dlouhodobé používání. Instance krátkodobého používání jsou určené pro scénáře vývoje a testování.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. 
+V současnosti existují pro službu Application Gateway dvě skladové jednotky (SKU): WAF a Standard.
 
-The following table shows an average performance throughput for each application gateway instance:
+V rámci jednoho předplatného můžete vytvořit až 50 služeb Application Gateway a každá z nich může mít až 10 instancí. Každá služba Application Gateway se může skládat z 20 naslouchacích procesů HTTP. Vyrovnávání zatížení ve službě Application Gateway jako služba spravovaná Azure umožňuje zřízení nástroje pro vyrovnávání zatížení vrstvy 7 za nástrojem pro vyrovnávání zatížení softwaru Azure.
 
-| Back-end page response | Small | Medium | Large|
+Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé instance služby Application Gateway:
+
+| Odezva back-endové stránky | Krátkodobé používání | Střednědobé používání | Dlouhodobé používání|
 |---|---|---|---|
-| 6K | 7.5 Mbps | 13 Mbps | 50 Mbps |
-|100K | 35 Mbps | 100 Mbps| 200 Mbps |
+| 6K | 7,5 Mb/s | 13 Mb/s | 50 Mb/s |
+|100K | 35 Mb/s | 100 Mb/s| 200 Mb/s |
 
->[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
+>[AZURE.NOTE] Tyto hodnoty jsou přibližné hodnoty propustnosti služby Application Gateway. Skutečná propustnost závisí na různých podrobnostech o prostředí, jako jsou například průměrná velikost stránky, umístění back-endových instancí a doba zpracování potřebná k doručení stránky. Pro přesné údaje o výkonu byste měli spustit vlastní testy, tyto hodnoty slouží pouze jako pomůcka pro plánování kapacity.
 
-## Health monitoring
+## <a name="health-monitoring"></a>Monitorování stavu
 
-Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+Služba Azure Application Gateway automaticky monitoruje stav back-endových instancí prostřednictvím základních nebo vlastních sond stavu. Díky používání sond stavu je zajištěno, že na provoz reagují pouze hostitelé, kteří jsou v pořádku. Další informace najdete v tématu [Přehled monitorování stavu ve službě Application Gateway](application-gateway-probe-overview.md).
 
-## Configuring and managing
+## <a name="configuring-and-managing"></a>Konfigurace a správa
 
-For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This additional subnet it not required for the backend applications, as long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers.
+Služba Application Gateway může pro svůj koncový bod při konfiguraci mít veřejnou IP adresu, privátní IP adresu nebo obojí. Služba Application Gateway je nakonfigurována ve virtuální síti ve vlastní podsíti. Podsíť vytvořená nebo používaná pro službu Application Gateway nemůže obsahovat žádný jiný typ prostředků, jediné povolené prostředky v podsíti jsou další služby Application Gateway. Pro zabezpečení vašich back-endových prostředků mohou být back-endové servery obsažené v rámci jiné podsítě ve stejné virtuální síti jako služba Application Gateway. Tato další podsíť není vyžadována pro back-endové aplikace. Dokud má služba Application Gateway přístup k IP adrese, je schopna poskytovat back-endovým serverům možnosti ADC.
 
-You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/).
+Službu Application Gateway můžete vytvořit a spravovat pomocí rozhraní REST API, rutin prostředí PowerShell, rozhraní příkazového řádku Azure nebo webu [Azure Portal](https://portal.azure.com/).
 
-## Next steps
+## <a name="next-steps"></a>Další kroky
 
-After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
+Po získání informací o službě Application Gateway můžete [vytvořit službu Application Gateway](application-gateway-create-gateway-portal.md) nebo [vytvořit přesměrování zpracování SSL ve službě Application Gateway](application-gateway-ssl-arm.md) pro vyrovnávání zatížení připojení HTTPS.
 
-To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
+Další informace o vytvoření služby Application Gateway používající směrování obsahu na základě adresy URL najdete v tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-arm-ps.md).
+
+
+
+
+<!--HONumber=Oct16_HO3-->
+
 

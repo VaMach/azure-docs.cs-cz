@@ -1,14 +1,14 @@
 <properties
     pageTitle="Přehled cenových úrovní zasílání zpráv Service Bus Premium a Standard | Microsoft Azure"
     description="Zasílání zpráv Service Bus na úrovni Premium a Standard"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="djrosanova"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -17,7 +17,7 @@
     ms.author="darosa;sethm"/>
 
 
-# Úrovně zasílání zpráv Service Bus Premium a Standard 
+# <a name="service-bus-premium-and-standard-messaging-tiers"></a>Úrovně zasílání zpráv Service Bus Premium a Standard 
 
 Zasílání zpráv Service Bus, které zahrnuje entity zasílání zpráv, jako jsou fronty a témata, v sobě kombinuje funkce pro zasílání zpráv v rámci podniku s bohatou sémantikou publikování a odběru na úrovni cloudu. Zasílání zpráv Service Bus se používá jako páteřní prvek mnoha sofistikovaných cloudových řešení.
 
@@ -37,30 +37,29 @@ Několik nejvýraznějších rozdílů je v tabulce dole.
 
 Vedle toho, že je tento výkon předvídatelnější, je také rychlejší. Zasílání zpráv Service Bus Premium staví na enginu úložiště představeném ve službě [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Se zasíláním zpráv na úrovni Premium je výkon ve špičce mnohem vyšší než na úrovni Standard.
 
-## Technické rozdíly zasílání zpráv na úrovni Premium
+## <a name="premium-messaging-technical-differences"></a>Technické rozdíly zasílání zpráv na úrovni Premium
 
 Toto je několik rozdílů mezi úrovněmi zasílání zpráv Premium a Standard.
 
-### Dělené fronty a témata
+### <a name="partitioned-queues-and-topics"></a>Dělené fronty a témata
 
 Dělené fronty a témata jsou podporované v zasílání zpráv na úrovni Premium, ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovních Standard a Basic. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. Další informace o dělení najdete v oddílu [Dělené fronty a témata](service-bus-partitioning.md).
 
-### Expresní entity
+### <a name="express-entities"></a>Expresní entity
 
 Protože zasílání zpráv na úrovni Premium běží v kompletně izolovaném prostředí, nejsou expresní entity v oborech názvů úrovně Premium podporované. Další informace o expresní funkci najdete v popisu vlastnosti [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
 - [Představení zasílání zpráv Azure Service Bus Premium (příspěvek na blogu)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Představení zasílání zpráv Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-- [Přehled architektury služby Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - [Jak používat fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

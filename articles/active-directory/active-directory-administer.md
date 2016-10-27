@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
+    ms.date="10/10/2016"
     ms.author="markvi"/>
+
 
 # Správa adresáře služby Azure AD
 
@@ -151,6 +152,6 @@ Kontrolují se následující podmínky:
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

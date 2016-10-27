@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # Požadavky na technologii QoS služby ExpressRoute
 
@@ -30,7 +31,6 @@ V následující tabulce je seznam označení DSCP používaných Skypem pro fir
 | **Hlas** | EF (46) | Skype/Lync – hlas |
 | **Interaktivní** | AF41 (34) | Video |
 |   | AF21 (18) | Sdílení aplikací | 
-|   | CS3 (24) | Signalizace SIP |
 | **Výchozí** | AF11 (10) | Přenos souborů|
 |   | CS0 (0) | Cokoliv jiného| 
 
@@ -52,6 +52,6 @@ V následující tabulce je seznam označení DSCP používaných Skypem pro fir
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

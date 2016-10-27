@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
 
@@ -29,9 +29,7 @@ Tento článek popisuje, jak v jazyce C# vytvořit fond elastické databáze Azu
 
 Azure SQL Database Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] SQL Database Library pro .NET je aktuálně ve verzi Preview.
-
+>[AZURE.NOTE] Podpora řady nových funkcí služby SQL Database je dostupná pouze v případě, že používáte [model nasazení Azure Resource Manager](../resource-group-overview.md), takže byste vždy měli používat nejnovější knihovnu **Azure SQL Database Management Library pro .NET ([dokumenty](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [balíček NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starší [knihovny založené na modelu nasazení Classic](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) jsou podporovány pouze kvůli zpětné kompatibilitě, takže doporučujeme, abyste používali novější knihovny založené na Resource Manageru.
 
 K dokončení kroků v tomto článku budete potřebovat následující:
 
@@ -318,6 +316,6 @@ Následující skript prostředí PowerShell vytvoří aplikaci Active Directory
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

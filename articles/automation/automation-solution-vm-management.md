@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Požadavky
 
-- Runbooky pracují s [účtem Spustit v Azure jako](automation-sec-configure-azure-runas-account.md).  Účet Spustit jako je upřednostňovanou metodou ověřování, protože namísto hesla, jehož platnost může vypršet nebo které se může často měnit, používá ověřování certifikátu.  
+- Runbooky pracují s [účtem Spustit jako Azure](automation-sec-configure-azure-runas-account.md).  Účet Spustit jako je upřednostňovanou metodou ověřování, protože namísto hesla, jehož platnost může vypršet nebo které se může často měnit, používá ověřování certifikátu.  
 
 - Toto řešení může spravovat pouze virtuální počítače v rámci stejného předplatného a skupiny prostředků jako účet služby Automation.  
 
@@ -76,8 +76,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Určuje předplatné obsah
 
 Plán | Popis|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Plán pro runbook StartByResourceGroup.|
-StopByResourceGroup-Schedule-MS-Mgmt | Plán pro runbook StopByResourceGroup.|
+StartByResourceGroup-Schedule-MS-Mgmt | Plán pro runbook StartByResourceGroup, který provádí spouštění virtuálních počítačů spravovaných tímto řešením.|
+StopByResourceGroup-Schedule-MS-Mgmt | Plán pro runbook StopByResourceGroup, který provádí vypínání virtuálních počítačů spravovaných tímto řešením.|
 
 ### Přihlašovací údaje
 
@@ -92,7 +92,7 @@ Provedením následujících kroků přidejte řešení pro spouštění/zastavo
 1. Na domovské obrazovce na webu Azure Portal vyberte dlaždici **Marketplace**.  Pokud již dlaždice není připnutá k vaší domovské obrazovce, vyberte v navigačním podokně vlevo možnost **Nový**.  
 2. V okně Marketplace zadejte do pole hledání text **pustit virtuální počítač** ve vyhledávacím poli a pak ve výsledcích hledání vyberte řešení **Spouštění /zastavování virtuálních počítačů v době mimo špičku [Preview]**.  
 3. V okně **Spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview]** pro vybrané řešení zkontrolujte souhrnné informace a pak klikněte na **Vytvořit**.  
-4. Zobrazí se okno **Přidat řešení**, ve kterém se zobrazí výzva ke konfigurování řešení, než je budete moct naimportovat do svého předplatného služby Automation.<br><br> ![Okno Přidat řešení správy virtuálních počítačů](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+4. Zobrazí se okno **Přidat řešení**, ve kterém se zobrazí výzva ke konfigurování řešení, než je budete moci naimportovat do svého předplatného služby Automation.<br><br> ![Okno Přidat řešení správy virtuálních počítačů](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 5.  V okně **Přidat řešení** vyberte možnost **Pracovní prostor**. Můžete zde vybrat pracovní prostor OMS propojený s předplatným Azure, které obsahuje příslušný účet služby Automation, nebo vytvořit nový pracovní prostor OMS.  Pokud nemáte pracovní prostor OMS, můžete vybrat možnost **Vytvořit nový pracovní prostor** a v okně **Pracovní prostor OMS** provést následující kroky: 
    - Zadejte název pro nový **pracovní prostor OMS**.
    - Vyberte **předplatné**, které má být cílem propojení, výběrem z rozevíracího seznamu, pokud výchozí vybrané předplatné není vhodné.
@@ -113,7 +113,7 @@ Provedením následujících kroků přidejte řešení pro spouštění/zastavo
 
 8. Nakonec v okně **Přidat řešení** vyberte možnost **Konfigurace**. Zobrazí se okno **Parametry**.  V okně **Parametry** se zobrazí výzva k provedení následujících akcí:  
    - Zadejte hodnotu **Názvy cílové skupiny prostředků**. Jedná se o název skupiny prostředků obsahující virtuální počítače, které mají být spravovány tímto řešením.  Můžete zadat více než jeden název a jednotlivé názvy oddělit středníky (v hodnotách se rozlišují malá a velká písmena).  Je podporováno použití zástupného znaku, pokud jsou cílem virtuální počítače ve všech skupinách prostředků v rámci předplatného.
-   - Vyberte hodnotu pro položku **Plán**. Jedná se o opakované datum a čas spouštění a zastavování virtuálních počítačů v cílových skupinách prostředků.
+   - Vyberte hodnotu pro položku **Plán**. Jedná se o opakované datum a čas spouštění a zastavování virtuálních počítačů v cílových skupinách prostředků.  
 
 10. Po dokončení konfigurace počátečních nastavení vyžadovaných pro příslušné řešení vyberte možnost **Vytvořit**.  Všechna nastavení budou ověřena a poté se provede pokus o nasazení řešení v rámci vašeho předplatného.  Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
 
@@ -128,6 +128,9 @@ Když přidáte řešení pro správu virtuálních počítačů, v pracovním p
 V rámci svého účtu služby Automation máte možnost přístupu k řešení a jeho správy po výběru dlaždice **Řešení** a potom v okně **Řešení** výběrem řešení **Start-Stop-VM [pracovní prostor]** ze seznamu.<br><br> ![Seznam řešení služby Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Výběrem řešení zobrazíte okno řešení **Start-Stop-VM [pracovní prostor]**, ve kterém můžete zkontrolovat důležité podrobnosti, například dlaždici **StartStopVM** (podobně jako v pracovním prostoru OMS), na které je zobrazen počet a grafická reprezentace úloh runbooků pro příslušné řešení, které byly spuštěny a úspěšně dokončeny.<br><br> ![Okno řešení pro virtuální počítače služby Automation](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+Odtud můžete také otevřít prostor OMS a provést detailnější analýzu záznamů úlohy.  Stačí kliknout na **Všechna nastavení**, v okně **Nastavení** vybrat **Rychlý start** a poté v okně **Rychlý start** vybrat **Portál OMS**.   Otevře se nová karta nebo nová relace prohlížeče a zobrazí se pracovní prostor OMS přidružený k vašemu účtu a předplatnému služby Automation.  
+
 
 ### Konfigurace e-mailových oznámení
 
@@ -150,6 +153,10 @@ Pokud chcete konfigurovat proměnné zvýrazněné dříve, proveďte následuj�
 2. V okně **Nastavení** v části **Prostředky služby Automation** vyberte možnost **Prostředky**. 
 3. V okně **Prostředky** vyberte dlaždici **Proměnné** a v okně **Proměnné** vyberte proměnnou uvedenou výše a pak upravte její hodnotu za příslušným popisem zadaným dříve v části [proměnná](##variables).  
 4. Kliknutím na možnost **Uložit** uložte změny do proměnné.   
+
+### Úprava plánů spouštění a vypínání
+
+Správa plánů spouštění a vypínání v tomto řešení probíhá podle stejných kroků uvedených v tématu [Plánování runbooku ve službě Azure Automation](automation-scheduling-a-runbook.md).  Pamatujte, že nelze upravit konfiguraci plánu.  Bude třeba zakázat existující plán, následně vytvořit nový plán a propojit jej s runbookem **StartByResourceGroup-MS-Mgmt-VM** nebo **StopByResourceGroup-MS-Mgmt-VM**, na který chcete plán použít.   
 
 ## Záznamy služby Log Analytics
 
@@ -224,6 +231,6 @@ Zobrazit stav úloh v čase pro runbooky StartVM a StopVM | Category=JobLogs Run
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

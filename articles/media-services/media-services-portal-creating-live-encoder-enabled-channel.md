@@ -18,10 +18,10 @@
 
 
 
-#Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
 
 > [AZURE.SELECTOR]
-- [Portál](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
@@ -29,7 +29,7 @@ Tento kurz vás provede kroky k vytvoření **kanálu**, který přijímá datov
 
 >[AZURE.NOTE]Další koncepční informace o kanálech s povoleným kódováním v reálném čase najdete v článku [Živé streamování využívající Azure Media Services k vytváření datových proudů s více přenosovými rychlostmi](media-services-manage-live-encoder-enabled-channels.md).
 
-##Běžný scénář živého streamování
+##<a name="common-live-streaming-scenario"></a>Běžný scénář živého streamování
 
 Následující část představuje obecné kroky, které jsou součástí procesu vytváření běžných aplikací pro živé streamování.
 
@@ -57,7 +57,7 @@ Následující část představuje obecné kroky, které jsou součástí proces
 1. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte událost.
 1. Odstraňte událost (volitelně můžete odstranit i asset).   
 
-##V tomto kurzu
+##<a name="in-this-tutorial"></a>V tomto kurzu
 
 V tomto kurzu budeme Azure Portal používat k provádění následujících úloh: 
 
@@ -69,14 +69,14 @@ V tomto kurzu budeme Azure Portal používat k provádění následujících úl
 1.  Přehrání obsahu 
 2.  Čištění
 
-##Požadavky
+##<a name="prerequisites"></a>Požadavky
 K dokončení kurzu potřebujete následující:
 
 - K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-create-account.md).
+- Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-portal-create-account.md).
 - Webová kamera a kodér, který dokáže odesílat živý datový proud s jednou přenosovou rychlostí.
 
-##Konfigurace koncových bodů streamování 
+##<a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování 
 
 Služba Media Services poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů.
 
@@ -99,7 +99,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
 
     >[AZURE.NOTE]Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
 
-##Vytvoření KANÁLU
+##<a name="create-a-channel"></a>Vytvoření KANÁLU
 
 1. Na webu [Azure Portal](https://portal.azure.com/) klikněte na Media Services a poté klikněte na název účtu Media Services.
 2. Vyberte **Živé streamování**.
@@ -143,16 +143,16 @@ Po vytvoření kanálu můžete kliknutím na kanál a výběrem **Nastavení** 
 Další informace najdete v článku [Živé streamování využívající službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Získání ingestovaných adres URL
+##<a name="get-ingest-urls"></a>Získání ingestovaných adres URL
 
 Po vytvoření kanálu můžete získat ingestované adresy URL, které poskytnete kodéru pro kódování v reálném čase. Kodér tyto adresy URL používá ke vkládání živého proudu.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Vytvoření a správa událostí
+##<a name="create-and-manage-events"></a>Vytvoření a správa událostí
 
-###Přehled
+###<a name="overview"></a>Přehled
 
 Kanál je přidružený k událostem a programům, které vám umožňují řídit publikování a ukládání segmentů v živém datovém proudu. Kanály spravují události nebo programy. Vztah kanálů a programů se velmi podobná tradičním médiím, kde kanál obsahuje nepřetržitý datový proud obsahu a program je vymezen na určité načasované události v tomto kanálu.
 
@@ -172,7 +172,7 @@ I po zastavení a odstranění události můžou uživatelé streamovat archivov
 
 Pokud chcete archivovaný obsah zachovat, ale nechcete ho zpřístupňovat pro streamování, odstraňte lokátor streamování.
 
-###Vytvoření, spuštění a zastavení událostí
+###<a name="create/start/stop-events"></a>Vytvoření, spuštění a zastavení událostí
 
 Jakmile datový proud plyne do kanálu, můžete událost streamování zahájit tím, že vytvoříte asset, program a lokátor streamování. Datový proud se tak archivuje a zpřístupní se divákům prostřednictvím koncového bodu streamování. 
 
@@ -199,7 +199,7 @@ Publikovanou událost můžete sledovat na stránce **Živá událost**.
 Pokud kliknete na tlačítko **Zrušit streamování**, zastaví se všechny živé události. 
 
 
-##Sledování události
+##<a name="watch-the-event"></a>Sledování události
 
 Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na webu Azure Portal nebo zkopírujte adresu URL streamování a použijte přehrávač dle svého výběru. 
  
@@ -207,7 +207,7 @@ Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na webu Azu
 
 Při zastavení se živá událost automaticky převede na obsah na vyžádání.
 
-##Vyčištění
+##<a name="clean-up"></a>Vyčištění
 
 Pokud jste dokončili streamování událostí a chcete dříve zřízené prostředky vyčistit, postupujte podle následujícího návodu.
 
@@ -215,7 +215,7 @@ Pokud jste dokončili streamování událostí a chcete dříve zřízené prost
 - Zastavte kanál. Zastavený kanál zastaví narůstání poplatků. Když ho budete potřebovat znovu spustit, budete mít stejnou ingestovanou adresu URL, takže nebude nutné kodér znovu konfigurovat.
 - Pokud nechcete pokračovat v poskytování archivu živé události ve formě datového proudu na vyžádání, můžete koncový bod streamování zastavit. Pokud je kanál v zastaveném stavu, nebudou vám narůstat poplatky.
   
-##Zobrazení archivovaného obsahu
+##<a name="view-archived-content"></a>Zobrazení archivovaného obsahu
 
 I po zastavení a odstranění události můžou uživatelé streamovat archivovaný obsah jako video na vyžádání, a to tak dlouho, dokud asset neodstraníte. Asset nemůžete odstranit, pokud ho událost používá. Nejdřív odstraňte událost. 
 
@@ -223,19 +223,19 @@ Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlač�
 
 ![Prostředky](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##Požadavky
+##<a name="considerations"></a>Požadavky
 
 - V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
 - Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
 
 
-##Další krok
+##<a name="next-step"></a>Další krok
 
 Prohlédněte si mapy kurzů k Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Poskytnutí zpětné vazby
+##<a name="provide-feedback"></a>Poskytnutí zpětné vazby
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -243,6 +243,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

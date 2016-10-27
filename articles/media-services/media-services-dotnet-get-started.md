@@ -13,32 +13,31 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
+    ms.date="10/11/2016"
     ms.author="juliako"/>
 
 
-# Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET
 
+# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 >[AZURE.NOTE]
 > K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
  
-##Přehled 
+##<a name="overview"></a>Přehled 
 
 V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí sady SDK služby Azure Media Services (AMS) pro .NET.
 
 
 Kurz představuje základní pracovní postup služby Media Services a nejběžnější programovací objekty a úkoly, které Media Services vyžaduje. Po dokončení kurzu bude umět streamovat nebo progresivně stáhnout ukázkový mediální soubor, který jste odeslali, nakódovali a stáhli.
 
-## Co se dozvíte
+## <a name="what-you'll-learn"></a>Co se dozvíte
 
 Kurz vás seznámí s postupem plnění následujících úloh:
 
-1.  Vytvoření účtu Media Services (pomocí portálu Azure Classic).
-2.  Konfigurace koncového bodu streamování (pomocí portálu)
+1.  Vytvoření účtu Media Services (pomocí webu Azure Portal).
+2.  Konfigurace koncového bodu streamování (pomocí webu Azure Portal).
 3.  Vytvoření a konfigurace projektu Visual Studia.
 5.  Připojení k účtu Media Services.
 6.  Vytvoření nového prostředku a odeslání videosouboru.
@@ -46,7 +45,7 @@ Kurz vás seznámí s postupem plnění následujících úloh:
 8.  Publikování prostředku a získání adres URL pro streamování a progresivní stahování.
 9.  Testování přehráváním obsahu.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 K dokončení kurzu potřebujete následující:
 
@@ -58,74 +57,78 @@ K dokončení kurzu potřebujete následující:
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate nebo Express) nebo novější verze.
 
 
-##Stažení ukázky
+##<a name="download-sample"></a>Stažení ukázky
 
 Ukázku můžete získat a spustit z [tohoto odkazu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-##Vytvoření účtu ve službě Media Services pomocí portálu
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Vytvoření účtu Azure Media Services pomocí webu Azure Portal
 
-1. Na portálu Azure Classic klikněte na **Nový**, **Media Service** a potom na **Rychlé vytvoření**.
+Postup v této části ukazuje, jak vytvořit účet AMS.
 
-    ![Rychlé vytvoření Media Services](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
+2. Klikněte na **+Nový** > **Média a CDN** > **Media Services**.
 
-2. Do pole **NÁZEV** zadejte název nového účtu. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
+    ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. V poli **OBLAST** vyberte zeměpisnou oblast, která se bude používat k ukládání záznamů metadat pro váš účet Media Services. V rozevíracím seznamu se zobrazí pouze dostupné oblasti služby Media Services.
+3. V okně **VYTVOŘIT ÚČET MEDIA SERVICES** zadejte požadované hodnoty.
 
-4. V poli **ÚČET ÚLOŽIŠTĚ** vyberte účet úložiště, který bude sloužit jako úložiště objektů blob mediálního obsahu z vašeho účtu Media Services. Můžete vybrat existující účet úložiště ve stejné zeměpisné oblasti jako váš účet Media Services, nebo můžete vytvořit nový účet úložiště. Nový účet úložiště bude vytvořen ve stejné oblasti.
+    ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    
+    1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
+    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
+    
+    2. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](resource-group-overview.md#resource-groups).
+    3. V poli **Umístění** vyberte zeměpisnou oblast, která se použije k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se použije ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné. 
+    
+    3. V poli **Účet úložiště** vyberte účet úložiště, který bude sloužit jako úložiště objektů blob mediálního obsahu z vašeho účtu Media Services. Můžete vybrat existující účet úložiště ve stejné zeměpisné oblasti jako váš účet Media Services, nebo můžete vytvořit účet úložiště. Nový účet úložiště bude vytvořen ve stejné oblasti. Pro názvy účtů úložiště platí stejná pravidla jako pro názvy účtů Media Services.
 
-5. Pokud jste vytvořili nový účet úložiště, do pole **NÁZEV NOVÉHO ÚČTU ÚLOŽIŠTĚ** zadejte název pro účet úložiště. Pro názvy účtů úložiště platí stejná pravidla jako pro názvy účtů Media Services.
+        Další informace o ukládání a úložištích najdete [tady](storage-introduction.md).
 
-6. V dolní části formuláře klikněte na tlačítko **Rychle vytvořit**.
+    4. Zaškrtněte **Připnout na řídicí panel**, abyste viděli průběh nasazení účtu.
+    
+7. Klikněte na tlačítko **Vytvořit** dole na formuláři.
 
-V oblasti zpráv v dolní části okna můžete sledovat stav procesu.
+    Po úspěšném vytvoření účtu se stav změní na **Spuštěno**. 
 
-Po úspěšném vytvoření účtu se stav změní na **Aktivní**.
+    ![Nastavení Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-V dolní části stránky se zobrazí tlačítko **SPRÁVA KLÍČŮ**. Po kliknutí na toto tlačítko se zobrazí se dialogové okno s názvem účtu Media Services a primárním a sekundárním klíčem. Název účtu a primární klíč budete potřebovat pro přístup k účtu Media Services prostřednictvím programového kódu.
+    Ke správě vašeho účtu AMS (například nahrávání videí, kódování assetů, sledovat průběhu úloh) použijte okno **Nastavení**.
 
-![Stránka Media Services](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurace koncového bodu streamování pomocí webu Azure Portal
 
-Když dvakrát kliknete na název účtu, zobrazí se ve výchozím nastavení stránka **Rychlý start**. Tato stránka umožňuje provést některé úlohy správy, které jsou jinak dostupné i na jiných stránkách portálu. Z této stránky můžete například nahrát videosoubor, což lze provést i ze stránky obsahu.
+Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa vašim klientům prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access).
 
-##Konfigurace koncového bodu streamování pomocí portálu
-
-Při práci se službou Azure Media Services je jedním nejběžnějších scénářů doručování streamování s adaptivní přenosovou rychlostí vašim klientům. Při adaptivní přenosové rychlosti streamování může klient při přehrávání videa přepínat na datový proud s vyšší nebo nižší přenosovou rychlostí podle aktuálně dostupné šířky pásma sítě, využití procesoru a dalších faktorů. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access).
-
-Služba Media Services poskytuje dynamické balení, což vám umožní dodávat váš obsah s adaptivní přenosovou rychlostí s kódováním MP4 nebo technologie Smooth Streaming ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming a HDS) bez nutnosti znovu obsah balit do těchto formátů streamování.
+Služba Media Services poskytuje dynamické balení, což vám umožní dodávat váš obsah s adaptivní přenosovou rychlostí s kódováním MP4 nebo technologie Smooth Streaming ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming a HDS) bez nutnosti mít uložené předem zabalené verze pro každý z těchto formátů streamování.
 
 Pokud chcete využít výhod dynamického balení, proveďte následující:
 
-- Zakódujte nebo převeďte soubor mezzanine (zdrojový soubor) do sady souborů MP4 nebo technologie Smooth Streaming s adaptivní přenosovou rychlostí (postup kódování je popsán později v tomto kurzu).
-- Získejte alespoň jednu jednotku streamování pro **koncový bod streamování**, ze kterého plánujete obsah doručovat.
+- Zakódovat váš soubor mezzanine (zdrojový soubor) do sady souborů MP4 s adaptivní přenosovou rychlostí (postup kódování je ukázán později v tomto kurzu).  
+- Vytvořit alespoň jednu jednotku streamování pro *koncový bod streamování*, ze kterého plánujete obsah doručovat. Následující postup popisuje, jak změnit počet jednotek streamování.
 
-Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů.
+Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
 
-Pokud chcete změnit počet jednotek rezervovaných pro streaming, postupujte takto:
-
-1. Na [portálu](https://manage.windowsazure.com/) klikněte na **Media Services**. Potom klikněte na název mediální služby.
-
-2. Vyberte stránku KONCOVÉ BODY STREAMOVÁNÍ. Potom klikněte na koncový bod streamování, který chcete upravit.
-
-3. Pokud chcete zadat počet jednotek streamování, klikněte na kartu ŠKÁLOVÁNÍ a potom posuňte jezdcem **záložní kapacity**.
-
-    ![Stránka Škálovat](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
-
-4. Stisknutím **ULOŽIT** změny uložte.
-
-Dokončení přidělení jakýchkoli nových jednotek trvá přibližně 20 minut.
-
->[AZURE.NOTE] Změna z jakéhokoli kladného počtu jednotek streamování zpět na nulu může v současnosti zcela vypnout streamování až na jednu hodinu.
->
-> Pro výpočet ceny se používá nejvyšší zadaný počet jednotek v průběhu období 24 hodin. Podrobné informace o cenách najdete  v článku [Ceny služby Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
+Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
 
 
+1. V okně **Nastavení** klikněte na **Koncové body streamování**. 
 
-##Vytvoření a konfigurace projektu Visual Studia
+2. Klikněte na výchozí koncový bod streamování. 
+
+    Zobrazí se okno **VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI**.
+
+3. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
+
+    ![Jednotky streamování](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+
+4. Kliknutím na tlačítko **Uložit** uložte provedené změny.
+
+    >[AZURE.NOTE]Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
+
+##<a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
 1. V sadě Visual Studio 2013, Visual Studio 2012 nebo Visual Studio 2010 SP1 vytvořte novou konzolovou aplikaci napsanou v jazyce C#. Zadejte **Název**, **Umístění**, **Název řešení** a potom klikněte na tlačítko **OK**.
 
-2. K instalaci **rozšíření sady SDK služby Azure Media Services pro .NET** použijte balíček Nuget  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions).  Rozšíření sady SDK služby Media Services pro .NET je sada metod rozšíření a pomocných funkcí, které vám zjednoduší kódování a usnadní vývoj pomocí služby Media Services. Při instalaci tohoto balíčku se nainstaluje také **sada SDK služby Media Services pro .NET** a přidá všechny ostatní požadované závislosti.
+2. K instalaci **rozšíření sady SDK služby Azure Media Services pro .NET** použijte balíček NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions).  Rozšíření sady SDK služby Media Services pro .NET je sada metod rozšíření a pomocných funkcí, které vám zjednoduší kódování a usnadní vývoj pomocí služby Media Services. Při instalaci tohoto balíčku se nainstaluje také **sada SDK služby Media Services pro .NET** a přidá všechny ostatní požadované závislosti.
 
 3. Přidejte odkaz na sestavení System.Configuration. Toto sestavení obsahuje třídu **System.Configuration.ConfigurationManager**, která se používá pro přístup ke konfiguračním souborům, například App.config.
 
@@ -155,7 +158,7 @@ Dokončení přidělení jakýchkoli nových jednotek trvá přibližně 20 minu
 
 6. Vytvořte novou složku v adresáři projektů a zkopírujte si soubor .mp4 nebo .wmv, který chcete kódovat a streamovat nebo progresivně stahovat. V tomto příkladu používáme cestu „C:\VideoFiles“.
 
-##Připojení k účtu Media Services
+##<a name="connect-to-the-media-services-account"></a>Připojení k účtu Media Services
 
 Když službu Media Services používáte s rozhraním .NET, musíte třídu **CloudMediaContext** používat pro většinu programovacích úloh: připojení k účtu Media Services, vytváření, aktualizace, otevírání a odstraňování následujících objektů: prostředky, soubory prostředků, úlohy, zásady přístupu, lokátory atd.
 
@@ -210,7 +213,7 @@ Funkce **Main** volá metody, které si definujeme v této části.
             }
         }
 
-##Vytvoření nového prostředku a odeslání videosouboru
+##<a name="create-a-new-asset-and-upload-a-video-file"></a>Vytvoření nového prostředku a odeslání videosouboru
 
 Ve službě Media Services můžete digitální soubory nahrát (nebo ingestovat) do prostředku. Entita **Prostředek** může obsahovat video, zvuk, obrázky, kolekci miniatur, textové stopy a soubory titulků (a metadata o těchto souborech.)  Jakmile soubory odešlete, bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování. Soubory v prostředku se nazývají **soubory prostředku**.
 
@@ -246,7 +249,7 @@ Přidejte následující metodu do třídy Program.
     }
 
 
-##Zakódování zdrojového souboru do sady souborů MP4 s adaptivní přenosovou rychlostí
+##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Zakódování zdrojového souboru do sady souborů MP4 s adaptivní přenosovou rychlostí
 
 Po zpracování prostředků ve službě Media Services a před jejich předáním klientům můžete média zakódovat, transmuxovat, označit vodoznakem a tak dále. Tyto aktivity se plánují a spouštějí s několika instancemi role na pozadí, abyste měli zajištěný vysoký výkon a dostupnost. Tyto aktivity se nazývají úlohy a každá úloha se skládá z atomických úloh, které vykonávají samotnou práci na souboru prostředku.
 
@@ -298,7 +301,7 @@ Přidejte následující metodu do třídy Program.
         return outputAsset;
     }
 
-##Publikování prostředku a získání adres URL pro streamování a progresivní stahování
+##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publikování prostředku a získání adres URL pro streamování a progresivní stahování
 
 Pokud chcete prostředek streamovat nebo stáhnout, musíte ho nejdřív „publikovat“ vytvořením lokátoru. Lokátory zajišťují přístup k souborům, které jsou obsaženy v assetu. Služba Media Services podporuje dva typy lokátorů: lokátor OnDemandOrigin, používaný ke streamování médií (například MPEG DASH, HLS nebo technologie Smooth Streaming), a lokátor s přístupovým podpisem (SAS), používaný ke stahování mediálních souborů.
 
@@ -392,7 +395,7 @@ Přidejte následující metodu do třídy Program.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Testování přehráváním obsahu  
+##<a name="test-by-playing-your-content"></a>Testování přehráváním obsahu  
 
 Po spuštění programu definovaného v předchozí části se v okně konzoly zobrazí adresy URL, které se budou podobat následujícím.
 
@@ -434,16 +437,16 @@ Pokud chcete video streamovat, použijte [přehrávač služby Azure Media Servi
 Pokud chcete otestovat progresivní stahování, vložte adresu URL do prohlížeče (například Internet Exploreru, Chromu nebo Safari).
 
 
-##Další kroky: Mapy kurzů ke službě Media Services
+##<a name="next-steps:-media-services-learning-paths"></a>Další kroky: Mapy kurzů ke službě Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Poskytnutí zpětné vazby
+##<a name="provide-feedback"></a>Poskytnutí zpětné vazby
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-### Hledáte něco jiného?
+### <a name="looking-for-something-else?"></a>Hledáte něco jiného?
 
 Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
 
@@ -452,11 +455,11 @@ Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějak�
 
 
 <!-- URLs. -->
-  [Instalační program webové platformy]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portál]: http://manage.windowsazure.com/
+  [Instalace webové platformy]: http://go.microsoft.com/fwlink/?linkid=255386
+  [Azure Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

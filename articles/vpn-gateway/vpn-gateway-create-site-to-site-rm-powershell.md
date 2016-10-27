@@ -70,7 +70,7 @@ Určete předplatné, které chcete použít.
 
 ## 2. Vytvoření virtuální sítě a podsítě brány
 
-V příkladech se používá podsíť brány /28. Přestože je možné vytvořit tak malou podsíť brány, jako je /29, nedoporučuje se to. Doporučujeme vytvořit podsíť brány /27 nebo větší (/26, /25 atd.), aby mohla pojmout další požadavky na funkce. 
+V příkladech se používá podsíť brány /28. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost aspoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu.
 
 Pokud již máte virtuální síť s podsítí brány, která je /29 nebo větší, můžete přeskočit na [Přidání vlastní brány místní sítě](#localnet).
 
@@ -226,6 +226,6 @@ Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podl
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

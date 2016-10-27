@@ -4,7 +4,7 @@
     keywords="Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,7 +15,8 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js pomocí DocumentDB
 
@@ -100,13 +101,13 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
 
     ![Snímek obrazovky karty package.json](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    To říká uzlu (a později Azure), že vaše aplikace závisí na těchto dalších modulech.
 
 ## <a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
 
 Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím Azure DocumentDB.
 
-### Vytvoření modelu
+### <a name="create-the-model"></a>Vytvoření modelu
 
 1. V adresáři projektu vytvořte nový adresář s názvem **models**.
 2. V adresáři **models** vytvořte nový soubor s názvem **taskDao.js**. Tento soubor bude obsahovat model pro úkoly vytvořené v aplikaci.
@@ -301,7 +302,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 
 6. Uložte a zavřete soubor **taskDao.js**. 
 
-### Vytvoření kontroleru
+### <a name="create-the-controller"></a>Vytvoření kontroleru
 
 1. V adresáři **routes** projektu vytvořte nový soubor s názvem **tasklist.js**. 
 2. Do souboru **tasklist.js** přidejte následující kód: Tento kód načte moduly DocumentDBClient a async, které budou používány v souboru **tasklist.js**. Také v něm je definována funkce **TaskList**, která přijímá instanci objektu **Task** definovaného dříve:
@@ -379,7 +380,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 
 4. Uložte a zavřete soubor **tasklist.js**.
  
-### Přidání souboru config.js
+### <a name="add-config.js"></a>Přidání souboru config.js
 
 1. V adresáři projektu vytvořte nový soubor s názvem **config.js**.
 2. Do souboru **config.js** přidejte následující: Tento kód definuje nastavení konfigurace a hodnoty, které aplikace potřebuje.
@@ -397,7 +398,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 
 4. Uložte a zavřete soubor **config.js**.
  
-### Úprava souboru app.js
+### <a name="modify-app.js"></a>Úprava souboru app.js
 
 1. V adresáři projektu otevřete soubor **app.js**. Tento soubor byl vytvořen již dříve, při vytváření webové aplikace Express.
 2. Do horní části souboru **app.js** přidejte následující kód.
@@ -544,7 +545,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
 
 4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly).
 
-## <a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Weby Azure
+## <a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Azure Websites
 
 1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak máte postupovat, najdete v tématu [Místní nasazení přes Git do Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
@@ -568,11 +569,11 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHubu]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

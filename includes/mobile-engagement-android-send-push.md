@@ -1,5 +1,5 @@
 
-###Aktualizace souboru manifest pro povolení oznámení
+###<a name="update-manifest-file-to-enable-notifications"></a>Aktualizace souboru manifest pro povolení oznámení
 
 Zkopírujte níže uvedené prostředky zasílání zpráv v aplikaci do souboru Manifest.xml mezi značky `<application>` a `</application>`.
 
@@ -45,7 +45,7 @@ Zkopírujte níže uvedené prostředky zasílání zpráv v aplikaci do souboru
             </intent-filter>
         </receiver>
 
-###Určení ikony pro oznámení
+###<a name="specify-an-icon-for-notifications"></a>Určení ikony pro oznámení
 
 Vložte následující fragment kódu XML do souboru Manifest.xml mezi značky `<application>` a `</application>`.
 
@@ -62,9 +62,9 @@ Ve skutečných aplikacích můžete použít ikonu vhodnou pro oznámení podle
 >[AZURE.TIP] Pokud chcete mít jistotu, že používáte správné rozlišení ikon, můžete se podívat na [tyto příklady](https://www.google.com/design/icons).
 Přejděte dolů do části **Oznámení** a kliknutím na `PNGS` stáhněte sadu drawable ikony. Zjistíte, které složky drawable s jakým rozlišením se mají pro každou verzi ikony použít.
 
-###Povolení přijímání nabízených oznámení GCM v aplikaci
+###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Povolení přijímání nabízených oznámení GCM v aplikaci
 
-1. Až nahradíte číslo projektu `project number` získané z konzoly Google Play, vložte následující položky do souboru Manifest.xml mezi značky `<application>` a `</application>`. Položka \n je úmyslná, proto se ujistěte, že se nachází na konci čísla projektu.
+1. Až nahradíte **** získané z konzoly projektu Firebase, vložte následující položky do souboru Manifest.xml mezi značky `<application>` a `</application>`. Položka \n je úmyslná, proto se ujistěte, že se nachází na konci čísla projektu.
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -96,6 +96,6 @@ Přejděte dolů do části **Oznámení** a kliknutím na `PNGS` stáhněte sad
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

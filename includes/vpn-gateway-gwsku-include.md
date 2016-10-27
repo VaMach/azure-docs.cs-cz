@@ -6,6 +6,13 @@ VPN Gateway může používat následující SKU:
 - Standard
 - Vysokovýkonné
 
-<!--HONumber=Sep16_HO4-->
+Při výběru SKU zvažte následující omezení:
+
+- Chcete-li použít síť VPN typu PolicyBased, musíte použít základní SKU brány. Sítě VPN typu PolicyBased (dříve nazývané Statické směrování) nejsou podporovány jinými SKU.
+- Protokol BGP není podporován v základní SKU.
+- Konfigurace současného fungování ExpressRoute a služby VPN Gateway nejsou podporované v základní SKU.
+
+
+<!--HONumber=Oct16_HO3-->
 
 

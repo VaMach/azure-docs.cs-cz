@@ -33,7 +33,7 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do
 - [Yeoman]
 - [Git]
 - [Azure CLI]
-- Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi] nebo si [aktivovat výhody předplatitele Visual Studio].
+- Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi] nebo si [aktivovat výhody předplatitele sady Visual Studio].
 
 ## Vytvoření a nasazení jednoduché webové aplikace Node.js
 
@@ -233,7 +233,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[aktivovat výhody předplatitele Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[aktivovat výhody předplatitele sady Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
 [Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Nasazení webové aplikace Sails.js do služby Azure App Service]: ./app-service-web-nodejs-sails.md
@@ -258,6 +258,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/12/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Začínáme s Azure Mobile Engagementem pro univerzální aplikace pro Windows
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -30,7 +31,7 @@ Tento kurz představuje scénář jednoduchého vysílání přes Mobile Engagem
 
 ## Nastavení Mobile Engagementu pro univerzální aplikaci pro Windows
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 
@@ -209,6 +210,6 @@ Pokud se zobrazuje oznámení v aplikaci, ale ne oznámení s informační zprá
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

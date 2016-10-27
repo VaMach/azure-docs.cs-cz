@@ -33,7 +33,7 @@ V tomto kurzu budete potřebovat následující:
 
 ##<a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 
@@ -173,6 +173,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

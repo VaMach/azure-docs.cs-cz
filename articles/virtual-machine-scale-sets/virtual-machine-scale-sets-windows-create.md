@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu | Microsoft Azure"
+    description="Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Vytvoření 	škálovací sady virtuálních počítačů s Windows pomocí Azure PowerShellu
 
-It should take about 30 minutes to do the steps in this article.
+Tento postup navazuje na metodu vyplňování prázdných polí při vytváření škálovací sady virtuálních počítačů Azure. Další informace o škálovacích sadách najdete v tématu [Přehled škálovacích sad virtuálních počítačů](virtual-machine-scale-sets-overview.md).
 
-## Step 1: Install Azure PowerShell
+Provedení kroků v tomto článku by mělo trvat asi 30 minut.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+## <a name="step-1:-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
 
-## Step 2: Create resources
+Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
 
-Create the resources that are needed for your new virtual machine scale set.
+## <a name="step-2:-create-resources"></a>Krok 2: Vytvoření prostředků
 
-### Resource group
+Vytvořte prostředky, které jsou potřebné pro vaši novou škálovací sadu.
 
-A virtual machine scale set must be contained in a resource group.
+### <a name="resource-group"></a>Skupina prostředků
 
-1.  Get a list of available locations and the services that are supported:
+Škálovací sada virtuálních počítačů musí být součástí skupiny prostředků.
+
+1. Získejte seznam dostupných umístění a podporovaných služeb:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    Zobrazení by mělo být podobné následujícímu příkladu:
 
         Name                AvailableServices
         ----                -----------------
@@ -62,19 +63,19 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
+2. Vyberte umístění, která vám nejlépe vyhovuje, nahraďte jeho názvem hodnotu **$locName** a pak vytvořte proměnnou:
 
         $locName = "location name from the list, such as Central US"
 
-3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
+3. Nahraďte hodnotu **$rgName** názvem, který chcete použít pro novou skupinu prostředků, a pak vytvořte proměnnou: 
 
         $rgName = "resource group name"
         
-4. Create the resource group:
+4. Vytvořte skupinu prostředků:
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    Zobrazení by mělo být podobné následujícímu příkladu:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ A virtual machine scale set must be contained in a resource group.
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Storage account
+### <a name="storage-account"></a>Účet úložiště
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+Virtuální počítač používá účet úložiště k ukládání disku operačního systému a diagnostických dat používaných pro škálování. Pokud je to možné, doporučuje se, aby každý virtuální počítač vytvořený ve škálovací sadě měl vlastní účet úložiště. Pokud to není možné, nekalkulujte s více než 20 virtuálními počítači na jeden účet úložiště. V příkladu v tomto článku se vytvářejí 3 účty úložiště pro 3 virtuální počítače.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Nahraďte hodnotu **$saName** názvem pro účet úložiště. Otestujte, že je název jedinečný. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    Pokud je odpověď **True**, navrhovaný název je jedinečný.
 
-3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
+3. Hodnotu **$saType** nahraďte typem účtu úložiště a pak vytvořte proměnnou:  
 
         $saType = "storage account type"
         
-    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+    Možné hodnoty: Standard_LRS, Standard_GRS, Standard_RAGRS nebo Premium_LRS.
         
-4. Create the account:
+4. Vytvořte účet:
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    Zobrazení by mělo být podobné následujícímu příkladu:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,93 +125,93 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Opakováním kroků 1 až 4 vytvořte 3 účty úložiště, například myst1, myst2 a myst3.
 
-### Virtual network
+### <a name="virtual-network"></a>Virtuální síť
 
-A virtual network is required for the virtual machines in the scale set.
+Virtuální síť je pro virtuální počítače ve škálovací sadě nutná.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Nahraďte hodnotu **$subnetName** názvem, který chcete používat pro podsíť ve virtuální síti, a pak vytvořte proměnnou: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
-2. Create the subnet configuration:
+2. Vytvořte konfiguraci podsítě:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-    The address prefix may be different in your virtual network.
+    Předpona adresy může být ve vaší virtuální síti jiná.
 
-3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
+3. Nahraďte hodnotu **$netName** názvem, který chcete používat pro virtuální síť, a pak vytvořte proměnnou: 
 
         $netName = "virtual network name"
         
-4. Create the virtual network:
+4. Vytvořte virtuální síť:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Public IP address
+### <a name="public-ip-address"></a>Veřejná IP adresa
 
-Before a network interface can be created, you need to create a public IP address.
+Před vytvořením síťového rozhraní je potřeba vytvořit veřejnou IP adresu.
 
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
+1. Nahraďte hodnotu **$domName** popiskem názvu domény, který chcete používat s veřejnou IP adresou, a pak vytvořte proměnnou:  
 
         $domName = "domain name label"
         
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    Popisek může obsahovat jen písmena, číslice a pomlčky a poslední znak musí být písmeno nebo číslice.
     
-2. Test whether the name is unique:
+2. Otestujte, jestli je název jedinečný:
     
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **True**, your proposed name is unique.
+    Pokud je odpověď **True**, navrhovaný název je jedinečný.
 
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
+3. Nahraďte hodnotu **$pipName** názvem, který chcete používat pro veřejnou IP adresu, a pak vytvořte proměnnou: 
 
         $pipName = "public ip address name"
         
-4. Create the public IP address:
+4. Vytvořte veřejnou IP adresu:
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Network interface
+### <a name="network-interface"></a>Síťové rozhraní
 
-Now that you have the public IP address, you can create the network interface.
+Teď když máte veřejnou IP adresu, můžete vytvořit síťové rozhraní.
 
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
+1. Nahraďte hodnotu **$nicName** názvem, který chcete používat pro síťové rozhraní, a pak vytvořte proměnnou: 
 
         $nicName = "network interface name"
         
-2. Create the network interface:
+2. Vytvořte síťové rozhraní:
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration of the scale set
+### <a name="configuration-of-the-scale-set"></a>Konfigurace škálovací sady
 
-You have all the resources that you need for the scale set configuration, so let's create it.  
+Máte teď všechny prostředky, které potřebujete pro konfiguraci škálovací sady, tak ji vytvořme.  
 
-1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
+1. Nahraďte hodnotu **$ipName** názvem, který chcete používat pro konfiguraci IP, a pak vytvořte proměnnou: 
 
         $ipName = "IP configuration name"
         
-2. Create the IP configuration:
+2. Vytvořte konfiguraci IP:
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
+2. Nahraďte hodnotu **$vmssConfig** názvem, který chcete používat pro škálovací sadu, a pak vytvořte proměnnou:   
 
         $vmssConfig = "Scale set configuration name"
         
-3. Create the configuration for the scale set:
+3. Vytvořte konfiguraci pro škálovací sadu:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    Tento příklad ukazuje škálovací sadu vytvářenou ze 3 virtuálních počítačů. Další informace o kapacitě škálovacích sad najdete v tématu [Přehled škálovacích sad virtuálních počítačů](virtual-machine-scale-sets-overview.md). Tento krok zahrnuje také nastavení velikosti (označované jako SkuName) virtuálních počítačů v sadě. Pokud chcete najít velikost, která vyhovuje vašim potřebám, nahlédněte do tématu [Velikosti virtuálních počítačů](../virtual-machines/virtual-machines-windows-sizes.md).
     
-4. Add the network interface configuration to the scale set configuration:
+4. Do konfigurace škálovací sady přidejte konfiguraci síťového rozhraní:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    Zobrazení by mělo být podobné následujícímu příkladu:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,59 +224,59 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### <a name="operating-system-profile"></a>Profil operačního systému
 
-1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
+1. Nahraďte hodnotu **$computerName** předponou názvu počítače, kterou chcete použít, a pak vytvořte proměnnou: 
 
         $computerName = "computer name prefix"
         
-2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+2. Nahraďte hodnotu **$adminName** názvem účtu správce na virtuálních počítačích a pak vytvořte proměnnou:
 
         $adminName = "administrator account name"
         
-3. Replace the value of **$adminPassword** with the account password and then create the variable:
+3. Nahraďte hodnotu **$adminPassword** heslem účtu a pak vytvořte proměnnou:
 
         $adminPassword = "password for administrator accounts"
         
-4. Create the operating system profile:
+4. Vytvořte profil operačního systému:
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Storage profile
+#### <a name="storage-profile"></a>Profil úložiště
 
-1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
+1. Nahraďte hodnotu **$storageProfile** názvem, který chcete používat pro profil úložiště, a pak vytvořte proměnnou:  
 
         $storageProfile = "storage profile name"
         
-2. Create the variables that define the image to use:  
+2. Vytvořte proměnné definující image, která se má použít:  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Pokud chcete najít informace o jiných imagích, které je možné použít, nahlédněte do tématu [Procházení a výběr imagí virtuálních počítačů Azure pomocí Windows PowerShellu a Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
-3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. Nahraďte hodnotu **$vhdContainers** seznamem cest, ve kterých jsou uloženy virtuální pevné disky, například https://mystorage.blob.core.windows.net/vhds, a pak vytvořte proměnnou:
        
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
-4. Create the storage profile:
+4. Vytvořte profil úložiště:
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Virtual machine scale set
+### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-Finally, you can create the scale set.
+Nakonec můžete vytvořit škálovací sadu.
 
-1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
+1. Nahraďte hodnotu **$vmssName** názvem škálovací sady virtuálních počítačů a pak vytvořte proměnnou:
 
         $vmssName = "scale set name"
         
-2. Create the scale set:
+2. Vytvořte škálovací sadu:
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    Mělo by se zobrazit něco jako v tomto příkladu, který zobrazuje úspěšné nasazení:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,19 +284,19 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Step 3: Explore resources
+## <a name="step-3:-explore-resources"></a>Krok 3: Prozkoumání prostředků
 
-Use these resources to explore the virtual machine scale set that you just created:
+Škálovací sadu virtuálních počítačů, kterou jste vytvořili, můžete prozkoumat v následujících zdrojích:
 
-- Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure PowerShell - Use this command to get information:
+- Azure Portal: Omezené množství informací je k dispozici prostřednictvím tohoto portálu.
+- [Průzkumník prostředků Azure](https://resources.azure.com/): Tento nástroj je ideální pro ověření aktuálního stavu škálovací sady.
+- Azure PowerShell: Informace získáte pomocí tohoto příkazu:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -307,8 +305,14 @@ Use these resources to explore the virtual machine scale set that you just creat
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Next steps
+## <a name="next-steps"></a>Další kroky
 
-- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
-- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Právě vytvořenou škálovací sadu můžete spravovat na základě informací v tématu [Správa virtuálních počítačů ve škálovací sadě virtuálních počítačů](virtual-machine-scale-sets-windows-manage.md).
+- Zvažte nastavení automatického škálování na základě pokynů v tématu [Automatické škálování a škálovací sady virtuálních počítačů](virtual-machine-scale-sets-autoscale-overview.md).
+- Další informace o vertikálním škálování najdete v tématu [Vertikální automatické škálování se škálovacími sadami virtuálních počítačů](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

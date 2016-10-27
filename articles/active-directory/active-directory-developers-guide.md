@@ -3,7 +3,7 @@
    description="Tento článek poskytuje komplexního průvodce prostředky služby Azure Active Directory určenými pro vývojáře."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/01/2016"
+   ms.date="10/11/2016"
    ms.author="mbaldwin"/>
 
 
 
-# Příručka pro vývojáře pro službu Azure Active Directory
+# <a name="azure-active-directory-developer's-guide"></a>Příručka pro vývojáře pro službu Azure Active Directory
 
-## Přehled
+## <a name="overview"></a>Přehled
 Azure Active Directory (AD) jako platforma Správy identit jako služby (IDMaaS) poskytuje vývojářům účinný způsob, jak integrovat do svých aplikací správu identity. Následující články poskytují přehled o implementaci a klíčových funkcích služby Azure AD. Doporučujeme číst je popořadě, nebo pokud jste připraveni se do toho pustit, přejděte na položku [Začínáme](#getting-started).
 
 
@@ -35,73 +35,73 @@ Azure Active Directory (AD) jako platforma Správy identit jako služby (IDMaaS)
 1. [Knihovny ověřování služby Azure AD:](active-directory-authentication-libraries.md) Snadno ověřte uživatele, aby získali přístupové tokeny, pomocí knihoven ověřování služby Azure AD pro rozhraní .NET, JavaScript, Objective-C, Android a další.
 
 
-## Začínáme
+## <a name="getting-started"></a>Začínáme
 
 Tyto kurzy jsou přizpůsobené různým platformám a umožní vám rychle začít s vývojem pro službu Azure Active Directory. Předpokladem je, že [získáte klienta služby Azure Active Directory](active-directory-howto-tenant.md).
 
-### Průvodce rychlým zahájením pro mobilní a počítačové aplikace
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Průvodce rychlým zahájením pro mobilní a počítačové aplikace
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Univerzální pro Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Univerzální pro Windows](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[Přímá integrace s protokoly OAuth 2.0](active-directory-protocols-oauth-code.md)|
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Univerzální pro Windows](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[Přímá integrace s OAuth 2.0](active-directory-protocols-oauth-code.md)|
 
-### Průvodce rychlým zahájením pro webové aplikace
+### <a name="web-application-quick-start-guides"></a>Průvodce rychlým zahájením pro webové aplikace
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)|[Přímá integrace s protokoly OpenID](active-directory-protocols-openid-connect-code.md)|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)|[Přímá integrace s OpenID Connect](active-directory-protocols-openid-connect-code.md)|
 
-### Průvodce rychlým zahájením pro webové rozhraní API
+### <a name="web-api-quick-start-guides"></a>Průvodce rychlým zahájením pro webové rozhraní API
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
-### Průvodce rychlým zahájením pro dotazování adresáře
+### <a name="querying-the-directory-quickstart-guide"></a>Průvodce rychlým zahájením pro dotazování adresáře
 
 | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
 |:--:|
 |[Graph API](active-directory-graph-api-quickstart.md)|
 
-## Postupy
+## <a name="how-tos"></a>Postupy
 
 Tyto články popisují, jak provádět určité úlohy pomocí služby Azure Active Directory:
 
 - [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
-- [Přihlášení kteréhokoli uživatele služby Azure AD pomocí vzoru aplikace s víc tenanty](active-directory-devhowto-multi-tenant-overview.md) 
+- [Přihlášení libovolného uživatele služby Azure AD pomocí vzoru aplikace s více tenanty](active-directory-devhowto-multi-tenant-overview.md) 
 - Povolení jednotného přihlašování napříč aplikacemi pomocí ADAL v zařízeních [Android](active-directory-sso-android.md) a [iOS](active-directory-sso-ios.md)
 - [Získání certifikace AppSource pro aplikaci pro službu Azure AD](active-directory-devhowto-appsource-certified.md)
 - [Uvedení aplikace v galerii aplikací služby Azure AD](active-directory-app-gallery-listing.md)
 - [Odesílání webových aplikací pro Office 365 na řídicí panel prodejce](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Porozumění manifestu aplikace služby Azure Active Directory](active-directory-application-manifest.md)
-- [Vysvětlení zásad značky pro tlačítka přihlašování a pořizování aplikace v klientské aplikaci](active-directory-branding-guidelines.md)
+- [Vysvětlení zásad přizpůsobení prostředí značce pro tlačítka přihlašování a pořizování aplikace v klientské aplikaci](active-directory-branding-guidelines.md)
 - [Náhled: Jak vytvářet aplikace, které uživatele přihlašují pomocí osobních i pracovních či školních účtů](active-directory-appmodel-v2-overview.md)
 - [Náhled: Jak vytvářet aplikace, které registrují a přihlašují uživatele](../active-directory-b2c/active-directory-b2c-overview.md)
+- [Náhled: Konfigurace životností tokenů ve službě Azure AD](active-directory-configurable-token-lifetimes.md) pomocí prostředí PowerShell. Podrobné informace o konfiguraci prostřednictvím rozhraní Azure AD Graph API najdete v tématech [Operace zásad](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) a [Entita zásad](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity).
 
-
-## Referenční informace
+## <a name="reference"></a>Referenční informace
 
 Tyto články poskytují základní referenční informace o rozhraních REST a knihovny pro ověřování, protokolech, chybách, ukázkových kódech a koncových bodech.  
 
-###  Podpora
+###  <a name="support"></a>Podpora
 - [Otázky se značkou](http://stackoverflow.com/questions/tagged/azure-active-directory): Najděte řešení pro službu Azure Active Directory na webu Stack Overflow vyhledáním značek [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) a [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Glosář vývojáře Azure AD](active-directory-dev-glossary.md) obsahuje definice některých běžně používaných výrazů souvisejících s vývojem a integrací aplikací.
 
-### Kód
+### <a name="code"></a>Kód
 
 - [Knihovny open-source ve službě Azure Active Directory](http://github.com/AzureAD): Nejjednodušší způsob, jak najít zdroj knihovny, je pomocí [seznamu knihoven](active-directory-authentication-libraries.md).
 
 - [Ukázky pro službu Azure Active Directory](https://github.com/azure-samples?query=active-directory): Nejjednodušší způsob, jak se orientovat v seznamu ukázek, je pomocí [rejstříku ukázkových kódů](active-directory-code-samples.md).
 
-- [ADAL pro .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Dokumentace knihoven ověřování .NET.
+- Referenční dokumentace ke knihovně [Active Directory Authentication Library (ADAL) pro .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) je k dispozici pro [nejnovější hlavní verzi](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) a [předchozí hlavní verzi](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### Graph API
+### <a name="graph-api"></a>Graph API
 
 - [Referenční informace o rozhraní Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): Referenční příručka rozhraní REST API pro Azure Active Directory Graph API. [Zobrazení interaktivního referenčního prostředí rozhraní Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Obory oprávnění rozhraní Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Obory oprávnění OAuth 2.0, které slouží k řízení přístupu aplikace k datům adresáře v klientovi.
 
-### Ověřovací a autorizační protokoly
+### <a name="authentication-and-authorization-protocols"></a>Ověřovací a autorizační protokoly
 
 - [Výměna podpisového klíče ve službě Azure AD](active-directory-signing-key-rollover.md): Získejte další informace o četnosti výměny podpisových klíčů služby Azure AD a o tom, jak aktualizovat klíč ve většině běžných scénářů aplikace.
 
@@ -119,25 +119,25 @@ Tyto články poskytují základní referenční informace o rozhraních REST a 
 
 - [Podporované typy tokenů a deklarací identity](active-directory-token-and-claims.md): Tento průvodce vám pomůže pochopit a vyhodnotit deklarace identity v  tokenech SAML 2.0 a webových tokenech JSON (JWT).
 
-## Videa
+## <a name="videos"></a>Videa
 
-### Sestavení
+### <a name="build"></a>Sestavení
 
 V těchto prezentacích s přehledem vývoje aplikací pro službu Azure Active Directory vystupují řečníci, kteří pracují přímo v technickém týmu.  Prezentace zahrnují základní témata, včetně IDMaaS, ověřování, federace identity a jednotného přihlašování.
 
-- [Microsoft Identity: Stav sjednocení a budoucí směr](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
+- [Microsoft Identity: State of the Union and Future Direction](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 - [Azure Active Directory: Správa identit jako služby pro moderní aplikace](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
 - [Vývoj moderních webových aplikací pomocí služby Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
 - [Vývoj moderních nativních aplikací pomocí služby Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
-### Azure Friday
+### <a name="azure-friday"></a>Azure Friday
 [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) je série videí 1:1, která se opakuje každý pátek a přináší krátké rozhovory (10 – 15 minut) s odborníky na různá témata služby Azure.  Pomocí funkce filtru služeb na stránce zobrazíte všechna videa na téma Azure Active Directory.
 
-- [Azure Identity 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
-- [Azure Identity 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
-- [Azure Identity 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
+- [Identita Azure 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
+- [Identita Azure 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
+- [Identita Azure 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
-## Sociální
+## <a name="social"></a>Sociální
 
 - [Blog týmu služby Active Directory](http://blogs.technet.com/b/ad/): nejnovější vývoj ve světě služby Azure Active Directory.
 
@@ -149,6 +149,6 @@ V těchto prezentacích s přehledem vývoje aplikací pro službu Azure Active 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

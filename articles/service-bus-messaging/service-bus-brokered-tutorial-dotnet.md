@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus | Microsoft Azure"
     description="Kurz .NET pro zprostředkované zasílání zpráv"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
     ms.author="sethm" />
 
 
-# Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus
+# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus
 
 Azure Service Bus poskytuje dvě ucelená řešení – jedno přes centralizovanou „předávací“ službu v cloudu, která podporuje spoustu různých přenosových protokolů a webových služeb, jako například SOAP, WS-* nebo REST. Klient nepotřebuje přímé spojení s lokální službou, nemusí ani vědět, kde se služba nachází, a lokální služba nepotřebuje mít ve firewallu otevřené žádné příchozí porty.
 
@@ -24,21 +24,21 @@ Druhé řešení přenosu zpráv umožňuje funkce „zprostředkovaného“ př
 
 V tomto kurzu získáte teoretické i praktické znalosti front, které jsou jednou z hlavních součástí zprostředkovaného zasílání zpráv ve službě Service Bus. Po absolvování řady témat v tomto kurzu budete mít aplikaci, která naplní seznam zpráv, vytvoří frontu a odešle zprávy do této fronty. Tato aplikace nakonec přijme a zobrazí zprávy z fronty, potom vyčistí svoje prostředky a ukončí se. Odpovídající kurz pro vytvoření aplikace, která používá Service Bus Relay, najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
-## Úvod a požadavky
+## <a name="introduction-and-prerequisites"></a>Úvod a požadavky
 
 Fronty nabízejí doručování zpráv metodou FIFO (First In First Out) pro jednoho nebo několik konkurenčních spotřebitelů. FIFO znamená, že se předpokládá, že příjemci zprávy obvykle přijímají a zpracovávají v pořadí, ve kterém se přidaly do fronty, a každou zprávu přijme a zpracuje jenom jeden spotřebitel zprávy. Klíčovou výhodou použití front je *časové oddělení* součástí aplikace: jinými slovy odesílatelé a spotřebitelé zprávy nemusí zprávy odesílat a spotřebovávat současně, protože zprávy jsou bezpečně uložené ve frontě. Další výhodou je *vyrovnávání zátěže*, které odesílatelům a spotřebitelům umožňuje odesílat a přijímat zprávy různými rychlostmi.
 
 Tady jsou některé administrativní a technické požadavky, které byste před začátkem tohoto kurzu měli splnit. Nejdřív je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
-### Vytvoření oboru názvů služby a získání klíče SAS
+### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Vytvoření oboru názvů služby a získání klíče SAS
 
-Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
+Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocných funkcí, které načtou seznam zpráv oddělený čárkami do objektu [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) se silnou typovou kontrolou.
 
-### Vytvoření projektu ve Visual Studiu
+### <a name="create-a-visual-studio-project"></a>Vytvoření projektu ve Visual Studiu
 
 1. Otevřete Visual Studio jako správce tak, že v nabídce Start kliknete na program pravým tlačítkem a vyberete možnost **Spustit jako správce**.
 
@@ -95,7 +95,7 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
 
 1. Přejděte k souboru Data.csv, který jste vytvořili v kroku 6. Klikněte na soubor a pak na **Přidat**. Zkontrolujte, že je v seznamu typů souborů označená možnost **Všechny soubory (*.*)**.
 
-### Vytvoření metody, která bude parsovat seznam zpráv
+### <a name="create-a-method-that-parses-a-list-of-messages"></a>Vytvoření metody, která bude parsovat seznam zpráv
 
 1. Ve třídě `Program` před metodou `Main()` deklarujte dvě proměnné: jednu typu **DataTable**, která bude obsahovat seznam zpráv ze souboru Data.csv. Druhá by měla být typu List objekt se silnou typovou kontrolou pro [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Ta obsahuje seznam zprostředkovaných zpráv, který se bude používat v dalších krocích tohoto kurzu.
 
@@ -158,7 +158,7 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     }
     ```
 
-### Vytvoření metody, která načte seznam zpráv
+### <a name="create-a-method-that-loads-the-list-of-messages"></a>Vytvoření metody, která načte seznam zpráv
 
 1. Mimo `Main()` definujte metodu `GenerateMessages()`, která vezme objekt **DataTable** vrácený z `ParseCSVFile()` a načte tabulku do seznamu zprostředkovaných zpráv se silnou typovou kontrolou. Metoda pak vrátí objekt **List**, jako v následujícím příkladu. 
 
@@ -194,7 +194,7 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     }
     ```
 
-### Získání pověření uživatele
+### <a name="obtain-user-credentials"></a>Získání pověření uživatele
 
 1. Nejdřív vytvořte tři globální řetězcové proměnné, do kterých se tyto údaje načtou. Deklarujte tyto proměnné přímo po deklaraci předchozích proměnných, například:
 
@@ -244,11 +244,11 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     }
     ```
 
-### Sestavení řešení
+### <a name="build-the-solution"></a>Sestavení řešení
 
 V nabídce **Sestavení** ve Visual Studiu můžete kliknout na **Sestavit řešení** nebo stisknout **Ctrl+Shift+B** a potvrdit přesnost své dosavadní práce.
 
-## Vytvoření pověření ke správě
+## <a name="create-management-credentials"></a>Vytvoření pověření ke správě
 
 V tomto kroku definujete operace správy, které použijete pro vytvoření pověření sdíleného přístupového podpisu (SAS), kterým se vaše aplikace bude ověřovat.
 
@@ -280,7 +280,7 @@ V tomto kroku definujete operace správy, které použijete pro vytvoření pov�
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
-### Příklad
+### <a name="example"></a>Příklad
 
 V tomto okamžiku by váš kód by měl vypadat podobně jako tento:
 
@@ -388,11 +388,11 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Zasílání zpráv do fronty
+## <a name="send-messages-to-the-queue"></a>Zasílání zpráv do fronty
 
 V tomto kroku vytvoříte frontu, pak do ní odešlete zprávy obsažené v seznamu zprostředkovaných zpráv.
 
-### Vytvoření fronty a odeslání zpráv do fronty
+### <a name="create-queue-and-send-messages-to-the-queue"></a>Vytvoření fronty a odeslání zpráv do fronty
 
 1. Nejdřív vytvořte frontu. Pojmenujte ji třeba `myQueue` a deklarujte ji přímo po operacích správy, které jste přidali v metodě `Queue()` v předchozím kroku:
 
@@ -433,11 +433,11 @@ V tomto kroku vytvoříte frontu, pak do ní odešlete zprávy obsažené v sezn
     }
     ```
 
-## Přijetí zpráv z fronty
+## <a name="receive-messages-from-the-queue"></a>Přijetí zpráv z fronty
 
 V tomto kroku získáte seznam zpráv z fronty, kterou jste vytvořili v předchozím kroku.
 
-### Vytvoření příjemce a přijetí zpráv z fronty
+### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Vytvoření příjemce a přijetí zpráv z fronty
 
 V metodě `Queue()` iterujte frontou a přijměte zprávy pomocí metody [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx) a každou zprávu vypište do konzoly. Následující kód přidejte přímo po kódu, který jste přidali v předchozím kroku:
 
@@ -456,7 +456,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 
 Pamatujte, že `Thread.Sleep` se používá jen k simulování zpracování zprávy a v opravdové aplikaci pro přenos zpráv nejspíš nebude potřeba.
 
-### Ukončení metody Queue a vyčištění prostředků
+### <a name="end-the-queue-method-and-clean-up-resources"></a>Ukončení metody Queue a vyčištění prostředků
 
 Přímo po předchozím kódu přidejte následující kód, který vyčistí objekt pro vytváření zpráv a prostředky fronty:
 
@@ -466,7 +466,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### Zavolání metody Queue
+### <a name="call-the-queue-method"></a>Zavolání metody Queue
 
 Posledním krokem je přidání příkazu, který z `Queue()` zavolá metodu `Main()`. Následující zvýrazněný řádek přidejte na konec Main():
     
@@ -485,7 +485,7 @@ public static void Main(string[] args)
 }
 ```
 
-### Příklad
+### <a name="example"></a>Příklad
 
 Tento kód obsahuje kompletní aplikaci **QueueSample**.
 
@@ -636,27 +636,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Sestavení a spuštění aplikace QueueSample
+## <a name="build-and-run-the-queuesample-application"></a>Sestavení a spuštění aplikace QueueSample
 
 Po dokončení předchozích kroků můžete sestavit a spustit aplikaci **QueueSample**.
 
-### Sestavení aplikace QueueSample
+### <a name="build-the-queuesample-application"></a>Sestavení aplikace QueueSample
 
 V nabídce **Sestavení** ve Visual Studiu klikněte na **Sestavit řešení** nebo stiskněte **Ctrl+Shift+B**. Pokud narazíte na chyby, zkontrolujte podle příkladu na konci předchozího kroku, že jste kód napsali správně.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Tento kurz vám ukázal, jak sestavit službu a klientskou aplikaci služby Service Bus pomocí funkcí zprostředkovaného zasílání zpráv služby Service Bus. Podobný kurz, který používá Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Pokud se o službě [Service Bus](https://azure.microsoft.com/services/service-bus/) chcete dozvědět víc, pročtěte si následující témata.
 
 - [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-- [Základy služby Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Architektura služby Service Bus](../service-bus/service-bus-architecture.md)
+- [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Architektura služby Service Bus](service-bus-architecture.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

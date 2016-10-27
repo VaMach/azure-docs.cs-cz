@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="07/12/2016"
+    ms.date="10/12/2016"
     ms.author="klam"/>
 
-#Co jsou Logic Apps?
+
+# <a name="what-are-logic-apps?"></a>Co jsou Logic Apps?
 
 Logic Apps umožňují zjednodušení a implementaci škálovatelných integrací a pracovních postupů v cloudu. Nabízejí vizuálního návrháře pro modelování a automatizaci procesů jako řadu kroků, které nazýváme pracovním postupem.  Existuje mnoho cloudových i místních [konektorů](../connectors/apis-list.md), které můžete rychle integrovat do všech služeb a protokolů.  Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.
 
@@ -41,7 +42,7 @@ Jak už bylo zmíněno, pomocí Logic Apps můžete automatizovat podnikové pro
 
 Podobné scénáře je možné konfigurovat ve všech vizuálních návrhářích bez nutnosti napsat jediný řádek kódu. Začněte [vytvářet aplikaci logiky už teď][vytvoření].  Jakmile ji napíšete, můžete aplikaci logiky [rychle nasadit a překonfigurovat](app-service-logic-create-deploy-template.md) pro různá prostředí a oblasti.
 
-## Proč Logic Apps?
+## <a name="why-logic-apps?"></a>Proč Logic Apps?
 
 Logic Apps přinášejí do prostoru podnikových integrací rychlost a škálovatelnost.  Snadné používání návrháře, řada dostupných triggerů a akcí a výkonné nástroje pro správu výrazně zjednodušují centralizaci rozhraní API.  Firmy se vydávají směrem k digitalizaci a Logic Apps jim na této cestě umožňují propojit starší systémy s těmi nejmodernějšími.
 
@@ -57,7 +58,7 @@ Kromě toho můžete pomocí [účtu podnikové integrace][biztalk] přejít k p
 
 - **Skutečně efektivní integrace** – Začněte lehce a řiďte svůj růst podle toho, jak se vyvíjí vaše potřeby. Služba Logic Apps dokáže snadno využít síly BizTalku. BizTalk je špičkové integrační řešení od Microsoftu, které umožňuje profesionálům v oblasti integrace vytvářet řešení, která potřebují. Další informace o [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
 
-## Koncepty Logic Apps
+## <a name="logic-app-concepts"></a>Koncepty Logic Apps
 
 Následující pojmy představují některé z klíčových součástí, které dohromady utváří prostředí Logic Apps. 
 
@@ -67,15 +68,15 @@ Následující pojmy představují některé z klíčových součástí, které 
 -  **Akce** – Každému kroku, který je proveden po triggeru v pracovním postupu, se říká akce. Každá akce je obvykle namapovaná na operaci ve spravovaném konektoru nebo ve vlastních aplikacích API.
 - **Enterprise Integration Pack** – Služba Logic Apps zahrnuje možnosti z BizTalku a nabízí tak pokročilejší scénáře integrace. BizTalk je špičková platforma pro integraci od Microsoftu. Konektory Enterprise Integration Pack umožňují snadno zahrnout ověřování, transformaci a další funkce do pracovních postupů Logic App.
 
-## Začínáme  
+## <a name="getting-started"></a>Začínáme  
 
 - Pokud chcete začít s Logic Apps, postupujte podle kurzu [vytvoření aplikace logiky][vytvoření].  
-- [Zobrazení běžných příkladů a scénářů](app-service-logic-examples-and-scenarios.md)
-- [S Logic Apps můžete automatizovat firemní procesy.](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [Jak integrovat systémy s Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+- [Zobrazení běžných příkladů a scénářů](app-service-logic-examples-and-scenarios.md).
+- [S Logic Apps můžete automatizovat firemní procesy](http://channel9.msdn.com/Events/Build/2016/T694). 
+- [Zjistěte, jak integrovat své systémy s Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462).
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
-[App Service]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-value-prop-what-is.md
 [vytvoření]: app-service-logic-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-enterprise-integration-accounts.md
@@ -84,6 +85,6 @@ Následující pojmy představují některé z klíčových součástí, které 
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

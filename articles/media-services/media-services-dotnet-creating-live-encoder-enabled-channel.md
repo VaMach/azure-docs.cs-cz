@@ -13,29 +13,29 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="09/15/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
 
-#Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET
 
 > [AZURE.SELECTOR]
-- [Portál](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-##Přehled
+##<a name="overview"></a>Přehled
 
 Tento kurz vás provede kroky k vytvoření **kanálu**, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi.
 
 Další koncepční informace o kanálech s povoleným kódováním v reálném čase najdete v článku [Živé streamování využívající Azure Media Services k vytváření datových proudů s více přenosovými rychlostmi](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Běžný scénář živého streamování
+##<a name="common-live-streaming-scenario"></a>Běžný scénář živého streamování
 
 Následující kroky popisují úlohy, které jsou běžně součásti procesu vytváření aplikací pro živé streamování.
 
@@ -43,17 +43,17 @@ Následující kroky popisují úlohy, které jsou běžně součásti procesu v
 
 1. Připojte k počítači videokameru. Spusťte a nakonfigurujte místní kodér pro kódování v reálném čase, který umí produkovat datový proud s jednou přenosovou rychlostí v jednom z následujících protokolů: RTMP, technologie Smooth Streaming nebo RTP (MPEG-TS). Další informace najdete v článku [Podpora RTMP ve službě Azure Media Services a kodéry pro kódování v reálném čase](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-    Tento krok můžete provést i po vytvoření kanálu.
+Tento krok můžete provést i po vytvoření kanálu.
 
 1. Vytvořte a spusťte kanál.
 
 1. Načtěte adresu URL ingestování kanálu.
 
-    Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání datového proudu do kanálu.
+Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání datového proudu do kanálu.
 
 1. Načtěte adresu URL náhledu kanálu.
 
-    Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
+Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
 
 2. Vytvořte asset.
 3. Pokud chcete asset během přehrávání dynamicky šifrovat, postupujte takto:
@@ -63,14 +63,14 @@ Následující kroky popisují úlohy, které jsou běžně součásti procesu v
 3. Vytvořte program a nastavte ho, aby používal asset, který jste vytvořili.
 1. Publikujte asset přidružený k programu tím, že vytvoříte lokátor OnDemand.
 
-    Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
+Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
 
 1. Jakmile budete připraveni začít streamovat a archivovat, spusťte program.
 2. Volitelně můžete dát kodéru pro kódování v reálném čase signál, aby spustil reklamu. Reklama bude vložena do výstupního datového proudu.
 1. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte program.
 1. Odstraňte program (a volitelně můžete odstranit i asset).
 
-## Co se dozvíte
+## <a name="what-you'll-learn"></a>Co se dozvíte
 
 Toto téma vám ukáže, jak provádět různé operace na kanálech a programech pomocí sady Media Services .NET SDK. Protože řada z těchto operací běží dlouho, používají se rozhraní API pro .NET, která spravují dlouho běžící operace.
 
@@ -86,37 +86,37 @@ Toto téma vás seznámí s následujícími postupy:
 1. Vyčištění kanálu a všech přidružených prostředků.
 
 
-##Požadavky
+##<a name="prerequisites"></a>Požadavky
 
 K dokončení kurzu potřebujete následující:
 
-- K dokončení tohoto kurzu potřebujete mít účet Azure. 
-    
-    Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. Až kredity vyčerpáte, můžete si účet ponechat a stále používat bezplatné služby a funkce Azure, například funkci Web Apps ve službě Azure App Service.
-- Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-create-account.md).
+- K dokončení tohoto kurzu potřebujete mít účet Azure.
+
+Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. Až kredity vyčerpáte, můžete si účet ponechat a stále používat bezplatné služby a funkce Azure, například funkci Web Apps ve službě Azure App Service.
+- Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-portal-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate nebo Express) nebo novější verze.
 - Musíte používat sadu Media Services .NET SDK verze 3.2.0.0 nebo novější.
 - Webová kamera a kodér, který dokáže odesílat živý datový proud s jednou přenosovou rychlostí.
 
-##Požadavky
+##<a name="considerations"></a>Požadavky
 
 - V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
 - Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
 
-##Stažení ukázky
+##<a name="download-sample"></a>Stažení ukázky
 
 Ukázku můžete získat a spustit z [tohoto odkazu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
-##Nastavení pro vývoj pomocí sady Media Services SDK pro .NET
+##<a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Nastavení pro vývoj pomocí sady Media Services SDK pro .NET
 
 1. Vytvořte konzolovou aplikaci pomocí Visual Studia.
 1. Přidejte sadu Media Services SDK pro .NET do konzolové aplikace pomocí balíčku Media Services NuGet.
 
-##Připojení ke službě Media Services
+##<a name="connect-to-media-services"></a>Připojení ke službě Media Services
 Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media Services použít soubor app.config.
 
->[AZURE.NOTE]Pokud chcete najít hodnoty názvu a klíče, přejděte na portál Azure Classic, vyberte svůj účet Media Service a klikněte v dolní části okna portálu na ikonu „SPRÁVA KLÍČŮ“. Kliknutím na ikonu vedle každého textového pole zkopírujete příslušnou hodnotu do schránky systému.
+>[AZURE.NOTE]Chcete-li zjistit hodnoty Název a Klíč, přejděte na web Azure Portal a vyberte svůj účet. Na pravé straně se zobrazí okno Nastavení. V okně Nastavení vyberte Klíče. Kliknutím na ikonu vedle každého textového pole zkopírujete příslušnou hodnotu do schránky systému.
 
  Do souboru app.config přidejte oddíl appSettings a nastavte hodnoty názvu a klíče účtu Media Services.
 
@@ -130,7 +130,7 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
     </configuration>
      
     
-##Příklad kódu
+##<a name="code-example"></a>Příklad kódu
 
     using System;
     using System.Collections.Generic;
@@ -519,22 +519,22 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
     }   
 
 
-##Další krok
+##<a name="next-step"></a>Další krok
 
 Prohlédněte si mapy kurzů k Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Poskytnutí zpětné vazby
+##<a name="provide-feedback"></a>Poskytnutí zpětné vazby
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Hledáte něco jiného?
+### <a name="looking-for-something-else?"></a>Hledáte něco jiného?
 
 Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

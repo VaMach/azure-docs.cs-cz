@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/13/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
 
 
@@ -139,6 +139,6 @@ Můžete si vybrat fakturační model, který vám nejlépe vyhovuje. Zvolte si 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

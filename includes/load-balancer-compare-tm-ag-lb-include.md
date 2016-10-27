@@ -1,31 +1,35 @@
-## Load Balancer differences
+## <a name="load-balancer-differences"></a>Rozdíly mezi nástroji pro vyrovnávání zatížení
 
-There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
+Existují různé možnosti distribuce síťového provozu pomocí systému Microsoft Azure. Tyto možnosti fungují různě, obsahují jiné sady funkcí a podporují různé scénáře. Lze je používat jednotlivě nebo je kombinovat.
 
-- **Azure Load Balancer** works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- **Azure Load Balancer** funguje na přenosové vrstvě (Vrstva 4 v balíčku referenčních informací k síti modelu OSI). Poskytuje distribuci provozu na úrovni sítě mezi instancemi aplikace, které běží ve stejném datovém centru Azure.
 
-- **Application Gateway** works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- **Application Gateway** funguje na aplikační vrstvě (Vrstva 7 v balíčku referenčních informací k síti modelu OSI). Funguje jako služba reverzních proxy serverů, ukončuje připojení klienta a předává požadavky do back-endových koncových bodů.
 
-- **Traffic Manager** works at the DNS level.  It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.
+- **Traffic Manager** funguje na úrovni DNS.  Pomocí odpovědí DNS směruje provoz koncového uživatele do globálně distribuovaných koncových bodů. Klienti se pak připojují přímo k těmto koncovým bodům.
 
-The following table summarizes the features offered by each service:
+Následující tabulka shrnuje funkce, které jednotlivé služby nabízí:
 
-| Service | Azure Load Balancer | Application Gateway | Traffic Manager |
+| Služba | Nástroj pro vyrovnávání zatížení Azure | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Transport level (Layer 4) | Application level (Layer 7) | DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps, and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | Supported via probes | Supported via probes | Supported via HTTP/HTTPS GET | 
+|Technologie| Úroveň přenosu (Vrstva 4) | Úroveň aplikace (Vrstva 7) | Úroveň DNS |
+| Podporované protokoly aplikací | Všechny | Protokoly HTTP a HTTPS |  Všechny (k monitorování koncového bodu je vyžadován koncový bod HTTP) |
+| Koncové body | Virtuální počítače Azure a instance rolí služby Cloud Services. | Libovolná interní IP adresa Azure nebo veřejná internetová IP adresa. | Virtuální počítače Azure, služba Cloud Services, webové aplikace Azure a externí koncové body. |
+| Podpora virtuálních sítí | Lze použít pro internetové i interní (VNet) aplikace. | Lze použít pro internetové i interní (VNet) aplikace. |    Podporuje pouze internetové aplikace. |
+Monitorování koncového bodu | Podporováno prostřednictvím sond. | Podporováno prostřednictvím sond. | Podporováno prostřednictvím HTTP/HTTPS GET. | 
 
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
+Azure Load Balancer i služba Application Gateway směrují síťový provoz do koncových bodů, ale mají jiné scénáře použití podle toho, jaký provoz mají zpracovávat. Následující tabulka vám pomůže pochopit rozdíly mezi těmito dvěma nástroji pro vyrovnávání zatížení:
 
-| Type | Azure Load Balancer | Application Gateway |
+| Typ | Nástroj pro vyrovnávání zatížení Azure | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5-tuple(source IP, source port, destination IP, destination port, protocol type) | Round Robin<br>Routing based on URL | 
-| Load balancing mode (source IP /sticky sessions) |  2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines | Cookie-based affinity<br>Routing based on URL |
-| Health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes | 
-| SSL offloading | Not supported | Supported | 
+| Protokoly | UDP/TCP | HTTP/HTTPS |
+| Vyhrazení IP adres | Podporuje se | Nepodporuje se | 
+| Režim vyrovnávání zatížení | Pětinásobné (zdrojová IP adresa, zdrojový port, cílová IP adresa, cílový port, typ protokolu). | Kruhové dotazování.<br>Směrování na základě adresy URL. | 
+| Režim vyrovnávání zatížení (zdrojová IP adresa/spřažené relace). |  Dvojnásobné (zdrojová IP adresa a cílová IP adresa), trojnásobné (zdrojová IP adresa, cílová IP adresa a port). Lze vertikálně zvýšit nebo snížit kapacitu podle počtu virtuálních počítačů. | Spřažení na základě souborů cookie.<br>Směrování na základě adresy URL. |
+| Sondy stavu | Výchozí hodnota: interval sondování – 15 sekund. Vyřazení ze smyčky: po dvou selháních za sebou. Podporuje uživatelem definované sondy. | Interval nečinnosti sondy – 30 sekund. Vyřazena ze smyčky po pěti selháních živého provozu za sebou nebo po jediném selhání sondy v režimu nečinnosti. Podporuje uživatelem definované sondy. | 
+| Přesměrování zpracování SSL | Nepodporuje se | Podporuje se | 
   
+
+<!--HONumber=Oct16_HO3-->
+
+
