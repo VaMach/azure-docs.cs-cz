@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc"/>
 
 
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic – Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Classic – klasický portál](vpn-gateway-point-to-site-create.md)
 
 Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální sítí. Připojení P2S je užitečné, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti.
@@ -196,6 +197,6 @@ Další informace o virtuálních sítích najdete na stránce [Dokumentace k vi
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

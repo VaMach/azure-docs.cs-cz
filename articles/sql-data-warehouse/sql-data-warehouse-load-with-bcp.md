@@ -3,7 +3,7 @@
    description="Zjistěte, co je bcp a jak tento nástroj používat pro scénáře datových skladů."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
-# Načtení dat pomocí bcp
+
+# <a name="load-data-with-bcp"></a>Načtení dat pomocí bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -41,7 +43,7 @@ V tomto kurzu se dozvíte, jak:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
@@ -51,11 +53,11 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
 >[AZURE.NOTE] Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][].
 
-## Import dat do SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Import dat do SQL Data Warehouse
 
 V tomto kurzu vytvoříte tabulku v Azure SQL Data Warehouse a naimportujete do ní data.
 
-### Krok 1: Vytvoření tabulky v Azure SQL Data Warehouse
+### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Krok 1: Vytvoření tabulky v Azure SQL Data Warehouse
 
 Pomocí příkazu sqlcmd na příkazovém řádku spusťte následující dotaz, který vytvoří tabulku ve vaší instanci:
 
@@ -77,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Přehled tabulek][] nebo [Syntaxe CREATE TABLE][].
 
-### Krok 2: Vytvoření zdrojového datového souboru
+### <a name="step-2:-create-a-source-data-file"></a>Krok 2: Vytvoření zdrojového datového souboru
 
 Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového textového souboru. Pak tento soubor uložte do místního dočasného adresáře C:\Temp\DimDate2.txt.
 
@@ -98,7 +100,7 @@ Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového 
 
 > [AZURE.NOTE] Je důležité pamatovat na to, že nástroj bcp.exe nepodporuje kódování souborů UTF-8. Při použití nástroje bcp.exe prosím použijte soubory ASCII nebo UTF-16.
 
-### Krok 3: Připojení a import dat
+### <a name="step-3:-connect-and-import-the-data"></a>Krok 3: Připojení a import dat
 Při použití nástroje bcp můžete připojit a importovat data pomocí následujícího příkazu (hodnoty podle potřeby nahraďte svými):
 
 ```sql
@@ -128,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Krok 4: Vytvoření statistiky pro vaše nově načtená data
+### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro vaše nově načtená data
 
 Azure SQL Data Warehouse zatím nepodporuje automatické vytváření ani automatickou aktualizaci statistik. Aby vám dotazy vracely co nejlepší výsledky, je důležité, aby se statistiky vytvořily pro všechny sloupce všech tabulek po prvním načtením nebo kdykoli, kdy v datech dojde k podstatným změnám. Podrobné vysvětlení statistiky najdete v tématu [Statistika][] ve skupině témat věnovaných vývoji. Níže je zběžný příklad vytvoření statistik pro tabulku načtenou v tomto příkladě.
 
@@ -142,10 +144,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Export dat z SQL Data Warehouse
+## <a name="export-data-from-sql-data-warehouse"></a>Export dat z SQL Data Warehouse
 V tomto kurzu vytvoříte z tabulky v SQL Data Warehouse datový soubor. Data, která jsme vytvořili výše, vyexportujeme do nového datového souboru s názvem DimDate2_export.txt.
 
-### Krok 1: Export dat
+### <a name="step-1:-export-the-data"></a>Krok 1: Export dat
 
 Při použití nástroje bcp můžete připojit a vyexportovat data pomocí následujícího příkazu (hodnoty podle potřeby nahraďte svými):
 
@@ -171,7 +173,7 @@ To, že se data vyexportovala správně, můžete ověřit tak, že nový soubor
 
 >[AZURE.NOTE] Vzhledem k povaze distribuovaných systémů nemusí být pořadí dat napříč všemi databázemi SQL Data Warehouse stejné. Další možností je použít funkci **queryout** nástroje bcp, která místo vyexportování celé tabulky umožňuje zapsat extrakci dotazu.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Přehled načítání najdete v tématu [Načtení dat do SQL Data Warehouse][].
 Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][].
 
@@ -189,10 +191,10 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 [Syntaxe CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Stažení softwaru společnosti Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

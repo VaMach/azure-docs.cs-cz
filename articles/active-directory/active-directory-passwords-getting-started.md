@@ -1,6 +1,6 @@
 <properties
     pageTitle="Začínáme: Správa hesel služby Azure AD | Microsoft Azure"
-    description="Naučte se umožnit uživatelům resetovat jejich hesla, přečtěte si o požadavcích resetování hesel a povolte zpětný zápis hesla ke správě místních hesel ve službě Active Directory."
+    description="Umožněte uživatelům resetovat svá hesla, přečtěte si o požadavcích resetování hesel a povolte zpětný zápis hesla ke správě místních hesel ve službě Active Directory."
     services="active-directory"
     keywords="Správa hesel služby Active Directory, správa hesel, resetování hesla Azure AD"
     documentationCenter=""
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/12/2016"
+    ms.date="10/05/2016"
     ms.author="asteen"/>
 
 
@@ -32,7 +32,7 @@ Pokud chcete uživatelům umožnit spravovat jejich vlastní hesla ke cloudové 
 * [**Umožnění resetování hesel místní služby Azure Active Directory uživatelům**](#enable-users-to-reset-or-change-their-ad-passwords)
  - [Požadavky pro zpětný zápis hesla](#writeback-prerequisites)
  - [Krok 1: Stažení nejnovější verze služby Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
- - [Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo PowerShellu a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect)
+ - [Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo prostředí PowerShell a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect)
  - [Krok 3: Konfigurace brány firewall](#step-3-configure-your-firewall)
  - [Krok 4: Nastavení příslušných oprávnění](#step-4-set-up-the-appropriate-active-directory-permissions)
  - [Krok 5: Resetování hesla ke službě AD v roli uživatele a ověření resetování](#step-5-reset-your-ad-password-as-a-user)
@@ -62,8 +62,8 @@ Aby bylo možné povolit a používat samoobslužné resetování hesel, je nutn
 ### Krok 1: Konfigurace zásad resetování hesel
 Zásady konfigurace resetování hesel uživatelů nastavte pomocí následujících kroků:
 
-1.  Otevřete prohlížeč a přejděte na [Portál pro správu Azure](https://manage.windowsazure.com).
-2.  Na [Portálu pro správu Azure](https://manage.windowsazure.com) na navigačním panelu vlevo vyhledejte **rozšíření Active Directory**.
+1.  Otevřete libovolný prohlížeč a přejděte na [portál Azure Classic](https://manage.windowsazure.com).
+2.  Na [portálu Azure Classic](https://manage.windowsazure.com) v navigačním panelu vlevo vyhledejte **Rozšíření Active Directory**.
 
     ![Správa hesel ve službě Azure AD][001]
 
@@ -94,7 +94,7 @@ Zásady konfigurace resetování hesel uživatelů nastavte pomocí následujíc
 ### Krok 2: Přidání dat kontaktu testovacího uživatele
 Máte několik možností, jak můžete zadat data uživatelů ve své organizaci, která se budou používat k resetování hesel.
 
--   Data uživatelů můžete upravit v [Portálu pro správu Azure](https://manage.windowsazure.com) nebo v  [Portálu pro správu Office 365](https://portal.microsoftonline.com)
+-   Uživatele můžete upravovat na [portálu Azure Classic](https://manage.windowsazure.com) nebo na [Portálu pro správu Office 365](https://portal.microsoftonline.com).
 -   Vlastnosti uživatelů můžete z místní domény služby Active Directory synchronizovat do služby Azure AD pomocí služby AAD Connect.
 -   Vlastnosti uživatelů můžete upravit pomocí PowerShellu.
 -   Uživatelům můžete umožnit, aby si zaregistrovali svá vlastní data na portálu registrace na adrese [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
@@ -170,7 +170,7 @@ V této části najdete postup konfigurace funkce resetování hesel k jejich zp
 
 - [Požadavky pro zpětný zápis hesla](#writeback-prerequisites)
 - [Krok 1: Stažení nejnovější verze služby Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-- [Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo PowerShellu a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect)
+- [Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo prostředí PowerShell a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect)
 - [Krok 3: Konfigurace brány firewall](#step-3-configure-your-firewall)
 - [Krok 4: Nastavení příslušných oprávnění](#step-4-set-up-the-appropriate-active-directory-permissions)
 - [Krok 5: Resetování hesla ke službě AD v roli uživatele a ověření resetování](#step-5-reset-your-ad-password-as-a-user)
@@ -210,9 +210,9 @@ Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo
 
     ![][021]
 
-Pokud je toto číslo verze větší než nebo rovno číslu **1.0.0419.0911** nebo pokud instalujete službu Azure AD Connect, můžete pokračovat částí [Krok 2: Povolení zpětného zápisu hesel ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo PowerShellu a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect).
+Pokud je toto číslo verze větší než nebo rovno číslu **1.0.0419.0911** nebo pokud instalujete službu Azure AD Connect, můžete přeskočit k oddílu [Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect prostřednictvím uživatelského rozhraní nebo prostředí PowerShell a ověření povolení](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- > [AZURE.NOTE] Pokud instalujete nástroj Azure AD Connect poprvé, doporučuje se, abyste provedli několik osvědčených postupů k přípravě svého prostředí na synchronizaci adresáře.  Před instalací nástroje Azure AD Connect je nutné aktivovat synchronizaci adresáře na [Portálu pro správu Office 365](https://portal.microsoftonline.com) nebo [Portálu po správu Azure](https://manage.windowsazure.com).  Další informace najdete v článku [Správa koncových bodů streamování](active-directory-aadconnect-whats-next.md).
+ > [AZURE.NOTE] Pokud instalujete nástroj Azure AD Connect poprvé, doporučuje se, abyste provedli několik osvědčených postupů k přípravě svého prostředí na synchronizaci adresáře.  Před instalací nástroje Azure AD Connect je nutné aktivovat synchronizaci adresáře na [Portálu pro správu Office 365](https://portal.microsoftonline.com) nebo na [portálu Azure Classic](https://manage.windowsazure.com).  Další informace najdete v článku [Správa koncových bodů streamování](active-directory-aadconnect-whats-next.md).
 
 
 ### Krok 2: Povolení zpětného zápisu hesla ve službě Azure AD Connect
@@ -227,17 +227,17 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 
 4.  Dokončete průvodce – na poslední stránce se zobrazí souhrn provedených změn včetně změny konfigurace zpětného zápisu hesla.
 
-> [AZURE.NOTE] Zpětný zápis hesla můžete kdykoliv vypnout opětovným spuštěním průvodce a zrušením výběru funkce či nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [Portálu pro správu Azure](https://manage.windowsazure.com).  Další informace o přizpůsobení funkcí resetování hesel nejdete v článku [Přizpůsobení: Správa hesel služby Azure AD](active-directory-passwords-customize.md).
+> [AZURE.NOTE] Zpětný zápis hesla můžete kdykoliv vypnout opětovným spuštěním průvodce a zrušením výběru funkce nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).  Další informace o přizpůsobení funkcí resetování hesel nejdete v článku [Přizpůsobení: Správa hesel služby Azure AD](active-directory-passwords-customize.md).
 
 #### Povolení zpětného zápisu hesla pomocí Windows PowerShellu
 1.  Na **počítači se službou Directory Sync** otevřete nové  ** okno Windows PowerShellu se zvýšenými oprávněními**.
-2.  Pokud modul dosud není načtený, načtěte zadáním příkazu `Import-Module ADSync` do své aktuální relace rutiny služby Azure AD Connect.
-3.  Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby AAD a uložte výsledky do atributu `$aadConnectorName`
-4.  Spuštěním následující rutiny získejte aktuální stav zpětného zápisu pro aktuální konektor: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
-5.  Spuštěním rutiny povolte zpětný zápis hesla: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
+2.  Pokud modul dosud není načtený, načtěte zadáním příkazu `import-module ADSync` do své aktuální relace rutiny služby Azure AD Connect.
+3.  Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, jako například `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+4.  Spuštěním následující rutiny získejte aktuální stav zpětného zápisu pro aktuální konektor: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
+5.  Spuštěním rutiny povolte zpětný zápis hesla: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [AZURE.NOTE] Pokud budete vyzváni k zadání přihlašovacích údajů, ujistěte se, že účet správce, který jste zadali jako parametr AzureADCredential, je **cloudový účet správce (vytvořený ve službě Azure AD)**, nikoliv federovaný účet (vytvořený v místní službě AD a synchronizovaný se službou Azure AD).
-> [AZURE.NOTE] Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí PowerShellu  zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku 5, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [Portálu pro správu Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí prostředí PowerShell zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku 5, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).
 
 #### Ověření úspěšnosti konfigurace
 Pokud bude konfigurace úspěšná, zobrazí se v okně Windows PowerShellu zpráva „Zpětný zápis resetování hesla je povolen.“ nebo zpráva o úspěšném provedení konfigurace v uživatelském rozhraní konfigurace.
@@ -362,6 +362,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

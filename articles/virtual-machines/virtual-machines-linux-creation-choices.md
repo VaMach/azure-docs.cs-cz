@@ -43,7 +43,7 @@ Rozhraní Azure CLI je k dispozici napříč platformami pomocí balíčku npm, 
         --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
 
-- [Vytvoření kompletního Linuxového prostředí pomocí Azure CLI](virtual-machines-linux-create-cli-complete.md)
+- [Vytvoření kompletního linuxového prostředí pomocí Azure CLI](virtual-machines-linux-create-cli-complete.md)
     - Zahrnuje vytvoření nástroje pro vyrovnávání zatížení a více virtuálních počítačů ve skupině dostupnosti.
 
 - [Přidání disku do virtuálního počítače s Linuxem](virtual-machines-linux-add-disk.md)
@@ -133,6 +133,6 @@ Pokud budete potřebovat image se zvláštními úpravami, můžete *zachytit* s
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

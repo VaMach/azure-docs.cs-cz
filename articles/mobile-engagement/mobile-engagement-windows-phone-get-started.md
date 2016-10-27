@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Začínáme s Azure Mobile Engagementem pro aplikace Silverlight pro Windows Phone
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -34,7 +35,7 @@ V tomto kurzu budete potřebovat následující:
 
 ##<a id="setup-azme"></a>Nastavení Mobile Engagementu pro aplikaci pro Windows Phone
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 
@@ -170,6 +171,6 @@ Nyní by se ve vašem zařízení mělo zobrazit oznámení, které se zobrazí 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

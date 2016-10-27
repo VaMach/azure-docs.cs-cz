@@ -45,6 +45,6 @@ V kostce řečeno, funkce App Service umožňují vývojářům soustředit se n
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

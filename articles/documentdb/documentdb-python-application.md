@@ -4,7 +4,7 @@
     keywords="Vývoj aplikací, databázový kurz, python flask, webová aplikace python, vývoj pro web python, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="AndrewHoh"
+    authors="syamkmsft"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="08/25/2016"
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# Vývoj webové aplikace Python Flask s použitím DocumentDB
+
+# <a name="python-flask-web-application-development-with-documentdb"></a>Vývoj webové aplikace Python Flask s použitím DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -39,7 +40,7 @@ Podle postupu uvedeného v tomto kurzu sestavíte jednoduchou hlasovací aplikac
 ![Snímek obrazovky webové aplikace vytvořené v tomto databázovém kurzu](./media/documentdb-python-application/image1.png)
 
 
-## Předpoklady pro databázový kurz
+## <a name="database-tutorial-prerequisites"></a>Předpoklady pro databázový kurz
 
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
@@ -55,7 +56,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
 - Microsoft Visual C++ Compiler for Python 2.7 z webu [Microsoft Download Center][3].
 
-## Krok 1: Vytvoření databázového účtu DocumentDB
+## <a name="step-1:-create-a-documentdb-database-account"></a>Krok 1: Vytvoření databázového účtu DocumentDB
 
 Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [Krok 2: Vytvoření webové aplikace Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
@@ -64,7 +65,7 @@ Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete pře
 <br/>
 Nyní vám ukážeme, jak od základů vytvořit novou webovou aplikaci Python Flask.
 
-## Krok 2: Vytvoření nové webové aplikace Python Flask
+## <a name="step-2:-create-a-new-python-flask-web-application"></a>Krok 2: Vytvoření nové webové aplikace Python Flask
 
 1. V nástroji Visual Studio najeďte myší v nabídce **Soubor** na **Nový** a klikněte na **Projekt**.
 
@@ -88,9 +89,9 @@ Nyní vám ukážeme, jak od základů vytvořit novou webovou aplikaci Python F
 
     Jakmile je prostředí úspěšně nainstalováno, ve výstupním okně se zobrazí `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
-## Krok 3: Úprava webové aplikace Python Flask
+## <a name="step-3:-modify-the-python-flask-web-application"></a>Krok 3: Úprava webové aplikace Python Flask
 
-### Přidání balíčků Python Flask do projektu
+### <a name="add-the-python-flask-packages-to-your-project"></a>Přidání balíčků Python Flask do projektu
 
 Po nastavení projektu bude nutné do projektu přidat požadované balíčky Flask, včetně pydocumentdb, tedy balíčku Python pro DocumentDB.
 
@@ -119,7 +120,7 @@ Po nastavení projektu bude nutné do projektu přidat požadované balíčky Fl
 
     > [AZURE.NOTE] Ve výjimečných případech se ve výstupním okně může zobrazit informace o selhání. Pokud se to stane, podívejte se, jestli chyba nesouvisí s vyčištěním. Někdy se vyčištění nepovede, ale instalace je přesto úspěšná (posuňte se ve výstupním okně nahoru, kde to je možné ověřit). Instalaci můžete zkontrolovat [ověřením virtuálního prostředí](#verify-the-virtual-environment). Pokud se instalace nepovedla, ale ověření proběhlo úspěšně, můžete pokračovat.
 
-### Ověření virtuálního prostředí
+### <a name="verify-the-virtual-environment"></a>Ověření virtuálního prostředí
 
 Ujistěme se, že se vše správně nainstalovalo.
 
@@ -130,7 +131,7 @@ Ujistěme se, že se vše správně nainstalovalo.
 
 3. Klávesami **SHIFT**+**F5** v nástroji Visual Studio ukončete ladění webu.
 
-### Vytvoření definic databáze, kolekcí a dokumentů
+### <a name="create-database,-collection,-and-document-definitions"></a>Vytvoření definic databáze, kolekcí a dokumentů
 
 Nyní vytvořte hlasovací aplikaci tak, že přidáme nové soubory a jiné aktualizujeme.
 
@@ -149,7 +150,7 @@ class VoteForm(Form):
 ```
 
 
-### Přidání požadovaných importů do views.py
+### <a name="add-the-required-imports-to-views.py"></a>Přidání požadovaných importů do views.py
 
 1. V Průzkumníkovi řešení rozbalte složku **tutorial** a otevřete soubor **views.py**. 
 2. Do horní části souboru **views.py** přidejte následující příkazy import a soubor uložte. Tyto příkazu importují balíčky PythonSDK pro DocumentDB a Flask.
@@ -161,7 +162,7 @@ class VoteForm(Form):
     ```
 
 
-### Vytvoření databáze, kolekce a dokumentu
+### <a name="create-database,-collection,-and-document"></a>Vytvoření databáze, kolekce a dokumentu
 
 - Na konec téhož souboru **views.py** přidejte následující kód. Ten vytvoří databázi, která se použije ve formuláři. V souboru **views.py** neodstraňujte žádný kód, který tam již je. Pouze nový kód přidejte na konec.
 
@@ -203,7 +204,7 @@ def create():
 > [AZURE.TIP] Metoda **CreateCollection** přijímá volitelný třetí parametr **RequestOptions**. Lze jej použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota offerType, kolekce se vytvoří pomocí výchozího typu nabídky. Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md).
 
 
-### Čtení databáze, kolekce a dokumentu a odeslání formuláře
+### <a name="read-database,-collection,-document,-and-submit-form"></a>Čtení databáze, kolekce a dokumentu a odeslání formuláře
 
 - Na konec téhož souboru **views.py** přidejte následující kód. Tento kód má na starosti nastavení formuláře a čtení databáze, kolekce a dokumentu. V souboru **views.py** neodstraňujte žádný kód, který tam již je. Pouze nový kód přidejte na konec.
 
@@ -255,7 +256,7 @@ def vote():
 ```
 
 
-### Vytvoření souborů HTML
+### <a name="create-the-html-files"></a>Vytvoření souborů HTML
 
 1. V Průzkumníkovi řešení klikněte pravým tlačítkem ve složce **tutorial** na složku **šablony**, pak levým na **Přidat** a nakonec také levým na **Nová položka**. 
 2. Vyberte **Stránka HTML** do pole název zadejte **create.html**. 
@@ -323,7 +324,7 @@ def vote():
     {% endblock %}
     ```
 
-### Přidejte konfigurační soubor a změňte \_\_init\_\_.py.
+### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Přidejte konfigurační soubor a změňte \_\_init\_\_.py.
 
 1. V Průzkumníkovi řešení klikněte pravým tlačítkem na projekt **tutorial**, pak levým na **Přidat**, dále na **Nová položka**, vyberte **Prázdný soubor Python** a pojmenujte jej **config.py**. Formuláře ve Flasku vyžadují tento konfigurační soubor. Můžete jej použít i k poskytnutí tajného klíče. Ten ale pro tento kurz není nezbytný.
 
@@ -361,7 +362,7 @@ def vote():
     ![Snímek obrazovky okna Průzkumníka řešení v nástroji Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Krok 4: Místní spuštění webové aplikace
+## <a name="step-4:-run-your-web-application-locally"></a>Krok 4: Místní spuštění webové aplikace
 
 1. Sestavte řešení stisknutím **CTRL**+**SHIFT**+**B**.
 2. Po úspěšném sestavení spusťte web klávesou **F5**. Na obrazovce byste měli vidět následující.
@@ -382,7 +383,7 @@ def vote():
 
 6. Kombinací kláves SHIFT+F5 ukončete ladění projektu.
 
-## Krok 5: Nasazení webové aplikace na Weby Azure
+## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Krok 5: Nasazení webové aplikace na Weby Azure
 
 Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme ji na Weby Azure.
 
@@ -408,7 +409,7 @@ Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme 
 
 3. Za několik sekund Visual Studio dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
-## Řešení potíží
+## <a name="troubleshooting"></a>Řešení potíží
 
 Pokud je toto první aplikace Python, kterou jste spustili na svém počítači, ujistěte se, že vaše proměnná PATH obsahuje následující složky (nebo ekvivalentní umístění instalací):
 
@@ -416,7 +417,7 @@ Pokud je toto první aplikace Python, kterou jste spustili na svém počítači,
 
 Pokud jste projekt pojmenovali jinak než **tutorial** a na stránce hlasování se zobrazí chyba, ujistěte se, že soubor **\_\_init\_\_.py** odkazuje na následujícím řádku na správný projekt: `import tutorial.view`.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Blahopřejeme! Právě jste dokončili svou první webovou aplikaci Python, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
 
@@ -431,11 +432,11 @@ Další kurzy Pythonu Flask najdete na stránce [Velký kurz na Flask, část I:
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
-  [Instalace webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-  [portál Azure]: http://portal.azure.com
+  [Instalační program webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Azure Portal]: http://portal.azure.com
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

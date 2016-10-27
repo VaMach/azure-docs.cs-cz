@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/19/2016"
+ ms.date="10/05/2016"
  ms.author="dobett"/>
 
 
@@ -21,7 +21,14 @@
 
 ## Další kroky
 
-Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou obousměrnou komunikaci mezi back-endem vaší aplikaci a miliony zařízení. Back-endu vaší aplikace to umožňuje ze zařízení přijímat škálovaná telemetrická data, směrovat tato data do zpracovatele událostí datového proudu, přijímat nahrávání souborů ze zařízení a také posílat příkazy typu cloud-zařízení do konkrétních zařízení. Pomocí služby IoT Hub můžete implementovat vlastní back-end řešení. Kromě toho služba IoT Hub obsahuje registr identit zařízení, který slouží ke zřizování zařízení, jejich zabezpečených přihlašovacích údajů a práv k připojení do služby. Další informace o IoT Hub naleznete v části [Co je IoT Hub?][Ink-iot-hub].
+Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou obousměrnou komunikaci mezi back-endem vaší aplikaci a miliony zařízení. Umožní back-endu aplikace:
+
+- Přijímat škálovaná telemetrická data z vašich zařízení.
+- Směrovat data z vašich zařízení do zpracovatele událostí datového proudu.
+- Přijímat nahrávání souborů ze zařízení.
+- Odesílat příkazy typu cloud-zařízení na konkrétní zařízení.
+
+Pomocí služby IoT Hub můžete implementovat vlastní back-end řešení. Kromě toho služba IoT Hub obsahuje registr identit zařízení, který slouží ke zřizování zařízení, jejich zabezpečených přihlašovacích údajů a práv k připojení do služby. Další informace o IoT Hub naleznete v části [Co je IoT Hub?][Ink-iot-hub].
 
 V článku [Přehled správy zařízení ve službě Azure IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení IoT založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
 
@@ -39,6 +46,6 @@ Možná by vás také mohla zajímat sada [Azure IoT Suite][lnk-iot-suite], což
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

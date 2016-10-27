@@ -1,6 +1,6 @@
 <properties
-   pageTitle="URL-based content routing overview | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule ."
+   pageTitle="Přehled směrování obsahu na základě adresy URL | Microsoft Azure"
+   description="Tato stránka poskytuje přehled směrování obsahu na základě adresy URL, konfigurace UrlPathMap a pravidla PathBasedRouting ve službě Application Gateway."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,27 +9,28 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
    ms.author="gwallace"/>
 
-# URL Path Based Routing overview
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool, and DefaultServerPool.
+# <a name="url-path-based-routing-overview"></a>Přehled směrování na základě cest URL
+
+Směrování na základě cesty URL umožňuje směrovat provoz do fondů back-endového serveru na základě cest URL požadavku. Jedním ze scénářů je směrování požadavků na různé typy obsahu do různých fondů back-endové serveru.
+V následujícím příkladu služba Application Gateway obsluhuje provoz pro contoso.com ze tří fondů back-endového serveru, například: VideoFondServeru, ObrazkyFondServeru a VychoziFondServeru.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video* are routed to VideoServerPool, and http://contoso.com/images* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Požadavky na http://contoso.com/video* jsou směrovány na VideoFondServeru a požadavky na http://contoso.com/images* jsou směrovány na ObrazkyFondServeru. Pokud nevyhovuje žádný vzor cesty, vybere se VychoziFondServeru.
 
-## UrlPathMap configuration element
+## <a name="urlpathmap-configuration-element"></a>Konfigurační prvek UrlPathMap
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
+Prvek UrlPathMap slouží k zadání vzorů cest pro mapování fondů back-endového serveru. Následující ukázka kódu je fragment prvku UrlPathMap ze souboru šablony.
 
-	"urlPathMaps": [
-	{
+    "urlPathMaps": [
+    {
     "name": "<urlPathMapName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
     "properties": {
@@ -56,20 +57,20 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
         ],
 
     }
-	}
-	
+    }
+    
 
->[AZURE.NOTE] PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
+>[AZURE.NOTE] PathPattern: Toto nastavení je seznam vzorů cest, které je nutné splnit. Každý vzor musí začínat znakem „/“ a znak „*“ lze použít pouze na konci za znakem „/“. Řetězec předávaný ke kontrole cesty neobsahuje žádný text po počátečním znaku „?“ nebo „#“ a tyto znaky zde nejsou povolené. 
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+Více informací najdete v dokumentu [Šablona Resource Manageru používající směrování na základě adresy URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
 
-## PathBasedRouting rule
+## <a name="pathbasedrouting-rule"></a>Pravidlo PathBasedRouting
 
-RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
-Snippet of PathBasedRouting rule:
+Pravidlo RequestRoutingRule typu PathBasedRouting slouží k vytvoření vazby mezi naslouchacím procesem a UrlPathMap. Všechny požadavky přijaté tímto naslouchacím procesem jsou směrovány na základě zásad zadaných v UrlPathMap.
+Fragment pravidla PathBasedRouting:
 
-	"requestRoutingRules": [
-  	{
+    "requestRoutingRules": [
+    {
 
     "name": "<ruleName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
@@ -83,7 +84,13 @@ Snippet of PathBasedRouting rule:
         },
 
     }
-	
-## Next steps
+    
+## <a name="next-steps"></a>Další kroky
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
+Po získání informací o směrování obsahu na základě adresy URL přejděte k tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-portal.md) a vytvořte službu Application Gateway s pravidly směrování adres URL.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

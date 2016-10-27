@@ -1,43 +1,43 @@
 <properties
-   pageTitle="Nasměrování internetové domény společnosti na doménu Traffic Manageru | Microsoft Azure"
-   description="Tento článek vám pomůže nasměrovat název domény společnosti na název domény Traffic Manageru."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
+    pageTitle="Nasměrování internetové domény společnosti na název domény Traffic Manageru | Microsoft Azure"
+    description="Tento článek vám pomůže nasměrovat název domény společnosti na název domény Traffic Manageru."
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-# Nasměrování internetové domény společnosti na doménu Azure Traffic Manageru
+# <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Nasměrování internetové domény společnosti na doménu Azure Traffic Manageru
 
-Chcete-li název domény vaší společnosti nasměrovat na název domény Traffic Manageru, upravte záznamu prostředku DNS na serveru DNS pro internet tak, aby používal typ záznamu CNAME, který mapuje název domény vaší společnosti na název domény vašeho profilu Traffic Manageru. Název domény Traffic Manageru se zobrazuje v části **Obecné** na stránce Konfigurace pro příslušný profil Traffic Manageru.
+Když vytvoříte profil Traffic Manageru, Azure mu automaticky přiřadí název DNS. Pokud chcete použít název z vaší zóny DNS, vytvořte záznam DNS CNAME, který se namapuje na název domény vašeho profilu Traffic Manageru. Název domény Traffic Manageru najdete v části **Obecné** na stránce Konfigurace pro příslušný profil Traffic Manageru.
 
-Pokud byste například chtěli nasměrovat název domény společnosti www.contoso.com na název domény Traffic Manageru contoso.trafficmanager.net, aktualizovali byste svůj záznam prostředku DNS do této podoby:
+Pokud byste například chtěli nasměrovat název www.contoso.com na název DNS Traffic Manageru contoso.trafficmanager.net, aktualizovali byste následující záznam prostředku DNS:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Veškeré požadavky na provoz pro název *www.contoso.com* teď budou směrovány na název *contoso.trafficmanager.net*.
+Veškeré žádosti o přenos na *www.contoso.com* se budou směrovat na *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT] Doménu druhé úrovně, například *contoso.com*, nelze nasměrovat na doménu Traffic Manageru. Jedná se o omezení protokolu DNS, které neumožňuje používání záznamů CNAME pro názvy domén druhé úrovně.
+>[AZURE.IMPORTANT] Doménu druhé úrovně, například *contoso.com*, nelze nasměrovat na doménu Traffic Manageru. Standardy protokolu DNS nepovolují záznamy CNAME pro názvy domén druhé úrovně.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
-[Metody směrování Traffic Manageru](traffic-manager-routing-methods.md)
-
-[Traffic Manager – Zakázání, povolení nebo odstranění profilu](disable-enable-or-delete-a-profile.md)
-
-[Traffic Manager – Zakázání nebo povolení koncového bodu](disable-or-enable-an-endpoint.md)
+- [Metody směrování Traffic Manageru](traffic-manager-routing-methods.md)
+- [Traffic Manager – Zakázání, povolení nebo odstranění profilu](disable-enable-or-delete-a-profile.md)
+- [Traffic Manager – Zakázání nebo povolení koncového bodu](disable-or-enable-an-endpoint.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

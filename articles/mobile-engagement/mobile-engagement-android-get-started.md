@@ -16,6 +16,7 @@
     ms.date="08/10/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Začínáme s Azure Mobile Engagementem pro aplikace pro Android
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -33,7 +34,7 @@ Také budete potřebovat sadu [Mobile Engagement Android SDK](https://aka.ms/vq9
 
 ## Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ## Připojení aplikace k back-endu Mobile Engagementu
 
@@ -186,6 +187,6 @@ Podrobné informace o integraci sady SDK najdete v článku o integraci sady [An
 
 
 
-<!----HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

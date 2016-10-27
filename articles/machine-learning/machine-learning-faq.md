@@ -32,7 +32,7 @@ Azure Machine Learning je plně spravovaná služba, kterou můžete využít k 
 
 **Co je Machine Learning Studio?**
 
-Machine Learning Studio je pracovní prostředí, ke kterému přistupujete přes webový prohlížeč. Machine Learning Studio nabízí mnoho modulů s vizuálním kompozičním rozhraním, které umožňuje vytvořit komplexní pracovní postup založený na datové vědě ve formě experimentu.
+Machine Learning Studio je pracovní prostředí, ke kterému přistupujete přes webový prohlížeč. Machine Learning Studio nabízí mnoho modulů s vizuálním kompozičním rozhraním, které umožňuje vytvořit komplexní workflow založený na datové vědě ve formě experimentu.
 
 Další informace o nástroji Machine Learning Studio najdete v tématu [Co je Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
@@ -57,15 +57,15 @@ Azure Machine Learning zahrnuje dva typy služeb:
 * Služba Request-Response (RRS) má nízkou latenci, je vysoce škálovatelná a poskytuje rozhraní pro bezstavové modely, které byly vytvořeny a nasazeny z nástroje Machine Learning Studio.
 * Služba Batch Execution (BES) je asynchronní služba pro vyhodnocování dávek datových záznamů.
 
-Existuje několik způsobů, jak využít REST API a komunikovat s webovou službou. Můžete například napsat aplikaci v jazyce C#, R nebo Python s pomocí ukázkového kódu, který vám byl vygenerován při nasazení webové služby. 
+Existuje několik způsobů, jak využít REST API a komunikovat s webovou službou. Můžete například napsat aplikaci v jazyce C#, R nebo Python s pomocí ukázkového kódu, který vám byl vygenerován při nasazení webové služby.
 
-Ukázkový kód je k dispozici na těchto místech: stránka využívání webových služeb na portálu Azure Machine Learning Web Services a stránka nápovědy k API na řídicím panelu webové služby v nástroji Machine Learning Studio. 
+Ukázkový kód je k dispozici na těchto místech: stránka využívání webových služeb na portálu Azure Machine Learning Web Services a stránka nápovědy k API na řídicím panelu webové služby v nástroji Machine Learning Studio.
 
 Nebo můžete použít ukázkový excelový sešit, který vám byl vygenerován (taky dostupný na řídicím panelu webové služby v nástroji Studio).
 
 **Jaké nejdůležitější aktualizace přišly v souvislosti s novými webovými službami Azure ML?**
 
-Další informace o nových webových službách Azure Machine Learning najdete v [související dokumentaci](machine-learning-whats-new.md). 
+Další informace o nových webových službách Azure Machine Learning najdete v [související dokumentaci](machine-learning-whats-new.md).
 
 ## Otázky k nástroji Machine Learning Studio
 
@@ -266,7 +266,7 @@ Seznam chybových kódů a jejich popisy najdete v tématu o [chybových kódech
 
 **Jaká je škálovatelnost webové služby?**
 
-V tuto chvíli je výchozí koncový bod zřizován s 20 souběžnými požadavky RRS na jeden koncový bod. Jak je popsáno v tématu o [škálování koncových bodů API](machine-learning-scaling-endpoints.md), je možné kapacitu rozšířit na 200 souběžných požadavků na jeden koncový bod a každou službu lze škálovat na 10 000 koncových bodů. Pro BES každý koncový bod umožňuje zpracovat 40 požadavků najednou, požadavky nad těchto 40 požadavků se zařazují do fronty. Požadavky ve frontě se budou spouštět automaticky podle toho, jak se fronta vyprazdňuje.
+V tuto chvíli je výchozí koncový bod zřizován s 20 souběžnými požadavky RRS na jeden koncový bod. Jak je popsáno v tématu [Škálování webové služby](machine-learning-scaling-webservice.md), kapacitu je možné rozšířit na 200 souběžných požadavků na jeden koncový bod a každou webovou službu lze škálovat na 10 000 koncových bodů. Pro BES každý koncový bod umožňuje zpracovat 40 požadavků najednou, požadavky nad těchto 40 požadavků se zařazují do fronty. Požadavky ve frontě se budou spouštět automaticky podle toho, jak se fronta vyprazdňuje.
 
 
 **Jsou úlohy R rozprostřeny mezi uzly?**
@@ -355,7 +355,7 @@ Dokud vyhodnocujete využívání nástroje Machine Learning Studio, nemusíte z
 
 Až si ověříte, jestli služba Azure Machine Learning splňuje vaše požadavky, můžete se zaregistrovat k úrovni Standard. Nejdřív je ovšem potřeba mít předplatné Microsoft Azure.
 
-Na úrovni Standard vám bude účtován měsíční poplatek za každý pracovní prostor, který v nástroji Machine Learning Studio vytvoříte. Experimenty spouštěné v nástroji Studio se účtují podle využitých výpočetních prostředků. Co se týče nasazování klasických webových služeb, transakce a výpočetní hodiny se účtují na bázi průběžného placení (Pay As You Go). 
+Na úrovni Standard vám bude účtován měsíční poplatek za každý pracovní prostor, který v nástroji Machine Learning Studio vytvoříte. Experimenty spouštěné v nástroji Studio se účtují podle využitých výpočetních prostředků. Co se týče nasazování klasických webových služeb, transakce a výpočetní hodiny se účtují na bázi průběžného placení (Pay As You Go).
 
 S novými webovými službami Machine Learning přichází fakturační plány, se kterými lépe odhadnete výsledné náklady. Odstupňované ceny umožňují snížit ceny zákazníkům, kteří potřebují vysokou kapacitu.
 
@@ -370,7 +370,7 @@ Další informace o fakturaci a cenách najdete v tématu [Machine Learning – 
 **Nabízí Machine Learning bezplatnou zkušební verzi?**
 
  Služba Azure Machine Learning má možnost bezplatného předplatného (podrobnosti v tématu [Machine Learning – ceny](https://azure.microsoft.com/pricing/details/machine-learning/)) a v nástroji Machine Learning Studio je dostupná osmihodinová zkušební verze (pokud ji chcete vyzkoušet, přihlaste se do nástroje [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
- 
+
  Když se navíc zaregistrujete k bezplatné zkušební verzi Azure, získáte možnost vyzkoušet si všechny služby Azure po dobu jednoho měsíce. Další informace o bezplatné zkušební verzi Azure najdete v [těchto častých otázkách](/pricing/free-trial-faq/).
 
 **Co je transakce?**
@@ -383,7 +383,7 @@ Ano, transakce RRS a BES se sčítají dohromady a účtují podle vašeho plán
 
 **Co je výpočetní hodina rozhraní API?**
 
-Výpočetní hodina rozhraní API je jednotka pro zúčtování času, po který probíhají volání rozhraní API, a využívají tak výpočetní kapacitu ML. Všechna volání se vám pro účely fakturace započítávají dohromady. 
+Výpočetní hodina rozhraní API je jednotka pro zúčtování času, po který probíhají volání rozhraní API, a využívají tak výpočetní kapacitu ML. Všechna volání se vám pro účely fakturace započítávají dohromady.
 
 **Jak dlouho obvykle trvá volání rozhraní API produkčního prostředí?**
 
@@ -391,17 +391,17 @@ Doba volání API produkčního prostředí se může výrazně lišit. Většin
 
 **Co je výpočetní hodina nástroje Studio?**
 
-Výpočetní hodina nástroje Studio je jednotka pro zúčtování celkového času, po který vaše experimenty využívaly výpočetní prostředky nástroje Studio. 
+Výpočetní hodina nástroje Studio je jednotka pro zúčtování celkového času, po který vaše experimenty využívaly výpočetní prostředky nástroje Studio.
 
 **K čemu je u nových webových služeb určena úroveň pro vývoj a testování?**
 
 Nové webové služby Azure ML nabízí několik úrovní fakturačního plánu. Úroveň pro vývoj a testování zahrnuje omezené množství transakcí a výpočetního času, který využijete k otestování experimentu jako nové webové služby bez dalších nákladů. Službu si můžete vyzkoušet, abyste nekupovali „zajíce v pytli“.
 
-**Platí se úložiště odděleně?** 
+**Platí se úložiště odděleně?**
 
 Úroveň Free služby Machine Learning nevyžaduje, ale ani neumožňuje využívat oddělené úložiště. Uživatelé služby Machine Learning na úrovni Standard se naopak neobejdou bez účtu Azure Storage. Služba Azure Storage se [fakturuje zvlášť](https://azure.microsoft.com/pricing/details/storage/).
 
-**Jak je na tom služba Machine Learning s vysokou dostupností práce?** 
+**Jak je na tom služba Machine Learning s vysokou dostupností práce?**
 
 Doba volání API produkčního prostředí se může výrazně lišit. Většinou se pohybuje mezi stovkami milisekund a pár sekundami, ale může dosáhnout i několika minut. Záleží na tom, jak složitá jsou zpracovávaná data a model strojového učení. Dobu volání API produkčního prostředí nejlépe odhadnete tak, že ve službě Machine Learning model otestujete.
 
@@ -409,7 +409,7 @@ Doba volání API produkčního prostředí se může výrazně lišit. Většin
 
 Služba Machine Learning je víceklientská, a proto se konkrétní výpočetní prostředky na straně back-endu různí a jsou optimalizovány, aby byly výkonné a předvídatelné.
 
-### Správa nových webových služeb 
+### Správa nových webových služeb
 
 **Co se stane po odstranění plánu?**
 
@@ -419,29 +419,29 @@ Poznámka: Plán, který právě používá nějaká webová služba, se nedá o
 
 **Co je instance plánu?**
 
-Instance plánu je jednotka množství zahrnutého času a transakcí, které si můžete přidávat do fakturačního plánu. Po výběru úrovně obsahuje plán jednu instanci. Když budete potřebovat zahrnout větší množství, stačí do plánu doplnit dodatečné instance vybrané úrovně. 
+Instance plánu je jednotka množství zahrnutého času a transakcí, které si můžete přidávat do fakturačního plánu. Po výběru úrovně obsahuje plán jednu instanci. Když budete potřebovat zahrnout větší množství, stačí do plánu doplnit dodatečné instance vybrané úrovně.
 
 **Kolik instancí plánu lze přidat?**
 
 Od úrovně pro vývoj a testování můžete mít ve svém předplatném jednu instanci.
 
-Instancí úrovní S1, S2 a S3 si můžete přidat, kolik potřebujete. 
+Instancí úrovní S1, S2 a S3 si můžete přidat, kolik potřebujete.
 
 Poznámka: V závislosti na tom, jaké využití očekáváte, může být výhodnější upgradovat na vyšší úroveň s větším zahrnutým množstvím, než přidávat instance do aktuální úrovně.
 
 **Co se stane po změně úrovně plánu (po upgradu či downgradu)?**
 
-Původní plán odstraníme a aktuální využití se účtuje průběžně. Na zbytek období je sestaven nový plán obsahující veškeré zahrnuté množství upgradované či downgradované úrovně. 
+Původní plán odstraníme a aktuální využití se účtuje průběžně. Na zbytek období je sestaven nový plán obsahující veškeré zahrnuté množství upgradované či downgradované úrovně.
 
 Poznámka: Zahrnuté množství se přiděluje na jednotlivá období a nevyužité prostředky se do dalších období nepřevádí.
 
 **Co se stane po zvýšení počtu instancí v plánu?**
 
-Množství se zahrnuje na základě průběžné sazby a proces zahrnutí může trvat až 24 hodin. 
+Množství se zahrnuje na základě průběžné sazby a proces zahrnutí může trvat až 24 hodin.
 
 **Co se stane po odstranění instance plánu?**
 
-Instanci vám odebereme z předplatného a služby účtujeme podle průběžného využití. 
+Instanci vám odebereme z předplatného a služby účtujeme podle průběžného využití.
 
 
 ### Registrace k plánům nových webových služeb
@@ -450,9 +450,9 @@ Instanci vám odebereme z předplatného a služby účtujeme podle průběžné
 
 Fakturační plán lze vytvořit dvěma způsoby.
 
-Při prvním nasazení nové webové služby můžete vybrat existující plán nebo vytvořit nový. 
+Při prvním nasazení nové webové služby můžete vybrat existující plán nebo vytvořit nový.
 
-Plány vytvořené tímto způsobem spadají do vaší výchozí oblasti, kam je taky nasazena webová služba. 
+Plány vytvořené tímto způsobem spadají do vaší výchozí oblasti, kam je taky nasazena webová služba.
 
 Když chcete službu nasadit v jiné než výchozí oblasti, může být vhodné definovat fakturační plány ještě než službu nasadíte.
 
@@ -460,7 +460,7 @@ V takovém případě se můžete přihlásit k portálu Azure Machine Learning 
 
 **S jakým plánem je nejvhodnější začít?**
 
-Doporučujeme začít se standardní úrovní S1 a potom monitorovat využití prostředků službou. Když zjistíte, že zahrnuté množství transakcí a času rychle vyčerpáte, můžete doplnit instance nebo přejít na vyšší úroveň s výhodnější sazbou. Fakturační plán můžete podle potřeby upravovat kdykoliv během zúčtovacího období. 
+Doporučujeme začít se standardní úrovní S1 a potom monitorovat využití prostředků službou. Když zjistíte, že zahrnuté množství transakcí a času rychle vyčerpáte, můžete doplnit instance nebo přejít na vyšší úroveň s výhodnější sazbou. Fakturační plán můžete podle potřeby upravovat kdykoliv během zúčtovacího období.
 
 **Ve kterých oblastech jsou nové plány dostupné?**
 
@@ -478,21 +478,21 @@ Ano. Ceny plánů se podle oblasti liší. Pokud webovou službu nasadíte do ji
 
 **Jak můžu ověřit, jestli webové služby nevyužívám nadlimitně?**
 
-Využití všech plánů najdete na stránce Plány na portálu Azure Machine Learning Web Services. Přihlaste se k portálu a v nabídce klikněte na možnost Plány. 
+Využití všech plánů najdete na stránce Plány na portálu Azure Machine Learning Web Services. Přihlaste se k portálu a v nabídce klikněte na možnost Plány.
 
-V tabulce se ve sloupcích pro transakce a výpočetní čas zobrazí množství zahrnuté v plánu a procento využití. 
+V tabulce se ve sloupcích pro transakce a výpočetní čas zobrazí množství zahrnuté v plánu a procento využití.
 
 **Co se stane po vyčerpání množství zahrnutého v úrovni pro vývoj a testování?**
 
 Služby, ke kterým je přiřazena úroveň pro vývoj a testování, se zastaví, dokud nezačne další období nebo dokud je nepřesunete do placené úrovně.
 
-**Jak se počítá cena úloh služeb Request Response (RRS) a Batch (BES) v případě klasických webových služeb a nadlimitního využívání nových webových služeb?** 
+**Jak se počítá cena úloh služeb Request Response (RRS) a Batch (BES) v případě klasických webových služeb a nadlimitního využívání nových webových služeb?**
 
-Co se týče úloh RRS, účtujeme každé volání transakce API a zároveň výpočetní čas, který tyto žádosti spotřebují. Cena za transakce RRS v rozhraní API produkčního prostředí se tak rovná celkovému počtu volání API vynásobenému cenou za 1 000 transakcí (průběžně za jednotlivé transakce). Cena za výpočetní čas RRS v rozhraní API produkčního prostředí se rovná době jednotlivých volání API vynásobené celkovým počtem transakcí API a cenou za výpočetní hodinu v rozhraní API produkčního prostředí. 
+Co se týče úloh RRS, účtujeme každé volání transakce API a zároveň výpočetní čas, který tyto žádosti spotřebují. Cena za transakce RRS v rozhraní API produkčního prostředí se tak rovná celkovému počtu volání API vynásobenému cenou za 1 000 transakcí (průběžně za jednotlivé transakce). Cena za výpočetní čas RRS v rozhraní API produkčního prostředí se rovná době jednotlivých volání API vynásobené celkovým počtem transakcí API a cenou za výpočetní hodinu v rozhraní API produkčního prostředí.
 
 Podívejme se na příklad z nadlimitního využívání plánu Standard S1. 1 000 000 transakcí API, z nichž každá probíhá 0,72 sekundy, by stálo (1 000 000 * 0,50 USD / 1 000 transakcí API) 500 dolarů v nákladech za transakce API produkčního prostředí a (1 000 000 * 0,72 s * 2 USD / hod) 400 dolarů v nákladech za výpočetní čas API produkčního prostředí, takže celkem 900 dolarů.
 
-Úlohy BES se účtují stejně, ale náklady za transakce API představují počet odeslaných dávkových úloh a náklady za výpočetní kapacitu představují s nimi spojený výpočetní čas. Cena za transakce BES v rozhraní API produkčního prostředí se tak rovná celkovému počtu odeslaných úloh vynásobenému cenou za 1 000 transakcí (průběžně za jednotlivé transakce). Cena za výpočetní čas BES v rozhraní API produkčního prostředí se rovná době provádění jednotlivých řádků úlohy vynásobené celkovým počtem řádků v úloze, celkovým počtem úloh a cenou za výpočetní hodinu API produkčního prostředí. Počítadlo transakcí v kalkulačce Machine Learning představuje počet úloh, které se chystáte odeslat, a pole s časem na transakci představuje celkovou dobu potřebnou ke spuštění všech řádků v jednotlivých úlohách. 
+Úlohy BES se účtují stejně, ale náklady za transakce API představují počet odeslaných dávkových úloh a náklady za výpočetní kapacitu představují s nimi spojený výpočetní čas. Cena za transakce BES v rozhraní API produkčního prostředí se tak rovná celkovému počtu odeslaných úloh vynásobenému cenou za 1 000 transakcí (průběžně za jednotlivé transakce). Cena za výpočetní čas BES v rozhraní API produkčního prostředí se rovná době provádění jednotlivých řádků úlohy vynásobené celkovým počtem řádků v úloze, celkovým počtem úloh a cenou za výpočetní hodinu API produkčního prostředí. Počítadlo transakcí v kalkulačce Machine Learning představuje počet úloh, které se chystáte odeslat, a pole s časem na transakci představuje celkovou dobu potřebnou ke spuštění všech řádků v jednotlivých úlohách.
 
 Podívejme se na příklad z nadlimitního využívání úrovně Standard S1. Pokud odešlete 100 úloh za den, z nichž se každá skládá z 500 řádků trvajících 0,72 sekundy, nadlimitní měsíční náklady pak dosáhnou výše (100 úloh za den = 3 100 úloh za měsíc * 0,50 USD / 1 000 transakcí API) 1,55 dolaru za transakce API produkčního prostředí a (500 řádků * 0,72 s * 3 100 úloh * 2 USD / hod) 620 USD za výpočetní čas API produkčního prostředí, takže celkem 621,55 USD.
 
@@ -505,30 +505,30 @@ Ano, klasické webové služby jsou ve službě Azure Machine Learning stále do
 
 **Co je ve službě Azure Machine Learning součástí bezplatné úrovně Free?**
 
-Úroveň Free služby Azure Machine Learning slouží vás má detailně uvést do nástroje Azure Machine Learning Studio. K registraci stačí jen účet Microsoft. Úroveň Free zahrnuje bezplatný přístup do jednoho pracovního prostoru Azure Machine Learning Studio ke každému [účtu Microsoft](https://www.microsoft.com/account/default.aspx). Můžete využít až 10 GB úložné kapacity a z modelů vytvářet rozhraní API přípravného prostředí. Úlohy úrovně Free nejsou předmětem smlouvy SLA a jsou určeny jenom pro vývoj a osobní užití. Úlohy úrovně Free se nemohou připojit k místnímu serveru SQL a pracovat s jeho daty. 
+Úroveň Free služby Azure Machine Learning slouží vás má detailně uvést do nástroje Azure Machine Learning Studio. K registraci stačí jen účet Microsoft. Úroveň Free zahrnuje bezplatný přístup do jednoho pracovního prostoru Azure Machine Learning Studio ke každému [účtu Microsoft](https://www.microsoft.com/account/default.aspx). Můžete využít až 10 GB úložné kapacity a z modelů vytvářet rozhraní API přípravného prostředí. Úlohy úrovně Free nejsou předmětem smlouvy SLA a jsou určeny jenom pro vývoj a osobní užití. Úlohy úrovně Free se nemohou připojit k místnímu serveru SQL a pracovat s jeho daty.
 
 **Co je ve službě Azure Machine Learning součástí úrovně a plánů Standard?**
 
 Úroveň Standard služby Azure Machine Learning je placená produkční verze nástroje Azure Machine Learning Studio. Měsíční poplatek za nástroj Azure ML Studio účtujeme za každý pracovní prostor, kromě načatých měsíců, kdy účtujeme podle průběžného využívání. Doba experimentování v nástroji Azure ML Studio se účtuje za výpočetní hodiny aktivního experimentování. Načaté hodiny se fakturují podle průběžného využívání.  
 
-Služba Azure ML API se účtuje s ohledem na to, jestli jde o klasickou nebo novou webovou službu. 
+Služba Azure ML API se účtuje s ohledem na to, jestli jde o klasickou nebo novou webovou službu.
 
-Následující poplatky se v rámci předplatného započítávají za jednotlivé pracovní prostory. 
+Následující poplatky se v rámci předplatného započítávají za jednotlivé pracovní prostory.
 
 * Předplatné na pracovní prostor Machine Learning – Předplatné na pracovní prostor ML je měsíční poplatek, který umožňuje přístup k pracovnímu prostoru ML Studio. Zároveň se bez něho neobejdete, pokud chcete spouštět experimenty v nástroji Studio nebo využívat rozhraní API produkčního prostředí.
 * Hodiny experimentování se službou ML Studio – Sčítá veškeré poplatky za výpočetní kapacitu, které se nahromadí spouštěním experimentů v nástroji ML Studio či voláním produkčního rozhraní API v přípravném prostředí.
 * Připojení k místnímu serveru SQL a přístup k jeho datům z modelů pro trénování a hodnocení.
-* U klasických webových služeb: 
+* U klasických webových služeb:
     * Výpočetní hodiny v rozhraní API produkčního prostředí – Měří poplatky za výpočetní kapacitu využitou webovými službami spuštěnými v produkci.
     * Transakce v rozhraní API produkčního prostředí (v tisících) – Měří poplatky za volání webové služby v produkčním prostředí.
 
-Vedle výše uvedených poplatků se v případě nových webových služeb poplatky souhrnně započítávají do vybraného plánu: 
+Vedle výše uvedených poplatků se v případě nových webových služeb poplatky souhrnně započítávají do vybraného plánu:
 
 * Plán API úrovně Standard S1/S2/S3 (jednotky) – Představuje typ instance vybraný pro nové webové služby.
 * Nadlimitní výpočetní hodiny API úrovně Standard S1/S2/S3 – Zahrnuje poplatky za výpočetní kapacitu, kterou nové webové služby spuštěné v produkci využijí potom, co se vyčerpá množství zahrnuté v existujících instancích. Další využívání se účtuje podle nadlimitní sazby přiřazené k plánům úrovně S1/S2/S3.
 * Nadlimitní transakce plánu API úrovně Standard S1/S2/S3 (v tisících) – Zahrnuje poplatky za volání nové webové služby v produkčním prostředí potom, co se vyčerpá množství zahrnuté v existujících instancích. Další využívání se účtuje podle nadlimitní sazby přiřazené k plánům úrovně S1/S2/S3.
-* Zahrnuté množství výpočetních hodin API – U nových webových služeb představuje zahrnuté množství výpočetních hodin API. 
-* Zahrnuté množství transakcí API (v tisících) – U nových webových služeb představuje zahrnuté množství transakcí API. 
+* Zahrnuté množství výpočetních hodin API – U nových webových služeb představuje zahrnuté množství výpočetních hodin API.
+* Zahrnuté množství transakcí API (v tisících) – U nových webových služeb představuje zahrnuté množství transakcí API.
 
 
 **Jak se ve službě Azure ML zaregistrovat k úrovni Free?**
@@ -547,7 +547,7 @@ Ne, ekvivalentem verze služby Machine Learning, která byla dostupná před zav
 
 **Je v úrovni Free možné nasadit modely strojového učení jako API?**
 
-Ano, součástí úrovně Free je možnost zprovoznit modely strojového učení jako služby API přípravného prostředí. Abyste službu API přípravného prostředí přesunuli do produkce a získali ke zprovozněné službě produkční koncový bod, je potřeba využít úroveň Standard. 
+Ano, součástí úrovně Free je možnost zprovoznit modely strojového učení jako služby API přípravného prostředí. Abyste službu API přípravného prostředí přesunuli do produkce a získali ke zprovozněné službě produkční koncový bod, je potřeba využít úroveň Standard.
 
 **Jaký je rozdíl mezi bezplatnou zkušební verzí Azure a úrovní Free ve službě Azure Machine Learning?**
 
@@ -593,6 +593,6 @@ Přístup hosta je omezený zkušební přístup, který umožňuje vytvářet a
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

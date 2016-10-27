@@ -87,10 +87,11 @@ Po určení úrovně služeb pro váš fond jste připraveni k určení úrovně
 
 ## Další zdroje
 
-Informace o běžných vzorech architektury dat databázových aplikací softwaru s více tenanty jako služby (SaaS) naleznete v části [Vzory návrhu pro aplikace SaaS s více tenanty s databází Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- [Vzory návrhu pro víceklientské aplikace SaaS využívající Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Videokurz Microsoft Virtual Academy o možnostech elastické databáze v Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

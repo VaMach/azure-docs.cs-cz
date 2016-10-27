@@ -1,14 +1,14 @@
 <properties
     pageTitle="Přehled předávání Service Bus | Microsoft Azure"
     description="Přehled předávání v Service Bus."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Přehled předávání Service Bus
+# <a name="overview-of-service-bus-relay"></a>Přehled předávání Service Bus
 
 Hlavní součástí služby Service Bus je centralizovaná *předávací* služba (ale s vysokým vyrovnáváním zatížení), která vám umožní sestavovat hybridní aplikace, které poběží v datovém centru Azure i ve vašem místním podnikovém prostředí.  Předávání Service Bus podporuje různé přenosové protokoly a standardy webových služeb. Mezi ty patří SOAP, WS-*, a dokonce i REST. Služba předávání vašim hybridním aplikacím usnadňuje práci tím, že vám umožní bezpečně vystavit veřejnému cloudu služby technologie Windows Communication Foundation (WCF), které se nacházejí v podnikové síti, a to bez nutnosti otevřít připojení brány firewall nebo udělat výraznější změny v infrastruktuře podnikové sítě. 
 
@@ -30,16 +30,16 @@ V přenosu zpráv s předáváním se lokální služba připojí k předávací
 
 Spojení mezi lokální službou a předávací službou vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu. 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Pokud se o předávání přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 
-- [Přehled architektury služby Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Jak používat službu Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+- [Přehled architektury služby Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [Jak používat službu Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
  
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

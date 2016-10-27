@@ -497,6 +497,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

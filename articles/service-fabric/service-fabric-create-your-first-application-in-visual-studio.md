@@ -21,8 +21,9 @@
 # Vytvoření první aplikace Azure Service Fabric
 
 > [AZURE.SELECTOR]
-- [C#](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Sada Service Fabric SDK zahrnuje doplněk pro Visual Studio, který poskytuje šablony a nástroje pro vytváření, nasazení a ladění aplikací Service Fabric. Toto téma vás provede procesem vytvoření vaší první aplikace v sadě Visual Studio.
 
@@ -156,6 +157,6 @@ Po změně režimu clusteru se cluster pro vývoj restartuje a zároveň se z n�
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

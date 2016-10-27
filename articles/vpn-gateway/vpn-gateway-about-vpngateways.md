@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 
@@ -36,6 +36,7 @@ Každá virtuální síť může mít pouze jednu bránu virtuální sítě pro 
 ## Skladové jednotky (SKU) brány
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Sítě VPN PolicyBased mohou být vytvořené jenom pro brány využívající základní SKU.
 Další informace o SKU brány najdete v tématu [SKU brány](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost. Tato tabulka platí pro model nasazení Resource Manager i pro klasický model.
@@ -152,6 +153,6 @@ Plánování konfigurace brány VPN. Viz [Plánování a návrh služby VPN Gate
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

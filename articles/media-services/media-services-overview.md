@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="09/19/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
-#Přehled a běžné scénáře Azure Media Services
+#<a name="azure-media-services-overview-and-common-scenarios"></a>Přehled a běžné scénáře Azure Media Services
 
 Microsoft Azure Media Services je rozšiřitelná cloudová platforma, která vývojářům umožňuje vytvářet škálovatelné aplikace pro správu a doručování médií. Služba Media Services využívá rozhraní REST API, které vám umožní bezpečně nahrávat, ukládat, kódovat a balit obsah (video nebo zvuk) doručovaný na vyžádání i v živě streamovaný různým klientům (například do televizí, počítačů a mobilních zařízení).
 
@@ -25,7 +25,7 @@ Pomocí Media Services můžete vytvářet pracovní postupy od začátku až do
 
 Svůj obsah můžete streamovat nebo doručovat na vyžádání. Toto téma představuje běžné scénáře doručování obsahu [živě](media-services-overview.md#live_scenarios) nebo [na vyžádání](media-services-overview.md#vod_scenarios). Téma obsahuje i odkazy na další související témata.
 
-## Sady SDK a nástroje
+## <a name="sdks-and-tools"></a>Sady SDK a nástroje
 
 Pokud chcete vytvořit řešení Media Services, můžete použít následující pomůcky:
 
@@ -36,41 +36,41 @@ Pokud chcete vytvořit řešení Media Services, můžete použít následujíc�
 - [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
 - [Azure Media Services pro Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jedná se o verzi sady SDK, kterou nevytvořil Microsoft. Spravuje ji komunita a aktuálně nemá 100% pokrytí rozhraní API pro AMS.)
 - Existující nástroje:
-- [Portál Azure Classic](http://manage.windowsazure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) je aplikace napsaná v jazyce Winforms/C# pro Windows.)
 
-##Mapy kurzů ke službě Media Services
+##<a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 
 Mapu kurzů k AMS můžete zobrazit tady:
 
 - [Pracovní postup živého streamování AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Pracovní postup streamování AMS na vyžádání](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-##Požadavky
+##<a name="prerequisites"></a>Požadavky
 
 Pokud chcete začít používat Azure Media Services, potřebujete následující:
 
 3. Účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com).
-2. Účet Azure Media Services. K vytvoření účtu Azure Media Services použijte portál Azure Classic, .NET nebo REST API. Další informace najdete v článku o [vytvoření účtu](media-services-create-account.md).
+2. Účet Azure Media Services. K vytvoření účtu Azure Media Services použijte web Azure Portal, .NET nebo REST API. Další informace najdete v článku o [vytvoření účtu](media-services-portal-create-account.md).
 3. (Volitelné) Nastavte vývojové prostředí. Jako vývojové prostředí si zvolte .NET nebo REST API. Další informace najdete v článku o [nastavení prostředí](media-services-dotnet-how-to-use.md).
 
 Seznamte se také s postupem [připojení](media-services-dotnet-connect-programmatically.md) prostřednictvím kódu programu.
 4. (Doporučené) Přidělte jednu nebo několik jednotek škálování. Doporučujeme, abyste aplikacím v produkčním prostředí přidělili jednu nebo několik jednotek škálování.   Další informace najdete v článku o [správě koncových bodů streamování](media-services-portal-manage-streaming-endpoints.md).
 
-##Koncepty a přehled
+##<a name="concepts-and-overview"></a>Koncepty a přehled
 
 Informace o konceptech Azure Media Services najdete v článku [Koncepty](media-services-concepts.md).
 
-Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-##<a id="vod_scenarios"></a>Doručování média na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
+##<a name="<a-id="vod_scenarios"></a>delivering-media-on-demand-with-azure-media-services:-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Doručování médií na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
 
 Tato část popisuje běžné scénáře a nabízí odkazy na související témata. Následující diagram znázorňuje hlavní části platformy Media Services, které se podílejí na doručování obsahu na vyžádání. 
 
 ![Pracovní postup videa na vyžádání (VoD)](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
-###Ochrana obsahu v úložišti a doručování streamovaných médií v nešifrované podobě
+###<a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-(non-encrypted)"></a>Ochrana obsahu v úložišti a doručování streamovaných médií v nešifrované podobě
 
 1. Nahrajte vysoce kvalitní soubor mezzanine do assetu.
     
@@ -90,7 +90,7 @@ Tato část popisuje běžné scénáře a nabízí odkazy na související tém
 
 1. Streamujte publikovaný obsah.
 
-###Ochrana obsahu v úložišti, doručování dynamicky šifrovaných streamovaných médií  
+###<a name="protect-content-in-storage,-deliver-dynamically-encrypted-streaming-media"></a>Ochrana obsahu v úložišti, doručování dynamicky šifrovaných streamovaných médií  
 
 Abyste mohli používat dynamické šifrování, potřebujete nejdřív získat aspoň jednu jednotku rezervovanou pro streaming na koncovém bodu streamování, ze kterého chcete šifrovaný obsah streamovat.
 
@@ -102,7 +102,7 @@ Abyste mohli používat dynamické šifrování, potřebujete nejdřív získat 
 1. Publikujte asset tím, že vytvoříte lokátor OnDemand.
 1. Streamujte publikovaný obsah. 
 
-###Použití Media Analytics k získání prakticky uplatnitelných informací z videí 
+###<a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Použití Media Analytics k získání prakticky uplatnitelných informací z videí 
 
 Media Analytics je kolekce řečových a vizuálních komponent, které organizacím a podnikům umožňují, aby ze svých videosouborů odvodily prakticky využitelné informace. Další informace najdete v článku o [přehledu Azure Media Services Analytics](media-services-analytics-overview.md).
 
@@ -117,7 +117,7 @@ Media Analytics je kolekce řečových a vizuálních komponent, které organiza
 3. Procesory médií z Media Analytics vytvářejí soubory MP4 nebo soubory JSON. Pokud procesor médií vytvořil soubor MP4, můžete ho progresivně stahovat. Pokud procesor médií vytvořil soubor JSON, můžete ho stáhnout z úložiště objektů blob v Azure. 
 
 
-###Doručení progresivního stahování 
+###<a name="deliver-progressive-download"></a>Doručení progresivního stahování 
 
 1. Nahrajte vysoce kvalitní soubor mezzanine do assetu.
 1. Zakódujte ho do jednoho souboru MP4.
@@ -129,7 +129,7 @@ Media Analytics je kolekce řečových a vizuálních komponent, které organiza
   
 1. Progresivně stáhněte obsah.
 
-##<a id="live_scenarios"></a>Doručování živě streamovaných událostí pomocí služby Azure Media Services
+##<a name="<a-id="live_scenarios"></a>delivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Doručování živě streamovaných událostí pomocí Azure Media Services
 
 Na práci s živým streamováním se běžně podílejí následující komponenty:
 
@@ -161,7 +161,7 @@ Ve službě Azure Media Services se o zpracování všech funkcí živého strea
 - Místní kodér pro kódování v reálném čase odešle datový proud s jednou přenosovou rychlostí do kanálu, který má povolené kódování v reálném čase pomocí služby Media Services, v jednom z následujících formátů: RTP (MPEG-TS), RTMP nebo technologie Smooth Streaming (fragmentovaný soubor MP4). Kanál potom provede kódování v reálném čase pro příchozí datový proud s jednou přenosovou rychlostí v reálném čase na datový proud videa s více přenosovými rychlostmi (adaptivní). Služba Media Services doručí datový proud zákazníkům na vyžádání.
 
 
-###Práce s kanály, které přijímají živé datové proudy s více přenosovými rychlostmi z místních kodérů (průchozí)
+###<a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-(pass-through)"></a>Práce s kanály, které přijímají živé datové proudy s více přenosovými rychlostmi z místních kodérů (průchozí)
 
 Následující diagram znázorňuje hlavní části platformy AMS, které se podílejí na **průchozím** pracovním postupu.
 
@@ -169,7 +169,7 @@ Následující diagram znázorňuje hlavní části platformy AMS, které se pod
 
 Další informace najdete v článku o [práci s kanály, které přijímají živé streamování s více přenosovými rychlostmi z místních kodérů](media-services-live-streaming-with-onprem-encoders.md).
 
-###Práce s kanály, které mají povolené kódování v reálném čase pomocí služby Azure Media Services
+###<a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Práce s kanály, které mají povolené kódování v reálném čase pomocí služby Azure Media Services
 
 Následující diagram znázorňuje hlavní část platformy AMS, které se podílejí na pracovním postupu živého streamování, ve kterém má kanál povolené kódování v reálném čase pomocí služby Media Services.
 
@@ -178,17 +178,17 @@ Následující diagram znázorňuje hlavní část platformy AMS, které se pod�
 Další informace najdete v článku o [práci s kanály, které mají povolené kódování v reálném čase pomocí služby Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Konzumace obsahu
+##<a name="consuming-content"></a>Konzumace obsahu
 
 Služba Azure Media Services nabízí nástroje, které potřebujete k vytvoření dynamických aplikací pro klientské přehrávače pro většinu platforem včetně: zařízení iOS, zařízení Android, Windows, Windows Phone, Xbox a set top boxy. Následující téma obsahuje odkazy na sady SDK a architektury přehrávačů, které můžete použít pro vývoj vlastních klientských aplikací, které můžou využívat streamovaná média ze služby Media Services.
 
 [Vývoj aplikací pro přehrávání videa](media-services-develop-video-players.md)
 
-##Povolení Azure CDN
+##<a name="enabling-azure-cdn"></a>Povolení Azure CDN
 
 Služba Media Services podporuje integraci s Azure CDN. Informace o povolení Azure CDN najdete v článku o [správě koncových bodů streamování v účtu Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-##Škálování účtu Media Services
+##<a name="scaling-a-media-services-account"></a>Škálování účtu Media Services
 
 Službu **Media Services** můžete škálovat tak, že určíte počet **jednotek rezervovaných pro streamování** a počet **jednotek rezervovaných pro kódování**, které chcete pro svůj účet zřídit.
 
@@ -196,15 +196,15 @@ Svůj účet Media Services můžete škálovat také tím, že k němu přidát
 
 [Toto](media-services-portal-scale-streaming-endpoints.md) téma obsahuje odkazy na související témata.
 
-##Podpora
+##<a name="support"></a>Podpora
 
 [Podpora Azure](https://azure.microsoft.com/support/options/) nabízí možnosti odborné pomoci pro Azure včetně služby Media Services.
 
-##Poskytnutí zpětné vazby
+##<a name="provide-feedback"></a>Poskytnutí zpětné vazby
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Smlouva SLA
+##<a name="service-level-agreement-(sla)"></a>Smlouva SLA
 
 - V případě služby Media Services Encoding zaručujeme 99,9% dostupnosti transakcí REST API.
 - V případě streamování úspěšně obsluhujeme požadavky se zárukou 99,9% dostupnosti pro existující mediální obsah, pokud jste zakoupili aspoň jednu jednotku streamování.
@@ -223,6 +223,6 @@ Další informace najdete v článku [Microsoft Azure SLA](https://azure.microso
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -83,6 +83,7 @@ Kurz | Popis
 [Vytvoření datového kanálu pro přesun dat mezi místním úložištěm dat a cloudovým úložištěm dat pomocí Brány správy dat](data-factory-move-data-between-onprem-and-cloud.md) | V tomto kurzu sestavíte objekt pro vytváření dat s kanálem, který **přesouvá data** z databáze **místního** systému SQL Server do objektu blob Azure. Jako součást návodu nainstalujete a nakonfigurujete ve svém počítači Bránu správy dat. 
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO3-->
 
 

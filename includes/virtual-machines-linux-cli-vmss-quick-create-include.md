@@ -1,4 +1,4 @@
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
+Pokud jste tak ještě neučinili, můžete získat [bezplatnou zkušební verzi předplatného Azure](https://azure.microsoft.com/pricing/free-trial/) a [rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) [připojené k vašemu účtu Azure](../articles/xplat-cli-connect.md). Jakmile to uděláte, můžete spuštěním následujících příkazů rychle vytvořit sadu škálování:
 
 ```bash
 # make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
@@ -13,9 +13,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Chcete-li přizpůsobit umístění nebo IMAGE-URN, podívejte se na příkazy `azure location list` a `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
+Po vrácení tohoto příkazu již bude vytvořena sada škálování. Tato sada škálování bude obsahovat nástroj pro vyrovnávání zatížení s pravidly překladu adres (NAT) mapujícími port 50 000+i v tomto nástroji pro vyrovnávání zatížení na port 22 ve virtuálním počítači s číslem i. Díky tomu se po zjištění plně kvalifikovaného názvu domény nástroje pro vyrovnávání zatížení budeme moci připojit k virtuálním počítačům přes SSH:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -55,3 +55,7 @@ FQDN=${split_line[3]}
 # example to connct via ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
+
+<!--HONumber=Oct16_HO3-->
+
+

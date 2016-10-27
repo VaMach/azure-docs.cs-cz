@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="09/14/2016"
+    ms.date="10/05/2016"
     ms.author="piyushjo" />
 
 
@@ -35,7 +35,7 @@ Ve všech dalších kurzech k Mobile Engagement týkajících se aplikací pro i
 
 ##<a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 
@@ -188,6 +188,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

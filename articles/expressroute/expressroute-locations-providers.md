@@ -1,22 +1,23 @@
 <properties
-   pageTitle="Umístění ExpressRoute | Microsoft Azure"
-   description="Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
+	pageTitle="Umístění ExpressRoute | Microsoft Azure"
+	description="Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carmonm"
+	editor="" />
+
 <tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
-   ms.author="cherylmc" />
+	ms.service="expressroute"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="10/12/2016"
+	ms.author="cherylmc" />
 
 
-# Partneři ExpressRoute a umístění partnerského vztahu
+# <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
 
 Tabulky v tomto článku poskytují informace o poskytovatelích připojení ExpressRoute, zeměpisném pokrytí ExpressRoute, cloudových službách Microsoftu podporovaných přes ExpressRoute a systémových integrátorech (SI) ExpressRoute.
 
@@ -28,7 +29,7 @@ Služba ExpressRoute je podporovaná ve všech umístěních a oblastech Azure. 
 
 Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopolitické oblasti, budete mít přístup ke službám Azure napříč všemi oblastmi v rámci geopolitické oblasti. Následující tabulka obsahuje mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti.
 
-|**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
+|**Geopolitická oblast**|**Oblasti Azure**|**Umístění ExpressRoute**|
 |---|---|---|
 |**Severní Amerika**|Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Jižní Amerika**|Brazílie – jih|Sao Paulo|
@@ -42,26 +43,27 @@ Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopol
 
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
-|**Geopolitická oblast**|**Oblast Azure**|**Umístění ExpressRoute**|
+|**Geopolitická oblast**|**Oblasti Azure**|**Umístění ExpressRoute**|
 |---|---|---|---|
 |**Cloud vlády USA**|USA (Gov) – Iowa, USA (Gov) – Virginia|Chicago, Dallas, New York, Washington DC|
 |**Čína**|Severní Čína, Východní Čína|Peking, Šanghaj|
-|**Německo**|Střední Německo, Východní Německo|Berlín+, Frankfurt|
+|**Německo**|Střední Německo, Východní Německo|Berlín, Frankfurt|
 
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
 
 
-## Umístění poskytovatele připojení
+## <a name="connectivity-provider-locations"></a>Umístění poskytovatele připojení
 
 > [AZURE.SELECTOR]
 [Umístění podle poskytovatelů](expressroute-locations.md#connectivity-provider-locations)
 [Poskytovatelé podle umístění](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Produkční prostředí Azure
+### <a name="production-azure"></a>Produkční prostředí Azure
+
 | **Umístění**  | **Poskytovatelé služeb** |
 |---------------|-----------------------|
-| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions – Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions – Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** | Equinix |
 | **Čennaj** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -81,25 +83,25 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
-| **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
+| **Washington, D.C.** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** označuje brzké uvedení.
 
-### Prostředí národních cloudů
+### <a name="national-cloud-environments"></a>Prostředí národních cloudů
 
-#### Cloud vlády USA
+#### <a name="us-government-cloud"></a>Cloud vlády USA
 
 | **Umístění**  |**Poskytovatelé služeb** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |  Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
-| **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
+| **Washington, D.C.** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### Čína
+#### <a name="china"></a>Čína
 
 | **Umístění**  | **Poskytovatelé služeb** |
 |---------------|-----------------------|
@@ -107,12 +109,12 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Šanghaj** |  China Telecom |
 Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsazure.cn/home/features/expressroute/).
 
-#### Německo
+#### <a name="germany"></a>Německo
 
 | **Umístění**  | **Poskytovatelé služeb** |
 |---------------|-----------------------|
-| **Berlín** | Colt+, e-shelter+ |
-| **Frankfurt** | Colt, Equinix+, Interxion |
+| **Berlín** | Colt, e-shelter |
+| **Frankfurt** | Colt, Equinix, Interxion |
 
 ## <a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
 
@@ -131,15 +133,15 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 - Abyste se připojili k Microsoftu, objednejte si okruh ExpressRoute s výměnou jako poskytovatel připojení.
     - Při nastavení připojení postupujte podle kroků v tématu [Vytvoření okruhu ExpressRoute](expressroute-howto-circuit-classic.md).
 
-|**Umístění**|**Exchange**|**Poskytovatelé připojení**|
+|**Umístění**|**Výměna**|**Poskytovatelé připojení**|
 |-------------|------------|-------------------------|
 | **New York** | Equinix | Lightower |
 | **Seattle** | Equinix | Alaska Communications |
 | **Silicon Valley** | Equinix | XO Communications |
 | **Singapur** | Equinix | 1CLOUDSTAR |
-| **Washington DC** | Equinix | Lightower |
+| **Washington, D.C.** | Equinix | Lightower |
 
-## Systémoví integrátoři ExpressRoute
+## <a name="expressroute-system-integrators"></a>Systémoví integrátoři ExpressRoute
 
 Povolení soukromého připojení podle vlastních potřeb může být náročné, v závislosti na rozsahu vaší sítě. Můžete spolupracovat s kterýmkoli systémovým integrátorem uvedeným v následující tabulce, aby vám pomohl s připojením k ExpressRoute.
 
@@ -149,7 +151,7 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 | **Evropa** | Avanade Inc., Dotnet Solutions|
 | **USA** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 - Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 - Zkontrolujte, že jsou splněné všechny požadavky. Viz [Požadavky služby ExpressRoute](expressroute-prerequisites.md).
@@ -159,6 +161,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

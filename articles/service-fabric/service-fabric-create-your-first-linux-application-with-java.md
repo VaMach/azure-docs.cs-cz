@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="10/04/2016"
    ms.author="seanmck"/>
 
 
@@ -21,8 +21,9 @@
 # Vytvoření první aplikace Azure Service Fabric
 
 > [AZURE.SELECTOR]
-- [C#](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu si projdeme postup vytvoření aplikace pro Linux a vytvoření služby pomocí Javy.
 
@@ -49,6 +50,7 @@ Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každ
 Šablona Service Fabric Yeoman zahrnuje skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace u terminálu.
 
   ```bash
+  cd myapp
   gradle
   ```
 
@@ -59,13 +61,12 @@ Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru pomoc
 1. Připojte se k místnímu clusteru služby Service Fabric.
 
     ```bash
-    azuresfcli servicefabric cluster connect
+    azure servicefabric cluster connect
     ```
 
 2. Pomocí instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
@@ -92,7 +93,7 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 
 ## Sestavení a nasazení aplikace pomocí modulu plug-in Eclipse Neon
 
-Pokud jste nainstalovali modul plug-in služby pro Eclipse Neon, můžete ho použít k vytvoření, sestavení a nasazení aplikací Service Fabric vytvořených v jazyce Java.
+Pokud jste nainstalovali modul plug-in služby pro Eclipse Neon, můžete ho použít k vytvoření, sestavení a nasazení aplikací Service Fabric vytvořených v jazyce Java.  Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**.
 
 ### Vytvoření aplikace
 
@@ -121,6 +122,7 @@ Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stav
 ## Další kroky
 
 - [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Komunikace s clustery Service Fabric pomocí Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -129,6 +131,6 @@ Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stav
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

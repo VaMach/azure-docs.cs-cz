@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Začínáme se službou Event Hubs
+# <a name="get-started-with-event-hubs"></a>Začínáme se službou Event Hubs
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Úvod
+## <a name="introduction"></a>Úvod
 
 Event Hubs je služba, která zpracovává velké objemy dat událostí (telemetrie) z připojených zařízení a aplikací. Data, která shromáždíte pomocí služby Event Hubs, můžete uložit pomocí úložného clusteru nebo transformovat pomocí zprostředkovatele datové analýzy v reálném čase. Schopnost shromažďovat a zpracovávat velké množství událostí je klíčovou komponentou moderních aplikačních architektur, například internetu věcí (Internet of Things – IoT).
 
@@ -39,7 +39,7 @@ K absolvování tohoto kurzu potřebujete:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
-## Spuštění aplikací
+## <a name="run-the-applications"></a>Spuštění aplikací
 
 Nyní můžete spustit aplikace.
 
@@ -71,13 +71,12 @@ Nyní můžete spustit aplikace.
 
 Stiskněte v okně **Sender** kombinaci kláves **Ctrl + C**. Aplikace Sender se ukončí. Pak v okně Receiver stiskněte klávesu **Enter**, a ukončí se i tato aplikace.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete podívat na některý z následujících scénářů:
 
 - úplná [ukázková aplikace, která používá službu Event Hubs][]
 - [horizontální navýšení kapacity zpracování událostí ve službě Event Hubs][] – ukázka
-- [řešení zasílání zpráv ve frontě][] pomocí front Service Bus
 - [Přehled služby Event Hubs][]
 
 <!-- Images. -->
@@ -91,12 +90,12 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Přehled služby Event Hubs]: event-hubs-overview.md
 [ukázková aplikace, která používá službu Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[horizontální navýšení kapacity zpracování událostí ve službě Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[řešení zasílání zpráv ve frontě]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[horizontální navýšení kapacity zpracování událostí pomocí služby Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[řešení zasílání zpráv ve frontě]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

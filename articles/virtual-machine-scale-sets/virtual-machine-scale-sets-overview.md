@@ -1,158 +1,165 @@
 <properties
-	pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
-	description="Learn more about Virtual Machine Scale Sets"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Přehled škálovacích sad virtuálních počítačů | Microsoft Azure"
+    description="Další informace o škálovacích sadách virtuálních počítačů"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
-# Virtual Machine Scale Sets Overview
 
-Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+# <a name="virtual-machine-scale-sets-overview"></a>Přehled škálovacích sad virtuálních počítačů
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. V těchto sadách jsou všechny virtuální počítače nakonfigurované stejně, protože jejich účelem je podporovat skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Díky tomu je snazší zajistit rozsáhlé služby nabízející vysoký výpočetní výkon a zpracovávající velké objemy dat nebo kontejnerové úlohy.
 
-Take a look at these videos for more about VM scale sets:
+U aplikací, které vyžadují horizontální navyšování a snižování výpočetní kapacity, se škálovací operace implicitně vyvažují napříč doménami selhání a aktualizačními doménami. Úvod ke škálovacím sadám virtuálních počítačů najdete v tématu [Oznámení k Blogu Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+Více o škálovacích sadách virtuálních počítačů se dozvíte v těchto videích:
 
- - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+ - [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 
-## Creating and managing VM scale sets
+ - [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
+## <a name="creating-and-managing-vm-scale-sets"></a>Vytváření a správa škálovacích sad virtuálních počítačů
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+Škálovací sadu virtuálních počítačů můžete vytvořit na portálu [Azure Portal](https://portal.azure.com) – vyberte položku _Nový_ a zadejte text „škálovací“ na vyhledávacím panelu. Ve výsledcích se objeví „Škálovací sada virtuálních počítačů“. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. 
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with _vmss_ in the title)
+Škálovací sady virtuálních počítačů je také možné definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx) stejně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md).
 
-In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
+Sadu příkladových šablon škálovacích sad virtuálních počítačů najdete v [úložišti GitHub pro šablony Quickstart určené pro Azure](https://github.com/Azure/azure-quickstart-templates). (Hledejte šablony, které mají v názvu _vmss_.)
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+Na stránce podrobností pro tyto šablony se zobrazí tlačítko, které odkazuje na funkci nasazení na portálu. Pokud chcete škálovací sadu virtuálních počítačů nasadit, klikněte na toto tlačítko a potom na portálu vyplňte požadované parametry. Pokud si nejste jistí, jestli určitý prostředek podporuje velká písmena nebo kombinaci velkých a malých písmen, je vždy bezpečnější hodnoty parametrů zadat malými písmeny. Můžete se podívat na video s užitečným rozborem šablony škálovací sady:
 
-## Scaling a VM scale set out and in
+[Rozbor šablony škálovací sady virtuálních počítačů](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
+## <a name="scaling-a-vm-scale-set-out-and-in"></a>Horizontální navyšování a snižování kapacity u škálovací sady virtuálních počítačů
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálovací sadě virtuálních počítačů, jednoduše změňte vlastnost představující _kapacitu_ a znovu nasaďte šablonu. Takto jednoduše můžete vytvořit i vlastní škálovací vrstvu, pokud budete chtít definovat vlastní škálovací události, které nejsou podporovány automatickým škálováním Azure.
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
+Pokud šablonu znovu nasazujete s cílem změnit kapacitu, stačí definovat mnohem menší šablonu, která bude obsahovat jen SKU a aktualizovanou kapacitu. Příklad najdete [tady](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## Monitoring your VM scale set
+Pokud si chcete projít postup vytvoření škálovací sady, která se škáluje automaticky, nahlédněte do tématu [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](virtual-machine-scale-sets-windows-autoscale.md).
 
-The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+## <a name="monitoring-your-vm-scale-set"></a>Monitorování škálovací sady virtuálních počítačů
 
-	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+[Azure Portal](https://portal.azure.com) uvádí škálovací sady a zobrazuje základní vlastnosti, jakož i seznam virtuálních počítačů v sadě. Další podrobnosti si můžete zobrazit v [Průzkumníkovi prostředků Azure](https://resources.azure.com). Škálovací sady virtuálních počítačů jsou prostředky v části Microsoft.Compute, takže z tohoto webu si je můžete zobrazit rozbalením následujících odkazů:
 
-## VM scale set scenarios
+    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+## <a name="vm-scale-set-scenarios"></a>Scénáře použití škálovacích sad virtuálních počítačů
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+Tato část uvádí některé typické scénáře použití škálovacích sad virtuálních počítačů. Tyto scénáře využívají některé služby Azure na vyšší úrovni (třeba Batch, Service Fabric, Azure Container Service).
 
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
+ - **Instance s připojením RDP/SSH ke škálovací sadě virtuálních počítačů:** Škálovací sada virtuálních počítačů se vytvoří v síti VNET a jednotlivým virtuálním počítačům ve škálovací sadě se nebudou přidělovat veřejné IP adresy. To je dobrá věc, protože obecně je žádoucí se vyhnout výdajům a administrativní režii spojeným s přidělováním samostatných veřejných IP adres všem bezstavovým prostředkům ve výpočetní síti a protože se k těmto virtuálním počítačům můžete snadno připojit z jiných prostředků v síti VNET, včetně těch, které mají veřejné IP adresy, jako jsou nástroje pro vyrovnávání zatížení nebo samostatné virtuální počítače.
+
+ - **Připojení k virtuálním počítačům pomocí pravidel pro překlad adres (NAT):** Můžete vytvořit veřejnou IP adresu, přiřadit ji k nástroji pro vyrovnávání zatížení a definovat příchozí pravidla pro překlad adres, která mapují port u IP adresy k portu virtuálního počítače ve škálovací sadě. Například:
  
-	Source | Source Port | Destination | Destination Port
-	--- | --- | --- | ---
-	Public IP | Port 50000 | vmss\_0 | Port 22
-	Public IP | Port 50001 | vmss\_1 | Port 22
-	Public IP | Port 50002 | vmss\_2 | Port 22
+    Zdroj | Zdrojový port | Cíl | Cílový port
+    --- | --- | --- | ---
+    Veřejná IP adresa | Port 50000 | vmss\_0 | Port 22
+    Veřejná IP adresa | Port 50001 | vmss\_1 | Port 22
+    Veřejná IP adresa | Port 50002 | vmss\_2 | Port 22
 
-	Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+    Zde je příklad vytvoření škálovací sady virtuálních počítačů, která používá pravidla pro překlad adres (NAT) umožňující připojení SSH ke každému virtuálnímu počítači v sadě s použitím jedné veřejné IP adresy: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
-	Here's an example of doing the same with RDP and Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+    Tady je příklad stejného nastavení s pomocí protokolu RDP a Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
- - **Connect to VMs using a "jumpbox"** - If you create a VM scale set and a standalone VM in the same VNET, the standalone VM and the VM scale set VMs can connect to one another using their internal IP addresses as defined by the VNET/Subnet. If you create a public IP address and assign it to the standalone VM you can RDP or SSH to the standalone VM and then connect from that machine to your VM scale set instances. You may notice at this point that a simple VM scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+ - **Připojování k virtuálním počítačům pomocí hostitele typu „jumpbox“:** Pokud ve stejné síti VNET vytvoříte škálovací sadu virtuálních počítačů a samostatný virtuální počítač, pak se všechny tyto virtuální počítače můžou navzájem připojovat pomocí svých interních IP adres, jak jsou definovány v síti VNET a podsíti. Pokud vytvoříte veřejnou IP adresu a přiřadíte ji k samostatnému virtuálnímu počítači, můžete nastavit připojení RDP nebo SSH k samostatnému virtuálnímu počítači a pak se z tohoto počítače připojit k vašim instancím škálovací sady virtuálních počítačů. V tomto bodě si můžete povšimnout, že jednoduchá škálovací sada virtuálních počítačů je ze své podstaty bezpečnější než jednoduchý samostatný virtuální počítač s veřejnou IP adresou ve své výchozí konfiguraci.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+    [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
+ - **Vyrovnávání zatížení v instancích škálovací sady virtuálních počítačů:** Pokud chcete dodávat práci do výpočetního clusteru virtuálních počítačů na bázi kruhového dotazování, můžete v nástroji pro vyrovnávání zatížení Azure nakonfigurovat odpovídající pravidla. Můžete definovat sondy, které budou ověřovat, že aplikace běží, pomocí portů pro příkazy ping s určeným protokolem, intervalem a cestou pro žádosti. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) podporuje jak škálovací sady, tak i sofistikovanější scénáře vyrovnávání zatížení.
 
-	[Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
+    [Zde je příklad, v rámci něhož se vytváří škálovací sada virtuálních počítačů, na kterých běží webový server IIS, a na jednotlivých virtuálních počítačích se používá nástroj pro vyrovnávání zatížení. Využívá se také protokol HTTP pro odeslání příkazu ping na konkrétní adresu URL na každém virtuálním počítači.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Podívejte se na typ prostředku Microsoft.Network/loadBalancers a položky networkProfile a extensionProfile v části virtualMachineScaleSet.)
 
- - **Deploying a VM scale set as a compute cluster in a PaaS cluster manager** - VM scale sets are sometimes described as a next-generation worker role. It's a valid description but it also runs the risk of confusing scale set features with PaaS v1 Worker role features. In a sense VM scale sets provide a true "worker role" or worker resource, in that they provide a generalized compute resource which is platform/runtime independent, customizable and integrates into Azure Resource Manager IaaS.
+ - **Nasazení škálovací sady virtuálních počítačů jako výpočetního clusteru ve správci clusteru PaaS:** Škálovací sady virtuálních počítačů se někdy označují jako role pracovních procesů nové generace. Tento popis je výstižný, ale je tu riziko, že dojde k záměně funkcí škálovacích sad s funkcemi role pracovního procesu PaaS v1. Škálovací sada virtuálních počítačů skutečně představuje „roli pracovního procesu“, a to v tom smyslu, že poskytuje generalizovaný výpočetní prostředek, který je nezávislý na platformě nebo modulu runtime, umožňuje přizpůsobení a integruje se s IaaS s nástrojem Azure Resource Manager.
 
-	A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
+    Role pracovního procesu PaaS v1 má sice omezení z hlediska podpory platforem nebo modulů runtime (k dispozici jsou jen image pro platformu Windows), ale obsahuje i další služby, jako je prohození virtuálních IP adres, konfigurovatelné nastavení upgradu nebo nastavení specifické pro nasazení modulu runtime a aplikace. Ty _ještě_ nejsou ve škálovacích sadách k dispozici a možná se tam ani neobjeví, protože je budou zajišťovat služby PaaS vyšší úrovně, jako je Service Fabric. Z těchto důvodů můžete na škálovací sady virtuálních počítačů pohlížet jako na infrastrukturu, která podporuje PaaS. To znamená, že nad škálovací sady virtuálních počítačů je možné jako na škálovatelnou výpočetní vrstvu nasadit řešení PaaS, jako je Service Fabric, nebo správce clusteru, jako je Mesos.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+    [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Budoucí verze [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) budou zavádět propracovanější a robustnější verze tohoto scénáře, který stojí na škálovacích sadách virtuálních počítačů.
 
-## VM scale set performance and scale guidance
+## <a name="vm-scale-set-performance-and-scale-guidance"></a>Pokyny týkající se výkonu a škálování u škálovacích sad virtuálních počítačů
 
-- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
-- Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
-- If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
-- Plan for no more than 4096 VMs per VNET.
-- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+- Nevytvářejte najednou více než 500 virtuálních počítačů ve více škálovacích sadách.
+- Nekalkulujte s více než 20 virtuálními počítači na jeden účet úložiště (pokud jste vlastnost pro _nadměrné zřízení _ nenastavili na false – v tom případě jich může být až 40).
+- První písmena v názvech účtů úložiště co nejvíce rozprostřete.  Příklady, jak to udělat, najdete v ukázkových šablonách VMSS v [šabloně Quickstart pro Azure](https://github.com/Azure/azure-quickstart-templates/).
+- Pokud používáte vlastní virtuální počítače, nekalkulujte s více než 40 virtuálními počítači ve škálovací sadě na jeden účet úložiště.  Než zahájíte nasazování škálovací sady virtuálních počítačů, musíte mít na účet úložiště zkopírovanou image. Další informace najdete v nejčastějších dotazech.
+- Nekalkulujte s více než 4096 virtuálními počítači v jedné síti VNET.
+- Počet virtuálních počítačů, které můžete vytvořit, je omezen kvótou pro počet jader v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už dnes máte vysoký limit pro jádra, který platí pro cloudové služby nebo IaaS v1. Dotaz na kvótu spustíte pomocí následujícího příkazu na Azure CLI: `azure vm list-usage`. A následujícího příkazu pro PowerShell: `Get-AzureRmVMUsage` (pokud používáte nižší verzi prostředí PowerShell než 1.0, použijte `Get-AzureVMUsage`).
 
-## VM scale set frequently asked questions
+## <a name="vm-scale-set-frequently-asked-questions"></a>Nejčastější dotazy ke škálovacím sadám virtuálních počítačů
 
-**Q.** How many VMs can you have in a VM scale set?
+**Otázka:** Kolik virtuálních počítačů může obsahovat škálovací sada?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
+**Odpověď:** 100, pokud použijete image platforem, které je možné distribuovat mezi více účtů úložiště. Pokud používáte vlastní image, maximálně 40 (pokud je vlastnost pro _nadměrné zřizování_ nastavená na false; 20 ve výchozím nastavení), protože vlastní image jsou aktuálně omezené na jeden účet úložiště.
 
-**Q** What other resource limits exist for VM scale sets?
+**Otázka:** Jaká další omezení prostředků se u škálovacích sad virtuálních počítačů uplatňují?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**Odpověď:** Platí omezení, že pro jednu oblast nemůžete během 10 minut vytvořit více než 500 virtuálních počítačů ve více škálovacích sadách. Platí stávající [limity pro služby v rámci předplatného Azure](../azure-subscription-service-limits.md).
 
-**Q.** Are Data Disks Supported within VM scale sets?
+**Otázka:** Podporují se ve škálovacích sadách datové disky?
 
-**A.** Not in the initial release. Your options for storing data are:
+**Odpověď:** V počáteční verzi ne. Vaše možnosti pro ukládání dat:
 
-- Azure files (SMB shared drives)
+- Soubory Azure (sdílené jednotky SMB)
 
-- OS drive
+- Jednotka operačního systému
 
-- Temp drive (local, not backed by Azure storage)
+- Dočasné jednotky (místní, nezálohované úložiště Azure)
 
-- Azure data service (e.g. Azure tables, Azure blobs)
+- Datová služba Azure (např. tabulky Azure, objekty blob Azure)
 
-- External data service (e.g. remote DB)
+- Externí datová služba (např. vzdálená databáze)
 
-**Q.** Which Azure regions support VM scale sets?
+**Otázka:** Které oblasti Azure podporují škálovací sady virtuálních počítačů?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**Odpověď:** Kterákoli oblast, která podporuje Azure Resource Manager, podporuje i škálovací sady virtuálních počítačů.
 
-**Q.** How do you create a VM scale set using a custom image?
+**Otázka:** Jak se vytváří škálovací sada virtuálních počítačů s použitím vlastní image?
 
-**A.** Leave the vhdContainers property blank, for example:
+**Odpověď:** Ponechejte vlastnost vhdContainers prázdnou, například:
 
-	"storageProfile": {
-		"osDisk": {
-			"name": "vmssosdisk",
-			"caching": "ReadOnly",
-			"createOption": "FromImage",
-			"image": {
-				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-			},
-			"osType": "Windows"
-		}
-	},
+    "storageProfile": {
+        "osDisk": {
+            "name": "vmssosdisk",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "image": {
+                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
+            },
+            "osType": "Windows"
+        }
+    },
 
 
-**Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
+**Otázka:** Pokud snížím kapacitu škálovací sady virtuálních počítačů z 20 na 15, které virtuální počítače budou odebrány?
 
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
+**Odpověď:** Virtuální počítače se ze škálovací sady odebírají rovnoměrně napříč upgradovací doménami a doménami selhání, aby se maximalizovala dostupnost. Nejprve se odeberou virtuální počítače s nejvyšším ID.
 
-**Q.** How about it if I then increase the capacity from 15 to 18?
+**Otázka:** A co když pak zvýším kapacitu z 15 až 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
+**Odpověď:** Pokud zvýšíte kapacitu na 18, vytvoří se 3 nové virtuální počítače. ID instance virtuálního počítače se přírůstkově zvýší oproti předchozí nejvyšší hodnotě (např. 20, 21, 22). Virtuální počítače se vyvažují mezi doménami selhání a aktualizačními doménami.
 
-**Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
+**Otázka:** Pokud ve škálovací sadě virtuálních počítačů používám několik rozšíření, je možné vynucovat určitou posloupnost provádění?
 
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**Odpověď:** Ne přímo, ale u rozšíření customScript by váš skript mohl čekat na dokončení jiného rozšíření ([například tím, že bude monitorovat protokol rozšíření](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Další informace o nastavení posloupnosti rozšíření najdete v tomto blogovém příspěvku: [Určení posloupnosti rozšíření ve škálovacích sadách virtuálních počítačů Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
-**Q.** Do VM scale sets work with Azure availability sets?
+**Otázka:** Spolupracují škálovací sady virtuálních počítačů se skupinami dostupnosti Azure?
 
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+**Odpověď:** Ano. Škálovací sada virtuálních počítačů je implicitní skupina dostupnosti s 5 doménami selhání a 5 aktualizačními doménami. Pod virtualMachineProfile nemusíte nic konfigurovat. V budoucích verzích budou pravděpodobně škálovací sady virtuálních počítačů pokrývat více tenantů, ale v současnosti představuje škálovací sada jednu skupinu dostupnosti.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+
