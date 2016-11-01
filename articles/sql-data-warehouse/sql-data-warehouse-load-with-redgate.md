@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -41,17 +41,17 @@ Před zahájením tohoto kurzu musíte mít tyto prostředky:
 
 > [AZURE.NOTE] Pokud jsou účet úložiště a datový sklad vytvořeny ve stejné oblasti, zlepší se tím výkon.
 
-## <a name="step-1:-sign-in-to-data-platform-studio-with-your-azure-account"></a>Krok 1: Přihlášení k nástroji Data Platform Studio pomocí vašeho účtu Azure
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Krok 1: Přihlášení k nástroji Data Platform Studio pomocí vašeho účtu Azure
 Otevřete webový prohlížeč a přejděte na web [Data Platform Studio](https://www.dataplatformstudio.com/). Přihlaste se pomocí stejného účtu Azure, který jste použili k vytvoření účtu úložiště a datového skladu. Pokud je vaše e-mailová adresa přidružená k pracovnímu nebo školními účtu i účtu Microsoft, je nutné zvolit účet, který má přístup k vašim prostředkům.
 
 > [AZURE.NOTE] Pokud Data Platform Studio používáte poprvé, zobrazí se žádost, abyste této aplikaci udělili oprávnění ke správě prostředků Azure.
 
-## <a name="step-2:-start-the-import-wizard"></a>Krok 2: Spuštění průvodce importem
+## <a name="step-2-start-the-import-wizard"></a>Krok 2: Spuštění průvodce importem
 Z hlavní obrazovky DPS vyberte odkaz pro import do Azure SQL Data Warehouse – tím spustíte průvodce importem.
 
 ![][1]
 
-## <a name="step-3:-install-the-data-platform-studio-gateway"></a>Krok 3: Instalace brány pro Data Platform Studio
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>Krok 3: Instalace brány pro Data Platform Studio
 Pro připojení k lokální databázi SQL Serveru musíte nainstalovat bránu DPS. Brána je klientský agent, který poskytuje přístup k lokálnímu prostředí, extrahuje data a nahrává je na váš účet úložiště. Vaše data nikdy neprocházejí přes servery společnosti Redgate. Instalace brány:
 
 1.  Klikněte na odkaz **Vytvořit bránu**.
@@ -63,28 +63,28 @@ Pro připojení k lokální databázi SQL Serveru musíte nainstalovat bránu DP
 
 Po instalaci se stav brány změní na Připojeno a vy můžete vybrat tlačítko Další.
 
-## <a name="step-4:-identify-the-source-database"></a>Krok 4: Určení zdrojové databáze
+## <a name="step-4-identify-the-source-database"></a>Krok 4: Určení zdrojové databáze
 Do textového pole *Zadat název serveru* zadejte název serveru, který je hostitelem databáze, a vyberte **Další**. V rozevírací nabídce pak vyberte databázi, ze které chcete data importovat.
 
 ![][3]
 
 DPS ve vybrané databázi vyhledá tabulky k importu. Ve výchozím nastavení DPS importuje všechny tabulky v databázi. Tabulky můžete vybrat nebo jejich výběr zrušit po rozbalení odkazu Všechny tabulky. Výběrem tlačítka Další přejdete dále.
 
-## <a name="step-5:-choose-a-storage-account-to-stage-the-data"></a>Krok 5: Volba účtu úložiště pro přípravu dat
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Krok 5: Volba účtu úložiště pro přípravu dat
 DPS vás vyzve k zadání umístění, kde se mají data připravit. Vyberte existující účet úložiště z vašeho předplatného a pak zvolte **Další**.
 
 > [AZURE.NOTE] DPS vytvoří nový kontejner objektů blob ve zvoleném účtu úložiště a použije odlišnou složku pro každý import.
 
 ![][4]
 
-## <a name="step-6:-select-a-data-warehouse"></a>Krok 6: Výběr datového skladu
+## <a name="step-6-select-a-data-warehouse"></a>Krok 6: Výběr datového skladu
 Potom vyberete online databázi [Azure SQL Data Warehouse](http://aka.ms/sqldw), do které chcete data naimportovat. Po výběru databáze musíte zadat přihlašovací údaje pro připojení k databázi a vybrat **Další**.
 
 ![][5]
 
 > [AZURE.NOTE] DPS sloučí zdrojové datové tabulky do datového skladu. DPS vás upozorní, pokud je na základě názvu tabulky nutné přepsat existující tabulku v datovém skladu. Volitelně můžete v datovém skladu ještě před importem odstranit všechny existující objekty, a to zaškrtnutím příslušného políčka.
 
-## <a name="step-7:-import-the-data"></a>Krok 7: Import dat
+## <a name="step-7-import-the-data"></a>Krok 7: Import dat
 DPS si ověří, že chcete data importovat. Jednoduše klikněte na tlačítko Zahájit import.
 
 ![][6]

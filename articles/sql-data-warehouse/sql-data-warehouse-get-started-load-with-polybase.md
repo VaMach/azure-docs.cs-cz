@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat
     ![Nástroje Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Krok 1: Přidání ukázkových dat do Azure Blob Storage
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Krok 1: Přidání ukázkových dat do Azure Blob Storage
 
 Aby bylo možné data načíst, musíme vložit nějaká ukázková data do Azure Blob Storage. V tomto kroku naplníme objekt blob úložiště Azure ukázkovými daty. Později pomocí funkce PolyBase načteme tato ukázková data do vaší databáze SQL Data Warehouse.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Příprava ukázkového textového souboru
+### <a name="a-prepare-a-sample-text-file"></a>A. Příprava ukázkového textového souboru
 
 Ukázkový textový soubor připravíte takto:
 
@@ -70,7 +70,7 @@ Ukázkový textový soubor připravíte takto:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Vyhledání vašeho koncového bodu Služby objektů blob
+### <a name="b-find-your-blob-service-endpoint"></a>B. Vyhledání vašeho koncového bodu Služby objektů blob
 
 Vyhledání vašeho koncového bodu Služby objektů blob:
 
@@ -84,7 +84,7 @@ Vyhledání vašeho koncového bodu Služby objektů blob:
 
     ![Koncový bod Služby objektů blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Vyhledání klíče účtu úložiště Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Vyhledání klíče účtu úložiště Azure
 
 Vyhledání klíče účtu úložiště Azure:
 
@@ -95,7 +95,7 @@ Vyhledání klíče účtu úložiště Azure:
 
     ![Zkopírování klíče úložiště Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Zkopírování ukázkového souboru do Azure Blob Storage
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Zkopírování ukázkového souboru do Azure Blob Storage
 
 Zkopírování vašich dat do Azure Blob Storage:
 
@@ -113,7 +113,7 @@ Zkopírování vašich dat do Azure Blob Storage:
 
 Viz také [Začínáme s nástrojem příkazového řádku AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Prozkoumání vašeho kontejneru úložiště objektů blob
+### <a name="e-explore-your-blob-storage-container"></a>E. Prozkoumání vašeho kontejneru úložiště objektů blob
 
 Zobrazení souboru, který jste nahráli do úložiště objektů blob:
 
@@ -126,7 +126,7 @@ Zobrazení souboru, který jste nahráli do úložiště objektů blob:
     ![Zobrazení objektu blob úložiště Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Krok 2: Vytvoření externí tabulky pro ukázková data
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Krok 2: Vytvoření externí tabulky pro ukázková data
 
 V této části vytvoříme externí tabulku, která definuje ukázková data.
 
@@ -216,7 +216,7 @@ V Průzkumníku objektů systému SQL Server v sadě Visual Studio uvidíte form
 
 ![Zobrazení externí tabulky](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Krok 3: Načtení dat do SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Krok 3: Načtení dat do SQL Data Warehouse
 
 Po vytvoření externí tabulky můžete buď načíst data do nové tabulky, nebo je vložit do existující tabulky.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro nově načtená data
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro nově načtená data
 
 SQL Data Warehouse nevytváří ani neaktualizuje statistiku automaticky. Pro dosažení vysokého výkonu dotazu je proto důležité vytvořit statistiku pro každý sloupec každé tabulky po prvním načtení. Důležité je také aktualizovat statistiku po důležitých změnách v datech.
 

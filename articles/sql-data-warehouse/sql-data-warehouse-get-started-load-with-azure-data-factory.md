@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -44,13 +44,13 @@ Před zahájením tohoto kurzu musíte mít následující prostředky:
 
    + **Objekt Blob služby Azure Storage:** V tomto kurzu se používá objekt Blob služby Azure Storage jako zdroj dat pro kanál Azure Data Factory, takže byste měli mít nějaký k dispozici pro uložení ukázkových dat. Pokud ho ještě nemáte, naučte se [vytvořit účet úložiště][].
 
-   + **SQL Data Warehouse:** V tomto kurzu se přesouvají data z objektu blob úložiště Azure do SQL Data Warehouse. Je proto nutné, abyste měli online datový sklad, ve kterém jsou načtená ukázková data AdventureWorksDW. Pokud ještě datový sklad nemáte, přečtěte si, jak si ho [Vytvoření SQL Data Warehouse](zřídit). Pokud sice máte datový sklad, ale nemáte v něm ukázková data, můžete je do něj [Načtení ukázkových dat do SQL Data Warehouse](načíst ručně).
+   + **SQL Data Warehouse:** V tomto kurzu se přesouvají data z objektu blob úložiště Azure do SQL Data Warehouse. Je proto nutné, abyste měli online datový sklad, ve kterém jsou načtená ukázková data AdventureWorksDW. Pokud ještě datový sklad nemáte, přečtěte si, jak si ho [zřídit][Vytvoření SQL Data Warehouse]. Pokud sice máte datový sklad, ale nemáte v něm ukázková data, můžete je do něj [načíst ručně][Načtení ukázkových dat do SQL Data Warehouse].
 
    + **Azure Data Factory**: Služba Azure Data Factory dokončí vlastní operaci načtení, takže je nutné ji mít, abyste pomocí ní mohli vytvořit kanál pro přesun dat. Pokud ji ještě nemáte, zjistěte, jak si ji vytvořit v kroku 1 tématu [Začínáme se službou Azure Data Factory (Data Factory Editor)][].
 
    + **AZCopy**: AZCopy potřebujete ke zkopírování ukázkových dat z místního klienta do objektu blob služby Azure Storage. Postup instalace najdete v [dokumentaci k AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Krok 1: Kopírování ukázkových dat do objektu blob služby Azure Storage
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Krok 1: Kopírování ukázkových dat do objektu blob služby Azure Storage
 
 Jakmile budete mít vše připraveno, můžete zkopírovat ukázková data do Azure Storage Blob.
 
@@ -63,13 +63,13 @@ Jakmile budete mít vše připraveno, můžete zkopírovat ukázková data do Az
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Krok 2: Připojení prostředků k Azure Data Factory
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Krok 2: Připojení prostředků k Azure Data Factory
 
 Teď, když jsou data tam, kde mají být, můžeme vytvořit kanál Azure Data Factory pro přesun dat z Azure Blob Storage do SQL Data Warehouse.
 
 Začněte tím, že otevřete [Azure Portal][] a z nabídky na levé straně vyberete datovou továrnu.
 
-### <a name="step-2.1:-create-linked-service"></a>Krok 2.1: Vytvoření propojené služby
+### <a name="step-21-create-linked-service"></a>Krok 2.1: Vytvoření propojené služby
 
 Propojte si účet úložiště Azure a SQL Data Warehouse se svojí datovou továrnou.  
 
@@ -90,7 +90,7 @@ Propojte si účet úložiště Azure a SQL Data Warehouse se svojí datovou tov
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Krok 2.2: Definování datové sady
+### <a name="step-22-define-the-dataset"></a>Krok 2.2: Definování datové sady
 
 Po vytvoření propojených služeb budeme muset definovat datové sady.  Tady to znamená definovat strukturu dat přesouvaných z vašeho úložiště datového skladu.  O vytváření si toho můžete přečíst víc.
 
@@ -148,9 +148,9 @@ Po vytvoření propojených služeb budeme muset definovat datové sady.  Tady t
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Krok 3: Vytvoření a spuštění kanálu
+## <a name="step-3-create-and-run-your-pipeline"></a>Krok 3: Vytvoření a spuštění kanálu
 
-Nakonec ve službě Azure Data Factory nastavíme a spustíme kanál.  Právě tato operace provede vlastní přesun dat.  Úplný přehled operací, které můžete s SQL Data Warehouse a Azure Data Factory provádět, najdete [Přesun dat do a z Azure SQL Data Warehouse pomocí Azure Data Factory](tady).
+Nakonec ve službě Azure Data Factory nastavíme a spustíme kanál.  Právě tato operace provede vlastní přesun dat.  Úplný přehled operací, které můžete s SQL Data Warehouse a Azure Data Factory provádět, najdete [tady][Přesun dat do a z Azure SQL Data Warehouse pomocí Azure Data Factory].
 
 V části Vytvořit a nasadit klikněte na Další příkazy a poté klikněte na Nový kanál.  Po vytvoření kanálu můžete pomocí níže uvedeného kódu přenést data do datového skladu:
 
@@ -241,6 +241,6 @@ Tato témata obsahují podrobné informace o službě Azure Data Factory. Jsou v
 
 
 
-<!----HONumber=Oct16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 
