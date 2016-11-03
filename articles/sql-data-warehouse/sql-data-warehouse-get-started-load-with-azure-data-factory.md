@@ -150,7 +150,7 @@ Po vytvoření propojených služeb budeme muset definovat datové sady.  Tady t
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Krok 3: Vytvoření a spuštění kanálu
 
-Nakonec ve službě Azure Data Factory nastavíme a spustíme kanál.  Právě tato operace provede vlastní přesun dat.  Úplný přehled operací, které můžete s SQL Data Warehouse a Azure Data Factory provádět, najdete [tady][Move data to and from Azure SQL Data Warehouse using Azure Data Factory.
+Nakonec ve službě Azure Data Factory nastavíme a spustíme kanál.  Právě tato operace provede vlastní přesun dat.  Úplný přehled operací, které můžete s SQL Data Warehouse a Azure Data Factory provádět, najdete [tady][Move data to and from Azure SQL Data Warehouse using Azure Data Factory] .
 
 V části Vytvořit a nasadit klikněte na Další příkazy a poté klikněte na Nový kanál.  Po vytvoření kanálu můžete pomocí níže uvedeného kódu přenést data do datového skladu:
 
@@ -241,6 +241,6 @@ Tato témata obsahují podrobné informace o službě Azure Data Factory. Jsou v
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!---HONumber=Oct16_HO3-->
 
 
