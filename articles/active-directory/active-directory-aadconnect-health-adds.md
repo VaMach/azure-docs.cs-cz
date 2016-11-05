@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Používání služby Azure AD Connect Health se službou AD DS | Microsoft Azure"
-    description="Toto je stránka o službě Azure AD Connect Health, která popisuje monitorování služby AD DS."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+---
+title: Používání služby Azure AD Connect Health se službou AD DS | Microsoft Docs
+description: Toto je stránka o službě Azure AD Connect Health, která popisuje monitorování služby AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-
+---
 # Používání služby Azure AD Connect Health se službou AD DS
 Následující dokumentace se věnuje monitorování služby Active Directory Domain Services pomocí služby Azure AD Connect Health. Podporovány jsou verze služby AD DS nainstalované v systému Windows Server 2008 R2, Windows Server 2012 a Windows Server 2012 R2.
 
@@ -52,7 +51,6 @@ Tato funkce zajišťuje grafické zobrazení trendů různých čítačů výkon
 Ve výchozím nastavení jsme předem vybrali čtyři čítače výkonu. Kliknutím na příkaz filtru a výběrem nebo zrušením výběru libovolných požadovaných čítačů, můžete přidat nebo odebrat další čítače. Můžete také dvakrát kliknout na graf čítače výkonu. Tím otevřete nové okno, které obsahuje datové body každého monitorovaného řadiče domény.
 
 ## Související odkazy
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
@@ -60,8 +58,6 @@ Ve výchozím nastavení jsme předem vybrali čtyři čítače výkonu. Kliknut
 * [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
 
 <!--HONumber=Oct16_HO1-->
 

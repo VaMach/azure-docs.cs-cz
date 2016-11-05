@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Koncepty Mobile Engagementu | Microsoft Azure"
-    description="Koncepty Azure Mobile Engagementu"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+---
+title: Koncepty Mobile Engagementu | Microsoft Docs
+description: Koncepty Azure Mobile Engagementu
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # Koncepty Azure Mobile Engagementu
-
 Mobile Engagement definuje několik konceptů, které jsou společné pro všechny podporované platformy. Tento článek tyto koncepty stručně popisuje.
 
 Tento článek byste si měli přečíst, pokud s Mobile Engagementem začínáte. Také si nezapomeňte prostudovat dokumentaci pro konkrétní platformu, kterou používáte. Najdete tam podrobnější charakteristiku konceptů popsaných v tomto článku doplněnou více příklady s uvedením možných omezení.
@@ -80,13 +78,10 @@ Doplňující data jsou strukturovaná podobně jako objekty JSON: tvoří je st
 Celý strom párů klíč/hodnota se ukládá jako objekt JSON. Nicméně pouze první úroveň párů klíč/hodnota je rozložená, aby byly přímo přístupné pro některé pokročilé funkce, jako jsou třeba segmenty. Můžete například snadno definovat segment s názvem „scifisti“ sestávající ze všech uživatelů, kteří za minulý měsíc alespoň desetkrát odeslali událost s názvem „content_viewed“, u které je doplňkový klíč „content_type“ nastaven na hodnotu „scifi“. Proto důrazně doporučujeme odesílat pouze doplňková data tvořená z jednoduchých seznamů párů klíč/hodnota, které používají skalárních hodnoty (například řetězce, data, celá čísla nebo logické hodnoty).
 
 ## Další kroky
-
-- [Přehled sady Windows Universal SDK pro Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Přehled sady Windows Phone Silverlight SDK pro Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [iOS SDK pro Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Android SDK pro Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
-
+* [Přehled sady Windows Universal SDK pro Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+* [Přehled sady Windows Phone Silverlight SDK pro Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+* [iOS SDK pro Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+* [Android SDK pro Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
 <!--HONumber=Sep16_HO3-->
 

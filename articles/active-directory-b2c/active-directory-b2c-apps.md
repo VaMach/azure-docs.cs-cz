@@ -1,32 +1,30 @@
-<properties
-    pageTitle="Azure AD B2C | Microsoft Azure"
-    description="Typy aplikací, které můžete sestavit v Azure Active Directory B2C."
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: Azure AD B2C | Microsoft Docs
+description: Typy aplikací, které můžete sestavit v Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: ''
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 07/22/2016
+ms.author: dastrock
 
-
+---
 # Azure Active Directory B2C: Typy aplikací
-
 Azure Active Directory (Azure AD) B2C podporuje ověřování pro celou řadu architektur moderních aplikací. Všechny jsou založeny na standardních oborových protokolech [OAuth 2.0](active-directory-b2c-reference-protocols.md) nebo [OpenID Connect](active-directory-b2c-reference-protocols.md). Tento dokument stručně popisuje typy aplikací, které můžete sestavit, nezávisle na jazyce nebo platformě, kterým dáváte přednost. Také pomáhá pochopit scénáře vysoké úrovně před tím, než [začnete sestavovat aplikace](active-directory-b2c-overview.md#getting-started).
 
 ## Základy
 Každá aplikace používající Azure AD B2C musí být zaregistrovaná v [adresáři B2C](active-directory-b2c-get-started.md) přes [web Azure Portal](https://portal.azure.com/). Proces registrace aplikace shromáždí a přiřadí vaší aplikaci několik hodnot:
 
-- **ID aplikace**, které jednoznačně identifikuje vaši aplikaci.
-- **Identifikátor URI přesměrování**, který lze použít k cílení odpovědí zpět do aplikace.
-- Další hodnoty v závislosti na scénáři. Pro další informace si přečtěte, jak [zaregistrovat aplikaci](active-directory-b2c-app-registration.md).
+* **ID aplikace**, které jednoznačně identifikuje vaši aplikaci.
+* **Identifikátor URI přesměrování**, který lze použít k cílení odpovědí zpět do aplikace.
+* Další hodnoty v závislosti na scénáři. Pro další informace si přečtěte, jak [zaregistrovat aplikaci](active-directory-b2c-app-registration.md).
 
 Po registraci aplikace komunikuje s Azure AD pomocí zasílání požadavků do koncového bodu Azure AD v2.0:
 
@@ -41,10 +39,10 @@ Interakce každé aplikace s koncovým bodem v2.0 probíhá podle podobného vzo
 
 1. Aplikace uživatele odkáže na koncový bod v2.0, aby se spustila [zásada](active-directory-b2c-reference-policies.md).
 2. Uživatel vykoná zásadu podle její definice.
-4. Aplikace obdrží z koncového bodu v2.0 nějaký druh tokenu zabezpečení.
-5. Aplikace použije token zabezpečení pro přístup k chráněným informacím nebo prostředkům.
-6. Server prostředků ověří token zabezpečení, aby ověřil, zda lze udělit přístup.
-7. Aplikace token zabezpečení pravidelně aktualizuje.
+3. Aplikace obdrží z koncového bodu v2.0 nějaký druh tokenu zabezpečení.
+4. Aplikace použije token zabezpečení pro přístup k chráněným informacím nebo prostředkům.
+5. Server prostředků ověří token zabezpečení, aby ověřil, zda lze udělit přístup.
+6. Aplikace token zabezpečení pravidelně aktualizuje.
 
 <!-- TODO: Need a page for libraries to link to -->
 Tento postup se může mírně lišit v závislosti na typu aplikace, kterou sestavujete. Opensourcové knihovny za vás mohou řešit detaily.
@@ -92,8 +90,10 @@ Accept: application/json
 
 Webové rozhraní API pak může pomocí tokenu ověřit identitu volajícího a extrahovat informace o volajícím z deklarací identity zakódovaných v tokenu. Další informace o typech tokenů a deklaracích identity přístupných aplikaci najdete v tématu [Odkaz tokenu Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [AZURE.NOTE]
-    Azure AD B2C v současné době podporuje pouze webová rozhraní API, ke kterým přistupují vlastní, dobře známí klienti. Kompletní aplikace může zahrnovat aplikaci pro iOS, aplikaci pro Android a back-end v podobě webové rozhraní API. Tato architektura je plně podporovaná. Povolení přístupu partnerského klienta, jako například další aplikace pro iOS, ke stejnému webovému rozhraní API není v současné době podporováno. Všechny komponenty výsledné aplikace musí sdílet jednotné ID aplikace.
+> [!NOTE]
+> Azure AD B2C v současné době podporuje pouze webová rozhraní API, ke kterým přistupují vlastní, dobře známí klienti. Kompletní aplikace může zahrnovat aplikaci pro iOS, aplikaci pro Android a back-end v podobě webové rozhraní API. Tato architektura je plně podporovaná. Povolení přístupu partnerského klienta, jako například další aplikace pro iOS, ke stejnému webovému rozhraní API není v současné době podporováno. Všechny komponenty výsledné aplikace musí sdílet jednotné ID aplikace.
+> 
+> 
 
 Webové rozhraní API může přijímat tokeny z řady typů klientů, včetně webových aplikací, počítačových a mobilních aplikací, jednostránkových aplikací, démonů na straně serveru a dalších webových rozhraní API. Zde je příklad celého toku u webové aplikace, která volá webové rozhraní API:
 
@@ -108,8 +108,10 @@ Aplikace nainstalované na zařízeních, jako například mobilní aplikace a a
 
 V tomto toku aplikace spouští [zásady](active-directory-b2c-reference-policies.md) a přijímá `authorization_code` z Azure AD poté, co uživatel vykoná zásadu. `authorization_code` představuje oprávnění aplikace volat back-endové služby jménem aktuálně přihlášeného uživatele. Aplikace pak může na pozadí vyměnit `authorization_code` za `id_token` a `refresh_token`.  Aplikace může použít `id_token` k prokázání identity back-endovému webovému rozhraní API v požadavcích HTTP. Může také použít `refresh_token` k získání nového `id_token` po vypršení platnosti toho starého.
 
-> [AZURE.NOTE]
-    Azure AD B2C v současné době podporuje pouze tokeny, které se používají pro přístup k vlastní back-endové webové službě aplikace. Kompletní aplikace může zahrnovat aplikaci pro iOS, aplikaci pro Android a back-end v podobě webové rozhraní API. Tato architektura je plně podporovaná. Povolení přístupu aplikace pro iOS k partnerskému webovému rozhraní API pomocí přístupových tokenů OAuth 2.0 není v současné době podporováno. Všechny komponenty výsledné aplikace musí sdílet jednotné ID aplikace.
+> [!NOTE]
+> Azure AD B2C v současné době podporuje pouze tokeny, které se používají pro přístup k vlastní back-endové webové službě aplikace. Kompletní aplikace může zahrnovat aplikaci pro iOS, aplikaci pro Android a back-end v podobě webové rozhraní API. Tato architektura je plně podporovaná. Povolení přístupu aplikace pro iOS k partnerskému webovému rozhraní API pomocí přístupových tokenů OAuth 2.0 není v současné době podporováno. Všechny komponenty výsledné aplikace musí sdílet jednotné ID aplikace.
+> 
+> 
 
 ![Obrázek plaveckých drah nativní aplikace](./media/active-directory-b2c-apps/native.png)
 
@@ -128,8 +130,6 @@ Azure AD B2C v současné době nepodporuje tento tok. Tyto aplikace mohou získ
 Mnoho architektur zahrnuje webové rozhraní API, které potřebuje volat podřízené webové rozhraní API, přičemž obě jsou zabezpečené pomocí Azure AD B2C. Tento scénář je častý u nativních klientů s back-endem v podobě webového rozhraní API. To poté zavolá online službu Microsoftu, jako je například Azure AD Graph API.
 
 Tento scénář zřetězených webových rozhraní API může být podporován pomocí udělení přihlašovacích údajů nosiče OAuth 2.0 JWT, označovaného také jako tok on-behalf-of.  Nicméně tok on-behalf-of není v současné době v Azure AD B2C implementován.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

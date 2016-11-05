@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Dotazování indexu Azure Search pomocí REST API | Microsoft Azure | Hostovaná cloudová vyhledávací služba"
-    description="Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Dotazování indexu Azure Search pomocí REST API | Microsoft Docs
+description: Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Dotazování indexu Azure Search pomocí REST API
-> [AZURE.SELECTOR]
-- [Přehled](search-query-overview.md)
-- [Portál](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Přehled](search-query-overview.md)
+> * [Portál](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Tento článek vám ukáže postup dotazování indexu pomocí [REST API služby Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -36,8 +36,8 @@ Klíčovou komponentou každé operace vyhledávání na REST API služby Azure 
 
 Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
- - Primární a sekundární *klíče správce* udělují úplná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
- - Vaše *klíče dotazů* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají požadavky hledání.
+* Primární a sekundární *klíče správce* udělují úplná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
+* Vaše *klíče dotazů* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají požadavky hledání.
 
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -50,10 +50,7 @@ U metody POST i GET budete muset v URL požadavku poskytnout *název služby*, *
 
 Formát pro metodu POST je stejný, ale jako parametr řetězce dotazu obsahuje pouze api-version.
 
-
-
 #### Ukázky dotazů
-
 Zde naleznete několik ukázky dotazů na index s názvem „hotels“. Dotazy jsou ukázané ve formátech GET i POST.
 
 Vyhledat výraz „budget“ v celém indexu a vrátit pouze pole `hotelName`:
@@ -100,6 +97,7 @@ Nyní, když jste formulovali dotaz jako součást URL požadavku HTTP (pro meto
 
 #### Požadavek a hlavičky požadavku
 Musíte definovat dvě hlavičky požadavku pro metodu GET, nebo tři hlavičky pro metodu POST.
+
 1. Hlavičku `api-key` je nutné nastavit na klíč dotazu, který jste získali v kroku I. Všimněte si, že jako hlavičku `api-key` můžete použít i klíč správce, ale doporučujeme používat klíč dotazů, protože uděluje přístup k indexům a dokumentům výhradně pouze pro čtení.
 2. Hlavička `Accept` musí být nastavená na `application/json`.
 3. U metody POST by měla být hlavička `Content-Type` také nastavená na `application/json`.
@@ -159,8 +157,6 @@ Po úspěšném požadavku dotazu nastane stavový kód `200 OK` a výsledky vyh
 ```
 
 Zjistěte více v sekci „Odpověď“ tématu [Vyhledávání dokumentů](https://msdn.microsoft.com/library/azure/dn798927.aspx). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

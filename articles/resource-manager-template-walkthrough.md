@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Názorný průvodce šablonou Resource Manageru | Microsoft Azure"
-   description="Názorný a podrobný průvodce šablonou Resource Manageru, která zřizuje základní architekturu Azure IaaS."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Názorný průvodce šablonou Resource Manageru | Microsoft Docs
+description: Názorný a podrobný průvodce šablonou Resource Manageru, která zřizuje základní architekturu Azure IaaS.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: ''
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
 
+---
 # Názorný průvodce šablonou Resource Manageru
-
 Jednou ze základních otázek při vytváření šablon je, jak vůbec začít. Dá se začít prázdnou šablonou, využít základní strukturu popsanou v článku věnovaném [vytváření šablon](resource-group-authoring-templates.md#template-format) a přidat prostředky a příslušné parametry a proměnné. Dobrou alternativou by také bylo projít si [galerii pro rychlý start](https://github.com/Azure/azure-quickstart-templates) a najít scénáře podobné tomu, který se pokoušíte vytvořit. Můžete sloučit několik šablon nebo upravit stávající šablonu tak, aby vyhovovala vašemu konkrétnímu scénáři. 
 
 Podívejme se na běžnou infrastrukturu:
@@ -33,10 +31,12 @@ Toto téma vás provede jednotlivými kroky při vytváření šablony Resource 
 
 Ale tohle všechno se nedá vytvořit najednou, proto nejdřív vytvoříme účet úložiště a nasadíme ho. Až zvládnete vytvořit účet úložiště, přidáte další prostředky a pak šablonu nasadíte znovu a dokončíte příslušnou infrastrukturu.
 
->[AZURE.NOTE] K vytvoření šablony můžete použít libovolný typ editoru. Sada Visual Studio sice poskytuje nástroje, které zjednodušují vývoj šablon, ale k dokončení tohoto kurzu ji nepotřebujete. Kurz použití sady Visual Studio k vytvoření nasazení SQL Database a webové aplikace najdete v článku o [vytvoření a nasazení skupin prostředků Azure pomocí sady Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> K vytvoření šablony můžete použít libovolný typ editoru. Sada Visual Studio sice poskytuje nástroje, které zjednodušují vývoj šablon, ale k dokončení tohoto kurzu ji nepotřebujete. Kurz použití sady Visual Studio k vytvoření nasazení SQL Database a webové aplikace najdete v článku o [vytvoření a nasazení skupin prostředků Azure pomocí sady Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Vytvoření šablony Resource Manageru
-
 Šablona je soubor JSON a definuje všechny prostředky, které nasadíte. Umožňuje také definovat parametry, které se zadávají během nasazení, proměnné, které se vytvářejí na základě jiných hodnot a výrazů, a výstupy z nasazení. 
 
 Začněme nejjednodušší šablonou:
@@ -162,14 +162,15 @@ Hodnota zadaná jako **type** obsahuje poskytovatele prostředku i jeho typ. Pos
 ```
 
 Pokud používáte rozhraní příkazového řádku Azure, využijte k tomuto účelu následující příkaz:
+
 ```
     azure provider list
 ```
 Vzhledem k tomu, že v tomto tématu pracujete s účty úložiště, virtuálními počítači a virtuální sítí, budete využívat:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 Pokud chcete zobrazit typy prostředků pro konkrétního poskytovatele, spusťte následující příkaz PowerShellu:
 
@@ -387,7 +388,7 @@ Všechny vlastnosti najdete v tématu [REST API pro síťová rozhraní](https:/
 Vytvoříte dva virtuální počítače pomocí funkce copyIndex(), a to stejným způsobem jakým jste postupovali při vytváření [síťových rozhraní](#network-interface).
 Vytvoření virtuálního počítače závisí na účtu úložiště, síťovém rozhraní a skupině dostupnosti. Tento virtuální počítač se vytvoří na základě image pořízené na Marketplace, jak definuje vlastnost `storageProfile`. K definování nabídky, SKU, verze a vydavatele této image se použije `imageReference`. Nakonec se nakonfiguruje diagnostický profil a povolí se diagnostika virtuálního počítače. 
 
-Relevantní vlastnosti pro image pořízenou prostřednictvím Marketplace najdete v článcích věnovaných [vybraným imagím pro virtuální počítače s Linuxem](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) nebo [vybraným imagím pro virtuální počítače s Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+Relevantní vlastnosti pro image pořízenou prostřednictvím Marketplace najdete v článcích věnovaných [vybraným imagím pro virtuální počítače s Linuxem](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) nebo [vybraným imagím pro virtuální počítače s Windows](virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 ```json
 {
@@ -448,12 +449,14 @@ Relevantní vlastnosti pro image pořízenou prostřednictvím Marketplace najde
 }
 ```
 
->[AZURE.NOTE] Pokud je image vydaná **jiným dodavatelem**, budete muset zadat jinou vlastnost s názvem `plan`. Příklad najdete v [této šabloně](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) z galerie pro rychlý start. 
+> [!NOTE]
+> Pokud je image vydaná **jiným dodavatelem**, budete muset zadat jinou vlastnost s názvem `plan`. Příklad najdete v [této šabloně](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) z galerie pro rychlý start. 
+> 
+> 
 
 Tím jste dokončili vytváření prostředků pro vaši šablonu.
 
 ## Parametry
-
 V sekci parametrů definujte hodnoty, které je možné zadat při nasazení šablony. Definujte parametry jenom pro ty hodnoty, o kterých si myslíte, že by se měly během nasazení měnit. Můžete také zadat výchozí hodnotu parametru, která se použije, pokud hodnota parametru není během nasazení zadána. Můžete také definovat povolené hodnoty, jak je uvedeno pro parametr **imageSKU**.
 
 ```json
@@ -554,7 +557,6 @@ V sekci parametrů definujte hodnoty, které je možné zadat při nasazení ša
 ```
 
 ## Proměnné
-
 V sekci proměnných můžete definovat hodnoty, které se ve vaší šabloně používají na několika místech, nebo hodnoty, které se vytvářejí na základě jiných hodnot nebo výrazů. Proměnné se často využívají ke zjednodušení syntaxe šablony.
 
 ```json
@@ -577,12 +579,9 @@ Právě jste šablonu dokončili! Nyní ji můžete porovnat s kompletní šablo
 Tuto šablonu můžete znovu nasadit pomocí stejných příkazů, které jste použili k nasazení účtu úložiště. Účet úložiště nemusíte před novým nasazením odstraňovat, protože Resource Manager přeskočí znovuvytváření prostředků, které už existují a nezměnily se.
 
 ## Další kroky
-
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) je skvělý nástroj pro vizualizaci šablon ARM v případě, že jsou příliš velké a nedají se pochopit pouhým čtením souboru json.
-- Další informace o struktuře šablon najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
-- Informace o nasazení šablony najdete v tématu věnovaném [nasazení skupiny prostředků pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md)
-
-
+* [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) je skvělý nástroj pro vizualizaci šablon ARM v případě, že jsou příliš velké a nedají se pochopit pouhým čtením souboru json.
+* Další informace o struktuře šablon najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
+* Informace o nasazení šablony najdete v tématu věnovaném [nasazení skupiny prostředků pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md)
 
 <!--HONumber=Sep16_HO3-->
 

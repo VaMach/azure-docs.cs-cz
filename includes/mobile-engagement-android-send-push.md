@@ -1,6 +1,5 @@
 
-###<a name="update-manifest-file-to-enable-notifications"></a>Aktualizace souboru manifest pro povolení oznámení
-
+### <a name="update-manifest-file-to-enable-notifications"></a>Aktualizace souboru manifest pro povolení oznámení
 Zkopírujte níže uvedené prostředky zasílání zpráv v aplikaci do souboru Manifest.xml mezi značky `<application>` a `</application>`.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
@@ -45,8 +44,7 @@ Zkopírujte níže uvedené prostředky zasílání zpráv v aplikaci do souboru
             </intent-filter>
         </receiver>
 
-###<a name="specify-an-icon-for-notifications"></a>Určení ikony pro oznámení
-
+### <a name="specify-an-icon-for-notifications"></a>Určení ikony pro oznámení
 Vložte následující fragment kódu XML do souboru Manifest.xml mezi značky `<application>` a `</application>`.
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
@@ -55,28 +53,32 @@ Tím se určuje ikona, která se bude zobrazovat v oznámeních v systému i apl
 
 Ujistěte se, že použijete ikonu, která existuje v některé ze složek **drawable** (třeba ``engagement_close.png``). Není dostupná podpora složky **mipmap**.
 
->[AZURE.NOTE] Neměli byste používat ikonu **launcher**. Má jiné rozlišení a většinou se nachází ve složkách mipmap, které nejsou podporované.
+> [!NOTE]
+> Neměli byste používat ikonu **launcher**. Má jiné rozlišení a většinou se nachází ve složkách mipmap, které nejsou podporované.
+> 
+> 
 
 Ve skutečných aplikacích můžete použít ikonu vhodnou pro oznámení podle [pokynů pro návrh Androidu](http://developer.android.com/design/patterns/notifications.html).
 
->[AZURE.TIP] Pokud chcete mít jistotu, že používáte správné rozlišení ikon, můžete se podívat na [tyto příklady](https://www.google.com/design/icons).
-Přejděte dolů do části **Oznámení** a kliknutím na `PNGS` stáhněte sadu drawable ikony. Zjistíte, které složky drawable s jakým rozlišením se mají pro každou verzi ikony použít.
+> [!TIP]
+> Pokud chcete mít jistotu, že používáte správné rozlišení ikon, můžete se podívat na [tyto příklady](https://www.google.com/design/icons).
+> Přejděte dolů do části **Oznámení** a kliknutím na `PNGS` stáhněte sadu drawable ikony. Zjistíte, které složky drawable s jakým rozlišením se mají pro každou verzi ikony použít.
+> 
+> 
 
-###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Povolení přijímání nabízených oznámení GCM v aplikaci
-
+### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>Povolení přijímání nabízených oznámení GCM v aplikaci
 1. Až nahradíte **** získané z konzoly projektu Firebase, vložte následující položky do souboru Manifest.xml mezi značky `<application>` a `</application>`. Položka \n je úmyslná, proto se ujistěte, že se nachází na konci čísla projektu.
-
+   
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-
 2. Vložte následující kód do souboru Manifest.xml mezi značky `<application>` a `</application>`. Nahraďte název balíčku <Your package name>.
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
             </intent-filter>
         </receiver>
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -84,17 +86,11 @@ Přejděte dolů do části **Oznámení** a kliknutím na `PNGS` stáhněte sad
                 <category android:name="<Your package name>" />
             </intent-filter>
         </receiver>
-
 3. Přidejte poslední sadu oprávnění, která je zvýrazněná, před značku `<application>`. Nahraďte `<Your package name>` skutečným názvem balíčku aplikace.
-
+   
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-
-
-
-
 
 <!--HONumber=Oct16_HO3-->
 

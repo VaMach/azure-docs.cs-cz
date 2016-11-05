@@ -1,77 +1,68 @@
-<properties
-    pageTitle="Kurz HBase: Začínáme s clustery se systémem Linux HBase v Hadoop | Microsoft Azure"
-    description="Pro začátky používání Apache HBase s Hadoop v HDInsight dokončete tento kurz HBase. Vytvářejte tabulky z prostředí HBase a dotazujte je pomocí Hive."
-    keywords="apache hbase, hbase, prostředí hbase, kurz hbase"
-    services="hdinsight"
-    documentationCenter=""
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: 'Kurz HBase: Začínáme s clustery se systémem Linux HBase v Hadoop | Microsoft Docs'
+description: Pro začátky používání Apache HBase s Hadoop v HDInsight dokončete tento kurz HBase. Vytvářejte tabulky z prostředí HBase a dotazujte je pomocí Hive.
+keywords: apache hbase, hbase, prostředí hbase, kurz hbase
+services: hdinsight
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/25/2016"
-    ms.author="jgao"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/25/2016
+ms.author: jgao
 
-
-
-
-# Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight 
-
-[AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+---
+# Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight
+[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Naučte se vytvářet cluster HBase v HDInsight, vytvářet tabulky HBase a dotazovat tabulky pomocí Hive. Obecné informace o HBase naleznete v tématu [Přehled HDInsight HBase][hdinsight-hbase-overview].
 
 Informace v tomto dokumentu se týkají clusterů se systémem Linux HDInsight. Informace o clusterech založených na systému Windows využívají k přepínání volič karty v horní části stránky.
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##Požadavky
-
+## Požadavky
 Než zahájíte tento kurz HBase, musíte mít následující:
 
-- **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
-- [curl](http://curl.haxx.se/download.html).
+* **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+* [curl](http://curl.haxx.se/download.html).
 
 ### Požadavky na řízení přístupu
-
-[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Vytvoření clusteru HBase
-
 Následující postup vytvoří cluster HBase pomocí šablony Azure Resource Manageru. Pro lepší pochopení parametrů použitých v postupu a dalších metod vytvoření clusteru si projděte téma [Vytvoření Hadoop clusterů se systémem Linux v HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Kliknutím na následující obrázek otevřete šablonu na webu Azure Portal. Šablona se nachází ve veřejném kontejneru objektů blob. 
-
+   
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
 2. Z okna **Parametry** zadejte následující údaje:
-
-    - **Název clusteru**: Zadejte název pro cluster HBase, který chcete vytvořit.
-    - **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
-    - **Uživatelské jméno a heslo SSH**: výchozí uživatelské jméno **sshuser**.  Můžete ho změnit.
+   
+   * **Název clusteru**: Zadejte název pro cluster HBase, který chcete vytvořit.
+   * **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
+   * **Uživatelské jméno a heslo SSH**: výchozí uživatelské jméno **sshuser**.  Můžete ho změnit.
      
-    Další parametry jsou volitelné.  
-    
-    Každý cluster obsahuje závislost účtu úložiště Azure Blob. Po odstranění clusteru se data zachovají na účtu úložiště. Výchozí název účtu úložiště clusteru je název clusteru s připojenou příponou „úložiště“. Je pevně kódovaný v části proměnných šablon.
-        
+     Další parametry jsou volitelné.  
+     
+     Každý cluster obsahuje závislost účtu úložiště Azure Blob. Po odstranění clusteru se data zachovají na účtu úložiště. Výchozí název účtu úložiště clusteru je název clusteru s připojenou příponou „úložiště“. Je pevně kódovaný v části proměnných šablon.
 3. Klikněte na možnost **OK** a uložte parametry.
 4. Z okna **Vlastní nasazení** klikněte na rozevírací pole **Skupina prostředků** a pak klikněte na tlačítko **Nový** a vytvořte novou skupinu prostředků.  Skupina prostředků je kontejner, který seskupuje cluster, účet závislého úložiště a další propojené prostředky skupin.
 5. Klikněte na tlačítko **Smluvní podmínky** a pak klikněte na tlačítko **Vytvořit**.
 6. Klikněte na možnost **Vytvořit**. Vytvoření clusteru trvá přibližně 20 minut.
 
-
->[AZURE.NOTE] Po odstranění clusteru služby HBase můžete vytvořit jiný cluster HBase pomocí stejného výchozího kontejneru blob. Nový cluster převezme tabulky HBase, které jste vytvořili v původním clusteru. Aby se zabránilo nekonzistencím, doporučujeme zakázat tabulky HBase před odstraněním clusteru.
+> [!NOTE]
+> Po odstranění clusteru služby HBase můžete vytvořit jiný cluster HBase pomocí stejného výchozího kontejneru blob. Nový cluster převezme tabulky HBase, které jste vytvořili v původním clusteru. Aby se zabránilo nekonzistencím, doporučujeme zakázat tabulky HBase před odstraněním clusteru.
+> 
+> 
 
 ## Vytváření tabulek a vkládání dat
-
-SSH můžete použít k připojení ke clusterům HBase a používání prostředí HBase k vytváření tabulek HBase, vkládání dat a dotazování dat. Informace o používání SSH ze systému Linux, Unix, OS X a Windows naleznete v tématu [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md) a [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
- 
+SSH můžete použít k připojení ke clusterům HBase a používání prostředí HBase k vytváření tabulek HBase, vkládání dat a dotazování dat. Informace o používání SSH ze systému Linux, Unix, OS X a Windows naleznete v tématu [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md) a [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Pro většinu osob se data zobrazí v tabulkovém formátu:
 
@@ -83,45 +74,38 @@ V HBase, což je implementace BigTable vypadají stejná data následovně:
 
 Po dokončení dalšího postupu to bude dávat větší smysl.  
 
-
 **Postup používání prostředí HBase**
 
 1. Ze SSH spusťte následující příkaz:
-
+   
         hbase shell
-
-4. Vytvořte HBase s rodinami o dvou sloupcích:
-
+2. Vytvořte HBase s rodinami o dvou sloupcích:
+   
         create 'Contacts', 'Personal', 'Office'
         list
-5. Vložte některá data:
-
+3. Vložte některá data:
+   
         put 'Contacts', '1000', 'Personal:Name', 'John Dole'
         put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
         put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
-
+   
     ![prostředí hbase hdinsight hadoop][img-hbase-shell]
-
-6. Získání jednoho řádku
-
+4. Získání jednoho řádku
+   
         get 'Contacts', '1000'
-
+   
     Zobrazí se stejné výsledky jako pomocí příkazu vyhledávání, protože existuje pouze jeden řádek.
-
+   
     Další informace o schématu tabulky HBase naleznete v tématu [Úvod do navrhování schémat HBase][hbase-schema]. Další příkazy HBase naleznete v tématu [Referenční příručka Apache HBase][hbase-quick-start].
-
-6. Opusťte prostředí
-
+5. Opusťte prostředí
+   
         exit
-
-
 
 **Hromadné načítání dat do tabulky kontaktů HBase**
 
 HBase obsahuje několik metod načítání dat do tabulek.  Další informace naleznete v tématu [Hromadné načítání](http://hbase.apache.org/book.html#arch.bulk.load).
-
 
 Ukázkový datový soubor byl nahrán do veřejného kontejneru blob na adrese *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Obsah datového souboru je:
 
@@ -138,96 +122,91 @@ Ukázkový datový soubor byl nahrán do veřejného kontejneru blob na adrese *
 
 Můžete vytvořit textový soubor a případně soubor nahrát do vlastního účtu úložiště. Pokyny naleznete v tématu [Nahrávání dat pro úlohy Hadoop do HDInsight][hdinsight-upload-data].
 
-> [AZURE.NOTE] Tento postup používá tabulku kontaktů HBase, kterou jste vytvořili v posledním postupu.
+> [!NOTE]
+> Tento postup používá tabulku kontaktů HBase, kterou jste vytvořili v posledním postupu.
+> 
+> 
 
 1. Ze SSH spusťte následující příkaz k transformaci datového souboru StoreFiles a uložte ho do relativní cesty určené položkou Dimporttsv.bulk.output:.  Pokud jste v prostředí HBase, odejděte pomocí příkazu exit.
-
+   
         hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
-
-4. Spusťte následující příkaz a nahrajte data z adresy /example/data/storeDataFileOutput do tabulky HBase:
-
+2. Spusťte následující příkaz a nahrajte data z adresy /example/data/storeDataFileOutput do tabulky HBase:
+   
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
-
-5. Prostředí HBase můžete otevřít a použít příkaz skenování k zobrazení seznamu obsahu tabulky.
-
-
+3. Prostředí HBase můžete otevřít a použít příkaz skenování k zobrazení seznamu obsahu tabulky.
 
 ## Použití Hive k dotazování HBase
-
 Data v tabulkách HBase můžete dotazovat pomocí Hive. Tati část vytvoří tabulku Hive, která se mapuje na tabulku HBase a použije k dotazování dat v tabulce HBase.
 
 1. Otevřete **PuTTY** a připojte se ke clusteru.  Pokyny naleznete v předchozím postupu.
 2. Otevřete prostředí Hive.
-
+   
        hive
 3. Spusťte následující skript HiveQL k vytvoření tabulky Hive, která se mapuje na tabulku HBase. Před spuštěním tohoto prohlášení ověřte, zda jste vytvořili ukázkové tabulky odkazované dříve v tomto kurzu pomocí prostředí HBase.
-
+   
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
-
-2. Spusťte následující skript HiveQL. Dotaz Hive dotazuje data v tabulce HBase:
-
+4. Spusťte následující skript HiveQL. Dotaz Hive dotazuje data v tabulce HBase:
+   
         SELECT count(*) FROM hbasecontacts;
 
 ## Použití rozhraní REST API HBase pomocí Curl
-
-> [AZURE.NOTE] Pokud používáte Curl nebo jinou komunikaci REST s WebHCat, je třeba ověřit žádosti zadáním uživatelského jména a hesla pro správce clusteru HDInsight. Název clusteru také musíte použít jako součást identifikátoru URI (Uniform Resource Identifier) sloužícímu k odesílání požadavků na server.
->
+> [!NOTE]
+> Pokud používáte Curl nebo jinou komunikaci REST s WebHCat, je třeba ověřit žádosti zadáním uživatelského jména a hesla pro správce clusteru HDInsight. Název clusteru také musíte použít jako součást identifikátoru URI (Uniform Resource Identifier) sloužícímu k odesílání požadavků na server.
+> 
 > Pro příkazy v této části nahraďte **UŽIVATELSKÉ JMÉNO** uživatelem pro ověření do clusteru a nahraďte **HESLO** heslem pro uživatelský účet. Nahraďte **CLUSTERNAME** názvem vašeho clusteru.
->
+> 
 > Rozhraní API REST je zabezpečeno pomocí [základního ověřování](http://en.wikipedia.org/wiki/Basic_access_authentication). Vždy doporučujeme provádět požadavky pomocí protokolu HTTPS (Secure HTTP) a pomoci tak zajistit, že přihlašovací údaje budou na server odeslány bezpečně.
+> 
+> 
 
 1. Z příkazového řádku použijte následující příkaz k ověření, zda se můžete připojit ke clusteru HDInsight:
-
+   
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-
+   
     Měla by se zobrazit odpověď podobná následujícímu:
-
+   
         {"status":"ok","version":"v1"}
-
+   
     Parametry použité v tomto příkazu jsou následující:
-
-    * **-u** – uživatelské jméno a heslo použité pro ověření žádosti.
-    * **-G** – označuje, že se jedná o požadavek GET.
-
+   
+   * **-u** – uživatelské jméno a heslo použité pro ověření žádosti.
+   * **-G** – označuje, že se jedná o požadavek GET.
 2. Pomocí následujícího příkazu můžete zobrazit seznam existujících tabulek HBase:
-
+   
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/hbaserest/
-
 3. Chcete-li vytvořit novou tabulku HBase se dvěma rodinami sloupců, použijte následující příkaz:
-
+   
         curl -u <UserName>:<Password> \
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
         -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
         -v
-
+   
     Schéma je k dispozici ve formátu JSon.
-
 4. Chcete-li vložit nějaká data použijte následující příkaz:
-
+   
         curl -u <UserName>:<Password> \
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
         -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
         -v
-
+   
     Hodnoty určené v přepínači -d musíte zakódovat base64.  V příkladu:
-
-    - MTAwMA==: 1000
-    - UGVyc29uYWw6TmFtZQ==: Personal:Name
-    - Sm9obiBEb2xl: John Dole
-
-    [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) umožňuje vložit více (dávkových) hodnot.
-
+   
+   * MTAwMA==: 1000
+   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * Sm9obiBEb2xl: John Dole
+     
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) umožňuje vložit více (dávkových) hodnot.
 5. Pro získání řádku použijte následující příkaz:
-
+   
         curl -u <UserName>:<Password> \
         -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
         -H "Accept: application/json" \
@@ -236,28 +215,26 @@ Data v tabulkách HBase můžete dotazovat pomocí Hive. Tati část vytvoří t
 Další informace o HBase Rest naleznete v tématu [Referenční příručka Apache HBase](https://hbase.apache.org/book.html#_rest).
 
 ## Kontrola stavu clusteru
-
 HBase v HDInsight se dodává s webovým uživatelským rozhraním pro sledování clusterů. Pomocí webového uživatelského rozhraní, můžete žádat o statistické údaje nebo informace o oblastech.
 
-SSH lze také použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight. Další informace naleznete v tématu [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+SSH lze také použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight. Další informace naleznete v tématu [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
 
 **Vytvoření relace tunelování SSH**
 
 1. Otevřete **PuTTY**.  
 2. Pokud jste zadali klíč SSH při vytváření uživatelského účtu v průběhu procesu tvorby, je třeba provést následující krok a vybrat privátní klíč pro použití při ověřování clusteru:
-
+   
     V poli **Kategorie** rozbalte položku **Připojení**, rozbalte položku **SSH** a vyberte možnost **Auth**. Nakonec klikněte na tlačítko **Procházet** a vyberte soubor .ppk, který obsahuje soukromý klíč.
-
 3. V části **Kategorie** klikněte na tlačítko **Relace**.
 4. Z možností Základní pro vaši obrazovku relace PuTTY zadejte následující hodnoty:
-
-    - **Název hostitele**: adresa SSH serveru HDInsight v názvu hostitele (nebo IP adresa). Adresa SSH je váš název clusteru, pak **-ssh.azurehdinsight.net**. Například *mycluster-ssh.azurehdinsight.net*.
-    - **Port**: 22. Port SSH na primárním hlavním uzlu je 22.  
+   
+   * **Název hostitele**: adresa SSH serveru HDInsight v názvu hostitele (nebo IP adresa). Adresa SSH je váš název clusteru, pak **-ssh.azurehdinsight.net**. Například *mycluster-ssh.azurehdinsight.net*.
+   * **Port**: 22. Port SSH na primárním hlavním uzlu je 22.  
 5. V části **Kategorie** nalevo od dialogového okna rozbalte položku **Připojení**, rozbalte položku **SSH** a pak klikněte na tlačítko **Tunely**.
 6. Uveďte následující informace o možnostech řízení formuláře přesměrování portu SSH:
-
-    - **Zdrojový port** – port na straně klienta, který chcete přesměrovat. Například 9876.
-    - **Dynamicky** – umožňuje dynamické směrování proxy SOCKS.
+   
+   * **Zdrojový port** – port na straně klienta, který chcete přesměrovat. Například 9876.
+   * **Dynamicky** – umožňuje dynamické směrování proxy SOCKS.
 7. Klikněte na tlačítko **Přidat** a přidejte nastavení.
 8. Klikněte na tlačítko **Otevřít** v dolní části dialogového okna a otevřete připojení SSH.
 9. Po zobrazení výzvy se přihlaste do serveru pomocí účtu SSH. Tím vytvoříte relaci SSH a povolte tunelové propojení.
@@ -278,30 +255,27 @@ SSH lze také použít k tunelování místních požadavků, například webov�
 4. Klikněte na tlačítko **Upřesnit**, klikněte na tlačítko **Síť** a pak klikněte na tlačítko **Nastavení**.
 5. Vyberte možnost **Ruční konfigurace proxy**.
 6. Zadejte následující hodnoty:
-
-    - **Socks hostitele**: localhost
-    - **Port**: použijte stejný port, který jste nakonfigurovali v tunelování Putty SSH.  Například 9876.
-    - **SOCKS v5**: (zaškrtnuto)
-    - **Vzdálený DNS**: (zaškrtnuto)
+   
+   * **Socks hostitele**: localhost
+   * **Port**: použijte stejný port, který jste nakonfigurovali v tunelování Putty SSH.  Například 9876.
+   * **SOCKS v5**: (zaškrtnuto)
+   * **Vzdálený DNS**: (zaškrtnuto)
 7. Klikněte na tlačítko **OK** a uložte změny.
 8. Přejděte na adresu http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
 
 V clusteru s vysokou dostupností najdete odkaz na aktuální aktivní hlavní uzel HBase, který je hostitelem webového uživatelského rozhraní.
 
-##Odstranění clusteru
-
+## Odstranění clusteru
 Aby se zabránilo nekonzistencím, doporučujeme zakázat tabulky HBase před odstraněním clusteru.
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Další kroky
-
 V tomto kurzu HBase pro HDInsight jste se dozvěděli, jak vytvořit cluster HBase a jak vytvářet tabulky a zobrazovat data v těchto tabulkách z prostředí HBase. Také jste se naučili, jak používat dotazy na data Hive v tabulkách HBase a jak používat rozhraní REST API HBase C# k vytvoření tabulky HBase a načtení dat z tabulky.
 
 Další informace naleznete v tématu:
 
-- [Přehled HDInsight HBase][hdinsight-hbase-overview]: HBase je databáze NoSQL open source Apache postavená na Hadoop poskytující náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat.
-
+* [Přehled HDInsight HBase][hdinsight-hbase-overview]: HBase je databáze NoSQL open source Apache postavená na Hadoop poskytující náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

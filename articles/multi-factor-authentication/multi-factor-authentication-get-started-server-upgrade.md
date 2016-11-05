@@ -1,24 +1,22 @@
-<properties 
-    pageTitle="Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication"
-    description="Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+---
+title: Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
+description: Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
-
 Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Authentication vyžaduje odinstalaci PhoneFactor agenta a přidružených součásti před instalací serveru Multi-Factor Authentication a jeho přidružených součásti.
 
 ## Postup upgradu agenta PhoneFactor na server Azure Multi-Factor Authentication
@@ -40,6 +38,7 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 
 
 <li>Pokud je nainstalována webová služba mobilní aplikace:
+
 <ol>
 <li>Přejděte do složky instalace a zálohujte soubor web.config. Výchozí umístění instalace je C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Odinstalujte službu mobilní webové aplikace prostřednictvím programů a funkcí systému Windows.</li></ol>
@@ -57,6 +56,7 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 <li>Pokud bylo rozhraní User Portal dříve nainstalováno na serveru agenta PhoneFactor, nainstalujte nový uživatelský portál Multi-Factor Authentication prostřednictvím uživatelského rozhraní serveru Multi-Factor Authentication. Všimněte si, že výchozí název virtuálního adresáře je nyní „MultiFactorAuth“ místo „PhoneFactor“. Pokud chcete použít předchozí název, musíte změnit název virtuálního adresáře během instalace. Jinak pokud povolíte instalaci pro použití nového výchozího názvu, doporučujeme kliknout na ikonu portálu pro uživatele na serveru Multi-Factor Authentication a aktualizovat adresu URL portálu pro uživatele na kartě Nastavení.
 
 <li>Pokud byly portál pro uživatele nebo webové služby mobilní aplikace dříve nainstalovány na jiném serveru než agent PhoneFactor:
+
 <ol>
 <li>Přejděte do umístění instalace (např. C:\Program Files\PhoneFactor) a zkopírujte příslušné instalační programy na jiný server. Existují 32bitové a 64bitové verze instalačních programů pro portál pro uživatele a webové služby mobilní aplikace. Nazývají se MultiFactorAuthenticationUserPortalSetupXX.msi a MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi v uvedeném pořadí.</li>
 <li>Chcete-li nainstalovat portál pro uživatele na webovém serveru, otevřete příkazový řádek jako správce a spusťte soubor MultiFactorAuthenticationUserPortalSetupXX.msi. Všimněte si, že výchozí název virtuálního adresáře je nyní „MultiFactorAuth“ místo „PhoneFactor“. Pokud chcete použít předchozí název, musíte změnit název virtuálního adresáře během instalace. Jinak pokud povolíte instalaci pro použití nového výchozího názvu, doporučujeme kliknout na ikonu portálu pro uživatele na serveru Multi-Factor Authentication a aktualizovat adresu URL portálu pro uživatele na kartě Nastavení. Stávající uživatelé budou muset být informováni o nové adrese URL.</li>

@@ -1,64 +1,63 @@
-<properties
-   pageTitle="Vytvoření SQL Data Warehouse pomocí TSQL | Microsoft Azure"
-   description="Naučte se vytvářet Azure SQL Data Warehouse pomocí TSQL."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""
-   tags="azure-sql-data-warehouse"/>
+---
+title: Vytvoření SQL Data Warehouse pomocí TSQL | Microsoft Docs
+description: Naučte se vytvářet Azure SQL Data Warehouse pomocí TSQL.
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
+tags: azure-sql-data-warehouse
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/24/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/24/2016
+ms.author: lodipalm;barbkess;sonyama
 
-
+---
 # Vytvoření databáze SQL Data Warehouse pomocí jazyka Transact-SQL (TSQL)
-
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
-- [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
-- [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+> [!div class="op_single_selector"]
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+> * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+> 
+> 
 
 V tomto článku zjistíte, jak můžete k vytvoření SQL Data Warehouse použít T-SQL.
 
 ## Požadavky
-
 Na začátek budete potřebovat: 
 
-- **Účet Azure:** Pokud si chcete vytvořit účet, přečtěte si článek [bezplatné zkušební verzi Azure][] nebo [Kredity Azure pro předplatitele MSDN][].
-- **Azure SQL Server:** Přečtěte si článek [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][] nebo [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell][], kde najdete další podrobnosti.
-- **Skupinu prostředků:** Buď použijte stejnou skupinu prostředků jako pro Azure SQL Server, nebo zjistěte, [jak vytvořit skupinu prostředků][].
-- **Prostředí ke spuštění T-SQL:** Ke spuštění T-SQL můžete použít [Visual Studio][instalaci sady Visual Studio a rozšíření SSDT], [sqlcmd][] nebo [SSMS][].
+* **Účet Azure:** Pokud si chcete vytvořit účet, přečtěte si článek [bezplatné zkušební verzi Azure][bezplatné zkušební verzi Azure] nebo [Kredity Azure pro předplatitele MSDN][Kredity Azure pro předplatitele MSDN].
+* **Azure SQL Server:** Přečtěte si článek [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal] nebo [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell][Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell], kde najdete další podrobnosti.
+* **Skupinu prostředků:** Buď použijte stejnou skupinu prostředků jako pro Azure SQL Server, nebo zjistěte, [jak vytvořit skupinu prostředků][jak vytvořit skupinu prostředků].
+* **Prostředí ke spuštění T-SQL:** Ke spuštění T-SQL můžete použít [Visual Studio][instalaci sady Visual Studio a rozšíření SSDT], [sqlcmd][sqlcmd] nebo [SSMS][SSMS].
 
-> [AZURE.NOTE] Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti o cenách najdete v tématu [SQL Data Warehouse – ceny][].
+> [!NOTE]
+> Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti o cenách najdete v tématu [SQL Data Warehouse – ceny][SQL Data Warehouse – ceny].
+> 
+> 
 
 ## Vytvoření databáze pomocí sady Visual Studio
-
-Pokud jste ještě sadu Visual Studio nikdy nepoužívali, přečtěte si článek [Dotazování Azure SQL Data Warehouse (Visual Studio)][].  Začněte tím, že otevřete Průzkumník objektů systému SQL Server v sadě Visual Studio a připojíte se k serveru, který bude hostitelem databáze SQL Data Warehouse.  Po připojení můžete vytvořit SQL Data Warehouse spuštěním následujícího příkazu SQL na **hlavní** databázi.  Tento příkaz vytvoří databázi MySqlDwDb s cílem služby DW400 a umožní zvětšování databáze až do maximální velikosti 10 TB.
+Pokud jste ještě sadu Visual Studio nikdy nepoužívali, přečtěte si článek [Dotazování Azure SQL Data Warehouse (Visual Studio)][Dotazování Azure SQL Data Warehouse (Visual Studio)].  Začněte tím, že otevřete Průzkumník objektů systému SQL Server v sadě Visual Studio a připojíte se k serveru, který bude hostitelem databáze SQL Data Warehouse.  Po připojení můžete vytvořit SQL Data Warehouse spuštěním následujícího příkazu SQL na **hlavní** databázi.  Tento příkaz vytvoří databázi MySqlDwDb s cílem služby DW400 a umožní zvětšování databáze až do maximální velikosti 10 TB.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
 ```
 
 ## Vytvoření databáze pomocí sqlcmd
-
 Alternativně můžete spustit stejný příkaz pomocí sqlcmd spuštěním následujícího příkazu na příkazovém řádku.
 
 ```sql
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Pokud není uvedeno COLLATE, je výchozí kolace SQL_Latin1_General_CP1_CI_AS.  `MAXSIZE` může být v rozsahu od 250 GB do 240 TB.  `SERVICE_OBJECTIVE` může být v rozmezí od DW100 do DW2000 [DWU][].  Seznam všech platných hodnot naleznete v dokumentaci MSDN pro příkaz [CREATE DATABASE][].  Parametr MAXSIZE i parametr SERVICE_OBJECTIVE je možné měnit pomocí příkazu [ALTER DATABASE][] jazyka T-SQL.  Kolaci databáze nejde po vytvoření změnit.   Při změně hodnoty parametru SERVICE_OBJECTIVE je potřeba postupovat opatrně, protože změna DWU způsobí restartování služeb, což bude znamenat zrušení všech probíhajících dotazů.  Změna hodnoty parametru MAXSIZE nerestartuje služby, protože jde pouze o operaci s metadaty.
+Pokud není uvedeno COLLATE, je výchozí kolace SQL_Latin1_General_CP1_CI_AS.  `MAXSIZE` může být v rozsahu od 250 GB do 240 TB.  `SERVICE_OBJECTIVE` může být v rozmezí od DW100 do DW2000 [DWU][DWU].  Seznam všech platných hodnot naleznete v dokumentaci MSDN pro příkaz [CREATE DATABASE][CREATE DATABASE].  Parametr MAXSIZE i parametr SERVICE_OBJECTIVE je možné měnit pomocí příkazu [ALTER DATABASE][ALTER DATABASE] jazyka T-SQL.  Kolaci databáze nejde po vytvoření změnit.   Při změně hodnoty parametru SERVICE_OBJECTIVE je potřeba postupovat opatrně, protože změna DWU způsobí restartování služeb, což bude znamenat zrušení všech probíhajících dotazů.  Změna hodnoty parametru MAXSIZE nerestartuje služby, protože jde pouze o operaci s metadaty.
 
 ## Další kroky
-
-Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][] nebo se můžete podívat, jak na [vývoj][], [načítání][] nebo [migraci][].
+Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][načíst ukázková data] nebo se můžete podívat, jak na [vývoj][vývoj], [načítání][načítání] nebo [migraci][migraci].
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units

@@ -1,78 +1,72 @@
-<properties
-    pageTitle="Kurz k NoSQL: DocumentDB .NET SDK | Microsoft Azure"
-    description="Kurz k NoSQL, v rámci kterého se vytváří online databáze a konzolová aplikace v jazyce C# pomocí sady DocumentDB .NET SDK. DocumentDB je databáze NoSQL pro JSON."
-    keywords="kurz nosql, online databáze konzolová aplikace jazyka c#"
-    services="documentdb"
-    documentationCenter=".net"
-    authors="AndrewHoh"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: 'Kurz k NoSQL: DocumentDB .NET SDK | Microsoft Docs'
+description: Kurz k NoSQL, v rámci kterého se vytváří online databáze a konzolová aplikace v jazyce C# pomocí sady DocumentDB .NET SDK. DocumentDB je databáze NoSQL pro JSON.
+keywords: kurz nosql, online databáze konzolová aplikace jazyka c#
+services: documentdb
+documentationcenter: .net
+author: AndrewHoh
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="09/01/2016"
-    ms.author="anhoh"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 09/01/2016
+ms.author: anhoh
 
-
-# Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
-
-> [AZURE.SELECTOR]
-- [.NET](documentdb-get-started.md)
-- [Node.js](documentdb-nodejs-get-started.md)
+---
+# Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C
+> [!div class="op_single_selector"]
+> * [.NET](documentdb-get-started.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> 
+> 
 
 Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až získáte projekt Rychlý start nebo projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
 
-- **[Rychlý start](#quickstart)**: Stáhněte si ukázkový projekt, přidejte své informace o připojení a získejte fungující aplikaci DocumentDB za méně než 10 minut.
-- **[Kurz](#tutorial)**: Vytvořte aplikaci Rychlý start od začátku během 30 minut.
+* **[Rychlý start](#quickstart)**: Stáhněte si ukázkový projekt, přidejte své informace o připojení a získejte fungující aplikaci DocumentDB za méně než 10 minut.
+* **[Kurz](#tutorial)**: Vytvořte aplikaci Rychlý start od začátku během 30 minut.
 
 ## Požadavky
-
-- Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).
-- [Visual Studio 2013 nebo Visual Studio 2015](http://www.visualstudio.com/).
-- .NET Framework 4.6
+* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).
+* [Visual Studio 2013 nebo Visual Studio 2015](http://www.visualstudio.com/).
+* .NET Framework 4.6
 
 ## Rychlý start
-
 1. Stáhněte si soubor .zip s ukázkovým projektem z [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) nebo si jej naklonujte z repositáře [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Pomocí webu Azure Portal [vytvořte účet DocumentDB](documentdb-create-account.md).
 3. V souboru App.config nahraďte hodnoty EndpointUri a PrimaryKey pomocí hodnot načtených z webu [Azure Portal](https://portal.azure.com/) přechodem do okna **DocumentDB (NoSQL)**, kliknutím na **Název účtu** a pak kliknutím na **Klíče** v nabídce prostředků.
     ![Snímek obrazovky hodnot EndpointUri a PrimaryKey, které se mají nahradit v souboru App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Sestavte projekt. V okně konzoly se zobrazují nové prostředky, které byly vytvořené, dotazované a poté vyčištěné.
-    
+   
     ![Snímek obrazovky s výstupem konzoly](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
 
 ## <a id="tutorial"></a>Kurz
-
 Tento kurz vás provede vytvořením databáze DocumentDB, kolekce DocumentDB a dokumentů JSON. Potom zadáte dotaz na kolekci, vyčistíte databázi a odstraníte ji. V tomto kurzu se vytvoří stejný projekt jako projekt Rychlý start, ale budete ho vytvářet postupně a obdržíte vysvětlení ke kódu, který do projektu přidáváte.
 
 ## Krok 1: Vytvoření účtu DocumentDB
-
 Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS).
 
-[AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Krok 2: Nastavení řešení v nástroji Visual Studio
-
 1. Otevřete v počítači **Visual Studio 2015**.
 2. V nabídce **Soubor** vyberte **Nový** a zvolte **Projekt**.
 3. V dialogovém okně **Nový projekt** vyberte **Šablony** / **Visual C#** / **Konzolová aplikace**, pojmenujte svůj projekt a klikněte na **OK**.
-![Snímek obrazovky okna Nový projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Snímek obrazovky okna Nový projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. V **Průzkumníku řešení** klikněte pravým tlačítkem na novou konzolovou aplikaci v rámci řešení v nástroji Visual Studio.
 5. Nabídku neopouštějte a klikněte na **Spravovat balíčky NuGet**.
-![Snímek obrazovky místní nabídky projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Snímek obrazovky místní nabídky projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
 7. Najděte ve výsledcích **Microsoft.Azure.DocumentDB** a klikněte na **Nainstalovat**.
-ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-![Snímek obrazovky nabídky NuGet pro vyhledání sady DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Snímek obrazovky nabídky NuGet pro vyhledání sady DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
 ## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
-
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
     using System;
@@ -85,7 +79,10 @@ Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
     using Microsoft.Azure.Documents.Client;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT] Přidání závislostí uvedených výše je nezbytné pro dokončení tohoto kurzu NoSQL.
+> [!IMPORTANT]
+> Přidání závislostí uvedených výše je nezbytné pro dokončení tohoto kurzu NoSQL.
+> 
+> 
 
 Nyní přidejte tyto dvě konstanty a proměnnou *client* pod veřejnou třídu *Program*.
 
@@ -202,9 +199,11 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.  
 
-## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce  
-
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** vytvoří novou kolekci s vyhrazenou propustností, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
+## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce
+> [!WARNING]
+> **CreateDocumentCollectionAsync** vytvoří novou kolekci s vyhrazenou propustností, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
+> 
+> 
 
 [Kolekci](documentdb-resources.md#collections) je možné vytvořit pomocí metody [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) třídy **DocumentClient**. Kolekce je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace.
 
@@ -418,8 +417,7 @@ Blahopřejeme! Úspěšně jste vytvořili dva dokumenty DocumentDB.
 
 ![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-##<a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
-
+## <a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
 DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi DocumentDB SQL, tak LINQ – které spouštíme oproti dokumentům vloženým v předchozím kroku.
 
 Zkopírujte a vložte metodu **ExecuteSimpleQuery** pod metodu **CreateFamilyDocumentIfNotExists**.
@@ -475,8 +473,7 @@ Následující diagram ilustruje, jak se volá syntaxe dotazu DocumentDB SQL pro
 
 Klíčové slovo [FROM](documentdb-sql-query.md#from-clause) je v dotazu volitelné, protože dotazy DocumentDB již mají obor nastaven na jedinou kolekci. Proto je možné příkaz „FROM Families f“ vyměnit za „FROM root r“ nebo jakoukoli jinou proměnnou, kterou si zvolíte. DocumentDB standardně vyvodí, že Families, root nebo zvolený název proměnné odkazují na aktuální kolekci.
 
-##<a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
-
+## <a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
 DocumentDB podporuje nahrazování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **ReplaceFamilyDocument** pod metodu **ExecuteSimpleQuery**.
@@ -513,8 +510,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
 
-##<a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
-
+## <a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
 DocumentDB podporuje odstraňování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **DeleteFamilyDocument** pod metodu **ReplaceFamilyDocument**.
@@ -546,8 +542,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
 
-##<a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
-
+## <a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
 Pokud chcete odstranit celou databázi a její podřízené prostředky, zkopírujte a vložte následující kód do metody **GetStartedDemo** pod odstranění dokumentu.
@@ -564,8 +559,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili databázi DocumentDB.
 
-##<a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#!
-
+## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#!
 Stiskněte v nástroji Visual Studio klávesu F5 – aplikace se sestaví v režimu ladění.
 
 Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výsledky dotazů, které jsme přidali, a měl by odpovídat ukázkovému textu níže.
@@ -594,12 +588,11 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výs
 Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka C#!
 
 ## Další kroky
-
-- Chcete složitější kurz NoSQL pro ASP.NET MVC? Přečtěte si o [vytvoření webové aplikace pomocí ASP.NET MVC a DocumentDB](documentdb-dotnet-application.md).
-- Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
--   Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
--   Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
--   Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Chcete složitější kurz NoSQL pro ASP.NET MVC? Přečtěte si o [vytvoření webové aplikace pomocí ASP.NET MVC a DocumentDB](documentdb-dotnet-application.md).
+* Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
+* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md

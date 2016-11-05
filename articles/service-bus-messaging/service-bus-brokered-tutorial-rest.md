@@ -1,61 +1,51 @@
-<properties 
-    pageTitle="Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus | Microsoft Azure"
-    description="Kurz REST pro zprostředkované zasílání zpráv"
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/27/2016"
-    ms.author="sethm" />
+---
+title: Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus | Microsoft Docs
+description: Kurz REST pro zprostředkované zasílání zpráv
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/27/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus
-
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 V tomto kurzu se dozvíte, jak vytvořit základní frontu a téma/odběr pro Azure Service Bus na základě REST.
 
 ## <a name="create-a-namespace"></a>Vytvoření oboru názvů
+Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
-Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
-
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-console-client"></a>Vytvoření konzolového klienta
-
 Fronty služby Service Bus vám umožňují ukládat zprávy do fronty FIFO (first in, fisrt out). Témata a odběry implementují vzorec publikovat/odebírat – vytvoříte téma a pak vytvoříte jeden nebo víc odběrů přiřazených k tomu tématu. Když se do tématu odešlou zprávy, okamžitě se odešlou odběratelům tohoto témata.
 
 Kód v tomto kurzu provádí toto:
 
-- Použije váš obor názvů a klíč [Sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS) k získání přístupu k vašim prostředkům oboru názvů služby Service Bus.
-
-- Vytvoří frontu, odešle do ní zprávu a přečte zprávu z fronty.
-
-- Vytvoří téma a odběr tohoto tématu, odešle do odběru zprávu a přečte ji z odběru.
-
-- Načte ze služby Service Bus všechny informace o frontě, tématu a odběru, včetně pravidel odběru.
-
-- Odstraní prostředky fronty, témata a odběru.
+* Použije váš obor názvů a klíč [Sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS) k získání přístupu k vašim prostředkům oboru názvů služby Service Bus.
+* Vytvoří frontu, odešle do ní zprávu a přečte zprávu z fronty.
+* Vytvoří téma a odběr tohoto tématu, odešle do odběru zprávu a přečte ji z odběru.
+* Načte ze služby Service Bus všechny informace o frontě, tématu a odběru, včetně pravidel odběru.
+* Odstraní prostředky fronty, témata a odběru.
 
 Jelikož je tato služba webová služba ve stylu REST, nepoužívají se žádné speciální typy, protože se při celé výměně používají řetězce. To znamená, že projekt sady Visual Studio nesmí odkazovat na žádné knihovny služby Service Bus.
 
 Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě Visual Studio vytvořit základní konzolovou aplikaci.
 
 ### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
-
 1. Spusťte Visual Studio jako správce tak, že v nabídce **Start** kliknete na program pravým tlačítkem a vyberete možnost **Spustit jako správce**.
-
-1. Vytvořte nový projekt konzolové aplikace. Klikněte na nabídku **Soubor** a vyberte možnost **Nový**, a pak klikněte na **Projekt**. V dialogovém okně **Nový projekt** klikněte na **Visual C#** (pokud se **Visual C#** nezobrazí, podívejte se do části **Jiné jazyky**), klikněte na šablonu **Konzolová aplikace** a pojmenujte ji jako **Microsoft.ServiceBus.Samples**. Použijte výchozí Umístění. Kliknutím na tlačítko **OK** vytvořte projekt.
-
-1. V souboru Program.cs zkontrolujte, že vaše příkazy `using` vypadají takto:
-
+2. Vytvořte nový projekt konzolové aplikace. Klikněte na nabídku **Soubor** a vyberte možnost **Nový**, a pak klikněte na **Projekt**. V dialogovém okně **Nový projekt** klikněte na **Visual C#** (pokud se **Visual C#** nezobrazí, podívejte se do části **Jiné jazyky**), klikněte na šablonu **Konzolová aplikace** a pojmenujte ji jako **Microsoft.ServiceBus.Samples**. Použijte výchozí Umístění. Kliknutím na tlačítko **OK** vytvořte projekt.
+3. V souboru Program.cs zkontrolujte, že vaše příkazy `using` vypadají takto:
+   
     ```
     using System;
     using System.Globalization;
@@ -65,68 +55,65 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
     using System.Text;
     using System.Xml;
     ```
-
-1. V případě potřeby přejmenujte obor názvů pro program z výchozího názvu Visual Studia na `Microsoft.ServiceBus.Samples`.
-
-1. Ve třídě `Program` přidejte tyto globální proměnné:
-    
+4. V případě potřeby přejmenujte obor názvů pro program z výchozího názvu Visual Studia na `Microsoft.ServiceBus.Samples`.
+5. Ve třídě `Program` přidejte tyto globální proměnné:
+   
     ```
     static string serviceNamespace;
     static string baseAddress;
     static string token;
     const string sbHostName = "servicebus.windows.net";
     ```
-
-1. V `Main()` vložte tento kód:
-
+6. V `Main()` vložte tento kód:
+   
     ```
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
-    
+   
     Console.Write("Enter your SAS key: ");
     string SASKey = Console.ReadLine();
-    
+   
     baseAddress = "https://" + serviceNamespace + "." + sbHostName + "/";
     try
     {
         token = GetSASToken("RootManageSharedAccessKey", SASKey);
-    
+   
         string queueName = "Queue" + Guid.NewGuid().ToString();
-    
+   
         // Create and put a message in the queue
         CreateQueue(queueName, token);
         SendMessage(queueName, "msg1");
         string msg = ReceiveAndDeleteMessage(queueName);
-    
+   
         string topicName = "Topic" + Guid.NewGuid().ToString();
         string subscriptionName = "Subscription" + Guid.NewGuid().ToString();
         CreateTopic(topicName);
         CreateSubscription(topicName, subscriptionName);
         SendMessage(topicName, "msg2");
-    
+   
         Console.WriteLine(ReceiveAndDeleteMessage(topicName + "/Subscriptions/" + subscriptionName));
-    
+   
         // Get an Atom feed with all the queues in the namespace
         Console.WriteLine(GetResources("$Resources/Queues"));
-    
+   
         // Get an Atom feed with all the topics in the namespace
         Console.WriteLine(GetResources("$Resources/Topics"));
-    
+   
         // Get an Atom feed with all the subscriptions for the topic we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions"));
-    
+   
         // Get an Atom feed with all the rules for the topic and subscription we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions/" + subscriptionName + "/Rules"));
-    
+   
         // Delete the queue we created
         DeleteResource(queueName);
-    
+   
         // Delete the topic we created
         DeleteResource(topicName);
-    
+   
         // Get an Atom feed with all the topics in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Topics"));
-    
+   
         // Get an Atom feed with all the queues in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Queues"));
     }
@@ -144,17 +131,15 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
             }
         }
     }
-    
+   
     Console.WriteLine("\nPress ENTER to exit.");
     Console.ReadLine();
     ```
 
 ## <a name="create-management-credentials"></a>Vytvoření pověření ke správě
-
 V dalším kroku se napíše metoda, která zpracuje obor názvů a klíč SAS, které jste zadali v předchozím kroku, a vrátí SAS token. Tento příklad vytvoří SAS token, který bude platit jednu hodinu.
 
 ### <a name="create-a-getsastoken()-method"></a>Vytvořte metodu GetSASToken()
-
 Následující kód vložte za metodu `Main()` ve třídě `Program`:
 
 ```
@@ -172,7 +157,6 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 }
 ```
 ## <a name="create-the-queue"></a>Vytvoření fronty
-
 V dalším kroku se napíše metoda, která pomocí příkazu HTTP PUT ve stylu REST vytvoří frontu.
 
 Následující kód vložte přímo po kódu `GetSASToken()`, který jste přidali v předchozím kroku:
@@ -201,11 +185,10 @@ private static string CreateQueue(string queueName, string token)
 ```
 
 ## <a name="send-a-message-to-the-queue"></a>Zaslání zprávy do fronty
-
 V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST odešle zprávu do fronty, kterou jste vytvořili v předchozím kroku.
 
 1. Následující kód vložte přímo po kódu `CreateQueue()`, který jste přidali v předchozím kroku:
-
+   
     ```
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
@@ -215,22 +198,20 @@ V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST
         Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
         WebClient webClient = new WebClient();
         webClient.Headers[HttpRequestHeader.Authorization] = token;
-    
+   
         webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
     }
     ```
-
-1. V hlavičce HTTP `BrokerProperties` jsou umístěné standardní vlastnosti zprostředkované zprávy. Vlastnosti zprostředkovatele musí být serializované ve formátu JSON. Pro zprávu chcete specifikovat hodnotu **TimeToLive** 30 sekund a přidat označení zprávy „M1“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
-
+2. V hlavičce HTTP `BrokerProperties` jsou umístěné standardní vlastnosti zprostředkované zprávy. Vlastnosti zprostředkovatele musí být serializované ve formátu JSON. Pro zprávu chcete specifikovat hodnotu **TimeToLive** 30 sekund a přidat označení zprávy „M1“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
+   
     ```
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
-
+   
     Nezapomeňte, že se přidaly a přidají vlastnosti zprostředkované zprávy. Požadavek na odeslání proto musí specifikovat verzi API, která podporuje všechny vlastnosti zprostředkované zprávy, které jsou součástí požadavku. Pokud specifikovaná verze API nepodporuje některou vlastnost zprostředkované zprávy, bude se taková vlastnost ignorovat.
-
-1. Vlastní vlastnosti zprávy jsou definované jako sada párů klíčových hodnot. Každá vlastní vlastnost je uložená ve své vlastní hlavičce TPPT. Chcete přidat vlastní vlastnosti „Priority“ a „Customer“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
-
+3. Vlastní vlastnosti zprávy jsou definované jako sada párů klíčových hodnot. Každá vlastní vlastnost je uložená ve své vlastní hlavičce TPPT. Chcete přidat vlastní vlastnosti „Priority“ a „Customer“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
+   
     ```
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
@@ -238,7 +219,6 @@ V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST
     ```
 
 ## <a name="receive-and-delete-a-message-from-the-queue"></a>Přijetí a odstranění zprávy z fronty
-
 V dalším kroku se přidá metoda, která pomocí příkazu HTTP DELETE ve stylu REST přijme a odstraní zprávu z fronty.
 
 Následující kód vložte přímo po kódu `SendMessage()`, který jste přidali v předchozím kroku:
@@ -262,11 +242,9 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 ```
 
 ## <a name="create-a-topic-and-subscription"></a>Vytvoření témata a odběru
-
 V dalším kroku se napíše metoda, která pomocí příkazu HTTP PUT ve stylu REST vytvoří téma. Potom napíšete metodu, která vytvoří odběr tohoto tématu.
 
 ### <a name="create-a-topic"></a>Vytvoření tématu
-
 Následující kód vložte přímo po kódu `ReceiveAndDeleteMessage()`, který jste přidali v předchozím kroku:
 
 ```
@@ -292,7 +270,6 @@ private static string CreateTopic(string topicName)
 ```
 
 ### <a name="create-a-subscription"></a>Vytvoření odběru
-
 Následující kód vytvoří odběr tématu, který jste vytvořili v předchozím kroku. Následující kód přidejte přímo po definici `CreateTopic()`:
 
 ```
@@ -317,11 +294,9 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 ```
 
 ## <a name="retrieve-message-resources"></a>Načtení prostředků zprávy
-
 V tomto kroku přidáte kód, který načte vlastnosti zprávy, a pak odstraní prostředky přenosu zpráv vytvořené v předchozím kroku.
 
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Načtení informačního kanálu Atom se zadanými prostředky
-
 Následující kód přidejte přímo po metodě `CreateSubscription()`, kterou jste přidali v předchozím kroku:
 
 ```
@@ -336,7 +311,6 @@ private static string GetResources(string resourceAddress)
 ```
 
 ### <a name="delete-messaging-entities"></a>Odstranění entit přenosu zpráv
-
 Následující kód přidejte přímo po kódu, který jste přidali v předchozím kroku:
 
 ```
@@ -353,7 +327,6 @@ private static string DeleteResource(string resourceName)
 ```
 
 ### <a name="format-the-atom-feed"></a>Formátování informačního kanálu Atom
-
 Metoda `GetResources()` obsahuje volání metody `FormatXml()`, která přeformátuje načtený informační kanál Atom tak, aby byl lépe čitelný. Následující kód je definice `FormatXml()`, přidejte ho přímo po kódu `DeleteResource()`, který jste přidali v předchozí části:
 
 ```
@@ -375,15 +348,12 @@ private static string FormatXml(string inputXml)
 ```
 
 ## <a name="build-and-run-the-application"></a>Sestavení a spuštění aplikace
-
 Teď můžete aplikaci sestavit a spustit. V nabídce **Sestavení** v sadě Visual Studio klikněte na **Sestavit řešení** nebo stiskněte **Ctrl+Shift+B**.
 
 ### <a name="run-the-application"></a>Spuštění aplikace
-
 Pokud se neobjevily žádné chyby, spusťte aplikaci stisknutím klávesy F5. Když se zobrazí příslušná výzva, zadejte obor názvů, název klíče SAS a hodnotu klíče SAS, kterou jste získali v prvním kroku.
 
 ### <a name="example"></a>Příklad
-
 Následující příklad obsahuje kompletní kód tak, jak by měl vypadat, pokud jste správně provedli všechny kroku v tomto kurzu.
 
 ```
@@ -621,15 +591,11 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="next-steps"></a>Další kroky
-
 Další informace najdete v těchto článcích:
 
-- [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-- [Základy služby Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Kurz k rozhraní REST pro Service Bus Relay](../service-bus-relay/service-bus-relay-rest-tutorial.md)
-
-
-
+* [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
+* [Základy služby Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Kurz k rozhraní REST pro Service Bus Relay](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 <!--HONumber=Oct16_HO3-->
 

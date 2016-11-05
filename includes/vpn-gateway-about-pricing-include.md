@@ -4,9 +4,9 @@ Platíte za dvě věci: náklady na výpočetní kapacitu pro bránu virtuální
 
 **Náklady na přenos dat**<br>Náklady na přenos dat se počítají na základě výchozího přenosu ze zdrojové brány virtuální sítě.
 
-- Pokud odesíláte přenosy do místního zařízení VPN, budou se účtovat podle sazby za výchozí internetový přenos dat.
-- Pokud odesíláte přenosy mezi virtuálními sítěmi v různých oblastech, ceny závisí na konkrétní oblasti.
-- Pokud odesíláte přenosy pouze mezi virtuálními sítěmi ve stejné oblasti, žádné náklady na data se na vás nevztahují. Přenosy dat mezi virtuálními sítěmi ve stejné oblasti je zdarma.
+* Pokud odesíláte přenosy do místního zařízení VPN, budou se účtovat podle sazby za výchozí internetový přenos dat.
+* Pokud odesíláte přenosy mezi virtuálními sítěmi v různých oblastech, ceny závisí na konkrétní oblasti.
+* Pokud odesíláte přenosy pouze mezi virtuálními sítěmi ve stejné oblasti, žádné náklady na data se na vás nevztahují. Přenosy dat mezi virtuálními sítěmi ve stejné oblasti je zdarma.
 
 <!--HONumber=Sep16_HO4-->
 

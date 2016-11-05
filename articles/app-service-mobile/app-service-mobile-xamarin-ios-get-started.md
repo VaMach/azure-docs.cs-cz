@@ -1,85 +1,76 @@
-<properties
-    pageTitle="Začínáme s Azure App Service Mobile Apps pro aplikace na platformě Xamarin.iOS | Microsoft Azure"
-    description="V tomto kurzu začnete používat Mobile Apps pro vývoj na platformě Xamarin.iOS."
-    services="app-service\mobile"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="dwrede"
-    editor=""/>
+---
+title: Začínáme s Azure App Service Mobile Apps pro aplikace na platformě Xamarin.iOS | Microsoft Docs
+description: V tomto kurzu začnete používat Mobile Apps pro vývoj na platformě Xamarin.iOS.
+services: app-service\mobile
+documentationcenter: xamarin
+author: adrianhall
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-xamarin-ios"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-xamarin-ios
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: adrianha
 
+---
+# <a name="create-a-xamarin.ios-app"></a>Vytvoření aplikace Xamarin.iOS
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-
-#<a name="create-a-xamarin.ios-app"></a>Vytvoření aplikace Xamarin.iOS
-
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-##<a name="overview"></a>Přehled
-
-V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní aplikace Xamarin.iOS pomocí back-endu mobilní aplikace Azure.  Vytvoříte nový back-end mobilní aplikace i jednoduchou aplikaci Xamarin.iOS, která bude představovat _seznam úkolů_ a bude ukládat data do Azure.
+## <a name="overview"></a>Přehled
+V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní aplikace Xamarin.iOS pomocí back-endu mobilní aplikace Azure.  Vytvoříte nový back-end mobilní aplikace i jednoduchou aplikaci Xamarin.iOS, která bude představovat *seznam úkolů* a bude ukládat data do Azure.
 
 Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k používání funkce Mobile Apps v Azure App Service pro Xamarin.iOS.
 
-##<a name="prerequisites"></a>Požadavky
-
+## <a name="prerequisites"></a>Požadavky
 Pro absolvování tohoto musí být splněné následující požadavky:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
-
 * Počítač Mac s nainstalovaným Xcode verze 7.0 nebo novějším a Xamarin Studio Community. Přečtěte si témata o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) a o [nastavení, instalaci a ověření pro uživatele počítačů Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
->[AZURE.NOTE]Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://tryappservice.azure.com/?appServiceName=mobile). V App Service můžete hned vytvořit krátkodobou úvodní mobilní aplikaci – nepožaduje se žádná platební karta ani to s sebou nenese žádné závazky.
+> [!NOTE]
+> Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://tryappservice.azure.com/?appServiceName=mobile). V App Service můžete hned vytvořit krátkodobou úvodní mobilní aplikaci – nepožaduje se žádná platební karta ani to s sebou nenese žádné závazky.
+> 
+> 
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Vytvoření back-endu mobilní aplikace Azure
-
 Podle těchto pokynů vytvořte back-end mobilní aplikace:
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## <a name="configure-the-server-project"></a>Konfigurace serverového projektu
-
 Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použít v mobilních klientských aplikacích. Dále si stáhněte serverový projekt pro jednoduchý back-end seznamu úkolů a publikujete ho v Azure.
 
 Podle následujících kroků nakonfigurujte serverový projekt tak, aby používal buď back-end Node.js, nebo .NET.
 
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarin.ios-app"></a>Stáhnutí a spuštění aplikace Xamarin.iOS
-
 1. Otevřete v okně prohlížeče [Azure Portal].
-
 2. V okně nastavení mobilní aplikace klikněte na **Začínáme** > **Xamarin.iOS**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
-
+   
     Stáhne se klientská aplikace, která se připojí k mobilnímu back-endu. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
-
 3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio (nebo v nástroji Visual Studio).
-
+   
     ![][9]
-
+   
     ![][8]
-
 4. Stiskněte klávesu F5, aby se projekt sestavil a aplikace se spustila v emulátoru iPhonu.
-
-5. Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikněte na tlačítko **+**.
-
+5. Zadejte do aplikace smysluplný text, například *Naučit se Xamarin*, a klikněte na tlačítko **+**.
+   
     ![][10]
-
+   
     Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
->[AZURE.NOTE]Na kód, který přistupuje k back-endu mobilní aplikace pro dotazování a vkládání dat, se můžete podívat v souboru C# QSTodoService.cs.
+> [!NOTE]
+> Na kód, který přistupuje k back-endu mobilní aplikace pro dotazování a vkládání dat, se můžete podívat v souboru C# QSTodoService.cs.
+> 
+> 
 
-##<a name="next-steps"></a>Další kroky
-
+## <a name="next-steps"></a>Další kroky
 * [Přidání offline synchronizace do aplikace](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Přidání ověřování do aplikace](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Přidání nabízených oznámení do aplikace Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)

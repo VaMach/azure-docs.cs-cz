@@ -1,28 +1,26 @@
 
-<properties
-    pageTitle="Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty | Microsoft Azure"
-    description="Vyzkoušejte funkce Azure RemoteAppu bez instalace služby."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty | Microsoft Docs
+description: Vyzkoušejte funkce Azure RemoteAppu bez instalace služby.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mbaldwin" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mbaldwin
 
-
-
-
+---
 # Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Chcete si prohlédnout Azure RemoteApp na svém zařízení? Pokud máte účet Microsoft, můžete po dobu 10 minut přistupovat k našemu ukázkovému nasazení. Na ukázku máme Office a několik dalších aplikací. Je to skvělý způsob, jak si můžete vyzkoušet uživatelské prostředí Azure RemoteAppu za méně než tři minuty.
 
@@ -37,9 +35,10 @@ Nyní máte přístup k aplikacím spuštěným v reálném čase na Azure Remot
 
 Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog, ve kterém můžete zadat svůj  názor. Pokud máte chvilku, řekněte nám, co si o tom všem myslíte a jestli byste chtěli, aby vás Microsoft kontaktoval a poskytl vám další informace.
 
->[AZURE.NOTE] Protože se jedná o kontrolované prostředí pro ukázkové použití, nepovolili jsme externí přístup k internetu z publikovaných ukázkových aplikací. Proto nejsou přístupné služby, jako je třeba OneDrive. Také je zakázána schránka (kopírování a vkládání) a přesměrování USB a tiskárny.  
-
-
+> [!NOTE]
+> Protože se jedná o kontrolované prostředí pro ukázkové použití, nepovolili jsme externí přístup k internetu z publikovaných ukázkových aplikací. Proto nejsou přístupné služby, jako je třeba OneDrive. Také je zakázána schránka (kopírování a vkládání) a přesměrování USB a tiskárny.  
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

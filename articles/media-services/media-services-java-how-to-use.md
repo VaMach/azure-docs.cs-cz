@@ -1,47 +1,39 @@
-<properties 
-    pageTitle="Začínáme s doručováním obsahu na vyžádání pomocí Javy | Microsoft Azure" 
-    description="Popisuje, jak pomocí Azure Media Services provádět běžné úlohy, jako kódování, šifrování a streamování prostředků." 
-    services="media-services" 
-    documentationCenter="java" 
-    authors="juliako" 
-    manager="erikre" 
-/>
+---
+title: Začínáme s doručováním obsahu na vyžádání pomocí Javy | Microsoft Docs
+description: Popisuje, jak pomocí Azure Media Services provádět běžné úlohy, jako kódování, šifrování a streamování prostředků.
+services: media-services
+documentationcenter: java
+author: juliako
+manager: erikre
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article"
-    ms.date="10/12/2016"   
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/12/2016
+ms.author: juliako
 
-
+---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Začínáme s doručováním obsahu na vyžádání pomocí Javy
+[!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-##<a name="setting-up-an-azure-account-for-media-services"></a>Vytvoření účtu Azure pro Media Services
-
+## <a name="setting-up-an-azure-account-for-media-services"></a>Vytvoření účtu Azure pro Media Services
 Účet Media Services vytvoříte na webu Azure Portal. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na webu Azure Portal budete připravení nastavit počítač pro vývoj pro Media Services.
 
-##<a name="setting-up-for-media-services-development"></a>Příprava na vývoj pro Media Services
-
+## <a name="setting-up-for-media-services-development"></a>Příprava na vývoj pro Media Services
 Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Services pomocí sady Media Services SDK for Java.
 
-###<a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Požadavky
+* Účet Media Services v novém nebo existujícím předplatném Azure. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
+* Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure střediska pro vývojáře Java][].
 
--   Účet Media Services v novém nebo existujícím předplatném Azure. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
--   Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure střediska pro vývojáře Java][].
-
-##<a name="how-to:-use-media-services-with-java"></a>Návod: Použití Media Services s Javou
-
+## <a name="how-to:-use-media-services-with-java"></a>Návod: Použití Media Services s Javou
 Tento kód ukazuje, jak vytvořit asset, uložit do assetu soubor média, spustit úlohu s úkolem transformace assetu a vytvořit lokátor pro streamování videa.
 
 Abyste mohli tento kód použít, musíte si nejdřív vytvořit účet Media Services. Informace o vytvoření účtu najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
 
 Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pracuje s místně uloženým souborem. Budete muset použít vlastní soubor.
-
 
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -171,7 +163,7 @@ Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pr
     // Retrieve the list of Media Processors that match the name
     ListResult<MediaProcessorInfo> mediaProcessors = mediaService
                               .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
-    
+
               // Use the latest version of the Media Processor
               MediaProcessorInfo mediaProcessor = null;
               for (MediaProcessorInfo info : mediaProcessors) {
@@ -179,37 +171,37 @@ Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pr
                       mediaProcessor = info;
                   }
               }
-    
+
               System.out.println("Using Media Processor: " + mediaProcessor.getName() + " " + mediaProcessor.getVersion());
-    
+
               // Create a task with the specified Media Processor
               String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
               String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
                       + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
                       + " assetName=\"" + outputAssetName + "\">JobOutputAsset(0)</outputAsset></taskBody>";
-    
+
               Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                       .setConfiguration(encodingPreset).setName("Encoding");
-    
+
               // Create the Job; this automatically schedules and runs it.
               Job.Creator jobCreator = Job.create()
                       .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
                       .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
               JobInfo job = mediaService.create(jobCreator);
-            
+
               String jobId = job.getId();
               System.out.println("Created Job with Id: " + jobId);
-    
+
               // Check to see if the Job has completed
               checkJobStatus(jobId);
               // Done with the Job
-    
+
               // Retrieve the output Asset
               ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
               return outputAssets.get(0);
           }
-        
-    
+
+
           public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
               // Get the .ISM AssetFile
               ListResult<AssetFileInfo> assetFiles = mediaService.list(AssetFile.list(asset.getAssetFilesLink()));
@@ -220,63 +212,59 @@ Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pr
                       break;
                   }
               }
-    
+
               AccessPolicyInfo originAccessPolicy;
               LocatorInfo originLocator = null;
-    
+
               // Create a 30-day readonly AccessPolicy
               double durationInMinutes = 60 * 24 * 30;
               originAccessPolicy = mediaService.create(
                       AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
-    
+
               // Create a Locator using the AccessPolicy and Asset
               originLocator = mediaService
                       .create(Locator.create(originAccessPolicy.getId(), asset.getId(), LocatorType.OnDemandOrigin));
-    
+
               // Create a Smooth Streaming base URL
               return originLocator.getPath() + streamingAssetFile.getName() + "/manifest";
           }
-    
+
           private static void checkJobStatus(String jobId) throws InterruptedException, ServiceException {
               boolean done = false;
               JobState jobState = null;
               while (!done) {
                   // Sleep for 5 seconds
                   Thread.sleep(5000);
-                
+
                   // Query the updated Job state
                   jobState = mediaService.get(Job.get(jobId)).getState();
                   System.out.println("Job state: " + jobState);
-    
+
                   if (jobState == JobState.Finished || jobState == JobState.Canceled || jobState == JobState.Error) {
                       done = true;
                   }
               }
           }
-    
+
     }
 
 
-##<a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
+## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##<a name="provide-feedback"></a>Poskytnutí zpětné vazby
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-##<a name="additional-resources"></a>Další prostředky
-
+## <a name="additional-resources"></a>Další prostředky
 Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny Azure pro Javu][].
 
 <!-- URLs. -->
 
-  [Azure středisko pro vývojáře v jazyce Java]: http://azure.microsoft.com/develop/java/
-  [Dokumentace pro knihovny Azure pro jazyk Java]: http://dl.windowsazure.com/javadoc/
-  [Vývoj pro klientské služby Media Services]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure středisko pro vývojáře v jazyce Java]: http://azure.microsoft.com/develop/java/
+[Dokumentace pro knihovny Azure pro jazyk Java]: http://dl.windowsazure.com/javadoc/
+[Vývoj pro klientské služby Media Services]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
- 
+
 
 
 

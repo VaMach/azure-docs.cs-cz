@@ -5,7 +5,6 @@ Pokud už jste se se službou Notification Hubs seznámili, můžete si vlevo vy
 
 Záleží nám na vašem názoru. Pokud máte s tímto tématem nějaké potíže nebo byste nám chtěli doporučit vylepšení tohoto obsahu, napište svůj názor do spodní části stránky a my si ho rádi přečteme.
 
-
 <!--HONumber=Sep16_HO3-->
 
 

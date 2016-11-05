@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Microsoft Power BI Embedded Preview – vložení sestavy Power BI pomocí elementu IFrame"
-   description="Microsoft Power BI Embedded Preview – nepostradatelný kód pro integraci sestavy do aplikace; jak zajistit ověření pomocí tokenu aplikace Power BI Embedded; jak získat sestavy"
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+---
+title: Microsoft Power BI Embedded Preview – vložení sestavy Power BI pomocí elementu IFrame
+description: Microsoft Power BI Embedded Preview – nepostradatelný kód pro integraci sestavy do aplikace; jak zajistit ověření pomocí tokenu aplikace Power BI Embedded; jak získat sestavy
+services: power-bi-embedded
+documentationcenter: ''
+author: dvana
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 05/16/2016
+ms.author: derrickv
+
+---
 # Vložení sestavy Power BI pomocí elementu IFrame
 Tento článek vás seznámí s kódem nepostradatelným pro integraci, tedy vložení sestavy do vaší aplikace s použitím rozhraní REST API služby **Power BI Embedded**, tokenů aplikace, elementu IFrame a určitého kódu JavaScript.
 
@@ -27,20 +28,20 @@ Začněme popisem toho, jak integrovat sestavu **Power BI Embedded** do vaší a
 
 Zde jsou kroky pro integraci sestavy.
 
-- Krok 1: [Získání sestavy v pracovním prostoru](#GetReport). V tomto kroku použijete tok tokenu aplikace pro získání přístupového tokenu k vyvolání operace REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Po získání sestavy ze seznamu **Get Reports** můžete tuto sestavu vložit do aplikace pomocí elementu **IFrame**.
-- Krok 2: [Vložení sestavy do aplikace](#EmbedReport). V tomto kroku integrujete, tedy vložíte sestavu do webové aplikace pomocí příslušného vkládacího tokenu, určitého kódu JavaScript a elementu IFrame.
+* Krok 1: [Získání sestavy v pracovním prostoru](#GetReport). V tomto kroku použijete tok tokenu aplikace pro získání přístupového tokenu k vyvolání operace REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Po získání sestavy ze seznamu **Get Reports** můžete tuto sestavu vložit do aplikace pomocí elementu **IFrame**.
+* Krok 2: [Vložení sestavy do aplikace](#EmbedReport). V tomto kroku integrujete, tedy vložíte sestavu do webové aplikace pomocí příslušného vkládacího tokenu, určitého kódu JavaScript a elementu IFrame.
 
 Pokud se chcete podívat, jak integrace sestavy probíhá, stáhněte si ukázku [integrace sestavy pomocí elementu IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) z webu GitHub a nakonfigurujte 3 položky nastavení v souboru Web.Config:
 
-- **AccessKey**: **Přístupový klíč** slouží ke generování webového tokenu JSON (JWT), který se používá k získání sestav a vložení sestavy. Další informace o získání **přístupového klíče** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceName**: Další informace o získání **názvu pracovního prostoru** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceId**: Další informace o získání **ID pracovního prostoru** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **AccessKey**: **Přístupový klíč** slouží ke generování webového tokenu JSON (JWT), který se používá k získání sestav a vložení sestavy. Další informace o získání **přístupového klíče** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceName**: Další informace o získání **názvu pracovního prostoru** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceId**: Další informace o získání **ID pracovního prostoru** naleznete v tématu [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
 V dalších částech naleznete kód nutný pro integraci sestavy.
 
 <a name="GetReport"/>
-## Získání sestavy v pracovním prostoru
 
+## Získání sestavy v pracovním prostoru
 Při integraci sestavy do aplikace potřebujete její **ID** a **embedUrl**. Pokud chcete získat **ID** a **embedUrl** sestavy, vyvoláte operaci REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) a zvolíte sestavu ze seznamu ve formátu JSON. V části [Vložení sestavy do aplikace](#EmbedReport) použijete údaje **ID** a **embedUrl** k uvedené operaci.
 
 ### Odpověď na operaci Get Reports ve formátu JSON
@@ -109,13 +110,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReport"/>
-## Vložení sestavy do aplikace
 
+## Vložení sestavy do aplikace
 Před vložením sestavy do vaší aplikace potřebujete příslušný vkládací token. Ten se podobá tokenu aplikace, který se používá k volání operací REST **Power BI Embedded**, ale generuje se pro prostředek představující sestavu, nikoli pro prostředek REST. Následující kód slouží k získání tokenu aplikace pro sestavu. Postup použití tokenu aplikace naleznete v části [Vložení sestavy do vaší aplikace](#EmbedReportJS).
 
 <a name="EmbedReportToken"/>
-### Získání tokenu aplikace pro sestavu
 
+### Získání tokenu aplikace pro sestavu
 ```
 protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 {
@@ -133,12 +134,11 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReportJS"/>
-### Vložení sestavy do vaší aplikace
 
+### Vložení sestavy do vaší aplikace
 K vložení sestavy **Power BI** do aplikace použijete element IFrame a určitý kód JavaScript. Zde je příklad elementu IFrame a kódu JavaScript pro vložení sestavy. Pokud chcete vidět veškerý ukázkový kód pro vložení sestavy, podívejte se na ukázku [integrace sestavy pomocí elementu IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) na webu GitHub.
 
-![IFrame](media\power-bi-embedded-integrate-report\Iframe.png)
-
+![IFrame](media\\power-bi-embedded-integrate-report\\Iframe.png)
 
 ```
 window.onload = function () {
@@ -183,9 +183,7 @@ function postActionLoadReport() {
 Po vložení do aplikace můžete sestavu filtrovat. V další části se dozvíte, jak toho dosáhnout pomocí syntaxe adresy URL.
 
 ## Filtrování sestavy
-
 Vloženou sestavu můžete filtrovat pomocí syntaxe adresy URL. Uděláte to tak, že parametr řetězce dotazu přidáte do zdrojové adresy URL elementu IFrame se specifikovaným filtrem. Můžete **filtrovat podle hodnoty** a **skrýt podokno filtru**.
-
 
 **Filtrování podle hodnoty**
 
@@ -203,7 +201,10 @@ Například byste mohli vyfiltrovat položky s řetězcem úložiště Lindseys.
 $filter=Store/Chain%20eq%20'Lindseys'
 ```
 
-> [AZURE.NOTE] V řetězci {tableName/fieldName} nesmí být mezery ani speciální znaky. Na místo položky {FieldValue} je možné vložit jednu hodnotu představující kategorii.
+> [!NOTE]
+> V řetězci {tableName/fieldName} nesmí být mezery ani speciální znaky. Na místo položky {FieldValue} je možné vložit jednu hodnotu představující kategorii.
+> 
+> 
 
 **Skrytí podokna filtru**
 
@@ -214,21 +215,18 @@ Pokud chcete skrýt **podokno filtru**, přidáte do řetězce dotazu sestavy po
 ```
 
 ## Závěr
-
 V tomto článku jsme vás seznámili s kódem pro integraci sestavy **Power BI** do aplikace. Pokud chcete s integrací sestavy do aplikace rychle začít, stáhněte si tyto ukázky z webu GitHub:
 
-- [Ukázka integrace sestavy pomocí elementu IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [Ukázková webová aplikace pro řídicí panel](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Ukázka integrace sestavy pomocí elementu IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
+* [Ukázková webová aplikace pro řídicí panel](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Viz také
-- [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Začínáme s ukázkou](power-bi-embedded-get-started-sample.md)
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Operace Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
-
-
+* [Začínáme s Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+* [Začínáme s ukázkou](power-bi-embedded-get-started-sample.md)
+* [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [Operace Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
 <!--HONumber=Jun16_HO2-->
 

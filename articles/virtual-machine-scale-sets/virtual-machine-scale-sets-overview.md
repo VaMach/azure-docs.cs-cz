@@ -1,107 +1,94 @@
-<properties
-    pageTitle="Přehled škálovacích sad virtuálních počítačů | Microsoft Azure"
-    description="Další informace o škálovacích sadách virtuálních počítačů"
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Přehled škálovacích sad virtuálních počítačů | Microsoft Docs
+description: Další informace o škálovacích sadách virtuálních počítačů
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: gbowerman
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/13/2016"
-    ms.author="guybo"/>
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/13/2016
+ms.author: guybo
 
-
+---
 # <a name="virtual-machine-scale-sets-overview"></a>Přehled škálovacích sad virtuálních počítačů
-
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. V těchto sadách jsou všechny virtuální počítače nakonfigurované stejně, protože jejich účelem je podporovat skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Díky tomu je snazší zajistit rozsáhlé služby nabízející vysoký výpočetní výkon a zpracovávající velké objemy dat nebo kontejnerové úlohy.
 
 U aplikací, které vyžadují horizontální navyšování a snižování výpočetní kapacity, se škálovací operace implicitně vyvažují napříč doménami selhání a aktualizačními doménami. Úvod ke škálovacím sadám virtuálních počítačů najdete v tématu [Oznámení k Blogu Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
 Více o škálovacích sadách virtuálních počítačů se dozvíte v těchto videích:
 
- - [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
-
- - [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+* [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-vm-scale-sets"></a>Vytváření a správa škálovacích sad virtuálních počítačů
-
-Škálovací sadu virtuálních počítačů můžete vytvořit na portálu [Azure Portal](https://portal.azure.com) – vyberte položku _Nový_ a zadejte text „škálovací“ na vyhledávacím panelu. Ve výsledcích se objeví „Škálovací sada virtuálních počítačů“. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. 
+Škálovací sadu virtuálních počítačů můžete vytvořit na portálu [Azure Portal](https://portal.azure.com) – vyberte položku *Nový* a zadejte text „škálovací“ na vyhledávacím panelu. Ve výsledcích se objeví „Škálovací sada virtuálních počítačů“. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. 
 
 Škálovací sady virtuálních počítačů je také možné definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx) stejně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md).
 
-Sadu příkladových šablon škálovacích sad virtuálních počítačů najdete v [úložišti GitHub pro šablony Quickstart určené pro Azure](https://github.com/Azure/azure-quickstart-templates). (Hledejte šablony, které mají v názvu _vmss_.)
+Sadu příkladových šablon škálovacích sad virtuálních počítačů najdete v [úložišti GitHub pro šablony Quickstart určené pro Azure](https://github.com/Azure/azure-quickstart-templates). (Hledejte šablony, které mají v názvu *vmss*.)
 
 Na stránce podrobností pro tyto šablony se zobrazí tlačítko, které odkazuje na funkci nasazení na portálu. Pokud chcete škálovací sadu virtuálních počítačů nasadit, klikněte na toto tlačítko a potom na portálu vyplňte požadované parametry. Pokud si nejste jistí, jestli určitý prostředek podporuje velká písmena nebo kombinaci velkých a malých písmen, je vždy bezpečnější hodnoty parametrů zadat malými písmeny. Můžete se podívat na video s užitečným rozborem šablony škálovací sady:
 
 [Rozbor šablony škálovací sady virtuálních počítačů](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Horizontální navyšování a snižování kapacity u škálovací sady virtuálních počítačů
-
-Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálovací sadě virtuálních počítačů, jednoduše změňte vlastnost představující _kapacitu_ a znovu nasaďte šablonu. Takto jednoduše můžete vytvořit i vlastní škálovací vrstvu, pokud budete chtít definovat vlastní škálovací události, které nejsou podporovány automatickým škálováním Azure.
+Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálovací sadě virtuálních počítačů, jednoduše změňte vlastnost představující *kapacitu* a znovu nasaďte šablonu. Takto jednoduše můžete vytvořit i vlastní škálovací vrstvu, pokud budete chtít definovat vlastní škálovací události, které nejsou podporovány automatickým škálováním Azure.
 
 Pokud šablonu znovu nasazujete s cílem změnit kapacitu, stačí definovat mnohem menší šablonu, která bude obsahovat jen SKU a aktualizovanou kapacitu. Příklad najdete [tady](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
 Pokud si chcete projít postup vytvoření škálovací sady, která se škáluje automaticky, nahlédněte do tématu [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](virtual-machine-scale-sets-windows-autoscale.md).
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitorování škálovací sady virtuálních počítačů
-
 [Azure Portal](https://portal.azure.com) uvádí škálovací sady a zobrazuje základní vlastnosti, jakož i seznam virtuálních počítačů v sadě. Další podrobnosti si můžete zobrazit v [Průzkumníkovi prostředků Azure](https://resources.azure.com). Škálovací sady virtuálních počítačů jsou prostředky v části Microsoft.Compute, takže z tohoto webu si je můžete zobrazit rozbalením následujících odkazů:
 
     subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
 ## <a name="vm-scale-set-scenarios"></a>Scénáře použití škálovacích sad virtuálních počítačů
-
 Tato část uvádí některé typické scénáře použití škálovacích sad virtuálních počítačů. Tyto scénáře využívají některé služby Azure na vyšší úrovni (třeba Batch, Service Fabric, Azure Container Service).
 
- - **Instance s připojením RDP/SSH ke škálovací sadě virtuálních počítačů:** Škálovací sada virtuálních počítačů se vytvoří v síti VNET a jednotlivým virtuálním počítačům ve škálovací sadě se nebudou přidělovat veřejné IP adresy. To je dobrá věc, protože obecně je žádoucí se vyhnout výdajům a administrativní režii spojeným s přidělováním samostatných veřejných IP adres všem bezstavovým prostředkům ve výpočetní síti a protože se k těmto virtuálním počítačům můžete snadno připojit z jiných prostředků v síti VNET, včetně těch, které mají veřejné IP adresy, jako jsou nástroje pro vyrovnávání zatížení nebo samostatné virtuální počítače.
-
- - **Připojení k virtuálním počítačům pomocí pravidel pro překlad adres (NAT):** Můžete vytvořit veřejnou IP adresu, přiřadit ji k nástroji pro vyrovnávání zatížení a definovat příchozí pravidla pro překlad adres, která mapují port u IP adresy k portu virtuálního počítače ve škálovací sadě. Například:
- 
-    Zdroj | Zdrojový port | Cíl | Cílový port
-    --- | --- | --- | ---
-    Veřejná IP adresa | Port 50000 | vmss\_0 | Port 22
-    Veřejná IP adresa | Port 50001 | vmss\_1 | Port 22
-    Veřejná IP adresa | Port 50002 | vmss\_2 | Port 22
-
-    Zde je příklad vytvoření škálovací sady virtuálních počítačů, která používá pravidla pro překlad adres (NAT) umožňující připojení SSH ke každému virtuálnímu počítači v sadě s použitím jedné veřejné IP adresy: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
-
-    Tady je příklad stejného nastavení s pomocí protokolu RDP a Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
-
- - **Připojování k virtuálním počítačům pomocí hostitele typu „jumpbox“:** Pokud ve stejné síti VNET vytvoříte škálovací sadu virtuálních počítačů a samostatný virtuální počítač, pak se všechny tyto virtuální počítače můžou navzájem připojovat pomocí svých interních IP adres, jak jsou definovány v síti VNET a podsíti. Pokud vytvoříte veřejnou IP adresu a přiřadíte ji k samostatnému virtuálnímu počítači, můžete nastavit připojení RDP nebo SSH k samostatnému virtuálnímu počítači a pak se z tohoto počítače připojit k vašim instancím škálovací sady virtuálních počítačů. V tomto bodě si můžete povšimnout, že jednoduchá škálovací sada virtuálních počítačů je ze své podstaty bezpečnější než jednoduchý samostatný virtuální počítač s veřejnou IP adresou ve své výchozí konfiguraci.
-
-    [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
-
- - **Vyrovnávání zatížení v instancích škálovací sady virtuálních počítačů:** Pokud chcete dodávat práci do výpočetního clusteru virtuálních počítačů na bázi kruhového dotazování, můžete v nástroji pro vyrovnávání zatížení Azure nakonfigurovat odpovídající pravidla. Můžete definovat sondy, které budou ověřovat, že aplikace běží, pomocí portů pro příkazy ping s určeným protokolem, intervalem a cestou pro žádosti. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) podporuje jak škálovací sady, tak i sofistikovanější scénáře vyrovnávání zatížení.
-
-    [Zde je příklad, v rámci něhož se vytváří škálovací sada virtuálních počítačů, na kterých běží webový server IIS, a na jednotlivých virtuálních počítačích se používá nástroj pro vyrovnávání zatížení. Využívá se také protokol HTTP pro odeslání příkazu ping na konkrétní adresu URL na každém virtuálním počítači.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Podívejte se na typ prostředku Microsoft.Network/loadBalancers a položky networkProfile a extensionProfile v části virtualMachineScaleSet.)
-
- - **Nasazení škálovací sady virtuálních počítačů jako výpočetního clusteru ve správci clusteru PaaS:** Škálovací sady virtuálních počítačů se někdy označují jako role pracovních procesů nové generace. Tento popis je výstižný, ale je tu riziko, že dojde k záměně funkcí škálovacích sad s funkcemi role pracovního procesu PaaS v1. Škálovací sada virtuálních počítačů skutečně představuje „roli pracovního procesu“, a to v tom smyslu, že poskytuje generalizovaný výpočetní prostředek, který je nezávislý na platformě nebo modulu runtime, umožňuje přizpůsobení a integruje se s IaaS s nástrojem Azure Resource Manager.
-
-    Role pracovního procesu PaaS v1 má sice omezení z hlediska podpory platforem nebo modulů runtime (k dispozici jsou jen image pro platformu Windows), ale obsahuje i další služby, jako je prohození virtuálních IP adres, konfigurovatelné nastavení upgradu nebo nastavení specifické pro nasazení modulu runtime a aplikace. Ty _ještě_ nejsou ve škálovacích sadách k dispozici a možná se tam ani neobjeví, protože je budou zajišťovat služby PaaS vyšší úrovně, jako je Service Fabric. Z těchto důvodů můžete na škálovací sady virtuálních počítačů pohlížet jako na infrastrukturu, která podporuje PaaS. To znamená, že nad škálovací sady virtuálních počítačů je možné jako na škálovatelnou výpočetní vrstvu nasadit řešení PaaS, jako je Service Fabric, nebo správce clusteru, jako je Mesos.
-
-    [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Budoucí verze [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) budou zavádět propracovanější a robustnější verze tohoto scénáře, který stojí na škálovacích sadách virtuálních počítačů.
+* **Instance s připojením RDP/SSH ke škálovací sadě virtuálních počítačů:** Škálovací sada virtuálních počítačů se vytvoří v síti VNET a jednotlivým virtuálním počítačům ve škálovací sadě se nebudou přidělovat veřejné IP adresy. To je dobrá věc, protože obecně je žádoucí se vyhnout výdajům a administrativní režii spojeným s přidělováním samostatných veřejných IP adres všem bezstavovým prostředkům ve výpočetní síti a protože se k těmto virtuálním počítačům můžete snadno připojit z jiných prostředků v síti VNET, včetně těch, které mají veřejné IP adresy, jako jsou nástroje pro vyrovnávání zatížení nebo samostatné virtuální počítače.
+* **Připojení k virtuálním počítačům pomocí pravidel pro překlad adres (NAT):** Můžete vytvořit veřejnou IP adresu, přiřadit ji k nástroji pro vyrovnávání zatížení a definovat příchozí pravidla pro překlad adres, která mapují port u IP adresy k portu virtuálního počítače ve škálovací sadě. Například:
+  
+  | Zdroj | Zdrojový port | Cíl | Cílový port |
+  | --- | --- | --- | --- |
+  |  Veřejná IP adresa |Port 50000 |vmss\_0 |Port 22 |
+  |  Veřejná IP adresa |Port 50001 |vmss\_1 |Port 22 |
+  |  Veřejná IP adresa |Port 50002 |vmss\_2 |Port 22 |
+  
+   Zde je příklad vytvoření škálovací sady virtuálních počítačů, která používá pravidla pro překlad adres (NAT) umožňující připojení SSH ke každému virtuálnímu počítači v sadě s použitím jedné veřejné IP adresy: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+  
+   Tady je příklad stejného nastavení s pomocí protokolu RDP a Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+* **Připojování k virtuálním počítačům pomocí hostitele typu „jumpbox“:** Pokud ve stejné síti VNET vytvoříte škálovací sadu virtuálních počítačů a samostatný virtuální počítač, pak se všechny tyto virtuální počítače můžou navzájem připojovat pomocí svých interních IP adres, jak jsou definovány v síti VNET a podsíti. Pokud vytvoříte veřejnou IP adresu a přiřadíte ji k samostatnému virtuálnímu počítači, můžete nastavit připojení RDP nebo SSH k samostatnému virtuálnímu počítači a pak se z tohoto počítače připojit k vašim instancím škálovací sady virtuálních počítačů. V tomto bodě si můžete povšimnout, že jednoduchá škálovací sada virtuálních počítačů je ze své podstaty bezpečnější než jednoduchý samostatný virtuální počítač s veřejnou IP adresou ve své výchozí konfiguraci.
+  
+   [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+* **Vyrovnávání zatížení v instancích škálovací sady virtuálních počítačů:** Pokud chcete dodávat práci do výpočetního clusteru virtuálních počítačů na bázi kruhového dotazování, můžete v nástroji pro vyrovnávání zatížení Azure nakonfigurovat odpovídající pravidla. Můžete definovat sondy, které budou ověřovat, že aplikace běží, pomocí portů pro příkazy ping s určeným protokolem, intervalem a cestou pro žádosti. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) podporuje jak škálovací sady, tak i sofistikovanější scénáře vyrovnávání zatížení.
+  
+   [Zde je příklad, v rámci něhož se vytváří škálovací sada virtuálních počítačů, na kterých běží webový server IIS, a na jednotlivých virtuálních počítačích se používá nástroj pro vyrovnávání zatížení. Využívá se také protokol HTTP pro odeslání příkazu ping na konkrétní adresu URL na každém virtuálním počítači.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Podívejte se na typ prostředku Microsoft.Network/loadBalancers a položky networkProfile a extensionProfile v části virtualMachineScaleSet.)
+* **Nasazení škálovací sady virtuálních počítačů jako výpočetního clusteru ve správci clusteru PaaS:** Škálovací sady virtuálních počítačů se někdy označují jako role pracovních procesů nové generace. Tento popis je výstižný, ale je tu riziko, že dojde k záměně funkcí škálovacích sad s funkcemi role pracovního procesu PaaS v1. Škálovací sada virtuálních počítačů skutečně představuje „roli pracovního procesu“, a to v tom smyslu, že poskytuje generalizovaný výpočetní prostředek, který je nezávislý na platformě nebo modulu runtime, umožňuje přizpůsobení a integruje se s IaaS s nástrojem Azure Resource Manager.
+  
+   Role pracovního procesu PaaS v1 má sice omezení z hlediska podpory platforem nebo modulů runtime (k dispozici jsou jen image pro platformu Windows), ale obsahuje i další služby, jako je prohození virtuálních IP adres, konfigurovatelné nastavení upgradu nebo nastavení specifické pro nasazení modulu runtime a aplikace. Ty *ještě* nejsou ve škálovacích sadách k dispozici a možná se tam ani neobjeví, protože je budou zajišťovat služby PaaS vyšší úrovně, jako je Service Fabric. Z těchto důvodů můžete na škálovací sady virtuálních počítačů pohlížet jako na infrastrukturu, která podporuje PaaS. To znamená, že nad škálovací sady virtuálních počítačů je možné jako na škálovatelnou výpočetní vrstvu nasadit řešení PaaS, jako je Service Fabric, nebo správce clusteru, jako je Mesos.
+  
+   [Příkladem tohoto přístupu je jednoduchý cluster Mesos, který vytváří tato šablona a který se skládá ze samostatného hlavního virtuálního počítače, jenž spravuje cluster virtuálních počítačů založený na škálovací sadě.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Budoucí verze [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) budou zavádět propracovanější a robustnější verze tohoto scénáře, který stojí na škálovacích sadách virtuálních počítačů.
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Pokyny týkající se výkonu a škálování u škálovacích sad virtuálních počítačů
-
-- Nevytvářejte najednou více než 500 virtuálních počítačů ve více škálovacích sadách.
-- Nekalkulujte s více než 20 virtuálními počítači na jeden účet úložiště (pokud jste vlastnost pro _nadměrné zřízení _ nenastavili na false – v tom případě jich může být až 40).
-- První písmena v názvech účtů úložiště co nejvíce rozprostřete.  Příklady, jak to udělat, najdete v ukázkových šablonách VMSS v [šabloně Quickstart pro Azure](https://github.com/Azure/azure-quickstart-templates/).
-- Pokud používáte vlastní virtuální počítače, nekalkulujte s více než 40 virtuálními počítači ve škálovací sadě na jeden účet úložiště.  Než zahájíte nasazování škálovací sady virtuálních počítačů, musíte mít na účet úložiště zkopírovanou image. Další informace najdete v nejčastějších dotazech.
-- Nekalkulujte s více než 4096 virtuálními počítači v jedné síti VNET.
-- Počet virtuálních počítačů, které můžete vytvořit, je omezen kvótou pro počet jader v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už dnes máte vysoký limit pro jádra, který platí pro cloudové služby nebo IaaS v1. Dotaz na kvótu spustíte pomocí následujícího příkazu na Azure CLI: `azure vm list-usage`. A následujícího příkazu pro PowerShell: `Get-AzureRmVMUsage` (pokud používáte nižší verzi prostředí PowerShell než 1.0, použijte `Get-AzureVMUsage`).
+* Nevytvářejte najednou více než 500 virtuálních počítačů ve více škálovacích sadách.
+* Nekalkulujte s více než 20 virtuálními počítači na jeden účet úložiště (pokud jste vlastnost pro *nadměrné zřízení * nenastavili na false – v tom případě jich může být až 40).
+* První písmena v názvech účtů úložiště co nejvíce rozprostřete.  Příklady, jak to udělat, najdete v ukázkových šablonách VMSS v [šabloně Quickstart pro Azure](https://github.com/Azure/azure-quickstart-templates/).
+* Pokud používáte vlastní virtuální počítače, nekalkulujte s více než 40 virtuálními počítači ve škálovací sadě na jeden účet úložiště.  Než zahájíte nasazování škálovací sady virtuálních počítačů, musíte mít na účet úložiště zkopírovanou image. Další informace najdete v nejčastějších dotazech.
+* Nekalkulujte s více než 4096 virtuálními počítači v jedné síti VNET.
+* Počet virtuálních počítačů, které můžete vytvořit, je omezen kvótou pro počet jader v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už dnes máte vysoký limit pro jádra, který platí pro cloudové služby nebo IaaS v1. Dotaz na kvótu spustíte pomocí následujícího příkazu na Azure CLI: `azure vm list-usage`. A následujícího příkazu pro PowerShell: `Get-AzureRmVMUsage` (pokud používáte nižší verzi prostředí PowerShell než 1.0, použijte `Get-AzureVMUsage`).
 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Nejčastější dotazy ke škálovacím sadám virtuálních počítačů
-
 **Otázka:** Kolik virtuálních počítačů může obsahovat škálovací sada?
 
-**Odpověď:** 100, pokud použijete image platforem, které je možné distribuovat mezi více účtů úložiště. Pokud používáte vlastní image, maximálně 40 (pokud je vlastnost pro _nadměrné zřizování_ nastavená na false; 20 ve výchozím nastavení), protože vlastní image jsou aktuálně omezené na jeden účet úložiště.
+**Odpověď:** 100, pokud použijete image platforem, které je možné distribuovat mezi více účtů úložiště. Pokud používáte vlastní image, maximálně 40 (pokud je vlastnost pro *nadměrné zřizování* nastavená na false; 20 ve výchozím nastavení), protože vlastní image jsou aktuálně omezené na jeden účet úložiště.
 
 **Otázka:** Jaká další omezení prostředků se u škálovacích sad virtuálních počítačů uplatňují?
 
@@ -111,15 +98,11 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 
 **Odpověď:** V počáteční verzi ne. Vaše možnosti pro ukládání dat:
 
-- Soubory Azure (sdílené jednotky SMB)
-
-- Jednotka operačního systému
-
-- Dočasné jednotky (místní, nezálohované úložiště Azure)
-
-- Datová služba Azure (např. tabulky Azure, objekty blob Azure)
-
-- Externí datová služba (např. vzdálená databáze)
+* Soubory Azure (sdílené jednotky SMB)
+* Jednotka operačního systému
+* Dočasné jednotky (místní, nezálohované úložiště Azure)
+* Datová služba Azure (např. tabulky Azure, objekty blob Azure)
+* Externí datová služba (např. vzdálená databáze)
 
 **Otázka:** Které oblasti Azure podporují škálovací sady virtuálních počítačů?
 
@@ -157,8 +140,6 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 **Otázka:** Spolupracují škálovací sady virtuálních počítačů se skupinami dostupnosti Azure?
 
 **Odpověď:** Ano. Škálovací sada virtuálních počítačů je implicitní skupina dostupnosti s 5 doménami selhání a 5 aktualizačními doménami. Pod virtualMachineProfile nemusíte nic konfigurovat. V budoucích verzích budou pravděpodobně škálovací sady virtuálních počítačů pokrývat více tenantů, ale v současnosti představuje škálovací sada jednu skupinu dostupnosti.
-
-
 
 <!--HONumber=Oct16_HO3-->
 

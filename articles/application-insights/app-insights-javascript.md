@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Application Insights pro webové aplikace JavaScript | Microsoft Azure"
-    description="Načtení zobrazení stránek a počty relací, data webového klienta a sledování vzorů využití. Zjištění výjimek a problémů s výkonem na webových stránkách v jazyce JavaScript."
-    services="application-insights"
-    documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+---
+title: Application Insights pro webové aplikace JavaScript | Microsoft Docs
+description: Načtení zobrazení stránek a počty relací, data webového klienta a sledování vzorů využití. Zjištění výjimek a problémů s výkonem na webových stránkách v jazyce JavaScript.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: awills
 
-
+---
 # Application Insights pro webové stránky
-
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+[!INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Zjistěte informace o výkonu a využití webové stránky nebo aplikace. Když přidáte Visual Studio Application Insights do skriptu stránky, získáte časování načtení stránky a volání AJAX, počty a podrobnosti výjimek prohlížeče a selhání AJAX, a také počty uživatelů a relací. Všechny tyto hodnoty mohou být segmentovány podle stránky, klientského operačního systému a verze prohlížeče, zeměpisné polohy a ostatních dimenzí. Můžete také nastavit výstrahy na počet selhání nebo pomalé načítání stránky.
 
@@ -27,15 +24,12 @@ Application Insights můžete použít s jakýmikoliv webovými stránkami – s
 
 Potřebujete předplatné [Microsoft Azure](https://azure.com). Pokud má váš tým předplatné pro společnosti, požádejte vlastníka, aby do něj přidal váš účet Microsoft. Existuje volná cenová úroveň, takže vývoj a méně rozsáhlé používání vás nebude nic stát.
 
-
 ## Nastavte Application Insights pro svou webovou stránku
-
 Nejdřív zjistěte, jestli potřebujete přidat Application Insights na své webové stránky. Možná jste to už udělali. Pokud jste zvolili přidání služby Application Insights do vaší webové aplikace v dialogovém okně Nový projekt v sadě Visual Studio, skript už byl přidán. V takovém případě nemusíte nic dalšího dělat.
 
 Jinak je potřeba přidat fragment kódu na vaše webové stránky následujícím způsobem.
 
 ### Otevřete prostředek Application Insights
-
 Prostředek služby Application Insights je místo, kde se zobrazují data o výkonu a využití vaší stránky. 
 
 Přihlaste se na [portál Azure](https://portal.azure.com).
@@ -48,12 +42,9 @@ Pokud ji nemáte, vytvořte ji:
 
 ![Zvolte Nový, služby pro vývojáře, Application Insights.](./media/app-insights-javascript/01-create.png)
 
-
 *Již máte dotazy?* [Další informace o vytvoření prostředku](app-insights-create-new-resource.md).
 
-
 ### Přidejte skript SDK do aplikace nebo webové stránky
-
 V části Rychlý start získáte skript pro webové stránky:
 
 ![V okně přehledu aplikace zvolte Rychlý start, získat kód ke sledování webové stránky. Zkopírujte skript.](./media/app-insights-javascript/02-monitor-web-page.png)
@@ -69,9 +60,7 @@ Skript obsahuje klíč instrumentace, který nasměruje data pro daný prostřed
 
 *(Pokud používáte framework dobře známé webové stránky, vyhledejte adaptéry Application Insights. Například je k dispozici [modul AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
-
 ## Podrobná konfigurace
-
 Nastavit můžete několik [Parametrů](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), i když ve většině případů to není třeba. Například můžete zakázat nebo omezit počet volání Ajax hlášených na zobrazení stránky (chcete-li snížit zatížení). Nebo můžete nastavit režim ladění tak, aby rychle přesouval telemetrická data prostřednictvím kanálu bez provedení dávkou.
 
 Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a následně přidejte další položky oddělené čárkami:
@@ -107,24 +96,20 @@ Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a
 
 
 ## <a name="run"></a>Spuštění aplikace
-
 Spusťte webovou aplikaci, chvíli ji používejte ke generování telemetrie a počkejte několik sekund. Můžete ji buď spustit pomocí klávesy **F5** na vývojovém počítači, nebo ji publikovat a umožnit uživatelům, aby si ji vyzkoušeli.
 
 Pokud chcete zkontrolovat telemetrii, kterou webová aplikace odesílá do služby Application Insights, použijte ladicí nástroje prohlížeče (**F12** u mnoha prohlížečů). Data budou odeslána na adresu dc.services.visualstudio.com.
 
 ## Prozkoumejte data výkonu prohlížeče
-
 Otevřete okno prohlížeče zobrazující agregovaná data výkonu z prohlížečů uživatelů.
 
 ![Na stránce portal.azure.com otevřete prostředek vaší aplikace a klikněte na tlačítko Nastavení, Prohlížeč](./media/app-insights-javascript/03.png)
-
 
 *Žádná data? V horní části stránky klikněte na **Obnovit**. Stále nic? Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).*
 
 Okno prohlížečů je [okno Průzkumníku metrik](app-insights-metrics-explorer.md) s přednastavenými filtry a výběry grafu. Pokud chcete, můžete upravit časové rozmezí, filtry a konfiguraci grafu a uložit výsledek jako oblíbenou položku. Klikněte na tlačítko **Obnovit výchozí nastavení** a vraťte se zpět do původní konfigurace okna.
 
 ## Stav zatížení stránky
-
 V horní části naleznete segmentovaný grafu časů načtení stránky. Celková výška grafu představuje průměrný čas načtení a zobrazuje stránky z vaší aplikace v prohlížečích vašich uživatelů. Čas se měří od chvíle, když prohlížeč odesílá počáteční požadavek HTTP, po zpracování veškerých synchronních zatížení, včetně rozložení a spouštění skriptů. Neobsahuje asynchronní úlohy, například načítání webových součástí z volání AJAX.
 
 Tabulka segmentuje celkovou dobu načítání stránky do [standardních časování definovaných pomocí W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
@@ -134,7 +119,6 @@ Tabulka segmentuje celkovou dobu načítání stránky do [standardních časov�
 Všimněte si, že čas *síťového připojení* je často nižší, než by se dalo očekávat, protože je průměrem přes všechny požadavky z prohlížeče na server. Mnoho jednotlivých požadavků obsahuje dobu připojení 0, protože již existuje aktivní připojení k serveru.
 
 ### Pomalé načítání?
-
 Pomalé načítání stránek představuje hlavní zdroj nespokojenosti uživatelů. Pokud tabulka naznačuje pomalé načítání stránky, je snadné provést trochu diagnostického výzkumu.
 
 Graf zobrazuje průměr všech načtení stránky ve vaší aplikaci. Chcete-li zjistit, zda je tento problém omezen na konkrétní stránky, podívejte se níže na okno, kde jsou mřížky segmentované podle adresy URL stránky:
@@ -149,7 +133,6 @@ Všimněte si počtu zobrazení stránky a směrodatné odchylky. Pokud je poče
 
 Klikněte na tlačítko `...` pro úplný seznam vlastností pro danou událost nebo zkontrolujte volání Ajax a související události. Pomalá volání Ajax ovlivňují celkový čas načítání stránky, pokud jsou synchronní. Související události zahrnují požadavky serveru pro stejnou adresu URL (Pokud jste nastavili Application Insights na webovém serveru).
 
-
 **Výkon stránky v čase.** Zpět v okně prohlížeče změňte mřížku zobrazení času načítání stránky na spojnicový graf a zjistěte, zda nedocházelo v určitou dobu ke špičkám:
 
 ![Klikněte na hlavičku mřížky a vyberte nový typ grafu](./media/app-insights-javascript/10-page-perf-area.png)
@@ -158,9 +141,7 @@ Klikněte na tlačítko `...` pro úplný seznam vlastností pro danou událost 
 
 ![](./media/app-insights-javascript/21.png)
 
-
 ## Výkon AJAX
-
 Ujistěte se, že všechna volání AJAX na webových stránkách dobře fungují. Často se používají k synchronnímu vyplnění částí stránek. I když se celá stránka může načíst okamžitě, uživatelé mohou být frustrováni sledováním prázdných webových části při čekání na zobrazení dat.
 
 Volání AJAX provedená z webové stránky se zobrazí v okně prohlížeče jako závislosti.
@@ -175,8 +156,10 @@ a níže pak podrobné mřížky:
 
 Klikněte na libovolný řádek pro konkrétní podrobnosti.
 
-
-> [AZURE.NOTE] Při odstranění filtru prohlížečů v okně se server a závislosti AJAX zahrnou do těchto grafů. Klikněte na tlačítko Obnovit výchozí nastavení a překonfigurujte filtr.
+> [!NOTE]
+> Při odstranění filtru prohlížečů v okně se server a závislosti AJAX zahrnou do těchto grafů. Klikněte na tlačítko Obnovit výchozí nastavení a překonfigurujte filtr.
+> 
+> 
 
 **Chcete-li zobrazit podrobnosti nezdařených volání Ajax** posuňte se dolů k mřížce selhání závislostí a klikněte na řádek pro zobrazení konkrétních instancí.
 
@@ -185,11 +168,9 @@ Klikněte na libovolný řádek pro konkrétní podrobnosti.
 Klikněte na tlačítko `...` pro úplnou telemetrii volání Ajax.
 
 ### Žádná nahlášená volání Ajax?
-
 Volání AJAX zahrnují HTTP volání ze skriptu webové stránky. Pokud je nevidíte nahlášená, zkontrolujte, zda fragment kódu nenastavil parametry `disableAjaxTracking` nebo `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Výjimky prohlížečů
-
 V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mřížka typů výjimek.
 
 ![](./media/app-insights-javascript/39.png)
@@ -197,7 +178,6 @@ V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mří�
 Pokud nevidíte nahlášené výjimky prohlížeče, zkontrolujte, zda fragment kódu nenastavil parametr `disableExceptionTracking` [](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Zkontrolujte jednotlivé stránky zobrazení událostí
-
 Obvykle jsou telemetrická zobrazení stránky analyzována pomocí Application Insights a zobrazí se pouze kumulativní sestavy s průměrem za všechny uživatele. Ale pro účely ladění si můžete také prohlédnout jednotlivé stránky zobrazení událostí.
 
 V okně diagnostické vyhledávání nastavte filtry pro zobrazení stránky.
@@ -206,21 +186,21 @@ V okně diagnostické vyhledávání nastavte filtry pro zobrazení stránky.
 
 Vyberte další události pro zobrazení dalších podrobností. Na stránce podrobností klikněte na tlačítko „...“, chcete-li zobrazit více podrobností.
 
-> [AZURE.NOTE] Pokud používáte [Vyhledávání](app-insights-diagnostic-search.md), všimněte si, že musíte hledat celá slova: „Abou“ a „bout“ se neshoduje s „About“.
+> [!NOTE]
+> Pokud používáte [Vyhledávání](app-insights-diagnostic-search.md), všimněte si, že musíte hledat celá slova: „Abou“ a „bout“ se neshoduje s „About“.
+> 
+> 
 
 Při hledání zobrazení stránek můžete také použít výkonný [analytický dotazovací jazyk](app-insights-analytics-tour.md).
 
 ### Zobrazení vlastností stránky
-
 * **Doba trvání zobrazení stránky** 
-
- * Ve výchozím nastavení čas potřebný k načtení stránky, od žádosti klienta po úplné načtení (včetně pomocných souborů s výjimkou asynchronních úloh, například volání Ajax). 
- * Pokud nastavíte `overridePageViewDuration` v [konfiguraci stránky](#detailed-configuration), interval mezi požadavkem klienta po spuštění prvního `trackPageView`. Pokud jste přesunuli trackPageView z obvyklé pozice po inicializaci skriptu, bude odrážet odlišnou hodnotu.
- * Pokud je nastavený parametr `overridePageViewDuration` a u volání `trackPageView()` je zadán argument doby trvání, pak se místo toho použije hodnota argumentu. 
-
+  
+  * Ve výchozím nastavení čas potřebný k načtení stránky, od žádosti klienta po úplné načtení (včetně pomocných souborů s výjimkou asynchronních úloh, například volání Ajax). 
+  * Pokud nastavíte `overridePageViewDuration` v [konfiguraci stránky](#detailed-configuration), interval mezi požadavkem klienta po spuštění prvního `trackPageView`. Pokud jste přesunuli trackPageView z obvyklé pozice po inicializaci skriptu, bude odrážet odlišnou hodnotu.
+  * Pokud je nastavený parametr `overridePageViewDuration` a u volání `trackPageView()` je zadán argument doby trvání, pak se místo toho použije hodnota argumentu. 
 
 ## Počty vlastních stránek
-
 Ve výchozím nastavení se počet stránek objeví vždy, když se do prohlížeče klienta načte nová stránka.  Ale můžete chtít spočítat další zobrazení stránky. Například stránka může zobrazit svůj obsah na kartách a vy chcete spočítat stránky, když uživatel přepíná karty. Nebo kód jazyka JavaScript na stránce může načíst nový obsah beze změny adresy URL v prohlížeči.
 
 Vložte podobné volání jazyka JavaScript v odpovídajícím bodě v klientském kódu:
@@ -229,30 +209,21 @@ Vložte podobné volání jazyka JavaScript v odpovídajícím bodě v klientsk�
 
 Název stránky může obsahovat stejné znaky jako adresa URL, ale cokoli za „#“ nebo „?“ se ignoruje.
 
-
-
 ## Sledování využití
-
-
 Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 
 * [Další informace o sledování využití](app-insights-web-track-usage.md)
 * [Další informace o vlastních událostech a metrikách rozhraní API](app-insights-api-custom-events-metrics.md).
 
-
 #### <a name="video"></a> Video: Sledování využití
-
-> [AZURE.VIDEO tracking-usage-with-application-insights]
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
+> 
+> 
 
 ## <a name="next"></a> Další kroky
-
 * [Sledovat využití](app-insights-web-track-usage.md)
 * [Vlastní události a metriky](app-insights-api-custom-events-metrics.md)
 * [Sestavení vyhodnocení poučení](app-insights-overview-usage.md)
-
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

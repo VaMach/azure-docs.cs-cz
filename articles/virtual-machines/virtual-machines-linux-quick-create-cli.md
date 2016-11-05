@@ -1,37 +1,31 @@
-<properties
-   pageTitle="Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku | Microsoft Azure"
-   description="Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="vlivech"
-   manager="timlt"
-   editor=""/>
+---
+title: Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku | Microsoft Docs
+description: Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku
+services: virtual-machines-linux
+documentationcenter: ''
+author: vlivech
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/08/2016"
-   ms.author="v-livech"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/08/2016
+ms.author: v-livech
 
-
-
+---
 # Vytvoření virtuálního počítače s Linuxem v Azure pomocí rozhraní příkazového řádku
-
 Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` v rozhraní příkazového řádku (CLI) Azure. Příkaz `quick-create` nasadí virtuální počítač se základní zabezpečenou infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu. Tento článek vyžaduje:
 
-- účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/))
-
-- [rozhraní příkazového řádku Azure](../xplat-cli-install.md) s přihlášením `azure login`
-
-- Rozhraní příkazového řádku Azure _musí být v_ režimu Azure Resource Manager. `azure config mode arm`
+* účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/))
+* [rozhraní příkazového řádku Azure](../xplat-cli-install.md) s přihlášením `azure login`
+* Rozhraní příkazového řádku Azure *musí být v* režimu Azure Resource Manager. `azure config mode arm`
 
 Virtuální počítač s Linuxem můžete rychle nasadit také pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Rychlé příkazy
-
 Následující příklad ukazuje, jak nasadit virtuální počítač s CoreOS a připojit klíč SSH (Secure Shell). Vaše argumenty ale mohou být jiné:
 
 ```bash
@@ -41,29 +35,27 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 Následující části popisují tento příkaz a jeho požadavky, pokud se k distribuci Linuxu použije Ubuntu Server 14.04 LTS.  
 
 ## Aliasy quick-create pro virtuální počítače
-
 Rychlým způsobem, jak zvolit distribuci, je použít aliasy rozhraní příkazového řádku Azure namapované na nejběžnější distribuce operačních systémů. Tyto aliasy jsou uvedené v následující tabulce (pro rozhraní příkazového řádku Azure verze 0.10). Všechna nasazení, která využívají `quick-create`, standardně směřují na virtuální počítače zálohované úložištěm SSD (solid-state drive), které nabízí rychlejší zřizování a vysoce výkonný přístup na disk. (Tyto aliasy představují jenom nepatrnou část dostupných distribucí na platformě Azure. Další image můžete vyhledat v Azure Marketplace pomocí [hledání image](virtual-machines-linux-cli-ps-findimage.md), nebo můžete [nahrát vlastní image](virtual-machines-linux-create-upload-generic.md).)
 
-| Alias     | Vydavatel | Nabídka        | Skladová jednotka (SKU)         | Verze |
-|:----------|:----------|:-------------|:------------|:--------|
-| CentOS    | OpenLogic | CentOS       | 7.2         | nejnovější  |
-| CoreOS    | CoreOS    | CoreOS       | Stable      | nejnovější  |
-| Debian    | credativ  | Debian       | 8           | nejnovější  |
-| openSUSE  | SUSE      | openSUSE     | 13.2        | nejnovější  |
-| RHEL      | Red Hat    | RHEL         | 7.2         | nejnovější  |
-| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | nejnovější  |
+| Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
+|:--- |:--- |:--- |:--- |:--- |
+| CentOS |OpenLogic |CentOS |7.2 |nejnovější |
+| CoreOS |CoreOS |CoreOS |Stable |nejnovější |
+| Debian |credativ |Debian |8 |nejnovější |
+| openSUSE |SUSE |openSUSE |13.2 |nejnovější |
+| RHEL |Red Hat |RHEL |7.2 |nejnovější |
+| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |nejnovější |
 
 V následujících částech se používá alias `UbuntuLTS` pro možnost **ImageURN** (`-Q`) k nasazení serveru Ubuntu 14.04.4 LTS.
 
 ## Podrobný postup
-
 V předchozím příkladu `quick-create` se příznak `-M` využíval jenom k identifikaci veřejného klíče SSH pro odeslání a hesla SSH byla zakázaná, takže se zobrazí výzva k zadání následujících argumentů:
 
-- název skupiny prostředků (pro první skupinu prostředků Azure to obvykle může být libovolný řetězec)
-- název virtuálního počítače
-- umístění (vhodné výchozí hodnoty jsou `westus` nebo `westeurope`)
-- linux (aby se v Azure vědělo, který operační systém chcete)
-- uživatelské jméno
+* název skupiny prostředků (pro první skupinu prostředků Azure to obvykle může být libovolný řetězec)
+* název virtuálního počítače
+* umístění (vhodné výchozí hodnoty jsou `westus` nebo `westeurope`)
+* linux (aby se v Azure vědělo, který operační systém chcete)
+* uživatelské jméno
 
 V následujícím příkladu jsou všechny tyto hodnoty zadané, takže už není potřeba zobrazovat žádné další výzvy. Pokud jako soubor veřejného klíče ve formátu ssh-rsa používáte `~/.ssh/id_rsa.pub`, funguje tak, jak je:
 
@@ -197,16 +189,13 @@ exampleAdminUser@exampleVMName:~$
 ```
 
 ## Další kroky
-
 Příkaz `azure vm quick-create` představuje způsob, jak rychle nasadit virtuální počítač, abyste se mohli přihlásit k prostředí Bash a začít pracovat. Použití `vm quick-create` ale neposkytuje větší možnosti kontroly ani neumožňuje vytvářet složitější prostředí.  Pokud budete chtít nasadit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků:
 
-- [Vytvoření konkrétního nasazení pomocí šablony Azure Resource Manageru](virtual-machines-linux-cli-deploy-templates.md)
-- [Přímé vytvoření vlastního prostředí pro virtuální počítač s Linuxem pomocí rozhraní příkazového řádku Azure](virtual-machines-linux-create-cli-complete.md)
-- [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Vytvoření konkrétního nasazení pomocí šablony Azure Resource Manageru](virtual-machines-linux-cli-deploy-templates.md)
+* [Přímé vytvoření vlastního prostředí pro virtuální počítač s Linuxem pomocí rozhraní příkazového řádku Azure](virtual-machines-linux-create-cli-complete.md)
+* [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 K [rychlému vytvoření linuxového virtuálního počítače jako hostitele Docker můžete také využít ovladač Azure `docker-machine` s různými příkazy](virtual-machines-linux-docker-machine.md).
-
-
 
 <!--HONumber=Sep16_HO5-->
 

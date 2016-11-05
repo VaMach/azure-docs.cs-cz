@@ -1,26 +1,25 @@
-<properties
-    pageTitle="Licencování Azure RemoteAppu | Microsoft Azure"
-    description="Přečtěte si, jak funguje licencování v Azure RemoteAppu."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Licencování Azure RemoteAppu | Microsoft Docs
+description: Přečtěte si, jak funguje licencování v Azure RemoteAppu.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Jak v Azure RemoteAppu funguje licencování?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Takže jste si nastavili službu Azure RemoteApp, vytvořili šablony a jste nyní připraveni publikovat aplikace pro vaše uživatele. Ale zbývá dořešit ještě jednu věc – licencování. Jak tedy funguje licencování pro RemoteApp a pro aplikace, které sdílíte prostřednictvím RemoteAppu?
 
@@ -37,8 +36,6 @@ Pro jiné aplikace musíte zajistit, že máte licenci pro sdílení aplikace.
 To dává smysl, ne? Můžete publikovat jakoukoli aplikaci, kterou jste zákonně oprávněni sdílet. A musíte se ujistit, že máte skutečně právo sdílet své programy.
 
 Upozorňujeme, že v cloudové kolekci nemůžete používat licence CAL ani multilicenční smlouvu. Multilicenční smlouvu *můžete* použít k aktivaci aplikací v hybridní kolekci (kromě aplikací Office). Stačí je jen nainstalovat do image šablony z multilicenčního média. Postupujte podle informací od dodavatele aplikace a nainstalujte licence v prostředí Vzdálené plochy.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

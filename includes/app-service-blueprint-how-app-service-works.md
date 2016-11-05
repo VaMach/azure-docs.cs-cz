@@ -11,7 +11,6 @@
 * [Podpora vývojových balíků služby Azure App Service](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Videa
-
 * [Architektura služby Azure App Service](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!--HONumber=Sep16_HO3-->

@@ -1,32 +1,30 @@
-<properties
- pageTitle="Řešení Azure pro Internet věcí | Microsoft Azure"
- description="Přehled technologie IoT na platformě Azure, včetně ukázkové architektury řešení a informací o tom, jak souvisí se službou Azure IoT Hub, sadami SDK a předkonfigurovanými řešeními"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Řešení Azure pro Internet věcí | Microsoft Docs
+description: Přehled technologie IoT na platformě Azure, včetně ukázkové architektury řešení a informací o tom, jak souvisí se službou Azure IoT Hub, sadami SDK a předkonfigurovanými řešeními
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Další kroky
-
 Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou obousměrnou komunikaci mezi back-endem vaší aplikaci a miliony zařízení. Umožní back-endu aplikace:
 
-- Přijímat škálovaná telemetrická data z vašich zařízení.
-- Směrovat data z vašich zařízení do zpracovatele událostí datového proudu.
-- Přijímat nahrávání souborů ze zařízení.
-- Odesílat příkazy typu cloud-zařízení na konkrétní zařízení.
+* Přijímat škálovaná telemetrická data z vašich zařízení.
+* Směrovat data z vašich zařízení do zpracovatele událostí datového proudu.
+* Přijímat nahrávání souborů ze zařízení.
+* Odesílat příkazy typu cloud-zařízení na konkrétní zařízení.
 
 Pomocí služby IoT Hub můžete implementovat vlastní back-end řešení. Kromě toho služba IoT Hub obsahuje registr identit zařízení, který slouží ke zřizování zařízení, jejich zabezpečených přihlašovacích údajů a práv k připojení do služby. Další informace o IoT Hub naleznete v části [Co je IoT Hub?][Ink-iot-hub].
 

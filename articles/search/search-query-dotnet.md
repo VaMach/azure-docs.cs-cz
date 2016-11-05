@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Dotazování indexu Azure Search pomocí .NET SDK | Microsoft Azure | Hostovaná cloudová vyhledávací služba"
-    description="Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-/>
+---
+title: Dotazování indexu Azure Search pomocí .NET SDK | Microsoft Docs
+description: Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # Dotazování indexu Azure Search pomocí .NET SDK
-> [AZURE.SELECTOR]
-- [Přehled](search-query-overview.md)
-- [Portál](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Přehled](search-query-overview.md)
+> * [Portál](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Tento článek vám ukáže postup dotazování indexu pomocí [.NET SDK služby Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
@@ -38,8 +38,8 @@ Po vytvoření indexu Azure Search jste již téměř připraveni vydávat dotaz
 
 Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
-  - Primární a sekundární *klíče správce* udělují úplná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
-  - Vaše *klíče dotazů* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají požadavky hledání.
+* Primární a sekundární *klíče správce* udělují úplná práva ke všem operacím, včetně možnosti spravovat službu, vytvářet a odstraňovat indexy, indexery a zdroje dat. Existují dva klíče, takže pokud se rozhodnete znovu vygenerovat primární klíč, můžete dál používat sekundární klíč, a naopak.
+* Vaše *klíče dotazů* udělují přístup jen pro čtení k indexům a dokumentům a obvykle se distribuují klientským aplikacím, které vydávají požadavky hledání.
 
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -61,12 +61,11 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 Vyhledávání pomocí .NET SDK je jednoduché, stačí na `SearchIndexClient` zavolat metodu `Documents.Search`. Tato metoda přijímá několik parametrů včetně textu vyhledávání, spolu s objektem `SearchParameters`, který lze použít pro další upřesnění dotazu.
 
 #### Typy dotazů
-Dva hlavní [typy dotazů](search-query-overview.md#types-of-queries), které budete používat, jsou `search` a `filter`. Dotaz `search` vyhledává jeden nebo více výrazů ve všech _prohledávatelných_ polích v indexu. Dotaz `filter` vyhodnocuje logický výraz na všech _filtrovatelných_ polích v indexu.
+Dva hlavní [typy dotazů](search-query-overview.md#types-of-queries), které budete používat, jsou `search` a `filter`. Dotaz `search` vyhledává jeden nebo více výrazů ve všech *prohledávatelných* polích v indexu. Dotaz `filter` vyhodnocuje logický výraz na všech *filtrovatelných* polích v indexu.
 
 Vyhledávání i filtrování se provádí pomocí metody `Documents.Search`. Vyhledávací dotaz lze předat v parametru `searchText`, zatímco výraz filtru lze předat ve vlastnosti `Filter` třídy `SearchParameters`. Chcete-li filtrovat bez vyhledávání, stačí předat `"*"` jako hodnotu parametru `searchText`. Chcete-li vyhledávat bez filtrování, ponechte vlastnost `Filter` nenastavenou nebo instanci `SearchParameters` vůbec nepředávejte.
 
 #### Ukázky dotazů
-
 Následující vzorový kód ukazuje několik různých způsobů dotazování indexu „hotels“, definovaného v tématu [Vytvoření indexu Azure Search pomocí .NET SDK](search-create-index-dotnet.md#DefineIndex). Všimněte si, že dokumenty vrácené ve výsledcích vyhledávání jsou instancemi třídy `Hotel`, která byla definovaná v tématu [Import dat do služby Azure Search pomocí .NET SDK](search-import-data-dotnet.md#HotelClass). Ukázkový kód využívá metody `WriteDocuments` k vypsání výsledků vyhledávání do konzoly. Tato metoda je popsaná v následujícím oddílu.
 
 ```csharp
@@ -162,8 +161,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání konzolu. Stejně tak budete potřebovat zobrazit výsledky vyhledávání ve své aplikaci. Ukázku vykreslování výsledků vyhledávání ve webové aplikaci založené na ASP.NET MVC naleznete v [této ukázce na GitHubu](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

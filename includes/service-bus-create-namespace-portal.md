@@ -1,33 +1,22 @@
-1. Přihlaste se k webu [Azure Portal][].
-
+1. Přihlaste se k webu [Azure Portal][Azure Portal].
 2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
-
-4. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
-
-5. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
-
-7. V poli **Předplatné** zvolte předplatné Azure, ve které chcete vytvořit obor názvů.
-
-9. V poli **Skupina prostředků** zvolte existující skupinu prostředků, ve které bude obor názvů fungovat, nebo vytvořte novou.      
-
-8. V poli **Umístění**, vyberte zemi nebo oblast, ve které by měl být oboru názvů hostován.
-
+3. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
+4. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
+5. V poli **Předplatné** zvolte předplatné Azure, ve které chcete vytvořit obor názvů.
+6. V poli **Skupina prostředků** zvolte existující skupinu prostředků, ve které bude obor názvů fungovat, nebo vytvořte novou.      
+7. V poli **Umístění**, vyberte zemi nebo oblast, ve které by měl být oboru názvů hostován.
+   
     ![Vytvoření oboru názvů][create-namespace]
+8. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
-6. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
- 
 ### Získání přihlašovacích údajů pro správu
-
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
- 
-3. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
-
-4. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
-
+2. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
+3. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
+   
     ![connection-info][connection-info]
-
-5. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití. Vložte tuto hodnotu do Poznámkového bloku nebo jiného dočasného umístění.
-
+4. V okně **Zásada: RootManageSharedAccessKey** klikněte na tlačítko kopírování vedle položky **Připojovací řetězec – primární klíč**, abyste zkopírovali připojovací řetězec do vaší schránky pro pozdější použití. Vložte tuto hodnotu do Poznámkového bloku nebo jiného dočasného umístění.
+   
     ![connection-string][connection-string]
 
 <!--Image references-->

@@ -1,73 +1,77 @@
-<properties 
-    pageTitle="Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní REST API | Microsoft Azure" 
-    description="V tomto kurzu vytvoříte kanál Azure Data Factory s aktivitou kopírování pomocí rozhraní REST API." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: 'Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní REST API | Microsoft Docs'
+description: V tomto kurzu vytvoříte kanál Azure Data Factory s aktivitou kopírování pomocí rozhraní REST API.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="09/16/2016" 
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/16/2016
+ms.author: spelluru
 
-
+---
 # Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní REST API
-> [AZURE.SELECTOR]
-- [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
-- [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
+> [!div class="op_single_selector"]
+> * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+> * [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> 
+> 
 
 V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření dat Azure pomocí rozhraní REST API. Kanál v objektu pro vytváření dat využívá aktivitu kopírování, s jejíž pomocí kopíruje data ze služby Azure Blob Storage do služby Azure SQL Database.
 
-> [AZURE.NOTE] 
+> [!NOTE]
 > Tento článek nepopisuje všechny možnosti rozhraní REST API služby Data Factory. Úplnou dokumentaci o rutinách služby Data Factory najdete v článku [Rozhraní REST API služby Data Factory - referenční informace](https://msdn.microsoft.com/library/azure/dn906738.aspx).
-  
+> 
+> 
 
 ## Požadavky
-
-- Projděte si [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky.
-- Nainstalujte na svůj počítač nástroj [Curl](https://curl.haxx.se/dlwiz/). Pomocí nástroje Curl a příkazů REST vytvoříte objekt pro vytváření dat. 
-- Postupujte podle pokynů v [tomto článku](../resource-group-create-service-principal-portal.md) a proveďte následující: 
-    1. V Azure Active Directory vytvořte webovou aplikaci s názvem **ADFCopyTutorialApp**.
-    2. Získejte **ID klienta** a **tajný klíč**. 
-    3. Získejte **ID tenanta**. 
-    4. Přiřaďte aplikaci **ADFCopyTutorialApp** k roli **Přispěvatel Data Factory**.  
-- Nainstalujte [Azure PowerShell](../powershell-install-configure.md).  
-- Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
-    1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
-    
-            Login-AzureRmAccount   
-    2. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet.
-
-            Get-AzureRmSubscription 
-    3. Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **&lt;NameOfAzureSubscription**&gt; zadejte název svého předplatného Azure. 
-
-            Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    1. Spuštěním následujícího příkazu v PowerShellu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**.  
-
-            New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-
-        Pokud skupina prostředků už existuje, určete, jestli se má aktualizovat (Y), nebo ponechat tak, jak je (N). 
-
-        Některé kroky v tomto kurzu vychází z předpokladu, že používáte skupinu prostředků s názvem ADFTutorialResourceGroup. Pokud používáte jinou skupinu prostředků, použijte v postupech v tomto kurzu místo skupiny ADFTutorialResourceGroup název vaší skupiny prostředků.
+* Projděte si [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a proveďte **nutné** kroky.
+* Nainstalujte na svůj počítač nástroj [Curl](https://curl.haxx.se/dlwiz/). Pomocí nástroje Curl a příkazů REST vytvoříte objekt pro vytváření dat. 
+* Postupujte podle pokynů v [tomto článku](../resource-group-create-service-principal-portal.md) a proveďte následující: 
+  1. V Azure Active Directory vytvořte webovou aplikaci s názvem **ADFCopyTutorialApp**.
+  2. Získejte **ID klienta** a **tajný klíč**. 
+  3. Získejte **ID tenanta**. 
+  4. Přiřaďte aplikaci **ADFCopyTutorialApp** k roli **Přispěvatel Data Factory**.  
+* Nainstalujte [Azure PowerShell](../powershell-install-configure.md).  
+* Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
   
+  1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
+     
+          Login-AzureRmAccount   
+  2. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet.
+     
+          Get-AzureRmSubscription 
+  3. Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **&lt;NameOfAzureSubscription**&gt; zadejte název svého předplatného Azure. 
+     
+          Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+  4. Spuštěním následujícího příkazu v PowerShellu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**.  
+     
+          New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     
+      Pokud skupina prostředků už existuje, určete, jestli se má aktualizovat (Y), nebo ponechat tak, jak je (N). 
+     
+      Některé kroky v tomto kurzu vychází z předpokladu, že používáte skupinu prostředků s názvem ADFTutorialResourceGroup. Pokud používáte jinou skupinu prostředků, použijte v postupech v tomto kurzu místo skupiny ADFTutorialResourceGroup název vaší skupiny prostředků.
+
 ## Vytvoření definic JSON
 Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor curl.exe. 
 
-### datafactory.json 
-> [AZURE.IMPORTANT] Název musí být globálně jedinečný, takže můžete přidat předponu nebo příponu k názvu ADFCopyTutorialDF tak, aby byl jedinečný. 
+### datafactory.json
+> [!IMPORTANT]
+> Název musí být globálně jedinečný, takže můžete přidat předponu nebo příponu k názvu ADFCopyTutorialDF tak, aby byl jedinečný. 
+> 
+> 
 
     {  
         "name": "ADFCopyTutorialDF",  
@@ -75,7 +79,10 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
     }  
 
 ### azurestoragelinkedservice.json
-> [AZURE.IMPORTANT] Položky **accountname** a **accountkey** nahraďte názvem svého účtu Azure Storage a jeho klíčem. Informace o tom, jak získat přístupový klíč k úložišti, najdete v článku o [zobrazení, kopírování a opětovném vytváření přístupových klíčů úložiště](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> [!IMPORTANT]
+> Položky **accountname** a **accountkey** nahraďte názvem svého účtu Azure Storage a jeho klíčem. Informace o tom, jak získat přístupový klíč k úložišti, najdete v článku o [zobrazení, kopírování a opětovném vytváření přístupových klíčů úložiště](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> 
+> 
 
     {
         "name": "AzureStorageLinkedService",
@@ -88,7 +95,10 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
     }
 
 ### azuersqllinkedservice.json
-> [AZURE.IMPORTANT] Položky **servername**, **databasename**, **username** a **password** nahraďte názvem serveru SQL Azure, názvem databáze SQL, uživatelským účtem a heslem pro daný účet.  
+> [!IMPORTANT]
+> Položky **servername**, **databasename**, **username** a **password** nahraďte názvem serveru SQL Azure, názvem databáze SQL, uživatelským účtem a heslem pro daný účet.  
+> 
+> 
 
     {
         "name": "AzureSqlLinkedService",
@@ -103,7 +113,6 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
 
 
 ### inputdataset.json
-
     {
       "name": "AzureBlobInput",
       "properties": {
@@ -139,12 +148,12 @@ Definice JSON definuje datovou sadu s názvem **AzureBlobInput**, která předst
 
  Je třeba počítat s následujícím: 
 
-- Vlastnost **type** datové sady je nastavená na **AzureBlob**.
-- Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. 
-- Vlastnost **folderPath** je nastavena na kontejner **adftutorial** a vlastnost **fileName** je nastavena na **emp.txt**.  
-- Vlastnost **type** formátu je nastavená na **TextFormat**.
-- V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
-- Vlastnost **availability** je nastavená na **hourly** (frequency je nastavená na hour a interval je nastavená na 1). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce zadaného kontejneru objektů blob (**adftutorial**). 
+* Vlastnost **type** datové sady je nastavená na **AzureBlob**.
+* Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. 
+* Vlastnost **folderPath** je nastavena na kontejner **adftutorial** a vlastnost **fileName** je nastavena na **emp.txt**.  
+* Vlastnost **type** formátu je nastavená na **TextFormat**.
+* V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
+* Vlastnost **availability** je nastavená na **hourly** (frequency je nastavená na hour a interval je nastavená na 1). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce zadaného kontejneru objektů blob (**adftutorial**). 
 
 Pokud neurčíte **fileName** pro vstupní datovou sadu, všechny soubory nebo objekty ze vstupní složky (**folderPath**) se považují za vstupy. Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
 
@@ -164,7 +173,6 @@ Pokud chcete nastavit **folderPath** a **fileName** dynamicky podle času **Slic
 
 
 ### outputdataset.json
-    
     {
       "name": "AzureSqlOutput",
       "properties": {
@@ -195,14 +203,13 @@ Definice JSON definuje datovou sadu s názvem **AzureSqlOutput**, která předst
 
 Je třeba počítat s následujícím: 
 
-- Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
-- Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService**.
-- Vlastnost **tablename** je nastavená na **emp**.
-- V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
-- Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
+* Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
+* Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService**.
+* Vlastnost **tablename** je nastavená na **emp**.
+* V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
+* Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
 
 ### pipeline.json
-
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -248,9 +255,9 @@ Je třeba počítat s následujícím:
 
 Je třeba počítat s následujícím:
 
-- V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **CopyActivity**.
-- Vstup aktivity je nastavený na **AzureBlobInput** a výstup aktivity je nastavený na **AzureSqlOutput**.
-- V části **transformace** je vlastnost **BlobSource** určená jako typ zdroje a **SqlSink** jako typ jímky.
+* V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **CopyActivity**.
+* Vstup aktivity je nastavený na **AzureBlobInput** a výstup aktivity je nastavený na **AzureSqlOutput**.
+* V části **transformace** je vlastnost **BlobSource** určená jako typ zdroje a **SqlSink** jako typ jímky.
 
 Nahraďte hodnotu vlastnosti **start** aktuálním dnem a **end** následujícím dnem. Můžete zadat jenom část data a přeskočit část času. Například „2015-02-03“ je ekvivalentní hodnotě „2015-02-03T00:00:00Z“.
 
@@ -259,14 +266,19 @@ Počáteční a koncové hodnoty data a času musí být ve [formátu ISO](http:
 Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Pokud chcete kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9999-09-09**.
 
 V příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
-    
-> [AZURE.NOTE] Podrobnosti o vlastnostech JSON použitých ve výše uvedeném příkladu najdete v článku [Anatomie kanálu](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+
+> [!NOTE]
+> Podrobnosti o vlastnostech JSON použitých ve výše uvedeném příkladu najdete v článku [Anatomie kanálu](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+> 
+> 
 
 ## Nastavení globálních proměnných
-
 V prostředí Azure PowerShell spusťte následující příkazy (po nahrazení ukázkových hodnot vašimi vlastními):
 
-> [AZURE.IMPORTANT] Postup získání ID klienta, tajného klíče klienta, ID tenanta a ID předplatného naleznete v sekci [Požadavky](#prerequisites).   
+> [!IMPORTANT]
+> Postup získání ID klienta, tajného klíče klienta, ID tenanta a ID předplatného naleznete v sekci [Požadavky](#prerequisites).   
+> 
+> 
 
     $client_id = "<client ID of application in AAD>"
     $client_secret = "<client key of application in AAD>"
@@ -276,51 +288,51 @@ V prostředí Azure PowerShell spusťte následující příkazy (po nahrazení 
     $rg = "ADFTutorialResourceGroup"
     $adf = "ADFCopyTutorialDF"
 
-## Ověření pomocí ADD 
+## Ověření pomocí ADD
 Spuštěním následujícího příkazu proveďte ověření pomocí služby Azure Active Directory (AAD). 
 
     $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
     $responseToken = Invoke-Command -scriptblock $cmd;
     $accessToken = (ConvertFrom-Json $responseToken).access_token;
-    
+
     (ConvertFrom-Json $responseToken) 
 
 ## Vytvoření objektu pro vytváření dat
-
 V tomto kroku vytvoříte objekt služby Azure Data Factory s názvem **ADFCopyTutorialDF**. Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Například aktivita kopírování kopíruje data ze zdroje do cílového úložiště dat. Aktivita HDInsight Hive spustí skript Hive k transformaci vstupních dat na výstupní data produktu. Spuštěním následujícího příkazu vytvořte objekt pro vytváření dat: 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**. 
-
+   
     Zkontrolujte, že název objektu pro vytváření dat zadaný zde (ADFCopyTutorialDF) odpovídá názvu zadanému v souboru **datafactory.json**. 
-
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
-
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byl objekt pro vytváření dat vytvořen úspěšně, v části **výsledky** se zobrazí JSON pro příslušný objekt pro vytváření dat. V opačném případě se zobrazí chybová zpráva.  
-
+   
         Write-Host $results
 
 Je třeba počítat s následujícím:
- 
-- Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba **Název objektu pro vytváření dat „ADFCopyTutorialDF“ není k dispozici**, proveďte následující kroky:  
-    1. Změňte název (například yournameADFCopyTutorialDF) v souboru **datafactory.json**.
-    2. V prvním příkazu, kde je proměnné **$cmd** přiřazena hodnota, nahraďte ADFCopyTutorialDF novým názvem a spusťte příkaz. 
-    3. Spuštěním následujících dvou příkazů vyvoláte rozhraní REST API za účelem vytvoření objektu pro vytváření dat a tisku výsledků operace. 
-    
-    V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-- Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
-- Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
-- Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
 
-    - V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu. 
-        
-            Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+* Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba **Název objektu pro vytváření dat „ADFCopyTutorialDF“ není k dispozici**, proveďte následující kroky:  
+  
+  1. Změňte název (například yournameADFCopyTutorialDF) v souboru **datafactory.json**.
+  2. V prvním příkazu, kde je proměnné **$cmd** přiřazena hodnota, nahraďte ADFCopyTutorialDF novým názvem a spusťte příkaz. 
+  3. Spuštěním následujících dvou příkazů vyvoláte rozhraní REST API za účelem vytvoření objektu pro vytváření dat a tisku výsledků operace. 
+     
+     V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+* Instance služby Data Factory můžete vytvářet jenom tehdy, když jste přispěvatelem/správcem předplatného Azure.
+* Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
+* Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
+  
+  * V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu. 
     
-        Spuštěním následujícího příkazu si můžete ověřit, jestli je zprostředkovatel služby Data Factory zaregistrovaný. 
+          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-            Get-AzureRmResourceProvider
-    - Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
+      Spuštěním následujícího příkazu si můžete ověřit, jestli je zprostředkovatel služby Data Factory zaregistrovaný. 
+    
+          Get-AzureRmResourceProvider
+  * Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
 
 Před vytvořením kanálu je nejdřív potřeba vytvořit několik entit služby Data Factory. Nejprve vytvoříte propojené služby propojující zdrojové a cílové úložiště dat do vašeho úložiště dat. Poté definujte vstupní a výstupní datové sady pro reprezentaci dat v propojených úložištích dat. Nakonec vytvořte kanál s aktivitou, která používá tyto datové sady.
 
@@ -333,52 +345,48 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
 V tomto kroku propojíte se svým objektem pro vytváření dat svůj účet služby Azure Storage. V tomto kurzu použijete účet služby Azure Storage k uložení vstupních dat. 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**. 
-
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
- 
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byla propojená služba vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto propojenou službu. V opačném případě se zobrazí chybová zpráva.
-  
+   
         Write-Host $results
 
 ### Vytvoření propojené služby Azure SQL
 V tomto kroku se svým objektem pro vytváření dat propojíte svou databázi SQL Azure. V tomto kurzu používáte stejnou službu Azure SQL Database k ukládání výstupních dat.
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**. 
-
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
- 
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byla propojená služba vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto propojenou službu. V opačném případě se zobrazí chybová zpráva.
-  
+   
         Write-Host $results
 
 ## Vytvoření datových sad
-
 V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService** a **AzureSqlLinkedService**, abyste propojili účet Azure Storage a Azure SQL Database k objektu pro vytváření dat: **ADFCopyTutorialDF**. V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data pro aktivitu kopírování v kanálu, který vytvoříte v následujícím kroku. 
 
 Vstupní datová sada v tomto kurzu odkazuje na kontejner objektů blob ve službě Azure Storage, na kterou odkazuje AzureStorageLinkedService. Výstupní datová sada odkazuje na tabulku SQL v Azure SQL Database, na kterou odkazuje AzureSqlLinkedService.  
 
 ### Příprava služeb Azure Blob Storage a Azure SQL Database pro tento kurz
 Abyste připravili služby Azure Blob Storage a Azure SQL Database pro tento kurz, proveďte následující kroky. 
- 
+
 * Vytvořte kontejner objektů blob s názvem **adftutorial** ve službě Azure Blob Storage, na kterou odkazuje objekt **AzureStorageLinkedService**. 
 * Vytvořte a odešlete textový soubor **emp.txt** jako objekt blob do kontejneru **adftutorial**. 
 * Vytvořte tabulku s názvem **emp** ve službě Azure SQL Database v databázi Azure SQL, na kterou odkazuje **AzureSqlLinkedService**.
 
-
 1. Spusťte program Poznámkový blok, vložte následující text a uložte ho jako **emp.txt** do složky **C:\ADFGetStartedPSH** na pevném disku. 
-
+   
         John, Doe
         Jane, Doe
-                
 2. Pomocí nástrojů, jako je [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/), vytvořte kontejner **adftutorial** a odešlete soubor **emp.txt** do tohoto kontejneru.
-
+   
     ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Pomocí následujícího skriptu SQL vytvořte tabulku **emp** v Azure SQL Database.  
-
 
         CREATE TABLE dbo.emp 
         (
@@ -393,44 +401,44 @@ Abyste připravili služby Azure Blob Storage a Azure SQL Database pro tento kur
     Pokud máte na počítači nainstalovaný SQL Server 2014: Postupujte podle pokynů v části [Krok 2: Připojení k SQL Database článku Správa Azure SQL Database pomocí aplikace SQL Server Management Studio][sql-management-studio], připojte se k serveru SQL Azure a spusťte skript SQL.
 
     Pokud klient nemá povolený přístup ke službě Azure SQL Server, budete muset nakonfigurovat bránu firewall pro Azure SQL Server tak, aby povolovala přístup z vašeho počítače (IP adresa). Postup konfigurace brány firewall pro server SQL Azure najdete v [tomto článku](../sql-database/sql-database-configure-firewall-settings.md).
-        
-### Vytvoření vstupní datové sady 
+
+### Vytvoření vstupní datové sady
 V tomto kroku vytvoříte datovou sadu s názvem **AzureBlobInput**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentované propojenou službou **AzureStorageLinkedService**. Tento kontejner objektu blob (**adftutorial**) obsahuje vstupní data v souboru **emp.txt**. 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**. 
-
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
-
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
-  
+   
         Write-Host $results
 
 ### Vytvoření výstupní datové sady
 V tomto kroku vytvoříte vytvoří výstupní tabulku s názvem **AzureSqlOutput**. Tato datová sada odkazuje na tabulku SQL (**emp**) v Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. Kanál kopíruje data z vstupního objektu blob do tabulky **emp**. 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
- 
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
-
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
-  
+   
         Write-Host $results 
 
 ## Vytvoření kanálu
 V tomto kroku vytvoříte kanál pomocí **aktivity kopírování**, který používá **AzureBlobInput** jako vstup a **AzureSqlOutput** jako výstup.
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
- 
+   
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
 2. Příkaz spusťte pomocí **Invoke-Command**.
-
+   
         $results = Invoke-Command -scriptblock $cmd;
 3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.  
-
+   
         Write-Host $results
 
 **Blahopřejeme!** Úspěšně jste vytvořili objekt pro vytváření dat Azure s kanálem, který kopíruje data ze služby Azure Blob Storage do databáze Azure SQL.
@@ -455,27 +463,24 @@ Spouštějte tyto příkazy, dokud se stav řezu nezobrazí jako **Připraveno**
 
 Pro každý řez se ze zdrojového souboru do tabulky emp ve službě Azure SQL Database zkopírují dva řádky. Proto po úspěšném zpracování všech řezů (stav Připraveno) uvidíte v tabulce emp 24 nových záznamů. 
 
-
 ## Souhrn
 V tomto kurzu jste pomocí rozhraní REST API vytvořili objekt pro vytváření dat Azure pro kopírování dat z objektu blob Azure do skužby Azure SQL Database. Zde jsou základní kroky, které jste v tomto kurzu provedli:  
 
-1.  Vytvořili jste **objekt pro vytváření dat** Azure.
-2.  Vytvořili jste **propojené služby**:
-    1. Propojená služba Azure Storage připojující účet úložiště Azure, který obsahuje vstupní data.    
-    2. Propojená služba Azure SQL připojující službu Azure SQL Database, která obsahuje výstupní data. 
-3.  Vytvořili jste **datové sady**, které popisují vstupní data a výstupní data pro kanály.
-4.  Vytvořili jste **kanál** s aktivitou kopírování, která má jako zdroj BlobSource a jako jímku SqlSink. 
+1. Vytvořili jste **objekt pro vytváření dat** Azure.
+2. Vytvořili jste **propojené služby**:
+   1. Propojená služba Azure Storage připojující účet úložiště Azure, který obsahuje vstupní data.    
+   2. Propojená služba Azure SQL připojující službu Azure SQL Database, která obsahuje výstupní data. 
+3. Vytvořili jste **datové sady**, které popisují vstupní data a výstupní data pro kanály.
+4. Vytvořili jste **kanál** s aktivitou kopírování, která má jako zdroj BlobSource a jako jímku SqlSink. 
 
 ## Viz také
 | Téma | Popis |
-| :---- | :---- |
-| [Aktivity přesunu dat](data-factory-data-movement-activities.md) | Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
-| [Plánování a provádění](data-factory-scheduling-and-execution.md) | Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-| [Kanály](data-factory-create-pipelines.md) | Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
-| [Datové sady](data-factory-create-datasets.md) | Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory.
-| [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) | Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. 
-
-
+|:--- |:--- |
+| [Aktivity přesunu dat](data-factory-data-movement-activities.md) |Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
+| [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
+| [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
+| [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -492,7 +497,7 @@ V tomto kurzu jste pomocí rozhraní REST API vytvořili objekt pro vytváření
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
- 
+
 
 
 <!--HONumber=Oct16_HO3-->

@@ -1,52 +1,47 @@
-<properties
-   pageTitle="Přehled Azure Resource Manageru | Microsoft Azure"
-   description="Popisuje, jak Azure Resource Manager využívat k nasazení, správě a řízení přístupu k prostředkům v Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Přehled Azure Resource Manageru | Microsoft Docs
+description: Popisuje, jak Azure Resource Manager využívat k nasazení, správě a řízení přístupu k prostředkům v Azure.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/16/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/16/2016
+ms.author: tomfitz
 
-
+---
 # Přehled Azure Resource Manageru
-
 Infrastrukturu aplikace obvykle tvoří celá řada komponent, může to být třeba virtuální počítač, účet úložiště a virtuální síť nebo webová aplikace, databáze, databázový server a služby jiných výrobců. Tyto komponenty nevidíte jako samostatné entity, ale jako související a vzájemně provázané části jedné entity. Chcete je nasadit, spravovat a monitorovat jako skupinu. Azure Resource Manager umožňuje pracovat s prostředky ve vašem řešení jako se skupinou. Všechny prostředky pro vaše řešení můžete nasadit, aktualizovat nebo odstranit v rámci jediné koordinované operace. Pro nasazení použijete šablonu a tato šablona může fungovat v různých prostředích, jako například v testovacím, přípravném nebo produkčním prostředí. Resource Manager poskytuje funkce zabezpečení, auditování a označování, které vám po nasazení pomohou prostředky spravovat. 
 
 ## Terminologie
-
 Pokud je pro vás Azure Resource Manager novinkou, následuje pár termínů, se kterými byste nemuseli být obeznámeni.
 
-- **prostředek** - Spravovatelná položka, která je k dispozici prostřednictvím služby Azure. Mezi běžné prostředky patří virtuální počítač, účet úložiště, webová aplikace, databáze nebo virtuální síť, ale existuje i mnoho dalších.
-- **skupina prostředků** – Kontejner, který obsahuje související prostředky pro řešení Azure. Skupina prostředků může zahrnovat všechny prostředky pro řešení nebo pouze ty prostředky, které chcete spravovat jako skupinu. Na základě toho, co je pro vaši organizaci nejvhodnější, rozhodnete, jakým způsobem se mají prostředky přidělovat do skupin prostředků. Viz [Skupiny prostředků](#resource-groups).
-- **poskytovatel prostředků** - Služba poskytující prostředky, které můžete nasadit a spravovat prostřednictvím Resource Manageru. Každý poskytovatel prostředků nabízí operace pro práci s nasazenými prostředky. Mezi běžné poskytovatele prostředků patří Microsoft.Compute, který poskytuje prostředek virtuálních počítačů, Microsoft.Storage, který poskytuje prostředek účtu úložiště, a Microsoft.Web, který poskytuje prostředky vztahující se k webovým aplikacím. Viz [Poskytovatelé prostředků](#resource-providers).
-- **šablona Resource Manageru** - Soubor formátu JavaScript Object Notation (JSON), který definuje jeden nebo více prostředků k nasazení do skupiny prostředků. Definuje také závislosti mezi nasazenými prostředky. Šablony lze použít k nasazení prostředků konzistentně a opakovaně. Viz [Nasazení šablon](#template-deployment).
-- **deklarativní syntaxe** – Syntaxe, která umožňuje prohlásit „Toto mám v úmyslu vytvořit“, aniž by k tomu bylo nutné psát sekvence programových příkazů. Šablona Resource Manageru je příkladem deklarativní syntaxe. V souboru definujete vlastnosti pro infrastrukturu k nasazení do Azure. 
+* **prostředek** - Spravovatelná položka, která je k dispozici prostřednictvím služby Azure. Mezi běžné prostředky patří virtuální počítač, účet úložiště, webová aplikace, databáze nebo virtuální síť, ale existuje i mnoho dalších.
+* **skupina prostředků** – Kontejner, který obsahuje související prostředky pro řešení Azure. Skupina prostředků může zahrnovat všechny prostředky pro řešení nebo pouze ty prostředky, které chcete spravovat jako skupinu. Na základě toho, co je pro vaši organizaci nejvhodnější, rozhodnete, jakým způsobem se mají prostředky přidělovat do skupin prostředků. Viz [Skupiny prostředků](#resource-groups).
+* **poskytovatel prostředků** - Služba poskytující prostředky, které můžete nasadit a spravovat prostřednictvím Resource Manageru. Každý poskytovatel prostředků nabízí operace pro práci s nasazenými prostředky. Mezi běžné poskytovatele prostředků patří Microsoft.Compute, který poskytuje prostředek virtuálních počítačů, Microsoft.Storage, který poskytuje prostředek účtu úložiště, a Microsoft.Web, který poskytuje prostředky vztahující se k webovým aplikacím. Viz [Poskytovatelé prostředků](#resource-providers).
+* **šablona Resource Manageru** - Soubor formátu JavaScript Object Notation (JSON), který definuje jeden nebo více prostředků k nasazení do skupiny prostředků. Definuje také závislosti mezi nasazenými prostředky. Šablony lze použít k nasazení prostředků konzistentně a opakovaně. Viz [Nasazení šablon](#template-deployment).
+* **deklarativní syntaxe** – Syntaxe, která umožňuje prohlásit „Toto mám v úmyslu vytvořit“, aniž by k tomu bylo nutné psát sekvence programových příkazů. Šablona Resource Manageru je příkladem deklarativní syntaxe. V souboru definujete vlastnosti pro infrastrukturu k nasazení do Azure. 
 
 ## Výhody použití Resource Manageru
-
 Resource Manager poskytuje několik výhod:
 
-- Můžete všechny prostředky pro vaše řešení nasadit, spravovat a monitorovat jako skupinu a nemusíte je zpracovávat jednotlivě.
-- Můžete svoje řešení opakovaně nasadit v průběhu životního cyklu a mít přitom jistotu, že se prostředky nasadí konzistentně.
-- Infrastrukturu můžete spravovat pomocí deklarativních šablon místo skriptů.
-- Můžete definovat závislosti mezi prostředky, takže se nasadí ve správném pořadí.
-- Můžete využít řízení přístupu pro všechny služby ve vaší skupině prostředků, protože do platformy pro správu je nativně integrováno řízení přístupu na základě role (RBAC).
-- Můžete označit prostředky pomocí značek a logicky tak uspořádat všechny prostředky ve svém předplatném.
-- Můžete zpřehlednit fakturaci svojí organizace zobrazením nákladů na skupinu prostředků, které sdílejí stejnou značku.  
+* Můžete všechny prostředky pro vaše řešení nasadit, spravovat a monitorovat jako skupinu a nemusíte je zpracovávat jednotlivě.
+* Můžete svoje řešení opakovaně nasadit v průběhu životního cyklu a mít přitom jistotu, že se prostředky nasadí konzistentně.
+* Infrastrukturu můžete spravovat pomocí deklarativních šablon místo skriptů.
+* Můžete definovat závislosti mezi prostředky, takže se nasadí ve správném pořadí.
+* Můžete využít řízení přístupu pro všechny služby ve vaší skupině prostředků, protože do platformy pro správu je nativně integrováno řízení přístupu na základě role (RBAC).
+* Můžete označit prostředky pomocí značek a logicky tak uspořádat všechny prostředky ve svém předplatném.
+* Můžete zpřehlednit fakturaci svojí organizace zobrazením nákladů na skupinu prostředků, které sdílejí stejnou značku.  
 
 Resource Manager poskytuje nový způsob nasazení a správy vašich řešení. Pokud jste využívali dřívější model nasazení a chcete se dozvědět o změnách, přečtěte si článek věnovaný [nasazení Resource Manageru a klasickému nasazení](resource-manager-deployment-model.md).
 
 ## Doprovodné materiály
-
 Následující návrhy vám pomohou při práci s vašimi řešeními plně využít výhod Resource Manageru.
 
 1. K definování a nasazení infrastruktury využijte deklarativní syntaxi v šablonách Resource Manageru, nikoli imperativní příkazy.
@@ -57,27 +52,24 @@ Následující návrhy vám pomohou při práci s vašimi řešeními plně vyu�
 Další doporučení najdete v tématu [Osvědčené postupy pro vytváření šablon Azure Resource Manageru](resource-manager-template-best-practices.md).
 
 ## Skupiny prostředků
-
 Při definování skupin prostředků byste měli vzít v úvahu některé důležité faktory:
 
 1. Všechny prostředky ve skupině by měly sdílet stejný životní cyklus. Nasazujete, aktualizujete a odstraňujete je společně. Pokud některý z prostředků, například databázový server, musí mít jiný cyklus nasazení, měl by být v jiné skupině prostředků.
 2. Každý prostředek může být jenom v jedné skupině prostředků.
 3. Prostředky je možné do skupiny prostředků kdykoli přidat nebo naopak odebrat.
 4. Prostředky je možné přesouvat mezi skupinami. Další informace najdete v tématu, které se zabývá [přesunutím prostředků do nové skupiny prostředků nebo předplatného](resource-group-move-resources.md).
-4. Skupina prostředků může obsahovat prostředky, které se nacházejí v různých oblastech.
-5. Skupinu prostředků lze využít k určení rozsahu řízení přístupu pro akce správy.
-6. Prostředek může interagovat s prostředky v dalších skupinách prostředků. Tato interakce je běžná v případě, že spolu tyto dva prostředky souvisejí, ale nesdílejí stejný životní cyklus (například webové aplikace, které se připojují k databázi).
+5. Skupina prostředků může obsahovat prostředky, které se nacházejí v různých oblastech.
+6. Skupinu prostředků lze využít k určení rozsahu řízení přístupu pro akce správy.
+7. Prostředek může interagovat s prostředky v dalších skupinách prostředků. Tato interakce je běžná v případě, že spolu tyto dva prostředky souvisejí, ale nesdílejí stejný životní cyklus (například webové aplikace, které se připojují k databázi).
 
 Při vytváření skupiny prostředků pro ni musíte zadat umístění. Asi vás zajímá, proč skupina prostředků potřebuje umístění. A proč vůbec záleží na umístění skupiny prostředků, pokud prostředky mohou mít jiná umístění než skupina prostředků. Skupina prostředků ukládá metadata o prostředcích. Při zadávání umístění skupiny prostředků tedy určujete, kde se tato metadata ukládají. Z důvodu dodržování předpisů může být nutné zajistit, aby se data ukládala v určité oblasti.
 
 ## Poskytovatelé prostředků
-
-Každý poskytovatel prostředků nabízí sadu prostředků a operací pro práci v technické oblasti. Pokud například chcete ukládat klíče a tajné klíče, využijete poskytovatele prostředků **Microsoft.KeyVault**. Tento poskytovatel prostředků nabízí typ prostředku nazvaný **vaults** pro vytvoření trezoru klíčů a typ prostředku s názvem **vaults/secrets** pro vytvoření tajných údajů v trezoru klíčů. Umožňuje také operace prostřednictvím rozhraní [REST API služby Key Vault ](https://msdn.microsoft.com/library/azure/dn903609.aspx). Můžete volat přímo rozhraní REST API, nebo můžete pro správu trezoru klíčů použít [rutiny prostředí PowerShell služby Key Vault](https://msdn.microsoft.com/library/dn868052.aspx) a [rozhraní příkazového řádku Azure Key Vault](./key-vault/key-vault-manage-with-cli.md). K práci s většinou prostředků můžete také použít několik programovacích jazyků. Další informace najdete v tématu [Sady SDK a ukázky](#sdks-and-samples). 
+Každý poskytovatel prostředků nabízí sadu prostředků a operací pro práci v technické oblasti. Pokud například chcete ukládat klíče a tajné klíče, využijete poskytovatele prostředků **Microsoft.KeyVault**. Tento poskytovatel prostředků nabízí typ prostředku nazvaný **vaults** pro vytvoření trezoru klíčů a typ prostředku s názvem **vaults/secrets** pro vytvoření tajných údajů v trezoru klíčů. Umožňuje také operace prostřednictvím rozhraní [REST API služby Key Vault ](https://msdn.microsoft.com/library/azure/dn903609.aspx). Můžete volat přímo rozhraní REST API, nebo můžete pro správu trezoru klíčů použít [rutiny prostředí PowerShell služby Key Vault](https://msdn.microsoft.com/library/dn868052.aspx) a [rozhraní příkazového řádku Azure Key Vault](key-vault/key-vault-manage-with-cli.md). K práci s většinou prostředků můžete také použít několik programovacích jazyků. Další informace najdete v tématu [Sady SDK a ukázky](#sdks-and-samples). 
 
 Chcete-li nasadit a spravovat infrastrukturu, musíte znát podrobnosti o poskytovateli prostředků. Musíte znát jeho typy prostředků, čísla verzí pro operace rozhraní REST API, podporované operace a schéma, které se má použít pro vytváření prostředků. Další informace o podporovaných poskytovatelích prostředků najdete v tématu věnovaném [poskytovatelům, oblastem, verzím rozhraní API a schématům Resource Manageru](resource-manager-supported-services.md).
 
 ## Nasazení šablon
-
 Pomocí Resource Manageru můžete vytvořit šablonu (ve formátu JSON), která definuje nasazení a konfiguraci vaší aplikace. Pomocí šablony můžete aplikaci opakovaně nasadit v průběhu životního cyklu a mít přitom jistotu, že se prostředky nasadí konzistentně. Azure Resource Manager analyzuje závislosti a zajistí, že se prostředky vytvoří ve správném pořadí. Další informace najdete v tématu [Definování závislostí v šablonách Azure Resource Manageru](resource-group-define-dependencies.md).
 
 Když vytvoříte řešení z portálu, bude toto řešení automaticky zahrnovat šablonu nasazení. Šablonu nemusíte vytvářet od začátku, protože můžete začít se šablonou pro svoje řešení a upravit ji tak, aby vyhovovala vašim konkrétním potřebám. Šablonu pro stávající skupinu prostředků můžete načíst tak, že vyexportujete aktuální stav této skupiny prostředků, nebo zobrazením šablony použité pro konkrétní nasazení. Zobrazení vyexportované šablony vám pomůže blíže se seznámit se syntaxí šablony. Další informace o práci s exportovanými šablonami najdete v článku, který popisuje [export šablony Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
@@ -99,7 +91,6 @@ Podrobné pokyny k vytvoření šablony najdete v [názorném průvodci k šablo
 Pokyny pro nasazení řešení do různých prostředí najdete v článku věnovaném [testovacím a vývojovým prostředím v Microsoft Azure](solution-dev-test-environments.md). 
 
 ## Značky
-
 Resource Manager nabízí funkci označování, která umožňuje kategorizovat prostředky podle požadavků na správu nebo fakturaci. Značky použijte v případě, že máte komplexní kolekci prostředků a skupin prostředků a potřebujete tyto assety vizualizovat co nejsmysluplnějším způsobem. Můžete například označit prostředky, které mají v rámci organizace podobnou roli nebo které patří do stejného oddělení. Uživatelé ve vaší organizaci mohou vytvořit různé prostředky, které se bez použití značek budou později těžko identifikovat a spravovat. Můžete například chtít odstranit všechny prostředky pro konkrétní projekt. Pokud ale tyto prostředky nejsou označené značkami, musíte je vyhledat ručně. Označení může také hrát důležitou roli při omezení zbytečných nákladů ve vašem předplatném. 
 
 Prostředky se stejnou značkou nemusí být umístěné ve stejné skupině prostředků. Můžete vytvořit vlastní taxonomii značek a zajistit tak, že všichni uživatelé ve vaší organizaci budou využívat společné značky a nebudou neúmyslně zavádět vlastní (třeba odd. místo oddělení).
@@ -107,23 +98,20 @@ Prostředky se stejnou značkou nemusí být umístěné ve stejné skupině pro
 Další informace o značkách najdete v článku o [použití značek k uspořádání prostředků Azure](resource-group-using-tags.md). Můžete vytvořit [vlastní zásady](#manage-resources-with-customized-policies), které vyžadují doplnění značek k prostředkům během nasazení.
 
 ## Řízení přístupu
-
 Resource Manager umožňuje určit, kdo má přístup ke konkrétním akcím pro vaši organizaci. Nativně integruje OAuth a řízení přístupu na základě role (RBAC) do platformy pro správu a toto řízení přístupu využívá pro všechny služby ve vaší skupině prostředků. Uživatele můžete přidat k předdefinovaným platformám a rolím pro konkrétní prostředky a následně tyto role použít pro předplatné, skupinu prostředků nebo prostředek a omezit tak přístup. Můžete například s výhodou využít předdefinovanou roli s názvem Přispěvatel databází SQL, která uživatelům umožňuje spravovat databáze, ale ne databázové servery nebo zásady zabezpečení. Uživatele ve vaší organizaci, kteří potřebují tento typ přístupu, přidáte k roli Přispěvatel databází SQL a tuto roli použijete pro předplatné, skupinu prostředků nebo prostředek.
 
 Resource Manager automaticky protokoluje akce uživatelů pro účely auditování. Informace o využití protokolů auditu najdete v tématu věnovaném [operacím auditu s využitím Resource Manageru](resource-group-audit.md).
 
-Další informace o řízení přístupu na základě rolí najdete v tématu [Řízení přístupu na základě role v Azure](./active-directory/role-based-access-control-configure.md). Téma věnované [integrovaným rolím RBAC](./active-directory/role-based-access-built-in-roles.md) obsahuje seznam integrovaných rolí a povolených akcí. Mezi integrované role patří obecné role, jako je Vlastník, Čtenář a Přispěvatel, ale také role pro konkrétní služby, jako je Přispěvatel virtuálních počítačů, Přispěvatel sítě a Správce zabezpečení SQL (to jsou jen některé z dostupných rolí).
+Další informace o řízení přístupu na základě rolí najdete v tématu [Řízení přístupu na základě role v Azure](active-directory/role-based-access-control-configure.md). Téma věnované [integrovaným rolím RBAC](active-directory/role-based-access-built-in-roles.md) obsahuje seznam integrovaných rolí a povolených akcí. Mezi integrované role patří obecné role, jako je Vlastník, Čtenář a Přispěvatel, ale také role pro konkrétní služby, jako je Přispěvatel virtuálních počítačů, Přispěvatel sítě a Správce zabezpečení SQL (to jsou jen některé z dostupných rolí).
 
 Je také možné explicitně zamknout důležité prostředky a zabránit tak uživatelům v jejich změně nebo odstranění. Další informace najdete v tématu [Zamknutí prostředků pomocí Azure Resource Manageru](resource-group-lock-resources.md).
 
 Doporučené postupy najdete v části věnované [požadavkům na zabezpečení pro Azure Resource Manager](best-practices-resource-manager-security.md).
 
 ## Správa prostředků pomocí vlastních zásad
-
 Resource Manager umožňuje vytvářet vlastní zásady pro správu prostředků. Typy zásad, které vytvoříte, mohou zahrnovat nejrůznější scénáře. Můžete u prostředků vynutit dodržování zásad vytváření názvů, omezit, které typy a instance prostředků lze nasadit, nebo omezit, které oblasti mohou hostovat konkrétní typ prostředku. Můžete od prostředků vyžadovat značky a díky tomu zajistit fakturaci po odděleních. Zásady pomáhají omezit náklady a zajistit konzistenci v rámci předplatného. Další informace najdete v tématu [Použití zásad ke správě prostředků a řízení přístupu](resource-manager-policy.md).
 
 ## Konzistentní vrstva správy
-
 Resource Manager poskytuje kompatibilní operace, ať už používáte Azure PowerShell, rozhraní příkazového řádku Azure pro Mac, Linux nebo Windows, web Azure Portal nebo rozhraní REST API. Můžete využít rozhraní, které vám nejvíce vyhovuje, a rychle přecházet mezi rozhraními, aniž by to vedlo k nějakým nejasnostem.
 
 Informace o použití PowerShellu najdete v tématech [Použití Azure PowerShellu s Resource Managerem](powershell-azure-resource-manager.md) a [Rutiny Azure Resource Manageru](https://msdn.microsoft.com/library/azure/dn757692.aspx).
@@ -137,7 +125,6 @@ Informace o použití portálu najdete v tématu [Nasazení prostředků pomocí
 Azure Resource Manager podporuje technologii CORS (sdílení prostředků mezi zdroji). Díky CORS můžete volat rozhraní REST API Resource Manageru nebo služby Azure z webové aplikace, která je umístěná v jiné doméně. Bez podpory CORS by webový prohlížeč zabránil aplikaci z jedné domény v přístupu k prostředkům v jiné doméně. Resource Manager umožňuje použití CORS pro všechny požadavky s platnými přihlašovacími údaji pro ověřování.
 
 ## Sady SDK
-
 Sady Azure SDK jsou k dispozici pro různé jazyky a platformy.
 Každá z těchto implementací jazyka je k dispozici prostřednictvím správce balíčků jejího ekosystému a GitHubu.
 
@@ -151,52 +138,48 @@ Zde jsou naše úložiště opensourcových sad SDK. Vítáme zpětnou vazbu, ot
 
 [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
-> [AZURE.NOTE] Pokud sada SDK neobsahuje požadovanou funkci, můžete také přímo zavolat [rozhraní Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+> [!NOTE]
+> Pokud sada SDK neobsahuje požadovanou funkci, můžete také přímo zavolat [rozhraní Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+> 
+> 
 
 ## Ukázky
-
 ### .NET
-
-- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+* [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+* [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 
 ### Java
-
-- [Správa prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-- [Správa skupin prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+* [Správa prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+* [Správa skupin prostředků Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+* [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 
 ### Node.js
-
-- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+* [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+* [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 
 ### Python
-
-- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+* [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+* [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 
 ### Ruby
-
-- [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-- [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
+* [Správa prostředků a skupin zdrojů Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+* [Nasazení virtuálních počítačů s povoleným SSH pomocí šablony](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 Kromě těchto ukázek můžete prohledat galerii ukázek.
 
 [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Další kroky
-
-- Jednoduchý úvod k práci se šablonami najdete v článku, který popisuje [export šablony Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
-- Podrobnější pokyny k vytvoření šablony najdete v [názorném průvodci k šablonám Resource Manageru](resource-manager-template-walkthrough.md).
-- Funkce, které můžete v šabloně, využít, jsou popsané v článku [Funkce šablon](resource-group-template-functions.md)
-- Informace o použití sady Visual Studio s Resource Managerem najdete v tématu [Vytvoření a nasazení skupin prostředků Azure pomocí sady Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-- Informace o použití VS Code pomocí Resource Manageru najdete v tématu [Práce s šablonami Azure Resource Manageru ve Visual Studio Code](resource-manager-vs-code.md).
+* Jednoduchý úvod k práci se šablonami najdete v článku, který popisuje [export šablony Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
+* Podrobnější pokyny k vytvoření šablony najdete v [názorném průvodci k šablonám Resource Manageru](resource-manager-template-walkthrough.md).
+* Funkce, které můžete v šabloně, využít, jsou popsané v článku [Funkce šablon](resource-group-template-functions.md)
+* Informace o použití sady Visual Studio s Resource Managerem najdete v tématu [Vytvoření a nasazení skupin prostředků Azure pomocí sady Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* Informace o použití VS Code pomocí Resource Manageru najdete v tématu [Práce s šablonami Azure Resource Manageru ve Visual Studio Code](resource-manager-vs-code.md).
 
 Zde je videoukázka tohoto přehledu:
 
-[AZURE.VIDEO azure-resource-manager-overview]
+[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
+
 
 
 

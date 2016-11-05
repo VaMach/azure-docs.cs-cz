@@ -1,31 +1,27 @@
-<properties
- pageTitle="Návod pro prediktivní údržbu | Microsoft Azure"
- description="Návod pro předkonfigurované řešení prediktivní údržby Azure IoT."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="aguilaaj"
- manager="timlt"
- editor=""/>
+---
+title: Návod pro prediktivní údržbu | Microsoft Docs
+description: Návod pro předkonfigurované řešení prediktivní údržby Azure IoT.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: aguilaaj
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/17/2016"
- ms.author="araguila"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/17/2016
+ms.author: araguila
 
-
+---
 # Návod pro předkonfigurované řešení prediktivní údržby
-
 ## Úvod
-
 Předkonfigurované řešení prediktivní údržby je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení můžete aktivně využívat pro různé činnosti, jako je třeba optimalizace údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, včetně pracovního prostoru [Azure Machine Learning][lnk_machine_learning]. Tento pracovní prostor obsahuje experimenty založené na veřejné ukázkové datové sadě, která předpovídají zbývající dobu životnosti (RUL) leteckého motoru. Řešení nabízí úplnou implementaci daného obchodního scénáře IoT jako výchozího bodu pro plánování a implementaci řešení, které vyhovuje vašim konkrétním obchodním požadavkům.
 
 ## Logická architektura
-
 Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
 
 ![][img-architecture]
@@ -39,7 +35,6 @@ Zelená položka je simulované zařízení, které představuje letecký motor.
 Šedé položky představují součásti, které implementují funkce *správy zařízení*. Aktuální verze předkonfigurovaného řešení prediktivní údržby tyto prostředky neposkytuje. Další informace o správě zařízení naleznete v tématu [předkonfigurované řešení pro vzdálený monitoring][lnk-remote-monitoring].
 
 ## Simulovaná zařízení
-
 V předkonfigurovaných řešeních simulované zařízení představuje letecký motor. Řešení obsahuje dva motory, které jsou součástí jednoho letadla. Každý motor vysílá čtyři typy telemetrických dat: ze snímače Sensor 9, Sensor 11, Sensor 14 a Sensor 15, které poskytují data potřebná k tomu, aby mohl model Machine Learning vypočítat zbývající dobu životnosti (RUL) pro tento motor. Každé simulované zařízení posílá do služby IoT Hub následující telemetrické zprávy:
 
 *Počet cyklů*. Cyklus představuje dokončený let proměnlivé délky v rozmezí 2 až 10 hodin, během kterého se každou půlhodinu zaznamenávají telemetrická data.
@@ -49,37 +44,31 @@ V předkonfigurovaných řešeních simulované zařízení představuje leteck�
 Simulovaná zařízení mohou zpracovávat následující příkazy, odeslané ze služby IoT Hub:
 
 | Příkaz | Popis |
-|---------|-------------|
-| StartTelemetry | Řídí stav simulace.<br/>Spustí odesílání telemetrických dat ze zařízení     |
-| StopTelemetry  | Řídí stav simulace.<br/>Zastaví odesílání telemetrických dat ze zařízení |
+| --- | --- |
+| StartTelemetry |Řídí stav simulace.<br/>Spustí odesílání telemetrických dat ze zařízení |
+| StopTelemetry |Řídí stav simulace.<br/>Zastaví odesílání telemetrických dat ze zařízení |
 
 Služba IoT Hub zajišťuje potvrzení příkazu zařízení.
 
 ## Úlohy služby Azure Stream Analytics
-
 **Úloha: Telemetrie** funguje v příchozím datovém proudu telemetrických dat ze zařízení pomocí dvou příkazů. První vybere všechny telemetrická ze zařízení a odešle tato data do úložiště objektu blob, kde jsou vizualizována ve webové aplikaci. Druhý příkaz vypočítá průměrné hodnoty čidel v rámci dvouminutového posuvného okna a odešle je prostřednictvím centra událostí do **procesoru událostí**.
 
 ## Procesor událostí
-
 **Procesor událostí** přebírá průměrné hodnoty snímačů za dokončený cyklus. Potom tyto hodnoty předá do rozhraní API, které nabídne trénovaný model Machine Learning pro výpočet zbývající doby životnosti motoru.
 
 ## Azure Machine Learning
-
 Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
 
 ## Začínáme
-
 Tato část vás provede součástmi řešení, popíše zamýšlený případ použití a poskytne vám příklady.
 
 ### Řídicí panel prediktivní údržby
-
 Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce JavaScript (viz [Úložiště vizuálních prvků PowerBI][lnk-powerbi]) k vizualizaci:
 
-- výstupních dat úlohy služby Stream Analytics v úložišti objektů blob
-- zbývající doby životnosti (RUL) a počtu cyklů pro každý motor letadla
+* výstupních dat úlohy služby Stream Analytics v úložišti objektů blob
+* zbývající doby životnosti (RUL) a počtu cyklů pro každý motor letadla
 
 ### Sledování chování cloudového řešení
-
 Na webu Azure Portal přejděte do skupiny prostředků s názvem řešení, které jste si vybrali k zobrazení zřízených prostředků.
 
 ![][img-resource-group]
@@ -107,16 +96,14 @@ Simulace zpracuje úplnou datovou sadu s údaji o 148 cyklech a vytvoří koneč
 Simulaci lze zastavit v libovolný okamžik, ale kliknutím na tlačítko **Start simulace** spustíte simulaci znovu od začátku datové sady.
 
 ## Další kroky
-
 Když jste si vyzkoušeli předkonfigurované řešení prediktivní údržby, možná byste je chtěli upravit – pro tyto účely naleznete informace v tématu [Pokyny k přizpůsobení předkonfigurovaných řešení][lnk-customize].
 
 V příspěvku [IoT Suite - Pod kapotou - Prediktivní údržba](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) na blogu TechNet naleznete další podrobnosti o předkonfigurovaném řešení prediktivní údržby.
 
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 
-- [Nejčastější dotazy k sadě IoT Suite][lnk-faq]
-- [Zabezpečení IoT od samého začátku][lnk-security-groundup]
-
+* [Nejčastější dotazy k sadě IoT Suite][lnk-faq]
+* [Zabezpečení IoT od samého začátku][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png

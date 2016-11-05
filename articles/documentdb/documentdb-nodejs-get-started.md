@@ -1,42 +1,42 @@
-<properties
-  pageTitle="Kurz k NoSQL Node.js pro DocumentDB | Microsoft Azure"
-  description="Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze Node a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON."
-    keywords="kurz node.js, databáze uzlů"
-  services="documentdb"
-  documentationCenter="node.js"
-  authors="AndrewHoh"
-  manager="jhubbard"
-  editor="monicar"/>
+---
+title: Kurz k NoSQL Node.js pro DocumentDB | Microsoft Docs
+description: Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze Node a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON.
+keywords: kurz node.js, databáze uzlů
+services: documentdb
+documentationcenter: node.js
+author: AndrewHoh
+manager: jhubbard
+editor: monicar
 
-<tags
-  ms.service="documentdb"
-  ms.workload="data-services"
-  ms.tgt_pltfrm="na"
-  ms.devlang="node"
-  ms.topic="hero-article"
-  ms.date="08/11/2016"
-  ms.author="anhoh"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: node
+ms.topic: hero-article
+ms.date: 08/11/2016
+ms.author: anhoh
 
-
-# Kurz k NoSQL Node.js: Konzolová aplikace DocumentDB Node.js  
-
-> [AZURE.SELECTOR]
-- [.NET](documentdb-get-started.md)
-- [Node.js](documentdb-nodejs-get-started.md)
+---
+# Kurz k NoSQL Node.js: Konzolová aplikace DocumentDB Node.js
+> [!div class="op_single_selector"]
+> * [.NET](documentdb-get-started.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> 
+> 
 
 Vítejte v kurzu k Node.js pro sadu Azure DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB, včetně databáze Node, a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
-- Vytvoření a připojení k účtu DocumentDB
-- Nastavení aplikace
-- Vytvoření databáze Node
-- Vytvoření kolekce
-- Vytvoření dokumentů JSON
-- Dotazování na kolekci
-- Nahrazení dokumentu
-- Odstranění dokumentu
-- Odstranění databáze Node
+* Vytvoření a připojení k účtu DocumentDB
+* Nastavení aplikace
+* Vytvoření databáze Node
+* Vytvoření kolekce
+* Vytvoření dokumentů JSON
+* Dotazování na kolekci
+* Nahrazení dokumentu
+* Odstranění dokumentu
+* Odstranění databáze Node
 
 Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/Azure-Samples/documentdb-node-getting-started). Rychlé pokyny najdete v části [Získání úplného řešení](#GetSolution).
 
@@ -44,37 +44,33 @@ Až tento kurz Node.js dokončíte, řekněte nám prosím svůj názor pomocí 
 
 Můžeme začít!
 
-## Předpoklady pro kurz k Node.js 
-
+## Předpoklady pro kurz k Node.js
 Ujistěte se prosím, že máte následující:
 
-- Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Node.js](https://nodejs.org/) verze 0.10.29 nebo vyšší
+* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
+* [Node.js](https://nodejs.org/) verze 0.10.29 nebo vyšší
 
 ## Krok 1: Vytvoření účtu DocumentDB
-
 Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace Node.js](#SetupNode).
 
-[AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>Krok 2: Nastavení aplikace Node.js
-
 1. Otevřete svůj oblíbený terminál.
 2. Vyhledejte složku nebo adresář, do kterého chcete uložit aplikaci Node.js.
 3. Vytvořte dva prázdné javascriptové soubory, které budou obsahovat následující příkazy:
-  - Windows:
-      * ```fsutil file createnew app.js 0```
-        * ```fsutil file createnew config.js 0```
-  - Linux nebo OS X:
-      * ```touch app.js```
-        * ```touch config.js```
+   * Windows:
+     * ```fsutil file createnew app.js 0```
+       * ```fsutil file createnew config.js 0```
+   * Linux nebo OS X:
+     * ```touch app.js```
+       * ```touch config.js```
 4. Přes npm nainstalujte modul documentdb. Použijte následující příkaz:
-    * ```npm install documentdb --save```
+   * ```npm install documentdb --save```
 
 Výborně! Teď když jste dokončili nastavování, napišme nějaký kód.
 
 ## <a id="Config"></a>Krok 3: Nastavení konfigurací aplikace
-
 Ve svém oblíbeném textovém editoru otevřete ```config.js```.
 
 Pak zkopírujte a vložte fragment kódu níže a nastavte vlastnosti ```config.endpoint``` a ```config.primaryKey``` na hodnoty identifikátoru URI a primárního klíče vašeho koncového bodu DocumentDB. Obě tyto konfigurace je možné najít na [Portálu Azure](https://portal.azure.com).
@@ -171,8 +167,7 @@ Nakonec exportujte objekt ```config```, abyste na něj mohli odkazovat ze soubor
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-##<a id="Connect"></a> Krok 4: Připojení k účtu DocumentDB
-
+## <a id="Connect"></a> Krok 4: Připojení k účtu DocumentDB
 V textovém editoru otevřete prázdný soubor ```app.js```. Zkopírováním a vložením kódu níže importujte modul ```documentdb``` a nově vytvořený modul ```config```.
 
     // ADD THIS PART TO YOUR CODE
@@ -256,9 +251,11 @@ V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js`
 
 Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.
 
-##<a id="CreateColl"></a>Krok 6: Vytvoření kolekce  
-
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** vytvoří novou kolekci, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
+## <a id="CreateColl"></a>Krok 6: Vytvoření kolekce
+> [!WARNING]
+> **CreateDocumentCollectionAsync** vytvoří novou kolekci, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
+> 
+> 
 
 [Kolekci](documentdb-resources.md#collections) je možné vytvořit pomocí funkce [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) třídy **DocumentClient**. Kolekce je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace.
 
@@ -308,7 +305,7 @@ V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js`
 
 Blahopřejeme! Úspěšně jste vytvořili kolekci DocumentDB.
 
-##<a id="CreateDoc"></a>Krok 7: Vytvoření dokumentu
+## <a id="CreateDoc"></a>Krok 7: Vytvoření dokumentu
 [Dokument](documentdb-resources.md#documents) je možné vytvořit pomocí metody [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) třídy **DocumentClient**. Dokumenty představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit dokument do DocumentDB.
 
 Pod funkci **getCollection** zkopírujte a vložte funkci **getFamilyDocument**, která bude vytvářet dokumenty obsahující data JSON uložené v objektu ```config```. Opět zkontrolujeme, že dokument se stejným ID ještě neexistuje.
@@ -362,8 +359,7 @@ Blahopřejeme! Úspěšně jste vytvořili dokument DocumentDB.
 
 ![Kurz k Node.js – diagram ilustrující hierarchický vztah mezi účtem, databází, kolekcí a dokumenty – databáze Node](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-##<a id="Query"></a>Krok 8: Dotazování prostředků DocumentDB
-
+## <a id="Query"></a>Krok 8: Dotazování prostředků DocumentDB
 DocumentDB podporuje [bohaté dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázka kódu obsahuje dotaz, který je možné spustit proti dokumentům v kolekci.
 
 Zkopírujte funkci **queryCollection** a vložte ji pod funkci **getFamilyDocument**. Jak je vidět níže, DocumentDB podporuje dotazy podobné jazyku SQL. Další informace o vytváření komplexních dotazů najdete v [Query Playground](https://www.documentdb.com/sql/demo) a [dokumentaci k dotazům](documentdb-sql-query.md).
@@ -420,7 +416,7 @@ V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js`
 
 Blahopřejeme! Úspěšně jste se dotázali na dokument DocumentDB.
 
-##<a id="ReplaceDocument"></a>Krok 9: Nahrazení dokumentu
+## <a id="ReplaceDocument"></a>Krok 9: Nahrazení dokumentu
 DocumentDB podporuje nahrazování dokumentů JSON.
 
 Zkopírujte funkci **replaceDocument** a vložte ji pod funkci **queryCollection**.
@@ -467,7 +463,7 @@ V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js`
 
 Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
 
-##<a id="DeleteDocument"></a>Krok 10: Odstranění dokumentu
+## <a id="DeleteDocument"></a>Krok 10: Odstranění dokumentu
 DocumentDB podporuje odstraňování dokumentů JSON.
 
 Zkopírujte funkci **deleteDocument** a vložte ji pod funkci **replaceDocument**.
@@ -511,8 +507,7 @@ V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js`
 
 Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
 
-##<a id="DeleteDatabase"></a>Krok 11: Odstranění databáze Node
-
+## <a id="DeleteDatabase"></a>Krok 11: Odstranění databáze Node
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
 Zkopírujte a vložte následující fragment kódu (funkce **cleanup**), který odstraní databázi a všechny podřízené prostředky.
@@ -547,8 +542,7 @@ Zkopírujte a vložte kód pod voláním funkce **deleteDocument**, aby se spust
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-##<a id="Run"></a>Krok 12: Spuštění celé aplikace Node.js!
-
+## <a id="Run"></a>Krok 12: Spuštění celé aplikace Node.js!
 Jako celek by pořadí volání funkcí mělo vypadat takto:
 
     getDatabase()
@@ -602,20 +596,20 @@ Blahopřejeme! Dokončili jste kurz k Node.js a máte svou první konzolovou apl
 ## <a id="GetSolution"></a>Získání úplného řešení kurzu k Node.js
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
--   [Účet DocumentDB][documentdb-create-account]
--   Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) dostupné na GitHubu
+* [Účet DocumentDB][documentdb-create-account]
+* Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) dostupné na GitHubu
 
 Přes npm nainstalujte modul **documentdb**. Použijte následující příkaz:
+
 * ```npm install documentdb --save```
 
 Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.authKey, jak je popsáno v části [Krok 3: Nastavení konfigurací aplikace](#Config).
 
 ## Další kroky
-
--   Hledáte složitější ukázku Node.js? Přečtěte si [Vytvoření webové aplikace Node.js pomocí DocumentDB](documentdb-nodejs-application.md).
--  Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
--  Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
--  Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Hledáte složitější ukázku Node.js? Přečtěte si [Vytvoření webové aplikace Node.js pomocí DocumentDB](documentdb-nodejs-application.md).
+* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md

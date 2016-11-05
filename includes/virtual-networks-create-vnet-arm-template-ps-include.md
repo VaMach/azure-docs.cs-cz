@@ -1,15 +1,13 @@
 ## Nasazení šablony ARM pomocí prostředí PowerShell
-
 Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí prostředí PowerShell, použijte následující postup.
 
 1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../articles/powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
-
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním rutiny **`New-AzureRmResourceGroup`**. Následující příkaz vytvoří skupinu prostředků s názvem *TestRG* v oblasti Azure *Střed USA*. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
-
+2. V případě potřeby vytvořte novou skupinu prostředků spuštěním rutiny **`New-AzureRmResourceGroup`**. Následující příkaz vytvoří skupinu prostředků s názvem *TestRG* v oblasti Azure *Střed USA*. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-        
+   
     Toto je očekávaný výstup výše uvedeného příkazu:
-
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -19,14 +17,13 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí prostředí Powe
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-
-4. Spuštěním rutiny **`New-AzureRmResourceGroupDeployment`** nasadíte novou síť VNet pomocí šablony a souborů parametrů, které jste stáhli a upravili v předchozích krocích.
-
+3. Spuštěním rutiny **`New-AzureRmResourceGroupDeployment`** nasadíte novou síť VNet pomocí šablony a souborů parametrů, které jste stáhli a upravili v předchozích krocích.
+   
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-            
+   
     Toto je očekávaný výstup výše uvedeného příkazu:
-        
+   
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
         ProvisioningState : Succeeded
@@ -43,16 +40,14 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí prostředí Powe
                             subnet1Name      String                     FrontEnd
                             subnet2Prefix    String                     192.168.2.0/24
                             subnet2Name      String                     BackEnd
-        
+   
         Outputs           :
-
-5. Spuštěním rutiny **`Get-AzureRmVirtualNetwork`** zobrazíte vlastnosti nové sítě VNet, jak vidíte níže.
-
+4. Spuštěním rutiny **`Get-AzureRmVirtualNetwork`** zobrazíte vlastnosti nové sítě VNet, jak vidíte níže.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-        
+
     Toto je očekávaný výstup výše uvedeného příkazu:
-        
+
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus

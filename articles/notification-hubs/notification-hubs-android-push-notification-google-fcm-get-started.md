@@ -1,72 +1,64 @@
-<properties
-    pageTitle="Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby Firebase Cloud Messaging | Microsoft Azure"
-    description="V tomto kurzu zjistíte, jak používat Azure Notification Hubs a službu služby Firebase Cloud Messaging k odesílání nabízených oznámení do zařízení Android."
-    services="notification-hubs"
-    documentationCenter="android"
-    keywords="nabízená oznámení, nabízené oznámení, nabízené oznámení android, fcm, firebase cloud messaging"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
-<tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.date="07/14/2016"
-    ms.author="wesmc"/>
+---
+title: Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby Firebase Cloud Messaging | Microsoft Docs
+description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs a službu služby Firebase Cloud Messaging k odesílání nabízených oznámení do zařízení Android.
+services: notification-hubs
+documentationcenter: android
+keywords: nabízená oznámení, nabízené oznámení, nabízené oznámení android, fcm, firebase cloud messaging
+author: wesmc7777
+manager: erikre
+editor: ''
 
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: hero-article
+ms.date: 07/14/2016
+ms.author: wesmc
 
+---
 # Odesílání nabízených oznámení do systému Android pomocí Azure Notification Hubs
+[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-[AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
-
-##Přehled
-
-> [AZURE.IMPORTANT] Toto téma popisuje nabízená oznámení ve službě Google Firebase Cloud Messaging (FCM). Pokud stále používáte službu Google Cloud Messaging (GCM), přečtěte si článek [Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby GCM](notification-hubs-android-push-notification-google-gcm-get-started.md).
+## Přehled
+> [!IMPORTANT]
+> Toto téma popisuje nabízená oznámení ve službě Google Firebase Cloud Messaging (FCM). Pokud stále používáte službu Google Cloud Messaging (GCM), přečtěte si článek [Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby GCM](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> 
+> 
 
 V tomto kurzu zjistíte, jak používat Azure Notification Hubs a službu Firebase Cloud Messaging k odesílání nabízených oznámení do aplikace systému Android.
 Vytvoříte prázdnou aplikaci systému Android, která bude přijímat nabízená oznámení pomocí služby Firebase Cloud Messaging (FCM).
 
-
-
-[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
+## Požadavky
+> [!IMPORTANT]
+> K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
+> 
+> 
 
-##Požadavky
+* Kromě aktivního účtu Azure uvedeného výše budete v tomto kurzu potřebovat nejnovější verzi [Android Studia](http://go.microsoft.com/fwlink/?LinkId=389797).
+* Android 2.3 nebo novější pro službu Firebase Cloud Messaging.
+* Služba Firebase Cloud Messaging vyžaduje úložiště Google verze 27 nebo novější.
+* Služby Google Play 9.0.2 nebo novější pro službu Firebase Cloud Messaging.
+* Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notification Hubs pro Android Apps.
 
-> [AZURE.IMPORTANT] K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
-
-- Kromě aktivního účtu Azure uvedeného výše budete v tomto kurzu potřebovat nejnovější verzi [Android Studia](http://go.microsoft.com/fwlink/?LinkId=389797).
-- Android 2.3 nebo novější pro službu Firebase Cloud Messaging.
-- Služba Firebase Cloud Messaging vyžaduje úložiště Google verze 27 nebo novější.
-- Služby Google Play 9.0.2 nebo novější pro službu Firebase Cloud Messaging.
-- Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notification Hubs pro Android Apps.
-
-
-##Vytvoření nového projektu v Android Studiu
-
+## Vytvoření nového projektu v Android Studiu
 1. V nástroji Android Studio spusťte nový projekt Android Studio.
-
+   
     ![Android Studio – nový projekt](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
-
 2. Zvolte faktor formuláře **Telefon i tablet** a hodnotu **Minimální SDK**, které chcete podporovat. Pak klikněte na tlačítko **Další**.
-
+   
     ![Android Studio – pracovní postup vytvoření projektu](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
-
 3. Zvolte možnost **Prázdná aktivita** pro hlavní aktivitu, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Dokončit**.
 
+## Vytvoření projektu, který podporuje službu Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-##Vytvoření projektu, který podporuje službu Firebase Cloud Messaging
-
-[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
-
-
-##Konfigurace nového centra oznámení
-
-[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+## Konfigurace nového centra oznámení
+[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 &emsp;&emsp;6. V centru oznámení v okně **Nastavení** vyberte **Služby oznámení** a potom **Google (GCM)**. Zadejte klíč serveru FCM, který jste si zkopírovali z [konzoly Firebase](https://firebase.google.com/console/) a klikněte na **Uložit**.
 
@@ -74,22 +66,17 @@ Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://githu
 
 Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebase Cloud Messaging. Zároveň máte připojovací řetězce, pomocí kterých můžete svojí aplikaci zaregistrovat pro příjem a odesílání nabízených oznámení.
 
-##<a id="connecting-app"></a>Připojte aplikaci k centru oznámení
+## <a id="connecting-app"></a>Připojte aplikaci k centru oznámení
+### Přidejte do projektu služby Google Play
+[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-###Přidejte do projektu služby Google Play
-
-[AZURE.INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
-
-###Přidání knihoven Azure Notification Hubs
-
-
+### Přidání knihoven Azure Notification Hubs
 1. Do souboru `Build.Gradle` pro **aplikaci** přidejte následující řádky v části **závislosti**.
-
+   
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
         compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
-
 2. Přidejte následující úložiště za část **závislosti**.
-
+   
         repositories {
             maven {
                 url "http://dl.bintray.com/microsoftazuremobile/SDK"
@@ -97,33 +84,25 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         }
 
 ### Probíhá aktualizace souboru AndroidManifest.xml.
-
-
 1. Abychom zajistili podporu FCM, musíme implementovat službu naslouchání ID instance do našeho kódu, který se používá k [získání registračních tokenů](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) pomocí [rozhraní FirebaseInstanceId API společnosti Google](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId). V tomto kurzu pojmenujeme třídu `MyInstanceIDService`. 
- 
+   
     Přidejte následující definice služby do souboru AndroidManifest.xml uvnitř značky `<application>`. 
-
+   
         <service android:name=".MyInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
-
-
-
 2. Po obdržení registračního tokenu FCM z rozhraní FirebaseInstanceId API ho použijeme k [registraci do centra oznámení Azure](notification-hubs-push-notification-registration-management.md). Tuto registrace podpoříme na pozadí pomocí `IntentService` s názvem `RegistrationIntentService`. Tato služba bude také odpovědná za aktualizaci registračního tokenu FCM.
- 
+   
     Přidejte následující definice služby do souboru AndroidManifest.xml uvnitř značky `<application>`. 
-
+   
         <service
             android:name=".RegistrationIntentService"
             android:exported="false">
         </service>
-
-
-
 3. Také definujeme příjemce pro příjem oznámení. Přidejte následující definice příjemce do souboru AndroidManifest.xml uvnitř značky `<application>`. Nahraďte zástupný symbol `<your package>` pomocí skutečného názvu balíčku zobrazeného v horní části souboru `AndroidManifest.xml`.
-
+   
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
@@ -131,66 +110,60 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                 <category android:name="<your package name>" />
             </intent-filter>
         </receiver>
-
-
-
 4. Přidejte následující nezbytná oprávnění související s FCM pod značkou `</application>`. Nezapomeňte nahradit `<your package>` názvem balíčku, který je zobrazen v horní části souboru `AndroidManifest.xml`.
-
+   
     Další informace o těchto oprávnění najdete v článku [Nastavení klientské aplikace GCM pro Android](https://developers.google.com/cloud-messaging/android/client#manifest) a [Migrace klientské aplikace GCM pro Android do služby Firebase Cloud Messaging](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm).
-
+   
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-
 ### Přidání kódu
-
-
 1. V zobrazení projektu rozbalte **app** > **src** > **main** > **java**. Klikněte pravým tlačítkem na váš balíček ve složce **java**, klikněte na tlačítko **Nový** a pak klikněte na tlačítko **třída jazyka Java**. Přidejte novou třídu s názvem `NotificationSettings`. 
-
+   
     ![Android Studio – nová třída Java](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
-
+   
     Nezapomeňte aktualizovat tyto tři zástupné symboly v následujícím kódu pro třídu `NotificationSettings`:
-    * **SenderId**: ID odesílatele, které jste získali v [konzole Firebase](https://firebase.google.com/console/)v nastavení projektu na kartě **Zprávy v cloudu**.
-    * **HubListenConnectionString**: připojovací řetězec **DefaultListenAccessSignature** pro rozbočovač. Tento připojovací řetězec můžete zkopírovat kliknutím na položku **Zásady přístupu** v okně **Nastavení** rozbočovače na [Azure Portal].
-    * **HubName**: použije název centra oznámení, který se zobrazí v centru okna na webu [Azure Portal].
-
-    `NotificationSettings` kód:
-
-        public class NotificationSettings {
-            public static String SenderId = "<Your project number>";
-            public static String HubName = "<Your HubName>";
-            public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
-        }
-
+   
+   * **SenderId**: ID odesílatele, které jste získali v [konzole Firebase](https://firebase.google.com/console/)v nastavení projektu na kartě **Zprávy v cloudu**.
+   * **HubListenConnectionString**: připojovací řetězec **DefaultListenAccessSignature** pro rozbočovač. Tento připojovací řetězec můžete zkopírovat kliknutím na položku **Zásady přístupu** v okně **Nastavení** rozbočovače na [Azure Portal].
+   * **HubName**: použije název centra oznámení, který se zobrazí v centru okna na webu [Azure Portal].
+     
+     `NotificationSettings` kód:
+     
+       public class NotificationSettings {
+     
+           public static String SenderId = "<Your project number>";
+           public static String HubName = "<Your HubName>";
+           public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
+       }
 2. Pomocí kroků výše přidejte další novou třídu s názvem `MyInstanceIDService`. Toto bude naše implementace služby procesu naslouchání Instance ID.
-
+   
     Kód pro tuto třídu bude volat naši službu `IntentService`, aby na pozadí [obnovila token FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
-
+   
         import android.content.Intent;
         import android.util.Log;
         import com.google.firebase.iid.FirebaseInstanceIdService;
-        
-        
+
         public class MyInstanceIDService extends FirebaseInstanceIdService {
-        
+
             private static final String TAG = "MyInstanceIDService";
-        
+
             @Override
             public void onTokenRefresh() {
-        
+
                 Log.d(TAG, "Refreshing GCM Registration Token");
-        
+
                 Intent intent = new Intent(this, RegistrationIntentService.class);
                 startService(intent);
             }
         };
 
 
-3. Přidejte další novou třídu do projektu s názvem, `RegistrationIntentService`. Toto bude implementace pro službu `IntentService`, která zpracuje [obnovení tokenu FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) a [registraci v centru oznámení](notification-hubs-push-notification-registration-management.md).
-
+1. Přidejte další novou třídu do projektu s názvem, `RegistrationIntentService`. Toto bude implementace pro službu `IntentService`, která zpracuje [obnovení tokenu FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) a [registraci v centru oznámení](notification-hubs-push-notification-registration-management.md).
+   
     Pro tuto třídu použijte následující kód.
-
+   
         import android.app.IntentService;
         import android.content.Intent;
         import android.content.SharedPreferences;
@@ -198,69 +171,69 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         import android.util.Log;        
         import com.google.firebase.iid.FirebaseInstanceId;
         import com.microsoft.windowsazure.messaging.NotificationHub;
-        
+   
         public class RegistrationIntentService extends IntentService {
-        
+   
             private static final String TAG = "RegIntentService";
-        
+   
             private NotificationHub hub;
-        
+   
             public RegistrationIntentService() {
                 super(TAG);
             }
-        
+   
             @Override
             protected void onHandleIntent(Intent intent) {
-        
+   
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
                 String resultString = null;
                 String regID = null;
                 String storedToken = null;
-        
+   
                 try {
                     String FCM_token = FirebaseInstanceId.getInstance().getToken();
                     Log.d(TAG, "FCM Registration Token: " + FCM_token);
-        
+   
                     // Storing the registration id that indicates whether the generated token has been
                     // sent to your server. If it is not stored, send the token to your server,
                     // otherwise your server should have already received the token.
                     if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
-        
+   
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
                                 NotificationSettings.HubListenConnectionString, this);
                         Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
                         regID = hub.register(FCM_token).getRegistrationId();
-        
+   
                         // If you want to use tags...
                         // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
-        
+   
                         resultString = "New NH Registration Successfully - RegId : " + regID;
                         Log.d(TAG, resultString);
-        
+   
                         sharedPreferences.edit().putString("registrationID", regID ).apply();
                         sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
                     }
-        
+   
                     // Check if the token may have been compromised and needs refreshing.
                     else if ((storedToken=sharedPreferences.getString("FCMtoken", "")) != FCM_token) {
-        
+   
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
                                 NotificationSettings.HubListenConnectionString, this);
                         Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
                         regID = hub.register(FCM_token).getRegistrationId();
-        
+   
                         // If you want to use tags...
                         // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
-        
+   
                         resultString = "New NH Registration Successfully - RegId : " + regID;
                         Log.d(TAG, resultString);
-        
+   
                         sharedPreferences.edit().putString("registrationID", regID ).apply();
                         sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
                     }
-        
+   
                     else {
                         resultString = "Previously Registered Successfully - RegId : " + regID;
                     }
@@ -269,18 +242,15 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                     // If an exception happens while fetching the new token or updating our registration data
                     // on a third-party server, this ensures that we'll attempt the update at a later time.
                 }
-        
+   
                 // Notify UI that registration has completed.
                 if (MainActivity.isVisible) {
                     MainActivity.mainActivity.ToastNotify(resultString);
                 }
             }
         }
-
-
-        
-4. Do vaší třídy `MainActivity` přidejte následující prohlášení `import` nad deklaraci třídy.
-
+2. Do vaší třídy `MainActivity` přidejte následující prohlášení `import` nad deklaraci třídy.
+   
         import com.google.android.gms.common.ConnectionResult;
         import com.google.android.gms.common.GoogleApiAvailability;
         import com.microsoft.windowsazure.notifications.NotificationsManager;
@@ -288,16 +258,14 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-
-5. Přidejte následující soukromé členy v horní části třídy. Tyto [budeme používat ke kontrole dostupnosti služby Google Play dle doporučení Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
-
+3. Přidejte následující soukromé členy v horní části třídy. Tyto [budeme používat ke kontrole dostupnosti služby Google Play dle doporučení Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+   
         public static MainActivity mainActivity;
         public static Boolean isVisible = false;    
         private static final String TAG = "MainActivity";
         private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-
-6. Ve své třídě `MainActivity` přidejte následující metodu pro dostupnost služeb Google Play. 
-
+4. Ve své třídě `MainActivity` přidejte následující metodu pro dostupnost služeb Google Play. 
+   
         /**
          * Check the device to make sure it has the Google Play Services APK. If
          * it doesn't, display a dialog that allows users to download the APK from
@@ -319,10 +287,8 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
             }
             return true;
         }
-
-
-7. Ve třídě `MainActivity` přidejte následující kód, který zkontrolujte služby Google Play před voláním služby `IntentService`, aby získal registrační token FCM a zaregistroval se v centru oznámení.
-
+5. Ve třídě `MainActivity` přidejte následující kód, který zkontrolujte služby Google Play před voláním služby `IntentService`, aby získal registrační token FCM a zaregistroval se v centru oznámení.
+   
         public void registerWithNotificationHubs()
         {
             if (checkPlayServices()) {
@@ -331,47 +297,43 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                 startService(intent);
             }
         }
-
-
-8. Do metody `OnCreate` třídy `MainActivity` přidejte následující kód pro spuštění procesu registrace při vytvoření aktivity.
-
+6. Do metody `OnCreate` třídy `MainActivity` přidejte následující kód pro spuštění procesu registrace při vytvoření aktivity.
+   
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-    
+   
             mainActivity = this;
             NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
             registerWithNotificationHubs();
         }
-
-
-9. Přidejte  tyto další metody do `MainActivity` pro ověření stavu aplikace a stavu sestavy ve vaší aplikaci.
-
+7. Přidejte  tyto další metody do `MainActivity` pro ověření stavu aplikace a stavu sestavy ve vaší aplikaci.
+   
         @Override
         protected void onStart() {
             super.onStart();
             isVisible = true;
         }
-    
+   
         @Override
         protected void onPause() {
             super.onPause();
             isVisible = false;
         }
-    
+   
         @Override
         protected void onResume() {
             super.onResume();
             isVisible = true;
         }
-    
+   
         @Override
         protected void onStop() {
             super.onStop();
             isVisible = false;
         }
-    
+   
         public void ToastNotify(final String notificationMessage) {
             runOnUiThread(new Runnable() {
                 @Override
@@ -382,16 +344,12 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                 }
             });
         }
-
-
-10. Metoda `ToastNotify` používá ovládání *„Hello World“* `TextView` k trvalému hlášení stavu a oznámení v aplikaci. Do rozložení activity_main.xml přidejte následující id pro ovládací prvek.
-
-        android:id="@+id/text_hello"
-
-11. Vedle přidáme podtřídu pro našeho příjemce, kterého jsme definovali v souboru AndroidManifest.xml. Přidejte další novou třídu do projektu s názvem `MyHandler`.
-
-12. Nad `MyHandler.java` přidejte následující příkazy pro import:
-
+8. Metoda `ToastNotify` používá ovládání *„Hello World“* `TextView` k trvalému hlášení stavu a oznámení v aplikaci. Do rozložení activity_main.xml přidejte následující id pro ovládací prvek.
+   
+       android:id="@+id/text_hello"
+9. Vedle přidáme podtřídu pro našeho příjemce, kterého jsme definovali v souboru AndroidManifest.xml. Přidejte další novou třídu do projektu s názvem `MyHandler`.
+10. Nad `MyHandler.java` přidejte následující příkazy pro import:
+    
         import android.app.NotificationManager;
         import android.app.PendingIntent;
         import android.content.Context;
@@ -401,17 +359,16 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         import android.os.Bundle;
         import android.support.v4.app.NotificationCompat;
         import com.microsoft.windowsazure.notifications.NotificationsHandler;
-
-13. Přidejte následující kód pro třídu `MyHandler` a vytvořte tak podtřídu `com.microsoft.windowsazure.notifications.NotificationsHandler`.
-
+11. Přidejte následující kód pro třídu `MyHandler` a vytvořte tak podtřídu `com.microsoft.windowsazure.notifications.NotificationsHandler`.
+    
     Tento kód přepíše metodu `OnReceive`, aby obslužná rutina nahlásila oznámení, která byla přijata. Obslužná rutina také odesílá nabízená oznámení správci oznámení Android pomocí metody `sendNotification()`. Metoda `sendNotification()` musí být spouštěna, když není aplikace spuštěna a není přijato oznámení.
-
+    
         public class MyHandler extends NotificationsHandler {
             public static final int NOTIFICATION_ID = 1;
             private NotificationManager mNotificationManager;
             NotificationCompat.Builder builder;
             Context ctx;
-        
+    
             @Override
             public void onReceive(Context context, Bundle bundle) {
                 ctx = context;
@@ -421,18 +378,18 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                     MainActivity.mainActivity.ToastNotify(nhMessage);
                 }
             }
-        
+    
             private void sendNotification(String msg) {
-        
+    
                 Intent intent = new Intent(ctx, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        
+    
                 mNotificationManager = (NotificationManager)
                         ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-        
+    
                 PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                         intent, PendingIntent.FLAG_ONE_SHOT);
-        
+    
                 Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(ctx)
@@ -442,34 +399,36 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
                                         .bigText(msg))
                                 .setSound(defaultSoundUri)
                                 .setContentText(msg);
-        
+    
                 mBuilder.setContentIntent(contentIntent);
                 mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
             }
         }
+12. V Android Studio na řádku nabídek klikněte na tlačítko **Sestavit** > **Znovu sestavit projekt** a ujistěte se, zda se ve vašem kódu nenachází žádné chyby.
+13. Spusťte aplikaci na svém zařízení a ověřte, jestli se úspěšně zaregistrovala v centru oznámení. 
+    
+    > [!NOTE]
+    > Registrace může být při počátečním spuštění neúspěšná, dokud nezavoláte metodu `onTokenRefresh()` ze služby instance ID. Obnovení by mělo inicializovat úspěšnou registraci v centru oznámení.
+    > 
+    > 
 
-
-14. V Android Studio na řádku nabídek klikněte na tlačítko **Sestavit** > **Znovu sestavit projekt** a ujistěte se, zda se ve vašem kódu nenachází žádné chyby.
-15. Spusťte aplikaci na svém zařízení a ověřte, jestli se úspěšně zaregistrovala v centru oznámení. 
-
-    > [AZURE.NOTE] Registrace může být při počátečním spuštění neúspěšná, dokud nezavoláte metodu `onTokenRefresh()` ze služby instance ID. Obnovení by mělo inicializovat úspěšnou registraci v centru oznámení.
-
-##Odeslání nabízených oznámení
-
+## Odeslání nabízených oznámení
 Můžete otestovat přijímání nabízených oznámení ve vaší aplikaci jejich odesláním prostřednictvím [Azure Portal] – hledejte část **Poradce při potížích** v okně centra, jak je uvedeno níže.
 
 ![Azure Notification Hubs – testovací odeslání](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
-[AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
+[!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ## (Volitelné) Zasílání nabízených oznámení přímo z aplikace
+> [!IMPORTANT]
+> Tento příklad odesílání oznámení z klientské aplikace poskytujeme jenom pro výukové účely. Vzhledem k tomu, že v klientské aplikaci bude nutná přítomnost `DefaultFullSharedAccessSignature`, bude centrum oznámení vystaveno riziku, kdy může některý uživatel získat přístup k odesílání neoprávněných oznámení vašim klientům.
+> 
+> 
 
->[AZURE.IMPORTANT] Tento příklad odesílání oznámení z klientské aplikace poskytujeme jenom pro výukové účely. Vzhledem k tomu, že v klientské aplikaci bude nutná přítomnost `DefaultFullSharedAccessSignature`, bude centrum oznámení vystaveno riziku, kdy může některý uživatel získat přístup k odesílání neoprávněných oznámení vašim klientům.
-
-Za normálních okolností byste odesílali oznámení pomocí serveru backend. V některých případech můžete chtít možnost zasílání nabízených oznámení přímo z klientské aplikace. Tato část vysvětluje postup odesílání oznámení z klienta pomocí [API služby REST centra oznámení Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Za normálních okolností byste odesílali oznámení pomocí serveru backend. V některých případech můžete chtít možnost zasílání nabízených oznámení přímo z klientské aplikace. Tato část vysvětluje postup odesílání oznámení z klienta pomocí [API služby REST centra oznámení Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
 1. V zobrazení projektu Android Studio rozbalte možnost **App** > **src** > **main** > **res** > **layout**. Otevřete soubor rozložení `activity_main.xml` a klikněte na kartu **Text** pro aktualizaci textového obsahu souboru. Aktualizujte ho pomocí kódu níže, který přidává nové `Button` a `EditText` ovládací prvky pro zasílání zpráv s nabízeným oznámením centra oznámení. Přidejte tento kód v dolní části, těsně před `</RelativeLayout>`.
-
+   
         <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -478,7 +437,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="sendNotificationButtonOnClick" />
-
+   
         <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -487,21 +446,17 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
-
 2. V zobrazení projektu Android Studio rozbalte **App** > **src** > **main** > **res** > **values**. Otevřete soubor `strings.xml` a přidejte řetězcové hodnoty, které jsou odkazovány pomocí nového `Button` a `EditText` ovládacími prvky. Přidejte tyto položky ve spodní části souboru, těsně před `</resources>`.
-
+   
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
-
-
 3. Do souboru `NotificationSetting.java` přidejte následující nastavení na třídu `NotificationSettings`.
-
+   
     Aktualizujte `HubFullAccess` pomocí připojovacího řetězce **DefaultFullSharedAccessSignature** pro centrum. Tento připojovací řetězec lze kopírovat z [Azure Portal] kliknutím na položku **zásady přístupu** v okně **Nastavení** pro vaše centrum oznámení.
-
+   
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
-
 4. Do souboru `MainActivity.java` přidejte následující prohlášení `import` nad třídu `MainActivity`.
-
+   
         import java.io.BufferedOutputStream;
         import java.io.BufferedReader;
         import java.io.InputStreamReader;
@@ -514,17 +469,15 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
         import android.util.Base64;
         import android.view.View;
         import android.widget.EditText;
-
-6. Do souboru `MainActivity.java` přidejte následující členy v horní části třídy `MainActivity`.  
-
+5. Do souboru `MainActivity.java` přidejte následující členy v horní části třídy `MainActivity`.  
+   
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
         private String HubSasKeyValue = null;
-
 6. Je třeba vytvořit token SaS (Software Access Signature) k ověření požadavku POST k odesílání zpráv do vašeho centra oznámení. To se provede analýzou klíčových dat z připojovacího řetězce a pak vytvořením SaS tokenu, jak je uvedeno v referenci rozhraní REST API [Běžné koncepty](http://msdn.microsoft.com/library/azure/dn495627.aspx). Následující kód představuje příklad implementace.
-
+   
     Do `MainActivity.java` přidejte následující metodu do třídy `MainActivity` k analýze připojovacího řetězce.
-
+   
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
          * to parse the connection string so a SaS authentication token can be
@@ -539,7 +492,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
             if (parts.length != 3)
                 throw new RuntimeException("Error parsing connection string: "
                         + connectionString);
-    
+   
             for (int i = 0; i < parts.length; i++) {
                 if (parts[i].startsWith("Endpoint")) {
                     this.HubEndpoint = "https" + parts[i].substring(11);
@@ -550,10 +503,8 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
                 }
             }
         }
-
-
 7. Do `MainActivity.java` přidejte následující metodu do třídy `MainActivity` k vytvoření ověřovacího tokenu SaS.
-
+   
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
          * construct a SaS token from the access key to authenticate a request.
@@ -564,36 +515,36 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
          *            "http://<namespace>.servicebus.windows.net/<hubName>"
          */
         private String generateSasToken(String uri) {
-    
+   
             String targetUri;
             String token = null;
             try {
                 targetUri = URLEncoder
                         .encode(uri.toString().toLowerCase(), "UTF-8")
                         .toLowerCase();
-    
+   
                 long expiresOnDate = System.currentTimeMillis();
                 int expiresInMins = 60; // 1 hour
                 expiresOnDate += expiresInMins * 60 * 1000;
                 long expires = expiresOnDate / 1000;
                 String toSign = targetUri + "\n" + expires;
-    
+   
                 // Get an hmac_sha1 key from the raw key bytes
                 byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
                 SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
-    
+   
                 // Get an hmac_sha1 Mac instance and initialize with the signing key
                 Mac mac = Mac.getInstance("HmacSHA256");
                 mac.init(signingKey);
-    
+   
                 // Compute the hmac on input data bytes
                 byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
-    
+   
                 // Using android.util.Base64 for Android Studio instead of
                 // Apache commons codec
                 String signature = URLEncoder.encode(
                         Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
-    
+   
                 // Construct authorization string
                 token = "SharedAccessSignature sr=" + targetUri + "&sig="
                         + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
@@ -602,14 +553,11 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
                     ToastNotify("Exception Generating SaS : " + e.getMessage().toString());
                 }
             }
-    
+   
             return token;
         }
-
-
-
 8. Do `MainActivity.java` přidejte následující metodu do třídy `MainActivity` pro zajištění kliknutí na tlačítko **Odeslat oznámení** a odešlete zprávu nabízeného oznámení do centra pomocí předdefinovaného REST API.
-
+   
         /**
          * Send Notification button click handler. This method parses the
          * DefaultFullSharedAccess connection string and generates a SaS token. The
@@ -622,7 +570,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
         public void sendNotificationButtonOnClick(View v) {
             EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
             final String json = "{\"data\":{\"message\":\"" + notificationText.getText().toString() + "\"}}";
-    
+   
             new Thread()
             {
                 public void run()
@@ -634,32 +582,32 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
                         ParseConnectionString(NotificationSettings.HubFullAccess);
                         URL url = new URL(HubEndpoint + NotificationSettings.HubName +
                                 "/messages/?api-version=2015-01");
-    
+   
                         HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
-    
+   
                         try {
                             // POST request
                             urlConnection.setDoOutput(true);
-    
+   
                             // Authenticate the POST request with the SaS token
                             urlConnection.setRequestProperty("Authorization", 
                                 generateSasToken(url.toString()));
-    
+   
                             // Notification format should be GCM
                             urlConnection.setRequestProperty("ServiceBusNotification-Format", "gcm");
-    
+   
                             // Include any tags
                             // Example below targets 3 specific tags
                             // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                             //      "tag1 || tag2 || tag3");
-    
+   
                             // Send notification message
                             urlConnection.setFixedLengthStreamingMode(json.length());
                             OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
                             bodyStream.write(json.getBytes());
                             bodyStream.close();
-    
+   
                             // Get reponse
                             urlConnection.connect();
                             int responseCode = urlConnection.getResponseCode();
@@ -671,7 +619,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
                                 while ((line = br.readLine()) != null) {
                                     builder.append(line);
                                 }
-
+   
                                 ToastNotify(builder.toString());
                             }
                         } finally {
@@ -688,32 +636,24 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
             }.start();
         }
 
-
-
-##Testování vaší aplikace
-
-####Nabízená oznámení v emulátoru
-
+## Testování vaší aplikace
+#### Nabízená oznámení v emulátoru
 Pokud chcete testovat nabízená oznámení uvnitř emulátoru, ověřte, zda bitová kopie emulátoru podporuje úroveň rozhraní Google API, kterou jste zvolili pro vaši aplikaci. Pokud bitová kopie nepodporuje nativní rozhraní Google API, zobrazí se výjimka **SLUŽBA\_NENÍ\_K DISPOZICI**.
 
 Kromě výše uvedeného zajistěte, že jste přidali účet Google do svého spuštěného emulátoru pod položkou **Nastavení** > **účtů**. V opačném případě mohou vaše pokusy o registraci s GCM mít za následek výjimku **OVĚŘOVÁNÍ\_SE NEZDAŘILO**.
 
-####Spouštění aplikace.
-
+#### Spouštění aplikace.
 1. Spusťte aplikaci a všimněte si, že je ID registrace hlášené pro úspěšnou registraci.
-
+   
     ![Testování v systému Android – registrace kanálu](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
-
 2. Zadejte zprávu oznámení k odeslání do všech zařízení Android, která byla zaregistrovaná v centru.
-
+   
     ![Testování v systému Android – odesílání zprávy](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
-
 3. Stiskněte tlačítko **Odeslat oznámení**. Všechna zařízení, které mají spuštěné aplikace, zobrazí instance `AlertDialog` se zprávou nabízených oznámení. Zařízení, která nemají spuštěnou aplikaci, ale byla dříve registrována pro nabízená oznámení, obdrží oznámení ve správci oznámení Android. Ta lze zobrazit potažením dolů z levého horního rohu.
-
+   
     ![Testování v systému Android – oznámení](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
-##Další kroky
-
+## Další kroky
 Jako další krok doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, podívejte se na tutoriál [Používání centra oznámení k odesílání novinek].

@@ -1,26 +1,24 @@
-<properties
-   pageTitle="Správa kontejnerů Azure Container Service pomocí nástroje Docker Swarm | Microsoft Azure"
-   description="Kontejnery můžete nasadit do nástroje Docker Swarm v Azure Container Service."
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, kontejnery, mikroslužby, Mesos, Azure"/>
+---
+title: Správa kontejnerů Azure Container Service pomocí nástroje Docker Swarm | Microsoft Docs
+description: Kontejnery můžete nasadit do nástroje Docker Swarm v Azure Container Service.
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, kontejnery, mikroslužby, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: nepeters
 
-
+---
 # Správa kontejnerů pomocí nástroje Docker Swarm
-
 Docker Swarm poskytuje prostředí pro nasazování kontejnerizovaných úloh v celé sadě hostitelů Docker uspořádaných do fondu. Docker Swarm využívá nativní rozhraní Docker API. Workflow správy kontejnerů v nástroji Docker Swarm je téměř identický s workflow pro hostitele s jedním kontejnerem. Tento dokument poskytuje jednoduché příklady, jak nasadit kontejnerizované úlohy do instance Docker Swarm v Azure Container Service. Podrobnější dokumentaci k nástroji Docker Swarm najdete v tématu [Docker Swarm na Docker.com](https://docs.docker.com/swarm/).
 
 Předpoklady pro praktická cvičení v tomto dokumentu:
@@ -30,9 +28,7 @@ Předpoklady pro praktická cvičení v tomto dokumentu:
 [Propojení s clusterem Swarm v Azure Container Service](container-service-connect.md)
 
 ## Nasazení nového kontejneru
-
 Chcete-li vytvořit nový kontejner v Docker Swarm, použijte příkaz `docker run` (zajistí, že jste otevřeli tunelové propojení SSH k předlohám podle výše uvedených požadavků). Tento příklad vytvoří kontejner z image `yeasy/simple-web`:
-
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
@@ -41,7 +37,6 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 ```
 
 Až se kontejner vytvoří, zobrazte si informace o kontejneru příkazem `docker ps`. Můžete si zde všimnout, že je uveden agent Swarm, který je hostitelem kontejneru:
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -52,15 +47,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 Nyní můžete k aplikaci, která běží v tomto kontejneru, přistoupit přes veřejný název DNS nástroje pro vyrovnávání zatížení agenta Swarm. Na Portálu Azure lze najít tyto informace:  
 
-
 ![Výsledky skutečných návštěv](media/real-visit.jpg)  
 
 Ve výchozím nastavení má nástroj pro vyrovnávání zatížení otevřené porty 80, 8080 a 443. Pokud se chcete připojit k jinému portu, musíte otevřít tento port v nástroji Azure Load Balancer pro fond agenta.
 
 ## Nasazení několika kontejnerů
-
 Když je spuštěno více kontejnerů, je možné vícenásobným spuštěním příkazu „spuštění docker“ použít příkaz `docker ps` k zobrazení, na kterých hostitelích kontejnery běží. V tomto příkladu níže jsou tři kontejnery rovnoměrně rozloženy na tři agenty Swarm:  
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -72,7 +64,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```  
 
 ## Nasazení kontejnerů pomocí Docker Compose
-
 Pomocí Docker Compose je možné automatizovat nasazení a konfiguraci několika kontejnerů. Abyste toho mohli využít, ujistěte se, že je vytvořen tunel Secure Shell (SSH) a že je nastavena proměnná DOCKER_HOST (viz předpoklady výše).
 
 Vytvořte v lokálním systému soubor docker-compose.yml. Použijte k tomu tuto [ukázku](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
@@ -93,7 +84,6 @@ rest:
 
 Příkazem `docker-compose up -d` spusťte nasazení kontejnerů:
 
-
 ```bash
 user@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
@@ -110,7 +100,6 @@ Creating compose_web_1
 
 Nakonec se vrátí seznam spuštěných kontejnerů. Tento seznam reflektuje kontejnery nasazené pomocí Docker Compose:
 
-
 ```bash
 user@ubuntu:~/compose$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
@@ -121,10 +110,7 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 Přirozeně, můžete použít `docker-compose ps` k prozkoumání samotných kontejnerů definovaných ve vašem souboru `compose.yml`.
 
 ## Další kroky
-
 [Další informace o Docker Swarmu](https://docs.docker.com/swarm/)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

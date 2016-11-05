@@ -1,38 +1,38 @@
-<properties
-    pageTitle="Nabízená oznámení v monitorované geografické zóně s Azure Notification Hubs a Bing Spatial Data | Microsoft Azure"
-    description="V tomto kurzu se dozvíte, jak pomocí Azure Notification Hubs a Bing Spatial Data doručovat nabízená oznámení na základě polohy."
-    services="notification-hubs"
-    documentationCenter="windows"
-    keywords="nabízené oznámení,nabízená oznámení"
-    authors="dend"
-    manager="yuaxu"
-    editor="dend"/>
+---
+title: Nabízená oznámení v monitorované geografické zóně s Azure Notification Hubs a Bing Spatial Data | Microsoft Docs
+description: V tomto kurzu se dozvíte, jak pomocí Azure Notification Hubs a Bing Spatial Data doručovat nabízená oznámení na základě polohy.
+services: notification-hubs
+documentationcenter: windows
+keywords: nabízené oznámení,nabízená oznámení
+author: dend
+manager: yuaxu
+editor: dend
 
-<tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows-phone"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/31/2016"
-    ms.author="dendeli"/>
-    
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/31/2016
+ms.author: dendeli
 
+---
 # Nabízená oznámení v monitorované geografické zóně s Azure Notification Hubs a Bing Spatial Data
- 
- > [AZURE.NOTE] K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> [!NOTE]
+> K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> 
+> 
 
 V tomto kurzu se dozvíte, jak z aplikace pro Univerzální platformu Windows doručovat pomocí Azure Notification Hubs a Bing Spatial Data nabízená oznámení na základě polohy.
 
-##Požadavky
+## Požadavky
 Nejprve je nezbytné se ujistit, že splňujete všechny požadavky na software a služby:
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) nebo novější (dostačující bude i [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)) 
 * Nejnovější verze [Azure SDK](https://azure.microsoft.com/downloads/) 
 * [Účet na webu Dev Center pro Mapy Bing](https://www.bingmapsportal.com/) (Je možné si jej vytvořit zdarma a přidružit si ho k účtu Microsoft.) 
 
-##Začínáme
-
+## Začínáme
 Začněme vytvořením projektu. V nástroji Visual Studio vytvořte nový projekt typu **Prázdná aplikace (univerzální pro Windows)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -40,17 +40,16 @@ Začněme vytvořením projektu. V nástroji Visual Studio vytvořte nový proje
 Jakmile se vytváření projektu dokončí, měli byste mít základ samotné aplikace. Nyní nastavme vše pro monitorovanou geografickou zónu. Jelikož pro tento účel využijeme služby Bing, je k dispozici veřejný koncový bod REST API, který nám umožní dotazovat se na konkrétní oblasti lokality:
 
     http://spatial.virtualearth.net/REST/v1/data/
-    
+
 K jeho zprovoznění je nutné zadat následující parametry:
 
 * **ID zdroje dat** a **Název zdroje dat** – v rozhraní API Map Bing zdroje dat obsahují různá kategorizovaná metadata, například lokality a pracovní doby provozu. Můžete si o nich zde přečíst více. 
 * **Název entity** – entita, kterou chcete použít jako referenční bod pro oznámení. 
 * **Klíč rozhraní API Map Bing** – klíč, který jste dříve získali při vytváření účtu Dev Center pro Bing.
- 
+
 Podrobně nyní popíšeme nastavení jednotlivých prvků uvedených výše.
 
-##Nastavení zdroje dat
-
+## Nastavení zdroje dat
 Nastavení je možné provést na webu Dev Center pro Mapy Bing. Jednoduše v horním navigačním panelu klikněte na **Zdroje dat** a vyberte **Spravovat zdroje dat**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -64,14 +63,17 @@ Možná se ptáte: co je to datový soubor a co byste měli nahrávat? Pro úče
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
-    
+
 Kód výše představuje tuto entitu:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
 Jednoduše zkopírujte a vložte řetězec výše do nového souboru, který pak uložíte jako **NotificationHubsGeofence.pipe** a nahrajete na Dev Center pro Bing.
 
->[AZURE.NOTE]Může se zobrazit výzva k zadání nového klíče jako **hlavního klíče**, který se bude lišit od **klíče dotazu**. Nový klíč jednoduše vytvořte přes řídicí panel a aktualizujte stránku pro nahrání zdroje dat.
+> [!NOTE]
+> Může se zobrazit výzva k zadání nového klíče jako **hlavního klíče**, který se bude lišit od **klíče dotazu**. Nový klíč jednoduše vytvořte přes řídicí panel a aktualizujte stránku pro nahrání zdroje dat.
+> 
+> 
 
 Jakmile nahrajete datový soubor, bude nezbytné publikovat zdroj dat. 
 
@@ -101,8 +103,7 @@ Tato odpověď se odesílá jen v případě, že se bod nachází v určené ob
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-##Nastavení aplikace pro UPW
-
+## Nastavení aplikace pro UPW
 Nyní když máme připraven zdroj dat, můžeme začít pracovat na aplikaci pro UPW, kterou jsme si připravili dříve.
 
 Nejprve musíme pro naši aplikaci povolit zjišťování polohy. To proveďte kliknutím dvakrát na soubor `Package.appxmanifest` v **Průzkumníkovi řešení**.
@@ -199,8 +200,7 @@ Implementace zobrazí souřadnice polohy v okně **Výstup**:
         });
     }
 
-##Nastavení back-endu
-
+## Nastavení back-endu
 Stáhněte si [ukázku back-endu .NET z GitHubu](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Až se stahování dokončí, otevřete složku `NotifyUsers` a následně soubor `NotifyUsers.sln`.
 
 Nastavte projekt `AppBackend` jako **Spouštěný projekt** a spusťte jej.
@@ -276,7 +276,10 @@ Vytvořte v projektu novou třídu s názvem `ApiHelper.cs`. Použijeme ji k př
         }
     }
 
->[AZURE.NOTE] Je nezbytné nahradit koncový bod rozhraní API adresou URL dotazu, kterou jste získali dříve z webu Dev Center pro Bing (totéž platí pro klíč rozhraní API). 
+> [!NOTE]
+> Je nezbytné nahradit koncový bod rozhraní API adresou URL dotazu, kterou jste získali dříve z webu Dev Center pro Bing (totéž platí pro klíč rozhraní API). 
+> 
+> 
 
 Pokud dotaz vrací výsledky, znamená to, že se zadaný bod nachází uvnitř monitorované geografické zóny, proto vrátíme `true`. Pokud žádné výsledky nejsou, Bing nám oznamuje, že se bod nachází mimo rámec vyhledávání, proto vrátíme `false`.
 
@@ -303,8 +306,7 @@ Zpět v `NotificationsController.cs` vytvořte kontrolu přímo před příkazem
 
 Takto se budou oznámení odesílat jenom v případě, že se bod nachází v dané oblasti.
 
-##Testování nabízených oznámení v aplikaci pro UPW
-
+## Testování nabízených oznámení v aplikaci pro UPW
 Po návratu do aplikace pro UPW bychom nyní měli být schopni oznámení otestovat. Ve třídě `LocationHelper` vytvořte novou funkci – `SendLocationToBackend`:
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -326,7 +328,10 @@ Po návratu do aplikace pro UPW bychom nyní měli být schopni oznámení otest
         }
     }
 
->[AZURE.NOTE] Zaměňte `POST_URL` za umístění nasazené webové aplikace, kterou jsme vytvořili v předchozím oddílu. V tuto chvíli je možné ji spouštět lokálně, ale během nasazování veřejné verze bude nutné ji hostovat pomocí externího poskytovatele.
+> [!NOTE]
+> Zaměňte `POST_URL` za umístění nasazené webové aplikace, kterou jsme vytvořili v předchozím oddílu. V tuto chvíli je možné ji spouštět lokálně, ale během nasazování veřejné verze bude nutné ji hostovat pomocí externího poskytovatele.
+> 
+> 
 
 Nyní se ujistíme, že jsme aplikaci pro UPW zaregistrovali k nabízeným oznámením. V nástroji Visual Studio klikněte na **Projekt** > **Store** > **Propojit aplikaci se Storem**.
 
@@ -371,8 +376,7 @@ Jelikož nepředáváme skutečné souřadnice (které by v tuto chvíli nemusel
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-##Co dále?
-
+## Co dále?
 Pokud si chcete být jisti, že je řešení připravené na reálný provoz, může být zapotřebí podniknout ještě několik dalších kroků.
 
 Nejprve je nezbytné zajistit, že monitorovaná geografická zóna je dynamická. To bude vyžadovat další práci s rozhraním API služby Bing, aby bylo možné nahrávat nové hranice do existujícího zdroje dat. Další podrobnosti k tomuto tématu najdete v [dokumentaci rozhraní API pro Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
@@ -382,8 +386,6 @@ Abyste zajistili doručování správným účastníkům, můžete požadovat c�
 Řešení uvedené výše popisuje scénář, při kterém můžete mít širokou škálu cílových platforem, proto jsme neomezovali monitorování geografické zóny schopnostmi specifickými pro daný systém. Je ale nutné dodat, že Univerzální platforma Windows nabízí integrované možnosti pro [detekci monitorované geografické zóny](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Další podrobnosti týkající se schopností Notification Hubs najdete na [portálu dokumentace](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

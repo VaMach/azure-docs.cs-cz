@@ -1,41 +1,39 @@
 
-<properties
-   pageTitle="Partnerské vztahy virtuálních sítí ve službě Azure | Microsoft Azure"
-   description="Informace o partnerských vztazích virtuálních sítí ve službě Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Partnerské vztahy virtuálních sítí ve službě Azure | Microsoft Docs
+description: Informace o partnerských vztazích virtuálních sítí ve službě Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
 
+---
 # Partnerské vztahy virtuálních sítí
-
 Partnerský vztah virtuálních sítí je mechanismus, který spojuje dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. Po navázání partnerského vztahu se tyto dvě virtuální sítě pro všechny účely připojení jeví jako jedna síť. Jsou i nadále spravovány jako samostatné prostředky, ale virtuální počítače v těchto virtuálních sítích spolu mohou komunikovat přímo pomocí privátních IP adres.
 
 Přenos dat mezi virtuálními počítači ve virtuálních sítích spojených v partnerském vztahu je směrován přes infrastrukturu Azure v zásadě stejně jako mezi virtuálními počítači ve stejné virtuální síti. Mezi výhody použití partnerských vztahů virtuálních sítí patří:
 
-- Nízká latence a velká šířka pásma při propojení prostředků v různých virtuálních sítích.
-- Možnost používat prostředky, například síťová zařízení a VPN Gateway, jako přenosové body ve virtuální síti s navázaným partnerským vztahem.
-- Možnost připojit virtuální síť, která používá model Azure Resource Manager, k virtuální síti používající klasický model nasazení a umožnit plnohodnotné propojení mezi prostředky v těchto virtuálních sítích.
+* Nízká latence a velká šířka pásma při propojení prostředků v různých virtuálních sítích.
+* Možnost používat prostředky, například síťová zařízení a VPN Gateway, jako přenosové body ve virtuální síti s navázaným partnerským vztahem.
+* Možnost připojit virtuální síť, která používá model Azure Resource Manager, k virtuální síti používající klasický model nasazení a umožnit plnohodnotné propojení mezi prostředky v těchto virtuálních sítích.
 
 Požadavky a klíčové aspekty partnerských vztahů virtuálních sítí:
 
-- Dvě virtuální sítě, mezi nimiž má být navázán partnerský vztah, by měly být ve stejné oblasti Azure.
-- Adresní prostory IP adres virtuálních sítí, které mají být v partnerském vztahu, by se neměly překrývat.
-- Partnerský vztah virtuálních sítí se navazuje mezi dvěma virtuálními sítěmi a nevzniká žádný odvozený tranzitivní vztah. Pokud je například virtuální síť A v partnerském vztahu s virtuální sítí B a síť B je v partnerském vztahu s virtuální sítí C, neznamená to, že se vytvoří partnerský vztah mezi virtuálními sítěmi A a C.
-- Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce a že předplatná jsou přidružená stejnému tenantu Active Directory. 
-- Virtuální síť používající model nasazení Resource Manageru můžete propojit s jinou virtuální sítí, která tento model používá také, nebo s virtuální sítí, která používá klasický model nasazení. Nejde ale navázat partnerský vztah mezi dvěma virtuálními sítěmi, které obě používají klasický model nasazení.
-- Ačkoli komunikace mezi virtuálními počítači v sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače.
-
+* Dvě virtuální sítě, mezi nimiž má být navázán partnerský vztah, by měly být ve stejné oblasti Azure.
+* Adresní prostory IP adres virtuálních sítí, které mají být v partnerském vztahu, by se neměly překrývat.
+* Partnerský vztah virtuálních sítí se navazuje mezi dvěma virtuálními sítěmi a nevzniká žádný odvozený tranzitivní vztah. Pokud je například virtuální síť A v partnerském vztahu s virtuální sítí B a síť B je v partnerském vztahu s virtuální sítí C, neznamená to, že se vytvoří partnerský vztah mezi virtuálními sítěmi A a C.
+* Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce a že předplatná jsou přidružená stejnému tenantu Active Directory. 
+* Virtuální síť používající model nasazení Resource Manageru můžete propojit s jinou virtuální sítí, která tento model používá také, nebo s virtuální sítí, která používá klasický model nasazení. Nejde ale navázat partnerský vztah mezi dvěma virtuálními sítěmi, které obě používají klasický model nasazení.
+* Ačkoli komunikace mezi virtuálními počítači v sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače.
 
 ![Základní partnerské vztahy virtuálních sítí](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -83,13 +81,10 @@ Existují omezení týkající se počtu partnerských vztahů, které lze vytvo
 ## Ceny
 Během období vyhodnocování bude funkce partnerských vztahů virtuálních sítí k dispozici bezplatně. Po jejím oficiálním vydání bude za příchozí a odchozí přenos dat využívající partnerské vztahy účtován nominální poplatek. Další informace naleznete na [stránce s cenami](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Další kroky
-- [Nastavení partnerského vztahu mezi virtuálními sítěmi](virtual-networks-create-vnetpeering-arm-portal.md).
-- Další informace o skupinách [NSG](virtual-networks-nsg.md).
-- Další informace o [uživatelem definovaných tabulkách směrování a předávání IP](virtual-networks-udr-overview.md).
-
-
+* [Nastavení partnerského vztahu mezi virtuálními sítěmi](virtual-networks-create-vnetpeering-arm-portal.md).
+* Další informace o skupinách [NSG](virtual-networks-nsg.md).
+* Další informace o [uživatelem definovaných tabulkách směrování a předávání IP](virtual-networks-udr-overview.md).
 
 <!--HONumber=Sep16_HO4-->
 

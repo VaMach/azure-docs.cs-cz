@@ -1,26 +1,23 @@
-<properties 
-    pageTitle="Co jsou konektory a aplikace API pro BizTalk" 
-    description="Informace o aplikacích API, konektorech a aplikacích API BizTalk" 
-    services="logic-apps" 
-    documentationCenter="" 
-    authors="MandiOhlinger" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Co jsou konektory a aplikace API pro BizTalk
+description: Informace o aplikacích API, konektorech a aplikacích API BizTalk
+services: logic-apps
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="09/01/2016" 
-    ms.author="mandia"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: mandia
 
-
+---
 # Co jsou konektory a aplikace API pro BizTalk
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 *Konektor* je typ aplikace API, která se zaměřuje na připojení. Konektory, podobně jako ostatní aplikace API, se používají ve webových aplikacích, mobilních aplikacích a aplikacích logiky. Konektory usnadňují připojování existujících služeb a pomáhají spravovat ověřování a poskytovat monitorování, analýzu a další funkce.
 
@@ -34,8 +31,7 @@ K dispozici jsou různé úrovně služeb. Všechny úrovně zahrnují všechny 
 
 V části [Ceny App Service](https://azure.microsoft.com/pricing/details/app-service/) jsou tyto úrovně služeb popsány, a to včetně přehledu, co je jejich součástí. Následující oddíly popisují různé kategorie konektorů a aplikací API pro BizTalk.
 
-
-## Hybridní konektory 
+## Hybridní konektory
 Hybridní konektory dále rozšiřují využitelnost ve velkých firmách tím, že přidávají možnost připojení pro [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) a WebSphere MQ. 
 
 Další prostředky: [Konektory B2B a aplikace API](app-service-logic-b2b-connectors.md)  
@@ -43,15 +39,11 @@ Další prostředky: [Konektory B2B a aplikace API](app-service-logic-b2b-connec
 [Vytvoření smlouvy s obchodním partnerem](app-service-logic-create-a-trading-partner-agreement.md)  
 [Sledování zpráv B2B](app-service-logic-track-b2b-messages.md)  
 
-
 ## Pravidla
 Obchodní pravidla v sobě nesou zásady a rozhodnutí řídící podnikové procesy. Pravidla jsou obvykle dynamická a v čase se z různých důvodů mění, například kvůli obchodním plánům, regulacím a mnoha dalším důvodům. [Pravidla BizTalk](app-service-logic-use-biztalk-rules.md) vám umožňují oddělit tyto zásady od kódu aplikace a zjednodušit a urychlit proces změn.
 
 ## Seznam konektorů a aplikací API
 Úplný seznam konektorů a aplikací API obsažených v jednotlivých kategoriích, včetně konektorů Standard, BizTalk EAI, konektorů Premium a dalších, najdete v tématu [Seznam konektorů a aplikací API](app-service-logic-connectors-list.md).
- 
-
-
 
 <!--HONumber=Oct16_HO3-->
 

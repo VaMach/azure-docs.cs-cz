@@ -1,169 +1,160 @@
-<properties
-    pageTitle="Začínáme s Mobile Apps na platformě Xamarin.Forms"
-    description="V tomto kurzu začnete používat Azure Mobile Apps pro vývoj s Xamarin.Forms."
-    services="app-service\mobile"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+---
+title: Začínáme s Mobile Apps na platformě Xamarin.Forms
+description: V tomto kurzu začnete používat Azure Mobile Apps pro vývoj s Xamarin.Forms.
+services: app-service\mobile
+documentationcenter: xamarin
+author: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: adrianha
 
+---
+# Vytvoření aplikace na platformě Xamarin.Forms
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-#Vytvoření aplikace na platformě Xamarin.Forms
-
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-##Přehled
-
-V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní aplikace na platformě Xamarin.Forms pomocí back-endu mobilní aplikace Azure. Vytvoříte jak nový back-end mobilní aplikace, tak jednoduchou aplikaci Xamarin.Forms, která bude představovat _seznam úkolů_ a ukládat data do Azure.
+## Přehled
+V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní aplikace na platformě Xamarin.Forms pomocí back-endu mobilní aplikace Azure. Vytvoříte jak nový back-end mobilní aplikace, tak jednoduchou aplikaci Xamarin.Forms, která bude představovat *seznam úkolů* a ukládat data do Azure.
 
 Ve všech dalších kurzech k Mobile Apps týkajících se Xamarin.Forms se předpokládá dokončení tohoto kurzu.
 
-##Požadavky
-
+## Požadavky
 Pro absolvování tohoto kurzu potřebujete:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
-
 * Počítač Mac s nainstalovaným Xcode verze 7.0 nebo novějším a Xamarin Studio Community. Přečtěte si témata o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) a o [nastavení, instalaci a ověření pro uživatele počítačů Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
- 
->[AZURE.NOTE] Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://tryappservice.azure.com/?appServiceName=mobile), kde si můžete hned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+
+> [!NOTE]
+> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://tryappservice.azure.com/?appServiceName=mobile), kde si můžete hned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> 
+> 
 
 ## Vytvoření nového back-endu mobilní aplikace Azure
-
 Podle těchto pokynů vytvořte nový back-end mobilní aplikace:
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
-
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použít v mobilních klientských aplikacích. Dále si stáhnete serverový projekt pro jednoduchý back-end seznamu úkolů a publikujete ho v Azure.
 
 ## Konfigurace serverového projektu
-
 Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď back-end Node.js, nebo .NET.
 
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-##Stáhnutí a spuštění řešení Xamarin.Forms
-
+## Stáhnutí a spuštění řešení Xamarin.Forms
 Zde máte několik možností. Řešení si můžete stáhnout na Mac a otevřít ho v nástroji Xamarin Studio nebo si ho můžete stáhnout do počítače s Windows a otevřít v nástroji Visual Studio pomocí síťově připojeného počítače Mac, abyste mohli sestavit aplikaci pro iOS. Pokud potřebujete podrobnější pokyny ke scénářům instalace nástroje Xamarin, nahlédněte do tématu o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Můžeme pokračovat:
 
- 1. Na počítači Mac nebo počítači s Windows otevřete [Azure Portal] v okně prohlížeče.
- 2. V okně nastavení mobilní aplikace klikněte na **Začínáme** (v části pro mobilní řešení) > **Xamarin.Forms**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
+1. Na počítači Mac nebo počítači s Windows otevřete [Azure Portal] v okně prohlížeče.
+2. V okně nastavení mobilní aplikace klikněte na **Začínáme** (v části pro mobilní řešení) > **Xamarin.Forms**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
+   
+   Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
+3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio nebo v nástroji Visual Studio.
+   
+   ![][9]
+   
+   ![][8]
 
-    Tím se stáhne projekt, který obsahuje klientskou aplikaci připojenou k mobilní aplikaci. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
-
- 3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio nebo v nástroji Visual Studio.
-
-    ![][9]
-
-    ![][8]
-
-
-##(Nepovinné) Spuštění projektu pro iOS
-
+## (Nepovinné) Spuštění projektu pro iOS
 Tato část se týká spuštění projektu Xamarin iOS pro zařízení s iOS. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-####V nástroji Xamarin Studio
-
+#### V nástroji Xamarin Studio
 1. Klikněte pravým tlačítkem myši na projekt pro iOS a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Spustit** klikněte na **Spustit ladění**, aby se projekt sestavil a aplikace se spustila v emulátoru iPhonu.
 
-####V nástroji Visual Studio
+#### V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na projekt pro iOS a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
 3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u projektu pro iOS.
 4. Stiskněte klávesu **F5**, aby se projekt sestavil a aplikace se spustila v emulátoru iPhonu.
+   
+   > [!NOTE]
+   > Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
+   > 
+   > 
 
-    >[AZURE.NOTE] Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
-
-Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikněte na tlačítko **+**.
+Zadejte do aplikace smysluplný text, například *Naučit se Xamarin*, a klikněte na tlačítko **+**.
 
 ![][10]
 
 Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
->[AZURE.NOTE]
+> [!NOTE]
 > Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+> 
+> 
 
-##(Nepovinné) Spuštění projektu pro Android
-
+## (Nepovinné) Spuštění projektu pro Android
 Tato část se týká spuštění projektu Xamarin Android pro zařízení s Androidem. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-####V nástroji Xamarin Studio
-
+#### V nástroji Xamarin Studio
 1. Klikněte pravým tlačítkem myši na projekt pro Android a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Spustit** klikněte na **Spustit ladění**, aby se projekt sestavil a aplikace se spustila v emulátoru Androidu.
 
-####V nástroji Visual Studio
+#### V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na projekt pro Android (Droid) a pak klikněte na **Nastavit jako spouštěný projekt**.
-4. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
-5. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u projektu pro Android.
-6. Stiskněte klávesu **F5**, aby se projekt sestavil a aplikace se spustila v emulátoru Androidu.
+2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
+3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u projektu pro Android.
+4. Stiskněte klávesu **F5**, aby se projekt sestavil a aplikace se spustila v emulátoru Androidu.
+   
+   > [!NOTE]
+   > Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
+   > 
+   > 
 
-    >[AZURE.NOTE] Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
-
-
-Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikněte na tlačítko **+**.
+Zadejte do aplikace smysluplný text, například *Naučit se Xamarin*, a klikněte na tlačítko **+**.
 
 ![][11]
 
 Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+> 
+> 
 
-
-##(Nepovinné) Spuštění projektu pro Windows
-
-
+## (Nepovinné) Spuštění projektu pro Windows
 Tato část se týká spuštění projektu Xamarin WinApp pro zařízení s Windows. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-
-####V nástroji Visual Studio
+#### V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na kterýkoli z projektů pro Windows a pak klikněte na **Nastavit jako spouštěný projekt**.
-4. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
-5. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u vámi zvoleného projektu pro Windows.
-6. Stiskněte klávesu **F5**, aby se projekt sestavil a spustil aplikaci v emulátoru Windows.
+2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
+3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u vámi zvoleného projektu pro Windows.
+4. Stiskněte klávesu **F5**, aby se projekt sestavil a spustil aplikaci v emulátoru Windows.
+   
+   > [!NOTE]
+   > Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
+   > 
+   > 
 
-    >[AZURE.NOTE] Pokud máte se sestavením problémy, spusťte správce balíčků NuGet a proveďte aktualizaci na nejnovější verzi podpůrných balíčků Xamarin. Někdy se u projektů typu Rychlý start může aktualizace na nejnovější verzi opozdit.    
-
-
-Zadejte do aplikace smysluplný text, například _Naučit se Xamarin_, a klikněte na tlačítko **+**.
+Zadejte do aplikace smysluplný text, například *Naučit se Xamarin*, a klikněte na tlačítko **+**.
 
 Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v Azure. Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
 ![][12]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Kód, který získává přístup k back-endu mobilní aplikace, naleznete v souboru C# TodoItemManager.cs v projektu knihovny přenosných tříd pro vaše řešení.
+> 
+> 
 
-##Další kroky
-
+## Další kroky
 * [Přidání ověřování do aplikace](app-service-mobile-xamarin-forms-get-started-users.md)  
-Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
-
+  Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
 * [Přidání nabízených oznámení do aplikace](app-service-mobile-xamarin-forms-get-started-push.md)  
-Naučte se přidávat do aplikace podporu nabízených oznámení a konfigurovat back-end mobilní aplikace tak, aby k zasílání nabízených oznámení používal Azure Notification Hubs.
-
+  Naučte se přidávat do aplikace podporu nabízených oznámení a konfigurovat back-end mobilní aplikace tak, aby k zasílání nabízených oznámení používal Azure Notification Hubs.
 * [Povolení offline synchronizace u aplikace](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Naučte se, jak pomocí back-endu mobilní aplikace přidat do aplikace podporu offline režimu. Offline synchronizace umožňuje koncovým uživatelům pracovat s mobilní aplikací &mdash; zobrazovat, přidávat a upravovat data &mdash; i v případě, že nemají připojení k síti.
-
 * [Jak používat spravovaného klienta pro Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin. 
-
+  Naučte se pracovat se spravovanou klientskou sadou SDK v aplikaci Xamarin. 
 
 <!-- Anchors. -->
 [Začínáme s back-endy mobilních aplikací]:#getting-started

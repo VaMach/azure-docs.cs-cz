@@ -1,27 +1,24 @@
-<properties
-    pageTitle="Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights | Microsoft Azure"
-    description="Automatizujte konfiguraci kanálu Azure Diagnostics pro službu Application Insights."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights | Microsoft Docs
+description: Automatizujte konfiguraci kanálu Azure Diagnostics pro službu Application Insights.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
-
+---
 # Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights
-
 [Microsoft Azure](https://azure.com) může být [konfigurované k odesílání Azure Diagnostics](app-insights-azure-diagnostics.md) do [Visual Studio Application Insights](app-insights-overview.md). Diagnostika se týká cloudových služeb Azure a virtuálních počítačů Azure. Doplňují telemetrii, kterou odesíláte z aplikace pomocí Application Insights SDK. Jako součást automatizace procesu vytváření nových prostředků v Azure můžete nakonfigurovat diagnostiku pomocí prostředí PowerShell.
 
 ## Povolit rozšíření diagnostiky jako součást nasazení cloudové služby
-
 Rutina `New-AzureDeployment` obsahuje parametr `ExtensionConfiguration`, který přijímá pole konfigurace diagnostiky. Ty lze vytvořit pomocí rutiny `New-AzureServiceDiagnosticsExtensionConfig`. Příklad:
 
 ```ps
@@ -58,11 +55,10 @@ Rutina `New-AzureDeployment` obsahuje parametr `ExtensionConfiguration`, který 
 ``` 
 
 ## Povolit rozšíření diagnostiky na existující službu Cloud
-
 Na existující službu použijte `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -88,7 +84,6 @@ Na existující službu použijte `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 ## Získejte aktuální konfiguraci rozšíření diagnostiky
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -96,7 +91,6 @@ Na existující službu použijte `Set-AzureServiceDiagnosticsExtension`.
 
 
 ## Odeberte rozšíření diagnostiky
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -113,13 +107,9 @@ Chcete-li odebrat rozšíření diagnostiky pro každou jednotlivou roli:
 
 
 ## Viz také
-
 * [Monitorování aplikací Azure Cloud Services pomocí nástroje Application Insights](app-insights-cloudservices.md)
 * [Odesílání Azure Diagnostics do Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizace konfigurace výstrah](app-insights-powershell-alerts.md)
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Nejčastější dotazy k trezoru Recovery Services | Microsoft Azure"
-   description="Tato verze častých otázek podporuje verzi Public Preview služby Azure Backup. Odpovědi na časté otázky týkající se agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další běžné otázky týkající se řešení Azure Backup."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="řešení zálohování; služba zálohování"/>
+---
+title: Nejčastější dotazy k trezoru Recovery Services | Microsoft Docs
+description: Tato verze častých otázek podporuje verzi Public Preview služby Azure Backup. Odpovědi na časté otázky týkající se agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další běžné otázky týkající se řešení Azure Backup.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: řešení zálohování; služba zálohování
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
-
+---
 # Trezor služby Recovery Services – nejčastější dotazy
-
-> [AZURE.SELECTOR]
-- [Nejčastější dotazy týkající se klasického režimu ve službě Backup](backup-azure-backup-faq.md)
-- [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Nejčastější dotazy týkající se klasického režimu ve službě Backup](backup-azure-backup-faq.md)
+> * [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Tento článek poskytuje informace specifické pro trezor služby Recovery Services a doplňuje článek [Nejčastější dotazy k Azure Backup](backup-azure-backup-faq.md). Časté otázky týkající se Azure Backup poskytují ucelený soubor otázek a odpovědí ohledně služby Azure Backup.  
 
@@ -43,8 +43,6 @@ Při migraci virtuálních počítačů z klasického režimu do režimu Resourc
 1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**. 
 2. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a síť odpovídající tomuto virtuálnímu počítači. 
 3. Vytvořte trezor Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Další informace o postupu při [povolení zálohování v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
-
-
 
 <!--HONumber=Sep16_HO5-->
 

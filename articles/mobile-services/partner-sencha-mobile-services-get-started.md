@@ -1,89 +1,79 @@
-<properties
-    pageTitle="Začínáme s Azure Mobile Services a Sencha"
-    description="Chcete-li začít s vývojem pomocí Mobile Services a rámcem mobilních aplikací Sencha HTML5, využijte tento kurz."
-    services="mobile-services"
-    documentationCenter=""
-    authors="ggailey777"
-    manager="dwrede"
-    editor=""/>
+---
+title: Začínáme s Azure Mobile Services a Sencha
+description: Chcete-li začít s vývojem pomocí Mobile Services a rámcem mobilních aplikací Sencha HTML5, využijte tento kurz.
+services: mobile-services
+documentationcenter: ''
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-sencha"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-sencha
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # <a name="getting-started"> </a>Začínáme s Mobile Services a Sencha Touch
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[!INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-##Přehled
-
+## Přehled
 Tento kurz ukazuje, jak můžete využít Azure Mobile Services v aplikaci Sencha Touch. Pomocí Sencha Touch vytvoříte jednoduchou aplikaci *Seznam úkolů*, která využívá mobilní služby definované prostřednictvím portálu Azure Classic. Tento kurz je určen pro středně pokročilé až pokročilé vývojáře webových aplikací, kteří mají dobrou znalost jazyka JavaScript a jsou obeznámeni s frameworkem Sencha Touch.
 
 Pokud upřednostňujete video, tento klip postupuje stejně jako tento kurz. Na videu Arthur Kay vysvětluje, jak sestavit aplikaci Sencha Touch pomocí back-end Azure Mobile Services.
 
-> [AZURE.VIDEO getting-started-with-sencha-touch]
-
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Windows-Azure-for-Sencha-Touch/player]
+> 
+> 
 
 Snímek obrazovky dokončené aplikace naleznete níže:
 
 ![][0]
 
-##Požadavky
-
-- Stáhněte a nainstalujte [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
-
-- Stáhněte a nainstalujte [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
-
-- Běhové prostředí Java Runtime (JRE) nebo Java Development Kit (pokud vytváříte aplikace pro Android)
-- Ruby a SASS gem.
+## Požadavky
+* Stáhněte a nainstalujte [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+* Stáhněte a nainstalujte [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+* Běhové prostředí Java Runtime (JRE) nebo Java Development Kit (pokud vytváříte aplikace pro Android)
+* Ruby a SASS gem.
 
 ## <a name="create-new-service"> </a>Vytvoření nové mobilní služby
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
-
-##Vytvoření tabulky Seznam úkolů
-
+## Vytvoření tabulky Seznam úkolů
 Jakmile vytvoříte mobilní službu, můžete snadno využít postup rychlého spuštění portálu Azure Classic k vytvoření nové databázové tabulky pro použití v mobilní službě.
 
 1. Na [portál Azure Classic] klikněte na tlačítko **Mobile Services** a pak klikněte na mobilní službu, kterou jste právě vytvořili.
-
 2. Na kartě Rychlé spuštění klikněte na tlačítko **HTML** pod položkou **Vybrat platformu** a rozbalte možnost **Vytvořit novou aplikaci HTML**.
-
+   
     ![Mobilní rychlý start html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
-
+   
     Zobrazí se tří jednoduché kroky k vytvoření a hostování aplikace HTML připojené k mobilní službě.
-
+   
     ![Mobilní rychlý start html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
-
 3. Klikněte na tlačítko **Vytvořit tabulku TodoItem** a vytvořte tabulku pro ukládání dat aplikací.
-
-    > [AZURE.NOTE] Nestahujte aplikaci HTML z portálu Azure Classic. Místo toho ručně vytvoříme aplikaci Sencha Touch v následující části.
-
-
-1. Povšimněte si položek **appKey** a **appUrl** na portálu Azure Classic. Použijeme je v dalších částech tohoto kurzu.
-
+   
+   > [!NOTE]
+   > Nestahujte aplikaci HTML z portálu Azure Classic. Místo toho ručně vytvoříme aplikaci Sencha Touch v následující části.
+   > 
+   > 
+4. Povšimněte si položek **appKey** a **appUrl** na portálu Azure Classic. Použijeme je v dalších částech tohoto kurzu.
+   
     ![klíč aplikace](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
-
-1. Na kartě **Konfigurovat** ověřte, zda je `localhost` již uveden v seznamu **Povolit požadavky od názvů hostitelů** v rámci **Sdílení prostředků různých původů (CORS)**. Pokud není, zadejte `localhost` do pole **Název hostitele** a pak klikněte na tlačítko **Uložit**.
-
+5. Na kartě **Konfigurovat** ověřte, zda je `localhost` již uveden v seznamu **Povolit požadavky od názvů hostitelů** v rámci **Sdílení prostředků různých původů (CORS)**. Pokud není, zadejte `localhost` do pole **Název hostitele** a pak klikněte na tlačítko **Uložit**.
+   
     ![Instalační program CORS pro místního hostitele](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
-##Vygenerujte svou aplikaci Touch
-
+## Vygenerujte svou aplikaci Touch
 Generování aplikace šablony Sencha Touch je jednoduchou úlohou využívající Sencha Cmd a představuje skvělý způsob, jak aplikaci velmi rychle zprovoznit.
 
 Z adresáře, kam jste nainstalovali framework Touch vydejte následující příkaz:
@@ -92,30 +82,28 @@ Z adresáře, kam jste nainstalovali framework Touch vydejte následující př�
 
 Tento postup vytvoří šablonu Touch s názvem aplikace „Basic“. Ke spuštění aplikace jednoduše přejděte v prohlížeči do adresáře /path/to/application, kde by se měla zobrazit standardní vzorová aplikace Touch.
 
-##Instalace rozšíření Sencha Touch pro Azure.
-
+## Instalace rozšíření Sencha Touch pro Azure.
 Rozšíření pro Azure lze nainstalovat ručně nebo jako balíček Sencha. Použitý způsob je zcela na vás.
 
-###Ruční instalace
-
+### Ruční instalace
 Ve většině aplikací Touch musíte v případě požadavku na přidání externí knihovny tříd jednoduše stáhnout balíček, rozbalit ho v adresáři vaší aplikace a nakonfigurovat zavaděč Touch podle umístění knihovny.
 
 Rozšíření Azure můžete do aplikace přidat ručně pomocí následujících kroků:
 
 1. Stáhněte balíček rozšíření Azure [odtud](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). (Pro přístup do této oblasti můžete využít ID na fóru Sencha.)
-
 2. Zkopírujte balíček rozšíření Azure z adresáře ke stažení do místa, kde se bude nakonec nacházet a rozbalte ho:
-
+   
         $ cd /path/to/application
         $ mv /download-location/azure.zip .
         $ unzip azure.zip
-
+   
     Tím se vytvoří adresář **azure** obsahující celý zdrojový balíček, příklady a dokumentaci. Zdroj se bude nacházet v adresáři **azure/src**.
 
-
-###Instalace jako balíček Sencha
-
-> [AZURE.NOTE] Tuto metodu můžete také použít v případě vygenerování aplikace pomocí příkazu <code>sencha generate app</code>.
+### Instalace jako balíček Sencha
+> [!NOTE]
+> Tuto metodu můžete také použít v případě vygenerování aplikace pomocí příkazu <code>sencha generate app</code>.
+> 
+> 
 
 Všechny aplikace generované Sencha Cmd mají složku „packages“ v kořenovém adresáři. Umístění této složky lze konfigurovat, ale bez ohledu na její umístění slouží role složky „packages“ jako úložiště pro všechny balíčky používané aplikací (nebo aplikacemi, pokud jste vytvořili pracovní prostor Sencha).
 
@@ -124,30 +112,28 @@ Jelikož je Ext.Azure „balíček“ Sencha Cmd, zdrojový kód lze snadno nain
 Chcete-li stáhnout a nainstalovat balíčky rozšíření Azure z úložiště balíčků Sencha, budete muset přidat název balíčku pro váš soubor **app.json** a sestavit aplikaci:
 
 1. Přidejte balíček Azure do požadované části souboru app.json:
-
+   
         {
             "name": "Basic",
             "requires": [
                 "touch-azure"
             ]
         }
-
 2. Znovu sestavte aplikaci pomocí **sencha cmd** pro načtení a instalaci balíčku:
-
+   
         $ sencha app build
 
 Jak **sestavení aplikace sencha**, tak i **obnovení aplikace sencha** teď provede kroky potřebné k integraci balíčku do vaší aplikace. Obvykle po změně požadavků balíčku budete muset spustit **obnovení aplikace sencha**, aby byla metadata potřebná k podpoře „režimu vývojáře“ aktuální.
 
 Podle toho, který příkaz spustíte, se Sencha Cmd stáhne a rozbalí balíček do vaší složky „packages“. Následně naleznete v pracovním prostoru složku „packages/touch-azure“.
 
-##Zahrnují a konfigurace služby Azure
-
+## Zahrnují a konfigurace služby Azure
 **Název souboru**: app.js
 
 Po stažení a instalaci rozšíření Azure do adresáře aplikace je dalším krokem oznámit aplikaci, kde nalezne zdrojové soubory a jak vyžadovat tyto soubory:
 
 1. Konfigurace zavaděče Sencha pomocí umístění zdrojového kódu:
-
+   
         Ext.Loader.setConfig({
             enabled : true,
             paths   : {
@@ -155,59 +141,52 @@ Po stažení a instalaci rozšíření Azure do adresáře aplikace je dalším 
                 'Ext.azure' : '/path-to/azure-for-touch/azure/src'
             }
         });
-
-
 2. Vyžadování soubory třídy Azure:
-
+   
         Ext.application({
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             // ...
-
+   
         });
-
-
 3. Konfigurace Azure
-
+   
     Balíček Azure se inicializuje pomocí volání metody **Ext.Azure.init** v oddílu spuštění vaší aplikace. Této metodě se předává objekt konfigurace obsahující pověření mobilní služby, stejně jako další pověření a funkce, které chcete využívat.
-
+   
     Zatímco můžete předat objekt konfigurace přímo do počáteční metody, doporučujeme vytvoření vlastnosti konfigurace aplikace Sencha nazývané **azure** a umístění příslušných informací. Tuto hodnotu vlastnosti můžete poté předat metodě Ext.Azure.init.
-
+   
     Když vytvoříte mobilní službu v Azure (viz [Začínáme s Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)), přiřadí se do dané služby klíč aplikace a adresa URL. Tyto informace musí být k dispozici balíčku Azure, aby se mohl připojit ke službě.
-
+   
     Tento příklad ukazuje velmi jednoduchou konfiguraci a inicializaci Azure zadáním pouze klíče aplikace a adresy URL:
-
+   
         Ext.application({
             name: 'Basic',
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             azure: {
                 appKey: 'myazureservice-access-key',
                 appUrl: 'myazure-service.azure-mobile.net'
             },
-
+   
             launch: function() {
-
+   
                 // Call Azure initialization
-
+   
                 Ext.Azure.init(this.config.azure);
-
+   
            }
         });
-
+   
     Další informace o možnostech konfigurace Azure najdete v dokumentaci k rozhraní Ext.Azure API.
-
 
 Blahopřejeme! Vaše aplikace by teď měla mít přístup k mobilní službě.
 
-##Vytvoření aplikace ToDo
-
+## Vytvoření aplikace ToDo
 Teď, když jsme aplikaci nakonfigurovali pro zahrnutí rozšíření Azure a uvedli své přihlašovací údaje mobilních služeb, se můžeme přesunout k vytvoření aplikace Touch, který využívá vaši mobilní službu pro prohlížení a úpravy dat seznamu ToDo uložených ve službě.
 
-###Konfigurace datové proxy Azure
-
+### Konfigurace datové proxy Azure
 **Název souboru:** app/model/TodoItem.js
 
 Vaše aplikace Touch bude komunikovat mobilní službou přes datovou proxy. Proxy vykonává všechnu práci týkající se odesílání žádostí a příjmu dat z mobilní služby a do ní. V kombinaci s datovým modelem Touch a úložištěm dojde k odstranění náročné práce zpracovávání vzdálených data a načítání do aplikace a je řešeno samotným modelem Touch.
@@ -253,8 +232,7 @@ Azure proxy automaticky nastaví všechny hlavičky protokolu HTTP s příslušn
     });
 
 
-###Uložení položek ToDo
-
+### Uložení položek ToDo
 **Název souboru**: app/store/TodoItems.js
 
 Úložiště Sencha Touch se používají k ukládání kolekcí datových záznamů (modelů), které lze použít jako zdroje pro součásti Touch pro zobrazení záznamů mnoha různými způsoby. To může zahrnovat mřížky, grafy, seznamy a další.
@@ -279,11 +257,10 @@ Máme také některé další možnosti konfigurace úložiště, například ur
     });
 
 
-###Zobrazení a úpravy položek ToDo
-
+### Zobrazení a úpravy položek ToDo
 **Název souboru**: app/view/DataItem.js
 
-Teď, když jsme definovali strukturu každé položky ToDo a vytvořili úložiště pro umístění všech záznamů, bychom se měli zamyslet nad tím, jak chceme zobrazit tyto informace pro uživatele aplikace. Za normálních okolností zobrazujeme uživatelům informace prostřednictvím **Zobrazení**. Zobrazení může představovat libovolný počet součásti Touch, samostatné nebo v kombinaci s dalšími.
+Teď, když jsme definovali strukturu každé položky ToDo a vytvořili úložiště pro umístění všech záznamů, bychom se měli zamyslet nad tím, jak chceme zobrazit tyto informace pro uživatele aplikace. Za normálních okolností zobrazujeme uživatelům informace prostřednictvím **Zobrazení**. Zobrazení může představovat libovolný počet součásti Touch, samostatné nebo v kombinaci s dalšími.
 
 Zobrazení níže se skládá z položky ListItem, která definuje, jak se každý záznam zobrazí společně s některými tlačítky, kterým budou přiřazeny akce pro odstranění jednotlivých položek.
 
@@ -357,8 +334,7 @@ Zobrazení níže se skládá z položky ListItem, která definuje, jak se každ
     });
 
 
-###Vytvoření primárního zobrazení
-
+### Vytvoření primárního zobrazení
 **Název souboru**: app/view/Main.js
 
 Teď, když jsme definovali rozložení jednotlivých položek seznamu ToDo (výše) chceme obtéct úplné uživatelské rozhraní kolem tohoto seznamu, který definuje skutečný seznam položek, název aplikace a tlačítko pro přidání nové úlohy.
@@ -424,8 +400,7 @@ Teď, když jsme definovali rozložení jednotlivých položek seznamu ToDo (vý
         }
     });
 
-###Zajištění spolupráce všech součástí
-
+### Zajištění spolupráce všech součástí
 **Název souboru**: app/controller/Main.js
 
 Posledním krokem v naší aplikaci jsou reakce na stisknutí tlačítek (odstranit, uložit atd.), které poskytují logiku za všemi těmito požadavky. Sencha Touch využívá řadiče, které naslouchají těmto událostem a reagují odpovídajícím způsobem.
@@ -581,12 +556,10 @@ Posledním krokem v naší aplikaci jsou reakce na stisknutí tlačítek (odstra
         }
     });
 
-###Spojení všech součástí dohromady
-
+### Spojení všech součástí dohromady
 **Název souboru**: app.js
 
 Posledním krokem je dokončení úprav souboru hlavní aplikace a zadání informací o modelech, úložištích, zobrazeních a řadičích, které jste definovali. Zdrojové soubory pro tyto prostředky se do aplikace načtou automaticky. Nakonec je volána metoda spuštění, která vytvoří a zobrazí primární zobrazení aplikace „Basic.main.View“.
-
 
     Ext.Loader.setConfig({
         enabled : true,
@@ -663,63 +636,52 @@ Posledním krokem je dokončení úprav souboru hlavní aplikace a zadání info
         }
     });
 
-###Hostování a spuštění aplikace Sencha Touch
-
+### Hostování a spuštění aplikace Sencha Touch
 Závěrečnou fází tohoto kurzu je hostování a spuštění nové aplikace v místním počítači.
 
-  1. V terminálu přejděte do umístění rozbalené aplikace.
+1. V terminálu přejděte do umístění rozbalené aplikace.
+2. Pomocí Sencha Cmd spusťte následující příkazy:
+   
+   * *obnovení aplikace sencha* : tato akce řekne Sencha Cmd, že má vyhledat všechny závislosti aplikace a stáhnout všechny potřebné balíčky (například [rozšíření Sencha Touch pro Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
+   * *spuštění webu sencha* : tato akce spustí místní webový server k otestování naší aplikace.
+   
+   ![spuštění webu sencha](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
+3. Otevřete adresu URL uvedenou v terminálu ve webovém prohlížeči a spusťte aplikaci (např. http://localhost:1841).
+4. V aplikaci zadejte smysluplný text, například „Dokončit kurz“ a klikněte na tlačítko **Přidat**.
+   
+   ![nová položka todo](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
+   
+   Tím se odešle požadavek POST do nové mobilní služby hostované v Azure. Data z požadavku se vloží do tabulky TodoItem.
+5. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku TodoItems.
+   
+   ![Tabulka položek todo](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+   
+   Tato možnost vám umožňuje procházet data vložená aplikací do tabulky.
+   
+   ![procházet tabulku todo](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
-  2. Pomocí Sencha Cmd spusťte následující příkazy:
-
-    * *obnovení aplikace sencha* : tato akce řekne Sencha Cmd, že má vyhledat všechny závislosti aplikace a stáhnout všechny potřebné balíčky (například [rozšíření Sencha Touch pro Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
-
-    * *spuštění webu sencha* : tato akce spustí místní webový server k otestování naší aplikace.
-
-    ![spuštění webu sencha](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
-
-  3. Otevřete adresu URL uvedenou v terminálu ve webovém prohlížeči a spusťte aplikaci (např. http://localhost:1841).
-
-  4. V aplikaci zadejte smysluplný text, například „Dokončit kurz“ a klikněte na tlačítko **Přidat**.
-
-    ![nová položka todo](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
-
-    Tím se odešle požadavek POST do nové mobilní služby hostované v Azure. Data z požadavku se vloží do tabulky TodoItem.
-
-  5. Zpět v [portál Azure Classic] klikněte na kartu **Data** a pak klikněte na tabulku TodoItems.
-
-    ![Tabulka položek todo](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
-
-    Tato možnost vám umožňuje procházet data vložená aplikací do tabulky.
-
-    ![procházet tabulku todo](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
-
-##Další kroky
-Teď, když jste dokončili průvodce Začínáme, se naučíte, jak provádět další důležité úkoly v Mobile Services pomocí Sencha.
+## Další kroky
+Teď, když jste dokončili průvodce Začínáme, se naučíte, jak provádět další důležité úkoly v Mobile Services pomocí Sencha.
 
 [Stáhněte](https://github.com/arthurakay/sencha-touch-azure-example) úplnou vzorovou aplikaci s dalšími styly a funkcemi a zjistěte, co Sencha Touch dokáže!
 
 Poté se ponořte do dalších informací o rozšíření Sencha Touch pro Azure:
 
-  * [Prohlídka](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) vzorové aplikace
-  * Získání nápovědy na [fórech Sencha](http://www.sencha.com/forum)
-  * Procházet [dokumentaci Sencha](http://docs.sencha.com/)
-  * Používání Sencha s Azure Mobile Services: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+* [Prohlídka](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) vzorové aplikace
+* Získání nápovědy na [fórech Sencha](http://www.sencha.com/forum)
+* Procházet [dokumentaci Sencha](http://docs.sencha.com/)
+* Používání Sencha s Azure Mobile Services: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
+## Další zdroje
+* [Stáhnout Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
+* [Rozšíření Sencha Touch pro Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
-##Další zdroje
-
-  * [Stáhnout Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Rozšíření Sencha Touch pro Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
-
-
-##Souhrn
-
+## Souhrn
 Zde uvedené příklady se nachází v rozšíření Sencha Touch pro balíček Azure a jsou umístěny ve vzorovém adresáři jako příklad Základní data. Existuje několik dalších dostupných příkladů, které vám mají ukázat další funkce toto rozšíření spolu s podrobnými poznámkami a vysvětlivkami.
 
 Další informace o začátcích se Sencha Touch naleznete v úplné sadě [průvodců](http://docs.sencha.com/touch/#!/guide)
 
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png

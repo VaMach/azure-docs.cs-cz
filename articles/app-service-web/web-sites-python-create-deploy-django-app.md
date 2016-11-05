@@ -1,46 +1,44 @@
-<properties
-    pageTitle="Vytvoření webové aplikace pomocí rozhraní Django v Azure"
-    description="Tento kurz vás seznámí s postupem spuštění webové aplikace v jazyce Python ve službě Azure App Service Web Apps."
-    services="app-service\web"
-    documentationCenter="python"
-    tags="python"
-    authors="huguesv" 
-    manager="wpickett" 
-    editor=""/>
+---
+title: Vytvoření webové aplikace pomocí rozhraní Django v Azure
+description: Tento kurz vás seznámí s postupem spuštění webové aplikace v jazyce Python ve službě Azure App Service Web Apps.
+services: app-service\web
+documentationcenter: python
+tags: python
+author: huguesv
+manager: wpickett
+editor: ''
 
-<tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article" 
-    ms.date="02/19/2016"
-    ms.author="huvalo"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: hero-article
+ms.date: 02/19/2016
+ms.author: huvalo
 
-
+---
 # Vytvoření webové aplikace pomocí rozhraní Django v Azure
-
 Tento kurz popisuje, jak začít a spustit jazyk Python ve službě [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Služba Web Apps poskytuje omezené bezplatné hostování a rychlé nasazení, a navíc můžete používat jazyk Python! Souběžně s růstem aplikace můžete přejít na placené hostování a můžete také integrovat se všemi ostatními službami Azure.
 
 Vytvoříte aplikaci pomocí webového rozhraní Django (pro rozhraní [Flask](web-sites-python-create-deploy-flask-app.md) a [Bottle](web-sites-python-create-deploy-bottle-app.md) jsou k dispozici alternativní verze tohoto kurzu). Vytvoříte webovou aplikaci z Azure Marketplace, nastavíte nasazení Git a místně naklonujete úložiště. Poté místně spustíte aplikaci, provedete změny, potvrdíte je a nuceně vložíte do Azure. V tomto kurzu se dozvíte, jak to provést ze systému Windows nebo Mac/Linux.
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
-
+> [!NOTE]
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
+> 
+> 
 
 ## Požadavky
-
-- Windows, Mac nebo Linux
-- Python 2.7 nebo 3.4
-- setuptools, pip, virtualenv (pouze Python 2.7)
-- Git
-- [Python Tools pro Visual Studio][] (PTVS) – Poznámka: Tato položka je nepovinná.
+* Windows, Mac nebo Linux
+* Python 2.7 nebo 3.4
+* setuptools, pip, virtualenv (pouze Python 2.7)
+* Git
+* [Python Tools pro Visual Studio][Python Tools pro Visual Studio] (PTVS) – Poznámka: Tato položka je nepovinná.
 
 **Poznámka**: Publikování TFS není u projektů v jazyce Python aktuálně podporováno.
 
 ### Windows
-
 Nemáte-li ještě nainstalován jazyk Python 2.7 nebo 3.4 (32bitová verze), doporučujeme pomocí instalačního programu webové platformy nainstalovat [Azure SDK pro Python 2.7] nebo sadu [Azure SDK pro Python 3.4]. Tím se nainstaluje 32bitová verze jazyka Python, setuptools, pip, virtualenv atd. (32bitová verze jazyka Python je nainstalována v hostitelských počítačích Azure). Alternativně můžete získat jazyk Python z webu [python.org].
 
 V případě Git doporučujeme [Git pro Windows] nebo [GitHub pro Windows]. Pokud používáte Visual Studio, můžete použít integrovanou podporu Git.
@@ -48,24 +46,19 @@ V případě Git doporučujeme [Git pro Windows] nebo [GitHub pro Windows]. Poku
 Doporučujeme také nainstalovat nástroje [Python Tools 2.2 pro Visual Studio]. Tato položka je volitelná, ale pokud máte sadu [Visual Studio], včetně bezplatné sady Visual Studio Community 2013 nebo Visual Studio Express 2013 pro Web, tato položka vám poskytne skvělé rozhraní IDE pro jazyk Python.
 
 ### Mac/Linux
-
 Již byste měli mít nainstalován jazyk Python a Git, ale ujistěte se, zda máte Python 2.7 nebo 3.4.
 
-
 ## Vytvoření webové aplikace v portálu
-
 Prvním krokem při vytváření aplikace je vytvoření webové aplikace pomocí [Azure Portal](https://portal.azure.com).
 
 1. Přihlaste se k portálu Azure a v levém dolním rohu klikněte na tlačítko **NOVÉ**.
-3. Do vyhledávacího pole zadejte „python“.
-4. Ve výsledcích hledání vyberte položku **Django** (publikováno PTVS) a klikněte na **Vytvořit**.
-5. Nakonfigurujte novou aplikaci Django, například pro ni vytvořte nový plán služby App Service a novou skupinu prostředků. Poté klikněte na možnost **Vytvořit**.
-6. Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Místní nasazení GIT ve službě Azure App Service](app-service-deploy-local-git.md).
+2. Do vyhledávacího pole zadejte „python“.
+3. Ve výsledcích hledání vyberte položku **Django** (publikováno PTVS) a klikněte na **Vytvořit**.
+4. Nakonfigurujte novou aplikaci Django, například pro ni vytvořte nový plán služby App Service a novou skupinu prostředků. Poté klikněte na možnost **Vytvořit**.
+5. Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Místní nasazení GIT ve službě Azure App Service](app-service-deploy-local-git.md).
 
 ## Přehled aplikace
-
 ### Obsah úložiště Git
-
 Zde je uveden přehled souborů, které naleznete v počátečním úložišti Git, jež budeme v následující části klonovat.
 
     \app\__init__.py
@@ -116,15 +109,12 @@ Externí balíčky vyžadované touto aplikací. Skript nasazení nainstaluje n�
 Konfigurační soubory služby IIS. Skript nasazení použije příslušný soubor web.x.y.config a zkopíruje jej jako soubor web.config.
 
 ### Volitelné soubory – přizpůsobení nasazení
-
-[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
+[!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### Volitelné soubory – modul Python runtime
-
-[AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
+[!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### Další soubory na serveru
-
 Na serveru existují některé soubory, které nejsou přidány do úložiště git. Tyto soubory jsou vytvořeny skriptem nasazení.
 
     \web.config
@@ -137,15 +127,12 @@ Virtuální prostředí Python. Toto prostředí je vytvořeno během nasazení,
 
 Následující 3 části popisují postup při vývoji webové aplikace ve 3 různých prostředích:
 
-- Windows s nástroji Python Tools pro Visual Studio
-- Windows s příkazovým řádkem
-- Mac/Linux s příkazovým řádkem
-
+* Windows s nástroji Python Tools pro Visual Studio
+* Windows s příkazovým řádkem
+* Mac/Linux s příkazovým řádkem
 
 ## Vývoj webových aplikací – Windows – nástroje Python Tools pro Visual Studio
-
 ### Klonování úložiště
-
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
 Otevřete soubor řešení (.sln), který je zahrnut v kořenovém adresáři úložiště.
@@ -153,21 +140,17 @@ Otevřete soubor řešení (.sln), který je zahrnut v kořenovém adresáři ú
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-solution-django.png)
 
 ### Vytvoření virtuálního prostředí
-
 Nyní vytvoříme virtuální prostředí pro místní vývoj. Klikněte pravým tlačítkem na položku **Prostředí Python** a vyberte možnost **Přidat virtuální prostředí...**.
 
-- Ujistěte se, zda název prostředí je `env`.
-
-- Vyberte základní překladač. Nezapomeňte použít stejnou verzi jazyka Python, jaká byla vybrána pro webovou aplikaci (v souboru runtime.txt nebo v okně **Nastavení aplikace** webové aplikace na portálu Azure).
-
-- Ujistěte se, zda je zaškrtnutá možnost stažení a instalace balíčků.
+* Ujistěte se, zda název prostředí je `env`.
+* Vyberte základní překladač. Nezapomeňte použít stejnou verzi jazyka Python, jaká byla vybrána pro webovou aplikaci (v souboru runtime.txt nebo v okně **Nastavení aplikace** webové aplikace na portálu Azure).
+* Ujistěte se, zda je zaškrtnutá možnost stažení a instalace balíčků.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
 
 Klikněte na možnost **Vytvořit**. Tím dojde k vytvoření virtuálního prostředí a instalaci závislostí uvedených v souboru requirements.txt.
 
 ### Vytvoření superuživatele
-
 V databázi, která je součástí aplikace, není definován žádný superuživatel. Chcete-li používat funkci přihlašování v aplikaci nebo rozhraní správce Django (pokud se jej rozhodnete povolit), bude nutné vytvořit superuživatele.
 
 Spusťte tento příkaz z příkazového řádku ze složky projektu:
@@ -177,7 +160,6 @@ Spusťte tento příkaz z příkazového řádku ze složky projektu:
 Postupujte podle výzev a nastavte uživatelské jméno, heslo atd.
 
 ### Spuštění pomocí vývojového serveru
-
 Stisknutím klávesy F5 spusťte ladění, čímž se automaticky otevře webový prohlížeč s místně spuštěnou stránkou.
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
@@ -185,7 +167,6 @@ Stisknutím klávesy F5 spusťte ladění, čímž se automaticky otevře webov�
 Můžete nastavit zarážky ve zdrojích, používat okna kukátka atd. Další informace o jednotlivých funkcích naleznete v části [Dokumentace nástrojů Python Tools pro Visual Studio].
 
 ### Provedení změn
-
 Nyní můžete experimentovat tím, že budete provádět změny zdrojů a/nebo šablon aplikace.
 
 Jakmile změny otestujete, potvrďte je do úložiště Git:
@@ -193,7 +174,6 @@ Jakmile změny otestujete, potvrďte je do úložiště Git:
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-commit-django.png)
 
 ### Instalace dalších balíčků
-
 Aplikace může mít kromě jazyka Python a rozhraní Django také další závislosti.
 
 Další balíčky můžete nainstalovat pomocí nástroje pip. Chcete-li nainstalovat balíček, klikněte pravým tlačítkem na virtuální prostředí a vyberte možnost **Instalovat balíček Python**.
@@ -207,7 +187,6 @@ Klikněte pravým tlačítkem na virtuální prostředí a výběrem možnosti *
 Poté potvrďte změny souboru requirements.txt do úložiště Git.
 
 ### Nasazení do Azure
-
 Chcete-li aktivovat nasazení, klikněte na možnost **Synchronizovat** nebo **Vložit změny (push)**. Synchronizace provádí vložení změn (push) i přijetí změn (pull).
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
@@ -218,11 +197,8 @@ Sada Visual Studio nezobrazuje průběh nasazení. Chcete-li překontrolovat vý
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-
 ## Vývoj webových aplikací – Windows – příkazový řádek
-
 ### Klonování úložiště
-
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
@@ -230,7 +206,6 @@ Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure
     git remote add azure <repo-url>
 
 ### Vytvoření virtuálního prostředí
-
 Vytvoříme nové virtuální prostředí pro účely vývoje (nepřidávejte jej do úložiště). Virtuální prostředí v jazyce Python nejsou přemístitelná, a proto si každý vývojář pracující na aplikaci vytvoří místně své vlastní virtuální prostředí.
 
 Nezapomeňte použít stejnou verzi jazyka Python, jaká byla vybrána pro webovou aplikaci (v souboru runtime.txt nebo v okně Nastavení aplikace webové aplikace na portálu Azure).
@@ -248,7 +223,6 @@ Nainstalujte veškeré případné externí balíčky požadované aplikací. M�
     env\scripts\pip install -r requirements.txt
 
 ### Vytvoření superuživatele
-
 V databázi, která je součástí aplikace, není definován žádný superuživatel. Chcete-li používat funkci přihlašování v aplikaci nebo rozhraní správce Django (pokud se jej rozhodnete povolit), bude nutné vytvořit superuživatele.
 
 Spusťte tento příkaz z příkazového řádku ze složky projektu:
@@ -258,7 +232,6 @@ Spusťte tento příkaz z příkazového řádku ze složky projektu:
 Postupujte podle výzev a nastavte uživatelské jméno, heslo atd.
 
 ### Spuštění pomocí vývojového serveru
-
 Následujícím příkazem můžete aplikaci spustit v rámci vývojového serveru:
 
     env\scripts\python manage.py runserver
@@ -272,7 +245,6 @@ Poté tuto adresu URL otevřete ve webovém prohlížeči.
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
 ### Provedení změn
-
 Nyní můžete experimentovat tím, že budete provádět změny zdrojů a/nebo šablon aplikace.
 
 Jakmile změny otestujete, potvrďte je do úložiště Git:
@@ -281,7 +253,6 @@ Jakmile změny otestujete, potvrďte je do úložiště Git:
     git commit -m "<commit-comment>"
 
 ### Instalace dalších balíčků
-
 Aplikace může mít kromě jazyka Python a rozhraní Django také další závislosti.
 
 Další balíčky můžete nainstalovat pomocí nástroje pip. Chcete-li nainstalovat sadu Azure SDK pro Python, která umožňuje přístup k úložišti Azure, sběrnici Service Bus a dalším službám Azure, zadejte:
@@ -298,7 +269,6 @@ Potvrďte změny:
     git commit -m "Added azure package"
 
 ### Nasazení do Azure
-
 Chcete-li aktivovat nasazení, nuceně vložte (push) změny do Azure:
 
     git push azure master
@@ -307,11 +277,8 @@ Zobrazí se výstup skriptu nasazení, včetně vytvoření virtuálního prost�
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-
 ## Vývoj webových aplikací – Mac/Linux – příkazový řádek
-
 ### Klonování úložiště
-
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
@@ -319,7 +286,6 @@ Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure
     git remote add azure <repo-url>
 
 ### Vytvoření virtuálního prostředí
-
 Vytvoříme nové virtuální prostředí pro účely vývoje (nepřidávejte jej do úložiště). Virtuální prostředí v jazyce Python nejsou přemístitelná, a proto si každý vývojář pracující na aplikaci vytvoří místně své vlastní virtuální prostředí.
 
 Nezapomeňte použít stejnou verzi jazyka Python, jaká byla vybrána pro webovou aplikaci (v souboru runtime.txt nebo v okně Nastavení aplikace webové aplikace na portálu Azure).
@@ -341,7 +307,6 @@ Nainstalujte veškeré případné externí balíčky požadované aplikací. M�
     env/bin/pip install -r requirements.txt
 
 ### Vytvoření superuživatele
-
 V databázi, která je součástí aplikace, není definován žádný superuživatel. Chcete-li používat funkci přihlašování v aplikaci nebo rozhraní správce Django (pokud se jej rozhodnete povolit), bude nutné vytvořit superuživatele.
 
 Spusťte tento příkaz z příkazového řádku ze složky projektu:
@@ -351,7 +316,6 @@ Spusťte tento příkaz z příkazového řádku ze složky projektu:
 Postupujte podle výzev a nastavte uživatelské jméno, heslo atd.
 
 ### Spuštění pomocí vývojového serveru
-
 Následujícím příkazem můžete aplikaci spustit v rámci vývojového serveru:
 
     env/bin/python manage.py runserver
@@ -365,7 +329,6 @@ Poté tuto adresu URL otevřete ve webovém prohlížeči.
 ![](./media/web-sites-python-create-deploy-django-app/mac-browser-django.png)
 
 ### Provedení změn
-
 Nyní můžete experimentovat tím, že budete provádět změny zdrojů a/nebo šablon aplikace.
 
 Jakmile změny otestujete, potvrďte je do úložiště Git:
@@ -374,7 +337,6 @@ Jakmile změny otestujete, potvrďte je do úložiště Git:
     git commit -m "<commit-comment>"
 
 ### Instalace dalších balíčků
-
 Aplikace může mít kromě jazyka Python a rozhraní Django také další závislosti.
 
 Další balíčky můžete nainstalovat pomocí nástroje pip. Chcete-li nainstalovat sadu Azure SDK pro Python, která umožňuje přístup k úložišti Azure, sběrnici Service Bus a dalším službám Azure, zadejte:
@@ -391,7 +353,6 @@ Potvrďte změny:
     git commit -m "Added azure package"
 
 ### Nasazení do Azure
-
 Chcete-li aktivovat nasazení, nuceně vložte (push) změny do Azure:
 
     git push azure master
@@ -400,19 +361,13 @@ Zobrazí se výstup skriptu nasazení, včetně vytvoření virtuálního prost�
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-
 ## Řešení potíží – instalace balíčku
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
-
+[!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 ## Řešení potíží – virtuální prostředí
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
-
+[!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## Řešení potíží – statické soubory
-
 Rozhraní Django obsahuje koncepci shromažďování statických souborů. Tato akce kopíruje veškeré statické soubory z původního umístění do jediné složky. V případě této aplikace jsou kopírovány do složky `/static`.
 
 Tato akce se provádí proto, že statické soubory mohou pocházet z různých „aplikací“ Django. Statické soubory z rozhraní správce Django jsou například umístěny v podsložce knihovny Django ve virtuálním prostředí. Statické soubory definované touto aplikací jsou umístěny ve složce `/app/static`. Při používání vícero „aplikací“ Django se statické soubory nacházejí na více místech.
@@ -433,9 +388,7 @@ Potom bude nutné provést shromažďování ručně v místním počítači:
 
 Potom odeberte složku `\static` z `.gitignore` a přidejte ji do úložiště Git.
 
-
 ## Řešení potíží – nastavení
-
 Různá nastavení aplikace lze změnit v souboru `DjangoWebProject/settings.py`.
 
 Z důvodu usnadnění práce vývojářů je povolen režim ladění. Díky tomu je například možné při místním spuštění zobrazit obrázky a další statický obsah, aniž by bylo nutné shromažďovat statické soubory.
@@ -460,43 +413,35 @@ Je pravděpodobné, že v praxi budete chtít získávání názvu hostitele a p
 
 Můžete nastavit proměnné prostředí prostřednictvím stránky **KONFIGURACE** portálu Azure, a to v části **nastavení aplikace**.  To může být užitečné pro nastavení hodnot, které nechcete zobrazit ve zdrojích (připojovací řetězce, hesla atd.) nebo které chcete v Azure a v místním počítači nastavit odlišně. V souboru `settings.py` můžete dotazem zjišťovat proměnné prostředí pomocí `os.getenv`.
 
-
 ## Používání databáze
-
 Databáze, která je součástí aplikace, je databáze SQLite. Jedná se o praktickou a užitečnou výchozí databázi pro použití při vývoji, protože nevyžaduje téměř žádné nastavení. Databáze je uložena v souboru db.sqlite3 ve složce projektu.
 
 Azure poskytuje databázové služby, které lze snadno použít z aplikace Django. Kurzy zaměřené na používání databáze [SQL Database] a [MySQL] z aplikace Django vysvětlují postup vytvoření databázové služby, změny nastavení databáze v souboru `DjangoWebProject/settings.py` a popisují knihovny, které je nutné nainstalovat.
 
 Samozřejmě, pokud raději spravujete své vlastní databázové servery, můžete k tomu použít virtuální počítače se systémem Windows nebo Linux spuštěné v Azure.
 
-
 ## Rozhraní správce Django
-
 Jakmile začnete vytvářet modely, budete chtít databázi naplnit určitými daty. Jedním ze snadných způsobů, jak interaktivně přidávat a upravovat obsah, je použít rozhraní pro správu Django.
 
 Kód rozhraní pro správu je uveden jako komentář ve zdrojích aplikace, ale je přehledně označen tak, abyste jej mohli snadno povolit (vyhledejte „admin“).
 
 Po jeho povolení synchronizujte databázi, spusťte aplikaci a přejděte do `/admin`.
 
-
 ## Další kroky
-
 Potřebujete-li další informace o rozhraní Django a nástrojích Python Tools pro Visual Studio, použijte tyto odkazy:
 
-- [Dokumentace rozhraní Django]
-- [Dokumentace nástrojů Python Tools pro Visual Studio]
+* [Dokumentace rozhraní Django]
+* [Dokumentace nástrojů Python Tools pro Visual Studio]
 
 Informace týkající se použití databáze SQL Database a MySQL naleznete v tématech:
 
-- [Django a MySQL v Azure s nástroji Python Tools pro Visual Studio]
-- [Django a databáze SQL Database v Azure s nástroji Python Tools pro Visual Studio]
+* [Django a MySQL v Azure s nástroji Python Tools pro Visual Studio]
+* [Django a databáze SQL Database v Azure s nástroji Python Tools pro Visual Studio]
 
 Další informace naleznete ve [Středisku pro vývojáře Python](/develop/python/).
 
-
 ## Co se změnilo
 * Průvodce změnou z webů na službu App Service naleznete v tématu: [Služba Azure App Service a její vliv na stávající služby Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
-
 
 <!--Link references-->
 [Django a MySQL v Azure s nástroji Python Tools pro Visual Studio]: web-sites-python-ptvs-django-mysql.md

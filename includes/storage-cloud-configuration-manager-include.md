@@ -12,7 +12,6 @@ Tady je příklad, který ukazuje, jak z konfiguračního souboru získat připo
 
 Použití nástroje Azure Configuration Manager není povinné. Taky můžete použít API jako třeba [třídu ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) platformy .NET Framework.
 
-
 <!--HONumber=Sep16_HO3-->
 
 

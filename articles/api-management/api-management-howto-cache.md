@@ -1,38 +1,41 @@
-<properties
-    pageTitle="Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management | Microsoft Azure"
-    description="Naučte se zlepšit latenci, spotřebu šířky pásma a načítání webových služeb při volání služby API Management."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management | Microsoft Docs
+description: Naučte se zlepšit latenci, spotřebu šířky pásma a načítání webových služeb při volání služby API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management
-
 Operace ve službě API Management můžete nakonfigurovat tak, aby odpovědi ukládaly do mezipaměti. Ukládání odpovědí do mezipaměti může v případě dat, která se často nemění, výrazně zlepšit latenci rozhraní API, využití šířky pásma a načítání webových služeb.
 
 Tento průvodce vám ukáže, jak přidat ukládání odpovědí do mezipaměti pro rozhraní API a jak nakonfigurovat zásady pro operace ukázkového rozhraní Echo API. Potom můžete operaci volat z portálu pro vývojáře a ověřit ukládání do mezipaměti v akci.
 
->[AZURE.NOTE] Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
+> [!NOTE]
+> Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
+> 
+> 
 
 ## Požadavky
-
-Než začnete provádět kroky podle této příručky, musíte mít instanci služby API Management s nakonfigurovaným rozhraním API a produktem. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][] v kurzu [Začínáme s Azure API Management][].
+Než začnete provádět kroky podle této příručky, musíte mít instanci služby API Management s nakonfigurovaným rozhraním API a produktem. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Vytvoření instance API Management] v kurzu [Začínáme s Azure API Management][Začínáme s Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurace operace pro ukládání do mezipaměti
-
 V tomto kroku zkontrolujete nastavení ukládání do mezipaměti operace **GET Resource (cached)** v ukázkovém rozhraní Echo API.
 
->[AZURE.NOTE] Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním Echo API, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Začínáme s Azure API Management][]
+> [!NOTE]
+> Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním Echo API, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Začínáme s Azure API Management][Začínáme s Azure API Management]
+> 
+> 
 
 Pokud chcete začít, klikněte na portálu Azure Classic služby API Management na **Spravovat**. Tím přejdete na portál vydavatele služby API Management.
 
@@ -54,12 +57,11 @@ Pokud chcete povolit ukládání operace do mezipaměti, zaškrtněte políčko 
 
 Každá odpověď operace se ukládá do klíčů na základě hodnot v polích **Podle parametrů řetězce dotazu** a **Podle hlaviček**. Pokud chcete do mezipaměti ukládat více odpovědí na základě parametrů řetězce dotazu nebo na základě hlaviček, můžete to konfigurovat v těchto dvou polích.
 
-**Doba trvání** určuje dobu vypršení uložení odpovědí v mezipaměti. V tomto příkladu je interval **3600** sekund, což odpovídá jedné hodině.
+**Doba trvání** určuje dobu vypršení uložení odpovědí v mezipaměti. V tomto příkladu je interval **3600** sekund, což odpovídá jedné hodině.
 
 Když v tomto příkladu použijeme konfiguraci ukládání do mezipaměti, první požadavek na operaci **GET Resource (cached)** vrátí odpověď z back-endové služby. Tato odpověď se uloží do mezipaměti, kam bude zadaná podle určených hlaviček a parametrů řetězce dotazu. Následující volání operace (s odpovídající parametry) bude vracet odpověď uloženou v mezipaměti až do okamžiku vypršení doby uložení v mezipaměti.
 
 ## <a name="caching-policies"> </a>Kontrola zásad ukládání do mezipaměti
-
 V tomto kroku zkontrolujete nastavení ukládání do mezipaměti operace **GET Resource (cached)** v ukázkovém rozhraní Echo API.
 
 Pokud jsou na kartě **Ukládání do mezipaměti** nakonfigurovaná nastavení pro ukládání operace do mezipaměti, budou k operaci přidány zásady ukládání do mezipaměti. Tyto zásady můžete zobrazit a upravit v editoru zásad.
@@ -89,10 +91,12 @@ Definice zásad této operace obsahuje zásady, které definují konfiguraci ukl
         </outbound>
     </policies>
 
->[AZURE.NOTE] Změny zásad ukládání do mezipaměti provedené v editoru zásad se projeví na kartě **Ukládání do mezipaměti** příslušné operace a naopak.
+> [!NOTE]
+> Změny zásad ukládání do mezipaměti provedené v editoru zásad se projeví na kartě **Ukládání do mezipaměti** příslušné operace a naopak.
+> 
+> 
 
 ## <a name="test-operation"> </a>Volání operace a testování ukládání do mezipaměti
-
 Abyste viděli ukládání do mezipaměti v akci, můžete operaci volat z portálu pro vývojáře. Klikněte na **Portál pro vývojáře** v pravé horní nabídce.
 
 ![portálu pro vývojáře][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Klikněte na **Rozhraní API** v horní nabídce a potom vyberte **Echo API**.
 
 ![Echo API][api-management-apis-echo-api]
 
->Pokud máte nakonfigurované jenom jedno rozhraní API nebo váš účet vidí jenom jedno, můžete kliknutím na rozhraní API přejít přímo na operace tohoto rozhraní.
+> Pokud máte nakonfigurované jenom jedno rozhraní API nebo váš účet vidí jenom jedno, můžete kliknutím na rozhraní API přejít přímo na operace tohoto rozhraní.
+> 
+> 
 
 Vyberte operaci **GET Resource (cached)** a potom klikněte na **Otevřít konzolu**.
 
@@ -128,9 +134,8 @@ Do pole **param2** zadejte hodnotu **25** a potom klikněte na **HTTP Get**.
 Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Protože výsledky operace se ukládají do klíčů pomocí řetězce dotazu, předchozí odpověď uložená v mezipaměti se ne vrátila.
 
 ## <a name="next-steps"> </a>Další kroky
-
--   Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][] v článku [Zásady API Managementu][].
--   Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
+* Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][Zásady ukládání do mezipaměti] v článku [Zásady API Managementu][Zásady API Managementu].
+* Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

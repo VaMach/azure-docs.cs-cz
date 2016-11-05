@@ -1,41 +1,39 @@
-<properties
-    pageTitle="Vytvoření služby Azure BizTalk Services na webu Azure Portal | Microsoft Azure"
-    description="Naučte se na webu Azure Portal zřizovat nebo vytvářet službu Azure BizTalk Services; MABS, WABS."
-    services="biztalk-services"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""/>
+---
+title: Vytvoření služby Azure BizTalk Services na webu Azure Portal | Microsoft Docs
+description: Naučte se na webu Azure Portal zřizovat nebo vytvářet službu Azure BizTalk Services; MABS, WABS.
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="biztalk-services"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Vytvoření služby BizTalk Services pomocí webu Azure Portal
-
 Vytvořte službu BizTalk Services na webu Azure Portal.
 
-> [AZURE.TIP] Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [!TIP]
+> Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> 
+> 
 
 ## Vytvoření služby BizTalk
 V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nastavení služby BizTalk.
 
 1. Přihlaste se na web [Azure Portal ](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Ve spodním navigačním podokně vyberte **NOVÁ**:  
-![Výběr tlačítka Nová][NEWButton]
-
+   ![Výběr tlačítka Nová][NEWButton]
 3. Vyberte možnosti **APP SERVICES** > **BIZTALK SERVICE** (Služba BizTalk) > **CUSTOM CREATE** (Vytvořit vlastní):  
-![Výběr služby BizTalk a možnosti Custom Create (Vytvořit vlastní)][NewBizTalkService]
-
+   ![Výběr služby BizTalk a možnosti Custom Create (Vytvořit vlastní)][NewBizTalkService]
 4. Zadejte nastavení služby BizTalk:
-
+   
     <table border="1">
     <tr>
     <td><strong>BizTalk service name (Název služby BizTalk)</strong></td>
@@ -64,10 +62,9 @@ V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nast
     </td>
     </tr>
     </table>
-Vyberte šipku DALŠÍ.
-
+   Vyberte šipku DALŠÍ.
 5. Zadejte nastavení úložiště a databáze:
-
+   
     <table border="1">
     <tr>
     <td><strong>Monitoring/Archiving storage account (Účet úložiště pro monitorování/archivaci)</strong></td>
@@ -78,10 +75,9 @@ Vyberte šipku DALŠÍ.
     <td>Pokud použijete existující službu Azure SQL Database, nesmí ji používat žádná jiná služba BizTalk. Potřebujete přihlašovací jméno a heslo zadané při vytváření serveru služby Azure SQL Database.<br/><br/><strong>TIP</strong> Databázi sledování a účet úložiště pro monitorování/archivaci vytvořte ve stejné oblasti jako službu BizTalk.</td>
     </tr>
     </table>
-Vyberte šipku DALŠÍ.
-
+   Vyberte šipku DALŠÍ.
 6. Zadejte nastavení databáze:
-
+   
     <table border="1">
     <tr>
     <td><strong>Name (Název)</strong></td>
@@ -116,12 +112,10 @@ Po dokončení průvodce je služba Azure BizTalk vytvořená a připravená na 
 
 V závislosti na stavu služby BizTalk se může stát, že se některé operace nebudou dát provést. Seznam těchto operací najdete v článku [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md).
 
-
 ## Kroky pro zřízení
-
--  [Instalace certifikátu na místním počítači](#InstallCert)
--  [Přidání certifikátu pro produkční prostředí](#AddCert)
--  [Získání oboru názvů řízení přístupu](#ACS)
+* [Instalace certifikátu na místním počítači](#InstallCert)
+* [Přidání certifikátu pro produkční prostředí](#AddCert)
+* [Získání oboru názvů řízení přístupu](#ACS)
 
 #### <a name="InstallCert"></a>Instalace certifikátu na místním počítači
 V rámci zřizování služby BizTalk se vytvoří certifikát podepsaný svým držitelem a přidruží se k vašemu předplatnému služby BizTalk. Tento certifikát si musíte stáhnout a nainstalovat ho na počítačích, ze kterých buď nasazujete aplikace služby BizTalk, nebo odesíláte zprávy do koncového bodu služby BizTalk.
@@ -130,7 +124,7 @@ V rámci zřizování služby BizTalk se vytvoří certifikát podepsaný svým 
 2. V levém navigačním podokně vyberte **BIZTALK SERVICES** a potom vyberte své předplatné služby BizTalk.
 3. Vyberte kartu **Dashboard** (Řídicí panel).
 4. Vyberte **Download SSL Certificate** (Stáhnout certifikát SSL):  
-![Úprava certifikátu SSL][QuickGlance]
+   ![Úprava certifikátu SSL][QuickGlance]
 5. Dvakrát klikněte na certifikát a pomocí průvodce ho nainstalujte. Ujistěte se, že certifikát instalujete do úložiště **Trusted Root Certificate Authorities** (Důvěryhodné kořenové certifikační autority).
 
 #### <a name="AddCert"></a>Přidání certifikátu pro produkční prostředí
@@ -140,12 +134,10 @@ Certifikát podepsaný svým držitelem, který se automaticky vytvoří při vy
 2. Přejděte na svůj soukromý certifikát SSL (*název_certifikátu*.pfx), který obsahuje název vaší služby BizTalk, zadejte heslo a potom klikněte na symbol zaškrtnutí.
 
 #### <a name="ACS"></a>Získání oboru názvů řízení přístupu
-
 1. Přihlaste se na web [Azure Portal ](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. V levém navigačním podokně vyberte **BIZTALK SERVICES** a potom vyberte svoji službu BizTalk.
 3. Na hlavním panelu vyberte **Informace o připojení**:  
-![Výběr možnosti Informace o připojení][ACSConnectInfo]
-
+   ![Výběr možnosti Informace o připojení][ACSConnectInfo]
 4. Zkopírujte hodnoty řízení přístupu.
 
 Tento obor názvů řízení přístupu zadáváte při nasazení projektu služby BizTalk v sadě Visual Studio. Obor názvů řízení přístupu se pro vaši službu BizTalk vytvoří automaticky.
@@ -157,13 +149,16 @@ Kliknutím na **Manage** (Správa) otevřete portál pro správu řízení pří
 
 Identita služby Access Control Service je sada přihlašovacích údajů, která umožňuje aplikacím nebo klientům přímé ověření u řízení přístupu a získání tokenu.
 
-> [AZURE.IMPORTANT] Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Zadané přihlašovací údaje neumožňují připojení k účtu služby pro správu řízení přístupu.*
+> [!IMPORTANT]
+> Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Zadané přihlašovací údaje neumožňují připojení k účtu služby pro správu řízení přístupu.*
+> 
+> 
 
 V článku [Správa oboru názvů služby ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) najdete některé pokyny a doporučení.
 
 ## Vysvětlení požadavků
-
 Tyto požadavky se netýkají edice Free.
+
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Co potřebujete</strong></td>
@@ -246,7 +241,6 @@ Po vytvoření služby BizTalk můžete přidat nový nebo jiný certifikát.
 
 
 ## Hybridní připojení
-
 Při vytváření služby BizTalk Azure je dostupná karta **Hybridní připojení**:
 
 ![Karta Hybridní připojení][HybridConnectionTab]
@@ -255,19 +249,17 @@ Hybridní připojení slouží k připojení webu Azure nebo mobilní služby Az
 
  Další informace, třeba o vytváření a správě hybridních připojení, najdete v článku [Hybridní připojení](integration-hybrid-connection-overview.md).
 
-
 ## Další kroky
-
 Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými kartami: [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md). Služba BizTalk je připravená pro vaše aplikace. Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Viz také
-- [BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
-- [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md)<br/>
-- [BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md)<br/>
-- [BizTalk Services: Omezování](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk Services: Název a klíč vystavitele](biztalk-issuer-name-issuer-key.md)<br/>
-- [Jak začít používat sadu SDK Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [Hybridní připojení](integration-hybrid-connection-overview.md)
+* [BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Omezování](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Název a klíč vystavitele](biztalk-issuer-name-issuer-key.md)<br/>
+* [Jak začít používat sadu SDK Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Hybridní připojení](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

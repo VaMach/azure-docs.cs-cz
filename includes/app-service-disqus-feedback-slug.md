@@ -1,6 +1,9 @@
 
->[AZURE.TIP] **Hledáte něco jiného?**  
->Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
+> [!TIP]
+> **Hledáte něco jiného?**  
+> Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

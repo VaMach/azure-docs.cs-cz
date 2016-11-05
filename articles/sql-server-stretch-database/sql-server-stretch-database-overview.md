@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Přehled funkce Stretch Database | Microsoft Azure"
-    description="Zjistěte, jak funkce Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+---
+title: Přehled funkce Stretch Database | Microsoft Docs
+description: Zjistěte, jak funkce Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
-
+---
 # Přehled funkce Stretch Database
-
 Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure.
 
 Pokud chcete ihned začít používat funkci Stretch Database, najdete informace v tématu [Začínáme spuštěním průvodce povolením funkce Stretch pro databázi](sql-server-stretch-database-wizard.md).
@@ -41,9 +39,8 @@ Můžete zůstat v klidu i při zabezpečeném roztahování svých nejdůležit
 ## Co funkce Stretch Database dělá?
 Když povolíte funkci Stretch Database pro instanci SQL Serveru, databázi a alespoň jednu tabulku, Stretch Database začne tiše migrovat vaše studená data do Azure.
 
--   Pokud ukládáte studená data do samostatné tabulky, můžete migrovat celou tabulku.
-
--   Pokud tabulka obsahuje horká i studená data, můžete určit predikát filtru pro výběr řádků, které chcete migrovat.
+* Pokud ukládáte studená data do samostatné tabulky, můžete migrovat celou tabulku.
+* Pokud tabulka obsahuje horká i studená data, můžete určit predikát filtru pro výběr řádků, které chcete migrovat.
 
 **Není třeba měnit existující dotazy a klientské aplikace.** I nadále budete mít k dispozici bezproblémový přístup k místním i vzdáleným datům, a to i během migrace dat. V případě vzdálených dotazů se může vyskytnout drobná latence, týká se však pouze dotazů na studená data.
 
@@ -56,12 +53,12 @@ Když povolíte funkci Stretch Database pro instanci SQL Serveru, databázi a al
 ## Je pro vás funkce Stretch Database vhodná?
 Pokud se vás týkají následující výroky, funkce Stretch Database vám může usnadnit plnění požadavků a řešení problémů.
 
-|Pokud jste pracovník s rozhodovací pravomocí|Pokud jste správce databáze|
-|------------------------------|-------------------|
-|Potřebuji uchovávat transakční data po dlouhou dobu.|Začínám ztrácet kontrolu nad velikostí svých tabulek.|
-|Někdy potřebuji zadávat dotazy na studená data.|Moji uživatelé prohlašují, že chtějí přístup ke studeným datům, ale využívají ho jen zřídka.|
-|Používám aplikace, včetně starších aplikací, které nechci aktualizovat.|Potřebuji nakupovat a přidávat další úložiště.|
-|Chci najít způsob, jak ušetřit peníze za úložiště.|V rámci smlouvy SLA nemůžu zálohovat nebo obnovovat tak velké tabulky.|
+| Pokud jste pracovník s rozhodovací pravomocí | Pokud jste správce databáze |
+| --- | --- |
+| Potřebuji uchovávat transakční data po dlouhou dobu. |Začínám ztrácet kontrolu nad velikostí svých tabulek. |
+| Někdy potřebuji zadávat dotazy na studená data. |Moji uživatelé prohlašují, že chtějí přístup ke studeným datům, ale využívají ho jen zřídka. |
+| Používám aplikace, včetně starších aplikací, které nechci aktualizovat. |Potřebuji nakupovat a přidávat další úložiště. |
+| Chci najít způsob, jak ušetřit peníze za úložiště. |V rámci smlouvy SLA nemůžu zálohovat nebo obnovovat tak velké tabulky. |
 
 ## Jaký druh databází a tabulek je kandidátem pro funkci Stretch Database?
 Funkce Stretch Database je určena pro transakční databáze s velkým množstvím studených dat, která jsou obvykle uložena v malém počtu tabulek. Tyto tabulky mohou obsahovat více než miliardu řádků.

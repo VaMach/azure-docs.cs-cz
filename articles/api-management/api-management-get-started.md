@@ -1,29 +1,26 @@
-<properties
-    pageTitle="Správa vašeho prvního rozhraní API ve službě Azure API Management | Microsoft Azure"
-    description="Naučte se vytvářet rozhraní API, přidávat operace a začněte používat API Management."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Správa vašeho prvního rozhraní API ve službě Azure API Management | Microsoft Docs
+description: Naučte se vytvářet rozhraní API, přidávat operace a začněte používat API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Správa vašeho prvního rozhraní API ve službě Azure API Management
-
 ## <a name="overview"> </a>Přehled
-
 Tento průvodce vám pomůže rychle začít s používáním služby Azure API Management a provést první volání rozhraní API.
 
 ## <a name="concepts"> </a>Co je Azure API Management?
-
 S pomocí služby Azure API Management můžete vzít jakýkoli back-end a na jeho základě spustit plnohodnotný program s rozhraním API.
 
 Mezi obvyklé scénáře patří:
@@ -32,36 +29,37 @@ Mezi obvyklé scénáře patří:
 * **Povolování ekosystémů partnera ISV** prostřednictvím nabídky rychlého připojení partnera skrze portál pro vývojáře a vytvořením průčelí rozhraní API za účelem oddělení od interních implementací, které ještě nejsou zralé k tomu, aby je partner využíval.
 * **Spuštění interního programu s rozhraním API** prostřednictvím nabídky centralizovaného umístění, kde může organizace komunikovat o dostupnosti a nejnovějších změnách rozhraní API, přístup prostřednictvím brány na základě zabezpečeného kanálu mezi bránou rozhraní API a back-endem.
 
-
 Systém se skládá z následujících součástí:
 
 * **Brána rozhraní API** je koncovým bodem, který plní následující úkoly:
+  
   * Přijímá volání rozhraní API a směruje je na váš back-end.
   * Ověřuje klíče rozhraní API, tokeny JWT, certifikáty a další přihlašovací údaje.
   * Vynucuje kvóty využití a omezení četnosti.
   * Transformuje rozhraní API za chodu beze změny kódu.
   * Ukládá odezvy back-endu do určené mezipaměti.
   * Protokoluje metadata volání pro účely analýzy.
-
 * **Portál vydavatele** je rozhraní pro správu, ve kterém můžete svůj program s rozhraním API nastavit. Použijte ho k následujícím akcím:
-    * definování nebo import schématu rozhraní API
-    * balení rozhraní API do produktů
-    * nastavení zásad, například kvót nebo transformací rozhraní API
-    * získání přehledů z analýz
-    * správa uživatelů
-
+  
+  * definování nebo import schématu rozhraní API
+  * balení rozhraní API do produktů
+  * nastavení zásad, například kvót nebo transformací rozhraní API
+  * získání přehledů z analýz
+  * správa uživatelů
 * **Portál pro vývojáře** funguje jako hlavní webová služba pro vývojáře, kde můžete provádět následující akce:
-    * Číst dokumentaci k rozhraní API.
-    * Vyzkoušet rozhraní API prostřednictvím interaktivní konzoly.
-    * Vytvořit účet a přihlásit se k odběru za účelem získání klíčů rozhraní API.
-    * Přistupovat k analýzám jejich využití.
-
+  
+  * Číst dokumentaci k rozhraní API.
+  * Vyzkoušet rozhraní API prostřednictvím interaktivní konzoly.
+  * Vytvořit účet a přihlásit se k odběru za účelem získání klíčů rozhraní API.
+  * Přistupovat k analýzám jejich využití.
 
 ## <a name="create-service-instance"> </a>Vytvoření instance služby API Management
+> [!NOTE]
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][Bezplatná zkušební verze Azure].
+> 
+> 
 
->[AZURE.NOTE] K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][].
-
-Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se k webu [Portál Azure Classic][] a klikněte na **Nový**, **App Services**, **API Management** a **Vytvořit**.
+Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se k webu [Portál Azure Classic][Portál Azure Classic] a klikněte na **Nový**, **App Services**, **API Management** a **Vytvořit**.
 
 ![Nová instance služby API Management][api-management-create-instance-menu]
 
@@ -73,13 +71,19 @@ Vyberte požadované **Předplatné** a **Oblast** pro instanci služby. Po prov
 
 Zadejte text **Contoso Ltd.** jako **Název organizace** a potom zadejte svou e-mailovou adresu do pole **E-mail správce**.
 
->[AZURE.NOTE] Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v článku [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management][].
+> [!NOTE]
+> Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v článku [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management][Konfigurace oznámení a e-mailových šablon ve službě Azure API Management].
+> 
+> 
 
 ![Nová služba API Management][api-management-create-instance-step2]
 
 Instance služby API Management jsou dostupné ve třech úrovních: Developer (vývojář), Standard a Premium. Ve výchozím nastavení se nové instance služby API Management vytvářejí na úrovni Developer. Pokud chcete vybrat úroveň Standard nebo Premium, zaškrtněte políčko **Upřesnit nastavení** a na následující obrazovce vyberte požadovanou úroveň.
 
->[AZURE.NOTE] Úroveň Developer (vývojář) slouží k vývoji, testování a pilotnímu nasazení programů s rozhraním API v situacích, kde příliš nezáleží na dostupnosti. Na úrovních Standard a Premium můžete škálovat počet svých rezervovaných jednotek, abyste zvládli větší provoz. Úrovně Standard a Premium poskytují službě API Management maximum výpočetního a celkového výkonu. Tento kurz můžete dokončit pomocí libovolné úrovně. Další informace o úrovních služby API Management najdete v článku [Ceny služby API Management][].
+> [!NOTE]
+> Úroveň Developer (vývojář) slouží k vývoji, testování a pilotnímu nasazení programů s rozhraním API v situacích, kde příliš nezáleží na dostupnosti. Na úrovních Standard a Premium můžete škálovat počet svých rezervovaných jednotek, abyste zvládli větší provoz. Úrovně Standard a Premium poskytují službě API Management maximum výpočetního a celkového výkonu. Tento kurz můžete dokončit pomocí libovolné úrovně. Další informace o úrovních služby API Management najdete v článku [Ceny služby API Management][Ceny služby API Management].
+> 
+> 
 
 Kliknutím na zaškrtávací políčko vytvoříte instanci služby.
 
@@ -88,12 +92,14 @@ Kliknutím na zaškrtávací políčko vytvoříte instanci služby.
 Po vytvoření instance služby je dalším krokem vytvoření nebo import rozhraní API.
 
 ## <a name="create-api"> </a>Import rozhraní API
-
 Rozhraní API se skládá ze sady operací, které můžete vyvolat z klientské aplikace. Operace rozhraní API se odesílají přes proxy servery do existujících webových služeb.
 
 Rozhraní API můžete vytvořit (a operace přidat) ručně, nebo je můžete importovat. V tomto kurzu naimportujeme rozhraní API pro ukázkovou webovou službu kalkulačky, kterou poskytuje Microsoft a hostuje ji na Azure.
 
->[AZURE.NOTE] Pokyny k vytváření rozhraní API a ručnímu přidávání operací najdete v článcích [Vytvoření rozhraní API](api-management-howto-create-apis.md) a [Přidání operací do rozhraní API](api-management-howto-add-operations.md).
+> [!NOTE]
+> Pokyny k vytváření rozhraní API a ručnímu přidávání operací najdete v článcích [Vytvoření rozhraní API](api-management-howto-create-apis.md) a [Přidání operací do rozhraní API](api-management-howto-add-operations.md).
+> 
+> 
 
 Rozhraní API se konfigurují na portálu vydavatele, který je přístupný prostřednictvím portálu Azure Classic. Pokud se chcete dostat na portál vydavatele, klikněte na portálu Azure Classic služby API Management na **Spravovat**.
 
@@ -112,7 +118,10 @@ Pokud chcete konfigurovat rozhraní API kalkulačky, proveďte následující kr
 
 ![Přidání nového rozhraní API][api-management-import-new-api]
 
->[AZURE.NOTE] **API Management** aktuálně podporuje import dokumentu Swagger ve verzi 1.2 a 2.0. I když [specifikace Swagger 2.0](http://swagger.io/specification) uvádí, že vlastnosti `host`, `basePath` a `schemes` jsou volitelné, váš dokument Swagger 2.0 **MUSÍ** tyto vlastnosti obsahovat, jinak nepůjde importovat. 
+> [!NOTE]
+> **API Management** aktuálně podporuje import dokumentu Swagger ve verzi 1.2 a 2.0. I když [specifikace Swagger 2.0](http://swagger.io/specification) uvádí, že vlastnosti `host`, `basePath` a `schemes` jsou volitelné, váš dokument Swagger 2.0 **MUSÍ** tyto vlastnosti obsahovat, jinak nepůjde importovat. 
+> 
+> 
 
 Po importu rozhraní API se na portálu vydavatele zobrazí souhrnná stránka rozhraní.
 
@@ -122,15 +131,14 @@ Po importu rozhraní API se na portálu vydavatele zobrazí souhrnná stránka r
 
 Ve výchozím nastavení každá instance služby API Management obsahuje dva ukázkové produkty:
 
--   **Starter**
--   **Unlimited**
+* **Starter**
+* **Unlimited**
 
 V tomto kurzu bylo rozhraní API základní kalkulačky k produktu Starter přidáno při importu rozhraní.
 
 Aby bylo možné rozhraní API volat, musí se vývojáři nejdřív přihlásit k odběru produktu, který jim poskytne k rozhraní přístup. Vývojáři se můžou přihlásit k odběru produktů na portálu pro vývojáře, popřípadě můžou správci přihlásit vývojáře k odběru produktů na portálu vydavatele. Vzhledem k tomu, že jste v předchozích krocích tohoto kurzu vytvořili instanci služby API Management, stali se z vás správci a jste ve výchozím nastavení přihlášeni k odběru všech produktů.
 
 ## <a name="call-operation"> </a>Volání operace z portálu pro vývojáře
-
 Operaci můžete volat přímo z portálu pro vývojáře, který nabízí pohodlný způsob pro zobrazení a testování operací v rozhraní API. V tomto kroku kurzu budete v rozhraní API základní kalkulačky volat operaci **Add two integers** (Sečíst dvě celá čísla). V nabídce v pravé horní části portálu vydavatele klikněte na **Portál pro vývojáře**.
 
 ![portálu pro vývojáře][api-management-developer-portal-menu]
@@ -154,7 +162,6 @@ Po vyvolání operace portál pro vývojáře zobrazí **Stav odpovědi**, **Hla
 ![Odpověď][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>Zobrazení analýzy
-
 Pokud chcete zobrazit analýzu základní kalkulačky, výběrem možnosti **Spravovat** v nabídce v pravé horní části portálu pro vývojáře přepněte zpět na portál vydavatele.
 
 ![Spravovat][api-management-manage-menu]
@@ -165,7 +172,10 @@ Výchozím zobrazením portálu vydavatele je **řídicí panel**, který nabíz
 
 Pokud chcete zobrazit konkrétní metriky využití rozhraní API za určité časové období, najeďte myší na graf pro **Basic Calculator**.
 
->[AZURE.NOTE] Pokud na grafu nevidíte žádné čáry, přepněte zpět na portál pro vývojáře, proveďte několik volání do rozhraní API, chvíli počkejte a pak se vraťte k řídicímu panelu.
+> [!NOTE]
+> Pokud na grafu nevidíte žádné čáry, přepněte zpět na portál pro vývojáře, proveďte několik volání do rozhraní API, chvíli počkejte a pak se vraťte k řídicímu panelu.
+> 
+> 
 
 Kliknutím na **Zobrazit podrobnosti** zobrazíte souhrnnou stránku rozhraní API včetně větší verze zobrazených metrik.
 
@@ -179,14 +189,13 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 Část **Analýza** obsahuje následující čtyři karty:
 
--   **Rychlý přehled** poskytuje metriky celkového využití a stavu a také nejlepší vývojáře, nejlepší produkty, nejlepší rozhraní API a nejlepší operace.
--   **Využití** poskytuje hlubší pohled na volání a šířku pásma rozhraní API, včetně zeměpisného rozlišení.
--   **Stav** se zaměřuje na stavové kódy, úspěšnost mezipaměti, doby odezvy a doby odezvy rozhraní API a služby.
--   **Aktivita** obsahuje sestavy, které podrobně uvádějí konkrétní aktivitu podle vývojáře, produktu, rozhraní API a operace.
+* **Rychlý přehled** poskytuje metriky celkového využití a stavu a také nejlepší vývojáře, nejlepší produkty, nejlepší rozhraní API a nejlepší operace.
+* **Využití** poskytuje hlubší pohled na volání a šířku pásma rozhraní API, včetně zeměpisného rozlišení.
+* **Stav** se zaměřuje na stavové kódy, úspěšnost mezipaměti, doby odezvy a doby odezvy rozhraní API a služby.
+* **Aktivita** obsahuje sestavy, které podrobně uvádějí konkrétní aktivitu podle vývojáře, produktu, rozhraní API a operace.
 
 ## <a name="next-steps"> </a>Další kroky
-
-- Zjistěte, jak můžete [chránit rozhraní API omezením četnosti ](api-management-howto-product-with-rules.md).
+* Zjistěte, jak můžete [chránit rozhraní API omezením četnosti ](api-management-howto-product-with-rules.md).
 
 [Bezplatná zkušební verze Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 

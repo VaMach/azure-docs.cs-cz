@@ -7,14 +7,14 @@
 
 Nainstalujte sadu SDK a potom přidejte monitorování ostatních dat:
 
-> [AZURE.SELECTOR]
-- [Instalace sady SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [Data uživatele a stránky](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Výjimky](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Závislosti](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Dostupnost](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
-
-
+> [!div class="op_single_selector"]
+> * [Instalace sady SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
+> * [Data uživatele a stránky](../articles/application-insights/app-insights-javascript.md#selector1)
+> * [Výjimky](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+> * [Závislosti](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+> * [Dostupnost](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

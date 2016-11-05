@@ -1,61 +1,52 @@
-<properties
-    pageTitle="Podpora CORS v App Service | Microsoft Azure"
-    description="Zjistěte, jak používat podporu CORS v Azure App Service."
-    services="app-service\api"
-    documentationCenter=".net"
-    authors="tdykstra"
-    manager="wpickett"
-    editor=""/>
+---
+title: Podpora CORS v App Service | Microsoft Docs
+description: Zjistěte, jak používat podporu CORS v Azure App Service.
+services: app-service\api
+documentationcenter: .net
+author: tdykstra
+manager: wpickett
+editor: ''
 
-<tags
-    ms.service="app-service-api"
-    ms.workload="na"
-    ms.tgt_pltfrm="dotnet"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/27/2016"
-    ms.author="rachelap"/>
+ms.service: app-service-api
+ms.workload: na
+ms.tgt_pltfrm: dotnet
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/27/2016
+ms.author: rachelap
 
+---
 # Využití aplikace API z JavaScriptu pomocí CORS
-
 App Service má integrovanou podporu [sdílení prostředků mezi zdroji (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), která umožňuje klientům JavaScript volat rozhraní API hostovaná v aplikacích API mezi doménami. App Service umožňuje nakonfigurovat v CORS přístup k rozhraní API, aniž by bylo potřeba psát v rozhraní API nějaký kód.
 
 Tento článek obsahuje dvě části:
 
 * Část [Postup konfigurace CORS](#corsconfig) popisuje obecně konfiguraci CORS pro libovolnou aplikaci API, webovou aplikaci nebo mobilní aplikaci. Platí stejně pro všechna rozhraní podporovaná službou App Service, včetně .NET, Node.js a Java. 
-
 * Počínaje částí [Pokračování úvodních kurzů k .NET](#tutorialstart) obsahuje tento článek ukázku podpory CORS, která rozvíjí základy z [úvodního kurzu k aplikacím API](app-service-api-dotnet-get-started.md). 
 
 ## <a id="corsconfig"></a> Postup konfigurace CORS v Azure App Service
-
 CORS můžete nakonfigurovat na Portálu Azure nebo pomocí nástrojů, které nabízí [Azure Resource Manager](../resource-group-overview.md).
 
 #### Konfigurace CORS na Portálu Azure
-
-8. Přejděte v prohlížeči na [Portál Azure](https://portal.azure.com/).
-
+1. Přejděte v prohlížeči na [Portál Azure](https://portal.azure.com/).
 2. Klikněte na **App Services** a pak klikněte na název aplikace API.
-
+   
     ![Výběr aplikace API na portálu](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-
-10. V okně **Nastavení**, které se otevře napravo od okna **Aplikace API**, najděte část **API** a potom klikněte na **CORS**.
-
-    ![Výběr CORS v okně Nastavení](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-
-11. Do textového pole zadejte adresu nebo adresy URL, které mají mít povoleno předávat volání JavaScriptu.
-
+3. V okně **Nastavení**, které se otevře napravo od okna **Aplikace API**, najděte část **API** a potom klikněte na **CORS**.
+   
+   ![Výběr CORS v okně Nastavení](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+4. Do textového pole zadejte adresu nebo adresy URL, které mají mít povoleno předávat volání JavaScriptu.
 
     Pokud například nasazujete aplikaci JavaScript do webové aplikace s názvem todolistangular, zadejte https://todolistangular.azurewebsites.net. Případně můžete zadat hvězdičku (*), pokud chcete povolit všechny zdrojové domény.
 
 
-13. Klikněte na **Uložit**.
-
-    ![Kliknutí na Uložit](./media/app-service-api-cors-consume-javascript/corsinportal.png)
-
-    Po kliknutí na **Uložit** bude aplikace API přijímat volání JavaScriptu ze zadaných adres URL.
+1. Klikněte na **Uložit**.
+   
+   ![Kliknutí na Uložit](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+   
+   Po kliknutí na **Uložit** bude aplikace API přijímat volání JavaScriptu ze zadaných adres URL.
 
 #### Konfigurace CORS pomocí nástrojů, které nabízí Azure Resource Manager
-
 CORS můžete pro aplikaci API nakonfigurovat také pomocí [šablon Azure Resource Manageru](../resource-group-authoring-templates.md) v nástrojích příkazového řádku, jako je [Azure PowerShell](../powershell-install-configure.md) nebo [Azure CLI](../xplat-cli-install.md). 
 
 Příklad šablony Azure Resource Manageru, která nastaví vlastnost CORS, najdete v [souboru azuredeploy.json v úložišti pro ukázkovou aplikaci tohoto kurzu](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Najděte část šablony, která je podobná následujícímu příkladu:
@@ -67,13 +58,11 @@ Příklad šablony Azure Resource Manageru, která nastaví vlastnost CORS, najd
         }
 
 ## <a id="tutorialstart"></a> Pokračování úvodních kurzů k .NET
-
 Pokud jste si vybrali sérii úvodních kurzů k aplikacím API pro Node.js nebo Java, pak jste tuto sérii dokončili. Přeskočte část [Další kroky](#next-steps) a najděte část s návrhy dalších kurzů k API Apps.
 
 Zbývající část tohoto článku je pokračování série úvodních kurzů k .NET, která předpokládá, že jste úspěšně dokončili [první kurz](app-service-api-dotnet-get-started.md).
 
 ## Nasazení projektu ToDoListAngular do nové webové aplikace
-
 V [prvním kurzu](app-service-api-dotnet-get-started.md) jste vytvořili aplikaci API střední vrstvy a aplikaci API datové vrstvy. V tomto kurzu vytvoříte jednostránkovou webovou aplikaci (SPA), která bude volat aplikaci API střední vrstvy. Aby tato jednostránková aplikace fungovala, je potřeba, abyste pro aplikaci API střední vrstvy povolili CORS. 
 
 V [ukázkové aplikaci ToDoList](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) je projekt ToDoListAngular jednoduchý klient AngularJS, který volá projekt webového rozhraní API ToDoListAPI střední vrstvy. Kód jazyka JavaScript v souboru *app/scripts/todoListSvc.js* zavolá rozhraní API pomocí zprostředkovatele protokolu HTTP AngularJS. 
@@ -83,7 +72,7 @@ V [ukázkové aplikaci ToDoList](https://github.com/Azure-Samples/app-service-ap
 
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
-        
+
             return {
                 getItems : function(){
                     return $http.get(apiEndpoint + '/api/TodoList');
@@ -98,54 +87,42 @@ V [ukázkové aplikaci ToDoList](https://github.com/Azure-Samples/app-service-ap
         }]);
 
 ### Vytvoření nové webové aplikace projektu ToDoListAngular
-
 Postup vytvoření nové webové aplikace App Service a nasazení projektu do ní je podobný postupu [vytvoření a nasazení aplikace API, který už znáte z prvního kurzu této série](app-service-api-dotnet-get-started.md#createapiapp). Jediný rozdíl je v tom, že se nejedná o **aplikaci API**, ale o **webovou aplikaci**.  Snímky obrazovky dialogových oken viz: 
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt ToDoListAngular a potom klikněte na **Publikovat**.
-
-3.  Na kartě **Profil** průvodce **Publikovat web** klikněte na **Microsoft Azure App Service**.
-
-5. V dialogovém okně **App Service** klikněte na **Nová**.
-
-3. Na kartě **Hosting** v dialogovém okně **Vytvořit službu App Service** zadejte **název webové aplikace**, který bude v doméně *azurewebsites.net* jedinečný. 
-
+2. Na kartě **Profil** průvodce **Publikovat web** klikněte na **Microsoft Azure App Service**.
+3. V dialogovém okně **App Service** klikněte na **Nová**.
+4. Na kartě **Hosting** v dialogovém okně **Vytvořit službu App Service** zadejte **název webové aplikace**, který bude v doméně *azurewebsites.net* jedinečný. 
 5. Zvolte **předplatné** Azure, s kterým chcete pracovat.
-
 6. V rozevíracím seznamu **Skupina prostředků** zvolte stejnou skupinu prostředků, kterou jste vytvořili dříve.
-
-4. V rozevíracím seznamu **Plán služby App Service** vyberte stejný plán, který jste vytvořili dříve. 
-
-7. Klikněte na možnost **Vytvořit**.
-
+7. V rozevíracím seznamu **Plán služby App Service** vyberte stejný plán, který jste vytvořili dříve. 
+8. Klikněte na možnost **Vytvořit**.
+   
     Visual Studio vytvoří webovou aplikaci, vytvoří pro ni profil publikování a zobrazí krok **Připojení** průvodce **Publikovat web**.
-
+   
     Na tlačítko **Publikovat** ještě neklikejte. V následující části nakonfigurujete novou webovou aplikaci, která bude volat aplikaci API střední vrstvy běžící ve službě App Service. 
 
 ### Nastavení adresy URL střední vrstvy v nastavení webové aplikace
-
 1. Přejděte na [Portál Azure](https://portal.azure.com/) a otevřete okno **Webová aplikace** pro aplikaci, kterou jste vytvořili k hostování projektu TodoListAngular (front-endu).
-
 2. Klikněte na **Nastavení > Nastavení aplikace**.
-
 3. V části **Nastavení aplikace** přidejte následující klíč a hodnotu:
-
-  	|Klíč|Hodnota|Příklad
-  	|---|---|---|
-  	|toDoListAPIURL|https://{název vaší aplikace API střední vrstvy}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
-
+   
+   | Klíč | Hodnota | Příklad |
+   | --- | --- | --- |
+   | toDoListAPIURL |https://{název vaší aplikace API střední vrstvy}.azurewebsites.net |https://todolistapi0121.azurewebsites.net |
 4. Klikněte na **Uložit**.
-
+   
     Při spuštění kódu v Azure tato hodnota přepíše adresu URL místního hostitele, která je v souboru *Web.config*. 
-
+   
     Kód, který získá hodnotu nastavení, je uložen v souboru *index.cshtml*:
-
+   
         <script type="text/javascript">
             var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
         </script>
         <script src="app/scripts/todoListSvc.js"></script>
-
+   
     Kód v souboru *todoListSvc.js* používá nastavení:
-
+   
         return {
             getItems : function(){
                 return $http.get(apiEndpoint + '/api/TodoList');
@@ -168,81 +145,72 @@ Postup vytvoření nové webové aplikace App Service a nasazení projektu do n�
         };
 
 ### Nasazení webového projektu ToDoListAngular do nové webové aplikace
+* V nástroji Visual Studio klikněte v kroku **Připojení** průvodce **Publikovat web** na **Publikovat**.
+  
+   Visual Studio nasadí projekt ToDoListAngular do nové webové aplikace a otevře v prohlížeči adresu URL této webové aplikace. 
 
-*  V nástroji Visual Studio klikněte v kroku **Připojení** průvodce **Publikovat web** na **Publikovat**.
-
-    Visual Studio nasadí projekt ToDoListAngular do nové webové aplikace a otevře v prohlížeči adresu URL této webové aplikace. 
-
-### Testování aplikace bez povolení CORS 
-
-2. Ve vývojářských nástrojích prohlížeče otevřete okno konzoly.
-
-3. V okně prohlížeče, které zobrazuje uživatelské rozhraní AngularJS, klikněte na odkaz **Seznam úkolů**.
-
+### Testování aplikace bez povolení CORS
+1. Ve vývojářských nástrojích prohlížeče otevřete okno konzoly.
+2. V okně prohlížeče, které zobrazuje uživatelské rozhraní AngularJS, klikněte na odkaz **Seznam úkolů**.
+   
     Kód jazyka JavaScript se pokusí zavolat aplikaci API střední vrstvy, ale volání selže, protože front-end běží v jiné doméně než back-end. Okno konzoly vývojářských nástrojů prohlížeče zobrazuje chybovou zprávu nepůvodního zdroje.
-
+   
     ![Chybová zpráva nepůvodního zdroje](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
 ## Konfigurace CORS pro aplikaci API střední vrstvy
-
 V této části nakonfigurujete nastavení CORS v Azure pro aplikaci API ToDoListAPI střední vrstvy. Toto nastavení umožní aplikaci API střední vrstvy přijímat volání JavaScriptu z webové aplikace, kterou jste vytvořili pro projekt ToDoListAngular.
 
-8. Přejděte v prohlížeči na [Portál Azure](https://portal.azure.com/).
-
+1. Přejděte v prohlížeči na [Portál Azure](https://portal.azure.com/).
 2. Klikněte na **App Services** a potom na aplikaci API ToDoListAPI (střední úroveň).
-
+   
     ![Výběr aplikace API na portálu](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-
-10. V okně **Nastavení**, které se otevře napravo od okna **Aplikace API**, najděte část **API** a potom klikněte na **CORS**.
-
-    ![Výběr CORS na portálu](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-
-12. Do textového pole zadejte adresu URL webové aplikace ToDoListAngular (front-endu). Pokud jste například nasadili projekt ToDoListAngular do webové aplikace s názvem todolistangular0121, povolte volání z adresy URL `https://todolistangular0121.azurewebsites.net`.
-
-    Případně můžete zadat hvězdičku (*), pokud chcete povolit všechny zdrojové domény.
-
-13. Klikněte na **Uložit**.
-
-    ![Kliknutí na Uložit](./media/app-service-api-cors-consume-javascript/corsinportal.png)
-
-    Po kliknutí na **Uložit** bude aplikace API přijímat volání JavaScriptu ze zadané adresy URL. Na tomto snímku obrazovky bude aplikace API ToDoListAPI0223 přijímat volání klienta JavaScript z webové aplikace ToDoListAngular.
+3. V okně **Nastavení**, které se otevře napravo od okna **Aplikace API**, najděte část **API** a potom klikněte na **CORS**.
+   
+   ![Výběr CORS na portálu](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+4. Do textového pole zadejte adresu URL webové aplikace ToDoListAngular (front-endu). Pokud jste například nasadili projekt ToDoListAngular do webové aplikace s názvem todolistangular0121, povolte volání z adresy URL `https://todolistangular0121.azurewebsites.net`.
+   
+   Případně můžete zadat hvězdičku (*), pokud chcete povolit všechny zdrojové domény.
+5. Klikněte na **Uložit**.
+   
+   ![Kliknutí na Uložit](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+   
+   Po kliknutí na **Uložit** bude aplikace API přijímat volání JavaScriptu ze zadané adresy URL. Na tomto snímku obrazovky bude aplikace API ToDoListAPI0223 přijímat volání klienta JavaScript z webové aplikace ToDoListAngular.
 
 ### Testování aplikace s povolením CORS
-
 * Otevřete v prohlížeči adresu URL HTTPS webové aplikace. 
-
+  
     V tomto případě aplikace umožňuje zobrazovat, přidávat, upravovat a odstraňovat položky seznamu úkolů. 
-
+  
     ![Stránka seznamu úkolů ukázkové aplikace](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## CORS služby App Service versus CORS webového rozhraní API
-
 V projektu webového rozhraní API můžete nainstalovat balíček NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/), a určit tak pomocí kódu, ze kterých domén bude rozhraní API přijímat volání JavaScriptu.
- 
+
 Podpora CORS webového rozhraní API je flexibilnější než podpora CORS služby App Service. Můžete například určit různé povolené zdroje pro různé metody akcí, zatímco u CORS služby App Service zadáváte jednu sadu povolených zdrojů pro všechny metody aplikace API.
 
-> [AZURE.NOTE] Nedoporučujeme používat v jedné aplikaci API jak CORS webového rozhraní API, tak CORS služby App Service. CORS služby App Service bude mít přednost a CORS webového rozhraní API nebude mít žádný vliv. Pokud například v App Service povolíte jednu zdrojovou doménu a v kódu webového rozhraní API povolíte všechny zdrojové domény, vaše aplikace API Azure bude přijímat jen volání z domény, kterou jste zadali v Azure.
+> [!NOTE]
+> Nedoporučujeme používat v jedné aplikaci API jak CORS webového rozhraní API, tak CORS služby App Service. CORS služby App Service bude mít přednost a CORS webového rozhraní API nebude mít žádný vliv. Pokud například v App Service povolíte jednu zdrojovou doménu a v kódu webového rozhraní API povolíte všechny zdrojové domény, vaše aplikace API Azure bude přijímat jen volání z domény, kterou jste zadali v Azure.
+> 
+> 
 
 ### Postup povolení CORS v kódu webového rozhraní API
-
 Následující kroky shrnují proces povolení podpory CORS webového rozhraní API. Další informace najdete v tématu [Povolení žádostí napříč zdroji ve webovém rozhraní API 2 ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 1. V projektu webového rozhraní API nainstalujte balíček NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/).
-
-1. Do metody **Register** třídy **WebApiConfig** doplňte řádek kódu `config.EnableCors()`, jak to ukazuje následující příklad. 
-
+2. Do metody **Register** třídy **WebApiConfig** doplňte řádek kódu `config.EnableCors()`, jak to ukazuje následující příklad. 
+   
         public static class WebApiConfig
         {
             public static void Register(HttpConfiguration config)
             {
                 // Web API configuration and services
-                
+   
                 // The following line enables you to control CORS by using Web API code
                 config.EnableCors();
-    
+   
                 // Web API routes
                 config.MapHttpAttributeRoutes();
-    
+   
                 config.Routes.MapHttpRoute(
                     name: "DefaultApi",
                     routeTemplate: "api/{controller}/{id}",
@@ -250,41 +218,32 @@ Následující kroky shrnují proces povolení podpory CORS webového rozhraní 
                 );
             }
         }
-
-1. Do kontroleru webového rozhraní API přidejte příkaz `using` pro obor názvů `System.Web.Http.Cors` a do třídy kontroleru nebo do jednotlivých metod akcí přidejte atribut `EnableCors`. V následujícím příkladu platí podpora CORS pro celý kontroler.
-
+3. Do kontroleru webového rozhraní API přidejte příkaz `using` pro obor názvů `System.Web.Http.Cors` a do třídy kontroleru nebo do jednotlivých metod akcí přidejte atribut `EnableCors`. V následujícím příkladu platí podpora CORS pro celý kontroler.
+   
         namespace ToDoListAPI.Controllers 
         {
             [HttpOperationExceptionFilterAttribute]
             [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
             public class ToDoListController : ApiController
- 
-## Použití služby API Management Azure pro aplikace API
 
+## Použití služby API Management Azure pro aplikace API
 Pokud používáte API Management s aplikací API, nakonfigurujte CORS ve službě API Management, ne v aplikaci API. Další informace najdete v následujících materiálech:
 
 * [Přehled služby Azure API Management (video: CORS začíná v čase 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
 * [Zásady pro API Management napříč doménami](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
- 
-## Řešení potíží
 
+## Řešení potíží
 V případě, že při procházení tohoto kurzu narazíte na problém, můžete ho zkusit vyřešit pomocí následujících kroků.
 
 * Zkontrolujte, že používáte nejnovější verzi [sady Azure SDK pro .NET pro Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
-
 * Zkontrolujte, že jste do nastavení CORS zadali `https` a že protokol `https` používáte ke spouštění front-endové webové aplikace.
-
 * Ověřte, že jste nastavení CORS zadali do aplikace API střední vrstvy, ne do front-endové webové aplikace.
-
 * Pokud konfigurujete CORS v kódu aplikace i v Azure App Service, přepíše nastavení CORS v App Service vaše změny v kódu aplikace. 
 
 Další informace o funkcích nástroje Visual Studio, které usnadňují řešení potíží, najdete v tématu [Řešení potíží s aplikacemi Azure App Service v nástroji Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Další kroky 
-
+## Další kroky
 V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App Service, aby mohl kód JavaScript klienta volat rozhraní API v jiné doméně. Pokud se chcete dozvědět další informace o aplikacích API, přečtěte si [úvod k ověřování v App Service](../app-service/app-service-authentication-overview.md) a pak přejděte na kurz [ověřování uživatele pro aplikace API](app-service-api-dotnet-user-principal-auth.md).
-
-
 
 <!--HONumber=ago16_HO5-->
 

@@ -1,53 +1,52 @@
-<properties
-	pageTitle="Nejčastější dotazy k Azure Backup | Microsoft Azure"
-	description="Odpovědi na nejčastější dotazy ohledně služby zálohování, agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další časté dotazy k zálohování a zotavení po havárii."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor=""
-	keywords="zálohování a zotavení po havárii; služba zálohování"/>
+---
+title: Nejčastější dotazy k Azure Backup | Microsoft Docs
+description: Odpovědi na nejčastější dotazy ohledně služby zálohování, agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další časté dotazy k zálohování a zotavení po havárii.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: zálohování a zotavení po havárii; služba zálohování
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/29/2016"
-	ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
-
+---
 # <a name="azure-backup-service--faq"></a>Služba Azure Backup – Nejčastější dotazy
-
-> [AZURE.SELECTOR]
-- [Nejčastější dotazy týkající se režimu Classic](backup-azure-backup-faq.md)
-- [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Nejčastější dotazy týkající se režimu Classic](backup-azure-backup-faq.md)
+> * [Nejčastější dotazy týkající se režimu Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Tento článek je seznam častých dotazů (a příslušných odpovědí) ke službě Azure Backup. Naše komunita odpovídá rychle a pokud je dotaz pokládán často, přidáme ho do tohoto článku. Odpovědi na otázky obvykle poskytují odkaz nebo informace o podpoře. Dotazy k Azure Backup můžete pokládat v části Disqus u tohoto článku nebo u souvisejících článků. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup?-"></a>Jaké jsou podporované operační systémy, ze kterých mohu zálohovat do Azure pomocí Azure Backup? <br/>
 Azure Backup podporuje pro zálohování souborů a složek, zálohování aplikací pomocí serveru Azure Backup a SCDPM následující seznam operačních systémů. 
 
-| Operační systém        | Platforma           | Skladová jednotka (SKU)  |
-| :------------- |-------------| :-----|
-| Windows 8 a nejnovější aktualizace Service Packu      | 64bitová verze | Enterprise, Pro |
-| Windows 7 a nejnovější aktualizace Service Packu      | 64bitová verze | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 a nejnovější aktualizace Service Packu | 64bitová verze      |    Enterprise, Pro |
-| Windows 10      | 64bitová verze | Enterprise, Pro, Home |
-|Windows Server 2012 R2 a nejnovější aktualizace Service Packu| 64bitová verze| Standard, Datacenter, Foundation|
-|Windows Server 2012 a nejnovější aktualizace Service Packu|    64bitová verze| Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 a nejnovější aktualizace Service Packu  |64bitová verze|    Standard, Workgroup|
-|Windows Storage Server 2012 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Workgroup
-|Windows Server 2012 R2 a nejnovější aktualizace Service Packu  |64bitová verze|    Essential|
-|Windows Server 2008 R2 SP1 |64bitová verze|    Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2    |64bitová verze|    Standard, Enterprise, Datacenter, Foundation|
+| Operační systém | Platforma | Skladová jednotka (SKU) |
+|:--- | --- |:--- |
+| Windows 8 a nejnovější aktualizace Service Packu |64bitová verze |Enterprise, Pro |
+| Windows 7 a nejnovější aktualizace Service Packu |64bitová verze |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 a nejnovější aktualizace Service Packu |64bitová verze |Enterprise, Pro |
+| Windows 10 |64bitová verze |Enterprise, Pro, Home |
+| Windows Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Datacenter, Foundation |
+| Windows Server 2012 a nejnovější aktualizace Service Packu |64bitová verze |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Workgroup |
+| Windows Storage Server 2012 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Workgroup |
+| Windows Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Essential |
+| Windows Server 2008 R2 SP1 |64bitová verze |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64bitová verze |Standard, Enterprise, Datacenter, Foundation |
 
 Pro zálohování virtuálního počítače Azure,
 
-- **Linux**: Azure Backup podporuje [seznam distribucí schválených Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
-- **Windows Server**: Verze starší než Windows Server 2008 R2 nejsou podporovány.
+* **Linux**: Azure Backup podporuje [seznam distribucí schválených Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
+* **Windows Server**: Verze starší než Windows Server 2008 R2 nejsou podporovány.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent?-"></a>Kde mohu stáhnout nejnovější verzi agenta Azure Backup? <br/>
 Nejnovější verzi agenta pro zálohování Windows Serveru, aplikace System Center DPM nebo klienta Windows si můžete stáhnout [zde](http://aka.ms/azurebackup_agent). Chcete-li zálohovat virtuální počítač, použijte agenta virtuálního počítače (který automaticky nainstaluje správné rozšíření). Agent virtuálního počítače je již nainstalován na virtuálních počítačích vytvořených z galerie Azure.
@@ -74,26 +73,26 @@ Je třeba zaregistrovat nový název serveru k trezoru služby Backup. Když vyt
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from?-"></a>Z jakých typů jednotek mohu zálohovat soubory a složky? <br/>
 Následující jednotky/svazky nelze zálohovat:
 
-- Vyměnitelné médium: Jednotka se musí hlásit jako pevná, aby se dala použít jako zdroj položek k zálohování.
-- Svazky jen pro čtení: Svazek musí být zapisovatelný, aby fungovala služba Stínová kopie svazku (VSS).
-- Offline svazky: Svazek musí být online, aby fungovala služba VSS.
-- Sdílené síťové složky: Svazek musí být místní pro server, aby mohl být zálohovaný pomocí online zálohování.
-- Svazky chráněné nástrojem Bitlocker: Předtím, než může dojít k zálohování, musí být svazek odemčený.
-- Identifikace systému souborů: Pro tuto verzi služby online zálohování je jediným podporovaným systémem souborů NTFS.
+* Vyměnitelné médium: Jednotka se musí hlásit jako pevná, aby se dala použít jako zdroj položek k zálohování.
+* Svazky jen pro čtení: Svazek musí být zapisovatelný, aby fungovala služba Stínová kopie svazku (VSS).
+* Offline svazky: Svazek musí být online, aby fungovala služba VSS.
+* Sdílené síťové složky: Svazek musí být místní pro server, aby mohl být zálohovaný pomocí online zálohování.
+* Svazky chráněné nástrojem Bitlocker: Předtím, než může dojít k zálohování, musí být svazek odemčený.
+* Identifikace systému souborů: Pro tuto verzi služby online zálohování je jediným podporovaným systémem souborů NTFS.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-server?"></a>Jaké typy souborů a složek mohu zálohovat ze svého serveru?<br/>
 Jsou podporovány následující typy:
 
-- Šifrované
-- Komprimované
-- Řídké
-- Komprimované a řídké
-- Pevné odkazy: Není podporováno, vynecháno
-- Bod rozboru: Není podporováno, vynecháno
-- Šifrované a komprimované: Není podporováno, vynecháno
-- Šifrované a řídké: Není podporováno, vynecháno
-- Komprimovaný datový proud: Není podporováno, vynecháno
-- Řídký datový proud: Není podporováno, vynecháno
+* Šifrované
+* Komprimované
+* Řídké
+* Komprimované a řídké
+* Pevné odkazy: Není podporováno, vynecháno
+* Bod rozboru: Není podporováno, vynecháno
+* Šifrované a komprimované: Není podporováno, vynecháno
+* Šifrované a řídké: Není podporováno, vynecháno
+* Komprimovaný datový proud: Není podporováno, vynecháno
+* Řídký datový proud: Není podporováno, vynecháno
 
 ## <a name="what's-the-minimum-size-requirement-for-the-cache-folder?-"></a>Jaký je požadavek na minimální velikost složky mezipaměti? <br/>
 Velikost složky mezipaměti určuje množství dat, která zálohujete. Složka mezipaměti by měla zabírat 5 % požadovaného místa pro úložiště dat.
@@ -118,11 +117,11 @@ Toto upozornění se zobrazí v případě, že se nastavení plánu zálohován
 ## <a name="what-firewall-rules-should-be-configured-for-azure-backup?-"></a>Jaká pravidla brány firewall mají být nakonfigurována pro Azure Backup? <br/>
 Kvůli bezproblémové ochraně dat odesílaných z místních prostředků nebo úlohy do Azure doporučujeme povolit bráně firewall komunikaci s následujícími adresami URL:
 
-- www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* www.msftncsi.com
+* \*.Microsoft.com
+* \*.WindowsAzure.com
+* \*.microsoftonline.com
+* \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension?-"></a>Mohu nainstalovat agenta Azure Backup na virtuální počítač Azure, který už je zálohovaný službou Azure Backup pomocí rozšíření virtuálního počítače? <br/>
 Jistě. Azure Backup poskytuje zálohování na úrovni virtuálních počítačů pro virtuální počítače Azure, které používají rozšíření virtuálního počítače. Chcete-li chránit soubory a složky na hostovaném operačním systému Windows, můžete na něj nainstalovat agenta Azure Backup.
@@ -133,10 +132,10 @@ Agenta Azure Backup můžete nainstalovat na hostovaný operační systém Windo
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders.-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-application/vm-workloads-to-azure?-"></a>Nainstaloval jsem agenta Azure Backup, aby chránil moje soubory a složky. Mohu nyní do Azure nainstalovat SCDPM, aby spolupracoval s Azure Backup při ochraně místních aplikací a úloh virtuálního počítače? <br/>
 Chcete-li používat Azure Backup s SCDPM, doporučujeme nejdříve nainstalovat SCDPM a až poté nainstalovat agenta Azure Backup. To zajistí bezproblémovou integraci agenta Azure Backup s SCDPM a umožní ochranu souborů a složek, úloh aplikací a virtuálních počítačů do Azure přímo z konzoly pro správu SCDPM. Instalovat SCDPM až po instalaci agenta Azure Backup pro výše uvedené účely se nedoporučuje ani nepodporuje.
 
-## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?-"></a>Jaká je maximální délka cesty k souboru, kterou lze zadat jako součást zásady Azure Backup pomocí agenta Azure Backup? <br/>  
+## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?-"></a>Jaká je maximální délka cesty k souboru, kterou lze zadat jako součást zásady Azure Backup pomocí agenta Azure Backup? <br/>
 Agent Azure Backup se spoléhá na systém souborů NTFS. [Specifikace délky cesty k souboru je omezená rozhraním API systému Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). V případě zálohování souborů, u nichž cesta k souboru přesahuje délku určenou rozhraním API systému Windows, můžete k zálohování zvolit nadřazenou složku nebo diskovou jednotku se soubory, které chcete zálohovat.  
 
-## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Jaké znaky jsou povolené v cestě k souboru zásady Azure Backup pomocí agenta Azure Backup? <br>  
+## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Jaké znaky jsou povolené v cestě k souboru zásady Azure Backup pomocí agenta Azure Backup? <br>
  Agent Azure Backup se spoléhá na systém souborů NTFS. Pro specifikaci souboru povoluje [znaky podporované systémem souborů NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions).  
 
 ## <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-(bmr)-backup-for-a-physical-server?-"></a>Mohu použít server Azure Backup k vytvoření zálohy úplného obnovení (BMR) pro fyzický server? <br/>
@@ -148,23 +147,23 @@ Ano, služba Backup obsahuje několik výstrah založených na událostech, kter
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up?-"></a>Existuje nějaké omezení velikosti jednotlivých zdrojů zálohovaných dat? <br/>
 Zatímco na úrovni trezoru není množství dat, která lze zálohovat, nijak omezeno, u Azure Backup platí omezení (pro všechny praktické účely jsou limity dostatečně vysoké) maximální velikosti zdroje dat. K srpnu 2015 je maximální velikost zdroje dat pro podporované operační systémy:
 
-|Zdroj č. | Operační systém |  Maximální velikost zdroje dat |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 nebo novější| 54400 GB|
-|2| Windows 8 nebo novější| 54400 GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
-|4| Windows 7 | 1700 GB|
+| Zdroj č. | Operační systém | Maximální velikost zdroje dat |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 nebo novější |54400 GB |
+| 2 |Windows 8 nebo novější |54400 GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
+| 4 |Windows 7 |1700 GB |
 
 Následující tabulka vysvětluje, jak je určená velikost jednotlivých zdrojů dat.
 
-|   Zdroj dat  |   Podrobnosti |
-| :-------------: |:-------------|
-|Svazek |Množství dat zálohovaných z jednoho svazku serveru nebo klientského počítače.|
-|Virtuální počítač s technologií Hyper-V | Součet dat všech virtuálních pevných disků zálohovaného virtuálního počítače.|
-|Databáze Microsoft SQL Serveru | Velikost jedné zálohované databáze SQL. |
-|Microsoft SharePoint |Součet databází obsahu a konfigurace v rámci zálohované farmy služby SharePoint.|
-|Microsoft Exchange |Součet všech databází systému Exchange na zálohovaném serveru Exchange.|
-|BMR/Stav systému |Každá jednotlivá kopie BMR nebo stavu systému zálohovaného počítače.|
+| Zdroj dat | Podrobnosti |
+|:---:|:--- |
+| Svazek |Množství dat zálohovaných z jednoho svazku serveru nebo klientského počítače. |
+| Virtuální počítač s technologií Hyper-V |Součet dat všech virtuálních pevných disků zálohovaného virtuálního počítače. |
+| Databáze Microsoft SQL Serveru |Velikost jedné zálohované databáze SQL. |
+| Microsoft SharePoint |Součet databází obsahu a konfigurace v rámci zálohované farmy služby SharePoint. |
+| Microsoft Exchange |Součet všech databází systému Exchange na zálohovaném serveru Exchange. |
+| BMR/Stav systému |Každá jednotlivá kopie BMR nebo stavu systému zálohovaného počítače. |
 
 ## <a name="are-there-limits-on-the-number-of-times-a-backup-job-can-be-scheduled-per-day?"></a>Existují omezení počtu naplánovaných úloh zálohování za den?<br/>
 Ano, úlohy zálohování na Windows Serveru nebo na klientu Windows můžete spustit až třikrát za den. Úlohy zálohování na System Center DPM můžete spustit až dvakrát za den. Úlohy zálohování pro virtuální počítače IaaS můžete spustit jednou za den.
@@ -200,7 +199,7 @@ Ne. Omezení počtu bodů obnovení jsme odstranili. Můžete vytvořit tolik bo
  Všechna data zálohovaná z agenta Azure Backup, SCDPM nebo serveru Azure Backup, projdou před odesláním kompresí a šifrováním. Po kompresi a šifrování jsou data v trezoru záloh o 30-40 % menší.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-service?"></a>Existuje způsob, jak nastavit šířku pásma používaného službou Backup?<br/>
- Ano, k úpravě šířky pásma použijte možnost **Změnit vlastnosti** v agentu Backup. Upravte šířku pásma a dobu, kdy tuto šířku pásma používáte. Další informace naleznete v tématu [Omezování sítě](../backup-configure-vault.md#enable-network-throttling).
+ Ano, k úpravě šířky pásma použijte možnost **Změnit vlastnosti** v agentu Backup. Upravte šířku pásma a dobu, kdy tuto šířku pásma používáte. Další informace naleznete v tématu [Omezování sítě](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up.-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure?-"></a>Moje šířka internetového pásma je omezená pro množství dat, která potřebuji zálohovat. Existuje způsob, jak přenést data do určitého umístění s velkým síťovým kanálem a předat je do Azure? <br/>
 Data do Azure můžete zálohovat přes standardní online proces zálohování, nebo můžete využít službu Import/export úložiště Azure pro přenos dat do úložiště objektů blob v Azure. Jiný způsob přenosu zálohovaných dat do úložiště Azure neexistuje. Informace o tom, jak používat službu Import/export úložiště Azure s Azure Backup naleznete v článku [Pracovní postup offline zálohování](backup-azure-backup-import-export.md).
@@ -225,43 +224,40 @@ Klíč, pomocí kterého se šifrují zálohovaná data, je přítomen pouze u z
 
 ## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agent?"></a>Jak změním umístění mezipaměti, zadané pro agenta Azure Backup?<br/>
  Chcete-li změnit umístění mezipaměti, postupujte podle následujícího seznamu.
-- Zastavte modul zálohování spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními:
 
+* Zastavte modul zálohování spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními:
+  
   ```PS C:\> Net stop obengine```
+* Soubory nepřesouvejte. Místo toho zkopírujte složku s místem v mezipaměti na jinou jednotku s dostatkem volného místa. Po potvrzení, že zálohování s novým místem v mezipaměti funguje správně, můžete původní místo v mezipaměti odebrat.
+* U následujících položek registru aktualizujte cestu k nové složce s místem v mezipaměti.<br/>
 
-- Soubory nepřesouvejte. Místo toho zkopírujte složku s místem v mezipaměti na jinou jednotku s dostatkem volného místa. Po potvrzení, že zálohování s novým místem v mezipaměti funguje správně, můžete původní místo v mezipaměti odebrat.
+| Cesta k registru | Klíč registru | Hodnota |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nové umístění složky mezipaměti* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nové umístění složky mezipaměti* |
 
-- U následujících položek registru aktualizujte cestu k nové složce s místem v mezipaměti.<br/>
-
-|Cesta k registru | Klíč registru | Hodnota |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Nové umístění složky mezipaměti* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Nové umístění složky mezipaměti* |
-
-- Restartujte modul Backup spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními:
-
+* Restartujte modul Backup spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními:
+  
   ```PS C:\> Net start obengine```
-
+  
   Po úspěšném dokončení vytvoření zálohy v novém umístění mezipaměti můžete původní složku mezipaměti odebrat.
 
 ## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expected?"></a>Kam mohu dát složku mezipaměti, aby agent Azure Backup fungoval podle očekávání?<br/>
 Pro složku mezipaměti nedoporučujeme používat následující umístění:
 
-- Sdílenou síťovou složku nebo vyměnitelné médium: Složka mezipaměti musí být místní pro server, který potřebuje zálohování pomocí online zálohování. Síťová umístění a vyměnitelná média jako jednotky USB nejsou podporovaná.
-- Offline svazky: Složka mezipaměti musí být online pro očekávané zálohování pomocí agenta Azure Backup.
+* Sdílenou síťovou složku nebo vyměnitelné médium: Složka mezipaměti musí být místní pro server, který potřebuje zálohování pomocí online zálohování. Síťová umístění a vyměnitelná média jako jednotky USB nejsou podporovaná.
+* Offline svazky: Složka mezipaměti musí být online pro očekávané zálohování pomocí agenta Azure Backup.
 
 ## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supported?"></a>Jsou nějaké atributy složky mezipaměti, které nejsou podporované?<br/>
  Složka mezipaměti nepodporuje následující atributy nebo jejich kombinace:
 
-- Šifrované
-- S odstraněním duplicit
-- Komprimované
-- Řídké
-- Bod rozboru
+* Šifrované
+* S odstraněním duplicit
+* Komprimované
+* Řídké
+* Bod rozboru
 
 Pro správné fungování agenta Azure Backup doporučujeme, aby složka mezipaměti ani metadata virtuálního pevného disku neobsahovaly výše uvedené atributy.
-
-
 
 <!--HONumber=Oct16_HO3-->
 

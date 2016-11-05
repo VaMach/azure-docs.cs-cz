@@ -1,45 +1,36 @@
-<properties 
-    pageTitle="Ověření Windows a server Azure Multi-Factor Authentication"
-    description="Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Ověření Windows a server Azure Multi-Factor Authentication
+description: Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Ověření Windows a server Azure Multi-Factor Authentication
-
 Část ověřování systému Windows umožňuje správci povolit a konfigurovat ověřování systému Windows pro jednu nebo více aplikací.  Následuje seznam skutečností, které je potřeba si zapamatovat před nastavením ověřování systému Windows.
 
--  Před aktivací Azure Multi-Factor Authentication pro Terminálové služby je nutné restartovat počítač.
--  Pokud je zaškrtnuto políčko „Vyžadovat shodu uživatele Azure Multi-Factor Authentication“ a nejste v seznamu uživatelů, nebudete se po restartu moci přihlásit do počítače.
--  Důvěryhodné IP adresy jsou závislé na tom, zda aplikace může zajistit IP adresu klienta s ověřením. Momentálně jsou podporovány pouze terminálové služby.  
+* Před aktivací Azure Multi-Factor Authentication pro Terminálové služby je nutné restartovat počítač.
+* Pokud je zaškrtnuto políčko „Vyžadovat shodu uživatele Azure Multi-Factor Authentication“ a nejste v seznamu uživatelů, nebudete se po restartu moci přihlásit do počítače.
+* Důvěryhodné IP adresy jsou závislé na tom, zda aplikace může zajistit IP adresu klienta s ověřením. Momentálně jsou podporovány pouze terminálové služby.  
 
-
-
-
-
-
-
->[AZURE.NOTE]Tato funkce není podporována pro zabezpečené terminálové služby v systému Windows Server 2012 R2.
-
-
-
+> [!NOTE]
+> Tato funkce není podporována pro zabezpečené terminálové služby v systému Windows Server 2012 R2.
+> 
+> 
 
 ## Chcete-li zabezpečit aplikaci pomocí ověřování systému Windows, použijte následující postup.
-
 1. Na serveru Azure Multi-Factor Authentication klikněte na ikonu ověřování systému Windows.
-![Ověřování systému Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+   ![Ověřování systému Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Zaškrtněte políčko Povolit ověřování systému Windows. Ve výchozím nastavení je toto políčko zaškrtnuté.
 3. Karta aplikace umožňuje správci konfigurovat jednu nebo více aplikací pro ověřování systému Windows.
 4. Vyberte server nebo aplikaci – určete, zda je povolen server/aplikace. Klikněte na tlačítko OK.
@@ -50,8 +41,6 @@
 9. Vyberte rozsah IP adres, pokud chcete přeskočit celý rozsah IP adres. Příklad 10.63.193.1–10.63.193.100.
 10. Pokud chcete zadat rozsahu IP adres pomocí zápisu podsítě, vyberte podsíť. Zadejte počáteční IP adresu podsítě a vyberte příslušnou síťovou masku z rozevíracího seznamu.
 11. Klikněte na tlačítko OK.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

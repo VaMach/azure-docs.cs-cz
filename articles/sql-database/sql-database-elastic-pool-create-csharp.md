@@ -1,48 +1,47 @@
-<properties
-    pageTitle="Vytvoření fondu elastické databáze s C# | Microsoft Azure"
-    description="Pomocí technik vývoje databází v C# můžete v Azure SQL Database vytvořit škálovatelný fond elastické databáze umožňující sdílení prostředků mezi mnoha databázemi."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Vytvoření fondu elastické databáze s C# | Microsoft Docs
+description: Pomocí technik vývoje databází v C# můžete v Azure SQL Database vytvořit škálovatelný fond elastické databáze umožňující sdílení prostředků mezi mnoha databázemi.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="csharp"
-    ms.workload="data-management"
-    ms.date="10/04/2016"
-    ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: csharp
+ms.workload: data-management
+ms.date: 10/04/2016
+ms.author: sstein
 
-
+---
 # Vytvoření fondu elastické databáze v jazyce C&#x23;
-
-> [AZURE.SELECTOR]
-- [portál Azure](sql-database-elastic-pool-create-portal.md)
-- [PowerShell](sql-database-elastic-pool-create-powershell.md)
-- [C#](sql-database-elastic-pool-create-csharp.md)
-
+> [!div class="op_single_selector"]
+> * [portál Azure](sql-database-elastic-pool-create-portal.md)
+> * [PowerShell](sql-database-elastic-pool-create-powershell.md)
+> * [C#](sql-database-elastic-pool-create-csharp.md)
+> 
+> 
 
 Tento článek popisuje, jak v jazyce C# vytvořit fond elastické databáze Azure SQL pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Chcete-li vytvořit samostatnou databázi SQL, přečtěte si téma [Vytvoření databáze SQL pomocí jazyka C# s knihovnou SQL Database Library pro .NET](sql-database-get-started-csharp.md).
 
 Azure SQL Database Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
->[AZURE.NOTE] Podpora řady nových funkcí služby SQL Database je dostupná pouze v případě, že používáte [model nasazení Azure Resource Manager](../resource-group-overview.md), takže byste vždy měli používat nejnovější knihovnu **Azure SQL Database Management Library pro .NET ([dokumenty](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [balíček NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starší [knihovny založené na modelu nasazení Classic](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) jsou podporovány pouze kvůli zpětné kompatibilitě, takže doporučujeme, abyste používali novější knihovny založené na Resource Manageru.
+> [!NOTE]
+> Podpora řady nových funkcí služby SQL Database je dostupná pouze v případě, že používáte [model nasazení Azure Resource Manager](../resource-group-overview.md), takže byste vždy měli používat nejnovější knihovnu **Azure SQL Database Management Library pro .NET ([dokumenty](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [balíček NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starší [knihovny založené na modelu nasazení Classic](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) jsou podporovány pouze kvůli zpětné kompatibilitě, takže doporučujeme, abyste používali novější knihovny založené na Resource Manageru.
+> 
+> 
 
 K dokončení kroků v tomto článku budete potřebovat následující:
 
-- Předplatné Azure. Pokud potřebujete předplatné Azure, jednoduše klikněte na **Bezplatný účet** v horní části této stránky a poté se vraťte a dokončete tento článek.
-- Visual Studio. Bezplatnou kopii sady Visual Studio naleznete na stránce [Soubory ke stažení pro Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-
+* Předplatné Azure. Pokud potřebujete předplatné Azure, jednoduše klikněte na **Bezplatný účet** v horní části této stránky a poté se vraťte a dokončete tento článek.
+* Visual Studio. Bezplatnou kopii sady Visual Studio naleznete na stránce [Soubory ke stažení pro Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Vytvoření konzolové aplikace a instalace potřebných knihoven
-
 1. Spusťte Visual Studio.
 2. Klikněte na **Soubor**  >  **Nový**  >  **Projekt**.
 3. Vytvořte **Konzolovou aplikaci** v jazyce C# a pojmenujte ji *SqlElasticPoolConsoleApp*.
-
 
 Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knihovny správy (pomocí [konzoly správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
@@ -51,17 +50,15 @@ Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knih
 3. Zadejte `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` a nainstalujte tak knihovnu [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Zadejte `Install-Package Microsoft.Azure.Common.Authentication –Pre` a nainstalujte tak knihovnu [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
+> [!NOTE]
+> Příklady v tomto článku používají synchronní formu každého požadavku rozhraní API a provádění se tedy zablokuje, dokud se nedokončí volání REST základní služby. Dostupné jsou i asynchronní metody
+> 
+> 
 
-
-> [AZURE.NOTE] Příklady v tomto článku používají synchronní formu každého požadavku rozhraní API a provádění se tedy zablokuje, dokud se nedokončí volání REST základní služby. Dostupné jsou i asynchronní metody
-
-
-## Vytvoření fondu elastické databáze SQL – příklad v jazyce C#
-
+## Vytvoření fondu elastické databáze SQL – příklad v jazyce C
 Následující příklad vytvoří skupinu prostředků, server, pravidlo brány firewall, elastický fond a poté databázi SQL ve fondu. Proměnné `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` získáte pomocí postupu v oddílu [Vytvoření instančního objektu pro přístup k prostředkům](#create-a-service-principal-to-access-resources).
 
 Nahraďte obsah souboru **Program.cs** následujícím ukázkovým kódem a aktualizujte hodnoty `{variables}` hodnotami vaší aplikace (bez závorek `{}`).
-
 
 ```
 using Microsoft.Azure;
@@ -258,63 +255,57 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## Vytvoření instančního objektu pro přístup k prostředkům
-
 Následující skript prostředí PowerShell vytvoří aplikaci Active Directory (AD) a instanční objekt, který potřebujeme k ověření naší aplikace v jazyce C#. Skript vypíše hodnoty potřebné pro předchozí ukázku v jazyce C#. Podrobné informace najdete v tématu [Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell](../resource-group-authenticate-service-principal.md).
 
-   
     # Sign in to Azure.
     Add-AzureRmAccount
-    
+
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     # Provide these values for your new AAD app.
     # $appName is the display name for your app, must be unique in your directory.
     # $uri does not need to be a real uri.
     # $secret is a password you create.
-    
+
     $appName = "{app-name}"
     $uri = "http://{app-name}"
     $secret = "{app-password}"
-    
+
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
-    
+
     # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    
+
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
-    
+
     # If you still get a PrincipalNotFound error, then rerun the following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    
-    
+
+
     # Output the values we need for our C# application to successfully authenticate
-    
+
     Write-Output "Copy these values into the C# sample app"
-    
+
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
     Write-Output "_applicationSecret:" $secret
 
 
-  
+
 
 ## Další kroky
-
-- [Správa fondu](sql-database-elastic-pool-manage-csharp.md)
-- [Vytvoření elastických úloh](sql-database-elastic-jobs-overview.md): Elastické úlohy umožňují spouštění skriptů T-SQL pro libovolný počet databází ve fondu.
-- [Horizontální navýšení kapacity s Azure SQL Database](sql-database-elastic-scale-introduction.md): Používejte nástroje elastické databáze k horizontálnímu navýšení kapacity.
+* [Správa fondu](sql-database-elastic-pool-manage-csharp.md)
+* [Vytvoření elastických úloh](sql-database-elastic-jobs-overview.md): Elastické úlohy umožňují spouštění skriptů T-SQL pro libovolný počet databází ve fondu.
+* [Horizontální navýšení kapacity s Azure SQL Database](sql-database-elastic-scale-introduction.md): Používejte nástroje elastické databáze k horizontálnímu navýšení kapacity.
 
 ## Další zdroje
-
-- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Rozhraní API pro správu prostředků Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-
+* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Rozhraní API pro správu prostředků Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 <!--HONumber=Oct16_HO3-->
 

@@ -1,35 +1,34 @@
-<properties
-    pageTitle="Dotazování indexu Azure Search | Microsoft Azure | Hostovaná cloudová vyhledávací služba"
-    description="Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Dotazování indexu Azure Search | Microsoft Docs
+description: Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Dotazování indexu Azure Search
-> [AZURE.SELECTOR]
-- [Přehled](search-query-overview.md)
-- [Portál](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Přehled](search-query-overview.md)
+> * [Portál](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Při odesílání vyhledávacích dotazů do služby Azure Search existuje několik parametrů, které lze zadat vedle vlastních slov zadaných do vyhledávacího pole vaší aplikace. Tyto parametry dotazu vám umožňují získat větší kontrolu nad fulltextovým vyhledáváním.
 
 Níže je seznam se stručným vysvětlením běžných použití parametrů dotazu ve službě Azure Search. Úplné vysvětlení parametrů dotazu a jejich chování naleznete na podrobných stránkách pro [REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx) a [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
 
 ## Typy dotazů
-
-Služba Azure Search nabízí mnoho možností pro vytvoření velmi výkonných dotazů. Dva hlavní typy dotazů, které budete používat, jsou `search` a `filter`. Dotaz `search` vyhledává jeden nebo více výrazů ve všech _prohledávatelných_ polích v indexu a funguje podobně, jak jste zvyklí u vyhledávacích webů Google nebo Bing. Dotaz `filter` vyhodnocuje logický výraz na všech _filtrovatelných_ polích v indexu. Na rozdíl od dotazů `search` dotazy `filter` porovnávají přesný obsah pole, to znamená, že u polí s řetězci rozlišují malá a velká písmena.
+Služba Azure Search nabízí mnoho možností pro vytvoření velmi výkonných dotazů. Dva hlavní typy dotazů, které budete používat, jsou `search` a `filter`. Dotaz `search` vyhledává jeden nebo více výrazů ve všech *prohledávatelných* polích v indexu a funguje podobně, jak jste zvyklí u vyhledávacích webů Google nebo Bing. Dotaz `filter` vyhodnocuje logický výraz na všech *filtrovatelných* polích v indexu. Na rozdíl od dotazů `search` dotazy `filter` porovnávají přesný obsah pole, to znamená, že u polí s řetězci rozlišují malá a velká písmena.
 
 Vyhledávání a filtrování lze používat společně nebo samostatně. Budete-li je používat společně, nejdříve se na celý index použije filtr a na výsledcích filtru se pak provede vyhledávání. Používání filtrů tak může být užitečné pro zlepšení výkonu dotazů zmenšením sady dokumentů, které musí dotaz vyhledávání zpracovat.
 
@@ -43,8 +42,6 @@ Syntaxe pro výrazy filtru je podmnožinou [jazyka filtrování OData](https://m
 
 Pomocí této syntaxe dotazů můžete snadno dosáhnout následujících schopností: [dotazy v rámci pole](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [přibližné vyhledávání](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [vyhledávání blízkých výrazů](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [zvýšení skóre termínu](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [vyhledávání pomocí regulárních výrazů](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [vyhledávání pomocí zástupných znaků](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [základy syntaxe](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) a [dotazy s logickými operátory](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
 
-
-
 ## Řazení výsledků
 Když přijímáte výsledky vyhledávacího dotazu, můžete požadovat, aby služba Azure Search vracela výsledky seřazené podle hodnot v určitém poli. Ve výchozím nastavení služba Azure Search řadí výsledky podle skóre vyhledávání každého dokumentu, které je odvozeno z [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
@@ -55,11 +52,8 @@ Služba Azure Search umožňuje snadnou implementaci stránkování výsledků v
 
 Další informace o stránkování výsledků vyhledávání naleznete v článku [Stránkování výsledků vyhledávání ve službě Azure Search](search-pagination-page-layout.md).
 
-
 ## Zvýrazňování položek
-Ve službě Azure Search je zvýrazňování přesné části výsledků vyhledávání, která odpovídá vyhledávacímu dotazu, umožněno pomocí parametrů `highlight`, `highlightPreTag` a `highlightPostTag`. Můžete určit, u jakých _prohledávatelných_ polí má být odpovídající text zvýrazněný, stejně tak můžete zadat značky řetězce, které se mají připojit k začátku a ke konci odpovídajícího text vráceného službou Azure Search.
-
-
+Ve službě Azure Search je zvýrazňování přesné části výsledků vyhledávání, která odpovídá vyhledávacímu dotazu, umožněno pomocí parametrů `highlight`, `highlightPreTag` a `highlightPostTag`. Můžete určit, u jakých *prohledávatelných* polí má být odpovídající text zvýrazněný, stejně tak můžete zadat značky řetězce, které se mají připojit k začátku a ke konci odpovídajícího text vráceného službou Azure Search.
 
 <!--HONumber=Sep16_HO3-->
 

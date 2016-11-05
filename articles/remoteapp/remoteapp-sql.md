@@ -1,42 +1,41 @@
-<properties
-   pageTitle="SQL Azure s Azure RemoteAppem | Microsoft Azure"
-   description="Naučte se používat SQL Azure s Azure RemoteAppem."
-   services="remoteapp"
-   documentationCenter=""
-   authors="ericorman"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: SQL Azure s Azure RemoteAppem | Microsoft Docs
+description: Naučte se používat SQL Azure s Azure RemoteAppem.
+services: remoteapp
+documentationcenter: ''
+author: ericorman
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # SQL Azure s Azure RemoteAppem
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Když se zákazníci rozhodnou, že budou své aplikace hostovat v cloudu pomocí Azure RemoteAppu, často chtějí do cloudu migrovat také svá data, například na serverech SQL, aby byl přesun nasazení do cloudu úplný. Tímto způsobem lze vytvářet řešení hostovaná čistě v cloudu, ke kterým lze kdykoliv a kdekoliv přistupovat pomocí Azure RemoteAppu. Níže naleznete odkazy na zdroje a reference spolu s pokyny, které vás tímto procesem provedou.  
 
 ## Migrace dat SQL
-
 Začněte [migrací databáze SQL Server do databáze Azure SQL](../sql-database/sql-database-cloud-migrate.md). 
 
 ## Konfigurace Azure RemoteAppu
 Aplikaci pro Windows hostujte v Azure RemoteAppu. Zde jsou základní kroky:
 
-1.     Vytvořte [virtuální počítač podle šablony Azure RemoteAppu](remoteapp-imageoptions.md). 
-2.     Do virtuálního počítače nainstalujte požadovanou aplikaci.
-3.     Nakonfigurujte aplikaci tak, aby se připojovala k databázi SQL a ověřte, že připojení funguje.
-4.     Zpracujte virtuální počítač pomocí nástroje Sysprep a vypněte jej. Výsledek zaznamenejte jako image k použití s Azurem. **Poznámka:** Pomocí procesu nástroje Sysprep je nutné zajistit, aby si aplikace uchovala informace o připojení k databázi. Pokud si aplikace neuchová informace o připojení k databázi, může být vhodné obrátit se na výrobce aplikace a zjistit, jak lze zadat připojovací řetězec.
-5.     Importujte vlastní image do knihovny Azure RemoteAppu a vyberte správné zeměpisné umístění svého nasazení SQL Azure. 
-6.     Pomocí výše uvedené šablony nasaďte kolekci RemoteAppu ve stejném datovém centru jako své nasazení SQL Azure a aplikaci publikujte. Nasazení Azure RemoteAppu ve stejném datovém centru jako SQL Azure pomáhá zajistit nejrychlejší připojení a snižovat latenci. 
+1. Vytvořte [virtuální počítač podle šablony Azure RemoteAppu](remoteapp-imageoptions.md). 
+2. Do virtuálního počítače nainstalujte požadovanou aplikaci.
+3. Nakonfigurujte aplikaci tak, aby se připojovala k databázi SQL a ověřte, že připojení funguje.
+4. Zpracujte virtuální počítač pomocí nástroje Sysprep a vypněte jej. Výsledek zaznamenejte jako image k použití s Azurem. **Poznámka:** Pomocí procesu nástroje Sysprep je nutné zajistit, aby si aplikace uchovala informace o připojení k databázi. Pokud si aplikace neuchová informace o připojení k databázi, může být vhodné obrátit se na výrobce aplikace a zjistit, jak lze zadat připojovací řetězec.
+5. Importujte vlastní image do knihovny Azure RemoteAppu a vyberte správné zeměpisné umístění svého nasazení SQL Azure. 
+6. Pomocí výše uvedené šablony nasaďte kolekci RemoteAppu ve stejném datovém centru jako své nasazení SQL Azure a aplikaci publikujte. Nasazení Azure RemoteAppu ve stejném datovém centru jako SQL Azure pomáhá zajistit nejrychlejší připojení a snižovat latenci. 
 
 ## Požadavky na konfiguraci aplikace a SQL:
 Při používání Azure SQL s RemoteAppem je nutné zvážit několik věcí:
@@ -50,12 +49,9 @@ Rozsah IP adres určete pomocí podrobných pokynů v tématu [Postup: Konfigura
 ## Řešení potíží
 Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající databázi SQL, která je také hostovaná v Azure, nebo místní databázi nízký výkon, může to být z několika důvodů.  
 
-- Síť používaná k připojení vašeho zařízení k Azure má vysokou latenci. K dosažení nejlepšího výkonu přejděte na nejlepší a nejrychlejší možné síťové připojení. Jako obecný nástroj k testování latence připojení svých zařízení k datovému centru Azure používejte web[azurespeed.com](http://azurespeed.com/).  
-- Klientská aplikace hostovaná v Azure RemoteAppu je vytížená. Vyberte jiný fakturační plán, například Premium, který umožní zvýšení výkonu. Další možností je monitorování prostředků, které aplikace používá: v aktivní relaci stiskněte kombinaci kláves Ctrl+Alt+End, která spustí obrazovku SAS, vyberte Správce úloh a sledujte, jak vaše aplikace používá prostředky.
-- Server SQL je vytížený nebo není optimalizovaný. Postupujte pokynů k odstraňování potíží se serverem SQL. 
-
-
-
+* Síť používaná k připojení vašeho zařízení k Azure má vysokou latenci. K dosažení nejlepšího výkonu přejděte na nejlepší a nejrychlejší možné síťové připojení. Jako obecný nástroj k testování latence připojení svých zařízení k datovému centru Azure používejte web[azurespeed.com](http://azurespeed.com/).  
+* Klientská aplikace hostovaná v Azure RemoteAppu je vytížená. Vyberte jiný fakturační plán, například Premium, který umožní zvýšení výkonu. Další možností je monitorování prostředků, které aplikace používá: v aktivní relaci stiskněte kombinaci kláves Ctrl+Alt+End, která spustí obrazovku SAS, vyberte Správce úloh a sledujte, jak vaše aplikace používá prostředky.
+* Server SQL je vytížený nebo není optimalizovaný. Postupujte pokynů k odstraňování potíží se serverem SQL. 
 
 <!--HONumber=Sep16_HO3-->
 

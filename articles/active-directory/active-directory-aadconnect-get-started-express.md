@@ -1,22 +1,21 @@
-<properties
-    pageTitle="Azure AD Connect: Začínáme s použitím expresního nastavení | Microsoft Azure"
-    description="Přečtěte si, jak stáhnout, nainstalovat a spustit Průvodce instalací pro Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Azure AD Connect: Začínáme s použitím expresního nastavení | Microsoft Docs'
+description: Přečtěte si, jak stáhnout, nainstalovat a spustit Průvodce instalací pro Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/13/2016"
-    ms.author="billmath;andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/13/2016
+ms.author: billmath;andkjell
 
-
+---
 # Začínáme se službou Azure AD Connect s použitím expresního nastavení
 **Expresní nastavení** Azure AD Connect se používá, pokud máte jednoduchou doménovou strukturu a [synchronizaci hesel](active-directory-aadconnectsync-implement-password-synchronization.md) pro ověřování. **Expresní nastavení** je výchozí možnost a používá se u scénáře, který je nasazován nejčastěji. Stačí jen několik kliknutí a budete moci svůj místní adresář rozšířit do cloudu.
 
@@ -31,26 +30,27 @@ Praktickou ukázku těchto kroků si můžete prohlédnout v sekci [videí](#vid
 2. Přejděte k souboru **AzureADConnect.msi** a dvakrát na něj klikněte.
 3. Na uvítací obrazovce zaškrtněte políčko, kterým odsouhlasíte licenční podmínky, a klikněte na **Pokračovat**.  
 4. Na obrazovce expresního nastavení klikněte na **Použít expresní nastavení**.  
-![Vítá vás Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
+   ![Vítá vás Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Na obrazovce připojení ke službě Azure AD zadejte uživatelské jméno a heslo pro globálního správce vaší služby Azure AD. Klikněte na **Další**.  
-![Připojení k Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Pokud se zobrazí chybová zpráva a máte problémy s připojením, přejděte na téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Připojení k Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Pokud se zobrazí chybová zpráva a máte problémy s připojením, přejděte na téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Na obrazovce Připojení ke službě AD DS zadejte uživatelské jméno a heslo pro účet správce podnikové sítě. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. FABRIKAM\administrator nebo fabrikam.com\administrator. Klikněte na **Další**.  
-![Připojení ke službě AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
+   ![Připojení ke službě AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Stránka [**Konfigurace přihlášení k Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) se zobrazí pouze pokud jste nedokončili [ověření svých domén](active-directory-add-domain.md) v rámci [požadavků](active-directory-aadconnect-prerequisites.md).
-![Neověřené domény](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
-Pokud se vám zobrazí tato stránka, zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**. Ujistěte se, že domény, které používáte, byly ověřeny v Azure AD. Po ověření domén klikněte na symbol obnovení.
+   ![Neověřené domény](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
+   Pokud se vám zobrazí tato stránka, zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**. Ujistěte se, že domény, které používáte, byly ověřeny v Azure AD. Po ověření domén klikněte na symbol obnovení.
 8. Na obrazovce Připraveno ke konfiguraci klikněte na **Instalovat**.
-    - Volitelně můžete na stránce Připraveno ke konfiguraci zrušit zaškrtnutí políčka **Po dokončení konfigurace spustit proces synchronizace**. Zaškrtnutí tohoto políčka zrušte, pokud chcete provést nějakou další konfiguraci, například [filtrování](active-directory-aadconnectsync-configure-filtering.md). Pokud u této možnosti zrušíte zaškrtnutí, průvodce instalací provede konfiguraci synchronizace, ale plánovač ponechá vypnutý. Plánovač se nespustí, dokud jej ručně nezapnete tím, že [znovu spustíte průvodce instalací](active-directory-aadconnectsync-installation-wizard.md).
-    - Pokud máte Exchange ve své místní službě Active Directory, pak máte také možnost povolit [**Hybridní nasazení systému Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Tuto možnost povolte, pokud chcete mít poštovní schránky systému Exchange zároveň v místním nasazení i v cloudu.
-![Připraveno ke konfiguraci Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+   * Volitelně můžete na stránce Připraveno ke konfiguraci zrušit zaškrtnutí políčka **Po dokončení konfigurace spustit proces synchronizace**. Zaškrtnutí tohoto políčka zrušte, pokud chcete provést nějakou další konfiguraci, například [filtrování](active-directory-aadconnectsync-configure-filtering.md). Pokud u této možnosti zrušíte zaškrtnutí, průvodce instalací provede konfiguraci synchronizace, ale plánovač ponechá vypnutý. Plánovač se nespustí, dokud jej ručně nezapnete tím, že [znovu spustíte průvodce instalací](active-directory-aadconnectsync-installation-wizard.md).
+   * Pokud máte Exchange ve své místní službě Active Directory, pak máte také možnost povolit [**Hybridní nasazení systému Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Tuto možnost povolte, pokud chcete mít poštovní schránky systému Exchange zároveň v místním nasazení i v cloudu.
+     ![Připraveno ke konfiguraci Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Až instalace skončí, klikněte na **Konec**.
 10. Po dokončení instalace se odhlaste a znovu přihlaste. Teprve pak použijte Synchronization Service Manager nebo Synchronization Rule Editor.
 
 ## Videa
-
 Video o používání expresní instalace najdete v následujících tématech:
 
->[AZURE.VIDEO azure-active-directory-connect-express-settings]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
+> 
+> 
 
 ## Další kroky
 Nyní, když máte nainstalovanou službu Azure AD Connect, si můžete [ověřit instalaci a přiřadit licence](active-directory-aadconnect-whats-next.md).
@@ -62,15 +62,12 @@ Zjistěte více o těchto běžných tématech: [plánovač a spouštění synch
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
 ## Související dokumentace
-
-Téma |  
---------- | ---------
-Přehled služby Azure AD Connect | [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
-Instalace s vlastním nastavením | [Vlastní instalace služby Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Upgrade z nástroje DirSync | [Upgrade ze synchronizačního nástroje služby Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Účty použité k instalaci | [Další informace o účtech a oprávněních služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
-
-
+| Téma |
+| --- | --- |
+| Přehled služby Azure AD Connect |
+| Instalace s vlastním nastavením |
+| Upgrade z nástroje DirSync |
+| Účty použité k instalaci |
 
 <!--HONumber=Sep16_HO3-->
 

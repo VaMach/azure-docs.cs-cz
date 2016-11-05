@@ -1,57 +1,51 @@
-<properties
-    pageTitle="Azure AD B2C | Microsoft Azure"
-    description="Postup pro sestavení webového rozhraní API .NET pomocí Azure Active Directory B2C zabezpečeného za použití přístupových tokenů OAuth 2.0 pro ověřování."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: Azure AD B2C | Microsoft Docs
+description: Postup pro sestavení webového rozhraní API .NET pomocí Azure Active Directory B2C zabezpečeného za použití přístupových tokenů OAuth 2.0 pro ověřování.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 07/22/2016
+ms.author: dastrock
 
-
+---
 # Azure Active Directory B2C: Sestavení webového rozhraní API .NET
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 S Azure Active Directory (Azure AD) B2C můžete zabezpečit webové rozhraní API pomocí přístupových tokenů OAuth 2.0. Tyto tokeny umožňují ověření přístupu klientských aplikací, které používají Azure AD B2C, do rozhraní API. Tento článek ukazuje, jak vytvořit rozhraní API „seznam úkolů“ .NET Model-View-Controller (MVC), které umožňuje uživatelům provádět CRUD u úloh. Webové rozhraní API je zabezpečeno pomocí Azure AD B2C a umožňuje pouze ověřeným uživatelům spravovat své seznamy úkolů.
 
 ## Vytvoření adresáře Azure AD B2C
-
 Před použitím Azure AD B2C musíte vytvořit adresář, nebo klienta. Adresář je kontejner pro všechny vaše uživatele, aplikace, skupiny a další. Pokud ho ještě nemáte, [vytvořte adresář B2C](active-directory-b2c-get-started.md) předtím, než budete pokračovat.
 
 ## Vytvoření aplikace
-
 Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá informace potřebné k bezpečné komunikaci s vaší aplikací. Chcete-li vytvořit aplikaci, postupujte podle [těchto pokynů](active-directory-b2c-app-registration.md). Ujistěte se, že:
 
-- Jste do aplikace zahrnuli **webovou aplikaci** nebo **webové rozhraní API**.
-- Pro webovou aplikaci používáte **identifikátor URI přesměrování** `https://localhost:44316/`. Toto je výchozí umístění klienta webové aplikace pro tuto ukázku kódu.
-- Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. Budete ho potřebovat později.
-
- [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+* Jste do aplikace zahrnuli **webovou aplikaci** nebo **webové rozhraní API**.
+* Pro webovou aplikaci používáte **identifikátor URI přesměrování** `https://localhost:44316/`. Toto je výchozí umístění klienta webové aplikace pro tuto ukázku kódu.
+* Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. Budete ho potřebovat později.
+  
+  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Vytvořte svoje zásady
-
 V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Klient v této ukázce kódu obsahuje tři činnosti identity: registrace, přihlášení a úprava profilu. Pro každý typ činnosti musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Když vytváříte tyto tři zásady, nezapomeňte:
 
-- Zvolit v okně zprostředkovatelé identity buď **Registrace pomocí ID uživatele** nebo **Registrace pomocí e-mailu**.
-- Zvolit **Zobrazovaný název** a další atributy registrace ve svojí registrační zásadě.
-- Zvolit **Zobrazovaný název** a deklarace identity **ID objektu** jako deklarace identity aplikace v každé zásadě. Můžete zvolit i další deklarace identity.
-- Po vytvoření každé zásady si poznamenejte její **Název**. Tyto názvy zásad budete potřebovat později.
+* Zvolit v okně zprostředkovatelé identity buď **Registrace pomocí ID uživatele** nebo **Registrace pomocí e-mailu**.
+* Zvolit **Zobrazovaný název** a další atributy registrace ve svojí registrační zásadě.
+* Zvolit **Zobrazovaný název** a deklarace identity **ID objektu** jako deklarace identity aplikace v každé zásadě. Můžete zvolit i další deklarace identity.
+* Po vytvoření každé zásady si poznamenejte její **Název**. Tyto názvy zásad budete potřebovat později.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Po úspěšném vytvoření těchto tří zásad jste připraveni k sestavení aplikace.
 
 ## Stáhněte si kód
-
 Kód k tomuto kurzu [je udržovaný na GitHubu](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Chcete-li během čtení tohoto návodu rovnou sestavit ukázku, můžete si [stáhnout kostru projektu v souboru ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Kostru můžete také klonovat:
 
 ```
@@ -63,7 +57,6 @@ Dokončená aplikace je také [k dispozici jako soubor ZIP](https://github.com/A
 Po stažení ukázkového kódu otevřete soubor Visual Studio .sln, abyste mohli začít. Soubor řešení obsahuje dva projekty: `TaskWebApp` a `TaskService`. `TaskWebApp` je webová aplikace MVC, se kterou uživatel komunikuje. `TaskService` je back-endové webové rozhraní API aplikace, které ukládá seznam úkolů každého uživatele.
 
 ## Konfigurace webové aplikace úkolů
-
 Když uživatel komunikuje s `TaskWebApp`, klient odešle požadavky do Azure AD a získá zpět tokeny, které lze použít k volání webového rozhraní API `TaskService`. Chcete-li přihlásit uživatele a získat tokeny, musíte poskytnout `TaskWebApp` určité informace o vaší aplikaci. V projektu `TaskWebApp` otevřete v kořenovém adresáři projektu soubor `web.config` a nahraďte hodnoty v oddílu `<appSettings>`.  Hodnoty `AadInstance`, `RedirectUri` a `TaskServiceUrl` můžete ponechat jak jsou.
 
 ```
@@ -86,7 +79,6 @@ Když uživatel komunikuje s `TaskWebApp`, klient odešle požadavky do Azure AD
 Tento článek nezahrnuje sestavení klienta `TaskWebApp`.  Postup tvorby webových aplikací pomocí Azure AD B2C naleznete v části [náš kurz webových aplikací .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Zabezpečení rozhraní API
-
 Pokud máte klienta, který volá rozhraní API jménem uživatele, můžete `TaskService` zabezpečit pomocí nosných tokenů OAuth 2.0. Vaše rozhraní API může přijímat a ověřovat tokeny pomocí knihovny Microsoft's Open Web Interface pro .NET (OWIN).
 
 ### Instalace OWIN
@@ -118,7 +110,6 @@ Otevřete soubor `web.config` v kořenovém adresáři projektu `TaskService` a 
 
 ### Přidání třídy pro spuštění OWIN
 Přidejte třídu pro spuštění OWIN s názvem `Startup.cs` do projektu `TaskService`.  Klikněte pravým tlačítkem myši na projekt, vyberte **Přidat** a **Nová položka**, a poté vyhledejte OWIN.
-
 
 ```C#
 // Startup.cs
@@ -203,11 +194,9 @@ public IEnumerable<Models.Task> Get()
 ```
 
 ## Spuštění ukázkové aplikace
-
 Nakonec sestavte a spusťte `TaskWebApp` a `TaskService`. Zaregistrujte se do aplikace pomocí e-mailové adresy nebo uživatelského jména. Vytvořte nějaké úkoly v seznamu úkolů uživatele a všimněte si, že jsou zachované v rozhraní API i po vypnutí a restartování klienta.
 
 ## Úprava zásad
-
 Po zabezpečení rozhraní API pomocí Azure AD B2C můžete experimentovat se zásadami svojí aplikace a zjistit, jaký vliv mají (nebo nemají) na rozhraní API. Můžete také manipulovat s deklaracemi identity aplikace v zásadách a změnit, jaké informace o uživateli mají být přístupné v rozhraní API. Jakékoli přidané deklarace identity budou dostupné vašemu webovému rozhraní API .NET MVC v objektu `ClaimsPrincipal`, jak je popsáno výše.
 
 <!--

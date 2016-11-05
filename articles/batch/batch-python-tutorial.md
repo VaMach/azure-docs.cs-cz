@@ -1,77 +1,71 @@
-<properties
-    pageTitle="Kurz – začínáme s klientem Azure Batch Python | Microsoft Azure"
-    description="Seznamte se se základními koncepty Azure Batch a s postupy vývoje služby Batch pomocí jednoduchého scénáře."
-    services="batch"
-    documentationCenter="python"
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+---
+title: Kurz – začínáme s klientem Azure Batch Python | Microsoft Docs
+description: Seznamte se se základními koncepty Azure Batch a s postupy vývoje služby Batch pomocí jednoduchého scénáře.
+services: batch
+documentationcenter: python
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="batch"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-compute"
-    ms.date="09/27/2016"
-    ms.author="marsma"/>
+ms.service: batch
+ms.devlang: python
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-compute
+ms.date: 09/27/2016
+ms.author: marsma
 
-
+---
 # Začínáme s klientem Azure Batch Python
+> [!div class="op_single_selector"]
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [.NET](batch-dotnet-get-started.md)
-- [Python](batch-python-tutorial.md)
-
-V tomto článku probereme malou aplikaci Batch napsanou v Pythonu a vy se seznámíte se základními informacemi o službě [Azure Batch][azure_batch] a klientovi [Batch Python][py_azure_sdk]. Podíváme se, jak dva ukázkové skripty využívají službu Batch ke zpracování paralelní úlohy na linuxových virtuálních počítačích v cloudu, a také, jak tyto počítače komunikují se službou [Azure Storage](./../storage/storage-introduction.md) při přípravě a načítání souborů. Seznámíte se s běžným pracovním postupem aplikací Batch a získáte základní přehled o součástech služby Batch, například o úlohách, úkolech, fondech a výpočetních uzlech.
+V tomto článku probereme malou aplikaci Batch napsanou v Pythonu a vy se seznámíte se základními informacemi o službě [Azure Batch][azure_batch] a klientovi [Batch Python][py_azure_sdk]. Podíváme se, jak dva ukázkové skripty využívají službu Batch ke zpracování paralelní úlohy na linuxových virtuálních počítačích v cloudu, a také, jak tyto počítače komunikují se službou [Azure Storage](../storage/storage-introduction.md) při přípravě a načítání souborů. Seznámíte se s běžným pracovním postupem aplikací Batch a získáte základní přehled o součástech služby Batch, například o úlohách, úkolech, fondech a výpočetních uzlech.
 
 ![Pracovní postup řešení Batch (základní)][11]<br/>
 
 ## Požadavky
-
 Tento článek předpokládá, že máte praktické znalosti Pythonu a umíte do jisté míry pracovat s Linuxem. Předpokládá také, že dokážete splnit požadavky na vytvoření účtů Azure, služby Batch a služby Storage, které jsou uvedeny níže.
 
 ### Účty
-
-- **Účet Azure**: Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet Azure][azure_free_account].
-- **Účet Batch**: Po pořízení předplatného Azure si [vytvořte účet Azure Batch](batch-account-create-portal.md).
-- **Účet Storage**: Viz část [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
+* **Účet Azure**: Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet Azure][azure_free_account].
+* **Účet Batch**: Po pořízení předplatného Azure si [vytvořte účet Azure Batch](batch-account-create-portal.md).
+* **Účet Storage**: Viz část [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
 
 ### Ukázka kódu
-
 Pythonu pro tento kurz [Ukázka kódu][github_article_samples] je jednou z mnoha ukázek kódu služby Batch, které najdete v úložišti na GitHubu [azure-batch-samples][github_samples]. Všechny ukázky můžete stáhnout kliknutím na **Klonovat nebo stáhnout > Stáhnout ZIP** na domovské stránce úložiště, nebo kliknutím na přímý odkaz ke stažení [azure-batch-samples-master.zip][github_samples_zip]. Po extrahování obsahu souboru ZIP najdete oba skripty pro tento kurzu v adresáři `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### Prostředí Python
-
 Abyste mohli spustit ukázkový skript *python_tutorial_client.py* na místní pracovní stanici, budete potřebovat **překladač Pythonu**, který je kompatibilní s verzí **2.7** nebo **3.3+**. Skript byl otestován v Linuxu i Windows.
 
 ### závislosti kryptografie
-
 Je nutné nainstalovat závislosti pro knihovnu [kryptografie][crypto], které vyžadují balíčky Pythonu `azure-batch` a `azure-storage`. Proveďte jednu z následujících operací, které jsou vhodné pro vaši platformu, nebo si přečtěte podrobnosti o [instalaci kryptografie][crypto_install], kde najdete další informace:
 
 * Ubuntu
-
+  
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
-
 * CentOS
-
+  
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
-
 * SLES/OpenSUSE
-
+  
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
-
 * Windows
-
+  
     `pip install cryptography`
 
->[AZURE.NOTE] Pokud instalujete Python 3.3+ na Linuxu, použijte pro závislosti Pythonu ekvivalenty python3. Například na Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+> [!NOTE]
+> Pokud instalujete Python 3.3+ na Linuxu, použijte pro závislosti Pythonu ekvivalenty python3. Například na Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+> 
+> 
 
 ### Balíčky Azure
-
 Následně nainstalujte balíčky Pythonu pro **Azure Batch** a **Azure Storage**. Můžete to provést pomocí příkazu **pip** a souboru *requirements.txt*, které jsou k dispozici zde:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -85,17 +79,17 @@ Nebo můžete balíčky Pythonu [azure-batch][pypi_batch] a [azure-storage][pypi
 `pip install azure-batch`<br/>
 `pip install azure-storage`
 
-> [AZURE.TIP] Pokud používáte neprivilegovaný účet, může být potřeba, abyste k příkazům přidali předponu `sudo`, například `sudo pip install -r requirements.txt`. Další informace o instalaci balíčků Python najdete v článku [Instalace balíčků][pypi_install] na readthedocs.io.
+> [!TIP]
+> Pokud používáte neprivilegovaný účet, může být potřeba, abyste k příkazům přidali předponu `sudo`, například `sudo pip install -r requirements.txt`. Další informace o instalaci balíčků Python najdete v článku [Instalace balíčků][pypi_install] na readthedocs.io.
+> 
+> 
 
 ## Ukázka kódu Pythonu pro službu Batch
-
 Ukázka kódu Pythonu pro službu Batch se skládá ze dvou skriptů Pythonu a několika datových souborů.
 
-- **python_tutorial_client.py**: Komunikuje se službou Batch a se službou Storage při spouštění paralelní úlohy na výpočetních uzlech (virtuálních počítačích). Skript *python_tutorial_client.py* se spouští na místní pracovní stanici.
-
-- **python_tutorial_task.py**: Skript, který běží na výpočetních uzlech v Azure a provádí samotnou práci. Skript *python_tutorial_task.py* v tomto příkladu analyzuje text v souboru staženém ze služby Azure Storage (vstupní soubor). Potom vytvoří textový soubor (výstupní soubor), který obsahuje seznam nejčastějších tří slov, která se zobrazují ve vstupním souboru. Po vytvoření výstupního souboru skript *python_tutorial_task.py* odešle soubor do služby Azure Storage. Soubor tak bude dostupný pro stažení do klientského skriptu, který běží na pracovní stanici. Skript *python_tutorial_task.py* běží paralelně v několika výpočetních uzlech v rámci služby Batch.
-
-- **./data/taskdata\*.txt**: Tyto tři textové soubory zajišťují vstup pro úkoly, které jsou spouštěné na výpočetních uzlech.
+* **python_tutorial_client.py**: Komunikuje se službou Batch a se službou Storage při spouštění paralelní úlohy na výpočetních uzlech (virtuálních počítačích). Skript *python_tutorial_client.py* se spouští na místní pracovní stanici.
+* **python_tutorial_task.py**: Skript, který běží na výpočetních uzlech v Azure a provádí samotnou práci. Skript *python_tutorial_task.py* v tomto příkladu analyzuje text v souboru staženém ze služby Azure Storage (vstupní soubor). Potom vytvoří textový soubor (výstupní soubor), který obsahuje seznam nejčastějších tří slov, která se zobrazují ve vstupním souboru. Po vytvoření výstupního souboru skript *python_tutorial_task.py* odešle soubor do služby Azure Storage. Soubor tak bude dostupný pro stažení do klientského skriptu, který běží na pracovní stanici. Skript *python_tutorial_task.py* běží paralelně v několika výpočetních uzlech v rámci služby Batch.
+* **./data/taskdata\*.txt**: Tyto tři textové soubory zajišťují vstup pro úkoly, které jsou spouštěné na výpočetních uzlech.
 
 Následující diagram znázorňuje primární operace, které provádí klientský skript a skript úkolu. Tento základní pracovní postup je typický pro mnoho výpočetních řešení, která jsou vytvořená pomocí služby Batch. I když nepředvádí všechny funkce, které jsou ve službě Batch dostupné, téměř každý scénář Batch bude obsahovat části tohoto pracovního postupu.
 
@@ -116,7 +110,6 @@ Následující diagram znázorňuje primární operace, které provádí klients
 Jak jsme už zmínili, ne každé řešení Batch provede právě tyto kroky a může jich dokonce obsahovat mnohem víc, ale tato ukázka představuje procesy, které běžně bývají v řešení Batch.
 
 ## Příprava klientského skriptu
-
 Před spuštěním ukázky přidejte do skriptu *python_tutorial_client.py* přihlašovací údaje k účtu Batch a účtu Storage. Pokud jste to ještě neudělali, otevřete soubor ve svém oblíbeném editoru a aktualizujte následující řádky pomocí svých přihlašovacích údajů.
 
 ```python
@@ -148,15 +141,14 @@ if __name__ == '__main__':
 ```
 
 ## Krok 1: Vytvoření kontejnerů služby Storage
-
 ![Vytvoření kontejnerů ve službě Azure Storage][1]
 <br/>
 
 Batch obsahuje vestavěnou podporu pro komunikaci se službou Azure Storage. Kontejnery v účtu Storage poskytnou soubory, které potřebují úkoly spuštěné v účtu Batch. Kontejnery také poskytují místo pro ukládání výstupních dat, která úkoly vytvářejí. Skript *python_tutorial_client.py* nejdřív vytvoří tři kontejnery ve službě [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
 
-- **aplikace**: Tento kontejner bude ukládat skript Pythonu spuštěný úkoly, *python_tutorial_task.py*.
-- **input**: Datové soubory ke zpracování budou úkoly stahovat z kontejneru *input*.
-- **output**: Když úkoly dokončí zpracování vstupního souboru, odešlou výsledky do kontejneru *output*.
+* **aplikace**: Tento kontejner bude ukládat skript Pythonu spuštěný úkoly, *python_tutorial_task.py*.
+* **input**: Datové soubory ke zpracování budou úkoly stahovat z kontejneru *input*.
+* **output**: Když úkoly dokončí zpracování vstupního souboru, odešlou výsledky do kontejneru *output*.
 
 K práci s účtem Storage a k vytvoření kontejnerů používáme balíček [azure-storage][pypi_storage], abychom vytvořili objekt [BlockBlobService][py_blockblobservice] objekt – „klienta objektů blob“. Potom pomocí klienta objektů blob vytvoříme tři kontejnery v účtu Storage.
 
@@ -179,10 +171,12 @@ K práci s účtem Storage a k vytvoření kontejnerů používáme balíček [a
 
 Po vytvoření kontejnerů může aplikace začít odesílat soubory, které budou úkoly používat.
 
-> [AZURE.TIP] Článek [Použití služby Azure Blob Storage z Pythonu](../storage/storage-python-how-to-use-blob-storage.md) nabízí pěkný přehled o práci s kontejnery a objekty blob ve službě Azure Storage. Když začnete pracovat se službou Batch, je určitě na místě si ten článek přečíst.
+> [!TIP]
+> Článek [Použití služby Azure Blob Storage z Pythonu](../storage/storage-python-how-to-use-blob-storage.md) nabízí pěkný přehled o práci s kontejnery a objekty blob ve službě Azure Storage. Když začnete pracovat se službou Batch, je určitě na místě si ten článek přečíst.
+> 
+> 
 
 ## Krok 2: Odeslání skriptu úkolu a datových souborů
-
 ![Odeslání aplikačních a vstupních (datových) souborů úkolů do kontejnerů][2]
 <br/>
 
@@ -251,28 +245,27 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 ```
 
 ### ResourceFiles
-
 [ResourceFile][py_resource_file] vybavuje úkoly ve službě Batch adresou URL k souboru ve službě Azure Storage, který je stažen do výpočetního uzlu před spuštěním tohoto úkolu. Vlastnost [ResourceFile][py_resource_file].**blob_source** určuje úplnou adresu URL souboru, protože existuje ve službě Azure Storage. Adresa URL může obsahovat také sdílený přístupový podpis (SAS), který zajišťuje zabezpečený přístup k souboru. Většina typů úkolů ve službě Batch obsahuje vlastnost *ResourceFiles* včetně:
 
-- [CloudTask][py_task]
-- [StartTask][py_starttask]
-- [JobPreparationTask][py_jobpreptask]
-- [JobReleaseTask][py_jobreltask]
+* [CloudTask][py_task]
+* [StartTask][py_starttask]
+* [JobPreparationTask][py_jobpreptask]
+* [JobReleaseTask][py_jobreltask]
 
 Ukázka nepoužívá typy úloh JobPreparationTask nebo JobReleaseTask, ale můžete si o nich přečíst v článku [Spouštění úkolů přípravy a dokončení úlohy na výpočetních uzlech Azure Batch](batch-job-prep-release.md).
 
 ### Sdílený přístupový podpis (SAS)
-
 Sdílené přístupové podpisy jsou řetězce, které zajišťují zabezpečený přístup ke kontejnerům a objektům blob ve službě Azure Storage. Skript *python_tutorial_client.py* používá sdílené přístupové podpisy objektu blob i kontejneru a ukazuje, jak můžete tyto řetězce sdíleného přístupového podpisu získat ze služby Storage.
 
-- **Sdílené přístupové podpisy objektů blob**: StartTask fondu používá sdílené přístupové podpisy objektů blob při stahování skriptu úkolu a vstupních datových souborů ze služby Storage (viz [krok 3](#step-3-create-batch-pool) níže). Funkce `upload_file_to_container` v skriptu *python_tutorial_client.py* obsahuje kód, který získá sdílený přístupový podpis jednotlivých objektů blob. Provede to voláním [BlockBlobService.make_blob_url][py_make_blob_url] v modulu služby Storage.
+* **Sdílené přístupové podpisy objektů blob**: StartTask fondu používá sdílené přístupové podpisy objektů blob při stahování skriptu úkolu a vstupních datových souborů ze služby Storage (viz [krok 3](#step-3-create-batch-pool) níže). Funkce `upload_file_to_container` v skriptu *python_tutorial_client.py* obsahuje kód, který získá sdílený přístupový podpis jednotlivých objektů blob. Provede to voláním [BlockBlobService.make_blob_url][py_make_blob_url] v modulu služby Storage.
+* **Sdílený přístupový podpis kontejneru**: Když každý úkol dokončí svojí práci ve výpočetním uzlu, odešle svůj výstupní soubor do kontejneru *výstupního* kontejneru ve službě Azure Storage. Aby to mohl udělat, skript *python_tutorial_task.py* použije sdílený přístupový podpis kontejneru, který nabízí oprávnění k zápisu do kontejneru. Funkce `get_container_sas_token` ve skriptu *python_tutorial_client.py* získá sdílený přístupový podpis kontejneru, který se potom předá do úkolů jako argument příkazového řádku. Krok 5 [Přidání úkolů do úlohy](#step-5-add-tasks-to-job) popisuje použití sdíleného přístupového podpisu kontejneru.
 
-- **Sdílený přístupový podpis kontejneru**: Když každý úkol dokončí svojí práci ve výpočetním uzlu, odešle svůj výstupní soubor do kontejneru *výstupního* kontejneru ve službě Azure Storage. Aby to mohl udělat, skript *python_tutorial_task.py* použije sdílený přístupový podpis kontejneru, který nabízí oprávnění k zápisu do kontejneru. Funkce `get_container_sas_token` ve skriptu *python_tutorial_client.py* získá sdílený přístupový podpis kontejneru, který se potom předá do úkolů jako argument příkazového řádku. Krok 5 [Přidání úkolů do úlohy](#step-5-add-tasks-to-job) popisuje použití sdíleného přístupového podpisu kontejneru.
-
-> [AZURE.TIP] Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou objektů blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu Storage.
+> [!TIP]
+> Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou objektů blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu Storage.
+> 
+> 
 
 ## Krok 3: Vytvoření fondu služby Batch
-
 ![Vytvoření fondu služby Batch][3]
 <br/>
 
@@ -362,24 +355,22 @@ def create_pool(batch_service_client, pool_id,
 
 Při vytváření fondu můžete definovat [PoolAddParameter][py_pooladdparam], který určuje několik vlastností fondu:
 
-- **ID** fondu (*id* – povinné)<p/>Stejně jako u většiny entit ve službě Batch musí mít nový fond v rámci účtu Batch jedinečné ID. Kód bude na tento fond odkazovat pomocí jeho ID, a proto záleží na vás, jak tento fond na webu [Azure Portal][azure_portal] identifikujete.
-
-- **Počet výpočetních uzlů** (*target_dedicated* – povinné)<p/>Tato vlastnost určuje, kolik virtuálních počítačů má být ve fondu nasazeno. Je důležité, abyste si všimli, že všechny účty Batch mají výchozí **kvótu**, která omezuje počet **jader** (a tedy výpočetních uzlů) na účtu Batch. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) (například maximální počet jader na účtu Batch) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Možná vás někdy napadne otázka, proč váš fond nedosahuje víc než X uzlů. příčinou může být tato kvóta na jádra.
-
-- **Operační systém** uzlů (*virtual_machine_configuration* **nebo** *cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config]. Funkce `select_latest_verified_vm_image_with_node_agent_sku` v `common.helpers` zjednodušuje práci s imagemi z [Azure Virtual Machines Marketplace][vm_marketplace]. Další informace o používání imagí z Marketplace najdete v tématu [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
-
-- **Velikost výpočetních uzlů** (*vm_size* – povinné)<p/>Vzhledem k tomu, že zadáváme linuxové uzly pro naší [VirtualMachineConfiguration][py_vm_config], zadáme velikost virtuálního počítače (`STANDARD_A1` v této ukázce) podle článku [Velikosti virtuálních počítačů v Azure](../virtual-machines/virtual-machines-linux-sizes.md). Další informace opět najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
-
-- **Spustit úkol** (*start_task* – nepovinné)<p/>Spolu s výše uvedenými fyzickými vlastnostmi uzlu můžete určit také [StartTask][py_starttask] fondu (nepovinné). Úkol StartTask se spustí na každém uzlu, když se takový uzel připojí k fondu, a také pokaždé, když se uzel restartuje. StartTask je zvláště užitečný pro přípravu výpočetních uzlů k provádění úkolů, například k instalaci aplikací, které budou vaše úkoly spouštět.<p/>V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze služby Storage (které je určené vlastností **resource_files** ze StartTask) z *pracovního adresáře* StartTask do *sdíleného* adresáře, ke kterému mají přístup všechny úkoly spuštěné v takovém uzlu. V podstatě zkopíruje soubor `python_tutorial_task.py` do sdíleného adresáře v každém uzlu v okamžiku, kdy se uzel připojí k fondu, aby každý úkol spuštěný v uzlu měl k tomuto souboru přístup.
+* **ID** fondu (*id* – povinné)<p/>Stejně jako u většiny entit ve službě Batch musí mít nový fond v rámci účtu Batch jedinečné ID. Kód bude na tento fond odkazovat pomocí jeho ID, a proto záleží na vás, jak tento fond na webu [Azure Portal][azure_portal] identifikujete.
+* **Počet výpočetních uzlů** (*target_dedicated* – povinné)<p/>Tato vlastnost určuje, kolik virtuálních počítačů má být ve fondu nasazeno. Je důležité, abyste si všimli, že všechny účty Batch mají výchozí **kvótu**, která omezuje počet **jader** (a tedy výpočetních uzlů) na účtu Batch. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) (například maximální počet jader na účtu Batch) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Možná vás někdy napadne otázka, proč váš fond nedosahuje víc než X uzlů. příčinou může být tato kvóta na jádra.
+* **Operační systém** uzlů (*virtual_machine_configuration* **nebo** *cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config]. Funkce `select_latest_verified_vm_image_with_node_agent_sku` v `common.helpers` zjednodušuje práci s imagemi z [Azure Virtual Machines Marketplace][vm_marketplace]. Další informace o používání imagí z Marketplace najdete v tématu [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
+* **Velikost výpočetních uzlů** (*vm_size* – povinné)<p/>Vzhledem k tomu, že zadáváme linuxové uzly pro naší [VirtualMachineConfiguration][py_vm_config], zadáme velikost virtuálního počítače (`STANDARD_A1` v této ukázce) podle článku [Velikosti virtuálních počítačů v Azure](../virtual-machines/virtual-machines-linux-sizes.md). Další informace opět najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
+* **Spustit úkol** (*start_task* – nepovinné)<p/>Spolu s výše uvedenými fyzickými vlastnostmi uzlu můžete určit také [StartTask][py_starttask] fondu (nepovinné). Úkol StartTask se spustí na každém uzlu, když se takový uzel připojí k fondu, a také pokaždé, když se uzel restartuje. StartTask je zvláště užitečný pro přípravu výpočetních uzlů k provádění úkolů, například k instalaci aplikací, které budou vaše úkoly spouštět.<p/>V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze služby Storage (které je určené vlastností **resource_files** ze StartTask) z *pracovního adresáře* StartTask do *sdíleného* adresáře, ke kterému mají přístup všechny úkoly spuštěné v takovém uzlu. V podstatě zkopíruje soubor `python_tutorial_task.py` do sdíleného adresáře v každém uzlu v okamžiku, kdy se uzel připojí k fondu, aby každý úkol spuštěný v uzlu měl k tomuto souboru přístup.
 
 Můžete si povšimnout volání pomocné funkce `wrap_commands_in_shell`. Tato funkce vezme kolekci samostatných příkazů a vytvoří jeden příkazový řádek, který odpovídá vlastnosti příkazového řádku úkolu.
 
 Ve výše uvedeném fragmentu kódu je také zajímavé použití dvou proměnných prostředí ve vlastnosti **command_line** v StartTask: `AZ_BATCH_TASK_WORKING_DIR` a `AZ_BATCH_NODE_SHARED_DIR`. Každý výpočetní uzel v rámci fondu Batch je automaticky nakonfigurovaný pomocí řady proměnných prostředí, které se týkají služby Batch. Jakýkoli proces spuštěný úkolem má přístup k těmto proměnným prostředí.
 
-> [AZURE.TIP] Další informace o proměnných prostředí, které jsou dostupné na výpočetní uzlech ve fondu Batch, a také informace o pracovních adresářích úkolu najdete v částech **Nastavení prostředí pro úkoly** a **Soubory a adresáře** v článku [Přehled funkcí Azure Batch](batch-api-basics.md).
+> [!TIP]
+> Další informace o proměnných prostředí, které jsou dostupné na výpočetní uzlech ve fondu Batch, a také informace o pracovních adresářích úkolu najdete v částech **Nastavení prostředí pro úkoly** a **Soubory a adresáře** v článku [Přehled funkcí Azure Batch](batch-api-basics.md).
+> 
+> 
 
 ## Krok 4: Vytvoření úlohy Batch
-
 ![Vytvoření úlohy Batch][4]<br/>
 
 **Úloha** Batch je kolekcí úkolů a je přidružená k fondu výpočetních uzlů. Úkoly v úloze se spustit na přidružených výpočetních uzlech fondu.
@@ -414,7 +405,6 @@ def create_job(batch_service_client, job_id, pool_id):
 Po vytvoření úlohy budou přidány úkoly, které budou provádět práci.
 
 ## Krok 5: Přidání úkolů do úlohy
-
 ![Přidání úkolů do úlohy][5]<br/>
 *(1) Úkoly jsou přidány do úlohy, (2) úkoly jsou naplánovány ke spuštění na uzlech a (3) úkoly stahují datové soubory ke zpracování*
 
@@ -464,18 +454,17 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] Když přistupují k proměnným prostředí, například k `$AZ_BATCH_NODE_SHARED_DIR`, nebo když spouští aplikaci, která se nedá najít na `PATH` uzlu, musí příkazové řádky úkolu vyvolat prostředí explicitně, například pomocí `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Tento požadavek není nutný, pokud vaše úkoly spouští aplikace v `PATH` uzlu a neodkazují na žádné proměnné prostředí.
+> [!IMPORTANT]
+> Když přistupují k proměnným prostředí, například k `$AZ_BATCH_NODE_SHARED_DIR`, nebo když spouští aplikaci, která se nedá najít na `PATH` uzlu, musí příkazové řádky úkolu vyvolat prostředí explicitně, například pomocí `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Tento požadavek není nutný, pokud vaše úkoly spouští aplikace v `PATH` uzlu a neodkazují na žádné proměnné prostředí.
+> 
+> 
 
 Ve smyčce `for` ve výše uvedeném fragmentu kódu můžete vidět, že příkazový řádek úkolu je vytvořený pomocí pěti argumentů příkazového řádku, které se předávají do skriptu *python_tutorial_task.py*:
 
 1. **filepath**: Jedná se o místní cestu k souboru, protože soubor existuje na uzlu. Když byl objekt ResourceFile v `upload_file_to_container` ve výše uvedeném kroku 2 vytvořený, použil se pro tuto vlastnost název souboru (parametr `file_path` v konstruktoru ResourceFile). To znamená, že soubor můžete najít ve stejném adresáři na uzlu jako skript *python_tutorial_task.py*.
-
 2. **numwords**: *N* nejčastějších slov, která musí být zapsaná do výstupního souboru.
-
 3. **storageaccount**: Název účtu Storage, který vlastní kontejner, do kterého se musí odesílat výstup úkolu.
-
 4. **storagecontainer**: Název kontejneru Storage, do kterého se musí odesílat výstupní soubory.
-
 5. **sastoken**: Sdílený přístupový podpis (SAS), který zajišťuje oprávnění k zápisu do **výstupního** kontejneru ve službě Azure Storage. Skript *python_tutorial_task.py* používá tento sdílený přístupový podpis při vytváření svého odkazu BlockBlobService. Tím je zajištěné oprávnění k zápisu do kontejneru bez potřeby přístupového klíče k účtu úložiště.
 
 ```python
@@ -489,7 +478,6 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 ```
 
 ## Krok 6: Sledování úkolů
-
 ![Sledování úkolů][6]<br/>
 *Skript (1) sleduje stav dokončení úkolů a (2) úkoly odesílají výsledná data do služby Azure Storage.*
 
@@ -533,7 +521,6 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## Krok 7: Stažení výstupu úkolu
-
 ![Stažení výstupu úkolu ze služby Storage][7]<br/>
 
 Po dokončení úlohy můžete ze služby Azure Storage stáhnout výstup úkolů. Provádí se to voláním `download_blobs_from_container` ve skriptu *python_tutorial_client.py*:
@@ -570,10 +557,12 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] Volání `download_blobs_from_container` ve skriptu *python_tutorial_client.py* určuje, že soubory mají být stažené do vašeho domovského adresáře. Umístění výstupu můžete podle libosti změnit.
+> [!NOTE]
+> Volání `download_blobs_from_container` ve skriptu *python_tutorial_client.py* určuje, že soubory mají být stažené do vašeho domovského adresáře. Umístění výstupu můžete podle libosti změnit.
+> 
+> 
 
 ## Krok 8: Odstranění kontejnerů
-
 Vzhledem k tomu, že musíte platit za data, která si necháváte ve službě Azure Storage, doporučujeme odebrat všechny objekty blob, které už pro úlohy Batch nepotřebujete. Ve skriptu *python_tutorial_client.py* se to provádí pomocí tří volání [BlockBlobService.delete_container][py_delete_container]:
 
 ```
@@ -585,7 +574,6 @@ blob_client.delete_container(output_container_name)
 ```
 
 ## Krok 9: Odstranění úlohy a fondu
-
 V posledním kroku budete vyzváni k odstranění úlohy a fondu, které vytvořil skript *python_tutorial_client.py*. I když se vám neúčtují poplatky za úlohy a úkoly samotné, *účtují* se vám poplatky za výpočetní uzly. Proto doporučujeme, abyste uzly přidělovali, jen když je to potřeba. Odstraňování nepoužívaných fondů by mělo být součástí vašeho standardního procesu údržby.
 
 [JobOperations][py_job] a [PoolOperations][py_pool] z BatchServiceClient mají odpovídající metody odstranění, které se volají, pokud potvrdíte odstranění:
@@ -599,13 +587,18 @@ if query_yes_no('Delete pool?') == 'yes':
     batch_client.pool.delete(_POOL_ID)
 ```
 
-> [AZURE.IMPORTANT] Pamatujte, že se vám účtují poplatky za výpočetní prostředky, takže odstranění nepoužívaných fondů vám ušetří náklady. Musíme ale upozornit, že odstraněním fondu odstraníte všechny výpočetní uzly v takovém fondu a veškerá data na uzlech budou po odstranění fondu ztracená.
+> [!IMPORTANT]
+> Pamatujte, že se vám účtují poplatky za výpočetní prostředky, takže odstranění nepoužívaných fondů vám ušetří náklady. Musíme ale upozornit, že odstraněním fondu odstraníte všechny výpočetní uzly v takovém fondu a veškerá data na uzlech budou po odstranění fondu ztracená.
+> 
+> 
 
 ## Spuštění ukázkového skriptu
-
 Při spuštění skriptu *python_tutorial_client.py* z [ukázky kódu][github_article_samples] pro tento kurz bude výstup konzoly podobný následujícímu. Zatímco se vytvářejí a spouští výpočetní uzly fondu a provádí se příkazy ve spouštěcím úkolu fondu, uvidíte pozastavení na `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Ke sledování fondu, výpočetních uzlů, úlohy a úkolů během a po spuštění použijte web [Azure Portal][azure_portal]. K zobrazení prostředků služby Storage (kontejnerů a objektů blob), které vytvořila aplikace, použijte [portál Azure][azure_portal] nebo [průzkumník služby Microsoft Azure Storage][storage_explorers] .
 
->[AZURE.TIP] Z adresáře `azure-batch-samples/Python/Batch/article_samples` spusťte skript *python_tutorial_client.py*. Protože pro import modulu `common.helpers` používá relativní cestu, může se při spuštění mimo tento adresář zobrazit chyba `ImportError: No module named 'common'`.
+> [!TIP]
+> Z adresáře `azure-batch-samples/Python/Batch/article_samples` spusťte skript *python_tutorial_client.py*. Protože pro import modulu `common.helpers` používá relativní cestu, může se při spuštění mimo tento adresář zobrazit chyba `ImportError: No module named 'common'`.
+> 
+> 
 
 Typická doba provádění je **přibližně 5-7 minut**, pokud ukázku spustíte ve výchozí konfiguraci.
 
@@ -638,14 +631,13 @@ Press ENTER to exit...
 ```
 
 ## Další kroky
-
 Nebojte se provést ve skriptech *python_tutorial_client.py* a *python_tutorial_task.py* změny a experimentovat s různými výpočetními scénáři. Zkuste například do skriptu *python_tutorial_task.py* přidat prodlevu provádění, abyste mohli simulovat dlouhotrvající úkoly a sledovat je na portálu. Zkuste přidat další úkoly nebo upravit počet výpočetních uzlů. Přidejte logiku pro kontrolu a povolení použití existujícího fondu, abyste urychlili dobu spouštění.
 
 Teď, když jste se seznámili se základním pracovním postupem řešení Batch, je čas proniknout do dalších funkcí služby Batch.
 
-- Přečtěte si článek [Přehled funkcí Azure Batch](batch-api-basics.md), který doporučujeme všem novým uživatelům služby.
-- Začněte u dalších článků o vývoji pro službu Batch, které najdete v [Mapě kurzů služby Batch][batch_learning_path] v části **Podrobný popis vývoje**.
-- Podívejte se na různé implementace zpracování úlohy „N nejčastějších slov“ a použijte k tomu Batch v ukázce [TopNWords][github_topnwords].
+* Přečtěte si článek [Přehled funkcí Azure Batch](batch-api-basics.md), který doporučujeme všem novým uživatelům služby.
+* Začněte u dalších článků o vývoji pro službu Batch, které najdete v [Mapě kurzů služby Batch][batch_learning_path] v části **Podrobný popis vývoje**.
+* Podívejte se na různé implementace zpracování úlohy „N nejčastějších slov“ a použijte k tomu Batch v ukázce [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

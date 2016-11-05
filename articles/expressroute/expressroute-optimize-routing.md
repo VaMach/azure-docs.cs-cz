@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Optimalizace směrování ExpressRoute | Microsoft Azure"
-   description="Tato stránka obsahuje podrobné informace o tom, jak optimalizovat směrování, pokud zákazník má více než jeden okruh ExpressRoute, který poskytuje připojení mezi Microsoftem a podnikovou sítí zákazníka."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optimalizace směrování ExpressRoute | Microsoft Docs
+description: Tato stránka obsahuje podrobné informace o tom, jak optimalizovat směrování, pokud zákazník má více než jeden okruh ExpressRoute, který poskytuje připojení mezi Microsoftem a podnikovou sítí zákazníka.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Optimalizace směrování ExpressRoute
 Pokud máte víc okruhů ExpressRoute, máte více než jednu cestu, jak se připojit k Microsoftu. V důsledku toho může dojít k neoptimálnímu směrování, to znamená, že přenosy dat mezi vaší sítí a Microsoftem mohou použít delší cestu. Čím delší je síťová cesta, tím větší je latence. Latence má přímý vliv na výkon aplikací a činnost koncového uživatele. Tento článek popíše tento problém a vysvětlí možnosti optimalizace směrování pomocí standardních technologií směrování.
 
@@ -39,13 +39,17 @@ Existují dvě řešení problému. První z nich je, že budete jednoduše inze
 
 Druhým řešením je, že budete nadále inzerovat obě předpony v obou okruzích ExpressRoute a kromě toho nám dáte vědět, která předpona je blíž ke které z poboček. Protože podporujeme předřazení protokolu BGP AS PATH, můžete konfigurovat cestu AS PATH pro vaši předponu a ovlivnit směrování. V tomto příkladu lze prodloužit AS PATH pro 172.2.0.0/31 v oblasti USA – východ tak, abychom pro přenos dat určený pro tuto předponu preferovali okruh ExpressRoute v oblasti USA – západ (protože naše síť si bude myslet, že cesta k této předponě je přes západ kratší). Obdobně lze prodloužit AS PATH pro 172.2.0.2/31 v oblasti USA – západ, abychom preferovali okruh ExpressRoute v oblasti USA – východ. Směrování je optimalizované pro obě pobočky. Pokud v tomto návrhu jeden okruh ExpressRoute není funkční, Exchange Online se s vámi pořád může spojit prostřednictvím jiného okruhu ExpressRoute a vaší sítě WAN. 
 
->[AZURE.IMPORTANT] Odebereme soukromá čísla AS v AS PATH pro předpony přijaté v partnerském vztahu Microsoftu. Musíte připojit veřejná čísla AS do AS PATH, abyste ovlivnili směrování pro partnerský vztah Microsoftu.
+> [!IMPORTANT]
+> Odebereme soukromá čísla AS v AS PATH pro předpony přijaté v partnerském vztahu Microsoftu. Musíte připojit veřejná čísla AS do AS PATH, abyste ovlivnili směrování pro partnerský vztah Microsoftu.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Přestože jsou zde uvedené příklady určené pro partnerské vztahy Microsoftu a veřejné partnerské vztahy, stejné možnosti jsou podporovány i pro soukromé partnerské vztahy. Předřazení AS PATH navíc funguje v rámci jednoho okruhu ExpressRoute a tak ovlivňuje výběr primární a sekundární cesty.
-
-
+> [!IMPORTANT]
+> Přestože jsou zde uvedené příklady určené pro partnerské vztahy Microsoftu a veřejné partnerské vztahy, stejné možnosti jsou podporovány i pro soukromé partnerské vztahy. Předřazení AS PATH navíc funguje v rámci jednoho okruhu ExpressRoute a tak ovlivňuje výběr primární a sekundární cesty.
+> 
+> 
 
 <!--HONumber=Oct16_HO3-->
 

@@ -1,14 +1,14 @@
 Azure určí, že vaše aplikace používá Python, **pokud jsou splněné obě tyto podmínky**:
 
-- Soubor requirements.txt v kořenové složce
-- Jakýkoli soubor .py v kořenové složce NEBO soubor runtime.txt, který určuje jazyk Python
+* Soubor requirements.txt v kořenové složce
+* Jakýkoli soubor .py v kořenové složce NEBO soubor runtime.txt, který určuje jazyk Python
 
 V takovém případě se použije konkrétní skript nasazení jazyka Python, který provede standardní synchronizaci souborů a další operace jazyka Python, jako jsou tyto:
 
-- Automatická správa virtuálního prostředí
-- Instalace balíčků uvedených v souboru requirements.txt pomocí nástroje pip
-- Vytvoření odpovídajícího souboru web.config na základě vybrané verze jazyka Python.
-- Shromáždění statických souborů pro aplikace Django
+* Automatická správa virtuálního prostředí
+* Instalace balíčků uvedených v souboru requirements.txt pomocí nástroje pip
+* Vytvoření odpovídajícího souboru web.config na základě vybrané verze jazyka Python.
+* Shromáždění statických souborů pro aplikace Django
 
 Můžete ovládat některé aspekty výchozích kroků nasazení, aniž by bylo potřeba skript přizpůsobit.
 
@@ -25,7 +25,7 @@ Pokud chcete mít větší kontrolu nad nasazením, můžete výchozí skript na
     \.deployment
     \deploy.cmd
 
-K vytvoření těchto souborů můžete použít [rozhraní příkazového řádku Azure][].  Použijte tento příkaz ze složky projektu:
+K vytvoření těchto souborů můžete použít [rozhraní příkazového řádku Azure][rozhraní příkazového řádku Azure].  Použijte tento příkaz ze složky projektu:
 
     azure site deploymentscript --python
 

@@ -1,37 +1,34 @@
-<properties
-   pageTitle="Správa kontejnerů v Azure Container Service přes rozhraní REST API | Microsoft Azure"
-   description="Do clusteru Azure Container Service Mesos můžete nasadit kontejnery pomocí rozhraní Marathon REST API."
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, kontejnery, mikroslužby, Mesos, Azure"/>
+---
+title: Správa kontejnerů v Azure Container Service přes rozhraní REST API | Microsoft Docs
+description: Do clusteru Azure Container Service Mesos můžete nasadit kontejnery pomocí rozhraní Marathon REST API.
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, kontejnery, mikroslužby, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: nepeters
 
-
+---
 # Správa kontejnerů přes rozhraní REST API
-
 DC/OS poskytuje prostředí pro nasazování a škálování clusterových úloh a zároveň poskytuje abstrakci používaného hardwaru. Nad DC/OS je rozhraní, které spravuje plánování a provádění výpočetních úloh.
 
 I když jsou pro mnoho populárních úloh k dispozici rozhraní, tento dokument popisuje, jak je možné nasazení kontejnerů vytvořit a škálovat pomocí Marathonu. Než si projdete tyto příklady, budete potřebovat cluster DC/OS nakonfigurovaný v Azure Container Service. Kromě toho je nutné mít možnost se k tomuto clusteru připojit vzdáleně. Další informace k těmto záležitostem najdete v těchto článcích:
 
-- [Nasazení clusteru Azure Container Service](container-service-deployment.md)
-- [Připojení ke clusteru Azure Container Service](container-service-connect.md)
+* [Nasazení clusteru Azure Container Service](container-service-deployment.md)
+* [Připojení ke clusteru Azure Container Service](container-service-connect.md)
 
 Až se připojíte ke clusteru Azure Container Service, budete mít na DC/OS a související rozhraní REST API přístup přes adresu http://localhost:local-port. Příklady v tomto dokumentu předpokládají, že máte k dispozici tunel na portu 80. Například koncový bod Marathonu je k dispozici na adrese `http://localhost/marathon/v2/`. Další informace o různých rozhraních API najdete v dokumentaci Mesosphere pro rozhraní [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) a [Chronos API](https://mesos.github.io/chronos/docs/api.html) a v dokumentaci Apache pro rozhraní [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Získání informací z DC/OS a Marathonu
-
 Než do clusteru DC/OS nasadíte kontejnery, zjistěte si určité informace o clusteru DC/OS, například názvy a aktuální stav agentů DC/OS. To provedete tak, že zašlete dotaz na koncový bod `master/slaves` rozhraní REST API DC/OS. Pokud všechno proběhne správně, uvidíte seznam agentů DC/OS a u každého z nich několik vlastností.
 
 ```bash
@@ -47,7 +44,6 @@ curl localhost/marathon/v2/apps
 ```
 
 ## Nasazení kontejneru formátovaného Dockerem
-
 Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON, který popisuje zamýšlené nasazení. Následující ukázka nasadí kontejner Nginx a sváže port 80 agenta DC/OS s portem 80 kontejneru. Kromě toho si všimněte, že vlastnost acceptedResourceRoles je nastavena na slave_public. Kontejner se tak nasadí do agenta v sadě škálování veřejně přístupných agentů.
 
 ```json
@@ -91,7 +87,6 @@ curl localhost/marathon/v2/apps
 ```
 
 ## Škálování kontejnerů
-
 Rozhraní Marathon API je možné použít i k nasazením aplikací se škálováním pro horizontální navýšení nebo snížení kapacity. V předchozím příkladu jste nasadili jednu instanci aplikace. Nyní škálování aplikace navyšme na tři instance. To provedete tak, že pomocí následujícího textu JSON vytvoříte soubor JSON a uložíte ho na dostupném místě.
 
 ```json
@@ -100,7 +95,10 @@ Rozhraní Marathon API je možné použít i k nasazením aplikací se škálov�
 
 Spusťte následující příkaz, kterým se zahájí škálování aplikace na více systémů.
 
->[AZURE.NOTE] Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> [!NOTE]
+> Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> 
+> 
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -113,7 +111,6 @@ curl localhost/marathon/v2/apps
 ```
 
 ## Toto praktické cvičení s použitím PowerShellu: Interakce rozhraní REST API Marathonu v PowerShellu
-
 V systému Windows můžete tyto stejné akce provést pomocí příkazů PowerShellu.
 
 Informace o clusteru DC/OS, jako jsou názvy agentů a jejich stav, získáte pomocí následujícího příkazu.
@@ -157,18 +154,18 @@ Rozhraní Marathon API je možné použít i k nasazením aplikací se škálov�
 
 Spusťte následující příkaz, kterým se zahájí škálování aplikace na více systémů.
 
-> [AZURE.NOTE] Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> [!NOTE]
+> Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> 
+> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## Další kroky
-
-- [Další informace o koncových bodech Mesos HTTP]( http://mesos.apache.org/documentation/latest/endpoints/)
-- [Další informace o rozhraní REST API Marathonu]( https://mesosphere.github.io/marathon/docs/rest-api.html)
-
-
+* [Další informace o koncových bodech Mesos HTTP](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Další informace o rozhraní REST API Marathonu](https://mesosphere.github.io/marathon/docs/rest-api.html)
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,41 +1,34 @@
-<properties
-    pageTitle="Nastavení služby Azure Active Directory pro správu přístupu k samoobslužným aplikacím | Microsoft Azure"
-    description="Samoobslužná správa skupin umožňuje uživatelům vytvářet a spravovat skupiny zabezpečení nebo skupiny Office 365 ve službě Azure Active Directory a nabízí uživatelům možnost žádat o členství ve skupině zabezpečení nebo ve skupině Office 365."
-    services="active-directory"
-    documentationCenter=""
-  authors="curtand"
-    manager="femila"
-    editor=""
-    />
+---
+title: Nastavení služby Azure Active Directory pro správu přístupu k samoobslužným aplikacím | Microsoft Docs
+description: Samoobslužná správa skupin umožňuje uživatelům vytvářet a spravovat skupiny zabezpečení nebo skupiny Office 365 ve službě Azure Active Directory a nabízí uživatelům možnost žádat o členství ve skupině zabezpečení nebo ve skupině Office 365.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/10/2016"
-    ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/10/2016
+ms.author: curtand
 
-
+---
 # Nastavení služby Azure Active Directory pro samoobslužnou správu skupin
-
-Samoobslužná správa skupin uživatelům umožňuje vytvářet a spravovat skupiny zabezpečení nebo skupiny Office 365 ve službě Azure Active Directory (Azure AD). Uživatelé mohou také požádat o členství ve skupině zabezpečení nebo ve skupině Office 365. Vlastník skupiny pak může členství schválit nebo odepřít. Tímto způsobem můžete každodenní řízení členství ve skupině delegovat na uživatele, kteří chápou obchodní kontext takového členství. Funkce samoobslužné správy skupin jsou dostupné jenom pro skupiny zabezpečení a skupiny Office 365. Nejsou dostupné pro skupiny zabezpečení s povoleným e-mailem a pro distribuční seznamy.
+Samoobslužná správa skupin uživatelům umožňuje vytvářet a spravovat skupiny zabezpečení nebo skupiny Office 365 ve službě Azure Active Directory (Azure AD). Uživatelé mohou také požádat o členství ve skupině zabezpečení nebo ve skupině Office 365. Vlastník skupiny pak může členství schválit nebo odepřít. Tímto způsobem můžete každodenní řízení členství ve skupině delegovat na uživatele, kteří chápou obchodní kontext takového členství. Funkce samoobslužné správy skupin jsou dostupné jenom pro skupiny zabezpečení a skupiny Office 365. Nejsou dostupné pro skupiny zabezpečení s povoleným e-mailem a pro distribuční seznamy.
 
 Samoobslužná správa skupin v současné době obsahuje dva základní scénáře: delegovanou správu skupin a samoobslužnou správu skupin.
 
-- **Delegovaná správa skupin**
+* **Delegovaná správa skupin**
    – příkladem je správce, který spravuje přístup k aplikaci SaaS, kterou používá jeho společnost. Správa těchto přístupových práv je čím dál náročnější, takže správce požádá majitele firmy, aby vytvořil novou skupinu. Správce přiřadí nové skupině přístup k aplikaci a do této skupiny přidá všechny uživatele, kteří už přístup k aplikaci mají. Majitel firmy potom může přidat další uživatele a tito uživatelé budou automaticky přiřazeni k aplikaci. Kvůli správě přístupu pro uživatele tak majitel firmy nemusí čekat na správce. Pokud správce udělí stejné oprávnění správci v jiné firemní skupině, potom tato osoba může spravovat také přístup svých vlastních uživatelů. Majitel firmy ani správce nemůžou zobrazit nebo spravovat uživatele toho druhého. Správce může stále vidět všechny uživatele, kteří mají přístup k aplikaci, a v případě potřeby je může zablokovat.
-
-- **Samoobslužná správa skupiny**
+* **Samoobslužná správa skupiny**
    – příkladem tohoto scénáře jsou dva uživatelé, kteří mají nezávisle nastavené weby SharePoint Online. Oba chtějí týmu toho druhého poskytnout přístup na svůj web. Aby toho dosáhli, můžou vytvořit jednu skupinu v Azure AD a potom v SharePointu Online každý z nich vybere tu skupinu, které chce poskytnout přístup na svůj web. Pokud chce uživatel získat přístup, požádá o něj na přístupovém panelu a po schválení získá přístup k oběma webům SharePoint Online automaticky. Později se jeden z nich rozhodne, že všichni uživatelé s přístupem k webu by měli získat přístup i k určité aplikaci SaaS. Správce aplikace SaaS může přidat přístupová práva k aplikacím na web SharePoint Online. Od toho okamžiku získají veškeré jím schválené žádosti přístup na oba weby SharePoint Online a také k této aplikaci SaaS.
 
 ## Zpřístupnění skupiny pro samoobslužné funkce koncových uživatelů
-
 1. Na [portálu Azure Classic](https://manage.windowsazure.com) otevřete adresář služby Azure AD.
-
 2. Na kartě **Konfigurace** nastavte možnost**Delegovaná správa skupin** na Povoleno.
-
 3. Nastavte možnost **Uživatelé můžou vytvářet skupiny zabezpečení** nebo **Uživatelé můžou vytvářet skupiny Office** na Povoleno.
 
 Když je povolená možnost **Uživatelé můžou vytvářet skupiny zabezpečení**, mají všichni uživatelé v adresáři povoleno vytvářet nové skupiny zabezpečení a přidávat do těchto skupin členy. Tyto nové skupiny se zobrazí také všem ostatním uživatelům na přístupovém panelu. Pokud to nastavení zásad skupiny umožňuje, můžou ostatní uživatelé vytvářet žádosti o připojení k těmto skupinám. Pokud je zakázaná možnost **Uživatelé můžou vytvářet skupiny zabezpečení**, uživatelé nemůžou vytvářet skupiny a nemůžou měnit existující skupiny, ve kterých figurují jako vlastníci. Můžou však stále spravovat členství v těchto skupinách a schvalovat žádosti o členství od jiných uživatelů.
@@ -45,20 +38,13 @@ Možnost **Uživatelé, kteří můžou využívat samoobslužné funkce pro sku
 Můžete také použít políčko **Skupina, která může využívat samoobslužné funkce pro skupiny zabezpečení** a zadat do něj vlastní název skupiny, jejíž členové můžou samoobslužné funkce používat.
 
 ## Další informace
-
 Následující články poskytují další informace o službě Azure Active Directory.
 
 * [Správa přístupu k prostředkům pomocí skupin služby Azure Active Directory](active-directory-manage-groups.md)
-
 * [Rutiny Azure Active Directory pro konfiguraci nastavení skupiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
-
 * [Rejstřík článků o správě aplikací ve službě Azure Active Directory](active-directory-apps-index.md)
-
 * [Představení služby Azure Active Directory](active-directory-whatis.md)
-
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

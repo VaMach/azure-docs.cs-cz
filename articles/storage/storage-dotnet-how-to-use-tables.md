@@ -1,63 +1,55 @@
-<properties
-    pageTitle="Začínáme s Azure Table Storage pomocí rozhraní .NET | Microsoft Azure"
-    description="Ukládejte si strukturovaná data v cloudu pomocí Azure Table Storage, úložiště dat typu NoSQL."
-    services="storage"
-    documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Začínáme s Azure Table Storage pomocí rozhraní .NET | Microsoft Docs
+description: Ukládejte si strukturovaná data v cloudu pomocí Azure Table Storage, úložiště dat typu NoSQL.
+services: storage
+documentationcenter: .net
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
-
+---
 # <a name="get-started-with-azure-table-storage-using-.net"></a>Začínáme s úložištěm Azure Table pomocí rozhraní .NET
+[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Přehled
-
 Azure Table Storage je služba, která ukládá strukturovaná data typu NoSQL v cloudu. Table Storage je úložiště klíčů/atributů s návrhem bez schématu. Vzhledem k tomu, že je Table Storage bez schématu, je snadné data přizpůsobovat měnícím se potřebám vaší aplikace. Přístup k datům je rychlý a nákladově efektivní pro všechny typy aplikací. Využívání úložiště Table Storage obvykle znamená výrazně nižší náklady než tradiční SQL pro podobné objemy dat.
 
 Úložiště Table Storage můžete používat k ukládání flexibilních datových sad, například uživatelských dat pro webové aplikace, adresářů, informací o zařízení a dalších typů metadat, které vaše služba vyžaduje. V tabulce můžete uložit libovolný počet entit a účet úložiště může obsahovat libovolný počet tabulek, až do limitu kapacity účtu úložiště.
 
 ### <a name="about-this-tutorial"></a>O tomto kurzu
-
 V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scénáře použití služby Azure Table Storage, včetně vytváření a odstraňování tabulek a vkládání, aktualizace a odstraňování dat tabulky a dotazování se na ně.
 
 **Odhadovaný čas dokončení:** 45 minut
 
 **Požadavky:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-- [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
 
-[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>Další ukázky
-
 Další příklady použití Table Storage najdete v článku [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu.
 
+[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
-
 Přidejte do horní části souboru `program.cs` následující příkazy `using`:
 
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -65,11 +57,9 @@ Přidejte do horní části souboru `program.cs` následující příkazy `using
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
 ### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce
-
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Vytvoření klienta služby Table
-
 Třída **CloudTableClient** vám umožňuje načíst tabulky a entity, které jsou uložené ve službě Table Storage. Tady je jeden ze způsobů, jak vytvořit klienta služby:
 
     // Create the table client.
@@ -78,7 +68,6 @@ Třída **CloudTableClient** vám umožňuje načíst tabulky a entity, které j
 Teď můžete napsat kód, který bude číst data z Table Storage a bude je tam také zapisovat.
 
 ## <a name="create-a-table"></a>Vytvoření tabulky
-
 Tento příklad ukazuje, jak vytvořit tabulku, pokud ještě neexistuje:
 
     // Retrieve the storage account from the connection string.
@@ -95,7 +84,6 @@ Tento příklad ukazuje, jak vytvořit tabulku, pokud ještě neexistuje:
     table.CreateIfNotExists();
 
 ## <a name="add-an-entity-to-a-table"></a>Přidání entity do tabulky
-
 Entity se mapují na objekty C\# pomocí vlastní třídy odvozené z **TableEntity**. Když budete chtít do tabulky přidat entitu, vytvořte třídu, která definuje vlastnosti vaší entity. Následující kód definuje třídu entity, která používá jméno zákazníka jako klíč řádku a jeho příjmení jako klíč oddílu. Společně pak klíč oddílu a řádku entity jednoznačně identifikují entitu v tabulce. Na entity se stejným klíčem oddílu je možné se (v porovnání s těmi, které mají různé klíče oddílů) rychleji dotazovat, ale používání různých klíčů oddílů umožňuje větší škálovatelnost paralelních operací.  Jakákoli vlastnost, která by měla být uložena ve službě Table, musí být veřejná vlastnost podporovaného typu, která zpřístupňuje jak `get`, tak `set`.
 Typ entity navíc *musí* zveřejňovat konstruktor bez parametrů.
 
@@ -138,13 +126,12 @@ Operace s tabulkou zahrnující entity se provádí prostřednictvím objektu **
     table.Execute(insertOperation);
 
 ## <a name="insert-a-batch-of-entities"></a>Vložení dávky entit
-
 V rámci jedné operace zápisu můžete do tabulky vložit dávku entit. Několik dalších poznámek ohledně dávkových operací:
 
--  V rámci jedné dávkové operace můžete provádět aktualizace, odstranění a vložení.
--  Jedna dávková operace může obsahovat až 100 entit.
--  Všechny entity v jedné dávkové operaci musí mít stejný klíč oddílu.
--  Dotaz je sice také možné provést jako dávkovou operaci, musí to být ale jediná operace v dávce.
+* V rámci jedné dávkové operace můžete provádět aktualizace, odstranění a vložení.
+* Jedna dávková operace může obsahovat až 100 entit.
+* Všechny entity v jedné dávkové operaci musí mít stejný klíč oddílu.
+* Dotaz je sice také možné provést jako dávkovou operaci, musí to být ale jediná operace v dávce.
 
 <!-- -->
 Následující příklad kódu vytvoří dva objekty entity a každý z nich přidá do **TableBatchOperation** pomocí metody **Insert**. Pak se volá metoda **CloudTable.Execute** k provedení operace.
@@ -180,7 +167,6 @@ Následující příklad kódu vytvoří dva objekty entity a každý z nich př
     table.ExecuteBatch(batchOperation);
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Načtení všech entit v oddílu
-
 Pokud chcete zadat dotaz na tabulku pro všechny entity v oddílu, použijte objekt **TableQuery**.
 Následující příklad kódu určuje filtr pro entity, kde Smith je klíč oddílu. Tento příklad zobrazí pole každé entity z výsledků dotazu z konzoly.
 
@@ -205,7 +191,6 @@ Následující příklad kódu určuje filtr pro entity, kde Smith je klíč odd
     }
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Načtení rozsahu entit v oddílu
-
 Pokud nechcete, aby se zadával dotaz na všechny entity v oddílu, můžete zadat rozsah nakombinováním filtru klíče oddílu s filtrem klíče řádku. Následující příklad kódu používá dva filtry k získání všech entit v oddílu Smith, kde klíč řádku (jméno) začíná písmenem abecedy před písmenem E, a potom zobrazí výsledky dotazu.
 
     // Retrieve the storage account from the connection string.
@@ -233,7 +218,6 @@ Pokud nechcete, aby se zadával dotaz na všechny entity v oddílu, můžete zad
     }
 
 ## <a name="retrieve-a-single-entity"></a>Načtení jedné entity
-
 Můžete napsat dotaz pro načtení jedné konkrétní entity. Následující kód používá objekt **TableOperation** k určení zákazníka Ben Smith.
 Tato metoda vrátí místo kolekce pouze jednu entitu a vrácenou hodnotou při volání metody **TableResult.Result** je objekt **CustomerEntity**.
 Určení jak klíčů oddílu, tak klíčů řádků v dotazu představuje nejrychlejší způsob, jak načíst jednu entitu ze služby Table.
@@ -261,7 +245,6 @@ Určení jak klíčů oddílu, tak klíčů řádků v dotazu představuje nejry
        Console.WriteLine("The phone number could not be retrieved.");
 
 ## <a name="replace-an-entity"></a>Nahrazení entity
-
 Pokud chcete entitu aktualizovat, načtěte ji ze služby Table, upravte objekt entity a potom uložte změny zpět do služby Table. Následující kód změní telefonní číslo stávajícího zákazníka. Namísto volání metody **Insert** tento kód používá metodu **Replace**. To způsobí, že entita se na serveru plně nahradí, pokud se entita na serveru od načtení nezměnila, protože v takovém případě se operace nezdaří.  Toto selhání zabrání vaší aplikaci v nechtěném přepsání změny provedené mezi načtením a aktualizací provedenou jinou součástí vaší aplikace.  Toto selhání by se mělo správně zpracovat tak, že entitu znovu načtete, provedete požadované změny (pokud je stále ještě chcete provést) a pak provedete další operaci nahrazení (**Replace**).  V další části si ukážeme, jak toto chování potlačit.
 
     // Retrieve the storage account from the connection string.
@@ -301,7 +284,6 @@ Pokud chcete entitu aktualizovat, načtěte ji ze služby Table, upravte objekt 
        Console.WriteLine("Entity could not be retrieved.");
 
 ## <a name="insert-or-replace-an-entity"></a>Vložení nebo nahrazení entity
-
 Operace **Replace** se nezdaří, pokud byla entita od načtení ze serveru změněna.  Kromě toho musíte entitu nejdřív načíst ze serveru, aby operace **Replace** proběhla úspěšně.
 V některých případech ale nevíte, jestli entita existuje na serveru a jestli jsou hodnoty, které jsou v ní aktuálně uložené, relevantní. Vaše aktualizace by je měla všechny přepsat.  K tomu použijete operaci **InsertOrReplace**.  Tato operace vloží entitu, pokud neexistuje, nebo ji nahradí, pokud existuje, a to bez ohledu na to, kdy byla provedena poslední aktualizace.  V následujícím příkladu kódu je entita zákazník Ben Smith načtena, ale pak je uložena zpět na server prostřednictvím operace **InsertOrReplace**.  Jakékoli aktualizace provedené v entitě mezi operacemi načtení a aktualizace budou přepsány.
 
@@ -342,8 +324,7 @@ V některých případech ale nevíte, jestli entita existuje na serveru a jestl
        Console.WriteLine("Entity could not be retrieved.");
 
 ## <a name="query-a-subset-of-entity-properties"></a>Dotaz na podmnožinu vlastností entity
-
-Dotaz na tabulku může místo všech vlastností entity načíst jenom několik z nich. Tato technika, které se říká projekce, snižuje šířku pásma a může zlepšit výkon dotazů, zejména u velkých entit. Dotaz v následujícím kódu vrátí pouze e-mailové adresy entit v tabulce. To se provádí pomocí dotazu **DynamicTableEntity** a také **EntityResolver**. Další informace o projekcích najdete v [Blogový příspěvek představení funkcí Upsert a projekce dotazu][]. Poznámka: Projekci nepodporuje emulátor místního úložiště, takže tento kód bude možné spustit pouze v případě, že používáte účet služby Table.
+Dotaz na tabulku může místo všech vlastností entity načíst jenom několik z nich. Tato technika, které se říká projekce, snižuje šířku pásma a může zlepšit výkon dotazů, zejména u velkých entit. Dotaz v následujícím kódu vrátí pouze e-mailové adresy entit v tabulce. To se provádí pomocí dotazu **DynamicTableEntity** a také **EntityResolver**. Další informace o projekcích najdete v [Blogový příspěvek představení funkcí Upsert a projekce dotazu][Blogový příspěvek představení funkcí Upsert a projekce dotazu]. Poznámka: Projekci nepodporuje emulátor místního úložiště, takže tento kód bude možné spustit pouze v případě, že používáte účet služby Table.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -367,7 +348,6 @@ Dotaz na tabulku může místo všech vlastností entity načíst jenom několik
     }
 
 ## <a name="delete-an-entity"></a>Odstranění entity
-
 Entitu můžete po jejím načtení snadno odstranit, a to pomocí stejného vzoru zobrazovaného pro aktualizaci entity.  Následující kód načte a odstraní entitu zákazníka.
 
     // Retrieve the storage account from the connection string.
@@ -404,7 +384,6 @@ Entitu můžete po jejím načtení snadno odstranit, a to pomocí stejného vzo
        Console.WriteLine("Could not retrieve the entity.");
 
 ## <a name="delete-a-table"></a>Odstranění tabulky
-
 Následující příklad kódu nakonec odstraní tabulku z účtu úložiště. Tabulku, která byla odstraněna, nebude možné po odstranění nějakou dobu znovu vytvořit.
 
     // Retrieve the storage account from the connection string.
@@ -421,7 +400,6 @@ Následující příklad kódu nakonec odstraní tabulku z účtu úložiště. 
     table.DeleteIfExists();
 
 ## <a name="retrieve-entities-in-pages-asynchronously"></a>Asynchronní načítání entit na stránkách
-
 Pokud načítáte velký počet entit a chcete entity zpracovávat/zobrazovat tak, jak jsou načítány, a nečekat, až se všechny vrátí, můžete entity načíst pomocí segmentovaného dotazu. Tento příklad ukazuje, jak vracet výsledky na stránkách pomocí vzoru Async-Await, aby čekání na vrácení velké sady výsledků neblokovalo provádění. Další podrobnosti o použití vzoru Async-Await v rozhraní .NET najdete v tématu [Asynchronní programování s Async a Await (C# a Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
     // Initialize a default TableQuery to retrieve all the entities in the table.
@@ -447,35 +425,34 @@ Pokud načítáte velký počet entit a chcete entity zpracovávat/zobrazovat ta
     } while(continuationToken != null);
 
 ## <a name="next-steps"></a>Další kroky
-
 Teď, když jste se naučili základy používání služby Table Storage, podívejte se na následujících odkazech na další informace o složitějších úlohách úložiště:
 
-- Další příklady Table Storage najdete v článku [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/).
-- Projděte si referenční dokumentaci ke službě Table, kde najdete úplné podrobnosti o dostupných rozhraních API:
-    - [Klientská knihovna Storage pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [REST API – referenční informace](http://msdn.microsoft.com/library/azure/dd179355)
-- Zjistěte, jak můžete zjednodušit kód, který vytváříte, aby fungoval s Azure Storage, pomocí sady [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
-- Projděte si další průvodce funkcemi, kde najdete další informace o dalších možnostech pro ukládání dat v Azure.
-    - [Začínáme s Azure Blob Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md) pro ukládání nestrukturovaných dat
-    - [Připojení k SQL Database s použitím rozhraní .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) pro uložení relačních dat
+* Další příklady Table Storage najdete v článku [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/).
+* Projděte si referenční dokumentaci ke službě Table, kde najdete úplné podrobnosti o dostupných rozhraních API:
+  * [Klientská knihovna Storage pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API – referenční informace](http://msdn.microsoft.com/library/azure/dd179355)
+* Zjistěte, jak můžete zjednodušit kód, který vytváříte, aby fungoval s Azure Storage, pomocí sady [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
+* Projděte si další průvodce funkcemi, kde najdete další informace o dalších možnostech pro ukládání dat v Azure.
+  * [Začínáme s Azure Blob Storage pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md) pro ukládání nestrukturovaných dat
+  * [Připojení k SQL Database s použitím rozhraní .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) pro uložení relačních dat
 
-  [Stažení a instalace sady Azure SDK pro .NET]: /develop/net/
-  [Vytvoření projektu Azure v sadě Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Stažení a instalace sady Azure SDK pro .NET]: /develop/net/
+[Vytvoření projektu Azure v sadě Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
-  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+[Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
+[Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
+[Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
+[Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
+[Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-  [Blogový příspěvek představení funkcí Upsert a projekce dotazu]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Klientská knihovna pro .NET – referenční informace]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Blog týmu Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Nakonfigurování připojovacích řetězců Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [EDM]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [Postupy: programový přístupu k Table Storage]: #tablestorage
+[Blogový příspěvek představení funkcí Upsert a projekce dotazu]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Klientská knihovna pro .NET – referenční informace]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Blog týmu Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[Nakonfigurování připojovacích řetězců Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[EDM]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[Postupy: programový přístupu k Table Storage]: #tablestorage
 
 
 

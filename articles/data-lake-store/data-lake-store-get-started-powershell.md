@@ -1,107 +1,94 @@
-<properties
-   pageTitle="Začínáme s Data Lake Store | Azure"
-   description="Použití prostředí Azure PowerShell k vytvoření účtu Data Lake Store a provádění základních operací"
-   services="data-lake-store"
-   documentationCenter=""
-   authors="nitinme"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Začínáme s Data Lake Store | Microsoft Docs
+description: Použití prostředí Azure PowerShell k vytvoření účtu Data Lake Store a provádění základních operací
+services: data-lake-store
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="data-lake-store"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="10/04/2016"
-   ms.author="nitinme"/>
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 10/04/2016
+ms.author: nitinme
 
-
+---
 # Začínáme s Azure Data Lake Store pomocí Azure PowerShell
-
-> [AZURE.SELECTOR]
-- [Portál](data-lake-store-get-started-portal.md)
-- [PowerShell](data-lake-store-get-started-powershell.md)
-- [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Java SDK](data-lake-store-get-started-java-sdk.md)
-- [REST API](data-lake-store-get-started-rest-api.md)
-- [Azure CLI](data-lake-store-get-started-cli.md)
-- [Node.js](data-lake-store-manage-use-nodejs.md)
+> [!div class="op_single_selector"]
+> * [Portál](data-lake-store-get-started-portal.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Node.js](data-lake-store-manage-use-nodejs.md)
+> 
+> 
 
 Naučte se používat Azure PowerShell k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
 ## Požadavky
-
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-
 * **Azure PowerShell 1.0 nebo vyšší**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
 
 ## Authentication
-
 Tento článek používá jednodušší přístup k ověřování ve službě Data Lake Store, kdy jste vyzváni k zadání svých pověření pro účet Azure. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## Vytvoření účtu Azure Data Lake Store
-
 1. Otevřete na ploše nové okno Windows PowerShellu, zadejte následující fragment kódu a přihlaste se tak k účtu Azure. Nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
-
+   
         # Log in to your Azure account
         Login-AzureRmAccount
-
+   
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
-
+   
         # Select a subscription
         Set-AzureRmContext -SubscriptionId <subscription ID>
-
+   
         # Register for Azure Data Lake Store
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-
-
 2. Účet Azure Data Lake Store je přidružený ke skupině prostředků Azure. Začněte vytvořením skupiny prostředků Azure.
-
+   
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
-
+   
     ![Vytvoření skupiny prostředků Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
-
-2. Vytvořte účet Azure Data Lake Store. Zadaný název musí obsahovat jenom malá písmena a číslice.
-
+3. Vytvořte účet Azure Data Lake Store. Zadaný název musí obsahovat jenom malá písmena a číslice.
+   
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
-
+   
     ![Vytvoření účtu Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
-
-3. Ověřte, že se účet úspěšně vytvořil.
-
+4. Ověřte, že se účet úspěšně vytvořil.
+   
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
-
+   
     Výstup této položky musí být **True** (pravda).
 
 ## Vytváření struktur adresářů v Azure Data Lake Store
-
 V rámci účtu Azure Data Lake Store můžete vytvářet adresáře, které slouží ke správě a ukládání dat.
 
 1. Zadejte kořenový adresář.
-
+   
         $myrootdir = "/"
-
 2. V zadaném kořenovém adresáři vytvořte nový adresář s názvem **mynewdirectory**.
-
+   
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/mynewdirectory
-
 3. Ověřte, že se nový adresář úspěšně vytvořil.
-
+   
         Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
-
+   
     Zobrazený výstup by měl vypadat asi takto:
-
+   
     ![Ověření adresáře](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
 
-
 ## Nahrání dat do Azure Data Lake Store
-
 Data můžete do Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do adresáře, který jste v rámci účtu vytvořili. Níže zobrazené fragmenty kódu ukazují, jak nahrát ukázková data do adresáře (**mynewdirectory**), který jste vytvořili v předchozí části.
 
 Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít složku **Ambulance Data** z [úložiště Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Stáhněte si tento soubor a uložte ho do místního adresáře v počítači, například C:\sampledata.\.
@@ -110,7 +97,6 @@ Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít sl
 
 
 ## Přejmenování, stažení a odstranění dat z Data Lake Store
-
 Pokud chcete přejmenovat soubor, použijte tento příkaz:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -128,21 +114,16 @@ Po zobrazení výzvy zadejte **Y**, a položku tak odstraňte. Pokud chcete odst
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
 ## Odstranění účtu Azure Data Lake Store
-
 Následujícím příkazem odstraňte účet Data Lake Store.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
-
 ## Další kroky
-
-- [Zabezpečení dat v Data Lake Store](data-lake-store-secure-data.md)
-- [Použití Azure Data Lake Analytics s Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
+* [Zabezpečení dat v Data Lake Store](data-lake-store-secure-data.md)
+* [Použití Azure Data Lake Analytics s Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 <!--HONumber=Oct16_HO1-->
 
