@@ -1,111 +1,111 @@
-# Overview
-## [What is DocumentDB?](documentdb-introduction.md)
-## [Core concepts](documentdb-resources.md)
-## [Storage and performance](documentdb-manage.md)
-## [Partitioning and scaling](documentdb-partition-data.md)
-## [Global distribution](documentdb-distribute-data-globally.md)
-## [Consistency](documentdb-consistency-levels.md)
-## [SQL query](documentdb-sql-query.md)
-## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
-## Scenarios
-### [Common use cases](documentdb-use-cases.md)
-### [Going social with DocumentDB](documentdb-social-media-apps.md)
-### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
+# Přehled
+## [Co je DocumentDB?](documentdb-introduction.md)
+## [Základní koncepty](documentdb-resources.md)
+## [Úložiště a výkon](documentdb-manage.md)
+## [Dělení a škálování](documentdb-partition-data.md)
+## [Globální distribuce](documentdb-distribute-data-globally.md)
+## [Konzistence](documentdb-consistency-levels.md)
+## [Dotaz SQL](documentdb-sql-query.md)
+## [Srovnání NoSQL a SQL](documentdb-nosql-vs-sql.md)
+## Scénáře
+### [Běžné případy použití](documentdb-use-cases.md)
+### [Sociální funkce s DocumentDB](documentdb-social-media-apps.md)
+### [Víceklientská architektura](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
 
 
-# Get Started
-## Write your first app
-### [.NET console app](documentdb-get-started.md)
-### [Node.js console app](documentdb-nodejs-get-started.md)
-## Build a web app
-### [.NET web app](documentdb-dotnet-application.md)
-### [Node.js web app](documentdb-nodejs-application.md)
-### [Java web app](documentdb-java-application.md)
-### [Python Flask web app](documentdb-python-application.md)
-## [FAQ](documentdb-faq.md)
+# Začínáme
+## Vytvoření první aplikace
+### [Aplikace konzoly .NET](documentdb-get-started.md)
+### [Aplikace konzoly Node.js](documentdb-nodejs-get-started.md)
+## Vytvoření webové aplikace
+### [Webová aplikace .NET](documentdb-dotnet-application.md)
+### [Webová aplikace Node.js](documentdb-nodejs-application.md)
+### [Webová aplikace Java](documentdb-java-application.md)
+### [Webová aplikace Python Flask](documentdb-python-application.md)
+## [Nejčastější dotazy](documentdb-faq.md)
 
 
 
-# How To
+# Postup
 
-## Manage 
-### [Import your data](documentdb-import-data.md)
-### [Model your data](documentdb-modeling-data.md)
-### [Use geospatial data](documentdb-geospatial.md)
-### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
-### [Expire data automatically](documentdb-time-to-live.md)
-### [Customize your indexes](documentdb-indexing-policies.md)
-### [Secure access to data](documentdb-secure-access-to-data.md)
-### [Backup and restore](documentdb-online-backup-and-restore.md)
-### [Performance levels](documentdb-performance-levels.md)
-### [Resource quotas](documentdb-limits.md)
-### [Increase quotas](documentdb-increase-limits.md)
-### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
-### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
+## Spravovat 
+### [Import dat](documentdb-import-data.md)
+### [Modelování dat](documentdb-modeling-data.md)
+### [Použití geoprostorových dat](documentdb-geospatial.md)
+### [Vývoj pro více oblastí](documentdb-developing-with-multiple-regions.md)
+### [Automatické vypršení dat](documentdb-time-to-live.md)
+### [Přizpůsobení indexů](documentdb-indexing-policies.md)
+### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
+### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
+### [Úrovně výkonu](documentdb-performance-levels.md)
+### [Kvóty prostředků](documentdb-limits.md)
+### [Zvýšení kvót](documentdb-increase-limits.md)
+### [Jednotky žádostí](documentdb-request-units.md)
+### [Rozhraní příkazového řádku Azure a Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### [Podpora brány firewall](documentdb-firewall-support.md)
+### [Uvedení údajů o účtu](documentdb-supercharge-your-account.md)
 
-## Develop
-### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
-### [Performance testing](documentdb-performance-testing.md)
-### [Performance tips](documentdb-performance-tips.md)
-### DocumentDB for MongoDB developers
-#### [What is protocol support for MongoDB?](documentdb-protocol-mongodb.md)
-#### [Create account](documentdb-create-mongodb-account.md)
-#### [Connect to your account](documentdb-connect-mongodb-account.md)
-#### [Use MongoChef](documentdb-mongodb-mongochef.md)
-#### [Protocol support samples](documentdb-mongodb-samples.md)
+## Vývoj
+### [Uložené procedury, triggery a funkce UDF](documentdb-programming.md)
+### [Testování výkonu](documentdb-performance-testing.md)
+### [Tipy pro zvýšení výkonu](documentdb-performance-tips.md)
+### DocumentDB pro vývojáře MongoDB
+#### [Co je podpora protokolů pro MongoDB?](documentdb-protocol-mongodb.md)
+#### [Vytvoření účtu](documentdb-create-mongodb-account.md)
+#### [Připojení k účtu](documentdb-connect-mongodb-account.md)
+#### [Použití MongoChef](documentdb-mongodb-mongochef.md)
+#### [Ukázky podpory protokolů](documentdb-mongodb-samples.md)
 
-## Use the portal 
-### [Create a database account](documentdb-create-account.md)
-### [Create a collection](documentdb-create-collection.md)
-### [Add global replication](documentdb-portal-global-replication.md)
-### [Add and edit documents](documentdb-view-json-document-explorer.md)
-### [Query documents](documentdb-query-collections-query-explorer.md)
-### [Manage an account](documentdb-manage-account.md)
-### [Monitor an account](documentdb-monitor-accounts.md)
-### [Manage scripts](documentdb-view-scripts.md)
-### [Troubleshooting tips](documentdb-portal-troubleshooting.md)
-
-
-## Integrate
-### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
-### [Application logging with Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
-### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)
-### [Analyze data with Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrate with Azure Search](documentdb-search-indexer.md)
-### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
-### [Get notifications with Logic Apps](documentdb-change-notification.md)
-### [Process sensor data in real-time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
-### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+## Použití portálu 
+### [Vytvoření účtu databáze](documentdb-create-account.md)
+### [Vytvoření kolekce](documentdb-create-collection.md)
+### [Přidání globální replikace](documentdb-portal-global-replication.md)
+### [Přidání a úpravy dokumentů](documentdb-view-json-document-explorer.md)
+### [Dotazování dokumentů](documentdb-query-collections-query-explorer.md)
+### [Správa účtu](documentdb-manage-account.md)
+### [Monitorování účtu](documentdb-monitor-accounts.md)
+### [Správa skriptů](documentdb-view-scripts.md)
+### [Rady pro řešení potíží](documentdb-portal-troubleshooting.md)
 
 
-# Reference
+## Integrace
+### [Nasazení webu pomocí služby Azure App Service](documentdb-create-documentdb-website.md)
+### [Protokolování aplikací pomocí funkce Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Vytvoření vazby na službu Azure Functions](../azure-functions/functions-bindings-documentdb.md)
+### [Analýza dat pomocí systému Hadoop](documentdb-run-hadoop-with-hdinsight.md)
+### [Integrace se službou Azure Search](documentdb-search-indexer.md)
+### [Přesun dat pomocí služby Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
+### [Analýza dat v reálném čase pomocí Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Získávání oznámení pomocí funkce Logic Apps](documentdb-change-notification.md)
+### [Zpracování dat snímače v reálném čase](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
+### [Vizualizace dat pomocí Power BI](documentdb-powerbi-visualize.md)
+
+
+# Referenční informace
 ## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET samples](documentdb-dotnet-samples.md)
+## [Ukázky .NET](documentdb-dotnet-samples.md)
 ## [Java SDK](documentdb-sdk-java.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
+## [Ukázky Node.js](documentdb-nodejs-samples.md)
 ## [Python](documentdb-sdk-python.md)
-## [Python samples](documentdb-python-samples.md)
+## [Ukázky Pythonu](documentdb-python-samples.md)
 ## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+## [Tahák pro gramatiku jazyka SQL](documentdb-sql-query-cheat-sheet.md)
 
 
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/documentdb/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
-## [Ask DocumentDB](documentdb-community.md#contact-the-team)
-## [Community portal](documentdb-community.md)
-## [Events and recordings](documentdb-community.md#events-and-recordings)
+## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Dotazování DocumentDB](documentdb-community.md#contact-the-team)
+## [Portál komunity](documentdb-community.md)
+## [Události a nahrávky](documentdb-community.md#events-and-recordings)
 ## [Query Playground](https://www.documentdb.com/sql/demo)
-## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
-## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
-## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+## [Dokument o indexování bez schémat](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+## [Vysvětlení konzistence dat pomocí baseballu](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
+## [Kniha: Použití Microsoft Azure DocumentDB v aplikaci Node.js](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 
