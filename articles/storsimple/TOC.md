@@ -1,177 +1,177 @@
-# StorSimple Overview
+# Přehled StorSimple
 
 # StorSimple Virtual Array
 
-## Overview
-### [What is the solution?](storsimple-ova-overview.md)
+## Přehled
+### [Informace o řešení](storsimple-ova-overview.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-ova-system-requirements.md)
-#### [Understand limits](storsimple-ova-limits.md)
-#### [Review best practices](storsimple-ova-best-practices.md)
-### Deploy
-#### [Prepare to deploy](storsimple-ova-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
-#### [Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Provision in VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Set up as file server](storsimple-ova-deploy3-fs-setup.md)
-#### [Set up as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
+## Začínáme
+### Plánování
+#### [Kontrola požadavků](storsimple-ova-system-requirements.md)
+#### [Pochopení limitů](storsimple-ova-limits.md)
+#### [Kontrola osvědčených postupů](storsimple-ova-best-practices.md)
+### Nasazení
+#### [Příprava nasazení](storsimple-ova-deploy1-portal-prep.md)
+#### [Nasazení služby StorSimple Manager](storsimple-ova-manage-service.md)
+#### [Zřizování v prostředí Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+#### [Zřizování v prostředí VMWare](storsimple-ova-deploy2-provision-vmware.md)
+#### [Nastavení jako souborového serveru](storsimple-ova-deploy3-fs-setup.md)
+#### [Nastavení jako serveru iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-## How to
-### [Manage via Azure portal](storsimple-ova-manager-service-administration.md)
-#### [Install latest Update](storsimple-ova-install-update-01.md)
-#### [Create & manage backups](storsimple-ova-backup.md)
-#### [Restore from backups](storsimple-ova-restore.md)
-#### [Failover and DR](storsimple-ova-failover-dr.md)
-#### [Deactivate and delete](storsimple-ova-deactivate-and-delete-device.md)
-#### [Monitor service dashboard](storsimple-ova-service-dashboard.md)
-#### [Change device password](storsimple-ova-change-device-admin-password.md)
-#### [Manage ACRs](storsimple-ova-manage-acrs.md)
-#### [Manage storage accounts](storsimple-ova-manage-storage-accounts.md)
-#### [Manage jobs](storsimple-ova-manage-jobs.md)
-#### [Configure MPIO on Windows Server host](storsimple-ova-configure-mpio-windows-server.md)
-### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
+## Postup
+### [Správa prostřednictvím portálu Azure Portal](storsimple-ova-manager-service-administration.md)
+#### [Instalace nejnovější aktualizace](storsimple-ova-install-update-01.md)
+#### [Vytvoření a správa záloh](storsimple-ova-backup.md)
+#### [Obnovení ze zálohy](storsimple-ova-restore.md)
+#### [Převzetí služeb při selhání a zotavení po havárii](storsimple-ova-failover-dr.md)
+#### [Deaktivace a odstranění](storsimple-ova-deactivate-and-delete-device.md)
+#### [Monitorování řídicího panelu služby](storsimple-ova-service-dashboard.md)
+#### [Změna hesla zařízení](storsimple-ova-change-device-admin-password.md)
+#### [Správa záznamů ACR](storsimple-ova-manage-acrs.md)
+#### [Správa účtů úložiště](storsimple-ova-manage-storage-accounts.md)
+#### [Správa úloh](storsimple-ova-manage-jobs.md)
+#### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-ova-configure-mpio-windows-server.md)
+### [Konfigurace prostřednictvím místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md)
 
-## Release notes
-### [Update 0.3 - current](storsimple-ova-update-03-release-notes.md)
-### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
+## Poznámky k verzi
+### [Aktualizace 0.3 – aktuální](storsimple-ova-update-03-release-notes.md)
+### [Aktualizace 0.2 a 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000 Series
 
-## Overview
-### [What is the solution?](storsimple-overview.md)
-### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
-### [Security considerations](storsimple-security.md)
+## Přehled
+### [Informace o řešení](storsimple-overview.md)
+### [Mapa kurzů StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
+### [Aspekty zabezpečení](storsimple-security.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-system-requirements.md)
-#### [Review technical specifications](storsimple-technical-specifications-and-compliance.md)
-#### [Understand limits](storsimple-limits.md)
-#### [Best practices](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+## Začínáme
+### Plánování
+#### [Kontrola požadavků](storsimple-system-requirements.md)
+#### [Kontrola technických specifikací](storsimple-technical-specifications-and-compliance.md)
+#### [Pochopení limitů](storsimple-limits.md)
+#### [Osvědčené postupy](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
-### Install
-#### [Review safety](storsimple-safety.md)
-#### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
-#### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+### Instalace
+#### [Kontrola zabezpečení](storsimple-safety.md)
+#### [Rozbalení modelu 8100, jeho usazení do racku a propojení kabely](storsimple-8100-hardware-installation.md)
+#### [Rozbalení modelu 8600, jeho usazení do racku a propojení kabely](storsimple-8600-hardware-installation.md)
+#### [Podporovaný hardware pro rozhraní sítí 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Deploy 
-#### [StorSimple Manager service](storsimple-manage-service.md)
-#### [Physical device in Azure - current](storsimple-deployment-walkthrough-u2.md)
-##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
-##### [Physical device in Azure - GA](storsimple-deployment-walkthrough.md)
-#### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov-u2.md)
-#### [Virtual device in Azure](storsimple-virtual-device-u2.md)
+### Nasazení 
+#### [Služba StorSimple Manager](storsimple-manage-service.md)
+#### [Fyzické zařízení v Azure – aktuální](storsimple-deployment-walkthrough-u2.md)
+##### [Fyzické zařízení v Azure – aktualizace 1](storsimple-deployment-walkthrough-u1.md)
+##### [Fyzické zařízení v Azure – GA](storsimple-deployment-walkthrough.md)
+#### [Fyzické zařízení na portálu Government – aktuální](storsimple-deployment-walkthrough-gov-u2.md)
+#### [Virtuální zařízení v Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
-#### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
+#### [StorSimple Adapter pro SharePoint](storsimple-adapter-for-sharepoint.md)
 
-## How to
-### Manage 
-#### [Using StorSimple Manager service](storsimple-manager-service-administration.md)
-##### [Restore from a backup](storsimple-restore-from-backup-set-u2.md)
-###### [Restore from a backup](storsimple-restore-from-backup-set.md)
-##### [Clone a volume](storsimple-clone-volume-u2.md)
-###### [Clone a volume](storsimple-clone-volume.md)
-##### [Remotely connect to your device](storsimple-remote-connect.md)
-##### [Deactivate and delete your device](storsimple-deactivate-and-delete-device.md)
-##### [Fail over your device](storsimple-device-failover-disaster-recovery.md)
-##### [Manage backup catalog](storsimple-manage-backup-catalog.md)
-##### [Manage backup policies - current](storsimple-manage-backup-policies-u2.md)
-###### [Manage backup policies - Update 1](storsimple-manage-backup-policies.md)
-##### [Manage storage accounts](storsimple-manage-storage-accounts.md)
-##### [Manage volume containers](storsimple-manage-volume-containers.md)
-##### [Manage volumes - current](storsimple-manage-volumes-u2.md)
-###### [FAQ: Locally pinned volumes](storsimple-local-volume-faq.md)
-###### [Manage volumes - Update 1](storsimple-manage-volumes.md)
-##### [Manage ACRs](storsimple-manage-acrs.md)
-##### [Manage bandwidth templates](storsimple-manage-bandwidth-templates.md)
-##### [View and manage jobs - current](storsimple-manage-jobs-u2.md)
-###### [View and manage jobs - Update 1](storsimple-manage-jobs.md)
-##### [Change device mode](storsimple-device-modes.md)
-##### [Change device password](storsimple-change-passwords.md)
-##### [Modify device configuration](storsimple-modify-device-config.md)
-##### [Turn on and turn off](storsimple-turn-device-on-or-off.md)
-##### [Configure MPIO on Windows Server host](storsimple-configure-mpio-windows-server.md)
-##### [Configure MPIO on linux host](storsimple-configure-mpio-on-linux.md)
-##### [Configure CHAP](storsimple-configure-chap.md)
+## Postup
+### Spravovat 
+#### [Použití služby StorSimple Manager](storsimple-manager-service-administration.md)
+##### [Obnovení ze zálohy](storsimple-restore-from-backup-set-u2.md)
+###### [Obnovení ze zálohy](storsimple-restore-from-backup-set.md)
+##### [Klonování svazku](storsimple-clone-volume-u2.md)
+###### [Klonování svazku](storsimple-clone-volume.md)
+##### [Vzdálené připojení k zařízení](storsimple-remote-connect.md)
+##### [Deaktivace a odstranění zařízení](storsimple-deactivate-and-delete-device.md)
+##### [Převzetí služeb při selhání zařízení](storsimple-device-failover-disaster-recovery.md)
+##### [Správa katalogu záloh](storsimple-manage-backup-catalog.md)
+##### [Správa zásad zálohování – aktuální](storsimple-manage-backup-policies-u2.md)
+###### [Správa zásad zálohování – aktualizace 1](storsimple-manage-backup-policies.md)
+##### [Správa účtů úložiště](storsimple-manage-storage-accounts.md)
+##### [Správa kontejnerů svazků](storsimple-manage-volume-containers.md)
+##### [Správa svazků – aktuální](storsimple-manage-volumes-u2.md)
+###### [Nejčastější dotazy: Místně připojené svazky](storsimple-local-volume-faq.md)
+###### [Správa svazků – aktualizace 1](storsimple-manage-volumes.md)
+##### [Správa záznamů ACR](storsimple-manage-acrs.md)
+##### [Správa šablon šířky pásma](storsimple-manage-bandwidth-templates.md)
+##### [Zobrazení a správa úloh – aktuální](storsimple-manage-jobs-u2.md)
+###### [Zobrazení a správa úloh – aktualizace 1](storsimple-manage-jobs.md)
+##### [Změna režimu zařízení](storsimple-device-modes.md)
+##### [Změna hesla zařízení](storsimple-change-passwords.md)
+##### [Úprava konfigurace zařízení](storsimple-modify-device-config.md)
+##### [Zapnutí a vypnutí](storsimple-turn-device-on-or-off.md)
+##### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-configure-mpio-windows-server.md)
+##### [Konfigurace funkce MPIO na hostiteli s Linuxem](storsimple-configure-mpio-on-linux.md)
+##### [Konfigurace protokolu CHAP](storsimple-configure-chap.md)
 
-#### [Using Window PowerShell for StorSimple](storsimple-windows-powershell-administration.md)
-##### [Manage device controller](storsimple-manage-device-controller.md)
-##### [Configure web proxy](storsimple-configure-web-proxy.md)
-##### [Modify DATA 0 settings](storsimple-modify-data-0.md)
+#### [Použití Windows PowerShellu pro StorSimple](storsimple-windows-powershell-administration.md)
+##### [Správa kontroleru zařízení](storsimple-manage-device-controller.md)
+##### [Konfigurace webového proxy serveru](storsimple-configure-web-proxy.md)
+##### [Úprava nastavení DATA 0](storsimple-modify-data-0.md)
 
-#### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
-##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
-##### [About StorSimple Snapshot Manager interface](storsimple-use-snapshot-manager.md)
-##### [Manage devices via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
-##### [Manage backup policies via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
-##### [Manage volume groups via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md)
-##### [Manage backup catalog via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-catalog.md)
-##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
-##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
-##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+#### [Použití StorSimple Snapshot Manageru](storsimple-snapshot-manager-admin.md)
+##### [Co je StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+##### [O rozhraní StorSimple Snapshot Manageru](storsimple-use-snapshot-manager.md)
+##### [Správa zařízení prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-devices.md)
+##### [Správa zásad zálohování prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-backup-policies.md)
+##### [Správa skupin svazků prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-volume-groups.md)
+##### [Správa katalogu záloh prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-backup-catalog.md)
+##### [Správa úloh zálohování prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-backup-jobs.md)
+##### [Správa svazků prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-volumes.md)
+##### [Správa akcí MMC prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-mmc-menu.md)
 
-### Build solutions
-#### [Distributed global namespace](https://www.microsoft.com/download/details.aspx?id=45507)
-#### [Automate file server DR to Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
-#### [StorSimple with Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+### Vytváření řešení
+#### [Distribuovaný globální obor názvů](https://www.microsoft.com/download/details.aspx?id=45507)
+#### [Automatizované zotavení souborového serveru po havárii do Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [StorSimple se službou Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 
-### Monitor
-#### [Using service dashboard](storsimple-service-dashboard.md)
-#### [Using device dashbaord](storsimple-device-dashboard.md)
-#### [Using service alerts](storsimple-manage-alerts.md)
-#### [Using hardware status](storsimple-monitor-hardware-status.md)
-#### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
+### Monitorování
+#### [Použití řídicího panelu služby](storsimple-service-dashboard.md)
+#### [Použití řídicího panelu zařízení](storsimple-device-dashboard.md)
+#### [Použití upozornění služby](storsimple-manage-alerts.md)
+#### [Použití stavu hardwaru](storsimple-monitor-hardware-status.md)
+#### [Použití monitorovacích indikátorů LED](storsimple-monitoring-indicators.md)
 
-### Troubleshoot
-#### [Deployment issues](storsimple-troubleshoot-deployment.md)
-#### [Operational issues](storsimple-troubleshoot-operational-device.md)
-#### [Hardware replacement](storsimple-hardware-component-replacement.md)
-##### [Replace device controller](storsimple-controller-replacement.md)
-##### [Replace EBOD controller](storsimple-ebod-controller-replacement.md)
-##### [Replace PCM](storsimple-power-cooling-module-replacement.md)
-##### [Replace disk drive](storsimple-disk-drive-replacement.md)
-##### [Replace backup battery](storsimple-battery-replacement.md)
-##### [Replace chassis](storsimple-chassis-replacement.md)
-#### [Contact Support](storsimple-contact-microsoft-support.md)
-##### [Create Support package](storsimple-create-manage-support-package.md)
+### Řešení potíží
+#### [Problémy při nasazení](storsimple-troubleshoot-deployment.md)
+#### [Provozní problémy](storsimple-troubleshoot-operational-device.md)
+#### [Výměna hardwaru](storsimple-hardware-component-replacement.md)
+##### [Výměna kontroleru zařízení](storsimple-controller-replacement.md)
+##### [Výměna kontroleru EBOD](storsimple-ebod-controller-replacement.md)
+##### [Výměna PCM](storsimple-power-cooling-module-replacement.md)
+##### [Výměna diskové jednotky](storsimple-disk-drive-replacement.md)
+##### [Výměna záložní baterie](storsimple-battery-replacement.md)
+##### [Výměna skříně](storsimple-chassis-replacement.md)
+#### [Kontakty na podporu](storsimple-contact-microsoft-support.md)
+##### [Vytvoření balíčku pro podporu](storsimple-create-manage-support-package.md)
 
-### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
-#### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+### Migrace
+#### [Z řad 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Z jiných zařízení úložišť](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### Update
-#### [Install Update 3](storsimple-install-update-3.md)
-#### [Install Update 2.2](storsimple-install-update-21.md)
-#### [Install Update 2](storsimple-install-update-2.md)
-#### [Install Update 1.2](storsimple-install-update-1.md)
-#### [Update your device](storsimple-update-device.md)
+### Aktualizace
+#### [Instalace aktualizace 3](storsimple-install-update-3.md)
+#### [Instalace aktualizace 2.2](storsimple-install-update-21.md)
+#### [Instalace aktualizace 2](storsimple-install-update-2.md)
+#### [Instalace aktualizace 1.2](storsimple-install-update-1.md)
+#### [Aktualizace zařízení](storsimple-update-device.md)
 
-## Release notes
-### [Update 3 - current](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
-### [Update 2 ](storsimple-update2-release-notes.md)
-### [Update 1 ](storsimple-update1-release-notes.md)
-### [Update 0.3](storsimple-february-2015-release-notes.md)
-### [Update 0.2](storsimple-january-2015-release-notes.md)
-### [Update 0.1](storsimple-october-2014-release-notes.md)
-### [Release - GA](storsimple-july-2014-release-notes.md)
+## Poznámky k verzi
+### [Aktualizace 3 – aktuální](storsimple-update3-release-notes.md)
+### [Aktualizace 2.2](storsimple-update21-release-notes.md)
+### [Aktualizace 2](storsimple-update2-release-notes.md)
+### [Aktualizace 1](storsimple-update1-release-notes.md)
+### [Aktualizace 0.3](storsimple-february-2015-release-notes.md)
+### [Aktualizace 0.2](storsimple-january-2015-release-notes.md)
+### [Aktualizace 0.1](storsimple-october-2014-release-notes.md)
+### [Vydání – GA](storsimple-july-2014-release-notes.md)
 
-## Reference
-### [Azure PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx)
+## Referenční informace
+### [Reference k rutinám Azure PowerShellu](https://msdn.microsoft.com/en-us/library/azure/dn920427)
+### [Reference k rutinám Windows PowerShellu pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
-# [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
+# [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
 
-# Resources
-## [Azure blog](https://azure.microsoft.com/blog/)
-## [Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Marketing blog](http://blogs.technet.com/b/cis/)
+# Zdroje a prostředky
+## [Blog o Azure](https://azure.microsoft.com/blog/)
+## [Fóra](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Marketingový blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
-## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Blog podpory](http://blogs.msdn.com/b/storsimple/)
+## [Oznámení třetích stran](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
 <!--HONumber=Nov16_HO2-->

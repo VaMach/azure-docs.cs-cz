@@ -1,38 +1,38 @@
-# Overview 
-## [Azure portal overview](azure-portal-overview.md)
-## [Azure resource manager overview](resource-group-overview.md)
+# Přehled 
+## [Přehled portálu Azure Portal](azure-portal-overview.md)
+## [Přehled Azure Resource Manageru](resource-group-overview.md)
 
-# Get Started
-## [Deploy using resource manager template](resource-group-template-deploy.md)
+# Začínáme
+## [Nasazení pomocí šablony Resource Manageru](resource-group-template-deploy.md)
 
-# How To
-## Deploy
-### [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md)
-### [Authoring Azure resource manager templates](resource-group-authoring-templates.md)
-### [Azure resource manager template functions](resource-group-template-functions.md)
-### [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
-### [Advanced template operations](resource-group-advanced-template.md)
-## Manage
-### [Use preview portal to manage resources](resource-group-portal.md)
-### [Manage and audit access to resources](resource-group-rbac.md)
-### [Role based access control in the preview portal](role-based-access-control-configure.md)
-### [Use tags to organize resources](resource-group-using-tags.md)
-### [How to scale your resources](insights-how-to-scale.md)
-### [Create a new Azure service principal using the Azure portal](resource-group-create-service-principal-portal.md)
-## Monitor
-### [Monitor service metrics](insights-how-to-customize-monitoring.md)
-### [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md)
-### [Monitor availability and responsiveness of any web site](app-insights-monitor-web-app-availability.md)
-### [Monitor application performance](app-insights-azure-web-apps.md)
-### [View events and audit logs](insights-debugging-with-events.md)
-### [Receive alert notifications](insights-receive-alert-notifications.md)
-### [Best practices for Autoscale](insights-autoscale-best-practices.md)
-### [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
-### [Webhooks for Autoscale notifications](insights-autoscale-to-webhook-email.md)
-### [Webhooks for alerts on audit logs](insights-auditlog-to-webhook-email.md)
-### [Webhooks for alerts on metrics](insights-webhooks-alerts.md)
-### [Azure Insights PowerShell quick start samples](insights-powershell-samples.md)
-### [Azure Insights CLI quick start samples](insights-cli-samples.md)
+# Postup
+## Nasazení
+### [Řešení potíží s nasazeními skupin prostředků v Azure](resource-group-deploy-debug.md)
+### [Tvorba šablon Azure Resource Manageru](resource-group-authoring-templates.md)
+### [Funkce šablon Azure Resource Manageru](resource-group-template-functions.md)
+### [Nasazení prostředků pomocí šablony a knihoven .NET](arm-template-deployment.md)
+### [Pokročilé operace se šablonami](resource-group-advanced-template.md)
+## Spravovat
+### [Použití portálu Preview ke správě prostředků](resource-group-portal.md)
+### [Správa a auditování přístupu k prostředkům](resource-group-rbac.md)
+### [Řízení přístupu na základě rolí na portálu Preview](role-based-access-control-configure.md)
+### [Použití značek k uspořádání prostředků](resource-group-using-tags.md)
+### [Jak škálovat prostředky](insights-how-to-scale.md)
+### [Vytvoření nového objektu zabezpečení služby Azure pomocí webu Azure Portal](resource-group-create-service-principal-portal.md)
+## Monitorování
+### [Monitorování metrik služeb](insights-how-to-customize-monitoring.md)
+### [Povolení monitorování a diagnostiky](insights-how-to-use-diagnostics.md)
+### [Sledování dostupnosti a odezvy libovolných webů](app-insights-monitor-web-app-availability.md)
+### [Monitorování výkonu aplikací](app-insights-azure-web-apps.md)
+### [Zobrazení událostí a protokolů auditu](insights-debugging-with-events.md)
+### [Zobrazování oznámení o výstrahách](insights-receive-alert-notifications.md)
+### [Osvědčené postupy pro automatické škálování](insights-autoscale-best-practices.md)
+### [Běžné metriky pro automatické škálování](insights-autoscale-common-metrics.md)
+### [Webhooky pro oznámení automatického škálování](insights-autoscale-to-webhook-email.md)
+### [Webhooky pro výstrahy týkající se protokolů auditu](insights-auditlog-to-webhook-email.md)
+### [Webhooky pro výstrahy týkající se metrik](insights-webhooks-alerts.md)
+### [Azure Insights PowerShell – ukázky kódu pro rychlý start](insights-powershell-samples.md)
+### [Rozhraní příkazového řádku Azure Insights – ukázky kódu pro rychlý start](insights-cli-samples.md)
 
 
 <!--HONumber=Nov16_HO2-->

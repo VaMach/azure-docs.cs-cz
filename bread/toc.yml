@@ -6,10 +6,10 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/active-directory-whatis
     items:
-      - name: "Connect"
+      - name: "Připojení"
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
-      - name: "Develop"
+      - name: "Vývoj"
         tocHref: /azure/active-directory/develop/
         topicHref: azure/active-directory/develop/
       - name: "Privileged Identity Management"
@@ -51,13 +51,13 @@
   - name: "Automation"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
-  - name: "Functions"
+  - name: "Funkce"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
-  - name: "Government"
+  - name: "Státní správa"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/documentation-government-overview
-  - name: "Portal"
+  - name: "Portál"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
   - name: "Resource Manager"
@@ -66,22 +66,22 @@
   - name: "Azure Stack"
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/azure-stack-poc
-  - name: "Supportability"
+  - name: "Možnosti podpory"
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
-  - name: "Backup"
+  - name: "Zálohování"
     tocHref: /azure/backup/
     topicHref: /azure/backup/backup-introduction-to-azure-backup
   - name: "Batch"
     tocHref: /azure/batch/
     topicHref: /azure/batch/batch-technical-overview
-  - name: "Billing"
+  - name: "Fakturace"
     tocHref: /azure/billing/
     topicHref: /azure/billing/../billing-use-existing-office-365-account-azure-subscription
   - name: "Biztalk Services"
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
-  - name: "Cache"
+  - name: "Mezipaměť"
     tocHref: /azure/cache/
     topicHref: /azure/cache/
   - name: "CDN"
@@ -90,10 +90,10 @@
   - name: "Cloud Services"
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/cloud-services-choose-me
-  - name: "Cognitive Services"
+  - name: "Kognitivní služby"
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/cognitive-services-text-analytics-quick-start
-  - name: "Connectors"
+  - name: "Konektory"
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
   - name: "Container Service"
@@ -126,7 +126,7 @@
   - name: "Expressroute"
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/expressroute-introduction
-  - name: "Guidance"
+  - name: "Doprovodné materiály"
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/guidance-resiliency-overview
   - name: "HDInsight"
@@ -165,14 +165,14 @@
   - name: "Mobile Services"
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: "Monitoring And Diagnostics"
+  - name: "Monitorování a diagnostika"
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/monitoring-and-diagnostics/../azure-portal/monitoring-get-started
-  - name: "Multi-Factor Authentication"
+  - name: "Multi-factor Authentication"
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
     items:
-      - name: "User Guide"
+      - name: "Uživatelská příručka"
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
   - name: "Notification Hubs"
@@ -187,10 +187,10 @@
   - name: "Redis Cache"
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq
-  - name: "Remoteapp"
+  - name: "RemoteApp"
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/remoteapp-whatis
-  - name: "Resiliency"
+  - name: "Odolnost"
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
   - name: "Resource Health"
@@ -199,10 +199,10 @@
   - name: "Scheduler"
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/scheduler-intro
-  - name: "Search"
+  - name: "Hledání"
     tocHref: /azure/search/
     topicHref: /azure/search/search-what-is-azure-search
-  - name: "Security"
+  - name: "Zabezpečení"
     tocHref: /azure/security/
     topicHref: /azure/security/azure-security-getting-started
   - name: "Security Center"
@@ -226,13 +226,13 @@
   - name: "SQL Data Warehouse"
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
-  - name: "SQL Database"
+  - name: "Databáze SQL"
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/sql-database-technical-overview
   - name: "SQL Server Stretch Database"
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/sql-server-stretch-database-overview
-  - name: "Storage"
+  - name: "Úložiště"
     tocHref: /azure/storage/
     topicHref: /azure/storage/storage-introduction
   - name: "StorSimple"
@@ -244,10 +244,10 @@
   - name: "Traffic Manager"
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/traffic-manager-overview
-  - name: "Virtual Machine Scale Sets"
+  - name: "Škálovací sady virtuálních počítačů"
     tocHref: /azure/virtual-machine-scale-sets/
     topicHref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-  - name: "Virtual Machines"
+  - name: "Virtuální počítače"
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
     items:
@@ -255,14 +255,14 @@
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/virtual-machines-linux-azure-overview
         items:
-          - name: "Classic Deployment"
+          - name: "Klasické nasazení"
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: "Windows"
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/virtual-machines-windows-about
         items:
-          - name: "Classic Deployment"
+          - name: "Klasické nasazení"
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
   - name: "Virtual Network"

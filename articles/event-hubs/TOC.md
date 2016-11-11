@@ -1,41 +1,41 @@
-# Overview
+# Přehled
 
-## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs overview](event-hubs-overview.md)
-## [Event Hubs API overview](event-hubs-api-overview.md)
-## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+## [Co je Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Přehled služby Event Hubs](event-hubs-overview.md)
+## [Přehled rozhraní API služby Event Hubs](event-hubs-api-overview.md)
+## [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
 
 
-# Get Started
-## [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Event Hubs programming guide](event-hubs-programming-guide.md)
-## [Event Hubs FAQ](event-hubs-faq.md)
+# Začínáme
+## [Začínáme s Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
+## [Průvodce programováním pro službu Event Hubs](event-hubs-programming-guide.md)
+## [Nejčastější dotazy k Event Hubs](event-hubs-faq.md)
 
-# How to
-## Run the samples
-### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
-### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-## Manage
+# Postup
+## Spuštění ukázek
+### [Upozornění uživatelů na data přijatá ze senzorů](event-hubs-sensors-notify-users.md)
+### [Ukázková aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
+### [Horizontální zvyšování kapacity zpracování událostí pomocí ukázkové aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## Spravovat
 ### [Event Hubs Archive](event-hubs-archive-overview.md)
-### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
-### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+### [Povolení funkce Event Hubs Archive pomocí šablony](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### [Streamování dat Diagnostiky Azure pomocí Event Hubs](event-hubs-streaming-azure-diags-data.md)
+### [Vytvoření a nasazení centra událostí pomocí šablony Resource Manageru](event-hubs-resource-manager-namespace-event-hub.md)
+### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
 
-# Reference
-## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API reference](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
-## [Quotas and limits](event-hubs-quotas.md)
-## [Event Hubs messaging exceptions](event-hubs-messaging-exceptions.md)
+# Referenční informace
+## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [Referenční informace k rozhraní REST API služby Event Hubs](https://msdn.microsoft.com/library/azure/dn790674)
+## [Referenční informace k rozhraní .NET API Event Hubs](https://msdn.microsoft.com/library/azure/jj933424)
+## [Referenční informace k rozhraní API třídy EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
+## [Kvóty a omezení](event-hubs-quotas.md)
+## [Výjimky zasílání zpráv služby Event Hubs](event-hubs-messaging-exceptions.md)
 
-# Resources
+# Zdroje a prostředky
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Manage Service Bus and Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Správa prostředků Service Bus a Event Hubs pomocí Průzkumníka Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Postup výuky pro Event Hubs](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 
 
 

@@ -1,62 +1,62 @@
-# Overview
-## [What is API Management?](api-management-key-concepts.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
-## [Frequently asked questions](api-management-faq.md)
-# Get started
-## [Manage your first API](api-management-get-started.md)
-## [Protect your API with rate limits](api-management-howto-product-with-rules.md)
-## [Add caching to improve performance](api-management-howto-cache.md)
-# How to
-## Develop APIs
-### [Add and publish an API Product](api-management-howto-add-products.md)
-### [Add operations](api-management-howto-add-operations.md)
-### [Create an API](api-management-howto-create-apis.md)
-### [Import an API definition](api-management-howto-import-api.md)
-## Secure your backend
-### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
-### [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md)
-### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
-## Configure Policies
-### [Custom caching](api-management-sample-cache-by-key.md)
-### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
-### [Advanced request throttling](api-management-sample-flexible-throttling.md)
-### [Using external services](api-management-sample-send-request.md)
-### [Policy reference index](api-management-policy-reference.md)
-### [Policies overview](api-management-howto-policies.md)
-### [Manage secrets using properties](api-management-howto-properties.md)
-## Customize the developer experience
-### [Customize the Developer Portal](api-management-customize-portal.md)
-### [Authentication with AAD](api-management-howto-aad.md)
-### [Delegated authentication](api-management-howto-setup-delegation.md)
-### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
-### [Enable console OAuth support](api-management-howto-oauth2.md)
-### [Customize using templates](api-management-developer-portal-templates.md)
-## Manage in production
-### [Manage groups](api-management-howto-create-groups.md)
-### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
-### [Setup DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
-### [Trace calls with the API Inspector](api-management-howto-api-inspector.md)
-### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
-### [Manage using automation](automation-manage-api-management.md)
-### [Configure using Git](api-management-configuration-repository-git.md)
-#Reference
-## [Templates reference](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt619282)
-## [Policies Reference](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API Reference](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-#Resources
-## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
-## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [Consume SOAP WCF services over HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
-## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Setup PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
-## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-# Related
+# Přehled
+## [Co je API Management?](api-management-key-concepts.md)
+# Začínáme
+## [Správa vašeho prvního rozhraní API](api-management-get-started.md)
+## [Ochrana rozhraní API pomocí omezení přenosové rychlosti](api-management-howto-product-with-rules.md)
+## [Zvýšení výkonu přidáním mezipaměti](api-management-howto-cache.md)
+## [Nejčastější dotazy](api-management-faq.md)
+# Postup
+## Vývoj API
+### [Přidání a publikování produktu rozhraní API](api-management-howto-add-products.md)
+### [Přidání operací](api-management-howto-add-operations.md)
+### [Vytvoření rozhraní API](api-management-howto-create-apis.md)
+### [Import definice rozhraní API](api-management-howto-import-api.md)
+## Zabezpečení back-endu
+### [Ochrana webového rozhraní API back-endu pomocí AAD](api-management-howto-protect-backend-with-aad.md)
+### [Připojení přes VPN nebo ExpressRoute](api-management-howto-setup-vpn.md)
+### [Vzájemné ověřování certifikátů](api-management-howto-mutual-certificates.md)
+## Konfigurace zásad
+### [Vlastní ukládání do mezipaměti](api-management-sample-cache-by-key.md)
+### [Pokročilé sledování](api-management-log-to-eventhub-sample.md)
+### [Pokročilé omezování žádostí](api-management-sample-flexible-throttling.md)
+### [Použití externích služeb](api-management-sample-send-request.md)
+### [Rejstřík referenčních informací o zásadách](api-management-policy-reference.md)
+### [Přehled zásad](api-management-howto-policies.md)
+### [Správa tajných klíčů pomocí vlastností](api-management-howto-properties.md)
+## Přizpůsobení prostředí pro vývojáře
+### [Přizpůsobení portálu pro vývojáře](api-management-customize-portal.md)
+### [Ověřování pomocí AAD](api-management-howto-aad.md)
+### [Delegované ověřování](api-management-howto-setup-delegation.md)
+### [E-mailová oznámení a šablony](api-management-howto-configure-notifications.md)
+### [Povolení podpory OAuth v konzole](api-management-howto-oauth2.md)
+### [Přizpůsobení pomocí šablon](api-management-developer-portal-templates.md)
+## Správa v produkčním prostředí
+### [Správa skupin](api-management-howto-create-groups.md)
+### [Nasazení do několika oblastí Azure](api-management-howto-deploy-multi-region.md)
+### [Protokolování událostí v Azure Event Hubs](api-management-howto-log-event-hubs.md)
+### [Nastavení zotavení po havárii pomocí zálohování a obnovení](api-management-howto-disaster-recovery-backup-restore.md)
+### [Trasování volání pomocí nástroje pro inspekci rozhraní API](api-management-howto-api-inspector.md)
+### [Správa uživatelských účtů](api-management-howto-create-or-invite-developers.md)
+### [Správa s použitím automatizace](automation-manage-api-management.md)
+### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
+#Referenční informace
+## [Šablony](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [Referenční informace k rutinám PowerShellu pro nasazení služeb](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Zásady](https://msdn.microsoft.com/en-us/library/azure/dn894081)
+## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
+## [Rutiny PowerShellu pro správu služeb](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+#Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
+## [Dokument white paper: Cloud-based API Management (Cloudová správa rozhraní API)](http://j.mp/ms-apim-whitepaper)
+## [Pokyny k návrhu rozhraní API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Pokyny k implementaci rozhraní API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Využívání služeb SOAP WCF přes HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
+## [Propojení Event Hubs se službou API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [API Management – jde skvěle dohromady s ostatními službami Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
+## [Poskytnutí přístupu podobného RBAC pomocí rozhraní REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Nastavení nástroje PostMan pro volání rozhraní API služby API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Plug-in API Management pro SmartBear Ready! Rozhraní API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+
 
 
 <!--HONumber=Nov16_HO2-->
