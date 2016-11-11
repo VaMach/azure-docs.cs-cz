@@ -1,62 +1,62 @@
-# Overview
-## [Resource Manager Overview](resource-group-overview.md)
-## [Supported services, regions, and API versions](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Understand Resource Manager and Classic deployment](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Prescriptive subscription governance](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Governance examples for enterprises](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Get Started
-## [Export template](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Template walkthrough](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Visual Studio with Resource Manager](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [VS Code with Resource Manager](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Přehled
+## [Přehled Resource Manageru](resource-group-overview.md)
+## [Podporované služby, oblasti a verze API](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Vysvětlení Resource Manageru a klasického nasazení](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Zásady správného řízení pro předplatná](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Příklady zásad správného řízení pro podniky](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Začínáme
+## [Export šablony](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Průvodce šablonami](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Visual Studio s Resource Managerem](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Kód VS s Resource Managerem](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-# How To
-## Templates
-### [Best practices for templates](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Authoring templates](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Template functions](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Define dependency between resources](../resource-group-define-dependencies.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create multiple instances of resource type](../resource-group-create-multiple.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Pass secure values during deployment](../resource-manager-keyvault-parameter.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Link to other templates](../resource-group-linked-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Share state between linked templates](../best-practices-resource-manager-state.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Patterns for designing templates](../best-practices-resource-manager-design-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Deploy
+# Postup
+## Šablony
+### [Osvědčené postupy pro šablony](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytváření šablon](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Funkce šablon](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Definování závislosti mezi prostředky](../resource-group-define-dependencies.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytvoření více instancí prostředku daného typu](../resource-group-create-multiple.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Předání zabezpečených hodnot během nasazení](../resource-manager-keyvault-parameter.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Propojení s ostatními šablonami](../resource-group-linked-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Sdílení stavu mezi propojenými šablonami](../best-practices-resource-manager-state.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Způsoby navrhování šablon](../best-practices-resource-manager-design-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Nasazení
 ### [PowerShell](../resource-group-template-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Azure CLI](../resource-group-template-deploy-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Portal](../resource-group-template-deploy-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Azure Portal](../resource-group-template-deploy-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [REST API](../resource-group-template-deploy-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Development and test environments](../solution-dev-test-environments.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Manage
+### [Vývojová a testovací prostředí](../solution-dev-test-environments.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Spravovat
 ### [PowerShell](../powershell-azure-resource-manager.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Azure CLI](../xplat-cli-azure-resource-manager.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Portal](../azure-portal/resource-group-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Azure Portal](../azure-portal/resource-group-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [REST API](../resource-manager-rest-api.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Use tags to organize resources](../resource-group-using-tags.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Move resources to new group or subscription](../resource-group-move-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Link related resources](../resource-group-link-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Azure Resource Explorer](../resource-manager-resource-explorer.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Control Access
-### [Create service principal with PowerShell](../resource-group-authenticate-service-principal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create service principal with Azure CLI](../resource-group-authenticate-service-principal-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create service principal with portal](../resource-group-create-service-principal-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [App access to subscriptions](../resource-manager-api-authentication.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Set management policies](../resource-manager-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Lock resources](../resource-group-lock-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Security considerations](../best-practices-resource-manager-security.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Audit and Troubleshoot
-### [Troubleshoot common deployment errors](../resource-manager-common-deployment-errors.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View activity logs](../resource-group-audit.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with portal](../resource-manager-troubleshoot-deployments-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with PowerShell](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Reference
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
-## [PowerShell cmdlets for Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [REST API for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [.NET client library for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
-## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Použití značek k uspořádání prostředků](../resource-group-using-tags.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Přesunutí prostředků do nové skupiny nebo předplatného](../resource-group-move-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Propojení se souvisejícími prostředky](../resource-group-link-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Průzkumník prostředků Azure](../resource-manager-resource-explorer.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Řízení přístupu
+### [Vytvoření instančního objektu pomocí PowerShellu](../resource-group-authenticate-service-principal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytvoření instančního objektu pomocí Azure CLI](../resource-group-authenticate-service-principal-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytvoření instančního objektu pomocí portálu](../resource-group-create-service-principal-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Přístup aplikací k předplatným](../resource-manager-api-authentication.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Nastavení zásad správy](../resource-manager-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Uzamčení prostředků](../resource-group-lock-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Aspekty zabezpečení](../best-practices-resource-manager-security.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Auditování a odstraňování potíží
+### [Řešení potíží s běžnými chybami nasazení](../resource-manager-common-deployment-errors.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zobrazení protokolů aktivit](../resource-group-audit.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zobrazení operací nasazení pomocí portálu](../resource-manager-troubleshoot-deployments-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zobrazení operací nasazení pomocí PowerShellu](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zobrazení operací nasazení pomocí Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zobrazení operací nasazení pomocí REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Referenční informace
+## [Schémata šablon](https://github.com/Azure/azure-resource-manager-schemas)
+## [Rutiny PowerShell pro Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
+## [Rozhraní REST API pro Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
+## [Klientská knihovna .NET pro Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [Omezování požadavků](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -5,24 +5,24 @@
 ## [Functions](/azure/functions/)
 ## [Service Fabric](/azure/service-fabric/)
 ## [Virtual Machines](/azure/virtual-machines/)
-### [Linux VMs](/azure/virtual-machines/linux/)
-### [Windows VMs](/azure/virtual-machines/windows/)
-## [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
+### [Virtuální počítače s Linuxem](/azure/virtual-machines/linux/)
+### [Virtuální počítače s Windows](/azure/virtual-machines/windows/)
+## [Škálovací sady virtuálních počítačů](/azure/virtual-machine-scale-sets/)
 ## [Resource Manager](/azure/azure-resource-manager/)
-# Data and Databases
+# Data a databáze
 ## [DocumentDB](/azure/documentdb/)
 ## [Redis Cache](/azure/redis-cache/)
 ## [SQL Data Warehouse](/azure/sql-data-warehouse/)
 ## [SQL Database](/azure/sql-database/)
 ## [SQL Server Stretch DB](/azure/sql-server-stretch-database/)
-# Developer Tools
+# Vývojářské nástroje
 ## [DevTest Lab](/azure/devtest-lab/)
-## [Best Practices](/azure/guidance/)
-# Enterprise Integration
+## [Osvědčené postupy](/azure/guidance/)
+# Podniková integrace
 ## [Biztalk Services](/azure/biztalk-services/)
 ## [Service Bus](/azure/service-bus/)
 ## [Azure Stack](/azure/azure-stack/)
-# Intelligence & Analytics
+# Inteligentní funkce a analýzy
 ## [Cognitive Services](/azure/cognitive-services/)
 ## [Data Catalog](/azure/data-catalog/)
 ## [Data Factory](/azure/data-factory/)
@@ -31,16 +31,16 @@
 ## [Machine Learning](/azure/macine-learning/)
 ## [PowerBI Embedded](/azure/powerbi-embedded/)
 ## [Stream Analytics](/azure/stream-analytics/)
-# Internet of Things
+# Internet věcí
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT Hub](/azure/iot-hub/)
 ## [IoT Suite](/azure/iot-suite/)
-# Monitoring & Management
-## [Billing](/azure/billing/)
+# Monitorování a správa
+## [Fakturace](/azure/billing/)
 ## [Operations Management Suite](/azure/operations-management-suite/)
 ## [Site Recovery](/azure/site-recovery/)
 ## [Application Insights](/azure/application-insights/)
-# Networking
+# Sítě
 ## [Application Gateway](/azure/application-gateway/)
 ## [CDN](/azure/cdn/)
 ## [DNS](/azure/dns/)
@@ -49,19 +49,19 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-# Security & Identity
+# Zabezpečení a identita
 ## [Security Center](/azure/security-center/)
 ## [Active Directory](/azure/active-directory/)
 ## [Active Directory B2C](/azure/active-directory-b2c/)
 ## [Active Directory Domain Services](/azure/active-directory-domain-services/)
 ## [KeyVault](/azure/key-vault/)
 ## [Multifactor Authentication](/azure/multi-factor-authentication/)
-# Storage
+# Úložiště
 ## [Backup](/azure/backup/)
 ## [Data Lake Store](/azure/data-lake-store/)
 ## [Storage](/azure/storage/)
 ## [StorSimple](/azure/storsimple/)
-# Web + Mobile
+# Web a mobilní zařízení
 ## [API Management](/azure/api-management/)
 ## [App Service](/azure/app-service/)
 ## [Logic Apps](/azure/app-service-logic/)

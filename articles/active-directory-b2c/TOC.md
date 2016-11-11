@@ -1,59 +1,59 @@
-# Overview
-## [What is Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [How it works](active-directory-b2c-overview.md)
-## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+# Přehled
+## [Co je Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
+## [Jak to funguje](active-directory-b2c-overview.md)
+## [Typy aplikací](active-directory-b2c-apps.md)
+## [B2C tenanti v produkčním měřítku a ve verzi Preview](active-directory-b2c-reference-tenant-type.md)
 
-# Get Started
-## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
-## [Register your application](active-directory-b2c-app-registration.md)
-## Quickstart Guides
-### [Build an iOS app](active-directory-b2c-devquickstarts-ios.md)
-### [Build an Android app](active-directory-b2c-devquickstarts-android.md)
-### [Build a Node.Js Web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .NET Web App](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Sign up and sign in on an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Build a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Build a Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Add sign-in to a Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## [Frequently asked questions](active-directory-b2c-faqs.md)
+# Začínáme
+## [Vytvoření adresáře Azure AD B2C](active-directory-b2c-get-started.md)
+## [Registrace vaší aplikace](active-directory-b2c-app-registration.md)
+## Příručky Rychlý start
+### [Vytváření aplikací pro iOS](active-directory-b2c-devquickstarts-ios.md)
+### [Vytváření aplikací pro Android](active-directory-b2c-devquickstarts-android.md)
+### [Vytvoření webového rozhraní API Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Vytvoření webové aplikace .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
+#### [Registrace a přihlášení k webové aplikaci ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [Vytvoření webového rozhraní API .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Vytváření desktopových aplikací pro Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [Volání webového rozhraní API z webové aplikace .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Použití rozhraní Graph API v Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
+### [Přidání přihlašování do webové aplikace Node.js](active-directory-b2c-devquickstarts-web-node.md)
+## [Nejčastější dotazy](active-directory-b2c-faqs.md)
 
-# How To
-## Manage
-### [Enable multi-factor authentication](active-directory-b2c-reference-mfa.md)
-### [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
-### [Token, session, and SSO configuration](active-directory-b2c-token-session-sso.md)
-## Develop
-### Sign up and sign in
-#### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
+# Postup
+## Spravovat
+### [Povolení vícefaktorového ověřování](active-directory-b2c-reference-mfa.md)
+### [Nastavení samoobslužného resetování hesla](active-directory-b2c-reference-sspr.md)
+### [Konfigurace tokenů, relací a SSO](active-directory-b2c-token-session-sso.md)
+## Vývoj
+### Registrace a přihlášení
+#### [Účet Microsoft](active-directory-b2c-setup-msa-app.md)
 #### [Facebook](active-directory-b2c-setup-fb-app.md)
 #### [Google+](active-directory-b2c-setup-goog-app.md)
 #### [Amazon](active-directory-b2c-setup-amzn-app.md)
 #### [LinkedIn](active-directory-b2c-setup-li-app.md)
-### [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
-### [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md)
-### [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-### [Customize the user interface](active-directory-b2c-reference-ui-customization.md)
-#### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## Troubleshoot
-### [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+### [Použití vlastních atributů](active-directory-b2c-reference-custom-attr.md)
+### [Tok kódu při autorizaci OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+### [Webové přihlášení s OpenID Connect](active-directory-b2c-reference-oidc.md)
+### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
+#### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
+## Řešení potíží
+### [Potíže při vytváření adresáře](active-directory-b2c-support-create-directory.md)
 
-# Reference
-## [Limitations & Restrictions](active-directory-b2c-limitations.md)
-## [Extensible policy framework](active-directory-b2c-reference-policies.md)
-## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
-## [Tokens](active-directory-b2c-reference-tokens.md)
+# Referenční informace
+## [Limity a omezení](active-directory-b2c-limitations.md)
+## [Rozšiřitelná architektura zásad](active-directory-b2c-reference-policies.md)
+## [Protokoly pro ověřování](active-directory-b2c-reference-protocols.md)
+## [Tokeny](active-directory-b2c-reference-tokens.md)
 
-# Related
+# Související
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
-## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources
-## [Support](active-directory-b2c-support.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+# Zdroje a prostředky
+## [Podpora](active-directory-b2c-support.md)
+## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Fórum Azure pro názory](http://feedback.azure.com/forums/169401-azure-active-directory)
 
 <!--HONumber=Nov16_HO2-->
 

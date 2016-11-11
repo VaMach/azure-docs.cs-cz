@@ -1,48 +1,48 @@
-# Overview
-## [What is Azure DNS?](dns-overview.md)
-## [DNS zones and records](dns-zones-records.md)
+# Přehled
+## [Co je Azure DNS?](dns-overview.md)
+## [Záznamy a zóny DNS](dns-zones-records.md)
 
-# Get Started
+# Začínáme
 
-## [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
-### [Create a DNS zone (PowerShell)](dns-getstarted-create-dnszone.md)
-### [Create a DNS zone (CLI)](dns-getstarted-create-dnszone-cli.md)
+## [Vytvoření zóny DNS](dns-getstarted-create-dnszone-portal.md)
+### [Vytvoření zóny DNS (PowerShell)](dns-getstarted-create-dnszone.md)
+### [Vytvoření zóny DNS (rozhraní příkazového řádku)](dns-getstarted-create-dnszone-cli.md)
 
-## [Create DNS records](dns-getstarted-create-recordset-portal.md)
-### [Create DNS records (PowerShell)](dns-getstarted-create-recordset.md)
-### [Create DNS records (CLI)](dns-getstarted-create-recordset-cli.md)
+## [Vytvoření záznamů DNS](dns-getstarted-create-recordset-portal.md)
+### [Vytvoření záznamů DNS (PowerShell)](dns-getstarted-create-recordset.md)
+### [Vytvoření záznamů DNS (rozhraní příkazového řádku)](dns-getstarted-create-recordset-cli.md)
 
-## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
+## [Delegování domény do Azure DNS](dns-domain-delegation.md)
 
-# How to
+# Postup
 
-## [Manage DNS zones](dns-operations-dnszones.md)
-### [Manage DNS zones (CLI)](dns-operations-dnszones.md)
+## [Správa zón DNS](dns-operations-dnszones.md)
+### [Správa zón DNS (rozhraní příkazového řádku)](dns-operations-dnszones.md)
 
-## [Manage DNS records](dns-operations-recordsets-portal.md)
-### [Manage DNS records (PowerShell)](dns-operations-recordsets.md)
-### [Manage DNS records (CLI)](dns-operations-recordsets-cli.md)
+## [Správa záznamů DNS](dns-operations-recordsets-portal.md)
+### [Správa záznamů DNS (PowerShell)](dns-operations-recordsets.md)
+### [Správa záznamů DNS (rozhraní příkazového řádku)](dns-operations-recordsets-cli.md)
 
-## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [Manage reverse DNS records (CLI)](dns-reverse-dns-record-operations-cli.md)
-### [Manage reverse DNS records (Classic PS)](dns-reverse-dns-record-operations-classic-ps.md)
+## [Správa reverzních záznamů DNS](dns-reverse-dns-record-operations-ps.md)
+### [Správa reverzních záznamů DNS (rozhraní příkazového řádku)](dns-reverse-dns-record-operations-cli.md)
+### [Správa reverzních záznamů DNS (Classic PS)](dns-reverse-dns-record-operations-classic-ps.md)
 
-## [Import and export a DNS zone file](dns-import-export.md)
-## [Using Azure DNS with other Azure services](dns-for-azure-services.md)
-## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
-## [Automate DNS operations with the DNS.NET SDK](dns-sdk.md)
+## [Import a export souboru zóny DNS](dns-import-export.md)
+## [Používání Azure DNS s ostatními službami Azure](dns-for-azure-services.md)
+## [Ochrana záznamů a zón DNS](dns-protect-zones-recordsets.md)
+## [Automatizace operací DNS s DNS.NET SDK](dns-sdk.md)
 
-# References
-## [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
-## [REST APIs](https://msdn.microsoft.com/library/azure/mt163862)
+# Odkazy
+## [Rutiny PowerShellu](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
+## [Rozhraní REST API](https://msdn.microsoft.com/library/azure/mt163862)
 
-# Related
+# Související
 ## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
-## [Virtual Machine](/azure/virtual-machines/)
+## [Virtuální počítač](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web apps](/azure/app-service/web/)
+## [Web Apps](/azure/app-service/web/)
 
 
 <!--HONumber=Nov16_HO2-->

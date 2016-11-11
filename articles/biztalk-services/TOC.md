@@ -1,42 +1,42 @@
-# Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+# Přehled
+## [Přehled hybridních připojení](integration-hybrid-connection-overview.md)
 
-# Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
-# How To
+# Začínáme
+## [Vytvoření služby BizTalk Services pomocí webu Azure Portal](biztalk-provision-services.md)
+# Postup
 
-## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
-### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
+## Plánování a návrh
+### [Tabulka edic](biztalk-editions-feature-chart.md)
+### [Seznam úloh pro správce a vývojáře](biztalk-services-administration-and-development-task-list.md)
 
-## Backup
-### [Backup and restore](biztalk-backup-restore.md)
+## Zálohování
+### [Zálohování a obnovení](biztalk-backup-restore.md)
 
-## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
+## Konfigurace
+### [BizTalk Services: Omezování](biztalk-throttling-thresholds.md)
+### [Kontrola karet řídicího panelu, monitorování, škálování, konfigurace a hybridní připojení](biztalk-dashboard-monitor-scale-tabs.md)
 
-## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+## Integrace
+### [Vytvoření a správa hybridních připojení](integration-hybrid-connection-create-manage.md)
 
-## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
+## Migrace
+### [Migrace řešení EDI z BizTalk Serveru do BizTalk Services](biztalk-migrating-to-edi-guide.md)
 
-## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
+## Monitorování
+### [BizTalk Services: Tabulka stavu služeb](biztalk-service-state-chart.md)
 
-## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
+## Zabezpečení
+### [Název a klíč vystavitele](biztalk-issuer-name-issuer-key.md)
 
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+## Řešení potíží
+### [Odstraňování potíží pomocí protokolů operací](biztalk-troubleshoot-using-ops-logs.md)
 
-# Reference
+# Referenční informace
 
-# Related
+# Související
 
-# Resources
-## [Release Notes](biztalk-release-notes.md)
+# Zdroje a prostředky
+## [Poznámky k verzi](biztalk-release-notes.md)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,18 +1,18 @@
-# Overview
-##[What is Azure Analysis Services?](analysis-services-overview.md)
-# Get started
-##[Create a server](analysis-services-create-server.md)
+# Přehled
+##[Co je služba Azure Analysis Services?](analysis-services-overview.md)
+# Začínáme
+##[Vytvoření serveru](analysis-services-create-server.md)
 
-# How to 
-## [Deploy](analysis-services-deploy.md)
-## Manage
-###[Connect to a server](analysis-services-connect.md)
-###[Manage a server](analysis-services-manage.md)
-## Integrate
-###[On-premise data gateway](analysis-services-gateway.md)
+# Postup 
+## [Nasazení](analysis-services-deploy.md)
+## Spravovat
+###[Připojení k serveru](analysis-services-connect.md)
+###[Správa serveru](analysis-services-manage.md)
+## Integrace
+###[Místní brána dat](analysis-services-gateway.md)
 
-# References
-##[Datasource connections](analysis-services-datasource.md)
+# Odkazy
+##[Připojení zdrojů dat](analysis-services-datasource.md)
 
 <!--HONumber=Nov16_HO2-->
 

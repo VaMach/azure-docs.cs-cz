@@ -1,58 +1,58 @@
-# Overview
-## [Getting started with Azure security](azure-security-getting-started.md)
-## [Azure security overview](security-get-started-overview.md)
-## [Security services and technologies](azure-security-services-technologies.md)
+# Přehled
+## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
+## [Přehled zabezpečení Azure](security-get-started-overview.md)
+## [Technologie a služby zabezpečení](azure-security-services-technologies.md)
 
-# Get started
-## Network security
-### [Overview](security-network-overview.md)
-### [Network security best practices](azure-security-network-security-best-practices.md)
-### [Boundary security](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Secure hybrid network architecture](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Storage security
-### [Overview](security-storage-overview.md)
-### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Compute security
-### [Overview](security-virtual-machines-overview.md)
-### [Microsoft Antimalware](azure-security-antimalware.md)
-### [Disk encryption](azure-security-disk-encryption.md)
-### [Encrypt Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Security management and monitoring
-### [Overview](security-management-and-monitoring-overview.md)
-### [Security management](azure-security-management.md)
-### [Best practices for software updates on IaaS](azure-security-best-practices-software-updates-iaas.md)
+# Začínáme
+## Zabezpečení sítě
+### [Přehled](security-network-overview.md)
+### [Osvědčené postupy zabezpečení sítě](azure-security-network-security-best-practices.md)
+### [Zabezpečení hranic](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Zabezpečení hybridní síťové architektury](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Zabezpečení úložiště
+### [Přehled](security-storage-overview.md)
+### [Osvědčené postupy šifrování a zabezpečení dat](azure-security-data-encryption-best-practices.md)
+### [Příručka zabezpečení úložiště](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Zabezpečení výpočetních služeb
+### [Přehled](security-virtual-machines-overview.md)
+### [Antimalware od Microsoftu](azure-security-antimalware.md)
+### [Šifrování disku](azure-security-disk-encryption.md)
+### [Šifrování virtuálních počítačů Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Monitorování a správa zabezpečení
+### [Přehled](security-management-and-monitoring-overview.md)
+### [Správa zabezpečení](azure-security-management.md)
+### [Osvědčené postupy pro aktualizace softwaru na IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### Azure log integration
-#### [Overview](security-azure-log-integration-overview.md)
-#### [Get started](security-azure-log-integration-get-started.md)
-#### [FAQ](security-azure-log-integration-faq.md)
-## Identity management
-### [Overview](security-identity-management-overview.md)
-### [Identity management security best practices](azure-security-identity-management-best-practices.md)
-## PaaS services
-### [IoT security best practices](azure-security-iot-best-practices.md)
-### [IoT security overview](security-internet-of-things-overview.md)
-## Vertical industries
-### [Designing secure health solutions](security-health-care-solution.md)
-## Security architecture
-### [Overview](azure-security-architecture-overview.md)
-### [Data classification for cloud readiness](azure-security-data-classification.md)
-### [Application architecture on Azure](security-application-architecture-on-azure.md)
-### [Security best practices and patterns](security-best-practices-and-patterns.md)
-### [Architecting resilient applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### Integrace protokolů Azure
+#### [Přehled](security-azure-log-integration-overview.md)
+#### [Začínáme](security-azure-log-integration-get-started.md)
+#### [Nejčastější dotazy](security-azure-log-integration-faq.md)
+## Správa identit
+### [Přehled](security-identity-management-overview.md)
+### [Osvědčené postupy zabezpečení správy identit](azure-security-identity-management-best-practices.md)
+## Služby PaaS
+### [Osvědčené postupy zabezpečení IoT](azure-security-iot-best-practices.md)
+### [Přehled zabezpečení IoT](security-internet-of-things-overview.md)
+## Vertikální obory
+### [Navrhování bezpečných řešení pro zdravotnictví](security-health-care-solution.md)
+## Architektura zabezpečení
+### [Přehled](azure-security-architecture-overview.md)
+### [Klasifikace dat podle připravenosti na cloud](azure-security-data-classification.md)
+### [Aplikační architektura v Azure](security-application-architecture-on-azure.md)
+### [Osvědčené postupy a vzory zabezpečení](security-best-practices-and-patterns.md)
+### [Navrhování odolných aplikací](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Resources
-## [Trust Center](security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](azure-security-response-center.md)
-## [Pen testing](azure-security-pen-testing.md)
-## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Azure security MVP program](azure-security-mvp.md)
-## [Cybersecurity consulting](azure-security-cyber-services.md)
-## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
-## [Security videos on Channel 9](security-channel-nine.md)
+# Zdroje a prostředky
+## [Centrum zabezpečení](security-microsoft-trust-center.md)
+## [Středisko Microsoft Security Response Center](azure-security-response-center.md)
+## [Testování průniku](azure-security-pen-testing.md)
+## [Blog věnovaný zabezpečení a dodržování předpisů](http://blogs.msdn.com/b/azuresecurity/)
+## [Program MVP pro zabezpečení Azure](azure-security-mvp.md)
+## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
+## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
+## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
 
-# Related
+# Související
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
