@@ -1,0 +1,117 @@
+# Přehled
+## [Seznámení se službou Azure Data Factory](data-factory-introduction.md)
+## [Ceny](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Index všech článků](data-factory-alltopcat.md)
+## Koncepty
+### [Datové sady](data-factory-create-datasets.md)
+### [Kanály a aktivity](data-factory-create-pipelines.md)
+### [Aktivity přesunu dat](data-factory-data-movement-activities.md)
+### [Aktivity transformace dat](data-factory-data-transformation-activities.md)
+### [Plánování a provádění](data-factory-scheduling-and-execution.md)
+### [Propojené služby Compute](data-factory-compute-linked-services.md)
+# Začínáme
+## [Kurz: Vytvoření kanálu pro kopírování dat](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+### [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
+### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+### [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+### [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+## [Kurz: Vytvoření kanálu pro transformaci dat](data-factory-build-your-first-pipeline.md)
+### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+### [Šablona Azure Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
+### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Kurz: Přesun místních dat do cloudu](data-factory-move-data-between-onprem-and-cloud.md)
+## [Kurz: Vytvoření a použití vlastní aktivity v kanálu](data-factory-use-custom-activities.md)
+
+# Postup
+## Přesun dat
+### [Průvodce kopírováním služby Data Factory](data-factory-copy-wizard.md)
+### [Načtení 1 TB za 15 minut pomocí Průvodce kopírováním](data-factory-load-sql-data-warehouse.md)
+### [Aktivita kopírování](data-factory-data-movement-activities.md)
+### [Přesun hybridních dat](data-factory-move-data-between-onprem-and-cloud.md)
+### [Brána správy dat](data-factory-data-management-gateway.md)
+### [Výkon a průvodce laděním aktivity kopírování](data-factory-copy-activity-performance.md)
+### [Azure Blob Storage](data-factory-azure-blob-connector.md)
+### [Tabulky Azure](data-factory-azure-table-connector.md)
+### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
+### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+### [Azure SQL Database](data-factory-azure-sql-connector.md)
+### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+### [SQL Server](data-factory-sqlserver-connector.md)
+### [Oracle](data-factory-onprem-oracle-connector.md)
+### [MySQL](data-factory-onprem-mysql-connector.md)
+### [DB2](data-factory-onprem-db2-connector.md)
+### [Teradata](data-factory-onprem-teradata-connector.md)
+### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
+### [Sybase](data-factory-onprem-sybase-connector.md)
+### [Cassandra](data-factory-onprem-cassandra-connector.md)
+### [MongoDB](data-factory-on-premises-mongodb-connector.md)
+### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
+### [Systém souborů](data-factory-onprem-file-system-connector.md)
+### [HDFS](data-factory-hdfs-connector.md)
+### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+### [Salesforce](data-factory-salesforce-connector.md)
+### [Webová tabulka](data-factory-web-table-connector.md)
+### [Zdroje OData](data-factory-odata-connector.md)
+### [Úložiště dat rozhraní ODBC](data-factory-odbc-connector.md)
+### [FTP](data-factory-ftp-connector.md)
+
+## Transformace dat
+### [Aktivity transformace dat](data-factory-data-transformation-activities.md)
+### [Aktivita Hivu služby HDInsight](data-factory-hive-activity.md)
+### [Aktivita Pig služby HDInsight](data-factory-pig-activity.md)
+### [Aktivita MapReduce služby HDInsight](data-factory-map-reduce.md)
+### [Aktivita Streamování služby HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Aktivita Provedení dávky služby Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+### [Aktivita Uložená procedura](data-factory-stored-proc-activity.md)
+### [Aktivita U-SQL služby Data Lake Analytics](data-factory-usql-activity.md)
+### [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
+### [Vyvolání programů Spark](data-factory-spark.md)
+### [Vyvolání skriptů jazyka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## Vývoj
+### [Pomocí webu Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Pomocí sady Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+### [Pomocí PowerShellu](data-factory-copy-activity-tutorial-using-powershell.md)
+### [Pomocí šablony Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)
+### [Pomocí rozhraní REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+### [Pomocí rozhraní .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+### [Ukázky](data-factory-samples.md)
+### [Funkce a systémové proměnné](data-factory-functions-variables.md)
+### [Pravidla pojmenování](data-factory-naming-rules.md)
+### [Protokol změn rozhraní .NET API](data-factory-api-change-log.md)
+## Monitorování a správa
+### [Pomocí webu Azure Portal](data-factory-api-change-log.md)
+### [Pomocí aplikace Monitorovat a spravovat](data-factory-monitor-manage-app.md)
+### [Kanály Azure Data Factory](data-factory-monitor-manage-pipelines.md)
+### [Pomocí sady .NET SDK](data-factory-create-data-factories-programmatically.md)
+### [Řešení potíží se službou Data Factory](data-factory-troubleshoot.md)
+### [Řešení potíží při použití brány správy dat](data-factory-troubleshoot-gateway-issues.md)
+### [Nasazení pomocí šablon Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)
+# Referenční informace 
+## [Referenční informace pro vývojáře řešení založených na Azure Data Factory](data-factory-sdks.md)
+
+# Prostředky:
+## [Případové studie](data-factory-customer-case-studies.md)
+### [Doporučení produktů](data-factory-product-reco-usecase.md)
+### [Profilování zákazníků](data-factory-customer-profiling-usecase.md)
+### [Zpracování rozsáhlých datových sad pomocí služeb Data Factory a Batch](data-factory-data-processing-using-batch.md)
+## [Nejčastější dotazy](data-factory-faq.md)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)
+## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
