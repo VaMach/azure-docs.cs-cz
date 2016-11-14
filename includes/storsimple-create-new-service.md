@@ -1,7 +1,7 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### Vytvoření nové služby
+#### <a name="to-create-a-new-service"></a>Vytvoření nové služby
 1. Pomocí přihlašovacích údajů k účtu Microsoft se přihlaste na portál Azure Classic na této adrese URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 2. Na portálu Azure Classic klikněte na **Nový** > **Data Services** > **StorSimple Manager** > **Rychlý start**.
 3. Ve formuláři, který se zobrazí, proveďte následující akce:
@@ -21,10 +21,12 @@
    
    ![Vytvoření služby](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Je dostupné video](./media/storsimple-create-new-service/Video_icon.png) **Je dostupné video**
+![Dostupné video](./media/storsimple-create-new-service/Video_icon.png) **Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit novou službu StorSimple Manager, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

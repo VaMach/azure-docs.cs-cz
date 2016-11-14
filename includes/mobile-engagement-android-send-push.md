@@ -3,11 +3,11 @@
 Zkopírujte níže uvedené prostředky zasílání zpráv v aplikaci do souboru Manifest.xml mezi značky `<application>` a `</application>`.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-            <intent-filter>
+              <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
-            </intent-filter>
+              </intent-filter>
         </activity>
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -92,6 +92,8 @@ Ve skutečných aplikacích můžete použít ikonu vhodnou pro oznámení podle
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
