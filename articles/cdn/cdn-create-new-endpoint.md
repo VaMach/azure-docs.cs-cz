@@ -1,12 +1,12 @@
 ---
-title: Používání Azure CDN | Microsoft Docs
-description: Toto téma ukazuje, jak povolit Síť pro doručování obsahu (CDN) pro Azure. Kurz vás provede vytvořením nového profilu a koncového bodu CDN.
+title: "Používání Azure CDN | Dokumentace Microsoftu"
+description: "Toto téma ukazuje, jak povolit Síť pro doručování obsahu (CDN) pro Azure. Kurz vás provede vytvořením nového profilu a koncového bodu CDN."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+
 
 ---
-# Používání Azure CDN
+# <a name="using-azure-cdn"></a>Používání Azure CDN
 Toto téma vás provede povolením Azure CDN prostřednictvím vytvoření nového profilu a koncového bodu CDN.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ Toto téma vás provede povolením Azure CDN prostřednictvím vytvoření nové
 > 
 > 
 
-## Vytvoření nového profilu CDN
+## <a name="create-a-new-cdn-profile"></a>Vytvoření nového profilu CDN
 Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jeden nebo víc koncových bodů CDN.  Můžete použít více profilů a uspořádat koncové body CDN podle internetové domény, webové aplikace nebo jiných kritérií.
 
 > [!NOTE]
@@ -36,7 +40,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Vytvoření nového koncového bodu CDN
+## <a name="create-a-new-cdn-endpoint"></a>Vytvoření nového koncového bodu CDN
 **Postup vytvoření nového koncového bodu CDN**
 
 1. Na [webu Azure Portal](https://portal.azure.com) přejděte na svůj profil CDN.  Je možné, že jste si ho v předchozím kroku připnuli k řídicímu panelu.  Pokud ne, najdete ho kliknutím na položku **Procházet**, poté položku **Profily CDN** a nakonec kliknutím na profil, ke kterému plánujete přidat koncový bod.
@@ -66,7 +70,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 8. V polích **Protokol** a **Port původu** určete protokoly a porty sloužící k přístupu k prostředkům v původu.  Je nutné vybrat alespoň jeden protokol (HTTP nebo HTTPS).
    
    > [!NOTE]
-   > **Port původu** má vliv pouze na port použitý koncovým bodem k načtení informací z původu.  Koncový bod jako takový bude dostupný pouze koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na **Port původu**.  
+   >  **Port původu** má vliv pouze na port použitý koncovým bodem k načtení informací z původu.  Koncový bod jako takový bude dostupný pouze koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na **Port původu**.  
    > 
    > Koncové body **Azure CDN společnosti Akamai** neumožňují použít u původu plný rozsah portů.  Seznam nepovolených portů původu najdete v tématu [Povolené porty původu Azure CDN společnosti Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
    > 
@@ -88,20 +92,20 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
     > 
     > 
 
-## Viz také
+## <a name="see-also"></a>Viz také
 * [Řízení chování ukládání do mezipaměti u žádostí s řetězci dotazu](cdn-query-string.md)
 * [Postup mapování obsahu CDN do vlastní domény](cdn-map-content-to-custom-domain.md)
 * [Předběžné načtení prostředků v koncovém bodu Azure CDN](cdn-preload-endpoint.md)
 * [Vyprázdnění koncového bodu Azure CDN](cdn-purge-endpoint.md)
 * [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md)
 
-[cdn-profil-nastavení]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-nový-koncový bod-tlačítko]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-přidání-koncový bod]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-koncový bod-úspěch]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

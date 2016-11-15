@@ -4,14 +4,19 @@ VPN Gateway může používat následující SKU:
 
 * Basic
 * Standard
-* Vysokovýkonné
+* HighPerformance
 
-Při výběru SKU zvažte následující omezení:
+VPN Gateway nepoužívá SKU brány UltraPerformance. Informace o SKU UltraPerformance najdete v dokumentaci k [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
-* Chcete-li použít síť VPN typu PolicyBased, musíte použít základní SKU brány. Sítě VPN typu PolicyBased (dříve nazývané Statické směrování) nejsou podporovány jinými SKU.
+Při výběru SKU zvažte následující informace:
+
+* Pokud chcete použít síť VPN typu PolicyBased, musíte použít SKU Basic. Sítě VPN typu PolicyBased (dříve nazývané Statické směrování) nejsou podporovány jinými SKU.
 * Protokol BGP není podporován v základní SKU.
 * Konfigurace současného fungování ExpressRoute a služby VPN Gateway nejsou podporované v základní SKU.
+* Propojení VPN Gateway S2S aktivní-aktivní jde konfigurovat jenom v SKU HighPerformance.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

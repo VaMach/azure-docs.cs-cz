@@ -1,13 +1,13 @@
 ---
-title: Seznam konektorů spravovaných společností Microsoft určených k použití v aplikacích Microsoft Azure Logic Apps | Microsoft Docs
-description: Získejte úplný seznam konektorů spravovaných společností Microsoft, které lze použít k vytváření aplikací logiky ve službě Azure App Service.
+title: "Seznam konektorů spravovaných společností Microsoft určených k použití v aplikacích Microsoft Azure Logic Apps | Dokumentace Microsoftu"
+description: "Získejte úplný seznam konektorů spravovaných společností Microsoft, které lze použít k vytváření aplikací logiky ve službě Azure App Service."
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+
 
 ---
-# Seznam konektorů
+# <a name="list-of-connectors"></a>Seznam konektorů
 Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pracovních postupů.
 
-## Standardní konektory
+## <a name="standard-connectors"></a>Standardní konektory
 | Konektory |  |  |  |
 | --- | --- | --- | --- |
 | [![Ikona rozhraní API][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc] |[![Ikona rozhraní API][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![Ikona rozhraní API][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![Ikona rozhraní API][Boxicon]<br/>**Box**][Boxdoc] |
 | [![Ikona rozhraní API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API Icon][DB2icon]<br/>**DB2**][db2doc] |[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc] |[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
 | [![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc] |[![Ikona rozhraní API][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![Ikona rozhraní API][Google-Driveicon]<br/>**Disk Google**][Google-Drivedoc] |
-| ![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google** |![Ikona rozhraní API][Google-Tasksicon]<br/>**Google Tasks** |![Ikona rozhraní API][Google~Calendaricon]<br/>**Kalendář<br/>Google** |[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc] |
+| ![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google** |![Ikona rozhraní API][Google-Tasksicon]<br/>**Úlohy Google** |![Ikona rozhraní API][Google~Calendaricon]<br/>**Kalendář<br/>Google** |[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc] |
 | [![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc] |[![Ikona rozhraní API][HTTP~Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP~Requestdoc] |[![Ikona rozhraní API][HTTP~Responseicon]<br/>**Odezva<br/>HTTP**][HTTP~Responsedoc] |[![API Icon][Informixicon]<br/>**Informix**][informixdoc] |
 | ![Ikona rozhraní API][Instagramicon]<br/>**Instagram** |[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc] |![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill** |[![Ikona rozhraní API][Nested~Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested~Logic-Appdoc] |
 | [![Ikona rozhraní API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc] |[![Ikona rozhraní API][Office-365~Usersicon]<br/>**Uživatelé<br/>Office 365**][Office-365~Usersdoc] |[![Ikona rozhraní API][Office-365~Videoicon]<br/>**Video<br/>Office 365**][Office-365~Videodoc] |[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc] |
@@ -42,7 +46,7 @@ Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pra
 > 
 > 
 
-## Konektory EIP (Enterprise Integration Pack)
+## <a name="enterprise-integration-pack-eip-connectors"></a>Konektory EIP (Enterprise Integration Pack)
 Konektory EIP slouží k vytvoření aplikace logiky pro scénáře B2B, které zahrnují EAI a EDI.  
 
 | Konektory EIP |  |  |  |
@@ -52,7 +56,7 @@ Konektory EIP slouží k vytvoření aplikace logiky pro scénáře B2B, které 
 | [![Ikona rozhraní API][x12icon]<br/>**EDIFACT</br>dekódování**][EDIFACTdecode] |[![Ikona rozhraní API][x12icon]<br/>**EDIFACT</br>kódování**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### Konektory lze používat jako triggery
+### <a name="connectors-can-be-triggers"></a>Konektory lze používat jako triggery
 Několik konektorů poskytuje triggery, které mohou vaší aplikaci odesílat upozornění na konkrétní události. Konektor FTP má například trigger OnUpdatedFile. Můžete vytvořit aplikaci logiky, aplikaci PowerApp nebo tok, které tomuto triggeru naslouchají a provádějí akci, kdykoliv se trigger spustí.
 
 Existují dva typy triggerů:  
@@ -60,10 +64,10 @@ Existují dva typy triggerů:
 * Triggery dotazů: Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. Pokud jsou k dispozici nová data, spustí novou instanci aplikace a získaná data se použijí jako vstup. Aby se stejná data nepoužívala vícekrát, trigger také může odstranit data, která již aplikace přečetla a zpracovala.
 * Triggery nabízených oznámení: Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté spustí novou instanci vaší aplikace. Jedním z příkladů je konektor Twitter.
 
-### Konektory mohou být akce
+### <a name="connectors-can-be-actions"></a>Konektory mohou být akce
 Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pro vyhledávání dat, která lze poté použít za běhu aplikace. Při zpracování objednávky můžete například potřebovat vyhledat informace o zákazníkovi v databázi SQL. Nebo může být nutné zapsat, aktualizovat nebo odstranit data v cílové tabulce. Můžete to provést pomocí akcí poskytovaných konektory. Akce se mapují na operace, které jsou definované v metadatech Swaggeru.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Vytvoření aplikace logiky](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 * [Vytvoření vlastního konektoru](../app-service-logic/app-service-logic-create-api-app.md)
 * [Monitorování aplikací logiky](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
@@ -196,6 +200,6 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

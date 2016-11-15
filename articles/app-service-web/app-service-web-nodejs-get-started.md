@@ -1,12 +1,12 @@
 ---
-title: Začínáme s webovými aplikacemi Node.js ve službě Azure App Service
-description: Naučte se nasadit aplikaci Node.js do webové aplikace ve službě Azure App Service.
+title: "Začínáme s webovými aplikacemi Node.js ve službě Azure App Service"
+description: "Naučte se nasadit aplikaci Node.js do webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
-# Začínáme s webovými aplikacemi Node.js ve službě Azure App Service
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Začínáme s webovými aplikacemi Node.js ve službě Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do služby [Azure App Service] z prostředí příkazového řádku, jako je například cmd.exe nebo bash. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
@@ -27,7 +31,7 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do
 
 <a name="prereq"></a>
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * [Node.js]
 * [Bower]
 * [Yeoman]
@@ -35,24 +39,24 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do
 * [Azure CLI]
 * Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi] nebo si [aktivovat výhody předplatitele sady Visual Studio].
 
-## Vytvoření a nasazení jednoduché webové aplikace Node.js
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Vytvoření a nasazení jednoduché webové aplikace Node.js
 1. Otevřete zvolený terminál příkazového řádku a nainstalujte [Generátor Express pro Yeoman].
    
         npm install -g generator-express
-2. `CD` do pracovního adresáře a pomocí následující syntaxe vygenerujte expresní aplikaci:
+2. `CD`do pracovního adresáře a pomocí následující syntaxe vygenerujte expresní aplikaci:
    
         yo express
    
     Po zobrazení výzvy vyberte následující možnosti:  
    
     `? Would you like to create a new directory for your project?` **Ano**  
-    `? Enter directory name` **{názevaplikace}**  
+    `? Enter directory name`**{název_aplikace}**  
     `? Select a version to install:` **MVC**  
     `? Select a view engine to use:` **Jade**  
     `? Select a css preprocessor to use (Sass Requires Ruby):` **Žádný**  
     `? Select a database to use:` **Žádný**  
     `? Select a build tool to use:` **Grunt**
-3. `CD` do kořenového adresáře nové aplikace, spusťte ji a ujistěte se, zda běží ve vašem vývojovém prostředí:
+3. `CD`do kořenového adresáře nové aplikace, spusťte ji a ujistěte se, že běží ve vašem vývojovém prostředí:
    
         npm start
    
@@ -99,20 +103,20 @@ Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do
    
     ![Příklad procházení k nasazené aplikaci.][deployed-express-app]
 
-## Aktualizace webové aplikace Node.js
+## <a name="update-your-nodejs-web-app"></a>Aktualizace webové aplikace Node.js
 Chcete-li provést aktualizace webové aplikace Node.js spuštěné ve službě App Service, stačí spustit `git add`, `git commit` a `git push` stejně jako při prvním nasazení webové aplikace.
 
-## Postup nasazení aplikace Node.js službou App Service
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Postup nasazení aplikace Node.js službou App Service
 Služba Azure App Service spouští aplikace Node.js pomocí modulu [iisnode]. Rozhraní příkazového řádku Azure CLI a modul Kudu (nasazení Git) společně umožňují efektivnější práci uživatelů při vývoji a nasazení aplikací Node.js z příkazového řádku. 
 
-* `azure site create --git` rozpozná běžný vzor Node.js u server.js nebo app.js a vytvoří v kořenovém adresáři soubor iisnode.yml. Tento soubor můžete použít k přizpůsobení modulu iisnode.
+* `azure site create --git`rozpozná běžný vzor Node.js pro server.js nebo app.js a vytvoří v kořenovém adresáři soubor iisnode.yml. Tento soubor můžete použít k přizpůsobení modulu iisnode.
 * Při použití `git push azure master` modul Kudu automatizuje následující úkoly nasazení:
   
   * Pokud se v kořenovém adresáři úložiště nachází soubor package.json, spusťte `npm install --production`.
   * Vygenerujte soubor Web.config pro modul iisnode, který odkazuje na spouštěcí skript v souboru package.json (např. server.js nebo app.js).
   * Přizpůsobením souboru Web.config připravte aplikaci k ladění pomocí nástroje Node-Inspector.
 
-## Použití rozhraní Node.js
+## <a name="use-a-nodejs-framework"></a>Použití rozhraní Node.js
 Používáte-li k vývoji aplikací některé z oblíbených rozhraní Node.js, například [Sails.js][SAILSJS] nebo [MEAN.js][MEANJS], můžete je nasadit do služby App Service. Oblíbená rozhraní Node.js mají své specifické zvláštnosti, přičemž závislosti jejich balíčků jsou neustále aktualizovány. Služba App Service však poskytuje protokoly stdout a stderr, díky nimž přesně víte, co se s aplikací děje, a můžete provádět odpovídající změny. Další informace naleznete v tématu [Získání protokolů stdout a stderr z modulu iisnode](#iisnodelog).
 
 Následující kurzy vás seznámí s tím, jak pracovat s konkrétním rozhraním ve službě App Service:
@@ -123,7 +127,7 @@ Následující kurzy vás seznámí s tím, jak pracovat s konkrétním rozhran�
 
 <a name="version"></a>
 
-## Použití konkrétního modulu Node.js
+## <a name="use-a-specific-nodejs-engine"></a>Použití konkrétního modulu Node.js
 Při obvyklém pracovním postupu říkáte službě App Service, aby používala konkrétní modul Node.js, a to stejným způsobem, jakým byste běžně postupovali v souboru package.json.
 Příklad:
 
@@ -144,7 +148,7 @@ Modul nasazení Kudu určí, který modul Node.js se má použít, a to v násle
 
 <a name="iisnodelog"></a>
 
-## Získání protokolů stdout a stderr z modulu iisnode
+## <a name="get-stdout-and-stderr-logs-from-iisnode"></a>Získání protokolů stdout a stderr z modulu iisnode
 Chcete-li si přečíst protokoly iisnode, postupujte následovně.
 
 > [!NOTE]
@@ -182,7 +186,7 @@ Chcete-li si přečíst protokoly iisnode, postupujte následovně.
    
     ![Prohlížení souboru protokolu modulu iisnode.][iislog-kudu-console-read]
 
-## Ladění aplikace pomocí nástroje Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Ladění aplikace pomocí nástroje Node-Inspector
 Používáte-li k ladění aplikací Node.js nástroj Node-Inspector, můžete jej použít pro živou aplikaci služby App Service. Nástroj Node-Inspector je předinstalován v instalaci modulu iisnode pro službu App Service. A pokud nasazujete prostřednictvím Git, automaticky generovaný soubor Web.config z modulu Kudu již obsahuje veškeré konfigurace nezbytné k povolení nástroje Node-Inspector.
 
 Chcete-li povolit nástroj Node-Inspector, postupujte takto:
@@ -204,15 +208,15 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
    
         http://{appname}.azurewebsites.net/app.js/debug
 
-## Další zdroje informací
+## <a name="more-resources"></a>Další zdroje informací
 * [Určení verze Node.js v aplikaci Azure](../nodejs-specify-node-version-azure-apps.md)
-* [Osvědčené postupy a průvodci odstraňováním potíží aplikace Node.js v Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
+* [Osvědčené postupy a průvodce odstraňováním potíží pro aplikace Node.js v Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 * [Postup ladění webové aplikace Node.js ve službě Azure App Service](web-sites-nodejs-debug.md)
 * [Používání modulů Node.js s aplikacemi Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 * [Středisko pro vývojáře Node.js](/develop/nodejs/)
 * [Začínáme s webovými aplikacemi ve službě Azure App Service](app-service-web-get-started.md)
-* [Seznámení se super tajnou konzolou pro ladění modulu Kudu]
+* [Seznámení se supertajnou konzolou pro ladění modulu Kudu]
 
 <!-- URL List -->
 
@@ -222,7 +226,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 [Bower]: http://bower.io/
 [Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Nasazení webové aplikace Sails.js do služby Azure App Service]: ./app-service-web-nodejs-sails.md
-[Seznámení se super tajnou konzolou pro ladění modulu Kudu]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Seznámení se supertajnou konzolou pro ladění modulu Kudu]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Generátor Express pro Yeoman]: https://github.com/petecoop/generator-express
 [Git]: http://www.git-scm.com/downloads
 [Použití io.js s aplikacemi Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
@@ -231,7 +235,7 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [zaregistrovat k bezplatné zkušební verzi]: http://go.microsoft.com/fwlink/?LinkId=623901
-[web app]: ./app-service-web-overview.md
+[webová aplikace]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -243,6 +247,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

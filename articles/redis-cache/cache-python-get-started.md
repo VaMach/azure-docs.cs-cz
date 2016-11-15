@@ -1,12 +1,12 @@
 ---
-title: Použití Azure Redis Cache s Pythonem | Microsoft Docs
-description: Začínáme s Azure Redis Cache pomocí Pythonu
+title: "Použití Azure Redis Cache s Pythonem | Dokumentace Microsoftu"
+description: "Začínáme s Azure Redis Cache pomocí Pythonu"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
 editor: v-lincan
-
+ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+
 
 ---
-# Použití Azure Redis Cache s Pythonem
+# <a name="how-to-use-azure-redis-cache-with-python"></a>Použití Azure Redis Cache s Pythonem
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -28,21 +32,21 @@ ms.author: sdanie
 
 Toto téma ukazuje, jak začít s Azure Redis Cache pomocí Pythonu.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Nainstalujte [redis-py](https://github.com/andymccurdy/redis-py).
 
-## Vytvoření mezipaměti Redis v Azure
+## <a name="create-a-redis-cache-on-azure"></a>Vytvoření mezipaměti Redis v Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## Načtení názvu hostitele a přístupových klíčů
+## <a name="retrieve-the-host-name-and-access-keys"></a>Načtení názvu hostitele a přístupových klíčů
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## Povolení koncového bodu bez SSL
+## <a name="enable-the-nonssl-endpoint"></a>Povolení koncového bodu bez SSL
 Někteří klienti Redis nepodporují SSL a ve výchozím nastavení je [port bez SSL pro nové instance služby Azure Redis Cache zakázán](cache-configure.md#access-ports). V době psaní tohoto textu klient [redis-py](https://github.com/andymccurdy/redis-py) nepodporuje SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## Přidání dat do mezipaměti a jejich načtení
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Přidání dat do mezipaměti a jejich načtení
     >>> import redis
     >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
           port=6380, db=0, password='<key>', ssl=True)
@@ -60,6 +64,6 @@ Nahraďte `<name>` názvem vaší mezipaměti a `key` vaším přístupovým kl�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

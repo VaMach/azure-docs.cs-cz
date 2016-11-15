@@ -1,27 +1,31 @@
 ---
-title: Jak vytvořit, spravovat nebo odstranit účet úložiště na Portálu Azure Classic | Microsoft Docs
-description: Přečtěte si, jak vytvořit nový účet úložiště, spravovat klíče pro přístup k účtu nebo odstranit účtu na Portálu Azure. Získejte informace o účtech úložiště Standard a Premium.
+title: "Jak vytvořit, spravovat nebo odstranit účet úložiště na portálu Azure Classic | Dokumentace Microsoftu"
+description: "Přečtěte si, jak vytvořit nový účet úložiště, spravovat klíče pro přístup k účtu nebo odstranit účet na Portálu Azure. Získejte informace o účtech úložiště Standard a Premium."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/26/2016
-ms.author: micurd;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+
 
 ---
-# Informace o účtech Azure Storage
+# <a name="about-azure-storage-accounts"></a>Informace o účtech Azure Storage
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 S účtem úložiště Azure získáte přístup ke službám Azure Blob, Queue, Table a File v Azure Storage. Váš účet úložiště poskytuje jedinečný obor názvů pro datové objekty Azure Storage. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu.
 
 Jsou dva druhy účtů úložiště:
@@ -29,7 +33,7 @@ Jsou dva druhy účtů úložiště:
 * Standardní účet úložiště zahrnuje úložiště Blob, Table, Queue a File.
 * Prémiový účet úložiště aktuálně podporuje jen disky virtuálních počítačů Azure. Podrobné vysvětlení úložiště Premium Storage najdete v tématu [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](storage-premium-storage.md).
 
-## Fakturace účtu úložiště
+## <a name="storage-account-billing"></a>Fakturace účtu úložiště
 Fakturuje se využívání Azure Storage podle vašeho účtu úložiště. Náklady na úložiště se odvíjí od čtyř faktorů: kapacity úložiště, schématu replikace, transakcích úložiště a odchozích dat.
 
 * Kapacita úložiště znamená, kolik plnění svého účtu úložiště využíváte k uložení dat. Náklady na prosté uložení dat se odvíjí od toho, kolik dat máte uložených a jak se replikují.
@@ -46,7 +50,7 @@ Podrobné informace o kapacitě úložiště a cílech výkonnosti najdete v té
 > 
 > 
 
-## vytvořit účet úložiště
+## <a name="create-a-storage-account"></a>vytvořit účet úložiště
 1. Přihlaste se k [Azure Portal Classic](https://manage.windowsazure.com).
 2. Na hlavním panelu v dolní části stránky klikněte na **Nový**. Vyberte **Data Services** | **Úložiště** a klikněte na **Rychlé vytvoření**.
    
@@ -79,7 +83,7 @@ Podrobné informace o kapacitě úložiště a cílech výkonnosti najdete v té
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
-### Koncové body účtu úložiště
+### <a name="storage-account-endpoints"></a>Koncové body účtu úložiště
 Každý objekt, který uložíte v úložišti Azure Storage, má jedinečnou adresu URL. Název účtu úložiště tvoří subdoménu dané adresy. Kombinace názvu domény a subdomény, která je pro každou službu specifická, tvoří *koncový bod* vašeho účtu úložiště.
 
 Pokud je například název účtu úložiště *můj_účet_úložiště*, pak jsou výchozí koncové body pro váš účet úložiště tyto:
@@ -95,7 +99,7 @@ Adresa URL pro přístup k objektu v účtu úložiště se sestaví připojení
 
 Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Podrobnější informace najdete v tématu [Konfigurace vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md).
 
-### Společné umístění služeb pomocí skupiny vztahů
+### <a name="service-colocation-with-an-affinity-group"></a>Společné umístění služeb pomocí skupiny vztahů
 *Skupina vztahů* je geografické seskupení vašich služeb Azure a virtuálních počítačů a vaším účtem úložiště Azure. Skupina vztahů může zlepšit výkon služby vyhledáním úloh počítačů ve stejném datovém centru nebo v blízkosti cílové skupiny uživatelů. Navíc se vám neúčtují žádné poplatky za odchozí data, pokud k datům ve vašem úložišti přistupují jiné služby, které patří do stejné skupiny vztahů.
 
 > [!NOTE]
@@ -103,7 +107,7 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
 > 
 > 
 
-## Zobrazení, kopírování a opětovné vygenerování přístupových klíčů k úložišti
+## <a name="view-copy-and-regenerate-storage-access-keys"></a>Zobrazení, kopírování a opětovné vygenerování přístupových klíčů k úložišti
 Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupové klíče k úložišti, které se používají pro ověřování přístupu k účtu úložiště. Poskytnutím dvou přístupových klíčů k úložišti vám Azure umožňuje znovu vygenerovat klíče bez přerušení poskytování vaší služby úložiště nebo přístupu k této službě.
 
 > [!NOTE]
@@ -113,18 +117,18 @@ Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupo
 
 V [portálu Azure Classic](https://manage.windowsazure.com) na řídicím panelu nebo na stránce **Úložiště** použijte **Správu klíčů**, kde můžete zobrazit, kopírovat a opět vytvořit přístupové klíče k úložišti, které se používají pro přístup ke službám Blob, Table a Queue.
 
-### Zkopírování přístupového klíče k úložišti
+### <a name="copy-a-storage-access-key"></a>Zkopírování přístupového klíče k úložišti
 Pomocí **Správy klíčů** můžete zkopírovat přístupový klíč k úložišti pro použití v připojovacím řetězci. Připojovací řetězec potřebuje při ověření použít název účtu úložiště a klíč. Informace o konfiguraci připojovacího řetězce pro přístup ke službám úložiště Azure najdete v tématu [Nakonfigurování připojovacích řetězců Azure Storage](storage-configure-connection-string.md).
 
 1. V [portálu Azure Classic](https://manage.windowsazure.com) klikněte na **Úložiště** a potom na název účtu úložiště, tím se otevře řídicí panel.
 2. Klikněte na **Správu klíčů**.
    
-    Otevře se **Správa přístupových klíčů**.
+     Otevře se **Správa přístupových klíčů**.
    
     ![Správaklíčů](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 3. Pokud chcete zkopírovat přístupový klíč k úložišti, označte text klíče. Potom na něj klikněte pravým tlačítkem a klikněte na **Kopírovat**.
 
-### Opětovné vygenerování přístupových klíčů k úložišti
+### <a name="regenerate-storage-access-keys"></a>Opětovné vygenerování přístupových klíčů k úložišti
 Doporučujeme přístupové klíče k účtu úložiště pravidelně měnit, aby byla připojení k úložišti stále zabezpečená. Dva přístupové klíče se přiřazují proto, abyste mohli pro připojení k účtu úložiště používat jeden přístupový klíč, zatímco si znovu vygenerujete druhý přístupový klíč.
 
 > [!WARNING]
@@ -145,7 +149,7 @@ Tady je proces pro výměnu přístupových klíčů k úložišti:
 3. Aktualizujte připojovací řetězce v kódu tak, aby odkazovaly na nový primární přístupový klíč.
 4. Stejným způsobem pak opětovně vygenerujte sekundární přístupový klíč.
 
-## Odstranění účtu úložiště
+## <a name="delete-a-storage-account"></a>Odstranění účtu úložiště
 Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte funkci **Odstranit** na řídicím panelu nebo na stránce **Konfigurace**. **Odstranit** odstraní celý účet úložiště včetně všech objektů blob, tabulek a v účtu.
 
 > [!WARNING]
@@ -158,16 +162,19 @@ Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte
 1. Na [portálu Azure Classic](https://manage.windowsazure.com) klikněte na **Úložiště**.
 2. Klikněte kamkoli do položky účtu úložiště kromě názvu, a potom klikněte na **Odstranit**.
    
-   * nebo -
-     
-     Klikněte na název účtu úložiště, tím se otevře řídicí panel, a potom klikněte na **Odstranit**.
+     - nebo -
+   
+    Klikněte na název účtu úložiště, tím se otevře řídicí panel, a potom klikněte na **Odstranit**.
 3. Kliknutím na **Ano** potvrďte, že chcete účet úložiště odstranit.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o službě Azure Storage najdete v [dokumentaci pro Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 * Navštivte [Blog týmu Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
