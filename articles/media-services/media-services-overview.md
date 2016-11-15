@@ -1,12 +1,12 @@
 ---
-title: Přehled a běžné scénáře Azure Media Services | Microsoft Docs
-description: Toto téma nabízí přehled Azure Media Services.
+title: "Přehled a běžné scénáře Azure Media Services | Dokumentace Microsoftu"
+description: "Toto téma nabízí přehled Azure Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Přehled a běžné scénáře Azure Media Services
@@ -58,12 +62,12 @@ Informace o konceptech Azure Media Services najdete v článku [Koncepty](media-
 
 Řada návodů, které vás seznámí se všemi hlavními součástmi Azure Media Services, najdete v článku o [podrobných kurzech pro Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Tato řada návodů obsahuje přehled konceptů a využívá nástroj AMSE k předvádění úloh AMS. Všimněte si, že nástroj AMSE je nástrojem systému Windows. Tento nástroj podporuje většinu úloh, které můžete provádět prostřednictvím kódu programu se sadami [AMS SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java), nebo  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="<a-id="vod_scenarios"></a>delivering-media-on-demand-with-azure-media-services:-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Doručování médií na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
+## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Doručování médií na vyžádání pomocí Azure Media Services: běžné scénáře a úlohy
 Tato část popisuje běžné scénáře a nabízí odkazy na související témata. Následující diagram znázorňuje hlavní části platformy Media Services, které se podílejí na doručování obsahu na vyžádání. 
 
 ![Pracovní postup videa na vyžádání (VoD)](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-(non-encrypted)"></a>Ochrana obsahu v úložišti a doručování streamovaných médií v nešifrované podobě
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Ochrana obsahu v úložišti a doručování streamovaných médií v nešifrované podobě
 1. Nahrajte vysoce kvalitní soubor mezzanine do assetu.
    
     Doporučujeme použít na asset možnost šifrování úložiště. Ochráníte tak svůj obsah během nahrávání a během jeho pobytu v úložišti.
@@ -78,7 +82,7 @@ Tato část popisuje běžné scénáře a nabízí odkazy na související tém
     Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
 5. Streamujte publikovaný obsah.
 
-### <a name="protect-content-in-storage,-deliver-dynamically-encrypted-streaming-media"></a>Ochrana obsahu v úložišti, doručování dynamicky šifrovaných streamovaných médií
+### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Ochrana obsahu v úložišti, doručování dynamicky šifrovaných streamovaných médií
 Abyste mohli používat dynamické šifrování, potřebujete nejdřív získat aspoň jednu jednotku rezervovanou pro streaming na koncovém bodu streamování, ze kterého chcete šifrovaný obsah streamovat.
 
 1. Nahrajte vysoce kvalitní soubor mezzanine do assetu. Na asset použijte možnost šifrování úložiště.
@@ -112,7 +116,7 @@ Media Analytics je kolekce řečových a vizuálních komponent, které organiza
     Pokud používáte lokátor SAS, bude se obsah stahovat z úložiště objektů blob v Azure. V takovém případě nepotřebujete jednotku rezervovanou pro streaming.
 4. Progresivně stáhněte obsah.
 
-## <a name="<a-id="live_scenarios"></a>delivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Doručování živě streamovaných událostí pomocí Azure Media Services
+## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Doručování živě streamovaných událostí pomocí Azure Media Services
 Na práci s živým streamováním se běžně podílejí následující komponenty:
 
 * Kamera používaná k vysílání události.
@@ -144,7 +148,7 @@ Ve službě Azure Media Services se o zpracování všech funkcí živého strea
 
 * Místní kodér pro kódování v reálném čase odešle datový proud s jednou přenosovou rychlostí do kanálu, který má povolené kódování v reálném čase pomocí služby Media Services, v jednom z následujících formátů: RTP (MPEG-TS), RTMP nebo technologie Smooth Streaming (fragmentovaný soubor MP4). Kanál potom provede kódování v reálném čase pro příchozí datový proud s jednou přenosovou rychlostí v reálném čase na datový proud videa s více přenosovými rychlostmi (adaptivní). Služba Media Services doručí datový proud zákazníkům na vyžádání.
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-(pass-through)"></a>Práce s kanály, které přijímají živé datové proudy s více přenosovými rychlostmi z místních kodérů (průchozí)
+### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Práce s kanály, které přijímají živé datové proudy s více přenosovými rychlostmi z místních kodérů (průchozí)
 Následující diagram znázorňuje hlavní části platformy AMS, které se podílejí na **průchozím** pracovním postupu.
 
 ![Živý pracovní postup][live-overview2]
@@ -179,7 +183,7 @@ Svůj účet Media Services můžete škálovat také tím, že k němu přidát
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="service-level-agreement-(sla)"></a>Smlouva SLA
+## <a name="service-level-agreement-sla"></a>Smlouva SLA
 * V případě služby Media Services Encoding zaručujeme 99,9% dostupnosti transakcí REST API.
 * V případě streamování úspěšně obsluhujeme požadavky se zárukou 99,9% dostupnosti pro existující mediální obsah, pokud jste zakoupili aspoň jednu jednotku streamování.
 * V případě živých kanálů zaručujeme externí konektivitu minimálně po 99,9 % času.
@@ -197,6 +201,6 @@ Další informace najdete v článku [Microsoft Azure SLA](https://azure.microso
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

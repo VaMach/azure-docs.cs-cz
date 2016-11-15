@@ -1,12 +1,12 @@
 ---
-title: Azure Service Bus | Microsoft Docs
-description: Úvod do používání Service Bus ke spojení aplikace Azure a jiného softwaru.
+title: Azure Service Bus | Dokumentace Microsoftu
+description: "Úvod do používání Service Bus ke spojení aplikace Azure a jiného softwaru."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
@@ -73,7 +77,7 @@ Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepš
 *Téma* se ve spoustě ohledů podobá frontě. Odesílatelé odesílají zprávy do tématu stejným způsobem jako do fronty a zprávy v tématu vypadají stejně jako zprávy ve frontě. Rozdíl je ale v tom, že témata umožňují každé aplikaci, aby si pomocí *filtru* vytvořila vlastní *odběr*. Odběratel pak uvidí jen zprávy, které odpovídají použitému filtru. Na obrázku 3 je například téma se třemi odběrateli a každý z nich používá vlastní filtr.
 
 * Odběratel 1 přijímá jen zprávy, které mají určitou vlastnost *Seller="Ava"*.
-* Odběratel 2 přijímá zprávy, které mají vlastnost *Seller="Ruby"* a/nebo mají vlastnost *Amount* s hodnotou vyšší než 100 000. Možná je Ruby manažerka prodeje, takže chce vidět svoje prodeje a všechny velké prodeje bez ohledu na to, čí jsou.
+* Odběratel 2 přijímá zprávy, které mají vlastnost *Seller="Ruby"* a/nebo mají vlastnost *Amount* s hodnotou vyšší než 100 000. Možná je Ruby manažerka prodeje, takže chce vidět svoje prodeje a všechny velké prodeje bez ohledu na to, čí jsou.
 * Odběratel 3 má nastavený filtr *True* – to znamená, že přijímá všechny zprávy. Tato aplikace může mít například na starost udržování auditní stopy a proto potřebuje vidět všechny zprávy.
 
 Stejně jako v případě front můžou odběratelé tématu načítat zprávy způsobem **ReceiveAndDelete** nebo **PeekLock**. Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
@@ -106,7 +110,7 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 * Jak používat [fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * Jak používat [témata Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * Jak používat [předávání přes Service Bus](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
-* [Ukázky služby Service Bus](../service-bus/service-bus-samples.md)
+* [Ukázky služby Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Dozvěděli jste se základní informace službě Azure Service Bus, další inf
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,35 +1,39 @@
 ---
-title: Začínáme s používáním Azure Notification Hubs pro aplikace Kindle | Microsoft Docs
-description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Kindle.
+title: "Začínáme používat Azure Notification Hubs pro aplikace Kindle | Dokumentace Microsoftu"
+description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Kindle."
 services: notification-hubs
-documentationcenter: ''
-author: wesmc7777
+documentationcenter: 
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
+
 
 ---
-# Začínáme s použitím Notification Hubs pro aplikace Kindle
+# <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Začínáme s použitím Notification Hubs pro aplikace Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Kindle.
 Vytvoříte prázdnou aplikaci systému Kindle, která bude přijímat nabízená oznámení pomocí služby ADM (Amazon Device Messaging).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
 * Sadu Android SDK (předpokládáme, že použijete Eclipse) získejte z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">lokality Android</a>.
 * Postupujte podle kroků v <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Nastavení vašeho vývojového prostředí</a> pro nastavení vývojového prostředí pro Kindle.
 
-## Přidejte novou aplikaci do portálu pro vývojáře
+## <a name="add-a-new-app-to-the-developer-portal"></a>Přidejte novou aplikaci do portálu pro vývojáře
 1. Nejprve vytvořte aplikaci na [portálu pro vývojáře Amazon].
    
     ![][0]
@@ -46,7 +50,7 @@ V tomto kurzu budete potřebovat následující:
    
     ![][4]
 
-## Vytvořte klíč rozhraní API
+## <a name="create-an-api-key"></a>Vytvořte klíč rozhraní API
 1. Otevřete příkazový řádek s oprávněními správce.
 2. Přejděte do složky sady SDK pro Android.
 3. Zadejte následující příkaz:
@@ -58,10 +62,10 @@ V tomto kurzu budete potřebovat následující:
 5. Zkopírujte otisk prstu **MD5**.
 6. Zpět na portálu pro vývojáře na kartě **Zasílání zpráv** klikněte na tlačítko **Android/Kindle** a zadejte název balíčku pro vaši aplikaci (například **com.sample.notificationhubtest**) a hodnotu **MD5** a pak klikněte na tlačítko **Vygenerovat klíč rozhraní API**.
 
-## Přidejte pověření do centra
+## <a name="add-credentials-to-the-hub"></a>Přidejte pověření do centra
 Na portálu přidejte sdílený tajný klíč klienta a ID klienta na kartě **Konfigurovat** centra oznámení.
 
-## Nastavte aplikaci
+## <a name="set-up-your-application"></a>Nastavte aplikaci
 > [!NOTE]
 > Při vytváření aplikace použijte alespoň 17 úrovní rozhraní API.
 > 
@@ -121,7 +125,7 @@ Upravte manifest aplikace pro podporu ADM:
             </intent-filter>
         </receiver>
 
-## Vytvořte obslužnou rutinu zpráv ADM
+## <a name="create-your-adm-message-handler"></a>Vytvořte obslužnou rutinu zpráv ADM
 1. Vytvořte novou třídu, která zdědí z `com.amazon.device.messaging.ADMMessageHandlerBase` a pojmenujte ji `MyADMMessageHandler`, jak je znázorněno na následujícím obrázku:
    
     ![][6]
@@ -139,7 +143,7 @@ Upravte manifest aplikace pro podporu ADM:
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
-        private static NotificationHub hub;
+          private static NotificationHub hub;
         public static NotificationHub getNotificationHub(Context context) {
             Log.v("com.wa.hellokindlefire", "getNotificationHub");
             if (hub == null) {
@@ -163,22 +167,22 @@ Upravte manifest aplikace pro podporu ADM:
             private void sendNotification(String msg) {
                 Context ctx = getApplicationContext();
    
-             mNotificationManager = (NotificationManager)
+                mNotificationManager = (NotificationManager)
                     ctx.getSystemService(Context.NOTIFICATION_SERVICE);
    
             PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainActivity.class), 0);
+                  new Intent(ctx, MainActivity.class), 0);
    
             NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(ctx)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Notification Hub Demo")
-                .setStyle(new NotificationCompat.BigTextStyle()
+                  new NotificationCompat.Builder(ctx)
+                  .setSmallIcon(R.mipmap.ic_launcher)
+                  .setContentTitle("Notification Hub Demo")
+                  .setStyle(new NotificationCompat.BigTextStyle()
                          .bigText(msg))
-                .setContentText(msg);
+                  .setContentText(msg);
    
-            mBuilder.setContentIntent(contentIntent);
-            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+             mBuilder.setContentIntent(contentIntent);
+             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
 4. Do metody `OnMessage()` přidejte následující kód:
    
@@ -193,11 +197,11 @@ Upravte manifest aplikace pro podporu ADM:
             }
 6. Do metody `OnUnregistered` přidejte následující kód:
    
-           try {
-               getNotificationHub(getApplicationContext()).unregister();
-           } catch (Exception e) {
-               Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-           }
+         try {
+             getNotificationHub(getApplicationContext()).unregister();
+         } catch (Exception e) {
+             Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+         }
 7. Do metody `MainActivity` přidejte následující příkaz importu:
    
         import com.amazon.device.messaging.ADM;
@@ -211,7 +215,7 @@ Upravte manifest aplikace pro podporu ADM:
             new AsyncTask() {
                   @Override
                   protected Object doInBackground(Object... params) {
-                     try {                       MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                     try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
                      } catch (Exception e) {
                          Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
                          return e;
@@ -221,11 +225,11 @@ Upravte manifest aplikace pro podporu ADM:
                }.execute(null, null, null);
         }
 
-## Přidejte do aplikace svůj klíč rozhraní API
+## <a name="add-your-api-key-to-your-app"></a>Přidejte do aplikace svůj klíč rozhraní API
 1. V nástroji Eclipse vytvořte nový soubor s názvem **api_key.txt** v majetku adresáře projektu.
 2. Otevřete soubor a zkopírujte klíč rozhraní API generovaný na portálu pro vývojáře Amazon.
 
-## Spusťte aplikaci
+## <a name="run-the-app"></a>Spusťte aplikaci
 1. Spusťte emulátor.
 2. V emulátoru potáhněte prstem z horní části a klikněte na tlačítko **Nastavení** a pak klikněte na tlačítko **Můj účet** a zaregistrujte se pomocí platného účtu Amazon.
 3. V nástroji Eclipse spusťte aplikaci.
@@ -237,7 +241,7 @@ Upravte manifest aplikace pro podporu ADM:
 
         adb shell  date -s "yyyymmdd.hhmmss"
 
-## Odeslat zprávu
+## <a name="send-a-message"></a>Odeslat zprávu
 Odeslání zprávy pomocí .NET:
 
         static void Main(string[] args)
@@ -264,6 +268,6 @@ Odeslání zprávy pomocí .NET:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Interakce se sestavami pomocí rozhraní API pro JavaScript | Microsoft Docs
-description: Power BI Embedded, interakce se sestavami pomocí rozhraní API pro JavaScript
+title: "Interakce se sestavami pomocí rozhraní API pro JavaScript | Dokumentace Microsoftu"
+description: "Power BI Embedded, interakce se sestavami pomocí rozhraní API pro JavaScript"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+
 
 ---
-# Interakce se sestavami Power BI pomocí rozhraní API pro JavaScript
+# <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interakce se sestavami Power BI pomocí rozhraní API pro JavaScript
 Rozhraní API pro JavaScript Power BI umožňuje snadné vkládání sestav Power BI do vašich aplikací. Prostřednictvím tohoto rozhraní API mohou vaše aplikace programově interagovat s různými elementy sestav, jako jsou stránky a filtry. Díky této interaktivitě se sestavy Power BI stanou integrálnější součástí vaší aplikace.
 
 Ke vložení sestavy Power BI do své aplikace použijete element iframe, který je hostovaný jako součást aplikace. Element iframe slouží jako hranice mezi vaší aplikací a sestavou, jak je vidět na následujícím obrázku. 
@@ -30,12 +34,12 @@ Element iframe sice proces vkládání dost usnadňuje, ale bez rozhraní API pr
 
 Rozhraní API pro JavaScript Power BI umožňuje psát kód, který bezpečně prochází hranicí elementu iframe. Díky tomu aplikace může programově provádět v sestavě různé akce a naslouchat událostem z akcí, které uživatelé v této sestavě provedou.
 
-## K čemu je možné využít rozhraní API pro JavaScript Power BI?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>K čemu je možné využít rozhraní API pro JavaScript Power BI?
 Pomocí rozhraní API pro JavaScript API můžete spravovat sestavy, přejít na stránky v sestavě, filtrovat sestavu a zpracovávat události vkládání. Strukturu rozhraní API ukazuje následující diagram.
 
 ![Diagram rozhraní API pro JavaScript Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
 
-### Správa sestav
+### <a name="manage-reports"></a>Správa sestav
 Rozhraní API pro Javascript umožňuje spravovat chování na úrovni sestav a stránek:
 
 * Zabezpečené vložení konkrétní sestavy Power BI do vaší aplikace – vyzkoušejte si [ukázkovou aplikaci s vložením](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
@@ -47,15 +51,15 @@ Rozhraní API pro Javascript umožňuje spravovat chování na úrovni sestav a 
 
 [Další informace o vkládání sestav](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-### Přechod na stránky v sestavě
+### <a name="navigate-to-pages-in-a-report"></a>Přechod na stránky v sestavě
 Rozhraní API pro JavaScript umožňuje prohlédnout všechny stránky sestavy a nastavit aktuální stránku. Vyzkoušejte si [ukázkovou aplikaci s navigací](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Další informace o navigaci stránkami](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
-### Filtrování sestavy
+### <a name="filter-a-report"></a>Filtrování sestavy
 Rozhraní API pro JavaScript poskytuje základní a rozšířené možnosti filtrování pro vložené sestavy a stránky sestav. Vyzkoušejte si [ukázkovou aplikaci filtrování](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) a prohlédněte si základní kód.  
 
-#### Základní filtry
+#### <a name="basic-filters"></a>Základní filtry
 Základní filtr je postavený na úrovni hierarchie nebo sloupce a obsahuje seznam hodnot, které se mají zahrnout nebo vyloučit.
 
 ```
@@ -71,7 +75,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 ```
 
 
-#### Rozšířené filtry
+#### <a name="advanced-filters"></a>Rozšířené filtry
 Rozšířené filtry využívají logické operátory AND a OR a přijímají jednu nebo dvě podmínky. Každá z těchto podmínek má vlastní operátor a hodnotu. Podporované podmínky:
 
 * Žádný
@@ -110,7 +114,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 ```
 [Další informace o filtrování](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
-### Zpracování událostí
+### <a name="handling-events"></a>Zpracování událostí
 Kromě odesílání informací do elementu iframe může aplikace také přijímat informace o následujících událostech, jejichž původcem je iframe:
 
 * Embed
@@ -122,16 +126,19 @@ Kromě odesílání informací do elementu iframe může aplikace také přijím
 
 [Další informace o zpracování událostí](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o rozhraní API pro JavaScript Power BI najdete pod následujícími odkazy:
 
 * [Wikiweb rozhraní API pro JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
 * [Referenční informace k objektovému modelu](https://microsoft.github.io/powerbi-models/modules/_models_.html)
 * Ukázky
-  * [Úhlová](http://azure-samples.github.io/powerbi-angular-client)
+  * [Angular](http://azure-samples.github.io/powerbi-angular-client)
   * [Ember](https://github.com/Microsoft/powerbi-ember)
 * [Živá ukázka](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

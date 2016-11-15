@@ -1,12 +1,12 @@
 ---
-title: Nasazení zařízení StorSimple (Update 1) | Microsoft Docs
-description: Popisuje kroky a osvědčené postupy nasazení zařízení a služby StorSimple Update 1.
+title: "Nasazení zařízení StorSimple (Update 1) | Dokumentace Microsoftu"
+description: "Popisuje kroky a osvědčené postupy nasazení zařízení a služby StorSimple Update 1."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: ac631d3c-3c53-4c9e-9e4a-5c61c0cd8167
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+
 
 ---
-# Nasazení místního zařízení StorSimple (Update 1)
+# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Nasazení místního zařízení StorSimple (Update 1)
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -24,7 +28,7 @@ ms.author: alkohli
 > 
 > 
 
-## Přehled
+## <a name="overview"></a>Přehled
 Vítejte v průvodci nasazením zařízení Microsoft Azure StorSimple. Tyto kurzy nasazení se vztahují na řadu zařízení StorSimple 8000 Update 1.0. Tato série kurzů popisuje způsob konfigurace zařízení StorSimple a zahrnuje kontrolní seznam konfigurace, požadavky konfigurace a podrobné kroky konfigurace.
 
 Informace v těchto kurzech předpokládají, že jste si přečetli informace o bezpečnostních opatřeních a že jste zařízení StorSimple vybalili, namontovali do racku a zapojili jeho kabeláž. Pokud jste tyto kroky ještě neprovedli, začněte prostudováním [bezpečnostních opatření](storsimple-safety.md). V závislosti na modelu zařízení poté můžete zařízení vybalit, namontovat do racku a zapojit jeho kabeláž podle pokynů v následujících článcích:
@@ -39,7 +43,7 @@ K dokončení této instalace a procesu konfigurace budete potřebovat oprávně
 > 
 > 
 
-## Kroky nasazení
+## <a name="deployment-steps"></a>Kroky nasazení
 Pomocí níže uvedených požadovaných kroků konfigurujte své zařízení StorSimple a připojte je ke službě StorSimple Manager. Kromě požadovaných kroků existují ještě některé volitelné kroky a postupy, které může být vhodné při nasazení provést. Informace o tom, kdy je vhodné provést jednotlivé volitelné kroky, jsou vždy uvedeny v příslušných požadovaných krocích nasazení.
 
 | Krok | Popis |
@@ -64,7 +68,7 @@ Pomocí níže uvedených požadovaných kroků konfigurujte své zařízení St
 | Získání názvu IQN hostitele se systémem Windows Server | |
 | Vytvoření ruční zálohy | |
 
-## Kontrolní seznam konfigurace nasazení
+## <a name="deployment-configuration-checklist"></a>Kontrolní seznam konfigurace nasazení
 Následující kontrolní seznam konfigurace nasazení popisuje informace, které je třeba shromáždit před konfigurací softwaru v zařízení StorSimple a během ní. Předběžná příprava některých z těchto informací vám pomůže urychlit a zjednodušit proces nasazení zařízení StorSimple ve vašem prostředí. Kontrolní seznam použijte také zaznamenání podrobností konfigurace během nasazování zařízení.
 
 | Krok | Parametr | Podrobnosti | Hodnoty |
@@ -72,41 +76,41 @@ Následující kontrolní seznam konfigurace nasazení popisuje informace, kter�
 | **Zapojení kabeláže zařízení** |Sériový přístup |Počátečního konfigurace zařízení |Ano/Ne |
 |  | | | |
 | **Konfigurace a registrace zařízení** |Nastavení síťového rozhraní DATA 0 |IP adresa síťového rozhraní DATA 0:</br>Maska podsítě:</br>Brána:</br>Primární server DNS:</br>Primární server NTP:</br>Webový proxy server protokolu IP nebo plně kvalifikovaný název domény (volitelné):</br>Port webového proxy serveru: | |
-| Heslo správce zařízení |Heslo musí být tvořeno 8 až 15 znaky a musí obsahovat malá písmena, velká písmena, číslice a speciální znaky. | | |
-| Heslo správce Snapshot Manageru zařízení StorSimple |Heslo musí být tvořeno 14 až 15 znaky a musí obsahovat malá písmena, velká písmena, číslice a speciální znaky. | | |
-| Registrační klíč služby |Klíč se generuje na portálu Azure Classic. | | |
-| Datový šifrovací klíč služby |Tento klíč je vytvořen po registraci zařízení ve službě správy prostřednictvím Windows PowerShellu pro StorSimple. Klíč zkopírujte a uložte na bezpečném místě. | | |
+| &nbsp; |Heslo správce zařízení |Heslo musí být tvořeno 8 až 15 znaky a musí obsahovat malá písmena, velká písmena, číslice a speciální znaky. | |
+| &nbsp; |Heslo správce Snapshot Manageru zařízení StorSimple |Heslo musí být tvořeno 14 až 15 znaky a musí obsahovat malá písmena, velká písmena, číslice a speciální znaky. | |
+| &nbsp; |Registrační klíč služby |Klíč se generuje na portálu Azure Classic. | |
+| &nbsp; |Datový šifrovací klíč služby |Tento klíč je vytvořen po registraci zařízení ve službě správy prostřednictvím Windows PowerShellu pro StorSimple. Klíč zkopírujte a uložte na bezpečném místě. | |
 |  | | | |
-| **Dokončení minimální instalace zařízení** |Popisný název zařízení |Toto je popisný název zařízení. | |
-| Časové pásmo |Toto časové pásmo bude zařízení používat pro všechny naplánované operace. | | |
-| Sekundární server DNS |Toto je požadovaná konfigurace. | | |
-| Síťové rozhraní: Pevné IP adresy řadiče síťového rozhraní DATA 0 |Tyto IP adresy musí být směrovatelné na internet.</br>Pevná IP adresa řadiče síťového rozhraní DATA 0:</br>Pevná IP adresa řadiče síťového rozhraní DATA 1: | | |
+| **Provedení minimálního nastavení zařízení** |Popisný název zařízení |Toto je popisný název zařízení. | |
+| &nbsp; |Časové pásmo |Toto časové pásmo bude zařízení používat pro všechny naplánované operace. | |
+| &nbsp; |Sekundární server DNS |Toto je požadovaná konfigurace. | |
+| &nbsp; |Síťové rozhraní: Pevné IP adresy řadiče síťového rozhraní DATA 0 |Tyto IP adresy musí být směrovatelné na internet.</br>Pevná IP adresa řadiče síťového rozhraní DATA 0:</br>Pevná IP adresa řadiče síťového rozhraní DATA 1: | |
 |  | | | |
 | **Další nastavení síťového rozhraní** |Síťové rozhraní: DATA 1</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | |
-| Síťové rozhraní: DATA 2</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | | |
-| Síťové rozhraní: DATA 3</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | | |
-| Síťové rozhraní: DATA 4</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | | |
-| Síťové rozhraní: DATA 5</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | | |
+| &nbsp; |Síťové rozhraní: DATA 2</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | |
+| &nbsp; |Síťové rozhraní: DATA 3</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | |
+| &nbsp; |Síťové rozhraní: DATA 4</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | |
+| &nbsp; |Síťové rozhraní: DATA 5</br>Pokud je povolen standard iSCSI, neprovádějte konfiguraci brány. |Účel: Cloud / iSCSI / nepoužito</br>IP adresa:</br>Maska podsítě:</br>Brána: | |
 |  | | | |
 | **Vytvoření kontejneru svazků** |Název kontejneru svazků: |Název kontejneru | |
-| Účet úložiště Azure: |Název účtu služby Storage a přístupový klíč k úložišti asociovaný s tímto kontejnerem svazků | | |
-| Šifrovací klíč cloudového úložiště: |Šifrovací klíč pro úložiště v jednotlivých kontejnerech | | |
+| &nbsp; |Účet úložiště Azure: |Název účtu služby Storage a přístupový klíč k úložišti asociovaný s tímto kontejnerem svazků | |
+| &nbsp; |Šifrovací klíč cloudového úložiště: |Šifrovací klíč pro úložiště v jednotlivých kontejnerech | |
 |  | | | |
 | **Vytvoření svazku** |Podrobnosti jednotlivých svazků |Název svazku: | |
-|  |Velikost: | | |
-|  |Typ použití: | | |
-|  |Název ACR: | | |
-|  |Výchozí zásady zálohování: | | |
+| &nbsp; |&nbsp; |Velikost: | |
+| &nbsp; |&nbsp; |Typ použití: | |
+| &nbsp; |&nbsp; |Název ACR: | |
+| &nbsp; |&nbsp; |Výchozí zásady zálohování: | |
 |  | | | |
-| **Připojení, inicializace a formátování svazků** |Podrobnosti o každém hostitelském serveru, který se připojuje k úložišti |Název systému Windows Server: | |
-|  |Název IQN systému Windows Server: | | |
-|  |Název svazku systému Windows Server: | | |
-|  |Přípojný bod systému souborů NTFS nebo písmeno jednotky: | | |
+| **Připojení, inicializace a formátování svazku** |Podrobnosti o každém hostitelském serveru, který se připojuje k úložišti |Název systému Windows Server: | |
+| &nbsp; |&nbsp; |Název IQN systému Windows Server: | |
+| &nbsp; |&nbsp; |Název svazku systému Windows Server: | |
+| &nbsp; |&nbsp; |Přípojný bod systému souborů NTFS nebo písmeno jednotky: | |
 
-## Požadavky nasazení
+## <a name="deployment-prerequisites"></a>Požadavky nasazení
 Následující části popisují požadavky konfigurace služby StorSimple Manager a zařízení StorSimple.
 
-### Služba StorSimple Manager
+### <a name="for-the-storsimple-manager-service"></a>Služba StorSimple Manager
 Než začnete, ujistěte se, že:
 
 * Máte účet Microsoft a přihlašovací údaje účtu.
@@ -114,7 +118,7 @@ Než začnete, ujistěte se, že:
 * Vaše předplatné Microsoft Azure je povoleno pro službu StorSimple Manager. Předplatné by mělo být zakoupeno prostřednictvím [smlouvy Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 * Máte přístup k softwaru pro emulaci terminálu, jako je například PuTTY.
 
-### Zařízení v datovém centru
+### <a name="for-the-device-in-the-datacenter"></a>Zařízení v datovém centru
 Před konfigurací zařízení se ujistěte, že:
 
 * Zařízení je zcela vybaleno, namontováno v racku a je kompletně zapojena jeho kabeláž napájení, sítě a sériového přístupu, jak je popsáno v následujících článcích:
@@ -122,41 +126,41 @@ Před konfigurací zařízení se ujistěte, že:
   * [Zařízení 8100 – Vybalení, namontování do racku a zapojení kabeláže](storsimple-8100-hardware-installation.md)
   * [Zařízení 8600 – Vybalení, namontování do racku a zapojení kabeláže](storsimple-8600-hardware-installation.md)
 
-### Síť v datovém centru
+### <a name="for-the-network-in-the-datacenter"></a>Síť v datovém centru
 Než začnete, ujistěte se, že:
 
 * Porty brány firewall vašeho datového centra jsou otevřeny, aby umožňovaly přenos dat standardu iSCSI a cloudu, jak je popsáno v [Požadavcích sítě pro zařízení StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## Podrobný postup nasazení
+## <a name="stepbystep-deployment"></a>Podrobný postup nasazení
 Pomocí následujících kroků nasaďte zařízení StorSimple v datovém centru.
 
-## Krok 1: Vytvoření nové služby
+## <a name="step-1-create-a-new-service"></a>Krok 1: Vytvoření nové služby
 Služba StorSimple Manager může spravovat více zařízení StorSimple. Pomocí následujících kroků vytvořte novou instanci služby StorSimple Manager.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
 > [!IMPORTANT]
-> Pokud jste nepovolili automatické vytvoření účtu úložiště při vytvoření služby, po úspěšném vytvoření služby bude nutné vytvořit alespoň jeden účet úložiště. Tento účet úložiště se použije při vytváření kontejneru svazku. 
+> Pokud jste nepovolili automatické vytvoření účtu úložiště při vytvoření služby, po úspěšném vytvoření služby bude nutné vytvořit alespoň jeden účet úložiště. Tento účet úložiště se použije při vytváření kontejneru svazku.
 > 
-> * Pokud jste nevytvořili účet úložiště automaticky, najdete podrobné pokyny k vytvoření účtu v tématu [Konfigurace nového účtu úložiště pro službu](#configure-a-new-storage-account-for-the-service). 
+> * Pokud jste nevytvořili účet úložiště automaticky, najdete podrobné pokyny k vytvoření účtu v tématu [Konfigurace nového účtu úložiště pro službu](#configure-a-new-storage-account-for-the-service).
 > * Pokud jste automatické vytvoření účtu úložiště povolili, pokračujte na [krok 2: Získání registračního klíče služby](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## Krok 2: Získání registračního klíče služby
+## <a name="step-2-get-the-service-registration-key"></a>Krok 2: Získání registračního klíče služby
 Po vytvoření a spuštění instance služby StorSimple Manager je nutné získat registrační klíč služby. Tento klíč se používá k registraci a připojení zařízení StorSimple ke službě.
 
 Na portálu Azure Classic proveďte následující kroky.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## Krok 3: Konfigurace a registrace zařízení pomocí Windows PowerShellu pro StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3: Konfigurace a registrace zařízení pomocí Windows PowerShellu pro StorSimple
 Pomocí Windows PowerShellu pro StorSimple dokončete počáteční nastavení zařízení StorSimple, jak je popsáno v následujícím postupu. K dokončení tohoto kroku budete potřebovat software pro emulaci terminálu. Další informace naleznete v tématu [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## Krok 4: Dokončení minimální instalace zařízení
-K provedení minimální konfigurace zařízení StorSimple je nutné provést následující kroky: 
+## <a name="step-4-complete-minimum-device-setup"></a>Krok 4: Dokončení minimální instalace zařízení
+K provedení minimální konfigurace zařízení StorSimple je nutné provést následující kroky:
 
 * Nastavit sekundární server DNS.
 * Nejméně v jednom síťovém rozhraní povolit iSCSI.
@@ -166,25 +170,25 @@ K dokončení minimální instalace zařízení proveďte na portálu Azure Clas
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## Krok 5: Vytvoření kontejneru svazků
-Kontejner svazků obsahuje účet úložiště, šířku pásma a nastavení šifrování pro všechny svazky, které jsou v něm obsažené. Kontejner svazků je nutné vytvořit před zahájením zřizování svazků v zařízení StorSimple. 
+## <a name="step-5-create-a-volume-container"></a>Krok 5: Vytvoření kontejneru svazků
+Kontejner svazků obsahuje účet úložiště, šířku pásma a nastavení šifrování pro všechny svazky, které jsou v něm obsažené. Kontejner svazků je nutné vytvořit před zahájením zřizování svazků v zařízení StorSimple.
 
 Pomocí následujících kroků na portálu Azure Classic vytvořte kontejner svazků.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## Krok 6: Vytvoření svazku
+## <a name="step-6-create-a-volume"></a>Krok 6: Vytvoření svazku
 Po vytvoření kontejneru svazků můžete v zařízení StorSimple zřídit svazek úložiště pro své servery. Pomocí následujících kroků na portálu Azure Classic vytvořte svazek.
 
 > [!IMPORTANT]
-> Služba StorSimple Manager umožňuje vytvářet pouze dynamicky zřizované svazky. Nelze vytvářet zcela či částečně zřizované svazky. 
+> Služba StorSimple Manager umožňuje vytvářet pouze dynamicky zřizované svazky. Nelze vytvářet zcela či částečně zřizované svazky.
 > 
 > 
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
-## Krok 7: Připojení, inicializace a formátování svazků
-Následující kroky se provádějí v hostiteli se systémem Windows Server. 
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Krok 7: Připojení, inicializace a formátování svazků
+Následující kroky se provádějí v hostiteli se systémem Windows Server.
 
 > [!IMPORTANT]
 > * K zajištění vysoké dostupnosti vašeho řešení StorSimple doporučujeme před konfigurací standardu iSCSI nakonfigurovat na hostitelských serverech funkci MPIO (volitelné). Konfigurace funkce MPIO na hostitelských serverech zajistí, že servery budou tolerovat chyby připojení, sítě a rozhraní.
@@ -197,16 +201,16 @@ Pokud se rozhodnete, že funkci MPIO konfigurovat nebudete, připojte, inicializ
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## Krok 8: Provedení zálohy
-Zálohy vytvořené v určitých časových bodech poskytují ochranu a zvyšují možnost jejich obnovení při současném zkrácení doby potřebné k obnovení. Zařízení StorSimple lze zálohovat dvěma různými způsoby: pomocí místních snímků nebo pomocí cloudových snímků. Každý z těchto typů zálohování může být **naplánovaný** nebo **ruční**. 
+## <a name="step-8-take-a-backup"></a>Krok 8: Provedení zálohy
+Zálohy vytvořené v určitých časových bodech poskytují ochranu a zvyšují možnost jejich obnovení při současném zkrácení doby potřebné k obnovení. Zařízení StorSimple lze zálohovat dvěma různými způsoby: pomocí místních snímků nebo pomocí cloudových snímků. Každý z těchto typů zálohování může být **naplánovaný** nebo **ruční**.
 
 Pomocí následujících kroků vytvořte na portálu Azure Classic naplánované zálohování.
 
 [!INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
-Ruční zálohování lze provést kdykoliv. Popis potřebného postupu najdete v tématu [Vytvoření ruční zálohy](#create-a-manual-backup). 
+Ruční zálohování lze provést kdykoliv. Popis potřebného postupu najdete v tématu [Vytvoření ruční zálohy](#create-a-manual-backup).
 
-## Konfigurace nového účtu úložiště pro službu
+## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurace nového účtu úložiště pro službu
 Toto je volitelný krok, který je potřeba provést pouze v případě, že jste ve své službě nepovolili automatické vytvoření účtu úložiště. K vytvoření kontejneru svazků zařízení StorSimple je potřeba účet služby Microsoft Azure Storage.
 
 Pokud potřebujete vytvořit účet služby Azure Storage v jiné oblasti, postupujte podle pokynů v tématu [Účty Azure Storage](../storage/storage-create-storage-account.md).
@@ -215,20 +219,20 @@ Na portálu Azure Classic na stránce**Manažer StorSimple** proveďte následuj
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
-## Použití klienta PuTTY k připojení ke konzole sériového portu zařízení
+## <a name="use-putty-to-connect-to-the-device-serial-console"></a>Použití klienta PuTTY k připojení ke konzole sériového portu zařízení
 K připojení Windows PowerShellu pro StorSimple je nutné použít software pro emulaci terminálu, jako je například PuTTY. PuTTY můžete použít při přístupu k zařízení přímo pomocí konzoly sériového portu nebo otevřením relace Telnetu ze vzdáleného počítače.
 
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
-## Vyhledání a instalace aktualizací
+## <a name="scan-for-and-apply-updates"></a>Vyhledání a instalace aktualizací
 Aktualizace zařízení může trvat několik hodin. Aktualizace vyhledejte a nainstalujte v zařízení podle následujících kroků.
-<!--can take 1-4 hours--> 
+<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
-#### Aktualizace zařízení
+#### <a name="to-update-your-device"></a>Aktualizace zařízení
 1. Na obrazovce **Rychlé zahájení** klikněte na **Zařízení**. Vyberte fyzické zařízení, klikněte na **Maintenance** (Údržba) a potom klikněte na **Scan Updates** (Vyhledat aktualizace).  
-2. Bude vytvořena úloha vyhledávání dostupných aktualizací. Pokud jsou k dispozici aktualizace, položka **Scan Updates** (Vyhledat aktualizace) se změní na **Install Updates** (Instalovat aktualizace). Klikněte na **Install Updates** (Instalovat aktualizace). 
+2. Bude vytvořena úloha vyhledávání dostupných aktualizací. Pokud jsou k dispozici aktualizace, položka **Scan Updates** (Vyhledat aktualizace) se změní na **Install Updates** (Instalovat aktualizace). Klikněte na **Install Updates** (Instalovat aktualizace).
 3. Vytvoří se úloha aktualizace. Přejděte na **Jobs** (Úlohy) a sledujte stav aktualizace.
    
    > [!NOTE]
@@ -239,30 +243,33 @@ Aktualizace zařízení může trvat několik hodin. Aktualizace vyhledejte a na
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
-## Získání názvu IQN hostitele se systémem Windows Server
+## <a name="get-the-iqn-of-a-windows-server-host"></a>Získání názvu IQN hostitele se systémem Windows Server
 Pomocí následujících kroků získejte název IQN (iSCSI Qualified Name) hostitele Windows se systémem Windows Server® 2012.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
-## Vytvoření ruční zálohy
+## <a name="create-a-manual-backup"></a>Vytvoření ruční zálohy
 Pomocí následujících kroků na portálu Azure Classic vytvořte ruční zálohu jednoho svazku zařízení StorSimple.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
-## Konfigurace funkce MPIO
+## <a name="configure-mpio"></a>Konfigurace funkce MPIO
 Funkce MPIO (Multipath I/O) je volitelná funkce a v systému Windows Server ve výchozím nastavení není nainstalována. Je nutné ji nainstalovat jako funkci pomocí Správce serveru. Pokyny k instalaci funkce MPIO najdete v tématu [Konfigurace funkce MPIO pro zařízení StorSimple](storsimple-configure-mpio-windows-server.md).
 
 Pokyny k instalaci a konfiguraci funkce MPIO pro zařízení StorSimple připojené k hostiteli se systémem Linux najdete v tématu [Konfigurace funkce MPIO pro hostitele se systémem Linux](storsimple-configure-mpio-on-linux.md).
 
 > [!NOTE]
-> Funkce MPIO není podporována ve virtuálních zařízeních StorSimple. 
+> Funkce MPIO není podporována ve virtuálních zařízeních StorSimple.
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Konfigurace [virtuálního zařízení](storsimple-virtual-device-u2.md)
 * Použití [služby StorSimple Manager](storsimple-manager-service-administration.md) ke správě zařízení StorSimple
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

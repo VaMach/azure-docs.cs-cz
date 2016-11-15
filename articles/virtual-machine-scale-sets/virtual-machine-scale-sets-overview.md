@@ -1,13 +1,13 @@
 ---
-title: Přehled škálovacích sad virtuálních počítačů | Microsoft Docs
-description: Další informace o škálovacích sadách virtuálních počítačů
+title: "Přehled škálovacích sad virtuálních počítačů | Dokumentace Microsoftu"
+description: "Další informace o škálovacích sadách virtuálních počítačů"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+
 
 ---
 # <a name="virtual-machine-scale-sets-overview"></a>Přehled škálovacích sad virtuálních počítačů
@@ -141,6 +145,9 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 
 **Odpověď:** Ano. Škálovací sada virtuálních počítačů je implicitní skupina dostupnosti s 5 doménami selhání a 5 aktualizačními doménami. Pod virtualMachineProfile nemusíte nic konfigurovat. V budoucích verzích budou pravděpodobně škálovací sady virtuálních počítačů pokrývat více tenantů, ale v současnosti představuje škálovací sada jednu skupinu dostupnosti.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

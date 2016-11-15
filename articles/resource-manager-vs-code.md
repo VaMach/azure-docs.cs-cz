@@ -1,12 +1,12 @@
 ---
-title: Použití VS Code se šablonami Resource Manageru | Microsoft Docs
-description: Zobrazuje, jak nastavit Visual Studio Code pro vytvoření šablony Azure Resource Manageru.
+title: "Použití VS Code se šablonami Resource Manageru | Dokumentace Microsoftu"
+description: "Zobrazuje, jak nastavit Visual Studio Code pro vytvoření šablony Azure Resource Manageru."
 services: azure-resource-manager
 documentationcenter: na
 author: cmatskas
 manager: timlt
 editor: tysonn
-
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: chmatsk;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+
 
 ---
-# Práce s šablonami Azure Resource Manageru ve Visual Studio Code
+# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Práce s šablonami Azure Resource Manageru ve Visual Studio Code
 Šablony Azure Resource Manageru jsou soubory JSON, které popisují prostředek a související závislosti. Tyto soubory mohou být někdy velké a složité, proto jsou důležité podpůrné nástroje. Visual Studio Code je nový, jednoduchý, open source editor kódu pro různé platformy. Podporuje vytváření a úpravy šablon Resource Manageru prostřednictvím [nového rozšíření](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code běží všude a nevyžaduje přístup k internetu, pokud nechcete své šablony Resource Manageru také rovnou nasadit.
 
 Pokud VS Code ještě nemáte, můžete si jej nainstalovat z adresy [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-## Instalace rozšíření Resource Manageru
+## <a name="install-the-resource-manager-extension"></a>Instalace rozšíření Resource Manageru
 Pokud chcete ve VS Code pracovat s šablonami JSON, musíte nainstalovat rozšíření. Následujícím postupem si stáhněte a nainstalujte jazykovou podporu pro šablony JSON Resource Manageru:
 
 1. Spusťte VS Code 
@@ -33,7 +37,7 @@ Pokud chcete ve VS Code pracovat s šablonami JSON, musíte nainstalovat rozší
    
    Hotovo!
 
-## Nastavení fragmentů Resource Manageru
+## <a name="set-up-resource-manager-snippets"></a>Nastavení fragmentů Resource Manageru
 V předchozích krocích byla nainstalována podpora nástrojů, nyní je však potřeba nakonfigurovat VS Code pro použití fragmentů šablony JSON.
 
 1. Zkopírujte obsah souboru z úložiště [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) do schránky.
@@ -51,7 +55,7 @@ V předchozích krocích byla nainstalována podpora nástrojů, nyní je však 
 
 To je vše, co je potřeba k zahájení práce s fragmenty Resource Manageru. Dále toto nastavení otestujeme.
 
-## Práce s šablonami ve VS Code
+## <a name="work-with-template-in-vs-code"></a>Práce s šablonami ve VS Code
 Nejjednodušší způsob, jak začít pracovat s šablonou, je buď stáhnout si jednu ze šablon pro rychlý start, které jsou dostupné na [Githubu](https://github.com/Azure/azure-quickstart-templates), nebo použít vlastní. Prostřednictvím portálu můžete snadno [exportovat šablonu](resource-manager-export-template.md) pro jakoukoli ze svých skupin prostředků. 
 
 1. Pokud jste exportovali šablonu ze skupiny prostředků, otevřete extrahované soubory ve VS Code.
@@ -80,10 +84,10 @@ Nejjednodušší způsob, jak začít pracovat s šablonou, je buď stáhnout si
    
     ![chybová zpráva](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## Nasazení nových prostředků
+## <a name="deploy-your-new-resources"></a>Nasazení nových prostředků
 Když je šablona připravena, můžete nasadit nové prostředky podle následujících pokynů: 
 
-### Windows
+### <a name="windows"></a>Windows
 1. Otevřete příkazový řádek prostředí PowerShell. 
 2. Přihlaste se zadáním příkazu: 
    
@@ -98,7 +102,7 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
 4. Aktualizujte parametry v souboru parameters.json.
 5. Spuštěním Deploy.ps1 nasaďte svou šablonu do služby Azure.
 
-### OSX/Linux
+### <a name="osxlinux"></a>OSX/Linux
 1. Otevřete okno terminálu. 
 2. Přihlaste se zadáním příkazu:
    
@@ -111,11 +115,14 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
    
         azure group deployment create -f <PathToTemplate> 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
 * Další informace o funkcích šablon najdete v článku [Funkce šablon Azure Resource Manageru](resource-group-template-functions.md).
 * Další příklady práce s nástrojem Visual Studio Code najdete v článku o [sestavení cloudových aplikací v nástroji Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) z materiálu [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [(ukázka)](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Další rychlé starty z ukázky HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

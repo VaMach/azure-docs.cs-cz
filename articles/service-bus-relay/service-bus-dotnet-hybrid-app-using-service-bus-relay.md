@@ -1,12 +1,12 @@
 ---
-title: Hybridní lokální/cloudová aplikace (.NET) | Microsoft Docs
-description: Naučte se vytvořit hybridní lokální/cloudovou aplikaci .NET s předáváním přes Azure Service Bus.
+title: "Hybridní lokální/cloudová aplikace (.NET) | Dokumentace Microsoftu"
+description: "Naučte se vytvořit hybridní lokální/cloudovou aplikaci .NET s předáváním přes Azure Service Bus."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Hybridní lokální/cloudová aplikace .NET s předáváním přes Azure Service Bus
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Hybridní lokální/cloudová aplikace .NET s předáváním přes Azure Service Bus WCF
 ## <a name="introduction"></a>Úvod
 Tento článek popisuje, jak vytvořit hybridní cloudovou aplikaci pomocí Microsoft Azure a Visual Studia. Tento kurz předpokládá, že nemáte žádné předchozí zkušenosti s používáním Azure. Za méně než 30 minut budete mít aplikaci, která používá několik různých prostředků Azure a běží v cloudu.
 
 Co se dozvíte:
 
 * Jak vytvořit nebo přizpůsobit existující webovou službu pro spotřebu webovým řešením.
-* Jak používat službu předávání přes Azure Service Bus ke sdílení dat mezi aplikací Azure a webovou službou hostovanou jinde.
+* Jak používat službu předávání přes Azure Service Bus WCF ke sdílení dat mezi aplikací Azure a webovou službou hostovanou jinde.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -32,7 +36,7 @@ Podniková řešení se obvykle skládají z kombinace vlastního kódu napsané
 
 Architekti řešení začínají používat cloud, protože jim to umožňuje snadněji zvládat nároky na škálování a snížit provozní náklady. Přitom zjišťují, že existující prostředky služeb, které by chtěli využívat jako stavební prvky pro svá řešení, jsou za firemním firewallem a cloudové řešení k nim nemá snadný přístup. Spousta interních služeb není postavená nebo hostovaná tak, aby se dala snadno vystavit na rozhraní firemní sítě.
 
-Předávání přes Service Bus je navržené pro situace, kdy je potřeba vzít existující webové služby WCF (Windows Communication Foundation) a bezpečně je zpřístupnit pro řešení, která jsou mimo firemní zónu, a to bez nutnosti provádět nežádoucí změny infrastruktury podnikové sítě. Takové služby předávání přes Service Bus se stále hostují uvnitř existujícího prostředí, ale delegují čekání na příchozí spojení a požadavky na Service Bus hostovaný v cloudu. Service Bus taky takové služby chrání před neoprávněným přístupem pomocí ověření [Sdíleným přístupovým podpisem](../service-bus/service-bus-sas-overview.md) (SAS).
+Předávání přes Service Bus je navržené pro situace, kdy je potřeba vzít existující webové služby WCF (Windows Communication Foundation) a bezpečně je zpřístupnit pro řešení, která jsou mimo firemní zónu, a to bez nutnosti provádět nežádoucí změny infrastruktury podnikové sítě. Takové služby předávání přes Service Bus se stále hostují uvnitř existujícího prostředí, ale delegují čekání na příchozí spojení a požadavky na Service Bus hostovaný v cloudu. Service Bus taky takové služby chrání před neoprávněným přístupem pomocí ověření [Sdíleným přístupovým podpisem](../service-bus-messaging/service-bus-sas-overview.md) (SAS).
 
 ## <a name="solution-scenario"></a>Scénář řešení
 V tomto kurzu vytvoříte webovou stránku ASP.NET, která vám umožní zobrazit seznam produktů na stránce inventáře produktů.
@@ -48,7 +52,7 @@ Toto je snímek obrazovky úvodní stránky hotové webové aplikace.
 ## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
-1. Nainstalujte sadu Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK][].
+1. Nainstalujte sadu Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK][Stažení nástrojů a SDK].
 2. Klikněte na **Instalovat sadu SDK** pro verzi Visual Studia, kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
 3. Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 4. V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
@@ -59,7 +63,7 @@ Pokud chcete začít používat funkce Service Bus v Azure, musíte nejdřív vy
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Vytvoření lokálního serveru
+## <a name="create-an-onpremises-server"></a>Vytvoření lokálního serveru
 Nejdřív vytvoříte lokální (testovací) systém katalogu produktů. Bude vcelku jednoduchý a nahradí skutečný lokální systém katalogu produktů, i s kompletní rovinou služeb, kterou chceme integrovat.
 
 Tento projekt je konzolová aplikace z Visual Studia a pomocí [balíčku NuGet pro Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) zahrnuje konfiguračních nastavení a knihovny Service Bus.
@@ -197,14 +201,14 @@ Tento projekt je konzolová aplikace z Visual Studia a pomocí [balíčku NuGet 
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Stiskněte **Ctrl+Shift+B** nebo v nabídce **Sestavení** klikněte na **Sestavit řešení** a tím sestavte aplikaci a potvrďte přesnost své dosavadní práce.
 
-## <a name="create-an-asp.net-application"></a>Vytvoření aplikace ASP.NET
+## <a name="create-an-aspnet-application"></a>Vytvoření aplikace ASP.NET
 V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data načtená z vaší produktové služby.
 
 ### <a name="create-the-project"></a>Vytvoření projektu
@@ -234,7 +238,7 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -437,7 +441,7 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Stažení nástrojů a sady SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+[Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -469,6 +473,6 @@ Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následuj�
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

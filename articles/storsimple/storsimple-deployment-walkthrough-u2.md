@@ -1,24 +1,28 @@
 ---
-title: Nasazení zařízení StorSimple (Update 2) | Microsoft Docs
-description: Popisuje kroky a osvědčené postupy nasazení zařízení a služby StorSimple Update 2.
+title: "Nasazení zařízení StorSimple (Update 2) | Dokumentace Microsoftu"
+description: "Popisuje kroky a osvědčené postupy nasazení zařízení a služby StorSimple Update 2."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Nasazení místního zařízení StorSimple (Update 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Nasazení místního zařízení StorSimple (Update 2)
 > [!div class="op_single_selector"]
-> * [Update 2](storsimple-deployment-walkthrough-u2.md)
+> * [Update 2 a novější](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
 > * [Verze GA](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Než začnete, ujistěte se, že:
 
 * Porty brány firewall vašeho datového centra jsou otevřeny, aby umožňovaly přenos dat standardu iSCSI a cloudu, jak je popsáno v [Požadavcích sítě pro zařízení StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="step-by-step-deployment"></a>Podrobný postup nasazení
+## <a name="stepbystep-deployment"></a>Podrobný postup nasazení
 Pomocí následujících kroků nasaďte zařízení StorSimple v datovém centru.
 
-## <a name="step-1:-create-a-new-service"></a>Krok 1: Vytvoření nové služby
+## <a name="step-1-create-a-new-service"></a>Krok 1: Vytvoření nové služby
 Služba StorSimple Manager může spravovat více zařízení StorSimple. Pomocí následujících kroků vytvořte novou instanci služby StorSimple Manager.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ Služba StorSimple Manager může spravovat více zařízení StorSimple. Pomoc�
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>Krok 2: Získání registračního klíče služby
+## <a name="step-2-get-the-service-registration-key"></a>Krok 2: Získání registračního klíče služby
 Po vytvoření a spuštění instance služby StorSimple Manager je nutné získat registrační klíč služby. Tento klíč se používá k registraci a připojení zařízení StorSimple ke službě.
 
 Na portálu pro správu proveďte následující kroky.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3: Konfigurace a registrace zařízení pomocí Windows PowerShellu pro StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3: Konfigurace a registrace zařízení pomocí Windows PowerShellu pro StorSimple
 Pomocí Windows PowerShellu pro StorSimple dokončete počáteční nastavení zařízení StorSimple, jak je popsáno v následujícím postupu. K dokončení tohoto kroku budete potřebovat software pro emulaci terminálu. Další informace naleznete v tématu [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Krok 4: Dokončení minimální instalace zařízení
+## <a name="step-4-complete-minimum-device-setup"></a>Krok 4: Dokončení minimální instalace zařízení
 K provedení minimální konfigurace zařízení StorSimple je nutné provést následující kroky: 
 
 * Nastavit sekundární server DNS.
@@ -130,14 +134,14 @@ K dokončení minimální instalace zařízení proveďte na portálu pro správ
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Krok 5: Vytvoření kontejneru svazků
+## <a name="step-5-create-a-volume-container"></a>Krok 5: Vytvoření kontejneru svazků
 Kontejner svazků obsahuje účet úložiště, šířku pásma a nastavení šifrování pro všechny svazky, které jsou v něm obsažené. Kontejner svazků je nutné vytvořit před zahájením zřizování svazků v zařízení StorSimple. 
 
 Pomocí následujících kroků na portálu pro správu vytvořte kontejner svazků.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Krok 6: Vytvoření svazku
+## <a name="step-6-create-a-volume"></a>Krok 6: Vytvoření svazku
 Po vytvoření kontejneru svazků můžete v zařízení StorSimple zřídit svazek úložiště pro své servery. Pomocí následujících kroků na portálu pro správu vytvořte svazek.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ Po vytvoření kontejneru svazků můžete v zařízení StorSimple zřídit sva
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Krok 7: Připojení, inicializace a formátování svazků
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Krok 7: Připojení, inicializace a formátování svazků
 Následující kroky se provádějí v hostiteli se systémem Windows Server. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ Pokud se rozhodnete, že funkci MPIO konfigurovat nebudete, připojte, inicializ
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Krok 8: Provedení zálohy
+## <a name="step-8-take-a-backup"></a>Krok 8: Provedení zálohy
 Zálohy vytvořené v určitých časových bodech poskytují ochranu a zvyšují možnost jejich obnovení při současném zkrácení doby potřebné k obnovení. Zařízení StorSimple lze zálohovat dvěma různými způsoby: pomocí místních snímků nebo pomocí cloudových snímků. Každý z těchto typů zálohování může být **naplánovaný** nebo **ruční**. 
 
 Pomocí následujících kroků vytvořte na portálu pro správu naplánované zálohování.
@@ -217,6 +221,9 @@ Pomocí následujících kroků na portálu pro správu vytvořte ruční záloh
 * Konfigurace [virtuálního zařízení](storsimple-virtual-device-u2.md)
 * Použití [služby StorSimple Manager](storsimple-manager-service-administration.md) ke správě zařízení StorSimple
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

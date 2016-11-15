@@ -1,12 +1,12 @@
 ---
-title: Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET | Microsoft Docs
-description: Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí sady .NET SDK.
+title: "Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET | Dokumentace Microsoftu"
+description: "Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí sady .NET SDK."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí rozhraní .NET
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -68,7 +72,7 @@ Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamova
 3. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte program.
 4. Odstraňte program (a volitelně můžete odstranit i asset).
 
-## <a name="what-you'll-learn"></a>Co se dozvíte
+## <a name="what-youll-learn"></a>Co se dozvíte
 Toto téma vám ukáže, jak provádět různé operace na kanálech a programech pomocí sady Media Services .NET SDK. Protože řada z těchto operací běží dlouho, používají se rozhraní API pro .NET, která spravují dlouho běžící operace.
 
 Toto téma vás seznámí s následujícími postupy:
@@ -101,7 +105,7 @@ Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zk
 ## <a name="download-sample"></a>Stažení ukázky
 Ukázku můžete získat a spustit z [tohoto odkazu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## <a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Nastavení pro vývoj pomocí sady Media Services SDK pro .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Nastavení pro vývoj pomocí sady Media Services SDK pro .NET
 1. Vytvořte konzolovou aplikaci pomocí Visual Studia.
 2. Přidejte sadu Media Services SDK pro .NET do konzolové aplikace pomocí balíčku Media Services NuGet.
 
@@ -341,7 +345,7 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
             /// <returns></returns>
             public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
             {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                 // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
                 var locator = _context.Locators.CreateLocator
                     (
                         LocatorType.OnDemandOrigin,
@@ -509,7 +513,7 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
                     operationId ?? string.Empty);
             }
         }
-    }   
+    }    
 
 
 ## <a name="next-step"></a>Další krok
@@ -520,9 +524,12 @@ Prohlédněte si mapy kurzů k Media Services.
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Hledáte něco jiného?
+### <a name="looking-for-something-else"></a>Hledáte něco jiného?
 Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure | Microsoft Docs
-description: Tento článek popisuje, jak replikovat virtuální počítače Hyper-V na hostitelích Hyper-V, které jsou umístěné v cloudech System Center VMM, do Azure.
+title: "Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure | Dokumentace Microsoftu"
+description: "Tento článek popisuje, jak replikovat virtuální počítače Hyper-V na hostitelích Hyper-V, které jsou umístěné v cloudech System Center VMM, do Azure."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/06/2016
+ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4743f1335856bcfc7a44d76841d3be83693ad063
+
 
 ---
-# Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure
+# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure"></a>Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
-> * [Prostředí PowerShell – ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Portál Classic](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell – Classic](site-recovery-deploy-with-powershell.md)
 > 
@@ -27,20 +31,20 @@ ms.author: raynew
 
 Služba Azure Site Recovery přispívá ke strategii zachování plynulého chodu podniku a zotavení po havárii (BCDR) tím, že orchestruje replikaci, převzetí služeb při selhání a obnovení virtuálních počítačů a fyzických serverů. Počítače je možné replikovat do Azure nebo do sekundárního místního datového centra. Rychlý přehled najdete v článku [Co je Azure Site Recovery](site-recovery-overview.md).
 
-## Přehled
+## <a name="overview"></a>Přehled
 Tento článek popisuje postup nasazení služby Size Recovery k replikaci virtuálních počítačů Hyper-V na hostitelských serverech technologie Hyper-V, které jsou na privátních cloudech VMM, do Azure.
 
 Článek uvádí předpoklady pro scénář a ukazuje, jak nastavit trezor Site Recovery, získat zprostředkovatele Azure Site Recovery nainstalovaného na zdrojovém serveru VMM, zaregistrovat server v trezoru, přidat účet úložiště Azure, nainstalovat agenta Služeb zotavení Azure na hostitelských serverech technologie Hyper-V, nakonfigurovat nastavení ochrany pro cloudy VMM, které budou použité pro všechny chráněné virtuální počítače, a pak pro tyto virtuální počítače povolit ochranu. Nakonec otestujete převzetí služeb při selhání, abyste měli jistotu, že všechno funguje podle očekávání.
 
 Jakékoli dotazy nebo připomínky můžete publikovat na konci tohoto článku nebo na [fóru služby Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Architektura
+## <a name="architecture"></a>Architektura
 ![Architektura](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Zprostředkovatel služby Azure Site Recovery je nainstalován na VMM během nasazování služby Site Recovery a VMM server je zaregistrován v trezoru Site Recovery. Zprostředkovatel komunikováním se službou Site Recovery zpracovává orchestraci replikace.
 * Agent Služeb zotavení Azure je nainstalován na hostitelských serverech technologie Hyper-V během nasazování Site Recovery. Zpracovává replikaci dat do úložiště Azure.
 
-## Požadavky Azure
+## <a name="azure-prerequisites"></a>Požadavky Azure
 Tady je seznam toho, co budete potřebovat v Azure.
 
 | **Požadavek** | **Podrobnosti** |
@@ -49,16 +53,16 @@ Tady je seznam toho, co budete potřebovat v Azure.
 | **Úložiště Azure** |K ukládání replikovaných dat budete potřebovat účet úložiště Azure. Replikovaná data jsou uložena v úložišti Azure a virtuální počítače Azure se spouštějí, když je třeba převzít služby při selhání. <br/><br/>Potřebujete [účet se standardním geograficky redundantním úložištěm](../storage/storage-redundancy.md#geo-redundant-storage). Účet musí být ve stejné oblasti jako služba Site Recovery a musí být přidružený ke stejnému předplatnému. Poznámka: Replikace do účtů Storage úrovně Premium není aktuálně podporována a neměla by se používat.<br/><br/>[Přečtěte si informace o](../storage/storage-introduction.md) úložišti Azure. |
 | **Síť Azure** |Budete potřebovat virtuální síť Azure, ke které se budou virtuální počítače Azure připojovat, když dojde k převzetí služeb při selhání. Virtuální síť Azure musí být ve stejné oblasti jako trezor Site Recovery. |
 
-## Místní požadavky
+## <a name="onpremises-prerequisites"></a>Místní požadavky
 Tady je seznam toho, co budete potřebovat místně.
 
 | **Požadavek** | **Podrobnosti** |
 | --- | --- |
 | **VMM** |Budete potřebovat minimálně jeden server VMM nasazený jako fyzický nebo virtuální samostatný server nebo jako virtuální cluster. <br/><br/>Na serveru VMM by měl běžet System Center 2012 R2 s nejnovější kumulativními aktualizacemi.<br/><br/>Na serveru VMM budete muset mít nakonfigurovaný aspoň jeden cloud.<br/><br/>Zdrojový cloud, který chcete chránit, musí obsahovat minimálně jednu skupinu hostitelů VMM.<br/><br/>Další informace o nastavení cloudů najdete na blogu Keithema Mayera v příspěvku [Návod: vytvoření privátních cloudů pomocí produktu System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx). |
-| **Hyper-V** |Budete potřebovat jeden nebo více hostitelských serverů Hyper-V nebo clusterů v cloudu VMM. Hostitelský server by měl mít a jeden nebo více virtuálních počítačů. <br/><br/>Na serveru Hyper-V musí běžet minimálně Windows Server 2012 R2 s rolí Hyper-V a musí být na něm nainstalované nejnovější aktualizace.<br/><br/>Jakýkoli server Hyper-V obsahující virtuální počítače, které chcete chránit, musí být v cloudu VMM.<br/><br/>Pokud používáte technologii Hyper-V v clusteru, je důležité vědět, že zprostředkovatel clusteru se nevytvoří automaticky, pokud máte clustery založené na statických IP adresách. Budete ho muset nakonfigurovat ručně. [Další informace](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) v najdete blogu Aidana Finna. |
+| **Hyper-V** |Budete potřebovat jeden nebo více hostitelských serverů Hyper-V nebo clusterů v cloudu VMM. Hostitelský server by měl mít a jeden nebo více virtuálních počítačů. <br/><br/>Na serveru Hyper-V musí běžet minimálně **Windows Server 2012 R2** s rolí Hyper-V nebo **Microsoft Hyper-V Server 2012 R2** a musí být na něm nainstalované nejnovější aktualizace.<br/><br/>Jakýkoli server Hyper-V obsahující virtuální počítače, které chcete chránit, musí být v cloudu VMM.<br/><br/>Pokud používáte technologii Hyper-V v clusteru, je důležité vědět, že zprostředkovatel clusteru se nevytvoří automaticky, pokud máte clustery založené na statických IP adresách. Budete ho muset nakonfigurovat ručně. [Další informace](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) v najdete blogu Aidana Finna. |
 | **Chráněné počítače** |Virtuální počítače, které chcete chránit, by měly splňovat [požadavky Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
 
-## Požadavky na mapování sítě
+## <a name="network-mapping-prerequisites"></a>Požadavky na mapování sítě
 Při ochraně virtuálních počítačů v síti Azure mapování mapuje sítě virtuálních počítačů na zdrojovém serveru VMM a cílové sítě Azure, aby bylo možné následující:
 
 * Všechny počítače, u kterých dojde k převzetí služeb při selhání ve stejné síti, se budou moct připojit k sobě navzájem, a to bez ohledu na to, v jakém jsou plánu obnovení.
@@ -78,7 +82,7 @@ Připravte mapování sítě následujícím způsobem:
    * [Nastavení logických sítí](https://technet.microsoft.com/library/jj721568.aspx).
    * [Nastavení sítí virtuálních počítačů](https://technet.microsoft.com/library/jj721575.aspx).
 
-## Krok 1: Vytvoření trezoru Site Recovery
+## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1: Vytvoření trezoru Site Recovery
 1. Přihlaste se k [portálu pro správu](https://portal.azure.com) ze serveru VMM, který chcete zaregistrovat.
 2. Klikněte na **Data Services** > **Služby zotavení** > **Trezor Site Recovery**.
 3. Klikněte na **Vytvořit nový** > **Rychlé vytvoření**.
@@ -90,7 +94,7 @@ Připravte mapování sítě následujícím způsobem:
 
 Podle informací na stavovém řádku si ověřte, že se trezor úspěšně vytvořil. Trezor bude uvedený jako **aktivní** na hlavní stránce Služeb zotavení.
 
-## Krok 2: Vygenerování registračního klíče trezoru
+## <a name="step-2-generate-a-vault-registration-key"></a>Krok 2: Vygenerování registračního klíče trezoru
 Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředkovatele Azure Site Recovery a nainstalujete ho na server VMM, použijete tento klíč k registraci serveru VMM v trezoru.
 
 1. Na stránce **Služby zotavení** kliknutím na trezor otevřete stránku Rychlý start. Stránku Rychlý Start je možné kdykoli otevřít pomocí ikony.
@@ -101,7 +105,7 @@ Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředko
    
     ![Registrační klíč](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## Krok 3: Nainstalování zprostředkovatele Azure Site Recovery
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>Krok 3: Nainstalování zprostředkovatele Azure Site Recovery
 1. V části **Rychlý Start** > **Připravit servery VMM** si kliknutím na **Stáhnout zprostředkovatele Microsoft Azure Site Recovery pro instalaci na servery VMM** stáhněte nejnovější verzi instalačního souboru zprostředkovatele.
 2. Spusťte tento soubor na zdrojovém serveru VMM.
    
@@ -146,7 +150,7 @@ Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředko
 
 Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
 
-### Instalace pomocí příkazového řádku
+### <a name="command-line-installation"></a>Instalace pomocí příkazového řádku
 Zprostředkovatele Azure Site Recovery je možné nainstalovat také pomocí následujícího příkazu z příkazového řádku. Tuto metodu je možné použít k instalaci zprostředkovatele na jádro serveru pro Windows Server 2012 R2.
 
 1. Stáhněte si instalační soubor zprostředkovatele a registrační klíč do složky. Příklad: C:\ASR.
@@ -173,7 +177,7 @@ Kde parametry mají následující význam:
 * **/proxyUsername** je volitelný parametr, který určuje uživatelské jméno proxy.
 * **/proxyPassword** je volitelný parametr, který určuje heslo k proxy serveru.  
 
-## Krok 4: Vytvoření účtu úložiště Azure
+## <a name="step-4-create-an-azure-storage-account"></a>Krok 4: Vytvoření účtu úložiště Azure
 1. Pokud nemáte účet úložiště Azure, vytvořte si ho kliknutím na **Přidat účet úložiště Azure**.
 2. Vytvořte účet s povolenou geografickou replikací. Musí být ve stejné oblasti jako služba Azure Site Recovery a musí být přidružený ke stejnému předplatnému.
    
@@ -184,7 +188,7 @@ Kde parametry mají následující význam:
 > 
 > 
 
-## Krok 5: Instalace agenta Služeb zotavení Azure
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>Krok 5: Instalace agenta Služeb zotavení Azure
 Nainstalujte agenta služby Azure Site Recovery na každém serveru hostitele technologie Hyper-V v cloudu VMM.
 
 1. Kliknutím na **Rychlý Start** > **Stáhnout agenta služby Azure Site Recovery a nainstalovat ho na hostitele** si stáhněte nejnovější verzi instalačního souboru agenta.
@@ -199,12 +203,12 @@ Nainstalujte agenta služby Azure Site Recovery na každém serveru hostitele te
    
     ![Registrace agenta MARS](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### Instalace pomocí příkazového řádku
+### <a name="command-line-installation"></a>Instalace pomocí příkazového řádku
 Agenta Služeb zotavení Microsoft Azure můžete také nainstalovat z příkazového řádku pomocí tohoto příkazu:
 
     marsagentinstaller.exe /q /nu
 
-## Krok 6: Nakonfigurování nastavení ochrany cloudu
+## <a name="step-6-configure-cloud-protection-settings"></a>Krok 6: Nakonfigurování nastavení ochrany cloudu
 Po zaregistrování serveru VMM můžete nakonfigurovat nastavení ochrany cloudu. Při instalaci zprostředkovatele jste povolili možnost **Synchronizovat data cloudu s trezorem**, takže všechny cloudy na serveru VMM se v trezoru objeví na kartě <b>Chráněné položky</b>.
 
 ![Publikovaný cloud](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -225,7 +229,7 @@ Po uložení nastavení se vytvoří úloha, kterou je možné monitorovat na ka
 
 Po uložení je možné nastavení cloudu změnit na kartě **Konfigurace**. Pokud budete chtít cílové umístění nebo cílový účet úložiště upravit, budete muset odebrat konfiguraci cloudu a potom cloud znovu nakonfigurovat. Je potřeba počítat s tím, že pokud změníte účet úložiště, změna se po změně účtu úložiště aplikuje pouze na virtuální počítače, pro které je povolená ochrana. Stávající virtuální počítače se nebudou migrovat do nového účtu úložiště.
 
-## Krok 7: Nakonfigurování mapování sítě
+## <a name="step-7-configure-network-mapping"></a>Krok 7: Nakonfigurování mapování sítě
 Před zahájením mapování sítě ověřte, jestli jsou virtuální počítače na zdrojovém serveru VMM připojené k síti virtuálních počítačů. Dále pak vytvořte jednu nebo více virtuálních sítí Azure. Na jednu síť Azure je možné namapovat více sítí virtuálních počítačů.
 
 1. Na obrazovce Rychlý start klikněte na **Mapovat sítě**.
@@ -246,7 +250,7 @@ Pamatujte, že pokud má cílová síť více podsítí a jedna z těchto podsí
 > 
 > 
 
-## Krok 8: Povolení ochrany pro virtuální počítače
+## <a name="step-8-enable-protection-for-virtual-machines"></a>Krok 8: Povolení ochrany pro virtuální počítače
 Po správném nakonfigurování serverů, cloudů a sítí můžete povolit ochranu pro virtuální počítače v cloudu. Je třeba počítat s následujícím:
 
 * Virtuální počítače, musí splňovat [požadavky Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
@@ -274,7 +278,7 @@ Po správném nakonfigurování serverů, cloudů a sítí můžete povolit ochr
   
   * Pokud je počet síťových adaptérů na zdrojovém počítači menší nebo roven počtu adaptérů, které jsou povolené pro velikost cílového počítače, pak bude mít cíl stejný počet adaptérů jako zdroj.
   * Pokud počet adaptérů pro zdrojový virtuální počítač překračuje počet povolený pro cílovou velikost, použije se maximální velikost cíle.
-  * Pokud má například zdrojový počítač dva síťové adaptéry a velikost cílového počítače podporuje čtyři, bude mít cílový počítač dva adaptéry. Pokud má zdrojový počítač dva adaptéry, ale podporovaná velikost cíle podporuje pouze jeden, bude mít cílový počítač pouze jeden adaptér.    
+  * Pokud má například zdrojový počítač dva síťové adaptéry a velikost cílového počítače podporuje čtyři, bude mít cílový počítač dva adaptéry. Pokud má zdrojový počítač dva adaptéry, ale podporovaná velikost cíle podporuje pouze jeden, bude mít cílový počítač pouze jeden adaptér.     
 * **Síť cílového virtuálního počítače:** Sítě, ke které se virtuální počítač připojí, je dána mapováním sítě zdrojového virtuálního počítače. Pokud má zdrojový virtuální počítač více než jeden síťový adaptér a zdrojové sítě jsou namapované na různé sítě na cíli, budete muset zvolit jednu z cílových sítí.
 * **Podsíť každého síťového adaptéru:** Pro každý síťový adaptér můžete vybrat podsíť, ke které se virtuální počítač při převzetí služeb při selhání připojí.
 * **Cílová IP adresa:** Pokud je síťový adaptér zdrojového virtuálního počítače nakonfigurovaný tak, aby používal statickou IP adresu, můžete zadat IP adresu cílového virtuálního počítače. Pomocí této funkce můžete zachovat IP adresu zdrojového virtuálního počítače po převzetí služeb při selhání. Pokud není zadána žádná IP adresa, pak je síťovému adaptéru přiřazena libovolná dostupná IP adresa v okamžiku převzetí služeb při selhání. Pokud je zadána cílová IP adresa, ale ta už se používá jiným virtuálním počítačem spuštěným v Azure, převzetí služeb při selhání se nezdaří.  
@@ -286,7 +290,7 @@ Po správném nakonfigurování serverů, cloudů a sítí můžete povolit ochr
 > 
 > 
 
-## Otestování nasazení
+## <a name="test-the-deployment"></a>Otestování nasazení
 Pokud chcete nasazení otestovat, můžete spustit testovací převzetí služeb při selhání pro jeden virtuální počítač nebo vytvořit plán obnovení, který se skládá z více virtuálních počítačů, a spustit testovací převzetí služeb při selhání pro celý plán.  
 
 Testovací převzetí služeb při selhání simuluje váš mechanismus převzetí služeb při selhání a zotavení v izolované síti. Poznámky:
@@ -299,7 +303,7 @@ Testovací převzetí služeb při selhání simuluje váš mechanismus převzet
 > 
 > 
 
-### Vytvoření plánu obnovení
+### <a name="create-a-recovery-plan"></a>Vytvoření plánu obnovení
 1. Na kartě **Plány obnovení** přidejte nový plán. Do pole **Typ zdroje** zadejte název, **VMM**, a do pole **Zdroj** zadejte zdrojový server VMM. Cíl bude Azure.
    
     ![Vytvoření plánu obnovení](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -312,7 +316,7 @@ Testovací převzetí služeb při selhání simuluje váš mechanismus převzet
 
 Po vytvoření se plán obnovení zobrazí na kartě **Plány obnovení**. Můžete také k plánu obnovení přidat [Runbooky služby Azure Automation](site-recovery-runbook-automation.md) pro automatizaci akcí během převzetí služeb při selhání.
 
-### Spuštění testovacího převzetí služeb při selhání
+### <a name="run-a-test-failover"></a>Spuštění testovacího převzetí služeb při selhání
 Testovací předání služeb při selhání do Azure je možné spustit dvěma způsoby.
 
 * **Testovací převzetí služeb při selhání bez sítě Azure:** Tento typ testovacího převzetí služeb při selhání ověří, že virtuální počítač se zobrazí správně v Azure. Virtuální počítač nebude po převzetí služeb při selhání připojen k žádné síti Azure.
@@ -343,9 +347,12 @@ Pokud chcete spustit testovací převzetí služeb při selhání, udělejte tot
 
 >
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o [nastavení plánů obnovení](site-recovery-create-recovery-plans.md) a [převzetí služeb při selhání](site-recovery-failover.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

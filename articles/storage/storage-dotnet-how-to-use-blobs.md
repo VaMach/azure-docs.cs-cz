@@ -1,30 +1,34 @@
 ---
-title: Začínáme s Azure Blob Storage (úložiště objektů) pomocí rozhraní .NET | Microsoft Docs
-description: Ukládejte nestrukturovaná data v cloudu pomocí Azure Blob Storage (úložiště objektů).
+title: "Začínáme s Azure Blob Storage (úložiště objektů) pomocí rozhraní .NET | Dokumentace Microsoftu"
+description: "Ukládejte nestrukturovaná data v cloudu pomocí Azure Blob Storage (úložiště objektů)."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/20/2016
-ms.author: jwillis;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c398620c14cafb36200dca6e59bf8a6bf3ad2709
 
 ---
-# Začínáme s úložištěm Azure Blob pomocí rozhraní .NET
+
+# <a name="get-started-with-azure-blob-storage-using-net"></a>Začínáme s úložištěm Azure Blob pomocí rozhraní .NET
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 Úložiště objektů blob v Azure je služba, která ukládá nestrukturovaná data v cloudu jako objekty nebo objekty blob. Do Blob storage se dá ukládat jakýkoli druh textu nebo binárních dat, jako je dokument, soubor médií nebo instalátor aplikace. Blob storage se také nazývá úložiště objektů.
 
-### O tomto kurzu
+### <a name="about-this-tutorial"></a>O tomto kurzu
 Tenhle kurz ukazuje, jak napsat kód .NET pro některé běžné scénáře s využitím Úložiště objektů blob v Azure. Mezi zahrnuté scénáře patří odesílání, výpis, stahování a odstraňování objektů blob.
 
 **Odhadovaný čas dokončení:** 45 minut
@@ -32,13 +36,13 @@ Tenhle kurz ukazuje, jak napsat kód .NET pro některé běžné scénáře s vy
 **Požadavky:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-* [Klientská knihovna pro úložiště Azure pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-### Další ukázky
+### <a name="more-samples"></a>Další ukázky
 Další příklady použití Blob Storage najdete v článku [Začínáme s Azure Blob Storage v rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Můžete si stáhnout a spustit ukázkovou aplikaci nebo si prohlédnout kód na GitHubu.
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -47,27 +51,34 @@ Další příklady použití Blob Storage najdete v článku [Začínáme s Azur
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Přidání deklarací oboru názvů
+### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
 Přidejte do horní části souboru `program.cs` následující příkazy `using`:
+
+```csharp
 
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
+```
 
-### Analýza připojovacího řetězce
+### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Vytvoření klienta služby objektu blob
+### <a name="create-the-blob-service-client"></a>Vytvoření klienta služby objektu blob
 Třída **CloudBlobClient** umožňuje načíst kontejnery a objekty blob, které jsou uloženy v Blob storage. Tady je jeden ze způsobů, jak vytvořit klienta služby:
 
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```csharp
 
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```
 Teď můžete napsat kód, který bude číst data z Blob storage a bude je tam také zapisovat.
 
-## Vytvoření kontejneru
+## <a name="create-a-container"></a>Vytvoření kontejneru
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Tento příklad ukazuje, jak vytvořit kontejner, pokud ještě neexistuje:
+
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -81,20 +92,26 @@ Tento příklad ukazuje, jak vytvořit kontejner, pokud ještě neexistuje:
 
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
+```
 
 Ve výchozím nastavení je nový kontejner privátní, což znamená, že ke stažení objektů blob z tohoto kontejneru musíte zadat přístupový klíč úložiště. Když chcete, aby soubory v kontejneru byly k dispozici všem uživatelům, můžete jej pomocí následujícího kódu nastavit jako veřejný:
 
+```csharp
+
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+```
 
 Kdokoli na Internetu může vidět objekty blob ve veřejném kontejneru, upravit nebo odstranit je ale můžete jenom v případě, že máte příslušný přístupový klíč k účtu nebo sdílený přístupový podpis.
 
-## Nahrání objektu blob do kontejneru
+## <a name="upload-a-blob-into-a-container"></a>Nahrání objektu blob do kontejneru
 Úložiště objektů blob v Azure podporuje objekty blob bloku a objekty blob stránky.  Ve většině případů se jako vhodný typ k použití doporučuje objekt blob bloku.
 
 Když chcete nahrát soubor do objektu blob bloku, získejte odkaz na kontejner a použijte ho k získání odkazu objektu blob bloku. Jakmile získáte odkaz na objekt blob, můžete k němu nahrát jakýkoli proud dat voláním metody **UploadFromStream**. Tahle operace vytvoří objekt blob, pokud už dříve neexistoval, nebo ho přepíše, pokud už existoval.
 
 Následující příklad ukazuje, jak nahrát objekt blob do kontejneru, zároveň předpokládá, že kontejner byl již vytvořen.
+
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -114,9 +131,12 @@ Následující příklad ukazuje, jak nahrát objekt blob do kontejneru, zárove
     {
         blockBlob.UploadFromStream(fileStream);
     }
+```
 
-## Zobrazí seznam objektů blob v kontejneru
+## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 Pokud chcete mít seznam objektů blob v kontejneru, nejdřív získejte odkaz na kontejner. Pak můžete použít metodu kontejneru **ListBlobs** a načíst objekty blob a/nebo obsažené adresáře. Pro přístup k bohaté sadě vlastností a metod vrácené položky **IListBlobItem** musíte vysílat na objekt **CloudBlockBlob**, **CloudPageBlob** nebo **CloudBlobDirectory**.  Pokud je typ neznámý, můžete použít kontrolu typu a zjistit, na který typ vysílat.  Následující kód ukazuje, jak načíst a získat výstup URI pro každou položku v `photos` kontejneru:
+
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -152,7 +172,7 @@ Pokud chcete mít seznam objektů blob v kontejneru, nejdřív získejte odkaz n
             Console.WriteLine("Directory: {0}", directory.Uri);
         }
     }
-
+```
 Jak se uvádí výše, můžete pojmenovat objekty blob tak, aby jejich názvy obsahovaly informace o cestě. Tím se vytvoří struktura virtuálního adresáře, kterou můžete organizovat a měnit podle potřeby jako u tradičních systémů souborů. Všimněte si, že struktura adresářů je jenom virtuální - jediné prostředky, které jsou dostupné v úložišti objektů Blob,  jsou kontejnery a objekty blob. Klientská knihovna pro úložiště nabízí objekt **CloudBlobDirectory**, který má odkazovat na virtuální adresář a zjednodušit tak práci s objekty blob, které jsou tímto způsobem uspořádány.
 
 Můžete zvolit například následující sadu objektů blob bloku v kontejneru nazvaném `photos`:
@@ -175,12 +195,14 @@ Při volání **ListBlobs** na kontejneru 'fotografie' (viz ukázka výše) se v
 
 Volitelně můžete nastavit parametr **UseFlatBlobListing** metody **ListBlobs** na hodnotu **pravda**. V takovém případě bude každý objekt blob v kontejneru vrácen jako objekt **CloudBlockBlob**. Volání **ListBlobs** s vráceným plochým výpisem vypadá takhle:
 
+```csharp
+
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
     {
        ...
     }
-
+```
 a výsledky vypadají takhle:
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
@@ -193,8 +215,10 @@ a výsledky vypadají takhle:
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-## Stáhnout objekty blob
+## <a name="download-blobs"></a>Stáhnout objekty blob
 Když chcete stáhnout objekty blob, nejdřív načtěte odkaz objektu blob a potom spusťte volání metody **DownloadToStream**. Následující příklad používá metodu **DownloadToStream** k přenosu obsahu objektu blob na objekt proudu, který potom můžete zachovat trvale v místním souboru.
+
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -214,8 +238,9 @@ Když chcete stáhnout objekty blob, nejdřív načtěte odkaz objektu blob a po
     {
         blockBlob.DownloadToStream(fileStream);
     }
-
+```
 Můžete také použít metodu **DownloadToStream** a stáhnout obsah objektu blob jako textový řetězec.
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -236,9 +261,10 @@ Můžete také použít metodu **DownloadToStream** a stáhnout obsah objektu bl
         blockBlob2.DownloadToStream(memoryStream);
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
-
-## Odstranění objektů blob
+```
+## <a name="delete-blobs"></a>Odstranění objektů blob
 Pokud chcete odstranit objekt blob, nejdřív získejte odkaz na objekt blob a potom na něm spusťte volání metody **Odstranit**.
+```csharp
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -255,14 +281,15 @@ Pokud chcete odstranit objekt blob, nejdřív získejte odkaz na objekt blob a p
 
     // Delete the blob.
     blockBlob.Delete();
+```
 
-
-## Asynchronní zobrazení seznamu objektů blob na stránkách
+## <a name="list-blobs-in-pages-asynchronously"></a>Asynchronní zobrazení seznamu objektů blob na stránkách
 Když provádíte výpis velkého počtu objektů blob nebo chcete mít přehled o počtu výsledků, které vrátíte v rámci jedné operace výpisu, můžete vytvořit seznam objektů blob na stránkách s výsledky. Tento příklad ukazuje, jak vracet výsledky na stránkách asynchronně tak, aby čekání na vrácení velké sady výsledků neblokovalo provádění.
 
 Tento příklad ukazuje výpis plochého objektu blob, můžete ale také provést hierarchický výpis nastavením `useFlatBlobListing` parametru metody **ListBlobsSegmentedAsync** na `false`.
 
 Vzhledem k tomu, že metoda ukázky volá asynchronní metodu, musí být uvedena `async` klíčovým slovem a musí vrátit objekt **Úloha**. Klíčové slovo await, určené pro metodu **ListBlobsSegmentedAsync** pozastaví spuštění metody ukázky až do dokončení úlohy vytváření seznamu.
+```csharp
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -292,13 +319,14 @@ Vzhledem k tomu, že metoda ukázky volá asynchronní metodu, musí být uveden
         }
         while (continuationToken != null);
     }
-
-## Zápis do doplňovacího objektu blob
+```
+## <a name="writing-to-an-append-blob"></a>Zápis do doplňovacího objektu blob
 Doplňovací objekt blob je nový typ objektu blob, představený poprvé ve verzi 5.x klientské knihovny pro úložiště Azure pro .NET. Doplňovací objekt blob je optimalizován pro operace připojení, například protokolování. Podobně jako objekt blob bloku se doplňovací objekt blob skládá z bloků, ale když chcete do doplňovacího objektu blob připojit nový blok, je připojen vždy na konec objektu blob. Existující blok v doplňovacím objektu blob se nedá aktualizovat ani odstranit. ID bloku pro doplňovací objekt blob nejsou vystavená, protože jsou určená pro objekt blob bloku.
 
 Každý blok v doplňovacím objektu blob může mít různou velikost až do 4 MB, každý doplňovací objekt blob může obsahovat maximálně 50 000 bloků. Maximální velikost doplňovacího objektu blob je proto o něco větší než 195 GB (4 MB × 50 000 bloků).
 
 Následující příklad vytvoří nový doplňovací objekt blob a připojí některá data pro simulaci jednoduché operace protokolování.
+```csharp
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -336,43 +364,43 @@ Následující příklad vytvoří nový doplňovací objekt blob a připojí n�
 
     //Read the append blob to the console window.
     Console.WriteLine(appendBlob.DownloadText());
-
+```
 Další informace o rozdílech mezi třemi typy objektů blob získáte v části [ Vysvětlení objektů blob bloku, objektů blob stránky a doplňovacích objektů blob](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
-## Správa zabezpečení pro objekty blob
+## <a name="managing-security-for-blobs"></a>Správa zabezpečení pro objekty blob
 Úložiště Azure ve výchozím nastavení zajišťuje ochranu dat omezením přístupu k majiteli účtu, který vlastní klíče pro přístup k účtu. Když budete chtít sdílet data objektu blob na svém účtu úložiště, je důležité zajistit, aby nedošlo k ohrožení zabezpečení vašich klíčů pro přístup k účtu. Navíc můžete šifrovat data objektů blob tak, aby byl zaručen jejich zabezpečený přenos přes síť nebo úložiště Azure.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
-### Kontrola přístupu k datům objektu blob
+### <a name="controlling-access-to-blob-data"></a>Kontrola přístupu k datům objektu blob
 Ve výchozím nastavení jsou data objektu blob ve vašem účtu úložiště dostupná pouze majiteli účtu úložiště. Ve výchozím nastavení vyžaduje ověřování požadavků na Blob storage přístupový klíč účtu. Určitá data objektu blob ale můžete zpřístupnit ostatním uživatelům. Máte dvě možnosti:
 
 * **Anonymní přístup:** můžete nastavit kontejner nebo jeho objekty blob na veřejně dostupné pro anonymní přístup. Další informace viz [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](storage-manage-access-to-resources.md).
 * **Sdílený přístupový podpis:** Klientům můžete zajistit sdílený přístupový podpis (SAS), který poskytuje delegovaný přístup k prostředku ve vašem účtu úložiště s oprávněními, která jste zadali a v intervalu, který určíte. Další informace najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-### Šifrování dat objektů blob
+### <a name="encrypting-blob-data"></a>Šifrování dat objektů blob
 Úložiště Azure podporuje šifrování dat objektů blob na straně klienta i na serveru:
 
 * **Šifrování na straně klienta:** Klientská knihovna pro úložiště pro .NET podporuje šifrování dat v rámci klientské aplikace před nahráním do úložiště Azure a dešifrování dat při stahování do klienta. Knihovna také podporuje integraci se službou Azure Key Vault pro správu klíčů účtu úložiště. Další informace viz [Šifrování na straně klienta s .NET pro úložiště Microsoft Azure](storage-client-side-encryption.md). Viz také [Kurz: Šifrování a dešifrování objektů blob v úložišti Microsoft Azure pomocí služby Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
 * **Šifrování na straně serveru**: Úložiště Azure nyní podporuje šifrování na straně serveru. Viz [Šifrování služby Azure Storage Service pro Neaktivní uložená data (Náhled)](storage-service-encryption.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď, když jste se naučili základy používání Blob storage, podívejte se na následující odkazy a získejte další informace.
 
-### Microsoft Azure Storage Explorer
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, OS X a Linuxu.
 
-### Ukázky Blob Storage
+### <a name="blob-storage-samples"></a>Ukázky Blob Storage
 * [Začínáme s úložištěm Azure Blob Storage pomocí rozhraní .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
-### Odkazy Blob storage
+### <a name="blob-storage-reference"></a>Odkazy Blob storage
 * [Klientská knihovna pro úložiště pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API – referenční informace](http://msdn.microsoft.com/library/azure/dd179355)
 
-### Koncepční vodítka
+### <a name="conceptual-guides"></a>Koncepční vodítka
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
-* [Začněte používat službu File storage for .NET](storage-dotnet-how-to-use-files.md)
-* [Jak používat Úložiště objektů blob v Azure pomocí WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Začínáme se službou File Storage for .NET](storage-dotnet-how-to-use-files.md)
+* [Jak používat úložiště objektů blob v Azure pomocí WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
 [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -387,6 +415,6 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Odesílání dat do služby Azure Search pomocí .NET SDK | Microsoft Docs
-description: Zjistěte, jak odesílat data do indexu Azure Search pomocí .NET SDK.
+title: "Odesílání dat do služby Azure Search pomocí .NET SDK | Dokumentace Microsoftu"
+description: "Zjistěte, jak odesílat data do indexu Azure Search pomocí .NET SDK."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a63d71de584b526972ff86ba8cb47664e66e22da
+
 
 ---
-# Odesílání dat do služby Azure Search pomocí .NET SDK
+# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Odesílání dat do služby Azure Search pomocí .NET SDK
 > [!div class="op_single_selector"]
 > * [Přehled](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -37,7 +41,7 @@ Pro vkládání dokumentů do indexu pomocí .NET SDK budete potřebovat:
 2. Vytvořit metodu `IndexBatch`, která bude obsahovat dokumenty, které se mají přidat, upravit nebo odstranit.
 3. Odeslat do indexu vyhledávání `IndexBatch` zavoláním metody `Documents.Index` vašeho `SearchIndexClient`.
 
-## I. Vytvoření instance třídy SearchIndexClient
+## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Vytvoření instance třídy SearchIndexClient
 Chcete-li do svého indexu importovat data pomocí .NET SDK služby Azure Search, budete muset vytvořit instanci třídy `SearchIndexClient`. Tuto instanci můžete vytvořit sami, ale snadnější je zavolání metody `Indexes.GetClient` instance `SearchServiceClient`, pokud ji už máte. Zde je ukázka, jak lze získat `SearchIndexClient` pro index s názvem „hotels“ z `SearchServiceClient` s názvem `serviceClient`:
 
 ```csharp
@@ -51,7 +55,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` obsahuje vlastnost `Documents`. Tato vlastnost poskytuje všechny metody, potřebné pro přidáním, upravení, odstranění nebo dotazování dokumentů v indexu.
 
-## II. Rozhodněte, jakou akci indexování použít
+## <a name="ii-decide-which-indexing-action-to-use"></a>II. Rozhodněte, jakou akci indexování použít
 Pro import dat pomocí .NET SDK budete muset data zabalit do objektu `IndexBatch`. `IndexBatch` zapouzdřuje kolekci objektů `IndexAction`, z nichž každý obsahuje dokument a vlastnost, která říká službě Azure Search, kterou akci má na tomto dokumentu provést (odeslání, sloučení, odstranění atd.). V závislosti na zvolené akci musí objekt pro každý dokument obsahovat pouze určitá pole.
 
 | Akce | Popis | Potřebná pole pro každý dokument | Poznámky |
@@ -63,7 +67,7 @@ Pro import dat pomocí .NET SDK budete muset data zabalit do objektu `IndexBatch
 
 Určit, jakou akci chcete použít, můžete pomocí různých statických metod tříd `IndexBatch` a `IndexAction`, jak je ukázáno v následujícím oddílu.
 
-## III. Vytvoření třídy IndexBatch
+## <a name="iii-construct-your-indexbatch"></a>III. Vytvoření třídy IndexBatch
 Nyní již víte, jaké akce lze na dokumentech provádět a jste připraveni vytvořit `IndexBatch`. Následující příklad ukazuje postup vytvoření dávky s různými akcemi. Všimněte si, že naše ukázka používá vlastní třídu s názvem `Hotel`, která se mapuje na dokument v indexu „hotels“.
 
 ```csharp
@@ -126,7 +130,7 @@ Mějte také na paměti, že můžete v jedné žádosti indexování zahrnout m
 > 
 > 
 
-## IV. Import dat do indexu
+## <a name="iv-import-data-to-the-index"></a>IV. Import dat do indexu
 Nyní, když jste inicializovali objekt `IndexBatch`, můžete ho odeslat do indexu zavoláním `Documents.Index` na objekt `SearchIndexClient`. Následující příklad ukazuje způsob volání `Index`, spolu s některými dalšími kroky, které budete muset provést.
 
 ```csharp
@@ -154,7 +158,7 @@ Nakonec se kód v ukázce výše na 2 sekundy odloží. Indexování ve službě
 
 <a name="HotelClass"></a>
 
-### Jak .NET SDK zpracovává dokumenty
+### <a name="how-the-net-sdk-handles-documents"></a>Jak .NET SDK zpracovává dokumenty
 Možná vás zajímá, jak může .NET SDK služby Azure Search odesílat do indexu instance uživatelsky definované třídy, jako třeba `Hotel`. Pro odpověď na tuto otázku se podívejme na třídu `Hotel`, která se mapuje na schéma indexu definované v tématu [Vytvoření indexu Azure Search pomocí .NET SDK](search-create-index-dotnet.md#DefineIndex).
 
 ```csharp
@@ -216,9 +220,12 @@ Nejedná se pouze o hypotetický problém: představte si situaci, kdy přidáte
 
 Z tohoto důvodu doporučujeme jako osvědčený postup používat ve třídách modelu typy s možnou hodnotou null.
 
-## Další
+## <a name="next"></a>Další
 Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro vyhledávání dokumentů.  Podrobnosti naleznete v tématu [Dotazování indexu Azure Search](search-query-overview.md).
 
-<!--HONumber=ago16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

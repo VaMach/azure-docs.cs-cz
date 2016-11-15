@@ -1,44 +1,48 @@
 ---
-title: Create an internal load balancer for cloud services in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
+title: "Vytvoření interního nástroje pro vyrovnávání zatížení pro cloudové služby v modelu nasazení Classic | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85e22954c19d7d51579029c7426f0ee79b780504
 
 ---
-# Get started creating an internal load balancer (classic) for cloud services
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
-<BR>
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Začínáme vytvářet interní nástroj pro vyrovnávání zatížení (Classic) pro cloudové služby
+
+[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-ps.md).
 
-## Configure internal load balancer for cloud services
-Internal load balancer is supported for both virtual machines and cloud services. An internal load balancer endpoint created in a cloud service that is outside a regional virtual network will be accessible only within the cloud service.
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurace interního nástroje pro vyrovnávání zatížení pro cloudové služby
 
-The internal load balancer configuration has to be set during the creation of the first deployment in the cloud service, as shown in the sample below.
+Interní nástroj pro vyrovnávání zatížení je podporován pro virtuální počítače i cloudové služby. Koncový bod interního nástroje pro vyrovnávání zatížení vytvořený v cloudové službě, která je mimo regionální virtuální síť, bude dostupný pouze v rámci této cloudové služby.
+
+Konfigurace interního nástroje pro vyrovnávání zatížení musí být nastavena během vytváření prvního nasazení v cloudové službě, jak znázorňuje ukázka níže.
 
 > [!IMPORTANT]
-> A prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the Internal Load Balancing.
-> 
-> 
+> Předpokladem pro spuštění níže uvedených kroků je již vytvořená virtuální síť pro nasazení v cloudu. K vytvoření interního vyrovnávání zatížení budete potřebovat název této virtuální sítě a název podsítě.
 
-### Step 1
-Open the service configuration file (.cscfg) for your cloud deployment in Visual Studio and add the following section to create the Internal Load Balancing under the last "`</Role>`" item for the network configuration.
+### <a name="step-1"></a>Krok 1
 
+V sadě Visual Studio otevřete konfigurační soubor služby (.cscfg) svého nasazení v cloudu a přidejte následující část, která vytvoří interní vyrovnávání zatížení pod poslední položkou `</Role>` pro konfiguraci sítě.
+
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="name of the load balancer">
@@ -46,10 +50,11 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
+Přidejme hodnoty pro soubor s konfigurací sítě, abychom ukázali, jak bude vypadat. V příkladu předpokládejme, že jste vytvořili síť s názvem test_vnet s podsítí 10.0.0.0/24 s názvem test_subnet a statickou IP adresou 10.0.0.4. Nástroj pro vyrovnávání zatížení bude mít název testLB.
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
-
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="testLB">
@@ -57,30 +62,43 @@ Let's add the values for the network configuration file to show how it will look
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
-For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+Další informace o schématu nástroje pro vyrovnávání zatížení najdete v tématu [Přidání nástroje pro vyrovnávání zatížení](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-### Step 2
-Change the service definition (.csdef) file to add endpoints to the Internal Load Balancing. The moment a role instance is created, the service definition file will add the role instances to the Internal Load Balancing.
+### <a name="step-2"></a>Krok 2
 
+Změňte definiční soubor služby (.csdef) tak, aby přidal koncové body do interního vyrovnávání zatížení. V okamžiku vytvoření instance role definiční soubor služby přidá příslušné instance rolí do interního vyrovnávání zatížení.
+
+```xml
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
       </Endpoints>
     </WorkerRole>
+```
 
-Following the same values from the example above, let's add the values to the service definition file.
+Použijme stejné hodnoty z výše uvedeného příkladu a přidejme tyto hodnoty do definičního souboru služby.
 
-    <WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+```xml
+    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
       </Endpoints>
     </WorkerRole>
+```
 
-The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.
+Vyrovnávání zatížení síťového provozu bude probíhat pomocí nástroje pro vyrovnávání zatížení testLB, který používá port 80 pro příchozí požadavky a odesílá provoz do instancí rolí pracovního procesu rovněž na portu 80.
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Další kroky
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení pomocí spřažení se zdrojovou IP adresou](load-balancer-distribution-mode.md)
+
+[Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

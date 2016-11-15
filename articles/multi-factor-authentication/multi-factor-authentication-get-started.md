@@ -1,52 +1,58 @@
 ---
-title: Azure Multi-Factor Authentication – začínáme
-description: Zvolte pro vás ideální řešení zabezpečení multi-factor authentication položením otázky, co se pokoušíte zabezpečit a kde se nachází vaši uživatelé.  Pak vyberte cloud, server MFA nebo AD FS.
+title: Cloud Azure MFA vs. server | Dokumentace Microsoftu
+description: "Zvolte pro vás ideální řešení zabezpečení multi-factor authentication položením otázky, co se pokoušíte zabezpečit a kde se nachází vaši uživatelé.  Pak vyberte cloud, server MFA nebo AD FS."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
-
+editor: yossib
+ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 10/14/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72347099d980f2ca73f39f984787197e1f87e45a
+
 
 ---
-# Výběr  multi-factor authentication řešení pro vás
-Jelikož existuje několik typů Azure  Multi-Factor Authentication, musíme určit několik věcí, aby bylo možné zjistit, která verze je ta správná pro vaše použití.  Jedná se o:
+# <a name="choose-the-azure-multifactor-authentication-solution-for-you"></a>Výběr vhodného řešení Azure Multi-Factor Authentication
+Vzhledem k tomu, že existuje několik typů Azure Multi-Factor Authentication (MFA), musíme odpovědět na několik otázek, aby bylo možné zjistit, která verze je pro vás nejlepší.  Jsou to tyto otázky:
 
-* [Co se pokouším zabezpečit](#what-am-i-trying-to-secure)
-* [Kde se nachází uživatelé](#where-are-the-users-located)
+* [Co se pokouším zabezpečit?](#what-am-i-trying-to-secure)
+* [Kde se nacházejí uživatelé?](#where-are-the-users-located)
+* [Jaké funkce budu potřebovat?](#what-featured-do-i-need)
 
-V následujících částech naleznete pokyny k zodpovězení každé z těchto otázek.
+V následujících částech najdete tipy k zodpovězení každé z těchto otázek.
 
-## Co se pokouším zabezpečit?
-Aby bylo možné zjistit správné řešení multi-factor authentication, nejprve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo jde například o systém vzdáleného přístupu.  Určením toho, co se pokoušíme zabezpečit, zjistíme odpověď na otázku, kde musí být povoleno ověřování multi-factor authentication.  
+## <a name="what-am-i-trying-to-secure"></a>Co se pokouším zabezpečit?
+Pro určení správného řešení dvoustupňového ověření si nejdříve musíme odpovědět na otázku, co se pokoušíte zabezpečit pomocí druhé metody ověřování.  Jedná se o aplikaci, která je v Azure?  Nebo systém vzdáleného přístupu?  Tím, že určíme, co se pokoušíme zabezpečit, si můžeme odpovědět na otázku, kde musí být povoleno ověřování Multi-Factor Authentication.  
 
 | Co se pokoušíte zabezpečit | Multi-Factor Authentication v cloudu | Server Multi-Factor Authentication |
 | --- |:---:|:---:|
-| Aplikace Microsoft první strany |* |* |
-| Aplikace Saas v galerii aplikací |* |* |
-| Aplikace služby IIS publikované prostřednictvím proxy aplikace Azure AD |* |* |
-| Aplikace služby IIS nepublikované prostřednictvím proxy aplikace Azure AD | |* |
-| Vzdálený přístup, jako je například síť VPN, RDG | |* |
+| Vlastní aplikace Microsoftu |● |● |
+| Aplikace Saas v galerii aplikací |● |● |
+| Aplikace služby IIS publikované prostřednictvím proxy aplikace Azure AD |● |● |
+| Aplikace služby IIS nepublikované prostřednictvím proxy aplikace Azure AD | |● |
+| Vzdálený přístup, jako je například síť VPN, RDG | |● |
 
-## Kde se nachází uživatelé
-V závislosti na tom, kde se nachází naši uživatelé můžeme určit správné řešení, které je třeba chcete, ať už jde o multi-factor authentication v cloudu nebo místní využití serveru MFA.
+## <a name="where-are-the-users-located"></a>Kde se nachází uživatelé
+Když se dále podíváme, kde se naši uživatelé nacházejí, pomůže nám to určit správné řešení – jestli je to v cloudu nebo místně pomocí serveru MFA.
 
-| Umístění uživatele | Řešení |
-| --- |:--- |
-| Azure Active Directory |Multi-Factor Authentication v cloudu |
-| Azure AD a místní AD využívající federaci se službou AD FS |Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti |
-| Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – bez synchronizace hesla |Jak MFA v cloudu, tak i server MFA jsou dostupné možnosti |
-| Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – se synchronizací hesla |Multi-Factor Authentication v cloudu |
-| Místní služby Active Directory |Server Multi-Factor Authentication |
+| Umístění uživatele | Multi-Factor Authentication v cloudu | Server Multi-Factor Authentication |
+| --- |:---:|:---:|
+| Azure Active Directory |● | |
+| Azure AD a místní AD využívající federaci se službou AD FS |● |● |
+| Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – bez synchronizace hesla |● |● |
+| Azure AD a místní AD pomocí DirSync Azure AD Sync Azure AD Connect – se synchronizací hesla |● | |
+| Místní služby Active Directory | |● |
 
-V následující tabulce je uvedeno porovnání funkcí, které jsou s Multi-Factor Authentication v cloudu a se serverem Multi-Factor Authentication.
+## <a name="what-features-do-i-need"></a>Jaké funkce budu potřebovat?
+V následující tabulce je uvedeno porovnání funkcí, které jsou dostupné s Multi-Factor Authentication v cloudu a se serverem Multi-Factor Authentication.
 
 | Multi-Factor Authentication v cloudu | Server Multi-Factor Authentication |
 | --- |:---:|:---:|
@@ -69,7 +75,7 @@ V následující tabulce je uvedeno porovnání funkcí, které jsou s Multi-Fac
 | Podmíněný přístup |● |
 | Mezipaměť | |
 
-Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentication nebo server multi-factor authentication na místě, můžete začít s nastavováním a používáním Azure Multi-Factor Authentication.   **Vyberte ikonu, která představuje váš scénář!**
+Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentication nebo server multi-factor authentication na místě, můžete začít s nastavováním a používáním Azure Multi-Factor Authentication. **Vyberte ikonu, která představuje váš scénář.**
 
 <center>
 
@@ -81,6 +87,6 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

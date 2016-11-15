@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Engagementem pro Xamarin.iOS
-description: Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace pro Xamarin.iOS.
+title: "Začínáme s Azure Mobile Engagementem pro Xamarin.iOS"
+description: "Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace pro Xamarin.iOS."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro aplikace Xamarin.iOS
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Začínáme s Azure Mobile Engagementem pro aplikace Xamarin.iOS
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikace a jak odesílat nabízená oznámení segmentovaným uživatelům aplikace pro Xamarin.iOS.
@@ -32,15 +36,15 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu, která je zapotřebí pro shromažďování dat a odesílání nabízených oznámení.
 
 Pomocí Xamarinu si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
 
-### Vytvoření nového projektu Xamarin.iOS
+### <a name="create-a-new-xamarinios-project"></a>Vytvoření nového projektu Xamarin.iOS
 1. Spusťte Xamarin Studio. Klikněte na položky **File** (Soubor)  -> **New** (Nové)  -> **Solution** (Řešení). 
    
     ![][1]
@@ -61,7 +65,7 @@ Pomocí Xamarinu si vytvoříme základní aplikaci, na které si tuto integraci
 
 Xamarin Studio vytvoří ukázkovou aplikaci, do které budeme integrovat Mobile Engagement. 
 
-### Připojení aplikace k back-endu Mobile Engagementu
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Pravým tlačítkem myši klikněte v oknech řešení na složku **Packages** (Balíčky) a vyberte **Add Packages...** (Přidat balíčky...).
    
     ![][5]
@@ -79,7 +83,7 @@ Xamarin Studio vytvoří ukázkovou aplikaci, do které budeme integrovat Mobile
                     };
         EngagementAgent.Init (config);
 
-## <a id="monitor"></a>Povolení sledování v reálném čase
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku na back-end Mobile Engagementu.
 
 1. Otevřete **ViewController.cs** a přidejte následující příkaz using:
@@ -87,18 +91,18 @@ Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, m
         using Microsoft.Azure.Engagement.Xamarin;
 2. Změňte třídu, ze které přebírá metoda `ViewController`, z `UIViewController` na `EngagementViewController`. 
 
-## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
-### Úprava delegáta aplikace
+### <a name="modify-your-application-delegate"></a>Úprava delegáta aplikace
 1. Otevřete **AppDelegate.cs** a přidejte následující příkaz using:
    
         using System; 
-2. Nyní uvnitř metody `FinishedLaunching` přidejte následující, abyste později mohli registrovat nabízená oznámení `EngagementAgent.init(...)`
+2. Nyní uvnitř metody `FinishedLaunching` přidejte následující, abyste mohli registrovat nabízená oznámení po `EngagementAgent.init(...)`
    
         if (UIDevice.CurrentDevice.CheckSystemVersion(8,0))
         {
@@ -140,7 +144,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
     ![][7]
 5. Ve stejném souboru **Info.plist** nezapomeňte zaškrtnout **Enable Background Modes** (Povolit režimy pozadí) a **Remote Notifications** (Vzdálená oznámení). 
    
-    ![][8]
+     ![][8]
 6. Spusťte aplikaci v zařízení, které je propojené s tímto profilem publikování. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

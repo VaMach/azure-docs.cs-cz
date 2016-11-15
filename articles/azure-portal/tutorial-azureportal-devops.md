@@ -1,12 +1,12 @@
 ---
-title: 'Kurz:  DevOps s portálem Azure | Microsoft Docs'
-description: Poznejte různé pracovní postupy pro DevOps v portálu Azure.
+title: "Kurz:  DevOps s portálem Azure Portal | Dokumentace Microsoftu"
+description: "Poznejte různé pracovní postupy pro DevOps v portálu Azure."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Kurz: DevOps s portálem Azure
+# <a name="tutorial-devops-with-the-azure-portal"></a>Kurz: DevOps s portálem Azure
 Platforma Azure je plná flexibilních pracovních postupů DevOps. V tomto kurzu poznáte, jak můžete využít možnosti portálu Azure pro vývoj, testování, nasazení, ladění, sledování a správu běžících aplikací. Tento kurz se zaměřuje na:
 
 1. Vytvoření webové aplikace a povolení průběžného nasazování
@@ -24,13 +28,13 @@ Platforma Azure je plná flexibilních pracovních postupů DevOps. V tomto kurz
 3. Sledování a řešení potíží s aplikací
 4. Úlohy správy obecné aplikace
 
-## Vytvoření webové aplikace a povolení průběžného nasazování
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Vytvoření webové aplikace a povolení průběžného nasazování
 Vytvořte webovou aplikaci pomocí služby [Azure App Service](https://azure.microsoft.com/services/app-service/), budete ji používat v dalších částech tohoto kurzu. Na začátku povolíte průběžné nasazování z úložiště zdrojového kódu do našeho spuštěného prostředí Azure.
 
 1. Přihlaste se k portálu Azure
 2. Vyberte **App Services** &gt; **Přidat ikonu** a zadejte název, vyberte předplatné a vytvořte novou skupinu prostředků, která bude sloužit jako kontejner pro službu.
    
-   Skupiny prostředků umožňují spravovat různé aspekty řešení, jako třeba fakturaci, nasazení a sledování všeho jako jedné skupiny pomocí [Správce prostředků Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+   Skupiny prostředků umožňují spravovat různé aspekty řešení, jako třeba fakturaci, nasazení a sledování všeho jako jedné skupiny pomocí [Správce prostředků Azure](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Za malou chvíli se vytvoří vaše aplikační služba. Projděte si různé nabídky a možnosti, které jsou v portálu pro službu dostupné. Dejte tomu několik minut.
@@ -79,7 +83,7 @@ Vytvořte webovou aplikaci pomocí služby [Azure App Service](https://azure.mic
     
     S portálem Azure je povolení průběžného nasazení snadná záležitost. Pro nasazení do Azure můžete vytvořit i složitější kanály pro vydávání a použít spoustu jiných postupů s existující správou zdrojového kódu a systémů průběžné integrace, jako je například využití automatizovaných systémů správy sestavení a vydávání.
 
-## Vývoj a testování aplikace
+## <a name="develop-and-test-an-app"></a>Vývoj a testování aplikace
 Teď uděláme nějaké pár změn v základu kódu a tyto změny rychle nasadíme. Také pro webovou aplikaci připravíte testování výkonnosti.
 
 1. Na portálu Azure v navigačním podokně vyberte App Services a vyhledejte svoji aplikační službu.
@@ -145,7 +149,7 @@ Teď uděláme nějaké pár změn v základu kódu a tyto změny rychle nasadí
     
     ![image36][image36]
 
-## Sledování a řešení potíží s aplikací
+## <a name="monitoring-and-troubleshooting-an-app"></a>Sledování a řešení potíží s aplikací
 Azure poskytuje mnoho funkcí pro sledování a řešení potíží se spuštěnými aplikacemi.
 
 1. Na portálu Azure pro naši webovou aplikaci vyberte Nástroje.
@@ -176,7 +180,7 @@ Azure poskytuje mnoho funkcí pro sledování a řešení potíží se spuštěn
    ![image44][image44]
 7. Přejděte dolů do kategorie funkcí a vyberte Diagnostické protokoly.
    
-    ![image45][image45]
+      ![image45][image45]
 8. Všimněte si, že jsou různé možností pro protokolování. Zapněte protokolování webového serveru a klikněte na Uložit.
    
    ![image46][image46]
@@ -208,7 +212,7 @@ Azure poskytuje mnoho funkcí pro sledování a řešení potíží se spuštěn
     
     Portál Azure poskytuje výkonné a povědomé nástroje a prostředí, které vám pomůžou sledovat naše spuštěné aplikace a řešit potíže s nimi. Můžete taky rychle provádět různé akce pomocí úloh, jako je například recyklace procesů, povolování a zakazování různých sběrů dat a dokonce integrace s profesionální podporou společnosti Microsoft.
 
-## Obecná správa aplikací
+## <a name="general-application-management"></a>Obecná správa aplikací
 Při správě aplikací často potřebujete provádět množství různých činností, jako je například konfigurace strategií zálohování, implementace a správa poskytovatelů identit a konfigurace řízení přístupu na základě rolí. Stejně jiná prostředí DevOps i platforma Azure integruje tyto úlohy přímo do portálu.
 
 1. Pokud chcete zajistit, že nemůže dojít ke ztrátě dat webové aplikace, musíte nastavit zálohování. Přejděte do oblasti Nastavení pro webovou aplikaci.
@@ -254,11 +258,11 @@ Při správě aplikací často potřebujete provádět množství různých čin
     
      ![image69][image69]
 
-## Souhrn
+## <a name="summary"></a>Souhrn
 V tomto kurzu jsme vám ukázali některé schopnosti platformy Azure – rychlé zapnutí průběžného nasazování pro webovou aplikaci, provádění různých činností souvisejících s vývojem a testováním, sledování a řešení potíží s živou aplikací, a nakonec správu klíčových strategií, jako je zotavení po havárii, identita a řízení přístupu na základě rolí. Platforma Azure poskytuje integrované prostředí pro tyto pracovní postupy DevOps a vy můžete efektivně pracovat, protože budete mít přehled a všechny potřebné úkoly po ruce.
 
-## Další kroky
-* Azure Resource Manager je důležitý k tomu, aby DevOps mohl fungovat na platformě Azure.  Další informace najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
+## <a name="next-steps"></a>Další kroky
+* Azure Resource Manager je důležitý k tomu, aby DevOps mohl fungovat na platformě Azure.  Další informace najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
 * Další informace o nasazování do Azure App Service najdete v tématu [Nasazení vaší aplikace do Azure App Service](../app-service-web/web-sites-deploy.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
@@ -333,6 +337,6 @@ V tomto kurzu jsme vám ukázali některé schopnosti platformy Azure – rychl�
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

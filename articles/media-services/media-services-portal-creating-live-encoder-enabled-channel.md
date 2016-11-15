@@ -1,22 +1,26 @@
 ---
-title: Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal | Microsoft Docs
-description: Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí webu Azure Portal.
+title: "Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "Tento kurz vás provede kroky k vytvoření kanálu, který přijímá datový proud s jednou přenosovou rychlostí a kóduje ho do datového proudu s více přenosovými rychlostmi pomocí webu Azure Portal."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
-ms.author: juliako;juliako
+ms.date: 10/24/2016
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Postup živého streamování využívajícího službu Azure Media Services k vytvoření datových proudů s více přenosovými rychlostmi pomocí webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -72,7 +76,8 @@ V tomto kurzu budeme Azure Portal používat k provádění následujících úl
 ## <a name="prerequisites"></a>Požadavky
 K dokončení kurzu potřebujete následující:
 
-* K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+* K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. 
+  Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-portal-create-account.md).
 * Webová kamera a kodér, který dokáže odesílat živý datový proud s jednou přenosovou rychlostí.
 
@@ -83,7 +88,7 @@ Pokud chcete využít výhody dynamického balení, získejte alespoň jednu jed
 
 Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
 
-1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
+1. Přihlaste se na web [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS.
 2. V okně **Nastavení** klikněte na **Koncové body streamování**. 
 3. Klikněte na výchozí koncový bod streamování. 
    
@@ -99,7 +104,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
    > 
 
 ## <a name="create-a-channel"></a>Vytvoření KANÁLU
-1. Na webu [Azure Portal](https://portal.azure.com/) klikněte na Media Services a poté klikněte na název účtu Media Services.
+1. Na webu [Azure Portal](https://portal.azure.com/) vyberte Media Services a klikněte na název účtu Media Services.
 2. Vyberte **Živé streamování**.
 3. Vyberte **Vytvořit vlastní**. Tato možnost vám umožní vytvořit kanál, který má povolené kódování v reálném čase.
    
@@ -131,7 +136,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
     Momentálně je dostupná jenom jedna možnost: **Výchozí 720 p**. Chcete-li zadat vlastní předvolbu, otevřete lístek podpory společnosti Microsoft. Poté zadejte název vytvořené předvolby. 
 
 > [!NOTE]
-> V současné době může spuštění kanálu trvat až 30 minut. Resetování kanálu může trvat až 5 minut.
+> V současné době může spuštění kanálu trvat až 30 minut. Resetování kanálu může trvat až 5 minut.
 > 
 > 
 
@@ -148,11 +153,11 @@ Po vytvoření kanálu můžete získat ingestované adresy URL, které poskytne
 ### <a name="overview"></a>Přehled
 Kanál je přidružený k událostem a programům, které vám umožňují řídit publikování a ukládání segmentů v živém datovém proudu. Kanály spravují události nebo programy. Vztah kanálů a programů se velmi podobná tradičním médiím, kde kanál obsahuje nepřetržitý datový proud obsahu a program je vymezen na určité načasované události v tomto kanálu.
 
-Nastavením délky **archivačního okna** můžete určit počet hodin, po který chcete uchovávat zaznamenaný obsah události. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
+Nastavením délky **archivačního okna** můžete určit počet hodin, po který chcete uchovávat zaznamenaný obsah události. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
 
 Každá událost je přidružena k assetu. Pokud chcete publikovat událost, musíte pro přidružený asset vytvořit lokátor OnDemand. Tento lokátor vám umožní sestavit adresu URL pro streamování, kterou potom poskytnete svým klientům.
 
-Kanál podporuje až tři současně spuštěné programy, takže si můžete vytvořit několik archivů stejného příchozího datového proudu. To vám umožní podle potřeby publikovat a archivovat různé části události. Požadavek vaší firmy může být například takový, že chcete archivovat 6 hodin události, ale vysílat pouze posledních 10 minut. K tomu potřebujete vytvořit dvě současně spuštěné události. Jednu událost nastavíte, aby archivovala 6 hodin události, ale tento program nebudete publikován. Druhou událost nastavíte, aby archivovala 10 minut a tento program budete publikovat.
+Kanál podporuje až tři současně spuštěné programy, takže si můžete vytvořit několik archivů stejného příchozího datového proudu. To vám umožní podle potřeby publikovat a archivovat různé části události. Požadavek vaší firmy může být například takový, že chcete archivovat 6 hodin události, ale vysílat pouze posledních 10 minut. K tomu potřebujete vytvořit dvě současně spuštěné události. Jednu událost nastavíte, aby archivovala 6 hodin události, ale tento program nebudete publikován. Druhou událost nastavíte, aby archivovala 10 minut a tento program budete publikovat.
 
 Existující programy nepoužívejte znovu pro nové události. Místo toho vytvořte a spusťte nový program pro každou jednotlivou událost.
 
@@ -164,7 +169,7 @@ I po zastavení a odstranění události můžou uživatelé streamovat archivov
 
 Pokud chcete archivovaný obsah zachovat, ale nechcete ho zpřístupňovat pro streamování, odstraňte lokátor streamování.
 
-### <a name="create/start/stop-events"></a>Vytvoření, spuštění a zastavení událostí
+### <a name="createstartstop-events"></a>Vytvoření, spuštění a zastavení událostí
 Jakmile datový proud plyne do kanálu, můžete událost streamování zahájit tím, že vytvoříte asset, program a lokátor streamování. Datový proud se tak archivuje a zpřístupní se divákům prostřednictvím koncového bodu streamování. 
 
 Událost můžete spustit dvěma způsoby: 
@@ -182,7 +187,7 @@ Událost můžete spustit dvěma způsoby:
     Po spuštění události můžete stisknout **Přehrát** a spustit přehrávání obsahu.
 2. Případně můžete použít zástupce a na stránce **Kanál** stisknout tlačítko **Spustit streamování**. Tím vytvoříte výchozí asset, program a lokátor streamování.
    
-    Událost získá název **default** a archivační okno bude nastaveno na 8 hodin.
+    Událost získá název **default** a archivační okno bude nastaveno na 8 hodin.
 
 Publikovanou událost můžete sledovat na stránce **Živá událost**. 
 
@@ -205,7 +210,7 @@ Pokud jste dokončili streamování událostí a chcete dříve zřízené prost
 ## <a name="view-archived-content"></a>Zobrazení archivovaného obsahu
 I po zastavení a odstranění události můžou uživatelé streamovat archivovaný obsah jako video na vyžádání, a to tak dlouho, dokud asset neodstraníte. Asset nemůžete odstranit, pokud ho událost používá. Nejdřív odstraňte událost. 
 
-Ke správě zvolených prostředků vyberte **Nastavení** a klikněte na tlačítko **Prostředky**.
+Chcete-li spravovat prostředky, vyberte **Nastavení** a klikněte na **Prostředky**.
 
 ![Prostředky](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
@@ -221,6 +226,9 @@ Prohlédněte si mapy kurzů k Media Services.
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Koncepty, pojmy a entity Scheduleru | Microsoft Docs
-description: Koncepty, terminologie a hierarchie entit služby Azure Scheduler včetně úloh a kolekcí úloh.  Zobrazí ucelený příklad naplánované úlohy.
+title: Koncepty, pojmy a entity Scheduleru | Dokumentace Microsoftu
+description: "Koncepty, terminologie a hierarchie entit služby Azure Scheduler včetně úloh a kolekcí úloh.  Zobrazí ucelený příklad naplánované úlohy."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8c0d2b57f7a998ae52a08a5ae0cbc57a0a77f002
+
 
 ---
-# Koncepty, terminologie a hierarchie entit Scheduleru
-## Hierarchie entit Scheduleru
+# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Koncepty, terminologie a hierarchie entit Scheduleru
+## <a name="scheduler-entity-hierarchy"></a>Hierarchie entit Scheduleru
 V následující tabulce jsou uvedené hlavní prostředky, které rozhraní API Scheduleru vystavuje nebo používá.
 
 | Prostředek | Popis |
@@ -26,7 +30,7 @@ V následující tabulce jsou uvedené hlavní prostředky, které rozhraní API
 | **Úloha** |Úloha definuje jednu opakující se akci s jednoduchými nebo komplexními strategiemi provedení. Akce můžou zahrnovat požadavky HTTP, fronty úložiště, fronty sběrnice nebo témata sběrnice. |
 | **Historie úlohy** |Historie úlohy obsahuje podrobnosti o provedení úlohy. Obsahuje podrobnosti o úspěchu/neúspěchu a jakékoli odezvě. |
 
-## Správa entit Scheduleru
+## <a name="scheduler-entity-management"></a>Správa entit Scheduleru
 Na vysoké úrovni plánovač a rozhraní API pro správu služeb vystavují na prostředky tyto operace:
 
 | Schopnost | Popis a adresa identifikátoru URI |
@@ -35,10 +39,10 @@ Na vysoké úrovni plánovač a rozhraní API pro správu služeb vystavují na 
 | **Správa úloh** |Podpora pro GET, PUT, POST, PATCH a DELETE pro vytváření a úpravu úloh. Všechny úlohy musí patřit do stejné kolekce, která už existuje, takže k vytváření nedochází. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
 | **Správa historie úloh** |Podpora pro GET pro načtení historie provádění úloh, jako je uplynulá doba úlohy a výsledky provedení úlohy, za posledních 60 dní. Přidá podporu parametru řetězce dotazu pro filtrování podle stavu a statusu. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
 
-## Typy úloh
+## <a name="job-types"></a>Typy úloh
 Existují různé typy úloh: úlohy HTTP (a úlohy HTTPS, které podporují SSL), úlohy fronty úložiště, úlohy fronty sběrnice a úlohy témata sběrnice. Úlohy HTTP jsou ideální, pokud máte koncový bod existující úlohy nebo služby. Úlohy fronty úložiště můžete použít k odeslání zprávy do front úložiště, takže jsou ideální pro úlohy, které používají fronty úložiště. Úlohy sběrnice služby jsou zase ideální pro úlohy, které používají témata a fronty sběrnice služby.
 
-## Podrobnosti o entitě „úloha“
+## <a name="the-job-entity-in-detail"></a>Podrobnosti o entitě „úloha“
 Na základní úrovni má naplánovaná úloha několik částí:
 
 * Akce, která se má provést, když časovač úlohy sepne  
@@ -111,10 +115,10 @@ Jak je vidět na předešlé ukázce naplánované úlohy, má definice úlohy n
 
 Podívejme se na každou podrobněji:
 
-## startTime
+## <a name="starttime"></a>startTime
 „startTime“ je čas spuštění a umožňuje volajícímu zadat posun časového pásma ve [formátu ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## action a errorAction
+## <a name="action-and-erroraction"></a>action a errorAction
 „action“ je akce vyvolaná při každém výskytu a popisuje typ vyvolání služby. Akce je to, co se provede podle stanoveného plánu. Scheduler podporuje akce HTTP, fronty úložiště, fronty sběrnice a témata sběrnice.
 
 V příkladu nahoře je akce HTTP. Dole je příklad akce fronty úložiště:
@@ -145,7 +149,7 @@ Dole je příklad akce fronty sběrnice:
 
 „errorAction“ je obslužná rutina chyb – akce vyvolaná při selhání primární akce. Tuto proměnnou můžete použít k zavolání koncového hodu pro zpracování chyby nebo odeslání oznámení pro uživatele. To se může použít pro spojení se sekundárním koncovým bodem v případě, že primární koncový bod není dostupný (např. při nehodě nebo přírodní katastrofě v lokalitě koncového bodu) nebo se může použít pro upozornění koncového bodu pro zpracování chyby. Stejně jako primární akce může i obslužná rutina mít jednoduchou nebo složenou logiku podle jiných akcí. Pokud se chcete dozvědět, jak vytvořit token SAS, podívejte se na téma [Vytvoření a používání sdíleného přístupového podpisu](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-## recurrence
+## <a name="recurrence"></a>recurrence
 Opakování má několik částí:
 
 * Frequency (frekvence): Minuta, hodina, den, týden, měsíc nebo rok  
@@ -156,43 +160,46 @@ Opakování má několik částí:
 
 Úloha se opakuje, jestliže má ve své definici JSON opakující se objekt. Pokud jsou zadané count i endTime, má přednost to pravidlo dokončení, které nastane jako první.
 
-## state
+## <a name="state"></a>state
 Stav (state) úlohy může mít jednu ze čtyř hodnot: enabled (zapnuto, disabled (vypnuto), completed (dokončeno) nebo faulted (chyba). Pomocí PUT nebo PATCH můžete aktualizovat stav úloh a tím jim přidělit stav zapnuto nebo vypnuto. Pokud má úloha stav dokončeno nebo chyba, je to konečný stav, který se už nedá změnit (na úlohu ale stále můžete použít DELETE). Příklad vlastnosti state:
 
         "state": "disabled", // enabled, disabled, completed, or faulted
 Dokončené úlohy a úlohy, které selhaly, se odstraní po 60 dnech.
 
-## status
+## <a name="status"></a>status
 Po zahájení úlohy Scheduleru se vrátí informace o aktuálním statusu (stavu) úlohy. Uživatel nemůže tento objekt nastavit – nastaví ho systém. Je ale obsažený v objektu úlohy (a ne v samostatném propojeném prostředku), aby se mohl snadno získat stav (status) úlohy.
 
 Stav (status) úlohy obsahuje čas předchozího spuštění (pokud existuje), čas dalšího naplánovaného spuštění (pro probíhající úlohy) a počet provedení úlohy.
 
-## retryPolicy
+## <a name="retrypolicy"></a>retryPolicy
 Pro případ, že úloha Scheduleru selže, se můžou zadat zásady opakovaných pokusů a pomocí nich se může nastavit, jestli se má pokus o provedení úlohy opakovat a když ano, tak jak. To se nastavuje pomocí objektu **retryType** – pokud nejsou žádné zásady opakovaných pokusů, jako v příkladu nahoře, je nastavený na **none**. Pokud zásady opakovaných pokusů existují, nastavte ho na **fixed**.
 
 Pokud chcete nastavit zásady opakovaných pokusů, můžete nastavit další dvě nastavení: interval opakovaných pokusů (**retryInterval**) a počet opakovaných pokusů (**retryCount**).
 
 Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval mezi opakovanými pokusy. Výchozí hodnota je 30 sekund, minimální nastavitelná hodnota je 15 sekund a maximální hodnota je 18 měsíců. Pro úlohy v kolekcích úloh Free je minimální nastavitelná hodnota 1 hodina.  Definuje se ve formátu ISO 8601. Podobně je to s hodnotou počtu opakovaných pokusů nastavených v objektu **retryCount** – je to počet, kolikrát se má pokus opakovat. Výchozí hodnota je 4 a maximální hodnota je 20\. Objekty **retryInterval** i **retryCount** jsou volitelné. Pokud je objekt **retryType** nastavený na **fixed** a nejsou explicitně zadané žádné konkrétní hodnoty, použijí se výchozí hodnoty.
 
-## Viz také
+## <a name="see-also"></a>Viz také
  [Co je Scheduler?](scheduler-intro.md)
 
- [Úvod do používání Scheduleru na portálu Azure](scheduler-get-started-portal.md)
+ [Úvod do používání Scheduleru na portálu Azure Portal](scheduler-get-started-portal.md)
 
- [Plány a fakturace ve službě Azure Scheduler](scheduler-plans-billing.md)
+ [Plány a fakturace v Azure Scheduleru](scheduler-plans-billing.md)
 
- [Sestavení komplexních plánů a pokročilé opakování ve službě Azure Scheduler](scheduler-advanced-complexity.md)
+ [Sestavení komplexních plánů a pokročilé opakování v Azure Scheduleru](scheduler-advanced-complexity.md)
 
- [REST API služby Azure Scheduler – referenční informace](https://msdn.microsoft.com/library/mt629143)
+ [REST API Azure Scheduleru – referenční informace](https://msdn.microsoft.com/library/mt629143)
 
- [Rutiny PowerShellu pro službu Azure Scheduler – referenční informace](scheduler-powershell-reference.md)
+ [Rutiny PowerShellu pro Azure Scheduler – referenční informace](scheduler-powershell-reference.md)
 
- [Vysoká dostupnost a spolehlivost služby Azure Scheduler](scheduler-high-availability-reliability.md)
+ [Vysoká dostupnost a spolehlivost Azure Scheduleru](scheduler-high-availability-reliability.md)
 
- [Omezení, výchozí hodnoty a chybové kódy služby Azure Scheduler](scheduler-limits-defaults-errors.md)
+ [Omezení, výchozí hodnoty a chybové kódy Azure Scheduleru](scheduler-limits-defaults-errors.md)
 
- [Odchozí ověření služby Azure Scheduler](scheduler-outbound-authentication.md)
+ [Odchozí ověření Azure Scheduleru](scheduler-outbound-authentication.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

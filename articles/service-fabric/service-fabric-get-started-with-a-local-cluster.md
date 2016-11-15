@@ -1,12 +1,12 @@
 ---
-title: Začínáme s nasazením a upgradem aplikací v místním clusteru | Microsoft Docs
-description: Nastavte místní cluster Service Fabric, nasaďte do něj existující aplikaci a potom tuto aplikaci upgradujte.
+title: "Začínáme s nasazením a upgradem aplikací v místním clusteru | Dokumentace Microsoftu"
+description: "Nastavte místní cluster Service Fabric, nasaďte do něj existující aplikaci a potom tuto aplikaci upgradujte."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Začínáme s nasazením a upgradem aplikací v místním clusteru
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Začínáme s nasazením a upgradem aplikací v místním clusteru
 Sada Azure Service Fabric SDK zahrnuje úplné místní vývojové prostředí, pomocí kterého můžete rychle začít nasazovat a spravovat aplikace v místním clusteru. V tomto článku vytvoříte místní cluster, nasadíte do něj existující aplikaci a potom ji upgradujete na novou verzi, to všechno z prostředí Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Sada Azure Service Fabric SDK zahrnuje úplné místní vývojové prostředí, 
 > 
 > 
 
-## Vytvoření místního clusteru
+## <a name="create-a-local-cluster"></a>Vytvoření místního clusteru
 Cluster Service Fabric tvoří sada hardwarových prostředků, na které můžete nasazovat aplikace. Většinou se cluster skládá z pěti až několika tisíc počítačů. Sada Service Fabric SDK ale obsahuje konfiguraci clusteru, která se dá spustit na jednom počítači.
 
 Je důležité si uvědomit, že místní cluster Service Fabric není emulátor ani simulátor. Spouští stejný kód platformy, jaký najdete i v clusterech s víc počítači. Jediný rozdíl je v tom, že v něm na jednom počítači běží procesy platformy, které jsou normálně rozložené mezi pěti počítačů.
@@ -49,7 +53,7 @@ Sada SDK nabízí dva způsoby, jak vytvořit místní cluster: skript prostřed
    
     Teď můžete zkusit nasadit do clusteru aplikaci.
 
-## Nasazení aplikace
+## <a name="deploy-an-application"></a>Nasazení aplikace
 Sada Service Fabric SDK obsahuje celou řadu architektur a vývojářských nástrojů pro tvorbu aplikací. Pokud se chcete naučit vytvářet aplikace ve Visual Studiu, projděte si téma [Vytvoření první aplikace Service Fabric v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
 V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem WordCount), abychom se mohli zaměřit na aspekty správy platformy, včetně nasazení, monitorování a upgradu.
@@ -89,7 +93,7 @@ V tomto kurzu budeme používat existující ukázkovou aplikaci (s názvem Word
    
     Aplikace, kterou jsme nasadili, obsahuje čtyři oddíly. Slova začínající písmeny A až G se ukládají do prvního oddílu, slova začínající písmeny H až N do druhého oddílu a tak dál.
 
-## Zobrazení podrobností a stavu aplikace
+## <a name="view-application-details-and-status"></a>Zobrazení podrobností a stavu aplikace
 Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na některé podrobnosti.
 
 1. Zadejte dotaz na všechny nasazené aplikace v clusteru:
@@ -129,7 +133,7 @@ Nasadili jsme aplikaci a teď se v prostředí PowerShell podíváme na někter�
    > 
    > 
 
-## Upgrade aplikace
+## <a name="upgrade-an-application"></a>Upgrade aplikace
 Service Fabric nabízí upgrady bez výpadků díky tomu, že během zavádění v clusteru monitoruje stav aplikací. Teď provedeme jednoduchý upgrade aplikace WordCount.
 
 Nová verze aplikace teď bude počítat jenom slova, která začínají samohláskou. Po upgradu vidíme v chování aplikace dvě změny. Zaprvé by se měla zpomalit rychlost zvyšování hodnoty, protože se počítá míň slov. Zadruhé by měla hodnota prvního oddílu postupně začít růst rychleji než ostatní oddíly, protože první oddíl obsahuje dvě samohlásky (A a E) a ostatní oddíly jenom po jedné.
@@ -162,7 +166,7 @@ Nová verze aplikace teď bude počítat jenom slova, která začínají samohl�
    
     ![Zobrazení nové verze aplikace v prohlížeči][deployed-app-ui-v2]
 
-## Čištění
+## <a name="cleaning-up"></a>Čištění
 Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Aplikace dál běží na pozadí, dokud je neodeberete.  V závislosti na povaze vašich aplikací může spuštěná aplikace spotřebovávat značné množství prostředků vašeho počítače. Při správě aplikací a clusteru máte několik možností:
 
 1. Pokud chcete odebrat jednotlivou aplikaci a všechna její data, spusťte následující příkaz:
@@ -185,7 +189,7 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Apl
 3. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
 4. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Místní cluster odeberte jenom v případě, že se ho nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
 
-## Režim clusteru s jedním a pěti uzly
+## <a name="1-node-and-5-node-cluster-mode"></a>Režim clusteru s jedním a pěti uzly
 Když s pomocí místního clusteru vyvíjíte aplikace, často potřebujete rychle střídat psaní kódu, ladění, změny kódu, ladění atd. Abyste mohli pracovat optimálněji, místní cluster může běžet ve dvou režimech: 1 uzel nebo 5 uzlů. Oba režimy mají své výhody.
 V případě clusteru s pěti uzly pracujete se skutečným clusterem. Můžete testovat scénáře převzetí služeb při selhání, pracovat s více instancemi a replikami služeb.
 Režim clusteru s jedním uzlem je optimalizovaný pro rychlá nasazení a registrace služeb, abyste mohli rychleji validovat kód za běhu Service Fabric.
@@ -219,7 +223,7 @@ Pokud používáte nástroj Service Fabric Local Cluster Manager:
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Provedli jste nasazení a upgrade některých předem sestavených aplikací a teď si můžete zkusit [sestavit vlastní aplikaci v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Všechny akce, které jsme v tomto článku prováděli v místním clusteru, se dají provádět i v [Azure Clusteru](service-fabric-cluster-creation-via-portal.md).
 * V tomto článku jsme popisovali jenom jednoduchý upgrade. Další informace o výkonu a flexibilitě upgradů Service Fabric najdete v [dokumentaci upgradů](service-fabric-application-upgrade.md).
@@ -246,6 +250,6 @@ Pokud používáte nástroj Service Fabric Local Cluster Manager:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

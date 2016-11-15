@@ -1,12 +1,12 @@
 ---
-title: Co je Azure Scheduler? | Microsoft Docs
-description: Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet v cloudu. Potom naplánuje a automaticky spustí tyto akce.
+title: Co je Azure Scheduler? | Dokumentace Microsoftu
+description: "Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet v cloudu. Potom naplánuje a automaticky spustí tyto akce."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b21e24a5f692fa315db7b58d2d2824f7145729
+
 
 ---
-# Co je Azure Scheduler?
+# <a name="what-is-azure-scheduler"></a>Co je Azure Scheduler?
 Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet v cloudu. Potom naplánuje a automaticky spustí tyto akce.  Scheduler k tomu použije [portál Azure](scheduler-get-started-portal.md), kód, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) nebo Azure PowerShell.
 
 Scheduler vytváří, udržuje a vyvolává naplánovanou práci.  Scheduler nehostuje žádné úlohy ani nespouští žádný kód. On *vyvolává* kód hostovaný jinde – v Azure, v lokálním umístění nebo u jiného poskytovatele. Vyvolává přes HTTP, frontu úložiště, frontu sběrnice nebo téma sběrnice.
@@ -30,25 +34,28 @@ Použití Scheduleru se samo nabízí v několika situacích. Příklad:
 
 Scheduler umožní vytvářet, aktualizovat, odstraňovat, zobrazovat a spravovat úlohy a [kolekce úloh](scheduler-concepts-terms.md) programově pomocí skriptů a pomocí portálu.
 
-## Viz také
- [Koncepty, terminologie a hierarchie entit služby Azure Scheduler](scheduler-concepts-terms.md)
+## <a name="see-also"></a>Viz také
+ [Koncepty, terminologie a hierarchie entit Azure Scheduleru](scheduler-concepts-terms.md)
 
- [Úvod do používání Scheduleru na portálu Azure](scheduler-get-started-portal.md)
+ [Úvod do používání Scheduleru na portálu Azure Portal](scheduler-get-started-portal.md)
 
- [Plány a fakturace ve službě Azure Scheduler](scheduler-plans-billing.md)
+ [Plány a fakturace v Azure Scheduleru](scheduler-plans-billing.md)
 
- [Sestavení komplexních plánů a pokročilé opakování ve službě Azure Scheduler](scheduler-advanced-complexity.md)
+ [Sestavení komplexních plánů a pokročilé opakování v Azure Scheduleru](scheduler-advanced-complexity.md)
 
- [REST API služby Azure Scheduler – referenční informace](https://msdn.microsoft.com/library/mt629143)
+ [REST API Azure Scheduleru – referenční informace](https://msdn.microsoft.com/library/mt629143)
 
- [Rutiny PowerShellu pro službu Azure Scheduler – referenční informace](scheduler-powershell-reference.md)
+ [Rutiny PowerShellu pro Azure Scheduler – referenční informace](scheduler-powershell-reference.md)
 
- [Vysoká dostupnost a spolehlivost služby Azure Scheduler](scheduler-high-availability-reliability.md)
+ [Vysoká dostupnost a spolehlivost Azure Scheduleru](scheduler-high-availability-reliability.md)
 
- [Omezení, výchozí hodnoty a chybové kódy služby Azure Scheduler](scheduler-limits-defaults-errors.md)
+ [Omezení, výchozí hodnoty a chybové kódy Azure Scheduleru](scheduler-limits-defaults-errors.md)
 
- [Odchozí ověření služby Azure Scheduler](scheduler-outbound-authentication.md)
+ [Odchozí ověření Azure Scheduleru](scheduler-outbound-authentication.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

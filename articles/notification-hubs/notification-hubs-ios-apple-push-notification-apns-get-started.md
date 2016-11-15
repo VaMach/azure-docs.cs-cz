@@ -1,26 +1,30 @@
 ---
-title: Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs | Microsoft Docs
-description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace iOS.
+title: "Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs | Dokumentace Microsoftu"
+description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace iOS."
 services: notification-hubs
 documentationcenter: ios
-keywords: nabízené oznámení;nabízená oznámení;nabízená oznámení ios
-author: wesmc7777
+keywords: "nabízené oznámení;nabízená oznámení;nabízená oznámení ios"
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+
 
 ---
-# Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs
+# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 > [!NOTE]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 > 
@@ -30,12 +34,12 @@ V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání n
 
 Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci.
 
-## Než začnete
+## <a name="before-you-begin"></a>Než začnete
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Dokončený kód v tomto kurzu lze najít v části [Github](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
 * [Mobile Services iOS SDK verze 1.2.4]
@@ -52,7 +56,7 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notificati
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Konfigurace centra oznámení pro nabízená oznámení iOS
+## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Konfigurace centra oznámení pro nabízená oznámení iOS
 Tato části vás provede vytvořením nového centra oznámení a konfigurací ověřování s použitím služby APNS a pomoci vytvořeného nabízeného certifikátu **.p12**. Pokud chcete použít centrum oznámení, které jste již vytvořili, můžete přeskočit na krok 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -66,16 +70,16 @@ Tato části vás provede vytvořením nového centra oznámení a konfigurací 
 <p>Nezapomeňte vybrat režim <b>Sandboxu</b>, protože se jedná o vývoj. Používejte pouze režim <b>Výroba</b>, pokud chcete zasílat nabízená oznámení uživatelům, kteří si zakoupili aplikaci z obchodu s aplikacemi.</p>
 </li>
 </ol>
-&emsp;&emsp;![Konfigurace služby APNS na portálu Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;![Konfigurace služby APNS na webu Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
 &emsp;&emsp;![Konfigurace certifikační služby APNS na portálu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro odesílání nabízených oznámení.
 
-## Připojte aplikaci iOS k centru oznámení
+## <a name="connect-your-ios-app-to-notification-hubs"></a>Připojte aplikaci iOS k centru oznámení
 1. V Xcode vytvořte nový projekt iOS a vyberte šablonu **Jediné zobrazení aplikace**.
    
-    ![Xcode – jediné zobrazení aplikace][8]
+       ![Xcode - Single View Application][8]
 2. Když nastavujete možnosti pro nový projekt, nezapomeňte použít stejný **Název produktu** a **Identifikátor organizace**, který jste použili při předchozím nastavení sady ID na portálu pro vývojáře Apple.
    
     ![Xcode – možnosti projektu][11]
@@ -83,7 +87,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    
     Pokud nevidíte nový profil zřizování, který jste vytvořili v Xcode, pokuste se aktualizovat profily pro podpisové identity. Klikněte na tlačítko **Xcode** na panelu nabídek, klikněte na tlačítko **Předvolby**, klikněte na kartu **Účet**, klikněte na tlačítko **Zobrazit podrobnosti**, klikněte na podpisovou identitu a pak klikněte na tlačítko Aktualizovat v pravém dolním rohu.
    
-    ![Xcode – profil zřizování][9]
+       ![Xcode - provisioning profile][9]
 4. Stáhněte si [Mobile Services iOS SDK verze 1.2.4] a soubor rozbalte. V Xcode klikněte pravým tlačítkem na projekt a klikněte na možnost **Přidat soubory do** a přidejte složku **WindowsAzureMessaging.framework** do projektu Xcode. Vyberte možnost **Kopírovat položky v případě potřeby** a pak klikněte na tlačítko **Přidat**.
    
    > [!NOTE]
@@ -91,7 +95,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    > 
    > 
    
-    ![Rozbalte Azure SDK][10]
+       ![Unzip Azure SDK][10]
 5. Přidejte nový soubor záhlaví projektu s názvem `HubInfo.h`. Tento soubor bude obsahovat konstanty pro vaše centrum oznámení.  Přidejte následující definice a nahraďte zástupné symboly literálu řetězce ve vašem *názvu centra* a *DefaultListenSharedAccessSignature*, který jste si předtím poznamenali.
    
         #ifndef HubInfo_h
@@ -109,7 +113,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    
     Pro iOS 8:
    
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
                                                 UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
    
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
@@ -149,14 +153,14 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
 
 1. Sestavte a spusťte aplikaci na vašem zařízení a ověřte, zda nedochází k žádným chybám.
 
-## Odešlete nabízená oznámení
+## <a name="send-test-push-notifications"></a>Odešlete nabízená oznámení
 Příjem oznámení můžete otestovat ve vaší aplikaci odesláním nabízených oznámení na [Azure Portal] prostřednictvím části **Poradce při potížích** v okně centra (použijte možnost *Testovací odeslání*).
 
 ![Portál Azure – testovací odeslání][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## (Volitelné) Zasílání nabízených oznámení z aplikace
+## <a name="optional-send-push-notifications-from-the-app"></a>(Volitelné) Zasílání nabízených oznámení z aplikace
 > [!IMPORTANT]
 > Tento příklad odesílání oznámení z klientské aplikace poskytujeme jenom pro výukové účely. Vzhledem k tomu, že klientská aplikace bude muset obsahovat `DefaultFullSharedAccessSignature`, bude centrum oznámení vystavené riziku, že uživatel může získat přístup k odesílání neautorizovaných oznámení vašim klientům.
 > 
@@ -360,12 +364,12 @@ Pokud chcete zasílat nabízená oznámení z aplikace, tato část poskytuje p�
                 {
                     xmlParser = [[NSXMLParser alloc] initWithData:data];
                     [xmlParser setDelegate:self];
-                    [xmlParser parse];
+                       [xmlParser parse];
                 }
             }];
             [dataTask resume];
         }
-3. V `ViewController.m` přidejte následující metodu delegáta pro podporu zavření klávesnice pro textové pole. Využijte zkratku CTRL + přetažení z textového pole na ikonu řadiče zobrazení v návrháři rozhraní pro nastavení řadiče zobrazení jako delegáta výstupu.
+3. V `ViewController.m` přidejte následující metodu delegáta pro podporu zavření klávesnice pro textové pole. Využijte zkratku CTRL + přetažení z textového pole na ikonu řadiče zobrazení v návrháři rozhraní pro nastavení řadiče zobrazení jako delegáta výstupu.
    
         //===[ Implement UITextFieldDelegate methods ]===
    
@@ -419,7 +423,7 @@ Pokud chcete zasílat nabízená oznámení z aplikace, tato část poskytuje p�
 
 Můžete najít všechna možná oznámení datových částí v Apple [Průvodci programováním místních a nabízených oznámení].
 
-## Kontrola, zda vaše aplikace může přijímat nabízená oznámení
+## <a name="checking-if-your-app-can-receive-push-notifications"></a>Kontrola, zda vaše aplikace může přijímat nabízená oznámení
 Chcete-li otestovat nabízená oznámení na iOS, musíte aplikaci nasadit do fyzického zařízení iOS. Nabízená oznámení Apple nelze odeslat pomocí simulátoru iOS.
 
 1. Spusťte aplikaci a ověřte, zda byla registrace úspěšná a stiskněte klávesu **OK**.
@@ -432,7 +436,7 @@ Chcete-li otestovat nabízená oznámení na iOS, musíte aplikaci nasadit do fy
    
     ![Test příjmu nabízených oznámení aplikace iOS][35]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše registrovaná zařízení iOS. Jako další krok ve svém studiu doporučujeme pokračovat kurzem [Upozornění uživatelů centra oznámení Azure pro iOS pomocí backendu .NET], který vás provede procesem vytvoření backendu pro zasílání nabízených oznámení pomocí značek. 
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, můžete se navíc přesunout na tutoriál [Používání centra oznámení k odesílání novinek]. 
@@ -460,12 +464,12 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 <!-- URLs. -->
 [Mobile Services iOS SDK verze 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Odeslat stránku aplikace]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Odeslání stránky aplikace]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Moje aplikace]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK pro Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Začínáme používat Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[portál Azure Classic]: https://manage.windowsazure.com/
+[Portál Azure Classic]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -478,6 +482,7 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

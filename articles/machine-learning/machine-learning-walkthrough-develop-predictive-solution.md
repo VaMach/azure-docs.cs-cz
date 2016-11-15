@@ -1,13 +1,13 @@
 ---
-title: Prediktivní řešení pro úvěrové riziko v Machine Learning | Microsoft Docs
-description: Podrobný průvodce postupem vytvoření řešení prediktivní analýzy pro posuzování úvěrového rizika v nástroji Azure Machine Learning Studio
-keywords: úvěrové riziko,řešení prediktivní analýzy,posouzení rizika
+title: "Prediktivní řešení pro úvěrové riziko v Machine Learning | Dokumentace Microsoftu"
+description: "Podrobný průvodce postupem vytvoření řešení prediktivní analýzy pro posuzování úvěrového rizika v nástroji Azure Machine Learning Studio"
+keywords: "úvěrové riziko,řešení prediktivní analýzy,posouzení rizika"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa64dc7f5bb3e928aac30987b0904435c603829c
+
 
 ---
-# Názorný průvodce: Vývoj řešení prediktivní analýzy pro posuzování úvěrového rizika v Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Názorný průvodce: Vývoj řešení prediktivní analýzy pro posuzování úvěrového rizika v Azure Machine Learning
 Předpokládejme, že potřebujete předpovědět úvěrové riziko u jednotlivého zákazníka na základě údajů, které uvedou v žádosti o úvěr.  
 
 Posouzení úvěrového rizika je samozřejmě složitý problém, ale trochu si můžeme jeho parametry zjednodušit. Poté můžeme tento postup použít jako příklad, jak lze pomocí Microsoft Azure Machine Learning s nástrojem Machine Learning Studio a webovou službou Machine Learning vytvořit řešení prediktivní analýzy.  
@@ -44,6 +48,9 @@ Při vytváření řešení pro posuzování úvěrového rizika budeme postupov
 
 Tento názorný postup je založen na zjednodušené verzi ukázkového experimentu [Binární klasifikace: Predikce úvěrového rizika](http://go.microsoft.com/fwlink/?LinkID=525270) na webu [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

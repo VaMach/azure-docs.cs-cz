@@ -1,22 +1,26 @@
 ---
-title: Nastavení vývojového prostředí | Microsoft Docs
-description: Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace.
+title: "Nastavení vývojového prostředí | Dokumentace Microsoftu"
+description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/13/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae0fcc689d51479a92c506ea48ab8af2003acfe
+
 
 ---
-# Příprava vývojového prostředí
+# <a name="prepare-your-development-environment"></a>Příprava vývojového prostředí
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,8 +31,8 @@ ms.author: ryanwi
 
  Pokud chcete sestavovat a spouštět [aplikace Azure Service Fabric][1] na vývojovém počítači, musíte nainstalovat modul runtime, sadu SDK a nástroje. Musíte taky povolit spouštění skriptů prostředí Windows PowerShell, které jsou součástí sady SDK.
 
-## Požadavky
-### Podporované verze operačních systémů
+## <a name="prerequisites"></a>Požadavky
+### <a name="supported-operating-system-versions"></a>Podporované verze operačních systémů
 Pro vývoj jsou podporovány tyto verze operačních systémů:
 
 * Windows 7
@@ -41,20 +45,20 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 > 
 > 
 
-## Instalace modulu runtime, sady SDK a nástrojů
+## <a name="install-the-runtime-sdk-and-tools"></a>Instalace modulu runtime, sady SDK a nástrojů
 Instalace webové platformy nabízí dvě konfigurace pro vývoj Service Fabric:
 
 * [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro sadu Visual Studio 2015 (je vyžadována verze Visual Studio 2015 Update 2 nebo novější)][full-bundle-vs2015]
 * [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů pro Visual Studio)][core-sdk]
 
-## Povolení spouštění skriptů prostředí PowerShell
+## <a name="enable-powershell-script-execution"></a>Povolení spouštění skriptů prostředí PowerShell
 Platforma Service Fabric používá skripty prostředí Windows PowerShell k vytvoření místního vývojového clusteru a k nasazení aplikací ze sady Visual Studio. Systém Windows ve výchozím nastavení spouštění těchto skriptů blokuje. Pokud je chcete povolit, musíte upravit zásady spouštění prostředí PowerShell. Otevřete prostředí PowerShell jako správce a zadejte tento příkaz:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď, když jste dokončili nastavení vývojového prostředí, můžete začít sestavovat a spouštět aplikace.
 
 * [Vytvořte první aplikaci Service Fabric v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -73,6 +77,6 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

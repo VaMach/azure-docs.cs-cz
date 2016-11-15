@@ -1,12 +1,12 @@
 ---
-title: Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
-description: Toto je stránka Vícefaktorového ověřování Azure, která nabízí úvod do používání Azure MFA a uživatelského portálu.
+title: "Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server"
+description: "Toto je stránka Vícefaktorového ověřování Azure, která nabízí úvod do používání Azure MFA a uživatelského portálu."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+
 
 ---
-# Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
+# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
 Uživatelský portál umožňuje správci nainstalovat a konfigurovat Azure Multi-Factor Authentication User Portal. User Portal je webová stránka IIS, která uživatelům umožní se zapsat do ověření Azure Multi-Factor Authentication a spravovat své účty. Uživatel může změnit svoje telefonní číslo, změnit PIN nebo obejít ověření Azure Multi-Factor Authentication při příštím přihlášení.
 
 Uživatelé se do portálu User Portal budou přihlašovat svým normálním přihlašovacím jménem a heslem a buďto dokončí volání ověření Azure Multi-Factor Authentication, nebo se ověří tak, že odpoví na bezpečnostní otázky. Pokud je povolený zápis uživatelů, uživatel si při prvním přihlášení do portálu User Portal nastaví telefonní číslo a PIN.
@@ -25,13 +29,13 @@ Správci portálu User Portal můžou vytvořit a udělit oprávnění vytváře
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## Nasazení uživatelského portálu na stejném serveru jako je Azure Multi-Factor Authentication Server
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Nasazení uživatelského portálu na stejném serveru jako je Azure Multi-Factor Authentication Server
 Pro instalaci portálu User Portal na stejném serveru jako je Azure Multi-Factor Authentication Server je potřeba splnit tyto podmínky:
 
 * IIS se musí nainstalovat včetně kompatibility s asp.net a IIS 6 meta base (pro IIS 7 a novější).
 * Přihlášený uživatel musí mít práva správce počítače a případně domény.  To je potřeba kvůli tomu, že účet potřebuje oprávnění k vytvoření skupin zabezpečení Active Directory.
 
-### Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
+### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server
 1. V Azure Multi-Factor Authentication Serveru: klikněte na ikonu User Portal, klikněte na tlačítko Nainstalovat portál User Portal.
 2. Klikněte na Další.
 3. Klikněte na Další.
@@ -43,7 +47,7 @@ Pro instalaci portálu User Portal na stejném serveru jako je Azure Multi-Facto
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## Nasazení portálu User Portal pro Azure Multi-Factor Authentication Server na samostatném serveru
+## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Nasazení portálu User Portal pro Azure Multi-Factor Authentication Server na samostatném serveru
 Chcete-li používat aplikaci Azure Multi-Factor Authentication, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s portálem User Portal:
 
 Hardwarové a softwarové požadavky naleznete v části Požadavky na hardware a software:
@@ -64,20 +68,20 @@ Instalace portálu uživatele na jiném serveru než je Azure Multi-Factor Authe
 2. Instalace uživatelského portálu
 3. Konfigurace nastavení portálu User Portal v Azure Multi-Factor Authentication Serveru
 
-### Instalace sady SDK webové služby
+### <a name="install-the-web-service-sdk"></a>Instalace sady SDK webové služby
 Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure Multi-Factor Authentication Server. Klikněte na ikonu sady SDK webové služby, klikněte na tlačítko Instalovat sadu SDK webové služby... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečená certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
-### Instalace uživatelského portálu
+### <a name="install-the-user-portal"></a>Instalace uživatelského portálu
 Než začnete instalovat uživatelský portál na samostatný server, ujistěte se, že znáte následující informace:
 
 * Je užitečné otevřít webový prohlížeč na webovém serveru s přístupem k internetu a přejít na adresu URL sady SDK webové služby, která je zadaná v souboru web.config. Pokud se prohlížeč úspěšně dostane k webové službě, měla by se zobrazit výzva k zadání přihlašovacích údajů. Zadejte uživatelské jméno a heslo, které jste zadali do souboru web.config, v naprosto stejném tvaru. Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
 * Pokud se před webovým serverem portálu User Portal nachází reverzní proxy server nebo brána firewall a provádí snižování zátěže protokolu SSL, můžete upravit soubor web.config portálu User Portal a přidat následující klíč do části <appSettings> tak, aby User Portal mohl používat protokol http místo protokolu https. <add key="SSL_REQUIRED" value="false"/>
 
-#### Instalace uživatelského portálu
+#### <a name="to-install-the-user-portal"></a>Instalace uživatelského portálu
 1. Otevřete Průzkumníka Windows na serveru Azure Multi-Factor Authentication Server a přejděte do složky, kde je nainstalovaný server Azure Multi-Factor Authentication (například C:\Program Files\Multi-Factor Authentication Server). Zvolte 32bitovou nebo 64bitovou verzi instalačního souboru MultiFactorAuthenticationUserPortalSetup v závislosti na serveru, na který se User Portal nainstaluje. Zkopírujte instalační soubor na server s přístupem k internetu.
-2. Na webovém serveru s přístupem k internetu je třeba instalační soubor spustit s oprávněním správce. Nejjednodušším způsobem je otevřít příkazový řádek jako správce a přejít do umístění, kam se zkopíroval instalační soubor.
+2. Na webovém serveru s přístupem k internetu je třeba instalační soubor spustit s oprávněním správce. Nejjednodušším způsobem je otevřít příkazový řádek jako správce a přejít do umístění, kam se zkopíroval instalační soubor.
 3. Spusťte instalační soubor MultiFactorAuthenticationUserPortalSetup64, v případě potřeby změňte název Webu a Virtuálního adresáře.
 4. Po dokončení instalace portálu User Portal přejděte do C:\inetpub\wwwroot\MultiFactorAuth (nebo odpovídajícího adresáře podle názvu virtuálního adresáře) a upravte soubor web.config.
 5. Vyhledejte klíč USE_WEB_SERVICE_SDK a změňte hodnotu z false na true. Vyhledejte klíče WEB_SERVICE_SDK_AUTHENTICATION_USERNAME a WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD a nastavte hodnoty na uživatelské jméno a heslo účtu služby, který je členem skupiny zabezpečení PhoneFactor Admins (viz část Požadavky výše). Nezapomeňte vložit uživatelské jméno a heslo mezi uvozovky na konci řádku (hodnota = "" / >). Doporučujeme použít kvalifikované uživatelské jméno (například doména\uživatelské jméno nebo počítač\uživatelské jméno).
@@ -85,7 +89,7 @@ Než začnete instalovat uživatelský portál na samostatný server, ujistěte 
 7. Pokud web, na který se nainstaloval User Portal (například výchozí web), ještě není navázaný na veřejně podepsaný certifikát, nainstalujte certifikát na server, otevřete správce služby IIS a vytvořte vazbu certifikátu k webu.
 8. Z libovolného počítače otevřete webový prohlížeč a přejděte na adresu URL, kam se nainstaloval User Portal (např. https://www.verejnyweb.com/MultiFactorAuth). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
 
-## Konfigurace nastavení uživatelského portálu v Azure Multi-Factor Authentication Serveru
+## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurace nastavení uživatelského portálu v Azure Multi-Factor Authentication Serveru
 Teď, když je portál nainstalovaný, musíte nakonfigurovat Azure Multi-Factor Authentication Server pro práci s portálem.
 
 Server Azure Multi-Factor Authentication poskytuje pro uživatelský portál několik možností.  V následující tabulce je seznam těchto možností a vysvětlení, k čemu se používají.
@@ -109,7 +113,7 @@ Většina těchto nastavení je pro uživatele viditelná, když jsou zapnuté a
 
 ![Nastavení uživatelského portálu](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### Konfigurace nastavení uživatelského portálu v Azure Multi-Factor Authentication Serveru
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurace nastavení uživatelského portálu v Azure Multi-Factor Authentication Serveru
 1. Na Azure Multi-Factor Authentication Serveru klikněte na ikonu uživatelského portálu. Na kartě Nastavení zadejte adresu URL portálu User Portal do pole Adresa URL portálu User Portal. Tato adresa URL se vloží do e-mailů, které se uživatelům pošlou po jejich importování do Azure Multi-Factor Authentication Serveru, pokud je zapnutá funkce e-mailu.
 2. Vyberte nastavení, které chcete v portálu User Portal použít. Pokud mají například uživatelé povolení řídit své metody ověřování, zkontrolujte, že je vedle metod, ze kterých si můžou vybrat, zaškrtnutá možnost Povolit uživatelům výběr metody.
 3. Vysvětlení každého zobrazeného nastavení můžete zobrazit kliknutím na odkaz Nápověda v pravém horním rohu.
@@ -117,28 +121,28 @@ Většina těchto nastavení je pro uživatele viditelná, když jsou zapnuté a
 <center>![Nastavení](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
-## Karta Správci
+## <a name="administrators-tab"></a>Karta Správci
 Tato karta vám jednoduše možní přidávat uživatele, kteří budou mít oprávnění správce.  Při přidání uživatele můžete podrobně upravit oprávnění, která bude mít.  Můžete si tak být jistí, že mu udělíte jen ta oprávnění, které bude jako správce potřebovat.  Jednoduše klikněte na tlačítko Přidat, a pak vyberte uživatele a jeho oprávnění a klikněte na Přidat.
 
 ![Správci uživatelského portálu](./media/multi-factor-authentication-get-started-portal/admin.png)
 
-## Bezpečnostní otázky
+## <a name="security-questions"></a>Bezpečnostní otázky
 Tato karta vám umožní zadat bezpečnostní otázky, které budou uživatelé muset zodpovědět, pokud je vybraná možnost V nouzové situaci použít bezpečnostní otázky.  Azure Multi-Factor Authentication Server má několik výchozích otázek, které můžete použít.  Můžete taky změnit pořadí otázek nebo přidat svoje vlastní.  Pokud přidáváte vlastní otázky, můžete taky vybrat jazyk, ve kterém chcete, aby se otázka taky zobrazila.
 
 ![Bezpečnostní otázky uživatelského portálu](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
-## Úspěšné relace
-## SAML
+## <a name="passed-sessions"></a>Úspěšné relace
+## <a name="saml"></a>SAML
 Umožní vám nastavit uživatelský portál tak, aby přijímal deklarace identity od zprostředkovatelů identity pomocí SAML.  Můžete zadat časový limit relace, ověřovací certifikát a Adresu URL pro přesměrování při odhlášení.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
-## Důvěryhodné IP adresy
+## <a name="trusted-ips"></a>Důvěryhodné IP adresy
 Tato karta vám umožní zadat jednotlivé IP adresy nebo rozsahy IP adres, ze kterých pokud se uživatel přihlašuje, tak se vícefaktorové ověřování přeskočí.
 
 ![Důvěryhodné IP adresy uživatelského portálu](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## Povolit zápis uživatele k samoobslužné službě
+## <a name="selfservice-user-enrollment"></a>Povolit zápis uživatele k samoobslužné službě
 Pokud chcete, aby se uživatelé přihlásili a zapsali, musíte zapnout možnosti Umožnit uživatelům přihlášení a Povolit zápis uživatele. Nezapomeňte, že nastavení, které vyberete, bude mít vliv na proces přihlášení.
 
 Pokud se třeba uživatel přihlásí do portálu User Portal a klikne na tlačítko Přihlásit, zobrazí se stránka Azure Multi-Factor Authentication – Nastavení uživatele.  Podle toho, jak jste nakonfigurovali ověřování Azure Multi-Factor Authentication si uživatel možná bude moci vybrat metodu ověření.  
@@ -170,6 +174,9 @@ Pokud správci nastavili Azure Multi-Factor Authentication Server tak, aby shrom
 
 Samoobslužný zápis je teď dokončený a uživatel je přihlášený do portálu User Portal.  V budoucnu se uživatel může kdykoli znovu přihlásit a pokud k tomu má oprávnění od správců, bude moct změnit svoje telefonní čísla, čísla PIN, metody ověření a bezpečnostní otázky.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

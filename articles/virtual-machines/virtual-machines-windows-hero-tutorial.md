@@ -1,14 +1,14 @@
 ---
-title: Vytvoření vašeho prvního virtuálního počítače s Windows | Microsoft Docs
-description: Zjistěte, jak vytvořit svůj první virtuální počítač s Windows pomocí webu Azure Portal.
-keywords: virtuální počítač s Windows,vytvoření virtuálního počítače,virtuální počítač,nastavení virtuálního počítače
+title: "Vytvoření prvního virtuálního počítače s Windows | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit svůj první virtuální počítač s Windows pomocí webu Azure Portal."
+keywords: "virtuální počítač s Windows,vytvoření virtuálního počítače,virtuální počítač,nastavení virtuálního počítače"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 785e17eb-4a13-4f06-b70f-4bd496d0ec5d
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,14 +16,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/06/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+
 
 ---
-# Vytvoření vašeho prvního virtuálního počítače s Windows na Portálu Azure
+# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Vytvoření vašeho prvního virtuálního počítače s Windows na Portálu Azure
 Tento kurz vám ukáže, jak si snadno během několika málo minut vytvořit virtuální počítač s Windows pomocí webu Azure Portal.  
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## Volba image virtuálního počítače z Marketplace
+## <a name="choose-the-vm-image-from-the-marketplace"></a>Volba image virtuálního počítače z Marketplace
 Jako příklad používáme image systému Windows Server 2012 R2 Datacenter, je to ale pouze jedna z mnoha imagí, které Azure nabízí. Volba image závisí na tom, jaké máte předplatné. Některé desktopové image jsou například dostupné pro [Předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
@@ -34,14 +38,14 @@ Jako příklad používáme image systému Windows Server 2012 R2 Datacenter, je
    
     ![Snímek obrazovky zobrazující model nasazení, který se má vybrat pro virtuální počítač](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
-## Vytvoření virtuálního počítače s Windows
+## <a name="create-the-windows-virtual-machine"></a>Vytvoření virtuálního počítače s Windows
 Po výběru image můžete použít výchozí nastavení a rychle vytvořit virtuální počítač.
 
 1. V okně **Základy** zadejte **název** pro virtuální počítač. Název musí mít 1 až 15 znaků a nesmí obsahovat speciální znaky.
 2. Zadejte **uživatelské jméno** a silné **heslo**, které se použijí k vytvoření místního účtu ve virtuálním počítači. Místní účet slouží k přihlášení k virtuálnímu počítači a jeho správě. 
    
     Heslo musí mít 8 až 123 znaků a musí splňovat tři ze čtyř bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-3. Vyberte existující [skupinu prostředků](../resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. Zadejte **umístění** datového centra Azure, například **Západní USA**. 
+3. Vyberte existující [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. Zadejte **umístění** datového centra Azure, například **Západní USA**. 
 4. Až to budete mít, přejděte kliknutím na **OK** k další části. 
    
     ![Snímek obrazovky, který zobrazuje nastavení v okně **Základy** pro konfiguraci virtuálního počítače Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
@@ -56,7 +60,7 @@ Po výběru image můžete použít výchozí nastavení a rychle vytvořit virt
     ![Snímek obrazovky stránky Souhrn, který ukazuje možnosti konfigurace zvolené pro virtuální počítač Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 8. Zatímco bude Azure vytvářet virtuální počítač, můžete sledovat průběh v nabídce centra v části **Virtual Machines**. 
 
-## Připojení k virtuálnímu počítači a přihlášení
+## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Připojení k virtuálnímu počítači a přihlášení
 1. V nabídce centra klikněte na **Virtual Machines**.
 2. Ze seznamu vyberte virtuální počítač.
 3. V okně pro virtuální počítač klikněte na **Připojit**. Tím se vytvoří a stáhne soubor .rdp (Remote Desktop Protocol), který představuje zástupce připojení k vašemu počítači. Můžete si ho uložit na plochu, abyste k němu měli snadno přístup. **Otevřením** tohoto souboru se připojíte ke svému virtuálnímu počítači.
@@ -76,18 +80,21 @@ Pokud budete mít s připojením problémy, projděte si téma [Poradce při pot
 
 Nyní můžete s virtuálním počítačem pracovat stejně jako s jakýmkoli jiným serverem.
 
-## Volitelné: Zastavení virtuálního počítače
+## <a name="optional-stop-the-vm"></a>Volitelné: Zastavení virtuálního počítače
 Pokud virtuální počítač nepoužíváte, je vhodné ho zastavit, aby vám zbytečně nenabíhaly poplatky. Stačí kliknout na **Zastavit** a poté na **Ano**.
 
 ![Snímek obrazovky s tlačítkem pro zastavení virtuálního počítače](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 
 Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Můžete [nainstalovat službu IIS](virtual-machines-windows-hero-role.md) a experimentovat se svým novým virtuálním počítačem. Tento kurz také ukazuje, jak otevřít port 80 pro příchozí webový provoz pomocí skupiny zabezpečení sítě (NSG). 
 * Můžete také [vytvořit virtuální počítač s Windows pomocí prostředí PowerShell](virtual-machines-windows-ps-create.md) nebo [vytvořit virtuální počítač se systémem Linux](virtual-machines-linux-quick-create-cli.md) pomocí rozhraní příkazového řádku Azure.
 * Pokud vás zajímá automatizace nasazení, projděte si téma [Vytvoření virtuálního počítač s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md).
 
-<!----HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

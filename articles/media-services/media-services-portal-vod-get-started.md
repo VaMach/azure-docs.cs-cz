@@ -1,12 +1,12 @@
 ---
-title: " Začínáme s doručováním obsahu na vyžádání pomocí Azure Portal | Microsoft Docs"
-description: V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal.
+title: " Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25d8b204f328514ebcfc69228dcbf9342bdf205b
+
 
 ---
-# Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal
+# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal.
@@ -35,11 +39,11 @@ Tento kurz sestává z následujících úloh:
 5. Publikování assetu a získání adres URL streamování a progresivního stahování  
 6. Přehrání obsahu
 
-## Vytvoření účtu Azure Media Services
+## <a name="create-an-azure-media-services-account"></a>Vytvoření účtu Azure Media Services
 Postup v této části ukazuje, jak vytvořit účet AMS.
 
 1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
-2. Klikněte na **+Nový** > **Média a CDN** > **Media Services**.
+2. Klikněte na **+Nové** > **Web + mobilní zařízení** > **Media Services**.
    
     ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. V okně **VYTVOŘIT ÚČET MEDIA SERVICES** zadejte požadované hodnoty.
@@ -48,7 +52,7 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    
    1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
-   3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../resource-group-overview.md#resource-groups).
+   3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. V poli **Umístění** vyberte zeměpisnou oblast, která se použije k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se použije ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné. 
    5. V poli **Účet úložiště** vyberte účet úložiště, který bude sloužit jako úložiště objektů blob mediálního obsahu z vašeho účtu Media Services. Můžete vybrat existující účet úložiště ve stejné zeměpisné oblasti jako váš účet Media Services, nebo můžete vytvořit účet úložiště. Nový účet úložiště bude vytvořen ve stejné oblasti. Pro názvy účtů úložiště platí stejná pravidla jako pro názvy účtů Media Services.
       
@@ -62,7 +66,7 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    
     Ke správě vašeho účtu AMS (například nahrávání videí, kódování assetů, sledovat průběhu úloh) použijte okno **Nastavení**.
 
-## Správa klíčů
+## <a name="manage-keys"></a>Správa klíčů
 Název účtu a primární klíč budete potřebovat pro přístup k účtu Media Services prostřednictvím programového kódu.
 
 1. Na webu Azure Portal vyberte svůj účet. 
@@ -75,7 +79,7 @@ Název účtu a primární klíč budete potřebovat pro přístup k účtu Medi
    
     ![Klíče služby Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Konfigurace koncových bodů streamování
+## <a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování
 Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa vašim klientům prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access).
 
 Služba Media Services poskytuje dynamické balení, což vám umožní dodávat váš obsah s adaptivní přenosovou rychlostí s kódováním MP4 nebo technologie Smooth Streaming ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming a HDS) bez nutnosti mít uložené předem zabalené verze pro každý z těchto formátů streamování.
@@ -103,7 +107,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
    > 
    > 
 
-## Nahrání souborů
+## <a name="upload-files"></a>Nahrání souborů
 Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahrát zdrojová videa, zakódovat je do více přenosových rychlostí a výsledek publikovat. První krok pokrývá tato část. 
 
 1. V okně **Nastavení** klikněte na **Assety**.
@@ -123,7 +127,7 @@ Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahr
 
 Po dokončení nahrávání se nový prostředek zobrazí v okně **Assety**. 
 
-## Kódování assetů
+## <a name="encode-assets"></a>Kódování assetů
 Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování streamování s adaptivní přenosovou rychlostí vašim klientům. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access). Příprava vašich videí pro streamování s adaptivní přenosovou rychlostí spočívá v zakódování zdrojového videa zdroje do souborů s více přenosovými rychlostmi. Ke kódování vašich videí byste měli použít kodér **Media Encoder Standard**.  
 
 Služba Media Services také poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, technologie Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
@@ -133,7 +137,7 @@ Pokud chcete využít výhod dynamického balení, proveďte následující:
 * zakódovat váš zdrojový soubor do sady souborů MP4 s více přenosovými rychlostmi (postup kódování je ukázán později v této části)
 * získat alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat Další informace naleznete v článku o [konfiguraci koncových bodů streamování](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
 
-### Použití portálu ke kódování
+### <a name="to-use-the-portal-to-encode"></a>Použití portálu ke kódování
 Tato část popisuje kroky, jak můžete zakódovat svůj obsah pomocí procesoru Media Encoder Standard.
 
 1. V okně **Nastavení** vyberte **Assety**.  
@@ -146,12 +150,12 @@ Tato část popisuje kroky, jak můžete zakódovat svůj obsah pomocí procesor
    ![Kódování assetů](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Stiskněte **Vytvořit**.
 
-### Monitorování průběhu úlohy kódování
+### <a name="monitor-encoding-job-progress"></a>Monitorování průběhu úlohy kódování
 Pokud chcete monitorovat průběh úlohy kódování, klikněte na **Nastavení** (v horní části stránky) a pak vyberte **Úlohy**.
 
 ![Úlohy](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## Publikování obsahu
+## <a name="publish-content"></a>Publikování obsahu
 Pokud chcete uživateli poskytnout adresu URL, kterou lze použít ke streamování nebo stažení vašeho obsahu, musíte asset nejprve „publikovat“ vytvořením lokátoru. Lokátory zajišťují přístup k souborům, které jsou obsaženy v assetu. Služba Media Services podporuje dva typy lokátorů: 
 
 * Lokátory streamování (OnDemandOrigin), které se používají pro adaptivní streamování (například pro streamování MPEG, HLS nebo technologie Smooth Streaming). Pokud chcete vytvořit lokátor streamování, váš asset musí obsahovat soubor .ism. 
@@ -181,7 +185,7 @@ Adresa URL typu SAS má následující formát.
 
 Pokud chcete aktualizovat datum vypršení platnosti lokátoru, použijte rozhraní [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) API nebo [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Při aktualizaci data vypršení platnosti lokátoru SAS se změní adresa URL.
 
-### Postup publikování assetu pomocí portálu
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Postup publikování assetu pomocí portálu
 Postup publikování assetu pomocí portálu:
 
 1. Vyberte **Nastavení** > **Assety**.
@@ -194,7 +198,7 @@ Postup publikování assetu pomocí portálu:
 
 Adresa URL se přidá do seznamu **publikovaných adres URL**.
 
-## Přehrávání obsahu z portálu
+## <a name="play-content-from-the-portal"></a>Přehrávání obsahu z portálu
 Azure Portal nabízí přehrávač obsahu, který můžete použít k testování videa.
 
 Klikněte na požadované video a potom klikněte na tlačítko **Přehrát**.
@@ -206,14 +210,17 @@ Musí být splněny určité předpoklady:
 * Zkontrolujte, že bylo video publikováno.
 * Tento **Přehrávač médií** přehrává z výchozího koncového bodu streamování. Pokud chcete přehrávat z jiného než výchozího koncového bodu streamování, klikněte na zkopírování adresy URL a použijte jiný přehrávač. Například můžete použít [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

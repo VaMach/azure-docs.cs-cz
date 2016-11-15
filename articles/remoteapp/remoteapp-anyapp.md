@@ -1,12 +1,12 @@
 ---
-title: Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem | Microsoft Docs
-description: Naučte se sdílet libovolnou aplikaci pro Windows s uživateli pomocí Azure RemoteAppu.
+title: "Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem | Dokumentace Microsoftu"
+description: "Naučte se sdílet libovolnou aplikaci pro Windows s uživateli pomocí Azure RemoteAppu."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 961d40ca-9673-4977-aa54-d6b22fc61ce1
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d46e4de6f8e1491671d4d5dfb73bacecefa2b118
+
 
 ---
-# Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
+# <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
 > [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -40,7 +44,7 @@ Poznámka: Protože Access je databázová aplikace a chceme, aby byla užitečn
 > 
 > 
 
-## Vytvoření kolekce v RemoteAppu
+## <a name="create-a-collection-in-remoteapp"></a>Vytvoření kolekce v RemoteAppu
 Začněte vytvořením kolekce. Kolekce slouží jako kontejner pro vaše aplikace a uživatele. Každá kolekce je založena na imagi – můžete vytvořit vlastní nebo použít image ve vašem předplatném. Pro účely tohoto kurzu používáme image zkušební verze Office 2013 – obsahuje aplikaci, kterou chceme sdílet.
 
 1. Na portálu Azure přejděte v levém navigační stromu dolů do části RemoteApp. Otevřete danou stránku.
@@ -57,7 +61,7 @@ Spustí se vytváření kolekce, což může trvat až hodinu.
 
 Nyní jste připraveni přidat uživatele.
 
-## Sdílení aplikace s uživateli
+## <a name="share-the-app-with-users"></a>Sdílení aplikace s uživateli
 Po úspěšném vytvoření kolekce je čas na publikování aplikace Access pro uživatele a přidání uživatelů, kteří k ní mají mít přístup.
 
 Pokud jste při vytváření kolekce odešli z uzlu Azure RemoteAppu, je třeba se tam znovu vrátit z domovské stránky Azure.
@@ -75,7 +79,7 @@ Pokud jste při vytváření kolekce odešli z uzlu Azure RemoteAppu, je třeba 
 1. Nyní je čas uživatele o těchto nových aplikacích a o přístupu k nim informovat. Udělejte to tak, že uživatelům pošlete e-mail s odkazem na adresu URL pro stažení klienta vzdálené plochy.
    ![Adresa URL pro stažení klienta pro RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
 
-## Konfigurace přístupu k Accessu
+## <a name="configure-access-to-access"></a>Konfigurace přístupu k Accessu
 Některé aplikace po nasazení prostřednictvím RemoteAppu vyžadují další konfiguraci. V případě Accessu vytvoříme ve službě Azure sdílenou složku, ke které bude mít přístup každý uživatel. (Pokud to dělat nechcete, můžete vytvořit [hybridní kolekci](remoteapp-create-hybrid-deployment.md) [namísto naší cloudové kolekce], která uživatelům umožňuje přístup k souborům a informacím v místní síti.) Poté je třeba uživatelům říct, aby namapovali místní jednotku ve svém počítači na systém souborů Azure.
 
 První část, kterou provedete jako správce. Potom máme několik kroků pro vaše uživatele.
@@ -83,7 +87,7 @@ První část, kterou provedete jako správce. Potom máme několik kroků pro v
 1. Začněte publikováním rozhraní příkazového řádku (cmd.exe). Na kartě **Publikování** vyberte možnost **cmd** a potom klikněte na **Publikovat > Publikovat program pomocí cesty**.
 2. Zadejte název a cestu aplikace. Pro naše účely použijte jako název „Průzkumník souborů“ a jako cestu „%SYSTEMDRIVE%\windows\explorer.exe“.
    ![Publikování souboru cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Nyní je třeba vytvořit [účet úložiště](../storage/storage-create-storage-account.md) Azure. Náš jsme pojmenovali „accessstorage“, vy si vyberte jakýkoliv svůj smysluplný název. (Název „accessstorage“ musí být unikátní) ![Náš účet úložiště Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Nyní je třeba vytvořit [účet úložiště](../storage/storage-create-storage-account.md) Azure. Náš jsme pojmenovali „accessstorage“, vy si vyberte jakýkoliv svůj smysluplný název. (Název „accessstorage“ musí být jedinečný) ![Náš účet úložiště Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Nyní přejděte zpět na řídicí panel, kde získáte cestu do úložiště (umístění koncového bodu). Za chvilku ji budete potřebovat, takže si ji někam zkopírujte.
    ![Cesta k účtu úložiště](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Po vytvoření účtu úložiště je nutné zadat primární přístupový klíč. Klikněte na tlačítko **Spravovat přístupové klíče** a poté zkopírujte primární přístupový klíč.
@@ -113,7 +117,7 @@ Nyní jsou na řadě uživatelé. Nejdříve nechte uživatele nainstalovat [kli
 Nyní můžete Access používat v libovolném zařízení – stačí si jen nainstalovat klienta RemoteApp.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci používající Office 365](remoteapp-tutorial-o365anywhere.md). Nebo můžete vytvořit [hybridní kolekci ](remoteapp-create-hybrid-deployment.md), která má přístup k místní síti.
 
 <!--Image references-->
@@ -121,6 +125,6 @@ Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci použí
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,10 +1,11 @@
 ---
-title: Dotazování indexu Azure Search pomocí REST API | Microsoft Docs
-description: Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání.
+title: "Dotazování indexu Azure Search pomocí REST API | Dokumentace Microsoftu"
+description: "Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání."
 services: search
-documentationcenter: ''
+documentationcenter: 
+manager: jhubbard
 author: ashmaka
-
+ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -12,12 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
+
 
 ---
-# Dotazování indexu Azure Search pomocí REST API
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Dotazování indexu Azure Search pomocí REST API
 > [!div class="op_single_selector"]
 > * [Přehled](search-query-overview.md)
-> * [Portál](search-explorer.md)
+> * [Azure Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
@@ -27,7 +32,7 @@ Tento článek vám ukáže postup dotazování indexu pomocí [REST API služby
 
 Před zahájením tohoto názorného průvodce byste již měli mít [vytvořený index Azure Search](search-what-is-an-index.md) a ten by měl být [naplněný daty](search-what-is-data-import.md).
 
-## I. Zjistěte klíč api-key správce služby Azure Search
+## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Zjistěte klíč api-key správce služby Azure Search
 Klíčovou komponentou každé operace vyhledávání na REST API služby Azure Search je klíč *api-key*, který byl vygenerován pro službu, kterou jste zřídili. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
 1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
@@ -41,7 +46,7 @@ Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## II. Formulování dotazu
+## <a name="ii-formulate-your-query"></a>II. Formulování dotazu
 Existují dva způsoby [vyhledávání v indexu pomocí REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx). První způsob je vydání požadavku HTTP POST, kde parametry dotazu budou určené v objektu JSON v textu požadavku. Druhý způsob je vydání požadavku HTTP GET, kde parametry dotazu budou určené v rámci URL požadavku. Všimněte si, že metoda POST má [mírnější omezení](https://msdn.microsoft.com/library/azure/dn798927.aspx) velikosti parametrů dotazu, než metoda GET. Z tohoto důvodu doporučujeme používat metodu POST, pokud pro vás neplatí zvláštní podmínky, kdy by bylo pohodlnější použití metody GET.
 
 U metody POST i GET budete muset v URL požadavku poskytnout *název služby*, *název indexu* a správnou *verzi rozhraní API* (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2015-02-28`). U metody GET zadáte parametry dotazu místo *query_string* na konci URL. Formát URL vidíte níže:
@@ -50,7 +55,7 @@ U metody POST i GET budete muset v URL požadavku poskytnout *název služby*, *
 
 Formát pro metodu POST je stejný, ale jako parametr řetězce dotazu obsahuje pouze api-version.
 
-#### Ukázky dotazů
+#### <a name="example-queries"></a>Ukázky dotazů
 Zde naleznete několik ukázky dotazů na index s názvem „hotels“. Dotazy jsou ukázané ve formátech GET i POST.
 
 Vyhledat výraz „budget“ v celém indexu a vrátit pouze pole `hotelName`:
@@ -92,10 +97,10 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## III. Odeslání požadavku HTTP
+## <a name="iii-submit-your-http-request"></a>III. Odeslání požadavku HTTP
 Nyní, když jste formulovali dotaz jako součást URL požadavku HTTP (pro metodu GET) nebo textu požadavku HTTP (pro metodu POST), můžete definovat hlavičky požadavku a odeslat dotaz.
 
-#### Požadavek a hlavičky požadavku
+#### <a name="request-and-request-headers"></a>Požadavek a hlavičky požadavku
 Musíte definovat dvě hlavičky požadavku pro metodu GET, nebo tři hlavičky pro metodu POST.
 
 1. Hlavičku `api-key` je nutné nastavit na klíč dotazu, který jste získali v kroku I. Všimněte si, že jako hlavičku `api-key` můžete použít i klíč správce, ale doporučujeme používat klíč dotazů, protože uděluje přístup k indexům a dokumentům výhradně pouze pro čtení.
@@ -158,6 +163,9 @@ Po úspěšném požadavku dotazu nastane stavový kód `200 OK` a výsledky vyh
 
 Zjistěte více v sekci „Odpověď“ tématu [Vyhledávání dokumentů](https://msdn.microsoft.com/library/azure/dn798927.aspx). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

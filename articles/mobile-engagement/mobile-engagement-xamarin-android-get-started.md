@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Engagementem pro Xamarin.Android
-description: Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace pro Xamarin.Android.
+title: "Začínáme s Azure Mobile Engagementem pro Xamarin.Android"
+description: "Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace pro Xamarin.Android."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro aplikace pro Xamarin.Android
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Začínáme s Azure Mobile Engagementem pro aplikace pro Xamarin.Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikací a odesílat nabízená oznámení segmentovaným uživatelům aplikace pro Xamarin.Android.
@@ -32,15 +36,15 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. 
 
 Pomocí Xamarin Studia si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
 
-### Vytvoření nového projektu Xamarin.Android
+### <a name="create-a-new-xamarinandroid-project"></a>Vytvoření nového projektu Xamarin.Android
 1. Spusťte **Xamarin Studio** a klikněte na položky **File** (Soubor)  -> **New** (Nové)  -> **Solution** (Řešení). 
    
     ![][1]
@@ -56,7 +60,7 @@ Pomocí Xamarin Studia si vytvoříme základní aplikaci, na které si tuto int
 
 Xamarin Studio vytvoří aplikaci, do které budeme integrovat Mobile Engagement. 
 
-### Připojení aplikace k back-endu Mobile Engagementu
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Pravým tlačítkem myši klikněte v oknech řešení na složku **Packages** (Balíčky) a vyberte **Add Packages...** (Přidat balíčky...).
    
     ![][5]
@@ -73,7 +77,7 @@ Xamarin Studio vytvoří aplikaci, do které budeme integrovat Mobile Engagement
         engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
         EngagementAgent.Init(engagementConfiguration);
 
-### Přidání oprávnění a deklarace služby
+### <a name="add-permissions-and-a-service-declaration"></a>Přidání oprávnění a deklarace služby
 1. Ve složce Properties (Vlastnosti) otevřete soubor **Manifest.xml**. Vyberte kartu Source (Zdroj), na které můžete přímo aktualizovat zdroj dat XML.
 2. Přidejte oprávnění do souboru Manifest.xml (který najdete ve složce **Properties** (Vlastnosti)) vašeho projektu těsně před značku `<application>` nebo za ni.
    
@@ -86,13 +90,13 @@ Xamarin Studio vytvoří aplikaci, do které budeme integrovat Mobile Engagement
 3. Pokud chcete deklarovat službu agenta, přidejte mezi značky `<application>` a `</application>` následující:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 4. U kódu, který jste vložili, nahraďte `"<Your application name>"` v atributu label. Tento text se bude zobrazovat v nabídce **Settings** (Nastavení), kde uživatelé vidí, jaké služby mají na zařízení zrovna spuštěné. Do tohoto popisku můžete například přidat slovo „Service“.
 
-### Odeslání obrazovky do Mobile Engagementu
+### <a name="send-a-screen-to-mobile-engagement"></a>Odeslání obrazovky do Mobile Engagementu
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku na back-end Mobile Engagementu. Pokud to chcete provést, zajistěte, aby se metoda `MainActivity` převzala z `EngagementActivity` namísto `Activity`.
 
     public class MainActivity : EngagementActivity
@@ -111,10 +115,10 @@ Pokud `EngagementActivity` neumožňuje převzetí, musíte do `OnResume` a `OnP
                 base.OnPause();            
             }
 
-## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
@@ -134,6 +138,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

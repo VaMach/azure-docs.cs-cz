@@ -1,25 +1,29 @@
 ---
-title: Průvodce plánováním a provozem služby Security Center | Microsoft Docs
-description: Tento dokument vám pomůže s plánováním před přijetím řešení Azure Security Center a s vyřešením aspektů každodenního provozu.
+title: "Průvodce plánováním a provozem služby Security Center | Dokumentace Microsoftu"
+description: "Tento dokument vám pomůže s plánováním před přijetím řešení Azure Security Center a s vyřešením aspektů každodenního provozu."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 10/25/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8987042bc44293b30b29ccc4093ea4e2016d4cbe
+
 
 ---
-# Průvodce plánováním a provozem služby Azure Security Center
+# <a name="azure-security-center-planning-and-operations-guide"></a>Průvodce plánováním a provozem služby Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), IT architektům, analytikům zabezpečení informací a správcům cloudů, jejichž společnosti hodlají začít používat Azure Security Center.
 
-## Průvodce plánováním
+## <a name="planning-guide"></a>Průvodce plánováním
 Tato příručka pojednává o krocích a úkolech, které můžete provést, abyste přizpůsobili použití služby Security Center požadavkům na zabezpečení a modelu správy cloudu ve vaší organizaci. Pokud chcete využívat všech výhod služby Security Center, je důležité pochopit, jak různí jednotlivci nebo týmy ve vaší organizaci používají tuto službu k tomu, aby vyhověli požadavkům na zabezpečený vývoj a provoz, sledování, řízení a reakce na incidenty. Při plánování použití služby Security Center je potřeba zvážit tyto klíčové oblasti:
 
 * Role zabezpečení a řízení přístupu
@@ -35,12 +39,12 @@ V další části se dozvíte, jak každou z těchto oblastí naplánovat a jak 
 > 
 > 
 
-## Role zabezpečení a řízení přístupu
+## <a name="security-roles-and-access-controls"></a>Role zabezpečení a řízení přístupu
 V závislosti na velikosti a struktuře vaší organizace můžou službu Security Center používat různí jednotlivci a týmy a provádět v ní různé úkony týkající se zabezpečení. Následující diagram ukazuje příklad zahrnující fiktivní osoby a jejich příslušné role a povinnosti v oblasti zabezpečení:
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
 
-Security Center umožňuje těmto osobám tyto různé povinnosti plnit. Příklad:
+Security Center umožňuje těmto osobám tyto různé povinnosti plnit. Například:
 
 **Jeff (vlastník úloh v cloudu)**
 
@@ -69,7 +73,14 @@ Security Center umožňuje těmto osobám tyto různé povinnosti plnit. Příkl
 * Zkoumá útoky
 * Napravuje výstrahy nebo pracuje na nápravě s vlastníkem úlohy v cloudu 
 
-Security Center používá [řízení přístupu na základě rolí (RBAC)](../active-directory/role-based-access-control-configure.md). To poskytuje [předdefinované role](../active-directory/role-based-access-built-in-roles.md), které se dají v Azure přiřadit uživatelům, skupinám a službám. Když uživatel otevře službu Security Center, uvidí jenom informace související s prostředky, ke kterým má přístup. To znamená, že uživateli je přiřazena role Vlastníka, Přispěvatele nebo Čtenáře předplatného nebo skupiny prostředků, do které prostředek patří. Použití osob uvedených v předchozím diagramu vyžaduje následující nastavení RBAC:
+Security Center používá [řízení přístupu na základě rolí (RBAC)](../active-directory/role-based-access-control-configure.md). To poskytuje [předdefinované role](../active-directory/role-based-access-built-in-roles.md), které se dají v Azure přiřadit uživatelům, skupinám a službám. Když uživatel otevře službu Security Center, uvidí jenom informace související s prostředky, ke kterým má přístup. To znamená, že uživateli je přiřazena role Vlastníka, Přispěvatele nebo Čtenáře předplatného nebo skupiny prostředků, do které prostředek patří. 
+
+> [!NOTE]
+> Aby uživatel mohl zobrazit Security Center v Azure, musí být alespoň vlastníkem nebo přispěvatelem skupiny prostředků předplatného.
+> 
+> 
+
+Použití osob uvedených v předchozím diagramu vyžaduje následující nastavení RBAC:
 
 **Jeff (vlastník úloh v cloudu)**
 
@@ -102,7 +113,7 @@ Při plánování řízení přístupu pomocí RBAC pro Security Center je potř
 > 
 > 
 
-## Zásady a doporučení zabezpečení
+## <a name="security-policies-and-recommendations"></a>Zásady a doporučení zabezpečení
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného nebo skupiny prostředků. V Security Center určíte zásady na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat.
 
 Zásady povolené na úrovni předplatného se automaticky šíří do všech skupin prostředků v rámci tohoto předplatného, jak ukazuje následující diagram:
@@ -122,7 +133,7 @@ Když začnete pro různé skupiny prostředků vytvářet vlastní zásady, mě
 > 
 > 
 
-### Doporučení zabezpečení
+### <a name="security-recommendations"></a>Doporučení zabezpečení
 Než začnete konfigurovat zásady zabezpečení, prostudujte si všechna [doporučení zabezpečení](security-center-recommendations.md) a zkontrolujte, jestli jsou dané zásady vhodné pro vaše předplatné a skupiny prostředků. Je také důležité pochopit, jaké kroky je potřeba k uplatnění doporučení zabezpečení provést.
 
 **Endpoint Protection** (Ochrana koncových bodů): Pokud virtuální počítač nemá povolené žádné řešení ochrany koncových bodů, Security Center vám doporučí, abyste nějaké nainstalovali. Pokud upřednostňujete určité řešení ochrany koncových bodů, které už jste na místním pracovišti zavedli, budete se muset rozhodnout, jestli stejný antimalwarový software použijete i pro virtuální počítače Azure. Security Center nabízí několik možností ochrany koncových bodů.  Můžete použít bezplatnou službu Microsoft Antimalware nebo si vybrat ze seznamu řešení ochrany koncových bodů od integrovaných partnerů. Další informace o tom, jak pomocí služby Security Center nasadit antimalwarové řešení, najdete v tématu [Instalace ochrany koncových bodů v Azure Security Center](security-center-install-endpoint-protection.md).
@@ -149,12 +160,20 @@ Požadavky na plánování se u každého z těchto scénářů liší. Podrobno
 
 Security Center vám doporučí, abyste ve svém předplatném Azure uvedli podrobnosti o kontaktu zabezpečení. Prostřednictvím tohoto kontaktu se na vás společnost Microsoft obrátí, pokud středisko Microsoft Security Response Center (MSRC) zjistí, že k datům zákazníka nezákonně nebo neoprávněně přistupovala třetí strana. Další informace o povolení tohoto doporučení najdete v článku [Zadání podrobností o kontaktu zabezpečení do Azure Security Center](security-center-provide-security-contact-details.md).
 
-## Shromažďování dat a úložiště
+## <a name="data-collection-and-storage"></a>Shromažďování dat a úložiště
 Důrazně doporučujeme zapnout pro každé z vašich předplatných shromažďování dat, tím totiž zajistíte dostupnost sledování zabezpečení pro všechny virtuální počítače. Shromažďování dat se povoluje pomocí nástroje Azure Monitoring Agent (ASMAgentLauncher.exe) a rozšíření Azure Security Monitoring (ASMMonitoringAgent.exe).
 
 Rozšíření Azure Security Monitoring prochází různé položky konfigurace v oblasti zabezpečení a shromažďuje protokoly zabezpečení z daného virtuálního počítače. Tato data se odesílají na účet úložiště, který zadáte. Na virtuální počítač se nainstaluje taky správce procházení (ASMSoftwareScanner.exe), který bude vyhledávat opravy.
 
-Když v zásadě zabezpečení povolíte shromažďování dat, agent sledování a rozšíření se automaticky nainstalují na všechny stávající a nově podporované virtuální počítače zřízené v Azure.  Proces agenta je neinvazivní a nemá vliv na výkon virtuálního počítače.
+Agent Azure Security Monitoring (ASM) má následující základní nároky:
+
+* Většinou 3 MB paměti s možnými výkyvy na 10 MB, když se scénář spustí každých 12 hodin  
+* Nepatrné zatížení procesoru z trvalého procesu i vyhledávačů 
+* Nepatrné využití disku
+
+Agent ASM má sled procesů, které můžou představovat dohromady přibližně 30 MB v paměti.  Každá instance agenta sledování může využívat až 3 GB místa na disku. Každá instance je limitovaná 20 % zatížení procesoru, i když v praxi to je mnohem méně. 
+
+Když v zásadě zabezpečení povolíte shromažďování dat, agent sledování a rozšíření se automaticky nainstalují na všechny stávající a nově podporované virtuální počítače zřízené v Azure.  Proces agenta je navržen tak, aby nenarušoval běžný chod a měl zcela minimální dopad na výkon virtuálního počítače.
 
 > [!NOTE]
 > Další informace o odstraňování potíží souvisejících s nástrojem Azure Security Monitoring Agent najdete v článku [Průvodce odstraňováním potíží pro službu Azure Security Center](security-center-troubleshooting-guide.md).
@@ -172,14 +191,16 @@ Pro každou oblast, ve které máte spuštěné virtuální počítače, si zvol
 
 Pokud používáte účet úložiště, který je sdílený mezi různými prostředky Azure, nezapomeňte si přečíst článek [Škálovatelnost a cíle výkonnosti služby Azure Storage](../storage/storage-scalability-targets.md). V něm najdete další informace o limitech velikosti a dalších omezeních. Vaše předplatné má také nastavené limity účtu úložiště. Jejich podrobnější vysvětlení najdete v článku [Omezení a kvóty předplatného a služeb Azure](../azure-subscription-service-limits.md).
 
-> [!NOTE]
-> Náklady spojené s tímto úložištěm nejsou součástí ceny služby Security Center a budou se účtovat zvlášť podle běžného [ceníku úložiště Azure](https://azure.microsoft.com/pricing/details/storage/).
-> 
-> 
+Náklady spojené s tímto úložištěm nejsou součástí ceny služby Security Center a budou se účtovat zvlášť podle běžného [ceníku úložiště Azure](https://azure.microsoft.com/pricing/details/storage/). Z pohledu plánování byste měli vědět, že Security Center bude přidávat data do vašeho úložiště Azure, což může zvýšit roční náklady o 1 až 3 dolary.
 
 Je taky potřeba naplánovat aspekty výkonu a škálovatelnosti na základě velikosti vašeho prostředí Azure a prostředků, které váš účet úložiště využívají. Další informace najdete v článku [Kontrolní seznam výkonu a škálovatelnosti služby Microsoft Azure Storage](../storage/storage-performance-checklist.md).
 
-## Průběžné sledování zabezpečení
+> [!NOTE]
+> Microsoft se pevně zavazuje, že soukromí a bezpečnost těchto dat bude chránit. Společnost Microsoft dodržuje přísné pokyny pro dodržování předpisů a zabezpečení – od psaní kódu po provoz služeb. Další informace o zpracování dat a ochraně osobních údajů najdete v článku [Zabezpečení dat ve službě Azure Security Center](security-center-data-security.md).
+> 
+> 
+
+## <a name="ongoing-security-monitoring"></a>Průběžné sledování zabezpečení
 Po počáteční konfiguraci a uplatnění doporučení služby Security Center je dalším krokem zvážení provozních procesů Security Center.
 
 Na portálu Azure můžete ke službě Security Center získat přístup tak, že kliknete na **Procházet** a do pole **Filtrovat** zadáte **Security Center**. Zobrazí se položky na základě filtrů, které uživatel vybere.
@@ -202,7 +223,7 @@ Až vyřešíte všechna doporučení, v části **Prevention** (Prevence) by m�
 > 
 > 
 
-### Sledování nových nebo změněných prostředků
+### <a name="monitoring-for-new-or-changed-resources"></a>Sledování nových nebo změněných prostředků
 Většina prostředí Azure je dynamická a pravidelně v nich probíhá přidávání a odebírání prostředků, konfigurace a další změny. Security Center pomáhá zajistit přehled o stavu zabezpečení těchto nových prostředků.
 
 Když do prostředí Azure přidáte nové prostředky (virtuální počítače, databáze SQL), Security Center tyto prostředky automaticky zjistí a začne sledovat jejich zabezpečení. To zahrnuje také webové role a role pracovního procesu PaaS. Pokud je v [zásadě zabezpečení](security-center-policies.md) povolené shromažďování dat, pro vaše virtuální počítače se automaticky povolí další funkce sledování.
@@ -222,7 +243,7 @@ Taky je dobré pravidelně sledovat stav stávajících prostředků, abyste zji
 2. Panel **Recommendations** (Doporučení) umožňuje kontrolovat doporučení služby Security Center. Při průběžném sledování můžete zjistit, že se vám doporučení nezobrazují každý den, což je normální, protože jste všechna doporučení zjistili při počátečním nastavování služby Security Center. Z toho důvodu se vám v této části nemusí každý den zobrazovat nové informace, takže ji musíte otevírat, jenom když je to nutné.
 3. Panel **Detection** (Detekce) se může měnit velmi často i velmi zřídka. Vždy zkontrolujte výstrahy zabezpečení a proveďte akce na základě doporučení služby Security Center.
 
-## Reakce na incidenty
+## <a name="incident-response"></a>Reakce na incidenty
 Security Center vyhledává nové hrozby a upozorňuje vás na ně. Organizace by měly výstrahy zabezpečení aktivně sledovat a provádět potřebné kroky, aby útok podrobněji prošetřily nebo napravily. Další informace o tom, jak detekce hrozeb služby Security Center pracuje, najdete v článku [Funkce detekce ve službě Azure Security Center](security-center-detection-capabilities.md).
 
 Cílem tohoto článku není pomoct vám s vytvořením vlastního plánu reakcí na incidenty, postup uvedený v dokumentu Microsoft Azure Security Response in the Cloud (Reakce zabezpečení Microsoft Azure v cloudu) ale použijeme jako základ pro fáze reakcí na incidenty. Jednotlivé fáze jsou uvedeny v následujícím diagramu:
@@ -255,15 +276,18 @@ Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Manag
 > 
 > 
 
-## Viz také
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak naplánovat přechod na službu Security Center. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
 
-* [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se sledovat stav svých prostředků Azure.
 * [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – Zjistěte, jak pomocí Azure Security Center sledovat stav vašich partnerských řešení.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

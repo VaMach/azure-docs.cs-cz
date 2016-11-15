@@ -1,13 +1,13 @@
 ---
-title: Vytvoření indexu Azure Search pomocí sady .NET SDK | Microsoft Docs
-description: Vytvořte index v kódu pomocí sady Azure Search .NET SDK.
+title: "Vytvoření indexu Azure Search pomocí sady .NET SDK | Dokumentace Microsoftu"
+description: "Vytvořte index v kódu pomocí sady Azure Search .NET SDK."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
+manager: jhubbard
+editor: 
 tags: azure-portal
-
+ms.assetid: 3a851647-fc7b-4fb6-8506-6aaa519e77cd
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,12 +15,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
+
 
 ---
-# Vytvoření indexu Azure Search pomocí sady .NET SDK
+# <a name="create-an-azure-search-index-using-the-net-sdk"></a>Vytvoření indexu Azure Search pomocí sady .NET SDK
 > [!div class="op_single_selector"]
 > * [Přehled](search-what-is-an-index.md)
-> * [Portál](search-create-index-portal.md)
+> * [Azure Portal](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
@@ -32,7 +36,7 @@ Předtím, než podle těchto pokynů vytvoříte index, byste už měli mít [v
 
 Všimněte si, že ukázkový kód v tomto článku je napsán v jazyce C#. Úplný zdrojový kód najdete [na GitHubu](http://aka.ms/search-dotnet-howto).
 
-## I. Identifikace klíče api-key správce služby Azure Search
+## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifikace klíče api-key správce služby Azure Search
 Teď, když máte zřízenou službu Azure Search, jste skoro připraveni vydávat žádosti na koncový bod služby pomocí sady .NET SDK. Nejprve budete muset získat jeden z klíčů správce (api-key) vytvořených pro vyhledávací službu, kterou jste zřídili. .NET SDK bude tento klíč api-key odesílat v každém požadavku na vaši službu. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
 1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
@@ -48,7 +52,7 @@ Pro účely vytvoření indexu můžete použít primární nebo sekundární kl
 
 <a name="CreateSearchServiceClient"></a>
 
-## II. Vytvoření instance třídy SearchServiceClient
+## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Vytvoření instance třídy SearchServiceClient
 Chcete-li začít používat sadu Azure Search .NET SDK, budete muset vytvořit instanci třídy `SearchServiceClient`. Tato třída obsahuje několik konstruktorů. Ten, který chcete, přijímá jako parametry název vaší vyhledávací služby a objekt `SearchCredentials`. `SearchCredentials` zabalí váš klíč api-key.
 
 Následující kód vytvoří novou instanci `SearchServiceClient` pomocí hodnot pro název vyhledávací služby a klíč api-key, které jsou uložené v konfiguračním souboru aplikace (`app.config` nebo `web.config`):
@@ -60,7 +64,7 @@ string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"
 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
 ```
 
-`SearchServiceClient` má vlastnost `Indexes`. Tato vlastnost poskytuje všechny metody, které potřebujete k vytváření, výpisu, aktualizaci nebo odstranění indexů Azure Search.
+`Indexes` má vlastnost `SearchServiceClient`. Tato vlastnost poskytuje všechny metody, které potřebujete k vytváření, výpisu, aktualizaci nebo odstranění indexů Azure Search.
 
 > [!NOTE]
 > Třída `SearchServiceClient` spravuje připojení k vyhledávací službě. Aby se zabránilo otevírání příliš mnoha připojení, měli byste se pokusit sdílet jednu instanci třídy `SearchServiceClient` v rámci aplikace, pokud je to možné. Její metody jsou bezpečné pro přístup z více vláken a takové sdílení umožňují.
@@ -69,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## III. Definování indexu Azure Search pomocí třídy `Index`
+## <a name="iii-define-your-azure-search-index-using-the-index-class"></a>III. Definování indexu Azure Search pomocí třídy `Index`
 Jediné volání metody `Indexes.Create` vytvoří váš index. Tato metoda přebírá jako parametr objekt `Index`, který definuje index Azure Search. Je nutné vytvořit objekt `Index` a provést jeho inicializaci následujícím způsobem:
 
 1. Nastavte vlastnost `Name` objektu `Index` na název indexu.
@@ -112,7 +116,7 @@ Výše uvedená definice indexu používá pro pole `description_fr` vlastní an
 > 
 > 
 
-## IV. Vytvoření indexu
+## <a name="iv-create-the-index"></a>IV. Vytvoření indexu
 Nyní, když jste inicializovali objekt `Index`, můžete vytvořit index jednoduchým voláním metody `Indexes.Create` pro objekt `SearchServiceClient`:
 
 ```csharp
@@ -132,9 +136,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## Další
+## <a name="next"></a>Další
 Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah](search-what-is-data-import.md), abyste mohli začít prohledávat data.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

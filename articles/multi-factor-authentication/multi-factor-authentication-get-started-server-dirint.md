@@ -1,12 +1,12 @@
 ---
-title: Integrace adresáře mezi službami Azure Multi-Factor Authentication a Active Directory
-description: Toto je stránka vícefaktorového ověření Azure, která popisuje postup integrace Azure Multi-Factor Authentication Serveru se službou Active Directory pro synchronizaci adresářů.
+title: "Integrace adresáře mezi službami Azure Multi-Factor Authentication a Active Directory"
+description: "Toto je stránka vícefaktorového ověření Azure, která popisuje postup integrace Azure Multi-Factor Authentication Serveru se službou Active Directory pro synchronizaci adresářů."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da64189de722b5ee3552530bb1276539e5c6c323
+
 
 ---
-# Integrace adresáře mezi Azure MFA Serverem a službou Active Directory
+# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrace adresáře mezi Azure MFA Serverem a službou Active Directory
 V části Integrace adresáře můžete nakonfigurovat server pro integraci se službou Active Directory nebo jiným adresářem LDAP.  Můžete tu taky nastavit atributy podle schématu adresáře a zapnout automatickou synchronizaci uživatelů.
 
-## Nastavení
+## <a name="settings"></a>Nastavení
 Ve výchozím nastavení je Azure Multi-Factor Authentication Server nakonfigurovaný pro import nebo synchronizaci uživatelů ze služby Active Directory.  Tato karta vám umožní potlačit výchozí chování a vytvořit vazbu na jiný adresář LDAP, adresář ADAM, nebo konkrétní ovladač domény Active Directory.  Taky umožňuje použití Ověřování pomocí protokolu LDAP na proxy serveru LDAP nebo pro Vázání protokolu LDAP jako cíl pro RADIUS, předběžné ověření pro Ověřování IIS nebo pro primární ověření pro portál User Portal.  V následující tabulce jsou popsaná jednotlivá nastavení.
 
 ![Nastavení](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
@@ -45,7 +49,7 @@ V následující tabulce jsou popsaná nastavení konfigurace LDAP.
 | Omezení velikosti dotazu |Zadejte omezení velikosti pro maximální počet uživatelů, které vrátí vyhledávání v adresáři.  Toto omezení by mělo být stejné jako omezení nastavené v adresáři LDAP.  Pro velká hledání v případech kdy se nepodporuje stránkování, se import a synchronizace pokusí uživatele načíst v dávkách.  Pokud je tady nastavené omezení větší než omezení nastavené v adresáři LDAP, může se stát, že se někteří uživatelé nenačtou. |
 | Tlačítko Test |Kliknutím na tlačítko Test můžete otestovat vazbu na server LDAP.  <br><br> Poznámka: Pro otestování vazby není potřeba, aby byla vybraná možnost Použít LDAP.  Umožní vám otestovat vazbu před použitím konfigurace LDAP. |
 
-## Filtry
+## <a name="filters"></a>Filtry
 Filtry vám umožní nastavit kritéria pro kvalifikování záznamů při prohledávání adresáře.  Nastavením filtru můžete upřesnit rozsah objektů, které chcete synchronizovat.  
 
 ![Filtry](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
@@ -56,7 +60,7 @@ Azure Multi-Factor Authentication má tyto 3 možnosti.
 * **Filtr skupiny zabezpečení** - Zadejte kritéria filtru, která se použijí pro kvalifikaci záznamů skupiny zabezpečení při prohledávání adresáře.  Pro Active Directory a ADAM se obvykle používá (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648).  Pro jiné adresáře LDAP by se měla použít kritéria, která kvalifikují každý typ objektu skupiny zabezpečení v závislosti na schématu adresáře.  <br>Poznámka: Pokud je toto pole prázdné, použije se výchozí hodnota (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).
 * **Filtr uživatele** - Zadejte kritéria filtru, která se použijí pro kvalifikaci záznamů uživatele při prohledávání adresáře.  Pro Active Directory a ADAM se obvykle používá (&(objectClass=user)(objectCategory=person)).  Pro jiné adresáře LDAP by se mělo použít (objectClass=inetOrgPerson) nebo něco podobného v závislosti na schématu adresáře. <br>Poznámka: Pokud je toto pole prázdné, použije se výchozí hodnota (&(objectCategory=person)(objectClass=user)).
 
-## Atributy
+## <a name="attributes"></a>Atributy
 Atributy se dají podle potřeby upravit pro konkrétní adresář.  To vám umožní přidat vlastní atributy a nastavit synchronizaci na jen ty atributy, které chcete.  Hodnota každého pole atributu by měla mít název atributu, jak je definovaný ve schématu adresáře.  Další informace jsou v tabulce dole.
 
 ![Atributy](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
@@ -96,7 +100,7 @@ Pokud chcete atributy upravit, jednoduše klikněte na tlačítko Upravit na kar
 
 ![Upravit atributy](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## Synchronizace
+## <a name="synchronization"></a>Synchronizace
 Synchronizace udržuje databázi uživatelů Azure Multi-Factor synchronizovanou s uživateli v Active Directory nebo jiný adresář protokolu LDAP (Lightweight Directory Access Protocol).  Tento proces se podobá ručnímu importování uživatelů z Active Directory, ale se pravidelně dotazuje, jestli nedošlo ke změnám uživatelů a skupin zabezpečení v Active Directory, které by měl zpracovat.  Taky umožňuje vypnutí nebo odstranění uživatelů z kontejneru nebo skupiny zabezpečení a odstranění uživatelů odstraněných z Active Directory.
 
 Služba Multi-Factor Auth ADSync je služba systému Windows, která pravidelně dotazuje službu Active Directory.  Nesmíte si ji plést se službou Azure AD Sync nebo Azure AD Connect  Přestože je služba Multi-Factor Auth ADSync postavená na podobném základu kódu, je specifická pro Azure Multi-Factor Authentication Server.  instaluje se v zastaveném stavu a pokud je nakonfigurovaná k tomu, aby se spustila, spustí ji Multi-Factor Auth Server.  Pokud máte více serverů s Multi-Factor Auth Serverem, může Multi-Factor Auth ADSync běžet jen na jednom serveru.
@@ -135,11 +139,14 @@ Tlačítka Přesunout nahoru a Přesunout dolů umožňují správci změnit po�
 > 
 > 
 
-## Multi-Factor Auth Servery
+## <a name="multifactor-auth-servers"></a>Multi-Factor Auth Servery
 Můžete zřídit další Multi-Factor Auth Servery, které budou sloužit jako záložní servery proxy pro RADIUS, servery proxy pro LDAP nebo jako servery pro Ověřování IIS. Nastavení na kartě Synchronizace se může sdílet mezi všemi agenty. Služba Multi-Factor Auth Server ale může běžet jen na jednom z těchto agentů. Tato karta vám umožní vybrat Multi-Factor Auth Server, který se měl povolit pro synchronizaci.
 
 ![Multi-Factor-Auth Servery](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

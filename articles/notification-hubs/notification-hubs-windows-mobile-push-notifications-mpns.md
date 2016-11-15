@@ -1,26 +1,30 @@
 ---
-title: Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone | Microsoft Docs
-description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Windows Phone 8 nebo Windows Phone 8.1 Silverlight.
+title: "Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone | Dokumentace Microsoftu"
+description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace Windows Phone 8 nebo Windows Phone 8.1 Silverlight."
 services: notification-hubs
 documentationcenter: windows
-keywords: nabízené oznámení,nabízená oznámení,nabízení windows phone
-author: wesmc7777
+keywords: "nabízené oznámení,nabízená oznámení,nabízení windows phone"
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
+
 
 ---
-# Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone
+# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Odesílání nabízených oznámení pomocí Azure Notification Hubs ve Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 > [!NOTE]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
@@ -36,14 +40,14 @@ V tomto kurzu vytvoříte prázdnou aplikaci pro Windows Phone 8, která obdrž�
 
 Tento kurz představuje scénář jednoduchého vysílání přes centra oznámení.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
 * [Visual Studio 2012 Express pro Windows Phone] nebo novější verzi
 
 Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notification Hubs pro aplikace Windows Phone 8.
 
-## Vytvoření centra oznámení
+## <a name="create-your-notification-hub"></a>Vytvoření centra oznámení
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -60,10 +64,10 @@ Centrum se teď vytvoří a nakonfiguruje pro odeslání neověřeného oznámen
 > 
 > 
 
-## Připojování aplikace k centru oznámení
+## <a name="connecting-your-app-to-the-notification-hub"></a>Připojování aplikace k centru oznámení
 1. V sadě Visual Studio vytvořte novou aplikaci pro Windows Phone 8.
    
-    ![Visual Studio – Nový projekt – aplikace Windows Phone][13]
+       ![Visual Studio - New Project - Windows Phone App][13]
    
     Ve Visual Studio 2013 Update 2 nebo novější verzi místo toho vytvořte aplikaci Windows Phone Silverlight.
    
@@ -115,9 +119,9 @@ Centrum se teď vytvoří a nakonfiguruje pro odeslání neověřeného oznámen
    > 
 6. V Průzkumníku řešení rozbalte **Vlastnosti**, otevřete soubor `WMAppManifest.xml`, klikněte na kartu **Možnosti** a ujistěte se, že je zaškrtnuta schopnost **ID_CAP_PUSH_NOTIFICATION**.
    
-    ![Visual Studio – možnosti aplikace pro Windows Phone][14]
+       ![Visual Studio - Windows Phone App Capabilities][14]
    
-    Tato možnost zajistí, že vaše aplikace může přijímat nabízená oznámení Bez toho se nezdaří jakýkoliv pokus o odeslání nabízených oznámení do aplikace.
+       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Stiskněte klávesu `F5` a spusťte aplikaci.
    
     V aplikaci se zobrazí zpráva registrace.
@@ -128,7 +132,7 @@ Centrum se teď vytvoří a nakonfiguruje pro odeslání neověřeného oznámen
    > 
    > 
 
-## Odesílání nabízených oznámení z backendu
+## <a name="send-push-notifications-from-your-backend"></a>Odesílání nabízených oznámení z backendu
 Pomocí našeho veřejného <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">rozhraní REST</a> je možné pomocí center oznámení posílat nabízená oznámení z jakéhokoli backendu. V tomto kurzu zašlete nabízená oznámení pomocí konzolové aplikace .NET. 
 
 Příklad odesílání nabízených oznámení z backendu ASP.NET WebAPI, který je integrovaný do Notification Hubs, najdete v článku [Azure Notification Hubs upozorňují uživatele pomocí backendu .NET](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
@@ -137,7 +141,7 @@ Příklad odesílání nabízených oznámení pomocí [rozhraní REST API](http
 
 1. Klikněte pravým tlačítkem myši na řešení, vyberte možnost **Přidat** a **Nový projekt...** a pak v části **Visual C#** klikněte na tlačítko **Windows** a **Konzolové aplikace** a klikněte na tlačítko **OK**.
    
-    ![Visual Studio – Nový projekt – Konzolová aplikace][6]
+       ![Visual Studio - New Project - Console Application][6]
    
     Tento postup přidá novou aplikaci Visual C# do řešení. Tento postup také můžete využít v samostatném řešení.
 2. Klikněte na položku **Nástroje**, klikněte na **Správce balíčků knihoven** a pak na **Konzola správce balíčků**.
@@ -182,7 +186,7 @@ Příklad odesílání nabízených oznámení pomocí [rozhraní REST API](http
 
 Na webu MSDN můžete najít všechny možné datové části v tématech [katalog informačních zpráv] a [katalog dlaždic].
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto jednoduchém příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení Windows Phone 8. 
 
 Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití centra oznámení pro nabízená oznámení uživatelům]. 
@@ -223,6 +227,6 @@ Další informace o centrech oznámení najdete v [Průvodce centry oznámení].
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

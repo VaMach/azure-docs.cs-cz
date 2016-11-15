@@ -1,13 +1,13 @@
 ---
-title: Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway pro virtuální sítě Azure | Microsoft Docs
-description: Tento článek popisuje zařízení VPN a parametry protokolu IPsec pro připojení typu S2S ke službě VPN Gateway a obsahuje odkazy na pokyny ke konfiguraci a ukázky.
+title: "Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway pro virtuální sítě Azure | Dokumentace Microsoftu"
+description: "Tento článek popisuje zařízení VPN a parametry protokolu IPsec pro připojení typu S2S ke službě VPN Gateway a obsahuje odkazy na pokyny ke konfiguraci a ukázky."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
+editor: 
 tags: azure-resource-manager, azure-service-management
-
+ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+
 
 ---
-# Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
+# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
 Ke konfiguraci připojení typu Site-to-Site (S2S) VPN je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace. 
 
 > [!NOTE]
@@ -34,8 +38,8 @@ Není-li vaše zařízení v tabulce [Ověřená zařízení VPN](#devicetable),
   * Dynamické směrování = RouteBased
 * Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure. 
 
-## <a name="devicetable"></a>Ověřená zařízení VPN
-Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat. 
+## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Ověřená zařízení VPN
+Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat. 
 
 Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
@@ -66,13 +70,13 @@ Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají př
 
 (*) Směrovače řady ISR 7200 podporují pouze sítě VPN typu PolicyBased.
 
-## <a name="additionaldevices"></a>Neověřená zařízení VPN
+## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Neověřená zařízení VPN
 Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je možné, že bude fungovat s připojením typu Site-to-Site. Ověřte, že vaše zařízení VPN splňuje minimální požadavky uvedené v oddílu Požadavky služby Gateway článku [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). Zařízení splňující minimální požadavky by také měla fungovat s bránami VPN. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
 
-## Ukázky úpravy konfigurace zařízení
+## <a name="editing-device-configuration-samples"></a>Ukázky úpravy konfigurace zařízení
 Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé hodnoty tak, aby odpovídaly nastavení vašeho prostředí. 
 
-**Chcete-li upravit ukázku:**
+**Postup úpravy ukázky:**
 
 1. Otevřete ukázku pomocí Poznámkového bloku. 
 2. Vyhledejte všechny řetězce *text* a nahraďte je hodnotami, které odpovídají vašemu prostředí. Nezapomeňte zahrnout < a >. Zadané názvy by měly být jedinečné. Pokud příkaz nefunguje, obraťte se na dokumentaci výrobce zařízení.
@@ -91,13 +95,13 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | &lt;SP_AzureGatewayIpAddress&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako **IP adresa brány**. |
 | &lt;SP_PresharedKey&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako Správa klíče. |
 
-## Parametry protokolu IPsec
+## <a name="ipsec-parameters"></a>Parametry protokolu IPsec
 > [!NOTE]
 > Přestože jsou hodnoty uvedené v následující tabulce podporovány službou Azure VPN Gateway, v současné době neexistuje způsob, jak zadat nebo vybrat konkrétní kombinaci ze služby Azure VPN Gateway. Musíte zadat jakákoli omezení ze strany místního zařízení VPN. Kromě toho musíte uchytit MSS na 1350.
 > 
 > 
 
-### Nastavení protokolu IKE Fáze 1
+### <a name="ike-phase-1-setup"></a>Nastavení protokolu IKE Fáze 1
 | **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
 | --- | --- | --- |
 | Verze IKE |IKEv1 |IKEv2 |
@@ -107,7 +111,7 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | Algoritmus hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Životnost přidružení zabezpečení (SA) Fáze 1 (čas) |28 800 sekund |10 800 sekund |
 
-### Nastavení protokolu IKE Fáze 2
+### <a name="ike-phase-2-setup"></a>Nastavení protokolu IKE Fáze 2
 | **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
 | --- | --- | --- |
 | Verze IKE |IKEv1 |IKEv2 |
@@ -120,7 +124,7 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 
 (*) Azure Gateway jako respondér IKE může přijímat skupinu PFS DH 1, 2, 5, 14 a 24.
 
-### Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased
+### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased
 Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověřování. Nabídky jsou uvedeny v pořadí podle preference jejich předávání nebo přijímání.
 
 | **Nabídky šifrování SA protokolu IPsec a ověřování** | **Služba Azure Gateway jako iniciátor** | **Služba Azure Gateway jako respondér** |
@@ -147,6 +151,9 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 * U vysokovýkonných bran sítě VPN a bran VPN typu RouteBased můžete zadat šifrování protokolu IPsec s prázdným ESP. Prázdné šifrování neposkytuje ochranu přenášených dat a mělo by se používat pouze pokud je vyžadována maximální propustnost a minimální latence.  Klienti toho mohou využít ve scénářích komunikace typu VNet-to-VNet nebo pokud k šifrování dochází jinde v rámci řešení.
 * Pro připojení mezi různými místy prostřednictvím Internetu použijte výchozí nastavení služby Azure VPN Gateway s šifrováním a algoritmy hash uvedenými v tabulkách výše, abyste zajistili bezpečnost důležité komunikace.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby Firebase Cloud Messaging | Microsoft Docs
-description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs a službu služby Firebase Cloud Messaging k odesílání nabízených oznámení do zařízení Android.
+title: "Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby Firebase Cloud Messaging | Dokumentace Microsoftu"
+description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs a službu služby Firebase Cloud Messaging k odesílání nabízených oznámení do zařízení Android."
 services: notification-hubs
 documentationcenter: android
-keywords: nabízená oznámení, nabízené oznámení, nabízené oznámení android, fcm, firebase cloud messaging
-author: wesmc7777
+keywords: "nabízená oznámení, nabízené oznámení, nabízené oznámení android, fcm, firebase cloud messaging"
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
+
 
 ---
-# Odesílání nabízených oznámení do systému Android pomocí Azure Notification Hubs
+# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Odesílání nabízených oznámení do systému Android pomocí Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 > [!IMPORTANT]
 > Toto téma popisuje nabízená oznámení ve službě Google Firebase Cloud Messaging (FCM). Pokud stále používáte službu Google Cloud Messaging (GCM), přečtěte si článek [Odesílání nabízených oznámení do systému Android a pomocí Azure Notification Hubs a služby GCM](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
@@ -33,7 +37,7 @@ Vytvoříte prázdnou aplikaci systému Android, která bude přijímat nabízen
 
 Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 > [!IMPORTANT]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 > 
@@ -45,19 +49,19 @@ Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://githu
 * Služby Google Play 9.0.2 nebo novější pro službu Firebase Cloud Messaging.
 * Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notification Hubs pro Android Apps.
 
-## Vytvoření nového projektu v Android Studiu
+## <a name="create-a-new-android-studio-project"></a>Vytvoření nového projektu v Android Studiu
 1. V nástroji Android Studio spusťte nový projekt Android Studio.
    
-    ![Android Studio – nový projekt](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+       ![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
 2. Zvolte faktor formuláře **Telefon i tablet** a hodnotu **Minimální SDK**, které chcete podporovat. Pak klikněte na tlačítko **Další**.
    
-    ![Android Studio – pracovní postup vytvoření projektu](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+       ![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. Zvolte možnost **Prázdná aktivita** pro hlavní aktivitu, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Dokončit**.
 
-## Vytvoření projektu, který podporuje službu Firebase Cloud Messaging
+## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Vytvoření projektu, který podporuje službu Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## Konfigurace nového centra oznámení
+## <a name="configure-a-new-notification-hub"></a>Konfigurace nového centra oznámení
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 &emsp;&emsp;6. V centru oznámení v okně **Nastavení** vyberte **Služby oznámení** a potom **Google (GCM)**. Zadejte klíč serveru FCM, který jste si zkopírovali z [konzoly Firebase](https://firebase.google.com/console/) a klikněte na **Uložit**.
@@ -66,11 +70,11 @@ Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://githu
 
 Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebase Cloud Messaging. Zároveň máte připojovací řetězce, pomocí kterých můžete svojí aplikaci zaregistrovat pro příjem a odesílání nabízených oznámení.
 
-## <a id="connecting-app"></a>Připojte aplikaci k centru oznámení
-### Přidejte do projektu služby Google Play
+## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Připojte aplikaci k centru oznámení
+### <a name="add-google-play-services-to-the-project"></a>Přidejte do projektu služby Google Play
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### Přidání knihoven Azure Notification Hubs
+### <a name="adding-azure-notification-hubs-libraries"></a>Přidání knihoven Azure Notification Hubs
 1. Do souboru `Build.Gradle` pro **aplikaci** přidejte následující řádky v části **závislosti**.
    
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -83,7 +87,7 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
             }
         }
 
-### Probíhá aktualizace souboru AndroidManifest.xml.
+### <a name="updating-the-androidmanifestxml"></a>Probíhá aktualizace souboru AndroidManifest.xml.
 1. Abychom zajistili podporu FCM, musíme implementovat službu naslouchání ID instance do našeho kódu, který se používá k [získání registračních tokenů](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) pomocí [rozhraní FirebaseInstanceId API společnosti Google](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId). V tomto kurzu pojmenujeme třídu `MyInstanceIDService`. 
    
     Přidejte následující definice služby do souboru AndroidManifest.xml uvnitř značky `<application>`. 
@@ -118,7 +122,7 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
         <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-### Přidání kódu
+### <a name="adding-code"></a>Přidání kódu
 1. V zobrazení projektu rozbalte **app** > **src** > **main** > **java**. Klikněte pravým tlačítkem na váš balíček ve složce **java**, klikněte na tlačítko **Nový** a pak klikněte na tlačítko **třída jazyka Java**. Přidejte novou třídu s názvem `NotificationSettings`. 
    
     ![Android Studio – nová třída Java](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
@@ -129,7 +133,7 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
    * **HubListenConnectionString**: připojovací řetězec **DefaultListenAccessSignature** pro rozbočovač. Tento připojovací řetězec můžete zkopírovat kliknutím na položku **Zásady přístupu** v okně **Nastavení** rozbočovače na [Azure Portal].
    * **HubName**: použije název centra oznámení, který se zobrazí v centru okna na webu [Azure Portal].
      
-     `NotificationSettings` kód:
+     Kód `NotificationSettings`:
      
        public class NotificationSettings {
      
@@ -347,7 +351,7 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
 8. Metoda `ToastNotify` používá ovládání *„Hello World“* `TextView` k trvalému hlášení stavu a oznámení v aplikaci. Do rozložení activity_main.xml přidejte následující id pro ovládací prvek.
    
        android:id="@+id/text_hello"
-9. Vedle přidáme podtřídu pro našeho příjemce, kterého jsme definovali v souboru AndroidManifest.xml. Přidejte další novou třídu do projektu s názvem `MyHandler`.
+9. Vedle přidáme podtřídu pro našeho příjemce, kterého jsme definovali v souboru AndroidManifest.xml. Přidejte další novou třídu do projektu s názvem `MyHandler`.
 10. Nad `MyHandler.java` přidejte následující příkazy pro import:
     
         import android.app.NotificationManager;
@@ -412,20 +416,20 @@ Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebas
     > 
     > 
 
-## Odeslání nabízených oznámení
+## <a name="sending-push-notifications"></a>Odeslání nabízených oznámení
 Můžete otestovat přijímání nabízených oznámení ve vaší aplikaci jejich odesláním prostřednictvím [Azure Portal] – hledejte část **Poradce při potížích** v okně centra, jak je uvedeno níže.
 
 ![Azure Notification Hubs – testovací odeslání](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## (Volitelné) Zasílání nabízených oznámení přímo z aplikace
+## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Volitelné) Zasílání nabízených oznámení přímo z aplikace
 > [!IMPORTANT]
 > Tento příklad odesílání oznámení z klientské aplikace poskytujeme jenom pro výukové účely. Vzhledem k tomu, že v klientské aplikaci bude nutná přítomnost `DefaultFullSharedAccessSignature`, bude centrum oznámení vystaveno riziku, kdy může některý uživatel získat přístup k odesílání neoprávněných oznámení vašim klientům.
 > 
 > 
 
-Za normálních okolností byste odesílali oznámení pomocí serveru backend. V některých případech můžete chtít možnost zasílání nabízených oznámení přímo z klientské aplikace. Tato část vysvětluje postup odesílání oznámení z klienta pomocí [API služby REST centra oznámení Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Za normálních okolností byste odesílali oznámení pomocí serveru backend. V některých případech můžete chtít možnost zasílání nabízených oznámení přímo z klientské aplikace. Tato část vysvětluje postup odesílání oznámení z klienta pomocí [API služby REST centra oznámení Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
 1. V zobrazení projektu Android Studio rozbalte možnost **App** > **src** > **main** > **res** > **layout**. Otevřete soubor rozložení `activity_main.xml` a klikněte na kartu **Text** pro aktualizaci textového obsahu souboru. Aktualizujte ho pomocí kódu níže, který přidává nové `Button` a `EditText` ovládací prvky pro zasílání zpráv s nabízeným oznámením centra oznámení. Přidejte tento kód v dolní části, těsně před `</RelativeLayout>`.
    
@@ -469,7 +473,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
         import android.util.Base64;
         import android.view.View;
         import android.widget.EditText;
-5. Do souboru `MainActivity.java` přidejte následující členy v horní části třídy `MainActivity`.  
+5. Do souboru `MainActivity.java` přidejte následující členy v horní části třídy `MainActivity`.    
    
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
@@ -600,7 +604,7 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
                             // Example below targets 3 specific tags
                             // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
-                            //      "tag1 || tag2 || tag3");
+                            //        "tag1 || tag2 || tag3");
    
                             // Send notification message
                             urlConnection.setFixedLengthStreamingMode(json.length());
@@ -636,29 +640,29 @@ Za normálních okolností byste odesílali oznámení pomocí serveru backend. 
             }.start();
         }
 
-## Testování vaší aplikace
-#### Nabízená oznámení v emulátoru
+## <a name="testing-your-app"></a>Testování vaší aplikace
+#### <a name="push-notifications-in-the-emulator"></a>Nabízená oznámení v emulátoru
 Pokud chcete testovat nabízená oznámení uvnitř emulátoru, ověřte, zda bitová kopie emulátoru podporuje úroveň rozhraní Google API, kterou jste zvolili pro vaši aplikaci. Pokud bitová kopie nepodporuje nativní rozhraní Google API, zobrazí se výjimka **SLUŽBA\_NENÍ\_K DISPOZICI**.
 
 Kromě výše uvedeného zajistěte, že jste přidali účet Google do svého spuštěného emulátoru pod položkou **Nastavení** > **účtů**. V opačném případě mohou vaše pokusy o registraci s GCM mít za následek výjimku **OVĚŘOVÁNÍ\_SE NEZDAŘILO**.
 
-#### Spouštění aplikace.
+#### <a name="running-the-application"></a>Spouštění aplikace.
 1. Spusťte aplikaci a všimněte si, že je ID registrace hlášené pro úspěšnou registraci.
    
-    ![Testování v systému Android – registrace kanálu](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
+       ![Testing on Android - Channel registration](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
 2. Zadejte zprávu oznámení k odeslání do všech zařízení Android, která byla zaregistrovaná v centru.
    
-    ![Testování v systému Android – odesílání zprávy](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
+       ![Testing on Android - sending a message](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
 3. Stiskněte tlačítko **Odeslat oznámení**. Všechna zařízení, které mají spuštěné aplikace, zobrazí instance `AlertDialog` se zprávou nabízených oznámení. Zařízení, která nemají spuštěnou aplikaci, ale byla dříve registrována pro nabízená oznámení, obdrží oznámení ve správci oznámení Android. Ta lze zobrazit potažením dolů z levého horního rohu.
    
-    ![Testování v systému Android – oznámení](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
+       ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
-## Další kroky
-Jako další krok doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
+## <a name="next-steps"></a>Další kroky
+Jako další krok doporučujeme tutoriál [Používání center oznámení pro nabízená oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, podívejte se na tutoriál [Používání centra oznámení k odesílání novinek].
 
-Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyny centra oznámení].
+Další obecné informace o centrech oznámení naleznete v tématu naše [Průvodce centry oznámení].
 
 <!-- Images. -->
 
@@ -669,13 +673,13 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Odkazování na projekt knihovny]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portál Azure Classic]: https://manage.windowsazure.com/
-[Pokyny centra oznámení]: notification-hubs-push-notification-overview.md
-[Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Průvodce centry oznámení]: notification-hubs-push-notification-overview.md
+[Používání center oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

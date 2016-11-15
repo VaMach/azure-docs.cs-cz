@@ -1,12 +1,12 @@
 ---
-title: Co jsou trasy definované uživatelem a předávání IP?
-description: Naučte se pomocí tras definovaných uživatelem (UDR) a předávání IP přesměrovat provoz do síťových virtuálních zařízení v Azure.
+title: "Co jsou trasy definované uživatelem a předávání IP?"
+description: "Naučte se pomocí tras definovaných uživatelem (UDR) a předávání IP přesměrovat provoz do síťových virtuálních zařízení v Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+
 
 ---
-# Co jsou trasy definované uživatelem a předávání IP?
+# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Co jsou trasy definované uživatelem a předávání IP?
 Když přidáte virtuální počítače do virtuální sítě v Azure, uvidíte, že tyto virtuální počítače automaticky umí vzájemně komunikovat prostřednictvím sítě. Není nutné určit bránu, ani když jsou virtuální počítače v různých podsítích. Totéž platí pro komunikaci z virtuálních počítačů do veřejného internetu, a dokonce i do vaší místní sítě, pokud je dostupné hybridní připojení z Azure do vlastního datacentra.
 
 Tento tok komunikace je možný díky tomu, že Azure pomocí řady systémových tras definuje toky provozu IP. Systémové trasy řídí tok komunikace v těchto scénářích:
@@ -42,14 +46,14 @@ Následující obrázek znázorňuje příklad tras definovaných uživatelem a 
 > 
 > 
 
-## Prostředek trasy
+## <a name="route-resource"></a>Prostředek trasy
 Pakety se přes síť TCP/IP směrují na základě směrovací tabulky definované v každém uzlu fyzické sítě. Směrovací tabulka je kolekce jednotlivých tras, podle které se na základě cílové IP adresy rozhoduje, kam se pakety předají. Trasa se skládá z těchto položek:
 
 | Vlastnost | Popis | Omezení | Požadavky |
 | --- | --- | --- | --- |
 | Předpona adresy |Cílový rozsah CIDR, na který se trasa vztahuje, například 10.1.0.0/16. |Toto musí být platný rozsah CIDR, který reprezentuje adresy ve veřejném internetu, virtuální síti Azure nebo místním datacentru. |Ujistěte se, že **Předpona adresy** neobsahuje adresu uvedenou ve vlastnosti **Adresa dalšího segmentu**, jinak se pakety dostanou do smyčky mezi zdrojem a dalším segmentem a nikdy nedorazí do cíle. |
 | Typ dalšího segmentu |Typ segmentu Azure, do kterého se má paket odeslat. |Toto musí být jedna z následujících hodnot: <br/> **Virtuální síť**. Představuje místní virtuální síť. Pokud máte například dvě podsítě, 10.1.0.0/16 a 10.2.0.0/16, ve stejné virtuální síti, trasa každé podsítě ve směrovací tabulce bude obsahovat hodnotu dalšího segmentu *Virtuální síť*. <br/> **Brána virtuální sítě**. Představuje bránu Azure S2S VPN Gateway. <br/> **Internet.** Představuje výchozí internetovou bránu poskytovanou infrastrukturou Azure. <br/> **Virtuální zařízení.** Představuje virtuální zařízení, které jste přidali do virtuální sítě Azure. <br/> **Žádný**. Představuje černou díru. Pakety předané do černé díry se nepředají vůbec. |Typ **Žádný** se vám může hodit, pokud chcete zastavit tok paketů do určitého cíle. |
-| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Toto musí být dostupná IP adresa. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. |
+| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Musí to být IP adresa, která je dosažitelná z virtuální sítě, ve které je použitá uživatelem definovaná trasa. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. |
 
 V prostředí Azure PowerShell mají některé hodnoty „NextHopType“ odlišné názvy:
 
@@ -59,14 +63,14 @@ V prostředí Azure PowerShell mají některé hodnoty „NextHopType“ odlišn
 * Internet je Internet
 * Žádný je žádný
 
-### Systémové trasy
+### <a name="system-routes"></a>Systémové trasy
 Každá podsíť vytvořená ve virtuální síti se automaticky přidruží k směrovací tabulce, která obsahuje následující pravidla systémových tras:
 
 * **Pravidlo místní virtuální sítě:** Toto pravidlo se automaticky vytvoří pro každou podsíť ve virtuální síti. Určuje, že mezi virtuálními počítači ve virtuální síti je přímé propojení a není tu žádný zprostředkující další segment.
 * **Místní pravidlo:** Toto pravidlo se používá na veškerý provoz, jehož cílem je místní rozsah adres, a jako cíl dalšího segmentu používá bránu sítě VPN.
-* **Internetové pravidlo:** Toto pravidlo zpracovává veškerý provoz, jehož cílem je veřejný internet, a jako další segment pro veškerý provoz směřující do internetu používá internetovou bránu infrastruktury.
+* **Internetové pravidlo:** Toto pravidlo zpracovává veškerý provoz, jehož cílem je veřejný internet (předpona adresy 0.0.0.0/0) a jako další segment pro veškerý provoz směřující do internetu používá internetovou bránu infrastruktury.
 
-### Trasy definované uživatelem
+### <a name="user-defined-routes"></a>Trasy definované uživatelem
 U většiny prostředí budete potřebovat jenom systémové trasy, které jsou už v Azure definované. V určitých případech ale může být nutné vytvořit směrovací tabulku a přidat jednu nebo víc tras. Může jít například o tyto situace:
 
 * Vynucené tunelování do internetu prostřednictvím místní sítě.
@@ -87,7 +91,7 @@ Pokud se chcete naučit vytvářet trasy definované uživatelem, informace najd
 > 
 > 
 
-### Trasy protokolu BGP
+### <a name="bgp-routes"></a>Trasy protokolu BGP
 Pokud máte spojení ExpressRoute mezi místní sítí a Azure, můžete povolit, aby protokol BGP šířil trasy z místní sítě do Azure. Tyto trasy protokolu BGP se v jednotlivých podsítích Azure používají stejným způsobem jako systémové trasy a trasy definované uživatelem. Další informace najdete v tématu [Úvod do služby ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -95,15 +99,18 @@ Pokud máte spojení ExpressRoute mezi místní sítí a Azure, můžete povolit
 > 
 > 
 
-## Předávání IP
+## <a name="ip-forwarding"></a>Předávání IP
 Jak se uvádí výše, jedním z hlavních důvodů k vytváření tras definovaných uživatelem je přesměrování provozu do virtuálního zařízení. Virtuální zařízení není nic jiného než virtuální počítač, na kterém běží aplikace sloužící k určitému zpracování síťového provozu, jako je například brána firewall nebo zařízení NAT.
 
 Tento virtuální počítač virtuálního zařízení musí být schopný přijímat příchozí provoz, který mu není adresovaný. Pokud chcete virtuálnímu počítači povolit přijímání dat adresovaných jiným cílům, je nutné, abyste mu povolili předávání IP. Toto je nastavení Azure, nikoli nastavení hostovaného operačního systému.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Naučte se [vytvářet trasy v modelu nasazení Resource Manager](virtual-network-create-udr-arm-template.md) a přidružovat je k podsítím. 
 * Naučte se [vytvářet trasy v modelu nasazení Classic](virtual-network-create-udr-classic-ps.md) a přidružovat je k podsítím.
 
-<!---HONumber=Aug16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
