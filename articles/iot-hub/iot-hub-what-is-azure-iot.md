@@ -1,12 +1,12 @@
 ---
-title: Řešení Azure pro Internet věcí | Microsoft Docs
-description: Přehled technologie IoT na platformě Azure, včetně ukázkové architektury řešení a informací o tom, jak souvisí se službou Azure IoT Hub, sadami SDK a předkonfigurovanými řešeními
+title: "Řešení Azure pro Internet věcí | Dokumentace Microsoftu"
+description: "Přehled technologie IoT na platformě Azure, včetně ukázkové architektury řešení a informací o tom, jak souvisí se službou Azure IoT Hub, sadami SDK a předkonfigurovanými řešeními"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2dbf639abfa505eb329769bcc346efb5f1db443e
+
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou obousměrnou komunikaci mezi back-endem vaší aplikaci a miliony zařízení. Umožní back-endu aplikace:
 
 * Přijímat škálovaná telemetrická data z vašich zařízení.
@@ -44,6 +48,7 @@ Možná by vás také mohla zajímat sada [Azure IoT Suite][lnk-iot-suite], což
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

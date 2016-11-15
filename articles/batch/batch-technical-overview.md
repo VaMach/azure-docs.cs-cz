@@ -1,12 +1,12 @@
 ---
-title: Základy služby Azure Batch | Microsoft Docs
-description: Další informace o používání služby Azure Batch pro rozsáhlé paralelní úlohy a úlohy v prostředí HPC.
+title: "Základy služby Azure Batch | Dokumentace Microsoftu"
+description: "Další informace o používání služby Azure Batch pro rozsáhlé paralelní úlohy a úlohy v prostředí HPC."
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+
 
 ---
-# Základy služby Azure Batch
+# <a name="basics-of-azure-batch"></a>Základy služby Azure Batch
 Služba Azure Batch umožňuje efektivně spouštět rozsáhlé paralelní aplikace a aplikace vysokovýkonného výpočetního prostředí (HPC) v cloudu. Je to služba platformy, která plánuje spouštění výpočetně náročných úloh ve spravované kolekci virtuálních počítačů a která dokáže automaticky škálovat výpočetní prostředky tak, aby splňovaly potřeby vašich úloh.
 
 Pomocí služby Batch definujete výpočetní prostředky, které vaše aplikace spustí paralelně a škálovaně. Můžete spouštět úlohy na vyžádání nebo naplánované úlohy a není nutné ručně vytvářet, konfigurovat a spravovat cluster prostředí HPC, jednotlivé virtuální počítače, virtuální sítě ani infrastrukturu komplexních úloh nebo plánování úkolů.
 
-## Případy použití služby Batch
+## <a name="use-cases-for-batch"></a>Případy použití služby Batch
 Batch je spravovaná služba Azure, která slouží k *dávkovému zpracování* a *dávkovým výpočtům* – spouštění velkého objemu podobných úloh s cílem dosáhnout požadovaného výsledku. Dávkové zpracování nejčastěji používají organizace, které pravidelně zpracovávají, transformují a analyzují velké objemy dat.
 
 Služba Batch pracuje s vnitřně paralelními aplikacemi a úlohami (také známé jako „jednoduše paralelně zpracovatelné“). Vnitřně paralelní úlohy se snadno rozdělují na více úkolů, které provádějí práci současně na mnoha počítačích.
@@ -42,7 +46,7 @@ Služba Batch dokáže rovněž provádět paralelní výpočty s fází Reduce 
 
 Porovnání mezi službou Batch a dalšími možnostmi řešení prostředí HCP najdete v části [Řešení Batch a HPC](batch-hpc-solutions.md).
 
-## Vývoj se službou Batch
+## <a name="developing-with-batch"></a>Vývoj se službou Batch
 Zpracování paralelních úloh službou Batch se obvykle provádí programově pomocí jednoho z [rozhraní API služby Batch](#batch-development-apis). Pomocí rozhraní API služby Batch vytváříte a spravujete fondy počítačových uzlů (virtuální počítače) a plánujete úlohy a úkoly, které se budou na těchto uzlech spouštět. Klientská aplikace nebo služba, kterou vytvoříte, používá rozhraní API služby Batch ke komunikaci se službou Batch.
 
 Umožní vám to efektivně zpracovávat rozsáhlé úlohy pro vaši organizaci nebo poskytovat front-end služby zákazníkům, aby mohli spouštět úlohy a úkoly – na vyžádání nebo naplánované – na jednom, stovkách nebo tisících uzlů. Službu Batch můžete také používat jako součást rozsáhlejšího pracovního postupu spravovaného nástroji, například [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
@@ -52,14 +56,14 @@ Umožní vám to efektivně zpracovávat rozsáhlé úlohy pro vaši organizaci 
 > 
 > 
 
-### Účty Azure, které budete potřebovat
+### <a name="azure-accounts-youll-need"></a>Účty Azure, které budete potřebovat
 Při vývoji řešení Batch budete ve službě Microsoft Azure používat následující účty.
 
 * **Účet a předplatné služby Azure** – Pokud zatím předplatné služby Azure nemáte, můžete si aktivovat [výhodu předplatitele MSDN][msdn_benefits] nebo si zaregistrovat [bezplatný účet Azure][free_account]. Při vytvoření účtu pro vás bude vytvořeno výchozí předplatné.
 * **Účet Batch** – Při komunikaci vašich aplikací se službou Batch se jako přihlašovací údaje používají název účtu, adresa URL účtu a přístupový klíč. Všechny prostředky služby Batch, například fondy, výpočetní uzly, úlohy a úkoly, jsou přidruženy k účtu Batch. [Účet Batch můžete vytvořit](batch-account-create-portal.md) na webu Azure Portal.
 * **Účet Storage** – služba Batch zahrnuje integrovanou podporu pro práci se soubory ve [službě Azure Storage][azure_storage]. Téměř každý scénář služby Batch používá službu Azure Storage – pro přípravu programů, které budou vaše úkoly spouštět, a dat, která budou zpracovávat, a také pro ukládání generovaných výstupních dat. Informace o vytvoření účtu služby Storage najdete v článku [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
 
-### Rozhraní API pro vývoj služby Batch
+### <a name="batch-development-apis"></a>Rozhraní API pro vývoj služby Batch
 Aplikace a služby mohou pomocí služby Batch vydávat přímá volání rozhraní REST API, používat jednu nebo více následujících klientských knihoven nebo kombinaci obou, a spravovat tak výpočetní prostředky či spouštět paralelní, škálované úlohy.
 
 | Rozhraní API | API – referenční informace | Stáhnout | Ukázky kódů |
@@ -70,21 +74,21 @@ Aplikace a služby mohou pomocí služby Batch vydávat přímá volání rozhra
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |
 | **Batch Java** (preview) |[github.io][api_java] |[Maven][api_java_jar] |[Github][api_sample_java] |
 
-### Správa prostředků Batch
+### <a name="batch-resource-management"></a>Správa prostředků Batch
 Kromě klientských rozhraní API můžete v rámci účtu Batch ke správě prostředků používat následující funkce.
 
 * [Rutiny prostředí PowerShell služby Batch][batch_ps]: Rutiny služby Azure Batch vám v modulu [Azure PowerShell](../powershell-install-configure.md) umožňují spravovat prostředky Batch v prostředí PowerShell.
 * [Azure CLI](../xplat-cli-install.md): Rozhraní příkazového řádku služby Azure (Azure CLI) je sada nástrojů pro různé platformy, která poskytuje příkazy prostředí pro komunikaci s řadou služeb Azure, včetně služby Batch.
 * Klientská knihovna [Batch Management .NET](batch-management-dotnet.md): Dostupná také prostřednictvím balíčku [NuGet][api_net_mgmt_nuget]. Pomocí klientské knihovny Batch Management .NET můžete programově spravovat účty Batch, kvóty a balíčky aplikací. Reference pro knihovnu správy naleznete na [MSDN][api_net_mgmt].
 
-### Nástroje služby Batch
+### <a name="batch-tools"></a>Nástroje služby Batch
 Ačkoli následující nástroje nejsou k vytváření řešení pomocí služby Batch vyžadovány, mohou být při sestavování a ladění aplikací a služeb Batch velmi přínosné.
 
 * [Azure Portal][portal]: Na webu Azure Portal můžete v oknech Batch vytvářet, sledovat a odstraňovat fondy, úlohy a úkoly služby Batch. Můžete zobrazit informace o stavu pro tyto a další prostředky, zatímco spouštíte úlohy, a dokonce i stahovat soubory z výpočetních uzlů ve fondech (při řešení potíží si můžete například stáhnout soubor `stderr.txt` neúspěšného úkolu). Můžete si také stáhnout soubory vzdálené plochy (RDP), které lze použít k přihlášení do výpočetních uzlů.
 * [Azure Batch Explorer][batch_explorer]: Batch Explorer nabízí podobné funkce správy prostředků Batch jako web Azure Portal, ale v samostatné klientské aplikaci Windows Presentation Foundation (WPF). Jednu z ukázkových aplikací Batch .NET dostupnou na [Githubu][github_samples] lze sestavit pomocí sady Visual Studio 2015 nebo novější a použít k procházení a správě prostředků v účtu Batch při vývoji a ladění řešení Batch. Prohlížejte si podrobnosti úloh, fondů a úkolů, stahujte soubory z výpočetních uzlů a připojujte se k těmto uzlům vzdáleně pomocí souborů vzdálené plochy (RDP), které lze stáhnout v nástroji Batch Explorer.
 * [Microsoft Azure Storage Explorer][storage_explorer]: Ačkoliv se nejedná striktně o nástroj služby Azure Batch, představuje program Storage Explorer při vývoji a ladění řešení Batch další hodnotný nástroj.
 
-## Scénář: Horizontální navýšení kapacity paralelní úlohy
+## <a name="scenario-scale-out-a-parallel-workload"></a>Scénář: Horizontální navýšení kapacity paralelní úlohy
 Běžné řešení, které rozhraní API služby Batch používají ke komunikaci se službami Batch, zahrnuje škálování vnitřně paralelní práce – například vykreslování obrázků pro 3D scény – na fond výpočetních uzlů. Tento fond výpočetních uzlů může být například „vykreslovací farma“, která bude zajišťovat desítky, stovky nebo i tisíce jader pro vaši úlohu vykreslování.
 
 Následující diagram znázorňuje běžný pracovní postup služby Batch s klientskou aplikací nebo hostovanou službou, která službu Batch používá ke spouštění paralelních úloh.
@@ -105,7 +109,7 @@ V tomto běžném scénáři vaše aplikace nebo služba zpracovává výpočetn
 
 Mějte na paměti, že toto je pouze jeden ze způsobů použití služby Batch a že tento scénář popisuje pouze několik z dostupných funkcí. Na každém výpočetním uzlu můžete například spustit [několik paralelních úkolů](batch-parallel-node-tasks.md) Nebo můžete použít [úkoly pro přípravu a dokončení úlohy](batch-job-prep-release.md) k přípravě uzlů pro vaše úlohy a následnému vyčištění po skončení úloh.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď máte obecný přehled o použití služby Batch a je na čase službu prozkoumat podrobněji. Zjistěte, jak můžete s její pomocí zpracovat paralelní úlohy náročné na výkon.
 
 * Přečtěte si téma [Přehled funkcí Batch pro vývojáře](batch-api-basics.md), kde jsou základní informace pro každého, kdo se připravuje použít Batch. Článek obsahuje podrobné informace o prostředcích služby Batch, jako jsou fondy, uzly a úlohy, a mnoha funkcích rozhraní API, které můžete použít při vytváření aplikace Batch.
@@ -142,6 +146,6 @@ Teď máte obecný přehled o použití služby Batch a je na čase službu proz
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

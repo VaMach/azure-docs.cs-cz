@@ -17,6 +17,8 @@ Azure Data Factory podporuje následující aktivity transformace, které lze p�
 > 
 > 
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

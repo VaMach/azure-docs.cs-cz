@@ -1,12 +1,12 @@
 ---
-title: Zabezpečení trezoru klíčů | Microsoft Docs
-description: Spravujte přístupová oprávnění pro trezor klíčů pro správu trezorů, klíčů a tajných klíčů. Model ověřování a autorizace pro trezor klíčů a jak trezor klíčů zabezpečit
+title: "Zabezpečení trezoru klíčů | Dokumentace Microsoftu"
+description: "Spravujte přístupová oprávnění pro trezor klíčů pro správu trezorů, klíčů a tajných klíčů. Model ověřování a autorizace pro trezor klíčů a jak trezor klíčů zabezpečit"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# Zabezpečení trezoru klíčů
+# <a name="secure-your-key-vault"></a>Zabezpečení trezoru klíčů
 Azure Key Vault je cloudová služba, která chrání šifrovací klíče a tajné klíče (například certifikáty, připojovací řetězce a hesla) a pro vaše cloudové aplikace. Jelikož tato data jsou citlivá a zcela klíčová pro vaši obchodní (i jinou) činnost, je na místě zabezpečit přístup k trezorům klíčů tak, aby k nim mohli přistupovat jen autorizované aplikace a autorizovaní uživatelé. Tento článek představuje model přístupu k trezoru klíčů, vysvětluje ověření a autorizaci a na příkladu názorně popisuje, jak lze zabezpečit přístup k trezoru klíčů pro vaše cloudové aplikace.
 
-## Přehled
+## <a name="overview"></a>Přehled
 Přístup k trezoru klíčů je řízen prostřednictvím dvou oddělených rozhraní: rovina správy a rovina dat. Pro obě roviny je požadováno řádné ověření a autorizace, než může volající (uživatel nebo aplikace) získat k trezoru klíčů přístup. Ověření určí identitu volajícího a autorizace následně určí, které operace má daný volající povoleno provádět.
 
 K ověření využívají rovina správy i rovina dat službu Azure Active Directory. K autorizaci ale rovina správy používá řízení přístupu podle role (RBAC), zatímco rovina dat používá zásady přístupu trezoru klíčů.
@@ -36,7 +40,7 @@ Stručný přehled tímto článkem pokrytých témat:
 
 [Příklad](#example): Tento příklad popisuje, jak nastavit řízení přístupu pro váš trezor klíčů, abyste umožnili třem různým týmům (bezpečnostní tým, vývojářský/provozní tým a auditoři) provádět konkrétní úkoly za účelem vývoje, správy a monitorování aplikace v Azure.
 
-## Ověření pomocí služby Azure Active Directory
+## <a name="authentication-using-azure-active-directory"></a>Ověření pomocí služby Azure Active Directory
 Když v rámci předplatného Azure vytvoříte trezor klíčů, je automaticky přidružen k tenantovi Azure Active Directory pro dané předplatné. Všichni volající (uživatelé a aplikace) musí být v tomto tenantovi registrováni, aby mohli k trezoru klíčů přistupovat. Aplikace nebo uživatel se musí nejdříve ověřit ve službě Azure Active Directory, až potom může přistupovat k trezoru klíčů. To platí pro přístup k rovině správy i přístup k rovině dat. V obou případech může aplikace přistupovat k trezoru klíčů dvěma způsoby:
 
 * **přístup uživatele a aplikace** – obvykle se používá pro aplikace, které přistupují k trezoru klíčů jménem přihlášeného uživatele. Příklady tohoto typu přístupu jsou Azure PowerShell a Azure Portal. Jsou dva způsoby, jak udělit přístup uživatelům. Jeden způsob je udělit přístup uživatelům tak, aby mohli přistupovat k trezoru klíčů z libovolné aplikace, a druhý způsob je udělit uživatelům přístup k trezoru klíčů jen při použití konkrétní aplikace (označováno jako složená identita). 
@@ -52,22 +56,22 @@ Používání jediného mechanismu ověřování pro rovinu správy i rovinu dat
 * Když uživatel organizaci opustí, ztratí okamžitě přístup ke všem trezorům klíčů v organizaci.
 * Organizace si mohou ověření přizpůsobit prostřednictvím možností v Azure Active Directory (mohou například povolit vícefaktorové ověřování pro vyšší bezpečnost).
 
-## Rovina správy a rovina dat
+## <a name="management-plane-and-data-plane"></a>Rovina správy a rovina dat
 Azure Key Vault je služba Azure, která je dostupná prostřednictvím modelu nasazení Azure Resource Manager. Když vytvoříte trezor klíčů, získáte virtuální kontejner, ve kterém můžete vytvářet další objekty, jako jsou klíče, tajné klíče a certifikáty. Následně pak přistupujete ke svému trezoru klíčů pomocí roviny správy nebo roviny dat, abyste prováděli konkrétní operace. Rozhraní roviny správy slouží ke správě samotného trezoru klíčů – například vytváření, odstraňování a aktualizace atributů trezoru klíčů nebo nastavení zásad přístupu pro rovinu dat. Rozhraní roviny dat se používá k přidávání, odstraňování, změnám a používání klíčů, tajných klíčů a certifikátů uložených v trezoru klíčů.
 
 K rozhraní roviny správy a roviny dat se přistupuje prostřednictvím různých koncových bodů (viz tabulka). Druhý sloupec v tabulce popisuje názvy DNS pro tyto koncové body v různých prostředích Azure. Třetí sloupec popisuje operace, které můžete z každé roviny přístupu provádět. Každá rovina přístupu má také vlastní mechanismus řízení přístupu: pro rovinu správy se řízení přístupu nastavuje pomocí služby řízení přístupu podle role (RBAC) služby Azure Resource Manager, pro rovinu dat se řízení přístupu nastavuje pomocí zásad přístupu trezoru klíčů.
 
 | Rovina přístupu | Koncové body přístupu | Operace | Mechanismus řízení přístupu |
 | --- | --- | --- | --- |
-| Rovina správy |**Globální:**<br> management.azure.com:443<br><br> **Azure Čína:**<br> management.chinacloudapi.cn:443<br><br> **Azure USA – vláda:**<br> management.usgovcloudapi.net:443<br><br> **Azure Německo:**<br> management.microsoftazure.de:443 |Vytvořit (create), číst (read), aktualizovat (update), odstranit (delete) trezor klíčů <br> Nastavit zásady přístupu pro trezor klíčů<br>Nastavit značky pro trezor klíčů |Řízení přístupu podle role (RBAC) služby Azure Resource Manager |
-| Rovina dat |**Globální:**<br> &lt;název_trezoru&gt;.vault.azure.net:443<br><br> **Azure Čína:**<br> &lt;název_trezoru&gt;.vault.azure.cn:443<br><br> **Azure USA – vláda:**<br> &lt;název_trezoru&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Německo:**<br> &lt;název_trezoru&gt;.vault.microsoftazure.de:443 |Pro klíče: dešifrovat (decrypt), zašifrovat (encrypt), rozbalit (UnwrapKey), zabalit (WrapKey), ověřit (verify), podepsat (sign), získat (get), vypsat (list), aktualizovat (update), vytvořit (create), importovat (import), odstranit (delete), zálohovat (backup), obnovit (restore)<br><br> Pro tajné klíče: získat (get), vypsat (list), nastavit (set), odstranit (delete) |Zásady přístupu trezoru klíčů |
+| Rovina správy |**Globální:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Vytvořit (create), číst (read), aktualizovat (update), odstranit (delete) trezor klíčů <br> Nastavit zásady přístupu pro trezor klíčů<br>Nastavit značky pro trezor klíčů |Řízení přístupu podle role (RBAC) služby Azure Resource Manager |
+| Rovina dat |**Globální:**<br> &lt;název_trezoru&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;název_trezoru&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;název_trezoru&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;název_trezoru&gt;.vault.microsoftazure.de:443 |Pro klíče: dešifrovat (decrypt), zašifrovat (encrypt), rozbalit (UnwrapKey), zabalit (WrapKey), ověřit (verify), podepsat (sign), získat (get), vypsat (list), aktualizovat (update), vytvořit (create), importovat (import), odstranit (delete), zálohovat (backup), obnovit (restore)<br><br> Pro tajné klíče: získat (get), vypsat (list), nastavit (set), odstranit (delete) |Zásady přístupu trezoru klíčů |
 
 Řízení přístupu roviny správy a roviny dat fungují nezávisle. Pokud například chcete aplikaci udělit přístup k používání klíčů v trezoru klíčů, je třeba jí jen udělit přístup k rovině dat pomocí zásad přístup trezoru klíčů. Aplikace nepotřebuje přístup k rovině správy. A obráceně, pokud chcete, aby uživatel mohl číst vlastnosti a značky trezoru, ale neměl přístup k žádným klíčům, tajným klíčům ani certifikátům, můžete tomuto uživateli udělit přístup pro čtení pomocí RBAC a není potřeba žádný přístup k rovině dat.
 
-## Řízení přístupu roviny správy
+## <a name="management-plane-access-control"></a>Řízení přístupu roviny správy
 Rovina správy se skládá z operací, které mají vliv na samotný trezor klíčů. Můžete například vytvořit nebo odstranit trezor klíčů. Můžete získat seznam trezorů klíčů v určitém předplatném. Můžete načíst vlastnosti trezoru klíčů (například SKU, značky) a nastavit zásady přístupu trezoru klíčů, které řídí, kteří uživatelé a aplikace mají přístup ke klíčům a tajným klíčům v trezoru klíčů. Řízení přístupu roviny správy používá RBAC. Úplný seznam operací trezoru klíčů, které lze provádět prostřednictvím roviny správy, najdete v tabulce v předchozí části. 
 
-### Řízení přístupu podle role (RBAC)
+### <a name="rolebased-access-control-rbac"></a>Řízení přístupu podle role (RBAC)
 Každé předplatné Azure zahrnuje službu (adresář) Azure Active Directory. Uživatelům, skupinám a aplikacím z tohoto adresáře lze udělit přístup ke správě prostředků v tomto předplatném Azure, které používají model nasazení Azure Resource Manager. Tento typ řízení přístupu je označován řízení přístupu podle role (RBAC). Ke správě tohoto přístupu můžete používat [Azure Portal](https://portal.azure.com/), [nástroje Azure CLI](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) nebo [rozhraní Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 S modelem Azure Resource Manager vytváříte trezor klíčů ve skupině prostředků a řídíte přístup k rovině správy tohoto trezoru klíčů pomocí služby Azure Active Directory. Můžete například uživatelům nebo skupině udělit schopnost spravovat trezory klíčů v určité skupině prostředků.
@@ -79,12 +83,12 @@ Přístup lze udělit uživatelům, skupinám nebo aplikacím v konkrétním obo
 > 
 > 
 
-## Řízení přístupu roviny dat
+## <a name="data-plane-access-control"></a>Řízení přístupu roviny dat
 Rovina dat trezoru klíčů se skládá z operací, které mají vliv na objekty v trezoru klíčů, jako jsou klíče, tajné klíče a certifikáty.  To zahrnuje operace s klíči, jako je vytvoření, import, aktualizace, výpis, zálohování a obnova klíčů, kryptografické operace jako podepsání, ověření, zašifrování, dešifrování, zabalení a rozbalení a nastavení značek a dalších atributů pro klíče. Pro tajné klíče sem podobně patří operace získat, nastavit, vypsat a odstranit.
 
 Přístup k rovině dat je udělován nastavením zásad přístupu pro trezor klíčů. Uživatel, skupina nebo aplikace musí mít oprávnění role Přispěvatel (RBAC) pro rovinu správy trezoru klíčů, aby mohla nastavovat zásady pro tento trezor klíčů. Uživateli, skupině nebo aplikaci lze udělit přístup k provádění konkrétních operací pro klíče nebo tajné klíče v trezoru klíčů. Trezor klíčů podporuje až 16 položek zásad přístupu na jeden trezor klíčů. Vytvořte skupinu zabezpečení Azure Active Directory a do této skupiny přidejte uživatele, kterým chcete udělit přístup k rovině dat trezoru klíčů.
 
-### Zásady přístupu trezoru klíčů
+### <a name="key-vault-access-policies"></a>Zásady přístupu trezoru klíčů
 Zásady přístupu trezoru klíčů udělují odděleně oprávnění pro klíče, tajné klíče a certifikáty. Můžete tak například uživateli udělit přístup pouze ke klíčům, ale žádná oprávnění k tajným klíčům. Nicméně oprávnění pro přístup ke klíčům, tajným klíčům a certifikátům se nastavují na úrovni trezoru. Zásady přístupu trezoru klíčů tedy nepodporují oprávnění na úrovni objektu. K nastavení zásad přístupu pro trezor klíčů můžete použít [Azure Portal](https://portal.azure.com/), [nástroje Azure CLI](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) nebo [rozhraní REST API správy trezoru klíčů](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
@@ -92,7 +96,7 @@ Zásady přístupu trezoru klíčů udělují odděleně oprávnění pro klíč
 > 
 > 
 
-## Příklad
+## <a name="example"></a>Příklad
 Řekněme, že vyvíjíte aplikaci, která používá certifikát pro SSL, službu Azure Storage k ukládání dat a používá 2048bitový klíč RSA pro podpisové operace. A tato aplikace běží ve virtuálním počítači (nebo ve škálovací sadě virtuálních počítačů). Můžete použít trezor klíčů, ve kterém budou uloženy všechny tajné klíče aplikace, a použít tento trezor klíčů k uložení zaváděcího certifikátu, který aplikace používá k ověření v Azure Active Directory.
 
 Takže souhrn všech klíčů a tajných klíčů, které budou uložené v trezoru klíčů.
@@ -199,23 +203,23 @@ Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi 
 > 
 > 
 
-## Zdroje a prostředky
-* [Řízení přístupu podle role v Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Zdroje a prostředky
+* [Řízení přístupu na základě role v Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
   Tento článek popisuje řízení přístupu podle role v Azure Active Directory a vysvětluje, jak funguje.
 * [RBAC: vestavěné role](../active-directory/role-based-access-built-in-roles.md)
   
   Tento článek podrobně popisuje všechny vestavěné role dostupné v RBAC.
-* [Nasazení podle modelu Resource Manager a klasické nasazení](../resource-manager-deployment-model.md)
+* [Principy nasazení podle modelu Resource Manager a klasického nasazení](../resource-manager-deployment-model.md)
   
   Tento článek popisuje model nasazení Resource Manager ve srovnání s klasickým modelem nasazení a vysvětluje, jaké výhody přináší Resource Manager a skupiny prostředků.
-* [Správa řízení přístupu podle role pomocí prostředí Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Správa řízení přístupu na základě role pomocí Azure PowerShellu](../active-directory/role-based-access-control-manage-access-powershell.md)
   
   Tento článek vysvětluje, jak spravovat řízení přístupu podle role pomocí prostředí Azure PowerShell.
-* [Správa řízení přístupu podle role pomocí REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Správa řízení přístupu na základě role pomocí REST API](../active-directory/role-based-access-control-manage-access-rest.md)
   
   Tento článek popisuje, jak používat rozhraní REST API ke správě RBAC.
-* [Řízení přístupu podle role pro Microsoft Azure z Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+* [Řízení přístupu na základě role pro Microsoft Azure z Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Odkaz na video na Channel 9 z konference MS Ignite 2015. Na tomto sezení se hovoří o možnostech správy přístupu a generování sestav v Azure a probírají se osvědčené postupy pro zabezpečení přístupu k předplatným Azure pomocí Azure Active Directory.
 * [Autorizace přístupu k webovým aplikacím s použitím OAuth 2.0 a Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
@@ -229,7 +233,7 @@ Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi 
   Odkaz na referenční dokumentaci k rozhraní API REST trezoru klíčů.
 * [Řízení přístupu ke klíčům](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Odkaz na referenční dokumentaci pro řízení přístupu ke klíčům.
+  Odkaz na referenční dokumentaci pro řízení přístupu k tajným klíčům.
 * [Řízení přístupu k tajným klíčům](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Odkaz na referenční dokumentaci pro řízení přístupu k tajným klíčům.
@@ -237,7 +241,7 @@ Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi 
   
   Odkazy na referenční dokumentaci pro rutiny PowerShell na správu zásad přístupu trezoru klíčů.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Úvodní kurz pro správce najdete v tématu [Začínáme s Azure Key Vault](key-vault-get-started.md).
 
 Další informace o protokolování využití trezoru klíčů najdete v tématu [Protokolování Azure Key Vault](key-vault-logging.md).
@@ -246,6 +250,9 @@ Další informace o používání klíčů a tajných klíčů se službou Azure
 
 Pokud máte dotazy k trezorům klíčů, navštivte [fóra služby Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

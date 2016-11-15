@@ -1,12 +1,12 @@
 ---
-title: 'Hybridní identita: Porovnání nástrojů pro integraci adresáře | Microsoft Docs'
-description: Tato stránka nabízí komplexní tabulku porovnávající různé nástroje integrace adresáře, které lze použít pro integraci adresáře.
+title: "Hybridní identita: Porovnání nástrojů pro integraci adresáře | Dokumentace Microsoftu"
+description: "Tato stránka nabízí komplexní tabulku porovnávající různé nástroje integrace adresáře, které lze použít pro integraci adresáře."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+
 
 ---
-# Hybridní identita: Porovnání nástrojů pro integraci adresáře
+# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybridní identita: Porovnání nástrojů pro integraci adresáře
 V průběhu let se nástroje pro integraci adresáře rozšířily a vyvinuly.  Tento dokument vám poskytne ucelený přehled těchto nástrojů a porovnání funkcí, které jsou v nich dostupné.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -34,7 +38,7 @@ U jednotlivých tabulek použijte následující klíč.
 FR = budoucí verze  
 PP = Public Preview  
 
-## Synchronizace z místního prostředí do cloudu
+## <a name="onpremises-to-cloud-synchronization"></a>Synchronizace z místního prostředí do cloudu
 | Funkce | Azure Active Directory Connect | Služby synchronizace Azure Active Directory (AAD Sync) | Synchronizační nástroj služby Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Připojení k jedné místní doménové struktuře AD |● |● |● |● |● |
@@ -48,7 +52,7 @@ PP = Public Preview
 | Připojení k místním HR (tj, SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Podporuje pravidla synchronizace FIM a konektory pro zřizování do místních systémů. | | | |● |● |
 
-## Synchronizace z cloudu do místního prostředí
+## <a name="cloud-to-onpremises-synchronization"></a>Synchronizace z cloudu do místního prostředí
 | Funkce | Azure Active Directory Connect | Služby synchronizace Azure Active Directory | Synchronizační nástroj služby Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Zpětný zápis zařízení |● | |● | | |
@@ -56,7 +60,7 @@ PP = Public Preview
 | Zpětný zápis uživatelů a skupin objektů |● | | | | |
 | Zpětný zápis hesel (ze samoobslužného resetování hesla (SSPR) a změny hesla) |● |● | | | |
 
-## Podpora funkce ověřování
+## <a name="authentication-feature-support"></a>Podpora funkce ověřování
 | Funkce | Azure Active Directory Connect | Služby synchronizace Azure Active Directory | Synchronizační nástroj služby Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Synchronizace hesla pro jednu místní doménovou strukturu AD |● |● |● | | |
@@ -64,7 +68,7 @@ PP = Public Preview
 | Jednotné přihlašování s federací |● |● |● |● |● |
 | Zpětný zápis hesel (ze SSPR a změny hesla) |● |● | | | |
 
-## Nastavení a instalace
+## <a name="setup-and-installation"></a>Nastavení a instalace
 | Funkce | Azure Active Directory Connect | Služby synchronizace Azure Active Directory | Synchronizační nástroj služby Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Podporuje instalaci na řadič domény |● |● |● | |
@@ -75,7 +79,7 @@ PP = Public Preview
 | Podpora pro Windows Server 2008 a Windows Server 2008 R2 |● pro synchronizaci, ne pro federaci |● |● |● |
 | Podpora pro Windows Server 2012 a Windows Server 2012 R2 |● |● |● |● |
 
-## Filtrování a konfigurace
+## <a name="filtering-and-configuration"></a>Filtrování a konfigurace
 | Funkce | Azure Active Directory Connect | Služby synchronizace Azure Active Directory | Synchronizační nástroj služby Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrování v rámci domén a organizačních jednotek |● |● |● |● |● |
@@ -85,9 +89,12 @@ PP = Public Preview
 | Povolení odebrání atributů z toku ze služby AD do služby Azure AD |● |● | | | |
 | Povolení upřesňujících úprav pro toky atributů |● |● | |● |● |
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

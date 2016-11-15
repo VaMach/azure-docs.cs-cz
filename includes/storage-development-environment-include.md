@@ -1,7 +1,7 @@
-## Nastavení vývojového prostředí
+## <a name="set-up-your-development-environment"></a>Nastavení vývojového prostředí
 Potom si nastavte vývojové prostředí v sadě Visual Studio, abyste byli připraveni vyzkoušet příklady kódů z této příručky.
 
-### Vytvoření projektu konzolové aplikace pro Windows
+### <a name="create-a-windows-console-application-project"></a>Vytvoření projektu konzolové aplikace pro Windows
 V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows, jak je uvedeno níže:
 
 ![Vytvoření konzolové aplikace pro Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Všechny příklady kódu v tomto kurzu můžete přidat do metody **Main()** v 
 
 Všimněte si, že můžete použít knihovnu klienta služby Azure Storage z libovolného typu .NET, včetně cloudové služby Azure, webové aplikace Azure, desktopové nebo mobilní aplikace. V této příručce použijeme konzolovou aplikaci kvůli zjednodušení.
 
-### Použití balíčku NuGet k instalaci požadovaných balíčků
+### <a name="use-nuget-to-install-the-required-packages"></a>Použití balíčku NuGet k instalaci požadovaných balíčků
 Abyste mohli tento kurz dokončit, nainstalujte si do projektu dva nezbytné balíčky:
 
 * [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Tento balíček zajišťuje programový přístup k datovým prostředkům na účtu úložiště.
@@ -29,7 +29,7 @@ K získání obou balíčků můžete použít balíček NuGet. Postupujte násl
 > 
 > 
 
-### Určení cílového prostředí
+### <a name="determine-your-target-environment"></a>Určení cílového prostředí
 Ke spuštění příkladů z této příručky máte dvě možnosti prostředí:
 
 * Svůj kód můžete spustit na účtu služby Azure Storage v cloudu. 
@@ -42,7 +42,7 @@ Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure 
 > 
 > 
 
-### Konfigurace připojovacího řetězce úložiště
+### <a name="configure-your-storage-connection-string"></a>Konfigurace připojovacího řetězce úložiště
 Knihovna klienta služby Azure Storage pro .NET podporuje použití připojovacího řetězce úložiště ke konfiguraci koncových bodů a přihlašovacích údajů pro přístup ke službám úložiště. Připojovací řetězec úložiště se nejlépe uchovává v konfiguračním souboru. 
 
 Další informace o připojovacích řetězcích najdete v článku [Konfigurace připojovací řetězce pro službu Azure Storage](../articles/storage/storage-configure-connection-string.md).
@@ -58,9 +58,9 @@ Pokud chcete konfigurovat připojovací řetězec, otevřete v sadě Visual Stud
         <startup> 
             <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
         </startup>
-        <appSettings>
+          <appSettings>
             <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
+          </appSettings>
     </configuration>
 
 Nastavení konfigurace může vypadat následovně:
@@ -73,6 +73,6 @@ Pokud se chcete zaměřit na emulátor úložiště, můžete vytvořit zástupc
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,41 +1,83 @@
 ---
-title: Začínáme s Azure Data Lake Analytics pomocí sady .NET SDK | Microsoft Docs
-description: 'Naučte se používat sadu .NET SDK k vytváření účtů Data Lake Store, vytváření úloh Data Lake Analytics a odesílání úloh napsaných v U-SQL. '
+title: "Začínáme s Azure Data Lake Analytics pomocí sady .NET SDK | Dokumentace Microsoftu"
+description: "Naučte se používat sadu .NET SDK k vytváření účtů Data Lake Store, vytváření úloh Data Lake Analytics a odesílání úloh napsaných v U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+
 
 ---
-# Kurz: Začínáme s Azure Data Lake Analytics pomocí sady .NET SDK
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Kurz: Začínáme s Azure Data Lake Analytics pomocí sady .NET SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Naučte se používat sadu Azure .NET SDK k odesílání úloh napsaných v [U-SQL](data-lake-analytics-u-sql-get-started.md) do služby Data Lake Analytics. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 V tomto kurzu budete vyvíjet konzolovou aplikaci C# pro odesílání úloh U-SQL, který načte soubor hodnot oddělených tabulátory (TSV) a převede jej na soubor hodnot oddělených čárkami (CSV). Pokud chcete použít jiné podporované nástroje a absolvovat stejný kurz, klikněte na karty v horní části tohoto článku.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 * **Visual Studio 2015, Visual Studio 2013 Update 4 nebo Visual Studio 2012 s nainstalovaným Visual C++.**.
 * **Sada Microsoft Azure SDK pro .NET verze 2.5 nebo vyšší**.  Nainstalujte ji pomocí [Instalačního programu webové platformy](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Účet služby Azure Data Lake Analytics**. Viz [Správa služby Data Lake Analytics pomocí sady Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
 
-## Vytvoření konzolové aplikace
-V tomto kurzu budete zpracovávat několik protokolů hledání.  Protokol hledání se dá uložit buď do úložiště Data Lake Store, nebo do úložiště objektů Azure Blob. 
+## <a name="create-console-application"></a>Vytvoření konzolové aplikace
+V tomto kurzu zpracujete několik protokolů hledání.  Protokol hledání se dá uložit buď do úložiště Data Lake Store, nebo do úložiště objektů Azure Blob. 
 
 Ukázkový protokol hledání najdete ve veřejném kontejneru Azure Blob. V aplikaci stáhnete soubor do pracovní stanice a poté jej odešlete do výchozího účtu služby Data Lake Store svého účtu služby Data Lake Analytics.
 
-**Postup vytvoření aplikace**
+**Vytvoření skriptu U-SQL**
+
+Úlohy Data Lake Analytics se píší v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Vytvořte soubor **SampleUSQLScript.txt** s následujícím skriptem U-SQL a umístěte ho do složky **C:\temp\**.  Tato cesta je pevně zakódovaná v aplikaci .NET, kterou vytvoříte dál.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+Tento skript U-SQL přečte zdrojový datový soubor pomocí **Extractors.Tsv()** a potom pomocí **Outputters.Csv()** vytvoří soubor .csv. 
+
+V programu C# je potřeba připravit soubor **/Samples/Data/SearchLog.tsv** a složku **/Output/**.    
+
+U souborů uložených ve výchozích účtech Data Lake je jednodušší použít relativní cesty. Můžete také použít absolutní cesty.  Například 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+Pro přístup k souborům v propojených účtech Storage je potřeba použít absolutní cesty.  V případě souborů uložených v propojeném účtu Azure Storage je syntaxe následující:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> Momentálně je známý problém se službou Azure Data Lake.  Pokud je vzorová aplikace přerušena nebo dojde k chybě, může být nutné ruční odstranění účtů Data Lake Store a Data Lake Analytics, které skript vytvoří.  Pokud neznáte web Azure Portal, začněte pomocí průvodce [Správa služby Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md).       
+> 
+> 
+
+**Vytvoření aplikace**
 
 1. Otevřete sadu Visual Studio.
 2. Vytvořte konzolovou aplikaci C#.
@@ -46,40 +88,7 @@ Ukázkový protokol hledání najdete ve veřejném kontejneru Azure Blob. V apl
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. Přidejte do projektu nový soubor s názvem **SampleUSQLScript.txt** a vložte následující skript U-SQL. Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    Tento skript U-SQL přečte zdrojový datový soubor pomocí **Extractors.Tsv()** a potom pomocí **Outputters.Csv()** vytvoří soubor .csv. 
-   
-    V programu C# je nutné připravit soubor **/Samples/Data/SearchLog.tsv** a složku **/Output/**.    
-   
-    U souborů uložených ve výchozích účtech Data Lake je jednodušší použít relativní cesty. Můžete také použít absolutní cesty.  Například 
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    Pro přístup k souborům v propojených účtech Storage je nutné použít absolutní cesty.  V případě souborů uložených v propojeném účtu Azure Storage je syntaxe následující:
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > Momentálně je známý problém se službou Azure Data Lake.  Pokud je vzorová aplikace přerušena nebo dojde k chybě, může být nutné ruční odstranění účtů Data Lake Store a Data Lake Analytics, které skript vytvoří.  Pokud nejste obeznámeni s webem Azure Portal, začněte pomocí průvodce [Správa služby Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md).       
-   > 
-   > 
-5. Do souboru Program.cs vložte tento kód:
+4. Do souboru Program.cs vložte tento kód:
    
         using System;
         using System.IO;
@@ -134,7 +143,7 @@ Ukázkový protokol hledání najdete ve veřejném kontejneru Azure Blob. V apl
                 // Download job output
                 DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
 
-                WaitForNewline("Job output downloaded. You can now exit.");
+                  WaitForNewline("Job output downloaded. You can now exit.");
             }
 
             public static ServiceClientCredentials AuthenticateAzure(
@@ -237,7 +246,7 @@ Ukázkový protokol hledání najdete ve veřejném kontejneru Azure Blob. V apl
     ![Výstup úlohy U-SQL sady .NET SDK ve službě Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
 2. Zkontrolujte výstupní soubor.  Výchozí cesta a název souboru je c:\Temp\SearchLog-from-Data-Lake.csv.
 
-## Viz také
+## <a name="see-also"></a>Viz také
 * Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
 * Pokud chcete zobrazit komplexnější dotaz, přejděte k tématu [Analýza webových protokolů pomocí Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Pokud chcete začít s vývojem aplikací U-SQL, přejděte k tématu [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
@@ -245,6 +254,9 @@ Ukázkový protokol hledání najdete ve veřejném kontejneru Azure Blob. V apl
 * Informace týkající se úloh správy najdete v tématu [Správa služby Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Přehled Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

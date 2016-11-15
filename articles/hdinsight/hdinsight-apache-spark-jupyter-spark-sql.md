@@ -1,30 +1,34 @@
 ---
-title: V systému HDInsight Linux vytvořte cluster Spark a použijte Spark SQL z Jupyter pro interaktivní analýzu | Microsoft Docs
-description: Podrobné pokyny, jak rychle vytvořit cluster Apache Spark v HDInsight a pak použít Spark SQL z poznámkových bloků Jupyter ke spuštění interaktivních dotazů.
+title: "Vytvoření clusteru Spark v systému HDInsight Linux a použití Spark SQL z Jupyteru pro interaktivní analýzu | Dokumentace Microsoftu"
+description: "Podrobné pokyny, jak rychle vytvořit cluster Apache Spark v HDInsight a pak použít Spark SQL z poznámkových bloků Jupyter ke spuštění interaktivních dotazů."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/05/2016
+ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 906d78b3177289dc5d2806ec9fbdb868a5bcb6fb
+
 
 ---
-# Začínáme: vytvořte cluster Apache Spark na HDInsight Linux a spusťte interaktivní dotazy pomocí Spark SQL
+# <a name="get-started-create-apache-spark-cluster-on-hdinsight-linux-and-run-interactive-queries-using-spark-sql"></a>Začínáme: vytvořte cluster Apache Spark na HDInsight Linux a spusťte interaktivní dotazy pomocí Spark SQL
 Naučte se vytvářet cluster Apache Spark v HDInsight a pak použijte poznámkový blok [Jupyter](https://jupyter.org) ke spouštění interaktivních dotazů Spark SQL na clusteru Spark.
 
    ![Začněte používat Apache Spark v HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * **Předplatné Azure**. Než začnete tento kurz, musíte mít předplatné Azure. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Klient Secure Shell (SSH)**: systémy Linux, Unix a OS X poskytují klienta SSH pomocí příkazu `ssh`. Pro systémy Windows doporučujeme [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * **Klíče Secure Shell (SSH) (volitelné)**: účet SSH používaný k připojení ke clusteru pomocí hesla nebo veřejného klíče můžete zabezpečit. Pomocí hesel budete moci rychle začít a tuto možnost doporučujeme použít, pokud chcete rychle vytvořit cluster a spustit některé testovací úlohy. Použití klíče je bezpečnější, ale vyžaduje další nastavení. Tuto metodu můžete chtít použít při vytváření clusteru výroby. V tomto článku používáme přístup s heslem. Pokyny k vytvoření a použití klíčů SSH s HDInsight naleznete v následujících článcích:
@@ -37,10 +41,10 @@ Naučte se vytvářet cluster Apache Spark v HDInsight a pak použijte poznámko
 > 
 > 
 
-### Požadavky na řízení přístupu
+### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Vytvoření clusteru Spark
+## <a name="create-spark-cluster"></a>Vytvoření clusteru Spark
 V této části vytvoříte cluster HDInsight verze 3.4 (Spark verze 1.6.1) pomocí šablony Azure Resource Manageru. Informace o verzích HDInsight a jejich SLA naleznete v tématu [Správa verzí komponenty HDInsight](hdinsight-component-versioning.md). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Kliknutím na následující obrázek otevřete šablonu na webu Azure Portal.         
@@ -63,17 +67,21 @@ V této části vytvoříte cluster HDInsight verze 3.4 (Spark verze 1.6.1) pomo
      > 
      > Další informace o použití SSH s HDInsight naleznete v následujících článcích:
      > 
-     > * [Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-     > * [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému OS X, Linux a Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+     > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
      > 
      > 
+
 3. Klikněte na možnost **OK** a uložte parametry.
+
 4. Z okna **Vlastní nasazení** klikněte na rozevírací pole **Skupina prostředků** a pak klikněte na tlačítko **Nový** a vytvořte novou skupinu prostředků. Skupina prostředků je kontejner, který seskupuje cluster, účet závislého úložiště a další propojené prostředky skupin.
+
 5. Klikněte na tlačítko **Smluvní podmínky** a pak klikněte na tlačítko **Vytvořit**.
+
 6. Klikněte na **Vytvořit**. Zobrazí se nová dlaždice s názvem Odeslání nasazení pro šablonu nasazení. Vytvoření clusteru a databáze SQL trvá přibližně 20 minut.
 
-## Spuštění dotazů Spark SQL pomocí poznámkového bloku Jupyter
-V této části použijete ke spouštění dotazů Spark SQL poznámkový blok Jupyter v clusteru Spark. Clustery HDInsight Spark poskytují dvě jádra, která můžete použít s poznámkovým blokem Jupyter. Jsou to:
+## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Spuštění dotazů Spark SQL pomocí poznámkového bloku Jupyter
+V této části použijete ke spouštění dotazů Spark SQL poznámkový blok Jupyter v clusteru Spark. Clustery HDInsight Spark poskytují dvě jádra, která můžete použít s poznámkovým blokem Jupyter. Jsou to:
 
 * **PySpark** (pro aplikace napsané v Pythonu)
 * **Spark** (pro aplikace napsané v jazyce Scala)
@@ -84,7 +92,7 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 * Buňky magic můžete použít jako `%%sql` pro přímé spouštění dotazů SQL nebo Hive, bez předchozích fragmentů kódu.
 * Výstup pro dotazy SQL nebo Hive se automaticky vizualizuje.
 
-### Vytvoření poznámkového bloku Jupyter s jádrem PySpark
+### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Vytvoření poznámkového bloku Jupyter s jádrem PySpark
 1. Z [Portálu Azure](https://portal.azure.com/) z úvodního panelu klikněte na dlaždici pro váš cluster Spark (pokud je připnutý na úvodní panel). Můžete také přejít na cluster pod položkou **Procházet vše** > **Clustery HDInsight**.   
 2. Z okna clusteru Spark klikněte na **Řídicí panel clusteru** a poté na **Poznámkový blok Jupyter**. Po vyzvání zadejte přihlašovací údaje správce clusteru.
    
@@ -125,48 +133,48 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
    
         # Register the data fram as a table to run queries against
         hvacdf.registerTempTable("hvac")
-7. Vzhledem k tomu, že používáte jádro PySpark, můžete nyní přímo spustit dotaz SQL na dočasnou tabulku **TVK**, kterou jste právě vytvořili pomocí `%%sql` magic. Další informace o `%%sql` magic a také dalších magic, které jsou k dispozici s jádrem PySpark, naleznete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+7. Vzhledem k tomu, že používáte jádro PySpark, můžete nyní přímo spustit dotaz SQL na dočasnou tabulku **TVK**, kterou jste právě vytvořili pomocí `%%sql` magic. Další informace o `%%sql` magic a také dalších magic, které jsou k dispozici s jádrem PySpark, naleznete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
    
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 8. Po úspěšném dokončení úlohy se ve výchozím nastavení zobrazí následující tabulkový výstup.
    
-    ![Tabulkový výstup výsledků dotazu](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+     ![Tabulkový výstup výsledků dotazu](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
    
     Výsledky můžete také zobrazit v dalších vizualizacích. Například plošný graf pro stejný výstup bude vypadat následovně.
    
     ![Plošný graf výsledku dotazu](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 9. Po dokončení spuštění aplikace byste měli poznámkový blok vypnout a uvolnit tak prostředky. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku. Dojde k vypnutí a zavření poznámkového bloku.
 
-## Odstranění clusteru
+## <a name="delete-the-cluster"></a>Odstranění clusteru
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Viz také
+## <a name="see-also"></a>Viz také
 * [Přehled: Apache Spark v Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Scénáře
-* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Spark v HDInsight pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu stavební teploty pomocí dat HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+### <a name="scenarios"></a>Scénáře
+* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů ve skutečném čase](hdinsight-apache-spark-eventhub-streaming.md)
-* [Analýza protokolu webu pomocí Spark v HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-* [Analýza dat telemetrie aplikace Insight využívá Spark v HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](hdinsight-apache-spark-eventhub-streaming.md)
+* [Analýza protokolu webu pomocí Sparku v HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analýza dat telemetrie Application Insights pomocí Sparku v HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
 
-### Vytvoření a spouštění aplikací
+### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací
 * [Vytvoření samostatné aplikace pomocí Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Vzdálené spouštění úloh na clusteru Spark pomocí Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Nástroje a rozšíření
+### <a name="tools-and-extensions"></a>Nástroje a rozšíření
 * [Modul plug-in nástroje HDInsight pro IntelliJ IDEA pro vytvoření a odesílání aplikací Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Použití modulu plug-in nástroje HDInsight pro IntelliJ IDEA pro vzdálené ladění aplikací Spark](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Použití poznámkových bloků Zeppelin s clusterem Spark v HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [Jádra dostupná pro poznámkový blok Jupyter v clusteru Spark pro HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Použijte externí balíčky s poznámkovými bloky Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Nainstalujte do počítače Jupyter a připojte ho ke clusteru HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Použití poznámkových bloků Zeppelin s clusterem Sparku v HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Jádra dostupná pro poznámkový blok Jupyter v clusteru Sparku pro HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Použití externích balíčků s poznámkovými bloky Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Instalace Jupyteru do počítače a připojení ke clusteru HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Správa prostředků
+### <a name="manage-resources"></a>Správa prostředků
 * [Správa prostředků v clusteru Apache Spark v Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-* [Sledování a ladění úloh spuštěných v clusteru serveru Apache Spark v HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Sledování a ladění úloh spuštěných v clusteru Apache Spark v HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -180,6 +188,6 @@ V tomto článku budete používat jádro PySpark. V jádrech článku [, která
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

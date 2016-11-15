@@ -1,12 +1,12 @@
 ---
-title: Začínáme se sadou SDK IoT Hub Gateway | Microsoft Docs
-description: Tento návod pro sadu SDK Azure IoT Hub Gateway využívá systém Linux pro ilustraci klíčových konceptů, které byste měli při použití sady SDK Azure IoT Hub Gateway chápat.
+title: "Začínáme se sadou SDK IoT Hub Gateway | Dokumentace Microsoftu"
+description: "Tento návod pro sadu SDK Azure IoT Gateway využívá pro ilustraci klíčových konceptů, kterým byste měli rozumět, pokud používáte sadu SDK Azure IoT Gateway, systém Linux."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+
 
 ---
-# Sada IoT Gateway (beta verze) – začátky použití v systému Linux
+# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Sada Azure IoT Gateway SDK (beta verze) – Začínáme používat systém Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## Postup pro sestavení ukázky
+## <a name="how-to-build-the-sample"></a>Postup pro sestavení ukázky
 Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro práci se sadou SDK v systému Linux.
 
 1. Otevřete prostředí.
@@ -31,7 +35,7 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 > 
 > 
 
-## Spuštění ukázky
+## <a name="how-to-run-the-sample"></a>Spuštění ukázky
 1. Skript **build.sh** generuje výstup ve složce **build** v místní kopii úložiště **azure-iot-gateway-sdk**. To zahrnuje dva moduly používané v tomto příkladu.
    
     Skript umístí modul **liblogger_hl.so** do složky **build/modules/logger/** a modul **libhello_world_hl.so** do složky **build/modules/hello_world/**. Tyto cesty použijte jako hodnotu **module path**, jak vidíte v následujícím souboru nastavení JSON.
@@ -46,7 +50,9 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -54,7 +60,9 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],
@@ -81,6 +89,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
