@@ -1,19 +1,23 @@
 ---
-title: Hostování více webů ve službě Application Gateway | Microsoft Docs
-description: Tato stránka poskytuje přehled podpory služby Application Gateway pro více webů.
+title: "Hostování více webů ve službě Application Gateway | Dokumentace Microsoftu"
+description: "Tato stránka poskytuje přehled podpory služby Application Gateway pro více webů."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostování více webů ve službě Application Gateway
@@ -25,7 +29,7 @@ Požadavky na http://contoso.com jsou směrovány na FondServeruContoso a požad
 
 Podobně lze ve stejném nasazení služby Application Gateway hostovat dvě poddomény stejné nadřazené domény. Příklady použití poddomén mohou zahrnovat http://blog.contoso.com a http://app.contoso.com hostované v jednom nasazení služby Application Gateway.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Hlavičky hostitele a Identifikace názvu serveru (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>Hlavičky hostitele a Identifikace názvu serveru (SNI)
 Existují tři běžné mechanismy pro povolení hostování více webů ve stejné infrastruktuře.
 
 1. Hostování více webových aplikací, z nichž každá je na jedinečné IP adrese.
@@ -117,6 +121,9 @@ V pravidle směrování není požadována žádná změna. Stále byste měli v
 ## <a name="next-steps"></a>Další kroky
 Po získání informací o hostování více webů přejděte k tématu [Vytvoření služby Application Gateway používající hostování více webů](application-gateway-create-multisite-azureresourcemanager-powershell.md) a vytvořte službu Application Gateway se schopností podporovat více než jednu webovou aplikaci.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

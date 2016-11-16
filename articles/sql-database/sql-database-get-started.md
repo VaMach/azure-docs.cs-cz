@@ -1,13 +1,13 @@
 ---
-title: 'Kurz k SQL Database: Vytvoření databáze SQL | Microsoft Docs'
-description: Zjistěte, jak nastavit logický server služby SQL Database, pravidlo brány firewall serveru, databáze SQL a ukázková data. Zjistíte také, jak se připojit pomocí nástrojů klienta, konfigurovat uživatele a nastavit pravidlo brány firewall databáze.
-keywords: kurz k sql database, vytvoření databáze sql
+title: "Kurz k SQL Database: Vytvoření databáze SQL | Dokumentace Microsoftu"
+description: "Zjistěte, jak nastavit logický server služby SQL Database, pravidlo brány firewall serveru, databáze SQL a ukázková data. Zjistíte také, jak se připojit pomocí nástrojů klienta, konfigurovat uživatele a nastavit pravidlo brány firewall databáze."
+keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,11 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí webu Azure Portal
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>Kurz k SQL Database: Vytvoření databáze SQL během pár minut pomocí webu Azure Portal
 > [!div class="op_single_selector"]
-> * [portál Azure](sql-database-get-started.md)
+> * [Azure Portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -36,7 +40,7 @@ Stejné úlohy můžete provádět i pomocí jazyka [C#](sql-database-get-starte
 
 <a name="create-logical-server-bk"></a>
 
-## Vytvoření první databáze Azure SQL
+## <a name="create-your-first-azure-sql-database"></a>Vytvoření první databáze Azure SQL
 1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
 2. Klikněte na **Nové**, klikněte na **Data + úložiště**, a vyhledejte **SQL Database**.
    
@@ -69,7 +73,7 @@ Stejné úlohy můžete provádět i pomocí jazyka [C#](sql-database-get-starte
 12. V části **Přihlášení správce serveru**přihlášení tohoto serveru, třeba můj_účet_správce. Toto přihlášení se označuje jako přihlášení objektu zabezpečení serveru. Zelená značka zaškrtnutí označuje, že jste zadali platný název.
     
     ![Nová databáze SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. V části **Heslo** a **Potvrzení hesla** zadejte heslo pro přihlašovací účet objektu zabezpečení serveru, třeba p@ssw0rd1. Zelená značka zaškrtnutí označuje, že jste zadali platné heslo.
+13. V části **Heslo** a **Potvrzení hesla** zadejte heslo pro přihlašovací účet objektu zabezpečení serveru, třeba "p@ssw0rd1". Zelená značka zaškrtnutí označuje, že jste zadali platné heslo.
     
     ![Nová databáze SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. V části **Umístění** vyberte datacentrum odpovídající vašemu umístění, třeba Austrálie – východ.
@@ -101,7 +105,7 @@ Stejné úlohy můžete provádět i pomocí jazyka [C#](sql-database-get-starte
 
 [!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nyní jste dokončili kurz k SQL Database a vytvořili jste databázi s ukázkovými daty. Jste tedy připraveni prozkoumávat pomocí svých oblíbených nástrojů.
 
 * Pokud jste obeznámeni s jazykem Transact-SQL a aplikací SQL Server Management Studio (SSMS), zjistěte, jak [se pomocí SSMS k databázi SQL připojit a zadávat dotazy](sql-database-connect-query-ssms.md).
@@ -111,9 +115,12 @@ Nyní jste dokončili kurz k SQL Database a vytvořili jste databázi s ukázkov
 * Chcete-li do nové tabulky načíst data ze souboru CSV pomocí nástroje příkazového řádku BCP, více zjistíte v tématu [Načtení dat do služby SQL Database ze souboru CSV pomocí BCP](sql-database-load-from-csv-with-bcp.md).
 * Pokud se chcete začít seznamovat se zabezpečením Azure SQL Database, přečtěte si téma [Začínáme se zabezpečením](sql-database-get-started-security.md)
 
-## Další zdroje
+## <a name="additional-resources"></a>Další zdroje
 [Co je SQL Database?](sql-database-technical-overview.md)
 
-<!----HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

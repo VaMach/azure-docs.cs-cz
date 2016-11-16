@@ -1,13 +1,13 @@
 ---
-title: Zabezpečení Azure Automation | Microsoft Docs
-description: Tento článek nabízí přehled zabezpečení automatizace a různé metody ověřování, které jsou dostupné pro účty Automation ve službě Azure Automation.
+title: "Zabezpečení Azure Automation | Dokumentace Microsoftu"
+description: "Tento článek nabízí přehled zabezpečení automatizace a různé metody ověřování, které jsou dostupné pro účty Automation ve službě Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: zabezpečení automatizace, bezpečná automatizace
-
+keywords: "zabezpečení automatizace, bezpečná automatizace"
+ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5cd87c888a5e3407da2bad1bc3f2ef10aa75312b
+
 
 ---
-# Zabezpečení služby Azure Automation
+# <a name="azure-automation-security"></a>Zabezpečení služby Azure Automation
 Azure Automation umožňuje automatizovat úlohy s prostředky v Azure, místně a u jiných poskytovatelů cloudu, například Amazon Web Services (AWS).  Aby mohl runbook provádět požadované akce, musí mít oprávnění pro bezpečný přístup k prostředkům s minimálními požadovanými právy v rámci předplatného.  
 Tento článek se bude zabývat různými scénáři ověřování, které Azure Automation podporuje, a ukáže vám, jak začít pracovat s ohledem na prostředí, které nebo která potřebujete spravovat.  
 
-## Přehled účtu Automation
+## <a name="automation-account-overview"></a>Přehled účtu Automation
 Při prvním spuštění služby Azure Automation vytvořte alespoň jeden účet Automation. Účty Automation umožňují izolovat vaše prostředky Automation (runbooky, assety, konfigurace) od prostředků, které jsou obsažené v jiných účtech Automation. Účty Automation můžete použít k oddělení prostředků do samostatných logických prostředí. Jeden účet můžete například použít pro vývoj, druhý k produkci a další pro svoje místní prostředí.  Účet Azure Automation se liší od účtu Microsoft a účtů vytvořených v rámci vašeho předplatného Azure.
 
 Prostředky Automation jednotlivých účtů Automation jsou přidružené k jedné oblasti Azure, ale účty Automation můžou spravovat prostředky v libovolné oblasti. Hlavním důvodem k vytvoření účtů Automation v různých oblastech by byla situace, kdy máte zásady, které vyžadují izolaci dat a prostředků v určité oblasti.
@@ -42,7 +46,7 @@ Momentálně, když na portálu Azure vytvoříte nový účet Automation, úče
 
 Runbooky, které běží v procesu Hybrid Runbook Worker ve vašem datovém centru nebo s výpočetními službami v AWS, nemůžou používat stejné metody, které se obvykle používají pro runbooky ověřované pro prostředky Azure.  Důvodem je to, že tyto prostředky jsou spuštěné mimo Azure a budou proto vyžadovat svoje vlastní zabezpečovací přihlašovací údaje definované ve službě Automation, aby se ověřovaly v prostředcích, ke kterým budou přistupovat místně.  
 
-## Metody ověřování
+## <a name="authentication-methods"></a>Metody ověřování
 Následující tabulka shrnuje různé metody ověřování pro jednotlivá prostředí podporovaná službou Azure Automation a články popisující, jak nastavit ověřování runbooků.
 
 | Metoda | Prostředí | Článek |
@@ -53,6 +57,9 @@ Následující tabulka shrnuje různé metody ověřování pro jednotlivá pros
 | Ověřování systému Windows |Místní datové centrum |[Ověření runbooků pro proces Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | Přihlašovací údaje služby Amazon Web Services |Amazon Web Services |[Ověření runbooků pomocí Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

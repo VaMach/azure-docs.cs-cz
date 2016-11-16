@@ -1,12 +1,12 @@
 ---
-title: Jaké úlohy je možné chránit pomocí Azure Site Recovery?
-description: Azure Site Recovery chrání úlohy a aplikace tím, že koordinuje replikaci, přebírání služeb při selhání a obnovování lokálních virtuálních počítačů a fyzických serverů. Tyto procesy mohou využívat Azure nebo sekundární místní lokalitu.
+title: "Jaké úlohy je možné chránit pomocí Azure Site Recovery?"
+description: "Azure Site Recovery chrání úlohy a aplikace tím, že koordinuje replikaci, přebírání služeb při selhání a obnovování lokálních virtuálních počítačů a fyzických serverů. Tyto procesy mohou využívat Azure nebo sekundární místní lokalitu."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: cfreeman
-editor: ''
-
+editor: 
+ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/10/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddeadcf741eb099f7c14a554dd4f31561a408aa1
+
 
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>Jaké úlohy je možné chránit pomocí Azure Site Recovery?
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jaké úlohy je možné chránit pomocí Azure Site Recovery?
 Tento článek popisuje úlohy a aplikace, které můžete replikovat se službou Azure Site Recovery.
 
 Jakékoli dotazy nebo připomínky můžete publikovat na konci tohoto článku nebo na [fóru služby Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -28,7 +32,7 @@ Site Recovery je služba Azure, která přispívá ke strategii BCDR. S využit�
 
 Site Recovery se integruje s aplikacemi Microsoftu, mezi které patří SharePoint, Exchange, Dynamics, SQL Server a Active Directory. Microsoft také úzce spolupracuje s předními dodavateli včetně Oracle, SAP, IBM a Red Hat. Řešení replikace můžete přizpůsobit na bázi jednotlivých aplikací.
 
-## <a name="why-use-site-recovery-for-application-replication?"></a>Proč pro replikaci aplikací používat Site Recovery?
+## <a name="why-use-site-recovery-for-application-replication"></a>Proč pro replikaci aplikací používat Site Recovery?
 Site Recovery pro ochranu a obnovení na úrovni aplikací přináší následující:
 
 * Nerozlišování aplikací a poskytování replikace pro jakoukoli úlohu spuštěnou na podporovaném počítači
@@ -129,6 +133,9 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 ## <a name="next-steps"></a>Další kroky
 [Příprava pro nasazení Site Recovery](site-recovery-best-practices.md) 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

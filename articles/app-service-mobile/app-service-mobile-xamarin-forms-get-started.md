@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Mobile Apps na platformě Xamarin.Forms
-description: V tomto kurzu začnete používat Azure Mobile Apps pro vývoj s Xamarin.Forms.
+title: "Začínáme s Mobile Apps na platformě Xamarin.Forms"
+description: "V tomto kurzu začnete používat Azure Mobile Apps pro vývoj s Xamarin.Forms."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+
 
 ---
-# Vytvoření aplikace na platformě Xamarin.Forms
+# <a name="create-a-xamarinforms-app"></a>Vytvoření aplikace na platformě Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu do mobilní aplikace na platformě Xamarin.Forms pomocí back-endu mobilní aplikace Azure. Vytvoříte jak nový back-end mobilní aplikace, tak jednoduchou aplikaci Xamarin.Forms, která bude představovat *seznam úkolů* a ukládat data do Azure.
 
 Ve všech dalších kurzech k Mobile Apps týkajících se Xamarin.Forms se předpokládá dokončení tohoto kurzu.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pro absolvování tohoto kurzu potřebujete:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -36,19 +40,19 @@ Pro absolvování tohoto kurzu potřebujete:
 > 
 > 
 
-## Vytvoření nového back-endu mobilní aplikace Azure
+## <a name="create-a-new-azure-mobile-app-backend"></a>Vytvoření nového back-endu mobilní aplikace Azure
 Podle těchto pokynů vytvořte nový back-end mobilní aplikace:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použít v mobilních klientských aplikacích. Dále si stáhnete serverový projekt pro jednoduchý back-end seznamu úkolů a publikujete ho v Azure.
 
-## Konfigurace serverového projektu
+## <a name="configure-the-server-project"></a>Konfigurace serverového projektu
 Podle pokynů níže nakonfigurujte serverový projekt tak, aby používal buď back-end Node.js, nebo .NET.
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Stáhnutí a spuštění řešení Xamarin.Forms
+## <a name="download-and-run-the-xamarinforms-solution"></a>Stáhnutí a spuštění řešení Xamarin.Forms
 Zde máte několik možností. Řešení si můžete stáhnout na Mac a otevřít ho v nástroji Xamarin Studio nebo si ho můžete stáhnout do počítače s Windows a otevřít v nástroji Visual Studio pomocí síťově připojeného počítače Mac, abyste mohli sestavit aplikaci pro iOS. Pokud potřebujete podrobnější pokyny ke scénářům instalace nástroje Xamarin, nahlédněte do tématu o [nastavení a instalaci nástrojů Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Můžeme pokračovat:
@@ -63,14 +67,14 @@ Můžeme pokračovat:
    
    ![][8]
 
-## (Nepovinné) Spuštění projektu pro iOS
+## <a name="optional-run-the-ios-project"></a>(Nepovinné) Spuštění projektu pro iOS
 Tato část se týká spuštění projektu Xamarin iOS pro zařízení s iOS. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-#### V nástroji Xamarin Studio
+#### <a name="in-xamarin-studio"></a>V nástroji Xamarin Studio
 1. Klikněte pravým tlačítkem myši na projekt pro iOS a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Spustit** klikněte na **Spustit ladění**, aby se projekt sestavil a aplikace se spustila v emulátoru iPhonu.
 
-#### V nástroji Visual Studio
+#### <a name="in-visual-studio"></a>V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na projekt pro iOS a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
 3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u projektu pro iOS.
@@ -92,14 +96,14 @@ Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v 
 > 
 > 
 
-## (Nepovinné) Spuštění projektu pro Android
+## <a name="optional-run-the-android-project"></a>(Nepovinné) Spuštění projektu pro Android
 Tato část se týká spuštění projektu Xamarin Android pro zařízení s Androidem. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-#### V nástroji Xamarin Studio
+#### <a name="in-xamarin-studio"></a>V nástroji Xamarin Studio
 1. Klikněte pravým tlačítkem myši na projekt pro Android a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Spustit** klikněte na **Spustit ladění**, aby se projekt sestavil a aplikace se spustila v emulátoru Androidu.
 
-#### V nástroji Visual Studio
+#### <a name="in-visual-studio"></a>V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na projekt pro Android (Droid) a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
 3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u projektu pro Android.
@@ -121,10 +125,10 @@ Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v 
 > 
 > 
 
-## (Nepovinné) Spuštění projektu pro Windows
+## <a name="optional-run-the-windows-project"></a>(Nepovinné) Spuštění projektu pro Windows
 Tato část se týká spuštění projektu Xamarin WinApp pro zařízení s Windows. Můžete ji přeskočit, pokud s takovými zařízeními nepracujete.
 
-#### V nástroji Visual Studio
+#### <a name="in-visual-studio"></a>V nástroji Visual Studio
 1. Klikněte pravým tlačítkem myši na kterýkoli z projektů pro Windows a pak klikněte na **Nastavit jako spouštěný projekt**.
 2. V nabídce **Sestavení** (Build) klikněte na **Správce konfigurace**.
 3. V dialogovém okně **Správce konfigurace** zaškrtněte políčka **Sestavení** (Build) a **Nasazení** u vámi zvoleného projektu pro Windows.
@@ -146,7 +150,7 @@ Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v 
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Přidání ověřování do aplikace](app-service-mobile-xamarin-forms-get-started-users.md)  
   Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
 * [Přidání nabízených oznámení do aplikace](app-service-mobile-xamarin-forms-get-started-push.md)  
@@ -179,6 +183,6 @@ Tím se pošle požadavek POST na nový back-end mobilní aplikace hostovaný v 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

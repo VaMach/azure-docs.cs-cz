@@ -1,12 +1,12 @@
 ---
-title: Průvodce programováním pro Azure Event Hubs | Microsoft Docs
-description: Popisuje programování pro Azure Event Hubs pomocí sady Azure .NET SDK.
+title: "Průvodce programováním pro Azure Event Hubs | Dokumentace Microsoftu"
+description: "Popisuje programování pro Azure Event Hubs pomocí sady Azure .NET SDK."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
+
 
 ---
 # <a name="event-hubs-programming-guide"></a>Průvodce programováním pro službu Event Hubs
@@ -95,7 +99,7 @@ Odesílání událostí v dávkách (batch) může výrazně zvýšit propustnos
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**).
+Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**).
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchronní odesílání a škálované odesílání
 Události můžete do centra událostí posílat i asynchronně. Asynchronní odesílání může zvýšit frekvenci, s jakou je klient schopný odesílat události. Metody [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx) i [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) jsou k dispozici v asynchronních verzích, které vrací objekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). I když tato technika může zvýšit propustnost, taky může způsobit, že klient bude odesílat události i po omezení ze strany služby Event Hubs, což může v případě nesprávné implementace vést k selhání klienta nebo ztrátě zpráv. K ovládání možností opětovných pokusů klienta můžete navíc u klienta použít vlastnost [RetryPolicy](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.cliententity.retrypolicy.aspx).
@@ -168,6 +172,9 @@ Další informace o scénářích služby Event Hubs naleznete pod těmito odkaz
 * [Ukázky kódu služby Event Hubs](http://code.msdn.microsoft.com/site/search?query=event hub&f\[0\].Value=event hub&f\[0\].Type=SearchText&ac=5)
 * [Referenční dokumentace rozhraní API třídy EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

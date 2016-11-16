@@ -1,22 +1,26 @@
 ---
-title: Načtení dat z SQL Serveru do Azure SQL Data Warehouse (PolyBase) | Microsoft Docs
-description: Využívá bcp k exportu dat z SQL Serveru do plochých souborů, AZCopy k importu dat do Azure Blob Storage a PolyBase ke zpracování příjmu dat do Azure SQL Data Warehouse.
+title: "Načtení dat z SQL Serveru do Azure SQL Data Warehouse (PolyBase) | Dokumentace Microsoftu"
+description: "Využívá bcp k exportu dat z SQL Serveru do plochých souborů, AZCopy k importu dat do Azure Blob Storage a PolyBase ke zpracování příjmu dat do Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 860c86e0-90f7-492c-9a84-1bdd3d1735cd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: cakarst;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+
 
 ---
-# Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 > * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
@@ -34,7 +38,7 @@ Tento kurz ukazuje, jak načíst data do SQL Data Warehouse s použitím AzCopy 
 > 
 > 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pro jednotlivé kroky v tomto kurzu budete potřebovat
 
 * Databázi SQL Data Warehouse
@@ -43,10 +47,10 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat
   
     ![Nástroje Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## Krok 1: Přidání ukázkových dat do Azure Blob Storage
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Krok 1: Přidání ukázkových dat do Azure Blob Storage
 Aby bylo možné data načíst, musíme vložit nějaká ukázková data do Azure Blob Storage. V tomto kroku naplníme objekt blob úložiště Azure ukázkovými daty. Později pomocí funkce PolyBase načteme tato ukázková data do vaší databáze SQL Data Warehouse.
 
-### A. Příprava ukázkového textového souboru
+### <a name="a-prepare-a-sample-text-file"></a>A. Příprava ukázkového textového souboru
 Ukázkový textový soubor připravíte takto:
 
 1. Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového souboru. Uložte zkopírované řádky do místního dočasného (temp) adresáře do souboru % temp%\DimDate2.txt.
@@ -66,10 +70,10 @@ Ukázkový textový soubor připravíte takto:
 20150101,1,3
 ```
 
-### B. Vyhledání vašeho koncového bodu Služby objektů blob
+### <a name="b-find-your-blob-service-endpoint"></a>B. Vyhledání vašeho koncového bodu Služby objektů blob
 Vyhledání vašeho koncového bodu Služby objektů blob:
 
-1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
+1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. V okně Účet úložiště klikněte na Objekty blob.
    
@@ -78,17 +82,17 @@ Vyhledání vašeho koncového bodu Služby objektů blob:
    
     ![Koncový bod Služby objektů blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Vyhledání klíče účtu úložiště Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Vyhledání klíče účtu úložiště Azure
 Vyhledání klíče účtu úložiště Azure:
 
-1. Na webu Azure Portal vyberte **Procházet** > **Účty úložiště**.
+1. Na portálu Azure vyberte **Procházet** > **Účty úložiště**.
 2. Klikněte na účet úložiště, který chcete použít.
 3. Vyberte **Všechna nastavení** > **Přístupové klíče**.
 4. Kliknutím na políčko pro kopírování si zkopírujte jeden ze svých přístupových klíčů do schránky.
    
     ![Zkopírování klíče úložiště Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Zkopírování ukázkového souboru do Azure Blob Storage
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Zkopírování ukázkového souboru do Azure Blob Storage
 Zkopírování vašich dat do Azure Blob Storage:
 
 1. Otevřete příkazový řádek a změňte adresář na instalační adresář AzCopy. Tento příkaz změní adresář na výchozí instalační adresář na 64bitovém klientovi Windows.
@@ -104,7 +108,7 @@ Zkopírování vašich dat do Azure Blob Storage:
 
 Viz také [Začínáme s nástrojem příkazového řádku AzCopy][nejnovější verzi AzCopy].
 
-### E. Prozkoumání vašeho kontejneru úložiště objektů blob
+### <a name="e-explore-your-blob-storage-container"></a>E. Prozkoumání vašeho kontejneru úložiště objektů blob
 Zobrazení souboru, který jste nahráli do úložiště objektů blob:
 
 1. Přejděte zpět do okna vaší Služby objektů blob.
@@ -115,14 +119,14 @@ Zobrazení souboru, který jste nahráli do úložiště objektů blob:
    
     ![Zobrazení objektu blob úložiště Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## Krok 2: Vytvoření externí tabulky pro ukázková data
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Krok 2: Vytvoření externí tabulky pro ukázková data
 V této části vytvoříme externí tabulku, která definuje ukázková data.
 
 Funkce PolyBase používá pro přístup k datům v Azure Blob Storage externí tabulky. Vzhledem k tomu, že data nejsou uložená v SQL Data Warehouse, zpracovává PolyBase ověřování pro externí data pomocí přihlašovacích údajů platných pro databázi.
 
 V příkladě v tomto kroku se k vytvoření externí tabulky používají následující příkazy jazyka Transact-SQL.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného klíče vašich přihlašovacích údajů pro vaši databázi
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného kódu přihlašovacích údajů pro vaši databázi
 * [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] k zadání ověřovacích informací pro váš účet úložiště Azure
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] k určení umístění vaší služby Azure Blob Storage
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] k určení formátu vašich dat
@@ -203,7 +207,7 @@ V Průzkumníku objektů systému SQL Server v sadě Visual Studio uvidíte form
 
 ![Zobrazení externí tabulky](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Krok 3: Načtení dat do SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Krok 3: Načtení dat do SQL Data Warehouse
 Po vytvoření externí tabulky můžete buď načíst data do nové tabulky, nebo je vložit do existující tabulky.
 
 * Pokud chcete načíst data do nové tabulky, spusťte příkaz [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Nová tabulka bude mít sloupce pojmenované v dotazu. Datové typy sloupců budou odpovídat datovým typům v definici externí tabulky.
@@ -222,7 +226,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Krok 4: Vytvoření statistiky pro nově načtená data
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro nově načtená data
 SQL Data Warehouse nevytváří ani neaktualizuje statistiku automaticky. Pro dosažení vysokého výkonu dotazu je proto důležité vytvořit statistiku pro každý sloupec každé tabulky po prvním načtení. Důležité je také aktualizovat statistiku po důležitých změnách v datech.
 
 Tento příklad vytvoří jednosloupcovou statistiku pro novou tabulku DimDate2.
@@ -235,7 +239,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 Další informace viz [Statistika][Statistika].  
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najdete další informace, které byste měli mít, když budete vyvíjet řešení využívající funkci PolyBase.
 
 <!--Image references-->
@@ -251,7 +255,7 @@ Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najde
 <!--External references-->
 [podporovaný zdroj/jímka]: https://msdn.microsoft.com/library/dn894007.aspx
 [aktivita kopírování]: https://msdn.microsoft.com/library/dn835035.aspx
-[cílový adaptér SQL Serveru]: https://msdn.microsoft.com/library/ms141095.aspx
+[Cílový adaptér SQL Serveru]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -272,6 +276,6 @@ Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najde
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

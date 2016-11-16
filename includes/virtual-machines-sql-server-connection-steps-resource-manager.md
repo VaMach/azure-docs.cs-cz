@@ -1,4 +1,4 @@
-### Konfigurace názvu DNS veřejné IP adresy
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurace názvu DNS veřejné IP adresy
 Pokud se chcete z internetu připojit k databázovému stroji systému SQL Server, nejdřív pro svoji veřejnou IP adresu nakonfigurujte název DNS.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální p
    
     ![Název DNS](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Připojení k databázovému stroji z jiného počítače
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Připojení k databázovému stroji z jiného počítače
 1. Na počítači připojeném k internetu otevřete aplikaci SSMS (SQL Server Management Studio).
 2. V dialogovém okně **Připojit k serveru** nebo **Connect to Database Engine** (Připojit k databázovému stroji) upravte hodnotu **Název serveru**. Zadejte úplný název DNS virtuálního počítače (určený v předchozí úloze).
 3. V poli **Ověřování** vyberte **Ověřování serveru SQL Server**.
@@ -27,6 +27,8 @@ Pokud chcete vytvořit název DNS, nejdřív na portálu vyberte **Virtuální p
    
     ![Připojení přes SSMS](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

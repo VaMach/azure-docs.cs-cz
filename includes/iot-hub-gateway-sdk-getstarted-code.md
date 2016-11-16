@@ -1,4 +1,4 @@
-## Příklad typického výstupu
+## <a name="typical-output"></a>Příklad typického výstupu
 Níže je uveden příklad výstupu zapsaného do souboru protokolu v příkladu Hello World. Znaky nového řádku a tabulátoru byly přidány pro čitelnost:
 
 ```
@@ -29,10 +29,10 @@ Níže je uveden příklad výstupu zapsaného do souboru protokolu v příkladu
 }]
 ```
 
-## Fragmenty kódu
+## <a name="code-snippets"></a>Fragmenty kódu
 Tato část popisuje některé klíčové části kódu v ukázce Hello World.
 
-### Vytvoření brány
+### <a name="gateway-creation"></a>Vytvoření brány
 Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (zprostředkovatele), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. Sada SDK poskytuje funkci **Gateway_Create_From_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway_Create_From_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst. 
 
 Kód pro proces brány lze najít v ukázce Hello World v souboru [main.c][lnk-main-c]. Níže uvedený fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší. 
@@ -77,12 +77,16 @@ Následující příklad ukazuje soubor nastavení JSON, který se používá ke
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,7 +100,7 @@ Následující příklad ukazuje soubor nastavení JSON, který se používá ke
 }
 ```
 
-### Publikování zpráv modulu Hello World
+### <a name="hello-world-module-message-publishing"></a>Publikování zpráv modulu Hello World
 Kód, který používá modul Hello World k publikování zpráv, najdete v souboru ['hello_world.c'][lnk-helloworld-c]. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
 
 ```
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Zpracování zpráv modulu Hello World
+### <a name="hello-world-module-message-processing"></a>Zpracování zpráv modulu Hello World
 Modul Hello World nikdy nemusí zpracovávat jakékoli zprávy, které do zprostředkovatele publikují ostatní moduly. To provádí implementace zpětného volání zpráv v modulu Hello World ve funkci no-op.
 
 ```
@@ -155,7 +159,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Publikování a zpracování zpráv protokolovacího modulu
+### <a name="logger-module-message-publishing-and-processing"></a>Publikování a zpracování zpráv protokolovacího modulu
 Protokolovací modul přijímá zprávy od zprostředkovatele a zapisuje je do souboru. Nikdy publikuje žádné zprávy. Z toho důvodu protokolovací modul nikdy nevolá funkci **Broker_Publish**.
 
 Funkce **Logger_Recieve** v souboru [logger.c][lnk-logger-c] je funkce zpětného volání, kterou zprostředkovatel vyvolá při doručení zprávy protokolovacímu modulu. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
@@ -199,8 +203,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Další kroky
-Další informace o použití sady Gateway SDK naleznete v následujících tématech:
+## <a name="next-steps"></a>Další kroky
+Další informace o použití sady IoT Gateway SDK najdete v následujících tématech:
 
 * [IoT Gateway SDK – odesílání zpráv zařízení do cloudu pomocí simulovaného zařízení v systému Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] na GitHubu.
@@ -212,6 +216,6 @@ Další informace o použití sady Gateway SDK naleznete v následujících tém
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,14 +1,14 @@
 ---
-title: Přehled Azure Functions | Microsoft Docs
-description: Během několika minut se naučte používat Azure Functions k optimalizaci asynchronních úloh.
+title: "Přehled Azure Functions | Dokumentace Microsoftu"
+description: "Během několika minut se naučte používat Azure Functions k optimalizaci asynchronních úloh."
 services: functions
 documentationcenter: na
 author: mattchenderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: funkce azure, funkce, zpracování událostí, webhook, dynamické výpočty, architektura bez serverů
-
+editor: 
+tags: 
+keywords: "funkce azure, funkce, zpracování událostí, webhook, dynamické výpočty, architektura bez serverů"
+ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -16,14 +16,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: cfowler;mahender;glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 601c5a61023fe1565dc0f8e22d9826ae5705fe22
+
 
 ---
-# Přehled Azure Functions
+# <a name="azure-functions-overview"></a>Přehled Azure Functions
 Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Díky tomu se ještě zvýší produktivita vývoje, a navíc můžete použít jazyk podle vlastní volby, například C#, F# Node.js, Python nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure.
 
 Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začít používat Azure Functions, začněte tématem [Vytvoření první funkce Azure](functions-create-first-azure-function.md). Pokud hledáte další odborné informace o Functions, přejděte k části [referenční informace pro vývojáře](functions-reference.md).
 
-## Funkce
+## <a name="features"></a>Funkce
 Toto jsou některé klíčové funkce Azure Functions:
 
 * **Volba jazyka** – Pište funkce pomocí jazyka C#, F#, Node.js, Python, F#, PHP, Batch, Bash, Java nebo libovolného spustitelného jazyka.
@@ -34,7 +38,7 @@ Toto jsou některé klíčové funkce Azure Functions:
 * **Flexibilní vývoj** – Kódujte funkce přímo na portálu nebo nastavte průběžnou integraci a nasaďte kód prostřednictvím nástrojů GitHub, Visual Studio Team Services a dalších [podporovaných vývojových nástrojů](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Open Source** – Modul runtime Functions je typu Open Source a [je dostupný na GitHubu](https://github.com/azure/azure-webjobs-sdk-script).  
 
-## Co můžu dělat s Functions?
+## <a name="what-can-i-do-with-functions"></a>Co můžu dělat s Functions?
 Azure Functions je vynikající řešení pro zpracování dat, integraci systémů, práci s internetem věcí (IoT) a vytváření jednoduchých rozhraní API a mikroslužeb. Zvažte Functions v případě úloh, jako je zpracování obrazu nebo objednávek a údržba souborů, dlouhotrvajících úloh, které chcete spustit ve vláknu na pozadí, a všech úloh, které chcete spustit podle plánu. 
 
 Functions poskytuje šablony, které vám pomůžou začít s klíčovými scénáři, včetně těchto:
@@ -51,7 +55,7 @@ Functions poskytuje šablony, které vám pomůžou začít s klíčovými scén
 
 Azure Functions podporuje *triggery*, které představují jeden ze způsobů spuštění provádění kódu, a *vazby*, které zjednodušují kódování u vstupních a výstupních dat. Podrobný popis triggerů a vazeb podporovaných Azure Functions najdete v tématu [Referenční informace pro vývojáře triggerů a vazeb Azure Functions](functions-triggers-bindings.md).
 
-## <a name="integrations"></a>Integrace
+## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integrace
 Azure Functions se integruje s celou řadou služeb Azure a služeb třetích stran. Pomocí nich můžete aktivovat funkci a spustit provedení, nebo je můžete použít jako vstup a výstup kódu. Azure Functions podporuje následující integrace služeb. 
 
 * Azure DocumentDB
@@ -63,7 +67,7 @@ Azure Functions se integruje s celou řadou služeb Azure a služeb třetích st
 * GitHub (webhooky)
 * Místní (pomocí služby Service Bus)
 
-## <a name="pricing"></a>Kolik stojí Functions?
+## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Kolik stojí Functions?
 Azure Functions nabízí dva druhy cenových plánů. Zvolte ten, který nejlíp vyhovuje vašim potřebám: 
 
 * **Plán Dynamic Hosting** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. Úplné podrobnosti o cenách jsou dostupné na [stránce Ceny Functions](/pricing/details/functions). 
@@ -71,18 +75,21 @@ Azure Functions nabízí dva druhy cenových plánů. Zvolte ten, který nejlíp
 
 Další informace o škálování funkcí najdete v tématu [Postup škálování Azure Functions](functions-scale.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Vytvoření první funkce Azure](functions-create-first-azure-function.md)  
   Umožňuje rovnou začít a vytvořit první funkci pomocí rychlého startu Azure Functions. 
 * [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
   Poskytuje další odborné informace o modulu runtime Azure Functions a referenční informace pro kódování funkcí a definování triggerů a vazeb.
-* [Testování funkcí Azure Functions](functions-test-a-function.md)  
+* [Testování Azure Functions](functions-test-a-function.md)  
   Toto téma popisuje různé nástroje a techniky pro testování funkcí.
 * [Postup škálování Azure Functions](functions-scale.md)  
   Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (včetně plánu služby Dynamic), a výběr správného plánu. 
 * [Další informace o Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

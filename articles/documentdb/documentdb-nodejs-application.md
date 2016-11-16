@@ -1,13 +1,13 @@
 ---
-title: Výuka Node.js – kurz k DocumentDB Node.js | Microsoft Docs
-description: Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí Microsoft Azure DocumentDB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované na Webech Azure.
-keywords: Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure
+title: "Výuka Node.js – kurz k DocumentDB Node.js | Microsoft Docs"
+description: "Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí Microsoft Azure DocumentDB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované na Webech Azure."
+keywords: "Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure"
 services: documentdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
+
 
 ---
-# <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js pomocí DocumentDB
+# <a name="a-nametoc395783175abuild-a-nodejs-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Sestavení webové aplikace Node.js pomocí DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -30,7 +34,7 @@ Tento kurz Node.js popisuje, jak pomocí služby Azure DocumentDB ukládat data 
 
 Doporučujeme začít následujícím videem, kde se naučíte zřizovat databázový účet Azure DocumentDB a ukládat dokumenty JSON v aplikaci Node.js. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
+> [! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
 > 
 > 
 
@@ -43,9 +47,9 @@ Postupem v tomto kurzu vytvoříte jednoduchou webovou aplikaci pro správu úko
 
 ![Snímek obrazovky aplikace pro seznam úkolů vytvořené v tomto kurzu k Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? To není problém, celé ukázkové řešení si můžete stáhnout z [GitHubu][].
+Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? To není problém, celé ukázkové řešení si můžete stáhnout z [GitHubu][GitHub].
 
-## <a name="_Toc395783176"></a>Požadavky
+## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Požadavky
 > [!TIP]
 > V tomto kurzu Node.js se předpokládá, že již máte zkušenosti s používáním Node.js a Webů Azure.
 > 
@@ -58,14 +62,14 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 * [Generátor Express](http://www.expressjs.com/starter/generator.html) (lze nainstalovat prostřednictvím `npm install express-generator -g`)
 * [Git][Git]
 
-## <a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
+## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
 Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [Krok 2: Vytvoření nové aplikace Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Krok 2: Postup vytvoření nové aplikace Node.js
+## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Krok 2: Postup vytvoření nové aplikace Node.js
 Nyní se naučíme, jak vytvořit základní projekt Node.js Hello World pomocí rozhraní [Express](http://expressjs.com/).
 
 1. Otevřete svůj oblíbený terminál.
@@ -83,7 +87,7 @@ Nyní se naučíme, jak vytvořit základní projekt Node.js Hello World pomocí
    
     ![Výuka Node.js – snímek obrazovky aplikace Hello World v okně prohlížeče](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="_Toc395783179"></a>Krok 3: Instalace dalších modulů
+## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Krok 3: Instalace dalších modulů
 Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu. Tento soubor obsahuje seznam dalších modulů, které aplikace Node.js vyžaduje. Později, až budete tuto aplikaci nasazovat na Weby Azure, se tento soubor použije k vyhodnocení, které moduly musí být v Azure pro podporu vaší aplikace nainstalovány. Pro tento kurz je ještě nutné nainstalovat další dva balíčky.
 
 1. Po návratu na terminál nainstalujte pomocí npm modul **async**.
@@ -98,7 +102,7 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
    
     To říká uzlu (a později Azure), že vaše aplikace závisí na těchto dalších modulech.
 
-## <a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
+## <a name="a-nametoc395783180astep-4-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
 Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Vytvoření modelu
@@ -147,7 +151,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
                         name: '@id',
                         value: collectionId
                     }]
-                };             
+                };               
    
                 client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
                     if (err) {
@@ -367,7 +371,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         };
 4. Uložte a zavřete soubor **tasklist.js**.
 
-### <a name="add-config.js"></a>Přidání souboru config.js
+### <a name="add-configjs"></a>Přidání souboru config.js
 1. V adresáři projektu vytvořte nový soubor s názvem **config.js**.
 2. Do souboru **config.js** přidejte následující: Tento kód definuje nastavení konfigurace a hodnoty, které aplikace potřebuje.
    
@@ -382,7 +386,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 3. Aktualizujte v souboru **config.js** hodnoty HOST a AUTH_KEY hodnotami, které získáte v okně Klíče účtu DocumentDB na [Portálu Microsoft Azure](https://portal.azure.com):
 4. Uložte a zavřete soubor **config.js**.
 
-### <a name="modify-app.js"></a>Úprava souboru app.js
+### <a name="modify-appjs"></a>Úprava souboru app.js
 1. V adresáři projektu otevřete soubor **app.js**. Tento soubor byl vytvořen již dříve, při vytváření webové aplikace Express.
 2. Do horní části souboru **app.js** přidejte následující kód.
    
@@ -412,7 +416,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 5. Tyto řádky definují novou instanci objektu **TaskDao** s novým připojením k DocumentDB (pomocí hodnot přečtených ze souboru **config.js**), inicializují objekt úkolů a svážou akce formuláře s metodami kontroleru **TaskList**. 
 6. Nakonec soubor **app.js** uložte a zavřete a jsme téměř hotovi.
 
-## <a name="_Toc395783181"></a>Krok 5: Vytvoření uživatelského rozhraní
+## <a name="a-nametoc395783181astep-5-build-a-user-interface"></a><a name="_Toc395783181"></a>Krok 5: Vytvoření uživatelského rozhraní
 Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé mohli s aplikací pracovat. Aplikace Express, kterou jsme vytvořili, používá jako zobrazovací modul **Jade**. Další informace o Jade najdete na stránce [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Soubor **layout.jade** v adresáři **views** slouží jako globální šablona pro ostatní soubory **.jade**. V tomto kroku jej upravíte tak, aby používal [Twitter Bootstrap](https://github.com/twbs/bootstrap). To je sada nástrojů, které usnadňují návrh pěkných webů. 
@@ -504,7 +508,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
    
     Uložte a zavřete tento soubor **style.css**.
 
-## <a name="_Toc395783181"></a>Krok 6: Místní spuštění aplikace
+## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Krok 6: Místní spuštění aplikace
 1. Pokud chcete aplikaci otestovat na místním počítači, spusťte v terminálu `npm start`, aby se spustila aplikace a prohlížeč se stránkou, která vypadá obdobně jako obrázek níže:
    
     ![Snímek obrazovky aplikace Seznam úkolů v okně prohlížeče](./media/documentdb-nodejs-application/image18.png)
@@ -514,7 +518,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
     ![Snímek obrazovky aplikace s novou položkou v seznamu úkolů](./media/documentdb-nodejs-application/image19.png)
 4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly).
 
-## <a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Azure Websites
+## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Azure Websites
 1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak máte postupovat, najdete v tématu [Místní nasazení přes Git do Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 2. Přidejte svůj web Azure jako vzdálené úložiště Git.
    
@@ -524,10 +528,10 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
         git push azure master
 4. Za několik sekund Git dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
-## <a name="_Toc395637775"></a>Další kroky
+## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Další kroky
 Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci Node.js Express, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
 
-Zdrojový kód úplné referenční aplikace je možné stáhnout z [GitHubu][].
+Zdrojový kód úplné referenční aplikace je možné stáhnout z [GitHubu][GitHub].
 
 Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.microsoft.com/develop/nodejs/).
 
@@ -538,6 +542,6 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

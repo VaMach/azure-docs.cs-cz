@@ -1,12 +1,12 @@
 ---
-title: Začínáme s aplikacemi API a technologií ASP.NET v App Service | Microsoft Docs
-description: Naučte se vytvářet, nasazovat a využívat aplikace API technologie ASP.NET v Azure App Service pomocí nástroje Visual Studio 2015.
+title: "Začínáme s aplikacemi API a technologií ASP.NET v App Service | Dokumentace Microsoftu"
+description: "Naučte se vytvářet, nasazovat a využívat aplikace API technologie ASP.NET v Azure App Service pomocí nástroje Visual Studio 2015."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+
 
 ---
-# Začínáme s aplikacemi API, technologií ASP.NET a Swaggerem v Azure App Service
+# <a name="get-started-with-api-apps-aspnet-and-swagger-in-azure-app-service"></a>Začínáme s aplikacemi API, technologií ASP.NET a Swaggerem v Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
 Toto je první ze série kurzů věnovaných ukázce používání funkcí Azure App Service, které jsou užitečné pro vývoj a hostování rozhraní RESTful API.  Tento kurz se zaměřuje na podporu metadat rozhraní API ve formátu Swagger.
@@ -27,7 +31,7 @@ Naučíte se:
 * Jak automatizovat zjišťování rozhraní API pomocí balíčku NuGet Swashbuckle a dynamicky generovat metadata rozhraní API Swaggeru
 * Jak používat metadata rozhraní API Swaggeru k automatickému generování kódu klienta pro aplikace API
 
-## Přehled ukázkové aplikace
+## <a name="sample-application-overview"></a>Přehled ukázkové aplikace
 V tomto návodu budeme pracovat s jednoduchou ukázkovou aplikací seznamu úkolů. Aplikace má front-end jednostránkové aplikace (SPA), střední vrstvu webového rozhraní API ASP.NET a datovou vrstvu webového rozhraní API ASP.NET.
 
 ![Diagram ukázkové aplikace API](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
@@ -50,7 +54,7 @@ Po dokončení tohoto kurzu budete mít v cloudu v App Service API Apps nastaven
 
 Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloudu.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Webové rozhraní API ASP.NET – tento kurz předpokládá základní znalosti práce s [webovým rozhraním API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET v nástroji Visual Studio.
 * Účet Azure – můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele nástroje Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
@@ -66,19 +70,19 @@ Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloud
     > 
     > 
 
-## Stažení ukázkové aplikace
+## <a name="download-the-sample-application"></a>Stažení ukázkové aplikace
 1. Stáhněte si úložiště [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
    
     Můžete kliknout na tlačítko **Stáhnout ZIP** nebo klonovat úložiště na místním počítači.
 2. Otevřete řešení seznamu úkolů v nástroji Visual Studio 2015 nebo 2013.
    
    1. Je potřeba, abyste odsouhlasili, že všem řešením důvěřujete.
-        ![Bezpečnostní upozornění](./media/app-service-api-dotnet-get-started/securitywarning.png)
+         ![Upozornění zabezpečení](./media/app-service-api-dotnet-get-started/securitywarning.png)
 3. Sestavením řešení (CTRL+SHIFT+B) obnovte balíčky NuGet.
    
     Pokud si chcete aplikaci prohlédnout v provozu ještě před nasazením, můžete ji spustit místně. Ujistěte se, že ToDoListDataAPI je nastaven jako spouštěný projekt, a spusťte řešení. Očekávejte, že se v prohlížeči zobrazí chyba HTTP 403.
 
-## Používání uživatelského rozhraní a metadat rozhraní API Swaggeru
+## <a name="use-swagger-api-metadata-and-ui"></a>Používání uživatelského rozhraní a metadat rozhraní API Swaggeru
 Podpora metadat rozhraní API [Swaggeru](http://swagger.io/) 2.0 je integrována v Azure App Service. Každá aplikace API může určit koncový bod adresy URL, který vrací metadata pro rozhraní API ve formátu dat JSON pro Swagger. Metadata vrácená z tohoto koncového bodu je možné použít ke generování kódu klienta.
 
 Projekt webového rozhraní API ASP.NET může dynamicky generovat metadata Swagger pomocí balíčku NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). Balíček NuGet Swashbuckle již je v projektech ToDoListDataAPI a ToDoListAPI, které jste si stáhli, nainstalována.
@@ -194,7 +198,7 @@ Swashbuckle funguje s libovolným projektem webového rozhraní API ASP.NET. Pok
 > 
 > 
 
-## <a id="createapiapp"></a> Vytvoření aplikace API v Azure a nasazení kódu v ní
+## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Vytvoření aplikace API v Azure a nasazení kódu v této aplikaci
 V této části použijte nástroje Azure, které jsou integrovány v průvodci **Publikovat web** nástroje Visual Studio, k vytvoření nové aplikace API v Azure. Potom nasaďte projekt ToDoListDataAPI do nové aplikace API a spuštěním uživatelského rozhraní Swagger zavolejte rozhraní API.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt ToDoListDataAPI a potom klikněte na **Publikovat**.
@@ -220,9 +224,9 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
     Adresa URL aplikace API bude `{API app name}.azurewebsites.net`.
 6. V rozevíracím seznamu **Skupina prostředků** klikněte na **Nová** a zadejte ToDoListGroup nebo jiný název, který preferujete.
    
-    Skupina prostředků je kolekce prostředků Azure, jako jsou aplikace API, databáze, virtuální počítače apod. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
+    Skupina prostředků je kolekce prostředků Azure, jako jsou aplikace API, databáze, virtuální počítače apod.    V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
    
-    V tomto poli můžete vybrat existující [skupinu prostředků](../resource-group-overview.md). Můžete taky vytvořit novou tak, že zadáte název, který zatím nemá žádná existující skupina prostředků ve vašem předplatném.
+    V tomto poli můžete vybrat existující [skupinu prostředků](../azure-resource-manager/resource-group-overview.md). Můžete taky vytvořit novou tak, že zadáte název, který zatím nemá žádná existující skupina prostředků ve vašem předplatném.
 7. Klikněte na tlačítko **Nová** vedle rozevíracího seznamu **Plán služby App Service**.
    
     Hodnoty **názvu aplikace API**, **předplatného** a **skupiny prostředků** na tomto snímku obrazovky jsou vzorové – vaše hodnoty se budou lišit.
@@ -298,12 +302,12 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
     
     Když vyberete aplikaci API, pro kterou chcete vygenerovat kód klienta, načte Visual Studio metadata z této adresy URL.
 
-## <a id="codegen"></a> Generování kódu klienta pro datovou vrstvu
+## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generování klientského kódu datové vrstvy
 Jednou z výhod integrace Swaggeru do aplikací API Azure je automatické generování kódu. Vygenerované třídy klienta usnadňují psaní kódu, který volá aplikaci API.
 
 Projekt ToDoListAPI už má kód klienta vygenerovaný, ale v následujících krocích ho odstraníme a znovu vygenerujeme, abyste si mohli postup generování kódu prohlédnout.
 
-1. V **Průzkumníku řešení** nástroje Visual Studio odstraňte v projektu ToDoListAPI složku *ToDoListDataAPI*. **Upozornění: Odstraňte jenom tuto složku, ne projekt ToDoListDataAPI.**
+1. V **Průzkumníku řešení** nástroje Visual Studio odstraňte v projektu ToDoListAPI složku *ToDoListDataAPI*. **Upozornění: Odstraňte jenom tuto složku, nikoliv projekt ToDoListDataAPI.**
    
     ![Odstranění vygenerovaného kódu klienta](./media/app-service-api-dotnet-get-started/deletecodegen.png)
    
@@ -369,7 +373,7 @@ měli změnit na:
             var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
-## Vytvoření aplikace API k hostování střední vrstvy
+## <a name="create-an-api-app-to-host-the-middle-tier"></a>Vytvoření aplikace API k hostování střední vrstvy
 V předchozích krocích jste [vytvořili aplikaci API datové vrstvy a nasadili do ní kód](#createapiapp).  Teď provedete stejný postup pro aplikaci API střední vrstvy.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt ToDoListAPI střední vrstvy (ne na datovou vrstvu ToDoListDataAPI) a potom klikněte na **Publikovat**.
@@ -388,7 +392,7 @@ V předchozích krocích jste [vytvořili aplikaci API datové vrstvy a nasadili
    
    Visual Studio nasadí projekt ToDoListAPI do nové aplikace API a otevře v prohlížeči adresu URL této aplikace API. Zobrazí se stránka úspěšného vytvoření.
 
-## Konfigurace střední vrstvy pro volání datové vrstvy
+## <a name="configure-the-middle-tier-to-call-the-data-tier"></a>Konfigurace střední vrstvy pro volání datové vrstvy
 Pokud jste právě volali aplikaci API střední vrstvy, pokusí se tato aplikace zavolat datovou vrstvu pomocí adresy URL místního hostitele, která je stále v souboru Web.config. V této části zadejte adresu URL aplikace API datové vrstvy do nastavení prostředí v aplikaci API střední vrstvy. Když kód v aplikaci API střední vrstvy načte nastavení adresy URL datové vrstvy, přepíše nastavení prostředí údaje v souboru Web.config.
 
 1. Přejděte na web [Azure Portal](https://portal.azure.com/) a otevřete okno **Aplikace API** pro aplikaci, kterou jste vytvořili k hostování projektu TodoListAPI (střední vrstva).
@@ -405,7 +409,7 @@ Pokud jste právě volali aplikaci API střední vrstvy, pokusí se tato aplikac
    
     Při spuštění kódu v Azure tato hodnota přepíše adresu URL místního hostitele, která je v souboru Web.config.
 
-## Test
+## <a name="test"></a>Test
 1. V okně prohlížeče přejděte na adresu URL nové aplikace API střední vrstvy, kterou jste právě vytvořili pro projekt ToDoListAPI. Můžete se tam dostat kliknutím na adresu URL v hlavním okně aplikace API na portálu.
 2. Na konec adresy URL v adresním řádku prohlížeče doplňte „swagger“ a stiskněte Enter. (Adresa URL je `http://{apiappname}.azurewebsites.net/swagger`.)
    
@@ -414,7 +418,7 @@ Pokud jste právě volali aplikaci API střední vrstvy, pokusí se tato aplikac
    
     ![Metoda Get uživatelského rozhraní Swagger](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## Řešení potíží
+## <a name="troubleshooting"></a>Řešení potíží
 V případě, že při procházení tohoto kurzu narazíte na problém, můžete ho zkusit vyřešit pomocí následujících kroků:
 
 * Zkontrolujte, že používáte nejnovější verzi [sady Azure SDK pro .NET](http://go.microsoft.com/fwlink/?linkid=518003).
@@ -424,7 +428,7 @@ V případě, že při procházení tohoto kurzu narazíte na problém, můžete
 
 Jakmile vaše aplikace API technologie ASP.NET poběží v Azure App Service, můžete zjistit další informace o funkcích nástroje Visual Studio, které usnadňují řešení potíží. Informace o protokolování, vzdáleném ladění apod. najdete v tématu [Řešení potíží s aplikacemi Azure App Service v nástroji Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Už víte, jak nasazovat existující projekty webového rozhraní API do aplikací API, jak generovat kód klienta pro aplikace API a jak využívat aplikace API z klientů .NET. V dalším kurzu této série se dozvíte, jak [pomocí CORS využívat aplikace API z klientů JavaScript](app-service-api-cors-consume-javascript.md).
 
 Další informace o generování kódu klienta najdete v úložišti [Azure/AutoRest](https://github.com/azure/autorest) na webu GitHub.com. Nápovědu v případě potíží s používáním generovaného klienta získáte otevřením [problému v úložišti AutoRest](https://github.com/azure/autorest/issues).
@@ -435,6 +439,9 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 Šablona projektu **aplikace API Azure** je ekvivalentem možnosti vybrání **prázdné** šablony ASP.NET 4.5.2, zaškrtnutí políčka pro přidání podpory webového rozhraní API a nainstalování balíčku NuGet Swashbuckle. Kromě toho přidá šablona určitý kód konfigurace Swashbuckle, který bude bránit vytvoření duplicitních ID operací Swagger. Po vytvoření projektu aplikace API můžete tento projekt nasadit do aplikace API stejným způsobem, jaký už znáte z tohoto kurzu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

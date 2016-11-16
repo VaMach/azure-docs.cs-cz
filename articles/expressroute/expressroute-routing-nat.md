@@ -1,12 +1,12 @@
 ---
-title: Požadavky směrování pro ExpressRoute | Microsoft Docs
-description: Tato stránka obsahuje podrobné požadavky pro konfiguraci a správu směrování pro okruhy ExpressRoute.
+title: "Požadavky směrování pro ExpressRoute | Dokumentace Microsoftu"
+description: "Tato stránka obsahuje podrobné požadavky pro konfiguraci a správu směrování pro okruhy ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: ganesr
-editor: ''
-
+editor: 
+ms.assetid: eaaf0393-d384-4496-9a5c-328e94c262a7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+
 
 ---
 # <a name="expressroute-routing-requirements"></a>Požadavky na směrování služby ExpressRoute
@@ -97,7 +101,7 @@ Podporujeme až 4000 předpon, které jsou nám inzerované prostřednictvím so
 
 Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel musí odfiltrovat výchozí trasy a privátní IP adresy (RFC 1918) z cest pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
-## <a name="transit-routing-and-cross-region-routing"></a>Tranzitní směrování a směrování mezi oblastmi
+## <a name="transit-routing-and-crossregion-routing"></a>Tranzitní směrování a směrování mezi oblastmi
 Službu ExpressRoute nejde nakonfigurovat jako tranzitní směrovače. Ohledně služeb tranzitního směrování se budete muset spoléhat na svého poskytovatele připojení.
 
 ## <a name="advertising-default-routes"></a>Inzerování výchozích tras
@@ -113,7 +117,7 @@ Výchozí trasy jsou povolené jenom na relacích soukromého partnerského vzta
 > 
 > 
 
-## <a name="support-for-bgp-communities-(preview)"></a>Podpora komunit protokolu BGP (Preview)
+## <a name="support-for-bgp-communities-preview"></a>Podpora komunit protokolu BGP (Preview)
 Tato část obsahuje přehled použití komunit protokolu BGP se službou ExpressRoute. Microsoft bude inzerovat trasy v cestách veřejného partnerského vztahu a partnerského vztahu Microsoftu s trasami, které jsou označené odpovídajícími hodnotami komunity. Důvody tohoto postupu a podrobnosti o hodnotách komunity jsou popsané dál. Microsoft ale nebude ctít žádné hodnoty komunity přiřazené trasám inzerovaným Microsoftu.
 
 Pokud se připojujete k Microsoftu prostřednictvím ExpressRoute v libovolném umístění partnerského vztahu v rámci geopolitické oblasti, budete mít přístup ke všem cloudovým službám Microsoftu přes všechny oblasti v rámci geopolitické hranice. 
@@ -187,6 +191,9 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
   * [Konfigurace směrování pro model nasazení Classic](expressroute-howto-routing-classic.md) nebo [Konfigurace směrování pro model nasazení Resource Manager](expressroute-howto-routing-arm.md)
   * [Připojení klasické virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-classic.md) nebo [Připojení virtuální sítě Resource Manageru k okruhu ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

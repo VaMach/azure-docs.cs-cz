@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Konfigurace a registrace zařízení
+### <a name="to-configure-and-register-the-device"></a>Konfigurace a registrace zařízení
 1. V konzole sériového portu zařízení StorSimple spusťte rozhraní Windows PowerShell. Další informace najdete v článku [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](#use-putty-to-connect-to-the-device-serial-console). **Postup proveďte přesně, jinak ke konzole nezískáte přístup.**
 2. Ve spuštěné relaci jedním stisknutím klávesy Enter zobrazte příkazový řádek. 
 3. Budete vyzváni k volbě jazyka, který chcete pro zařízení nastavit. Zadejte jazyk a stiskněte Enter. 
@@ -63,6 +63,8 @@
        
         Zkontrolujte, jestli je port 9354 otevřený pro odchozí komunikaci, protože ho používá sběrnice služby pro komunikaci služby StorSimple Manager se zařízením.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

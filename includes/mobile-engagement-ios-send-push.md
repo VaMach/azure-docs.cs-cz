@@ -1,4 +1,4 @@
-### Udělení přístupu službě Mobile Engagement k vašemu certifikátu push
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Udělení přístupu službě Mobile Engagement k vašemu certifikátu push
 Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala nabízená oznámení, musíte jí udělit přístup k vašemu certifikátu. To provedete tak, že svůj certifikát nakonfigurujete a zadáte na portál Mobile Engagement. Musíte nejdřív získat certifikát .p12 podle pokynů v [dokumentaci od společnosti Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 
 1. Přejděte na portál Mobile Engagement. Zkontrolujte, jestli pracujete ve správné aplikaci, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
@@ -11,7 +11,7 @@ Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala 
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Odeslání oznámení do vaší aplikace
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Odeslání oznámení do vaší aplikace
 Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat oznámení do vaší aplikace:
 
 1. Na portálu Mobile Engagement přejděte na kartu **Reach**.
@@ -40,6 +40,8 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

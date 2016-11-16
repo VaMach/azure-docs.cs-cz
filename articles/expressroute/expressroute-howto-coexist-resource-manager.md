@@ -1,13 +1,13 @@
 ---
-title: Konfigurace Expressroute a připojení VPN typu site-to-site, která mohou existovat vedle sebe, pro model nasazení Resource Manager | Microsoft Docs
-description: Tento článek vás provede konfigurací ExpressRoute a připojení VPN typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe.
+title: "Konfigurace Expressroute a připojení VPN typu site-to-site, která mohou existovat vedle sebe, pro model nasazení Resource Manageru | Dokumentace Microsoftu"
+description: "Tento článek vás provede konfigurací ExpressRoute a připojení VPN typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charleywen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 44f6761b3c3680af923f2a3b16671ca19672e281
+
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe
+# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Classic](expressroute-howto-coexist-classic.md)
@@ -43,12 +47,17 @@ Možnost konfigurace VPN typu site-to-site a ExpressRoute má několik výhod. M
 * **Nejprve je nutné nakonfigurovat bránu ExpressRoute.** Bránu ExpressRoute musíte vytvořit předtím, než přidáte bránu VPN typu site-to-site.
 
 ## <a name="configuration-designs"></a>Návrhy konfigurace
-### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
-Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro ExpressRoute. To platí jenom pro virtuální sítě, které jsou propojené s cestou soukromého partnerského vztahu Azure. Neexistuje žádné řešení převzetí služeb při selhání založené na VPN pro služby, které jsou přístupné prostřednictvím veřejného partnerského vztahu Azure nebo partnerského vztahu Microsoftu. Okruh ExpressRoute je vždy primárním propojením. Data budou procházet cestou VPN typu site-to-site jenom v případě, když okruh ExpressRoute selže. 
+### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
+Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro ExpressRoute. To platí jenom pro virtuální sítě, které jsou propojené s cestou soukromého partnerského vztahu Azure. Neexistuje žádné řešení převzetí služeb při selhání založené na VPN pro služby, které jsou přístupné prostřednictvím veřejného partnerského vztahu Azure nebo partnerského vztahu Microsoftu. Okruh ExpressRoute je vždy primárním propojením. Data budou procházet cestou VPN typu site-to-site jenom v případě, když okruh ExpressRoute selže.
+
+> [!NOTE]
+> I když v případě, že jsou obě trasy stejné, je okruh ExpressRoute upřednostněný před připojením VPN typu site-to-site, Azure k výběru trasy směrem k cíli paketu použije nejdelší shodu předpony.
+> 
+> 
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
+### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
 Svoji síť můžete nakonfigurovat tak, že některé weby jsou připojené přímo k Azure prostřednictvím VPN typu site-to-site a některé weby přes ExpressRoute. 
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -70,7 +79,7 @@ Existují dvě sady postupů, ze kterých si můžete vybrat, když konfigurujet
   
     V tomto postupu bude vytvoření připojení, která mohou existovat společně, vyžadovat, abyste odstranili bránu a pak nakonfigurovali nové brány. To znamená, že budete mít během odstraňování a opětného vytváření brány a připojení výpadek připojení mezi místy, ale nebude nutné migrovat žádné virtuální počítače a služby do nové virtuální sítě. Virtuální počítače a služby budou během konfigurace brány stále schopné komunikovat prostřednictvím nástroje pro vyrovnávání zatížení, pokud jsou tak nakonfigurované.
 
-## <a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
+## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
 Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření připojení ExpressRoute a VPN site-to-site, která budou existovat společně.
 
 1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech.
@@ -141,7 +150,7 @@ Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření 
         $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
         New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
 
-## <a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
+## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
 Pokud máte existující virtuální síť, zkontrolujte velikost podsítě brány. Pokud podsíť brány je /28 nebo /29, musíte nejdřív bránu virtuální sítě odstranit a zvýšit velikost podsítě brány. Postup v této části ukazuje, jak to provést.
 
 Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená přes ExpressRoute, můžete přeskočit následující kroky a přejít ke [kroku 6 – Vytvoření brány VPN typu site-to-site](#vpngw) v předchozí části. 
@@ -174,7 +183,7 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
         $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 5. V tuto chvíli máte virtuální síť, která nemá žádné brány. Abyste vytvořili nové brány a dokončili připojení, můžete pokračovat [krokem 4 – Vytvoření brány ExpressRoute](#gw), který se nachází v předchozí sadě kroků.
 
-## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Přidání konfigurace point-to-site k bráně VPN
+## <a name="to-add-pointtosite-configuration-to-the-vpn-gateway"></a>Přidání konfigurace point-to-site k bráně VPN
 Podle následujících pokynů můžete k bráně VPN v nastavení koexistence přidat konfiguraci point-to-site.
 
 1. Přidejte fond adres klienta VPN. 
@@ -200,6 +209,9 @@ Další informace o VPN typu point-to-site najdete v tématu [Konfigurace připo
 ## <a name="next-steps"></a>Další kroky
 Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

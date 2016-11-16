@@ -1,4 +1,4 @@
-## Zasílání zpráv do služby Event Hubs
+## <a name="send-messages-to-event-hubs"></a>Zasílání zpráv do služby Event Hubs
 V této části napíšete konzolovou aplikaci pro Windows, která zasílá události do vašeho centra událostí.
 
 1. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt pojmenujte **Odesílatel**.
@@ -58,6 +58,8 @@ V této části napíšete konzolovou aplikaci pro Windows, která zasílá udá
     SendingRandomMessages();
     ```
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

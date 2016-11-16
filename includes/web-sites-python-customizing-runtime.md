@@ -15,6 +15,8 @@ jsou následující:
 
 Pokud je uvedená mikroverze (třetí číslice), bude se ignorovat.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

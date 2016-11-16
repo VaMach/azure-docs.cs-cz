@@ -1,6 +1,6 @@
 
 
-## Vytvoření nového uživatele databáze pomocí aplikace SSMS
+## <a name="create-new-database-user-using-ssms"></a>Vytvoření nového uživatele databáze pomocí aplikace SSMS
 Pomocí následujících kroků vytvořte ve stávající databázi nového uživatele databáze pomocí aplikace SSMS. 
 
 Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS připojení ke službě SQL Database a jste připojení ke svému logickému serveru SQL Database jako hlavní správce na úrovni serveru nebo pomocí uživatelského účtu s oprávněním k vytváření nových uživatelů. 
@@ -18,6 +18,8 @@ Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS p
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

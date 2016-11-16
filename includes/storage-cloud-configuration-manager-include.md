@@ -2,7 +2,7 @@
 
 Pokud chcete odkázat na balíček CloudConfigurationManager, přidejte do své třídy tento příkaz `using`:
 
-    using Microsoft.Azure;  //Namespace for CloudConfigurationManager
+    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
 
 Tady je příklad, který ukazuje, jak z konfiguračního souboru získat připojovací řetězec:
 
@@ -12,6 +12,8 @@ Tady je příklad, který ukazuje, jak z konfiguračního souboru získat připo
 
 Použití nástroje Azure Configuration Manager není povinné. Taky můžete použít API jako třeba [třídu ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) platformy .NET Framework.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

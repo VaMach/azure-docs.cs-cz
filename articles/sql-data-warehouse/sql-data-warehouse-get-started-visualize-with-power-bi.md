@@ -1,27 +1,32 @@
 ---
-title: Vizualizace dat SQL Data Warehouse pomocí Power BI – Microsoft Azure
-description: Vizualizace dat SQL Data Warehouse pomocí Power BI
+title: "Vizualizace dat SQL Data Warehouse pomocí Power BI – Microsoft Azure"
+description: "Vizualizace dat SQL Data Warehouse pomocí Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Vizualizace dat pomocí Power BI
+# <a name="visualize-data-with-power-bi"></a>Vizualizace dat pomocí Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ V tomto kurzu si ukážeme, jak se pomocí Power BI připojit k SQL Data Warehou
 > 
 > 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
-* SQL Data Warehouse s předem načtenou databází AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Vytvoření SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][ukázková data načíst ručně].
+* SQL Data Warehouse s předem načtenou databází AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Vytvoření SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][Ruční načtení ukázkových dat].
 
-## 1. Připojení k databázi
+## <a name="1-connect-to-your-database"></a>1. Připojení k databázi
 Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksDW, postupujte takto:
 
-1. Přihlaste se k [Azure Portal][Azure Portal].
+1. Přihlaste se na [portál Azure Portal][portál Azure Portal].
 2. Klikněte na **Databáze SQL** a zvolte databázi AdventureWorks služby SQL Data Warehouse.
    
     ![Vyhledání databáze][1]
@@ -56,7 +61,7 @@ Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksD
    
     ![Otevření databáze AdventureWorksDW v Power BI][5]
 
-## 2. Vytvoření sestavy
+## <a name="2-create-a-report"></a>2. Vytvoření sestavy
 Teď můžete pomocí Power BI analyzovat ukázková data databáze AdventureWorksDW. K provedení analýzy má databáze AdventureWorksDW zobrazení s názvem AggregateSales. Toto zobrazení obsahuje několik klíčových metrik pro analýzu prodeje společnosti.
 
 1. Pokud budete chtít vytvořit mapu částek prodeje podle PSČ, klikněte v podokně polí napravo na zobrazení AggregateSales a tím ho rozbalte. Kliknutím vyberte sloupce PostalCode a SalesAmount.
@@ -83,8 +88,8 @@ Teď můžete pomocí Power BI analyzovat ukázková data databáze AdventureWor
 
 Kdykoli můžete rozdělanou práci uložit tak, že kliknete na **Soubor** a vyberete **Uložit**.
 
-## Další kroky
-Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na [vývoj][vývoj], [načítání][načítání] nebo [migraci][migraci]. Nebo se podívejte na [web Power BI][web Power BI].
+## <a name="next-steps"></a>Další kroky
+Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na [vývoj][vývoj], [načítání][načítání] nebo [migraci][migrace]. Nebo se podívejte na [web Power BI][web Power BI].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -101,19 +106,19 @@ Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migraci]: sql-data-warehouse-overview-migrate.md
+[migrace]: sql-data-warehouse-overview-migrate.md
 [vývoj]: sql-data-warehouse-overview-develop.md
 [načítání]: sql-data-warehouse-overview-load.md
-[ukázková data načíst ručně]: sql-data-warehouse-load-sample-databases.md
+[Ruční načtení ukázkových dat]: sql-data-warehouse-load-sample-databases.md
 [připojení k SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Vytvoření SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com/
+[portál Azure Portal]: https://portal.azure.com/
 [web Power BI]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

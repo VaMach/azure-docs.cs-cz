@@ -1,4 +1,4 @@
-#### Vytvoření veřejných koncových bodů na virtuálním zařízení
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Vytvoření veřejných koncových bodů na virtuálním zařízení
 1. Přihlaste se k portálu Azure Classic.
 
 * Klikněte na **Virtuální počítače** a potom vyberte virtuální počítač, který používáte jako virtuální zařízení.
@@ -12,6 +12,8 @@
 
 Po vytvoření koncového bodu můžete zobrazit jeho podrobnosti, abyste zjistili virtuální IP adresu (VIP). Tuto adresu si poznamenejte.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

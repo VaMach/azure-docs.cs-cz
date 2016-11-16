@@ -2,6 +2,8 @@
 
 ![Snímek obrazovky webu Azure Portal ukazující účet DocumentDB se zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče](./media/documentdb-keys/keys.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Nastavení vývojového prostředí
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Nastavení vývojového prostředí
 Nejdřív vytvořte vývojové prostředí instalací sady [Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) nebo [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322).
 
 Pokud nemáte nainstalovanou sadu Visual Studio, použijte odkaz na Visual Studio 2015 a sada Visual Studio se nainstalujte spolu se sadou SDK.
@@ -8,6 +8,8 @@ Pokud nemáte nainstalovanou sadu Visual Studio, použijte odkaz na Visual Studi
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

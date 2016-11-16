@@ -1,12 +1,12 @@
 ---
-title: Best practices for Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful.
+title: "Osvědčené postupy pro službu Azure SQL Data Warehouse | Dokumentace Microsoftu"
+description: "Doporučení a osvědčené postupy, které byste měli znát, když budete vyvíjet řešení pro službu Azure SQL Data Warehouse. Pomohou vám stát se úspěšnými."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,127 +14,131 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f04cba06cfe6a9094268ea041e85753cbd99f8fd
+
 
 ---
-# <a name="best-practices-for-azure-sql-data-warehouse"></a>Best practices for Azure SQL Data Warehouse
-This article is a collection of many best practices that will help you to achieve optimal performance from your Azure SQL Data Warehouse.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your data warehouse.  Each section introduces you to a concept and then point you to more detailed articles which cover the concept in more depth.
+# <a name="best-practices-for-azure-sql-data-warehouse"></a>Osvědčené postupy pro službu Azure SQL Data Warehouse
+Tento článek je kolekcí mnoha osvědčených postupů, které vám pomohou dosáhnout optimálního výkonu vaší služby Azure SQL Data Warehouse.  Některé koncepty v tomto článku jsou základní a snadno se vysvětlují, další koncepty jsou pokročilejší a v tomto článku se jich jenom lehce dotýkáme.  Účelem tohoto článku je poskytnout vám základní pokyny a zvýšit povědomí o důležitých oblastech, na které byste se měli zaměřit, když budete sestavovat svůj datový sklad.  Každá část vám představí nějaký koncept a odkáže vás na podrobnější články, které se danému konceptu věnují více do hloubky.
 
-If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Date Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
+Pokud se službou Azure SQL Data Warehouse teprve začínáte, nenechte se tímto článkem zahltit.  Témata jsou uspořádaná především podle důležitosti.  Pokud se zpočátku zaměříte na prvních pár konceptů, bude vám to úplně stačit.  Až budete o službě SQL Data Warehouse vědět víc a budete si jistější, vraťte se a prozkoumejte pár dalších konceptů.  Nebude to trvat dlouho a všechno začne dávat smysl.
 
-## <a name="reduce-cost-with-pause-and-scale"></a>Reduce cost with pause and scale
-A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure portal or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
+## <a name="reduce-cost-with-pause-and-scale"></a>Snižte náklady pomocí pozastavení a škálování
+Klíčovou funkcí služby SQL Data Warehouse je schopnost pozastavit se, když ji zrovna nepoužíváte, a zastavit tak účtování výpočetních prostředků.  Další klíčovou funkcí je schopnost škálovat prostředky.  Pozastavení a škálování můžete provádět přes Azure Portal nebo prostřednictvím příkazů prostředí PowerShell.  S těmito funkcemi se důkladně seznamte, protože mohou výrazně snížit náklady na datový sklad, když se zrovna nevyužívá.  Pokud chcete, aby váš datový sklad byl neustále přístupný, můžete zvážit vertikální snížení jeho kapacity na nejmenší možnou velikost DW100 místo jeho pozastavení.
 
-See also [Pause compute resources][Pause compute resources], [Resume compute resources][Resume compute resources], [Scale compute resources][Scale compute resources]
+Viz také [Pozastavení výpočetních prostředků][Pozastavení výpočetních prostředků], [Obnovení výpočetních prostředků][Obnovení výpočetních prostředků], [Škálování výpočetních prostředků][Škálování výpočetních prostředků]
 
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Drain transactions before pausing or scaling
-When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Vypusťte transakce před pozastavením nebo škálováním
+Když službu SQL Data Warehouse pozastavíte nebo škálujete, při vytvoření požadavku na pozastavení nebo škálování se na pozadí zruší vaše dotazy.  Zrušení jednoduchého dotazu SELECT je rychlá operace a nemá téměř žádný vliv na čas potřebný k pozastavení nebo škálování instance.  Nicméně zastavení transakčních dotazů, které upravují data nebo strukturu dat, může trvat mnohem déle.  **Transakční dotazy se podle definice musí dokončit v celém rozsahu, nebo musí vrátit zpět provedené změny.**  Vracení dokončené práce transakčního dotazu zpět může trvat stejně dlouho nebo dokonce déle, než původní změna, kterou dotaz prováděl.  Například pokud zrušíte dotaz, který odstraňoval řádky a už hodinu běžel, může systému hodinu trvat, než odstraněné řádky vloží zpět.  Pokud spustíte pozastavení nebo škálování zatímco probíhají transakce, může to vypadat, že vaše pozastavení nebo škálování trvá dlouho, protože pozastavení a škálování musí počkat na dokončení odvolání transakce, než budou moci pokračovat.
 
-See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions]
+Viz také [Vysvětlení transakcí][Vysvětlení transakcí], [Optimalizace transakcí][Optimalizace transakcí]
 
-## <a name="maintain-statistics"></a>Maintain statistics
-Unlike SQL Server, which automatically detects and creates or updates statistics on columns, SQL Data Warehouse requires manual maintenance of statistics.  While we do plan to change this in the future, for now you will want to maintain your statistics to ensure that the SQL Data Warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns, where new values may be added, daily. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.**
+## <a name="maintain-statistics"></a>Udržujte statistiky
+Na rozdíl od systému SQL Server, který automaticky detekuje a vytváří nebo aktualizuje statistiky nad sloupci, služba SQL Data Warehouse vyžaduje ruční údržbu statistik.  I když to do budoucna plánujeme změnit, zatím si budete muset udržovat statistiky pro zajištění optimalizace plánů služby SQL Data Warehouse.  Plány vytvořené optimalizátorem jsou jenom tak dobré jako dostupné statistiky.  **Vytvoření vzorkové statistiky nad každým sloupcem je snadný způsob, jak začít se statistikami.**  Stejně důležité je aktualizovat statistiky, když dojde k významným změnám vašich dat.  Konzervativní přístup může být denní aktualizace statistik nebo aktualizace po každém načtení.  Vždy existují kompromisy mezi výkonem a náklady na vytvoření a aktualizaci statistik. Pokud si myslíte, že údržba všech vašich statistik trvá příliš dlouho, možná byste měli pečlivěji vybírat sloupce, které mají statistiky, nebo sloupce, které vyžadují časté aktualizace.  Například můžete chtít denně aktualizovat sloupce s datem, do kterých se mohou přidávat nové hodnoty. **Nejvíce výhod získáte tak, že budete mít statistiky nad sloupci používanými ve spojeních, sloupci používanými v klauzuli WHERE a sloupci používanými v příkazu GROUP BY.**
 
-See also [Manage table statistics][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
+Viz také [Správa statistik tabulek][Správa statistik tabulek], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
 
-## <a name="group-insert-statements-into-batches"></a>Group INSERT statements into batches
-A one-time load to a small table with an INSERT statement or even a periodic reload of a look-up may perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, if you need to load thousands or millions of rows throughout the day, you might find that singleton INSERTS just can't keep up.  Instead, develop your processes so that they write to a file and another process periodically comes along and loads this file.
+## <a name="group-insert-statements-into-batches"></a>Seskupujte příkazy INSERT do dávek
+Pro jednorázové nahrávání do malé tabulky příkazem INSERT nebo dokonce i opakované načítání vyhledávání si můžete vystačit s příkazem jako třeba `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Pokud však v průběhu dne potřebujete načíst tisíce nebo miliony řádků, můžete zjistit, že vám příkazy INSERT s jedním prvkem jednoduše nestačí.  Místo toho vyvíjejte své procesy tak, aby zapisovaly do souboru, který bude pravidelně kontrolovat a načítat další proces.
 
-See also [INSERT][INSERT]
+Viz také [INSERT][INSERT]
 
-## <a name="use-polybase-to-load-and-export-data-quickly"></a>Use PolyBase to load and export data quickly
-SQL Data Warehouse supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse and will therefore load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  **Using CTAS will minimize transaction logging and the fastest way to load your data.**  Azure Data Factory also supports PolyBase loads.  PolyBase supports a variety of file formats including Gzip files.  **To maximize throughput when using gzip text files, break files up into 60 or more files to maximize parallelism of your load.**  For faster total throughput, consider loading data concurrently.
+## <a name="use-polybase-to-load-and-export-data-quickly"></a>Použijte PolyBase k rychlému načítání a exportu dat
+SQL Data Warehouse podporuje načítání a export dat prostřednictvím různých nástrojů, včetně Azure Data Factory, PolyBase a BCP.  Pro malá množství dat, kde není výkon tak důležitý, by vám měl stačit libovolný nástroj.  Když však načítáte nebo exportujete velká množství dat nebo vyžadujete vysoký výkon, nejlepší volbou je PolyBase.  PolyBase je navržena pro využití architektury MPP (Massively Parallel Processing) služby SQL Data Warehouse a proto bude načítat a exportovat data řádově rychleji, než jakýkoli jiný nástroj.  Úlohy funkce PolyBase můžete spustit pomocí příkazů CTAS nebo INSERT INTO.  **Použití příkazu CTAS minimalizuje protokolování transakce a je to nejrychlejší způsob, jak načíst vaše data.**  Azure Data Factory také podporuje úlohy funkce PolyBase.  PolyBase podporuje řadu formátů souborů, včetně souborů GZip.  **Pro maximalizaci propustnosti při použití textových souborů GZip rozdělte soubory na 60 nebo více souborů, čímž maximalizujete paralelismus vaší úlohy.**  Pro rychlejší celkovou propustnost zvažte souběžné načítání dat.
 
-See also [Load data][Load data], [Guide for using PolyBase][Guide for using PolyBase], [Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies], [Load Data with Azure Data Factory][Load Data with Azure Data Factory], [Move data with Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
+Viz také [Načtení dat][Načtení dat], [Průvodce používáním funkce PolyBase][Průvodce používáním funkce PolyBase], [Azure SQL Data Warehouse načítání vzory a strategie][Vzory a strategie načítání služby Azure SQL Data Warehouse], [Načtení dat pomocí Azure Data Factory][Načtení dat pomocí Azure Data Factory], [Přesun dat pomocí služby Azure Data Factory][Přesun dat pomocí služby Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [CREATE TABLE AS SELECT (CTAS)][CREATE TABLE AS SELECT (CTAS)]
 
-## <a name="load-then-query-external-tables"></a>Load then query external tables
-While Polybase, also known as external tables, can be the fastest way to load data, it is not optimal for queries. SQL Data Warehouse Polybase tables currently only support Azure blob files. These files do not have any compute resources backing them.  As a result, SQL Data Warehouse cannot offload this work and therefore must read the entire file by loading it to tempdb in order to read the data.  Therefore, if you have several queries that will be querying this data, it is better to load this data once and have queries use the local table.
+## <a name="load-then-query-external-tables"></a>Načtěte a následně dotazujte externí tabulky
+Přestože lze PolyBase (také označovanou jako externí tabulky) považovat za nejrychlejší způsob načítání dat, není ideální pro dotazy. Tabulky PolyBase služby SQL Data Warehouse aktuálně podporují pouze soubory Azure blob. Tyto soubory nemají podporu v žádných výpočetních prostředcích.  Z toho důvodu služba SQL Data Warehouse nemůže tuto práci přesměrovat a proto musí číst celý soubor. Aby mohla data číst, načte celý soubor do dočasné tabulky tepmdb.  Proto pokud máte několik dotazů, které budou tato data dotazovat, je lepší data jednou nahrát a nastavit dotazy, aby používaly místní tabulku.
 
-See also [Guide for using PolyBase][Guide for using PolyBase]
+Viz také [Průvodce používáním funkce PolyBase][Průvodce používáním funkce PolyBase]
 
-## <a name="hash-distribute-large-tables"></a>Hash distribute large tables
-By default, tables are Round Robin distributed.  This makes it easy for users to get started creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads, but in most cases selecting a distribution column will perform much better.  The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query, which means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.  This explanation just scratches the surface. When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  See the below links for much more details on how selecting a distribution column can improve performance as well as how to define a distributed table in the WITH clause of your CREATE TABLES statement.
+## <a name="hash-distribute-large-tables"></a>Distribuujte velké tabulky pomocí hodnot hash
+Ve výchozím nastavení jsou tabulky distribuované metodou kruhového dotazování.  To umožňuje uživatelům jednoduše začít vyvářet tabulky, aniž by se museli rozhodovat, jakým způsobem se mají jejich tabulky distribuovat.  Výkon tabulek kruhového dotazování může být pro některé úlohy dostatečný, ale ve většině případů bude lépe fungovat výběr distribučního sloupce.  Nejběžnějším příkladem, kdy tabulka distribuovaná podle sloupce zdaleka překoná tabulku kruhového dotazování, je spojení dvou velkých tabulek faktů.  Například pokud máte tabulku objednávek, která se distribuuje podle sloupce id_objednavky a tabulku transakcí, která se také distribuuje podle sloupce id_objednavky, a provedete spojení tabulky objednávek s tabulkou transakcí podle sloupce id_objednavky, z dotazu se stane předávací dotaz, to znamená, že eliminujeme operace přesunu dat.  Méně kroků znamená rychlejší dotaz.  Méně přesunů dat také přispívá ke zrychlení dotazů.  Toto vysvětlení je velmi zjednodušené. Při načítání distribuované tabulky se ujistěte, že příchozí data nejsou seřazená podle distribučního klíče, zpomalilo by to načítání.  Níže najdete odkazy na mnohem podrobnější informace o tom, jak výběr distribučního sloupce může zvýšit výkon, a jak nadefinovat distribuovanou tabulku v klauzuli WITH příkazu CREATE TABLES.
 
-See also [Table overview][Table overview], [Table distribution][Table distribution], [Selecting table distribution][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
+Viz také [Přehled tabulek][Přehled tabulek], [Distribuce tabulky][Distribuce tabulky], [Výběr distribuce tabulky][Výběr distribuce tabulky], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
-## <a name="do-not-overpartition"></a>Do not over-partition
-While partitioning data can be very effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy which may work well on SQL Server may not work well on SQL Data Warehouse.  Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL Data Warehouse partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  Consider lower granularity than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
+## <a name="do-not-overpartition"></a>Nevytvářejte zbytečně moc oddílů
+Přestože dělení dat může být velice efektivní pro udržování dat prostřednictvím přepínání oddílů nebo optimalizace prohledávání pomocí eliminace oddílů, příliš mnoho oddílů může zpomalit vaše dotazy.  Strategie vysoce členitého dělení, která může dobře fungovat v systému SQL Server, často nemusí fungovat dobře ve službě SQL Data Warehouse.  Pokud máte příliš mnoho oddílů, může se také snížit efektivita clusterovaných indexů columnstore, pokud má každý oddíl méně než 1 milion řádků.  Mějte na paměti, že služba SQL Data Warehouse za vás na pozadí dělí data do 60 databází, takže pokud vytvoříte tabulku se 100 oddíly, výsledkem bude ve skutečnosti 6000 oddílů.  Každá úloha je jiná, takže nejlepší rada je, abyste s dělením experimentovali a zjistili, co je pro vaši úlohu nejvhodnější.  Zvažte použití nižší členitosti, než jaká by pro vás byla vhodná v systému SQL Server.  Například místo denního dělení zvažte použití týdenního nebo měsíčního dělení.
 
-See also [Table partitioning][Table partitioning]
+Viz také [Dělení tabulky][Dělení tabulky]
 
-## <a name="minimize-transaction-sizes"></a>Minimize transaction sizes
-INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT which you expect to take 1 hour, if possible, break the INSERT up into 4 parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  For unpartitioned tables consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it is a much safer operation to run as it has very minimal transaction logging and can be canceled quickly if needed.
+## <a name="minimize-transaction-sizes"></a>Minimalizujte velikosti transakcí
+Příkazy INSERT, UPDATE a DELETE se spouštějí v rámci transakce, a když selžou, musí se transakce odvolat.  Abyste minimalizovali potenciální dlouhé odvolávání, minimalizujte velikost transakcí kdykoli je to možné.  Můžete to provést rozdělením příkazů INSERT, UPDATE a DELETE na části.  Například pokud máte příkaz INSERT a očekáváte, že se bude vykonávat 1 hodinu, tak pokud je to možné, rozdělte příkaz INSERT na 4 části, z nichž každá bude trvat 15 minut.  Abyste snížili riziko odvolání transakce, využijte příkazy s minimálním protokolováním, například CTAS, TRUNCATE, DROP TABLE nebo INSERT k vyprázdnění tabulek.  Dalším způsobem, jak eliminovat odvolávání transakcí, je použít ke správě dat operace pouze nad metadaty, jako třeba přepínání oddílů.  Například místo provedení příkazu DELETE pro odstranění všech řádků v tabulce, kde datum_objednavky bylo Říjen 2001, můžete data dělit měsíčně a pak vyměnit oddíl s daty za prázdný oddíl z jiné tabulky (viz příklady příkazu ALTER TABLE).  U tabulek bez oddílů zvažte místo příkazu DELETE použití příkazu CTAS k zápisu dat, která chcete v tabulce uchovat.  Pokud provedení příkazu CTAS trvá stejně dlouho, stále je to mnohem bezpečnější operace, protože zahrnuje minimální protokolování transakce a v případě potřeby ji lze rychle zrušit.
 
-See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions], [Table partitioning][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)]
+Viz také [Vysvětlení transakcí][Vysvětlení transakcí], [Optimalizace transakcí][Optimalizace transakcí], [Dělení tabulky][Dělení tabulky], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [CREATE TABLE AS SELECT (CTAS)][CREATE TABLE AS SELECT (CTAS)]
 
-## <a name="use-the-smallest-possible-column-size"></a>Use the smallest possible column size
-When defining your DDL, using the smallest data type which will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
+## <a name="use-the-smallest-possible-column-size"></a>Použijte co nejmenší velikost sloupce
+Při definování DDL můžete použitím nejmenšího datového typu, který podporuje vaše data, zvýšit výkon dotazu.  To je obzvlášť důležité pro sloupce typu CHAR a VARCHAR.  Pokud má nejdelší hodnota v sloupci 25 znaků, nadefinujte typ sloupce jako VARCHAR(25).  Vyhněte se definování všech sloupců se znaky na výchozí délku.  Kromě toho sloupce definujte jako VARCHAR, pokud tento typ splňuje všechny požadavky, místo používání NVARCHAR.
 
-See also [Table overview][Table overview], [Table data types][Table data types], [CREATE TABLE][CREATE TABLE]
+Viz také [Přehled tabulek][Přehled tabulek], [Typy tabulkových dat][Typy tabulkových dat], [CREATE TABLE][CREATE TABLE]
 
-## <a name="use-temporary-heap-tables-for-transient-data"></a>Use temporary heap tables for transient data
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may only work in limited scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
+## <a name="use-temporary-heap-tables-for-transient-data"></a>Použijte dočasné tabulky hald pro přechodná data
+Když dočasně umisťujete data ve službě SQL Data Warehouse, možná zjistíte, že použitím tabulky haldy se celý proces zrychlí.  Pokud nahráváte data pouze za účelem jejich přípravy před spuštěním dalších transformací, nahrání tabulky do tabulky haldy bude mnohem rychlejší, než nahrání dat do clusterované tabulky columnstore.  Nahrání dat do dočasné tabulky bude dokonce mnohem rychlejší, než nahrání tabulky do trvalého úložiště.  Dočasné tabulky začínají znakem „#“ a přístup k nim má pouze relace, která je vytvořila, proto mohou fungovat pouze v omezených scénářích.   Tabulky hald se definují v klauzuli WITH příkazu CREATE TABLE.  Pokud používáte dočasnou tabulku, nezapomeňte nad ní také vytvořit statistiky.
 
-See also [Temporary tables][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
+Viz také [Dočasné tabulky][Dočasné tabulky], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
-## <a name="optimize-clustered-columnstore-tables"></a>Optimize clustered columnstore tables
-Clustered columnstore indexes are one of the most efficient ways you can store your data in Azure SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high quality columnstore segments is important, it's a good idea to use users ids which are in the medium or large resource class for loading data.  The fewer DWUs you use, the larger the resource class you will want to assign to your loading user. 
+## <a name="optimize-clustered-columnstore-tables"></a>Optimalizujte clusterované tabulky columnstore
+Clusterované indexy columnstore jsou jedním z nejefektivnějších způsobů ukládání dat ve službě Azure SQL Data Warehouse.  Vy výchozím nastavení se tabulky ve službě SQL Data Warehouse vytváří jako clusterované columnstore.  Pokud chcete dosáhnout co nejlepšího výkonu dotazů na tabulky columnstore, je důležité mít kvalitní segmenty.  Když se řádky zapisují do tabulek columnstore při zatížení paměti, může tím utrpět kvalita segmentů columnstore.  Kvalitu segmentů lze změřit podle počtu řádků v komprimované skupině řádků.  V části [Příčiny nekvalitních indexů columnstore][Příčiny nekvalitních indexů columnstore] v článku [Indexy tabulky][Indexy tabulky] najdete podrobné pokyny k zjišťování a zlepšování kvality segmentů clusterovaných tabulek columnstore.  Vzhledem k důležitosti vysoké kvality segmentů columnstore je vhodné k nahrávání dat používat ID uživatelů, kteří jsou ve střední nebo velké třídě prostředků.  Čím méně DWU použijete, tím větší třídu prostředků budete chtít přiřadit ke svému uživateli, který nahrává data. 
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table.  Columnstore tables do not yet support secondary indexes.
+Protože tabulky columnstore zpravidla nebudou vkládat data do komprimovaného segmentu columnstore, dokud v něm nebude více než 1 milion řádků na tabulku, a každá tabulka služby SQL Data Warehouse je rozdělená na 60 tabulek, obecně platí, že tabulky columnstore nepřináší dotazům žádné výhody, pokud tabulka nemá alespoň 60 milionů řádků.  Pro tabulky s méně než 60 miliony řádků může být použití indexu columnstore zbytečné.  Ale také to nemusí vadit.  Kromě toho, pokud svá data dělíte, pamatujte na to, že každý oddíl musí mít alespoň 1 milion řádků, abyste využili výhod clusterovaného indexu columnstore.  Pokud má tabulka 100 oddílů, bude muset mít alespoň 6 miliard řádků, abyste využili výhod clusterovaného úložiště sloupců (60 distribucí * 100 oddílů * 1 milion řádků).  Pokud vaše tabulka v tomto příkladu neobsahuje 6 miliard řádků, buď snižte počet oddílů, nebo místo ní zvažte použití tabulky haldy.  Můžete také experimentovat, abyste zjistili, jestli pomocí tabulky haldy se sekundárními indexy dosáhnete lepšího výkonu než s tabulkou columnstore.  Tabulky columnstore zatím ještě nepodporují sekundární indexy.
 
-When querying a columnstore table, queries will run faster if you select only the columns you need.  
+Při dotazování tabulky columnstore budou příkazy pracovat rychleji, pokud vyberete pouze sloupce, které potřebujete.  
 
-See also [Table indexes][Table indexes], [Columnstore indexes guide][Columnstore indexes guide], [Rebuilding columnstore indexes][Rebuilding columnstore indexes]
+Viz také [Indexy tabulky][Indexy tabulky], [Průvodce indexy columnstore][Průvodce indexy columnstore], [Obnovení indexů columnstore][Obnovení indexů columnstore]
 
-## <a name="use-larger-resource-class-to-improve-query-performance"></a>Use larger resource class to improve query performance
-SQL Data Warehouse uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes impacts concurrency, so you will want to take this into consideration before moving all of your users to a large resource class.
+## <a name="use-larger-resource-class-to-improve-query-performance"></a>Použijte větší třídu prostředků k vylepšení výkonu dotazu
+SQL Data Warehouse používá skupiny prostředků jako způsob přidělení paměti pro dotazy.  Standardně jsou všichni uživatelé přiřazeni k malé třídě prostředků, která poskytuje 100 MB paměti na distribuci.  Protože vždy existuje 60 distribucí a každé distribuci je poskytnuto minimálně 100 MB paměti, velikost celkově přidělené paměti v systému je 6 000 MB, tedy téměř 6 GB.  Pro určité dotazy, například velká spojení nebo nahrávání do clusterovaných tabulek columnstore, bude větší přidělení paměti přínosem.  U některých dotazů, jako jsou třeba pouhá prohledávání, se výhody neprojeví.  Na druhou stranu využívání velkých tříd prostředků ovlivňuje souběžnost, což byste měli zvážit před přesunutím všech svých uživatelů do velké třídy prostředků.
 
-See also [Concurrency and workload management][Concurrency and workload management]
+Viz také [Souběžnost a správa úloh][Souběžnost a správa úloh]
 
-## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Use Smaller Resource Class to Increase Concurrency
-If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming a lot of concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
+## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Použijte menší třídu prostředků pro zlepšení souběžnosti
+Pokud se vám zdá, že dotazy uživatelů mají dlouhé zpoždění, může to být tím, že jsou vaši uživatelé spuštění ve větší třídě prostředků a spotřebovávají velké množství slotů souběžnosti. To způsobuje, že se ostatní dotazy řadí do fronty.  Pokud chcete zjistit, jestli jsou požadavky uživatelů ve frontě, spusťte příkaz `SELECT * FROM sys.dm_pdw_waits` a zkontrolujte, jestli se vrátí nějaké řádky.
 
-See also [Concurrency and workload management][Concurrency and workload management], [sys.dm_pdw_waits][sys.dm_pdw_waits]
+Viz také [Souběžnost a správa úloh][Souběžnost a správa úloh], [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
-## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Use DMVs to monitor and optimize your queries
-SQL Data Warehouse has several DMVs which can be used to monitor query execution.  The monitoring article below walks through step-by-step instructions on how to look at the details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help.
+## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Použijte zobrazení dynamických zpráv k monitorování a optimalizaci dotazů
+SQL Data Warehouse obsahuje různá zobrazení dynamických zpráv, která mohou sloužit k monitorování provádění dotazů.  Níže uvedený článek o monitorování vás provede podrobnými pokyny k tomu, jak se dívat na podrobnosti prováděného dotazu.  S rychlým vyhledáváním dotazů v těchto zobrazeních dynamických zpráv může pomoci použití možnosti LABEL v dotazech.
 
-See also [Monitor your workload using DMVs][Monitor your workload using DMVs], [LABEL][LABEL], [OPTION][OPTION], [sys.dm_exec_sessions][sys.dm_exec_sessions], [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests], [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps], [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], [sys.dm_pdw_dms_workers], [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN], [sys.dm_pdw_waits][sys.dm_pdw_waits]
+Viz také [Monitorování úloh pomocí zobrazení dynamických zpráv][Monitorování úloh pomocí zobrazení dynamických zpráv], [LABEL][LABEL], [OPTION][OPTION], [sys.dm_exec_sessions][sys.dm_exec_sessions], [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests], [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps], [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], [sys.dm_pdw_dms_workers], [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN], [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
-## <a name="other-resources"></a>Other resources
-Also see our [Troubleshooting][Troubleshooting] article for common issues and solutions.
+## <a name="other-resources"></a>Další prostředky
+Přečtěte si také článek [Řešení potíží][Řešení potíží], ve kterém najdete běžné problémy a jejich řešení.
 
-If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL Data Warehouse documents.  The [Azure SQL Data Warehouse MSDN Forum][Azure SQL Data Warehouse MSDN Forum] was create as a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].
+Pokud jste v tomto článku nenašli, co jste hledali, zkuste použít „Hledání dokumentů“ v levé části této stránky k vyhledávání ve všech dokumentech služby Azure SQL Data Warehouse.  [Fórum pro Azure SQL Data Warehouse na webu MSDN][Fórum pro Azure SQL Data Warehouse na webu MSDN] bylo vytvořeno jako místo, kde můžete pokládat otázky ostatním uživatelům a do skupiny produktů SQL Data Warehouse.  Toto fórum aktivně sledujeme, abychom zajistili, že vaši otázku zodpoví další uživatel nebo někdo z nás.  Pokud dáváte přednost pokládání otázek na Stack Overflow, máme také [Fórum pro Azure SQL Data Warehouse na Stack Overflow][Fórum pro Azure SQL Data Warehouse na Stack Overflow].
 
-Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Warehouse Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
+Nakonec můžete použít stránku [Zpětná vazba k službě Azure SQL Data Warehouse][Zpětná vazba k službě Azure SQL Data Warehouse] k podání žádostí o funkce.  Přidáním vlastních žádostí nebo hlasováním pro ostatní žádosti nám pomůžete určit prioritu funkcí.
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
-[Table overview]: ./sql-data-warehouse-tables-overview.md
-[Table data types]: ./sql-data-warehouse-tables-data-types.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexes]: ./sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
-[Move data with Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
+[Vytvoření lístku podpory]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Souběžnost a správa úloh]: ./sql-data-warehouse-develop-concurrency.md
+[CREATE TABLE AS SELECT (CTAS)]: ./sql-data-warehouse-develop-ctas.md
+[Přehled tabulek]: ./sql-data-warehouse-tables-overview.md
+[Typy tabulkových dat]: ./sql-data-warehouse-tables-data-types.md
+[Distribuce tabulky]: ./sql-data-warehouse-tables-distribute.md
+[Indexy tabulky]: ./sql-data-warehouse-tables-index.md
+[Příčiny nekvalitních indexů columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Obnovení indexů columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Dělení tabulky]: ./sql-data-warehouse-tables-partition.md
+[Správa statistik tabulek]: ./sql-data-warehouse-tables-statistics.md
+[Dočasné tabulky]: ./sql-data-warehouse-tables-temporary.md
+[Průvodce používáním funkce PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[Načtení dat]: ./sql-data-warehouse-overview-load.md
+[Přesun dat pomocí služby Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Načtení dat pomocí služby Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Načtení dat pomocí bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Načtení dat pomocí funkce PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Monitorování úloh pomocí zobrazení dynamických zpráv]: ./sql-data-warehouse-manage-monitor.md
+[Pozastavení výpočetních prostředků]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Obnovení výpočetních prostředků]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Škálování výpočetních prostředků]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
+[Vysvětlení transakcí]: ./sql-data-warehouse-develop-transactions.md
+[Optimalizace transakcí]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Řešení potíží]: ./sql-data-warehouse-troubleshoot.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
@@ -154,17 +158,17 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
 [sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
+[Průvodce indexy columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
-[Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
+[Výběr distribuce tabulky]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
+[Zpětná vazba k službě Azure SQL Data Warehouse]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Fórum pro Azure SQL Data Warehouse na webu MSDN]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
+[Fórum pro Azure SQL Data Warehouse na Stack Overflow]:  http://stackoverflow.com/questions/tagged/azure-sqldw
+[Vzory a strategie načítání služby Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

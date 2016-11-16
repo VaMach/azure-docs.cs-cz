@@ -10,9 +10,11 @@
   * [Cvičení: Vytvoření prostředí služby App Service](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Podpora vývojových balíků služby Azure App Service](/blog/windows-azure-websites-development-stacks-support/)
 
-## Videa
+## <a name="videos"></a>Videa
 * [Architektura služby Azure App Service](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Řízení přístupu na základě role ve službě Azure Automation | Microsoft Docs
-description: Řízení přístupu na základě role (RBAC) umožňuje správu přístupu k prostředkům Azure. Tento článek popisuje způsob nastavení řízení přístupu na základě role ve službě Azure Automation.
+title: "Řízení přístupu na základě role ve službě Azure Automation | Dokumentace Microsoftu"
+description: "Řízení přístupu na základě role (RBAC) umožňuje správu přístupu k prostředkům Azure. Tento článek popisuje způsob nastavení řízení přístupu na základě role ve službě Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-keywords: rbac v automation, řízení přístupu na základě rolí, rbac v azure
-
+keywords: "rbac v automation, řízení přístupu na základě rolí, rbac v azure"
+ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+
 
 ---
-# Řízení přístupu na základě role ve službě Azure Automation
-## Řízení přístupu na základě role
+# <a name="rolebased-access-control-in-azure-automation"></a>Řízení přístupu na základě role ve službě Azure Automation
+## <a name="rolebased-access-control"></a>Řízení přístupu na základě role
 Řízení přístupu na základě role (RBAC) umožňuje správu přístupu k prostředkům Azure. Pomocí [řízení přístupu na základě role](../active-directory/role-based-access-control-configure.md) můžete povinnosti v rámci týmu oddělit a udělit uživatelům, skupinám a aplikacím jenom takový přístup, který k provádění svojí práce potřebují. Přístup na základě role můžete udělit uživatelům, kteří používají portál Azure, nástroje příkazového řádku Azure nebo rozhraní API pro správu Azure.
 
-## Řízení přístupu na základě role v účtech Automation
+## <a name="rbac-in-automation-accounts"></a>Řízení přístupu na základě role v účtech Automation
 Ve službě Azure Automation se přístup uděluje přiřazením příslušné role RBAC uživatelům, skupinám a aplikacím v rozsahu účtu Automation. Níže jsou uvedené vestavěné role, které účet Automation podporuje:  
 
 | **Role** | **Popis** |
@@ -39,7 +43,7 @@ Ve službě Azure Automation se přístup uděluje přiřazením příslušné r
 
 V tomto článku vás provedeme procesem nastavení řízení přístupu na základě role ve službě Azure Automation. Nejdřív se trochu podrobněji podíváme na jednotlivá oprávnění udělená přispěvateli, čtenáři, operátorovi služby Automation a správci přístupu uživatelů, abychom získali dostatečný přehled předtím, než někomu udělíme práva k účtu Automation.  V opačném případě by to mohlo přinést nezamýšlené nebo nežádoucí důsledky.     
 
-## Oprávnění role přispěvatele
+## <a name="contributor-role-permissions"></a>Oprávnění role přispěvatele
 Následující tabulka představuje konkrétní akce, které může role přispěvatele provádět na účtu Automation.
 
 | **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
@@ -62,7 +66,7 @@ Následující tabulka představuje konkrétní akce, které může role přisp�
 | Testovací úloha konceptu runbooku Automation |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
 | Webhook služby Automation |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) |
 
-## Oprávnění role čtenáře
+## <a name="reader-role-permissions"></a>Oprávnění role čtenáře
 Následující tabulka představuje konkrétní akce, které může role čtenáře provádět na účtu Automation.
 
 | **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
@@ -74,7 +78,7 @@ Následující tabulka představuje konkrétní akce, které může role čtená
 | Přiřazení role |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Definice role |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## Oprávnění role operátora služby Automation
+## <a name="automation-operator-role-permissions"></a>Oprávnění role operátora služby Automation
 Následující tabulka představuje konkrétní akce, které může role operátora služby Automation provádět na účtu Automation.
 
 | **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
@@ -99,7 +103,7 @@ Následující tabulka představuje konkrétní akce, které může role operát
 
 [Akce operátora automatizace](../active-directory/role-based-access-built-in-roles.md#automation-operator) uvádí seznam akcí podporovaných rolí operátora automatizace na účtu Automation a jejími prostředky.
 
-## Oprávnění role správce přístupu uživatelů
+## <a name="user-access-administrator-role-permissions"></a>Oprávnění role správce přístupu uživatelů
 Následující tabulka představuje konkrétní akce, které může role správce přístupu uživatelů provádět na účtu Automation.
 
 | **Typ prostředku** | **Čtení** | **Zápis** | **Odstranění** | **Další akce** |
@@ -122,7 +126,7 @@ Následující tabulka představuje konkrétní akce, které může role správc
 | Testovací úloha konceptu runbooku Automation |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Webhook služby Automation |![Zelený stav](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## Konfigurace řízení přístupu na základě role u vašeho účtu Automation pomocí portálu Azure
+## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Konfigurace řízení přístupu na základě role u vašeho účtu Automation pomocí portálu Azure
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/) a v okně Účty Automation otevřete svůj účet Automation.  
 2. V pravém horním rohu klikněte na ovládací prvek **Přístup**. Tím otevřete okno **Uživatelé**, ve kterém můžete přidat nové uživatele, skupiny a aplikace, aby mohli spravovat váš účet Automation a zobrazovat existující role, které můžou být pro účet Automation konfigurované.  
    
@@ -133,7 +137,7 @@ Následující tabulka představuje konkrétní akce, které může role správc
 > 
 > 
 
-### Přidání nového uživatele a přiřazení role
+### <a name="add-a-new-user-and-assign-a-role"></a>Přidání nového uživatele a přiřazení role
 1. V okně Uživatelé klikněte na **Přidat** a otevřete okno **Přidání přístupu**, ve kterém můžete přidat uživatele, skupiny nebo aplikace a přiřadit jim roli.  
    
    ![Přidání uživatele](media/automation-role-based-access-control/automation-02-add-user.png)  
@@ -162,7 +166,7 @@ Následující tabulka představuje konkrétní akce, které může role správc
    
     ![Zobrazení více rolí](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
 
-### Odebrání uživatele
+### <a name="remove-a-user"></a>Odebrání uživatele
 Pokud uživatel nespravuje účet Automation nebo už v organizaci nepracuje, můžete odebrat jeho oprávnění k přístupu. Uživatele můžete odebrat následujícím postupem: 
 
 1. V okně **Uživatelé** vyberte přiřazenou roli, kterou chcete odebrat.
@@ -171,12 +175,12 @@ Pokud uživatel nespravuje účet Automation nebo už v organizaci nepracuje, m�
    
    ![Odebrání uživatelů](media/automation-role-based-access-control/automation-08-remove-users.png)  
 
-## Uživatel přiřazený k roli
+## <a name="role-assigned-user"></a>Uživatel přiřazený k roli
 Když se uživatel přiřazený k roli přihlásí k účtu Automation, může vidět účet vlastníka uvedený v seznamu **Výchozí adresáře**. Aby mohl vidět účet Automation, ke kterému byl přidán, musí přepnout výchozí adresář na výchozí adresář vlastníka.  
 
 ![Výchozí adresář](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
-### Uživatelské prostředí pro roli operátora služby Automation
+### <a name="user-experience-for-automation-operator-role"></a>Uživatelské prostředí pro roli operátora služby Automation
 Pokud uživatel, který je přiřazený k roli Operátor služby Automation, zobrazí účet Automation, ke kterému je přiřazený, může zobrazit jenom seznam runbooků a úlohy a plány runbooků vytvořené v účtu Automation, ale nemůže zobrazit jejich definice. Může spustit, zastavit, pozastavit, obnovit nebo naplánovat úlohu runbooku. Uživatel nebude mít přístup k dalším prostředkům Automation, například ke konfiguracím, skupinám Hybrid Worker nebo uzlům DSC.  
 
 ![Žádný přístup k prostředkům](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
@@ -193,7 +197,7 @@ Tento uživatel také nemá přístup k zobrazení webhooků, které jsou přidr
 
 ![Žádný přístup k webhookům](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
-## Konfigurace řízení přístupu na základě role u vašeho účtu Automation pomocí Azure PowerShellu
+## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Konfigurace řízení přístupu na základě role u vašeho účtu Automation pomocí Azure PowerShellu
 Přístup na základě role můžete pro účet Automation nakonfigurovat také pomocí následujících [rutin Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) vypíše všechny role funkce řízení přístupu na základě role, které jsou ve službě Azure Active Directory dostupné. Tento příkaz můžete použít spolu s vlastností **Název** k vypsání všech akcí, které může konkrétní role provádět.  
@@ -221,11 +225,14 @@ Přístup na základě role můžete pro účet Automation nakonfigurovat také 
 
 Ve výše uvedených příkladech nahraďte **přihlašovací ID**, **ID předplatného**, **název skupiny prostředků** a **název účtu Automation** údaji ze svého účtu. Po zobrazení výzvy, která požádá o potvrzení odebrání přiřazené role uživatele, zvolte **Ano**.   
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o různých způsobech konfigurace RBAC pro Azure Automation najdete v článku [Správa řízení přístupu na základě role pomocí Azure PowerShellu](../active-directory/role-based-access-control-manage-access-powershell.md).
 * Podrobnosti o různých způsobech spouštění runbooků najdete v článku [Spuštění runbooku](automation-starting-a-runbook.md)
 * Další informace o různých typech runbooků najdete v článku [Typy runbooků ve službě Azure Automation](automation-runbook-types.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

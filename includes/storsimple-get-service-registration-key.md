@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Získání registračního klíče služby StorSimple
+#### <a name="to-get-the-storsimple-service-registration-key"></a>Získání registračního klíče služby StorSimple
 1. Na stránce služby **StorSimple Manager** klikněte na službu, kterou jste vytvořili. Tím přejdete na stránku **Rychlý start**. (Kliknutím na ikonu rychlého startu ![Ikona rychlého startu StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) můžete kdykoli získat přístup na stránku **Rychlý start**.)
    
      ![Stránka rychlého startu StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
@@ -20,6 +20,8 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak získat registrační klíč služby, klikněte [sem](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

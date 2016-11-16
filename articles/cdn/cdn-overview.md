@@ -1,12 +1,12 @@
 ---
-title: CDN Azure – Přehled | Microsoft Docs
-description: Zjistěte, co je Síť pro doručování obsahu (CDN) Azure, a jak ji používat k doručování širokopásmového obsahu díky ukládání objektů blob a statického obsahu do mezipaměti.
+title: "CDN Azure – Přehled | Dokumentace Microsoftu"
+description: "Zjistěte, co je Síť pro doručování obsahu (CDN) Azure, a jak ji používat k doručování širokopásmového obsahu díky ukládání objektů blob a statického obsahu do mezipaměti."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+
 
 ---
-# Přehled služby Content Delivery Network (CDN) Azure
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Přehled služby Content Delivery Network (CDN) Azure
 > [!NOTE]
 > Tento dokument popisuje, co je služba Content Delivery Network (CDN) Azure, jak funguje, a funkce všech produktů CDN Azure.  Chcete-li tyto informace přeskočit a rovnou přejít ke kurzu jak vytvořit koncový bod CDN, přejděte na [Používání CDN Azure](cdn-create-new-endpoint.md).  Chcete-li zobrazit aktuální seznam umístění uzlů CDN, přejděte na [Umístění POP v síti CDN](cdn-pop-locations.md).
 > 
@@ -30,7 +34,7 @@ Mezi výhody používání CDN k ukládání webových prostředků do mezipamě
 * Velké škálování pro lepší zvládání náhlého vysokého zatížení, například v případě uvedení produktu na trh.
 * Díky distribuci uživatelských požadavků a poskytování obsahu ze serverů Edge dochází k nižšímu přenosu ke zdroji.
 
-## Jak to funguje
+## <a name="how-it-works"></a>Jak to funguje
 ![Přehled CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Uživatel (Alice) požaduje soubor (také označovaný jako prostředek) pomocí adresy URL se speciálním názvem domény, například `<endpointname>.azureedge.net`.  DNS přesměruje požadavek na nejvýkonnější umístění POP (Point of Presence).  To je obvykle POP, který je geograficky nejblíže uživatele.
@@ -40,12 +44,12 @@ Mezi výhody používání CDN k ukládání webových prostředků do mezipamě
 5. Další uživatelé mohou následně požadovat stejný soubor pomocí stejné adresy URL a budou přesměrováni na stejný POP.
 6. Pokud hodnota TTL souboru nevypršela, vrátí server Edge soubor z mezipaměti.  To má za následek rychlejší a rychleji reagující uživatelské prostředí.
 
-## Funkce Azure CDN
+## <a name="azure-cdn-features"></a>Funkce Azure CDN
 Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**, **Azure CDN Standard od společnosti Verizon** a **Azure CDN Premium od společnosti Verizon**.  V následující tabulce jsou uvedené funkce, které jsou k dispozici u každého produktu.
 
 |  | Akamai Standard | Verizon Standard | Verizon Premium |
 | --- | --- | --- | --- |
-| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) a [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) nebo [prostředí PowerShellu](cdn-manage-powershell.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Podpora HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Vyrovnávání zatížení |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -53,7 +57,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | Duální sada protokolů IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Podpora vlastních názvů domén](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ukládání řetězce dotazu do mezipaměti](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrování podle země](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geografická filtrování](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
 | [Rychlé vyprázdnění](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Předběžné načítání prostředku](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Základní analýza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -71,7 +75,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Chcete-li začít s CDN, podívejte se na [Používání Azure CDN](cdn-create-new-endpoint.md).
 
 Pokud jste stávající zákazník CDN, můžete nyní spravovat koncové body CDN prostřednictvím portálu [Microsoft Azure Portal](https://portal.azure.com) nebo [PowerShellu](cdn-manage-powershell.md).
@@ -82,6 +86,9 @@ Přečtěte si informace o automatizaci Azure CDN s [.NET](cdn-app-dev-net.md) n
 
 Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

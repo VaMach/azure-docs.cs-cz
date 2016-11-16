@@ -1,12 +1,12 @@
 ---
-title: Sestavení prvního objektu pro vytváření dat (Visual Studio) | Microsoft Docs
-description: V tomto kurzu vytvoříte pomocí sady Visual Studio ukázkový kanál služby Azure Data Factory.
+title: "Sestavení prvního objektu pro vytváření dat (Visual Studio) | Dokumentace Microsoftu"
+description: "V tomto kurzu vytvoříte pomocí sady Visual Studio ukázkový kanál služby Azure Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc46837a2be9047e5bcbd920c2e0119f2c5a5ea6
+
 
 ---
-# <a name="tutorial:-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí sady Microsoft Visual Studio
+# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí sady Microsoft Visual Studio
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -236,7 +240,7 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vst
             }
         }
    
-    V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
+     V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
    
     V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
    
@@ -254,13 +258,13 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vst
    > 
 4. Uložte soubor **HiveActivity1.json**.
 
-### <a name="add-partitionweblogs.hql-and-input.log-as-a-dependency"></a>Přidání souborů partitionweblogs.hql a input.log jako závislosti
+### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>Přidání souborů partitionweblogs.hql a input.log jako závislosti
 1. Klikněte pravým tlačítkem myši na **Závislosti** v okně **Průzkumník řešení**, přejděte na **Přidat** a klikněte na **Existující položka**.  
 2. Přejděte do složky **C:\ADFGettingStarted**, vyberte soubory **partitionweblogs.hql** a **input.log** a klikněte na **Přidat**. Tyto dva soubory jste vytvořili v rámci požadavků uvedených v článku [Přehled kurzu](data-factory-build-your-first-pipeline.md).
 
 Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se načte do složky skriptů v kontejneru objektů blob **adfgetstarted**.   
 
-### <a name="publish/deploy-data-factory-entities"></a>Publikování/nasazení entit služby Data Factory
+### <a name="publishdeploy-data-factory-entities"></a>Publikování/nasazení entit služby Data Factory
 1. V Průzkumníku řešení klikněte pravým tlačítkem na požadovaný projekt a poté klikněte na **Publikovat**. 
 2. Pokud se zobrazí dialogové okno **Přihlásit se pomocí účtu Microsoft**, zadejte přihlašovací údaje k účtu s předplatným Azure a klikněte na **Přihlásit**.
 3. Mělo by se zobrazit následující dialogové okno:
@@ -272,7 +276,8 @@ Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se n
    2. Zadejte jedinečný **název** objektu pro vytváření dat. Například: **FirstDataFactoryUsingVS09152016**. Název musí být globálně jedinečný.  
 
         > [AZURE.IMPORTANT] Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-1. V poli **Předplatné** vyberte správné předplatné.
+3. V poli **Předplatné** vyberte správné předplatné.
+
 
         > [AZURE.IMPORTANT] Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.  
 
@@ -333,7 +338,7 @@ Všimněte si těchto důležitých bodů:
    > 
    > 
    
-    ![Datová sada](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
+    ![Datová sada](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Pokud je řez ve stavu **Připraveno**, zkontrolujte, jestli se ve složce **partitioneddata** v kontejneru **adfgetstarted** ve službě Blob Storage nachází výstupní data.  
     
     ![Výstupní data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -341,13 +346,13 @@ Všimněte si těchto důležitých bodů:
     
     ![Podrobnosti o datovém řezu](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
 12. Kliknutím na spuštění aktivity v **seznamu spuštění aktivit** zobrazíte podrobnosti o spuštění aktivity (v našem scénáři aktivity Hivu) v okně **Podrobnosti o spuštění aktivit**.   
-    ![Podrobnosti o spuštění aktivit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    ![Podrobnosti o spuštění aktivit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
     
     V souborech protokolů můžete zobrazit provedený dotaz Hivu s informacemi o jeho stavu. Tyto protokoly jsou užitečné při řešení potíží.  
 
 Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto kurzu, pomocí webu Azure Portal najdete v článku [Monitorování datových sad a kanálu](data-factory-monitor-manage-pipelines.md).
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
 K monitorování kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v tématu [Monitorování a správa kanálů služby Azure Data Factory pomocí aplikace pro monitorování a správu](data-factory-monitor-manage-app.md).
 
 1. Klikněte na dlaždici Monitorování a správa.
@@ -426,11 +431,11 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
     Pokud má kód JSON vlastnost s polem hodnot, jak je znázorněno v následujícím kódu:  
    
         "structure": [
-            {
-                "name": "FirstName",
+              {
+                  "name": "FirstName",
                 "type": "String"
-            },
-            {
+              },
+              {
                 "name": "LastName",
                 "type": "String"
             }
@@ -502,6 +507,9 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

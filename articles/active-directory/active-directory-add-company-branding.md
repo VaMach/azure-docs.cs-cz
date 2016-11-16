@@ -1,12 +1,12 @@
 ---
-title: Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
-description: Postup přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu v Azure
+title: "Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu"
+description: "Postup přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu v Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+
 
 ---
-# Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
+# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
 Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jednotný vzhled všech webů a služeb, které spravují. Azure Active Directory tuto možnost nabízí a umožňuje přizpůsobení vzhledu následujících webových stránek, na které můžete přidat svoje firemní logo a vlastní barevná schémata:
 
 * **Přihlašovací stránka**: To je stránka, která se zobrazuje při přihlašování k Office 365 nebo k jiným webovým aplikacím, které používají Azure AD jako zprostředkovatele identity. Tuto stránku budete používat při vyhledávání domovské sféry nebo při zadávání přihlašovacích údajů. Vyhledávání domovské sféry umožňuje systému přesměrovat federované uživatele na jejich místní službu tokenů zabezpečení (například AD FS).
@@ -30,7 +34,7 @@ Toto téma popisuje možnosti přizpůsobení přihlašovací stránky a stránk
 > 
 > 
 
-## Přizpůsobení přihlašovací stránky
+## <a name="customizing-the-signin-page"></a>Přizpůsobení přihlašovací stránky
 Pokud potřebujete v prohlížeči otevřít cloudové aplikace a služby, které si vaše organizace předplatila, obvykle použijete přihlašovací stránku.
 
 Pokud jste přihlašovací stránku změnili, může se taková změna projevit až za hodinu.
@@ -73,7 +77,7 @@ Zde je zobrazení po změně velikosti prohlížeče směrem nahoru:
 
 ![][7]
 
-## Přizpůsobitelné prvky na stránce
+## <a name="what-elements-on-the-page-can-i-customize"></a>Přizpůsobitelné prvky na stránce
 Na přihlašovací stránce může přizpůsobit následující prvky:
 
 ![][5]
@@ -108,14 +112,14 @@ Všechny prvky na této stránce můžete lokalizovat. Po konfiguraci „výchoz
 * Vytvořte „výchozí“ velký obrázek, který je použitelný pro všechny kultury, a potom vytvořte specifické verze pro angličtinu a francouzštinu. Když svoje prohlížeče nastavíte na jeden z těchto dvou jazyků, zobrazí se tento konkrétní obrázek. U všech ostatních jazyků se zobrazí výchozí obrázek.
 * Nakonfigurujte různá loga vaší organizace (například verze pro japonštinu nebo hebrejštinu).
 
-## Přizpůsobení stránky přístupového panelu
+## <a name="access-panel-page-customization"></a>Přizpůsobení stránky přístupového panelu
 Stránka přístupového panelu je v podstatě stránkou portálu, která umožňuje rychlý přístup ke cloudové aplikaci, ke které vám správce udělil přístup. Na této stránce se vaše aplikace zobrazují jako dlaždice aplikací, na které můžete kliknout.
 
 Následující snímek obrazovky ukazuje příklad stránky přístupového panelu po přizpůsobení.
 
 ![][8]
 
-## Nastavení konfigurace adresáře pomocí firemního brandingu
+## <a name="configure-your-directory-with-company-branding"></a>Nastavení konfigurace adresáře pomocí firemního brandingu
 Na portálu Azure Classic můžete každému adresáři nakonfigurovat jednu výchozí sadu přizpůsobitelných prvků. Po uložení výchozích hodnot může správce přidat lokalizované verze jednotlivých prvků pro různé jazyky a národní prostředí. Všechny přizpůsobitelné prvky jsou volitelné.
 
 Pokud například nakonfigurujete výchozí banner s logem, ale žádný velký obrázek, přihlašovací stránka zobrazí vaše logo v pravém horním rohu. Zobrazí se nicméně výchozí obrázek webu.
@@ -129,7 +133,7 @@ Pokud je vaším preferovaným jazykem němčina, zobrazí se vám výchozí ban
 
 Technicky je možné nakonfigurovat sadu pro každý jazyk podporovaný službou Azure AD, přesto doporučujeme raději menší počet variant – z důvodu snazší údržby a lepšího výkonu.
 
-**Pokud chcete do adresáře přidat vlastní firemní branding, proveďte následující kroky:**
+**Pokud chcete do adresáře přidat vlastní firemní branding, postupujte takto:**
 
 1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako správce adresáře, který chcete přizpůsobit.
 2. Vyberte adresář, který chcete přizpůsobit.
@@ -140,7 +144,7 @@ Technicky je možné nakonfigurovat sadu pro každý jazyk podporovaný službou
 
 Nové změny brandingu přihlašovací stránky se můžou projevit třeba až za hodinu.
 
-**Pokud chcete přidat firemní branding pro konkrétní jazyk, proveďte následující kroky:**
+**Pokud chcete přidat firemní branding pro konkrétní jazyk, postupujte takto:**
 
 1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako správce adresáře, který chcete přizpůsobit.
 2. Vyberte adresář, který chcete přizpůsobit.
@@ -151,7 +155,7 @@ Nové změny brandingu přihlašovací stránky se můžou projevit třeba až z
 7. Upravte jenom prvky, které chcete nakonfigurovat, aby pro konkrétní jazyk přepisovaly výchozí nastavení . Všechna pole jsou volitelná. Pokud necháte pole prázdné, použije se vlastní výchozí hodnota (nebo výchozí hodnota Microsoftu, pokud vlastní výchozí hodnotu nemáte nakonfigurovanou).
 8. Klikněte na **Uložit**.
 
-**Pokud chcete z adresáře odstranit vlastní firemní branding, proveďte následující kroky:**
+**Pokud chcete z adresáře odstranit vlastní firemní branding, postupujte takto:**
 
 1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako správce adresáře, který chcete přizpůsobit.
 2. Vyberte adresář, který chcete přizpůsobit.
@@ -173,10 +177,10 @@ Nové změny brandingu přihlašovací stránky se můžou projevit třeba až z
 8. V případě potřeby znovu klikněte na **Přizpůsobit branding** a opakujte tyto kroky pro každý branding pro konkrétní jazyk, který chcete odebrat.
     Že jsou všechna nastavení brandingu odebraná poznáte tak, že když kliknete na **Přizpůsobit branding**, uvidíte formulář **Přizpůsobit výchozí branding**, který neobsahuje žádnou konfiguraci nastavení.
 
-## Testování a příklady
+## <a name="testing-and-examples"></a>Testování a příklady
 Před provedením změn v produkčním prostředí doporučujeme nejprve experimenty s testovacím klientem.
 
-**Pokud chcete ověřit, jestli se váš branding používá, proveďte následující kroky:**
+**Pokud chcete ověřit, jestli se váš branding používá, postupujte takto:**
 
 1. Otevřete relaci prohlížeče InPrivate nebo Incognito.
 2. Navštivte stránku https://outlook.com/contoso.com a text „contoso.com“ nahraďte doménou, kterou jste přizpůsobili.
@@ -190,7 +194,7 @@ Abychom vám pomohli s vytvářením efektivních sad přizpůsobení, přizpůs
 
 Abyste mohli otestovat nastavení pro konkrétní jazyk, změňte výchozí jazykové předvolby webového prohlížeče na jazyk, který jste nastavili ve vašem vlastním přizpůsobení. V Internet Exploreru můžete konfiguraci provést v nabídce **Možnosti Internetu**.
 
-## Přizpůsobitelné prvky
+## <a name="customizable-elements"></a>Přizpůsobitelné prvky
 Některé přizpůsobitelné prvky v Azure AD mají více možností použití. Firemní logo můžete v adresáři nakonfigurovat jen jednou a používat ho na přihlašovací stránce i na stránce přístupového panelu. Některé přizpůsobitelné prvky jsou určené jenom pro přihlašovací stránku. Následující tabulka obsahuje podrobnosti o různých přizpůsobitelných prvcích.
 
 | Name (Název) | Popis | Omezení | Doporučení |
@@ -203,7 +207,7 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 | Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420 × 1200</p><p>500 kB</p> |<p>1420 × 1200 pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
 | Barva pozadí na přihlašovací stránce |Barva pozadí na přihlašovací stránce se používá v oblasti, která je nalevo od formuláře. |Musí to být barva RGB v šestnáctkovém formátu (příklad: #FFFFFF). |<p>Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma.</p><p>Doporučujeme vybrat primární barvu banneru s logem.</p> |
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Začínáme se službou Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Zobrazení sestav přístupů a používání](active-directory-view-access-usage-reports.md)
 
@@ -220,6 +224,6 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

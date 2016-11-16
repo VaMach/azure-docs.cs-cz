@@ -1,8 +1,8 @@
-## Přijímání zpráv pomocí třídy EventProcessorHost v Javě
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Přijímání zpráv pomocí třídy EventProcessorHost v Javě
 EventProcessorHost je třída rozhraní Java, která zjednodušuje přijímání události ze služby Event Hubs tím, že spravuje trvalé kontrolní body a paralelní příjemce událostí ze služby Event Hubs. Pomocí třídy EventProcessorHost můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy EventProcessorHost pro jednoho příjemce.
 
-### vytvořit účet úložiště
-Pokud chcete EventProcessorHost používat, musíte mít [Účet služby Azure Storage][Účet služby Azure Storage]:
+### <a name="create-a-storage-account"></a>vytvořit účet úložiště
+K používání třídy EventProcessorHost potřebujete [účet služby Azure Storage][účet služby Azure Storage]:
 
 1. Přihlaste se na [portál Azure Classic][portál Azure Classic] a v dolní části obrazovky klikněte na **NOVÝ**.
 2. Klikněte na **Data Services**, **Úložiště**, **Rychlé vytvoření** a potom zadejte název svého účtu úložiště. Vyberte požadovanou oblast a potom klikněte na **Vytvořit účet úložiště**.
@@ -14,7 +14,7 @@ Pokud chcete EventProcessorHost používat, musíte mít [Účet služby Azure S
    
     Primární přístupový klíč si zkopírujte pro pozdější použití v tomto kurzu.
 
-### Vytvoření projektu jazyka Java pomocí hostitele EventProcessor
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Vytvoření projektu jazyka Java pomocí hostitele EventProcessor
 Klientská knihovna Java pro Event Hubs je k dispozici pro použití v projektech Maven z [centrálního úložiště Maven][Maven balíček], a může být odkazováno pomocí následující deklarace závislostí uvnitř souboru projektu Maven:    
 
 ``` XML
@@ -184,8 +184,8 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
 > 
 
 <!-- Links -->
-[Přehled služby Event Hubs]: event-hubs-overview.md
-[Účet služby Azure Storage]: ../storage/storage-create-storage-account.md
+[Přehled služby Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[účet služby Azure Storage]: ../articles/storage/storage-create-storage-account.md
 [portál Azure Classic]: http://manage.windowsazure.com
 [Maven balíček]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
@@ -195,6 +195,6 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

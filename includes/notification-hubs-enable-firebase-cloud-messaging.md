@@ -9,6 +9,8 @@
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Klikněte na kartu **Cloud Messaging** v nastavení projektu a zkopírujte hodnotu **Klíč serveru** a **ID odesílatele**.  Tyto hodnoty se později použijí ke konfiguraci centra oznámení zásad přístupu a vaší obslužné rutina oznámení v aplikaci.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

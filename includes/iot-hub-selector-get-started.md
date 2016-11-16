@@ -5,7 +5,7 @@
 > 
 > 
 
-## Úvod
+## <a name="introduction"></a>Úvod
 Azure IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení pro internet věcí (IoT) a back-endem řešení. Jeden z největších problémů, kterým projekty IoT čelí, je způsob spolehlivého a bezpečného připojení zařízení k back-endu řešení. Tento problém služba IoT Hub řeší následovně:
 
 * Nabízí spolehlivé, flexibilně škálovatelné zasílání zpráv ze zařízení do cloudu a z cloudu do zařízení.
@@ -18,6 +18,8 @@ V tomto kurzu získáte informace o následujících postupech:
 * vytvoření identity zařízení ve službě IoT Hub
 * vytvoření simulovaného zařízení, která odesílá telemetrické zprávy do back-endu vašeho cloudu a přijímá příkazy z back-endu vašeho cloudu
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

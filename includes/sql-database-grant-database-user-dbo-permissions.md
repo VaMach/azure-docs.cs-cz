@@ -1,6 +1,6 @@
 
 
-## Udělení oprávnění db_owner novému uživateli databáze
+## <a name="grant-new-database-user-dbowner-permissions"></a>Udělení oprávnění db_owner novému uživateli databáze
 Pomocí následujícího postupu můžete stávajícímu uživateli databáze udělit oprávnění db_owner.
 
 Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS připojení ke službě SQL Database a jste připojení ke svému logickému serveru SQL Database jako hlavní správce na úrovni serveru nebo pomocí uživatelského účtu s oprávněním k udělování oprávnění uživatelům. 
@@ -18,6 +18,8 @@ Tento postup předpokládá, že jste v Průzkumníku objektů v aplikaci SSMS p
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

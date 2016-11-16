@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Domain Services: Aktualizace nastavení DNS pro virtuální síť Azure | Microsoft Docs'
-description: Začínáme se službou Azure Active Directory Domain Services
+title: "Azure AD Domain Services: Aktualizace nastavení DNS pro virtuální síť Azure | Dokumentace Microsoftu"
+description: "Začínáme se službou Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 81c0564390c57c7ee001ce5a574ab670faf898b4
+
 
 ---
-# Azure AD Domain Services – Aktualizace nastavení DNS pro virtuální síť Azure
-## Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
+# <a name="azure-ad-domain-services-update-dns-settings-for-the-azure-virtual-network"></a>Azure AD Domain Services – Aktualizace nastavení DNS pro virtuální síť Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
 V předchozích úlohách konfigurace jste úspěšně povolili službu Azure AD Domain Services pro svůj adresář. Dalším úkolem je zajistit, že se počítače v rámci virtuální sítě mohou k těmto službám připojit a využívat je. Aktualizujte nastavení serveru DNS svojí virtuální sítě tak, aby odkazoval na dvě IP adresy, na kterých je ve virtuální síti dostupná služba Azure AD Domain Services.
 
 > [!NOTE]
@@ -46,9 +50,12 @@ Následujícím konfiguračním postupem aktualizujte server DNS virtuální sí
 > 
 > 
 
-## Úloha 5 – Povolení synchronizace hesel do služby Azure AD Domain Services
+## <a name="task-5-enable-password-synchronization-to-azure-ad-domain-services"></a>Úloha 5 – Povolení synchronizace hesel do služby Azure AD Domain Services
 Dalším úkolem konfigurace je [povolení synchronizace hesel do služby Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

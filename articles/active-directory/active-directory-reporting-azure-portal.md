@@ -1,24 +1,28 @@
 ---
-title: Generování sestav v Azure Active Directory – verze Preview | Microsoft Docs
-description: Obsahuje seznam různých dostupných sestav pro Azure Active Directory ve verzi Preview.
+title: "Generování sestav v Azure Active Directory – verze Preview | Dokumentace Microsoftu"
+description: "Obsahuje seznam různých dostupných sestav pro Azure Active Directory ve verzi Preview."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# Generování sestav v Azure Active Directory – verze Preview
+# <a name="azure-active-directory-reporting-preview"></a>Generování sestav v Azure Active Directory – verze Preview
 > [!div class="op_single_selector"]
-> * [portál Azure](active-directory-reporting-azure-portal.md)
+> * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Portál Azure Classic](active-directory-reporting-guide.md)
 > 
 > 
@@ -34,8 +38,8 @@ Existují dvě hlavní oblasti vytváření sestav:
 
 V závislosti na rozsahu hledaných dat můžete k těmto sestavám přistupovat po kliknutí buď na možnost **Uživatelé a skupiny**, nebo na možnost **Podnikové aplikace** v seznamu služeb na webu [Azure Portal](https://portal.azure.com).
 
-## Aktivity přihlašování
-### Aktivity přihlašování uživatelů
+## <a name="signin-activities"></a>Aktivity přihlašování
+### <a name="user-signin-activities"></a>Aktivity přihlašování uživatelů
 Na základě informací poskytnutých sestavou přihlašování uživatelů najdete odpovědi na otázky tohoto typu:
 
 * Jaký je vzorec přihlašování uživatele?
@@ -62,7 +66,7 @@ Každý řádek v seznamu aktivit přihlašování obsahuje podrobné informace 
 * Jaká je IP adresa přihlášení?
 * Jaký byl stav přihlášení?
 
-### Použití spravovaných aplikací
+### <a name="usage-of-managed-applications"></a>Použití spravovaných aplikací
 S použitím zobrazení dat přihlašování zaměřeného na aplikace můžete odpovídat na otázky tohoto typu:
 
 * Kdo používá mé aplikace?
@@ -93,17 +97,23 @@ Pomocí voliče sloupců můžete vybrat datová pole, která chcete zobrazit.
 
 ![Vytváření sestav](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### Filtrování přihlášení
-Přihlášení můžete filtrovat podle časového intervalu, chcete-li omezit množství zobrazených dat.
+### <a name="filtering-signins"></a>Filtrování přihlášení
+Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* Datum a čas 
+* Název objektu zabezpečení User
+* Název aplikace
+* Název klienta
+* Stav přihlášení
+
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 Jinou metodou filtrování záznamů aktivit přihlašování je vyhledání konkrétních položek.
 Metoda hledání umožňuje omezit obor přihlášení na konkrétní **uživatele**, **skupiny** nebo **aplikace**.
 
 ![Vytváření sestav](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Protokoly auditu
+## <a name="audit-logs"></a>Protokoly auditu
 Protokoly auditování v Azure Active Directory obsahují záznamy aktivit systému kvůli dodržování předpisů.
 
 Na webu Azure Portal jsou k dispozici tři hlavní kategorie aktivit souvisejících s auditováním:
@@ -126,7 +136,7 @@ Kliknutím na položku v zobrazení seznamu zobrazíte další podrobnosti.
 
 ![Auditování](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-### Protokoly auditu uživatelů a skupin
+### <a name="users-and-groups-audit-logs"></a>Protokoly auditu uživatelů a skupin
 S použitím sestav auditu orientovaných na uživatele a skupiny můžete najít odpovědi na otázky tohoto typu:
 
 * Jaké typy aktualizací uživatelé použili?
@@ -142,7 +152,7 @@ Pokud chcete jen zkontrolovat data auditování týkající se uživatelů a sku
 
 ![Auditování](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-### Protokoly auditu aplikací
+### <a name="application-audit-logs"></a>Protokoly auditu aplikací
 S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi na otázky tohoto typu:
 
 * Které aplikace byly přidány nebo aktualizovány?
@@ -155,18 +165,44 @@ Pokud chcete jen zkontrolovat data auditování týkající se aplikací, najdet
 
 ![Auditování](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-### Filtrování protokolů auditu
-Sestavu auditu můžete filtrovat podle časového intervalu, chcete-li omezit množství zobrazených dat.
+### <a name="filtering-audit-logs"></a>Filtrování protokolů auditu
+Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
 
-![Auditování](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+* Datum a čas
+* Název objektu zabezpečení Actor
+* Typ aktivity
+* Aktivita
+
+![Auditování](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+Obsah seznamu **Typ aktivity** závisí na tom, kudy do tohoto okna vstoupíte.  
+Pokud je vstupním bodem služba Azure Active Directory, bude tento seznam obsahovat všechny možné typy aktivit:
+
+* Aplikace 
+* Skupina 
+* Uživatel
+* Zařízení
+* Adresář
+* Zásada
+* Ostatní
+
+![Auditování](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+Obor aktivit uvedených v seznamu je nastaven podle typu aktivity.
+Pokud jste například jako **Typ aktivity** vybrali **Skupina**, bude seznam **Aktivita** obsahovat pouze aktivit související se skupinami.   
+
+![Auditování](./media/active-directory-reporting-azure-portal/654.png "Auditing")
 
 Jinou metodou filtrování záznamů protokolu auditu je vyhledání konkrétních položek.
 
 ![Auditování](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Postup zálohování souborů a složek z Windows do Azure s Azure Backup pomocí modelu nasazení Resource Manageru | Microsoft Docs
-description: Postup zálohování dat Windows Serveru pomocí vytvoření trezoru, nainstalování agenta Služeb zotavení, a zálohování vašich souborů a složek do Azure.
+title: "Postup zálohování souborů a složek z Windows do Azure s Azure Backup pomocí modelu nasazení Resource Manageru | Dokumentace Microsoftu"
+description: "Postup zálohování dat Windows Serveru pomocí vytvoření trezoru, nainstalování agenta Služeb zotavení, a zálohování vašich souborů a složek do Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
-keywords: postup zálohování; jak zálohovat
-
+editor: 
+keywords: "postup zálohování; jak zálohovat"
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+
 
 ---
-# První pohled: zálohování souborů a složek s Azure Backup pomocí modelu nasazení Resource Manageru
+# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>První pohled: zálohování souborů a složek s Azure Backup pomocí modelu nasazení Resource Manageru
 Tento článek vysvětluje, jak postupovat při zálohování souborů a složek z Windows Serveru (nebo z klienta Windows) do Azure s Azure Backup pomocí Resource Manageru. Tento kurz vás má provést základy. Chcete-li začít používat Azure Backup, jste na správném místě.
 
 Chcete-li se dozvědět více o Azure Backup, přečtěte si tento [přehled](backup-introduction-to-azure-backup.md).
@@ -25,20 +29,20 @@ Chcete-li se dozvědět více o Azure Backup, přečtěte si tento [přehled](ba
 Pro zálohování souborů a složek do Azure postupujte následovně:
 
 ![Krok 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Získejte předplatné Azure (pokud ho ještě nemáte).<br>
-![Krok 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Vytvořte trezor Služeb zotavení.<br>
+![Krok 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Vytvořte trezor služby Recovery Services.<br>
 ![Krok 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Stáhněte potřebné soubory.<br>
-![Krok 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Nainstalujte a zaregistrujte agenta Služeb zotavení.<br>
-![Krok 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Zálohujte svoje soubory a složky.
+![Krok 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Nainstalujte a zaregistrujte agenta Recovery Services.<br>
+![Krok 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Zazálohujte soubory a složky.
 
 ![Jak zálohovat počítač se systémem Windows s Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## Krok 1 – Získání předplatného Azure.
+## <a name="step-1-get-an-azure-subscription"></a>Krok 1 – Získání předplatného Azure.
 Pokud předplatné Azure nemáte, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/), který vám umožní přístup ke službám Azure.
 
-## Krok 2 – Vytvoření trezoru Služeb zotavení.
+## <a name="step-2-create-a-recovery-services-vault"></a>Krok 2 – Vytvoření trezoru Služeb zotavení.
 Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb zotavení v oblasti, kde chcete data ukládat. Musíte také určit způsob replikace úložiště.
 
-### Vytvoření trezoru Služeb zotavení
+### <a name="to-create-a-recovery-services-vault"></a>Vytvoření trezoru Služeb zotavení
 1. Pokud jste to ještě neudělali, přihlaste se k [portálu Azure](https://portal.azure.com/) pomocí svého předplatného Azure.
 2. V nabídce centra klikněte na **Procházet**, v seznamu prostředků zadejte **Služby zotavení** a klikněte na **Trezory služeb zotavení**.
    
@@ -58,7 +62,7 @@ Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb z
    
     Pokud po vytvoření svůj trezor nevidíte v seznamu, klikněte na **Obnovit**. Až se seznam aktualizuje, klikněte na název trezoru.
 
-### Určení redundance úložiště
+### <a name="to-determine-storage-redundancy"></a>Určení redundance úložiště
 Při prvním vytvoření trezoru Služeb zotavení určíte, jak má být úložiště replikované.
 
 1. Kliknutím na nový trezor otevřete řídící panel.
@@ -74,7 +78,7 @@ Při prvním vytvoření trezoru Služeb zotavení určíte, jak má být úlož
 
 Nyní, když jste vytvořili trezor, připravíte infrastrukturu pro zálohování souborů a složek stažením agenta Služeb zotavení Microsoft Azure a přihlašovacích údajů trezoru. 
 
-## Krok 3 – Stažení souborů
+## <a name="step-3-download-files"></a>Krok 3 – Stažení souborů
 1. V řídícím panelu trezoru Služeb zotavení klikněte na **Nastavení**.
    
     ![Otevřete okno cíle zálohování](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -87,18 +91,18 @@ Nyní, když jste vytvořili trezor, připravíte infrastrukturu pro zálohován
 4. Z nabídky Kde je spuštěná vaše úloha? vyberte **Místní**.
 5. Z nabídky Co chcete zálohovat? vyberte **Soubory a složky** a klikněte na **OK**.
 
-### Stažení agenta Služeb zotavení
+### <a name="download-the-recovery-services-agent"></a>Stažení agenta Služeb zotavení
 1. V okně **Příprava infrastruktury** klikněte na **Stáhnout agenta pro Windows Server nebo klienta Windows**.
    
     ![Příprava infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 2. V automaticky otevřeném okně stahování klikněte na **Uložit**. Ve výchozím nastavení se soubor **MARSagentinstaller.exe** uloží do složky Stažené soubory.
 
-### Stažení přihlašovacích údajů trezoru
+### <a name="download-vault-credentials"></a>Stažení přihlašovacích údajů trezoru
 1. V okně Příprava infrastruktury klikněte na **Stáhnout > Uložit**.
    
     ![Příprava infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## Krok 4 – Instalace a registrace agenta
+## <a name="step-4-install-and-register-the-agent"></a>Krok 4 – Instalace a registrace agenta
 > [!NOTE]
 > Povolení zálohování prostřednictvím portálu Azure bude možné již brzy. Prozatím použijte pro zálohování svých souborů a složek místního agenta Služeb zotavení Microsoft Azure.
 > 
@@ -120,7 +124,7 @@ Nyní, když jste vytvořili trezor, připravíte infrastrukturu pro zálohován
 
 Agent je nyní nainstalovaný a váš počítač je registrovaný k trezoru. Jste připraveni nakonfigurovat a naplánovat zálohování.
 
-## Krok 5 – Zálohování souborů a složek
+## <a name="step-5-back-up-your-files-and-folders"></a>Krok 5 – Zálohování souborů a složek
 Prvotní záloha zahrnuje dvě klíčové úlohy:
 
 * Naplánování zálohování
@@ -128,7 +132,7 @@ Prvotní záloha zahrnuje dvě klíčové úlohy:
 
 K dokončení prvotního zálohy použijte agenta Služeb zotavení Microsoft Azure.
 
-### Naplánování zálohování
+### <a name="to-schedule-the-backup"></a>Naplánování zálohování
 1. Otevřete agenta Služeb zotavení Microsoft Azure. Najdete ho vyhledáním **Microsoft Azure Backup** ve svém počítači.
    
     ![Spuštění agenta Služeb zotavení Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
@@ -158,7 +162,7 @@ K dokončení prvotního zálohy použijte agenta Služeb zotavení Microsoft Az
 10. Na stránce Potvrzení zkontrolujte informace a poté klikněte na **Dokončit**.
 11. Až průvodce dokončí vytváření plánu zálohování, klikněte na **Zavřít**.
 
-### První zálohování souborů a složek
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>První zálohování souborů a složek
 1. Chcete-li dokončit prvotní synchronizaci přes síť, v agentu Služeb zotavení klikněte na **Zálohovat nyní**.
    
     ![Zálohovat nyní ve Windows Serveru](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
@@ -169,14 +173,17 @@ Po dokončení prvotní zálohy se v konzole Zálohování zobrazí stav **Úloh
 
 ![Dokončení IR](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Máte dotazy?
+## <a name="questions"></a>Máte dotazy?
 Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [odešlete nám svůj názor](http://aka.ms/azurebackup_feedback).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Zdroj dalších informací o [zálohování počítačů se systémem Windows](backup-configure-vault.md).
 * Teď, když jste zálohovali své soubory a složky, můžete [spravovat svoje trezory a servery](backup-azure-manage-windows-server.md).
 * Potřebujete-li obnovit zálohu, použijte tento článek k [obnovení souborů na počítač se systémem Windows](backup-azure-restore-windows-server.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Služba Azure AD Domain Services: Vytvoření nebo výběr virtuální sítě | Microsoft Docs'
-description: Začínáme se službou Azure Active Directory Domain Services
+title: "Služba Azure AD Domain Services: Vytvoření nebo výběr virtuální sítě | Dokumentace Microsoftu"
+description: "Začínáme se službou Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 13ab1608-e3d8-40de-9f7b-9b5b42199af4
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+
 
 ---
-# Vytvoření nebo výběr virtuální sítě pro Azure AD Domain Services
-## Pokyny k výběru virtuální sítě Azure
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Vytvoření nebo výběr virtuální sítě pro Azure AD Domain Services
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Pokyny k výběru virtuální sítě Azure
 > [!NOTE]
 > **Než začnete**: Přečtěte si článek [Důležité informace o sítích pro Azure AD Domain Services](active-directory-ds-networking.md).
 > 
 > 
 
-## Úloha 2: Vytvořte virtuální síť Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Úloha 2: Vytvořte virtuální síť Azure
 Další úlohou konfigurace je vytvoření virtuální sítě Azure a podsítě v ní. V této podsíti v rámci své virtuální sítě povolíte službu Azure AD Domain Services. Pokud již máte existující virtuální síť, kterou chcete použít, můžete tento krok přeskočit.
 
 > [!NOTE]
@@ -60,9 +64,12 @@ Proveďte následující kroky konfigurace a vytvořte virtuální síť Azure, 
 
 <br>
 
-## Úloha 3 – Povolení služby Azure AD Domain Services
+## <a name="task-3-enable-azure-ad-domain-services"></a>Úloha 3 – Povolení služby Azure AD Domain Services
 Další úlohou konfigurace je [povolení služby Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

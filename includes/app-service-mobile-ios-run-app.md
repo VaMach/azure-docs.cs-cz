@@ -3,12 +3,11 @@
 2. Stisknutím tlačítka **Spustit** sestavíte projekt a spustíte aplikaci v simulátoru iOS.
 3. V aplikaci zadejte smysluplný text, například *Dokončit kurz* a pak klikněte na ikonu plus (**+**). Tím odešlete do prostředí back-end v Azure, které jste předtím vytvořili, požadavek POST. Prostředí back-end vloží data z požadavku do tabulky SQL TodoItem a vrátí informace o nově uložených položkách do mobilní aplikace. Mobilní aplikace zobrazí tato data v seznamu. 
    
-    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+       ![](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

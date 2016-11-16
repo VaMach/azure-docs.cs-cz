@@ -1,5 +1,5 @@
 
-### Základní limity elastického fondu
+### <a name="basic-elastic-pool-limits"></a>Základní limity elastického fondu
 |  |  |
 | --- |:---:|
 | Maximální počet eDTU na fond |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -20,7 +20,7 @@
 
 ** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
 
-### Standardní limity elastického fondu
+### <a name="standard-elastic-pool-limits"></a>Standardní limity elastického fondu
 |  |  |
 | --- |:---:|
 | Maximální počet eDTU na fond |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -41,7 +41,7 @@
 
 ** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
 
-### Prémiové limity elastického fondu
+### <a name="premium-elastic-pool-limits"></a>Prémiové limity elastického fondu
 |  |  |
 | --- |:---:|
 | Maximální počet eDTU na fond |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -62,6 +62,8 @@
 
 ** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

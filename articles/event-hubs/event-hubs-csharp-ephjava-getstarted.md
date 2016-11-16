@@ -1,12 +1,12 @@
 ---
-title: Začínáme se službou Event Hubs v jazyce C# | Microsoft Docs
-description: Tento kurz vám pomůže začít používat službu Azure Event Hubs a posílat události v jazyce C# a přijímat je v jazyce Java za použití třídy EventProcessorHost.
+title: "Začínáme se službou Event Hubs v jazyce C# | Dokumentace Microsoftu"
+description: "Tento kurz vám pomůže začít používat službu Azure Event Hubs a posílat události v jazyce C# a přijímat je v jazyce Java za použití třídy EventProcessorHost."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Začínáme se službou Event Hubs
@@ -48,8 +52,8 @@ Nyní můžete spustit aplikace.
 ## <a name="next-steps"></a>Další kroky
 Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete podívat na některý z následujících scénářů:
 
-* úplná [ukázková aplikace, která používá službu Event Hubs][ukázková aplikace, která používá službu Event Hubs]
-* [horizontální navýšení kapacity zpracování událostí ve službě Event Hubs][] – ukázka
+* Úplná [ukázková aplikace, která používá službu Event Hubs][ukázková aplikace, která používá službu Event Hubs]
+* Ukázka [horizontálního navýšení kapacity zpracování událostí pomocí služby Event Hubs][horizontální navýšení kapacity zpracování událostí pomocí služby Event Hubs]
 * [Přehled služby Event Hubs][Přehled služby Event Hubs]
 
 <!-- Images. -->
@@ -64,6 +68,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,5 @@
 ## <a name="load-balancer-differences"></a>Rozdíly mezi nástroji pro vyrovnávání zatížení
+
 Existují různé možnosti distribuce síťového provozu pomocí systému Microsoft Azure. Tyto možnosti fungují různě, obsahují jiné sady funkcí a podporují různé scénáře. Lze je používat jednotlivě nebo je kombinovat.
 
 * **Azure Load Balancer** funguje na přenosové vrstvě (Vrstva 4 v balíčku referenčních informací k síti modelu OSI). Poskytuje distribuci provozu na úrovni sítě mezi instancemi aplikace, které běží ve stejném datovém centru Azure.
@@ -26,6 +27,7 @@ Azure Load Balancer i služba Application Gateway směrují síťový provoz do 
 | Sondy stavu |Výchozí hodnota: interval sondování – 15 sekund. Vyřazení ze smyčky: po dvou selháních za sebou. Podporuje uživatelem definované sondy. |Interval nečinnosti sondy – 30 sekund. Vyřazena ze smyčky po pěti selháních živého provozu za sebou nebo po jediném selhání sondy v režimu nečinnosti. Podporuje uživatelem definované sondy. |
 | Přesměrování zpracování SSL |Nepodporuje se |Podporuje se |
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

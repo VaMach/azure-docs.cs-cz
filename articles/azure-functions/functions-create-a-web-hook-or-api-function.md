@@ -1,13 +1,13 @@
 ---
-title: Vytvoření funkce Azure volané webhookem nebo rozhraním API | Microsoft Docs
-description: Pomocí služby Azure Functions vytvoříte funkci, která je volána webhookem nebo rozhraním API.
+title: "Vytvoření funkce Azure volané webhookem nebo rozhraním API | Dokumentace Microsoftu"
+description: "Pomocí služby Azure Functions vytvoříte funkci, která je volána webhookem nebo rozhraním API."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -15,20 +15,25 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/30/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+
 
 ---
-# Vytvoření funkce Azure volané webhookem nebo rozhraním API
+# <a name="create-a-webhook-or-api-azure-function"></a>Vytvoření funkce Azure volané webhookem nebo rozhraním API
 Azure Functions je výpočetní prostředí na vyžádání založené na událostech. Umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
 
 Toto téma ukazuje, jak vytvořit novou funkci Node.js, která je volána webhookem GitHubu. Nová funkce je vytvořena na základě předem definované šablony na portálu Azure Functions. Můžete také zhlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
 
-## Přehrát video
+## <a name="watch-the-video"></a>Přehrát video
 Následující video ukazuje, jak provést základní kroky obsažené v tomto kurzu 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>
+>
 
-
-## Vytvoření funkce aktivované webhookem ze šablony
+## <a name="create-a-webhooktriggered-function-from-the-template"></a>Vytvoření funkce aktivované webhookem ze šablony
 Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/). 
 
 1. Přejděte na stránku [portálu Azure Functions](https://functions.azure.com/signin) a přihlaste se pomocí účtu Azure.
@@ -47,7 +52,7 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte f
 
 Dále vytvoříte skutečný webhook ve vašem úložišti GitHubu.
 
-## Konfigurace webhooku
+## <a name="configure-the-webhook"></a>Konfigurace webhooku
 1. V GitHubu přejděte do úložiště, které vlastníte (včetně libovolných úložišť, která máte rozvětvená).
 2. Klikněte na tlačítko **Settings** (Nastavení)  > **Webhooks & services** (Webhooky a služby)  > **Add webhook** (Přidat webhook).
    
@@ -59,23 +64,26 @@ Dále vytvoříte skutečný webhook ve vašem úložišti GitHubu.
 V tomto okamžiku je webhook GitHubu nakonfigurován tak, aby aktivoval funkci v případě, že dojde k přidání nového komentáře k problému.  
 Teď je čas na otestování.
 
-## Testování funkce
+## <a name="test-the-function"></a>Testování funkce
 1. Ve svém úložišti GitHubu otevřete v novém okně prohlížeče záložku **Issues** (Problémy), klikněte na položku **New Issue** (Nový problém), zadejte název a stiskněte tlačítko **Submit new issue** (Odeslat nový problém). Můžete také otevřít stávající problém.
 2. U problému zadejte komentář a klikněte na tlačítko **Comment** (Komentář). V tomto okamžiku se můžete vrátit k vašemu novému webhooku GitHubu a v části **Recent Deliveries** (Poslední doručené) naleznete informace o tom, že byl odeslán požadavek webhooku a text odpovědi je `New GitHub comment: <Your issue comment text>`.
 3. Zpět na portálu Functions se posuňte dolů na protokoly a uvidíte, že došlo ke spuštění funkce a hodnota `New GitHub comment: <Your issue comment text>` je zapsána v datovém proudu protokolů.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o službě Azure Functions najdete v těchto tématech.
 
 * [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
   Příručka programátora pro psaní funkcí.
-* [Testování funkcí Azure Functions](functions-test-a-function.md)  
+* [Testování Azure Functions](functions-test-a-function.md)  
   Toto téma popisuje různé nástroje a techniky pro testování funkcí.
 * [Postup škálování Azure Functions](functions-scale.md)  
   Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (včetně plánu služby Dynamic), a výběr správného plánu.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

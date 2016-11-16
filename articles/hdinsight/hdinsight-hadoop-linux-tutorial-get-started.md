@@ -1,13 +1,13 @@
 ---
-title: 'Kurz Linux: Začínáme s Hadoop a Hive | Microsoft Docs'
-description: Sledujte tento kurz Linuxu a začněte s Hadoop v HDInsight. Naučte se vytvářet Linuxové clustery a dotazovat data pomocí Hive.
+title: "Kurz Linux: Začínáme s Hadoop a Hive | Dokumentace Microsoftu"
+description: "Sledujte tento kurz Linuxu a začněte s Hadoop v HDInsight. Naučte se vytvářet Linuxové clustery a dotazovat data pomocí Hive."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+
 
 ---
-# Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
+# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
 > [!div class="op_single_selector"]
 > * [Založený na Linuxu](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Založený na systému Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+> * [Založený na Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
@@ -28,15 +32,15 @@ Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v H
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Než začnete tento kurz, musíte mít:
 
 * **Předplatné Azure**: pro vytvoření bezplatného zkušebního účet na jeden měsíc otevřete web [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
-### Požadavky na řízení přístupu
+### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Vytvoření clusteru
+## <a name="create-cluster"></a>Vytvoření clusteru
 Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte některé úlohy a pak cluster odstraníte. V této části vytvoříte linuxový cluster Hadoop v HDInsight pomocí [šablony Azure Resource Manageru](../resource-group-template-deploy.md). Šablona Resource Manageru je plně přizpůsobitelná a umožňuje snadné vytváření prostředků Azure, jako například HDInsight. Zkušenosti s šablonou Resource Manageru nejsou pro postup dle tohoto kurzu vyžadovány. Další metody vytváření clusterů a principy vlastnosti používaných v tomto kurzu, naleznete v části [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Šablona Resource Manageru používaná v tomto kurzu se nachází ve veřejném kontejneru objektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
 1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na portálu Azure. 
@@ -63,7 +67,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
    
    Existují dva uvedené prostředky, cluster a výchozí účet úložiště.
 
-## Spuštění dotazů Hive
+## <a name="run-hive-queries"></a>Spuštění dotazů Hive
 [Apache Hive](hdinsight-use-hive.md) je nejoblíbenější součástí používanou v HDInsight. Existuje mnoho způsobů spouštění úloh Hive v HDInsight. V tomto kurzu použijete zobrazení Ambari Hive z portálu ke spuštění několika úloh Hive. Další metody pro odesílání úloh Hive naleznete v části [Použití Hive v HDInsight](hdinsight-use-hive.md).
 
 1. Přejděte na adresu **https://&lt;ClusterName>.azurehdinsight.net**, kde &lt;ClusterName> je název clusteru vytvořeného v předchozí části pro otevření Ambari.
@@ -96,7 +100,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
 
 Po dokončení úlohy Hive můžete [Exportovat výsledky do databáze Azure SQL nebo databáze systému SQL Server](hdinsight-use-sqoop-mac-linux.md), můžete také [zobrazit výsledky pomocí aplikace Excel](hdinsight-connect-excel-power-query.md). Další informace o používání Hive v HDInsight naleznete v části [Použití Hive a HiveQL s Hadoop v HDInsight k analýze ukázkového souboru Apache log4j](hdinsight-use-hive.md).
 
-## Vyčistěte kurz
+## <a name="clean-up-the-tutorial"></a>Vyčistěte kurz
 Po dokončení kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše data uložena v Azure Storage, takže můžete clusteru bezpečně odstranit, pokud není používán. Za cluster služby HDInsight se účtují poplatky, i když se nepoužívá. Vzhledem k tomu, že poplatky za cluster představují několikanásobek poplatků za úložiště, dává ekonomický smysl odstraňovat clustery, které nejsou používány. 
 
 > [!NOTE]
@@ -106,11 +110,11 @@ Po dokončení kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše da
 
 **Postup odstranění clusteru a/nebo výchozího účtu úložiště**
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V ovládacím panelu portálu klikněte na dlaždici s názvem skupiny prostředků, které jste použili při vytvoření clusteru.
 3. V okně prostředků klikněte na tlačítko **Odstranit** a odstraňte skupinu prostředků, která obsahuje clusteru a výchozí účet úložiště nebo klikněte na název clusteru v dlaždici **Prostředky** a pak klikněte na tlačítko **Odstranit** v okně clusteru. Vezměte na vědomí, že odstraněním skupiny prostředků odstraníte účet úložiště. Pokud chcete zachovat účet úložiště, zvolte odstranění samotného clusteru.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili, jak vytvořit cluster HDInsight se systémem Linux pomocí šablony Resource Manageru, a jak provádět základní dotazy Hive.
 
 Další informace o analýze dat pomocí HDInsight naleznete v následujících tématech:
@@ -159,6 +163,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

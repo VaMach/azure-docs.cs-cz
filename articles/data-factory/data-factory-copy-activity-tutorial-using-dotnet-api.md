@@ -1,26 +1,30 @@
 ---
-title: 'Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API | Microsoft Docs'
-description: V tomto kurzu vytvoříte kanál Azure Data Factory s aktivitou kopírování pomocí rozhraní .NET API.
+title: "Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API | Dokumentace Microsoftu"
+description: "V tomto kurzu vytvoříte kanál Azure Data Factory s aktivitou kopírování pomocí rozhraní .NET API."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
-> * [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -38,13 +42,13 @@ Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Akt
 > 
 > 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Projděte si [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete informace o kurzu, a proveďte **nutné** kroky. 
 * Visual Studio 2012 nebo 2013 nebo 2015
 * Stáhněte sadu [Azure .NET SDK](http://azure.microsoft.com/downloads/) a nainstalujte ji.
 * Azure Powershell Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte prostředí Azure PowerShell. K vytvoření aplikace v Azure Active Directory použijete Azure PowerShell.
 
-### Vytvoření aplikace v Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Vytvoření aplikace v Azure Active Directory
 Vytvořte aplikaci Azure Active Directory, vytvořte pro ni instanční objekt a přiřaďte ho roli **Přispěvatel Data Factory**.  
 
 1. Spusťte **PowerShell**. 
@@ -95,7 +99,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
 * ID aplikace 
 * Heslo (zadané v prvním příkazu)   
 
-## Názorný postup
+## <a name="walkthrough"></a>Názorný postup
 1. Pomocí sady Visual Studio 2012/2013/2015 vytvořte konzolovou aplikaci C# .NET.
    1. Spusťte **Visual Studio** 2012/2013/2015.
    2. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**.
@@ -105,25 +109,29 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
    6. Jako umístění vyberte **C:\ADFGetStarted**.
    7. Projekt vytvoříte kliknutím na **OK**.
 2. Klikněte na **Nástroje**, přejděte na **Správce balíčků NuGet** a klikněte na **Konzola Správce balíčků**.
-3. V **konzole Správce balíčků** spusťte následující příkazy jeden po druhém. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. V **Konzole Správce balíčků** postupujte takto: 
+   1. Spusťte následující příkaz a nainstalujte balíček služby Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Spusťte následující příkaz pro instalaci balíčku Azure Active Directory (v kódu použijete rozhraní API Active Directory): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Do souboru **App.config** přidejte následující část **appSetttings**. Tyto nastavení používá pomocná metoda: **GetAuthorizationHeader**. 
    
     Nahraďte hodnoty pro **&lt;ID aplikace&gt;**, **&lt;Heslo&gt;**, **&lt;ID předplatného&gt;** a **&lt;ID tenanta&gt;** vlastními hodnotami. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Do zdrojového souboru (Program.cs) v projektu přidejte následující příkazy **using**.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
                            },
                        }
                    }
-               }); 
+               });    
 2. Do metody **Main** přidejte následující kód pro získání stavu datového řezu výstupní datové sady. V této ukázce se očekává jenom jeden řez.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
    * Propojená služba: **LinkedService_AzureStorage** 
    * Datová sada: **DatasetBlobSource** a **DatasetBlobDestination**.
    * Kanál: **PipelineBlobSample** 
-10. Ověřte, že se výstupní soubor vytvořil ve složce **apifactoryoutput** v kontejneru **adftutorial**.
+10. Ověřte, že se v tabulce **emp** vytvořily dva záznamy zaměstnanců v zadané databázi Azure SQL.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Pročtěte si článek [Aktivity přesunu dat](data-factory-data-movement-activities.md), který obsahuje podrobné informace o aktivitě kopírování použité v tomto kurzu.
 * Podrobné informace o sadě Data Factory .NET SDK najdete v [referencích k rozhraní .NET API služby Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). Tento článek nepopisuje všechny možnosti rozhraní .NET API služby Data Factory. 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

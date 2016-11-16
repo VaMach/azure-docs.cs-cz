@@ -1,12 +1,12 @@
 ---
-title: Vytvoření modulu integrace pro Azure Automation | Microsoft Docs
-description: Kurz vás provede vytvořením, otestováním a ukázkovým použitím modulů integrace ve službě Azure Automation.
+title: "Vytvoření modulu integrace pro Azure Automation | Dokumentace Microsoftu"
+description: "Kurz vás provede vytvořením, otestováním a ukázkovým použitím modulů integrace ve službě Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ca2343c8915690184e63396afa4e45a22a16ec2b
+
 
 ---
-# Moduly integrace pro Azure Automation
+# <a name="azure-automation-integration-modules"></a>Moduly integrace pro Azure Automation
 PowerShell je základní technologií, která stojí za službou Azure Automation. Vzhledem k tomu, že Azure Automation je postavená na PowerShellu, jsou moduly PowerShellu klíčem k rozšiřitelnosti služby Azure Automation. V tomto článku vás provedeme specifiky používání modulů PowerShellu ve službě Azure Automation. Tyto moduly se nazývají „moduly integrace“. Budeme se věnovat i osvědčeným postupům pro vytváření vlastních modulů PowerShellu, abychom zajistili jejich správnou funkčnost v rámci Azure Automation. 
 
-## Co je modul PowerShellu?
+## <a name="what-is-a-powershell-module"></a>Co je modul PowerShellu?
 Modul PowerShellu je skupina rutin PowerShellu, například **Get-Date** nebo **Copy-Item**, které můžete používat v konzole PowerShellu, skriptech, pracovních postupech, runboocích a prostředcích DSC PowerShellu, například WindowsFeature nebo File, které můžete používat v konfiguracích DSC PowerShellu. Všechny funkce PowerShellu jsou dostupné prostřednictvím rutin a prostředků DSC a každá rutina nebo prostředek DSC se zálohuje pomocí modulu PowerShellu (většina z nich se dodává přímo s PowerShellem). Například rutina **Get-Date** je součástí modulu PowerShellu Microsoft.PowerShell.Utility a rutina **Copy-Item** je součástí modulu PowerShellu Microsoft.PowerShell.Management. Prostředek DSC Balíček je součástí modulu PowerShellu PSDesiredStateConfiguration. Oba tyto moduly se dodávají spolu s PowerShellem. Řada modulů PowerShellu se nedodává jako součást PowerShellu, ale distribuuje se s produkty prvních nebo třetích stran, například s aplikací System Center 2012 Configuration Manager, nebo prostřednictvím rozsáhlé komunity PowerShellu na místech, jako je třeba Galerie prostředí PowerShell.  Moduly jsou užitečné, protože složité úlohy zjednodušují prostřednictvím zapouzdřené funkcionality.  Další informace o [modulech PowerShellu najdete na webu MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
 
-## Co je modul integrace pro Azure Automation?
+## <a name="what-is-an-azure-automation-integration-module"></a>Co je modul integrace pro Azure Automation?
 Modul integrace se příliš neliší od modulu PowerShellu. Je to prostě modul PowerShellu, který volitelně obsahuje jeden další soubor – soubor metadat určujících typ připojení Azure Automation, který se bude používat s rutinami modulu v runboocích. Bez ohledu na volitelný soubor můžete tyto moduly PowerShellu importovat do Azure Automation, abyste jejich rutiny zpřístupnili pro použití v rámci runbooků a jejich prostředků DSC, které jsou dostupné pro použití v rámci konfigurací DSC. Azure Automation tyto moduly ukládá a v čase spuštění úlohy runbooku a úlohy kompilace DSC je načte do izolovaného prostoru (sandbox) v Azure Automation, kde se runbooky spustí a konfigurace DSC se zkompilují.  Veškeré prostředky DSC v modulech se také automaticky umístí na server vyžádané replikace Automation DSC, aby si je mohly vyžádat počítače, které chtějí použít konfigurace DSC.  Řadu modulů Azure PowerShellu dodáváme jako součást služby Azure Automation, abyste mohli okamžitě začít s automatizací správy Azure. Samozřejmě můžete snadno importovat další moduly PowerShellu pro libovolný systém, službu nebo nástroj, které chcete integrovat. 
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Pokud má modul obsahovat typ připojení Azure Automation, musí obsahovat tak�
 
 Pokud máte zkušenosti s nasazením Service Management Automation a vytvářením balíčků modulů integrace pro svoje automatizační runbooky, bude to pro vás velmi povědomé. 
 
-## Osvědčené postupy pro vytváření obsahu
+## <a name="authoring-best-practices"></a>Osvědčené postupy pro vytváření obsahu
 I když jsou moduly integrace v podstatě moduly PowerShellu, neznamená to, že neexistuje vlastní sada postupů pro jejich vytváření. Stále existuje řada věcí, které vám při vytváření modulu PowerShellu doporučujeme zohlednit, abyste z nich při používání služby Azure Automation vytěžili maximum. Některé z nich se týkají konkrétně Azure Automation a jiné jsou užitečné k tomu, aby moduly dobře fungovaly i v pracovním postupu PowerShellu bez ohledu na to, jestli používáte Automation. 
 
 1. Ke každé rutině v modulu přidejte i stručný obsah, popis a pomocný identifikátor URI. V PowerShellu můžete definovat určité informace nápovědy k rutinám, abyste uživatelům umožnili zobrazit nápovědu k jejich používání pomocí rutiny **Get-Help**. Dáme vám příklad, jak můžete definovat stručný obsah a pomocný identifikátor URI pro modul PowerShellu, který je zapsaný v souboru .psm1.<br>  
@@ -101,8 +105,7 @@ I když jsou moduly integrace v podstatě moduly PowerShellu, neznamená to, že
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-   <br> 
-   Zadání těchto informací nezajistí zobrazení této nápovědy jenom pomocí rutiny **Get-Help** v konzole PowerShellu, ale zobrazí tuto funkci nápovědy také v rámci Azure Automation, například při vkládání aktivit během vytváření obsahu runbooku. Kliknutím na „Zobrazit podrobnou nápovědu“ otevřete pomocný identifikátor URI na jiné kartě webového prohlížeče, který používáte pro přístup k Azure Automation.<br>![Nápověda k modulu integrace](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+   <br> Zadání těchto informací nezajistí zobrazení této nápovědy jenom pomocí rutiny **Get-Help** v konzole PowerShellu, ale zobrazí tuto funkci nápovědy také v rámci Azure Automation, například při vkládání aktivit během vytváření obsahu runbooku. Kliknutím na „Zobrazit podrobnou nápovědu“ otevřete pomocný identifikátor URI na jiné kartě webového prohlížeče, který používáte pro přístup k Azure Automation.<br>![Nápověda k modulu integrace](media/automation-integration-modules/automation-integration-module-activitydesc.png)
 2. Pokud se modul spouští na vzdáleném systému, a. Musí obsahovat soubor s metadaty modulu integrace, který definuje informace potřebné pro připojení ke vzdálenému systému (to znamená typ připojení). b. Každá rutina v modulu musí být schopná přijmout objekt připojení (instanci takového typu připojení) jako parametr.  
     Používání rutin v modulu v Azure Automation bude snazší, když povolíte předávání objektů s poli typu připojení jako parametru pro rutinu. Tímto způsobem uživatelé nemusejí mapovat parametry prostředku připojení na odpovídající parametry rutiny při každém volání rutiny. Výše uvedený příklad runbooku používá asset připojení Twilio, který se nazývá CorpTwilio, pro přístup k assetu Twilio a k vrácení všech telefonních čísel na účtu.  Všimli jste si, jak mapuje pole připojení na parametry rutiny?<br>
    
@@ -200,10 +203,13 @@ I když jsou moduly integrace v podstatě moduly PowerShellu, neznamená to, že
    <br>
 6. Modul musí být plně obsažený v balíčku, na který můžete použít příkaz Xcopy. Moduly Azure Automation se distribuují do izolovaného prostoru (sandbox), a tak když se runbooky potřebují spustit, musí pracovat nezávisle na hostiteli, na kterém běží. To znamená, že byste měli být schopni zazipovat balíček modulu (do formátu Zip), přesunout ho na libovolného jiného hostitele se stejnou nebo novější verzí PowerShellu a modul bude po importu do prostředí PowerShell takového hostitele normálně fungovat. Aby to tak proběhlo, nesmí být modul závislý na žádném souboru mimo složku modulu (složka, kterou zazipujete při importu do Azure Automation) ani na žádném jedinečném nastavení registrů na hostiteli, například nastavení z instalace produktu. Pokud tento osvědčený postup nedodržíte, modul nebude ve službě Azure Automation funkční.  
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
 * Další informace o vytváření modulů PowerShellu najdete v článku [Psaní modulu Windows PowerShellu](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

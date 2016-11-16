@@ -1,28 +1,32 @@
 ---
-title: Přizpůsobení portálu pro vývojáře ve službě Azure API Management | Microsoft Docs
-description: Naučte se přizpůsobovat portál pro vývojáře ve službě Azure API Management.
+title: "Přizpůsobení portálu pro vývojáře ve službě Azure API Management | Dokumentace Microsoftu"
+description: "Naučte se přizpůsobovat portál pro vývojáře ve službě Azure API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Přizpůsobení portálu pro vývojáře ve službě Azure API Management
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Přizpůsobení portálu pro vývojáře ve službě Azure API Management
 Tento průvodce vám ukáže, jak upravit vzhled portálu pro vývojáře ve službě Azure API Management, aby byl v souladu s vaší značkou.
 
 ## <a name="change-page-headers"> </a>Změna textu nebo loga v záhlaví stránky
 Jedním z klíčových aspektů přizpůsobení portálu je nahrazení textu v horní části všech stránek názvem a logem vaší společnosti.
 
-Obsah portálu pro vývojáře se mění prostřednictvím portálu vydavatele, na který můžete přistoupit pomocí portálu Azure Classic. Pokud se chcete dostat na rozhraní API portálu vydavatele, klikněte na portálu Azure Classic služby API Management na **Spravovat**.
+Obsah portálu pro vývojáře se mění prostřednictvím portálu vydavatele, který je přístupný z webu Azure Portal. Otevřete jej tak, že na panelu nástrojů služby svojí instance služby API Management kliknete na **Portál vydavatele**.
 
 ![Portál vydavatele][api-management-management-console]
 
@@ -49,9 +53,9 @@ Existují dva hlavní režimy úprav pravidel stylů – **Upravit všechna prav
 
 V této části chceme změnit styl jenom záhlaví. Na panelu nástrojů editoru stylů klikněte na možnost **Vybrat prvek** a potom klikněte na **Vybrat prvek k přizpůsobení**. Když najedete myší na jednotlivé prvky, tyto prvky se zvýrazní, aby označily, jaké styly prvku byste začali upravovat, pokud byste myší klikli. Najeďte myší na text, který představuje název společnosti v záhlaví („Portál pro vývojáře Fabrikam“, pokud jste postupovali podle pokynů v předchozí části), a klikněte na něj. V editoru stylů se zobrazí sada pojmenovaných a podle kategorií seřazených pravidel stylů.
 
-Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uveden v parametru @headings-font-family.
+Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uvedený v parametru @headings-font-family..
 
-> Pokud jste obeznámeni s architekturou [bootstrap][bootstrap], tato pravidla jsou ve skutečnosti [proměnné LESS][proměnné LESS] v motivu spuštění, který používá portál pro vývojáře.
+> Pokud znáte architekturu [bootstrap][bootstrap], upřesňujeme, že tato pravidla jsou ve skutečnosti [proměnné LESS][proměnné LESS] v motivu spuštění, který používá portál pro vývojáře.
 > 
 > 
 
@@ -103,6 +107,6 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

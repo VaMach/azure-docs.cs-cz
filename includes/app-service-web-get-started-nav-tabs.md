@@ -5,10 +5,12 @@
 > * [Node.js](../articles/app-service-web/app-service-web-nodejs-get-started.md)
 > * [Python](../articles/app-service-web/web-sites-python-ptvs-django-mysql.md)
 > * [Java](../articles/app-service-web/web-sites-java-get-started.md)
-> * [Nová aplikace Marketplace](../articles/app-service-web/app-service-web-create-web-app-from-marketplace.md)
+> * [Aplikace Marketplace](../articles/app-service-web/app-service-web-create-web-app-from-marketplace.md)
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

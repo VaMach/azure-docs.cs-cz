@@ -1,12 +1,12 @@
 ---
-title: Správa skupin ve službě Azure Active Directory | Microsoft Docs
-description: Postupy při vytváření a správě skupin pro správu uživatelů Azure pomocí služby Azure Active Directory.
+title: "Správa skupin ve službě Azure Active Directory | Dokumentace Microsoftu"
+description: "Postupy při vytváření a správě skupin pro správu uživatelů Azure pomocí služby Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d1f5451c-3807-423c-8bac-2822d27b893f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+
 
 ---
-# Správa skupin ve službě Azure Active Directory
+# <a name="managing-groups-in-azure-active-directory"></a>Správa skupin ve službě Azure Active Directory
 > [!div class="op_single_selector"]
-> * [portál Azure](active-directory-groups-create-azure-portal.md)
+> * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [Portál Azure Classic](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -31,7 +35,7 @@ Jedna z funkcí správy uživatelů služby Azure Active Directory (Azure AD) je
 
 Vlastník prostředku může navíc přístup k prostředku přiřadit i skupině služby Azure AD, která patří někomu jinému. Tím získají členové této skupiny přístup k prostředku. Vlastník skupiny potom spravuje členství ve skupině. Vlastník prostředku deleguje vlastníkovi skupiny oprávnění přiřazovat uživatele k jeho prostředku.
 
-## Vytvoření skupiny
+## <a name="how-do-i-create-a-group"></a>Vytvoření skupiny
 V závislosti na tom, jaké služby má vaše organizace předplacené, můžete vytvořit skupinu pomocí některé z těchto služeb:
 
 * Portál Azure Classic
@@ -45,7 +49,7 @@ Budeme popisovat úlohy prováděné na portálu Azure Classic. Další informac
 3. Vyberte **Přidat skupinu**.
 4. V okně **Přidat skupinu** zadejte název a popis skupiny.
 
-## Přidání nebo odebrání jednotlivých uživatelů ve skupině zabezpečení
+## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group"></a>Přidání nebo odebrání jednotlivých uživatelů ve skupině zabezpečení
 **Přidání jednotlivého uživatele do skupiny**
 
 1. Na [portálu Azure Classic](https://manage.windowsazure.com) vyberte **Active Directory** a potom vyberte název adresáře své organizace.
@@ -62,7 +66,7 @@ Budeme popisovat úlohy prováděné na portálu Azure Classic. Další informac
 4. Vyberte kartu **Členové**, vyberte jméno člena, kterého chcete z této skupiny odebrat, a potom klikněte na **Odebrat**.
 5. V zobrazené výzvě potvrďte, že chcete tohoto člena ze skupiny odebrat.
 
-## Dynamická správa členství ve skupině
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>Dynamická správa členství ve skupině
 Ve službě Azure AD můžete velmi snadno nastavit jednoduché pravidlo a určit tak uživatele, kteří se mají stát členy skupiny. Jednoduché pravidlo je takové pravidlo, které provádí jenom jedno porovnání. Pokud je třeba některá skupina přiřazená aplikaci SaaS, můžete vytvořit pravidlo, které zajistí přidání uživatelů s názvem pracovní pozice „Obchodní zástupce“. Toto pravidlo potom udělí přístup do této aplikace SaaS všem uživatelům s touto pracovní pozicí ve vašem adresáři.
 
 Když se změní libovolné atributy uživatele, systém vyhodnotí všechna dynamická pravidla skupin v adresáři a zjistí, zda změna uživatele aktivuje nějaké přidání do skupiny nebo odebrání ze skupiny. Pokud uživatel splňuje pravidlo pro skupinu, je do této skupiny přidán jako člen. Pokud již uživatel pravidlo pro skupinu, ve které je členem, nesplňuje, je jeho členství ve skupině odebráno.
@@ -88,15 +92,18 @@ Když se změní libovolné atributy uživatele, systém vyhodnotí všechna dyn
 
 Další informace o vytváření *rozšířených* pravidel (která můžou obsahovat několik porovnání) pro dynamické členství ve skupině najdete v článku o [používání atributů k vytvoření rozšířených pravidel](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
-## Další informace
+## <a name="additional-information"></a>Další informace
 Následující články poskytují další informace o službě Azure Active Directory.
 
 * [Správa přístupu k prostředkům pomocí skupin služby Azure Active Directory](active-directory-manage-groups.md)
-* [Rutiny Azure Active Directory pro konfiguraci nastavení skupiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Rutiny služby Azure Active Directory pro konfiguraci nastavení skupiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Rejstřík článků o správě aplikací ve službě Azure Active Directory](active-directory-apps-index.md)
 * [Představení služby Azure Active Directory](active-directory-whatis.md)
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

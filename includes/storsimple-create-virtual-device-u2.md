@@ -1,4 +1,4 @@
-#### Vytvoření virtuálního zařízení
+#### <a name="to-create-a-virtual-device"></a>Vytvoření virtuálního zařízení
 1. Na portálu Azure přejděte do služby **StorSimple Manager**.
 2. Přejděte na stránku **Zařízení**. V dolní části stránky **Zařízení** klikněte na **Vytvořit virtuální zařízení**.
 3. V dialogovém okně **Vytvořit virtuální zařízení** zadejte následující podrobnosti.
@@ -26,6 +26,8 @@
       
       ![Fáze vytváření virtuálního zařízení StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,7 +1,7 @@
-## Přijímání zpráv pomocí třídy EventProcessorHost
+## <a name="receive-messages-with-eventprocessorhost"></a>Přijímání zpráv pomocí třídy EventProcessorHost
 [EventProcessorHost][EventProcessorHost] je třída rozhraní .NET, která zjednodušuje přijímání události ze služby Event Hubs tím, že spravuje trvalé kontrolní body a paralelní příjemce událostí ze služby Event Hubs. Pomocí třídy [EventProcessorHost][EventProcessorHost] můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy [EventProcessorHost][EventProcessorHost] pro jednoho příjemce. Ukázka metody [Škálované zpracování událostí][Škálované zpracování událostí] znázorňuje způsob použití třídy [EventProcessorHost][EventProcessorHost] v případě několika příjemců.
 
-Pokud chcete [EventProcessorHost][EventProcessorHost] používat, musíte mít [Účet služby Azure Storage][Účet služby Azure Storage]:
+K používání třídy [EventProcessorHost][EventProcessorHost] potřebujete [účet služby Azure Storage][účet služby Azure Storage]:
 
 1. Přihlaste se na web [Azure Portal][Azure Portal] a v levém horním rohu obrazovky klikněte na **Nový**.
 2. Klikněte na **Data + Úložiště** a poté klikněte na **Účet úložiště**.
@@ -114,13 +114,13 @@ Pokud chcete [EventProcessorHost][EventProcessorHost] používat, musíte mít [
 > 
 
 <!-- Links -->
-[Přehled služby Event Hubs]: event-hubs-overview.md
-[Průvodce programováním pro službu Event Hubs]: event-hubs-programming-guide.md
+[Přehled služby Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[Průvodce programováním pro službu Event Hubs]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Škálované zpracování událostí]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Účet služby Azure Storage]: ../storage/storage-create-storage-account.md
+[účet služby Azure Storage]: ../articles/storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

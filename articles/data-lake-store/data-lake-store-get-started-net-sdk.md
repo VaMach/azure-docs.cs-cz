@@ -1,12 +1,12 @@
 ---
-title: Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací | Microsoft Docs
-description: Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací
+title: "Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací | Dokumentace Microsoftu"
+description: "Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+
 
 ---
-# Začínáme s Azure Data Lake Store pomocí sady .NET SDK
+# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Začínáme s Azure Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
-> * [Portál](data-lake-store-get-started-portal.md)
+> * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -30,13 +34,13 @@ ms.author: nitinme
 
 Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) k provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * **Visual Studio 2013 nebo 2015**. Níže uvedené pokyny používají Visual Studio 2015.
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Účet Azure Data Lake Store**. Pokyny k vytvoření účtu najdete v tématu [Začínáme s Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## Vytvoření aplikace .NET
+## <a name="create-a-net-application"></a>Vytvoření aplikace .NET
 1. Otevřete Visual Studio a vytvořte konzolovou aplikaci.
 2. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**.
 3. V části **Nový projekt** zadejte nebo vyberte tyto hodnoty:
@@ -98,8 +102,8 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné metody rozhraní .NET k provádění operací, jako je ověřování, nahrávání souborů atd.
 
-## Authentication
-### Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
+## <a name="authentication"></a>Authentication
+### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
 Použijte tento fragment kódu se stávající aplikací „Nativní klient“ Azure AD – jedna je pro vás k dispozici níže. Chcete-li tento kurz projít rychleji, doporučujeme vám použít tento přístup.
 
     // User login via interactive popup
@@ -120,7 +124,7 @@ Několik věcí, které je vhodné vědět o fragmentu kódu uvedeném výše.
 > 
 > 
 
-### Pokud používáte ověřování služba-služba s tajným klíčem klienta
+### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Pokud používáte ověřování služba-služba s tajným klíčem klienta
 Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -132,7 +136,7 @@ Následující fragment kódu lze použít k neinteraktivnímu ověřování va�
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### Pokud používáte ověřování služba-služba s certifikátem
+### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Pokud používáte ověřování služba-služba s certifikátem
 Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -144,7 +148,7 @@ Třetí možností je použít následující fragment kódu k neinteraktivnímu
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
 
-## Vytvoření objektů klienta
+## <a name="create-client-objects"></a>Vytvoření objektů klienta
 Následující fragment kódu vytvoří účet Data Lake Store a objekty klientů systému souborů, které slouží k vydávání žádostí na službu.
 
     // Create client objects and set the subscription ID
@@ -153,7 +157,7 @@ Následující fragment kódu vytvoří účet Data Lake Store a objekty klient�
 
     _adlsClient.SubscriptionId = _subId;
 
-## Zobrazení seznamu všech účtů Data Lake Store v rámci předplatného
+## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Zobrazení seznamu všech účtů Data Lake Store v rámci předplatného
 Následující fragment kódu zobrazí všechny účty Data Lake Store v rámci daného předplatného Azure.
 
     // List all ADLS accounts within the subscription
@@ -171,7 +175,7 @@ Následující fragment kódu zobrazí všechny účty Data Lake Store v rámci 
         return accounts;
     }
 
-## Vytvoření adresáře
+## <a name="create-a-directory"></a>Vytvoření adresáře
 Následující fragment kódu ukazuje metodu `CreateDirectory`, kterou můžete použít k vytvoření adresáře v rámci účtu Data Lake Store.
 
     // Create a directory
@@ -180,7 +184,7 @@ Následující fragment kódu ukazuje metodu `CreateDirectory`, kterou můžete 
         _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
-## Nahrání souboru
+## <a name="upload-a-file"></a>Nahrání souboru
 Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použít k nahrání souborů do účtu Data Lake Store.
 
     // Upload a file
@@ -194,7 +198,7 @@ Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použ
 
 `DataLakeStoreUploader` podporuje rekurzivní nahrávání a stahování mezi místní cestou k souboru a cestou k souboru ve službě Data Lake Store.    
 
-## Získání informací o souboru nebo adresáři
+## <a name="get-file-or-directory-info"></a>Získání informací o souboru nebo adresáři
 Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete použít k načtení informací o souboru nebo adresáři dostupném v Data Lake Store. 
 
     // Get file or directory info
@@ -203,7 +207,7 @@ Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete pou�
         return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
     }
 
-## Zobrazení seznamu souboru nebo adresářů
+## <a name="list-file-or-directories"></a>Zobrazení seznamu souboru nebo adresářů
 Následující fragment kódu ukazuje metodu `ListItem`, kterou můžete použít k zobrazení seznamu souboru a adresářů v účtu Data Lake Store.
 
     // List files and directories
@@ -212,7 +216,7 @@ Následující fragment kódu ukazuje metodu `ListItem`, kterou můžete použí
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## Řetězení souborů
+## <a name="concatenate-files"></a>Řetězení souborů
 Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží k řetězení souborů. 
 
     // Concatenate files
@@ -221,7 +225,7 @@ Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží
         _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## Připojení k souboru
+## <a name="append-to-a-file"></a>Připojení k souboru
 Následující fragment kódu ukazuje metodu `AppendToFile`, která slouží k připojení dat k souboru, který je už uložený v účtu Data Lake Store.
 
     // Append to file
@@ -232,7 +236,7 @@ Následující fragment kódu ukazuje metodu `AppendToFile`, která slouží k p
         _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
-## Stažení souboru
+## <a name="download-a-file"></a>Stažení souboru
 Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k stažení souboru z účtu Data Lake Store.
 
     // Download file
@@ -246,13 +250,16 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
         stream.Close();
     }
 
-## Další kroky
-* [Zabezpečení dat v Data Lake Store](data-lake-store-secure-data.md)
-* [Použití Azure Data Lake Analytics s Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Použití Azure HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+## <a name="next-steps"></a>Další kroky
+* [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
+* [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Referenční dokumentace sady SDK rozhraní .NET služby Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Referenční dokumentace architektury REST služby Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

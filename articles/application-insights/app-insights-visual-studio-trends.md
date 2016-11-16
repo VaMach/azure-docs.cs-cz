@@ -1,21 +1,25 @@
 ---
-title: Analýza trendů v sadě Visual Studio | Microsoft Docs
-description: Analyzujte, vizualizujte a zkoumejte trendy v telemetrii služby Application Insights v sadě Visual Studio.
+title: "Analýza trendů v sadě Visual Studio | Dokumentace Microsoftu"
+description: "Analyzujte, vizualizujte a zkoumejte trendy v telemetrii služby Application Insights v sadě Visual Studio."
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 10/25/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+
 
 ---
-# Analýza trendů v sadě Visual Studio
+# <a name="analyzing-trends-in-visual-studio"></a>Analýza trendů v sadě Visual Studio
 Nástroj Trendy Application Insights vizualizuje průběžné změny důležitých telemetrických událostí v aplikaci. Díky tomu můžete rychle identifikovat problémy a anomálie. Nástroj Trendy vám dodá podrobnější diagnostické informace, abyste mohli zlepšit výkon aplikace, sledovat příčiny výjimek a získat přehledy z vlastních událostí.
 
 ![Příklad okna nástroje Trendy](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
@@ -25,7 +29,7 @@ Nástroj Trendy Application Insights vizualizuje průběžné změny důležitý
 > 
 > 
 
-## Otevření nástroje Trendy Application Insights
+## <a name="open-application-insights-trends"></a>Otevření nástroje Trendy Application Insights
 Pokud chcete otevřít okno nástroje Trendy Application Insights, postupujte následovně:
 
 * na panelu nástrojů Application Insights zvolte **Prozkoumat trendy telemetrie**, nebo
@@ -34,7 +38,7 @@ Pokud chcete otevřít okno nástroje Trendy Application Insights, postupujte n�
 
 Může se zobrazit výzva k výběru prostředku. Klikněte na **Vybrat prostředek**, přihlaste se pomocí předplatného Azure a potom v seznamu vyberte prostředek Application Insights, u kterého chcete analyzovat trendy telemetrie.
 
-## Výběr analýzy trendů
+## <a name="choose-a-trend-analysis"></a>Výběr analýzy trendů
 ![Nabídka běžných typů analýz trendů](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
 Začněte výběrem jedné z pěti běžných analýz trendů, kde každá analyzuje data z posledních 24 hodin:
@@ -47,13 +51,13 @@ Začněte výběrem jedné z pěti běžných analýz trendů, kde každá analy
 
 Tyto předdefinované analýzy jsou dostupné i později prostřednictvím tlačítka **Zobrazit běžné typy analýzy telemetrie**, které se nachází v levém horním rohu okna Trendy.
 
-## Vizualizace trendů v aplikaci
+## <a name="visualize-trends-in-your-application"></a>Vizualizace trendů v aplikaci
 Nástroj Trendy Application Insights pracuje s telemetrií vaší aplikace a vizualizuje z ní časové řady. Každá vizualizace časové řady zobrazuje jeden typ telemetrie (seskupený podle jedné vlastnosti takové telemetrie) za určité časové období. Můžete například zobrazit požadavky serveru za posledních 24 hodin seskupené podle země původu. V tomto příkladu každá bublina na vizualizaci představuje počet požadavků serveru pro určitou zemi/oblast během jedné hodiny.
 
 Pomocí ovládacích prvků v horní části okna nastavte typy telemetrie, které chcete zobrazit. Nejdřív vyberte typy telemetrie, které vás zajímají:
 
 * **Typ telemetrie** – požadavky serveru, výjimky, závislosti nebo vlastní události.
-* **Časový rozsah** – jakýkoli od posledních 30 minut po poslední 3 dny.
+* **Časový rozsah** – jakýkoli od posledních 30 minut po poslední 3 dny.
 * **Seskupit podle** – typ výjimky, ID problému, země/oblast a další.
 
 Potom klikněte na **Analyzovat telemetrii** a spusťte dotaz.
@@ -69,7 +73,7 @@ Pokud chcete přecházet mezi bublinami ve vizualizaci, postupujte následovně:
 > 
 > 
 
-## Filtr
+## <a name="filter"></a>Filtr
 Pomocí ovládacích prvků filtru v dolní části okna můžete zjistit konkrétnější trendy. Pokud chcete filtr použít, klikněte na jeho název. Mezi různými filtry můžete rychle přepínat a zjišťovat tak trendy, které se můžou skrývat v konkrétní dimenzi telemetrie. Když filtr použijete v jedné dimenzi, například v typu výjimky, můžete na filtry v ostatních dimenzích stále klikat, i když jsou zobrazené šedě. Pokud chcete zrušit používání filtru, klikněte na něj znovu. Podržením klávesy Ctrl a následným klikáním můžete vybrat několik filtrů ve stejné dimenzi.
 
 ![Filtry trendů](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
@@ -85,8 +89,8 @@ Pokud chcete zrušit používání jednoho z těchto filtrů, klikněte u přís
 
 ![Několik filtrů](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-## Nalezení anomálií
-Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání s jinými bublinami ve stejné časové řadě neobvyklé. V rozevírací nabídce Typ zobrazení vyberte **Počty v časovém intervalu (zvýraznit anomálie)** nebo **Procenta v časovém intervalu (zvýraznit anomálie)**. Červené bubliny označují anomálie. Anomálie se definují jako bubliny s poměrem počty/procenta, který je vyšší než 2,1 násobek směrodatné odchylky poměru počty/procenta, ke kterým došlo v posledních dvou časových obdobích (48 hodin, pokud zobrazujete posledních 24 hodin atd.).
+## <a name="find-anomalies"></a>Nalezení anomálií
+Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání s jinými bublinami ve stejné časové řadě neobvyklé. V rozevírací nabídce Typ zobrazení vyberte **Počty v časovém intervalu (zvýraznit anomálie)** nebo **Procenta v časovém intervalu (zvýraznit anomálie)**. Červené bubliny označují anomálie. Anomálie se definují jako bubliny s poměrem počty/procenta, který je vyšší než 2,1 násobek směrodatné odchylky poměru počty/procenta, ke kterým došlo v posledních dvou časových obdobích (48 hodin, pokud zobrazujete posledních 24 hodin atd.).
 
 ![Barevné tečky označují anomálie.](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -95,13 +99,16 @@ Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání 
 > 
 > 
 
-## <a name="next"></a>Další kroky
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Další kroky
 |  |  |
 | --- | --- |
 | **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Hledejte telemetrii, zobrazujte data v CodeLens a konfigurujte Application Insights. Vše v sadě Visual Studio. |![Klikněte pravým tlačítkem myši na projekt a vyberte Application Insights, Vyhledávání](./media/app-insights-visual-studio-trends/34.png) |
-| **[Přidat další data](app-insights-asp-net-more.md)**<br/>Sledování využití, dostupnosti, závislostí, výjimek. Integrujte trasování z rozhraní protokolování. Zapisuje vlastní telemetrii. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
+| **[Přidání dalších dat](app-insights-asp-net-more.md)**<br/>Sledování využití, dostupnosti, závislostí, výjimek. Integrujte trasování z rozhraní protokolování. Zapisuje vlastní telemetrii. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Práce s portálem Application Insights](app-insights-dashboards.md)**<br/>Řídicí panely, výkonné nástroje pro diagnostiku a analýzy, výstrahy, aktivní mapa závislostí vaší aplikace a export telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

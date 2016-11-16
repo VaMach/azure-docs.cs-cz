@@ -1,14 +1,14 @@
 ---
-title: Dotazovat data z HDFS kompatibilního úložiště Blob storage | Microsoft Docs
-description: HDInsight používá Úložiště objektů blob v Azure jako úložiště velkých dat pro HDFS. Zjistěte, jak zadávat dotazy na data z Blob storage a uložte výsledky analýzy.
-keywords: úložiště objektů blob,hdfs,strukturovaná data,nestrukturovaná data
+title: "Dotazy na data z HDFS kompatibilního úložiště Blob storage | Dokumentace Microsoftu"
+description: "HDInsight používá Úložiště objektů blob v Azure jako úložiště velkých dat pro HDFS. Zjistěte, jak zadávat dotazy na data z Blob storage a uložte výsledky analýzy."
+keywords: "úložiště objektů blob,hdfs,strukturovaná data,nestrukturovaná data"
 services: hdinsight,storage
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,9 +16,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+
 
 ---
-# Použití HDFS kompatibilního Úložiště objektů blob v Azure s Hadoop v HDInsight
+# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Použití HDFS kompatibilního Úložiště objektů blob v Azure s Hadoop v HDInsight
 Naučte se používat nízkonákladové Úložiště objektů blob v Azure s HDInsight, vytvořte si účet Azure storage a kontejner Blob storage a pak adresujte obsažená data.
 
 Úložiště objektů blob v Azure je robustní a obecně univerzální úložiště, které se jednoduše integruje s HDInsight. Pomocí rozhraní Hadoop systému souborů DFS (HDFS) se dá použít celá sada součástí k přímému zpracování strukturovaných nebo nestrukturovaných dat v Blob storage.
@@ -32,7 +36,7 @@ Ukládání dat do Blob storage vám umožní bezpečné odstranění clusterů 
 
 Informace o vytváření clusteru služby HDInsight najdete v tématu [Začínáme se službou HDInsight][hdinsight-get-started] nebo [Tvorba clusterů HDInsight][hdinsight-creation].
 
-## Architektura úložiště HDInsight
+## <a name="hdinsight-storage-architecture"></a>Architektura úložiště HDInsight
 Následující diagram představuje abstraktní zobrazení architektury úložiště HDInsight:
 
 ![Clustery Hadoop používají rozhraní API HDFS pro přístup a ukládání strukturovaných i nestrukturovaných dat do Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -69,7 +73,7 @@ Více úloh WebHCat, včetně Hive, MapReduce, streamování Hadoop a Pig, můž
 
 Blob storage se dá použít pro strukturovaná i nestrukturovaná data. Kontejnery Blob storage ukládají data jako páry klíč / hodnota a neexistuje žádná hierarchie adresářů. V názvu klíče se dá použít lomítko (/), aby název klíče připomínal  cestu k souboru. Klíč k objektu blob může být například *input/log1.txt*. Žádný skutečný *vstupní* adresář neexistuje, ale vzhledem k lomítku v názvu klíče tento název připomíná zobrazení cesty k souboru.
 
-### <a id="benefits"></a>Výhody úložiště Blob storage
+### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Výhody úložiště Blob storage
 Předpokládaná výkonová náročnost společně umístěných výpočetních clusterů a prostředků úložiště je zmírněna tím, že výpočetní clustery jsou vytvořeny blízko prostředků účtu úložiště uvnitř oblasti Azure, kde vysokorychlostní síť umožňuje velmi efektivní přístup výpočetních uzlů k datům uvnitř Úložiště objektů blob v Azure.
 
 Existuje více výhod  spojených s ukládáním dat do Úložiště objektů blob v Azure místo HDFS.
@@ -87,19 +91,19 @@ Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, k
 > 
 > 
 
-## Vytvoření kontejnerů objektů Blob
+## <a name="create-blob-containers"></a>Vytvoření kontejnerů objektů Blob
 K použití objektů blob je třeba nejprve vytvořit [Účet úložiště Azure][azure-storage-create]. Jako součást zadání uveďte oblast Azure, kam se budou ukládat objekty, které vytvoříte pomocí tohoto účtu. Účet úložiště a clusteru musí být uloženy ve stejné oblasti. Databáze serveru SQL metaúložiště Hive a databáze serveru SQL metaúložiště Oozie musí být také umístěny ve stejné oblasti.
 
 Bez ohledu na svoje umístění patří každý objekt blob, který vytvoříte, do kontejneru v účtu úložiště Azure. Tento kontejner může být existující objekt blob, který se vytvořil mimo HDInsight, nebo to může být kontejner, který se vytvořil pro cluster služby HDInsight.
 
 Výchozí kontejner objektu blob ukládá konkrétní informace, jako je historie úlohy a protokoly. Výchozí kontejner objektu Blob nesdílejte s více clustery služby HDInsight. Může dojít k poškození historie úlohy a k nesprávnému chování clusteru. Doporučujeme použít jiný kontejner pro každý cluster a umístit sdílená data na propojený účet úložiště, zadaný v nasazení všech příslušných clusterů, nikoli na výchozí účet úložiště. Další informace o konfiguraci propojených účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation]. Nicméně, po odstranění původního clusteru HDInsight můžete znovu použít výchozí kontejner úložiště. Pro clustery HBase můžete zachovat schéma a data tabulky HBase vytvořením  nového clusteru HBase pomocí výchozího kontejneru blob storage, který je používán clusterem HBase, který byl odstraněn.
 
-### Použití Portálu Azure
+### <a name="using-the-azure-portal"></a>Použití Portálu Azure
 Při vytváření clusteru služby HDInsight z portálu máte možnost použít stávající účet úložiště nebo vytvořit nový účet úložiště:
 
 ![zdroj dat pro vytvoření hadoop hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-### Použití Azure CLI
+### <a name="using-azure-cli"></a>Použití Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Pokud máte [nainstalováno a nakonfigurováno rozhraní příkazového řádku Azure CLI](../xplat-cli-install.md), následující příkaz lze použít k účtu úložiště a kontejneru.
@@ -107,7 +111,7 @@ Pokud máte [nainstalováno a nakonfigurováno rozhraní příkazového řádku 
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> `--type` Parametr označuje, jak bude replikován účet úložiště. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
+>  `--type` Parametr označuje, jak bude replikován účet úložiště. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
 > 
 > 
 
@@ -121,7 +125,7 @@ Když chcete vytvořit kontejner, použijte následující příkaz:
 
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-### Použití Azure Powershell
+### <a name="using-azure-powershell"></a>Použití Azure Powershell
 Když jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install], můžete použít následující z příkazového řádku Azure PowerShell k vytvoření účtu úložiště a kontejneru:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -147,7 +151,7 @@ Když jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-## Adresování souborů v Blob storage
+## <a name="address-files-in-blob-storage"></a>Adresování souborů v Blob storage
 Schéma identifikátoru URI pro přístup k souborům v Blob storage ze služby HDInsight je:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -178,7 +182,7 @@ Pokud nebyl zadán &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&g
 > 
 > 
 
-## Přístup k objektům blob pomocí Azure CLI
+## <a name="access-blobs-using-azure-cli"></a>Přístup k objektům blob pomocí Azure CLI
 Pomocí následujícího příkazu můžete zobrazit seznam příkazů týkajících se objektu blob:
 
     azure storage blob
@@ -199,7 +203,7 @@ Pomocí následujícího příkazu můžete zobrazit seznam příkazů týkajíc
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## Přístup k objektům blob pomocí Azure PowerShell
+## <a name="access-blobs-using-azure-powershell"></a>Přístup k objektům blob pomocí Azure PowerShell
 > [!NOTE]
 > Příkazy v této části jsou ukázkami základních příkladů použití prostředí PowerShell pro přístup k datům, uloženým v objektech blob. Obsáhlejší a plnohodnotný příklad, přizpůsobený pro práci s HDInsight, najdete v části [Nástroje HDInsight](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -211,10 +215,10 @@ Pomocí následujícího příkazu můžete zobrazit seznam rutin týkajících 
 
 ![Seznam rutin prostředí PowerShell týkajících se objektu blob.][img-hdi-powershell-blobcommands]
 
-### Nahrání souborů
+### <a name="upload-files"></a>Nahrání souborů
 Viz [Nahrání dat do HDInsight][hdinsight-upload-data].
 
-### Stažení souborů
+### <a name="download-files"></a>Stažení souborů
 Následující skript stáhne objekt blob bloku do aktuální složky. Před spuštěním skriptu změňte adresář na složku, ke které máte oprávnění k zápisu.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -251,13 +255,13 @@ Při poskytnutí názvu skupiny prostředků a názvu clusteru můžete použít
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-### Odstranění souborů
+### <a name="delete-files"></a>Odstranění souborů
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-### Zobrazení souborů
+### <a name="list-files"></a>Zobrazení souborů
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-### Spuštění dotazů Hive pomocí nedefinovaného účtu úložiště
+### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Spuštění dotazů Hive pomocí nedefinovaného účtu úložiště
 Tento příklad ukazuje, jak zobrazit obsah složky z účtu úložiště, které není definováno během procesu vytváření.
 $clusterName = „<HDInsightClusterName>“
 
@@ -273,7 +277,7 @@ $clusterName = „<HDInsightClusterName>“
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomhle článku jste se dozvěděli, jak používat HDFS kompatibilní Úložiště objektů blob v Azure se službou HDInsight, a že Úložiště objektů blob v Azure je základní součástí služby HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat pomocí Úložiště objektů blob v Azure a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
 
 Další informace naleznete v tématu:
@@ -301,6 +305,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

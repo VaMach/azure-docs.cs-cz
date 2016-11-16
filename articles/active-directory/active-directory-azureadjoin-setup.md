@@ -1,13 +1,13 @@
 ---
-title: Nastavení služby Azure AD Join pro uživatele | Microsoft Docs
-description: Vysvětluje, jak mohou správci nastavit službu Azure AD Join pro místní adresář a registraci zařízení.
+title: "Nastavení služby Azure AD Join pro uživatele | Dokumentace Microsoftu"
+description: "Vysvětluje, jak mohou správci nastavit službu Azure AD Join pro místní adresář a registraci zařízení."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: bfc5d415-c918-4d8b-afee-b3f41cc28469
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+
 
 ---
-# Nastavení služby Azure AD Join v organizaci
+# <a name="setting-up-azure-ad-join-in-your-organization"></a>Nastavení služby Azure AD Join v organizaci
 Předtím, než budete moct nastavit službu Azure Active Directory Join (Azure AD Join), musíte synchronizovat místní adresáře uživatelů s cloudem nebo ručně vytvořit spravované účty v Azure AD.
 
 Podrobný návod, jak synchronizovat místní uživatele se službou Azure AD, najdete v článku [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
 Pokud vás zajímá, jak ve službě Azure AD ručně vytvořit a spravovat uživatele, podívejte se na článek o [správě uživatelů ve službě Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
-## Nastavení registrace zařízení
+## <a name="set-up-device-registration"></a>Nastavení registrace zařízení
 1. Přihlaste se do portálu Azure v roli správce.
 2. V levém podokně vyberte **Active Directory**.
 3. Na kartě **Adresář** vyberte adresář.
@@ -46,13 +50,16 @@ Pokud chcete uživatelům umožnit, aby si nastavili službu Azure AD Join, mů�
 * Uživatelé připojí zařízení, které vlastní firma, k místní doméně služby Active Directory a potom rozšíří připojení zařízení na službu Azure AD.
 * Uživatelé na svá osobní zařízení přidají pracovní nebo školní účty.
 
-## Další informace
+## <a name="additional-information"></a>Další informace
 * [Windows 10 pro firmy: Možnosti, jak používat zařízení pro práci](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Rozšíření možností cloudu u zařízení s Windows 10 prostřednictvím služby Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Další informace o scénářích použití pro službu Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Připojení zařízení k doméně služby Azure AD ve Windows 10 – ukázky z praxe](active-directory-azureadjoin-devices-group-policy.md)
 * [Nastavení služby Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

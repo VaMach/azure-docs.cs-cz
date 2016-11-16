@@ -2,6 +2,8 @@ Pokud chcete povolit port bez SSL, pomocí možnosti [Procházet](../articles/re
 
 ![Nastavení mezipaměti Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-1. Přihlaste se k webu [Azure Portal][Azure Portal].
+1. Přihlaste se na web [Azure Portal][Azure Portal].
 2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 3. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 4. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
@@ -9,7 +9,7 @@
     ![Vytvoření oboru názvů][create-namespace]
 8. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
-### Získání přihlašovacích údajů pro správu
+### <a name="obtain-the-management-credentials"></a>Získání přihlašovacích údajů pro správu
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
 2. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
 3. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
@@ -28,6 +28,6 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

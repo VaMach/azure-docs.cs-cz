@@ -1,13 +1,13 @@
 ---
-title: Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru | Microsoft Docs
-description: V tomto dokumentu se dozvíte, jak nasadit služby AD FS v Azure a zajistit vysokou dostupnost.
-keywords: AD FS pomoc Azure Traffic Manageru, ADFS pomocí Azure Traffic Manageru, geografické, více datových center, geografická datová centra, více geografických datových center, nasazení AD FS v Azure, nasazení Azure AD FS, Azure ADFS, Azure AD FS, nasazení ADFS, nasazení AD FS, AD FS v Azure, nasazení ADFS v Azure, nasazení AD FS v Azure, ADFS Azure, úvod do AD FS, Azure, AD FS v Azure, IAAS, ADFS, přesunutí AD FS do Azure
+title: "Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru | Dokumentace Microsoftu"
+description: "V tomto dokumentu se dozvíte, jak nasadit služby AD FS v Azure a zajistit vysokou dostupnost."
+keywords: "AD FS pomoc Azure Traffic Manageru, ADFS pomocí Azure Traffic Manageru, geografické, více datových center, geografická datová centra, více geografických datových center, nasazení AD FS v Azure, nasazení Azure AD FS, Azure ADFS, Azure AD FS, nasazení ADFS, nasazení AD FS, AD FS v Azure, nasazení ADFS v Azure, nasazení AD FS v Azure, ADFS Azure, úvod do AD FS, Azure, AD FS v Azure, IAAS, ADFS, přesunutí AD FS do Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+
 
 ---
-# Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
+# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
 Článek [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.
 
 Infrastruktura služby AD FS s vysokou dostupností mezi geografickými lokalitami umožňuje využití následujících funkcí:
@@ -25,7 +29,7 @@ Infrastruktura služby AD FS s vysokou dostupností mezi geografickými lokalita
 * **Eliminace jediného bodu selhání:** Díky možnostem převzetí služeb při selhání, které Azure Traffic Manager má, můžete zajistit infrastrukturu služby AD FS s vysokou dostupností i v případě, že se jedno z datových center v některé části světa ocitne mimo provoz.
 * **Vyšší výkon:** Nasazení navržené v tomto článku můžete využít k poskytování vysoce výkonné infrastruktury služby AD FS, která přispěje k rychlejšímu ověřování uživatelů. 
 
-## Principy návrhu
+## <a name="design-principles"></a>Principy návrhu
 ![Celkový návrh](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
 Základní principy návrhu budou stejné, jako je uvedeno v části Principy návrhu v článku o nasazení služby AD FS v Azure. Na uvedeném diagramu je znázorněno jednoduché rozšíření základního nasazení do jiné geografické oblasti. Níže jsou uvedeny některé body, které je vhodné zvážit při rozšiřování nasazení do nové geografické oblasti.
@@ -38,16 +42,16 @@ Základní principy návrhu budou stejné, jako je uvedeno v části Principy n�
 * **Azure Traffic Manager:** Microsoft Azure Traffic Manager vám umožňuje řídit distribuci uživatelského provozu do koncových bodů služby spuštěných v různých datových centrech po celém světě. Azure Traffic Manager pracuje na úrovni služby DNS. Využívá odpovědi služby DNS ke směrování provozu koncových uživatelů do globálně distribuovaných koncových bodů. Klienti se pak připojují přímo k těmto koncovým bodům. S použitím různých možností směrování Výkon, Vážená a Priorita můžete snadno zvolit možnost směrování, která nejlépe vyhovuje potřebám vaší organizace. 
 * **Možnosti propojení dvou virtuálních sítí mezi dvěma oblastmi:** Není třeba, aby existovalo propojení přímo mezi oběma virtuálními sítěmi. Vzhledem k tomu, že každá virtuální síť má přístup k řadičům domény a má vlastní server služby AD FS a WAP, mohou pracovat bez jakéhokoli připojení mezi virtuálními sítěmi v různých oblastech. 
 
-## Kroky při integraci Azure Traffic Manageru
-### Nasazení služby AD FS v nové geografické oblasti
+## <a name="steps-to-integrate-azure-traffic-manager"></a>Kroky při integraci Azure Traffic Manageru
+### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Nasazení služby AD FS v nové geografické oblasti
 Při nasazování stejné topologie v nové geografické oblasti postupujte podle kroků a pokynů v [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md).
 
-### Názvy DNS pro veřejné IP adresy internetových (veřejných) nástrojů pro vyrovnávání zatížení
+### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>Názvy DNS pro veřejné IP adresy internetových (veřejných) nástrojů pro vyrovnávání zatížení
 Jak je uvedeno výše, Azure Traffic Manager může odkazovat na názvy DNS jako koncové body. Proto je důležité vytvořit názvy DNS pro veřejné IP adresy externí nástrojů pro vyrovnávání zatížení. Následující snímek obrazovky ilustruje způsob konfigurace názvu DNS pro veřejnou IP adresu. 
 
 ![Název DNS](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-### Nasazení Azure Traffic Manageru
+### <a name="deploying-azure-traffic-manager"></a>Nasazení Azure Traffic Manageru
 Podle následujících pokynů můžete vytvořit profil Traffic Manageru. Další informace najdete také v článku [Správa profilu Azure Traffic Manageru](../traffic-manager/traffic-manager-manage-profiles.md).
 
 1. **Vytvoření profilu Traffic Manageru:** Zadejte pro svůj profil Traffic Manageru jedinečný název. Tento název profilu je součástí názvu DNS a slouží jako předpona pro popisek názvu domény Traffic Manageru. Přidáním názvu/předpony k řetězci trafficmanager.net se vytvoří název DNS pro Traffic Manager. Následující snímek obrazovky ilustruje nastavení předpony DNS Traffic Manageru mysts. Výsledný název DNS bude mysts.trafficmanager.net. 
@@ -90,16 +94,17 @@ Podle následujících pokynů můžete vytvořit profil Traffic Manageru. Dalš
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## Test směrování a přihlášení ke službě AD FS
-### Test směrování
+## <a name="test-the-routing-and-ad-fs-signin"></a>Test směrování a přihlášení ke službě AD FS
+### <a name="routing-test"></a>Test směrování
 Zcela jednoduchým testem směrování je pokus o testování názvu DNS služby FS pomocí příkazu Ping z počítače v každé geografické oblasti. V závislosti na zvolené metodě směrování bude v zobrazení příkazu Ping uveden koncový bod, do kterého jsou pakety příkazu Ping ve skutečnosti odesílány. Pokud jste například vybrali směrování podle výkonu, bude dosažen koncový bod nejblíže oblasti klienta. Níže je uveden snímek dvou provedení příkazu Ping z klientských počítačů ve dvou různých oblastech: jednoho v oblasti Východní Asie a jednoho v Západní USA. 
 
 ![Test směrování](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### Test přihlášení ke službě AD FS
+### <a name="ad-fs-signin-test"></a>Test přihlášení ke službě AD FS
 Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpInitiatedSignon.aspx. Abyste to mohli provést, musíte ve vlastnostech služby AD FS povolit IdpInitiatedSignOn. Pomocí níže uvedených pokynů ověřte nastavení služby AD FS.
 
-1. Pomocí PowerShellu spusťte níže uvedenou rutinu na serveru služby AD FS a povolte požadovanou možnost. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+1. Pomocí PowerShellu spusťte níže uvedenou rutinu na serveru služby AD FS a povolte požadovanou možnost. 
+   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. Ze kteréhokoli externího počítače zobrazte tuto stránku: https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
 3. Měla by se zobrazit stránka služby AD FS podobná níže uvedenému příkladu:
    
@@ -109,15 +114,18 @@ Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpIniti
    
     ![Test služby AD FS – úspěšné ověření](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
-## Související odkazy
+## <a name="related-links"></a>Související odkazy
 * [Základní nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Metody směrování provozu Traffic Manageru](../traffic-manager/traffic-manager-routing-methods.md)
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Správa profilu Azure Traffic Manageru](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Přidávání, zakazování, povolování nebo odstraňování koncových bodů](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

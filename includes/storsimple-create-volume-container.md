@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Vytvoření kontejneru svazků
+#### <a name="to-create-a-volume-container"></a>Vytvoření kontejneru svazků
 1. Na obrazovce **Rychlý start** zařízení klikněte na **Add a volume container** (Přidat kontejner svazků). Zobrazí se dialogové okno **Create Volume Container** (Vytvořit kontejner svazků).
    
     ![Vytvoření kontejneru svazků](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
@@ -20,6 +20,8 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak v řešení StorSimple vytvořit kontejner svazků, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

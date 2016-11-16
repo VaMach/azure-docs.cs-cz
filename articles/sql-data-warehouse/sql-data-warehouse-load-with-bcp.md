@@ -1,12 +1,12 @@
 ---
-title: Načtení dat do SQL Data Warehouse pomocí nástroje příkazového řádku bcp | Microsoft Docs
-description: Zjistěte, co je bcp a jak tento nástroj používat pro scénáře datových skladů.
+title: "Načtení dat do SQL Data Warehouse pomocí nástroje příkazového řádku bcp | Dokumentace Microsoftu"
+description: "Zjistěte, co je bcp a jak tento nástroj používat pro scénáře datových skladů."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>Načtení dat pomocí bcp
@@ -51,7 +55,7 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 * Nainstalovaný nástroj příkazového řádku SQLCMD
 
 > [!NOTE]
-> Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][].
+> Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][Stažení softwaru společnosti Microsoft].
 > 
 > 
 
@@ -197,10 +201,10 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][
 [Syntaxe CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+[Stažení softwaru společnosti Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

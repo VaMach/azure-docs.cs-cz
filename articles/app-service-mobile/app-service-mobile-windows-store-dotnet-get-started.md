@@ -1,12 +1,12 @@
 ---
-title: Vytvoření Univerzální platformy Windows (UPW) využívající Mobile Apps | Microsoft Docs
-description: V tomto kurzu začnete pracovat s back-endy mobilní aplikace Azure při vývoji aplikací pro Univerzální platformu Windows (UPW) v jazycích C#, Visual Basic a JavaScript.
+title: "Vytvoření Univerzální platformy Windows (UPW) využívající Mobile Apps | Dokumentace Microsoftu"
+description: "V tomto kurzu začnete pracovat s back-endy mobilní aplikace Azure při vývoji aplikací pro Univerzální platformu Windows (UPW) v jazycích C#, Visual Basic a JavaScript."
 services: app-service\mobile
 documentationcenter: windows
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1a9e01c161b0c81d4a2fd079824a427f7f135476
+
 
 ---
-# Vytvoření aplikace pro Windows
+# <a name="create-a-windows-app"></a>Vytvoření aplikace pro Windows
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 V tomto kurzu se dozvíte, jak do aplikace pro Univerzální platformu Windows (UPW) přidat cloudovou back-end službu. Další informace najdete v tématu [Co jsou Mobile Apps](app-service-mobile-value-prop.md). Zde jsou snímky obrazovek z hotové aplikace:
 
 ![Hotová desktopová aplikace](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
@@ -30,7 +34,7 @@ Spuštěná na telefonu
 
 Ve všech dalších kurzech Mobile App pro aplikace UPW se předpokládá dokončení tohoto kurzu. 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pro absolvování tohoto kurzu potřebujete:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací, které můžete používat i po skončení zkušebního období. Podrobnosti najdete v tématu [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,17 +45,17 @@ Pro absolvování tohoto kurzu potřebujete:
 > 
 > 
 
-## Vytvoření nového back-endu mobilní aplikace Azure
+## <a name="create-a-new-azure-mobile-app-backend"></a>Vytvoření nového back-endu mobilní aplikace Azure
 Podle těchto pokynů vytvořte nový back-end mobilní aplikace:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použít v mobilních klientských aplikacích. Dále si stáhnete serverový projekt pro jednoduchý back-end seznamu úkolů a publikujete ho v Azure.
 
-## Konfigurace serverového projektu
+## <a name="configure-the-server-project"></a>Konfigurace serverového projektu
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Stažení a spuštění klientského projektu
+## <a name="download-and-run-the-client-project"></a>Stažení a spuštění klientského projektu
 Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit novou klientskou aplikaci, nebo upravit existující aplikaci tak, aby se připojovala k Azure. V této části si stáhnete projekt šablony aplikace UPW přizpůsobený tak, aby se připojoval k vašemu back-endu mobilní aplikace.
 
 1. Po návratu do okna **Rychlý start** back-endu mobilní aplikace klikněte na **Vytvořit novou aplikaci** > **Stáhnout** a extrahujte komprimované soubory projektu do místního počítače.
@@ -70,7 +74,7 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
    
     Všimněte si, že po spuštění aplikace UPW se data uložená v předchozím kroku načetla z Azure. 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Přidání ověřování do aplikace](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Zjistěte, jak ověřovat uživatele vaší aplikace pomocí zprostředkovatele identity.
 * [Přidání nabízených oznámení do aplikace](app-service-mobile-windows-store-dotnet-get-started-push.md)  
@@ -82,11 +86,11 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
 <!-- Images. -->
 <!-- URLs. -->
 [Sada SDK pro mobilní aplikace]: http://go.microsoft.com/fwlink/?LinkId=257545
-[portál Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

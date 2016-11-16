@@ -1,12 +1,12 @@
 ---
-title: 'Kurz: Vytvoření kanálu pomocí průvodce kopírováním | Microsoft Docs'
-description: V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí průvodce kopírováním podporovaného službou Data Factory
+title: "Kurz: Vytvoření kanálu pomocí průvodce kopírováním | Dokumentace Microsoftu"
+description: "V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí průvodce kopírováním podporovaného službou Data Factory"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
-> * [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -36,7 +40,7 @@ ms.author: spelluru
 > 
 > 
 
-## Vytvoření objektu pro vytváření dat
+## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
 
 1. Po přihlášení na webu [Azure Portal](https://portal.azure.com) klikněte v levém horním rohu na možnost **NOVÝ**, klikněte na možnost **Inteligence a analýza** a pak klikněte na možnost **Objekt pro vytváření dat**. 
@@ -53,21 +57,23 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
       > Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
       > 
       > 
-3. Vyberte své **předplatné** Azure.
-4. Pro skupinu prostředků proveďte jeden z následujících kroků: 1. Vyberte možnost **Použít existující** a vyberte existující skupinu prostředků.
-5. Vyberte možnost **Vytvořit nový** a zadejte název pro skupinu prostředků.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
-   1. Vyberte **umístění** pro příslušný objekt pro vytváření dat.
-   2. Zaškrtněte políčko **Připnout na řídicí panel** v dolní části okna.  
-   3. Klikněte na možnost **Vytvořit**.
+   2. Vyberte své **předplatné** Azure.
+   3. Pro skupinu prostředků proveďte jeden z následujících kroků: 
       
-       ![Okno Nový objekt pro vytváření dat](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. Po vytvoření se zobrazí okno **Objekt pro vytváření dat**, jak je znázorněno na následujícím obrázku:
+      1. Vyberte možnost **Použít existující** a vyberte existující skupinu prostředků.
+      2. Vyberte možnost **Vytvořit nový** a zadejte název pro skupinu prostředků.
+         
+          Některé kroky v tomto kurzu vychází z předpokladu, že pro skupinu prostředků použijete název **ADFTutorialResourceGroup**. Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).
+   4. Vyberte **umístění** pro příslušný objekt pro vytváření dat.
+   5. Zaškrtněte políčko **Připnout na řídicí panel** v dolní části okna.  
+   6. Klikněte na možnost **Vytvořit**.
+      
+       ![Okno Nový objekt pro vytváření dat](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. Po vytvoření se zobrazí okno **Objekt pro vytváření dat**, jak je znázorněno na následujícím obrázku:
    
    ![Domovská stránka objektu pro vytváření dat](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Spuštění a použití Průvodce kopírováním
+## <a name="launch-copy-wizard"></a>Spuštění průvodce kopírováním
 1. Na domovské stránce objektu pro vytváření dat klikněte na dlaždici **Kopírovat data**. Spustí se **průvodce kopírováním**. 
    
    > [!NOTE]
@@ -132,7 +138,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     
     ![Nástroj pro kopírování – nastavení výkonu](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## Spuštění aplikace pro monitorování a správu
+## <a name="launch-monitor-and-manage-application"></a>Spuštění aplikace pro monitorování a správu
 1. Na stránce **Nasazení** klikněte na následující odkaz: `Click here to monitor copy pipeline`.
    
    ![Nástroj pro kopírování – nasazení bylo úspěšné](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -145,7 +151,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    > 
    > 
 
-## Viz také
+## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) |Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
@@ -154,6 +160,9 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

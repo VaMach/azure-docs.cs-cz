@@ -1,14 +1,14 @@
 ---
-title: Vyrovnání zatížení kontejnerů v clusteru Azure Container Service | Microsoft Docs
-description: Článek popisuje, jak se vyrovnává zatížení více kontejnerů v clusteru Azure Container Service.
+title: "Vyrovnání zatížení kontejnerů v clusteru Azure Container Service | Dokumentace Microsoftu"
+description: "Článek popisuje, jak se vyrovnává zatížení více kontejnerů v clusteru Azure Container Service."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Kontejnery, mikroslužby, DC/OS, Azure
-
+keywords: "Kontejnery, mikroslužby, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Vyrovnání zatížení kontejnerů v clusteru Azure Container Service
@@ -35,14 +39,14 @@ Marathon Load Balancer se sám dynamicky rekonfiguruje na základě kontejnerů,
 
 K instalaci nástroje Marathon Load Balancer můžete použít buď webové uživatelské rozhraní DC/OS, nebo příkazový řádek DC/OS.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Instalace nástroje Marathon-LB pomocí webového uživatelského rozhraní DC/OS
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Instalace nástroje Marathon-LB pomocí webového uživatelského rozhraní DC/OS
 1. Klikněte na „Universe“.
 2. Vyhledejte „Marathon-LB“.
 3. Klikněte na Instalovat.
 
 ![Instalace nástroje marathon-LB pomocí webového uživatelského rozhraní DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Instalace nástroje marathon-LB pomocí rozhraní příkazového řádku DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Instalace nástroje marathon-LB pomocí rozhraní příkazového řádku DC/OS
 Po instalaci rozhraní příkazového řádku DC/OS a ověření, že se můžete připojit ke svému clusteru, spusťte ze svého klientského počítače následující příkaz:
 
 ```bash
@@ -97,13 +101,13 @@ Jakmile máme balíček marathon-lb, můžeme nasadit kontejner aplikace, u kter
 
 Mějte na paměti, že Marathon se ve výchozím nastavení nasazuje na soukromý cluster. To znamená, že výše popsané nasazení bude přístupné jen prostřednictvím nástroje pro vyrovnávání zatížení, což právě většinou chceme.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Nasazení pomocí webového uživatelského rozhraní DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Nasazení pomocí webového uživatelského rozhraní DC/OS
 1. Navštivte stránku nástroje Marathon na adrese http://localhost/marathon (po nastavení [tunelu SSH ](container-service-connect.md) a kliknutí na `Create Appliction`
 2. V dialogovém okně `New Application` klikněte v pravém horním rohu na `JSON Mode`
 3. Vložte do editoru výše uvedený text JSON
 4. Klikněte na `Create Appliction`.
 
-### <a name="deploy-using-the-dc/os-cli"></a>Nasazení pomocí rozhraní příkazového řádku DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Nasazení pomocí rozhraní příkazového řádku DC/OS
 Pokud chcete tuto aplikaci nasadit pomocí rozhraní příkazového řádku DC/OS, jednoduše zkopírujte výše uvedený text JSON do souboru s názvem `hello-web.json` a spusťte následující příkaz:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mujkontejner2:33432
 ## <a name="next-steps"></a>Další kroky
 Další informace o nástroji [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) naleznete v dokumentaci DC/OS.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

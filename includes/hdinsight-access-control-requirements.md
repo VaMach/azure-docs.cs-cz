@@ -8,6 +8,8 @@ Další informace o práci se správou přístupu najdete v následujících dok
 * [Začínáme se správou přístupu na webu Azure Portal](../articles/active-directory/role-based-access-control-what-is.md)
 * [Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
