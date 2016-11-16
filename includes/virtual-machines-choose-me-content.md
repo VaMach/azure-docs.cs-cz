@@ -1,6 +1,6 @@
 <a name="tellmevm"></a>
 
-## Informace o virtuálních počítačích
+## <a name="tell-me-about-virtual-machines"></a>Informace o virtuálních počítačích
 Služba Azure Virtual Machine vám umožní vytvořit a používat virtuální počítače v cloudu. Díky tomu, co se nazývá *IaaS (infrastruktura jako služba)*, může být technologie virtuálních počítačů použita mnoha různými způsoby. Tady je několik příkladů:
 
 * **Virtuální počítače pro vývoj a testování.** Vývojářské skupiny virtuální počítače běžně používají, protože nabízejí rychlý a snadný způsob, jak vytvořit počítač s konkrétní konfigurací pro kódování a testování aplikací. Služba Azure Virtual Machine poskytuje snadný a nákladově výhodný způsob, jak tyto virtuální počítače vytvářet, používat a nakonec je odstranit, když už nejsou potřeba.
@@ -37,6 +37,8 @@ Mezi další výhody, které hovoří pro využívání virtuálních počítač
 
 **Odolnost** – Azure sleduje fyzický hardware, který je hostitelem každého spuštěného virtuálního počítače. Pokud fyzický server se spuštěným virtuálním počítačem selže, Azure to zaznamená, přesune virtuální počítač na nový hardware a restartuje virtuální počítač. Tento proces se někdy nazývá službou opravy. Azure také chrání data virtuálního počítače tím, že udržuje redundantní kopie virtuálních pevných disků ve službě Blob Storage. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

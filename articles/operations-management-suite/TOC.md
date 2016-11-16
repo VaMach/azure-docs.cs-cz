@@ -15,26 +15,27 @@
 ### [Zabezpečení dat](oms-security-data-security.md)
 
 # Postup
-## Přehledy a analýza
+## Analýza
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Porovnání produktů monitorování](operations-management-suite-monitoring-product-comparison.md)
 ### [Správa výstrah](operations-management-suite-monitoring-alerts.md)
-## Automatizace a řízení
+## Spravovat
+### [Plánování a nasazení](operations-management-suite-solutions-creating.md)
+### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
+### [Zobrazení](operations-management-suite-solutions-resources-views.md)
+## Automatizace
 ### [Přehled Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Ochrana a obnovení
+## Zálohování
 ### [Přehled služby Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Přehled služby Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Zabezpečení a dodržování předpisů
+## Zabezpečení
 ### [Sledování prostředků](oms-security-monitoring-resources.md)
 ### [Reakce na výstrahy zabezpečení](oms-security-responding-alerts.md)
 ### [Vyhodnocení standardních hodnot](oms-security-baseline.md)
 ### [Posouzení malwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Posouzení aktualizace systému](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## [Integrace s OMS](operations-management-suite-integration.md)
-## Řešení pro správu
-### [Plánování a nasazení](operations-management-suite-solutions-creating.md)
-### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
-### [Zobrazení](operations-management-suite-solutions-resources-views.md)
+
 
 # Referenční informace
 ## [Sada SDK](operations-management-suite-sdk.md)
@@ -60,6 +61,7 @@
 #### [Správa aktualizací](oms-solution-update-management.md)
 ### Zabezpečení a dodržování předpisů
 #### [Posouzení antimalwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 
 
 <!--HONumber=Nov16_HO2-->

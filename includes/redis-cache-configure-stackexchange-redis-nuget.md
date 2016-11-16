@@ -25,6 +25,8 @@ Balíček NuGet se stáhne a přidá klientským aplikacím požadované odkazy 
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

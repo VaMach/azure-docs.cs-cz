@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Automation Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
+ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
 
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+---
+# <a name="automation-documentation"></a>Dokumentace ke službě Automation
+
+Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Automation</h3>
+                        <h3>Přečtěte si o službě Azure Automation</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Automation Video Library</h3>
+                        <h3>Knihovna videí ke službě Automation</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using Runbooks</h3>
+                        <h3>Začínáme se službou Automation pomocí runbooků</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell</h3>
+                        <h3>Začínáme se službou Automation pomocí PowerShellu</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first PowerShell Workflow Runbook</h3>
+                        <h3>Vytvoření prvního powershellového runbooku pracovního postupu</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell Workflow</h3>
+                        <h3>Začínáme se službou Automation pomocí pracovního postupu PowerShellu</h3>
                     </div>
                 </div>
             </div>
@@ -119,23 +123,28 @@ Azure Automation provides a way for users to automate the manual, long-running, 
 
 ---
 
-## Reference
+## <a name="reference"></a>Referenční informace
 
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+### <a name="powershell"></a>PowerShell
+[Referenční informace k Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-### .NET
-[Azure Managed Reference API](/dotnet/api)
+### <a name="net"></a>.NET
+[Referenční informace pro spravované rozhraní API pro Azure](/dotnet/api)
 
-### REST
-[Automation REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+### <a name="rest"></a>REST
+[Automation – referenční informace k rozhraní REST API](https://msdn.microsoft.com/en-us/library/azure/mt662285)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Automation Documentation
-        </div>
+Stažení dokumentace ke službě Automation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

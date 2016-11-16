@@ -17,7 +17,6 @@
 ## [Nejčastější dotazy](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Začínáme
-## [Bezplatný účet](https://azure.microsoft.com/free/)
 ## [Vytvoření virtuálního počítače pomocí portálu](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Přihlášení k virtuálnímu počítači](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Instalace rolí a otevření portů](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,9 +31,9 @@
 ### [Nasazení aplikace](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Postup
-## Úložiště
-### [Připojení datového disku pomocí portálu](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Odpojení datového disku pomocí portálu](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## Použití úložiště
+### [Připojení datového disku](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Odpojení datového disku](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Rozšíření disku operačního systému](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Použití disku D: jako datového disku](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Šifrování disku](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -50,15 +49,6 @@
 ### [Vytvoření statické veřejné IP adresy](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Připojení virtuálních sítí Classic k virtuálním sítím Resource Manageru](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Image
-### [Příprava VHD pro nahrání](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Generalizace virtuálního počítače pomocí nástroje Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Nahrání image virtuálního počítače](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Zachycení generalizovaného virtuálního počítače Azure](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Vytvoření kopie specializovaného virtuálního počítače Azure](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Vytvoření virtuálního počítače z generalizovaného VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Vytvoření virtuálního počítače ze specializovaného VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## Nasazení
 ### [Použití licencování Software Assurance](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Vyhledání imagí virtuálních počítačů přes PowerShell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -71,6 +61,14 @@
 ### [Nasazení pomocí jazyka C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nasazení pomocí jazyka C# a šablon](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nasazení aplikačních architektur ze šablony](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Image
+#### [Příprava VHD pro nahrání](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Generalizace virtuálního počítače pomocí nástroje Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Nahrání image virtuálního počítače](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Zachycení generalizovaného virtuálního počítače Azure](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vytvoření kopie specializovaného virtuálního počítače Azure](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vytvoření virtuálního počítače z generalizovaného VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vytvoření virtuálního počítače ze specializovaného VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Konfigurace
 ### [Vytvoření skupiny dostupnosti](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -84,7 +82,7 @@
 ### [Běžné úlohy rozhraní příkazového řádku](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Spravovat
-### [Vytvoření pracovní nebo školní identity v Azure Active Directory](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Vytvoření pracovní nebo školní identity v Azure AD](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Správa přístupu](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nastavení služby Key Vault](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nastavení přístupu WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -107,7 +105,7 @@
 ### [Ukázky konfigurace](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Poradce při potížích s rozšířeními](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Přehled Azure Automation](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Vertikální škálování virtuálních počítačů pomocí Azure Automation](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vertikální škálování virtuálních počítačů](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Stažení šablony pro virtuální počítač](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Automatizace pomocí Chefu](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -117,10 +115,8 @@
 ### [Migrace přes PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Komunitní nástroje pro migraci](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Osvědčené postupy
-### [Osvědčené postupy pro provozování virtuálního počítače s Windows v Azure](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## Plánování
+### [Osvědčené postupy pro virtuální počítače s Windows](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Pokyny pro infrastrukturu](../virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Předplatná a účty](../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Pojmenování](../virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -132,36 +128,36 @@
 ### [Plánovaná údržba Azure](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Plán](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Úlohy
+## Správa úloh
 ### [Vysokovýkonné výpočetní prostředí (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MATLAB](../virtual-machines-windows-matlab-mdcs-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MongoDB](../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [SQL](../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Zřízení virtuálního počítače s SQL Serverem přes Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Připojení k virtuálnímu počítači SQL Serveru na Azure](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Migrace databáze SQL Serveru na SQL Server ve virtuálním počítači Azure](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Ruční konfigurace skupiny dostupnosti Always On na virtuálním počítači Azure](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Automatická konfigurace skupiny dostupnosti Always On na virtuálním počítači Azure](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Konfigurace vnitřního nástroje pro vyrovnávání zatížení pro skupinu dostupnosti AlwaysOn v Azure](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Zřízení virtuálního počítače na webu Azure Portal](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Zřízení virtuálního počítače pomocí Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Připojení k virtuálnímu počítači](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Migrace databáze SQL Serveru](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Ruční konfigurace skupiny dostupnosti Always On](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Automatická konfigurace skupiny dostupnosti Always On](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Konfigurace vnitřního nástroje pro vyrovnávání zatížení pro skupinu dostupnosti AlwaysOn](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Konfigurace jednoho nebo více naslouchacích procesů skupiny dostupnosti Always On](../virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Konfigurace integrace Azure Key Vaultu pro SQL Server na virtuálních počítačích Azure](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Automatizované zálohování pro SQL Server ve službě Azure Virtual Machines](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Zálohování a obnovení pro SQL Server v Azure Virtual Machines](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Použití služby Azure Storage pro zálohování a obnovování SQL Serveru](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Automatizované opravy pro SQL Server ve službě Azure Virtual Machines](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Osvědčené postupy z hlediska výkonu pro SQL Server na Azure Virtual Machines](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Informace o zabezpečení pro SQL Server v Azure Virtual Machines](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Rozšíření agenta SQL Serveru pro virtuální počítače SQL Serveru](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Modely aplikací a vývojové strategie pro SQL Server v Azure Virtual Machines](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Integrace se službou Azure Key Vault](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vysoká dostupnost a zotavení po havárii](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Automatizované zálohování](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Zálohování a obnovení](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Použití služby Azure Storage pro zálohování a obnovení](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Automatizované opravy](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Osvědčené postupy z hlediska výkonu](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Aspekty zabezpečení](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Rozšíření agenta SQL Server](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vzory a strategie aplikací](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [SQL Server na Azure Virtual Machines – nejčastější dotazy](../virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Konfigurace úložiště pro virtuální počítače SQL Serveru](../virtual-machines-windows-sql-server-storage-configuration.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nasazení SAP IDES EHP7 SP3 pro SAP ERP 6.0 v Microsoft Azure](../virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver na virtuálních počítačích s Windows – Příručka pro plánování a implementaci](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver na virtuálních počítačích s Windows – Příručka k vysoké dostupnosti](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver na virtuálních počítačích s Windows – Příručka k nasazení DBMS](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver na virtuálních počítačích s Windows – Příručka k nasazení](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Příručka pro plánování a implementaci](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Příručka pro vysokou dostupnost](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Příručka pro nasazení DBMS](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Příručka pro nasazení](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 ### [SAP](../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -172,7 +168,7 @@
 ## Řešení potíží
 ### [Řešení potíží s připojeními ke vzdálené ploše](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Resetování hesla protokolu RDP](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Řešení problémů konkrétních chybových zpráv protokolu RDP pro virtuální počítač s Windows v Azure](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Řešení konkrétních chybových zpráv protokolu RDP](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Řešení problémů s vytvořením nového virtuálního počítače](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Řešení problémů s restartováním nebo změnou velikosti virtuálního počítače](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Řešení problémů s přístupem k aplikacím](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,21 +176,19 @@
 ### [Opětovné nasazení virtuálního počítače](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Referenční informace
-## [Tvorba šablon Resource Manageru](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Rozhraní REST API pro Compute](https://msdn.microsoft.com/library/azure/mt163647)
-## [Rozhraní REST API pro síť](https://msdn.microsoft.com/library/azure/mt163658)
-## [Rozhraní REST API pro Storage](https://msdn.microsoft.com/library/azure/dd179355)
-## [Rozhraní REST API pro Škálovací sady virtuálních počítačů](https://msdn.microsoft.com/library/azure/mt705635)
-## [Rozhraní .NET API pro Virtual Machines](https://msdn.microsoft.com/library/azure/mt131911)
-## [Rozhraní .NET API pro síť](https://msdn.microsoft.com/library/azure/dn973320)
-## [Rozhraní .NET API pro Storage](https://msdn.microsoft.com/library/azure/mt131037)
-## [Rozhraní příkazového řádku](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt125979)
+## [Azure CLI](/cli/azure/vm)
+## [Java](/java/api/)
+## [Tvorba šablon Resource Manageru](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Komunitní šablony](https://azure.microsoft.com/documentation/templates/)
+## [Rozhraní REST pro Compute](/rest/api/compute/)
+## [Rozhraní REST pro službu Network](/rest/api/)
+## [Rozhraní REST pro Storage](/rest/api/storageservices/)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
 <!--HONumber=Nov16_HO2-->

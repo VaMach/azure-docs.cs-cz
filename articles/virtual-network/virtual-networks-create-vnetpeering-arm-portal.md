@@ -1,13 +1,13 @@
 ---
-title: Vytvoření partnerského vztahu virtuálních sítí pomocí webu Azure Portal | Microsoft Docs
-description: Naučte se vytvořit virtuální síť pomocí webu Azure Portal v nástroji Resource Manager.
+title: "Vytvoření partnerského vztahu virtuálních sítí pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "Naučte se vytvořit virtuální síť pomocí webu Azure Portal v nástroji Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Vytvoření partnerského vztahu virtuálních sítí pomocí webu Azure Portal
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Vytvoření partnerského vztahu virtuálních sítí pomocí webu Azure Portal
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -62,7 +66,7 @@ Pro každé propojení lze nastavit několik vlastností:
 | Možnost | Popis | Výchozí |
 |:--- |:--- |:--- |
 | AllowVirtualNetworkAccess |Určuje, jestli má být adresní prostor partnerské virtuální sítě má zahrnutý jako součást značky Virtual_network. |Ano |
-| AllowForwardedTraffic |Určuje, jestli bude přijata nebo zahozena komunikace, která nemá původ přímo z partnerské virtuální sítě. |Ne |
+| AllowForwardedTraffic |Určuje, jestli bude přijat nebo zahozen provoz, který nepochází z partnerské virtuální sítě. |Ne |
 | AllowGatewayTransit |Umožňuje určit, jestli může partnerská virtuální síť používat bránu vaší virtuální sítě. |Ne |
 | UseRemoteGateways |Určuje, jestli se má používat brána partnerské virtuální sítě. Partnerská virtuální síť musí mít nakonfigurovanou bránu a dále musí být vybraná možnost AllowGatewayTransit. Pokud vaše síť již má nakonfigurovanou bránu, tuto možnost nelze použít. |Ne |
 
@@ -79,7 +83,7 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
    
-    Toto není povinné. Partnerský vztah lze navázat i v případě, že uživatelé vytvoří požadavky na partnerský vztah pro své virtuální sítě jednotlivě, pokud se jejich požadavky shodují. Když přidáte privilegované uživatele z druhé virtuální sítě jako uživatele místní virtuální sítě , budete mít nastavení na portálu snazší.
+    Toto není povinné. Partnerský vztah lze navázat i v případě, že uživatelé vytvoří požadavky na partnerský vztah pro své virtuální sítě jednotlivě, pokud se jejich požadavky shodují. Když přidáte privilegované uživatele z druhé virtuální sítě jako uživatele místní virtuální sítě, budete mít nastavení na portálu snazší.
 5. Potom se přihlaste k webu Azure Portal s účtem uživatele UserB, který je privilegovaným uživatelem v předplatném SubscriptionB. Výše uvedeným postupem přidejte uživatele UserA jako Přispěvatele sítě.
    
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -90,7 +94,7 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
    > 
 6. Přihlaste se k portálu jako UserA, přejděte do okna VNET3, klikněte na Partnerské vztahy, zaškrtněte políčko „Znám svoje ID prostředku“ a zadejte ID prostředku pro VNET5 v následujícím formátu.
    
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{IDPředplatného}/resourceGroups/{NázevSkupinyProstředků}/providers/Microsoft.Network/VirtualNetwork/{NázevVirtuálníSítě}
    
     ![ID prostředku](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Přihlaste se k portálu jako UserB a výše uvedeným postupem vytvořte partnerské propojení ze sítě VNET5 do sítě VNET3.
@@ -121,7 +125,7 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
    
     ![Zobrazení partnerských propojení](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Odebrání partnerského vztahu virtuálních sítí
+## <a name="remove-vnet-peering"></a>Odebrání partnerského vztahu virtuálních sítí
 1. V prohlížeči přejděte na http://portal.azure.com a v případě potřeby se přihlaste pomocí účtu Azure.
 2. Přejděte do okna virtuální sítě, klikněte na Partnerské vztahy, klikněte na propojení, které chcete odebrat, a klikněte na tlačítko Odstranit.
    
@@ -131,6 +135,9 @@ Každé propojení v partnerském vztahu virtuálních sítí má sadu výše uv
     ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. V tomto stavu nelze toto propojení vytvořit znovu, dokud se stav partnerského propojení nezmění Iniciováno. Před opakovaným vytvořením partnerského vztahu virtuálních sítí doporučujeme nejdříve odebrat obě propojení.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

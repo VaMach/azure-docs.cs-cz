@@ -1,12 +1,12 @@
 ---
-title: Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus | Microsoft Docs
-description: Kurz .NET pro zprostředkované zasílání zpráv
+title: "Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus | Dokumentace Microsoftu"
+description: "Kurz .NET pro zprostředkované zasílání zpráv"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus
 Azure Service Bus poskytuje dvě ucelená řešení – jedno přes centralizovanou „předávací“ službu v cloudu, která podporuje spoustu různých přenosových protokolů a webových služeb, jako například SOAP, WS-* nebo REST. Klient nepotřebuje přímé spojení s lokální službou, nemusí ani vědět, kde se služba nachází, a lokální služba nepotřebuje mít ve firewallu otevřené žádné příchozí porty.
 
 Druhé řešení přenosu zpráv umožňuje funkce „zprostředkovaného“ přenosu zpráv. Můžeme o nich uvažovat jako o funkcích asynchronního nebo odděleného přenosu zpráv, které podporují scénáře publikování a odebírání dat, časového oddělení a vyvažování zátěže pomocí infrastruktury přenosu zpráv služby Service Bus. Oddělená komunikace má mnoho výhod – klienti a servery se například můžou spojit podle potřeby a provádět své operace asynchronním způsobem.
 
-V tomto kurzu získáte teoretické i praktické znalosti front, které jsou jednou z hlavních součástí zprostředkovaného zasílání zpráv ve službě Service Bus. Po absolvování řady témat v tomto kurzu budete mít aplikaci, která naplní seznam zpráv, vytvoří frontu a odešle zprávy do této fronty. Tato aplikace nakonec přijme a zobrazí zprávy z fronty, potom vyčistí svoje prostředky a ukončí se. Odpovídající kurz pro vytvoření aplikace, která používá Service Bus Relay, najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+V tomto kurzu získáte teoretické i praktické znalosti front, které jsou jednou z hlavních součástí zprostředkovaného zasílání zpráv ve službě Service Bus. Po absolvování řady témat v tomto kurzu budete mít aplikaci, která naplní seznam zpráv, vytvoří frontu a odešle zprávy do této fronty. Tato aplikace nakonec přijme a zobrazí zprávy z fronty, potom vyčistí svoje prostředky a ukončí se. Odpovídající kurz pro vytvoření aplikace, která používá Service Bus WCF Relay, najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Úvod a požadavky
 Fronty nabízejí doručování zpráv metodou FIFO (First In First Out) pro jednoho nebo několik konkurenčních spotřebitelů. FIFO znamená, že se předpokládá, že příjemci zprávy obvykle přijímají a zpracovávají v pořadí, ve kterém se přidaly do fronty, a každou zprávu přijme a zpracuje jenom jeden spotřebitel zprávy. Klíčovou výhodou použití front je *časové oddělení* součástí aplikace: jinými slovy odesílatelé a spotřebitelé zprávy nemusí zprávy odesílat a spotřebovávat současně, protože zprávy jsou bezpečně uložené ve frontě. Další výhodou je *vyrovnávání zátěže*, které odesílatelům a spotřebitelům umožňuje odesílat a přijímat zprávy různými rychlostmi.
@@ -29,7 +33,7 @@ Fronty nabízejí doručování zpráv metodou FIFO (First In First Out) pro jed
 Tady jsou některé administrativní a technické požadavky, které byste před začátkem tohoto kurzu měli splnit. Nejdřív je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Vytvoření oboru názvů služby a získání klíče SAS
-Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
+Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Po dokončení předchozích kroků můžete sestavit a spustit aplikaci **Queue
 V nabídce **Sestavení** ve Visual Studiu klikněte na **Sestavit řešení** nebo stiskněte **Ctrl+Shift+B**. Pokud narazíte na chyby, zkontrolujte podle příkladu na konci předchozího kroku, že jste kód napsali správně.
 
 ## <a name="next-steps"></a>Další kroky
-Tento kurz vám ukázal, jak sestavit službu a klientskou aplikaci služby Service Bus pomocí funkcí zprostředkovaného zasílání zpráv služby Service Bus. Podobný kurz, který používá Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Tento kurz vám ukázal, jak sestavit službu a klientskou aplikaci služby Service Bus pomocí funkcí zprostředkovaného zasílání zpráv služby Service Bus. Podobný kurz, který používá Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Pokud se o službě [Service Bus](https://azure.microsoft.com/services/service-bus/) chcete dozvědět víc, pročtěte si následující témata.
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-* [Základy služby Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Architektura služby Service Bus](../service-bus/service-bus-architecture.md)
+* [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Architektura služby Service Bus](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

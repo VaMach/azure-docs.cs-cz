@@ -1,12 +1,12 @@
 ---
-title: Spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview] | Microsoft Docs
-description: Řešení pro správu virtuálních počítačů spouštějí a zastavují vaše virtuální počítače s Azure Resource Managerem podle časového plánu a proaktivně provádějí monitorování ze služby Log Analytics.
+title: "Spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview] | Dokumentace Microsoftu"
+description: "Řešení pro správu virtuálních počítačů spouštějí a zastavují vaše virtuální počítače s Azure Resource Managerem podle časového plánu a proaktivně provádějí monitorování ze služby Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# Řešení pro spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview] ve službě Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Řešení pro spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview] ve službě Automation
 Řešení pro spouštění virtuálních počítačů v době mimo špičku (Preview) spouští a zastavuje vaše virtuální počítače s Azure Resource Managerem podle časového plánu definovaného uživatelem a poskytuje podrobné informace o úspěchu úloh služby Automation spouštějících a zastavujících vaše virtuální počítače s použitím služby OMS Log Analytics.  
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Runbooky pracují s [účtem Spustit jako Azure](automation-sec-configure-azure-runas-account.md).  Účet Spustit jako je upřednostňovanou metodou ověřování, protože namísto hesla, jehož platnost může vypršet nebo které se může často měnit, používá ověřování certifikátu.  
 * Toto řešení může spravovat pouze virtuální počítače v rámci stejného předplatného a skupiny prostředků jako účet služby Automation.  
 * Toto řešení se nasazuje pouze v následujících oblastech Azure: Austrálie – jihovýchod, Východní USA, Jihovýchodní Asie a Západní Evropa.  Cílem runbooků, které spravují plán virtuálních počítačů, mohou být virtuální počítače ve kterékoli oblasti.  
 * Pokud chcete odeslat e-mailová oznámení po dokončení runbooků, které spouštějí a zastavují virtuální počítače, vyžaduje se předplatné Office 365 obchodní třídy.  
 
-## Součásti řešení
+## <a name="solution-components"></a>Součásti řešení
 Toto řešení se skládá z následujících prostředků, které budou importovány a přidány k vašemu účtu služby Automation.
 
-### Runbooky
+### <a name="runbooks"></a>Runbooky
 | Runbook | Popis |
 | --- | --- |
 | CleanSolution-MS-Mgmt-VM |Tento runbook odebere veškeré obsažené prostředky a plány, když přejdete k odstranění řešení z předplatného. |
@@ -38,7 +42,7 @@ Toto řešení se skládá z následujících prostředků, které budou importo
 
 <br>
 
-### Proměnné
+### <a name="variables"></a>Proměnné
 | Proměnná | Popis |
 | --- | --- |
 | Runbook **SendMailO365-MS-Mgmt** | |
@@ -65,18 +69,18 @@ Toto řešení se skládá z následujících prostředků, které budou importo
 
 <br>
 
-### Plány
+### <a name="schedules"></a>Plány
 | Plán | Popis |
 | --- | --- |
 | StartByResourceGroup-Schedule-MS-Mgmt |Plán pro runbook StartByResourceGroup, který provádí spouštění virtuálních počítačů spravovaných tímto řešením. |
 | StopByResourceGroup-Schedule-MS-Mgmt |Plán pro runbook StopByResourceGroup, který provádí vypínání virtuálních počítačů spravovaných tímto řešením. |
 
-### Přihlašovací údaje
+### <a name="credentials"></a>Přihlašovací údaje
 | Přihlašovací údaj | Popis |
 | --- | --- |
 | O365Credential |Určuje platný uživatelský účet Office 365 pro odesílání e-mailů.  Je vyžadován pouze v případě, že je proměnná SendMailO365-IsSendEmail-MS-Mgmt nastavena na hodnotu **True**. |
 
-## Konfigurace
+## <a name="configuration"></a>Konfigurace
 Provedením následujících kroků přidejte řešení pro spouštění/zastavování virtuálních počítačů v době mimo špičku [Preview] do svého účtu služby Automation a poté řešení upravte prostřednictvím konfigurace proměnných.
 
 1. Na domovské obrazovce na webu Azure Portal vyberte dlaždici **Marketplace**.  Pokud již dlaždice není připnutá k vaší domovské obrazovce, vyberte v navigačním podokně vlevo možnost **Nový**.  
@@ -109,10 +113,10 @@ Provedením následujících kroků přidejte řešení pro spouštění/zastavo
    * Vyberte hodnotu pro položku **Plán**. Jedná se o opakované datum a čas spouštění a zastavování virtuálních počítačů v cílových skupinách prostředků.  
 9. Po dokončení konfigurace počátečních nastavení vyžadovaných pro příslušné řešení vyberte možnost **Vytvořit**.  Všechna nastavení budou ověřena a poté se provede pokus o nasazení řešení v rámci vašeho předplatného.  Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
 
-## Četnost shromažďování dat
+## <a name="collection-frequency"></a>Četnost shromažďování dat
 Data protokolu úloh služby Automation a datových proudů úloh jsou přijímána v úložišti OMS každých pět minut.  
 
-## Použití řešení
+## <a name="using-the-solution"></a>Použití řešení
 Když přidáte řešení pro správu virtuálních počítačů, v pracovním prostoru OMS se na řídicí panel OMS přidá dlaždice **Zobrazení StartStopVM**.  Na této dlaždici se zobrazuje počet a grafická reprezentace úloh runbooků pro příslušné řešení, které byly spuštěny a úspěšně dokončeny.<br><br> ![Dlaždice Zobrazení StartStopVM správy virtuálních počítačů](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 V rámci svého účtu služby Automation máte možnost přístupu k řešení a jeho správy po výběru dlaždice **Řešení** a potom v okně **Řešení** výběrem řešení **Start-Stop-VM [pracovní prostor]** ze seznamu.<br><br> ![Seznam řešení služby Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
@@ -121,7 +125,7 @@ Výběrem řešení zobrazíte okno řešení **Start-Stop-VM [pracovní prostor
 
 Odtud můžete také otevřít prostor OMS a provést detailnější analýzu záznamů úlohy.  Stačí kliknout na **Všechna nastavení**, v okně **Nastavení** vybrat **Rychlý start** a poté v okně **Rychlý start** vybrat **Portál OMS**.   Otevře se nová karta nebo nová relace prohlížeče a zobrazí se pracovní prostor OMS přidružený k vašemu účtu a předplatnému služby Automation.  
 
-### Konfigurace e-mailových oznámení
+### <a name="configuring-email-notifications"></a>Konfigurace e-mailových oznámení
 Chcete-li povolit e-mailová oznámení po dokončení spouštění a zastavování runbooků pro virtuální počítače, budete muset změnit přihlašovací údaj **O365Credential** a alespoň následující proměnné:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -142,13 +146,13 @@ Pokud chcete konfigurovat proměnné zvýrazněné dříve, proveďte následuj�
 3. V okně **Prostředky** vyberte dlaždici **Proměnné** a v okně **Proměnné** vyberte proměnnou uvedenou výše a pak upravte její hodnotu za příslušným popisem zadaným dříve v části [proměnná](##variables).  
 4. Kliknutím na možnost **Uložit** uložte změny do proměnné.   
 
-### Úprava plánů spouštění a vypínání
+### <a name="modifying-the-startup-and-shutdown-schedule"></a>Úprava plánů spouštění a vypínání
 Správa plánů spouštění a vypínání v tomto řešení probíhá podle stejných kroků uvedených v tématu [Plánování runbooku ve službě Azure Automation](automation-scheduling-a-runbook.md).  Pamatujte, že nelze upravit konfiguraci plánu.  Bude třeba zakázat existující plán, následně vytvořit nový plán a propojit jej s runbookem **StartByResourceGroup-MS-Mgmt-VM** nebo **StopByResourceGroup-MS-Mgmt-VM**, na který chcete plán použít.   
 
-## Záznamy služby Log Analytics
+## <a name="log-analytics-records"></a>Záznamy služby Log Analytics
 Služba Automation vytváří v úložišti OMS dva typy záznamů.
 
-### Protokoly úloh
+### <a name="job-logs"></a>Protokoly úloh
 | Vlastnost | Popis |
 | --- | --- |
 | Volající |Kdo operaci zahájil.  Možnou hodnotou je e-mailová adresa nebo systém pro naplánované úlohy. |
@@ -168,7 +172,7 @@ Služba Automation vytváří v úložišti OMS dva typy záznamů.
 | SubscriptionId |Určuje ID předplatného úlohy. |
 | Time |Datum a čas provedení úlohy runbooku. |
 
-### Datové proudy úlohy
+### <a name="job-streams"></a>Datové proudy úlohy
 | Vlastnost | Popis |
 | --- | --- |
 | Volající |Kdo operaci zahájil.  Možnou hodnotou je e-mailová adresa nebo systém pro naplánované úlohy. |
@@ -188,7 +192,7 @@ Služba Automation vytváří v úložišti OMS dva typy záznamů.
 
 Při provádění jakékoli hledání v protokolech, které vrací záznamy kategorie **JobLogs** nebo **JobStreams**, můžete vybrat zobrazení **JobLogs** nebo **JobStreams**, které obsahuje sadu dlaždic se souhrnem aktualizací vrácených hledáním.
 
-## Ukázky hledání v protokolech
+## <a name="sample-log-searches"></a>Ukázky hledání v protokolech
 V následující tabulce jsou uvedeny ukázky hledání v protokolech pro záznamy úloh shromážděné tímto řešením. 
 
 | Dotaz | Popis |
@@ -197,11 +201,14 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 | Najít úlohy runbooku StopVM, které byly úspěšně dokončeny |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g |
 | Zobrazit stav úloh v čase pro runbooky StartVM a StopVM |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") |
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o tom, jak vytvářet různé vyhledávací dotazy a kontrolovat protokoly úloh služby Automation s použitím služby Log Analytics, najdete v článku [Vyhledávání protokolů v Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * Další informace o spouštění runbooků, postupy při monitorování úloh runbooků a další technické podrobnosti najdete v článku [Sledování úlohy runbooku](automation-runbook-execution.md).
 * Další informace o službě Log Analytics v OMS a o zdrojích pro shromažďování dat najdete v článku [Přehled shromažďování dat úložiště Azure ve službě Log Analytics](../log-analytics/log-analytics-azure-storage.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,11 +1,11 @@
-## Zřízení řešení
+## <a name="provision-the-solution"></a>Zřízení řešení
 1. Na webu [azureiotsuite.com][lnk-azureiotsuite] použijte své přihlašovací údaje a přihlaste se k účtu Azure. Kliknutím na **+** vytvořte nové řešení.
 2. Klikněte na tlačítko **Vybrat**, které se nachází na dlaždici **Vzdálené monitorování**.
 3. Zadejte **Název řešení** pro předkonfigurované řešení vzdáleného monitorování.
 4. Vyberte **Oblast** a **Předplatné**, které chcete při zřizování řešení použít.
 5. Kliknutím na tlačítko **Vytvořit řešení** zahájíte proces zřizování. To obvykle trvá několik minut.
 
-### Počkejte, dokud proces zřizování neskončí.
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Počkejte, dokud proces zřizování neskončí.
 1. Klikněte na dlaždici s řešením, u kterého je uveden stav **Zřizování**.
 2. **Stavy zřizování** umožňují sledovat, jak se služby Azure nasazují na váš účet Azure.
 3. Jakmile bude zřizování dokončeno, stav se změní na **Připraveno**.
@@ -23,6 +23,6 @@ Hledali jste informace, které se týkají vašeho řešení a nejsou zde uveden
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

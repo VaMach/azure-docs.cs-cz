@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Konfigurace a registrace zařízení
+#### <a name="to-configure-and-register-the-device"></a>Konfigurace a registrace zařízení
 1. V konzole sériového portu zařízení StorSimple spusťte rozhraní Windows PowerShell. Další informace najdete v článku [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](#use-putty-to-connect-to-the-device-serial-console). **Postup proveďte přesně, jinak ke konzole nezískáte přístup.**
 2. Ve spuštěné relaci jedním stisknutím klávesy Enter zobrazte příkazový řádek. 
 3. Budete vyzváni k volbě jazyka, který chcete pro zařízení nastavit. Zadejte jazyk a stiskněte Enter. 
@@ -30,7 +30,8 @@
      > 
 8. Volitelně konfigurujte proxy server. Konfigurace proxy serveru je volitelná, ale **můžete ji provést jenom v tomto kroku**. Další informace najdete v článku [Konfigurace webového proxy serveru pro zařízení](../articles/storsimple/storsimple-configure-web-proxy.md). Pokud se v tomto kroku setkáte s problémy, prostudujte si pokyny k řešení [chyb během konfigurace webového proxy serveru](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] Průvodce lze kdykoliv ukončit stisknutím kombinace kláves Ctrl+C. Veškerá nastavení provedená před použitím tohoto příkazu budou zachována.
+     > [!NOTE]
+     > Průvodce lze kdykoliv ukončit stisknutím kombinace kláves Ctrl+C. Veškerá nastavení provedená před použitím tohoto příkazu budou zachována.
 
 1. Platnost hesla správce zařízení z bezpečnostních důvodů vyprší po první relaci a pro následující relace je nutné heslo změnit. Až k tomu budete vyzváni, zadejte heslo správce zařízení. Platné heslo správce zařízení musí být tvořeno 8 až 15 znaky. Heslo musí obsahovat kombinaci malých písmen, velkých písmen, číslic a speciálních znaků.
 2. V tomto kroku se provádí také konfigurace hesla služby StorSimple Snapshot Manager. Toto heslo se používá při ověřování zařízení u hostitele se systémem Windows, ve kterém je spuštěná služba StorSimple Snapshot Manager. Až k tomu budete vyzváni, zadejte heslo tvořené 14 až 15 znaky. Heslo musí obsahovat kombinaci tří z následujících čtyř typů znaků: malá písmena, velká písmena, číslice a speciální znaky. 
@@ -69,10 +70,12 @@
 
 Pokud zařízení po úspěšné registraci nepřejde do stavu Online, můžete pomocí rutiny `Test-HcsmConnection -Verbose` ověřit, jestli je v pořádku síťové připojení. Podrobné informace o použití této rutiny najdete v článku [Rutina Test-HcsmConnection – reference](https://technet.microsoft.com/library/dn715782.aspx).
 
-![Je dostupné video](./media/storsimple-configure-and-register-device/Video_icon.png) **Je dostupné video**
+![Dostupné video](./media/storsimple-configure-and-register-device/Video_icon.png) **Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje postup konfigurace a registrace zařízení pomocí rozhraní Windows PowerShell pro zařízení StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

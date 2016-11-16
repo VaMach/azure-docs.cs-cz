@@ -1,12 +1,12 @@
 ---
-title: Přehledné znázornění dat z Azure Security Center v řešení Power BI| Microsoft Docs
-description: Balíček obsahu Azure Security Center Power BI usnadňuje hledání výstrah zabezpečení, doporučení, prostředků vystavených útoku a trendů na základě datové sady vytvořené pro účely generování sestav.
+title: "Přehledné znázornění dat z Azure Security Center v řešení Power BI| Dokumentace Microsoftu"
+description: "Balíček obsahu Azure Security Center Power BI usnadňuje hledání výstrah zabezpečení, doporučení, prostředků vystavených útoku a trendů na základě datové sady vytvořené pro účely generování sestav."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Přehledné znázornění dat z Azure Security Center v řešení Power BI
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Přehledné znázornění dat z Azure Security Center v řešení Power BI
 [Řídicí panel Power BI](http://aka.ms/azure-security-center-power-bi) pro Azure Security Center umožňuje zobrazovat, analyzovat a filtrovat doporučení a výstrahy zabezpečení odkudkoli, třeba i z vašeho mobilního zařízení. Pomocí řídicího panelu Power BI můžete odhalovat trendy a vzorce útoků – stačí zobrazit výstrahy zabezpečení podle prostředku nebo zdrojové IP adresy a nevyřešená rizika zabezpečení podle prostředku nebo stáří. 
 
 Taky můžete doporučení a výstrahy zabezpečení ze služby Security Center zajímavě zkombinovat s jinými daty, třeba pomocí dat z [protokolů auditu Azure](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) a [auditů Azure SQL Database](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Oboje poskytuje řídicí panely Power BI a vy můžete tato data exportovat do Excelu, kde jde snadno vytvářet sestavy stavu zabezpečení cloudových prostředků.
 
-## Přístup k řešení Power BI pomocí řídicího panelu Azure Security Center
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Přístup k řešení Power BI pomocí řídicího panelu Azure Security Center
 K sestavám Power BI můžete získat přístup také pomocí řídicího panelu Azure Security Center. To provedete pomocí tohoto postupu: 
 
 1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Prozkoumání v Power BI**.
@@ -80,7 +84,7 @@ Teď si můžete uložit kopii sestavy, vytisknout ji nebo ji zveřejnit na webu
 
 ![Nabídka Soubor](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Prozkoumání dat z Azure Security Center pomocí služeb Power BI
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Prozkoumání dat z Azure Security Center pomocí služeb Power BI
 V Power BI se připojte ke službám [Power BI Content Pack Services](https://msit.powerbi.com/groups/me/getdata/services) a proveďte následující kroky:
 
 1. V okně **Content Pack for Power BI** (Balíček obsahu pro Power BI) uvidíte dvě možnosti, jak znázorňuje následující obrázek.
@@ -107,7 +111,7 @@ V Power BI se připojte ke službám [Power BI Content Pack Services](https://ms
    
     ![Řídicí panel správy zásad](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Viz také
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používat řešení Power BI. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md) – Zjistěte, jak naplánovat přechod na Azure Security Center.
@@ -116,6 +120,9 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,30 +1,34 @@
 ---
-title: Studené úložiště Azure pro objekty blob | Microsoft Docs
-description: Úrovně úložiště služby Azure Blob Storage umožňují vybrat si cenově výhodné úložiště pro data objektů podle toho, jak často k nim chcete přistupovat. Úroveň studeného úložiště Azure je optimalizovaná pro data, která se využívají méně často.
+title: "Studené úložiště Azure pro objekty blob | Dokumentace Microsoftu"
+description: "Úrovně úložiště služby Azure Blob Storage umožňují vybrat si cenově výhodné úložiště pro data objektů podle toho, jak často k nim chcete přistupovat. Úroveň studeného úložiště Azure je optimalizovaná pro data, která se využívají méně často."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: michaelhauss
 manager: vamshik
 editor: tysonn
-
+ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: mihauss;robinsh
+ms.date: 10/18/2016
+ms.author: mihauss
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+
 
 ---
-# Azure Blob Storage: Horká a studená úroveň úložiště
-## Přehled
+# <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Horká a studená úroveň úložiště
+## <a name="overview"></a>Přehled
 Azure Storage teď nabízí dvě úrovně úložiště Blob (úložiště objektů), abyste náklady na ukládání dat mohli přizpůsobit tomu, jak často je využíváte. **Úroveň horkého úložiště** Azure je optimalizovaná pro ukládání dat, která se využívají často. **Úroveň studeného úložiště** Azure je optimalizovaná pro ukládání dat, která se nevyužívají často. U dat ve studeném úložišti se může tolerovat trochu horší dostupnost, ale přesto se u nich vyžaduje vysoká odolnost a podobná přístupová a přenosová rychlost jako u horkých dat. Úložiště pro studená data je výrazně levnější, ovšem za cenu mírně horší dostupnosti a vyšších nákladů na přístup.
 
 Data uložená v cloudu dnes narůstají exponenciální rychlostí. Pokud chcete mít pod kontrolou náklady na rostoucí potřeby úložiště, je čím dál výhodnější svoje data třídit třeba podle toho, jak často jsou potřeba nebo jak dlouho se mají zachovat. Data uložená v cloudu se můžou výrazně lišit podle toho, jak se vytvářejí, zpracovávají a využívají. Některá data se během svojí existence využívají nebo mění často. Některá data se využívají hlavně krátce po svém vytvoření a přístupy k nim později velmi rychle klesnou. Některá data se po uložení v cloudu využívají zřídka, pokud vůbec někdy.
 
 Pro každý z těchto scénářů využívání je vhodná jiná úroveň úložiště, která je optimalizovaná pro určitý vzor přístupu. Se zavedením horké a studené úrovně teď služba Azure Blob Storage vychází vstříc potřebě různých úrovní úložiště s odlišnými cenovými modely.
 
-## Účty úložiště Blob
+## <a name="blob-storage-accounts"></a>Účty úložiště Blob
 **Účty úložiště Blob** jsou účty specializovaného úložiště pro ukládání nestrukturovaných dat jako blobů (objektů) v úložišti Azure Storage. S účty úložiště Blob si teď můžete vybrat mezi horkou a studenou úrovní – málo používaná data ukládejte do studeného úložiště s nižší cenou za uložení, často používaná data ukládejte do horkého úložiště s nižší cenou za přístup. Účty úložiště Blob jsou podobné účtům úložiště pro obecné účely a mají stejnou vysokou odolnost, dostupnost, škálovatelnost a výkonnost, a navíc mají 100% konzistentnost rozhraní API pro objekty blob bloku a doplňovací objekty blob.
 
 > [!NOTE]
@@ -66,7 +70,7 @@ Pro aplikace, které potřebují jen úložiště objektů blob bloku a doplňov
 > 
 > 
 
-## Srovnání úrovní úložiště
+## <a name="comparison-between-the-storage-tiers"></a>Srovnání úrovní úložiště
 V této tabulce najdete srovnání obou úrovní úložiště:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
@@ -118,7 +122,7 @@ V této tabulce najdete srovnání obou úrovní úložiště:
 > 
 > 
 
-## Ceny a fakturace
+## <a name="pricing-and-billing"></a>Ceny a fakturace
 Účty úložiště Blob vychází z nových cenových modelů pro úrovně úložiště. Při použití účtu úložiště Blob je potřeba vzít v úvahu tyto fakturační podmínky:
 
 * **Cena za uložení**: Vedle uloženého množství dat se cena za uložení odvíjí také od úrovně úložiště. Na úrovni studeného úložiště je sazba za GB nižší než na horké úrovni.
@@ -129,18 +133,18 @@ V této tabulce najdete srovnání obou úrovní úložiště:
 * **Změna úrovně úložiště**: Změna úrovně ze studené na horkou je za každý přechod zpoplatněna částkou ve výši, která odpovídá přečtení všech dat v aktuálním účtu úložiště. Změna úrovně úložiště z horké na studenou je naopak bezplatná.
 
 > [!NOTE]
-> Aby si zákazníci mohli nové úrovně úložiště vyzkoušet a ověřit, jak služba po spuštění funguje, je i změna úrovně úložiště ze studené na horkou až do 30. června 2016 bezplatná. Od 1. července 2016 budou všechny přechody ze studeného úložiště na horké zpoplatněné. Další informace o cenovém modelu pro účty úložiště Blob najdete na stránce [Azure Storage – Ceny](https://azure.microsoft.com/pricing/details/storage/). Další informace o poplatcích za odchozí přenosy dat najdete na stránce [Informace o cenách přenosů dat](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Aby si zákazníci mohli nové úrovně úložiště vyzkoušet a ověřit, jak služba po spuštění funguje, je i změna úrovně úložiště ze studené na horkou až do 30. června 2016 bezplatná. Od 1. července 2016 budou všechny přechody ze studeného úložiště na horké zpoplatněné. Další informace o cenovém modelu pro účty úložiště Blob najdete na stránce [Azure Storage – Ceny](https://azure.microsoft.com/pricing/details/storage/). Další informace o poplatcích za odchozí přenosy dat najdete na stránce [Informace o cenách přenosů dat](https://azure.microsoft.com/pricing/details/data-transfers/).
 > 
 > 
 
-## Rychlý start
+## <a name="quick-start"></a>Rychlý start
 V tomto oddílu si předvedeme následující scénáře použití rozhraní Azure Portal:
 
 * Vytvoření účtu úložiště Blob.
 * Správa účtu úložiště Blob.
 
-### Použití webu Azure Portal
-#### Vytvoření účtu úložiště Blob přes web Azure Portal
+### <a name="using-the-azure-portal"></a>Použití webu Azure Portal
+#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Vytvoření účtu úložiště Blob přes web Azure Portal
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V nabídce centra vyberte **Nový** > **Data a úložiště** > **Účet úložiště**.
 3. Zadejte název účtu úložiště.
@@ -148,10 +152,10 @@ V tomto oddílu si předvedeme následující scénáře použití rozhraní Azu
     Název musí být globálně jedinečný, protože je součástí adresy URL pro přístup k objektům v účtu úložiště.  
 4. Jako model nasazení vyberte **Resource Manager**.
    
-    Úrovně úložiště lze použít jen s účty úložiště Resource Manageru, proto u nových prostředků doporučujeme tento model nasazení. Další informace najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md).  
+    Úrovně úložiště lze použít jen s účty úložiště Resource Manageru, proto u nových prostředků doporučujeme tento model nasazení. Další informace najdete v článku [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).  
 5. V rozevíracím seznamu Druh účtu vyberte **Blob Storage**.
    
-    Tady vybíráte typ účtu úložiště. Úrovně úložiště nejsou dostupné v úložišti pro obecné účely. Využít je můžete jen s účtem typu Blob Storage.    
+    Tady vybíráte typ účtu úložiště. Úrovně úložiště nejsou dostupné v úložišti pro obecné účely. Využít je můžete jen s účtem typu Blob Storage.     
    
     Všimněte si, že když tuto možnost vyberete, úroveň výkonu se nastaví na Standardní. V úrovni výkonu Premium nejsou úrovně úložiště dostupné.
 6. Vyberte možnost replikace pro účet úložiště: **LRS**, **GRS** nebo **RA-GRS**. Výchozí hodnota je **RA-GRS**.
@@ -161,11 +165,11 @@ V tomto oddílu si předvedeme následující scénáře použití rozhraní Azu
     Další informace o možnostech replikace v Azure Storage najdete v článku [Replikace Azure Storage](storage-redundancy.md).
 7. Vyberte si úroveň úložiště, která vám vyhovuje: **Úroveň přístupu** nastavte na **Studená** nebo **Horká**. Výchozí hodnota je **Hot**.
 8. Vyberte předplatné, ve kterém chcete vytvořit nový účet úložiště.
-9. Zadejte novou skupinu prostředků nebo vyberte existující skupinu prostředků. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../resource-group-overview.md).
+9. Zadejte novou skupinu prostředků nebo vyberte existující skupinu prostředků. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
 10. K účtu úložiště přiřaďte oblast.
 11. Vytvořte účet úložiště kliknutím na **Vytvořit**.
 
-#### Změna úrovně úložiště u účtu úložiště Blob přes web Azure Portal
+#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Změna úrovně úložiště u účtu úložiště Blob přes web Azure Portal
 1. Přihlaste se na web [Azure Portal ](https://portal.azure.com).
 2. Klikněte na možnost Všechny prostředky a kliknutím na účet úložiště do účtu přejděte.
 3. V okně Nastavení klikněte na **Konfigurace**, odkud můžete zobrazit nebo změnit konfiguraci účtu.
@@ -177,7 +181,7 @@ V tomto oddílu si předvedeme následující scénáře použití rozhraní Azu
 > 
 > 
 
-## Vyhodnocení služby a migrace na účty úložiště Blob
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Vyhodnocení služby a migrace na účty úložiště Blob
 V tomto oddílu chceme uživatelům pomoci s pohodlným přechodem k účtům úložiště Blob. Jako uživatel stojíte před jednou z těchto dvou možností:
 
 * Máte účet úložiště pro obecné účely a chcete vyhodnotit přechod k účtu úložiště Blob s vhodnou úrovní úložiště.
@@ -185,13 +189,13 @@ V tomto oddílu chceme uživatelům pomoci s pohodlným přechodem k účtům ú
 
 V obou případech je nejdřív na místě odhadnout cenu ukládání a přístupu k datům uloženým na účtu úložiště Blob a srovnat ji s aktuálními náklady.
 
-### Vyhodnocení úrovní účtu úložiště Blob
+### <a name="evaluating-blob-storage-account-tiers"></a>Vyhodnocení úrovní účtu úložiště Blob
 Abyste stanovili přibližnou cenu za ukládání a přístup k datům uloženým na účtu úložiště Blob, vyhodnoťte, jak v současné době k datům přistupujete, nebo odhadněte, jak k nim přistupovat budete. Celkově vzato budete chtít znát:
 
 * Spotřebu úložiště – Kolik dat ukládáte a jak se toto množství měsíc od měsíce mění?
 * Vzorec přistupování k úložišti – Kolik dat se na účtu čte a zapisuje (včetně nových dat)? Ke kolika transakcím dochází při přístupu k datům a o jaké transakce se jedná?
 
-#### Monitorování existujících účtů úložiště
+#### <a name="monitoring-existing-storage-accounts"></a>Monitorování existujících účtů úložiště
 K monitorování existujících účtů úložiště a sesbírání dat můžete využít službu Azure Storage Analytics, která aktivitu zaprotokoluje a na účtu úložiště naměří potřebné údaje.
 Služba Storage Analytics může naměřená data, včetně souhrnné statistiky transakcí a dat o kapacitě požadavků na službu Blob Storage, ukládat jak pro účty úložiště pro obecné účely, tak pro účty úložiště Blob.
 Tato data se ukládají do známých tabulek na tom samém účtu úložiště.
@@ -225,15 +229,15 @@ Podrobnosti o povolení, shromažďování a zobrazování dat metrik naleznete 
 > 
 > 
 
-#### Odhadnutí nákladů s pomocí naměřených údajů o využití
-##### Cena za uložení
+#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Odhadnutí nákladů s pomocí naměřených údajů o využití
+##### <a name="storage-costs"></a>Cena za uložení
 Poslední položka v tabulce kapacitní metriky *$MetricsCapacityBlob* s klíčem řádku *data* zobrazuje kapacitu úložiště spotřebovanou uživatelskými daty.
 Poslední položka v tabulce kapacitní metriky *$MetricsCapacityBlob* s klíčem řádku *analytics* zobrazuje kapacitu úložiště spotřebovanou protokoly analýzy.
 
 Celková kapacita spotřebovaná uživatelskými daty a protokoly analýzy (pokud jsou povoleny) se potom dají použít k odhadu nákladů za uložení dat v účtu úložiště.
 Stejnou metodu lze použít taky pro odhad nákladů za uložení blob bloků a doplňujících objektů blob v účtech úložiště pro obecné účely.
 
-##### Cena za transakce
+##### <a name="transaction-costs"></a>Cena za transakce
 Součet *TotalBillableRequests* všech položek rozhraní API v tabulce metrik transakcí udává celkový počet transakcí daného rozhraní API. *Například* celkový počet transakcí *GetBlob* v daném časovém období se dá vypočítat jako celkový součet fakturovatelných požadavků všech položek s klíčem řádku *user;GetBlob*.
 
 Pokud chcete odhadnout náklady za transakce v účtu úložiště Blob, je potřeba rozdělit transakce do tří skupin, protože se cenově liší.
@@ -244,7 +248,7 @@ Pokud chcete odhadnout náklady za transakce v účtu úložiště Blob, je pot�
 
 Pokud chcete odhadnout náklady za transakce v účtu úložiště pro obecné účely, je potřeba započítat všechny transakce bez ohledu na operaci či rozhraní API.
 
-##### Přístup k datům a cena za přenos dat – geografická replikace
+##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Přístup k datům a cena za přenos dat – geografická replikace
 Analýza úložiště sice k účtu úložiště nevypíše množství přečtených a zapsaných dat, toto množství lze ale zhruba odhadnout z tabulky metriky transakcí.
 Součet *TotalBillableRequests* všech položek rozhraní API v tabulce metrik transakcí udává celkové množství příchozích dat k tomuto rozhraní API v bajtech.
 Podobně součet *TotalEgress* udává celkové množství odchozích dat v bajtech.
@@ -261,21 +265,21 @@ Také cena za přenos geograficky replikovaných dat účtů úložiště Blob s
 > 
 > 
 
-### Migrace existujících dat
+### <a name="migrating-existing-data"></a>Migrace existujících dat
 Účet úložiště Blob se specializuje pouze na ukládání objektů blob bloku a doplňovacích objektů blob. Existující účty úložiště pro obecné účely, ve kterých můžete ukládat tabulky, fronty, soubory a disky i objekty blob, se nedají převést na účty úložiště Blob. Pokud chcete využívat úrovně úložiště, budete muset vytvořit nové účty úložiště Blob a svoje existující data migrovat do těchto nových účtů.
 Následující metody můžete použít pro migraci existujících dat do účtů úložiště Blob z lokálních úložných zařízení, z cloudového úložiště jiných poskytovatelů nebo z existujícího účtu úložiště Azure pro obecné účely:
 
-#### AzCopy
+#### <a name="azcopy"></a>AzCopy
 AzCopy je nástroj Windows, který se spouští z příkazového řádku a který je určený pro vysoce výkonné kopírování dat do Azure Storage a z Azure Storage. Pomocí nástroje AzCopy můžete kopírovat data do svého účtu úložiště Blob z existujících účtů úložiště pro obecné účely nebo ukládat data z lokálních úložných zařízení do svého účtu úložiště Blob.
 
 Další informace najdete v tématu [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md).
 
-#### Knihovna pro přesun dat
+#### <a name="data-movement-library"></a>Knihovna pro přesun dat
 Knihovna pro přesun dat v Azure Storage pro .NET je založená na platformě pro přesun základních dat, kterou využívá nástroj AzCopy. Knihovna je určená pro vysoce výkonné, spolehlivé a snadné operace přenosu dat, podobně jako AzCopy. Díky tomu můžete naplno využívat výhody funkcí AzCopy ve svojí aplikaci nativně, bez nutnosti spouštět a sledovat externí instance nástroje AzCopy.
 
 Další informace najdete v tématu [Knihovna pro přesun dat v Azure Storage pro .Net](https://github.com/Azure/azure-storage-net-data-movement).
 
-#### Rozhraní REST API nebo knihovna klienta
+#### <a name="rest-api-or-client-library"></a>Rozhraní REST API nebo knihovna klienta
 Pomocí některé z knihoven klienta Azure nebo rozhraní REST API služeb úložiště Azure můžete vytvořit vlastní aplikaci pro migraci dat do účtu úložiště Blob. Azure Storage poskytuje množství knihoven klienta pro různé jazyky a platformy, jako například .NET, Java, C++, Node.JS, PHP, Ruby nebo Python. Knihovny klienta nabízí pokročilé možnosti a funkce, jako je například logika opakovaných pokusů, protokolování a paralelní ukládání. Můžete také psát aplikace přímo na rozhraní REST API, které může zavolat jakýkoli jazyk schopný vytvářet požadavky přes HTTP/HTTPS.
 
 Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](storage-dotnet-how-to-use-blobs.md).
@@ -285,7 +289,7 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 > 
 > 
 
-## Nejčastější dotazy
+## <a name="faqs"></a>Nejčastější dotazy
 1. **Jsou existující účty úložiště stále dostupné?**
    
     Ano, existující účty úložiště jsou stále dostupné a jejich funkce ani cena se nemění.  Není u nich možné vybrat úroveň úložiště a tuto možnost nebudou mít ani v budoucnu.
@@ -319,8 +323,8 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
     
     Účty úložiště Blob jsou velmi podobné účtům úložiště pro obecné účely pro ukládání objektů blob bloku a doplňovacích objektů blob a podporují všechny klíčové funkce Azure Storage, včetně vysoké odolnosti a dostupnosti, škálovatelnosti, výkonnosti a zabezpečení. Kromě funkcí a omezení charakteristických pro účty a úrovně úložiště Blob, jak jsme popsali výše, všechno ostatní zůstává při starém.
 
-## Další kroky
-### Posouzení účtů úložiště Blob
+## <a name="next-steps"></a>Další kroky
+### <a name="evaluate-blob-storage-accounts"></a>Posouzení účtů úložiště Blob
 [Ověření dostupnosti účtů úložiště Blob v jednotlivých oblastech](https://azure.microsoft.com/regions/#services)
 
 [Zapnutí metrik Azure Storage a vyhodnocení používání aktuálních účtů úložiště](storage-enable-and-view-metrics.md)
@@ -329,7 +333,7 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 [Posouzení cen přenosu dat](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### Začátek používání účtů úložiště Blob
+### <a name="start-using-blob-storage-accounts"></a>Začátek používání účtů úložiště Blob
 [Začínáme s úložištěm Azure Blob](storage-dotnet-how-to-use-blobs.md)
 
 [Přesunutí dat z Azure Storage a do Azure Storage](storage-moving-data.md)
@@ -338,6 +342,9 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 [Procházení a prozkoumání účtů úložiště](http://storageexplorer.com/)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

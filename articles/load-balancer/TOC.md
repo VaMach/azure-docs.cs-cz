@@ -32,18 +32,25 @@
 ## [Konfigurace více virtuálních IP adres cloudové služby](load-balancer-multivip.md)
 ## [Log Analytics pro Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurace protokolu DHCPv6 pro virtuální počítače s Linuxem](load-balancer-ipv6-for-linux.md)
+
 # Referenční informace
+## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Rozhraní API Resource Manageru](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Rutiny prostředí PowerShell Resource Manageru](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [Použití síťových prostředků](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+
 # Související
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Express Route](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Virtuální počítač](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-## [DNS](https://azure.microsoft.com/documentation/services/dns/)
+## [Application Gateway](/azure/application-gateway/)
+## [Express Route](/azure/expressroute/)
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtuální počítač](/azure/virtual-machines/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [DNS](/azure/dns/)
+
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/load-balancer/) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=load-balancer) 
 
 
 <!--HONumber=Nov16_HO2-->

@@ -11,6 +11,8 @@ Tady je seznam některých dalších kurzů, které se týkají zasílání ozn�
 
 V další části tohoto kurzu se dozvíte, jak zaslat oznámení přímo do vaší aplikace pomocí [rozhraní REST centra oznámení](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). Oznámení zaslané z kteréhokoli zařízení dostanou všechna registrovaná zařízení.  
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

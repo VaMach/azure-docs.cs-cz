@@ -1,12 +1,12 @@
 ---
-title: Přidání nových uživatelů do služby Azure Active Directory | Microsoft Docs
-description: Vysvětluje, jak ve službě Azure Active Directory přidat nové uživatele nebo změnit informace o uživatelích.
+title: "Přidání nových uživatelů do služby Azure Active Directory | Dokumentace Microsoftu"
+description: "Vysvětluje, jak ve službě Azure Active Directory přidat nové uživatele nebo změnit informace o uživatelích."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3673727-6bec-4fdc-87a4-d65b213c4c3c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+
 
 ---
-# Přidání nových uživatelů nebo uživatelů s účty Microsoft do služby Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Přidání nových uživatelů nebo uživatelů s účty Microsoft do služby Azure Active Directory
 Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysvětluje, jak pro vaši organizaci přidat nové uživatele a jak přidat uživatele, kteří mají účty Microsoft. Další informace o přidávání uživatelů z dalších adresářů ve službě Azure Active Directory nebo přidávání uživatelů z partnerských společností najdete v článku o [přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory](active-directory-create-users-external.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
 
-## Přidání uživatele
+## <a name="add-a-user"></a>Přidání uživatele
 1. Přihlaste se k portálu [Azure Classic](https://manage.windowsazure.com) prostřednictvím účtu, který má k adresáři oprávnění globálního správce.
 2. Vyberte **Active Directory** a potom vyberte název adresáře své organizace.
 3. Vyberte kartu **Uživatelé** a na panelu příkazů vyberte **Přidat uživatele**.
@@ -34,12 +38,12 @@ Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysv
 > [!IMPORTANT]
 > Pokud vaše organizace používá více než jednu doménu, měli byste vědět o následujících problémech týkajících se přidávání uživatelských účtů:
 > 
-> * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com **jako první** a až **potom** geoffgrisso@contoso.com.
-> * **Nepřidávejte** geoffgrisso@contoso.com předtím, než přidáte geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
+> * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com, **jako první** a **až potom** geoffgrisso@contoso.com..
+> * **Nepřidávejte** geoffgrisso@contoso.com dřív než geoffgrisso@contoso.onmicrosoft.com.. Správné pořadí je důležité a náprava chyby může být náročná.
 > 
 > 
 
-## Změna informací o uživateli
+## <a name="change-user-information"></a>Změna informací o uživateli
 S výjimkou ID objektu můžete změnit jakýkoli atribut uživatele.
 
 1. Otevřete svůj adresář.
@@ -48,7 +52,7 @@ S výjimkou ID objektu můžete změnit jakýkoli atribut uživatele.
 
 Pokud je uživatel, jehož informace chcete změnit, synchronizovaný s místní službou Active Directory, nemůžete tento postup použít. Ke změně informací o uživateli použijte nástroje pro správu vaší místní služby Active Directory.
 
-## Správa a omezení uživatele typu host
+## <a name="guest-user-management-and-limitations"></a>Správa a omezení uživatele typu host
 Účty hostů jsou uživatelé z jiných adresářů, kteří byli do vašeho adresáře pozváni a mají přístup k dokumentům SharePointu, aplikacím a dalším prostředkům služby Azure. Účet hosta má ve vašem adresáři základní atribut UserType (Typ uživatele) nastavený na hodnotu Guest (Host). Běžní uživatelé (konkrétně členové vašeho adresáře) mají atribut UserType nastavený na hodnotu Member (Člen).
 
 Hosté mají ve vašem adresáři omezená oprávnění. Hostům jejich oprávnění neumožňují získávat podrobnější informace o ostatních uživatelích v adresáři. Uživatelé typu host však mohou interagovat s uživateli a skupinami přiřazenými k prostředkům, na kterých pracují. Uživatel typu host může:
@@ -60,7 +64,7 @@ Hosté mají ve vašem adresáři omezená oprávnění. Hostům jejich oprávn�
 * Získat seznam ověřených domén v adresáři
 * Dávat souhlas aplikacím, udělovat jim stejným přístup, jako mají členové vašeho adresáře
 
-## Nastavení zásad přístupu uživatele typu host
+## <a name="set-guest-user-access-policies"></a>Nastavení zásad přístupu uživatele typu host
 Karta **Konfigurace** v adresáři zahrnuje i možnosti řízení přístupu uživatelů typu host. Tyto možnosti může změnit pouze globální správce adresáře prostřednictvím portálu Azure Classic. V současné době není k dispozici žádná metoda změny pomocí PowerShellu ani rozhraní API.
 
 Pokud chcete na portálu Azure Classic otevřít kartu **Konfigurace**, vyberte **Active Directory** a pak vyberte název adresáře.
@@ -71,7 +75,7 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 ![možnosti řízení přístupu pro uživatele typu host][2]
 
-## Kam dál
+## <a name="whats-next"></a>Kam dál
 * [Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory](active-directory-create-users-external.md)
 * [Správa služby Azure AD](active-directory-administer.md)
 * [Správa hesel ve službě Azure AD](active-directory-manage-passwords.md)
@@ -83,6 +87,6 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

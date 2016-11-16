@@ -37,23 +37,27 @@
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-### Spravovat
+## Spravovat
 ### [Diagnostika](application-gateway-diagnostics.md)
 ### [Řešení problémů](application-gateway-troubleshooting-502.md)
 # Referenční informace
-## [Rozhraní API Resource Manageru](https://msdn.microsoft.com/library/azure/mt684941)
-## [Rozhraní API Správy služeb](https://msdn.microsoft.com/library/azure/mt299393)
-## [Rutiny PowerShellu](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
+
 # Související
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Virtuální síť](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [Virtuální síť](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

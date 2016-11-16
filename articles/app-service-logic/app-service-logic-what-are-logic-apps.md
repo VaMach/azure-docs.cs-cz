@@ -1,12 +1,12 @@
 ---
 title: Co jsou Logic Apps?
-description: Další informace o App Service Logic Apps
+description: "Další informace o App Service Logic Apps"
 author: kevinlam1
 manager: dwrede
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: klam
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 44941876c976fdad0303b3c638ed6a3811136634
+
 
 ---
-# <a name="what-are-logic-apps?"></a>Co jsou Logic Apps?
+# <a name="what-are-logic-apps"></a>Co jsou Logic Apps?
 Logic Apps umožňují zjednodušení a implementaci škálovatelných integrací a pracovních postupů v cloudu. Nabízejí vizuálního návrháře pro modelování a automatizaci procesů jako řadu kroků, které nazýváme pracovním postupem.  Existuje mnoho cloudových i místních [konektorů](../connectors/apis-list.md), které můžete rychle integrovat do všech služeb a protokolů.  Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.
 
 Mezi výhody používání Logic Apps patří:  
@@ -40,7 +44,7 @@ Jak už bylo zmíněno, pomocí Logic Apps můžete automatizovat podnikové pro
 
 Podobné scénáře je možné konfigurovat ve všech vizuálních návrhářích bez nutnosti napsat jediný řádek kódu. Začněte [vytvářet aplikaci logiky už teď][vytvoření].  Jakmile ji napíšete, můžete aplikaci logiky [rychle nasadit a překonfigurovat](app-service-logic-create-deploy-template.md) pro různá prostředí a oblasti.
 
-## <a name="why-logic-apps?"></a>Proč Logic Apps?
+## <a name="why-logic-apps"></a>Proč Logic Apps?
 Logic Apps přinášejí do prostoru podnikových integrací rychlost a škálovatelnost.  Snadné používání návrháře, řada dostupných triggerů a akcí a výkonné nástroje pro správu výrazně zjednodušují centralizaci rozhraní API.  Firmy se vydávají směrem k digitalizaci a Logic Apps jim na této cestě umožňují propojit starší systémy s těmi nejmodernějšími.
 
 Kromě toho můžete pomocí [účtu podnikové integrace][biztalk] přejít k pokročilým scénářům integrace. Pomohou vám v tom funkce [zasílání zpráv XML][xml], [správa obchodních partnerů][tpm] a další.
@@ -76,6 +80,6 @@ Následující pojmy představují některé z klíčových součástí, které 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

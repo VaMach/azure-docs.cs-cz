@@ -1,12 +1,12 @@
 ---
-title: Ověření Windows a server Azure Multi-Factor Authentication
-description: Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication.
+title: "Ověření Windows a server Azure Multi-Factor Authentication"
+description: "Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření Windows a serveru Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Ověření Windows a server Azure Multi-Factor Authentication
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Ověření Windows a server Azure Multi-Factor Authentication
 Část ověřování systému Windows umožňuje správci povolit a konfigurovat ověřování systému Windows pro jednu nebo více aplikací.  Následuje seznam skutečností, které je potřeba si zapamatovat před nastavením ověřování systému Windows.
 
 * Před aktivací Azure Multi-Factor Authentication pro Terminálové služby je nutné restartovat počítač.
@@ -28,7 +32,7 @@ ms.author: kgremban
 > 
 > 
 
-## Chcete-li zabezpečit aplikaci pomocí ověřování systému Windows, použijte následující postup.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Chcete-li zabezpečit aplikaci pomocí ověřování systému Windows, použijte následující postup.
 1. Na serveru Azure Multi-Factor Authentication klikněte na ikonu ověřování systému Windows.
    ![Ověřování systému Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Zaškrtněte políčko Povolit ověřování systému Windows. Ve výchozím nastavení je toto políčko zaškrtnuté.
@@ -42,6 +46,9 @@ ms.author: kgremban
 10. Pokud chcete zadat rozsahu IP adres pomocí zápisu podsítě, vyberte podsíť. Zadejte počáteční IP adresu podsítě a vyberte příslušnou síťovou masku z rozevíracího seznamu.
 11. Klikněte na tlačítko OK.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

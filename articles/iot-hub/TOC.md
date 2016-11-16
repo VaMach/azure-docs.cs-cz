@@ -1,5 +1,4 @@
 # Přehled
-## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure a IoT](iot-hub-what-is-azure-iot.md)
 ## [Co je Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Přehled správy zařízení](iot-hub-device-management-overview.md)
@@ -28,22 +27,23 @@
 ### [Řešení potíží](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Začínáme se sadou Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Začínáme se sadou Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+## Kurzy
+### [Kurz zpracování zpráv ze zařízení na cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+### [Kurz zpracování zpráv ze zařízení na cloud (Java)](iot-hub-java-java-process-d2c.md)
+### [Kurz nahrávání souborů ze zařízení](iot-hub-csharp-csharp-file-upload.md)
+### [Posílání zpráv z cloudu na zařízení (.NET)](iot-hub-csharp-csharp-c2d.md)
+### [Posílání zpráv z cloudu na zařízení (Java)](iot-hub-java-java-c2d.md)
+### [Posílání zpráv z cloudu na zařízení (Node)](iot-hub-node-node-c2d.md)
+### [Začínáme s dvojčaty zařízení](iot-hub-node-node-twin-getstarted.md)
+### [Jak používat vlastnosti dvojčat](iot-hub-node-node-twin-how-to-configure.md)
 
 # Postup
-## [Kurz zpracování zpráv ze zařízení na cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-## [Kurz zpracování zpráv ze zařízení na cloud (Java)](iot-hub-java-java-process-d2c.md)
-## [Kurz nahrávání souborů ze zařízení](iot-hub-csharp-csharp-file-upload.md)
-## [Posílání zpráv z cloudu na zařízení (.NET)](iot-hub-csharp-csharp-c2d.md)
-## [Posílání zpráv z cloudu na zařízení (Java)](iot-hub-java-java-c2d.md)
-## [Posílání zpráv z cloudu na zařízení (Node)](iot-hub-node-node-c2d.md)
-## [Začínáme s dvojčaty zařízení](iot-hub-node-node-twin-getstarted.md)
-## [Jak používat vlastnosti dvojčat](iot-hub-node-node-twin-how-to-configure.md)
 ## Plánování nasazení
 ### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
-## Příručka pro vývojáře
+## Vývoj
 ### [Úvod](iot-hub-devguide.md)
 ### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
 ### [Odeslání souborů ze zařízení](iot-hub-devguide-file-upload.md)
@@ -74,21 +74,22 @@
 ### [Osvědčené postupy zabezpečení](iot-hub-security-best-practices.md)
 ### [Architektura zabezpečení](iot-hub-security-architecture.md)
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
+
+
+# Referenční informace
+## [Azure CLI](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## Gateway SDK
 ### [Kurz simulace zařízení pomocí sady Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Kurz simulace zařízení pomocí sady Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Kurz odeslání zprávy z reálného zařízení pomocí sady Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
-
-# Referenční informace
-## [Rozhraní .NET API klienta a zařízení](https://msdn.microsoft.com/library/mt488521.aspx)
-## [Rozhraní REST API poskytovatele prostředků](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [Rozhraní REST API identit zařízení](https://go.microsoft.com/fwlink/p/?linkid=833394)
-## [Rozhraní REST API zasílání zpráv zařízení](https://go.microsoft.com/fwlink/p/?linkid=833395)
 ## [Rozhraní API sady SDK pro zařízení](http://azure.github.io/azure-iot-sdks/)
 ## [Rozhraní API sady Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
 ## [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
+## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Související
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -97,9 +98,15 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=iot-hub) 
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centrum pro vývojáře Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
-## [Informace o cenách](https://azure.microsoft.com/pricing/details/iot-hub/)
+
 
 
 <!--HONumber=Nov16_HO2-->

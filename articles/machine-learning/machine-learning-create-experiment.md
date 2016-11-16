@@ -1,13 +1,13 @@
 ---
-title: Jednoduchý experiment v nástroji Machine Learning Studio | Microsoft Docs
-description: Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Pomocí regresního algoritmu předpovíme cenu automobilu.
-keywords: experiment,lineární regrese,algoritmy Machine Learningu,kurz Machine Learningu,techniky prediktivního modelování,experiment z oblasti datové vědy
+title: "Jednoduchý experiment v nástroji Machine Learning Studio | Dokumentace Microsoftu"
+description: "Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Pomocí regresního algoritmu předpovíme cenu automobilu."
+keywords: "experiment,lineární regrese,algoritmy Machine Learningu,kurz Machine Learningu,techniky prediktivního modelování,experiment z oblasti datové vědy"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 210e19cbc581ce5fc17898abe184b96c48370e7f
+
 
 ---
-# Kurz Machine Learningu: Vytvoření prvního experimentu z oblasti datové vědy v nástroji Azure Machine Learning Studio
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Kurz Machine Learningu: Vytvoření prvního experimentu z oblasti datové vědy v nástroji Azure Machine Learning Studio
 Tento kurz Machine Learningu vás provede jednoduchým experimentem z oblasti datové vědy. Vytvoříme model lineární regrese, který bude předpovídat cenu automobilu podle různých proměnných, třeba značky a technických specifikací. K tomu využijeme Azure Machine Learning Studio, ve kterém budeme vyvíjet a iterovat jednoduchý experiment prediktivní analýzy.
 
 *Prediktivní analýza* je odvětví datové vědy, které na základě aktuálních dat předpovídá budoucí výsledky. Velmi jednoduchý příklad prediktivní analýzy můžete sledovat ve videu o datové vědě pro začátečníky č. 4: [Předpověď odpovědi pomocí jednoduchého modelu](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (délka: 7:42).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## V čem je přínos nástroje Machine Learning Studio?
+## <a name="how-does-machine-learning-studio-help"></a>V čem je přínos nástroje Machine Learning Studio?
 Machine Learning Studio usnadňuje vytvoření pokusu přetahováním předem naprogramovaných modulů s technikami prediktivního modelování. Když chcete provést experiment a předpovědět odpověď, v nástroji Machine Learning Studio *vytvoříte model*, *provedete trénování modelu* a potom *model ohodnotíte a otestujete*.
 
 Otevřete Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Pokud už jste se do nástroje Machine Learning Studio někdy přihlašovali, klikněte na odkaz **Přihlásit se**. Jinak klikněte na **Zaregistrovat** a vyberte si mezi bezplatnou a placenou možností.
 
 Další obecné informace o nástroji Machine Learning Studio najdete v tématu [Co je Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
-## Vytvoření experimentu v pěti krocích
+## <a name="five-steps-to-create-an-experiment"></a>Vytvoření experimentu v pěti krocích
 V tomto kurzu strojového učení vytvoříte experiment provedením 5 základních kroků v nástroji Machine Learning Studio, v rámci kterých sestavíte model, natrénujete ho a stanovíte jeho skóre:
 
 * Vytvoření modelu
@@ -50,7 +54,7 @@ V tomto kurzu strojového učení vytvoříte experiment provedením 5 základn�
 [Krok 5: Předpověď cen nových automobilů]: #step-5-predict-new-automobile-prices
 
 
-## Krok 1: Získání dat
+## <a name="step-1-get-data"></a>Krok 1: Získání dat
 Machine Learning Studio obsahuje několik ukázkových datových sad, ze kterých si můžete vybrat, nebo můžete data importovat z mnoha zdrojů. V tomto příkladu použijeme dodávanou ukázkovou datovou sadu **Automobile price data (Raw)**.
 Tato datová sada obsahuje záznamy řady různých automobilů, včetně informací o značce, modelu, technických specifikacích a ceně.
 
@@ -72,7 +76,7 @@ Proměnné datové sady jsou zobrazeny jako sloupce a každá instance automobil
 
 Kliknutím na **x** v pravém horním rohu zavřete okno vizualizace.
 
-## Krok 2: Předzpracování dat
+## <a name="step-2-preprocess-data"></a>Krok 2: Předzpracování dat
 Před analýzou datové sady bývá zpravidla nutné sadu nějakým způsobem předzpracovat. Možná jste si ve sloupcích různých řádků všimli chybějících hodnot. Tyto chybějící hodnoty se musí vyčistit, aby model mohl data správně analyzovat. V našem případě odstraníme všechny řádky, ve kterých některé hodnoty chybí. Hodnoty ve sloupci **normalized-losses** navíc z velké části chybí, proto tento sloupec v modelu zcela vynecháme.
 
 > [!TIP]
@@ -113,7 +117,7 @@ Vše, co jsme do této chvíle v experimentu udělali, bylo vyčištění dat. P
 
 Nyní když jsou data vyčištěna, můžete určit, které příznaky použijeme v prediktivním modelu.
 
-## Krok 3: Definice příznaků
+## <a name="step-3-define-features"></a>Krok 3: Definice příznaků
 Ve strojovém učení se jako *příznaky* označují jednotlivé měřitelné vlastnosti něčeho, co vás zajímá. V naší datové sadě každý řádek představuje jeden automobil a každý sloupec je příznak daného automobilu.
 
 Nalezení správné sady příznaků pro vytvoření prediktivního modelu vyžaduje experimentování a znalost problému, který chcete vyřešit. Některé příznaky jsou pro predikci cíle vhodnější než jiné. Některé příznaky navíc silně korelují s jinými příznaky (například city-mpg a highway-mpg), tudíž do modelu nepřinesou mnoho nových informací a lze je odstranit.
@@ -138,7 +142,7 @@ Vytvořme model, který používá podmnožinu příznaků naší datové sady. 
 
 Tímto se vytvoří datová sada, kterou algoritmus učení použije v dalších krocích. Později se můžete vrátit a zkusit jiný výběr příznaků.
 
-## Krok 4: Volba a použití algoritmu učení
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Krok 4: Volba a použití algoritmu učení
 Nyní když jsou data připravena, tvorba prediktivního modelu sestává z trénování a testování. Naše data použijeme pro trénování modelu, pak model otestujeme a zjistíme, jak přesně dokáže předpovídat ceny. Tím, proč potřebujeme model trénovat a potom testovat, se zatím nezabývejte.
 
 *Klasifikace* a *regrese* jsou dva typy technik strojového učení s učitelem. Klasifikace předpovídá odpověď na základě definované sady kategorií, třeba barvy (červená, modrá nebo zelená). Regrese se používá k předpovědi čísel.
@@ -165,7 +169,7 @@ Výsledkem je natrénovaný model, který lze použít ke stanovení skóre pro 
 
 ![Použití algoritmu strojového učení][screen8]
 
-## Krok 5: Předpověď cen nových automobilů
+## <a name="step-5-predict-new-automobile-prices"></a>Krok 5: Předpověď cen nových automobilů
 Nyní když jsme natrénovali model pomocí 75 procent dat, můžeme model použít ke stanovení skóre u zbylých 25 procent dat a zjistit, jak dobře model funguje.
 
 1. Najděte a přetáhněte modul [Určení skóre modelu][score-model] na plátno experimentu a propojte jej s levým vstupním portem k výstupu modulu [Trénování modelu][train-model]. Propojte pravý vstupní port na výstup testovacích dat (pravý port) modulu [Rozdělení dat][split].  
@@ -191,7 +195,7 @@ Konečný experiment by měl vypadat přibližně takto:
 
 ![Kurz strojového učení: Úplný experiment lineární regrese, který využívá techniky prediktivního modelování][screen10]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nyní když jste dokončili první kurz strojového učení a máte nastaven experiment, můžete postup opakovat a pokusit se model vylepšit. Můžete například změnit příznaky, které se používají při predikci. Dále můžete upravit vlastnosti algoritmu [Lineární regrese][linear-regression] nebo zkusit úplně jiný algoritmus. Dokonce je možné přidat do experimentu několik algoritmů strojového učení najednou a porovnat je pomocí modulu [Vyhodnocení modelu][evaluate-model].
 
 > [!TIP]
@@ -201,30 +205,30 @@ Nyní když jste dokončili první kurz strojového učení a máte nastaven exp
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Jakmile budete se svým modelem spokojeni, můžete jej nasadit jako webovou službu, kterou lze použít k předvídání cen automobilů na základě nových dat. Další podrobnosti najdete v tématu [Nasazení webové služby Azure Machine Learning][publish].
+Jakmile budete se svým modelem spokojeni, můžete jej nasadit jako webovou službu, kterou lze použít k předvídání cen automobilů na základě nových dat. Další podrobnosti najdete v tématu [Nasazení webové služby Azure Machine Learning][publikování].
 
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[publikování]: machine-learning-publish-a-machine-learning-web-service.md
 
-Rozsáhlejší a podrobnější návod k technikám prediktivního modelování pro vytváření, trénování, stanovení skóre a nasazení modelu najdete v tématu [Vývoj prediktivního řešení pomocí Azure Machine Learningu][walkthrough].
+Rozsáhlejší a podrobnější návod k technikám prediktivního modelování pro vytváření, trénování, stanovení skóre a nasazení modelu najdete v tématu [Vývoj prediktivního řešení pomocí Azure Machine Learningu][Názorný postup].
 
-[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
+[Názorný postup]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
-[screen1]:./media/machine-learning-create-experiment/screen1.png
-[screen1a]:./media/machine-learning-create-experiment/screen1a.png
-[screen1b]:./media/machine-learning-create-experiment/screen1b.png
-[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
-[screen2]:./media/machine-learning-create-experiment/screen2.png
-[screen3]:./media/machine-learning-create-experiment/screen3.png
-[screen4]:./media/machine-learning-create-experiment/screen4.png
-[screen4a]:./media/machine-learning-create-experiment/screen4a.png
-[screen5]:./media/machine-learning-create-experiment/screen5.png
-[screen6]:./media/machine-learning-create-experiment/screen6.png
-[screen7]:./media/machine-learning-create-experiment/screen7.png
-[screen8]:./media/machine-learning-create-experiment/screen8.png
-[screen8a]:./media/machine-learning-create-experiment/screen8a.png
-[screen9]:./media/machine-learning-create-experiment/screen9.png
-[screen10]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
+[obrazovka1]:./media/machine-learning-create-experiment/screen1.png
+[obrazovka1a]:./media/machine-learning-create-experiment/screen1a.png
+[obrazovka1b]:./media/machine-learning-create-experiment/screen1b.png
+[obrazovka1c]: ./media/machine-learning-create-experiment/screen1c.png
+[obrazovka2]:./media/machine-learning-create-experiment/screen2.png
+[obrazovka3]:./media/machine-learning-create-experiment/screen3.png
+[obrazovka4]:./media/machine-learning-create-experiment/screen4.png
+[obrazovka4a]:./media/machine-learning-create-experiment/screen4a.png
+[obrazovka5]:./media/machine-learning-create-experiment/screen5.png
+[obrazovka6]:./media/machine-learning-create-experiment/screen6.png
+[obrazovka7]:./media/machine-learning-create-experiment/screen7.png
+[obrazovka8]:./media/machine-learning-create-experiment/screen8.png
+[obrazovka8a]:./media/machine-learning-create-experiment/screen8a.png
+[obrazovka9]:./media/machine-learning-create-experiment/screen9.png
+[obrazovka10]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
 
 
 <!-- Module References -->
@@ -238,6 +242,6 @@ Rozsáhlejší a podrobnější návod k technikám prediktivního modelování 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

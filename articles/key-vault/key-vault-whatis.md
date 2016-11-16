@@ -1,12 +1,12 @@
 ---
-title: Co je Azure Key Vault? | Microsoft Docs
-description: Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Pomocí Azure Key Vault můžou zákazníci šifrovat klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat, soubory PFX a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM).
+title: Co je Azure Key Vault? | Dokumenty Microsoft
+description: "Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Pomocí Azure Key Vault můžou zákazníci šifrovat klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat, soubory PFX a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM)."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a1fa90df7a92f74b25c8188bb37dcdd6b0b553b3
+
 
 ---
-# Co je Azure Key Vault?
+# <a name="what-is-azure-key-vault"></a>Co je Azure Key Vault?
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Úvod
+## <a name="introduction"></a>Úvod
 Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Pomocí Key Vault můžete šifrovat klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat, soubory PFX a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM). Pro zvýšené bezpečí můžete klíče importovat nebo generovat v modulech HSM. Pokud se tak rozhodnete, společnost Microsoft bude zpracovávat vaše klíče v modulech HSM ověřených podle standardu FIPS 140-2 Level 2 (hardware a firmware).  
 
 Key Vault zjednodušuje proces správy klíčů a zajišťuje vám kontrolu nad klíči, které se používají k přístupu a šifrování dat. Vývojáři můžou během pár minut vytvořit klíče pro vývoj a testování a potom je bez problémů migrovat na produkční klíče. Správci zabezpečení můžou klíčům podle potřeby udělovat (a odvolávat) oprávnění.
@@ -46,7 +50,7 @@ Tento správce potom poskytne vývojářům identifikátory URI, které mohou vo
 
 Vývojáři také mohou spravovat klíče přímo, pomocí rozhraní API. Další informace najdete v [příručce pro vývojáře Key Vault](key-vault-developers-guide.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Úvodní kurz pro správce najdete v tématu [Začínáme s Azure Key Vault](key-vault-get-started.md).
 
 Další informace o protokolování využití Key Vault najdete v tématu[Protokolování Azure Key Vault](key-vault-logging.md).
@@ -58,6 +62,6 @@ Další informace o používání klíčů a tajných klíčů se službou Azure
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

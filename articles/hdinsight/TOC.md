@@ -1,11 +1,12 @@
 # Přehled
-## [Co je Hadoop?](hdinsight-hadoop-introduction.md)
-## [Co je R Server?](hdinsight-hadoop-r-server-overview.md)
-## [Co je Spark?](hdinsight-apache-spark-overview.md)
-## [Co je HBase?](hdinsight-hbase-overview.md)
-## [Co je Storm?](hdinsight-storm-overview.md)
-## [Co je služba HDInsight připojená k doméně ve verzi Preview?](hdinsight-domain-joined-introduction.md)
+## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [Součásti systému Hadoop ve službě HDInsight](hdinsight-component-versioning.md)
+## [R Server](hdinsight-hadoop-r-server-overview.md)
+## [Apache Spark](hdinsight-apache-spark-overview.md)
+## [HBase](hdinsight-hbase-overview.md)
+## [Apache Storm](hdinsight-storm-overview.md)
+## [Služba HDInsight připojená k doméně ve verzi Preview](hdinsight-domain-joined-introduction.md)
+
 # Začínáme
 ## [Začínáme s Hadoopem](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Začínáme s interaktivním Hivem ve verzi Preview](hdinsight-hadoop-use-interactive-hive.md)
@@ -13,14 +14,13 @@
 ## [Začínáme se Sparkem](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Začínáme s HBase a NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Odstranění clusteru](hdinsight-delete-cluster.md)
 ## [Izolovaný prostor (sandbox) systému Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Nástroje služby Data Lake s Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Nástroje pro Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 ## [Použití Blob Storage](hdinsight-hadoop-use-blob-storage.md)
-## [Postup výuky](https://azure.microsoft.com/en-us/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 # Postup
-## Hadoop: Dotaz Batch
+## Použití Hadoop pro dávkové dotazy
 ### [Hive se systémem Hadoop](hdinsight-use-hive.md)
 #### [Použití zobrazení Hivu](hdinsight-hadoop-use-hive-ambari-view.md)
 #### [Použití SSH](hdinsight-hadoop-use-hive-ssh.md)
@@ -32,13 +32,13 @@
 #### [Použití Vzdálené plochy](hdinsight-hadoop-use-hive-remote-desktop.md)
 #### [Použití konzoly pro dotazy](hdinsight-hadoop-use-hive-query-console.md)
 ### [Použití uživatelem definovaných funkcí v Javě s Hivem](hdinsight-hadoop-hive-java-udf.md)
-### [MapReduce se systémem Hadoop](hdinsight-use-mapreduce.md)
+### [Použití MapReduce se systémem Hadoop](hdinsight-use-mapreduce.md)
 #### [Použití Vzdálené plochy](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
 #### [Použití SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [Použití cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Použití PowerShellu](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [Ukázky MapReduce](hdinsight-hadoop-run-samples-linux.md)
-### [Pig se systémem Hadoop](hdinsight-use-pig.md)
+### [Spuštění ukázek MapReduce](hdinsight-hadoop-run-samples-linux.md)
+### [Použití Pigu se systémem Hadoop](hdinsight-use-pig.md)
 #### [Použití Vzdálené plochy](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [Použití SSH a Pig](hdinsight-hadoop-use-pig-ssh.md)
 #### [Použití PowerShellu](hdinsight-hadoop-use-pig-powershell.md)
@@ -47,11 +47,11 @@
 ### [Použití DataFu s Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clustery na vyžádání](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Odeslání úloh systému Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server ve verzi Preview
+## Použití R Serveru ve verzi Preview
 ### [Možnosti úložiště](hdinsight-hadoop-r-server-storage.md)
 ### [Instalace nástroje RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Kontexty služby Compute](hdinsight-hadoop-r-server-compute-contexts.md)
-## Spark: Zpracování v paměti
+## Použití Sparku pro zpracování v paměti
 ### [Pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Samostatná aplikace](hdinsight-apache-spark-create-standalone-application.md)
 ### [Zpracování událostí streamování](hdinsight-apache-spark-eventhub-streaming.md)
@@ -67,7 +67,7 @@
 ### [Správa prostředků](hdinsight-apache-spark-resource-manager.md)
 ### [Sledování a ladění úloh](hdinsight-apache-spark-job-debugging.md)
 ### [Známé problémy](hdinsight-apache-spark-known-issues.md)
-## HBase: NoSQL
+## Použití HBase
 ### [Použití Phoenixu a SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analýza tweetů v reálném čase](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Vytvoření clusterů ve virtuální síti](hdinsight-hbase-provision-vnet.md)
@@ -75,7 +75,7 @@
 ### [Konfigurace serverů DNS](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [Konfigurace geografické replikace HBase](hdinsight-hbase-geo-replication.md)
 ### [Vývoj aplikace v Javě](hdinsight-hbase-build-java-maven-linux.md)
-## Storm: Streamování dotazu
+## Použití Stormu
 ### [Nasazení a správa topologií](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [Vývoj aplikací pro zpracování dat v SCP](hdinsight-storm-scp-programming-guide.md)
 ### [Příklady použití Stormu](hdinsight-storm-example-topology.md)
@@ -90,7 +90,7 @@
 #### [Zpracování dat snímače vozidla](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Korelace událostí v průběhu času](hdinsight-storm-correlation-topology.md)
 #### [Vývoj topologií pomocí Pythonu](hdinsight-storm-develop-python-topology.md)
-## Služba HDInsight připojená k doméně ve verzi Preview
+## Použití služby HDInsight připojené k doméně ve verzi Preview
 ### [Konfigurace](hdinsight-domain-joined-configure.md)
 ### [Správa](hdinsight-domain-joined-manage.md)
 ### [Konfigurace zásad Hivu](hdinsight-domain-joined-run-hive.md)
@@ -104,7 +104,7 @@
 ### [Serializace dat pomocí knihovny Avro](hdinsight-dotnet-avro-serialization.md)
 ### [Použití uživatelem definovaných funkcí jazyka C#](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Použití Pythonu s Hivem a Pig](hdinsight-python.md)
-## Řešení pro velké objemy dat
+## Analýza velkých objemů dat
 ### [Analýza pomocí doplňku Power Query](hdinsight-connect-excel-power-query.md)
 ### [Připojení Excelu ke službě HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Připojení pomocí ovladače Hive JDBC](hdinsight-connect-hive-jdbc-driver.md)
@@ -125,7 +125,7 @@
 ### [Použití Solru](hdinsight-hadoop-solr-install-linux.md)
 ### [Použití služby Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 ### [Použití Zeppelinu](hdinsight-apache-spark-use-zeppelin-notebook.md)
-### Aplikace HDInsight
+### Vytváření aplikací HDInsight
 #### [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md)
 #### [Instalace vlastních aplikací](hdinsight-apps-install-custom-applications.md)
 #### [Použití rozhraní REST k instalací aplikací](https://msdn.microsoft.com/library/mt706515.aspx)
@@ -172,6 +172,7 @@
 #### [Nastavení Hivu pro opravu chyb typu Nedostatek paměti](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Optimalizace dotazů Hive](hdinsight-hadoop-optimize-hive-query.md)
 #### [Ladění výkonu dotazů Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # Referenční informace
 ## [REST API – referenční informace](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [Rozhraní Spark REST API pro vzdálené úlohy](https://msdn.microsoft.com/library/mt613023.aspx)
@@ -179,8 +180,8 @@
 ## [Sada .NET SDK pro Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [Sada .NET SDK pro HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Knihovna .NET pro Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-# Zdroje a prostředky
-## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+
+# Související
 ## Clustery s Windows
 ### [Migrace clusterů s Windows na clustery s Linuxem](hdinsight-migrate-from-windows-to-linux.md)
 ### [Začínáme s Hadoopem](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -210,6 +211,11 @@
 ### [Analýza dat Twitteru](hdinsight-analyze-twitter-data.md)
 ### [Správa clusterů přes portál Azure Portal](hdinsight-administer-use-management-portal.md)
 ### [Monitorování clusterů pomocí rozhraní Ambari API](hdinsight-monitor-use-ambari-api.md)
+
+# Zdroje
+## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 
 <!--HONumber=Nov16_HO2-->
 

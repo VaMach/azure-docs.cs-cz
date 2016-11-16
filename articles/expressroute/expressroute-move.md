@@ -1,12 +1,12 @@
 ---
-title: Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager | Microsoft Docs
-description: Tato stránka obsahuje přehled toho, co potřebujete vědět o přemostění modelů nasazení Classic a Resource Manager.
+title: "Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager | Dokumentace Microsoftu"
+description: "Tato stránka obsahuje přehled toho, co potřebujete vědět o přemostění modelů nasazení Classic a Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
-# Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
+# <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
 Tento článek obsahuje přehled toho, co znamená přesun okruhu Azure ExpressRoute z modelu nasazení Classic do Azure Resource Manager.
 
 [!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -25,7 +29,7 @@ Jeden okruh ExpressRoute můžete použít pro připojení k virtuálním sítí
 
 ![Okruh ExpressRoute propojující se k virtuálním sítím v obou modelech nasazení](./media/expressroute-move/expressroute-move-1.png)
 
-## Okruhy ExpressRoute vytvořené v modelu nasazení Classic
+## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Okruhy ExpressRoute vytvořené v modelu nasazení Classic
 Nejprve je nutné přesunout do modelu nasazení Resource Manager okruhy ExpressRoute, které jsou vytvořené v modelu nasazení Classic, aby byla možné připojení k oběma modelům nasazení, Classic i Resource Manager. Během přesunu připojení nedojde ke ztrátě nebo přerušení připojení. Všechna propojení okruhu do virtuální sítě v modelu nasazení Classic (v rámci stejného předplatného i mezi předplatnými) se zachovají.
 
 Po úspěšném dokončení přesunu okruh ExpressRoute vypadá a pracuje úplně stejně jako okruh ExpressRoute, který byl vytvořený v modelu nasazení Resource Manager. Nyní můžete vytvořit připojení k virtuálním sítím v modelu nasazení Resource Manager.
@@ -34,7 +38,7 @@ Po přesunutí okruhu ExpressRoute do modelu nasazení Resource Manager můžete
 
 Provedení přesunu se váš poskytovatel připojení nemusí účastnit.
 
-## Okruhy ExpressRoute vytvořené v modelu nasazení Resource Manager
+## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>Okruhy ExpressRoute vytvořené v modelu nasazení Resource Manager
 Můžete povolit, aby okruhy ExpressRoute, které jsou vytvořené v modelu nasazení Resource Manager, byly přístupné z obou modelů nasazení. Přístup z obou modelů nasazení jde povolit pro jakýkoli okruh ExpressRoute v rámci vašeho předplatného.
 
 * Okruhy ExpressRoute, které jsou vytvořené v modelu nasazení Resource Manager, nemají standardně přístup k modelu nasazení Classic.
@@ -47,14 +51,14 @@ Můžete povolit, aby okruhy ExpressRoute, které jsou vytvořené v modelu nasa
 > 
 > 
 
-## Řízení přístupu k modelu nasazení Classic
+## <a name="controlling-access-to-the-classic-deployment-model"></a>Řízení přístupu k modelu nasazení Classic
 Můžete povolit jeden okruh ExpressRoute k propojení virtuálních sítí v obou modelech nasazení nastavením parametru **allowClassicOperations** okruhu ExpressRoute.
 
 Nastavení parametru **allowClassicOperations** na hodnotu TRUE vám umožní propojit virtuální sítě z obou modelů nasazení k okruhu ExpressRoute. Můžete se propojit k virtuálním sítím v modelu nasazení Classic podle pokynů v tématu [Způsob propojení virtuálních sítí v modelu nasazení Classic](expressroute-howto-linkvnet-classic.md). Můžete se propojit k virtuálním sítím v modelu nasazení Resource Manager podle pokynů v tématu [Způsob propojení virtuálních sítí v modelu nasazení Resource Manager](expressroute-howto-linkvnet-arm.md).
 
 Nastavení parametru **allowClassicOperations** na hodnotu FALSE zablokuje přístup k obvodu z modelu nasazení Classic. Nicméně všechna propojení virtuálních sítí v modelu nasazení Classic se zachovají. V takovém případě není okruh ExpressRoute v modelu nasazení Classic viditelný.
 
-## Podporované operace v modelu nasazení Classic
+## <a name="supported-operations-in-the-classic-deployment-model"></a>Podporované operace v modelu nasazení Classic
 Podporovány jsou následující klasické operace pro okruh ExpressRoute, pokud je parametr **allowClassicOperations** nastavený na hodnotu TRUE:
 
 * Získání informací o okruhu ExpressRoute
@@ -66,15 +70,15 @@ Nejde provádět následující klasické operace při nastavení parametru **al
 * Vytvoření, aktualizace, získání nebo odstranění partnerských vztahů protokolu BGP pro soukromé partnerské vztahy Azure, veřejné partnerské vztahy Azure a partnerské vztahy Microsoftu
 * Odstranění okruhů ExpressRoute
 
-## Komunikace mezi modely nasazení Classic a Resource Manager
+## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Komunikace mezi modely nasazení Classic a Resource Manager
 Okruh ExpressRoute pracuje jako most mezi modelem nasazení Classic a modelem nasazení Resource Manager. Přenos dat mezi virtuálními počítači ve virtuálních sítích v modelu nasazení Classic a těmi ve virtuálních sítích v modelu nasazení Resource Manager prochází službou ExpressRoute, pokud jsou obě virtuální sítě propojené ke stejnému okruhu ExpressRoute.
 
 Agregační propustnost je omezená kapacitou propustnosti brány virtuální sítě. Přenos dat v takových případech nevstupuje do sítí poskytovatele připojení nebo do vašich sítí. Přenos mezi virtuálními sítěmi je plně obsažen v rámci sítě Microsoftu.
 
-## Přístup k prostředkům veřejných partnerských vztahů Azure a partnerských vztahů Microsoftu
+## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Přístup k prostředkům veřejných partnerských vztahů Azure a partnerských vztahů Microsoftu
 Můžete nadále přístup k prostředkům, které jsou obvykle přístupné prostřednictvím veřejných partnerských vztahů Azure a partnerských vztahů Microsoftu, bez přerušení.  
 
-## Co je podporováno
+## <a name="whats-supported"></a>Co je podporováno
 Tato část popisuje, co je podporováno pro okruhy ExpressRoute:
 
 * Jeden okruh ExpressRoute můžete použít pro přístup k virtuálním sítím, které jsou nasazené v modelu nasazení Classic i Resource Manager.
@@ -84,17 +88,17 @@ Tato část popisuje, co je podporováno pro okruhy ExpressRoute:
 * Okruh ExpressRoute pracuje jako most mezi modelem nasazení Classic a modelem nasazení Resource Manager. Přenos dat mezi virtuálními počítači ve virtuálních sítích v modelu nasazení Classic a těmi ve virtuálních sítích v modelu nasazení Resource Manager prochází službou ExpressRoute, pokud jsou obě virtuální sítě propojené ke stejnému okruhu ExpressRoute.
 * Připojení mezi předplatnými je podporováno v modelu nasazení Classic i Resource Manager.
 
-## Co není podporováno
+## <a name="whats-not-supported"></a>Co není podporováno
 Tato část popisuje, co není podporováno pro okruhy ExpressRoute:
 
 * Přesunutí propojení okruhu, bran a virtuálních sítí z model nasazení Classic do Resource Manager.
 * Správa životního cyklu okruhu ExpressRoute z modelu nasazení Classic.
 * Podpora řízení přístupu na základě role (RBAC) pro model nasazení Classic. Nejde provádět řízení RBAC na okruh v modelu nasazení Classic. Libovolný správce nebo spolusprávce předplatného může propojit virtuální sítě k okruhu nebo toto propojení zrušit.
 
-## Konfigurace
+## <a name="configuration"></a>Konfigurace
 Postupujte podle pokynů uvedených v tématu [Přesun okruhu ExpressRoute z modelu nasazení Classic do Resource Manager](expressroute-howto-move-arm.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Informace o pracovním postupu najdete v tématu [Pracovní postupy zřizování okruhů ExpressRoute a stavy okruhu](expressroute-workflows.md).
 * Konfigurace připojení ExpressRoute:
   
@@ -102,6 +106,9 @@ Postupujte podle pokynů uvedených v tématu [Přesun okruhu ExpressRoute z mod
   * [Konfigurace směrování](expressroute-howto-routing-arm.md)
   * [Propojení virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

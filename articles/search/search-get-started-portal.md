@@ -1,13 +1,13 @@
 ---
-title: Začínáme se službou Azure Search | Microsoft Docs
-description: Zjistěte, jak vytvořit první index služby Azure Search pomocí tohoto kurzu a ukázkových dat DocumentDB. Toto cvičení bez kódu založené na portálu využívá Průvodce importem dat.
+title: "Začínáme s Azure Search | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit první index služby Azure Search pomocí tohoto kurzu a ukázkových dat DocumentDB. Toto cvičení bez kódu založené na portálu využívá Průvodce importem dat."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+
 
 ---
-# Začínáme s Azure Search v portálu
+# <a name="get-started-with-azure-search-in-the-portal"></a>Začínáme s Azure Search v portálu
 Tento úvod bez kódu vám pomůže začít s Microsoft Azure Search pomocí funkcí integrovaných přímo v portálu. 
 
 Kurz předpokládá využití [ukázkové databáze Azure DocumentDB](#apdx-sampledata), kterou lze jednoduše vytvořit pomocí našich dat a pokynů, ale můžete také přizpůsobit tyto kroky vaším existujícím datům v DocumentDB nebo SQL Database.
@@ -27,17 +31,17 @@ Kurz předpokládá využití [ukázkové databáze Azure DocumentDB](#apdx-samp
 > 
 > 
 
-## Vyhledání služby
+## <a name="find-your-service"></a>Vyhledání služby
 1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
 2. Otevřete řídící panel služby Azure Search. Zde je několik způsobů, jak najít řídicí panel.
    
    * Na panelu vlevo klikněte na **Vyhledávací služby**. Panel vlevo obsahuje seznam všech služeb zřízených v rámci vašeho předplatného. Pokud byla definována vyhledávací služba, zobrazuje se v seznamu položka **Služby vyhledávání**.
    * Na panelu vlevo klikněte na **Procházet** a potom zadejte do pole hledání termín „search“, abyste vytvořili seznam všech vyhledávacích služeb vytvořených v rámci vašich předplatných.
 
-## Kontrola místa
+## <a name="check-for-space"></a>Kontrola místa
 Mnoho zákazníků začíná s bezplatnou službou. Tato verze je omezená na tři indexy, tři zdroje dat a tři indexery. Než začnete, ujistěte se, že máte místo pro další položky. Tento návod vytváří od každého objektu jeden.
 
-## Vytvoření indexu a načtení dat
+## <a name="create-an-index-and-load-data"></a>Vytvoření indexu a načtení dat
 Vyhledávací dotazy provádějí iterace *indexu* obsahujícího data s možností vyhledávání, metadata a konstrukce používané k optimalizaci určitého chování vyhledávání. Jako první krok nadefinujte a naplňte index.
 
 Existuje několik způsobů vytvoření indexu. Pokud jsou vaše data v úložišti, které může procházet služba Azure Search, jako je například SQL Azure Database, SQL Server na virtuálním počítači Azure nebo DocumentDB, můžete vytvořit a naplnit index velmi snadno pomocí *indexeru*.
@@ -48,7 +52,7 @@ Než budete pokračovat, vytvořte [ukázkovou databázi DocumentDB](#apdx-sampl
 
 <a id="defineDS"></a>
 
-#### Krok 1: Definování zdroje dat
+#### <a name="step-1-define-the-data-source"></a>Krok 1: Definování zdroje dat
 1. Na řídicím panelu služby Azure Search klikněte na panelu příkazů na **Importovat data** a spusťte průvodce, který vytvoří a naplní index.
    
     ![][7]
@@ -61,7 +65,7 @@ Všimněte si, že jsme přeskočili dotaz. To je proto, že nyní neimplementuj
 
 Kliknutím na **OK** dokončíte tento krok průvodce.
 
-#### Krok 2: Definování indexu
+#### <a name="step-2-define-the-index"></a>Krok 2: Definování indexu
 Stále v průvodci klikněte na **Index** a podívejte se na návrhovou plochu, která se používá k vytvoření indexu Azure Search. Index vyžaduje minimálně název a kolekci polí s jedním polem označeným jako klíč dokumentu. Vzhledem k tomu, že používáme datovou sadu DocumentDB, průvodce pole automaticky rozpozná a do indexu se předem načtou pole a přiřazení datových typů. 
 
   ![][3]
@@ -96,7 +100,7 @@ Pro porovnání představuje následující snímek obrazovky ilustraci indexu v
 
 Kliknutím na **OK** dokončíte tento krok průvodce.
 
-#### Krok 3: Definování indexeru
+#### <a name="step-3-define-the-indexer"></a>Krok 3: Definování indexeru
 Stále v **Průvodci importem dat** klikněte na **Indexer** > **Název**, zadejte název indexeru a použijte výchozí nastavení pro všechny ostatní hodnoty. Tento objekt definuje spustitelný proces. Jakmile ho vytvoříte, může ho dát do plánu opakování, ale pro tentokrát použijte výchozí možnost spuštění indexeru okamžitě jednou, když kliknete na tlačítko **OK**. 
 
 Položky importu dat by se měly všechny naplnit a být připravené.
@@ -105,12 +109,12 @@ Položky importu dat by se měly všechny naplnit a být připravené.
 
 Chcete-li spustit průvodce, kliknutím na **OK** spusťte import a průvodce zavřete.
 
-## Kontrola průběhu
+## <a name="check-progress"></a>Kontrola průběhu
 Chcete-li zkontrolovat průběh, vraťte se na řídicí panel služby, přesuňte se dolů a dvakrát klikněte na dlaždici **Indexery**, aby se otevřel seznam indexerů. V seznamu byste měli vidět indexer, který jste právě vytvořili, se stavem indikujícím průběh práce nebo úspěch a s počtem dokumentů indexovaných do služby Azure Search.
 
   ![][6]
 
-## Dotazování indexu
+## <a name="query-the-index"></a>Dotazování indexu
 Nyní máte index vyhledávání, který je připraven k dotazování. 
 
 **Průzkumník služby Search** je nástroj pro dotazování, který je integrovaný v portálu. Poskytuje vyhledávací pole, aby mohli ověřit, že vstup vyhledávání vrací očekávaná data. 
@@ -121,7 +125,7 @@ Nyní máte index vyhledávání, který je připraven k dotazování.
 4. Zadejte několik dotazů fulltextového vyhledávání. Můžete zkontrolovat výsledky z vašeho hledání pomocí zástupných znaků a seznámit se s umělci, alby a žánry, na které se lze dotazovat.
 5. Zkuste jinou syntaxi dotazů pomocí [příkladů, které jsou k dispozici na konci tohoto článku](https://msdn.microsoft.com/library/azure/dn798927.aspx), abyste měli představu, jak upravit dotaz s použitím vyhledávacích řetězců, u kterých je pravděpodobné, že se v indexu najdou.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Po prvním spuštění průvodce se můžete vrátit a zobrazit nebo upravit jednotlivé komponenty: index, indexer nebo zdroj dat. Některé úpravy, jako je například změna datového typu pole, nejsou u indexu povoleny, ale většinu vlastností a nastavení lze měnit. Chcete-li zobrazit jednotlivé komponenty, klikněte na dlaždice **Index**, **Indexer** nebo **Zdroje dat** na řídicím panelu, aby se zobrazil seznam existujících objektů.
 
 Další informace o ostatních funkcích uvedených v tomto článku najdete pomocí těchto odkazů:
@@ -139,14 +143,14 @@ Můžete vyzkoušet stejný pracovní postup s Průvodcem importem dat pro dalš
 > 
 > 
 
-## Dodatek: Vytvoření ukázkových dat v DocumentDB
+## <a name="appendix-create-sample-data-in-documentdb"></a>Dodatek: Vytvoření ukázkových dat v DocumentDB
 V této části vytvoříme malou databázi v DocumentDB, kterou lze použít k dokončení úloh v tomto kurzu.
 
 Následující instrukce poskytují obecné pokyny, ale nejsou vyčerpávající. Pokud potřebujete další pomoc s navigací v portálu DocumentDB nebo úlohami, můžete se podívat do dokumentace DocumentDB, ale většina příkazů, které potřebujete, se nachází na panelu příkazů služby v horní části řídicího panelu nebo v okně databáze. 
 
   ![][1]
 
-### Vytvoření databáze musicstoredb pro tento kurz
+### <a name="create-musicstoredb-for-this-tutorial"></a>Vytvoření databáze musicstoredb pro tento kurz
 1. [Kliknutím sem](https://github.com/HeidiSteen/azure-search-get-started-sample-data) stáhnete soubor ZIP obsahující soubory dat JSON s hudebním obchodem. Poskytujeme pro tuto datovou sadu 246 dokumentů JSON.
 2. Přidejte do svého předplatného DocumentDB a pak otevřete řídicí panel služby.
 3. Klikněte na **Přidat databázi** a vytvořte novou databázi s ID `musicstoredb`. Po vytvoření se zobrazí na dlaždici databáze v dolní části stránky.
@@ -177,6 +181,6 @@ Měli byste obdržet výstup ve formátu JSON, který začíná dokumentem s č�
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

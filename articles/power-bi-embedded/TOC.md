@@ -5,8 +5,9 @@
 # Začínáme
 ## [Začínáme s Power BI Embedded](power-bi-embedded-get-started.md)
 ## [Začínáme s pomocí ukázky](power-bi-embedded-get-started-sample.md)
+## [Nejčastější dotazy](power-bi-embedded-faq.md)
 
-# Postup 
+# Postup
 ## Plánování a návrh
 ### [Obvyklé scénáře](power-bi-embedded-scenarios.md)
 
@@ -20,19 +21,17 @@
 ### [Zabezpečení na úrovni řádků v Power BI Embedded](power-bi-embedded-rls.md)
 
 # Referenční informace
-## [Referenční informace k rozhraní .NET API](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST API – referenční informace](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [Stažení sady .NET SDK](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST](/rest/api/powerbiembedded/)
 
-# Související 
 
 # Zdroje a prostředky
-## [Nejčastější dotazy](power-bi-embedded-faq.md)
 ## [Ukázky](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->

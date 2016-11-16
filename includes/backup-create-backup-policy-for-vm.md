@@ -1,4 +1,4 @@
-## Definování zásad zálohování
+## <a name="defining-a-backup-policy"></a>Definování zásad zálohování
 Zásady zálohování definují postupy, podle kterých se pořizují snímky dat včetně doby uchovávání těchto snímků. Při definování zásad pro zálohování virtuálních počítačů můžete úlohu zálohování aktivovat *jednou denně*. Když vytvoříte nové zásady, budou použity na trezor. Rozhraní zásad zálohování vypadá následovně:
 
 ![Zásady zálohování](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,6 +26,8 @@ Vytvoření zásad:
    
     Nové zásady se okamžitě použijí na trezor.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

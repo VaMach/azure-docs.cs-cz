@@ -1,5 +1,5 @@
 # Přehled
-## [Přehled Resource Manageru](resource-group-overview.md)
+## [Co je Resource Manager?](resource-group-overview.md)
 ## [Podporované služby, oblasti a verze API](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Vysvětlení Resource Manageru a klasického nasazení](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Zásady správného řízení pro předplatná](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -11,7 +11,7 @@
 ## [Kód VS s Resource Managerem](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # Postup
-## Šablony
+## Vytváření šablon
 ### [Osvědčené postupy pro šablony](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Vytváření šablon](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Funkce šablon](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -52,12 +52,21 @@
 ### [Zobrazení operací nasazení pomocí Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Zobrazení operací nasazení pomocí REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Referenční informace
+## [Rutiny PowerShellu](/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](/cli/azure)
+## [Java](/java/api)
+## [.NET API](/dotnet/api)
 ## [Schémata šablon](https://github.com/Azure/azure-resource-manager-schemas)
-## [Rutiny PowerShell pro Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [Rozhraní REST API pro Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [Klientská knihovna .NET pro Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [Rutiny PowerShell pro Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [Rozhraní REST API pro Resource Manager](/rest/api/resources/)
+## [Klientská knihovna .NET pro Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Omezování požadavků](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](/rest/api/resources/)
 
+# Zdroje a prostředky
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
 
 <!--HONumber=Nov16_HO2-->
 

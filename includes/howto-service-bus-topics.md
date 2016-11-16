@@ -1,4 +1,4 @@
-## Co jsou témata a předplatné služby Service Bus?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Co jsou témata a předplatné služby Service Bus?
 Témata a předplatné služby Service Bus podporují komunikační model zasílání zpráv *publikování/přihlášení*. Součásti distribuované aplikace při používání témat a předplatných nekomunikují navzájem přímo. Místo toho si zprávy vyměňují prostřednictvím tématu, které slouží jako zprostředkovatel.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
@@ -9,12 +9,12 @@ Předplatné tématu se podobá virtuální frontě, která obdrží kopii zprá
 
 Témata a předplatné služby Service Bus vám umožní škálování a zpracování velkého počtu zpráv mnoha uživatelů a aplikací.
 
-## Vytvoření oboru názvů
+## <a name="create-a-namespace"></a>Vytvoření oboru názvů
 Pokud chcete začít používat témata a předplatné služby Service Bus v Azure, musíte nejdřív vytvořit *obor názvů služby*. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace.
 
 Vytvoření oboru názvů:
 
-1. Přihlaste se k webu [Azure Portal][Azure Portal].
+1. Přihlaste se na web [Azure Portal][Azure Portal].
 2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 3. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 4. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
@@ -25,7 +25,7 @@ Vytvoření oboru názvů:
     ![Vytvoření oboru názvů][create-namespace]
 8. Klikněte na tlačítko **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
-### Získání přihlašovacích údajů
+### <a name="obtain-the-credentials"></a>Získání přihlašovacích údajů
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
 2. V okně **Obor názvů Service Bus** klikněte na **Zásady sdíleného přístupu**.
 3. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.
@@ -43,6 +43,6 @@ Vytvoření oboru názvů:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

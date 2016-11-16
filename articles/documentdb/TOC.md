@@ -77,7 +77,7 @@
 ### [Přesun dat pomocí služby Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analýza dat v reálném čase pomocí Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
 ### [Získávání oznámení pomocí funkce Logic Apps](documentdb-change-notification.md)
-### [Zpracování dat snímače v reálném čase](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
+### [Zpracování dat ze snímačů v reálném čase](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Vizualizace dat pomocí Power BI](documentdb-powerbi-visualize.md)
 
 
@@ -96,8 +96,10 @@
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/documentdb/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [Dotazování DocumentDB](documentdb-community.md#contact-the-team)
 ## [Portál komunity](documentdb-community.md)
 ## [Události a nahrávky](documentdb-community.md#events-and-recordings)

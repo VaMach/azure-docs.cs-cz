@@ -1,22 +1,26 @@
 ---
-title: Vytvoření webové aplikace v jazyce Java ve službě Azure App Service | Microsoft Docs
-description: V tomto kurzu se dozvíte, jak nasadit webovou aplikaci v jazyce Java do služby Azure App Service.
+title: "Vytvoření webové aplikace v jazyce Java ve službě Azure App Service | Dokumentace Microsoftu"
+description: "V tomto kurzu se dozvíte, jak nasadit webovou aplikaci v jazyce Java do služby Azure App Service."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d6e73cc3-8b71-4742-a197-3edeabc6a289
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+
 
 ---
-# Vytvoření webové aplikace v jazyce Java ve službě Azure App Service
+# <a name="create-a-java-web-app-in-azure-app-service"></a>Vytvoření webové aplikace v jazyce Java ve službě Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 V tomto kurzu se dozvíte, jak vytvořit [webová aplikace ve službě Azure App Service] pomocí [Azure Portal]. Portál Azure je webové rozhraní, které lze použít ke správě prostředků Azure.
@@ -28,12 +32,12 @@ V tomto kurzu se dozvíte, jak vytvořit [webová aplikace ve službě Azure App
 > 
 > 
 
-## Možnosti aplikace v jazyce Java
+## <a name="java-application-options"></a>Možnosti aplikace v jazyce Java
 Existuje několik způsobů, jimiž lze nastavit aplikaci v jazyce Java ve webové aplikaci služby App Service. 
 
 1. Vytvořte aplikaci a nakonfigurujte **Nastavení aplikace**.
    
-    Služba App Service poskytuje několik verzí Tomcat a Jetty s výchozí konfigurací. Pokud aplikace, kterou budete hostovat, bude pracovat s některou z integrovaných verzí, tato metoda nastavení webového kontejneru je nejjednodušší a současně je ideální v případě, že chcete pouze nahrát soubor war do webového kontejneru. U této metody vytvoříte aplikaci na portálu Azure a potom přejdete do okna **Nastavení aplikace** své aplikace a zvolíte verzi jazyka Java spolu s požadovaným webovým kontejnerem Java. Při použití této metody jsou jazyk Java i webový kontejner spuštěny z Program Files. Ostatní metody umisťují webový kontejner a potenciálně také prostředí Java Virtual Machine do místa na disku. Při použití tohoto modelu nemáte přístup k úpravě souborů v této části systému souborů. To znamená, že nemůžete provádět akce, jako je například konfigurace souboru *server.xml* či umisťování souborů knihovny do složky */lib*. Další informace naleznete dále v tomto kurzu v části [Vytvoření a konfigurace webové aplikace v jazyce Java](#appsettings) .
+    Služba App Service poskytuje několik verzí Tomcat a Jetty s výchozí konfigurací. Pokud aplikace, kterou budete hostovat, bude pracovat s některou z integrovaných verzí, tato metoda nastavení webového kontejneru je nejjednodušší a současně je ideální v případě, že chcete pouze nahrát soubor war do webového kontejneru. U této metody vytvoříte aplikaci na webu Azure Portal a potom přejdete do okna **Nastavení aplikace** své aplikace a zvolíte verzi jazyka Java spolu s požadovaným webovým kontejnerem Java. Při použití této metody jsou jazyk Java i webový kontejner spuštěny z Program Files. Ostatní metody umisťují webový kontejner a potenciálně také prostředí Java Virtual Machine do místa na disku. Při použití tohoto modelu nemáte přístup k úpravě souborů v této části systému souborů. To znamená, že nemůžete provádět akce, jako je například konfigurace souboru *server.xml* či umisťování souborů knihovny do složky */lib*. Další informace naleznete dále v tomto kurzu v části [Vytvoření a konfigurace webové aplikace v jazyce Java](#appsettings) .
 2. Použijte šablonu z Azure Marketplace.
    
     Azure Marketplace obsahuje šablony, které automaticky vytvářejí a konfigurují webové aplikace v jazyce Java s webovými kontejnery Tomcat nebo Jetty. Webové kontejnery vytvářené těmito šablonami lze konfigurovat. Další informace naleznete v tomto kurzu v části [Použití šablony Java z Azure Marketplace](#marketplace).
@@ -48,10 +52,10 @@ Existuje několik způsobů, jimiž lze nastavit aplikaci v jazyce Java ve webov
      
      Pro takovéto případy můžete vytvořit aplikaci pomocí portálu Azure a poté ručně poskytnout příslušné soubory modulu runtime. V takovém případě se soubory započítají vůči kvótám prostoru úložiště pro plán služby App Service. Další informace naleznete v tématu [Nahrání vlastní webové aplikace v jazyce Java do Azure].
 
-## <a name="portal"></a> Vytvoření a konfigurace webové aplikace v jazyce Java
+## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a>Vytvoření a konfigurace webové aplikace v jazyce Java
 V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji pro jazyk Java pomocí okna **Nastavení aplikace** portálu.
 
-1. Přihlaste se k [Azure Portal].
+1. Přihlaste se k webu [Azure Portal].
 2. Klikněte na položku **Nové > Web + mobilní zařízení > Webová aplikace**.
    
     ![Nová webová aplikace][newwebapp]
@@ -60,7 +64,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
     Tento název musí být v doméně azurewebsites.net jedinečný, protože webová aplikace bude mít adresu URL {název}.azurewebsites.net. Není-li zadaný název jedinečný, v textovém poli se zobrazí červený vykřičník.
 4. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití portálu Azure ke správě prostředků Azure].
+    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití webu Azure Portal ke správě prostředků Azure].
 5. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
     Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service].
@@ -85,10 +89,10 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
     
     Webová stránka potvrdí, že jste vytvořili webovou aplikaci založenou na jazyce Java.
 
-## <a name="marketplace"></a> Použití šablony v jazyce Java z Azure Marketplace
+## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a>Použití šablony v jazyce Java z Azure Marketplace
 V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomocí Azure Marketplace. Tentýž obecný postup lze také použít k vytvoření mobilní aplikace nebo aplikace API založené na jazyce Java. 
 
-1. Přihlaste se k [Azure Portal].
+1. Přihlaste se k webu [Azure Portal].
 2. Klikněte na možnost **Nové > Marketplace**.
    
     ![Nový Marketplace][newmarketplace]
@@ -107,7 +111,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
     Tento název musí být v doméně azurewebsites.net jedinečný, protože webová aplikace bude mít adresu URL {název}.azurewebsites.net. Není-li zadaný název jedinečný, v textovém poli se zobrazí červený vykřičník.
 8. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití portálu Azure ke správě prostředků Azure].
+    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití webu Azure Portal ke správě prostředků Azure].
 9. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
     Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service].
@@ -131,7 +135,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
 
 Nyní, když jste vytvořili webovou aplikaci s kontejnerem aplikace, pokračujte částí [Další kroky](#next-steps), která vás seznámí s postupem nahrání aplikace do webové aplikace.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto okamžiku je ve vaší webové aplikaci ve službě Azure App Service spuštěn aplikační server Java. Chcete-li do webové aplikace nasadit vlastní kód, informace naleznete v tématu [Přidání aplikace nebo webové stránky do webové aplikace v jazyce Java].
 
 Další informace týkající se vývoje aplikací v jazyce Java v Azure naleznete v tématu [Středisko pro vývojáře Java].
@@ -146,7 +150,7 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 [Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [webová aplikace ve službě Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Středisko pro vývojáře Java]: /develop/java/
-[Použití portálu Azure ke správě prostředků Azure]: ../azure-portal/resource-group-portal.md
+[Použití webu Azure Portal ke správě prostředků Azure]: ../azure-portal/resource-group-portal.md
 [Nahrání vlastní webové aplikace v jazyce Java do Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -165,6 +169,6 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

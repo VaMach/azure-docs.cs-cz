@@ -43,27 +43,27 @@
 
 
 # Referenční informace
-## [Rozhraní API – Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [Rozhraní API – Správa služeb](https://msdn.microsoft.com/library/azure/dn606310)
-## [Rutiny prostředí PowerShell – Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [Rutiny prostředí PowerShell – Správa služeb](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Ukázky nastavení konfigurace směrovače](expressroute-config-samples-routing.md)
 ## [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Související 
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Virtual Machines](../virtual-machines/index.md)
-## [Load Balancer](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
+# Související
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 
 # Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Blog o sítích](https://azure.microsoft.com/blog/topics/networking/)
 ## [Případové studie](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Ceny](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Předplatné a omezení služeb](../azure-subscription-service-limits.md)
-## Videa
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
 ### [Vytvoření okruhu ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Jak nastavit privátní partnerské vztahy pro váš okruh](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Nastavení veřejného partnerského vztahu pro váš okruh](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [Připojení brány virtuální sítě k okruhu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Rozvíjení připojitelnosti vaší síťové infrastruktury](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Hybridní partnerství: Povolení místních scénářů](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

@@ -2,7 +2,7 @@
 ## [Azure a IoT](iot-suite-what-is-azure-iot.md)
 ## [Co je IoT Suite?](iot-suite-overview.md)
 ## [Co jsou předkonfigurovaná řešení?](iot-suite-what-are-preconfigured-solutions.md)
-## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+
 
 # Začínáme
 ## [Začínáme s předkonfigurovanými řešeními](iot-suite-getstarted-preconfigured-solutions.md)
@@ -28,13 +28,14 @@
 ## [Zabezpečení od počátku](securing-iot-ground-up.md)
 
 # Související
-## [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-## [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-## [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-## [Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+## [Stream Analytics](/azure/stream-analytics/)
+## [Event Hubs](/azure/event-hubs/)
+## [IoT Hub](/azure/iot-hub/)
+## [Machine Learning](/azure/machine-learning/)
 
 # Zdroje a prostředky
 ## [Nejčastější dotazy](iot-suite-faq.md)
+## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

@@ -1,21 +1,20 @@
 # Přehled
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
-## [Kterou edici mám zvolit?](active-directory-editions.md)
-## [Základy](fundamentals-identity.md)
+## [Výběr edice](active-directory-editions.md)
+## [Správa identit Azure](fundamentals-identity.md)
 ## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
 
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
-## [Azure AD Premium](active-directory-get-started-premium.md)
+## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Licencování Azure AD](active-directory-licensing-what-is.md)
+## [Správa licencí AD](active-directory-licensing-what-is.md)
 ## [Získejte Azure pro vaši organizaci](sign-up-organization.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
 
 
 # Postup
-
 ## Správa uživatelů
 ### Přidání uživatelů
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -29,30 +28,30 @@
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
-### [Sdílené účty](active-directory-sharing-accounts.md)
+### [Sdílení účtů](active-directory-sharing-accounts.md)
 
-### [Skupiny Azure AD](active-directory-manage-groups.md)
-#### Správa skupin
-##### [Azure Portal](active-directory-groups-create-azure-portal.md)
-##### [Portál Classic](active-directory-accessmanagement-manage-groups.md)
-##### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
-#### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
-#### [Správa členství ve skupinách](active-directory-groups-membership-azure-portal.md)
-#### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
-#### [Vyhrazené skupiny](active-directory-accessmanagement-dedicated-groups.md)
-#### [Přístup k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
-#### Nastavení skupin
-##### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-##### [Rutiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
-#### Rozšířená pravidla
-##### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-##### [Portál Classic](active-directory-accessmanagement-groups-with-advanced-rules.md)
-#### [Samoobslužné skupiny](active-directory-accessmanagement-self-service-group-management.md)
-#### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
+## [Správa skupin a členů](active-directory-manage-groups.md)
+### Správa skupin
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Portál Classic](active-directory-accessmanagement-manage-groups.md)
+#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
+### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
+### [Správa členství ve skupinách](active-directory-groups-membership-azure-portal.md)
+### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
+### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
+### [Přidání skupiny k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
+### Správa nastavení skupin
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
+#### [Rutiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### Vytváření rozšířených pravidel
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Portál Classic](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
+### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
 ## [Zobrazení sestav přístupů a použití](active-directory-view-access-usage-reports.md)
-### [Vytváření sestav Azure AD](active-directory-reporting-getting-started.md)
+### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
 ### [Známé sítě](active-directory-known-networks.md)
 
 ### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
@@ -81,18 +80,18 @@
 
 ## [Správa hesel](active-directory-manage-passwords.md)
 ### [Aktualizace vlastního hesla](active-directory-passwords-update-your-own-password.md)
-### [Jak to funguje](active-directory-passwords-how-it-works.md)
-### [Zásady a omezení hesel](active-directory-passwords-policy.md)
+### [Vysvětlení správy hesel](active-directory-passwords-how-it-works.md)
+### [Vysvětlení zásad a omezení](active-directory-passwords-policy.md)
 ### Resetování hesel
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Portál Classic](active-directory-create-users-reset-password.md)
-### [Zásady vypršení platnosti](active-directory-passwords-set-expiration-policy.md)
-### Správa hesel
+### [Nastavení zásady vypršení platnosti](active-directory-passwords-set-expiration-policy.md)
+### Povolení správy hesel
 #### [Začínáme](active-directory-passwords-getting-started.md)
 #### [Nasazení](active-directory-passwords-best-practices.md)
-#### [Resetování hesla](active-directory-passwords.md)
+#### [Nastavení samoobslužného resetování hesla](active-directory-passwords.md)
 #### [Přizpůsobení](active-directory-passwords-customize.md)
-#### [Sestavy](active-directory-passwords-get-insights.md)
+#### [Zobrazení sestav](active-directory-passwords-get-insights.md)
 #### [Další informace](active-directory-passwords-learn-more.md)
 #### [Nejčastější dotazy](active-directory-passwords-faq.md)
 #### [Řešení problémů](active-directory-passwords-troubleshoot.md)
@@ -105,27 +104,27 @@
 #### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
 #### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
-#### [Automatická registrace](active-directory-conditional-access-automatic-device-registration.md)
+#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
 ##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 ##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Aplikace Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Zásady zařízení](active-directory-conditional-access-device-policies.md)
-#### [Přístup k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
+#### [Správa aplikace Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
+#### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
 #### [Nasazení na místě](active-directory-conditional-access-on-premises-setup.md)
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
 #### [Referenční informace](active-directory-conditional-access-technical-reference.md)
 
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Nasazení](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Registrace zařízení](active-directory-azureadjoin-setup.md)
+#### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
+#### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
 #### [Registrace nových zařízení](active-directory-azureadjoin-user-frx.md)
-#### [Připojení k doméně](active-directory-azureadjoin-devices-group-policy.md)
+#### [Nasazení](active-directory-azureadjoin-devices-group-policy.md)
 #### [Ověření bez hesla](active-directory-azureadjoin-passport.md)
-#### [Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
-#### [Příručka k Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
+#### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
+#### [Vysvětlení integrace Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
+#### [použití zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
 
 ### Ověřování pomocí certifikátů
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -133,13 +132,13 @@
 
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
-### [Příručka Začínáme](active-directory-integrating-applications-getting-started.md)
+### [Začínáme](active-directory-integrating-applications-getting-started.md)
 
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-#### [Nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Zabezpečení a ochrana osobních údajů](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+#### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Vzdálený přístup k aplikacím](active-directory-application-proxy-get-started.md)
+### [Umožnění vzdáleného přístupu k aplikacím](active-directory-application-proxy-get-started.md)
 #### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
 #### [Publikování aplikací](active-directory-application-proxy-publish.md)
 #### Publikování v samostatných sítích
@@ -152,25 +151,25 @@
 #### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
 #### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
-### [Jednotné přihlašování pro aplikace](active-directory-appssoaccess-whatis.md)
+### [Vysvětlení jednotného přihlašování pro aplikace](active-directory-appssoaccess-whatis.md)
 
 ### Integrace aplikací SaaS
 #### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
 #### [Portál Classic](active-directory-sso-integrate-saas-apps.md)
 
-### Podnikové aplikace
+### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)
 #### [Přizpůsobení brandingu](active-directory-coreapps-change-app-logo-user-azure-portal.md)
 #### [Zákaz přihlašování uživatelů](active-directory-coreapps-disable-app-azure-portal.md)
 #### [Odebrání uživatelů](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Zobrazení všech mých aplikací](active-directory-coreapps-view-azure-portal.md)
-#### [Zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Správa zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
 
-### Příručka pro vývojáře
+### Vývoj
 #### [Přiřazení uživatelů](active-directory-applications-guiding-developers-assigning-users.md)
 #### [Přiřazení skupin](active-directory-applications-guiding-developers-assigning-groups.md)
 #### [Vyžadování přiřazení](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Obchodní aplikace](active-directory-applications-guiding-developers-for-lob-applications.md)
+#### [Vývoj obchodních aplikací](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
@@ -180,7 +179,7 @@
 ### [Knihovna dokumentů](active-directory-apps-index.md)
 
 
-## Správa vašeho adresáře
+## Správa adresáře
 ### Vlastní názvy domén
 #### [Přehled](active-directory-add-domain-concepts.md)
 #### Přidání názvu domény
@@ -270,19 +269,18 @@
 ### [Další kroky](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 ### [Porovnání nabídek](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
-## [Vývoj](./develop/active-directory-how-to-integrate.md)
-
 ## [Nasazení AD FS v Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Vysoká dostupnost](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Změna podpisového algoritmu hash](active-directory-federation-sha256-guidance.md)
 
-## [Řešení problémů s Azure AD](active-directory-troubleshooting.md)
+## [Řešení problémů](active-directory-troubleshooting.md)
 
 
 # Referenční informace
-## [Omezení služby Azure AD](active-directory-service-limits-restrictions.md)
-## [Referenční informace k Active Directory Authentication Library .NET](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-## [Modul Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx)
+## [Rutiny PowerShellu](/powershell/ )
+## [Referenční informace k Java API](/java/api)
+## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [Limity a omezení služby](active-directory-service-limits-restrictions.md)
 
 # Související
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
@@ -291,7 +289,12 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Zdroje a prostředky
-## [Fórum pro Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
+## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 <!--HONumber=Nov16_HO2-->

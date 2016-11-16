@@ -1,11 +1,11 @@
 ---
-title: Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights | Microsoft Docs
-description: Automatizujte konfiguraci kanálu Azure Diagnostics pro službu Application Insights.
+title: "Použití prostředí PowerShell k nastavení Application Insights v Azure | Dokumentace Microsoftu"
+description: "Automatizujte konfiguraci kanálu Azure Diagnostics pro službu Application Insights."
 services: application-insights
 documentationcenter: .net
 author: sbtron
 manager: douge
-
+ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+
 
 ---
-# Použití prostředí PowerShell k odesílání Azure Diagnostics Application Insights
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Použití prostředí PowerShell k nastavení Application Insights pro webovou aplikaci v Azure
 [Microsoft Azure](https://azure.com) může být [konfigurované k odesílání Azure Diagnostics](app-insights-azure-diagnostics.md) do [Visual Studio Application Insights](app-insights-overview.md). Diagnostika se týká cloudových služeb Azure a virtuálních počítačů Azure. Doplňují telemetrii, kterou odesíláte z aplikace pomocí Application Insights SDK. Jako součást automatizace procesu vytváření nových prostředků v Azure můžete nakonfigurovat diagnostiku pomocí prostředí PowerShell.
 
-## Povolit rozšíření diagnostiky jako součást nasazení cloudové služby
+## <a name="azure-template"></a>Šablony Azure
+Pokud je webová aplikace v Azure a vy vytvoříte své prostředky pomocí šablony správce prostředků Azure, můžete nakonfigurovat Application Insights přidáním tohoto uzlu prostředků:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` – název prostředku Application Insights
+* `myWebAppName` – ID webové aplikace
+
+## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Povolit rozšíření diagnostiky jako součást nasazení cloudové služby
 Rutina `New-AzureDeployment` obsahuje parametr `ExtensionConfiguration`, který přijímá pole konfigurace diagnostiky. Ty lze vytvořit pomocí rutiny `New-AzureServiceDiagnosticsExtensionConfig`. Příklad:
 
 ```ps
@@ -54,7 +81,7 @@ Rutina `New-AzureDeployment` obsahuje parametr `ExtensionConfiguration`, který 
 
 ``` 
 
-## Povolit rozšíření diagnostiky na existující službu Cloud
+## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Povolit rozšíření diagnostiky na existující službu Cloud
 Na existující službu použijte `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
@@ -83,14 +110,14 @@ Na existující službu použijte `Set-AzureServiceDiagnosticsExtension`.
         -Role "WorkerRole"
 ```
 
-## Získejte aktuální konfiguraci rozšíření diagnostiky
+## <a name="get-current-diagnostics-extension-configuration"></a>Získejte aktuální konfiguraci rozšíření diagnostiky
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 
-## Odeberte rozšíření diagnostiky
+## <a name="remove-diagnostics-extension"></a>Odeberte rozšíření diagnostiky
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -106,11 +133,14 @@ Chcete-li odebrat rozšíření diagnostiky pro každou jednotlivou roli:
 ```
 
 
-## Viz také
-* [Monitorování aplikací Azure Cloud Services pomocí nástroje Application Insights](app-insights-cloudservices.md)
-* [Odesílání Azure Diagnostics do Application Insights](app-insights-azure-diagnostics.md)
+## <a name="see-also"></a>Viz také
+* [Monitorování aplikací v Azure Cloud Services službou Application Insights](app-insights-cloudservices.md)
+* [Odesílání Diagnostiky Azure do Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizace konfigurace výstrah](app-insights-powershell-alerts.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

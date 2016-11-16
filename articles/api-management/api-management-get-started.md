@@ -1,22 +1,26 @@
 ---
-title: Správa vašeho prvního rozhraní API ve službě Azure API Management | Microsoft Docs
-description: Naučte se vytvářet rozhraní API, přidávat operace a začněte používat API Management.
+title: "Správa vašeho prvního rozhraní API ve službě Azure API Management | Dokumentace Microsoftu"
+description: "Naučte se vytvářet rozhraní API, přidávat operace a začněte používat API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Správa vašeho prvního rozhraní API ve službě Azure API Management
+# <a name="manage-your-first-api-in-azure-api-management"></a>Správa vašeho prvního rozhraní API ve službě Azure API Management
 ## <a name="overview"> </a>Přehled
 Tento průvodce vám pomůže rychle začít s používáním služby Azure API Management a provést první volání rozhraní API.
 
@@ -53,39 +57,37 @@ Systém se skládá z následujících součástí:
   * Vytvořit účet a přihlásit se k odběru za účelem získání klíčů rozhraní API.
   * Přistupovat k analýzám jejich využití.
 
-## <a name="create-service-instance"> </a>Vytvoření instance služby API Management
+## <a name="create-service-instance"> </a>Vytvoření instance API Managementu
 > [!NOTE]
 > K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][Bezplatná zkušební verze Azure].
 > 
 > 
 
-Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se k webu [Portál Azure Classic][Portál Azure Classic] a klikněte na **Nový**, **App Services**, **API Management** a **Vytvořit**.
+Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se na [Azure Portal][Azure Portal] a klikněte na **Nový**, **Web a mobilní zařízení**, **API Management**.
 
 ![Nová instance služby API Management][api-management-create-instance-menu]
 
-V případě **adresy URL** zadejte název jedinečné subdomény, kterou chcete použít jako adresu URL služby.
+Do pole **Název** zadejte název jedinečné subdomény, kterou chcete použít jako adresu URL služby.
 
-Vyberte požadované **Předplatné** a **Oblast** pro instanci služby. Po provedení výběru klikněte na tlačítko **Další**.
-
-![Nová služba API Management][api-management-create-instance-step1]
+Vyberte požadované **Předplatné**, **Skupinu prostředků** a **Oblast** pro instanci služby.
 
 Zadejte text **Contoso Ltd.** jako **Název organizace** a potom zadejte svou e-mailovou adresu do pole **E-mail správce**.
 
 > [!NOTE]
-> Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v článku [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management][Konfigurace oznámení a e-mailových šablon ve službě Azure API Management].
+> Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v tématu [Konfigurace oznámení a e-mailových šablon v Azure API Managementu][Konfigurace oznámení a e-mailových šablon v Azure API Managementu].
 > 
 > 
 
-![Nová služba API Management][api-management-create-instance-step2]
+![Nová služba API Management][api-management-create-instance-step1]
 
-Instance služby API Management jsou dostupné ve třech úrovních: Developer (vývojář), Standard a Premium. Ve výchozím nastavení se nové instance služby API Management vytvářejí na úrovni Developer. Pokud chcete vybrat úroveň Standard nebo Premium, zaškrtněte políčko **Upřesnit nastavení** a na následující obrazovce vyberte požadovanou úroveň.
+Instance služby API Management jsou dostupné ve třech úrovních: Developer (vývojář), Standard a Premium.
 
 > [!NOTE]
 > Úroveň Developer (vývojář) slouží k vývoji, testování a pilotnímu nasazení programů s rozhraním API v situacích, kde příliš nezáleží na dostupnosti. Na úrovních Standard a Premium můžete škálovat počet svých rezervovaných jednotek, abyste zvládli větší provoz. Úrovně Standard a Premium poskytují službě API Management maximum výpočetního a celkového výkonu. Tento kurz můžete dokončit pomocí libovolné úrovně. Další informace o úrovních služby API Management najdete v článku [Ceny služby API Management][Ceny služby API Management].
 > 
 > 
 
-Kliknutím na zaškrtávací políčko vytvoříte instanci služby.
+Kliknutím na **vytvořit** zahájíte zřizování instance služby.
 
 ![Nová služba API Management][api-management-instance-created]
 
@@ -101,7 +103,7 @@ Rozhraní API můžete vytvořit (a operace přidat) ručně, nebo je můžete i
 > 
 > 
 
-Rozhraní API se konfigurují na portálu vydavatele, který je přístupný prostřednictvím portálu Azure Classic. Pokud se chcete dostat na portál vydavatele, klikněte na portálu Azure Classic služby API Management na **Spravovat**.
+Rozhraní API se konfigurují na Portálu vydavatele. Otevřete jej tak, že na panelu nástrojů služby kliknete na **Portál vydavatele**.
 
 ![Portál vydavatele][api-management-management-console]
 
@@ -199,7 +201,7 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 [Bezplatná zkušební verze Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Vytvoření instance služby API Management]: #create-service-instance
+[Vytvoření instance API Managementu]: #create-service-instance
 [Vytvoření rozhraní API]: #create-api
 [Přidání operace]: #add-operation
 [Přidání nového rozhraní API do produktu]: #add-api-to-product
@@ -209,14 +211,14 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 [Další kroky]: #next-steps
 
 
-[Správa účtů pro vývojáře ve službě API Management]: api-management-howto-create-or-invite-developers.md
+[Správa účtů vývojářů v Azure API Managementu]: api-management-howto-create-or-invite-developers.md
 [Konfigurace nastavení pro rozhraní API]: api-management-howto-create-apis.md#configure-api-settings
-[Konfigurace oznámení a e-mailových šablon ve službě Azure API Management]: api-management-howto-configure-notifications.md
+[Konfigurace oznámení a e-mailových šablon v Azure API Managementu]: api-management-howto-configure-notifications.md
 [Odezvy]: api-management-howto-add-operations.md#responses
 [Vytvoření a publikování produktu]: api-management-howto-add-products.md
 [Ceny služby API Management]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -255,6 +257,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

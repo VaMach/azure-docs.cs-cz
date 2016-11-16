@@ -1,25 +1,29 @@
 ---
-title: Ochrana rozhraní API ve službě Azure API Management | Microsoft Docs
-description: Seznamte se s možnostmi ochrany rozhraní API pomocí zásad kvót a zásad omezování četnosti.
+title: "Ochrana rozhraní API ve službě Azure API Management | Dokumentace Microsoftu"
+description: "Seznamte se s možnostmi ochrany rozhraní API pomocí zásad kvót a zásad omezování četnosti."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Ochrana rozhraní API omezením četnosti pomocí Azure API Management
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrana rozhraní API omezením četnosti pomocí Azure API Management
 Tento průvodce vám ukáže, jak snadno můžete pomocí služby Azure API Management přidat ochranu rozhraní API vašeho back-endu tím, že nakonfigurujete zásady omezení četnosti a zásady kvót.
 
-V tomto kurzu vytvoříte „bezplatnou zkušební verzi“ produktu s rozhraním API, která vývojářům umožní provádět až 10 volání za minutu a až 200 volání za týden do vašeho rozhraní API pomocí zásad [Omezení četnosti volání podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) a [Nastavení kvóty využití podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Potom rozhraní API publikujete a zásady omezení četnosti otestujete.
+V tomto kurzu vytvoříte „bezplatnou zkušební verzi“ produktu s rozhraním API, která vývojářům umožní provádět až 10 volání za minutu a až 200 volání za týden do vašeho rozhraní API pomocí zásad [Omezení četnosti volání podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) a [Nastavení kvóty využití podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Potom rozhraní API publikujete a zásady omezení četnosti otestujete.
 
 Pokud se zajímáte o pokročilejší scénáře omezování pomocí zásad [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) a [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), podívejte se na článek [Pokročilé omezování požadavků pomocí Azure API Management](api-management-sample-flexible-throttling.md).
 
@@ -27,11 +31,11 @@ Pokud se zajímáte o pokročilejší scénáře omezování pomocí zásad [rat
 V tomto kroku vytvoříte bezplatnou zkušební verzi produktu, který nevyžaduje schválení předplatného.
 
 > [!NOTE]
-> Pokud už máte produkt nakonfigurovaný a chcete ho v tomto kurzu použít, můžete přeskočit na článek [Konfigurace zásad omezení četnosti a zásad kvót][Konfigurace zásad omezení četnosti a zásad kvót] a postupovat v kurzu odtamtud se svým produktem místo bezplatné zkušební verze produktu.
+> Pokud už máte produkt nakonfigurovaný a chcete ho v tomto kurzu použít, můžete přeskočit k části [Konfigurace zásad omezení četnosti a zásad kvót][Konfigurace zásad omezení četnosti a zásad kvót] a postupovat v kurzu odtamtud se svým produktem místo bezplatné zkušební verze produktu.
 > 
 > 
 
-Pokud chcete začít, klikněte na portálu Azure Classic služby API Management na **Spravovat**. Tím přejdete na portál vydavatele služby API Management.
+Začněte tak, že na webu Azure Portal dané služby API Management kliknete na **Portál vydavatele**.
 
 ![Portál vydavatele][api-management-management-console]
 
@@ -49,7 +53,7 @@ Kliknutím na **Přidat produkt** zobrazíte dialogové okno **Přidání novéh
 
 Do pole **Nadpis** zadejte text **Bezplatná zkušební verze**.
 
-Do pole **Popis** zadejte následující text:  **Předplatitelé můžou spustit 10 volání za minutu až do maximálního počtu 200 volání za týden. Potom bude přístup odepřen.**
+Do pole **Popis** zadejte následující text:  **Předplatitelé můžou spustit 10 volání za minutu až do maximálního počtu 200 volání za týden. Potom bude přístup odepřen.**
 
 Produkty ve službě API Management můžou být chráněné nebo otevřené. V případě chráněných produktů se musíte nejdřív přihlásit k jejich odběru a až potom je můžete používat. Otevřené produkty můžete používat bez předplatného. Pokud chcete vytvořit chráněný produkt, který vyžaduje předplatné, nezapomeňte vybrat možnost **Vyžadovat předplatné**. Toto je výchozí nastavení.
 
@@ -63,7 +67,7 @@ Po zadání všech hodnot klikněte na **Uložit** a vytvořte produkt.
 
 Ve výchozím nastavení jsou nové produkty viditelné pro uživatele ve skupině **Správci**. Teď přidáme skupinu **Vývojáři**. Klikněte na **Bezplatná zkušební verze** a potom na kartu **Viditelnost**.
 
-> Ve službě API Management se ke správě viditelnosti produktů pro vývojáře používají skupiny. Produkty udělují viditelnost skupinám a vývojáři můžou zobrazovat a odebírat produkty, které jsou viditelné pro skupinu, do které patří. Další informace najdete v článku [Vytvoření a používání skupin v Azure API Management][Vytvoření a používání skupin v Azure API Management].
+> Ve službě API Management se ke správě viditelnosti produktů pro vývojáře používají skupiny. Produkty udělují viditelnost skupinám a vývojáři můžou zobrazovat a odebírat produkty, které jsou viditelné pro skupinu, do které patří. Další informace najdete v tématu [Vytvoření a používání skupin v Azure API Management][Vytvoření a používání skupin v Azure API Management].
 > 
 > 
 
@@ -120,7 +124,7 @@ Po umístění kurzoru v prvku **inbound** zásad klikněte na šipku vedle polo
     <rate-limit calls="number" renewal-period="seconds">
     </rate-limit>
 
-V případě bezplatné zkušební verze produktu je maximální povolená četnost volání 10 volání za minutu, proto do atributu **call** zadejte hodnotu**10** a do atributu **renewal-period** zadejte hodnotu **60**.
+V případě bezplatné zkušební verze produktu je maximální povolená četnost volání 10 volání za minutu, proto do atributu **call** zadejte hodnotu**10** a do atributu **renewal-period** zadejte hodnotu **60**.
 
     <rate-limit calls="10" renewal-period="60">
     </rate-limit>
@@ -143,7 +147,7 @@ Kvóty můžou být založené na počtu volání za interval, na šířce pásm
     <quota calls="number" renewal-period="seconds">
     </quota>
 
-V rámci bezplatné zkušební verze produktu má kvóta hodnotu 200 volání za týden. Do atributu **calls** zadejte hodnotu **200** a potom do atributu **renewal-period** zadejte hodnotu **604800**.
+V rámci bezplatné zkušební verze produktu má kvóta hodnotu 200 volání za týden. Do atributu **calls** zadejte hodnotu **200** a potom do atributu **renewal-period** zadejte hodnotu **604800**.
 
     <quota calls="200" renewal-period="604800">
     </quota>
@@ -240,13 +244,13 @@ Klikněte na **Odeslat** a potom si zobrazte odezvu. Všimněte si, že **stav o
 
 ![Výsledky operace][api-management-http-get-results]
 
-Klikněte na **Odeslat** víckrát, než dovolují zásady omezení četnosti (10 volání za minutu). Po překročení zásad omezení četnosti se vrátí stav odezvy **429 – Příliš mnoho požadavků**.
+Klikněte na **Odeslat** víckrát, než dovolují zásady omezení četnosti (10 volání za minutu). Po překročení zásad omezení četnosti se vrátí stav odezvy **429 – Příliš mnoho požadavků**.
 
 ![Výsledky operace][api-management-http-get-429]
 
  **Obsah odezvy** zobrazuje zbývající délku intervalu, po kterém bude opakování úspěšné.
 
-Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, následná volání nebudou úspěšná, dokud neuplyne 60 sekund od prvních 10 úspěšných volání produktu před překročením omezení četnosti volání. V tomto příkladu je zbývající délka intervalu 54 sekund.
+Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, následná volání nebudou úspěšná, dokud neuplyne 60 sekund od prvních 10 úspěšných volání produktu před překročením omezení četnosti volání. V tomto příkladu je zbývající délka intervalu 54 sekund.
 
 ## <a name="next-steps"> </a>Další kroky
 * V následujícím videu si pusťte ukázku nastavení kvót a omezení četnosti.
@@ -306,6 +310,6 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, následn
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

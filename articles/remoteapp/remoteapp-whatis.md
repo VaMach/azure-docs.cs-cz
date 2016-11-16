@@ -1,12 +1,12 @@
 ---
-title: Co je Azure RemoteApp? | Microsoft Docs
-description: Přečtěte si, jak můžete prostřednictvím Azure RemoteAppu sdílet aplikace a prostředky se všemi zařízeními.
+title: Co je Azure RemoteApp? | Dokumentace Microsoftu
+description: "Přečtěte si, jak můžete prostřednictvím Azure RemoteAppu sdílet aplikace a prostředky se všemi zařízeními."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d7a8a311-e70a-4463-ac85-c7f62c500921
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95b4e6914de787bb2c25527ce9635f872b4746a6
+
 
 ---
-# Co je Azure RemoteApp?
+# <a name="what-is-azure-remoteapp"></a>Co je Azure RemoteApp?
 > [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -34,7 +38,7 @@ Azure RemoteApp je součástí [infrastruktury virtuálních klientských počí
 
 **Nové!** Chcete se o Azure RemoteAppu dozvědět více? Nebo chcete ověřit funkci Azure RemoteAppu ve větším měřítku? Připojte se k našemu týdennímu webináři [zeptejte se odborníka](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## Kolekce Azure RemoteAppu
+## <a name="azure-remoteapp-collections"></a>Kolekce Azure RemoteAppu
 Existují dva typy [kolekcí Azure RemoteAppu](remoteapp-collections.md):
 
 * **Cloudová kolekce** je hostována v cloudu a ukládá data programů v cloudu. Uživatelé mohou získat přístup k aplikacím přihlášením pomocí svého účtu Microsoft nebo podnikových přihlašovacích údajů synchronizovaných nebo federovaných se službou Azure Active Directory.
@@ -52,7 +56,7 @@ Existují dva typy [kolekcí Azure RemoteAppu](remoteapp-collections.md):
 
 Různé typy kolekcí nabízejí různé možnosti, včetně sítí, takže je potřeba zamyslet se nad tím, [který typ kolekce](remoteapp-collections.md) je pro vás nejlepší. 
 
-### Aktualizování kolekce
+### <a name="updating-your-collection"></a>Aktualizování kolekce
 Jedním z hlavní rozdílů mezi hybridními a cloudovými kolekcemi je způsob zpracování aktualizací softwaru. S cloudovou kolekcí, která využívá předinstalovaný image Office 365 ProPlus nebo Office 2013, se nemusíte o žádné aktualizace starat. Služba se sama udržuje a průběžně aktualizuje aplikace i operační systém.
 
 V případě hybridních kolekcí a cloudových kolekcí, které používají vlastní image šablony odpovídáte za údržbu image a aplikací. V případě imagů připojených k doméně řídíte aktualizace pomocí nástrojů, jako jsou služba Windows Update, zásady skupiny nebo System Center.
@@ -61,12 +65,12 @@ Po aktualizaci vlastního image šablony nový image odešlete do cloudu Azure a
 
 Další informace najdete v článku [Aktualizace kolekce](remoteapp-update.md).
 
-## Podporované klienty RemoteAppu
+## <a name="supported-remoteapp-clients"></a>Podporované klienty RemoteAppu
 Azure RemoteApp je podporován v klientských aplikací RemoteAppu pro Windows a Windows RT a v aplikacích vzdálené plochy Microsoft pro Mac, iOS a Android. Uživatelé mohou pomocí těchto aplikací na svém mobilním nebo výpočetním zařízení přistupovat k novým programům Azure RemoteAppu.
 
 Další informace o klientech najdete v článku [Přístup k aplikacím v Azure RemoteAppu](remoteapp-clients.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nyní si můžete vše vyzkoušet. Určitě to udělejte! Tyto články vám pomůžou začít s Azure RemoteAppem:
 
 * [Jaký typ kolekce potřebujete pro Azure RemoteApp?](remoteapp-collections.md)
@@ -77,9 +81,12 @@ Nyní si můžete vše vyzkoušet. Určitě to udělejte! Tyto články vám pom
 * [Osvědčené postupy používání Azure RemoteAppu](remoteapp-bestpractices.md)
 * [Časté otázky k Azure RemoteAppu](remoteapp-faq.md)
 
-### Umožněte nám, abychom vám mohli pomoct
+### <a name="help-us-help-you"></a>Umožněte nám, abychom vám mohli pomoct
 Věděli jste, že kromě hodnocení tohoto článku a přidání komentářů pod článkem také můžete měnit samotný článek? Něco chybí? Něco není v pořádku? Něco je matoucí? Vraťte se na začátek článku, klikněte na **Upravit na GitHubu** nebo na **Upravit** a proveďte změny – změny se nám odešlou ke kontrole a po jejich schválení je doplníme do článku.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

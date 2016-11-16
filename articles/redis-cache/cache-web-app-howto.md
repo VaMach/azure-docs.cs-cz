@@ -1,12 +1,12 @@
 ---
-title: Vytvoření webové aplikace s Redis Cache | Microsoft Docs
-description: Zjistěte, jak vytvořit webovou aplikaci s Redis Cache
+title: "Vytvoření webové aplikace s Redis Cache | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit webovou aplikaci s Redis Cache"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
-# Vytvoření webové aplikace s Redis Cache
+# <a name="how-to-create-a-web-app-with-redis-cache"></a>Vytvoření webové aplikace s Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -37,19 +41,19 @@ Naučíte se:
 * Jak zřídit prostředky Azure pro aplikaci pomocí šablony Resource Manageru.
 * Jak publikovat aplikaci do Azure pomocí sady Visual Studio.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 K dokončení tohoto kurzu budete potřebovat:
 
 * [Účet Azure](#azure-account)
-* [Sadu Visual Studio 2015 se sadou Azure SDK pro .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2015 se sadou Azure SDK pro .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
-### Účet Azure
+### <a name="azure-account"></a>Účet Azure
 K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete:
 
 * [Otevřít bezplatný účet Azure](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. I po vyčerpání kreditů si můžete účet ponechat a používat bezplatné funkce a služby Azure.
 * [Aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Díky předplatnému MSDN každý měsíc získáváte kredity, které můžete použít pro placené služby Azure.
 
-### Sadu Visual Studio 2015 se sadou Azure SDK pro .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Sadu Visual Studio 2015 se sadou Azure SDK pro .NET
 Tento kurz je napsán pro sadu Visual Studio 2015 se [sadou Azure SDK pro .NET](../dotnet-sdk.md)ve verzi 2.8.2 nebo novější. [Stáhněte si nejnovější verzi sady Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada Visual Studio se automaticky nainstaluje se sadou SDK, pokud ji ještě nemáte.
 
 Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azure SDK pro sadu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Některé obrazovky se mohou lišit od ilustrací v tomto kurzu.
@@ -59,7 +63,7 @@ Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azu
 > 
 > 
 
-## Vytvoření projektu sady Visual Studio
+## <a name="create-the-visual-studio-project"></a>Vytvoření projektu sady Visual Studio
 1. Otevřete sadu Visual Studio a klikněte na **Soubor**, **Nový**, **Projekt**.
 2. Rozbalte uzel **Visual C#** v seznamu **Šablony**, vyberte **Cloud**, a klikněte na **Webová aplikace .NET**. Ujistěte se, že je vybrán **.NET Framework 4.5.2**.  Do textového pole **Název** zadejte **ContosoTeamStates** a klikněte na **OK**.
    
@@ -69,14 +73,14 @@ Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azu
     ![Výběr šablony projektu][cache-select-template]
 4. Projekt vytvoříte kliknutím na **OK**.
 
-## Vytvoření aplikace ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Vytvoření aplikace ASP.NET MVC
 V této části kurzu vytvoříte základní aplikaci, která načítá a zobrazuje týmové statistiky z databáze.
 
 * [Přidání modelu](#add-the-model)
 * [Přidání kontroleru](#add-the-controller)
 * [Konfigurace zobrazení](#configure-the-views)
 
-### Přidání modelu
+### <a name="add-the-model"></a>Přidání modelu
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na **Modely** a vyberte **Přidat**, **Třídu**. 
    
     ![Přidání modelu][cache-model-add-class]
@@ -174,10 +178,10 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
-### Přidání kontroleru
+### <a name="add-the-controller"></a>Přidání kontroleru
 1. Projekt sestavíte stisknutím klávesy **F6**. 
 2. V **Průzkumníku řešení** klikněte pravým tlačítkem na složku **Kontrolery** a vyberte **Přidat**, **Kontroler**.
    
@@ -214,7 +218,7 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
         );
 
 
-### Konfigurace zobrazení
+### <a name="configure-the-views"></a>Konfigurace zobrazení
 1. V **Průzkumníku řešení** rozbalte složku **Zobrazení**, poté složku **Sdílené**, a dvakrát klikněte na soubor **_Layout.cshtml**. 
    
     ![Soubor _Layout.cshtml][cache-layout-cshtml]
@@ -233,7 +237,7 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
 
 ![Startovní aplikace][cache-starter-application]
 
-## Konfigurace aplikace pro používání Redis Cache
+## <a name="configure-the-application-to-use-redis-cache"></a>Konfigurace aplikace pro používání Redis Cache
 V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a načítání týmových statistik Contoso z instance služby Azure Redis Cache pomocí klienta mezipaměti [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
 * [Konfigurace aplikace pro používání StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
@@ -241,7 +245,7 @@ V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a nač
 * [Aktualizace metod Create, Edit a Delete pro práci s mezipamětí](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Aktualizace zobrazení Teams Index pro práci s mezipamětí](#update-the-teams-index-view-to-work-with-the-cache)
 
-### Konfigurace aplikace pro používání StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Konfigurace aplikace pro používání StackExchange.Redis
 1. Chcete-li konfigurovat klientskou aplikaci v sadě Visual Studio pomocí balíčku StackExchange.Redis NuGet, klikněte pravým tlačítkem na projekt v **Průzkumníku řešení** a vyberte**Správa balíčků NuGet**. 
    
     ![Správa balíčků NuGet][redis-cache-manage-nuget-menu]
@@ -292,7 +296,7 @@ V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a nač
      
      Modul runtime ASP.NET sloučí obsah externího souboru se značkami v elementu `<appSettings>`. Pokud zadaný soubor nelze nalézt, modul runtime atribut souboru ignoruje. Vaše tajné klíče (připojovací řetězce k mezipaměti) nejsou součástí zdrojového kódu aplikace. Při nasazení vaší webové aplikace do Azure se soubor `WebAppPlusCacheAppSecrests.config` nenasadí (přesně to chcete). Existuje několik způsobů určení těchto tajných klíčů v Azure – v tomto kurzu jsou pro vás automaticky nakonfigurované během [zřízení prostředků Azure](#provision-the-azure-resources) v dalším kroku kurzu. Další informace o práci s tajnými klíči v Azure najdete v tématu [Osvědčené postupy pro nasazování hesel a dalších citlivých dat do ASP.NET a do Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
-### Aktualizace třídy TeamsController pro vracení výsledků z mezipaměti nebo z databáze
+### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Aktualizace třídy TeamsController pro vracení výsledků z mezipaměti nebo z databáze
 V této ukázce lze týmové statistiky získat z databáze nebo z mezipaměti. Týmové statistiky jsou v mezipaměti uložené pomocí datových typů Redis jako serializovaný seznam `List<Team>`, a také jako seřazená sada. Při načítání položek ze seřazené sady můžete načíst část položek, všechny položky nebo provézt dotaz na určité položky. V této ukázce provedete na seřazenou sadu dotaz pro získání Top 5 týmů podle počtu vítězství.
 
 > [!NOTE]
@@ -513,7 +517,7 @@ V této ukázce lze týmové statistiky získat z databáze nebo z mezipaměti. 
         }
 
 
-### Aktualizace metod Create, Edit a Delete pro práci s mezipamětí
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Aktualizace metod Create, Edit a Delete pro práci s mezipamětí
 Kód generování uživatelského rozhraní vygenerovaný jako součást této ukázky obsahuje metody pro přidávání, upravování a odstraňování týmů. Pokaždé když dojde k přidání, úpravě nebo odstranění týmu se data v mezipaměti stanou zastaralými. V této části upravíte tyto tři metody pro vymazávání týmů uložených v mezipaměti, aby nedocházelo k tomu, že mezipaměť nebude synchronizována s databází.
 
 1. Přejděte k metodě `Create(Team team)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
@@ -578,7 +582,7 @@ Kód generování uživatelského rozhraní vygenerovaný jako součást této u
         }
 
 
-### Aktualizace zobrazení Teams Index pro práci s mezipamětí
+### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>Aktualizace zobrazení Teams Index pro práci s mezipamětí
 1. V **Průzkumníku řešení** rozbalte složku **Zobrazení**, poté složku **Týmy**, a dvakrát klikněte na soubor **Index.cshtml**.
    
     ![Soubor Index.cshtml][cache-views-teams-index-cshtml]
@@ -627,7 +631,7 @@ Kód generování uživatelského rozhraní vygenerovaný jako součást této u
     ![Zpráva o stavu][cache-status-message]
 2. Projekt sestavíte stisknutím klávesy **F6**.
 
-## Zřízení prostředků Azure
+## <a name="provision-the-azure-resources"></a>Zřízení prostředků Azure
 Abyste mohli hostovat svoji aplikaci v Azure, musíte nejdříve zřídit služby Azure, které vaše aplikace vyžaduje. Ukázková aplikace v tomto kurzu používá následující služby Azure.
 
 * Azure Redis Cache
@@ -674,7 +678,7 @@ Jakmile je zřizování dokončeno, můžete publikovat svoji aplikaci do Azure 
 > 
 > 
 
-## Publikování aplikace do Azure
+## <a name="publish-the-application-to-azure"></a>Publikování aplikace do Azure
 V tomto kroku kurzu publikujete aplikaci do Azure a spustíte ji v cloudu.
 
 1. V sadě Visual Studio klikněte pravým tlačítkem na projekt **ContosoTeamStats** a vyberte **Publikovat**.
@@ -710,7 +714,7 @@ Následující tabulka popisuje každý odkaz na akci v ukázkové aplikaci.
 
 Klikněte na některé akce a experimentujte s načítáním dat z různých zdrojů. Všimněte si rozdílů v době trvání různých způsobů načítání dat z databáze a mezipaměti.
 
-## Odstranění prostředků po dokončení aplikace
+## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>Odstranění prostředků po dokončení aplikace
 Po dokončení ukázkové aplikace můžete odstranit použité prostředky Azure a uspořit tak náklady a prostředky. Pokud použijete tlačítko **Nasadit do Azure** v oddílu [Zřízení prostředků Azure](#provision-the-azure-resources) a všechny vaše prostředky jsou ve stejné skupině prostředků, můžete je odstranit všechny najednou tak, že odstraníte skupinu prostředků.
 
 1. Přihlaste se na web [Azure Portal ](https://portal.azure.com) a klikněte na **Skupiny prostředků**.
@@ -730,7 +734,7 @@ Za chvíli je skupina prostředků včetně všech obsažených prostředků ods
 > 
 > 
 
-## Spuštění ukázkové aplikace na místním počítači
+## <a name="run-the-sample-application-on-your-local-machine"></a>Spuštění ukázkové aplikace na místním počítači
 Ke spuštění aplikace na místním počítači potřebujete mít instanci služby Azure Redis Cache, ve které budete ukládat data do mezipaměti. 
 
 * Pokud jste svoji aplikaci publikovali do Azure podle postupu v předchozím oddílu, můžete použít instanci služby Azure Redis Cache zřízenou během tohoto kroku.
@@ -754,7 +758,7 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o [Začátcích s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) najdete na stránce [ASP.NET](http://asp.net/).
 * Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect.
   * Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
@@ -804,6 +808,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

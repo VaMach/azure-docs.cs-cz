@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Search v Javě | Microsoft Docs
-description: Jak vytvořit hostovanou cloudovou vyhledávací aplikaci v Azure pomocí programovacího jazyka Java.
+title: "Začínáme s Azure Search v Javě | Dokumentace Microsoftu"
+description: "Jak vytvořit hostovanou cloudovou vyhledávací aplikaci v Azure pomocí programovacího jazyka Java."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,11 +14,15 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+
 
 ---
-# Začínáme s Azure Search v Javě
+# <a name="get-started-with-azure-search-in-java"></a>Začínáme s Azure Search v Javě
 > [!div class="op_single_selector"]
-> * [Portál](search-get-started-portal.md)
+> * [Azure Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
@@ -33,17 +37,17 @@ Pro vytvoření a testování tohoto příkladu jsme použili následující sof
 * [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## Informace o datech
+## <a name="about-the-data"></a>Informace o datech
 Tato ukázková aplikace používá data agentury [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), která jsou filtrovaná pro stát Rhode Island, aby se zmenšila velikost datové sady. Pomocí těchto dat sestavíme vyhledávací aplikaci, která najde významné budovy, například nemocnice a školy, a geologické prvky, jako jsou vodní toky, jezera a vrcholy.
 
 Program **SearchServlet.java** v této aplikaci sestaví a načte index pomocí konstruktoru [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), přičemž načte filtrovanou sadu dat USGS z veřejné databáze Azure SQL Database. Předdefinované přihlašovací údaje a informace o připojení k online zdroji dat jsou uvedené v kódu programu. Z hlediska přístupu k datům není potřeba žádná další konfigurace.
 
 > [!NOTE]
-> U této sady dat jsme použili filtr, abychom dodrželi omezení 10 000 dokumentů pro cenovou úroveň Free. Pokud používáte úroveň Standard, toto omezení se na vás nevztahuje a můžete upravit tento kód, aby používal větší datovou sadu. Podrobnosti týkající se kapacity u jednotlivých cenových úrovní najdete v tématu [Omezení](search-limits-quotas-capacity.md).
+> U této sady dat jsme použili filtr, abychom dodrželi omezení 10 000 dokumentů pro cenovou úroveň Free. Pokud používáte úroveň Standard, toto omezení se na vás nevztahuje a můžete upravit tento kód, aby používal větší datovou sadu. Podrobnosti týkající se kapacity u jednotlivých cenových úrovní najdete v tématu [Omezení](search-limits-quotas-capacity.md).
 > 
 > 
 
-## O souborech programu
+## <a name="about-the-program-files"></a>O souborech programu
 Následující seznam popisuje soubory, které se vztahují k tomuto příkladu.
 
 * Search.jsp: Poskytuje uživatelské rozhraní.
@@ -56,7 +60,7 @@ Následující seznam popisuje soubory, které se vztahují k tomuto příkladu.
 
 <a id="sub-2"></a>
 
-## Nalezení názvu služby a klíče api-key služby Azure Search
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Nalezení názvu služby a klíče api-key služby Azure Search
 Všechna volání rozhraní API REST služby Azure Search vyžadují, abyste zadali adresu URL služby a klíč api-key. 
 
 1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
@@ -64,17 +68,17 @@ Všechna volání rozhraní API REST služby Azure Search vyžadují, abyste zad
 3. Vyberte službu, kterou chcete použít.
 4. Na řídicím panelu služby uvidíte dlaždice se základními informacemi a ikonu klíče pro přístup ke klíčům správce.
    
-    ![][3]
+      ![][3]
 5. Zkopírujte adresu URL služby a klíč správce. Budete je potřebovat později, až je budete přidávat do souboru **config.properties**.
 
-## Stažení ukázkových souborů
+## <a name="download-the-sample-files"></a>Stažení ukázkových souborů
 1. Přejděte na [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) na GitHubu.
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip na disk a potom z něj extrahujte všechny soubory. Zvažte extrahování souborů do pracovního prostoru Java, aby bylo později snazší projekt najít.
 3. Ukázkové soubory jsou jen pro čtení. Klikněte pravým tlačítkem na vlastnosti složky a vymažte atribut jen pro čtení.
 
 Všechny následné úpravy souborů a spouštěné příkazy se budou provádět na souborech v této složce.  
 
-## Import projektu
+## <a name="import-project"></a>Import projektu
 1. V prostředí Eclipse zvolte **Soubor** > **Import** > **Obecné** > **Existující projekty do pracovního prostoru**.
    
     ![][4]
@@ -84,14 +88,14 @@ Všechny následné úpravy souborů a spouštěné příkazy se budou provádě
 3. Klikněte na **Dokončit**.
 4. Pomocí **Prohlížeče projektu** můžete zobrazit a upravit soubory. Pokud ještě není otevřený, klikněte na **Okno** > **Zobrazit zobrazení** > **Prohlížeč projektu** nebo ho otevřete pomocí klávesové zkratky.
 
-## Konfigurace adresy URL služby a klíče api-key
+## <a name="configure-the-service-url-and-apikey"></a>Konfigurace adresy URL služby a klíče api-key
 1. V **Prohlížeči projektu**, dvakrát klikněte na soubor **config.properties**, abyste upravili nastavení konfigurace obsahující název serveru a klíč api-key.
 2. Podívejte se na postup uvedený dříve v tomto článku, kde jste našli adresu URL služby a klíč api-key v [webu Azure Portal](https://portal.azure.com), abyste získali hodnoty, které nyní zadáte do souboru **config.properties**.
 3. V souboru **config.properties** nahraďte položku „Api Key“ klíčem api-key pro vaši službu. Název služby (první komponenta adresy URL http://název_služby.search.windows.net) dále nahrazuje položku „service name“ ve stejném souboru.
    
     ![][5]
 
-## Konfigurace prostředí projektu, buildu a běhového prostředí
+## <a name="configure-the-project-build-and-runtime-environments"></a>Konfigurace prostředí projektu, buildu a běhového prostředí
 1. V prostředí Eclipse v Prohlížeči projektu klikněte pravým tlačítkem myši na projekt > **Vlastnosti** > **Omezující vlastnosti projektu**.
 2. Vyberte **Dynamic Web Module**, **Java** a **JavaScript**.
    
@@ -117,7 +121,7 @@ Všechny následné úpravy souborů a spouštěné příkazy se budou provádě
 
 Nyní jste dokončili úlohy konfigurace. V dalším kroku sestavíte a spustíte projekt.
 
-## Sestavení projektu
+## <a name="build-the-project"></a>Sestavení projektu
 1. V Prohlížeči projektu klikněte pravým tlačítkem na název projektu a zvolte **Spustit jako** > **Build Maven...**, abyste nakonfigurovali projekt.
    
     ![][10]
@@ -125,7 +129,7 @@ Nyní jste dokončili úlohy konfigurace. V dalším kroku sestavíte a spustít
 
 Stavové zprávy se zobrazují v okně konzoly. Měli byste vidět zprávu o úspěšném sestavení, která oznamuje sestavení projektu bez chyb.
 
-## Spusťte aplikaci
+## <a name="run-the-app"></a>Spusťte aplikaci
 V tomto posledním kroku spustíte aplikaci v běhovém prostředí místního serveru.
 
 Pokud jste v prostředí Eclipse ještě neurčili běhové prostředí serveru, budete to muset učinit nyní.
@@ -142,7 +146,7 @@ Při spuštění aplikace by se mělo zobrazit okno prohlížeče, které poskyt
 
 Před kliknutím na tlačítko **Hledat** počkejte přibližně jednu minutu, aby měla služba čas na vytvoření a načtení indexu. Pokud se zobrazí chyba HTTP 404, bude třeba před dalším pokusem ještě chvíli počkat.
 
-## Hledání v datech USGS
+## <a name="search-on-usgs-data"></a>Hledání v datech USGS
 Sada dat USGS obsahuje záznamy, které se vztahují ke státu Rhode Island. Pokud u prázdného vyhledávacího pole kliknete na tlačítko **Hledat**, obdržíte prvních 50 položek, což je výchozí nastavení.
 
 Když zadáte hledaný výraz, vyhledávací web bude mít s čím pracovat. Zkuste zadat místní název. Roger Williams byl prvním guvernérem státu Rhode Island. Je po něm pojmenovaná celá řada parků, budov a škol.
@@ -155,7 +159,7 @@ Může taky zkusit kterýkoli z těchto výrazů:
 * Pembroke
 * goose +cape
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Toto je první kurz služby Azure Search založený na Javě a sadě dat USGS. Postupně ho budeme rozšiřovat o ukázky dalších vyhledávacích funkcí, které by se vám ve vlastních řešeních mohly hodit.
 
 Pokud již máte základní vědomosti o službě Azure Search, můžete tuto ukázku použít jako odrazový můstek pro další experimentování, případně rozšíření [stránky vyhledávání](search-pagination-page-layout.md) nebo implementaci [fasetové navigace](search-faceted-navigation.md). Můžete taky zdokonalit stránku výsledků hledání přidáním počtů a dávkováním dokumentů, aby se výsledky daly procházet po stránkách.
@@ -178,6 +182,6 @@ Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

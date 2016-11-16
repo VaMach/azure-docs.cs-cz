@@ -2,16 +2,18 @@ Kvůli připojení k instanci Azure Redis Cache potřebují klienti mezipaměti 
 
 ![Nastavení mezipaměti Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Název hostitele a porty
+### <a name="host-name-and-ports"></a>Název hostitele a porty
 K názvu hostitele a portům získáte přístup kliknutím na **Vlastnosti**.
 
 ![Vlastnosti mezipaměti Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Přístupové klíče
+### <a name="access-keys"></a>Přístupové klíče
 Pokud chcete získat přístupové klíče, klikněte na **Přístupové klíče**.
 
 ![Přístupové klíče mezipaměti Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -10,6 +10,8 @@
 * Provoz VNet-to-VNet se přenáší prostřednictvím služby MSN, nikoli po internetu.
 * Provoz VNet-to-VNet v rámci stejné oblasti je v obou směrech zdarma; v případě různých oblastí je výchozí přenos VNet-to-VNet zpoplatněn jako odchozí přenos dat mezi virtuálními sítěmi podle zdrojových oblastí. Podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

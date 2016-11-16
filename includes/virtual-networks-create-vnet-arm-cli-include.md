@@ -1,4 +1,4 @@
-## Vytvoření sítě VNet pomocí rozhraní příkazového řádku Azure
+## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Vytvoření sítě VNet pomocí rozhraní příkazového řádku Azure
 Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostředky Azure z příkazového řádku jakéhokoliv počítače se systémem Windows, Linux a OS X. Pokud chcete vytvořit síť VNet pomocí rozhraní příkazového řádku Azure, postupujte následujícím způsobem.
 
 1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
@@ -9,7 +9,7 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
     Toto je očekávaný výstup výše uvedeného příkazu:
    
         info:    New mode is arm
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md#resource-groups).
+3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **azure group create**, jak vidíte níže. Prohlédněte si výstup příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
         azure group create -n TestRG -l centralus
    
@@ -100,6 +100,8 @@ Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostře
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

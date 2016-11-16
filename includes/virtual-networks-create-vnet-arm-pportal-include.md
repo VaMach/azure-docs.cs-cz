@@ -1,4 +1,4 @@
-## Vytvoření virtuální sítě VNet na portálu Azure
+## <a name="how-to-create-a-vnet-in-the-azure-portal"></a>Vytvoření virtuální sítě VNet na portálu Azure
 Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře vytvořit virtuální síť VNet, použijte následující postup.
 
 1. V prohlížeči přejděte na http://portal.azure.com a v případě potřeby se přihlaste pomocí účtu Azure.
@@ -8,7 +8,7 @@ Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře
 3. V okně **Vytvořit virtuální síť** nakonfigurujte nastavení sítě VNet, jak znázorňuje následující obrázek.
    
     ![Okno Vytvořit virtuální síť](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
-4. Klikněte na **Skupina prostředků** a vyberte skupinu prostředků, do které chcete přidat síť VNet, případně klikněte na **Vytvořit novou** a přidejte síť VNet do nové skupiny prostředků. Následující obrázek ukazuje nastavení skupiny prostředky pro novou skupinu prostředků s názvem **TestRG**. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md#resource-groups).
+4. Klikněte na **Skupina prostředků** a vyberte skupinu prostředků, do které chcete přidat síť VNet, případně klikněte na **Vytvořit novou** a přidejte síť VNet do nové skupiny prostředků. Následující obrázek ukazuje nastavení skupiny prostředky pro novou skupinu prostředků s názvem **TestRG**. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
     ![Skupina prostředků](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 5. V případě potřeby změňte nastavení **Předplatné** a **Umístění** sítě VNet. 
@@ -26,6 +26,8 @@ Pokud chcete na portálu Azure Preview s využitím výše uvedeného scénáře
     
     ![Seznam podsítí v síti VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

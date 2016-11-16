@@ -1,5 +1,6 @@
-# [Přehled](app-service-how-works-readme.md)
+# Přehled
 ## [Co je App Service](app-service-value-prop-what-is.md)
+## [Jak to funguje](app-service-how-works-readme.md)
 ## [Plány služby App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # Začínáme
@@ -149,15 +150,14 @@
 ## [Referenční informace k App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Osvědčené postupy](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Prostředky webových úloh](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# Související
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
-
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Engagementem pro nasazení Unity Android
-description: Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace Unity nasazované v zařízeních iOS.
+title: "Začínáme s Azure Mobile Engagementem pro nasazení Unity Android"
+description: "Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro aplikace Unity nasazované v zařízeních iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro nasazení Unity Android
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Začínáme s Azure Mobile Engagementem pro nasazení Unity Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikací a odesílat nabízená oznámení segmentovaným uživatelům aplikace Unity při nasazení v zařízení Android.
@@ -33,11 +37,11 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
-### Import balíčku Unity
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+### <a name="import-the-unity-package"></a>Import balíčku Unity
 1. Stáhněte si [balíček Mobile Engagement Unity](https://aka.ms/azmeunitysdk) a uložte jej do místního počítače. 
 2. Přejděte na stránku **Assets (Prostředky) -> Import Package (Importovat balíček) -> Custom Package (Vlastní balíček)** a vyberte balíček, který jste stáhli v předchozím kroku. 
    
@@ -49,7 +53,7 @@ V tomto kurzu budete potřebovat následující:
    
     ![][72] 
 
-### Aktualizace EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Aktualizace EngagementConfiguration
 1. Ve složce SDK otevřete soubor skriptu **EngagementConfiguration** a aktualizujte **ANDROID\_CONNECTION\_STRING** připojovacím řetězcem, který jste dříve získali z portálu Azure.  
    
     ![][73]
@@ -63,7 +67,7 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-### Konfigurace aplikace pro základní sledování
+### <a name="configure-the-app-for-basic-tracking"></a>Konfigurace aplikace pro základní sledování
 1. Otevřete skript **PlayerController** připojený k objektu Player pro úpravy. 
 2. Přidejte následující příkaz using:
    
@@ -73,7 +77,7 @@ V tomto kurzu budete potřebovat následující:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### Nasazení a spuštění aplikace
+### <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítači nainstalován balíček Android SDK. 
 
 1. Připojte zařízení Android k vašemu počítači. 
@@ -94,13 +98,13 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 6. Můžete být vyzváni k zadání názvu složky, do které se uloží balíček Android. 
 7. Pokud všechno půjde dobře, balíček se nasadí v připojeném zařízení a v telefonu by se měla zobrazit vaše hra Unity. 
 
-## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### Aktualizace EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Aktualizace EngagementConfiguration
 1. Ve složce SDK otevřete soubor skriptu **EngagementConfiguration** a aktualizujte **ANDROID\_GOOGLE\_NUMBER** **číslem projektu Google**, které jste dříve získali z portálu Google Cloud Developer. Jedná se o řetězcovou hodnotu, takže ji nezapomeňte zavřít do uvozovek. 
    
     ![][75]
@@ -109,7 +113,7 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
    
     ![][74]
 
-### Konfigurace aplikace k přijímání oznámení
+### <a name="configure-the-app-to-receive-notifications"></a>Konfigurace aplikace k přijímání oznámení
 1. Otevřete skript **PlayerController** připojený k objektu Player pro úpravy. 
 2. Do metody `Start()` přidejte následující
    
@@ -133,6 +137,6 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

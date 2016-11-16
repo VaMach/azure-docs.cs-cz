@@ -1,4 +1,4 @@
-## Služba zřetězení – přenos prostřednictvím přehledu partnerských vztahů virtuálních sítí
+## <a name="service-chaining-transit-through-peered-vnet"></a>Služba zřetězení – přenos prostřednictvím přehledu partnerských vztahů virtuálních sítí
 Ačkoli použití systémových tras vašemu nasazení automaticky usnadňuje provoz, v některých případech je vhodné řídit směrování paketů prostřednictvím virtuálního zařízení.
 V tomto scénáři existují dvě virtuální sítě v předplatném, HubVNet a VNet1, jako je popsáno v následujícím diagramu. Vy nasadíte virtuální zařízení sítě (NVA) ve virtuální síti HubVNet. Po přehledu partnerských vztahů virtuální sítě mezi HubVNet a VNet1 můžete nastavit trasy definované uživatelem a určit další směrování do NVA v HubVNet.
 
@@ -11,6 +11,8 @@ V tomto scénáři existují dvě virtuální sítě v předplatném, HubVNet a 
 
 Klíčovou vlastností pro povolení směrování přenosu je parametr „Povolit přesměrovaný provoz“. Ten umožňuje přijímání a odesílání přenosů z/do NVA v partnerských virtuálních sítích.  
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

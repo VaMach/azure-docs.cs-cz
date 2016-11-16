@@ -1,12 +1,12 @@
 ---
-title: Používání témat Service Bus s .NET | Microsoft Docs
-description: Naučte se, jak používat témata a odběry služby Service Bus s :NET v Azure. Ukázky kódu jsou napsané pro aplikace .NET.
+title: "Používání témat Service Bus s .NET | Dokumentace Microsoftu"
+description: "Naučte se, jak používat témata a odběry služby Service Bus s :NET v Azure. Ukázky kódu jsou napsané pro aplikace .NET."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Jak používat témata a odběry Service Bus
@@ -151,7 +155,7 @@ Odběry témat taky můžete vytvořit pomocí třídy [NamespaceManager](https:
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Vytvoření odběru s výchozím filtrem (MatchAll).
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Vytvoření odběru s výchozím filtrem (MatchAll).
 V případě, že při vytváření nového odběru nezadáte žádný filtr, použije se jako výchozí filtr **MatchAll**. Když použijete filtr **MatchAll**, všechny zprávy publikované do tématu se umístí do virtuální fronty odběru. Následující příklad vytvoří odběr s názvem „AllMessages“ a použije výchozí filtr **MatchAll**.
 
 ```
@@ -172,7 +176,7 @@ Můžete taky vytvořit filtry, které vám umožní zprávy odeslané do témat
 
 Nejflexibilnější filtr, který odběry podporují, je třída [SqlFilter][SqlFilter], která je podmnožinou SQL92. Filtry SQL pracují s vlastnostmi zpráv publikované do tématu. Další informace, které se dají použít s filtrem SQL, najdete v syntaxi [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-Následující příklad vytvoří odběr s názvem **HighMessages** s objektem [SqlFilter][SqlFilter], který vybere jen zprávy, které mají uživatelskou vlastnost **MessageNumber** větší než 3.
+Následující příklad vytvoří odběr s názvem **HighMessages** s objektem [SqlFilter][SqlFilter], který vybere jen zprávy s uživatelskou vlastností **MessageNumber** větší než 3.
 
 ```
 // Create a "HighMessages" filtered subscription.
@@ -184,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Následující příklad vytvoří odběr s názvem **LowMessages** s objektem [SqlFilter][SqlFilter], který vybere jen zprávy, které mají uživatelskou vlastnost **MessageNumber** menší nebo rovné 3.
+Následující příklad vytvoří odběr s názvem **LowMessages** s objektem [SqlFilter][SqlFilter], který vybere jen zprávy s uživatelskou vlastností **MessageNumber** menší nebo rovnou 3.
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -307,7 +311,7 @@ Naučili jste se základy témat a odběrů Service Bus, další informace se do
 * [Ukázka filtrů témat][Ukázka filtrů témat]
 * Reference pro API pro [SqlFilter][SqlFilter].
 * Sestavení fungující aplikace, která odesílá zprávy do fronty Service Bus a přijímá je z ní: [Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus][Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus].
-* Ukázky pro Service Bus: Stáhněte si je z [ukázek Azure][] nebo se podívejte na [přehled](../service-bus/service-bus-samples.md).
+* Ukázky pro Service Bus: Stáhněte si je z [ukázek Azure][ukázek Azure] nebo se podívejte na [přehled](service-bus-samples.md).
 
 [Azure Portal]: https://portal.azure.com
 
@@ -318,10 +322,10 @@ Naučili jste se základy témat a odběrů Service Bus, další informace se do
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus]: service-bus-brokered-tutorial-dotnet.md
-[Ukázky Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[ukázek Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

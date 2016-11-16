@@ -1,5 +1,5 @@
 # Přehled
-## [Úvod k ACS](container-service-intro.md)
+## [Co je Azure Container Service?](container-service-intro.md)
 # Začínáme
 
 ## [Nasazení clusteru ACS](container-service-deployment.md)
@@ -21,13 +21,12 @@
 ### [Přehled Dockeru Swarm](container-service-docker-swarm.md)
 
 # Referenční informace
-
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Zdroje a prostředky
-
 ## [Dostupnost v oblastech](https://azure.microsoft.com/regions/services/)
-## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Ceny](https://azure.microsoft.com/pricing/details/container-service/)
+## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

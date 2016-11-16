@@ -1,22 +1,26 @@
 ---
-title: Začínáme se službou Azure Active Directory Premium
-description: Téma, které vysvětluje, jak si registrovat edici Azure Active Directory Premium prostřednictvím multilicenčního webu.
+title: "Začínáme se službou Azure Active Directory Premium"
+description: "Téma, které vysvětluje, jak si registrovat edici Azure Active Directory Premium prostřednictvím multilicenčního webu."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f5341ecd0256d6268b9247ef5ec391809b7071a
+
 
 ---
-# Začínáme se službou Azure Active Directory Premium
+# <a name="getting-started-with-azure-active-directory-premium"></a>Začínáme se službou Azure Active Directory Premium
 Active Directory Premium si můžete registrovat několika způsoby: 
 
 **Azure nebo Office 365** – jako předplatitel služby Azure nebo Office 365 si můžete koupit Active Directory Premium online. Podrobný postup naleznete v tématu [Jak zakoupit Azure Active Directory Premium – stávající zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) nebo [Jak zakoupit Azure Active Directory Premium – noví zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -32,10 +36,10 @@ Toto téma ukazuje, jak začít pracovat s edicí Azure Active Directory Premium
 > 
 > 
 
-## Krok 1: Zaregistrujte si Active Directory Premium
+## <a name="step-1-sign-up-for-active-directory-premium"></a>Krok 1: Zaregistrujte si Active Directory Premium
 Postup registrace naleznete v části [Jak nakupovat prostřednictvím multilicenčního programu](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
-## Krok 2: Aktivujte licenční plán
+## <a name="step-2-activate-your-license-plan"></a>Krok 2: Aktivujte licenční plán
 Jedná se o váš první nákup licenčního plánu prostřednictvím multilicenčního programu Enterprise Volume Licensing společnosti Microsoft?
 V takovém případě obdržíte po dokončení nákupu potvrzovací e-mail.
 Tento e-mail je potřebný k aktivaci prvního licenčního plánu.
@@ -58,7 +62,7 @@ Až budete hotoví, zobrazí se následující dialogové okno s potvrzením akt
 
 ![Potvrzení][3]
 
-## Krok 3: Aktivujte přístup do služby Azure Active Directory
+## <a name="step-3-activate-your-azure-active-directory-access"></a>Krok 3: Aktivujte přístup do služby Azure Active Directory
 Pokud jste Microsoft Azure již používali, můžete přejít na [Krok 4](#step-4-assign-license-to-user-accounts). 
 
 Když jsou licence zřízené do vašeho adresáře, bude vám zaslán **uvítací e-mail**. E-mail bude obsahovat potvrzení, že můžete začít spravovat licence a funkce služby Azure Active Directory Premium nebo Enterprise Mobility Suite. 
@@ -71,7 +75,7 @@ Zkuste to prosím znovu za několik minut, až obdržíte e-mail.
 
 Prostřednictvím tohoto odkazu mohou noví správci ve vašem předplatném také aktivovat přístup na portál Azure Classic.
 
-**Pokud chcete aktivovat přístup do služby Azure Active Directory, proveďte následující kroky:**
+**Pokud chcete aktivovat přístup do služby Azure Active Directory, postupujte takto:**
 
 1. V **uvítacím e-mailu** klikněte na tlačítko **Přihlásit**. 
    
@@ -92,10 +96,10 @@ Možná již máte přístup ke službě Azure z předchozího používání; d�
 
 ![Možnosti služby Azure][8]
 
-## Krok 4: Přiřaďte licenci uživatelským účtům
+## <a name="step-4-assign-license-to-user-accounts"></a>Krok 4: Přiřaďte licenci uživatelským účtům
 Před zahájením používání plánu, který jste zakoupili, budete muset ručně přiřadit licence uživatelským účtům v rámci vaší organizace, aby mohly využívat bohaté funkce programu Premium. Aby mohli uživatelé používat funkce služby Azure Active Directory Premium, přiřaďte jim licence následujícím způsobem.
 
-**Licence uživatelům přiřadíte následovně:**
+**Licence uživatelům přiřadíte takto:**
 
 1. Přihlaste se k portálu Azure Classic jako globální správce adresáře, který chcete přizpůsobit.
 2. Klikněte na **Active Directory** a pak vyberte adresář, kterému chcete přiřadit licence.
@@ -106,17 +110,17 @@ Před zahájením používání plánu, který jste zakoupili, budete muset ruč
    
     ![Přiřazení licencí][11]
 
-### Licenční omezení
+### <a name="license-restrictions"></a>Licenční omezení
 Některé licenční plány jsou podmnožiny nebo nadmnožiny jiných licenčních plánů. Uživateli obvykle nelze přiřadit licenční plán, který mu již byl přiřazen. Pokud máte v úmyslu přiřadit licenční plán, který je nadmnožinou, je třeba nejdříve odebrat licenční plán, který je podmnožinou.
 
-### Licenční požadavky
+### <a name="license-requirements"></a>Licenční požadavky
 Když uživateli přiřazujete licenci, můžete ve vlastnostech jeho účtu zadat umístění primárního využití. Pokud umístění využití nezadáte, přiřadí se umístění klienta automaticky uživateli.
 
 ![Umístění uživatele][12]
 
 Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se liší podle země nebo oblasti. Služba, například Voice over Internet Protocol (VoIP), může být k dispozici v jedné zemi či oblasti, zatímco v jiné zemi či oblasti dostupná není. Funkce v rámci služby mohou být v některých zemích nebo oblastech z právních důvodů omezeny. Pokud chcete zjistit, zda je služba či funkce dostupná s omezením nebo bez něj, vyhledejte zemi nebo oblast na webu licenčních omezení dané služby.
 
-## Kam dál
+## <a name="whats-next"></a>Kam dál
 * [Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu](active-directory-add-company-branding.md)
 * [Zobrazení sestav přístupů a používání](active-directory-view-access-usage-reports.md)
 
@@ -136,6 +140,6 @@ Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se li�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

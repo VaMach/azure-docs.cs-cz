@@ -1,13 +1,13 @@
 ---
-title: Začínáme s předkonfigurovanými řešeními | Microsoft Docs
-description: V tomto kurzu se dozvíte, jak nasadit předkonfigurované řešení Azure IoT Suite.
-services: ''
+title: "Začínáme s předkonfigurovanými řešeními | Dokumentace Microsoftu"
+description: "V tomto kurzu se dozvíte, jak nasadit předkonfigurované řešení Azure IoT Suite."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Kurz: Začínáme s předkonfigurovanými řešeními
-## Úvod
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Kurz: Začínáme s předkonfigurovanými řešeními
+## <a name="introduction"></a>Úvod
 [Předkonfigurovaná řešení][lnk-preconfigured-solutions] Azure IoT Suite kombinují více služeb Azure IoT, aby mohla poskytovat komplexní řešení, implementující běžné obchodní scénáře IoT. Předkonfigurované řešení *vzdálené monitorování* se připojuje k zařízením a monitoruje je. Řešení můžete použít k analýze streamu dat ze všech zařízení a ke zlepšení obchodních výsledků díky tomu, že procesy mohou automaticky reagovat na tento stream dat.
 
 V tomto kurzu se dozvíte, jak zřídit předkonfigurované řešení vzdáleného monitorování. Také se seznámíte se základními funkcemi předkonfigurovaného řešení vzdáleného monitorování. Mnohé z těchto funkcí jsou přístupné prostřednictvím řídicího panelu řešení, který se nasazuje spolu s předem nakonfigurovaným řešením:
@@ -34,7 +38,7 @@ K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Zobrazení řídicího panelu řešení
+## <a name="view-the-solution-dashboard"></a>Zobrazení řídicího panelu řešení
 Přes řídicí panel řešení můžete spravovat nasazené řešení. Můžete například zobrazit telemetrická data, přidat zařízení nebo konfigurovat pravidla.
 
 1. Až bude zřizování dokončeno a dlaždice předkonfigurovaného řešení bude hlásit **Připraveno**, klikněte na tlačítko **Spustit**. Na nové kartě se otevře portál předkonfigurovaného řešení vzdáleného monitorování.
@@ -50,7 +54,7 @@ Přes řídicí panel řešení můžete spravovat nasazené řešení. Můžete
 * Na panelu **Historie telemetrie** se skoro v reálném čase zobrazuje telemetrie vlhkosti a teploty z vybraného zařízení a agregovaná data (tj. minimum, maximum a průměrná vlhkost).
 * Panel **Historie alarmů** zobrazuje události, kdy v poslední době hodnota telemetrie překročila stanovenou mez. Kromě příkladů vytvořených předkonfigurovaným řešením můžete definovat i vlastní alarmy.
 
-## Zobrazení seznamu zařízení
+## <a name="view-the-device-list"></a>Zobrazení seznamu zařízení
 V seznamu zařízení jsou uvedena všechna zařízení, která jsou zaregistrována v řešení. Můžete sledovat a upravovat metadata v zařízení, přidávat nebo odebírat zařízení a odesílat do nich příkazy.
 
 1. Pokud v levé nabídce kliknete na možnost **Zařízení**, zobrazí se panel *Seznam zařízení* pro toto řešení.
@@ -67,7 +71,7 @@ Panel **Informace o zařízení** se skládá ze tří částí:
 * V části **Vlastnosti zařízení** je uveden seznam metadat zařízení. Některá z těchto metadat pocházejí ze samotného zařízení (například výrobce), jiná generuje řešení (například čas vytvoření). Odsud můžete upravit metadata zařízení.
 * V části **Ověřovací klíče** je uveden seznam klíčů, které může zařízení použít k ověřování při komunikaci s řešením.
 
-## Odeslání příkazu na zařízení
+## <a name="send-a-command-to-a-device"></a>Odeslání příkazu na zařízení
 V podokně s informacemi o zařízení jsou uvedeny všechny příkazy, které toto zařízení podporuje, a umožňuje vám odesílat příkazy na zařízení. Jakmile zařízení poprvé spustíte, odešle do řešení informace o příkazech, které podporuje.
 
 1. V podokně informací o vybraném zařízení klikněte na **Příkazy**.
@@ -81,7 +85,7 @@ V podokně s informacemi o zařízení jsou uvedeny všechny příkazy, které t
 
 Řešení sleduje stav každého příkazu, který odešle. Zpočátku je výsledek uveden jako **Čekající**. Když zařízení ohlásí, že příkaz provedlo, výsledek je nastaven na **Úspěch**.
 
-## Přidání nového simulovaného zařízení
+## <a name="add-a-new-simulated-device"></a>Přidání nového simulovaného zařízení
 Při nasazení předkonfigurovaného řešení jsou automaticky zřízena čtyři ukázková zařízení, která se zobrazí v seznamu zařízení. Tato zařízení jsou *simulovaná zařízení*, která běží ve webové úloze Azure. Simulované zařízení umožňují snadno experimentovat s předkonfigurovaným řešením, aniž by bylo nutné nasazovat skutečná fyzická zařízení. Pokud chcete k řešení připojit skutečné zařízení, přečtěte si článek [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm].
 
 Následující kroky ukazují, jak do řešení přidat simulované zařízení:
@@ -107,7 +111,7 @@ Následující kroky ukazují, jak do řešení přidat simulované zařízení:
    
     ![Zobrazení telemetrie z nového zařízení][img-runningnew-2]
 
-## Úprava metadat zařízení
+## <a name="edit-the-device-metadata"></a>Úprava metadat zařízení
 Když se zařízení připojí k řešení poprvé, odešle do řešení svá metadata. Při úpravě metadat zařízení prostřednictvím řídicího panelu řešení odešle nové hodnoty metadat do zařízení a uloží nové hodnoty v databázi řešení DocumentDB. Další informace najdete v článku [Registr identit zařízení a databáze DocumentDB][lnk-devicemetadata].
 
 1. Vraťte se zpět k seznamu zařízení.
@@ -121,7 +125,7 @@ Když se zařízení připojí k řešení poprvé, odešle do řešení svá me
    
     ![Úprava metadat zařízení][img-editdevice3]
 
-## Přidání pravidla pro nové zařízení
+## <a name="add-a-rule-for-the-new-device"></a>Přidání pravidla pro nové zařízení
 Pro zařízení, které jste právě přidali, ještě nejsou stanovena žádná pravidla. V této sekci přidáte pravidlo, které spustí alarm, jakmile teplota hlášená novým zařízením přesáhne 47 stupňů. Ještě než začnete, všimněte si, že historie telemetrie nového zařízení na řídicím panelu ukazuje, že teplota měřená tímto zařízením nikdy nepřesáhne 45 stupňů.
 
 1. Vraťte se zpět k seznamu zařízení.
@@ -151,7 +155,7 @@ Pro zařízení, které jste právě přidali, ještě nejsou stanovena žádná
 > 
 > 
 
-## Další funkce
+## <a name="other-features"></a>Další funkce
 Pomocí portálu řešení můžete hledat zařízení s konkrétními vlastnostmi, jako je například číslo modelu:
 
 ![Vyhledávání zařízení][img-search]
@@ -160,7 +164,7 @@ Zařízení můžete zakázat, zakázané zařízení lze následně odebrat:
 
 ![Zakázání a odebrání zařízení][img-disable]
 
-## Informace pro pokročilé uživatele
+## <a name="behind-the-scenes"></a>Informace pro pokročilé uživatele
 Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na [portálu Azure][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
 
 ![Předkonfigurované řešení na portálu Azure][img-portal]
@@ -180,7 +184,7 @@ Jakmile budete hotovi, můžete předkonfigurované řešení z vašeho předpla
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Když jste teď nasadili fungující předkonfigurované řešení, můžete pokračovat v seznamování se sadou IoT Suite přečtením následujících článků:
 
 * [Návod na předkonfigurované řešení vzdáleného monitorování][lnk-rm-walkthrough]
@@ -225,6 +229,6 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

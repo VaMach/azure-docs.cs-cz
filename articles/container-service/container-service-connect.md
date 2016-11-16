@@ -1,14 +1,14 @@
 ---
-title: Připojení ke clusteru Azure Container Service | Microsoft Docs
-description: Ke clusteru Azure Container Service se můžete připojit pomocí tunelu SSH.
+title: "Připojení ke clusteru Azure Container Service | Dokumentace Microsoftu"
+description: "Ke clusteru Azure Container Service se můžete připojit pomocí tunelu SSH."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, Kontejnery, mikroslužby, DC/OS, Azure
-
+keywords: "Docker, Kontejnery, mikroslužby, DC/OS, Azure"
+ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+
 
 ---
-# Připojení ke clusteru Azure Container Service
+# <a name="connect-to-an-azure-container-service-cluster"></a>Připojení ke clusteru Azure Container Service
 Clustery DC/OS a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST. Tyto koncové body ale nejsou k dispozici pro vnější svět. Pokud chcete tyto koncové body spravovat, je nutné vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu SSH můžete proti koncovým bodům clusteru spouštět příkazy a na svém vlastním systému si můžete přes prohlížeč zobrazit uživatelské rozhraní clusteru. Tento dokument vás provede vytvořením tunelu SSH z Linuxu, OS X a Windows.
 
 > [!NOTE]
@@ -26,7 +30,7 @@ Clustery DC/OS a Docker Swarm nasazené v Azure Container Service zpřístupňuj
 > 
 > 
 
-## Vytvoření tunelu SSH v Linuxu a OS X
+## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Vytvoření tunelu SSH v Linuxu a OS X
 První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu nebo OS X, je nalezení veřejného názvu DNS hlavních serverů s vyrovnáváním zatížení. To provedete tak, že rozbalíte skupinu prostředků, aby se zobrazily všechny prostředky. Najděte a vyberte veřejnou IP adresu hlavního serveru. Tím se otevře okno, které obsahuje informace o veřejné IP adrese, včetně názvu DNS. Uložte si tento název pro pozdější použití. <br />
 
 ![Veřejný název DNS](media/pubdns.png)
@@ -46,7 +50,7 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 > 
 > 
 
-## Tunel DC/OS
+## <a name="dcos-tunnel"></a>Tunel DC/OS
 Pokud chcete otevřít tunel ke koncovým bodům souvisejícím s DC/OS, spusťte příkaz podobný tomuto:
 
 ```bash
@@ -61,7 +65,7 @@ Nyní můžete ke koncovým bodům souvisejícím s DC/OS přistupovat přes tyt
 
 Obdobně můžete přes tento tunel kontaktovat rozhraní REST API pro každou z aplikací.
 
-## Tunel Swarm
+## <a name="swarm-tunnel"></a>Tunel Swarm
 Pokud chcete otevřít tunel ke koncovému bodu Swarm, spusťte příkaz podobný tomuto:
 
 ```bash
@@ -74,7 +78,7 @@ Nyní můžete nastavit proměnnou prostředí vašeho DOCKER_HOST následujíc�
 export DOCKER_HOST=:2375
 ```
 
-## Vytvoření tunelu SSH ve Windows
+## <a name="create-an-ssh-tunnel-on-windows"></a>Vytvoření tunelu SSH ve Windows
 Tunely SSH je ve Windows možné vytvořit několika způsoby. Tento dokument popisuje, jak k tomu použít PuTTY.
 
 Stáhněte si PuTTY do Windows a aplikaci spusťte.
@@ -113,12 +117,15 @@ Až bude tunel pro DC/OS nakonfigurován, budete mít k souvisejícímu koncové
 
 Když nakonfigurujete tunel pro Docker Swarm, budete mít ke clusteru Swarm přístup přes rozhraní příkazového řádku Dockeru. Nejdřív bude nutné nastavit proměnnou prostředí Windows s názvem `DOCKER_HOST` na hodnotu ` :2375`.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
-* [Práce s Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
+* [Práce se službou Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
 * [Práce s Azure Container Service a Docker Swarm](container-service-docker-swarm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

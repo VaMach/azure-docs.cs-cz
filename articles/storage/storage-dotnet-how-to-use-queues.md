@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Queue Storage pomocí rozhraní .NET | Microsoft Docs
-description: Fronty Azure Queue poskytují spolehlivý asynchronní přenos zpráv mezi součástmi aplikace. Cloudový přenos zpráv umožňuje nezávislé škálování součástí vaší aplikace.
+title: "Začínáme s úložištěm Azure Queue pomocí rozhraní .NET | Dokumentace Microsoftu"
+description: "Fronty Azure Queue poskytují spolehlivý asynchronní přenos zpráv mezi součástmi aplikace. Cloudový přenos zpráv umožňuje nezávislé škálování součástí vaší aplikace."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18af1ce4f6ebb235e66e17d99dc5ae6156b84a59
 
 ---
-# <a name="get-started-with-azure-queue-storage-using-.net"></a>Začínáme s úložištěm Azure Queue pomocí rozhraní .NET
+
+# <a name="get-started-with-azure-queue-storage-using-net"></a>Začínáme s úložištěm Azure Queue pomocí rozhraní .NET
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +36,7 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 **Požadavky:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-* [Klientská knihovna pro úložiště Azure pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
 
@@ -47,9 +51,11 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 ### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
 Přidejte do horní části souboru `program.cs` následující příkazy `using`:
 
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+```
 
 ### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
@@ -57,13 +63,16 @@ Přidejte do horní části souboru `program.cs` následující příkazy `using
 ### <a name="create-the-queue-service-client"></a>Vytvoření klienta Služby front
 Třída **CloudQueueClient** vám umožňuje načíst fronty uložené v rámci Queue Storage. Tady je jeden ze způsobů, jak vytvořit klienta služby:
 
+```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
+```
+    
 Teď můžete napsat kód, který bude číst data z Queue Storage a bude je tam také zapisovat.
 
 ## <a name="create-a-queue"></a>Vytvoření fronty
 Tento příklad ukazuje, jak vytvořit frontu, pokud ještě neexistuje:
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -76,10 +85,12 @@ Tento příklad ukazuje, jak vytvořit frontu, pokud ještě neexistuje:
 
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
+```
 
 ## <a name="insert-a-message-into-a-queue"></a>Vložení zprávy do fronty
 Pokud chcete vložit zprávu do existující fronty, vytvořte nejdříve novou třídu **CloudQueueMessage**. Pak zavolejte metodu **AddMessage**. **CloudQueueMessage** je možné vytvořit buď z řetězce (ve formátu UTF-8), nebo z **bajtového** pole. Tady je kód, který vytvoří frontu (pokud neexistuje) a vloží zprávu „Hello, World“:
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -96,10 +107,12 @@ Pokud chcete vložit zprávu do existující fronty, vytvořte nejdříve novou 
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
+```
 
 ## <a name="peek-at-the-next-message"></a>Zobrazení náhledu další zprávy
 Pomocí volání metody **PeekMessage** můžete prohlížet zprávy ve frontě, aniž byste je z fronty odebrali.
 
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -115,10 +128,12 @@ Pomocí volání metody **PeekMessage** můžete prohlížet zprávy ve frontě,
 
     // Display message.
     Console.WriteLine(peekedMessage.AsString);
+```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Změna obsahu zpráv zařazených ve frontě
 Podle potřeby můžete změnit obsah zprávy přímo ve frontě. Pokud zpráva představuje pracovní úlohu, mohli byste tuto funkci použít k aktualizaci stavu pracovních úloh. Následující kód aktualizuje zprávy ve frontě o nový obsah a prodlouží časový limit viditelnosti na 60 sekund. Uloží se tím stav práce spojený se zprávou a klient získá další minutu, aby mohl pokračovat ve zpracování zprávy. Tímto způsobem může sledovat vícekrokového pracovní postupy pro zprávy ve frontě, aniž by bylo nutné v případě, že krok zpracování z důvodu selhání hardwaru nebo softwaru selže, začít znovu od začátku. Obvykle byste udržovali také hodnotu počtu opakování, a pokud by se pokus o zpracování zprávy opakoval více než *n*krát, odstranili byste ji. Je to ochrana proti tomu, aby zpráva při každém pokusu o zpracování nevyvolala chyby aplikace.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -135,10 +150,12 @@ Podle potřeby můžete změnit obsah zprávy přímo ve frontě. Pokud zpráva 
     queue.UpdateMessage(message,
         TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
+```
 
-## <a name="de-queue-the-next-message"></a>Vyřazení další zprávy z fronty
+## <a name="dequeue-the-next-message"></a>Vyřazení další zprávy z fronty
 Váš kód vyřazuje zprávy z fronty ve dvou krocích. Zavoláním metody **GetMessage** získáte další zprávu ve frontě. Zpráva vrácená metodou **GetMessage** se stane neviditelnou pro jakýkoli jiný kód, který čte zprávy z této fronty. Ve výchozím nastavení tato zpráva zůstává neviditelná po dobu 30 sekund. Aby bylo možné odebrání zprávy z fronty dokončit, musíte také zavolat metodu **DeleteMessage**. Tento dvoukrokový proces odebrání zprávy zaručuje, aby v případě, že se vašemu kódu nepodaří zprávu zpracovat z důvodu selhání hardwaru nebo softwaru, mohla stejnou zprávu získat jiná instance vašeho kódu a bylo možné to zkusit znovu. Váš kód zavolá metodu **DeleteMessage** hned po zpracování zprávy.
 
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -154,10 +171,12 @@ Váš kód vyřazuje zprávy z fronty ve dvou krocích. Zavoláním metody **Get
 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
+```
 
-## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
+## <a name="use-asyncawait-pattern-with-common-queue-storage-apis"></a>Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
 Tento příklad ukazuje způsob použití vzoru Async-Await s běžnými rozhraním API Queue Storage. Ukázka volá asynchronní verzi každé z daných metod, jak indikuje přípona *Async* každé metody. Při použití asynchronní metody pozastaví vzor async-await místní provádění kódu až do dokončení volání. Toto chování umožňuje aktuálnímu vláknu provádět další činnosti, což pomáhá zabránit vzniku kritických bodů z hlediska výkonu a zlepšuje celkovou rychlost reakce aplikace. Další podrobnosti o použití vzoru Async-Await v rozhraní .NET najdete v tématu [Async a Await (C# a Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
+```csharp
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
     {
@@ -182,11 +201,13 @@ Tento příklad ukazuje způsob použití vzoru Async-Await s běžnými rozhran
     // Async delete the message
     await queue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
-
-## <a name="leverage-additional-options-for-de-queuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
+```
+    
+## <a name="leverage-additional-options-for-dequeuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
 Načítání zpráv z fronty si můžete přizpůsobit dvěma způsoby.
 Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nastavit delší nebo kratší časový limit neviditelnosti, aby měl váš kód více nebo méně času na úplné zpracování jednotlivých zpráv. V následujícím příkladu kódu se pomocí metody **GetMessages** získá 20 zpráv v jednom volání. Následně se každá zpráva zpracuje pomocí smyčky **foreach**. Také se pro každou zprávu nastaví časový limit neviditelnosti 5 minut. Pozor, 5minutový časový limit začíná pro všechny zprávy najednou, takže po uplynutí 5 minut od volání metody **GetMessages** pak budou všechny zprávy, které nebyly odstraněny, opět viditelné.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -202,10 +223,12 @@ Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nast
         // Process all messages in less than 5 minutes, deleting each message after processing.
         queue.DeleteMessage(message);
     }
+```
 
 ## <a name="get-the-queue-length"></a>Získání délky fronty
 Podle potřeby můžete získat odhadovaný počet zpráv ve frontě. Metoda **FetchAttributes** požádá Službu front o načtení atributů fronty, včetně počtu zpráv. Vlastnost **ApproximateMessageCount** vrátí poslední hodnotu načtenou metodou **FetchAttributes** bez volání Služby front.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -224,10 +247,12 @@ Podle potřeby můžete získat odhadovaný počet zpráv ve frontě. Metoda **F
 
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+```
 
 ## <a name="delete-a-queue"></a>Odstranění fronty
 Pokud budete chtít odstranit frontu se všemi zprávami, které v ní jsou, zavolejte metodu **Delete** pro objekt fronty.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -240,6 +265,8 @@ Pokud budete chtít odstranit frontu se všemi zprávami, které v ní jsou, zav
 
     // Delete the queue.
     queue.Delete();
+```
+    
 
 ## <a name="next-steps"></a>Další kroky
 Teď, když jste se naučili základy používání služby Queue Storage, podívejte se na následujících odkazech na další informace o složitějších úlohách úložiště.
@@ -263,6 +290,6 @@ Teď, když jste se naučili základy používání služby Queue Storage, podí
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

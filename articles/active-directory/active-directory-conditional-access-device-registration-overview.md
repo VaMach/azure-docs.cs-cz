@@ -1,13 +1,13 @@
 ---
-title: Registrace zařízení ve službě Azure Active Directory – přehled | Microsoft Docs
-description: je základem pro scénáře přístupu podmíněného zařízením. Když je zařízení registrováno, poskytne mu nástroj Registrace zařízení služby Azure Active Directory identitu, která se používá k ověření zařízení při přihlášení uživatele.
+title: "Registrace zařízení ve službě Azure Active Directory – přehled | Dokumentace Microsoftu"
+description: "je základem pro scénáře přístupu podmíněného zařízením. Když je zařízení registrováno, poskytne mu nástroj Registrace zařízení služby Azure Active Directory identitu, která se používá k ověření zařízení při přihlášení uživatele."
 services: active-directory
-keywords: registrace zařízení, povolení registrace zařízení, registrace zařízení a MDM
-documentationcenter: ''
+keywords: "registrace zařízení, povolení registrace zařízení, registrace zařízení a MDM"
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: Markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+
 
 ---
-# Začínáme s nástrojem Registrace zařízení ve službě Azure Active Directory
+# <a name="get-started-with-azure-active-directory-device-registration"></a>Začínáme s nástrojem Registrace zařízení ve službě Azure Active Directory
 Nástroj Registrace zařízení služby Azure Active Directory je základem pro scénáře přístupu podmíněného zařízením. Když je zařízení registrováno, poskytne mu nástroj Registrace zařízení služby Azure Active Directory identitu, která se používá k ověření zařízení při přihlášení uživatele. Ověřené zařízení a jeho atributy pak lze použít k vynucení zásad podmíněného přístupu u aplikací, které jsou hostovány na cloudu a v místním úložišti.
 
 Při kombinaci s řešením správy mobilních zařízení (MDM), jako je například Microsoft Intune, budou atributy zařízení ve službě Azure Active Directory aktualizovány o další informace o zařízení. To vám umožňuje vytvořit pravidla podmíněného přístupu, která vynucují, aby přístup měla pouze taková zařízení, která splňují vaše standardy zabezpečení a dodržování předpisů.  Další informace o registraci zařízení v Microsoft Intune najdete v tématu [Registrace zařízení pro správu v Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
-## Scénáře pro nástroj Registrace zařízení ve službě Azure Active Directory
+## <a name="scenarios-enabled-by-azure-active-directory-device-registration"></a>Scénáře pro nástroj Registrace zařízení ve službě Azure Active Directory
 Nástroj Registrace zařízení služby Azure Active Directory zahrnuje podporu pro zařízení se systémy iOS, Android a Windows. Jednotlivé scénáře použití nástroje Registrace zařízení služby Azure AD mohou mít konkrétněji určené požadavky a podporované platformy. Jedná se o následující scénáře:
 
 * **Podmíněný přístup k aplikacím, které jsou hostovány na místním úložišti**: Registrovaná zařízení se zásadami přístupu můžete použít u aplikací, které jsou konfigurovány k použití služby AD FS a systému Windows Server 2012 R2. Další informace o nastavení podmíněného přístupu pro místní úložiště naleznete v tématu [Nastavení místního podmíněného přístupu pomocí nástroje Registrace zařízení služby Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
 * **Podmíněný přístup pro aplikace služby Office 365 s Microsoft Intune**: Správci IT mohou poskytnout zásady podmíněného přístupu zařízení, aby zabezpečili podnikové prostředky a zároveň umožnili pracovníkům s vhodnými zařízeními přístup ke službám. Další informace najdete v tématu [Zásady podmíněného přístupu zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md).
 
-## Nastavení nástroje Registrace zařízení ve službě Azure Active Directory
+## <a name="setting-up-azure-active-directory-device-registration"></a>Nastavení nástroje Registrace zařízení ve službě Azure Active Directory
 Na webu Azure Portal musíte povolit nástroj Registrace zařízení služby Azure AD, aby mohla mobilní zařízení zjistit službu pomocí známých záznamů DNS. Záznamy DNS vaší společnosti musíte nakonfigurovat tak, aby zařízení se systémy Windows 10, Windows 8.1, Windows 7, Android a iOS mohla službu zjistit a použít.
 Registrovaná zařízení si můžete zobrazit a povolit nebo zakázat prostřednictvím portálu správce služby Azure Active Directory.
 
@@ -37,7 +41,7 @@ Registrovaná zařízení si můžete zobrazit a povolit nebo zakázat prostřed
 > 
 > 
 
-### Povolení nástroje Registrace zařízení ve službě Azure Active Directory
+### <a name="enable-azure-active-directory-device-registration-service"></a>Povolení nástroje Registrace zařízení ve službě Azure Active Directory
 1. Přihlaste se k portálu Microsoft Azure jako správce.
 2. V levém podokně vyberte **Active Directory**.
 3. Na kartě **Adresář** vyberte adresář.
@@ -56,19 +60,19 @@ Ve výchozím nastavení služby není povoleno dvoufaktorové ověřování. Dv
 * Předtím, než pro tuto službu vyžádáte dvoufaktorové ověřování, musíte nakonfigurovat poskytovatele dvoufaktorového ověřování ve službě Azure Active Directory a uživatelské účty pro službu Multi-Factor Authentication. Více informací naleznete v článku [Přidání služby Multi-Factor Authentication ve službě Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 * Pokud používáte službu AD FS a systém Windows Server 2012 R2, musíte modul dvoufaktorového ověřování nakonfigurovat ve službě AD FS. Více informací naleznete v článku [Použití služby Multi-Factor Authentication ve službě Active Directory Federation Services](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
-## Konfigurace zjišťování nástroje Registrace zařízení ve službě Azure Active Directory
+## <a name="configure-azure-active-directory-device-registration-discovery"></a>Konfigurace zjišťování nástroje Registrace zařízení ve službě Azure Active Directory
 Zařízení se systémy Windows 7 a Windows 8.1 budou nástroj Registrace zařízení zjišťovat tak, že zkombinují název uživatelského účtu se známým názvem serveru nástroje Registrace zařízení.
 
 Je nutné vytvořit záznam DNS CNAME, který odkazuje na záznam A přidružený k vašemu nástroji Registrace zařízení služby Azure Active Directory. Záznam CNAME musí použít známou předponu enterpriseregistration, za kterou následuje přípona UPN, kterou používají uživatelské účty ve vaší organizaci. Pokud vaše organizace používá více přípon UPN, je nutné v záznamech DNS vytvořit více záznamů CNAME.
 
-Pokud například v organizaci používáte dvě přípony UPN s názvy @contoso.com a @region.contoso.com, musíte vytvořit následující záznamy DNS.
+Pokud například v organizaci používáte dvě přípony UPN s názvy @contoso.com a @region.contoso.com,, musíte vytvořit následující záznamy DNS.
 
 | Záznam | Typ | Adresa |
 | --- | --- | --- |
 | enterpriseregistration.contoso.com |CNAME |enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com |CNAME |enterpriseregistration.windows.net |
 
-## Zobrazení a správa objektů zařízení ve službě Azure Active Directory
+## <a name="view-and-manage-device-objects-in-azure-active-directory"></a>Zobrazení a správa objektů zařízení ve službě Azure Active Directory
 1. Pomocí portálu správce Azure můžete zařízení zobrazit, zablokovat a odblokovat. Zařízení, které je zablokováno, nebude mít přístup k aplikacím, které jsou nakonfigurovány tak, aby k nim měla přístup pouze registrovaná zařízení.
 2. Přihlaste se na webu Microsoft Azure Portal jako správce.
 3. V levém podokně vyberte **Active Directory**.
@@ -78,7 +82,7 @@ Pokud například v organizaci používáte dvě přípony UPN s názvy @contoso
 7. Z rozevírací nabídky vyberte **Registrovaná zařízení**.
 8. Zde si můžete zobrazit, zablokovat nebo odblokovat zařízení registrovaná uživateli.
 
-## Další témata
+## <a name="additional-topics"></a>Další témata
 Zařízení se systémy Windows 7 a Windows 8.1 připojená k doméně můžete zaregistrovat pomocí nástroje Registrace zařízení služby Azure AD. Následující témata poskytují další informace o požadavcích a krocích potřebných ke konfiguraci registrace zařízení u zařízení s Windows 7 a Windows 8.1.
 
 * [Automatická registrace zařízení ve službě Azure Active Directory u zařízení se systémem Windows připojených k doméně](active-directory-conditional-access-automatic-device-registration.md)
@@ -86,6 +90,9 @@ Zařízení se systémy Windows 7 a Windows 8.1 připojená k doméně můžete 
 * [Konfigurace automatické registrace zařízení u zařízení se systémem Windows 8.1 připojených k doméně](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Automatická registrace zařízení ve službě Azure Active Directory u zařízení se systémem Windows 10 připojených k doméně](active-directory-azureadjoin-devices-group-policy.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

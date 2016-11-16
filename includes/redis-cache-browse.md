@@ -12,6 +12,8 @@ Pokud chcete určitou mezipaměť zobrazit a nakonfigurovat, klikněte na **Nast
 
 ![Všechna nastavení mezipaměti Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

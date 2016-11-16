@@ -1,5 +1,5 @@
-# [Přehled](functions-overview.md)
-
+# Přehled
+## [Co je služba Azure Functions?](functions-overview.md)
 # Začínáme
 ## [Vytvoření první funkce](functions-create-first-azure-function.md)
 ## [Vytvoření funkce webhooku](functions-create-a-web-hook-or-api-function.md)
@@ -38,10 +38,14 @@
 ## Nasazení
 ### [Průběžné nasazování se službou Azure Functions](functions-continuous-deployment.md)
 
+# Referenční informace
+## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
-# Zdroje a prostředky
-## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

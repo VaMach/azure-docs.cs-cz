@@ -1,17 +1,14 @@
 # Přehled
 ## [Co je Azure Security Center?](security-center-intro.md)
-## [Přehled služby](https://azure.microsoft.com/services/security-center/)
-## [Ceny](security-center-pricing.md)
-## [Nejčastější dotazy](security-center-faq.md)
 ## [Získání přehledů pomocí Power BI](security-center-powerbi.md)
 ## [Zabezpečení dat](security-center-data-security.md)
-## Obvyklé scénáře
+## Scénáře
 ### [Reakce na incidenty](security-center-incident-response.md)
 
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
-## [Azure Security Center a SQL Database](security-center-sql-database.md)
+## [Nejčastější dotazy](security-center-faq.md)
 
 # Postup
 
@@ -59,10 +56,14 @@
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Související
-## [Informace o zabezpečení Azure](../security/azure-security-getting-started.md)
+## [Zabezpečení Azure](/azure/security/)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure](http://blogs.msdn.com/b/azuresecurity/)
+## [Ceny](security-center-pricing.md)
+## [Přehled služby](https://azure.microsoft.com/services/security-center/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=security-center)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

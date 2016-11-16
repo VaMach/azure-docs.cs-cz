@@ -1,13 +1,13 @@
 ---
-title: Připojení Excelu k SQL Database | Microsoft Docs
-description: Zjistěte, jak připojit Microsoft Excel k databázi SQL Azure v cloudu. Naimportujte si data do Excelu, kde můžete data dále zkoumat a vytvářet z nich sestavy.
+title: "Připojení Excelu k SQL Database | Dokumentace Microsoftu"
+description: "Zjistěte, jak připojit Microsoft Excel k databázi SQL Azure v cloudu. Naimportujte si data do Excelu, kde můžete data dále zkoumat a vytvářet z nich sestavy."
 services: sql-database
-keywords: připojení excelu k sql, import dat do excelu
-documentationcenter: ''
+keywords: "připojení excelu k sql, import dat do excelu"
+documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2016
 ms.author: joseidz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a0f9501760ba3ea97341d30cd706c971c826430
+
 
 ---
-# Kurz k SQL Database: Připojení Excelu k Azure SQL Database a vytvoření sestavy
+# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Kurz k SQL Database: Připojení Excelu k Azure SQL Database a vytvoření sestavy
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
@@ -31,7 +35,7 @@ Než začnete, budete potřebovat databázi SQL v Azure. Pokud žádnou nemáte,
 
 Budete také potřebovat Excel. V tomto článku používáme [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-## Připojení Excelu k databázi SQL a vytvoření souboru odc
+## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Připojení Excelu k databázi SQL a vytvoření souboru odc
 1. Když budete chtít Excel připojit k databázi SQL, otevřete ho a vytvořte nový sešit nebo otevřete existující excelový sešit.
 2. V řádku nabídek v horní části stránky klikněte na **Data**, **Z jiných zdrojů** a potom klikněte na **Z SQL Serveru**.
    
@@ -58,7 +62,7 @@ Budete také potřebovat Excel. V tomto článku používáme [Microsoft Excel 2
    
     Zobrazí se dialogové okno **Importovat data**.
 
-## Import dat do Excelu a vytvoření kontingenčního grafu
+## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Import dat do Excelu a vytvoření kontingenčního grafu
 Máte vytvořené připojení a také soubor s daty a informacemi o připojení, můžete tedy začít s importem dat.
 
 1. V dialogovém okně **Importovat data** klikněte na možnost, kterou chcete použít pro prezentování vašich dat v listu, a potom klikněte na **OK**. Zvolili jsme možnost **Kontingenční graf**. Můžete také zvolit možnost **Nový list** nebo **Přidat tato data do datového modelu**. Další informace o datových modelech najdete v tématu [Vytvoření datového modelu v Excelu](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Klikněte na **Vlastnosti** a prozkoumejte informace o souboru odc, který jste vytvořili v předchozím kroku. Pak zvolte možnosti pro aktualizaci dat.
@@ -76,11 +80,14 @@ Máte vytvořené připojení a také soubor s daty a informacemi o připojení,
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Zjistěte, jak se [připojit k SQL Database přes SQL Server Management Studio](sql-database-connect-query-ssms.md) a provádět pokročilé dotazy a analýzy.
 * Další informace o výhodách [elastických fondů](sql-database-elastic-pool.md).
 * Zjistěte, jak [vytvořit webovou aplikaci, která se připojuje k SQL Database na back-endu](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

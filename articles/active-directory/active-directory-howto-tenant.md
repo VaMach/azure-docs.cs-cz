@@ -1,12 +1,12 @@
 ---
-title: Získání klienta Azure AD | Microsoft Docs
-description: Získání klienta Azure Active Directory pro registraci a vytváření aplikací.
+title: "Získání klienta Azure AD | Dokumentace Microsoftu"
+description: "Získání klienta Azure Active Directory pro registraci a vytváření aplikací."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: terrylan
-editor: ''
-
+editor: 
+ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b72271ca68df3b4b11c41f208fd1e3dd75b5e727
+
 
 ---
-# Získání klienta Azure Active Directory
+# <a name="how-to-get-an-azure-active-directory-tenant"></a>Získání klienta Azure Active Directory
 V Azure Active Directory (Azure AD) představuje [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) zástupce organizace.  Je vyhrazenou instancí služby Azure AD, kterou obdrží a vlastní organizace, když si zaregistruje cloudovou službu společnosti Microsoft, například Azure, Microsoft Intune nebo Office 365.  Každý klient Azure AD se odlišuje a je oddělený od ostatních klientů Azure AD.  
 
 V klientovi se nachází uživatelé a společnosti a informace o nich – hesla, data uživatelského profilu, oprávnění atd.  Obsahuje také skupiny, aplikace a další informace týkající se organizace a jejího zabezpečení.
@@ -30,10 +34,10 @@ Jak tedy můžete získat klienta Azure AD?  Proces se může mírně lišit, po
 * [Máte stávající předplatné Azure spojené s účtem organizace](#use-an-organizational-azure-subscription)
 * [Nemáte nic z výše uvedeného a chcete začít od nuly](#start-from-scratch)
 
-## Použití stávajícího předplatného služeb Office 365
+## <a name="use-an-existing-office-365-subscription"></a>Použití stávajícího předplatného služeb Office 365
 Pokud máte stávající předplatné Office 365, již tenanta služby Azure AD máte! Můžete se přihlásit na webu [Azure Portal](https://portal.azure.com) pomocí svého účtu O365 a začít používat službu Azure AD.
 
-## Použití předplatného MSA Azure
+## <a name="use-an-msa-azure-subscription"></a>Použití předplatného MSA Azure
 Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí svého individuálního účtu Microsoft, již klienta máte!  Při přihlášení na webu [Azure Portal](https://portal.azure.com) budete automaticky přihlášeni ke svému výchozímu tenantu. Tohoto klienta můžete klidně používat podle svých potřeb – ale možná si budete chtít vytvořit účet správce organizace.
 
 To provedete podle těchto kroků.  Případně můžete vytvořit nového klienta a vytvořit v něm správce podle podobného postupu.
@@ -52,14 +56,17 @@ To provedete podle těchto kroků.  Případně můžete vytvořit nového klien
 7. Kliknutím na **Vytvořit** vytvořte nového uživatele.
 8. Pokud chcete dočasné heslo změnit, přihlaste se na adrese [https://login.microsoftonline.com](https://login.microsoftonline.com) pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
 
-## Použití organizačního předplatného Azure
+## <a name="use-an-organizational-azure-subscription"></a>Použití organizačního předplatného Azure
 Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb. 
 
-## Začátek od nuly
+## <a name="start-from-scratch"></a>Začátek od nuly
 Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti.  Navštivte stránku [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) a zaregistrujte se do služby Azure s novou organizací.  Jakmile proces dokončíte, bude mít svého vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) tenanta najdete v části Azure Active Directory v nabídce vlevo.
 
 Součástí registrace do služby Azure je zadání údajů z platební karty.  Můžete bez obav pokračovat – za publikování aplikací v Azure AD ani vytváření nových klientů vám nebude nic účtováno.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

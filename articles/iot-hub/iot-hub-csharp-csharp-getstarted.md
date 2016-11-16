@@ -1,12 +1,12 @@
 ---
-title: Začínáme se službou Azure IoT Hub pro jazyk C# | Microsoft Docs
-description: Úvodní kurz pro službu Azure IoT Hub pro jazyk C#. Implementace internetu věcí pomocí služby Azure IoT Hub a jazyka C# spolu se sadami SDK služby Microsoft Azure IoT.
+title: "Začínáme se službou Azure IoT Hub pro jazyk C# | Dokumentace Microsoftu"
+description: "Úvodní kurz pro službu Azure IoT Hub pro jazyk C#. Implementace internetu věcí pomocí služby Azure IoT Hub a jazyka C# spolu se sadami SDK služby Microsoft Azure IoT."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97c5d3c3e78ce6ec23f260bd26a0b41dc7c7197a
+
 
 ---
-# Začínáme se službou Azure IoT Hub pro rozhraní .NET
+# <a name="get-started-with-azure-iot-hub-for-net"></a>Začínáme se službou Azure IoT Hub pro rozhraní .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Na konci tohoto kurzu budete mít tři konzolové aplikace systému Windows:
 
 * **CreateDeviceIdentity** vytváří identitu zařízení a přiřazený bezpečnostní klíč k připojení simulovaného zařízení.
 * **ReadDeviceToCloudMessages** zobrazuje telemetrické zprávy odesílané simulovaným zařízením.
-* **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu AMQPS.
+* **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu AMQP.
 
 > [!NOTE]
 > Informace o různých sadách SDK, s jejichž pomocí můžete sestavit aplikace, které poběží v zařízení, i back-end vašeho řešení, najdete v tématu [Sady SDK služby IoT Hub][lnk-hub-sdks].
@@ -33,13 +37,13 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace systému Windows:
 Pro absolvování tohoto kurzu potřebujete:
 
 * Microsoft Visual Studio 2015.
-* Aktivní účet Azure. (Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][lnk-free-trial]).
+* Aktivní účet Azure. (Pokud nemáte účet, můžete si během několika minut vytvořit [bezplatný][zkušební účet Ink].)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 Nyní jste vytvořili službu IoT Hub a máte název hostitele a připojovací řetězec, které potřebujete k dokončení kurzu.
 
-## Vytvoření identity zařízení
+## <a name="create-a-device-identity"></a>Vytvoření identity zařízení
 V této části vytvoříte konzolovou aplikaci systému Windows, která v registru identit ve službě IoT Hub vytvoří identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru identit zařízení. Další informace najdete v části „Registr identit zařízení“ tématu [Příručka vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
 
 1. V sadě Visual Studio přidejte k stávajícímu řešení klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **Konzolová aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **CreateDeviceIdentity**.
@@ -89,11 +93,11 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která v regis
 > 
 > 
 
-## Příjem zpráv typu zařízení-cloud
-V tomto oddílu vytvoříte konzolovou aplikaci systému Windows, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Azure Event Hubs][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Další informace o tom, jak zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Další informace o zpracování zpráv ze služby Event Hubs naleznete v kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial]. (Tento kurz se vztahuje na koncové body kompatibilní se službou IoT Hub Event Hubs.)
+## <a name="receive-devicetocloud-messages"></a>Příjem zpráv typu zařízení-cloud
+V tomto oddílu vytvoříte konzolovou aplikaci systému Windows, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Azure Event Hubs][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Další informace o tom, jak zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Další informace o zpracování zpráv ze služby Event Hubs naleznete v kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial]. (Tento kurz se vztahuje na koncové body kompatibilní se službou IoT Hub Event Hub.)
 
 > [!NOTE]
-> Kompatibilní koncový bod služby Event Hubs pro čtení zpráv typu zařízení-cloud vždy používá protokol AMQPS.
+> Koncový bod kompatibilní s centrem událostí pro čtení zpráv mezi zařízením a cloudem vždy používá protokol AMQP.
 > 
 > 
 
@@ -151,7 +155,7 @@ V tomto oddílu vytvoříte konzolovou aplikaci systému Windows, která čte zp
         }  
         Task.WaitAll(tasks.ToArray());
 
-## Vytvoření aplikace simulovaného zařízení
+## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
 V této části vytvoříte konzolovou aplikaci systému Windows, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
 1. V sadě Visual Studio přidejte k stávajícímu řešení klasický desktopový projekt Visual C# pro systém Windows pomocí šablony projektu **Konzolová aplikace**. Zkontrolujte, zda máte verzi rozhraní .NET Framework 4.5.1 nebo novější. Projekt pojmenujte **SimulatedDevice**.
@@ -203,7 +207,7 @@ V této části vytvoříte konzolovou aplikaci systému Windows, která simuluj
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
    
-   Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol HTTPS, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTPS, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
+   Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol HTTP, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTP, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
 
 Tento kurz vás provede postupem vytvoření klienta zařízení IoT Hub. K přidání nezbytného kódu do klientské aplikace zařízení můžete také použít rozšíření [Připojená služba pro službu Azure IoT Hub][lnk-connected-service] aplikace Visual Studio.
 
@@ -212,27 +216,27 @@ Tento kurz vás provede postupem vytvoření klienta zařízení IoT Hub. K při
 > 
 > 
 
-## Spuštění aplikací
+## <a name="run-the-applications"></a>Spuštění aplikací
 Nyní můžete spustit aplikace.
 
 1. V sadě Visual Studio v Průzkumníku řešení klikněte pravým tlačítkem na řešení a potom klikněte na tlačítko **Nastavit projekty po spuštění**. Vyberte možnost **Více projektů po spuštění** a poté příkaz **Spustit** jako akci pro oba projekty **ReadDeviceToCloudMessages** a **SimulatedDevice**.
    
-   ![Vlastnosti projektu po spuštění][41]
+    ![Vlastnosti projektu po spuštění][41]
 2. Stisknutím klávesy **F5** spusťte obě aplikace. Výstup konzoly z aplikace **SimulatedDevice** zobrazuje zprávy, které simulované zařízení odesílá do služby IoT Hub. Výstup konzoly z aplikace **ReadDeviceToCloudMessages** zobrazuje zprávy, které služba IoT Hub přijímá.
    
-   ![Výstup konzoly z aplikací][42]
+    ![Výstup konzoly z aplikací][42]
 3. Na dlaždici **Využití** v [portálu Azure][lnk-portal] se zobrazuje počet zpráv odeslaných do služby:
    
     ![Dlaždice Využití v portálu Azure][43]
 
-## Další kroky
-V tomto kurzu jste v portálu nakonfigurovali službu IoT Hub a poté jste v registru identit této služby vytvořili identitu zařízení. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. 
+## <a name="next-steps"></a>Další kroky
+V tomto kurzu jste na webu Azure Portal nakonfigurovali službu IoT Hub a pak jste v registru identit této služby vytvořili identitu zařízení. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou. 
 
 Chcete-li pokračovat v seznamování se službou IoT Hub a prozkoumat další scénáře IoT, podívejte se na tato témata:
 
 * [Připojení zařízení][lnk-connect-device]
 * [Začínáme se správou zařízení][lnk-device-management]
-* [Začínáme se sadou Gateway SDK][lnk-gateway-SDK]
+* [Začínáme se sadou IoT Gateway SDK][lnk-gateway-SDK]
 
 Další informace o tom, jak rozšířit váš internet věcí a zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial].
 
@@ -248,7 +252,7 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[zkušební účet Ink]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
@@ -266,6 +270,6 @@ Další informace o tom, jak rozšířit váš internet věcí a zpracovávat š
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,11 +1,16 @@
-## Scenario
-You are creating an internal load balancer according to the following scenario
+## <a name="scenario"></a>Scénář
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+Vytváříte interní nástroje pro vyrovnávání zatížení podle následujícího scénáře.
 
-An internal load balancer is configured in a virtual network  
+![POPISEK OBRÁZKU](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-* 2 virtual machines called DB1 and DB2<BR>
-* Endpoints <BR>
-* Internal load balancer<BR>
+Interní nástroj pro vyrovnávání zatížení se konfiguruje ve virtuální síti.
+
+* 2 virtuální počítače s názvy DB1 a DB2
+* Koncové body
+* Interní nástroj pro vyrovnávání zatížení
+
+
+<!--HONumber=Nov16_HO2-->
+
 

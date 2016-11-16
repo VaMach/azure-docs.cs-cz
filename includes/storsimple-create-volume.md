@@ -1,7 +1,7 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### Vytvoření svazku
-1. Na obrazovce **Rychlý start** zařízení klikněte na **Add a volume** (Přidat svazek). Spustí se průvodce přidáním svazku.
+#### <a name="to-create-a-volume"></a>Vytvoření svazku
+1. Na stránce **Rychlý start** zařízení klikněte na **Přidat svazek**. Spustí se průvodce přidáním svazku.
 2. V průvodci přidáním svazku v části **Základní nastavení** proveďte tyto kroky:
    
    1. Zadejte **Název** svazku.
@@ -19,7 +19,7 @@
    3. Doporučujeme zaškrtnutím políčka **Povolit pro tento svazek výchozí zálohování** povolit výchozí zálohování. Výchozí zálohování vytvoří zásadu, která se spustí každý den ve 22:30 (čas zařízení) a vytvoří cloudový snímek tohoto svazku.
       
       > [!NOTE]
-      > Jakmile tady zásadu povolíte, už se nedá vrátit. Pokud budete chtít toto nastavení změnit, musíte upravit svazek.
+      > Jakmile tady zásadu povolíte, nastavení už se nedá vrátit. Pokud budete chtít nastavení změnit, musíte upravit svazek.
       > 
       > 
       
@@ -30,6 +30,8 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit svazek StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

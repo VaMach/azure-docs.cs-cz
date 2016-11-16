@@ -1,6 +1,6 @@
 Pokud chcete upravit IP adresu brány, použijte rutinu `New-AzureRmVirtualNetworkGatewayConnection`. Pokud se bude název brány místní sítě přesně shodovat s existujícím názvem, nastavení se přepíše. Rutina „Set“ v tuto chvíli nepodporuje úpravu IP adresy brány.
 
-### <a name="gwipnoconnection"></a>Úprava IP adresy brány – žádné připojení brány
+### <a name="a-namegwipnoconnectionahow-to-modify-the-gateway-ip-address-no-gateway-connection"></a><a name="gwipnoconnection"></a>Úprava IP adresy brány – žádné připojení brány
 Pokud chcete aktualizovat IP adresu brány místní sítě, která ještě nemá připojení, použijte následující příklad. Můžete taky zároveň aktualizovat předpony adresy. Nastavení, které zadáte, přepíše stávající nastavení. Ujistěte se, že používáte stávající název brány místní sítě. Pokud to neuděláte, vytvoříte novou bránu místní sítě, místo abyste přepsali tu stávající.
 
 Použijte následující příklad a nahraďte v něm hodnoty vlastními hodnotami.
@@ -10,7 +10,7 @@ Použijte následující příklad a nahraďte v něm hodnoty vlastními hodnota
     -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
-### <a name="gwipwithconnection"></a>Úprava IP adresy brány – existující připojení brány
+### <a name="a-namegwipwithconnectionahow-to-modify-the-gateway-ip-address-existing-gateway-connection"></a><a name="gwipwithconnection"></a>Úprava IP adresy brány – existující připojení brány
 Pokud už nějaké připojení brány existuje, musíte ho nejdřív odebrat. Potom můžete upravit IP adresu brány a vytvořit nové připojení. Způsobí to určitý výpadek připojení k síti VPN.
 
 > [!IMPORTANT]
@@ -42,6 +42,8 @@ Pokud už nějaké připojení brány existuje, musíte ho nejdřív odebrat. Po
         -LocalNetworkGateway2 $local `
         -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

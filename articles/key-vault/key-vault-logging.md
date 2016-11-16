@@ -1,12 +1,12 @@
 ---
-title: Protokolování v Azure Key Vault | Microsoft Docs
-description: Tento kurz vám pomůže začít s protokolováním v Azure Key Vault.
+title: "Protokolování v Azure Key Vault | Dokumentace Microsoftu"
+description: "Tento kurz vám pomůže začít s protokolováním v Azure Key Vault."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+
 
 ---
-# Protokolování v Azure Key Vault
+# <a name="azure-key-vault-logging"></a>Protokolování v Azure Key Vault
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Úvod
+## <a name="introduction"></a>Úvod
 Poté, co jste vytvořili jeden nebo více trezorů klíčů, budete pravděpodobně chtít monitorovat kdo, jak a kdy k vašim trezorům klíčů přistupuje. Toho docílíte povolením protokolování pro Key Vault, které ukládá informace v zadaném účtu úložiště Azure. Nový kontejner s názvem **insights-logs-auditevent** je automaticky vytvořený pro zadaný účet úložiště a ten samý účet úložiště můžete použít pro shromažďování protokolů více trezorů klíčů.
 
 Informace o protokolování jsou přístupné do 10 minut od proběhnutí operace trezoru klíčů. Ve většině případů to bude rychlejší.  Správa protokolů v účtu úložiště je pouze na vás:
@@ -40,14 +44,14 @@ Shromážděné protokoly je možné vizualizovat pomocí služby Log Analytics 
 
 Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault?](key-vault-whatis.md).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 K dokončení tohoto kurzu potřebujete:
 
 * Existující trezor klíčů, který již používáte.  
 * Azure PowerShell v **minimální verzi 1.0.1**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`.  
 * Dostatečné úložiště v Azure pro vaše protokoly Key Vault.
 
-## <a id="connect"></a>Připojte se ke svým předplatným
+## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Připojení k předplatným
 Spusťte relaci Azure PowerShellu a přihlaste se k účtu Azure pomocí následujícího příkazu:  
 
     Login-AzureRmAccount
@@ -64,7 +68,7 @@ Chcete-li specifikovat předplatné přidružené k trezoru klíčů, který bud
 
 Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
 
-## <a id="storage"></a>Vytvořit pro svoje protokoly nový účet úložiště
+## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Vytvoření nového účtu úložiště pro protokoly
 Pro svoje protokoly můžete použít i stávající účet úložiště, my však vytvoříme nový účet úložiště, který bude vyhrazený pro protokoly Key Vault. Abychom si usnadnili práci při pozdějším zadávání, uložíme si podrobnosti do proměnné s názvem **sa**.
 
 Pro další usnadnění správy použijeme také stejnou skupinu prostředků, jako ta, která obsahuje náš trezor klíčů. Z [kurzu Začínáme](key-vault-get-started.md) je název této skupiny prostředků **ContosoResourceGroup** a budeme pokračovat v používání umístění ve východní Asii. Tyto hodnoty nahraďte příslušnými vlastními hodnotami:
@@ -77,13 +81,13 @@ Pro další usnadnění správy použijeme také stejnou skupinu prostředků, j
 > 
 > 
 
-## <a id="identify"></a>Identifikujte trezor klíčů pro svoje protokoly
+## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Určení trezoru klíčů pro protokoly
 V našem kurzu Začínáme byl název trezoru klíčů **ContosoKeyVault**, budeme tedy pokračovat v používání tohoto názvu a podrobnosti uložíme do proměnné s názvem **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a id="enable"></a>Povolte protokolování
+## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Povolení protokolování
 K povolení protokolování pro Key Vault použijeme rutinu Set-AzureRmDiagnosticSetting spolu s proměnnými, které jsme vytvořili pro nový účet úložiště a nový trezor zámků. Také nastavíme příznak **-Enabled** na **$true** a kategorii nastavíme na AuditEvent (jediná kategorie pro protokolování ve službě Key Vault):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -114,7 +118,7 @@ Co je protokolováno:
 * Operace nad klíči a nd tajnými klíči v trezoru klíčů – to zahrnuje vytváření, upravování a odstraňování těchto klíčů nebo tajných klíčů, operace jako jsou podepsání, ověření, šifrování, dešifrování, zabalení a rozbalení klíčů, získání tajného klíče, výpis klíčů a tajných klíčů i s jejich verzemi.
 * Neověřené požadavky, které skončí odpovědí 401 – Neoprávněno. Například požadavky, které nemají nosný token, jsou poškozené nebo jejichž platnost vypršela, nebo mají neplatný token.  
 
-## <a id="access"></a>Přístup k vašim protokolům
+## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Přístup k protokolům
 Protokoly trezoru klíčů se ukládají do kontejneru **insights-logs-auditevent** v poskytnutém účtu úložiště. Chcete-li vypsat všechny objekty blob v tomto kontejneru, zadejte:
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
@@ -123,7 +127,7 @@ Výstup bude vypadat nějak takto:
 
 **Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
-**Name (Název)**
+**Název**
 
 - - -
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=05/h=01/m=00/PT1H.json**
@@ -166,10 +170,10 @@ Chcete-li stahovat objekty blob selektivně, použijte zástupné znaky. Příkl
 
 Nyní jste připraveni podívat se, co je v protokolech. Ale ještě předtím si ukážeme další dva parametry Get-AzureRmDiagnosticSetting, které byste mohli potřebovat:
 
-* Dotaz na stav nastavení diagnostiky pro prostředek vašeho trezoru klíčů provedete pomocí: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* Zakázat protokolování prostředku vašeho trezoru klíčů můžete pomocí: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* Dotaz na stav nastavení diagnostiky pro prostředek trezoru klíčů provedete pomocí:`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+* Zakázat protokolování pro prostředek trezoru klíčů můžete pomocí:`Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a id="interpret"></a>Interpretujte svoje protokoly Key Vault
+## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretace protokolů služby Key Vault
 Jednotlivé objekty blob jsou uloženy jako text ve formátu JSON blob. Toto je příklad položky protokolu ze spuštění příkazu `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -243,14 +247,14 @@ Následující tabulka obsahuje seznam operací (operationName) a odpovídajíc�
 | KeyUpdate |[Aktualizace klíče](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
 | KeyList |[Výpis klíčů v trezoru](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
 | KeyListVersions |[Výpis verzí klíče](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Vytvoření tajného klíče](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Získání tajného klíče](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Aktualizace tajného klíče](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Odstranění tajného klíče](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Výpis tajných klíčů v trezoru](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Výpis verzí tajného klíče](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| SecretSet |[Vytvoření tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
+| SecretGet |[Získání tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
+| SecretUpdate |[Aktualizace tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
+| SecretDelete |[Odstranění tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
+| SecretList |[Výpis tajných kódů v trezoru](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
+| SecretListVersions |[Výpis verzí tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a id="next"></a>Další kroky
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Další kroky
 Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na kurz [Použití Azure Key Vault z webové aplikace](key-vault-use-from-web-application.md).
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
@@ -259,6 +263,9 @@ Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Ruti
 
 Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

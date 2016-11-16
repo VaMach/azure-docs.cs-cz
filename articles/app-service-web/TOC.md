@@ -55,6 +55,9 @@
 ## Vývoj
 ### [Přidání funkce do vaší první webové aplikace](app-service-web-get-started-2.md)
 ### [Vytvoření webové aplikace na Linuxu](app-service-linux-how-to-create-a-web-app.md)
+### [Referenční informace k App Service](app-service-changes-existing-services.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
+### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Aplikace v ASP.NET
 #### [Nasazení první webové aplikace .NET do Azure během pěti minut](app-service-web-get-started-dotnet.md)
@@ -102,14 +105,14 @@
 #### [Co je Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 #### [Vytvoření webové úlohy .NET](websites-dotnet-webjobs-sdk-get-started.md)
 #### [Použití úložiště objektů blob v Azure pomocí WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-#### [Jak používat Azure Queue Storage se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-#### [Jak používat Azure Service Bus se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
-#### [Jak používat Azure Table Storage se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+#### [Použití Azure Queue Storage se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+#### [Použití Azure Service Bus se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
+#### [Použití Azure Table Storage se sadou WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 
 ### App Service Environment
 #### [Způsob vytvoření prostředí App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)
 #### [Vytvoření webové aplikace v App Service Environment](app-service-web-how-to-create-a-web-app-in-an-ase.md)
-#### [Jak vytvořit prostředí ILB ASE pomocí šablon Azure Resource Manageru](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+#### [Vytvoření ILB ASE pomocí šablon Azure Resource Manageru](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 #### [Použití interního nástroje pro vyrovnávání zatížení](app-service-environment-with-internal-load-balancer.md)
 
 ## [Nasazení](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -129,7 +132,7 @@
 ## [Škálování](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Vertikální škálování aplikace](web-sites-scale.md)
 ### [App Service Environment](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Geograficky distribuované škálování pomocí App Service Environment](app-service-app-service-environment-geo-distributed-scale.md)
+#### [Geograficky distribuované škálování v prostředích App Service Environment](app-service-app-service-environment-geo-distributed-scale.md)
 #### [Škálování aplikací v App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Automatické škálování v App Service Environment](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Azure CDN](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -142,7 +145,7 @@
 
 ### Vlastní domény
 #### [Zakoupení a konfigurace vlastních domén](custom-dns-web-site-buydomains-web-app.md)
-#### [Mapování vlastních domén](web-sites-custom-domain-name.md)
+#### [Mapování vašich vlastních domén](web-sites-custom-domain-name.md)
 #### [Konfigurace domén GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Vlastní domény s Traffic Managerem](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -158,8 +161,8 @@
 
 ### [App Service Environment](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Konfigurace](app-service-web-configure-an-app-service-environment.md)
-#### [Vlastní nastavení konfigurace](app-service-app-service-environment-custom-settings.md)
-#### [Jak řídit příchozí provoz](app-service-app-service-environment-control-inbound-traffic.md)
+#### [Nastavení vlastní konfigurace](app-service-app-service-environment-custom-settings.md)
+#### [Řízení příchozího provozu](app-service-app-service-environment-control-inbound-traffic.md)
 #### [Přehled architektury sítě](app-service-app-service-environment-network-architecture-overview.md)
 #### [Podrobnosti o konfiguraci sítě pomocí ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
 
@@ -204,7 +207,7 @@
 
 ## Automatizace
 ### [Agilní vývoj](app-service-agile-software-development.md)
-### [Model nasazení Azure Resource Manager](app-service-deploy-complex-application-predictably.md)
+### [Nasazení podle modelu Azure Resource Manager](app-service-deploy-complex-application-predictably.md)
 #### [Web + GitHub](app-service-web-arm-from-github-provision.md)
 #### [Web + SQL](app-service-web-arm-with-sql-database-provision.md)
 #### [Web + Redis](../redis-cache/cache-web-app-arm-with-redis-cache-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -243,9 +246,10 @@
 ### [Řešení potíží s výkonem webových aplikací](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referenční informace
-## [Referenční informace k App Service](app-service-changes-existing-services.md)
-## [Azure Portal](app-service-web-app-azure-portal.md)
-## [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Související
 ## [Poznámky k verzi Azure SDK pro .NET](azure-sdk-dotnet-release-notes.md)

@@ -1,4 +1,4 @@
-### Udělení přístupu aplikaci Mobile Engagement k vašemu klíči rozhraní API GCM
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Udělení přístupu aplikaci Mobile Engagement k vašemu klíči rozhraní API GCM
 Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala nabízená oznámení, musíte jí udělit přístup k vašemu klíči rozhraní API. To provedete tak, že svůj klíč nakonfigurujete a zadáte na portál Mobile Engagement.
 
 1. Na portálu Azure Classic zkontrolujte, jestli pracujete v aplikaci určené pro tento projekt, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
@@ -14,7 +14,7 @@ Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala 
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Odeslání oznámení do vaší aplikace
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Odeslání oznámení do vaší aplikace
 Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat oznámení do vaší aplikace.
 
 1. Na portálu Mobile Engagement přejděte na kartu **REACH**.
@@ -42,6 +42,8 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

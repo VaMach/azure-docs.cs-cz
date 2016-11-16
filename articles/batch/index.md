@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Batch Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
+ms.openlocfilehash: fc268f8905ff7b1a0e0cc1e98776a9ec8fa132c4
 
-Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
+---
+#<a name="batch-documentation"></a>Dokumentace ke službě Batch
+
+Služba Azure Batch umožňuje efektivně spouštět rozsáhlé paralelní aplikace a aplikace vysokovýkonného výpočetního prostředí (HPC) v cloudu. Pomocí služby Batch definujete výpočetní prostředky, které vaše aplikace spustí paralelně a škálovaně. Můžete spouštět úlohy na vyžádání nebo plánovaně bez starostí o ruční vytváření a správu infrastruktury.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,25 +21,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Batch</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Přečtěte si o službě Batch</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +39,25 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Batch</h3>
+                        <h3>Začínáme se službou Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Knihovna videí ke službě Azure Batch</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Batch using .NET</h3>
+                        <h3>Vytvoření první aplikace v .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started using Batch using Python</h3>
+                        <h3>Vytvoření první aplikace v Pythonu</h3>
                     </div>
                 </div>
             </div>
@@ -100,35 +104,41 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 
 ---
 
-##Reference
+##<a name="reference"></a>Referenční informace
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Referenční informace o prostředí PowerShell pro Batch](/powershell)
 
-###Azure CLI
-[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
+###<a name="azure-cli"></a>Azure CLI
+[Batch prostřednictvím Azure CLI](/azure/batch/batch-cli-get-started)
 
-###.NET
-[Batch Managed Reference](/dotnet/api)
 
-###Java
-[Java SDK Reference](/java/api)
+###<a name="net"></a>.NET
+[Referenční informace pro spravované rozhraní služby Batch](https://msdn.microsoft.com/library/azure/mt348682)
 
-###Node.js
-[Node.js Reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
+###<a name="java"></a>Java
+[Referenční informace sady Java SDK](/java/api)
 
-###Python
-[Python SDK reference](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+###<a name="nodejs"></a>Node.js
+[Referenční informace o Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
 
-###REST
-[Batch REST API Reference](/rest/api/batchmanagement)
+###<a name="python"></a>Python
+[Referenční informace o sadě Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+
+###<a name="rest"></a>REST
+[Referenční informace o rozhraní REST API služby Batch](/rest/api/batchmanagement)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
-        </div>
+Stáhnout dokumentaci ke službě Azure Batch </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

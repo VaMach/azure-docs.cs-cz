@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### Vytvoření svazku
+#### <a name="to-create-a-volume"></a>Vytvoření svazku
 1. Na stránce zařízení **Rychlý start** kliknutím na **Přidat svazek** spustíte průvodce přidáním svazku.
 2. V průvodci přidáním svazku v části **Základní nastavení** proveďte tyto kroky:
    
@@ -39,6 +39,8 @@
       ![Přidání svazku](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Vytvoří se svazek se zadaným nastavením.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

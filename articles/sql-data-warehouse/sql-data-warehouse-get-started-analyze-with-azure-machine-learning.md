@@ -1,27 +1,32 @@
 ---
-title: Analýza dat pomocí Azure Machine Learning | Microsoft Docs
-description: Pomocí Azure Machine Learning sestavte prediktivní model Machine Learning založený na datech uložených v datovém skladu SQL Azure.
+title: "Analýza dat pomocí Azure Machine Learning | Dokumentace Microsoftu"
+description: "Pomocí Azure Machine Learning sestavte prediktivní model Machine Learning založený na datech uložených v datovém skladu SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Analýza dat pomocí Azure Machine Learning
+# <a name="analyze-data-with-azure-machine-learning"></a>Analýza dat pomocí Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ Tento kurz používá Azure Machine Learning k sestavení prediktivního modelu 
 > 
 > 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
-* SQL Data Warehouse s předem načtenými vzorovými daty AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Vytvoření SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][ukázková data načíst ručně].
+* SQL Data Warehouse s předem načtenými vzorovými daty AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Vytvoření SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][Ruční načtení ukázkových dat].
 
-## 1. Získání dat
+## <a name="1-get-data"></a>1. Získání dat
 Data jsou v zobrazení dbo.vTargetMail v databázi AdventureWorksDW. Postup načtení těchto dat:
 
-1. Přihlaste se k [Azure Machine Learning Studio][Azure Machine Learning Studio] a klikněte na Moje experimenty.
+1. Přihlaste se k [Azure Machine Learning Studiu][Azure Machine Learning Studio] a klikněte na Moje experimenty.
 2. Klikněte na **+NOVÝ** a vyberte **Prázdný experiment**.
 3. Zadejte název svého experimentu: Cílený marketing.
 4. Přetáhněte modul **Reader** z podokna modulů na plátno.
@@ -72,7 +77,7 @@ Pod plátnem experimentu klikněte na **Run** (Spustit), aby se experiment spust
 Po úspěšném dokončení experimentu klikněte v dolní části modulu Reader na výstupní port a výběrem možnosti **Visualize** (Vizualizovat) zobrazte naimportovaná data.
 ![Zobrazení naimportovaných dat][3]
 
-## 2. Vymazání dat
+## <a name="2-clean-the-data"></a>2. Vymazání dat
 Pro vymazání dat odstraňte některé sloupce, které nejsou pro model důležité. Použijte následující postup:
 
 1. Přetáhněte na plátno modul **Project Columns** (Sloupce projektu).
@@ -81,7 +86,7 @@ Pro vymazání dat odstraňte některé sloupce, které nejsou pro model důlež
 3. Vylučte dva sloupce: CustomerAlternateKey a GeographyKey.
    ![Odebrání nepotřebných sloupců][5]
 
-## 3. Sestavení modelu
+## <a name="3-build-the-model"></a>3. Sestavení modelu
 Data rozdělíme v poměru 80:20 – 80 % pro učení v rámci modelu strojového učení a 20 % pro otestování modelu. Pro tento problém binární klasifikace budeme používat algoritmy Two-Class.
 
 1. Přetáhněte na plátno modul **Split**.
@@ -95,7 +100,7 @@ Data rozdělíme v poměru 80:20 – 80 % pro učení v rámci modelu strojovéh
 5. Jako sloupec pro předpověď vyberte sloupec **BikeBuyer**.
    ![Vyberte sloupec pro předpověď][8]
 
-## 4. Ohodnocení modelu
+## <a name="4-score-the-model"></a>4. Ohodnocení modelu
 Teď otestujeme, jaký je výkon modelu při použití testovacích dat. Porovnáme námi zvolený algoritmus s jiným algoritmem, abychom zjistili, který z nich vrací lepší výsledky.
 
 1. Přetáhněte na plátno modul **Score Model**.
@@ -118,7 +123,7 @@ Uvidíte, že se do testovací datové sady přidaly další dva sloupce.
 
 Při porovnání sloupce BikeBuyer (skutečnost) s popisky vyhodnocení (předpověď) můžete vidět, jaká byla úspěšnost modelu. V dalších krocích můžete pomocí tohoto modelu provádět předpovědi nových zákazníků a publikovat tento model jako webovou službu nebo výsledky zapsat zpět do SQL Data Warehouse.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o vytváření prediktivních modelů strojového učení najdete v tématu [Úvod do strojového učení na platformě Azure][Úvod do strojového učení na platformě Azure].
 
 <!--Image references-->
@@ -139,11 +144,11 @@ Další informace o vytváření prediktivních modelů strojového učení najd
 <!--Article references-->
 [Azure Machine Learning Studio]:https://studio.azureml.net/
 [Úvod do strojového učení na platformě Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[ukázková data načíst ručně]: sql-data-warehouse-load-sample-databases.md
+[Ruční načtení ukázkových dat]: sql-data-warehouse-load-sample-databases.md
 [Vytvoření SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

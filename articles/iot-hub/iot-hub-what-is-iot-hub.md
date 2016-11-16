@@ -1,12 +1,12 @@
 ---
-title: Přehled služby Azure IoT Hub | Microsoft Docs
-description: 'Přehled služby Azure IoT Hub: co je služba IoT Hub, připojení zařízení, schémata komunikace s internetem věcí a schéma komunikace s asistencí služby'
+title: "Přehled služby Azure IoT Hub | Dokumentace Microsoftu"
+description: "Přehled služby Azure IoT Hub: co je služba IoT Hub, připojení zařízení, schémata komunikace s internetem věcí a schéma komunikace s asistencí služby"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e718ceadc229d7207a5be66d6d7cdd443275b4e
+
 
 ---
-# Co je Azure IoT Hub?
+# <a name="what-is-azure-iot-hub"></a>Co je Azure IoT Hub?
 Vítá vás služba Azure IoT Hub. Tento článek obsahuje přehled služby Azure IoT Hub a popisuje důvody implementace řešení internetu věcí (IoT) pomocí této služby. Azure IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení IoT a back-endem řešení. Azure IoT Hub:
 
 * Poskytuje spolehlivé, škálovatelné zasílání zpráv ze zařízení do cloudu a z cloudu do zařízení.
@@ -33,7 +37,7 @@ Vítá vás služba Azure IoT Hub. Tento článek obsahuje přehled služby Azur
 > 
 > 
 
-## Výzvy spojené s připojením zařízení IoT
+## <a name="iot-deviceconnectivity-challenges"></a>Výzvy spojené s připojením zařízení IoT
 Služba IoT Hub a knihovny zařízení vám pomohou čelit výzvám, které představuje spolehlivé a bezpečné připojení zařízení k back-endu řešení. Zařízení IoT:
 
 * Jsou často vestavěnými systémy bez lidské obsluhy.
@@ -46,7 +50,7 @@ Služba IoT Hub a knihovny zařízení vám pomohou čelit výzvám, které pře
 
 Kromě výše uvedených požadavků musí jakékoli řešení IoT zajistit také škálování, zabezpečení a spolehlivost. Výslednou sadu požadavků na připojení je obtížné implementovat pomocí tradičních technologií, jakými jsou webové kontejnery a zprostředkovatelé zasílání zpráv.
 
-## Proč používat Azure IoT Hub?
+## <a name="why-use-azure-iot-hub"></a>Proč používat Azure IoT Hub?
 Služba Azure IoT Hub řeší problémy s připojením zařízení následujícími způsoby:
 
 * **Ověřování podle zařízení a zabezpečené připojení**. Každému zařízení můžete zřídit vlastní [klíč zabezpečení][lnk-devguide-security], který umožňuje připojení ke službě IoT Hub. [Registr identit služby IoT Hub][lnk-devguide-identityregistry] ukládá v řešení identity a klíče zařízení. Back-end řešení může jednotlivá zařízení přidat na seznam povolených nebo blokovaných, což umožňuje úplnou kontrolu přístupu zařízení.
@@ -60,18 +64,18 @@ Služba Azure IoT Hub řeší problémy s připojením zařízení následujíc�
 
 To představuje obecné výhody pro řadu komunikačních schémat. Služba IoT Hub aktuálně umožňuje implementovat následující konkrétní komunikační schémata:
 
-* **Ingestování zpráv typu zařízení-cloud na základě událostí.** Služba IoT Hub dokáže z vašich zařízení spolehlivě přijímat miliony událostí za sekundu. Poté je může zpracovat na aktivní trase pomocí modulu zpracovatele událostí. Nebo je také může uložit na neaktivní trase pro účely analýzy. Služba IoT Hub uchovává data události až sedm dní, díky čemuž zaručuje spolehlivé zpracování a vyrovná se se zatížením ve špičkách.
+* **Příjem zpráv mezi zařízením a cloudem na základě událostí.** Služba IoT Hub dokáže z vašich zařízení spolehlivě přijímat miliony událostí za sekundu. Poté je může zpracovat na aktivní trase pomocí modulu zpracovatele událostí. Nebo je také může uložit na neaktivní trase pro účely analýzy. Služba IoT Hub uchovává data události až sedm dní, díky čemuž zaručuje spolehlivé zpracování a vyrovná se se zatížením ve špičkách.
 * **Spolehlivé zasílání zpráv typu cloud-zařízení (nebo *příkazů*).** Back-end řešení dokáže pomocí služby IoT Hub do jednotlivých zařízení posílat zprávy se zárukou nejméně jednoho doručení. Každá zpráva má vlastní nastavení Time to Live a back-end může požadovat doklad o doručení i o vypršení platnosti. Tyto doklady zajišťují úplný přehled o životním cyklu zprávy typu cloud-zařízení. Poté můžete implementovat obchodní logiku zahrnující operace, které jsou spuštěné v zařízeních.
 * **Nahrávání souborů a dat uložených v mezipaměti snímače do cloudu.** Vaše zařízení mohou nahrávat soubory do služby Azure Storage pomocí identifikátorů URI SAS, které pro vás spravuje služba IoT Hub. Služba IoT Hub může po doručení souborů do cloudu generovat upozornění a umožnit tak back-endu jejich zpracování.
 
-## Brány
+## <a name="gateways"></a>Brány
 Brána je v řešení IoT obvykle buď [brána protokolu][lnk-gateway], která je nasazena v cloudu, nebo [brána pole][lnk-field-gateway], která je nasazena místně ve vašich zařízeních. Brána protokolu provádí převody protokolů, například MQTT do AMQP. Brána pole může spouštět hraniční analýzu, provádět rozhodnutí v časovém rámci ke zkrácení latence, poskytovat zařízením služby správy, vynucovat bezpečnostní omezení a omezení na ochranu soukromí a také převádět protokoly. Oba typy brány fungují jako prostředníci mezi vaším zařízením a službou IoT Hub.
 
 Brána pole se od jednoduchého zařízení pro směrování provozu (například zařízení pro překládání adres nebo brány firewall) liší, protože při správě přístupu a informačního toku ve vašem řešení obvykle hraje aktivní roli.
 
 Řešení může zahrnovat brány protokolu i pole.
 
-## Jak služba IoT Hub funguje?
+## <a name="how-does-iot-hub-work"></a>Jak služba IoT Hub funguje?
 Služba Azure IoT Hub implementuje schéma [komunikace s asistencí služby][lnk-service-assisted-pattern], které zprostředkovává komunikaci mezi zařízeními a back-endem řešení. Komunikace s asistencí služby má za cíl navázat důvěryhodné, obousměrné komunikační trasy mezi řídicím systémem, například službou IoT Hub, a zařízeními pro zvláštní účely, která jsou nasazena v nedůvěryhodném fyzickém umístění. Schéma zavádí následující zásady:
 
 * Zabezpečení má přednost před všemi dalšími možnostmi.
@@ -84,7 +88,9 @@ Služba Azure IoT Hub implementuje schéma [komunikace s asistencí služby][lnk
 
 Mobilní průmysl v obrovském měřítku používá schéma komunikace s asistencí služby k implementaci služeb nabízených oznámení, například [služeb nabízených oznámení Windows][lnk-wns], [služby GCM (Google Cloud Messaging)][lnk-google-messaging] nebo [služby Apple Push Notification Service][lnk-apple-push].
 
-## Další kroky
+IoT Hub se podporuje přes cestu veřejného partnerského vztahu ExpressRoute.
+
+## <a name="next-steps"></a>Další kroky
 V článku [Přehled správy zařízení ve službě Azure IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení IoT založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
 
 K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK zařízení IoT. Sady SDK zařízení IoT zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace naleznete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
@@ -112,6 +118,6 @@ Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kur
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

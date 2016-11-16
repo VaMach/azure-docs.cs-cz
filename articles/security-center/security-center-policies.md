@@ -1,12 +1,12 @@
 ---
-title: Nastavení zásad zabezpečení ve službě Azure Security Center | Microsoft Docs
-description: Tento dokument vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center.
+title: "Nastavení zásad zabezpečení ve službě Azure Security Center | Dokumentace Microsoftu"
+description: "Tento dokument vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fba0338f6a61998b1c103210cd60c1d37eeffd5
+
 
 ---
-# Nastavení zásad zabezpečení ve službě Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Nastavení zásad zabezpečení ve službě Azure Security Center
 Tento dokument vám pomůže nakonfigurovat zásady zabezpečení v Security Center a provede vás potřebnými kroky.
 
-## Co jsou zásady zabezpečení?
+## <a name="what-are-security-policies"></a>Co jsou zásady zabezpečení?
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného nebo skupiny prostředků. V Security Center určíte zásady pro vaše předplatná Azure nebo skupinu prostředků na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat v každém předplatném.
 
 Například prostředky používané pro vývoj nebo testování mohou mít jiné požadavky na zabezpečení než prostředky, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase mohou vyžadovat vyšší úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center mají vliv na doporučení zabezpečení a monitorování a pomohou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o určení, která možnost je pro vás vhodná, si přečtěte [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md).
 
-## Nastavení zásad zabezpečení pro předplatné
+## <a name="set-security-policies-for-subscriptions"></a>Nastavení zásad zabezpečení pro předplatné
 Zásady zabezpečení můžete nakonfigurovat pro každé předplatné nebo skupinu prostředků. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Přihlaste se na webu Azure Portal a při konfiguraci zásad zabezpečení ve službě Security Center postupujte podle následujících kroků:
 
 1. Na řídicím panelu Security Center klikněte na dlaždici **Zásady**.
@@ -80,7 +84,7 @@ Následující tabulku použijte jako referenci pro pochopení jednotlivých mo�
 
 Až nakonfigurujete všechny možnosti, klikněte na **OK** v okně **Zásady zabezpečení**, ve kterém se zobrazují doporučení, a poté v okně **Zásady zabezpečení**, které obsahuje počáteční nastavení, klikněte na **Uložit**.
 
-## Nastavení zásad zabezpečení pro skupiny prostředků
+## <a name="set-security-policies-for-resource-groups"></a>Nastavení zásad zabezpečení pro skupiny prostředků
 Pokud raději chcete nakonfigurovat zásady zabezpečení pro různé skupiny prostředků, použijete podobný postup jako při nastavování zásad pro předplatné. Hlavní rozdíl spočívá v tom, že budete muset rozbalit název předplatného a vybrat skupinu prostředků, pro kterou chcete nakonfigurovat jedinečnou zásadu zabezpečení:
 
 ![Výběr skupiny prostředků](./media/security-center-policies/security-center-policies-fig5-ga.png)
@@ -94,7 +98,7 @@ Až vyberete skupinu prostředků, otevře se okno **Zásady zabezpečení**. Ve
 > 
 > 
 
-## Viz také
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfigurovat zásady zabezpečení. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md). Zjistěte, jak naplánovat a pochopit aspekty návrhu, abyste mohli přejít na Azure Security Center.
@@ -104,6 +108,9 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md). Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/). Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

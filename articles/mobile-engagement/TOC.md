@@ -1,7 +1,6 @@
 # [Přehled](mobile-engagement-overview.md)
 ## [Srovnání se souvisejícími službami](mobile-engagement-comparison.md)
 ## [Přehled funkcí](mobile-engagement-key-features.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
 # Začínáme
 ## [Android](mobile-engagement-android-get-started.md)
@@ -117,28 +116,27 @@
 ### [Omezení a limity služby](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Referenční informace
-## [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [Reference k rozhraní REST API](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [Specifikace REST API Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 ## Obsah sady SDK
 ### [Sada SDK pro Android](mobile-engagement-android-sdk-content.md)
 ### [Sada SDK pro iOS](mobile-engagement-ios-sdk-content.md)
 ### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
-
-# Související
-
-# Zdroje a prostředky
-## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
-## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videa a aktualizace](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Smlouvy o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## Poznámky k verzi
 ### [Sada SDK pro Android](mobile-engagement-android-release-notes.md)
 ### [Sada SDK pro iOS](mobile-engagement-ios-release-notes.md)
 ### [Sada Web SDK](mobile-engagement-web-release-notes.md)
 ### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
+
+
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
+## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
+## [Videa a aktualizace](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Smlouvy o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+
 
 
 

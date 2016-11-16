@@ -1,12 +1,12 @@
 ---
-title: Přehled Portálu Microsoft Azure
-description: Další informace o použití portálu Microsoft Azure
-services: ''
-documentationcenter: ''
+title: "Přehled Portálu Microsoft Azure"
+description: "Další informace o použití portálu Microsoft Azure"
+services: 
+documentationcenter: 
 author: davidwrede
 manager: dwrede
 editor: jimbe
-
+ms.assetid: 53cb9df1-c96a-4f4e-b022-18336cd3d697
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+
 
 ---
-# Přehled Portálu Microsoft Azure
+# <a name="microsoft-azure-portal-overview"></a>Přehled Portálu Microsoft Azure
 Portál Microsoft Azure je centrálním místem, kde můžete zřizovat a spravovat prostředky Azure.  V tomto kurzu se seznámíme s Portálem a ukážeme si, jak používat některé z těchto klíčových funkcí:
 
 * **Komplexní marketplace**, ve kterém najdete tisíce položek od společnosti Microsoft a jiných dodavatelů, které je možné zakoupit nebo zřídit.
@@ -26,10 +30,10 @@ Portál Microsoft Azure je centrálním místem, kde můžete zřizovat a spravo
   
   ![Orientace v uživatelském rozhraní webu Azure Portal][UIOrientation]
 
-## Než začnete
+## <a name="before-you-get-started"></a>Než začnete
 Abyste mohli absolvovat tento kurz, budete potřebovat platné předplatné Azure.  Pokud žádné nemáte, můžete si hned [zaregistrovat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/).  Až budete předplatné mít, dostanete se na portál na adrese [https://portal.azure.com].
 
-## Jak vytvářet prostředky
+## <a name="how-to-create-a-resource"></a>Jak vytvářet prostředky
 Azure má Marketplace s tisíci položkami, které můžete vytvořit z jednoho místa.  Řekněme, že chcete vytvořit nový virtuální počítač s Windows Serverem 2012.  Vašim vstupním bodem do kurátorované sady vybraných kategorií z Marketplace je centrum +NOVÝ.  Každá kategorie obsahuje menší skupinu vybraných položek spolu s odkazem na kompletní nabídku Marketplace se všemi kategoriemi a vyhledáváním. Když budete chtít vytvořit nový virtuální počítač s Windows Serverem 2012, udělejte toto:  
 
 1. Windows Server 2012 je mezi vybranými položkami, takže ho můžete vybrat z kategorie Compute.  
@@ -40,12 +44,12 @@ Jakmile se prostředek vytvoří, zobrazí se upozornění v centru oznámení a
 
 ![Kategorie portálu][PortalCategories]
 
-## Jak vyhledávat svoje prostředky
+## <a name="how-to-find-your-resources"></a>Jak vyhledávat svoje prostředky
 Často používané prostředky si můžete kdykoli připnout na Úvodní panel. Někdy ale můžete potřebovat najít něco, co zase tak často nepoužíváte.  Ke všem svým prostředkům se dostanete pomocí centra procházení, které vidíte na obrázku níže.  Můžete je filtrovat podle předplatného, můžete zvolit sloupce a měnit jejich velikost a kliknutím na jednotlivé položky přejít na okna pro správu.
 
 ![Centrum procházení][BrowseHub]
 
-## Jak spravovat a delegovat přístup k prostředkům
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>Jak spravovat a delegovat přístup k prostředkům
 Z tohoto okna se můžete připojit k virtuálnímu počítači pomocí vzdálené plochy, monitorovat klíčové metriky výkonu, řídit přístup k tomuto virtuálnímu počítači pomocí přístupu na základě rolí (RBAC), konfigurovat virtuální počítače a provádět další důležité úlohy správy.  Delegování přístupu na základě role je důležité pro správu ve velkém měřítku.  Kliknutím [sem](active-directory/role-based-access-control-configure.md) si o tom můžete přečíst více. Když budete chtít udělit přístup k prostředku, udělejte toto:
 
 1. Vyhledejte prostředek.
@@ -56,7 +60,7 @@ Z tohoto okna se můžete připojit k virtuálnímu počítači pomocí vzdálen
 
 ![Správa prostředků][ManageResource]
 
-## Jak si přizpůsobit okno prostředků
+## <a name="how-to-customize-a-resource-blade"></a>Jak si přizpůsobit okno prostředků
 Azure vám okna pro vaše prostředky předem nakonfiguruje. Dlaždice v těchto oknech si ale můžete nastavit podle vlastních potřeb.  Snadno můžete přepnout do režimu přizpůsobení, ve kterém můžete přidávat a odebírat dlaždice a měnit si jejich velikost a uspořádání. Když si budete chtít okno přizpůsobit, udělejte toto:
 
 1. Vyhledejte prostředek.
@@ -66,12 +70,12 @@ Azure vám okna pro vaše prostředky předem nakonfiguruje. Dlaždice v těchto
 
 ![Přizpůsobování oken][CustomizeBlades]
 
-## Jak získat nápovědu
+## <a name="how-to-get-help"></a>Jak získat nápovědu
 Pokud byste někdy měli s něčím nějaký problém, jsme tu pro vás.  Portál obsahuje stránku nápovědy a podpory, která vás navede správným směrem.  V závislosti na tom, jaký máte [plán podpory](https://azure.microsoft.com/support/plans/), můžete také přímo na portálu vytvářet lístky žádostí o podporu.  Po vytvoření lístku můžete spravovat lístek v celém jeho životním cyklu přímo z portálu. Na stránku nápovědy a podpory se dostanete tak, že přejdete na Procházet -> Nápověda a podpora.  
 
 ![Nápověda a podpora][HelpSupport]
 
-## Souhrn
+## <a name="summary"></a>Souhrn
 Pojďme si shrnout, co jste se v tomto kurzu naučili:
 
 * Naučili jste se, jak se zaregistrovat, získat předplatné a procházet portál.
@@ -93,6 +97,6 @@ Portál Microsoft Azure radikálně zjednodušuje vytváření a správu aplikac
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

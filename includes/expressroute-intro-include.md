@@ -3,6 +3,8 @@ Microsoft Azure ExpressRoute umožňuje rozšířit vaše místní sítě do clo
 
 ![](./media/expressroute-intro-include/expressroute-basic.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

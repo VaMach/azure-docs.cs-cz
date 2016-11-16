@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Engagementem pro iOS ve Swiftu | Microsoft Docs
-description: Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro iOS.
+title: "Začínáme s Azure Mobile Engagementem pro iOS ve Swiftu | Dokumentace Microsoftu"
+description: "Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,9 +14,13 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro aplikace pro iOS ve Swiftu
+# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Začínáme s Azure Mobile Engagementem pro aplikace pro iOS ve Swiftu
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikace a jak odesílat nabízená oznámení segmentovaným uživatelům aplikace pro iOS.
@@ -40,18 +44,18 @@ Ve všech dalších kurzech k Mobile Engagement týkajících se aplikací pro i
 > 
 > 
 
-## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement iOS SDK](mobile-engagement-ios-sdk-overview.md).
 
 Pomocí XCodu si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
 
-### Vytvoření nového projektu iOS
+### <a name="create-a-new-ios-project"></a>Vytvoření nového projektu iOS
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### Připojení aplikace k back-endu Mobile Engagementu
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Stáhněte si [Mobile Engagement iOS SDK].
 2. Extrahujte soubor .tar.gz do složky v počítači.
 3. Pravým tlačítkem myši klikněte na projekt a pak vyberte Přidat soubory do...
@@ -87,29 +91,29 @@ Pomocí XCodu si vytvoříme základní aplikaci, na které si tuto integraci p�
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a id="monitor"></a>Povolení sledování v reálném čase
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku (aktivitu) na back-end Mobile Engagementu.
 
 1. Otevřete soubor **ViewController.swift** a nahraďte základní třídu **ViewController** třídou **EngagementViewController**:
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
-### Povolení přijímání bezobslužných nabízených oznámení v aplikaci
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Povolení přijímání bezobslužných nabízených oznámení v aplikaci
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### Přidání knihovny Reach do projektu
+### <a name="add-the-reach-library-to-your-project"></a>Přidání knihovny Reach do projektu
 1. Klikněte pravým tlačítkem na projekt.
 2. Vyberte `Add file to ...`
 3. Přejděte do složky, do které jste extrahovali sadu SDK.
@@ -140,7 +144,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
         #import "AEViewControllerUtil.h"
         #import "AEWebAnnouncementJsBridge.h"
 
-### Úprava delegáta aplikace
+### <a name="modify-your-application-delegate"></a>Úprava delegáta aplikace
 1. V metodě `didFinishLaunchingWithOptions` vytvořte modul kampaně Reach a předejte jej do existujícího inicializačního řádku Engagement:
    
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
@@ -151,7 +155,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
             return true
         }
 
-### Povolení přijímání nabízených oznámení APNS v aplikaci
+### <a name="enable-your-app-to-receive-apns-push-notifications"></a>Povolení přijímání nabízených oznámení APNS v aplikaci
 1. Do metody `didFinishLaunchingWithOptions` přidejte následující řádek:
    
         if #available(iOS 8.0, *)
@@ -196,6 +200,6 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

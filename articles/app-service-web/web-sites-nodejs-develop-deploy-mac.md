@@ -1,22 +1,26 @@
 ---
-title: Vytvoření webové aplikace Node.js ve službě Azure App Service | Microsoft Docs
-description: Naučte se nasadit aplikaci Node.js do webové aplikace ve službě Azure App Service.
+title: "Vytvoření webové aplikace Node.js ve službě Azure App Service | Dokumentace Microsoftu"
+description: "Naučte se nasadit aplikaci Node.js do webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Vytvoření webové aplikace Node.js ve službě Azure App Service
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Vytvoření webové aplikace Node.js ve službě Azure App Service
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -47,7 +51,7 @@ Kurzy a ukázkový kód se složitějšími aplikacemi Node.js a další témata
 > 
 > 
 
-## Vytvoření webové aplikace a povolení publikování Git
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Vytvoření webové aplikace a povolení publikování Git
 Chcete-li vytvořit webovou aplikaci ve službě Azure App Service a povolit publikování Git, postupujte podle těchto kroků. 
 
 [Git](http://git-scm.com/) je distribuovaný systém správy verzí, který lze použít k nasazení webu Azure. Kód napsaný pro webovou aplikaci uložíte do místního úložiště Git a kód budete nasazovat do Azure nuceným doručením (push) do vzdáleného úložiště. Tato metoda nasazení je jednou z funkcí webových aplikací služby App Service.  
@@ -63,7 +67,7 @@ Chcete-li vytvořit webovou aplikaci ve službě Azure App Service a povolit pub
 5. Vyberte možnost **Předplatné**.
 6. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
 7. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
     Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -97,7 +101,7 @@ Chcete-li vytvořit webovou aplikaci ve službě Azure App Service a povolit pub
     
     ![][git-url]
 
-## Místní sestavení a testování aplikace
+## <a name="build-and-test-your-application-locally"></a>Místní sestavení a testování aplikace
 V této části vytvoříte soubor **server.js** obsahující mírně upravenou verzi příkladu „Zdravím svět“ z tématu [nodejs.org]. Kód přidá process.env.PORT jako port pro naslouchání při spuštění ve webové aplikaci Azure.
 
 1. Vytvořte adresář s názvem *zdravímsvět*.
@@ -119,7 +123,7 @@ V této části vytvoříte soubor **server.js** obsahující mírně upravenou 
    
     ![Prohlížeč se zobrazenou zprávou „Zdravím svět“.][helloworld-localhost]
 
-## Publikování aplikace
+## <a name="publish-your-application"></a>Publikování aplikace
 1. Pokud jste tak již neučinili, nainstalujte Git.
    
     Pokyny k instalaci pro svou platformu naleznete na [stránce stahování Git](http://git-scm.com/download).
@@ -158,7 +162,7 @@ V této části vytvoříte soubor **server.js** obsahující mírně upravenou 
    
     ![Zdravím svět v Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Publikování změn do aplikace
+## <a name="publish-changes-to-your-application"></a>Publikování změn do aplikace
 1. Otevřete soubor **server.js** v textovém editoru a změňte řetězec „Zdravím svět\n“ na „Zdravím Azure\n“. 
 2. Uložte soubor.
 3. V příkazovém řádku přejděte do adresáře **zdravímsvět** a spusťte následující příkazy.
@@ -172,10 +176,10 @@ V této části vytvoříte soubor **server.js** obsahující mírně upravenou 
    
     ![Webová stránka se zobrazenou zprávou „Zdravím Azure“][helloworld-completed]
 
-## Vrácení nasazení zpět
+## <a name="roll-back-a-deployment"></a>Vrácení nasazení zpět
 V okně **Webová aplikace** můžete kliknout na možnost **Nastavení > Průběžné nasazování** a zobrazit historii nasazení v okně **Nasazení**. Potřebujete-li se vrátit zpět k předchozímu nasazení, můžete jej vybrat a poté v okně **Podrobnosti o nasazení** kliknout na tlačítko **Znovu nasadit**.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nasadili jste aplikaci Node.js do webové aplikace ve službě Azure App Service. Podrobnější informace o způsobu, jímž webové aplikace služby App Service spouštějí aplikace Node.js, naleznete v tématech [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) a [Určení verze Node.js v aplikaci Azure](../nodejs-specify-node-version-azure-apps.md).
 
 Node.js poskytuje bohatý ekosystém modulů, které mohou vaše aplikace využívat. Podrobnější informace o způsobu, jímž služba Web Apps pracuje s moduly, naleznete v tématu [Používání modulů Node.js s aplikacemi Azure](../nodejs-use-node-modules-azure-apps.md).
@@ -186,18 +190,18 @@ Tento článek používá portál Azure k vytvoření webové aplikace. Tytéž 
 
 Podrobnější informace týkající se postupu při vývoji aplikací Node.js v Azure naleznete ve [Středisku pro vývojáře Node.js](/develop/nodejs/).
 
-[zdravímsvět-dokončeno]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-[zdravímsvět-místníhostitel]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
+[helloworld-dokončeno]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
+[helloworld-místníhostitel]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
 [portál-rychlé-vytvoření]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
 [portál-rychlé-vytvoření2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
 [nastavení-publikování-git]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
 [přechod-do-řídicího-panelu]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [nasazení-část]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
-[nasazení-přihlašovací-údaje]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
+[deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

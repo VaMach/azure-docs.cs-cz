@@ -1,22 +1,26 @@
 ---
-title: Vytvoření webové aplikace WordPress ve službě Azure App Service | Microsoft Docs
-description: Naučte se vytvořit novou webovou aplikaci Azure pro blog WordPress pomocí webu Azure Portal.
+title: "Vytvoření webové aplikace WordPress ve službě Azure App Service | Dokumentace Microsoftu"
+description: "Naučte se vytvořit novou webovou aplikaci Azure pro blog WordPress pomocí webu Azure Portal."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 193ae094-0d7c-4749-a09b-ff4b1240149e
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+
 
 ---
-# Vytvoření webové aplikace WordPress ve službě Azure App Service
+# <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Vytvoření webové aplikace WordPress ve službě Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 V tomto kurzu se dozvíte, jak nasadit web blogu WordPress z Azure Marketplace.
@@ -31,7 +35,7 @@ Co se dozvíte:
 * Postup vytvoření webové aplikace založené na šabloně ve službě Azure App Service.
 * Postup konfigurace nastavení služby Azure App Service pro novou webovou aplikaci a databázi.
 
-Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP](/develop/nodejs/) v tomto příkladu aplikace WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), [Python](/develop/python/) a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [web Azure Portal](https://portal.azure.com/). 
+Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Webové aplikace jsou postaveny na široké škále oblíbených rozhraní, jako je [PHP](/develop/nodejs/) v tomto příkladu aplikace WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), [Python](/develop/python/) a další. K vytvoření webové aplikace v Azure Marketplace nepotřebujete žádný software, kromě prohlížeče, který používáte pro [web Azure Portal](https://portal.azure.com/). 
 
 Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL. Chcete-li jako databázi raději použít SQL Database, informace naleznete v [Projektu Nami](http://projectnami.org/). **Projekt Nami** je rovněž k dispozici prostřednictvím Azure Marketplace.
 
@@ -42,7 +46,7 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
 > 
 > 
 
-## Výběr aplikace WordPress a konfigurace pro službu Azure App Service
+## <a name="select-wordpress-and-configure-for-azure-app-service"></a>Výběr aplikace WordPress a konfigurace pro službu Azure App Service
 1. Přihlaste se k [webu Azure Portal](https://portal.azure.com/).
 2. Klikněte na možnost **Nové**.
    
@@ -59,10 +63,10 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
 6. Máte-li více předplatných, zvolte to, které chcete použít. 
 7. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
 8. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
-    Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+    Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).    
 9. Klikněte na možnost **Databáze** a poté v okně **Nová databáze MySQL** zadejte požadované hodnoty pro konfiguraci databáze MySQL.
    
     a. Zadejte nový název nebo ponechte výchozí název.
@@ -81,7 +85,7 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
     
      ![Ukazatel průběhu](./media/web-sites-php-web-site-gallery/progress.png)
 
-## Spuštění a správa webové aplikace WordPress
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Spuštění a správa webové aplikace WordPress
 1. Až budete s vytvářením webové aplikace hotovi, přejděte na webu Azure Portal do skupiny prostředků, v níž jste aplikaci vytvořili, a zde se zobrazí webová aplikace a databáze.
    
     Dodatečný prostředek s ikonou žárovky je služba [Application Insights](/services/application-insights/), která pro vaši webovou aplikaci zajišťuje služby monitorování.
@@ -99,12 +103,12 @@ Web WordPress, který nasazujete v tomto kurzu, využívá jako databázi MySQL.
    
     ![Web WordPress](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Seznámili jste se s postupem vytvoření a nasazení webové aplikace PHP z galerie. Další informace o použití PHP v Azure naleznete ve [Středisku pro vývojáře PHP](/develop/php/).
 
 Další informace týkající se práce s webovými aplikacemi App Service Web Apps naleznete prostřednictvím odkazů v levé části stránky (máte-li široké okno prohlížeče) nebo v horní části stránky (máte-li úzké okno prohlížeče). 
 
-## Co se změnilo
+## <a name="whats-changed"></a>Co se změnilo
 * Průvodce změnou z webů na službu App Service naleznete v tématu [Služba Azure App Service a její vliv na stávající služby Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
@@ -113,6 +117,6 @@ Další informace týkající se práce s webovými aplikacemi App Service Web A
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

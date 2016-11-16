@@ -1,12 +1,12 @@
 ---
-title: 'Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal | Microsoft Docs'
-description: V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí editoru služby Data Factory na webu Azure Portal.
+title: "Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "V tomto kurzu vytvoříte kanál služby Azure Data Factory s aktivitou kopírování pomocí editoru služby Data Factory na webu Azure Portal."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+
 
 ---
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
-> * [portál Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Šablona Azure Resource Manageru](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -41,20 +45,20 @@ Zde jsou kroky, které provedete v rámci tohoto kurzu:
 | [Vytvoření kanálu](#create-pipeline) |V tomto kroku vytvoříte v objektu ADFTutorialDataFactory kanál s názvem **ADFTutorialPipeline**. <br/><br/>Přidáte do kanálu **aktivitu kopírování**, která kopíruje vstupní data z objektu blob Azure do výstupní tabulky Azure SQL. Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). |
 | [Monitorování kanálu](#monitor-pipeline) |V tomto kroku budete monitorovat řezy vstupní a výstupní tabulky pomocí webu Azure Portal. |
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Než se pustíte do tohoto kurzu, dokončete požadované kroky uvedené v článku [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## Vytvoření objektu pro vytváření dat
+## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
 
 1. Po přihlášení na webu [Azure Portal](https://portal.azure.com/) klikněte na **Nový**, vyberte **Inteligence a analýza** a klikněte na **Data Factory**. 
    
-   ![Nový -> Objekt pro vytváření dat](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
+   ![Nový -> Objekt pro vytváření dat](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. V okně **Nový objekt pro vytváření dat**:
    
    1. Do pole **Název** zadejte **ADFTutorialDataFactory**. 
       
-       ![Okno Nový objekt pro vytváření dat](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
+         ![Okno Nový objekt pro vytváření dat](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
        Název objektu pro vytváření dat Azure musí být **globálně jedinečný**. Pokud se zobrazí následující chyba, změňte název objektu pro vytváření dat (třeba na váš_název_ADFTutorialDataFactory) a zkuste to znovu. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
       
@@ -67,7 +71,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
       1. Vyberte **Použít existující** a z rozevíracího seznamu vyberte existující skupinu prostředků. 
       2. Vyberte **Vytvořit novou** a zadejte název skupiny prostředků.   
          
-          Některé kroky v tomto kurzu vychází z předpokladu, že pro skupinu prostředků použijete název **ADFTutorialResourceGroup**. Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../resource-group-overview.md).  
+          Některé kroky v tomto kurzu vychází z předpokladu, že pro skupinu prostředků použijete název **ADFTutorialResourceGroup**. Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Vyberte **umístění** pro objekt pro vytváření dat. V rozevíracím seznamu jsou uvedené pouze oblasti podporované službou Data Factory.
    5. Vyberte položku **Připnout na Úvodní panel**.     
    6. Klikněte na možnost **Vytvořit**.
@@ -75,7 +79,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
       > [!IMPORTANT]
       > Chcete-li vytvářet instance služby Data Factory, musíte být členem role [Přispěvatel Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na úrovni předplatného a skupiny prostředků.
       > 
-      > Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.              
+      > Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.                
       > 
       > 
 3. Chcete-li zobrazit zprávy o stavu a oznámení, klikněte na ikonu zvonu na panelu nástrojů. 
@@ -85,12 +89,12 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    
    ![Domovská stránka objektu pro vytváření dat](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
-## Vytvoření propojených služeb
+## <a name="create-linked-services"></a>Vytvoření propojených služeb
 Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Všechny zdroje a jímky podporované aktivitou kopírování najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md##supported-data-stores-and-formats). Seznam výpočetních služeb podporovaných službou Data Factory najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md). V tomto kurzu žádné výpočetní služby nepoužijete. 
 
 V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService** a **AzureSqlLinkedService**. Propojená služba AzureStorageLinkedService propojuje účet Azure Storage a AzureSqlLinkedService propojuje službu Azure SQL Database s objektem **ADFTutorialDataFactory**. Později v tomto kurzu vytvoříte kanál, který kopíruje data z kontejneru objektů blob ve službě AzureStorageLinkedService do tabulky SQL ve službě AzureSqlLinkedService.
 
-### Vytvoření propojené služby pro účet úložiště Azure
+### <a name="create-a-linked-service-for-the-azure-storage-account"></a>Vytvoření propojené služby pro účet úložiště Azure
 1. V okně **Objekt pro vytváření dat** klikněte na dlaždici **Vytvořit a nasadit**, abyste spustili **Editor** pro objekt pro vytváření dat.
    
    ![Dlaždice Vytvořit a nasadit](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
@@ -99,7 +103,7 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
     ![Tlačítko Nové datové úložiště v editoru](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Hodnoty `<accountname>` a `<accountkey>` nahraďte názvem účtu služby Azure Storage a jeho klíčem. 
    
-    ![Editor – Blob Storage – JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+    ![Editor – Blob Storage – JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 4. Na panelu nástrojů klikněte na **Nasadit**. Nyní byste měli v zobrazení stromu vidět nasazenou službu **AzureStorageLinkedService**. 
    
     ![Editor – Blob Storage – nasazení](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
@@ -109,7 +113,7 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
 > 
 > 
 
-### Vytvoření propojené služby pro Azure SQL Database
+### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Vytvoření propojené služby pro Azure SQL Database
 1. V **editoru služby Data Factory** klikněte na panelu nástrojů na tlačítko **Nové úložiště dat** a z rozevírací nabídky vyberte **Azure SQL Database**. V pravém podokně by se měla zobrazit šablona JSON pro vytvoření propojené služby Azure SQL.
 2. Hodnoty `<servername>`, `<databasename>`, `<username>@<servername>` a `<password>` nahraďte názvy serveru Azure SQL, databáze, uživatelského účtu a heslem. 
 3. Službu **AzureSqlLinkedService** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů.
@@ -120,10 +124,10 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
 > 
 > 
 
-## Vytvoření datových sad
+## <a name="create-datasets"></a>Vytvoření datových sad
 V předchozím kroku jste vytvořili propojené služby **AzureStorageLinkedService** a **AzureSqlLinkedService**, abyste propojili účet úložiště Azure a Azure SQL Database k objektu pro vytváření dat: **ADFTutorialDataFactory**. V tomto kroku nadefinujete dvě datové sady – **InputDataset** a **OutputDataset** – které představují vstupní a výstupní data uložená v úložištích dat, na která odkazují objekty AzureStorageLinkedService a AzureSqlLinkedService. Pro InputDataset zadáte kontejner objektů blob, který obsahuje objekt blob se zdrojovými daty, a pro OutputDataset zadáte tabulku SQL, do které se uloží výstupní data. 
 
-### Vytvoření vstupní datové sady
+### <a name="create-input-dataset"></a>Vytvoření vstupní datové sady
 V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentovaný propojenou službou **AzureStorageLinkedService**.
 
 1. V **editoru** služby Data Factory klikněte na **... Další**, klikněte na **Nová datová sada** a v rozevíracím seznamu klikněte na **Azure Blob Storage**. 
@@ -168,7 +172,7 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
    * Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. Tuto propojenou službu jste vytvořili v kroku 2.
    * Vlastnost **folderPath** je nastavená na kontejner **adftutorial**. Můžete také zadat název objektu blob ve složce pomocí vlastnosti **fileName**. Pokud neurčíte název objektu blob, budou za vstupní data považována data ze všech objektů blob v kontejneru.  
    * Vlastnost **type** formátu je nastavená na **TextFormat**.
-   * V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**). 
+   * V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**).    
    * Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce kontejneru objektů blob (**adftutorial**), který jste zadali. 
      
      Pokud pro **vstupní** datovou sadu nezadáte vlastnost **fileName**, považují se za vstupy všechny soubory a objekty blob ze vstupní složky (**folderPath**). Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
@@ -193,7 +197,7 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
 > 
 > 
 
-### Vytvoření výstupní datové sady
+### <a name="create-output-dataset"></a>Vytvoření výstupní datové sady
 V této části kroku vytvoříte výstupní datovou sadu s názvem **OutputDataset**. Tato datová sada odkazuje na tabulku SQL ve službě Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. 
 
 1. V **editoru** služby Data Factory klikněte na **... Další**, klikněte na **Nová datová sada** a v rozevíracím seznamu klikněte na **Azure SQL**. 
@@ -238,7 +242,7 @@ V této části kroku vytvoříte výstupní datovou sadu s názvem **OutputData
 > 
 > 
 
-## Vytvoření kanálu
+## <a name="create-pipeline"></a>Vytvoření kanálu
 V tomto kroku vytvoříte kanál s **aktivitou kopírování**, která používá **InputDataset** jako vstup a **OutputDataset** jako výstup.
 
 1. V **editoru** služby Data Factory klikněte na **... Další** a poté na **Nový kanál**. Případně můžete ve stromovém zobrazení kliknout pravým tlačítkem na **anály** a pak kliknout na **Nový kanál**.
@@ -303,7 +307,7 @@ V tomto kroku vytvoříte kanál s **aktivitou kopírování**, která použív�
 
 **Blahopřejeme!** Úspěšně jste vytvořili objekt pro vytváření dat Azure, propojené služby, tabulky a kanál a naplánovali jste kanál.   
 
-### Zobrazit objektu pro vytváření dat v zobrazení diagramu
+### <a name="view-the-data-factory-in-a-diagram-view"></a>Zobrazit objektu pro vytváření dat v zobrazení diagramu
 1. V okně **Objekt pro vytváření dat** klikněte na **Diagram**.
    
     ![Okno objekt pro vytváření dat – dlaždice Diagram](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
@@ -320,10 +324,10 @@ V tomto kroku vytvoříte kanál s **aktivitou kopírování**, která použív�
     ![Otevřené zobrazení kanálu](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
 5. Pokud se chcete vrátit do zobrazení diagramu, klikněte v zobrazení cesty v levém horním rohu na **Objekt pro vytváření dat**. Zobrazení diagramu zobrazí všechny kanály. V tomto příkladu jste vytvořili jenom jeden kanál.   
 
-## Monitorování kanálu
+## <a name="monitor-pipeline"></a>Monitorování kanálu
 V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objektu pro vytváření dat Azure. 
 
-### Monitorování kanálu pomocí Zobrazení diagramu
+### <a name="monitor-pipeline-using-diagram-view"></a>Monitorování kanálu pomocí Zobrazení diagramu
 1. Kliknutím na **X** zavřete zobrazení **Diagram** a zobrazí se domovská stránka objektu pro vytváření dat služby Data Factory. Pokud jste zavřeli webový prohlížeč, proveďte následující kroky: 
    1. Přejděte na [Azure Portal](https://portal.azure.com/). 
    2. Na **Úvodním panelu** dvakrát klikněte na **ADFTutorialDataFactory** nebo klikněte na **Objekty pro vytváření dat** v nabídce vlevo a vyhledejte ADFTutorialDataFactory. 
@@ -369,7 +373,7 @@ V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objekt
     
     ![Výsledky dotazu SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### Monitorování kanálu pomocí aplikace pro monitorování a správu
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
 K monitorování kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v tématu [Monitorování a správa kanálů služby Azure Data Factory pomocí aplikace pro monitorování a správu](data-factory-monitor-manage-app.md).
 
 1. Na domovské stránce svého objektu pro vytváření dat klikněte na dlaždici **Monitorování a správa**.
@@ -381,17 +385,17 @@ K monitorování kanálů můžete také použít aplikaci pro monitorování a 
 3. Výběrem okna aktivity v seznamu **Okna aktivit** zobrazíte podrobnosti. 
     ![Podrobnosti o okně aktivity](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
-## Souhrn
+## <a name="summary"></a>Souhrn
 V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírování dat z objektu blob Azure do Azure SQL Database. Použili jste web Azure Portal k vytvoření objektu pro vytváření dat, propojených služeb, datových sad a kanálu. Zde jsou základní kroky, které jste v tomto kurzu provedli:  
 
 1. Vytvořili jste **objekt pro vytváření dat** Azure.
 2. Vytvořili jste **propojené služby**:
-   1. Propojená služba **Azure Storage** připojující účet úložiště Azure, který obsahuje vstupní data.    
+   1. Propojená služba **Azure Storage** připojující účet úložiště Azure, který obsahuje vstupní data.     
    2. Propojená služba **Azure SQL** připojující službu Azure SQL Database, která obsahuje výstupní data. 
 3. Vytvořili jste **datové sady**, které popisují vstupní data a výstupní data pro kanály.
 4. Vytvořili jste **kanál** s **aktivitou kopírování**, která má jako zdroj **BlobSource** a jako jímku **SqlSink**.  
 
-## Viz také
+## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
 | [Aktivity přesunu dat](data-factory-data-movement-activities.md) |Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
@@ -400,6 +404,9 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

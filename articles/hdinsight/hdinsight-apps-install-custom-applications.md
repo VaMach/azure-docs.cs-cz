@@ -1,13 +1,13 @@
 ---
-title: Instalace aplikací Hadoop v HDInsight | Microsoft Docs
-description: Informace o instalaci aplikací HDInsight na aplikace HDInsight.
+title: "Instalace aplikací Hadoop v HDInsight | Dokumentace Microsoftu"
+description: "Informace o instalaci aplikací HDInsight na aplikace HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 02fbf7609ca2f2fac5105e347fcfc9aa5b794eb2
+
 
 ---
-# Instalace vlastních aplikací HDInsight
+# <a name="install-custom-hdinsight-applications"></a>Instalace vlastních aplikací HDInsight
 Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux.  Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se dozvíte, jak nainstalovat aplikaci HDInsight, která nebyla publikována na portálu Azure v HDInsight. Aplikace, kterou nainstalujete se jmenuje [Hue](http://gethue.com/). 
 
 Další související články:
@@ -26,10 +30,10 @@ Další související články:
 * [Publikování aplikací HDInsight](hdinsight-apps-publish-applications.md): Zjistěte, jak publikovat vlastní aplikace HDInsight do obchodu Azure Marketplace.
 * [MSDN: Instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Další informace jak definovat aplikace HDInsight.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Pokud chcete instalovat aplikace HDInsight na stávající cluster HDInsight, musí mít cluster služby HDInsight. Chcete-li jeden vytvořit, prostudujte si část [Tvorba clusterů](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). Aplikace HDInsight můžete také nainstalovat při vytváření clusteru HDInsight.
 
-## Instalace aplikací HDInsight
+## <a name="install-hdinsight-applications"></a>Instalace aplikací HDInsight
 Aplikace HDInsight lze nainstalovat při vytvoření clusteru nebo do existujícího clusteru HDInsight. Postup definování šablon Azure Resource Manageru, viz část [MSDN: instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 
 Soubory potřebné pro nasazení této aplikace (Hue):
@@ -66,19 +70,19 @@ Soubory potřebné pro nasazení této aplikace (Hue):
 
 Kromě portálu Azure můžete pro volání šablon Resource Manageru použít také [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) a [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli).
 
-## Ověření instalace
+## <a name="validate-the-installation"></a>Ověření instalace
 Stav aplikace můžete zkontrolovat na portálu Azure a ověřit tak instalaci aplikace. Kromě toho můžete také ověřit, zda všechny koncové body HTTP vychází dle očekávání a webovou stránku, pokud existuje:
 
 **Postup otevření portál Hue**
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na tlačítko **Procházet** a pak klikněte na tlačítko **Clustery HDInsight**.
 3. Klikněte na cluster, kde je nainstalovaná aplikace.
 4. Z okna **Nastavení** klikněte na tlačítko **Aplikace** pod kategorií **Obecné**. Měli byste vidět položku **hue** uvedenou v okně **Nainstalované aplikace**.
 5. Klikněte na položku **hue** na seznamu a zobrazte seznam vlastností.  
 6. Klikněte na odkaz webové stránky a ověřte webovou stránku; otevřete koncový bod protokolu HTTP a ověřte uživatelské rozhraní webu Hue, otevřete koncový bod SSH pomocí [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) nebo jiných [Klientů SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Řešení potíží instalace
+## <a name="troubleshoot-the-installation"></a>Řešení potíží instalace
 Stav instalace aplikace můžete zkontrolovat na portálu oznámení (kliknutím na ikonu zvonku v horní části portálu). 
 
 Pokud se instalace aplikace nezdařila, můžete zobrazit chybové zprávy a informace ladění ze 3 míst:
@@ -97,13 +101,13 @@ Pokud se instalace aplikace nezdařila, můžete zobrazit chybové zprávy a inf
   
     Další informace naleznete v tématu [Poradce při potížích](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
-## Odstranění aplikací HDInsight
+## <a name="remove-hdinsight-applications"></a>Odstranění aplikací HDInsight
 Existuje několik způsobů jak odstranit aplikace HDInsight.
 
-### Použít portál
+### <a name="use-portal"></a>Použít portál
 **Postup odebrání aplikace pomocí portálu**
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na tlačítko **Procházet** a pak klikněte na tlačítko **Clustery HDInsight**.
 3. Klikněte na cluster, kde je nainstalovaná aplikace.
 4. Z okna **Nastavení** klikněte na tlačítko **Aplikace** pod kategorií **Obecné**. Zobrazí se seznam nainstalovaných aplikací. Pro toto školení je položka **hue** uvedena v okně **Nainstalované aplikace**.
@@ -112,13 +116,13 @@ Existuje několik způsobů jak odstranit aplikace HDInsight.
 
 Z portálu můžete také odstranit cluster nebo odstranit skupinu prostředků, která obsahuje aplikaci.
 
-### Použití Azure Powershell
+### <a name="use-azure-powershell"></a>Použití Azure Powershell
 Pomocí Azure PowerShell můžete odstranit cluster nebo skupinu prostředků. Viz téma [Odstranění clusterů pomocí Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### Použití Azure CLI
+### <a name="use-azure-cli"></a>Použití Azure CLI
 Pomocí Azure CLI můžete odstranit cluster nebo skupinu prostředků. Viz téma [Odstranění clusterů pomocí Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [MSDN: Instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): další informace jak vyvíjet šablony Resource Manageru pro nasazení aplikací HDInsight.
 * [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md): Naučte se instalovat aplikace HDInsight do svých clusterů.
 * [Publikování aplikací HDInsight](hdinsight-apps-publish-applications.md): Zjistěte, jak publikovat vlastní aplikace HDInsight do obchodu Azure Marketplace.
@@ -126,6 +130,9 @@ Pomocí Azure CLI můžete odstranit cluster nebo skupinu prostředků. Viz tém
 * [Vytváření clusterů Hadoop na systému Linux v HDInsight pomocí šablon Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Zjistěte, jak voláním šablon Resource Manageru vytvoříte clustery HDInsight.
 * [Použití prázdných hraničních uzlů v HDInsight](hdinsight-apps-use-edge-node.md): Zjistěte, jak lze pomocí prázdných hraničních uzlů přistupovat ke clusteru HDInsight, testovat aplikace HDInsight a hostovat aplikace HDInsight.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

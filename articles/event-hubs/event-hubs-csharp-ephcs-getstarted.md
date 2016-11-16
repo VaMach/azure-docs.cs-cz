@@ -1,12 +1,12 @@
 ---
-title: Začínáme se službou Event Hubs v jazyce C# | Microsoft Docs
-description: Tento kurz vám pomůže naučit se základy používání služby Azure Event Hubs s jazykem C# a knihovny EventProcessorHost.
+title: "Začínáme se službou Event Hubs v jazyce C# | Dokumentace Microsoftu"
+description: "Tento kurz vám pomůže naučit se základy používání služby Azure Event Hubs s jazykem C# a knihovny EventProcessorHost."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2ec2378a-34f7-44c3-b976-cc444c98c338
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/02/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Začínáme se službou Event Hubs
@@ -56,13 +60,13 @@ Nyní můžete spustit aplikace.
    
    ![][22]
 
-Stiskněte v okně **Sender** kombinaci kláves **Ctrl + C**. Aplikace Sender se ukončí. Pak v okně Receiver stiskněte klávesu **Enter**, a ukončí se i tato aplikace.
+Stiskněte v okně **Sender** kombinaci kláves **Ctrl + C**. Aplikace Sender se ukončí. Pak v okně Receiver stiskněte klávesu **Enter**, a ukončí se i tato aplikace.
 
 ## <a name="next-steps"></a>Další kroky
 Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete podívat na některý z následujících scénářů:
 
-* úplná [ukázková aplikace, která používá službu Event Hubs][ukázková aplikace, která používá službu Event Hubs]
-* [horizontální navýšení kapacity zpracování událostí ve službě Event Hubs][] – ukázka
+* Úplná [ukázková aplikace, která používá službu Event Hubs][ukázková aplikace, která používá službu Event Hubs]
+* Ukázka [horizontálního navýšení kapacity zpracování událostí pomocí služby Event Hubs][horizontální navýšení kapacity zpracování událostí pomocí služby Event Hubs]
 * [Přehled služby Event Hubs][Přehled služby Event Hubs]
 
 <!-- Images. -->
@@ -82,6 +86,6 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,47 +1,51 @@
 ---
-title: Configure proxy and firewall settings in Log Analytics | Microsoft Docs
-description: Configure proxy and firewall settings when your agents or OMS services need to use specific ports.
+title: "Konfigurace nastavení proxy serveru a brány firewall v Log Analytics | Dokumentace Microsoftu"
+description: "Nakonfigurujte nastavení proxy serveru a brány firewall, pokud vaši agenti nebo služby OMS potřebují používat konkrétní porty."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: banders;magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+
 
 ---
-# Configure proxy and firewall settings in Log Analytics
-Actions needed to configure proxy and firewall settings for Log Analytics in OMS differ when you use Operations Manager and its agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
+# <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Konfigurace nastavení proxy serveru a brány firewall v Log Analytics
+Akce potřebné ke konfiguraci nastavení proxy serveru a brány firewall pro Log Analytics v OMS se liší podle toho, zda používáte Operations Manager a jeho agenty, nebo agenty Microsoft Monitoring Agent, kteří se připojují přímo k serverům. Přečtěte si následující oddíly pro typ agenta, který používáte.
 
-## Configure proxy and firewall settings with the Microsoft Monitoring Agent
-For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
+## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Konfigurace nastavení proxy serveru a brány firewall pomocí Microsoft Monitoring Agent
+Microsoft Monitoring Agent musí mít přístup k číslu portu vašich domén a k adresám URL, aby se mohl připojit a zaregistrovat do služby OMS. Pokud ke komunikaci mezi agentem a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Používáte-li k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup k OMS. Porty, které OMS potřebuje, jsou uvedené v následujících tabulkách.
 
-| **Agent Resource** | **Ports** | **Bypass HTTPS inspection** |
+| **Prostředek agenta** | **Porty** | **Obejití kontroly protokolu HTTPS** |
 | --- | --- | --- |
-| \*.ods.opinsights.azure.com |443 |Yes |
-| \*.oms.opinsights.azure.com |443 |Yes |
-| \*.blob.core.windows.net |443 |Yes |
+| \*.ods.opinsights.azure.com |443 |Ano |
+| \*.oms.opinsights.azure.com |443 |Ano |
+| \*.blob.core.windows.net |443 |Ano |
 | ods.systemcenteradvisor.com |443 | |
 
-You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Následující postup slouží ke konfiguraci nastavení proxy serveru pro Microsoft Monitoring Agent pomocí Ovládacích panelů. Tento postup bude nutné použít pro každý server. pokud máte mnoho serverů, které je nutné nakonfigurovat, může být jednodušší použít skript, který tento proces zautomatizuje. Je-li to váš případ, podívejte se na další postup [Konfigurace nastavení proxy serveru pro Microsoft Monitoring Agent pomocí skriptu](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
-### To configure proxy settings for the Microsoft Monitoring Agent using Control Panel
-1. Open **Control Panel**.
-2. Open **Microsoft Monitoring Agent**.
-3. Click the **Proxy Settings** tab.<br>  
-   ![proxy settings tab](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
-4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-control-panel"></a>Konfigurace nastavení proxy serveru pro Microsoft Monitoring Agent pomocí Ovládacích panelů
+1. Otevřete **Ovládací panely**.
+2. Otevřete **Microsoft Monitoring Agent**.
+3. Klikněte na kartu **Nastavení proxy serveru**.<br>  
+   ![karta nastavení proxy serveru](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+4. Zaškrtněte políčko **Použít proxy server** a zadejte adresu URL a v případě potřeby i číslo portu, podobně jako v příkladu výše. Pokud váš proxy server vyžaduje ověření, zadejte uživatelské jméno a heslo pro přístup k proxy serveru.
 
-Use the following procedure to create a PowerShell script that you can run to set the proxy settings for each agent that connects directly to servers.
+Pomocí následujícího postupu vytvoříte skript prostředí PowerShell, jehož spuštěním můžete nastavit proxy server pro každého agenta, který se připojuje přímo k serverům.
 
-### To configure proxy settings for the Microsoft Monitoring Agent using a script
-Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script"></a>Konfigurace nastavení proxy serveru pro Microsoft Monitoring Agent pomocí skriptu
+Zkopírujte následující ukázku kódu, aktualizujte ji pomocí informací specifických pro vaše prostředí, uložte ji s příponou názvu souboru PS1 a následně tento skript spusťte na každém počítači, který se připojuje přímo ke službě OMS.
 
     param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
 
@@ -66,24 +70,24 @@ Copy the following sample, update it with information specific to your environme
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## Configure proxy and firewall settings with Operations Manager
-For an Operations Manager management group to connect to and register with the OMS service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. Even if an Operations Manager management server is not behind a proxy server, its agents might be. In this case, the proxy server should be configured in the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the OMS web service.
+## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Konfigurace nastavení proxy serveru a brány firewall pomocí nástroje Operations Manager
+Skupina pro správu nástroje Operations Manager musí mít přístup k číslu portu vašich domén a k adresám URL, aby se mohla připojit a zaregistrovat do služby OMS. Pokud ke komunikaci mezi serverem pro správu nástroje Operations Manager a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Používáte-li k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup k OMS. I v případě, že server pro správu nástroje Operations Manager není za proxy server, mohou tam být jeho agenti. V tom případě by měl být proxy server nakonfigurován stejným způsobem jako agenti, aby bylo možné zapnout a povolit odesílání dat z řešení Zabezpečení a správa protokolů do webové služby OMS.
 
-In order for Operations Manager agents to communicate with the OMS service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the following:
+Pro zajištění komunikace mezi agenty nástroje Operations Manager a službou OMS by vaše infrastruktura nástroje Operations Manager (včetně agentů) měla mít správné nastavení proxy serveru a správnou verzi. Nastavení proxy serveru pro agenty se zadává v konzole nástroje Operations Manager. Vaše verze by měla být jedna z těchto:
 
-* Operations Manager 2012 SP1 Update Rollup 7 or later
-* Operations Manager 2012 R2 Update Rollup 3 or later
+* Operations Manager 2012 SP1 s kumulativní aktualizací 7 nebo novější
+* Operations Manager 2012 R2 s kumulativní aktualizací 3 nebo novější
 
-The following tables list the ports related to these tasks.
+Porty související s těmito úkoly jsou uvedené v následujících tabulkách.
 
 > [!NOTE]
-> Some of the following resources mention Advisor and Operational Insights, both were previous versions of OMS. However, the listed resources will change in the future.
-> 
-> 
+> Některé z následujících prostředků zmiňují služby Advisor a Operational Insights – obě jsou předchozí verze OMS. Uvedené prostředky se ale v budoucnu změní.
+>
+>
 
-Here's a list of agent resources and ports:<br>
+Zde je seznam prostředků agenta a portů:<br>
 
-| **Agent resource** | **Ports** |
+| **Prostředek agenta** | **Porty** |
 | --- | --- |
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
@@ -91,86 +95,88 @@ Here's a list of agent resources and ports:<br>
 | ods.systemcenteradvisor.com |443 |
 
 <br>
-Here's a list of management server resources and ports:<br>
+Zde je seznam prostředků serveru pro správu a porty:<br>
 
-| **Management server resource** | **Ports** | **Bypass HTTPS inspection** |
+| **Prostředek serveru pro správu** | **Porty** | **Obejití kontroly protokolu HTTPS** |
 | --- | --- | --- |
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
-| \*.blob.core.windows.net |443 |Yes |
+| \*.blob.core.windows.net |443 |Ano |
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
-| \*.ods.opinsights.azure.com |443 |Yes |
+| \*.ods.opinsights.azure.com |443 |Ano |
 
 <br>
-Here's a list of OMS and Operations Manager console resources and ports.<br>
+Zde je seznam prostředků OMS a konzoly nástroje Operations Manager a porty.<br>
 
-| **OMS and Operations Manager console resource** | **Ports** |
+| **Prostředek OMS a konzoly nástroje Operations Manager** | **Porty** |
 | --- | --- |
 | service.systemcenteradvisor.com |443 |
 | \*.service.opinsights.azure.com |443 |
-| \*.live.com |Port 80 and 443 |
-| \*.microsoft.com |Port 80 and 443 |
-| \*.microsoftonline.com |Port 80 and 443 |
-| \*.mms.microsoft.com |Port 80 and 443 |
-| login.windows.net |Port 80 and 443 |
+| \*.live.com |Port 80 a 443 |
+| \*.microsoft.com |Port 80 a 443 |
+| \*.microsoftonline.com |Port 80 a 443 |
+| \*.mms.microsoft.com |Port 80 a 443 |
+| login.windows.net |Port 80 a 443 |
 
 <br>
 
-Use the following procedures to register your Operations Manager management group with the OMS service. If you are having communication problems between the management group and the OMS service, use the validation procedures to troubleshoot data transmission to the OMS service.
+Pomocí následujících postupů zaregistrujete skupinu pro správu nástroje Operations Manager do služby OMS. Máte-li problémy s komunikací mezi skupinou pro správu a službou OMS, použijte postupy ověření k řešení potíží při přenosu dat do služby OMS.
 
-### To request exceptions for the OMS service endpoints
-1. Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.
-2. Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and OMS are accessible through any firewalls you might have.
-3. If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly. To verify, you can open a secure web connection (HTTPS), for example [https://bing.com](https://bing.com). If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.
+### <a name="to-request-exceptions-for-the-oms-service-endpoints"></a>Žádost o výjimky pro koncové body služby OMS
+1. Pomocí informací z první tabulky zobrazené výše zajistěte, aby prostředky, které potřebuje server pro správu nástroje Operations Manager, byly dostupné přes všechny brány firewall, které máte.
+2. Pomocí informací z druhé tabulky zobrazené výše zajistěte, aby prostředky, které potřebuje OMS a konzola Operations Console v nástroji Operations Manager byly dostupné přes všechny brány firewall, které máte.
+3. Pokud používáte proxy server s aplikací Internet Explorer, ujistěte se, že je nakonfigurována a funguje správně. Ověřit to můžete tak, že otevřete zabezpečené webové připojení (HTTPS), například [https://bing.com](https://bing.com). Pokud zabezpečené webové připojení nefunguje v prohlížeči, pravděpodobně nebude fungovat ani v konzole pro správu nástroje Operations Manager s webovými službami v cloudu.
 
-### To configure the proxy server in the Operations Manager console
-1. Open the Operations Manager console and select the **Administration** workspace.
-2. Expand **Operational Insights**, and then select **Operational Insights Connection**.<br>  
-    ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. In the OMS Connection view, click **Configure Proxy Server**.<br>  
-    ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.<br>  
-    ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
+### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Konfigurace proxy serveru v konzole nástroje Operations Manager
+1. Otevřete konzolu nástroje Operations Manager a vyberte pracovní prostor **Správa**.
+2. Rozbalte **Operational Insights** a poté vyberte **Připojení služby Operational Insights**.<br>  
+    ![Operations Manager Připojení OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
+3. V zobrazení Připojení OMS klikněte na **Konfigurovat proxy server**.<br>  
+    ![Operations Manager Připojení OMS Konfigurace proxy serveru](./media/log-analytics-proxy-firewall/proxy-om02.png)
+4. V Průvodci nastavením služby Operational Insights: Proxy server zaškrtněte políčko **Použít proxy server pro přístup k webovým službám Operational Insights** a poté zadejte adresu URL s číslem portu, například **http://mojeproxy:80**.<br>  
+    ![Operations Manager Adresa proxy serveru OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
-### To specify credentials if the proxy server requires authentication
- Proxy server credentials and settings need to propagate to managed computers that will report to OMS. Those servers should be in the *Microsoft System Center Advisor Monitoring Server Group*. Credentials are encrypted in the registry of each server in the group.
+### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Zadání přihlašovacích údajů, pokud proxy server vyžaduje ověření
+ Přihlašovací údaje proxy serveru a nastavení je nutné rozšířit i na spravované počítače, které se budou hlásit k OMS. Tyto servery by měly být ve *skupině monitorovacích serverů služby Microsoft System Center Advisor*. Přihlašovací údaje jsou šifrované v registru každého serveru ve skupině.
 
-1. Open the Operations Manager console and select the **Administration** workspace.
-2. Under **RunAs Configuration**, select **Profiles**.
-3. Open the **System Center Advisor Run As Profile Proxy** profile.  
-    ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Search for then select **Microsoft System Center Advisor Monitoring Server Group**.  
-    ![image of the Object Search box](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Click **OK** to close the Add a Run As account box.  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Complete the wizard and save the changes.  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+1. Otevřete konzolu nástroje Operations Manager a vyberte pracovní prostor **Správa**.
+2. V části **Konfigurace RunAs** vyberte **Profily**.
+3. Otevřete profil **Proxy server profilu Spustit jako služby System Center Advisor**.  
+    ![obrázek profilu Proxy server profilu Spustit jako služby System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. Chcete-li použít účet Spustit jako, v Průvodci profilem Spustit jako klikněte na **Přidat**. Můžete vytvořit nový účet Spustit jako nebo použít existující účet. Tento účet musí mít dostatečná oprávnění k průchodu proxy serverem.  
+    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Chcete-li nastavit účet, který chcete spravovat, zvolením možnosti **Vybranou třídu, skupinu nebo objekt** otevřete dialogové okno Vyhledat objekty.  
+    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Vyhledejte a následně vyberte **Skupina monitorovacích serverů služby Microsoft System Center Advisor**.  
+    ![obrázek dialogového okna Vyhledat objekty](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Kliknutím na **OK** zavřete dialogové okno Přidat účet Spustit jako.  
+    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Dokončete průvodce a uložte změny.  
+    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
-### To validate that OMS management packs are downloaded
-If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
-    ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
+### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Ověření, že se stáhly sady Management Pack pro OMS
+Pokud jste do OMS přidali řešení, můžete je zobrazit v konzole nástroje Operations Manager jako sady Management Pack v části **Správa**. Vyhledejte *System Center Advisor*, tak je najdete rychleji.  
+    ![stažené sady Management Pack](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Nebo můžete zkontrolovat sady Management Pack pro OMS pomocí následujícího příkazu prostředí Windows PowerShell na serveru pro správu nástroje Operations Manager:
 
     ```
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
     ```
 
-### To validate that Operations Manager is sending data to the OMS service
-1. In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select **Performance Monitor**.
-2. Click **Add**, and then select **Health Service Management Groups**.
-3. Add all the counters that start with **HTTP**.  
-    ![add counters](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in OMS and the configured log collection policy.  
-    ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Ověření, že nástroj Operations Manager odesílá data do služby OMS
+1. Na serveru pro správu nástroje Operations Manager otevřete Sledování výkonu (perfmon.exe) a vyberte **Sledování výkonu**.
+2. Klikněte na **Přidat** a poté vyberte **Skupiny pro správu služby Health Service**.
+3. Přidejte všechny čítače, které začínají na **HTTP**.  
+    ![přidání čítačů](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Pokud je vaše konfigurace nástroje Operations Manager v pořádku, uvidíte u čítačů správy služby Health Service aktivitu událostí a dalších datových položek v závislosti na sadách Management Pack, které jste přidali v OMS, a na konfigurovaných zásadách shromažďování protokolů.  
+    ![Sledování výkonu ukazující aktivitu](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
-## Next steps
-* [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
-* Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
+## <a name="next-steps"></a>Další kroky
+* Článek [Přidání řešení Log Analytics z galerie řešení](log-analytics-add-solutions.md) popisuje přidání funkcí a shromažďování dat.
+* Chcete-li zobrazit podrobné informace shromážděné řešeními, seznamte se s [vyhledáváním protokolů](log-analytics-log-searches.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

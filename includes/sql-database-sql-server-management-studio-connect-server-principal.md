@@ -1,6 +1,6 @@
 
 
-## Připojení ke službě Azure SQL Database pomocí Ověřování serveru SQL
+## <a name="connect-to-azure-sql-database-using-sql-server-authentication"></a>Připojení ke službě Azure SQL Database pomocí Ověřování serveru SQL
 Následující kroky ukazují, jak se připojit do serveru a databázi Azure SQL pomocí aplikace SSMS. Pokud server a databázi ještě nemáte, podle postupu v tématu [Vytvoření databáze SQL během pár minut](../articles/sql-database/sql-database-get-started.md) ji vytvořte.
 
 1. Do pole vyhledávání ve Windows zadejte **Microsoft SQL Server Management Studio** a poté kliknutím na desktopovou aplikaci spusťte aplikaci SSMS.
@@ -12,7 +12,7 @@ Následující kroky ukazují, jak se připojit do serveru a databázi Azure SQL
    * **Uživatelské jméno**: Zadejte jméno uživatele s přístupem k databázi na serveru (například *správce serveru*, kterého jste nastavili při vytváření serveru). 
    * **Heslo**: Zadejte heslo daného uživatele (například *heslo*, které jste nastavili při vytváření serveru).
      
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
+       ![SQL Server Management Studio: Připojení k serveru služby SQL Database.](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 3. Klikněte na **Připojit**.
 4. Ve výchozím nastavení nemají nové servery definována žádná [pravidla brány firewall](../articles/sql-database/sql-database-firewall-configure.md), takže je připojování klientů zpočátku blokováno. Pokud váš server zatím neobsahuje pravidlo brány firewall, které umožňuje připojení vaší konkrétní IP adresy, aplikace SSMS vám nabídne, že pravidlo brány firewall na úrovni serveru vytvoří za vás.
    
@@ -23,7 +23,7 @@ Následující kroky ukazují, jak se připojit do serveru a databázi Azure SQL
    
      ![nová brána firewall na úrovni serveru](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
 
-## Řešení potíží s připojením
+## <a name="troubleshoot-connection-failures"></a>Řešení potíží s připojením
 Nejčastější příčiny selhání připojení jsou chyby v názvu serveru a problémy s připojením k síti. Nezapomeňte, že <*název_serveru*> je název serveru, ne databáze, a že je potřeba zadat plně kvalifikovaný název: `<servername>.database.windows.net`
 
 Ověřte také, že uživatelské jméno ani heslo neobsahují překlepy nebo mezery (uživatelská jména nerozlišují malá a velká písmena, ale hesla ano). 
@@ -34,6 +34,8 @@ Chyby a časové limity připojení mohou být způsobeny také problémy s při
 
 Podrobnosti a další informace o problémech s připojením najdete v článku [Řešení potíží, diagnostika a předcházení chybám připojení SQL a přechodným chybám pro službu SQL Database](../articles/sql-database/sql-database-connectivity-issues.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

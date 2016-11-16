@@ -1,12 +1,12 @@
 ---
-title: Nastavení vývojového prostředí v Mac OS X | Microsoft Docs
-description: Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace v Mac OS X.
+title: "Nastavení vývojového prostředí v Mac OS X | Dokumentace Microsoftu"
+description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace v Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Nastavení vývojového prostředí v Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Nastavení vývojového prostředí v Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Pomocí Mac OS X můžete sestavit aplikace Service Fabric, které poběží na clusterech s Linuxem. Tento článek popisuje nastavení počítače Mac pro vývoj.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Service Fabric nefunguje v OS X nativně. Pro spuštění místního clusteru služby Service Fabric poskytujeme předem nakonfigurovaný virtuální počítač se systémem Ubuntu pomocí aplikací Vagrant a VirtualBox. Než začnete, budete potřebovat:
 
 * [Vagrant (verzi 1.8.4 nebo novější)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Vytvoření místního virtuálního počítače
+## <a name="create-the-local-vm"></a>Vytvoření místního virtuálního počítače
 Chcete-li vytvořit místní virtuální počítač s clusterem služby Service Fabric s 5 uzly, postupujte následovně:
 
 1. Naklonujte úložiště Vagrantfile.
@@ -67,7 +71,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem služby Service 
    
     ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]
 
-## Instalace modulu plug-in služby Service Fabric pro Eclipse Neon (volitelné)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Instalace modulu plug-in služby Service Fabric pro Eclipse Neon (volitelné)
 Service Fabric poskytuje modul plug-in pro integrovaná vývojové prostředí Eclipse Neon, který může zjednodušit proces sestavování a nasazování služeb v Javě.
 
 1. V nástroji Eclipse se ujistěte, že máte nainstalovanou verzi Buildship 1.0.17 nebo novější. Verze nainstalovaných komponent můžete zkontrolovat tak, že zvolíte **Nápověda > Podrobnosti o instalaci**. Buildship můžete aktualizovat pomocí pokynů [zde][buildship-update].
@@ -79,7 +83,7 @@ Service Fabric poskytuje modul plug-in pro integrovaná vývojové prostředí E
 5. Zvolte modul plug-in služby Service Fabric a klikněte na Další.
 6. Pokračujte v instalaci a přijměte licenční smlouvu pro koncového zákazníka.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Vytvoření první aplikace Service Fabric pro Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -96,6 +100,6 @@ Service Fabric poskytuje modul plug-in pro integrovaná vývojové prostředí E
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

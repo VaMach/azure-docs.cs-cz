@@ -1,13 +1,13 @@
 ---
-title: Vytvoření partnerského vztahu virtuálních sítí pomocí šablon Resource Manageru | Microsoft Docs
-description: Naučte se vytvořit partnerský vztah virtuálních sítí pomocí šablon v Resource Manageru.
+title: "Vytvoření partnerského vztahu virtuálních sítí pomocí šablon Resource Manageru | Dokumentace Microsoftu"
+description: "Naučte se vytvořit partnerský vztah virtuálních sítí pomocí šablon v Resource Manageru."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: narayanannamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+
 
 ---
-# Vytvoření partnerského vztahu virtuálních sítí pomocí šablon Resource Manageru
+# <a name="create-vnet-peering-using-resource-manager-templates"></a>Vytvoření partnerského vztahu virtuálních sítí pomocí šablon Resource Manageru
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -112,28 +116,28 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí šablon Re
    
     Výstup ukazuje:
    
-        DeploymentName      : VNetPeeringVNet1
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:05:03 AM
+        DeploymentName        : VNetPeeringVNet1
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : 7/26/2016 9:05:03 AM
         Mode            : Incremental
         TemplateLink        :
-        Parameters          :
-        Outputs         :
+        Parameters            :
+        Outputs            :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
    
     Výstup ukazuje:
    
-        DeploymentName      : VNetPeeringVNet2
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:07:22 AM
+        DeploymentName        : VNetPeeringVNet2
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : 7/26/2016 9:07:22 AM
         Mode            : Incremental
         TemplateLink        :
-        Parameters          :
-        Outputs         :
+        Parameters            :
+        Outputs            :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 5. Po dokončení nasazení můžete spuštěním následující rutiny zobrazit stav partnerského vztahu:
    
@@ -142,15 +146,15 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí pomocí šablon Re
     Výstup ukazuje:
    
         Name            : LinkToVNet2
-        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : VNet101
-        VirtualNetworkName  : VNet1
-        ProvisioningState       : Succeeded
+        ResourceGroupName    : VNet101
+        VirtualNetworkName    : VNet1
+        ProvisioningState        : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet2"
                                         }
-        AllowVirtualNetworkAccess   : True
+        AllowVirtualNetworkAccess    : True
         AllowForwardedTraffic            : False
         AllowGatewayTransit              : False
         UseRemoteGateways                : False
@@ -234,7 +238,7 @@ Pokud chcete vytvořit partnerský vztah virtuálních sítí mezi různými př
         ]
         }
    
-    Po navázání partnerského vztahu v tomto scénáři by mělo být možné navázat spojení z libovolného virtuálního počítače do libovolného virtuálního počítače v obou virtuálních sítích s různým předplatným.
+     Po navázání partnerského vztahu v tomto scénáři by mělo být možné navázat spojení z libovolného virtuálního počítače do libovolného virtuálního počítače v obou virtuálních sítích s různým předplatným.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -305,7 +309,25 @@ Partnerský vztah mezi virtuálními sítěmi z různých modelů nasazení vytv
    
     Nezapomeňte doplnit své ID předplatného s ohledem na umístění virtuální sítě nebo sítě VNET2 a hodnotu MyResouceGroup změňte na vhodný název skupiny prostředků.
    
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [      {      "apiVersion": "2016-06-01",      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",      "name": "VNET1/LinkToVNET2",      "location": "[resourceGroup().location]",      "properties": {      "allowVirtualNetworkAccess": true,      "allowForwardedTraffic": false,      "allowGatewayTransit": false,      "useRemoteGateways": false,          "remoteVirtualNetwork": {          "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"  }      }      }  ]  }
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
+   
+        {
+        "apiVersion": "2016-06-01",
+        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "name": "VNET1/LinkToVNET2",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+            "remoteVirtualNetwork": {
+            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+    }
+   
+        }
+        }
+    ]  }
 2. Soubor šablony nasadíte spuštěním následující rutiny, která vytváří nebo aktualizuje nasazení.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -349,6 +371,9 @@ Partnerský vztah mezi virtuálními sítěmi z různých modelů nasazení vytv
 
 Jakmile se naváže partnerský vztah mezi klasickou virtuální sítí a virtuální sítí Resource Manageru, měli byste mít možnost iniciovat propojení z libovolného virtuálního počítače v síti VNET1 do libovolného virtuálního počítače v síti VNET2 a naopak.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

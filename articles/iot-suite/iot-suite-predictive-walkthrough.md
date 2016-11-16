@@ -1,27 +1,31 @@
 ---
-title: Návod pro prediktivní údržbu | Microsoft Docs
-description: Návod pro předkonfigurované řešení prediktivní údržby Azure IoT.
-services: ''
+title: "Návod pro prediktivní údržbu | Dokumentace Microsoftu"
+description: "Návod pro předkonfigurované řešení prediktivní údržby Azure IoT."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: aguilaaj
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 10/31/2016
 ms.author: araguila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+
 
 ---
-# Návod pro předkonfigurované řešení prediktivní údržby
-## Úvod
+# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Návod pro předkonfigurované řešení prediktivní údržby
+## <a name="introduction"></a>Úvod
 Předkonfigurované řešení prediktivní údržby je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení můžete aktivně využívat pro různé činnosti, jako je třeba optimalizace údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, včetně pracovního prostoru [Azure Machine Learning][lnk_machine_learning]. Tento pracovní prostor obsahuje experimenty založené na veřejné ukázkové datové sadě, která předpovídají zbývající dobu životnosti (RUL) leteckého motoru. Řešení nabízí úplnou implementaci daného obchodního scénáře IoT jako výchozího bodu pro plánování a implementaci řešení, které vyhovuje vašim konkrétním obchodním požadavkům.
 
-## Logická architektura
+## <a name="logical-architecture"></a>Logická architektura
 Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
 
 ![][img-architecture]
@@ -34,7 +38,7 @@ Zelená položka je simulované zařízení, které představuje letecký motor.
 
 Šedé položky představují součásti, které implementují funkce *správy zařízení*. Aktuální verze předkonfigurovaného řešení prediktivní údržby tyto prostředky neposkytuje. Další informace o správě zařízení naleznete v tématu [předkonfigurované řešení pro vzdálený monitoring][lnk-remote-monitoring].
 
-## Simulovaná zařízení
+## <a name="simulated-devices"></a>Simulovaná zařízení
 V předkonfigurovaných řešeních simulované zařízení představuje letecký motor. Řešení obsahuje dva motory, které jsou součástí jednoho letadla. Každý motor vysílá čtyři typy telemetrických dat: ze snímače Sensor 9, Sensor 11, Sensor 14 a Sensor 15, které poskytují data potřebná k tomu, aby mohl model Machine Learning vypočítat zbývající dobu životnosti (RUL) pro tento motor. Každé simulované zařízení posílá do služby IoT Hub následující telemetrické zprávy:
 
 *Počet cyklů*. Cyklus představuje dokončený let proměnlivé délky v rozmezí 2 až 10 hodin, během kterého se každou půlhodinu zaznamenávají telemetrická data.
@@ -50,30 +54,30 @@ Simulovaná zařízení mohou zpracovávat následující příkazy, odeslané z
 
 Služba IoT Hub zajišťuje potvrzení příkazu zařízení.
 
-## Úlohy služby Azure Stream Analytics
+## <a name="azure-stream-analytics-job"></a>Úlohy služby Azure Stream Analytics
 **Úloha: Telemetrie** funguje v příchozím datovém proudu telemetrických dat ze zařízení pomocí dvou příkazů. První vybere všechny telemetrická ze zařízení a odešle tato data do úložiště objektu blob, kde jsou vizualizována ve webové aplikaci. Druhý příkaz vypočítá průměrné hodnoty čidel v rámci dvouminutového posuvného okna a odešle je prostřednictvím centra událostí do **procesoru událostí**.
 
-## Procesor událostí
+## <a name="event-processor"></a>Procesor událostí
 **Procesor událostí** přebírá průměrné hodnoty snímačů za dokončený cyklus. Potom tyto hodnoty předá do rozhraní API, které nabídne trénovaný model Machine Learning pro výpočet zbývající doby životnosti motoru.
 
-## Azure Machine Learning
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
 
-## Začínáme
+## <a name="lets-start-walking"></a>Začínáme
 Tato část vás provede součástmi řešení, popíše zamýšlený případ použití a poskytne vám příklady.
 
-### Řídicí panel prediktivní údržby
+### <a name="predictive-maintenance-dashboard"></a>Řídicí panel prediktivní údržby
 Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce JavaScript (viz [Úložiště vizuálních prvků PowerBI][lnk-powerbi]) k vizualizaci:
 
 * výstupních dat úlohy služby Stream Analytics v úložišti objektů blob
 * zbývající doby životnosti (RUL) a počtu cyklů pro každý motor letadla
 
-### Sledování chování cloudového řešení
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Sledování chování cloudového řešení
 Na webu Azure Portal přejděte do skupiny prostředků s názvem řešení, které jste si vybrali k zobrazení zřízených prostředků.
 
 ![][img-resource-group]
 
-Při zřizování předkonfigurovaného řešení obdržíte e-mail s odkazem na pracovní prostor Machine Learning. Do pracovního prostoru Machine Learning se můžete dostat také ze stránky zřízeného řešení na webu [azureiotsuite.com][lnk azureiotsuite] v případě, že je řešení ve stavu **Připraveno**.
+Při zřizování předkonfigurovaného řešení obdržíte e-mail s odkazem na pracovní prostor Machine Learning. Do pracovního prostoru Machine Learning se můžete dostat také ze stránky zřízeného řešení na webu [azureiotsuite.com][lnk-azureiotsuite] v případě, že je řešení ve stavu **Připraveno**.
 
 ![][img-machine-learning]
 
@@ -95,7 +99,7 @@ Simulace zpracuje úplnou datovou sadu s údaji o 148 cyklech a vytvoří koneč
 
 Simulaci lze zastavit v libovolný okamžik, ale kliknutím na tlačítko **Start simulace** spustíte simulaci znovu od začátku datové sady.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Když jste si vyzkoušeli předkonfigurované řešení prediktivní údržby, možná byste je chtěli upravit – pro tyto účely naleznete informace v tématu [Pokyny k přizpůsobení předkonfigurovaných řešení][lnk-customize].
 
 V příspěvku [IoT Suite - Pod kapotou - Prediktivní údržba](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) na blogu TechNet naleznete další podrobnosti o předkonfigurovaném řešení prediktivní údržby.
@@ -116,13 +120,13 @@ Můžete si taky prostudovat některé další funkce a možnosti předkonfiguro
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

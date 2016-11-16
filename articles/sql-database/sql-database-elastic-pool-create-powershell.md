@@ -1,12 +1,12 @@
 ---
-title: Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell | Microsoft Docs
-description: Zjistěte, jak pomocí prostředí PowerShell zajistit horizontální navyšování kapacity prostředků Azure SQL Database vytvořením škálovatelného fondu elastické databáze pro správu více databází.
+title: "Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí prostředí PowerShell zajistit horizontální navyšování kapacity prostředků Azure SQL Database vytvořením škálovatelného fondu elastické databáze pro správu více databází."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: srinia
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+
 
 ---
-# Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell
+# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Vytvoření nového fondu elastické databáze pomocí prostředí PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -35,21 +39,21 @@ Běžné kódy chyb naleznete v článku [Kódy chyb SQL pro klientské aplikace
 
 Budete potřebovat nainstalované a spuštěné prostředí Azure PowerShell 1.0 nebo novější. Podrobné informace najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
 
-## Vytvoření nového fondu
-Nový fond vytváří rutina [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx). Hodnoty eDTU na fond a minimální a maximální DTU jsou omezeny úrovní služeb (Basic, Standard nebo Premium). Viz odstavec [Omezení eDTU a úložiště pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+## <a name="create-a-new-pool"></a>Vytvoření nového fondu
+Nový fond vytváří rutina [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx). Hodnoty eDTU na fond a minimální a maximální DTU jsou omezeny úrovní služeb (Basic, Standard nebo Premium). Viz odstavec [Omezení eDTU a úložiště pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Vytvoření nové elastické databáze ve fondu
-Použijte rutinu [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) a nastavte parametr **ElasticPoolName** na cílový fond. Chcete-li do fondu přesunout existující databázi, přečtěte si část [Přesun databáze do pružného fondu](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+## <a name="create-a-new-elastic-database-in-a-pool"></a>Vytvoření nové elastické databáze ve fondu
+Použijte rutinu [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) a nastavte parametr **ElasticPoolName** na cílový fond. Chcete-li do fondu přesunout existující databázi, přečtěte si část [Přesun databáze do pružného fondu](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Vytvoření fondu a přidání více nových databází
+## <a name="create-a-pool-and-populate-it-with-multiple-new-databases"></a>Vytvoření fondu a přidání více nových databází
 Vytvoření většího počtu databází ve fondu může trvat delší dobu, pokud se provádí pomocí portálu nebo rutiny prostředí PowerShell jednu databázi po druhé. K automatizaci vytváření databází v novém fondu může posloužit rutina [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
-## Příklad: vytvoření fondu pomocí prostředí PowerShell
+## <a name="example-create-a-pool-using-powershell"></a>Příklad: vytvoření fondu pomocí prostředí PowerShell
 Tento skript vytvoří novou skupinu prostředků Azure a nový server. Po výzvě zadejte jméno a heslo správce pro nový server (nikoli vaše přihlašovací údaje Azure).
 
     $subscriptionId = '<your Azure subscription id>'
@@ -72,11 +76,14 @@ Tento skript vytvoří novou skupinu prostředků Azure a nový server. Po výzv
 
 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Správa fondu](sql-database-elastic-pool-manage-powershell.md)
 * [Vytvoření elastických úloh](sql-database-elastic-jobs-overview.md): Elastické úlohy umožňují spouštění skriptů T-SQL pro libovolný počet databází ve fondu.
 * [Horizontální navýšení kapacity s Azure SQL Database](sql-database-elastic-scale-introduction.md): Používejte nástroje elastické databáze k horizontálnímu navýšení kapacity.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -53,10 +53,10 @@
 # Referenční informace
 ## [Podrobnosti o cenách](service-bus-pricing-billing.md)
 ## [Ukázky](service-bus-samples.md)
-## [Referenční informace k rozhraní .NET API](https://msdn.microsoft.com/library/azure/jj933424)
-## [REST API – referenční informace](https://msdn.microsoft.com/library/azure/hh780717)
 ## [Výjimky](service-bus-messaging-exceptions.md)
 ## [Kvóty](service-bus-quotas.md)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
 # Zdroje a prostředky
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -65,6 +65,8 @@
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

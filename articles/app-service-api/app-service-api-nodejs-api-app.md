@@ -1,12 +1,12 @@
 ---
-title: Aplikace Node.js API v Azure App Service | Microsoft Docs
-description: Podívejte se, jak vytvořit rozhraní Node.js RESTful API a nasadit ho do aplikace API v Azure App Service.
+title: Aplikace Node.js API v Azure App Service | Dokumentace Microsoftu
+description: "Podívejte se, jak vytvořit rozhraní Node.js RESTful API a nasadit ho do aplikace API v Azure App Service."
 services: app-service\api
 documentationcenter: node
 author: bradygaster
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+
 
 ---
-# Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Tento kurz ukazuje, jak vytvořit jednoduché rozhraní [Node.js](http://nodejs.org) API a jak ho nasadit do [aplikace API](app-service-api-apps-why-best-platform.md) v [Azure App Service](../app-service/app-service-value-prop-what-is.md) pomocí systému [Git](http://git-scm.com). Můžete použít libovolný operační systém, na kterém běží Node.js, a všechnu práci provedete pomocí nástrojů příkazového řádku, jako je cmd.exe nebo bash.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 1. Účet Microsoft Azure ([zde si můžete otevřít bezplatný účet](https://azure.microsoft.com/pricing/free-trial/))
 2. Nainstalovaný [Node.js](http://nodejs.org) (V tomto příkladu se předpokládá, že máte Node.js verze 4.2.2.)
 3. Nainstalovaný [Git](https://git-scm.com/)
@@ -29,7 +33,7 @@ Tento kurz ukazuje, jak vytvořit jednoduché rozhraní [Node.js](http://nodejs.
 
 Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v tomto kurzu vám předvedeme metodu Git, přičemž se předpokládá, že máte základní znalosti o tom, jak se systémem Git pracovat. Informace o dalších metodách nasazení naleznete v tématu [Nasazení vaší aplikace do Azure App Service](../app-service-web/web-sites-deploy.md).
 
-## Získání ukázkového kódu
+## <a name="get-the-sample-code"></a>Získání ukázkového kódu
 1. Otevřete rozhraní příkazového řádku, ve kterém se dají spouštět příkazy pro Node.js a Git.
 2. Přejděte do složky, které můžete používat jako místní úložiště Git, a naklonujte [úložiště GitHub obsahující ukázkový kód](https://github.com/Azure-Samples/app-service-api-node-contact-list).
    
@@ -37,7 +41,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
    
     Ukázkové rozhraní API poskytuje dva koncové body: Požadavek Get na `/contacts` vrací seznam jmen a e-mailových adres ve formátu JSON, zatímco `/contacts/{id}` vrací pouze vybraný kontakt.
 
-## Automatické generování (scaffold) kódu Node.js na základě metadat Swagger
+## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Automatické generování (scaffold) kódu Node.js na základě metadat Swagger
 [Swagger](http://swagger.io/) je formát souboru pro metadata, která popisují rozhraní RESTful API. Azure App Service nabízí [integrovanou podporu pro metadata Swagger](app-service-api-metadata.md). V této části kurzu modelujeme pracovní postup vývoje rozhraní API, při kterém nejprve vytvoříte metadata Swagger a pak pomocí nich automaticky vygenerujete (scaffold) serverový kód pro rozhraní API. 
 
 > [!NOTE]
@@ -45,14 +49,14 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
 > 
 > 
 
-### Instalace a spuštění nástroje Swaggerize
+### <a name="install-and-execute-swaggerize"></a>Instalace a spuštění nástroje Swaggerize
 1. Spuštěním následujících příkazů globálně nainstalujte moduly NPM **yo** a **generator-swaggerize**.
    
         npm install -g yo
         npm install -g generator-swaggerize
    
     Swaggerize je nástroj, který generuje serverový kód pro rozhraní API popsané v souboru metadat Swagger. Použijete soubor Swagger s názvem *api.json*, který se nachází ve složce *start* úložiště, které jste naklonovali.
-2. Přejděte do složky *start* a potom spusťte příkaz `yo swaggerize`. Swaggerize vám položí řadu otázek.  Jako **název projektu** zadejte „contactlist“, jako **cestu k dokumentu swagger** zadejte „api.json“ a u volby **Express, Hapi nebo Restify** zadejte „express“.
+2. Přejděte do složky *start* a potom spusťte příkaz `yo swaggerize`. Swaggerize vám položí řadu otázek.  Na otázku **what to call this project** (jak se bude projekt jmenovat) zadejte „ContactList“. Na otázku **path to swagger document** (cesta k dokumentu Swagger) zadejte „api.json“ a na otázku **Express, Hapi, or Restify** zadejte „express“.
    
         yo swaggerize
    
@@ -63,8 +67,8 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
     Swaggerize vytvoří služby aplikace, obslužné rutiny scaffold a konfigurační soubory a vygeneruje soubor **package.json**. Modul expresního zobrazení slouží ke generování stránky nápovědy pro Swagger.  
 3. Pokud příkaz `swaggerize` selže kvůli chybě „neočekávaný token“ nebo „neplatná řídicí sekvence“, opravte příčinu chyby úpravou vygenerovaného souboru *package.json*. Na řádku `regenerate` pod položkou `scripts` změňte zpětné lomítko, které předchází *api.json*, na dopředné lomítko, aby řádek vypadal jako v následujícím příkladu:
    
-        "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-4. Přejděte do složky, která obsahuje automaticky generovaný kód (v tomto případě podsložka *ContactList*).
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+4. Přejděte do složky, která obsahuje automaticky generovaný kód (v tomto případě je to podsložka */start/ContactList*).
 5. Spusťte `npm install`.
    
         npm install
@@ -79,7 +83,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
    
     ![Instalace uživatelského rozhraní nástroje Swaggerize](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-### Přizpůsobení automaticky generovaného kódu
+### <a name="customize-the-scaffolded-code"></a>Přizpůsobení automaticky generovaného kódu
 1. Zkopírujte složku **lib** ze složky **start** do složky **ContactList** vytvořené modulem scaffolder. 
 2. Nahraďte kód v souboru **handlers/contacts.js** následujícím kódem. 
    
@@ -140,7 +144,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
         server.listen(port, function () { // fifth and final change
         });
 
-### Testování s místně spuštěným rozhraním API
+### <a name="test-with-the-api-running-locally"></a>Testování s místně spuštěným rozhraním API 
 1. Aktivujte server pomocí spustitelného souboru příkazového řádku Node.js. 
    
         node server.js
@@ -157,7 +161,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
    
     ![Uživatelské rozhraní Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Vytvoření nové aplikace API
+## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Vytvoření nové aplikace API
 V této části využijete Portál Azure k vytvoření nové aplikace API v Azure. Tato aplikace API představuje výpočetní prostředky, které Azure poskytuje pro spouštění vašeho kódu. V pozdějších částech kód nasadíte do nové aplikace API.
 
 1. Přejděte na [Portál Azure](https://portal.azure.com/). 
@@ -171,7 +175,7 @@ V této části využijete Portál Azure k vytvoření nové aplikace API v Azur
     Pokud zadáte název, který již použil někdo jiný, zobrazí se vpravo červený vykřičník.
 4. V rozevíracím seznamu **Skupina prostředků**, klikněte na **Nový** a potom do pole **Nový název skupiny prostředků** zadejte NodejsAPIAppGroup nebo jiný název, který preferujete. 
    
-    [Skupina prostředků](../resource-group-overview.md) je kolekce prostředků Azure, jako jsou aplikace API, databáze a virtuální počítače. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
+    [Skupina prostředků](../azure-resource-manager/resource-group-overview.md) je kolekce prostředků Azure, jako jsou aplikace API, databáze a virtuální počítače. V rámci tohoto kurzu bude nejlepší vytvořit novou skupinu prostředků, protože pak bude možné v jednom kroku odstranit všechny prostředky Azure, které při kurzu vytvoříte.
 5. Klikněte na **Plán nebo umístění služby App Service**, a potom na tlačítko **Vytvořit nové**.
    
     ![Vytvoření plánu služby App Service](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
@@ -189,7 +193,7 @@ V této části využijete Portál Azure k vytvoření nové aplikace API v Azur
 9. V okně **Plán služby App Service** klikněte na **OK**.
 10. V okně **Aplikace API** klikněte na **Vytvořit**.
 
-## Nastavení nové aplikace API pro nasazení přes Git
+## <a name="set-up-your-new-api-app-for-git-deployment"></a>Nastavení nové aplikace API pro nasazení přes Git
 Kód do aplikace API nasadíte vynuceným doručením (push) potvrzených změn do úložiště Git v Azure App Service. V této části kurzu vytvoříte přihlašovací údaje a úložiště Git v Azure, který pro toto nasazení použijete.  
 
 1. Po vytvoření aplikace API klikněte na **App Services > {vaše aplikace API}** na domovské stránce portálu. 
@@ -217,7 +221,7 @@ Kód do aplikace API nasadíte vynuceným doručením (push) potvrzených změn 
 
 Nyní již máte aplikaci API s podpůrným úložištěm Git, takže můžete do úložiště nuceně doručit (push) kód, čímž nasadíte kód do aplikace API. 
 
-## Nasazení kódu rozhraní API do Azure
+## <a name="deploy-your-api-code-to-azure"></a>Nasazení kódu rozhraní API do Azure
 V této části vytvoříte místní úložiště Git, které bude obsahovat serverový kód pro vaše rozhraní API, a potom nuceně doručíte (push) kód z tohoto úložiště do úložiště v Azure, které jste vytvořili dříve.
 
 1. Zkopírujte složku `ContactList` do umístění, které můžete použít pro nové místní úložiště Git. Pokud jste to absolvovali první část kurzu, zkopírujte `ContactList` ze složky `start`; jinak zkopírujte `ContactList` ze složky `end`.
@@ -252,11 +256,11 @@ V této části vytvoříte místní úložiště Git, které bude obsahovat ser
    
     Po dokončení operace bude okno **Nasazení** odrážet úspěšné nasazení změn kódu do vaší aplikace API. 
 
-## Testování s rozhraním API spuštěným v Azure
+## <a name="test-with-the-api-running-in-azure"></a>Testování s rozhraním API spuštěným v Azure
 1. Zkopírujte **adresu URL** v části **Základy** v okně vaší aplikace API. 
    
     ![Nasazení dokončeno](media/app-service-api-nodejs-api-app/deployment-completed.png)
-2. Pomocí klienta pro REST API, jako je Postman nebo Fiddler, (nebo ve webovém prohlížeči) zadejte adresu URL rozhraní API pro vyvolání kontaktů, což je koncový bod `/contacts` vaší aplikace API. Adresa URL bude `https://{your API app name}.azurewebsites.net/contacts`
+2. Pomocí klienta pro REST API, jako je Postman nebo Fiddler, (nebo ve webovém prohlížeči) zadejte adresu URL rozhraní API pro vyvolání kontaktů, což je koncový bod `/contacts` vaší aplikace API. Adresa URL bude `https://{your API app name}.azurewebsites.net/contacts`.
    
     Pokud vydáte požadavek GET na tento koncový bod, získáte výstup JSON vaší aplikace API.
    
@@ -265,9 +269,12 @@ V této části vytvoříte místní úložiště Git, které bude obsahovat ser
 
 Nyní když máte nastavené průběžné doručování, můžete provádět změny kódu a nasazovat je do Azure jednoduchým nuceným doručením (push) potvrzených změn do úložiště Git v Azure.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto okamžiku jste úspěšně vytvořili aplikaci API a nasadili do ní kód Node.js API. V dalším kurzu se dozvíte, jak [využívat aplikace API z klientů JavaScript pomocí CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=Aug16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

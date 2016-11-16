@@ -57,7 +57,7 @@
 #### [Rozbalení modelu 8600, jeho usazení do racku a propojení kabely](storsimple-8600-hardware-installation.md)
 #### [Podporovaný hardware pro rozhraní sítí 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Nasazení 
+### Nasazení
 #### [Služba StorSimple Manager](storsimple-manage-service.md)
 #### [Fyzické zařízení v Azure – aktuální](storsimple-deployment-walkthrough-u2.md)
 ##### [Fyzické zařízení v Azure – aktualizace 1](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [StorSimple Adapter pro SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Postup
-### Spravovat 
+### Spravovat
 #### [Použití služby StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Obnovení ze zálohy](storsimple-restore-from-backup-set-u2.md)
 ###### [Obnovení ze zálohy](storsimple-restore-from-backup-set.md)
@@ -160,18 +160,20 @@
 ### [Vydání – GA](storsimple-july-2014-release-notes.md)
 
 ## Referenční informace
-### [Reference k rutinám Azure PowerShellu](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Reference k rutinám Windows PowerShellu pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](/powershell/servicemanagement/)
 
-# [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
+# Související
+## [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
 
 # Zdroje a prostředky
-## [Blog o Azure](https://azure.microsoft.com/blog/)
-## [Fóra](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Marketingový blog](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Blog podpory](http://blogs.msdn.com/b/storsimple/)
 ## [Oznámení třetích stran](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storsimple)
+## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->

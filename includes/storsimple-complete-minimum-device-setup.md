@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Dokončení minimální instalace zařízení StorSimple
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Dokončení minimální instalace zařízení StorSimple
 1. Na stránce **Zařízení** vyberte zařízení a kliknutím na šipku u názvu zařízení přejděte na stránku konkrétního zařízení. 
    
     ![Stránka Zařízení s online zařízeními](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
@@ -19,8 +19,7 @@
 4. Klikněte na ikonu šipky. ![Ikona šipky StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 5. Na stránce **Síťová rozhraní** zadejte pevné IP adresy pro řadič 0 a řadič 1. Pokud jste u rozhraní DATA 0 nakonfigurovali protokol IPv4, pevné IP adresy musí být zadané ve formátu IPv4. Pokud jste v konfiguraci protokolu IPv6 uvedli předponu, pevné IP adresy se do těchto polí zadají automaticky.
 
-    > [AZURE.NOTE] 
-    > 
+    > [!NOTE] 
     > - Pevné IP adresy řadiče musí být volné IP adresy s podsítí přístupnou pro IP adresu zařízení.
     > - Pevné IP adresy řadiče se používají k doručování aktualizací do zařízení, takže musí být směrovatelné a musí umožňovat připojení k internetu.
 
@@ -38,6 +37,8 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak provést minimální nastavení zařízení, klikněte [sem](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

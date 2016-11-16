@@ -1,24 +1,27 @@
 ---
-title: Firewall webových aplikací služby Application Gateway | Microsoft Docs
-description: Tato stránka poskytuje přehled funkcí Firewallu webových aplikací služby Application Gateway.
+title: "Úvod do Firewallu webových aplikací (WAF) služby Application Gateway | Dokumentace Microsoftu"
+description: "Na této stránce najdete přehled firewallu webových aplikací (WAF) služby Application Gateway. "
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+
 
 ---
-# <a name="application-gateway-web-application-firewall-(preview)"></a>Firewall webových aplikací služby Application Gateway (Preview)
-Webové aplikace se čím dál častěji stávají cílem škodlivých útoků, které zneužívají běžně známé chyby zabezpečení. Mezi tyto běžné typy zneužití patří mimo jiné například útoky prostřednictvím injektáže SQL nebo skriptování mezi weby.
-Předcházet takovým útokům v kódu aplikace může být náročné a může vyžadovat pečlivou údržbu, opravy a monitorování několika vrstev topologie aplikace. Centralizovaná ochrana před webovými útoky značně zjednodušuje správu zabezpečení a poskytuje zvýšení zabezpečení aplikace před hrozbami neoprávněného vniknutí. Řešení Firewall webových aplikací (WAF) může také rychleji reagovat na ohrožení zabezpečení, protože opravuje známé chyby zabezpečení v centrálním umístění, namísto zabezpečování jednotlivých webových aplikací.
+# <a name="application-gateway-web-application-firewall-preview"></a>Firewall webových aplikací služby Application Gateway (Preview)
+Firewall webových aplikací (WAF) je funkce služby Azure Application Gateway, která poskytuje ochranu webovým aplikacím využívajícím aplikační bránu pro standardní funkce ADC (Application Delivery Controller). Firewall webových aplikací chrání webové aplikace před většinou z 10 nejčastějších webových hrozeb podle OWASP. Webové aplikace se čím dál častěji stávají cílem škodlivých útoků, které zneužívají běžně známé chyby zabezpečení. Mezi tyto běžné typy zneužití patří mimo jiné například útoky prostřednictvím injektáže SQL nebo skriptování mezi weby. Předcházet takovým útokům v kódu aplikace může být náročné a může vyžadovat pečlivou údržbu, opravy a monitorování několika vrstev topologie aplikace. Centralizovaný firewall webových aplikací, který chrání před webovými útoky, značně zjednodušuje správu zabezpečení a nabízí lepší ochranu aplikací před hrozbami neoprávněného vniknutí. Řešení Firewall webových aplikací (WAF) může také rychleji reagovat na ohrožení zabezpečení, protože opravuje známé chyby zabezpečení v centrálním umístění, namísto zabezpečování jednotlivých webových aplikací. Firewall webových aplikací umožňuje jednoduše převést stávající aplikační brány do služby Application Gateway.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -54,23 +57,25 @@ Firewall webových aplikací (WAF) služby Application Gateway poskytuje podrobn
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Ceny SKU WAF služby Application Gateway
 Během období Preview se na používání WAF služby Application Gateway nevztahují žádné další poplatky. Nadále se vám budou účtovat stávající poplatky za základní SKU. Poplatky za SKU WAF oznámíme v období všeobecné dostupnosti. Zákazníkům, kteří se rozhodli nasadit službu Application Gateway v SKU WAF, začnou poplatky za SKU WAF nabíhat až po oznámení veřejné dostupnosti.
@@ -78,6 +83,9 @@ Během období Preview se na používání WAF služby Application Gateway nevzt
 ## <a name="next-steps"></a>Další kroky
 Po získání informací o možnostech WAF navštivte téma [Postup konfigurace Firewallu webových aplikací ve službě Application Gateway](application-gateway-web-application-firewall-portal.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

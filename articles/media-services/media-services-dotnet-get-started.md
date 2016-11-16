@@ -1,22 +1,26 @@
 ---
-title: Začínáme s doručováním obsahu na vyžádání pomocí .NET | Microsoft Docs
-description: V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručování obsahu na vyžádání pomocí služeb Azure Media Services, které používají .NET.
+title: "Začínáme s doručováním obsahu na vyžádání pomocí technologie .NET | Dokumentace Microsoftu"
+description: "V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručování obsahu na vyžádání pomocí služeb Azure Media Services, které používají .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
@@ -29,7 +33,7 @@ V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručo
 
 Kurz představuje základní pracovní postup služby Media Services a nejběžnější programovací objekty a úkoly, které Media Services vyžaduje. Po dokončení kurzu bude umět streamovat nebo progresivně stáhnout ukázkový mediální soubor, který jste odeslali, nakódovali a stáhli.
 
-## <a name="what-you'll-learn"></a>Co se dozvíte
+## <a name="what-youll-learn"></a>Co se dozvíte
 Kurz vás seznámí s postupem plnění následujících úloh:
 
 1. Vytvoření účtu Media Services (pomocí webu Azure Portal).
@@ -67,7 +71,7 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    
    1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
-   3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../resource-group-overview.md#resource-groups).
+   3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. V poli **Umístění** vyberte zeměpisnou oblast, která se použije k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se použije ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné. 
    5. V poli **Účet úložiště** vyberte účet úložiště, který bude sloužit jako úložiště objektů blob mediálního obsahu z vašeho účtu Media Services. Můžete vybrat existující účet úložiště ve stejné zeměpisné oblasti jako váš účet Media Services, nebo můžete vytvořit účet úložiště. Nový účet úložiště bude vytvořen ve stejné oblasti. Pro názvy účtů úložiště platí stejná pravidla jako pro názvy účtů Media Services.
       
@@ -113,7 +117,7 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
 1. V sadě Visual Studio 2013, Visual Studio 2012 nebo Visual Studio 2010 SP1 vytvořte novou konzolovou aplikaci napsanou v jazyce C#. Zadejte **Název**, **Umístění**, **Název řešení** a potom klikněte na tlačítko **OK**.
 2. K instalaci **rozšíření sady SDK služby Azure Media Services pro .NET** použijte balíček NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions).  Rozšíření sady SDK služby Media Services pro .NET je sada metod rozšíření a pomocných funkcí, které vám zjednoduší kódování a usnadní vývoj pomocí služby Media Services. Při instalaci tohoto balíčku se nainstaluje také **sada SDK služby Media Services pro .NET** a přidá všechny ostatní požadované závislosti.
 3. Přidejte odkaz na sestavení System.Configuration. Toto sestavení obsahuje třídu **System.Configuration.ConfigurationManager**, která se používá pro přístup ke konfiguračním souborům, například App.config.
-4. Otevřete soubor App.config (pokud projekt soubor ve výchozím nastavení neobsahuje, přidejte ho) a přidejte do něj část *appSettings*. Nastavte hodnoty názvu účtu a klíče účtu Azure Media Services, jak vidíte v následujícím příkladu. Pokud chcete získat informace o názvu a klíči účtu, otevřete portál Azure Classic, vyberte svůj účet mediálních služeb a klikněte na tlačítko **SPRÁVA KLÍČŮ**.
+4. Otevřete soubor App.config (pokud projekt soubor ve výchozím nastavení neobsahuje, přidejte ho) a přidejte do něj část *appSettings*. Nastavte hodnoty názvu účtu a klíče účtu Azure Media Services, jak vidíte v následujícím příkladu. Pokud chcete získat název účtu a informace o klíči, přejděte na [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS. Potom vyberte **Nastavení** > **Klíče**. Zobrazí se okno Správa klíčů, které ukazuje název účtu a primární a sekundární klíče.
    
         <configuration>
         ...
@@ -408,13 +412,13 @@ Pokud chcete video streamovat, použijte [přehrávač služby Azure Media Servi
 
 Pokud chcete otestovat progresivní stahování, vložte adresu URL do prohlížeče (například Internet Exploreru, Chromu nebo Safari).
 
-## <a name="next-steps:-media-services-learning-paths"></a>Další kroky: Mapy kurzů ke službě Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Další kroky: Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Hledáte něco jiného?
+### <a name="looking-for-something-else"></a>Hledáte něco jiného?
 Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
 
 <!-- Anchors. -->
@@ -426,6 +430,6 @@ Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějak�
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

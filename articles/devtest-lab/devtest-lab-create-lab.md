@@ -1,12 +1,12 @@
 ---
-title: Vytvoření testovacího prostředí ve službě Azure DevTest Labs | Microsoft Docs
-description: Vytvoření testovacího prostředí ve službě Azure DevTest Labs pro virtuální počítače
+title: "Vytvoření testovacího prostředí ve službě Azure DevTest Labs | Dokumentace Microsoftu"
+description: "Vytvoření testovacího prostředí ve službě Azure DevTest Labs pro virtuální počítače"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 8b6d3e70-6528-42a4-a2ef-449575d0f928
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+
 
 ---
-# Vytvoření testovacího prostředí v Azure DevTest Labs
-## Požadavky
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Vytvoření testovacího prostředí v Azure DevTest Labs
+## <a name="prerequisites"></a>Požadavky
 K vytvoření testovacího prostředí potřebujete:
 
 * Předplatné Azure. Informace o možnostech nákupu Azure najdete v tématech [Jak koupit Azure](https://azure.microsoft.com/pricing/purchase-options/) nebo [Bezplatná zkušební verze na jeden měsíc](https://azure.microsoft.com/pricing/free-trial/). Abyste mohli vytvořit testovací prostředí, musíte být vlastníky předplatného.
 
-## Postup vytvoření testovacího prostředí ve službě Azure DevTest Labs
+## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Postup vytvoření testovacího prostředí ve službě Azure DevTest Labs
 Následující kroky ukazují postup vytvoření testovacího prostředí ve službě Azure DevTest Labs pomocí webu Azure Portal. 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -43,7 +47,7 @@ Následující kroky ukazují postup vytvoření testovacího prostředí ve slu
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Po vytvoření testovacího prostředí je zde několik kroků, které je vhodné zvážit:
 
 * [Zabezpečení přístupu k testovacímu prostředí](devtest-lab-add-devtest-user.md)
@@ -52,6 +56,9 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 * [Vytvoření vlastních artefaktů pro virtuální počítače](devtest-lab-artifact-author.md)
 * [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

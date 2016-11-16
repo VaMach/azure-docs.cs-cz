@@ -1,4 +1,4 @@
-## Postup stažení a popis šablony ARM
+## <a name="download-and-understand-the-arm-template"></a>Postup stažení a popis šablony ARM
 Z webu github si můžete stáhnout existující šablonu ARM k vytvoření sítě VNet a dvou podsítí, libovolně ji upravit a opakovaně používat. Postupujte následujícím způsobem.
 
 1. Přejděte na stránku [vzorové šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
@@ -56,6 +56,8 @@ Z webu github si můžete stáhnout existující šablonu ARM k vytvoření sít
         }
 11. Uložte soubor.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

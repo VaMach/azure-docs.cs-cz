@@ -1,22 +1,26 @@
 ---
-title: Nasazení první webové aplikace v Javě do Azure během pěti minut | Microsoft Docs
-description: Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service. Pusťte se hned do skutečného vývoje. Výsledky uvidíte okamžitě.
+title: "Nasazení první webové aplikace v Javě do Azure během pěti minut | Dokumentace Microsoftu"
+description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service. Pusťte se hned do skutečného vývoje. Výsledky uvidíte okamžitě."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+
 
 ---
-# Nasazení první webové aplikace v Javě do Azure během pěti minut
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Nasazení první webové aplikace v Javě do Azure během pěti minut
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci v Javě do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -26,7 +30,7 @@ Vaším úkolem je:
 * Nasadit ukázkovou aplikaci v Javě.
 * Sledovat spuštění kódu naživo v produkčním prostředí.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Získat klienta FTP/FTPS, jako je [FileZilla](https://filezilla-project.org/).
 * Získat účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi](/pricing/free-trial/?WT.mc_id=A261C142F) nebo si [aktivovat výhody předplatitele Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -37,7 +41,7 @@ Vaším úkolem je:
 
 <a name="create"></a>
 
-## Vytvoření webové aplikace
+## <a name="create-a-web-app"></a>Vytvoření webové aplikace
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
 2. V levé nabídce klikněte na **Nové** > **Web + mobilní zařízení** > **Webová aplikace**.
    
@@ -61,7 +65,7 @@ Vaším úkolem je:
    
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Nasazení aplikace v Javě do vaší webové aplikace
+## <a name="deploy-a-java-app-to-your-web-app"></a>Nasazení aplikace v Javě do vaší webové aplikace
 Teď nasadíme aplikaci v Javě do Azure pomocí FTPS.
 
 1. V okně webové aplikace se posuňte dolů k položce **Nastavení aplikace** (nebo ji vyhledejte) a potom na ni klikněte. 
@@ -100,19 +104,22 @@ Teď nasadíme aplikaci v Javě do Azure pomocí FTPS.
 
 A to je vše! Vaše aplikace v Javě teď živě běží v Azure. V prohlížeči přejděte na http://*&lt;název_aplikace>*.azurewebsites.net a prohlédněte si ho. 
 
-## Provádění aktualizací aplikace
+## <a name="make-updates-to-your-app"></a>Provádění aktualizací aplikace
 Pokud potřebujete provést aktualizaci, stačí pomocí klienta FTP/FTPS odeslat do stejného vzdáleného adresáře nový soubor WAR.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 [Vytvořte webovou aplikaci v Javě pomocí šablony v Azure Marketplace](web-sites-java-get-started.md#marketplace). Můžete mít svůj vlastní plně přizpůsobitelný kontejner Tomcat a využít známé uživatelské rozhraní správce. 
 
 Odlaďte webovou aplikaci Azure přímo v [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) nebo [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Další možností je pokračovat v práci s první webovou aplikací. Příklad:
 
-* Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). Pokud třeba chcete pro nasazení použít některé z úložišť GitHubu, stačí v části **Možnosti nasazení** místo **Místní úložiště Git** vybrat **GitHub**.
+* Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). 
 * Zdokonalte aplikaci Azure o další úroveň. Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí. Viz téma [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

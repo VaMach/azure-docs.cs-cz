@@ -38,7 +38,7 @@
 ### [Webové aplikace služby IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Brána vzdálené plochy](multi-factor-authentication-get-started-server-rdg.md)
 
-## Vývoj aplikací
+## Vývoj 
 ### [Sestavování do vlastních aplikací (sada SDK)](multi-factor-authentication-sdk.md)
 
 ## Řešení potíží

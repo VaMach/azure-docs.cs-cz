@@ -1,7 +1,7 @@
 # Přehled
-## [Základy služby Batch](batch-technical-overview.md)
-## [Přehled funkcí Batch](batch-api-basics.md)
-## [Kvóty a omezení pro službu Batch](batch-quota-limit.md)
+## [Co je Azure Batch?](batch-technical-overview.md)
+## [Přehled funkcí](batch-api-basics.md)
+## [Kvóty a omezení](batch-quota-limit.md)
 # Začínáme
 ## [Vytvoření účtu služby Batch](batch-account-create-portal.md)
 ## [Výukový kurz k Batch .NET](batch-dotnet-get-started.md)
@@ -20,26 +20,32 @@
 ### [Závislosti úkolů](batch-task-dependencies.md)
 ### [Šablony projektů sady Visual Studio pro Batch](batch-visual-studio-templates.md)
 ## Spravovat
-### [Rozhraní příkazového řádku služby Batch](batch-cli-get-started.md)
 ### [Rutiny PowerShellu pro účty Batch](batch-powershell-cmdlets-get-started.md)
+### [Azure CLI](batch-cli-get-started.md)
 ### [Diagnostické protokoly služby Batch](batch-diagnostics.md)
+
 # Referenční informace
-## [Reference k rozhraní REST API služby Batch](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Reference k rozhraní Batch .NET](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Reference k Batch Pythonu](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Reference k Batch Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Reference k Batch Java](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Reference k Batch Management .NET](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Reference prostředí PowerShell pro Batch](https://go.microsoft.com/fwlink/p/?linkid=833500)
+## [Rutiny PowerShellu](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+
 # Související
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)
 ## [Big Compute v Azure: Technické prostředky](big-compute-resources.md)
-# Zdroje a prostředky
+
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 ## [Ukázky kódu Batch C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Ukázky kódu Batch Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,34 +1,39 @@
 ---
-title: Dotazování Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: Dotazování SQL Azure Data Warehouse pomocí nástroje příkazového řádku sqlcmd.
+title: "Dotazování Azure SQL Data Warehouse (sqlcmd)| Dokumentace Microsoftu"
+description: "Dotazování SQL Azure Data Warehouse pomocí nástroje příkazového řádku sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Dotazování Azure SQL Data Warehouse (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Dotazování Azure SQL Data Warehouse (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Tento návod používá k dotazování služby Azure SQL Data Warehouse nástroj příkazového řádku [sqlcmd][sqlcmd].  
 
-## 1. Připojení
-Chcete-li začít s nástrojem [sqlcmd][sqlcmd], otevřete příkazový řádek a zadejte příkaz **sqlcmd** následovaný připojovacím řetězcem pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
+## <a name="1-connect"></a>1. Připojení
+Pokud chcete začít s nástrojem [sqlcmd][sqlcmd], otevřete příkazový řádek a zadejte příkaz **sqlcmd** následovaný připojovacím řetězcem pro vaši databázi SQL Data Warehouse. Připojovací řetězec bude muset mít následující parametry:
 
 * **Server (-S):** Server v následující podobě: `<`název serveru`>`.database.windows.net
 * **Database (-d):** Název databáze
@@ -60,7 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2. Dotaz
+## <a name="2-query"></a>2. Dotaz
 Po připojení můžete pro instanci zadávat všechny podporované příkazy jazyka Transact-SQL.  V tomto příkladu jsou dotazy zadávány v interaktivním režimu.
 
 ```sql
@@ -80,8 +85,8 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Další kroky
-Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možnostech dostupných v sqlcmd.
+## <a name="next-steps"></a>Další kroky
+Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možnostech dostupných v sqlcmd.
 
 <!--Image references-->
 
@@ -89,12 +94,12 @@ Viz část [Dokumentace sqlcmd][sqlcmd], kde najdete další informace o možnos
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[portál Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

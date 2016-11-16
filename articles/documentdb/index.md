@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#DocumentDB Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
+ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
 
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
+---
+#<a name="documentdb-documentation"></a>Dokumentace ke službě DocumentDB
+
+Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, elastické škálování, globální distribuci a jednoduchý vývoj. Protože je DocumentDB databáze NoSQL bez schématu, poskytuje bohaté a známé schopnosti příkazů jazyka SQL s konsistentní nízkou latencí dat JSON.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure DocumentDB</h3>
+                        <h3>Přečtěte si o službě Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure DocumentDB Video Library</h3>
+                        <h3>Knihovna videí o Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure DocumentDB</h3>
+                        <h3>Začínáme se službou Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using .NET</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using ASP.NET MVC</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using Node.js</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +129,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js Express</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +147,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using a Java JSP app</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím aplikace Java JSP</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +165,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with DocumentDB using a Python Flask Web app</h3>
+                        <h3>Začínáme se službou DocumentDB s využitím webové aplikace Python Flask</h3>
                     </div>
                 </div>
             </div>
@@ -172,16 +176,16 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-##Reference
+##<a name="reference"></a>Referenční informace
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Referenční informace pro spravované rozhraní .NET](/dotnet/api)
 
-### Java
-[Java SDK Reference](/java/api)
+### <a name="java"></a>Java
+[Referenční informace sady Java SDK](/java/api)
 
-###REST
-[DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481)
+###<a name="rest"></a>REST
+[Referenční informace pro rozhraní DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481)
 
 
 
@@ -189,7 +193,12 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
-            Download DocumentDB Documentation
-        </div>
+Stáhnout dokumentaci ke službě DocumentDB </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

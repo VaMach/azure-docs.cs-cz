@@ -9,22 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Vytvoření nové brány firewall na úrovni serveru SQL Azure
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Vytvoření nové brány firewall na úrovni serveru SQL Azure
 Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brány firewall na úrovni serveru, které umožní připojení z jednotlivé IP adresy (vašeho klientského počítače) nebo celého rozsahu IP adres k logickému serveru služby SQL Database.
 
 1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
 2. Ve výchozím okně klikněte na **Servery SQL**.
    
-    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 3. V okně **Servery SQL** klikněte na server, na kterém se má pravidlo brány firewall vytvořit.
    
-    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 4. Zkontrolujte vlastnosti serveru.
    
-    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 5. V okně **Nastavení** klikněte na **Brána firewall**.
    
-    ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > K oknu **Nastavení brány firewall** na úrovni serveru se dostanete také z panelu nástrojů v okně **Databáze**.
@@ -45,6 +45,8 @@ Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brán
    > 
    > 
 
-<!----HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

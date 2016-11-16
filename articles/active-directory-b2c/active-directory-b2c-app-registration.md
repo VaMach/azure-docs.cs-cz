@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory B2C: Registrace aplikace | Microsoft Docs'
-description: Postup registrace aplikace pomocí Azure Active Directory B2C
+title: 'Azure Active Directory B2C: Registrace aplikace | Dokumentace Microsoftu'
+description: "Postup registrace aplikace pomocí Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
 manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9078d36789c3cc653b298b7a4eaee1cbe888b85f
+
 
 ---
-# Azure Active Directory B2C: Registrace vaší aplikace
-## Požadavek
+# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrace vaší aplikace
+## <a name="prerequisite"></a>Požadavek
 Chcete-li sestavit aplikaci, která podporuje registrace a přihlašování uživatelů, musíte aplikaci nejprve zaregistrovat pomocí klienta Azure Active Directory B2C. Vlastního klienta získáte pomocí návodu v tématu [Vytvoření klienta Azure AD B2C](active-directory-b2c-get-started.md). Po provedení všech kroků v tomto tématu budete mít okno s funkcemi B2C připnuté na Úvodním panelu.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Přejděte do okna s funkcemi B2C.
+## <a name="navigate-to-the-b2c-features-blade"></a>Přejděte do okna s funkcemi B2C.
 Pokud máte okno s funkcemi B2C připnuté na Úvodním panelu, okno se zobrazí na [portálu Azure](https://portal.azure.com/) ihned po přihlášení jako Globální správce klienta B2C.
 
 Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azure AD B2C** v levém navigačním podokně na [portálu Azure](https://portal.azure.com/).
@@ -32,7 +36,7 @@ Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azur
 > 
 > 
 
-## Registrace aplikace
+## <a name="register-an-application"></a>Registrace aplikace
 1. V okně s funkcemi B2C na portálu Azure klikněte na **Aplikace**.
 2. Klikněte na **Přidat** v horní části okna.
 3. Zadejte **Název** aplikace, který popíše aplikaci uživatelům. Můžete například zadat „Aplikace Contoso B2C“.
@@ -51,11 +55,14 @@ Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azur
 > 
 > 
 
-## Sestavení aplikace Rychlý start
+## <a name="build-a-quick-start-application"></a>Sestavení aplikace Rychlý start
 Nyní, když máte aplikaci registrovanou v Azure AD B2C, můžete dokončit jeden z našich kurzů pro rychlý start pro uvedení do provozu. Zde je několik doporučení:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
----
-#Virtual Machines Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: ca5d39641a251dcbc650907d08ce11c6c7124f66
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine&mdash;configuring, patching, and maintaining the software that runs on the virtual machine.
+---
+#<a name="virtual-machines-documentation"></a>Dokumentace k Virtual Machines
+
+Virtuální počítač Azure vám nabídne flexibilitu virtualizace bez nutnosti zakoupení a údržby fyzického hardwaru, na kterém virtuální počítač běží. Nevyhnete se ale údržbě virtuálního počítače (tzn. konfiguraci, aplikování oprav chyb a údržbě softwaru, který na tomto virtuálním počítači běží).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Windows Virtual Machines</h3>
+                        <h3>Začínáme se službou Virtual Machines ve Windows</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Linux Virtual Machines</h3>
+                        <h3>Začínáme se službou Virtual Machines v Linuxu</h3>
                     </div>
                 </div>
             </div>
@@ -47,25 +51,30 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 ---
 
-##Reference
+##<a name="reference"></a>Referenční informace
 
-###.NET 
-[Virtual Machines Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[Referenční informace pro spravované rozhraní API služby Virtual Machines](/dotnet/api/) 
 
-###REST 
-[Virtual Machine REST API Reference](/rest/api/) 
+###<a name="rest"></a>REST 
+[Referenční informace o rozhraní REST API služby Virtual Machines](/rest/api/) 
 
-###Azure CLI 
-[Azure CLI for Virtual Machines](/cli/azure/)
+###<a name="azure-cli"></a>Azure CLI 
+[Azure CLI pro službu Virtual Machines](/cli/azure/)
 
-###Java 
-[Virtual Machines PowerShell Cmdlet](/java/api/)
+###<a name="java"></a>Java 
+[Rutiny PowerShell pro službu Virtual Machines](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Virtual Machine Documentation
-        </div>
+Stáhnout dokumentaci ke službě Virtual Machines </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Nasazení aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio | Microsoft Docs
-description: Zjistěte, jak nasadit webový projekt ASP.NET do nové webové aplikace ve službě Azure App Service pomocí sady Visual Studio.
+title: "Nasazení aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio | Dokumentace Microsoftu"
+description: "Zjistěte, jak nasadit webový projekt ASP.NET do nové webové aplikace ve službě Azure App Service pomocí sady Visual Studio."
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+
 
 ---
-# Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio
+# <a name="deploy-an-aspnet-web-app-to-azure-app-service-using-visual-studio"></a>Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 V tomto kurzu se dozvíte, jak nasadit webovou aplikaci ASP.NET do [webové aplikace ve službě Azure App Service](app-service-web-overview.md) pomocí sady Visual Studio 2015.
 
 Kurz předpokládá, že jste vývojáři ASP.NET, kteří nemají žádné předchozí zkušenosti s používáním Azure. Až budete hotovi, budete mít jednoduchou funkční webovou aplikaci spuštěnou v cloudu.
@@ -39,13 +43,13 @@ Toto je úvodní kurz, a proto popisuje nasazení webového projektu, který je 
 
 Kromě času potřebného k instalaci sady Azure SDK pro rozhraní .NET bude absolvování tohoto kurzu trvat asi 10 až 15 minut.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Kurz předpokládá, že jste již dříve pracovali s ASP.NET MVC a sadou Visual Studio. Pokud potřebujete úvodní informace, prostudujte téma [Začínáme s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](http://go.microsoft.com/fwlink/?LinkId=523751). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
-## <a name="setupdevenv"></a>Nastavení vývojového prostředí
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Nastavení vývojového prostředí
 Kurz je napsán pro sadu Visual Studio 2015 se sadou [Azure SDK pro .NET](../dotnet-sdk.md) 2.9 nebo novější. 
 
 * [Stáhněte si nejnovější sadu Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada SDK nainstaluje sadu Visual Studio 2015, pokud ji ještě nemáte.
@@ -57,7 +61,7 @@ Kurz je napsán pro sadu Visual Studio 2015 se sadou [Azure SDK pro .NET](../dot
 
 Pokud máte sadu Visual Studio 2013 a chcete ji používat, můžete si [stáhnout nejnovější sadu Azure SDK pro sadu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Některé obrazovky se mohou lišit od ilustrací.
 
-## Konfigurace nového webového projektu
+## <a name="configure-a-new-web-project"></a>Konfigurace nového webového projektu
 Dalším krokem je vytvoření webového projektu v sadě Visual Studio a webové aplikace ve službě Azure App Service. V této části kurzu nakonfigurujete nový webový projekt. 
 
 1. Otevřete sadu Visual Studio 2015.
@@ -85,7 +89,7 @@ Dalším krokem je vytvoření webového projektu v sadě Visual Studio a webov�
     Tato nastavení dávají sadě Visual Studio pokyn, aby pro webový projekt vytvořila webovou aplikaci Azure.
 10. Klikněte na tlačítko **OK**.
 
-## Konfigurace prostředků Azure pro novou webovou aplikaci
+## <a name="configure-azure-resources-for-a-new-web-app"></a>Konfigurace prostředků Azure pro novou webovou aplikaci
 Nyní sadě Visual Studio řeknete, které prostředky Azure má vytvořit.
 
 1. V dialogovém okně **Vytvoření služby App Service** klikněte na tlačítko **Přidat účet** a přihlaste se k Azure pomocí ID a hesla účtu, který používáte ke správě předplatného Azure.
@@ -104,7 +108,7 @@ Nyní sadě Visual Studio řeknete, které prostředky Azure má vytvořit.
    
     ![Dialogové okno Vytvoření služby App Service](./media/web-sites-dotnet-get-started/rgcreate.png)
    
-    Skupina prostředků je kolekce prostředků Azure, jako jsou webové aplikace, databáze či virtuální počítače. V rámci kurzu je obecně nejvhodnější vytvořit novou skupinu prostředků, protože pak bude možné jedním krokem snadno odstranit veškeré prostředky Azure, které během kurzu vytvoříte. Další informace naleznete v tématu [Přehled Azure Resource Manager](../resource-group-overview.md).
+    Skupina prostředků je kolekce prostředků Azure, jako jsou webové aplikace, databáze či virtuální počítače. V rámci kurzu je obecně nejvhodnější vytvořit novou skupinu prostředků, protože pak bude možné jedním krokem snadno odstranit veškeré prostředky Azure, které během kurzu vytvoříte. Další informace naleznete v tématu [Přehled Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 4. Klikněte na tlačítko **Nový** vedle rozevíracího seznamu **Plán služby App Service**.
    
     ![Dialogové okno Vytvoření služby App Service](./media/web-sites-dotnet-get-started/createasplan.png)
@@ -124,7 +128,7 @@ Nyní sadě Visual Studio řeknete, které prostředky Azure má vytvořit.
 8. V dialogovém okně **Konfigurace plánu služby App Service** klikněte na tlačítko **OK**.
 9. V dialogovém okně **Vytvoření služby App Service** klikněte na možnost **Vytvořit**.
 
-## Vytvoření projektu a webové aplikace sadou Visual Studio
+## <a name="visual-studio-creates-the-project-and-web-app"></a>Vytvoření projektu a webové aplikace sadou Visual Studio
 Zanedlouho, obvykle během méně než minuty, sada Visual Studio vytvoří webový projekt a webovou aplikaci.  
 
 Okno **Průzkumník řešení** zobrazuje soubory a složky v novém projektu.
@@ -139,7 +143,7 @@ Okno **Průzkumník cloudu** umožňuje zobrazit a spravovat prostředky Azure, 
 
 ![Webová aplikace vytvořená v průzkumníku cloudu](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Nasazení webového projektu do webové aplikace Azure
+## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Nasazení webového projektu do webové aplikace Azure
 V této části nasadíte webový projekt do webové aplikace.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na požadovaný projekt a zvolte možnost **Publikovat**.
@@ -179,14 +183,14 @@ V této části nasadíte webový projekt do webové aplikace.
    > 
    > 
 
-## Řešení potíží
+## <a name="troubleshooting"></a>Řešení potíží
 Pokud během tohoto kurzu narazíte na problém, ujistěte se, zda používáte nejnovější verzi sady Azure SDK pro .NET. To lze nejsnáze provést tak, že si [stáhnete sadu Azure SDK pro Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Máte-li nainstalovánu aktuální verzi, instalační program webové platformy zobrazí informaci, že instalace není zapotřebí.
 
 Pokud jste v podnikové síti a pokoušíte se provést nasazení do služby Azure App Service přes bránu firewall, ujistěte se, zda jsou pro Nasazení webu otevřené porty 443 a 8172. Nelze-li tyto porty otevřít, v následující části Další kroky naleznete jiné možnosti nasazení.
 
 Jakmile webová aplikace ASP.NET poběží ve službě Azure App Service, pravděpodobně se budete chtít blíže seznámit s funkcemi sady Visual Studio, které usnadňují řešení potíží. Informace o protokolování, vzdáleném ladění apod. naleznete v tématu [Řešení potíží s webovými aplikacemi Azure v sadě Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové aplikace a jejího nasazení do webové aplikace Azure. Toto jsou některá související témata a zdroje, které vám umožní blíže se seznámit se službou Azure App Service:
 
 * Monitorování a správa webové aplikace v [portálu Azure](https://portal.azure.com/) 
@@ -212,6 +216,9 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
     Informace týkající se práce se skupinami prostředků na portálu Azure naleznete v tématu [Nasazení prostředků pomocí šablon Resource Manageru a portálu Azure](../resource-group-template-deploy-portal.md).   
 * Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) a [Vytvoření a nasazení mobilní aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect. Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=Aug16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

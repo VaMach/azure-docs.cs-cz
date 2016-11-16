@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Provedení zálohy
+### <a name="to-take-a-backup"></a>Provedení zálohy
 1. Na obrazovce **Rychlý start** zařízení klikněte na **Add a backup policy** (Přidat zásadu zálohování). Tím spustíte průvodce přidáním zásady zálohování. 
 2. Na stránce **Define your backup policy** (Definujte zásadu zálohování):
    
@@ -28,6 +28,8 @@ Dokončili jste konfiguraci zařízení.
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit zálohu StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

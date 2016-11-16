@@ -73,6 +73,11 @@
 ## [REST nasazení modelu Classic](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation) 
 ## [Školení pro Azure Automation](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

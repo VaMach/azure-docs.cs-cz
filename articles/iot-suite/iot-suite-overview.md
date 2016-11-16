@@ -1,13 +1,13 @@
 ---
-title: Přehled Microsoft Azure IoT Suite | Microsoft Docs
-description: Přehled předkonfigurovaných řešení pro internet věcí v sadě Azure IoT Suite určených ke sběru, analyzování a uchovávání dat, vizualizacím a integraci s ostatními systémy.
-services: ''
+title: "Přehled Microsoft Azure IoT Suite | Dokumentace Microsoftu"
+description: "Přehled předkonfigurovaných řešení pro internet věcí v sadě Azure IoT Suite určených ke sběru, analyzování a uchovávání dat, vizualizacím a integraci s ostatními systémy."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0df1fc79e82a99ea65296a4e09bdb48fde9451
+
 
 ---
-# Co je Azure IoT Suite?
+# <a name="what-is-azure-iot-suite"></a>Co je Azure IoT Suite?
 Služby v sadě Azure IoT Suite nabízejí celou řadu funkcí. Tyto služby na úrovni řešení pro velké firmy umožňují:
 
 * sběr dat ze zařízení
@@ -34,7 +38,7 @@ Následující video obsahuje úvod k Azure IoT Suite:
 > 
 > 
 
-## Služby Azure IoT v Azure IoT Suite
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Služby Azure IoT v Azure IoT Suite
 Předkonfigurovaná řešení obvykle využívají následující služby:
 
 * Základem Azure IoT Suite je služba [Azure IoT Hub][lnk-iot-hub]. Tato služba zajišťuje obousměrnou výměnu zpráv mezi zařízením a cloudem a funguje jako brána ke cloudu a ostatním klíčovým službám IoT Suite. Umožňuje příjem zpráv z vašich zařízení a odesílání příkazů do zařízení.
@@ -44,10 +48,10 @@ Předkonfigurovaná řešení obvykle využívají následující služby:
 
 Informace o tom, jak vypadá architektura typického řešení IoT, naleznete v tématu [Microsoft Azure a Internet věcí (IoT)][iot-suite-what-is-azure-iot].
 
-## Předkonfigurovaná řešení
+## <a name="preconfigured-solutions"></a>Předkonfigurovaná řešení
 Sada Azure IoT Suite zahrnuje předkonfigurovaná řešení, která vám umožňují rychle začít s běžnými scénáři implementace technologie IoT, jako je *Vzdálené sledování* a *Prediktivní údržba*, a objevit všechny jejich možnosti. Tato řešení můžete nasadit ve svém předplatném Azure a následně spustit kompletní scénář IoT od začátku do konce.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď, když máte přehled o tom, co sada IoT Suite dokáže a jaké jsou její hlavní součásti, můžete v článku [Co jsou předkonfigurovaná řešení Azure IoT][lnk-what-are-preconfig] zjistit další informace o předkonfigurovaných řešeních v sadě IoT Suite.
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -62,6 +66,6 @@ Teď, když máte přehled o tom, co sada IoT Suite dokáže a jaké jsou její 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

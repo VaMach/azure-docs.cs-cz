@@ -1,13 +1,13 @@
 ---
-title: Návod pro předkonfigurované řešení vzdáleného monitorování | Microsoft Docs
-description: Popis předkonfigurovaného řešení Azure IoT pro vzdálené monitorování a jeho architektura.
-services: ''
+title: "Návod pro předkonfigurované řešení vzdáleného monitorování | Dokumentace Microsoftu"
+description: "Popis předkonfigurovaného řešení Azure IoT pro vzdálené monitorování a jeho architektura."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+
 
 ---
-# Návod pro předkonfigurované řešení vzdáleného monitorování
-## Úvod
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Návod pro předkonfigurované řešení vzdáleného monitorování
+## <a name="introduction"></a>Úvod
 [Předkonfigurované řešení][lnk-preconfigured-solutions] vzdáleného monitorování sady IoT Suite je implementace monitorovacího řešení od začátku do konce pro více zařízení spuštěných ve vzdálených umístěních. Řešení kombinuje využívání klíčových služeb Azure a poskytují obecnou implementaci obchodního scénáře. Můžete ho použít jako výchozí bod pro vlastní implementaci. Řešení je možné [přizpůsobit][lnk-customize] podle konkrétních obchodních požadavků vaší firmy.
 
 Tento článek vás provede některými z klíčových prvků řešení vzdáleného monitorování, aby vám pomohl pochopit, jak toto řešení funguje. Díky tomu budete moct:
@@ -27,12 +31,12 @@ Tento článek vás provede některými z klíčových prvků řešení vzdálen
 * Naplánujte, jak řešení přizpůsobit podle konkrétních požadavků. 
 * Navrhněte vlastní řešení IoT, které používá služby Azure.
 
-## Logická architektura
+## <a name="logical-architecture"></a>Logická architektura
 Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
 
 ![Logická architektura](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Simulovaná zařízení
+## <a name="simulated-devices"></a>Simulovaná zařízení
 V předkonfigurovaných řešeních představuje simulované zařízení chladící zařízení (například klimatizační jednotku v budově nebo vzduchovod). Při nasazení předkonfigurovaných řešení dojde také automaticky ke zřízení čtyř simulovaných zařízení, která běží ve [webových úlohách Azure][lnk-webjobs]. Simulovaná zařízení umožňují snadno zkoumat chování řešení, aniž by bylo nutné nasazovat fyzická zařízení. Pokud chcete nasadit skutečné fyzické zařízení, přečtěte si článek [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm].
 
 Každé simulované zařízení může odesílat do služby IoT Hub následující typy zpráv:
@@ -76,10 +80,10 @@ Simulovaná zařízení mohou zpracovávat následující příkazy, odeslané z
 
 Potvrzení příkazu zařízení back endu řešení je zajišťováno prostřednictvím služby IoT Hub.
 
-## IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 Služba [IoT Hub][lnk-iothub] přijímá data odesílaná ze zařízení do cloudu a zpřístupňuje je úlohám Azure Stream Analytics (ASA). IoT Hub rovněž odesílá příkazy do všech zařízení jménem portálu zařízení. Každá úloha datového proudu ASA používá ke čtení streamu zpráv ze zařízení samostatnou skupinu příjemců IoT Hub.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Ve vzdáleném řešení monitorování služba [Azure Stream Analytics][lnk-asa] (ASA) odesílá zprávy zařízení přijaté službou IoT Hub do jiných komponent back endu ke zpracování nebo uložení. Různé úlohy ASA provádějí konkrétní funkce na základě obsahu zpráv.
 
 **Úloha 1: Informace o zařízení** filtruje z příchozího datového proudu zprávy s informacemi o zařízení a odesílá je do koncového bodu Centra událostí. Zařízení odesílá zprávy s informacemi o zařízení při spuštění a jako odezvu na příkaz **SendDeviceInfo**. Tato úloha používá následující definici dotazu k identifikaci zpráv **device-info**:
@@ -176,26 +180,26 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Event Hubs
+## <a name="event-hubs"></a>Event Hubs
 Úlohy služby ASA **informace o zařízení** a **pravidla** odesílají výstupní data do služby Event Hubs, aby bylo zajištěno spolehlivé předání do **Procesoru událostí** spuštěném ve webové úloze.
 
-## Úložiště Azure
+## <a name="azure-storage"></a>Úložiště Azure
 Toto řešení využívá službu Azure Blob Storage k trvalému uchování všech nezpracovaných a souhrnných telemetrických dat ze zařízení v řešení. Řídicí panel načítá telemetrická data z úložiště objektů blob a vytváří grafy. Za účelem zobrazení výstrah řídicí panel načítá data z úložiště objektů, které zaznamenává, když telemetrické hodnoty překračují nakonfigurované prahové hodnoty. Řešení také využívá úložiště objektů blob pro záznam prahových hodnot, které nastavíte v řídicím panelu.
 
-## Webové úlohy
+## <a name="webjobs"></a>Webové úlohy
 Webové úlohy v řešení kromě hostování simulátorů zařízení také hostují **Procesor událostí** spuštěný ve webové úloze Azure, který zpracovává zprávy s informacemi o zařízeních a odezvy na příkazy. Používá:
 
 * Zprávy s informacemi o zařízení pro účely aktualizace registru zařízení (uloženého v databázi DocumentDB) aktuálními informacemi o zařízení.
 * Zprávy s odezvami na příkazy pro účely aktualizace historie příkazů zařízení (uloženou v databázi DocumentDB).
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 Řešení používá k ukládání informací o zařízeních připojených k řešení databázi DocumentDB. Tyto informace zahrnují metadata zařízení a historie příkazů odesílaných do zařízení z řídicího panelu.
 
-## Webové aplikace
-### Řídicí panel pro vzdálené monitorování
+## <a name="web-apps"></a>Webové aplikace
+### <a name="remote-monitoring-dashboard"></a>Řídicí panel pro vzdálené monitorování
 Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce JavaScript (viz [Úložiště vizuálních prvků PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) k vizualizaci telemetrických dat ze zařízení. Řešení využívá telemetrickou úlohu ASA k zápisu telemetrických dat do úložiště objektů blob.
 
-### Portál pro správu zařízení
+### <a name="device-administration-portal"></a>Portál pro správu zařízení
 Tato webová aplikace umožňuje:
 
 * Zřízení nového zařízení. Tato akce nastaví jedinečné ID zařízení a vygeneruje klíč pro ověřování. Zapisuje informace o zařízení do registru identity služby IoT Hub a databáze DocumentDB specifické pro řešení.
@@ -204,7 +208,7 @@ Tato webová aplikace umožňuje:
 * Zobrazit historii příkazů pro zařízení.
 * Povolení a zákaz zařízení.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Následující příspěvky na blogu TechNet poskytují další podrobnosti o předkonfigurovaném řešení pro vzdálené monitorování:
 
 * [Sada IoT Suite - Pod pokličkou - Vzdálené monitorování](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
@@ -224,6 +228,7 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Apps u aplikací na platformě Xamarin.Android
-description: V tomto kurzu začnete používat Azure Mobile Apps pro vývoj na platformě Xamarin.Android.
+title: "Začínáme s Azure Mobile Apps u aplikací na platformě Xamarin.Android"
+description: "V tomto kurzu začnete používat Azure Mobile Apps pro vývoj na platformě Xamarin.Android."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+
 
 ---
-# <a name="create-a-xamarin.android-app"></a>Vytvoření aplikace Xamarin.Android
+# <a name="create-a-xamarinandroid-app"></a>Vytvoření aplikace Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Přehled
@@ -49,10 +53,10 @@ Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použí
 ## <a name="configure-the-server-project"></a>Konfigurace serverového projektu
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.android-app"></a>Stáhnutí a spuštění aplikace Xamarin.Android
+## <a name="download-and-run-the-xamarinandroid-app"></a>Stáhnutí a spuštění aplikace Xamarin.Android
 1. V části **Stáhnout a spustit projekt Xamarin.Android** klikněte na tlačítko **Stáhnout**.
    
-    Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
+      Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 2. Stiskněte klávesu **F5**, aby se projekt sestavil a spustil aplikaci.
 3. V aplikaci zadejte smysluplný text, například *Dokončit kurz*, a klikněte na tlačítko **Přidat**.
    
@@ -84,6 +88,6 @@ Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použí
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

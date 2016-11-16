@@ -18,6 +18,8 @@
     ![Nasazení brány virtuální sítě](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 15. Po vytvoření brány můžete zobrazením virtuální sítě na portálu zobrazit IP adresu, která jí byla přiřazena. Brána se zobrazí jako připojené zařízení. Kliknutím na připojené zařízení (bránu virtuální sítě) můžete zobrazit další informace.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

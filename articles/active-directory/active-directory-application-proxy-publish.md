@@ -1,12 +1,12 @@
 ---
-title: Publikování aplikací pomocí proxy aplikace služby Azure AD | Microsoft Docs
-description: Publikujte místní aplikace v cloudu pomocí proxy aplikace služby Azure AD.
+title: "Publikování aplikací pomocí proxy aplikace služby Azure AD | Dokumentace Microsoftu"
+description: "Publikujte místní aplikace v cloudu pomocí proxy aplikace služby Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+
 
 ---
-# Publikování aplikací pomocí proxy aplikace služby Azure AD
+# <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikování aplikací pomocí proxy aplikace služby Azure AD
 Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních procesů publikováním místních aplikací, aby byly přístupné přes internet. V tomto bodě byste už měli mít [povolenou proxy aplikaci v portálu Azure Classic](active-directory-application-proxy-enable.md). Tento článek vám ukáže postup, jak publikovat aplikace, které běží v místní síti, a jak poskytnout zabezpečený vzdálený přístup mimo síť. Po dokončení tohoto článku budete připravení ke konfiguraci aplikace pomocí individuálních informací nebo požadavků na zabezpečení.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních proc
 > 
 > 
 
-## Publikování aplikace pomocí průvodce
+## <a name="publish-an-app-using-the-wizard"></a>Publikování aplikace pomocí průvodce
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com/).
 2. Přejděte do služby Active Directory a vyberte adresář, u kterého jste povolili proxy aplikace.
    
@@ -52,7 +56,7 @@ Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních proc
      ![Vlastnosti aplikace](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
 6. Dokončete průvodce kliknutím na ikonu zaškrtnutí v dolní části obrazovky. Aplikace je nyní definována ve službě Azure AD.
 
-## Přiřazení uživatelů a skupin k aplikaci
+## <a name="assign-users-and-groups-to-the-application"></a>Přiřazení uživatelů a skupin k aplikaci
 Pokud chcete, aby uživatelé měli přístup k publikované aplikaci, musíte jim ho přiřadit – jednotlivě nebo po skupinách. (Nezapomeňte přiřadit přístup také sobě.) To vyžaduje, aby každý uživatel měl licenci pro prostředí Azure Basic nebo vyšší. Licence můžete přiřadit individuálně, nebo skupinám. Další podrobnosti najdete v tématu [Přiřazování uživatelů k aplikaci](active-directory-applications-guiding-developers-assigning-users.md). 
 
 U aplikací, které vyžadují předběžné ověření, tím udělíte oprávnění k používání aplikace. U aplikací, které nevyžadují předběžné ověření, jde uživatele pořád přiřadit k aplikaci, aby se jim zobrazovala v seznamu aplikací, například MyApps.
@@ -62,7 +66,7 @@ U aplikací, které vyžadují předběžné ověření, tím udělíte oprávn�
     ![Přiřazování uživatelů ze stránky „Rychlý start“ proxy aplikace – snímek obrazovky](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
 2. Vyhledejte konkrétní skupinu v adresáři nebo si zobrazte všechny uživatele. Kliknutím na značku zaškrtnutí zobrazíte výsledky hledání.
    
-    ![Hledání skupin nebo uživatelů – snímek obrazovky](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
+      ![Hledání skupin nebo uživatelů – snímek obrazovky](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
 3. Vyberte jednotlivé uživatele nebo skupiny, které chcete přiřadit k aplikaci a klikněte na **Přiřadit**. Zobrazí se výzva k potvrzení akce.
 
 > [!NOTE]
@@ -70,10 +74,10 @@ U aplikací, které vyžadují předběžné ověření, tím udělíte oprávn�
 > 
 > 
 
-## Test publikované aplikace
+## <a name="test-your-published-application"></a>Test publikované aplikace
 Po publikování můžete aplikaci otestovat tak, že přejdete na adresu URL, kterou jste publikovali. Ujistěte se, že k ní máte přístup, že se správně vykresluje a že všechno funguje podle očekávání. Pokud máte potíže nebo se zobrazí chybová zpráva, zkuste [průvodce odstraňováním potíží](active-directory-application-proxy-troubleshoot.md).
 
-## Konfigurace aplikace
+## <a name="configure-your-application"></a>Konfigurace aplikace
 Na stránce Konfigurace můžete publikované aplikace upravovat nebo u nich nastavovat pokročilé možnosti. Na této stránce si můžete svou aplikaci přizpůsobit změnou názvu nebo nahráním loga. Můžete také spravovat pravidla přístupu, například metodu předběžného ověření nebo vícefaktorové ověřování (Multi-Factor Authentication).
 
 ![Pokročilá konfigurace](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
@@ -86,14 +90,17 @@ Pokud chcete zobrazit aplikaci a ujistit se, že je přístupná, klikněte dvak
 
 Pokud chcete aplikaci odstranit, vyberte ji ze seznamu a klikněte na **Odstranit**.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Publikování aplikací s použitím vlastního názvu domény](active-directory-application-proxy-custom-domains.md)
 * [Povolení jednoduchého přihlášení](active-directory-application-proxy-sso-using-kcd.md)
 * [Povolení podmíněného přístupu](active-directory-application-proxy-conditional-access.md)
-* [Práce s aplikacemi, které pracují s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
+* [Práce s aplikacemi využívajícími deklarace](active-directory-application-proxy-claims-aware-apps.md)
 
 Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

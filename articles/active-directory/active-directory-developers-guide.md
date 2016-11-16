@@ -1,26 +1,30 @@
 ---
-title: Příručka pro vývojáře pro službu Azure Active Directory | Microsoft Docs
-description: Tento článek poskytuje komplexního průvodce prostředky služby Azure Active Directory určenými pro vývojáře.
+title: "Příručka pro vývojáře pro službu Azure Active Directory | Dokumentace Microsoftu"
+description: "Tento článek poskytuje komplexního průvodce prostředky služby Azure Active Directory určenými pro vývojáře."
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+
 
 ---
-# <a name="azure-active-directory-developer's-guide"></a>Příručka pro vývojáře pro službu Azure Active Directory
+# <a name="azure-active-directory-developers-guide"></a>Příručka pro vývojáře pro službu Azure Active Directory
 ## <a name="overview"></a>Přehled
 Azure Active Directory (AD) jako platforma Správy identit jako služby (IDMaaS) poskytuje vývojářům účinný způsob, jak integrovat do svých aplikací správu identity. Následující články poskytují přehled o implementaci a klíčových funkcích služby Azure AD. Doporučujeme číst je popořadě, nebo pokud jste připraveni se do toho pustit, přejděte na položku [Začínáme](#getting-started).
 
-1. [Výhody integrace služby Azure AD:](active-directory-how-to-integrate.md) Zjistěte, proč integrace se službou Azure AD nabízí nejlepší řešení pro zabezpečené přihlašování a autorizaci.
+1. [Výhody integrace služby Azure AD:](develop/active-directory-how-to-integrate.md) Zjistěte, proč integrace se službou Azure AD nabízí nejlepší řešení pro zabezpečené přihlašování a autorizaci.
 2. [Scénáře ověřování služby Azure AD:](active-directory-authentication-scenarios.md) Využijte výhody zjednodušeného ověřování ve službě Azure AD, které vám umožní přihlášení do vaší aplikace.
 3. [Integrace aplikací s Azure AD:](active-directory-integrating-applications.md) Zjistěte, jak přidávat, aktualizovat a odebírat aplikace ze služby Azure AD, a přečtěte si pokyny k přizpůsobení prostředí značce pro integrované aplikace.
 4. [Azure AD Graph API:](active-directory-graph-api.md) Použijte rozhraní Azure AD Graph API k programovému přístupu ke službě Azure AD prostřednictvím koncových bodů rozhraní REST API. Rozhraní Azure AD Graph API je také přístupné prostřednictvím [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph poskytuje sjednoceného rozhraní API, které umožňuje přístup k několika rozhraním API cloudových služeb společnosti Microsoft pomocí jednoho koncového bodu rozhraní REST API a jednoho přístupového tokenu.
@@ -29,17 +33,17 @@ Azure Active Directory (AD) jako platforma Správy identit jako služby (IDMaaS)
 ## <a name="getting-started"></a>Začínáme
 Tyto kurzy jsou přizpůsobené různým platformám a umožní vám rychle začít s vývojem pro službu Azure Active Directory. Předpokladem je, že [získáte klienta služby Azure Active Directory](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Průvodce rychlým zahájením pro mobilní a počítačové aplikace
+### <a name="mobile-and-pc-application-quickstart-guides"></a>Průvodce rychlým zahájením pro mobilní a počítačové aplikace
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Univerzální pro Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Univerzální pro Windows](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Přímá integrace s OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quick-start-guides"></a>Průvodce rychlým zahájením pro webové aplikace
+### <a name="web-application-quickstart-guides"></a>Průvodce rychlým zahájením pro webové aplikace
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Přímá integrace s OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quick-start-guides"></a>Průvodce rychlým zahájením pro webové rozhraní API
+### <a name="web-api-quickstart-guides"></a>Průvodce rychlým zahájením pro webové rozhraní API
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -49,11 +53,11 @@ Tyto kurzy jsou přizpůsobené různým platformám a umožní vám rychle zač
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="how-tos"></a>Postupy
+## <a name="howtos"></a>Postupy
 Tyto články popisují, jak provádět určité úlohy pomocí služby Azure Active Directory:
 
 * [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
-* [Přihlášení libovolného uživatele služby Azure AD pomocí vzoru aplikace s více tenanty](active-directory-devhowto-multi-tenant-overview.md) 
+* [Přihlášení libovolného uživatele služby Azure AD pomocí vzoru aplikace s více tenanty](active-directory-devhowto-multi-tenant-overview.md)
 * Povolení jednotného přihlašování napříč aplikacemi pomocí ADAL v zařízeních [Android](active-directory-sso-android.md) a [iOS](active-directory-sso-ios.md)
 * [Získání certifikace AppSource pro aplikaci pro službu Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Uvedení aplikace v galerii aplikací služby Azure AD](active-directory-app-gallery-listing.md)
@@ -112,6 +116,15 @@ V těchto prezentacích s přehledem vývoje aplikací pro službu Azure Active 
 * [Cloudová identita](http://www.cloudidentity.net): Nápady na správu identit jako služby z hlavního PM služby Azure Active Directory.  
 * [Azure Active Directory na Twitteru](https://twitter.com/azuread): Oznámení služby Azure Active Directory v délce 140 znaků nebo méně.
 
-<!--HONumber=Oct16_HO3-->
+## <a name="windows-server-onpremises-development"></a>Místní vývoj Windows Serveru
+Informace o používání vývoje Windows Serveru a služby AD FS (Active Directory Federation Services) najdete v následujících zdrojích:
+
+* [Scénáře služby AD FS pro vývojáře](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): nabízí přehled komponent služby AD FS a jejich fungování s podrobnostmi o podporovaných scénářích ověřování/autorizace.
+* [Návody pro službu AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): seznam článků s návody, které poskytují podrobné pokyny o implementaci souvisejících postupů ověřování/autorizace.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

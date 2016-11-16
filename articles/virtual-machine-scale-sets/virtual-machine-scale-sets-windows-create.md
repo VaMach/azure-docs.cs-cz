@@ -1,62 +1,43 @@
 ---
-title: Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu | Microsoft Docs
-description: Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu
+title: "Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu | Dokumentace Microsoftu"
+description: "Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
-# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Vytvoření     škálovací sady virtuálních počítačů s Windows pomocí Azure PowerShellu
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Vytvoření 	škálovací sady virtuálních počítačů s Windows pomocí Azure PowerShellu
 Tento postup navazuje na metodu vyplňování prázdných polí při vytváření škálovací sady virtuálních počítačů Azure. Další informace o škálovacích sadách najdete v tématu [Přehled škálovacích sad virtuálních počítačů](virtual-machine-scale-sets-overview.md).
 
 Provedení kroků v tomto článku by mělo trvat asi 30 minut.
 
-## <a name="step-1:-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
 Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
 
-## <a name="step-2:-create-resources"></a>Krok 2: Vytvoření prostředků
+## <a name="step-2-create-resources"></a>Krok 2: Vytvoření prostředků
 Vytvořte prostředky, které jsou potřebné pro vaši novou škálovací sadu.
 
 ### <a name="resource-group"></a>Skupina prostředků
 Škálovací sada virtuálních počítačů musí být součástí skupiny prostředků.
 
-1. Získejte seznam dostupných umístění a podporovaných služeb:
+1. Získejte seznam dostupných umístění, kam je možné prostředky vložit:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Zobrazení by mělo být podobné následujícímu příkladu:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Vyberte umístění, která vám nejlépe vyhovuje, nahraďte jeho názvem hodnotu **$locName** a pak vytvořte proměnnou:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Virtuální síť je pro virtuální počítače ve škálovací sadě nutná.
 4. Vytvořte virtuální síť:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Veřejná IP adresa
-Před vytvořením síťového rozhraní je potřeba vytvořit veřejnou IP adresu.
-
-1. Nahraďte hodnotu **$domName** popiskem názvu domény, který chcete používat s veřejnou IP adresou, a pak vytvořte proměnnou:  
-   
-        $domName = "domain name label"
-   
-    Popisek může obsahovat jen písmena, číslice a pomlčky a poslední znak musí být písmeno nebo číslice.
-2. Otestujte, jestli je název jedinečný:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Pokud je odpověď **True**, navrhovaný název je jedinečný.
-3. Nahraďte hodnotu **$pipName** názvem, který chcete používat pro veřejnou IP adresu, a pak vytvořte proměnnou: 
-   
-        $pipName = "public ip address name"
-4. Vytvořte veřejnou IP adresu:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Síťové rozhraní
-Teď když máte veřejnou IP adresu, můžete vytvořit síťové rozhraní.
-
-1. Nahraďte hodnotu **$nicName** názvem, který chcete používat pro síťové rozhraní, a pak vytvořte proměnnou: 
-   
-        $nicName = "network interface name"
-2. Vytvořte síťové rozhraní:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Konfigurace škálovací sady
 Máte teď všechny prostředky, které potřebujete pro konfiguraci škálovací sady, tak ji vytvořme.  
@@ -253,7 +204,7 @@ Nakonec můžete vytvořit škálovací sadu.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Krok 3: Prozkoumání prostředků
+## <a name="step-3-explore-resources"></a>Krok 3: Prozkoumání prostředků
 Škálovací sadu virtuálních počítačů, kterou jste vytvořili, můžete prozkoumat v následujících zdrojích:
 
 * Azure Portal: Omezené množství informací je k dispozici prostřednictvím tohoto portálu.
@@ -271,6 +222,9 @@ Nakonec můžete vytvořit škálovací sadu.
 * Zvažte nastavení automatického škálování na základě pokynů v tématu [Automatické škálování a škálovací sady virtuálních počítačů](virtual-machine-scale-sets-autoscale-overview.md).
 * Další informace o vertikálním škálování najdete v tématu [Vertikální automatické škálování se škálovacími sadami virtuálních počítačů](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

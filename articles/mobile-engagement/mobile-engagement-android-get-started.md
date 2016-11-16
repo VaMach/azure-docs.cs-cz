@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Android Apps Azure Mobile Engagementem
-description: Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro Android.
+title: "Začínáme s Android Apps Azure Mobile Engagementem"
+description: "Naučte se používat Azure Mobile Engagement s analýzou a nabízenými oznámeními pro aplikace pro Android."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,15 +14,19 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro aplikace pro Android
+# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Začínáme s Azure Mobile Engagementem pro aplikace pro Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikací a odesílat nabízená oznámení segmentovaným uživatelům aplikace pro Android.
 Tento kurz představuje scénář jednoduchého vysílání přes Mobile Engagement. V něm můžete vytvořit prázdnou aplikaci pro Android, která sbírá základní data a dostává nabízená oznámení pomocí služby GCM (Google Cloud Messaging).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 K dokončení tohoto kurzu budete potřebovat [vývojářské nástroje pro Android](https://developer.android.com/sdk/index.html), které zahrnují integrované vývojové prostředí Android Studio a nejnovější platformu Android.
 
 Také budete potřebovat sadu [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
@@ -32,15 +36,15 @@ Také budete potřebovat sadu [Mobile Engagement Android SDK](https://aka.ms/vq9
 > 
 > 
 
-## Nastavení Mobile Engagementu pro vaši aplikaci pro Android
+## <a name="set-up-mobile-engagement-for-your-android-app"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## Připojení aplikace k back-endu Mobile Engagementu
+## <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. Pomocí Android Studia vytvoříte základní aplikaci, na které si tuto integraci předvedeme.
 
 Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Android SDK](mobile-engagement-android-sdk-overview.md).
 
-### Vytvoření projektu Android
+### <a name="create-an-android-project"></a>Vytvoření projektu Android
 1. Spusťte **Android Studio** a v místní nabídce vyberte **Start a new Android Studio project** (Začít nový projekt Android Studio).
    
     ![][1]
@@ -64,7 +68,7 @@ Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Eng
 
 Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile Engagement.
 
-### Zahrnutí knihovny sady SDK do projektu
+### <a name="include-the-sdk-library-in-your-project"></a>Zahrnutí knihovny sady SDK do projektu
 1. Stáhněte sadu [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Extrahujte soubor archivu do složky v počítači.
 3. Identifikujte knihovnu .jar pro aktuální verzi této sady SDK a zkopírujte ji do schránky.
@@ -77,7 +81,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile
    
       ![][8]
 
-### Připojení aplikace k back-endu Mobile Engagementu pomocí připojovacího řetězce
+### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Připojení aplikace k back-endu Mobile Engagementu pomocí připojovacího řetězce
 1. Zkopírujte následující řádky kódu do vytváření aktivity (je třeba provést pouze na jednom místě aplikace, obvykle v hlavní aktivitě). V případě této ukázkové aplikace otevřete MainActivity pod složkou src -> main -> java a přidejte následující:
    
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -94,7 +98,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile
    
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
-### Přidání oprávnění a deklarace služby
+### <a name="add-permissions-and-a-service-declaration"></a>Přidání oprávnění a deklarace služby
 1. Přidejte oprávnění do souboru Manifest.xml vašeho projektu těsně před značku `<application>` nebo za ni.
    
         <uses-permission android:name="android.permission.INTERNET"/>
@@ -106,13 +110,13 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile
 2. Chcete-li deklarovat službu agenta, přidejte tento kód mezi značky `<application>` a `</application>`:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 3. Ve vloženém kódu nahraďte `"<Your application name>"` v popisku, který se zobrazí v nabídce **Nastavení**, kde můžete zobrazit služeb spuštěné v zařízení. Do tohoto popisku můžete například přidat slovo „Service“.
 
-### Odeslání obrazovky do Mobile Engagementu
+### <a name="send-a-screen-to-mobile-engagement"></a>Odeslání obrazovky do Mobile Engagementu
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku (aktivitu) na back-end Mobile Engagementu.
 
 Přejděte na **MainActivity.java** a přidejte následující kód, kterým nahradíte základní třídu **MainActivity** třídou **EngagementActivity**:
@@ -130,14 +134,14 @@ Okomentujte následující řádek pro tento jednoduchý vzorový scénář:
 
 Pokud chcete zachovat `ActionBar` ve vaší aplikaci, zobrazte si část [Rozšířená sestava Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
-## Připojení aplikace se sledováním v reálném čase
+## <a name="connect-app-with-realtime-monitoring"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="enable-push-notifications-and-inapp-messaging"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Během kampaně vám Mobile Engagement umožňuje interagovat a KOMUNIKOVAT s uživateli pomocí nabízených oznámení a zpráv v aplikaci. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
-### Kopírování prostředků sady SDK do projektu
+### <a name="copy-sdk-resources-in-your-project"></a>Kopírování prostředků sady SDK do projektu
 1. Přejděte zpět na obsah stažené sady SDK a zkopírujte složku **res**.
    
     ![][10]
@@ -151,7 +155,7 @@ V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení 
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Podrobné informace o integraci sady SDK najdete v článku o integraci sady [Android SDK](mobile-engagement-android-sdk-overview.md).
 
 <!-- Images. -->
@@ -169,6 +173,6 @@ Podrobné informace o integraci sady SDK najdete v článku o integraci sady [An
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

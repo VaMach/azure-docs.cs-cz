@@ -1,12 +1,12 @@
 ---
-title: Použití běžného dynamického šifrování PlayReady nebo Widevine | Microsoft Docs
-description: Služba Microsoft Azure Media Services umožňuje doručovat datové proudy MPEG-DASH, technologie Smooth Streaming a Http-Live-Streaming (HLS) chráněné pomocí Microsoft PlayReady DRM. Umožňuje také doručovat datové proudy DASH šifrované pomocí Widevine DRM. Toto téma ukazuje, jak dynamicky šifrovat pomocí PlayReady DRM nebo Widevine DRM.
+title: "Použití běžného dynamického šifrování PlayReady nebo Widevine | Dokumentace Microsoftu"
+description: "Služba Microsoft Azure Media Services umožňuje doručovat datové proudy MPEG-DASH, technologie Smooth Streaming a Http-Live-Streaming (HLS) chráněné pomocí Microsoft PlayReady DRM. Umožňuje také doručovat datové proudy DASH šifrované pomocí Widevine DRM. Toto téma ukazuje, jak dynamicky šifrovat pomocí PlayReady DRM nebo Widevine DRM."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 59c0b46015b3d112d17dd79a2a4bfd3b3165dfba
+
 
 ---
-# Použití běžného dynamického šifrování PlayReady nebo Widevine
+# <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Použití běžného dynamického šifrování PlayReady nebo Widevine
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -41,10 +45,10 @@ Toto téma bude užitečné pro vývojáře pracující na aplikacích, které d
 > 
 > 
 
-## Stažení ukázky
+## <a name="download-sample"></a>Stažení ukázky
 Ukázku popsanou v tomto článku si můžete stáhnout [tady](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-## Konfigurace běžného dynamického šifrování a služeb doručování licencí DRM
+## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Konfigurace běžného dynamického šifrování a služeb doručování licencí DRM
 Níže jsou uvedeny základní kroky, které je třeba provést, pokud své assety chráníte pomocí technologie PlayReady, používáte službu doručování licencí Media Services a také používáte dynamické šifrování.
 
 1. Vytvořte asset a nahrajte do něj soubory.
@@ -68,32 +72,32 @@ Následující obrázek znázorňuje pracovní postup popsaný výše. Zde se k 
 
 Zbývající část tohoto tématu poskytuje podrobné vysvětlení, ukázky kódů a odkazy na témata, která ukazují, jak dokončit výše popsané úlohy.
 
-## Aktuální omezení
+## <a name="current-limitations"></a>Aktuální omezení
 Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit přidružený lokátor (pokud existuje) a vytvořit nový.
 
 Omezení při šifrování s technologií Widevine ve službě Azure Media Services: v současné době není podporováno více klíčů k obsahu.
 
-## Vytvoření assetu a nahrání souborů do assetu
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Vytvoření assetu a nahrání souborů do assetu
 Aby bylo možné spravovat, kódovat a streamovat videa, musíte nejprve nahrát obsah do služby Microsoft Azure Media Services. Po nahrání bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování.
 
 Podrobné informace najdete v článku o [nahrání souborů do účtu služby Media Services](media-services-dotnet-upload-files.md).
 
-## Zakódování assetu obsahujícího soubor do sady souborů MP4 s adaptivní přenosovou rychlostí
+## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Zakódování assetu obsahujícího soubor do sady souborů MP4 s adaptivní přenosovou rychlostí
 V případě dynamického šifrování je třeba pouze vytvořit asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Potom, na základě formátu určeného v manifestu a požadavku na fragment, server streamingu na vyžádání zajistí, abyste datový proud obdrželi v protokolu podle vašeho výběru. Díky tomu pak stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů. Další informace najdete v tématu [Přehled dynamického balení](media-services-dynamic-packaging-overview.md).
 
 Pokyny ke kódování najdete v článku o [kódování assetu pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu.
+## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu
 Klíč k obsahu ve službě Media Services obsahuje klíč, kterým chcete asset šifrovat.
 
 Podrobné informace najdete v tématu [Vytvoření klíče k obsahu](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Konfigurace zásad autorizace klíče k obsahu
+## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Konfigurace zásad autorizace klíče obsahu
 Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Zásady autorizace pro klíč k obsahu musíte vy nakonfigurovat a klient (přehrávač) splnit, aby bylo možné mu klíč doručit. Zásady autorizace pro klíč k obsahu mohou obsahovat jedno nebo více omezení autorizace: otevřené omezení nebo omezení s tokenem.
 
 Podrobnější informace najdete v tématu [Konfigurace zásad autorizace pro klíč k obsahu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Konfigurace zásad doručení assetu
+## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Konfigurace zásad doručení assetu
 Nakonfigurujte zásady doručení pro asset. Konfigurace zásad doručení assetu zahrnuje následující položky:
 
 * Adresa URL pro získání licence DRM. 
@@ -102,7 +106,7 @@ Nakonfigurujte zásady doručení pro asset. Konfigurace zásad doručení asset
 
 Podrobné informace najdete v tématu [Konfigurace zásad doručení assetu ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Pokud chcete získat adresu URL streamování, vytvořte lokátor streamování OnDemand.
+## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Pokud chcete získat adresu URL streamování, vytvořte lokátor streamování OnDemand.
 Uživateli je třeba poskytnout adresu URL streamování pro protokol Smooth, DASH nebo HLS.
 
 > [!NOTE]
@@ -112,7 +116,7 @@ Uživateli je třeba poskytnout adresu URL streamování pro protokol Smooth, DA
 
 Pokyny k publikování assetu a vytvoření adresy URL streamování najdete v článku o [vytvoření adresy URL streamování](media-services-deliver-streaming-content.md).
 
-## Získání testovacího tokenu
+## <a name="get-a-test-token"></a>Získání testovacího tokenu
 Získejte testovací token na základě omezení s tokenem, které se používá v zásadách autorizace klíče.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -129,7 +133,7 @@ Získejte testovací token na základě omezení s tokenem, které se používá
 
 K testování datového proudu můžete použít [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## <a id="example"></a>Příklad
+## <a name="a-idexampleaexample"></a><a id="example"></a>Příklad
 Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Media Services SDK pro .NET verze 3.5.2 (konkrétně se jedná o možnost definovat šablonu licence Widevine a žádat o licenci Widevine ze služby Azure Media Services). K instalaci balíčku byl použit následující příkaz balíčku NuGet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -306,7 +310,7 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
                     ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                     encodeTask.InputAssets.Add(inputAsset);
-                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
+                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
 
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
@@ -600,21 +604,24 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
         }
 
 
-## Další krok
+## <a name="next-step"></a>Další krok
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Viz také
+## <a name="see-also"></a>Viz také
 [Šifrování CENC s více technologiemi DRM a řízením přístupu](media-services-cenc-with-multidrm-access-control.md)
 
 [Konfigurace balení Widevine pomocí služby AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Uvedení služeb doručování licence Google Widevine ve službě Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

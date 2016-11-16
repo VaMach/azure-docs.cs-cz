@@ -1,4 +1,4 @@
-### Úroveň služeb Basic
+### <a name="basic-service-tier"></a>Úroveň služeb Basic
 |  |  |
 | --- | --- |
 | Maximální počet DTU |5 |
@@ -10,7 +10,7 @@
 | Obnovení do bodu v čase |Libovolný bod za posledních 7 dnů |
 | Zotavení po havárii |Aktivní geografická replikace |
 
-### Úroveň služeb Standard
+### <a name="standard-service-tier"></a>Úroveň služeb Standard
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
 | Zotavení po havárii |Aktivní geografická replikace |
 
-### Úroveň služeb Premium
+### <a name="premium-service-tier"></a>Úroveň služeb Premium
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,6 +36,8 @@
 | Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
 | Zotavení po havárii |Aktivní geografická replikace |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

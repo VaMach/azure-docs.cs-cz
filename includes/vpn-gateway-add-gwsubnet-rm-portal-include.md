@@ -8,6 +8,8 @@
     ![Přidání podsítě](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 5. Vytvořte podsíť kliknutím na tlačítko **OK** v dolní části okna.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

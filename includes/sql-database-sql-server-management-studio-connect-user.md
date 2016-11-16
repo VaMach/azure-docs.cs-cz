@@ -1,4 +1,4 @@
-## Připojení ke službě Azure SQL Database jako uživatel
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Připojení ke službě Azure SQL Database jako uživatel
 Pomocí následujícího postupu se můžete v aplikaci SSMS připojit ke službě Azure SQL Database jako uživatel.
 
 1. Do pole vyhledávání ve Windows zadejte text „Microsoft SQL Server Management Studio“ a potom kliknutím na desktopovou aplikaci spusťte aplikaci SSMS.
@@ -11,7 +11,7 @@ Pomocí následujícího postupu se můžete v aplikaci SSMS připojit ke služb
   * **Uživatelské jméno**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte jméno uživatele, který má přístup k databázi na serveru.
   * **Heslo**: Pokud jste vybrali Ověřování SQL nebo Ověřování hesla Active Directory, zadejte heslo uvedeného uživatele.
     
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: Připojení k serveru služby SQL Database.](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
 1. Klikněte na **Možnosti** a určete databázi, ke které se chcete připojit.
    
@@ -27,9 +27,11 @@ Pomocí následujícího postupu se můžete v aplikaci SSMS připojit ke služb
    
       ![SQL Server Management Studio: Připojení k serveru služby SQL Database.](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Řešení potíží s připojením
+## <a name="troubleshoot-connection-failures"></a>Řešení potíží s připojením
 Nejčastější příčinou chyb připojení jsou chyby v názvu serveru (nezapomeňte, že <*název_serveru*> je název logického serveru a ne název databáze), chybné uživatelské jméno nebo heslo a také situace, kdy server z bezpečnostních důvodů připojení neumožňuje. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

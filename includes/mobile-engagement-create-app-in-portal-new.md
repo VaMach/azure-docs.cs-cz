@@ -10,7 +10,7 @@
    * **Název:** Název vaší *kolekce aplikací* 
    * **Platformy:** V okně Platformy, které se otevře, vyberte cílové platformy pro vaši aplikaci. Například pokud chcete aplikaci pro platformu iOS i Android, vyberte obě platformy a v této kolekci aplikací budete mít vytvořené dvě aplikace. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Předplatné:** Vyberte předplatné Azure. 
    * **Skupina prostředků:** Vyberte skupinu prostředků Azure, ve které chcete mít tento prostředek Azure (Kolekce aplikací Mobile Engagement). Můžete zvolit vytvoření nové.  
    * **Umístění:** Oblast, kde budou uložené údaje o této kolekci aplikací a aplikaci.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

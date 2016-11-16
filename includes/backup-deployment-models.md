@@ -1,6 +1,6 @@
 Služba Azure Backup má dva typy trezorů – trezor Backup a trezor Recovery Services. První byl trezor Backup. Po něm přišel trezor Recovery Services na podporu rozšířeného modelu nasazení Resource Manager. Společnost Microsoft doporučuje používat model nasazení Resource Manager, pokud výslovně nepotřebujete model nasazení Classic.
 
-| **Nasazení** | **Portál** | **Trezor** |
+| **Nasazení** | **Azure Portal** | **Trezor** |
 | --- | --- | --- |
 | Classic |[Classic](https://manage.windowsazure.com) |Zálohování |
 | Resource Manager |[Azure](https://portal.azure.com) |Recovery Services |
@@ -10,6 +10,8 @@ Služba Azure Backup má dva typy trezorů – trezor Backup a trezor Recovery S
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

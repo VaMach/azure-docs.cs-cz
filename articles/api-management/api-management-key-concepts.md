@@ -1,22 +1,26 @@
 ---
-title: Klíčové koncepty služby API Management
-description: Seznamte se s rozhraními API, produkty, rolemi, skupinami a dalšími klíčovými koncepty služby API Management.
+title: "Klíčové koncepty služby API Management"
+description: "Seznamte se s rozhraními API, produkty, rolemi, skupinami a dalšími klíčovými koncepty služby API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+
 
 ---
-# Co je služba API Management?
+# <a name="what-is-api-management"></a>Co je služba API Management?
 Služba API Management pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb. Firmy po celém světě hledají způsoby, jak rozšířit svojí činnost na digitální platformě, vytvářejí nové kanály, hledají nové zákazníky a více se propojují s těmi stávajícími. Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, informací o podniku, analýz, zabezpečení a ochrany.
 
 V následujícím videu se podívejte na přehled služby Azure API Management a naučte se API Management používat k přidávání celé řady funkcí do rozhraní API, včetně řízení přístupu, omezování četnosti, sledování, protokolování událostí a ukládání odezev do mezipaměti – s minimálním úsilím na vaší straně.
@@ -75,7 +79,7 @@ Vývojáři představují uživatelské účty v instanci služby API Management
 
 Když se vývojáři přihlásí k odběru produktu, získají primární a sekundární klíč produktu. Tento klíč se používá při volání do rozhraní API produktu.
 
-Další informace najdete v článcích o [vytváření a zvaní vývojářů][vytváření a zvaní vývojářů] a [přidružení skupin k vývojářům][přidružení skupin k vývojářům].
+Další informace najdete v tématech [Vytváření a zvaní vývojářů][Vytváření a zvaní vývojářů] a [Přidružení skupin k vývojářům][Přidružení skupin k vývojářům].
 
 ## <a name="policies"> </a> Zásady
 Zásady jsou vynikající funkcí služby API Management, která vydavatelům umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které se postupně provádí na základě požadavku nebo odezvy z rozhraní API. Mezi oblíbené příkazy patří převod formátu XML do formátu JSON a omezení četnosti volání, kterým omezíte množství příchozích volání od vývojáře. K dispozici je i mnoho dalších zásad.
@@ -86,18 +90,18 @@ Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v 
 > 
 > 
 
-Úplný seznam zásad služby API Management najdete v [referenční příručce o zásadách][referenční příručce o zásadách]. Další informace o používání a konfiguraci zásad najdete v článku [Zásady služby API Management][Zásady služby API Management]. Kurz týkající se vytváření produktu se zásadami kvót a omezování četnosti najdete v článku [Vytvoření a konfigurace pokročilých nastavení produktu][Vytvoření a konfigurace pokročilých nastavení produktu]. Ukázku najdete v následujícím videu.
+Úplný seznam zásad služby API Management najdete v [referenční příručce o zásadách][referenční příručce o zásadách]. Další informace o používání a konfiguraci zásad najdete v článku [Zásady služby API Management][Zásady služby API Management]. Kurz týkající se vytváření produktů se zásadami kvót a omezování četnosti najdete v článku [Vytvoření a konfigurace pokročilých nastavení produktu][Vytvoření a konfigurace pokročilých nastavení produktu]. Ukázku najdete v následujícím videu.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
 > 
 
-## <a name="developer-portal"> </a> portálu pro vývojáře
+## <a name="developer-portal"> </a> Portál pro vývojáře
 Portál pro vývojáře je místo, na kterém se můžou vývojáři dozvědět o vašich rozhraních API, zobrazit a volat operace a přihlásit se k odběru produktů. Potenciální zákazníci můžou navštívit portál pro vývojáře, zobrazovat rozhraní API a operace a zaregistrovat se. Adresa URL portálu pro vývojáře je umístěná na řídicím panelu na portálu Azure Classic vaší instance služby API Management.
 
 Vzhled portálu pro vývojáře můžete přizpůsobit přidáním vlastního obsahu, přizpůsobením stylů a přidáním brandingu.
 
-## Služba API Management a ekonomika rozhraní API
+## <a name="api-management-and-the-api-economy"></a>Služba API Management a ekonomika rozhraní API
 Pokud se chcete o službě API Management dozvědět víc, podívejte se na následující prezentaci z konference Microsoft Ignite 2015.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
@@ -115,9 +119,9 @@ Pokud se chcete o službě API Management dozvědět víc, podívejte se na nás
 [Přidání operací do rozhraní API]: api-management-howto-add-operations.md
 [Vytvoření a publikování produktu]: api-management-howto-add-products.md
 [Vytvoření a používání skupin]: api-management-howto-create-groups.md
-[přidružení skupin k vývojářům]: api-management-howto-create-groups.md#associate-group-developer
+[Přidružení skupin k vývojářům]: api-management-howto-create-groups.md#associate-group-developer
 [Vytvoření a konfigurace pokročilých nastavení produktu]: api-management-howto-product-with-rules.md
-[vytváření a zvaní vývojářů]: api-management-howto-create-or-invite-developers.md
+[Vytváření a zvaní vývojářů]: api-management-howto-create-or-invite-developers.md
 [referenční příručce o zásadách]: api-management-policy-reference.md
 [Zásady služby API Management]: api-management-howto-policies.md
 [Vytvoření instance služby API Management]: api-management-get-started.md#create-service-instance
@@ -128,6 +132,6 @@ Pokud se chcete o službě API Management dozvědět víc, podívejte se na nás
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Použití Azure Redis Cache | Microsoft Docs
-description: Zjistěte, jak zlepšit výkon aplikací Azure pomocí Azure Redis Cache.
+title: "Použití Azure Redis Cache | Dokumentace Microsoftu"
+description: "Zjistěte, jak zlepšit výkon aplikací Azure pomocí Azure Redis Cache."
 services: redis-cache,app-service
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+
 
 ---
-# Použití Azure Redis Cache
+# <a name="how-to-use-azure-redis-cache"></a>Použití Azure Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -40,7 +44,7 @@ Tento průvodce vám ukáže, jak použít klienta [StackExchange.Redis][StackEx
 
 <a name="getting-started-cache-service"></a>
 
-## Začínáme s Azure Redis Cache
+## <a name="get-started-with-azure-redis-cache"></a>Začínáme s Azure Redis Cache
 Začít s Azure Redis Cache je jednoduché. Abyste mohli začít, zřídíte a nakonfigurujete mezipaměť. Dále nakonfigurujete klienty mezipaměti pro přístup do mezipaměti. Po nakonfigurování klientů mezipaměti s nimi můžete začít pracovat.
 
 * [Vytvoření mezipaměti][Vytvoření mezipaměti]
@@ -48,24 +52,24 @@ Začít s Azure Redis Cache je jednoduché. Abyste mohli začít, zřídíte a n
 
 <a name="create-cache"></a>
 
-## Vytvoření mezipaměti
+## <a name="create-a-cache"></a>Vytvoření mezipaměti
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### Přístup do vaší mezipaměti po jejím vytvoření
+### <a name="to-access-your-cache-after-its-created"></a>Přístup do vaší mezipaměti po jejím vytvoření
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Další informace o konfiguraci mezipaměti najdete v tématu [Konfigurace Azure Redis Cache](cache-configure.md).
 
 <a name="NuGet"></a>
 
-## Konfigurace klientů mezipaměti
+## <a name="configure-the-cache-clients"></a>Konfigurace klientů mezipaměti
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Po konfiguraci klientského projektu pro používání mezipaměti můžete pro práci s mezipamětí použít techniky popsané v následujících sekcích.
 
 <a name="working-with-caches"></a>
 
-## Práce s mezipamětí
+## <a name="working-with-caches"></a>Práce s mezipamětí
 Kroky v tomto oddílu popisují, jak provádět běžné úkoly s mezipamětí.
 
 * [Připojení k mezipaměti][Připojení k mezipaměti]
@@ -74,7 +78,7 @@ Kroky v tomto oddílu popisují, jak provádět běžné úkoly s mezipamětí.
 
 <a name="connect-to-cache"></a>
 
-## Připojení k mezipaměti
+## <a name="connect-to-the-cache"></a>Připojení k mezipaměti
 Chcete-li pracovat s mezipamětí prostřednictvím kódu programu, potřebujete odkaz na mezipaměť. Přidejte následující řádek na začátek souboru, ve kterém chcete použít klienta StackExchange.Redis pro přístup do Azure Redis Cache.
 
     using StackExchange.Redis;
@@ -140,7 +144,7 @@ Nyní, když už víte, jak se připojit k instanci služby Azure Redis Cache a 
 
 <a name="add-object"></a>
 
-## Přidání objektů do mezipaměti a jejich načtení
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Přidání objektů do mezipaměti a jejich načtení
 Položky lze ukládat a načítat z mezipaměti pomocí metod `StringSet``StringGet`
 
     // If key1 exists, it is overwritten.
@@ -166,7 +170,7 @@ Chcete-li zadat vypršení platnosti položky v mezipaměti, použijte parametr 
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## Práce s objekty .NET v mezipaměti
+## <a name="work-with-net-objects-in-the-cache"></a>Práce s objekty .NET v mezipaměti
 Azure Redis Cache může do mezipaměti ukládat objekty .NET i primitivní datové typy. Objekty .NET je však nutné před uložením do mezipaměti serializovat. To má na starosti vývojář aplikace, kterému je tak poskytnuta flexibilita při výběru serializátoru.
 
 Jeden způsob, jak serializovat objekty, je použít metody serializace `JsonConvert` v balíčku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) a serializovat a deserializovat tak objekty do a z formátu JSON. Následující příklad ukazuje získání a nastavení pomocí instance objektu `Employee`
@@ -191,19 +195,19 @@ Jeden způsob, jak serializovat objekty, je použít metody serializace `JsonCon
 
 <a name="next-steps"></a>
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zjistěte více o Azure Redis Cache.
 
 * Prohlédněte si poskytovatele ASP.NET pro Azure Redis Cache.
   * [Zprostředkovatel stavu relace Azure Redis](cache-aspnet-session-state-provider.md)
   * [Poskytovatel výstupní mezipaměti ASP.NET služby Azure Redis Cache](cache-aspnet-output-cache-provider.md)
 * [Povolte diagnostiku mezipaměti](cache-how-to-monitor.md#enable-cache-diagnostics), abyste mohli [monitorovat](cache-how-to-monitor.md) stav svojí mezipaměti. Metriky lze zobrazit na webu Azure Portal a můžete je také [stáhnout a revidovat](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) pomocí nástrojů dle vašeho výběru.
-* Prohlédněte si [dokumentaci ke klientu mezipaměti StackExchange.Redis][dokumentaci ke klientu mezipaměti StackExchange.Redis].
+* Projděte si [dokumentaci ke klientu mezipaměti StackExchange.Redis][dokumentaci ke klientu mezipaměti StackExchange.Redis].
   * K Azure Redis Cache lze přistupovat z mnoha klientů Redis a programovacích jazyků. Další informace najdete na stránce [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Cache lze rovněž použít se službami a nástroji třetích stran, jako jsou Redsmin a Redis Desktop Manager.
   * Další informace o nástroji Redsmin najdete v tématu [Načtení připojovacího řetězce Azure Redis a jeho použití s Redsmin][Načtení připojovacího řetězce Azure Redis a jeho použití s Redsmin].
   * [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) umožňuje získat přístup k datům v Azure Redis Cache a zkoumat je pomocí grafického uživatelského rozhraní.
-* Prohlédněte si dokumentaci k [Redis][Redis] a přečtěte si o [datových typech Redis][] a [15minutový úvod do datových typů Redis][15minutový úvod do datových typů Redis].
+* Prohlédněte si dokumentaci k [Redis][Redis] a přečtěte si o [datových typech Redis][datové typy Redis] a [15minutový úvod do datových typů Redis][15minutový úvod do datových typů Redis].
 
 <!-- INTRA-TOPIC LINKS -->
 [Další kroky]: #next-steps
@@ -233,7 +237,7 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 [CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
 
-[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
+[Správaklíčů]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
 
 [SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
 
@@ -280,7 +284,7 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 [Migrace na Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Ukázky služby Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Správa prostředků Azure pomocí skupin prostředků]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
+[Správa prostředků Azure pomocí skupin prostředků]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [dokumentaci ke klientu mezipaměti StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -295,6 +299,6 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

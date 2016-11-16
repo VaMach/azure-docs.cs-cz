@@ -1,4 +1,4 @@
-## Nasazení šablony ARM pomocí rozhraní příkazového řádku Azure
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Nasazení šablony ARM pomocí rozhraní příkazového řádku Azure
 Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní příkazového řádku Azure, použijte následující postup.
 
 1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
@@ -9,7 +9,7 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
     Toto je očekávaný výstup výše uvedeného příkazu:
    
         info:    New mode is arm
-3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **`azure group create`**, jak vidíte níže. Všimněte si výstupu příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/resource-group-overview.md).
+3. V případě potřeby vytvořte novou skupinu prostředků spuštěním příkazu **`azure group create`**, jak vidíte níže. Všimněte si výstupu příkazu. Seznam uvedený za výstupem vysvětluje použité parametry. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md).
    
         azure group create -n TestRG -l centralus
    
@@ -85,6 +85,8 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

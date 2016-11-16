@@ -1,12 +1,12 @@
 ---
-title: Šifrování virtuálního počítače Azure | Microsoft Docs
-description: Tento dokument vám pomůže zašifrovat virtuální počítač Azure, pokud dostanete výstrahu od služby Azure Security Center.
+title: "Šifrování virtuálního počítače Azure | Dokumentace Microsoftu"
+description: "Tento dokument vám pomůže zašifrovat virtuální počítač Azure, pokud dostanete výstrahu od služby Azure Security Center."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+
 
 ---
-# Šifrování virtuálního počítače Azure
+# <a name="encrypt-an-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Azure Security Center vás upozorní, pokud máte virtuální počítače, které nejsou šifrované. Tyto výstrahy se zobrazují jako upozornění s vysokou závažností. Doporučuje se tyto virtuální počítače zašifrovat.
 
 ![Doporučení pro šifrování disku](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
@@ -42,10 +46,10 @@ Existuje celá řada přístupů, které lze využít pro instalaci požadovaný
 > 
 > 
 
-## Instalace a konfigurace Azure Powershellu
+## <a name="install-and-configure-azure-powershell"></a>Instalace a konfigurace Azure Powershellu
 Budete potřebovat, aby na vašem počítači byl nainstalovaný Azure PowerShell verze 1.2.1 nebo novější. Všechny kroky nutné k tomu, abyste ve svém počítači mohli pracovat s Azure PowerShellem, najdete v článku [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Nejjednodušší je využít instalaci Web PI uvedenou v tomto článku. Instalaci Web PI využijte, i když už máte Azure PowerShell nainstalovaný. Zajistíte tak, abyste měli jeho nejnovější verzi.
 
-## Získání a spuštění konfiguračního skriptu požadovaných součástí pro Azure Disk Encryption
+## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Získání a spuštění konfiguračního skriptu požadovaných součástí pro Azure Disk Encryption
 Konfigurační skript požadovaných součástí pro Azure Disk Encryption nastaví všechny požadované součásti, které jsou potřeba pro šifrování Azure Virtual Machines.
 
 1. Přejděte na stránku GitHubu, která obsahuje [skript pro instalaci požadovaných součástí pro Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -70,10 +74,10 @@ Měli byste vidět něco podobného jako na následujícím obrázku.
 
 Horní podokno se označuje jako podokno skriptu a dolní podokno se označuje jako konzola. Tyto termíny využijeme dále v tomto článku.
 
-## Spuštění příkazu PowerShellu pro požadované součásti služby Azure Disk Encryption
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Spuštění příkazu PowerShellu pro požadované součásti služby Azure Disk Encryption
 Skript pro požadované součásti služby Azure Disk Encryption po spuštění zobrazí výzvu k zadání následujících informací:
 
-* **Název skupiny prostředků** –     Název skupiny prostředků, do kterého chcete vložit Key Vault.  Pokud skupina prostředků se zadaným názvem neexistuje, vytvoří se nová. Pokud už máte skupinu prostředků, kterou chcete použít v tomto předplatném, zadejte název této skupiny prostředků.
+* **Název skupiny prostředků** – 	Název skupiny prostředků, do kterého chcete vložit Key Vault.  Pokud skupina prostředků se zadaným názvem neexistuje, vytvoří se nová. Pokud už máte skupinu prostředků, kterou chcete použít v tomto předplatném, zadejte název této skupiny prostředků.
 * **Název pro Key Vault** – Název služby Key Vault, do které se umístí šifrovací klíče. Pokud služba Key Vault se zadaným názvem neexistuje, vytvoří se nová. Pokud už máte službu Key Vault, kterou chcete použít, zadejte název této služby Key Vault.
 * **Umístění** – Umístění služby Key Vault. Ověřte, že Key Vault a virtuální počítače, které se mají šifrovat, jsou ve stejném umístění. Pokud toto umístění neznáte, dále v tomto článku jsou uvedené kroky, které vám ukážou, jak toto umístění zjistit.
 * **Název aplikace Azure Active Directory** – Název aplikace Azure Active Directory, která se použije k zápisu tajných klíčů do služby Key Vault. Pokud aplikace se zadaným názvem neexistuje, vytvoří se nová. Pokud už máte aplikaci Azure Active Directory, kterou chcete použít, zadejte název této aplikace Azure Active Directory.
@@ -108,7 +112,7 @@ Výstup skriptu by měl vypadat podobně jako na následujícím obrázku:
 
 ![Výstup prostředí PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
 
-## Šifrování virtuálního počítače Azure
+## <a name="encrypt-the-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Nyní jste připraveni k šifrování virtuálního počítače. Pokud je virtuální počítač umístěný ve stejné skupině prostředků jako služba Key Vault, můžete přejít ke krokům pro šifrování. Pokud ale virtuální počítač není ve stejné skupině prostředků jako služba Key Vault, budete muset v konzole Integrovaného skriptovacího prostředí (ISE) v prostředí PowerShell zadat následující:
 
 **$resourceGroupName = <’skupina_prostředků_virtuálního_počítače’>**
@@ -122,7 +126,7 @@ Stiskněte **ENTER**. Měl by se zobrazit název skupiny prostředků, ve které
 
 ![Výstup prostředí PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
 
-### Kroky pro šifrování
+### <a name="encryption-steps"></a>Kroky pro šifrování
 Nejdřív musíte PowerShellu předat název virtuálního počítače, který chcete zašifrovat. V konzole zadejte:
 
 **$vmName = <’název_virtuálního_počítače’>**
@@ -167,7 +171,7 @@ V okně **Disky** uvidíte, že **šifrování** je **povolené**.
 
 ![Vlastnosti disku](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se monitorovat stav svých prostředků Azure.
@@ -175,6 +179,9 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

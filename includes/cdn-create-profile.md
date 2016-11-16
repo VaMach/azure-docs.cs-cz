@@ -7,13 +7,15 @@
     ![Nový profil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 2. Zadejte název svého profilu CDN.
 3. Vyberte **Umístění**.  Toto je umístění v Azure, kam se uloží informace o vašem profilu CDN.  Nemá žádný vliv na umístění koncových bodů CDN.
-4. Vyberte nebo vytvořte **skupinu prostředků**.  Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/resource-group-overview.md#resource-groups).
+4. Vyberte nebo vytvořte **skupinu prostředků**.  Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
 5. Vyberte možnost u položky **Cenová úroveň**.  V článku [Přehled sítě CDN](../articles/cdn/cdn-overview.md#azure-cdn-features) najdete porovnání cenových úrovní.
    
     ![Výběr cenové úrovně CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Vyberte **Předplatné** pro tento profil CDN.
 7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

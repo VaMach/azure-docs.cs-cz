@@ -1,12 +1,12 @@
 ---
-title: Začínáme s rozhraním příkazového řádku Azure Batch CLI | Microsoft Docs
-description: Rychlý úvod k příkazům Batch v rozhraní příkazového řádku Azure CLI pro správu prostředků služby Azure Batch
+title: "Začínáme s rozhraním příkazového řádku Azure Batch CLI | Dokumentace Microsoftu"
+description: "Rychlý úvod k příkazům Batch v rozhraní příkazového řádku Azure CLI pro správu prostředků služby Azure Batch"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+
 
 ---
-# Začínáme s rozhraním příkazového řádku Azure Batch CLI
+# <a name="get-started-with-azure-batch-cli"></a>Začínáme s rozhraním příkazového řádku Azure Batch CLI
 Víceplatformové rozhraní příkazového řádku Azure (Azure CLI) umožňuje spravovat účty Batch a prostředky, jako jsou fondy, úlohy a úkoly v příkazových prostředích systémů Windows, Linux a Mac. Prostřednictvím rozhraní příkazového řádku Azure CLI můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí prostřednictvím rozhraní API služby Batch, webu Azure Portal a rutin prostředí PowerShell služby Batch.
 
 Tento článek je založen na rozhraní příkazového řádku Azure CLI verze 0.10.5.
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * [Instalace rozhraní příkazového řádku Azure CLI](../xplat-cli-install.md)
 * [Připojení rozhraní příkazového řádku Azure CLI k předplatnému Azure](../xplat-cli-connect.md)
 * Přepnutí do **režimu Resource Manager**: `azure config mode arm`
@@ -31,16 +35,16 @@ Tento článek je založen na rozhraní příkazového řádku Azure CLI verze 0
 > 
 > 
 
-## Nápověda k příkazům
+## <a name="command-help"></a>Nápověda k příkazům
 Můžete zobrazit text nápovědy pro každý příkaz v rámci rozhraní příkazového řádku Azure CLI, pokud za názvem příkazu zadáte jediný parametr `-h`. Například:
 
-* Chcete-li zobrazit nápovědu pro příkaz `azure`, zadejte: `azure -h`
-* Chcete-li vypsat seznam všech příkazů Batch v rámci rozhraní příkazového řádku, zadejte: `azure batch -h`
-* Chcete-li získat nápovědu k vytvoření účtu Batch, zadejte: `azure batch account create -h`
+* Pokud chcete zobrazit nápovědu pro příkaz `azure`, zadejte: `azure -h`
+* Pokud chcete vypsat seznam všech příkazů Batch v rámci rozhraní příkazového řádku, zadejte: `azure batch -h`
+* Pokud chcete získat nápovědu k vytvoření účtu Batch, zadejte: `azure batch account create -h`
 
 Pokud si nejste jisti, pomocí parametru příkazového řádku `-h` můžete zobrazit nápovědu pro kterýkoli příkaz rozhraní příkazového řádku Azure CLI.
 
-## Vytvoření účtu Batch
+## <a name="create-a-batch-account"></a>Vytvoření účtu Batch
 Použití:
 
     azure batch account create [options] <name>
@@ -58,7 +62,7 @@ Vytvoří nový účet Batch se zadanými parametry. Musíte zadat alespoň umí
 > 
 > 
 
-### Propojený účet úložiště (automatické úložiště)
+### <a name="linked-storage-account-autostorage"></a>Propojený účet úložiště (automatické úložiště)
 Při vytváření můžete s účtem Batch volitelně propojit účet Storage pro **obecné účely**. Funkce [balíčků aplikací](batch-application-packages.md) účtu Batch využívá úložiště Blob Storage v propojeném účtu úložiště pro obecné účely, stejně jako knihovna .NET [Batch File Conventions](batch-task-output.md). Tyto volitelné funkce vám pomohou při nasazení aplikací spouštěných vašimi úkoly Batch a při zachování dat, které vytvářejí.
 
 Chcete-li propojit existující účet Azure Storage s novým účtem Batch při jeho vytváření, zadejte parametr `--autostorage-account-id`. Tato možnost vyžaduje plně kvalifikované ID prostředku účtu úložiště.
@@ -71,7 +75,7 @@ Potom použijte hodnotu **Url** hodnotu pro parametr `--autostorage-account-id`.
 
     azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
-## Odstranění účtu Batch
+## <a name="delete-a-batch-account"></a>Odstranění účtu Batch
 Použití:
 
     azure batch account delete [options] <name>
@@ -82,10 +86,10 @@ Příklad:
 
 Odstraní určený účet Batch. Po zobrazení výzvy potvrďte, že chcete účet odebrat (dokončení odebírání účtu může nějakou dobu trvat).
 
-## Správa přístupových klíčů pro účet
+## <a name="manage-account-access-keys"></a>Správa přístupových klíčů pro účet
 Pro [vytváření a úpravu prostředků](#create-and-modify-batch-resources) v účtu Batch je potřebný přístupový klíč.
 
-### Vypsání přístupových klíčů
+### <a name="list-access-keys"></a>Vypsání přístupových klíčů
 Použití:
 
     azure batch account keys list [options] <name>
@@ -96,7 +100,7 @@ Příklad:
 
 Vypíše přístupové klíče pro daný účet Batch.
 
-### Vygenerování nového přístupového klíče
+### <a name="generate-a-new-access-key"></a>Vygenerování nového přístupového klíče
 Použití:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
@@ -107,10 +111,10 @@ Příklad:
 
 Znovu vygeneruje určený klíč účtu pro daný účet Batch.
 
-## Vytváření a úpravy prostředků služby Batch
+## <a name="create-and-modify-batch-resources"></a>Vytváření a úpravy prostředků služby Batch
 Pro vytváření, čtení, aktualizaci či odstraňování (souhrnně provádění operací CRUD) prostředků Batch, jako jsou fondy, výpočetní uzly, úlohy a úkoly, můžete použít rozhraní příkazového řádku Azure CLI. Tyto operace CRUD vyžadují název účtu Batch, přístupový klíč a koncový bod. Tyto položky můžete určit pomocí parametrů `-a`, `-k`, a `-u`. Můžete také nastavit [proměnné prostředí](#credential-environment-variables), které jsou rozhraním příkazového řádku CLI využívány automaticky (pokud mají přiřazenou hodnotu).
 
-### Proměnné prostředí pro pověření
+### <a name="credential-environment-variables"></a>Proměnné prostředí pro pověření
 Namísto zadávání parametrů `-a`, `-k`, a `-u` na příkazový řádek pro každý spouštěný příkaz můžete nastavit proměnné prostředí `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` a `AZURE_BATCH_ENDPOINT`. Rozhraní příkazového řádku Batch CLI tyto proměnné (pokud jsou nastavené) používá, takže lze parametry `-a`, `-k` a `-u`vynechat. Ve zbývající části tohoto článku se předpokládá použití uvedených proměnných prostředí.
 
 > [!TIP]
@@ -118,7 +122,7 @@ Namísto zadávání parametrů `-a`, `-k`, a `-u` na příkazový řádek pro k
 > 
 > 
 
-### Soubory JSON
+### <a name="json-files"></a>Soubory JSON
 Při vytváření prostředků Batch, jako jsou fondy a úlohy, můžete určit soubor JSON obsahující konfiguraci nového prostředku namísto předávání jejích parametrů v podobě parametrů příkazového řádku. Například:
 
 `azure batch pool create my_batch_pool.json`
@@ -132,7 +136,7 @@ Chcete-li najít soubor JSON potřebný k vytvoření prostředku, vyhledejte po
 > 
 > 
 
-## Vytvoření fondu
+## <a name="create-a-pool"></a>Vytvoření fondu
 Použití:
 
     azure batch pool create [options] [json-file]
@@ -160,7 +164,7 @@ Fond můžete odstranit příkazem:
 > 
 > 
 
-## Vytvoření úlohy
+## <a name="create-a-job"></a>Vytvoření úlohy
 Použití:
 
     azure batch job create [options] [json-file]
@@ -175,13 +179,13 @@ Přidá k účtu Batch úlohu a určí fond, ve kterém se budou příslušné �
 
     azure batch job delete [job-id]
 
-## Vypsání seznamu fondů, úloh, úkolů a dalších prostředků
+## <a name="list-pools-jobs-tasks-and-other-resources"></a>Vypsání seznamu fondů, úloh, úkolů a dalších prostředků
 Každý typ prostředku Batch podporuje příkaz `list`, který zadá dotaz na účet Batch a vypíše seznam prostředků příslušného typu. Můžete například vypsat seznam fondů v rámci vašeho účet a seznam úkolů v rámci úloh:
 
     azure batch pool list
     azure batch task list --job-id "job001"
 
-### Efektivní výpisy seznamů prostředků
+### <a name="listing-resources-efficiently"></a>Efektivní výpisy seznamů prostředků
 Dotazování lze urychlit, pokud pro operace `list` určíte parametry klauzule **select**, **filter** a **expand**. Pomocí těchto parametrů můžete omezit množství dat vrácené službou Batch. Jelikož veškeré filtrování probíhá na straně serveru, přenášejí se pouze data, která vás zajímají. Při provádění operací vypsání seznamu můžete pomocí těchto klauzulí snížit využití šířky pásma (a tedy čas).
 
 Tento příkaz například vrátí pouze fondy, jejichž ID začíná řetězcem „renderTask“:
@@ -190,13 +194,13 @@ Tento příkaz například vrátí pouze fondy, jejichž ID začíná řetězcem
 
 Rozhraní příkazového řádku Batch CLI podporuje všechny tři klauzule podporované službou Batch:
 
-* `--select-clause [select-clause]`  Vrácení podmnožiny vlastností pro každou entitu.
-* `--filter-clause [filter-clause]`  Vrácení pouze těch entit, které odpovídají zadanému výrazu OData.
-* `--expand-clause [expand-clause]`  Získání informací o entitách v rámci jediného základního volání REST. Klauzule expand v současné době podporuje pouze vlastnost `stats`.
+* `--select-clause [select-clause]` Vrácení podmnožiny vlastností pro každou entitu
+* `--filter-clause [filter-clause]` Vrácení pouze těch entit, které odpovídají zadanému výrazu OData
+* `--expand-clause [expand-clause]` Získání informací o entitách v rámci jediného základního volání REST. Klauzule expand v současné době podporuje pouze vlastnost `stats`.
 
 Podrobnosti o uvedených třech klauzulích a jejich použití v dotazech pro vypsání seznamu najdete v článku [Efektivní dotazování na službu Azure Batch](batch-efficient-list-queries.md).
 
-## Správa balíčků aplikací
+## <a name="application-package-management"></a>Správa balíčků aplikací
 Balíčky aplikací umožňují zjednodušené nasazování aplikací ve výpočetních uzlech ve vašich fondech. Prostřednictvím rozhraní příkazového řádku Azure CLI můžete odesílat balíčky aplikací, spravovat verze balíčků či balíčky odstraňovat.
 
 Vytvoření nové aplikace a přidání verze balíčku:
@@ -217,7 +221,7 @@ Nastavte pro aplikaci **výchozí verzi**:
 
     azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
-### Nasazení balíčku aplikace
+### <a name="deploy-an-application-package"></a>Nasazení balíčku aplikace
 Při vytváření nového fondu můžete určit jeden nebo více balíčků aplikací pro nasazení. Když určíte balíček při vytváření fondu, bude nasazen v každém uzlu při jeho přidání do fondu. Balíčky se také nasazují při restartování uzlu nebo jeho obnovení z image.
 
 Pokud vytváříte fond pro nasazení balíčku aplikace na uzly fondu při jejich přidávání do fondu, zadejte parametr `--app-package-ref`. Parametr `--app-package-ref` přijímá seznam ID aplikací pro nasazení na výpočetní uzly (jako oddělovače seznamu se používají středníky).
@@ -233,7 +237,7 @@ Další informace o balíčcích aplikací najdete v článku [Nasazení aplikac
 > 
 > 
 
-### Aktualizace balíčků aplikací fondu
+### <a name="update-a-pools-application-packages"></a>Aktualizace balíčků aplikací fondu
 Chcete-li aktualizovat aplikace přiřazené k existujícímu fondu, spusťte příkaz `azure batch pool set` s parametrem `--app-package-ref`:
 
     azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
@@ -249,7 +253,7 @@ Chcete-li nasadit nový balíček aplikace na výpočetní uzly, které jsou ji�
 
 Mějte na paměti, že před nasazením již musíte mít aplikaci nakonfigurovanou s použitím výchozí verze (`azure batch application set [options] --default-version <version-id>`).
 
-## Rady pro řešení potíží
+## <a name="troubleshooting-tips"></a>Rady pro řešení potíží
 Cílem této části je poskytnout vám prostředky, které můžete použít při řešení potíží s rozhraním příkazového řádku Azure CLI. Nemusí sice vyřešit všechny problémy, může vám ale pomoci zúžit rozsah možných příčin a odkázat vás na prostředky nápovědy.
 
 * Použití parametru `-h` k získání **textu nápovědy** pro kterýkoli příkaz rozhraní příkazového řádku CLI
@@ -258,7 +262,7 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 * [Fórum Batch na webu MSDN][batch_forum] je vynikajícím prostředkem nápovědy a je pečlivě sledováno členy týmu Batch. Pokud narazíte na problémy nebo hledáte pomoc s konkrétní operací, neváhejte uveřejnit zde své otázky.
 * Rozhraní příkazového řádku Azure CLI v současné době nepodporuje všechny operace s prostředky Batch. Nyní například nelze pro fond určit *verzi* balíčku aplikace, nýbrž jen ID balíčku. V takových případech může být potřebné zadat pro příkaz parametr `--json-file` namísto použití parametrů příkazového řádku. Dbejte na to, abyste stále měli k dispozici nejnovější verzi rozhraní příkazového řádku CLI a mohli využívat budoucí vylepšení.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * V článku [Nasazení aplikace pomocí balíčků aplikací v Azure Batch](batch-application-packages.md) se dozvíte, jak lze tuto funkci použít ke správě a nasazení aplikací, které spouštíte ve výpočetních uzlech Batch.
 * Další informace o snižování počtu položek a typů informací, které se vrací pro dotazy na službu Batch, najdete v článku [Efektivní dotazování na službu Batch](batch-efficient-list-queries.md).
 
@@ -268,6 +272,7 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

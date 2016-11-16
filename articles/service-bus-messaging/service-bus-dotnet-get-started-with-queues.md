@@ -1,12 +1,12 @@
 ---
-title: Začínáme s frontami služby Service Bus | Microsoft Docs
-description: Postup při psaní konzolové aplikace v jazyce C# pro zasílání zpráv ve službě Service Bus
+title: "Začínáme s frontami služby Service Bus | Dokumentace Microsoftu"
+description: "Postup při psaní konzolové aplikace v jazyce C# pro zasílání zpráv ve službě Service Bus"
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Začínáme s frontami služby Service Bus
@@ -33,17 +37,17 @@ V tomto kurzu provedeme tyto kroky:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
 Pokud už máte obor názvů služby Service Bus vytvořený, přejděte do části [Vytvoření fronty pomocí webu Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Vytvoření fronty pomocí webu Azure Portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Vytvoření fronty pomocí webu Azure Portal
 Pokud už máte frontu služby Service Bus vytvořenou, přejděte do části [Zasílání zpráv do fronty](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3.-send-messages-to-the-queue"></a>3. Zasílání zpráv do fronty
+## <a name="3-send-messages-to-the-queue"></a>3. Zasílání zpráv do fronty
 Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konzolovou aplikaci v jazyce C#.
 
 ### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
@@ -99,7 +103,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
    
       ![Počet zpráv][queue-message]
 
-## <a name="4.-receive-messages-from-the-queue"></a>4. Přijetí zpráv z fronty
+## <a name="4-receive-messages-from-the-queue"></a>4. Přijetí zpráv z fronty
 1. Vytvořte novou konzolovou aplikaci a přidejte odkaz na balíček NuGet služby Service Bus, podobně jako předtím u odesílací aplikace.
 2. Na začátek souboru Program.cs přidejte následující příkaz `using`.
    
@@ -172,6 +176,7 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

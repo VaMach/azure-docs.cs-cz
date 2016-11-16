@@ -1,12 +1,12 @@
 ---
-title: Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus | Microsoft Docs
-description: Kurz REST pro zprostředkované zasílání zpráv
+title: "Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus | Dokumentace Microsoftu"
+description: "Kurz REST pro zprostředkované zasílání zpráv"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Kurz REST pro zprostředkované zasílání zpráv ve službě Service Bus
@@ -22,7 +26,7 @@ ms.author: sethm
 V tomto kurzu se dozvíte, jak vytvořit základní frontu a téma/odběr pro Azure Service Bus na základě REST.
 
 ## <a name="create-a-namespace"></a>Vytvoření oboru názvů
-Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
+Nejdřív je potřeba vytvořit obor názvů služby a získat klíč [sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém automaticky vygeneruje SAS klíč při vytvoření oboru názvů služby. Kombinace oboru názvů služby a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Fronty služby Service Bus vám umožňují ukládat zprávy do fronty FIFO (fir
 
 Kód v tomto kurzu provádí toto:
 
-* Použije váš obor názvů a klíč [Sdíleného přístupového podpisu](../service-bus/service-bus-sas-overview.md) (SAS) k získání přístupu k vašim prostředkům oboru názvů služby Service Bus.
+* Použije váš obor názvů a klíč [Sdíleného přístupového podpisu](service-bus-sas-overview.md) (SAS) k získání přístupu k vašim prostředkům oboru názvů služby Service Bus.
 * Vytvoří frontu, odešle do ní zprávu a přečte zprávu z fronty.
 * Vytvoří téma a odběr tohoto tématu, odešle do odběru zprávu a přečte ji z odběru.
 * Načte ze služby Service Bus všechny informace o frontě, tématu a odběru, včetně pravidel odběru.
@@ -139,7 +143,7 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
 ## <a name="create-management-credentials"></a>Vytvoření pověření ke správě
 V dalším kroku se napíše metoda, která zpracuje obor názvů a klíč SAS, které jste zadali v předchozím kroku, a vrátí SAS token. Tento příklad vytvoří SAS token, který bude platit jednu hodinu.
 
-### <a name="create-a-getsastoken()-method"></a>Vytvořte metodu GetSASToken()
+### <a name="create-a-getsastoken-method"></a>Vytvořte metodu GetSASToken()
 Následující kód vložte za metodu `Main()` ve třídě `Program`:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Další informace najdete v těchto článcích:
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-* [Základy služby Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Základy služby Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Kurz k rozhraní REST pro Service Bus Relay](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

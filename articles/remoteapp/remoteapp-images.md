@@ -1,11 +1,11 @@
 ---
-title: Co jsou image šablon Azure Remote Appu? | Microsoft Docs
-description: Informace o imagích šablon, které jsou součástí Azure RemoteAppu.
+title: "Co jsou image šablon Azure Remote Appu? | Dokumentace Microsoftu"
+description: "Informace o imagích šablon, které jsou součástí Azure RemoteAppu."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+
 
 ---
-# Co jsou image šablon Azure Remote Appu?
+# <a name="what-is-in-the-azure-remoteapp-template-images"></a>Co jsou image šablon Azure Remote Appu?
 > [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -36,7 +40,7 @@ Vaše předplatné Azure RemoteAppu obsahuje tři image šablon:
 
 Přečtěte si podrobnosti o tom, co každý image obsahuje.
 
-## Windows Server 2012 R2 (dále jen image vanilla)
+## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (dále jen image vanilla)
 Tento image je založený na operačním systému Microsoft Windows Server 2012 R2 Datacenter a má nainstalované následující role a funkce, aby splnil požadavky pro image šablony Azure RemoteApp:
 
 * Rozhraní .NET Framework 4.5, 3.5.1, 3.5
@@ -55,7 +59,7 @@ Tento image má také nainstalované následující aplikace:
 * Microsoft System Center 2012 Endpoint Protection
 * Microsoft Windows Media Player
 
-## Microsoft Office 365 ProPlus (požadován odběr)
+## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (požadován odběr)
 Office 365 je nejpožadovanější aplikace, takže jsme vytvořili „vlastní“ image, se kterým můžete pracovat.
 
 Tento image je rozšířením image vanilla a kromě komponent popsaných v imagi Windows Server 2012 R2 má nainstalované následující komponenty aplikace Microsoft Office 365 ProPlus:
@@ -86,7 +90,7 @@ Plná funkčnost aplikací Office 365 ProPlus je k dispozici pouze pro uživatel
 
 Upozorňujeme, že k aplikacím Office 365 ProPlus, Visio Pro a Project Pro potřebujete samostatnou licenci (každá má svou vlastní).
 
-## Microsoft Office 2013 Professional Plus (pouze zkušební verze)
+## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (pouze zkušební verze)
 Během bezplatné zkušební doby můžete testovat službu s imagem Office 2013.
 
 Tento image je rozšířením image vanilla a kromě komponent popsaných v imagi Windows Server 2012 R2 má nainstalované následující komponenty aplikace Microsoft Office 2013 Professional Plus:
@@ -108,6 +112,9 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

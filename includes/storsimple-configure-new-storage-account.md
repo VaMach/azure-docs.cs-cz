@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Přidání nového účtu úložiště v prodejní verzi zařízení StorSimple (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-ga"></a>Přidání nového účtu úložiště v prodejní verzi zařízení StorSimple (GA)
 1. Na úvodní stránce služby StorSimple Manager vyberte svoji službu a dvakrát na ni klikněte. Tím přejdete na stránku **Rychlý start**. Vyberte stránku **Konfigurace**.
 2. Klikněte na **Add/edit storage account** (Přidat nebo upravit účet úložiště).
 3. V dialogovém okně **Add/Edit Storage Account** (Přidat nebo upravit účet úložiště) proveďte tyto kroky:
@@ -14,6 +14,8 @@
       ![Přidání účtu úložiště](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Nově vytvořený účet úložiště se zobrazí na stránce **Konfigurace** v části **Účty úložiště**. Uložte nově vytvořený účet úložiště kliknutím na **Uložit**. Po zobrazení výzvy k potvrzení klikněte na **OK**.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

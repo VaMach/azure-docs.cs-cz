@@ -1,12 +1,12 @@
 ---
-title: Kurz k používání funkce PolyBase v SQL Data Warehouse | Microsoft Docs
-description: Zjistěte, co je PolyBase a jak tuto funkci používat pro scénáře datových skladů.
+title: "Kurz k používání funkce PolyBase v SQL Data Warehouse | Dokumentace Microsoftu"
+description: "Zjistěte, co je PolyBase a jak tuto funkci používat pro scénáře datových skladů."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Načtení dat pomocí funkce PolyBase v SQL Data Warehouse
@@ -40,7 +44,7 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat
 
 * Databázi SQL Data Warehouse
 * Účet úložiště Azure typu Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS) nebo Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
-* Nástroj příkazového řádku AzCopy. Stáhněte a nainstalujte si [nejnovější verzi AzCopy][], která se instaluje s nástroji Microsoft Azure Storage Tools.
+* Nástroj příkazového řádku AzCopy. Stáhněte a nainstalujte si [nejnovější verzi AzCopy][nejnovější verze AzCopy], která se instaluje s nástroji Microsoft Azure Storage Tools.
   
     ![Nástroje Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -123,7 +127,7 @@ Funkce PolyBase používá pro přístup k datům v Azure Blob Storage externí 
 
 V příkladě v tomto kroku se k vytvoření externí tabulky používají následující příkazy jazyka Transact-SQL.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného klíče vašich přihlašovacích údajů pro vaši databázi
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného kódu přihlašovacích údajů pro vaši databázi
 * [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] k zadání ověřovacích informací pro váš účet úložiště Azure
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] k určení umístění vaší služby Azure Blob Storage
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] k určení formátu vašich dat
@@ -274,6 +278,6 @@ Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najde
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

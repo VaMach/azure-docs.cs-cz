@@ -1,13 +1,13 @@
 ---
-title: Zřízení virtuálního počítače s SQL Serverem | Microsoft Docs
-description: Zjistěte, jak v Azure vytvořit virtuální počítač s SQL Serverem pomocí Portálu. V tomto kurzu se používá režim Resource Manageru.
+title: "Zřízení virtuálního počítače s SQL Serverem | Dokumentace Microsoftu"
+description: "Zjistěte, jak v Azure vytvořit virtuální počítač s SQL Serverem pomocí Portálu. V tomto kurzu se používá režim Resource Manageru."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-editor: ''
+editor: 
 manager: jhubbard
 tags: azure-resource-manager
-
+ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 842b6e0b69661a91ebb997346b34da00576378c2
+
 
 ---
-# Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal
+# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal
 > [!div class="op_single_selector"]
-> * [Portál](virtual-machines-windows-portal-sql-server-provision.md)
+> * [Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
@@ -35,7 +39,7 @@ V tomto kurzu provedete následující:
 * [Otevření virtuálního počítače pomocí Vzdálené plochy](#open-the-vm-with-remote-desktop)
 * [Vzdálené připojení k SQL Serveru](#connect-to-sql-server-remotely)
 
-## Výběr image virtuálního počítače s SQL Serverem z galerie
+## <a name="select-a-sql-vm-image-from-the-gallery"></a>Výběr image virtuálního počítače s SQL Serverem z galerie
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu.
    
    > [!NOTE]
@@ -60,7 +64,7 @@ V tomto kurzu provedete následující:
    
     ![Vytvoření virtuálního počítače s SQL Serverem pomocí Resource Manageru](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## Nakonfigurování virtuálního počítače
+## <a name="configure-the-vm"></a>Nakonfigurování virtuálního počítače
 Pro konfiguraci virtuálního počítače s SQL Serverem se používá pět oken.
 
 | Krok | Popis |
@@ -71,7 +75,7 @@ Pro konfiguraci virtuálního počítače s SQL Serverem se používá pět oken
 | **Nastavení SQL Serveru** |[Konfigurace nastavení SQL Serveru](#4-configure-sql-server-settings) |
 | **Souhrn** |[Kontrola souhrnných informací](#5-review-the-summary) |
 
-## 1. Konfigurace základního nastavení
+## <a name="1-configure-basic-settings"></a>1. Konfigurace základního nastavení
 V okně **Základy** zadejte následující informace:
 
 * Zadejte jedinečný **název** virtuálního počítače.
@@ -81,7 +85,7 @@ V okně **Základy** zadejte následující informace:
 * Do pole **Skupina prostředků** zadejte název pro novou skupinu prostředků. Pokud chcete použít existující skupinu prostředků, klikněte na **Vybrat existující**. Skupina prostředků je kolekce souvisejících prostředků v Azure (virtuální počítače, účty úložiště, virtuální sítě atd.).
   
   > [!NOTE]
-  > Použití nové skupinu prostředků je užitečné, pokud testujete nasazení SQL Serveru v Azure nebo se snažíte o něm dozvědět více. Až s testováním skončíte, odstraňte skupinu prostředků. Automaticky se tím odstraní virtuální počítač se všemi prostředky spojenými s danou skupinu prostředků. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../resource-group-overview.md).
+  > Použití nové skupinu prostředků je užitečné, pokud testujete nasazení SQL Serveru v Azure nebo se snažíte o něm dozvědět více. Až s testováním skončíte, odstraňte skupinu prostředků. Automaticky se tím odstraní virtuální počítač se všemi prostředky spojenými s danou skupinu prostředků. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
   > 
   > 
 * Vyberte **umístění** pro toto nasazení.
@@ -89,7 +93,7 @@ V okně **Základy** zadejte následující informace:
   
     ![Okno Základy pro SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## 2. Volba velikosti virtuálního počítače
+## <a name="2-choose-virtual-machine-size"></a>2. Volba velikosti virtuálního počítače
 V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte velikost**. V okně se po jeho otevření zobrazí doporučené velikosti počítačů na základě šablony, kterou jste vybrali. Uvidíte tu také odhadované měsíční náklady na provozování virtuálního počítače.
 
 ![Možnosti velikosti virtuálního počítače s SQL Serverem](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
@@ -103,7 +107,7 @@ Pro úlohy v produkčním prostředí doporučujeme vybrat velikost virtuálníh
 
 Zvolte velikost počítače a potom klikněte na **Vybrat**.
 
-## 3. Konfigurace volitelných funkcí
+## <a name="3-configure-optional-features"></a>3. Konfigurace volitelných funkcí
 V okně **Nastavení** nakonfigurujte úložiště, sítě a monitorování Azure pro virtuální počítač.
 
 * V části **Úložiště** zadejte **typ disku** Standard nebo Premium (SSD). Pro používání v produkčním prostředí se doporučuje Storage úrovně Premium.
@@ -120,20 +124,20 @@ V okně **Nastavení** nakonfigurujte úložiště, sítě a monitorování Azur
 
 Po dokončení konfigurace těchto nastavení klikněte na **OK**.
 
-## 4. Konfigurace nastavení SQL Serveru
+## <a name="4-configure-sql-server-settings"></a>4. Konfigurace nastavení SQL Serveru
 V okně **Nastavení SQL Serveru** nakonfigurujte konkrétní nastavení a optimalizace pro SQL Server. Pro SQL Server můžete například nakonfigurovat následující nastavení.
 
 | Nastavení |
 | --- |
 | [Připojení](#connectivity) |
-| [Authentication](#authentication) |
+| [Ověřování](#authentication) |
 | [Konfigurace úložiště](#storage-configuration) |
 | [Automatizované opravy](#automated-patching) |
 | [Automatizované zálohování](#automated-backup) |
 | [Integrace se službou Azure Key Vault](#azure-key-vault-integration) |
 | [Služby R](#r-services) |
 
-### Připojení
+### <a name="connectivity"></a>Připojení
 V části **Připojení SQL** zadejte typ přístupu, který chcete mít k instanci SQL Serveru na tomto virtuálním počítači. Pro účely tohoto kurzu vyberte možnost **Veřejné (internet)**, která umožňuje připojovat se SQL Serveru z počítačů nebo služeb na internetu. Když je vybraná tato možnost, Azure automaticky nakonfiguruje bránu firewall a skupinu zabezpečení sítě tak, aby umožňovaly přenosy na portu 1433.  
 
 ![Možnosti připojení SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
@@ -160,7 +164,7 @@ Obecně se doporučuje zvýšit zabezpečení výběrem nejvíce omezujícího p
 Pro **port** se používá výchozí hodnota 1433. Můžete ale zadat i jiné číslo portu.
 Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
-### Ověřování
+### <a name="authentication"></a>Ověřování
 Pokud budete chtít vyžadovat ověřování SQL Serveru, klikněte v části **Ověřování SQL** na **Povolit**.
 
 ![Ověřování SQL Serveru](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
@@ -174,7 +178,7 @@ Pokud povolíte ověřování SQL Serveru, zadejte **přihlašovací jméno** a 
 
 Pokud ověřování SQL Serveru nepovolíte, můžete pro připojení k instanci SQL Serveru používat účet místního správce ve virtuálním počítači.
 
-### Konfigurace úložiště
+### <a name="storage-configuration"></a>Konfigurace úložiště
 Klikněte na **Konfigurace úložiště** a zadejte požadavky na úložiště.
 
 ![Konfigurace úložiště SQL Serveru](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
@@ -197,14 +201,14 @@ Ve výchozím nastavení Azure optimalizuje úložiště takto: 5000 vstupně-v�
 > 
 > 
 
-### Automatizované opravy
+### <a name="automated-patching"></a>Automatizované opravy
 **Automatizované opravy** jsou ve výchozím nastavení povolené. Automatizované opravy umožňují na platformě Azure automaticky opravovat SQL Server a operační systém. Zadejte den v týdnu, čas a dobu trvání intervalu údržby. V té době pak Azure nainstaluje potřebné opravy. V rámci plánování intervalu údržby se pro čas používá národní prostředí virtuálních počítačů. Pokud nechcete, aby se v rámci Azure automaticky opravoval SQL Server a operační systém, klikněte na **Zakázat**.  
 
 ![Automatizované opravy pro SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
 Další informace najdete v tématu [Automatizované opravy pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
-### Automatizované zálohování
+### <a name="automated-backup"></a>Automatizované zálohování
 Automatické zálohování databází můžete pro všechny databáze povolit v části **Automatizované zálohování**. Automatizované zálohování je ve výchozím nastavení zakázané.
 
 Když povolíte automatizované zálohování SQL, můžete nakonfigurovat následující:
@@ -219,7 +223,7 @@ Pokud chcete zálohy šifrovat, klikněte na **Povolit**. Pak zadejte **heslo**.
 
  Další informace najdete v tématu [Automatizované zálohování pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-### Integrace se službou Azure Key Vault
+### <a name="azure-key-vault-integration"></a>Integrace se službou Azure Key Vault
 Pokud budete chtít ukládat tajné klíče zabezpečení v Azure pro šifrování, klikněte na **Integrace se službou Azure Key Vault** a klikněte na **Povolit**.
 
 ![Integrace se službou Azure Key Vault pro SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
@@ -230,14 +234,14 @@ V následující tabulce jsou uvedeny parametry, které jsou nezbytné pro konfi
 | --- | --- | --- |
 | **Adresa URL služby Key Vault** |Umístění služby Key Vault |https://contosokeyvault.vault.azure.net/ |
 | **Název objektu zabezpečení** |Hlavní název služby Azure Active Directory. Tento název se také označuje jako ID klienta. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **Tajný klíč objektu zabezpečení** |Tajný klíč objektu zabezpečení služby Azure Active Directory. Tento tajný klíč se také označuje jako Tajný klíč klienta. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **Tajný kód objektu zabezpečení** |Tajný klíč objektu zabezpečení služby Azure Active Directory. Tento tajný klíč se také označuje jako Tajný klíč klienta. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Název přihlašovacího údaje** |**Název přihlašovacího údaje:** Integrace se službou Azure Key Vault vytvoří přihlašovací údaje v rámci SQL Serveru, díky čemuž mají virtuální počítače přístup do trezoru klíčů. Zvolte název pro tyto přihlašovací údaje. |moje_přihlaš1 |
 
 Další informace najdete v tématu [Konfigurace Integrace se službou Azure Key Vault pro virtuální počítače Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
 Po dokončení konfigurace nastavení SQL Serveru klikněte na **OK**.
 
-### Služby R
+### <a name="r-services"></a>Služby R
 V edici SQL Serveru 2016 Enterprise je dostupná možnost [Služby R na SQL Serveru](https://msdn.microsoft.com/library/mt604845.aspx). Ta umožňuje pomocí SQL Serveru 2016 provádět pokročilou analýzu. V okně **Nastavení SQL Serveru** klikněte na **Povolit**.
 
 ![Povolení služeb R na SQL Serveru](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
@@ -247,7 +251,7 @@ V edici SQL Serveru 2016 Enterprise je dostupná možnost [Služby R na SQL Serv
 > 
 > 
 
-## 5. Kontrola souhrnných informací
+## <a name="5-review-the-summary"></a>5. Kontrola souhrnných informací
 V okně **Souhrn** zkontrolujte souhrn a pak kliknutím na **OK** vytvořte SQL Server, skupinu prostředků a prostředky zadané pro tento virtuální počítač.
 
 Nasazení můžete monitorovat z webu Azure Portal. Tlačítko **Oznámení** v horní části obrazovky zobrazuje základní stav nasazení.
@@ -257,7 +261,7 @@ Nasazení můžete monitorovat z webu Azure Portal. Tlačítko **Oznámení** v 
 > 
 > 
 
-## Otevření virtuálního počítače pomocí Vzdálené plochy
+## <a name="open-the-vm-with-remote-desktop"></a>Otevření virtuálního počítače pomocí Vzdálené plochy
 Podle následujícího postupu se připojte k virtuálnímu počítači pomocí Vzdálené plochy.
 
 1. Jakmile bude virtuální počítač Azure vytvořen, zobrazí se ikona virtuálního počítače v řídicím panelu Azure. Můžete ji také najít procházením stávajících virtuálních počítačů. Klikněte na nový virtuální počítač s SQL Serverem. Zobrazí se okno **Virtuální počítač** s podrobnostmi o vašem virtuálním počítači.
@@ -274,7 +278,7 @@ Po připojení k virtuálnímu počítači s SQL Serverem můžete spustit SQL S
 
 Přístup k počítači vám umožňuje podle potřeb přímo měnit nastavení počítače a SQL Serveru. Můžete například nakonfigurovat nastavení brány firewall nebo změnit nastavení konfigurace SQL Serveru.
 
-## Vzdálené připojení k SQL Serveru
+## <a name="connect-to-sql-server-remotely"></a>Vzdálené připojení k SQL Serveru
 V tomto kurzu jsme pro virtuální počítač vybrali **veřejný** přístup a **ověřování SQL Serveru**. Tato nastavení automaticky nakonfigurovala virtuální počítač tak, aby povoloval připojení k SQL Serveru z libovolného klienta přes internet (za předpokladu, že má správné přihlašovací údaje SQL Serveru).
 
 > [!NOTE]
@@ -288,13 +292,16 @@ Následující části vysvětlují, jak se připojit k instanci SQL Serveru na 
 > 
 > 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o používání SQL Serveru v Azure najdete v tématu [SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) a [Nejčastější dotazy](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v tématu [Azure Virtual Machines je nejlepší platformou pro SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
 [Projděte si mapy kurzů](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pro SQL Server na virtuálních počítačích Azure.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

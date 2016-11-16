@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure File Storage ve Windows | Microsoft Docs
-description: Ukládejte data souborů do cloudu pomocí Azure File Storage a připojte svou cloudovou sdílenou složku z virtuálního počítače Azure nebo z lokální aplikace s Windows.
+title: "Začínáme s Azure File Storage ve Windows | Dokumentace Microsoftu"
+description: "Ukládejte data souborů do cloudu pomocí Azure File Storage a připojte svou cloudovou sdílenou složku z virtuálního počítače Azure nebo z lokální aplikace s Windows."
 services: storage
 documentationcenter: .net
 author: mine-msft
 manager: aungoo
 editor: tysonn
-
+ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Začínáme s úložištěm Azure File ve Windows
@@ -31,7 +35,7 @@ Informace o škálovatelnosti a cílech výkonnosti pro File Storage najdete v t
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
-## <a name="video:-using-azure-file-storage-with-windows"></a>Video: Používání Azure File Storage s Windows
+## <a name="video-using-azure-file-storage-with-windows"></a>Video: Používání Azure File Storage s Windows
 Toto video ukazuje, jak ve Windows vytvořit a používat sdílené složky v Azure File.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
@@ -128,14 +132,18 @@ Teď vytvořte kontext účtu úložiště. Kontext obsahuje název účtu úlo�
 
 Místo `storage-account-name` a `storage-account-key` zadejte název svého účtu úložiště a klíč v následujícím příkladu.
 
+```powershell
     # create a context for account and key
     $ctx=New-AzureStorageContext storage-account-name storage-account-key
+```
 
 ### <a name="create-a-new-file-share"></a>Vytvoření nové sdílené složky
 Dál vytvořte novou sdílenou složku s názvem `logs`.
 
+```powershell
     # create a new share
     $s = New-AzureStorageShare logs -Context $ctx
+```
 
 Teď máte sdílenou složku v úložišti File. Dál přidáme nový adresář a soubor.
 
@@ -147,31 +155,39 @@ Teď máte sdílenou složku v úložišti File. Dál přidáme nový adresář 
 ### <a name="create-a-directory-in-the-file-share"></a>Vytvoření adresáře ve sdílené složce
 Dál ve sdílené složce vytvořte adresář. V následujícím příkladu má adresář název `CustomLogs`.
 
+```powershell
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
+```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>Uložení místního souboru do adresáře
 Teď do adresáře uložte místní soubor. V následujícím příkladu se uloží soubor z `C:\temp\Log1.txt`. Upravte cestu k souboru tak, aby odkazovala na platný soubor na vašem místním počítači.
 
+```powershell
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+```
 
 ### <a name="list-the-files-in-the-directory"></a>Zobrazení seznamu souborů v adresáři
 Pokud chcete soubor zobrazit v adresáři, můžete vyvolat seznam všech souborů v adresáři. Tento příkaz vrátí soubory a podadresáře v adresáři CustomLogs (pokud tam nějaké jsou).
 
+```powershell
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+```
 
 Get-AzureStorageFile vrátí seznam souborů a adresářů pro jakýkoli adresář, ve kterém se objekt předá. „Get-AzureStorageFile -Share $s“ vrátí seznam souborů a adresářů v kořenovém adresáři. Pokud chcete získat seznam souborů v podadresáři, musíte předat podadresář pro  Get-AzureStorageFile. Tohle to udělá – první část příkazu vrátí instanci adresáře podadresáře CustomLogs. To se potom předá do Get-AzureStorageFile, a to vrátí soubory a adresáře v CustomLogs.
 
 ### <a name="copy-files"></a>Kopírování souborů
 Od Azure PowerShell verze 0.9.7 můžete kopírovat soubor do jiného souboru, soubor do objektu nebo objekt blob do souboru. Dole ukážeme, jak se operace kopírovaní dají provést pomocí rutin PowerShell.
 
+```powershell
     # copy a file to the new directory
     Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+```
 
 ## <a name="mount-the-file-share"></a>Připojení sdílené složky
 Díky podpoře SMB 3.0 teď úložiště File podporuje šifrování a trvalé popisovače od klientů SMB 3.0. Podpora šifrování znamená, že klienti SMB 3.0 můžou připojit sdílenou složku odkudkoli, jako třeba z:
@@ -226,7 +242,7 @@ Teď můžete se sdílenou složkou pracovat z virtuálního počítače stejně
 
 Sdílenou složku taky můžete připojit z role, která běží v cloudové službě Azure, když se do ní vzdáleně přihlásíte.
 
-### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Připojení sdílené složky z lokálního klienta s Windows
+### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Připojení sdílené složky z lokálního klienta s Windows
 Pokud se chcete připojit ke sdílené složce z lokálního klienta, musíte nejdřív udělat tři kroky:
 
 * Nainstalovat verzi Windows, která podporuje SMB 3.0. Windows využije šifrování v SMB 3.0 pro bezpečný přenos dat mezi vaším lokálním klientem a sdílenou složkou Azure v cloudu.
@@ -253,7 +269,7 @@ Pokud chcete nainstalovat balíček Azure Configuration Manager, klikněte prav�
 
 Použití nástroje Azure Configuration Manager není povinné. Taky můžete použít API jako třeba [třídu ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) platformy .NET Framework.
 
-### <a name="save-your-storage-account-credentials-to-the-app.config-file"></a>Uložení přihlašovacích údajů pro účet úložiště do souboru app.config
+### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uložení přihlašovacích údajů pro účet úložiště do souboru app.config
 Dál uložte svoje přihlašovací údaje do souboru app.config vašeho projektu. Upravte soubor app.config tak, aby vypadal podobně jako v následujícím příkladu, `myaccount` nahraďte názvem svého účtu úložiště a `mykey` nahraďte svým klíčem účtu úložiště.
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -275,16 +291,19 @@ Dál uložte svoje přihlašovací údaje do souboru app.config vašeho projektu
 ### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
 V Průzkumníku řešení otevřete soubor `program.cs` a na začátek souboru přidejte následující deklarace oborů názvů.
 
+```csharp
     using Microsoft.Azure; // Namespace for Azure Configuration Manager
     using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
     using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="access-the-file-share-programmatically"></a>Programový přístup ke sdílené složce
 Dál přidejte následující kód k metodě `Main()` (po výše uvedeném kódu) pro získání připojovacího řetězce. Tento kód získá odkaz na soubor, který jsme vytvořili předtím, a vypíše obsah do okna konzoly.
 
+```csharp
     // Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
@@ -314,6 +333,7 @@ Dál přidejte následující kód k metodě `Main()` (po výše uvedeném kódu
             }
         }
     }
+```
 
 Výstup zobrazíte spuštěním konzolové aplikace.
 
@@ -324,6 +344,7 @@ Pokud nastavíte kvótu sdílené složky, můžete omezit celkovou velikost sou
 
 Dole uvedený příklad ukazuje, jak můžete zkontrolovat aktuální využití sdílené složky a jak nastavit kvótu pro sdílenou složku.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -351,12 +372,14 @@ Dole uvedený příklad ukazuje, jak můžete zkontrolovat aktuální využití 
         share.FetchAttributes();
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
+```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Vygenerování sdíleného přístupového podpisu pro soubor nebo sdílenou složku
 Klientská knihovna pro úložiště Azure od verze 5.x umožňuje vygenerovat sdílený přístupový podpis (SAS) pro sdílenou složku nebo konkrétní soubor. Můžete taky vytvořit sdílené zásady přístupu pro sdílenou složku ke správě sdílených přístupových podpisů. Vytvoření sdílených zásad přístupu se doporučuje, protože se tím nabízí způsob odvolání SAS v případě narušení jeho integrity nebo důvěryhodnosti.
 
 V následujícím příkladu se vytvoří sdílená zásada přístupu pro sdílenou složku a ta se pak použije k omezení pro SAS na souboru ve sdílené složce.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,6 +421,7 @@ V následujícím příkladu se vytvoří sdílená zásada přístupu pro sdíl
         fileSas.UploadText("This write operation is authenticated via SAS.");
         Console.WriteLine(fileSas.DownloadText());
     }
+```
 
 Další informace o vytváření a používání sdílených přístupových podpisů najdete v tématech [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md) a [Vytvoření a použití SAS se službou Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -415,6 +439,7 @@ Pomocí nástroje AzCopy taky můžete zkopírovat jeden soubor do jiného nebo 
 
 V následujícím příkladu se zkopíruje soubor do jiného souboru ve stejné sdílené složce. Protože tato operace kopírování kopíruje soubory ve stejném účtu úložiště, můžete pro kopírování použít ověření Sdíleným klíčem.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -454,12 +479,13 @@ V následujícím příkladu se zkopíruje soubor do jiného souboru ve stejné 
             }
         }
     }
-
+```
 
 **Kopírování souboru do objektu blob**
 
 V následujícím příkladu se vytvoří soubor a zkopíruje se do objektu blob ve stejném účtu úložiště. V příkladu se vytvoří SAS pro zdrojový soubor a služba ho při kopírování použije k ověření přístupu ke zdrojovému souboru.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -501,6 +527,7 @@ V následujícím příkladu se vytvoří soubor a zkopíruje se do objektu blob
     // Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
     Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+```
 
 Stejným způsobem můžete kopírovat objekt blob do souboru. Pokud je zdrojovým objektem objekt blob, vytvořte SAS k ověření přístupu k tomuto objektu blob při kopírování.
 
@@ -513,11 +540,14 @@ Následující ukázka kódu ukazuje, jak můžete použít Klientskou knihovnu 
 
 Nejdříve do souboru program.cs vedle příkazů, které jste přidali výše, přidejte následující `using` příkazy:
 
+```csharp
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+```
 
 Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdílený `ServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.Shared.Protocol`, úložiště File používá vlastní typ `FileServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.File.Protocol`. Aby se ale následující kód mohl zkompilovat, musí se z vašeho kódu odkazovat oba obory názvů.
 
+```csharp
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -556,7 +586,9 @@ Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdíle
     Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
     Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+```
 
+Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) (Soubory Azure – řešení problémů). 
 
 ## <a name="file-storage-faq"></a>Nejčastější dotazy týkající se úložiště File
 1. **Podporuje úložiště File ověření založené na Active Directory?**
@@ -603,6 +635,9 @@ Pamatujte, že zatímco úložiště Blob, Table a Queue používají typ sdíle
 14. **Používání Azure File Storage s IBM MQ**
     
     Společnost IBM vydala dokument, který zákazníky IBM MQ provede konfigurací Azure File Storage pro jejich službu. Další informace najdete v tématu [Nastavení Manažera fronty více instancí IBM MQ se službou Microsoft Azure File](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+15. **Jak mám řešit problémy s Azure File Storage?**
+    
+    Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) (Soubory Azure – řešení problémů).               
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
@@ -626,6 +661,9 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 * [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Nastavení trvalých připojení k Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

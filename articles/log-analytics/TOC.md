@@ -1,12 +1,13 @@
 # Přehled
 ## [Co je služba Log Analytics?](log-analytics-overview.md)
 ## [Zabezpečení dat](log-analytics-security.md)
-## [Nejčastější dotazy k Log Analytics](log-analytics-faq.md)
+
 # Začínáme
 ## [Registrace ke službě Log Analytics](log-analytics-get-started.md)
 ## [Správa přístupu](log-analytics-manage-access.md)
 ## [Proxy a brána firewall](log-analytics-proxy-firewall.md)
 ## [Údaje o využití](log-analytics-usage.md)
+## [Nejčastější dotazy k Log Analytics](log-analytics-faq.md)
 
 # Postup
 ## Integrace
@@ -48,7 +49,6 @@
 #### [Posouzení SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [Posouzení aktualizace systému](log-analytics-system-update.md)
-#### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [Linková data](log-analytics-wire-data.md)
 ## Analýza
@@ -60,9 +60,9 @@
 ### [Rutiny PowerShellu](log-analytics-powershell-workspace-configuration.md)
 ### [Rozhraní API pro prohledávání protokolů](log-analytics-log-search-api.md)
 ### [Rozhraní API pro výstrahy](log-analytics-api-alerts.md)
-# Referenční informace
-# Související
+
 # Zdroje a prostředky
+## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 
 
 

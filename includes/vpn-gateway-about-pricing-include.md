@@ -8,6 +8,8 @@ Platíte za dvě věci: náklady na výpočetní kapacitu pro bránu virtuální
 * Pokud odesíláte přenosy mezi virtuálními sítěmi v různých oblastech, ceny závisí na konkrétní oblasti.
 * Pokud odesíláte přenosy pouze mezi virtuálními sítěmi ve stejné oblasti, žádné náklady na data se na vás nevztahují. Přenosy dat mezi virtuálními sítěmi ve stejné oblasti je zdarma.
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

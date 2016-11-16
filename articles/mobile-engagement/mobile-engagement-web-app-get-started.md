@@ -1,12 +1,12 @@
 ---
-title: Začínáme s Azure Mobile Engagementem pro Web Apps | Microsoft Docs
-description: Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro Web Apps.
+title: "Začínáme s Azure Mobile Engagementem pro Web Apps | Dokumentace Microsoftu"
+description: "Naučte se používat Azure Mobile Engagement s analytickými funkcemi a nabízenými oznámeními pro Web Apps."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+
 
 ---
-# Začínáme s Azure Mobile Engagementem pro Web Apps
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Začínáme s Azure Mobile Engagementem pro Web Apps
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 V tomto tématu se dozvíte, jak můžete pomocí Azure Mobile Engagementu porozumět využití své webové aplikace.
@@ -33,15 +37,15 @@ Sada Web SDK je ve verzi Preview, takže zatím podporuje jenom analytické funk
 > 
 > 
 
-## Nastavení Mobile Engagementu pro vaši webovou aplikaci
+## <a name="setup-mobile-engagement-for-your-web-app"></a>Nastavení Mobile Engagementu pro vaši webovou aplikaci
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, tedy minimální sadu, která je zapotřebí pro shromažďování dat.
 
 Pomocí sady Visual Studio vytvoříme základní webovou aplikaci, na které si předvedeme integraci, i když uvedený postup můžete provést také s libovolnou webovou aplikací vytvořenou mimo sadu Visual Studio. 
 
-### Vytvoření nové webové aplikace
+### <a name="create-a-new-web-app"></a>Vytvoření nové webové aplikace
 Následující postup předpokládá použití sady Visual Studio 2015, ačkoliv kroky se podobají předchozím verzím sady Visual Studio. 
 
 1. Spusťte Visual Studio a na obrazovce **Domů** vyberte **Nový projekt**.
@@ -50,7 +54,7 @@ Následující postup předpokládá použití sady Visual Studio 2015, ačkoliv
 
 Vytvořili jste nový prázdný projekt webové aplikace, do kterého budeme integrovat sadu Azure Mobile Engagement Web SDK.
 
-### Připojení aplikace k back-endu Mobile Engagementu
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Vytvořte ve svém řešení novou složku s názvem **javascript** a přidejte do ní soubor JS sady Web SDK **azure-engagement.js**. 
 2. Do této složky javascript přidejte nový soubor **main.js** s následujícím kódem. Nezapomeňte aktualizovat připojovací řetězec. Tento objekt `azureEngagement` se bude používat k přístupu k metodám sady Web SDK. 
    
@@ -61,7 +65,7 @@ Vytvořili jste nový prázdný projekt webové aplikace, do kterého budeme int
    
     ![Visual Studio se soubory JS][1]
 
-## Povolení sledování v reálném čase
+## <a name="enable-realtime-monitoring"></a>Povolení sledování v reálném čase
 Pokud chcete začít odesílat data a zajistit, aby byli uživatelé aktivní, musíte odeslat alespoň jednu aktivitu do rozhraní back-end Mobile Engagementu. Aktivita v kontextu webové aplikace znamená webovou stránku. 
 
 1. Vytvořte ve svém řešení novou stránku s názvem **home.html** a nastavte ji jako úvodní stránku své webové aplikace. 
@@ -84,12 +88,12 @@ Pokud chcete začít odesílat data a zajistit, aby byli uživatelé aktivní, m
         </body>
         </html>
 
-## Připojení aplikace se sledováním v reálném čase
+## <a name="connect-app-with-realtime-monitoring"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-![][2]
+  ![][2]
 
-## Rozšířená analýza
+## <a name="extend-analytics"></a>Rozšířená analýza
 Tady jsou všechny metody, které jsou v současné době v sadě Web SDK dostupné a které můžete použít k analýze:
 
 1. Aktivity / webové stránky:
@@ -114,6 +118,6 @@ Tady jsou všechny metody, které jsou v současné době v sadě Web SDK dostup
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

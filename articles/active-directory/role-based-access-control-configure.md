@@ -1,12 +1,12 @@
 ---
-title: Použití řízení přístupu na základě rolí na portálu Azure | Microsoft Docs
-description: Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Oprávnění k prostředkům se přiřazují pomocí přiřazení rolí.
+title: "Použití řízení přístupu na základě rolí na portálu Azure Portal | Dokumentace Microsoftu"
+description: "Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Oprávnění k prostředkům se přiřazují pomocí přiřazení rolí."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
-# Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure
+# <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure
 > [!div class="op_single_selector"]
 > * [Správa přístupu podle uživatele nebo skupiny](role-based-access-control-manage-assignments.md)
 > * [Správa přístupu podle prostředku](role-based-access-control-configure.md)
@@ -25,7 +29,7 @@ ms.author: kgremban
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
 
-## Zobrazení informací o přístupu
+## <a name="view-access"></a>Zobrazení informací o přístupu
 Na [portálu Azure](https://portal.azure.com) můžete v hlavním okně sledovat, kdo má přístup k prostředku, skupině prostředků nebo předplatnému. Například byste se mohli chtít podívat, kdo má přístup k jedné ze skupin prostředků:
 
 1. Na navigačním panelu vlevo vyberte **Skupiny prostředků**.  
@@ -43,7 +47,7 @@ Všimněte si, že některým uživatelům byl přístup **přiřazen**, zatímc
 > 
 > 
 
-## Přidání přístupu
+## <a name="add-access"></a>Přidání přístupu
 Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, které je v rozsahu platnosti přiřazení role.
 
 1. V okně Řízení přístupu vyberte **Přidat**.  
@@ -56,7 +60,7 @@ Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, k
 
 Po úspěšném přiřazení role se přiřazení zobrazí v okně **Uživatelé**.
 
-## Odebrání přístupu
+## <a name="remove-access"></a>Odebrání přístupu
 1. V okně Řízení přístupu vyberte přiřazení role.
 2. V okně podrobností přiřazení vyberte **Odebrat**.  
 3. Výběrem položky **ano** odebrání potvrďte.  
@@ -66,18 +70,21 @@ Zděděná přiřazení nelze odebrat. Na obrázku níže si všimněte, že je 
 
 ![Snímek obrazovky s oknem Uživatelé – neaktivní tlačítko odebrání u zděděného přístupu](./media/role-based-access-control-configure/remove-access2.png)
 
-## Další nástroje pro správu přístupu
+## <a name="other-tools-to-manage-access"></a>Další nástroje pro správu přístupu
 Přiřazování rolí a správu přístupu pomocí řízení přístupu na základě role v Azure lze provádět i v jiných nástrojích než portálu Azure.  Další informace o požadavcích a základních postupech příkazů řízení přístupu na základě role v Azure najdete na následujících odkazech.
 
 * [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 * [Rozhraní příkazového řádku Azure](role-based-access-control-manage-access-azure-cli.md)
 * [REST API](role-based-access-control-manage-access-rest.md)
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Vytvoření sestavy historie změn přístupu](role-based-access-control-access-change-history-report.md)
 * Další informace najdete v článku [Vestavěné role řízení přístupu na základě role v Azure](role-based-access-built-in-roles.md).
 * Definujte své [Vlastní role funkce řízení přístupu na základě role v Azure](role-based-access-control-custom-roles.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Getting started with Operations Management Suite Security and Audit Solution | Microsoft Docs
-description: This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud.
+title: "Začínáme s řešením Zabezpečení a audit v Operations Management Suite | Dokumentace Microsoftu"
+description: "Tento dokument vám poskytne úvodní přehled řešení Zabezpečení a audit v Operations Management Suite, abyste mohli začít monitorovat svůj hybridní cloud."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,171 +14,178 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
-# Getting started with Operations Management Suite Security and Audit Solution
-This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
+# <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Začínáme s řešením Zabezpečení a audit v Operations Management Suite
+Tento dokument vám umožní rychle začít používat řešení Zabezpečení a audit v Operations Management Suite (OMS) a provede vás jednotlivými možnostmi.
 
-## What is OMS?
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+## <a name="what-is-oms"></a>Co je OMS?
+Microsoft Operations Management Suite (OMS) je cloudové řešení společnosti Microsoft pro správu IT, které pomáhá se správou a ochranou místních a cloudových infrastruktur. Další informace o OMS najdete v článku [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## OMS Security and Audit dashboard
-The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
+## <a name="oms-security-and-audit-dashboard"></a>Řídicí panel Zabezpečení a audit v OMS
+Řešení Zabezpečení a audit v OMS poskytuje ucelený přehled o stavu zabezpečení IT vaší organizace pomocí předdefinovaných vyhledávacích dotazů na důležité problémy, které vyžadují vaši pozornost. Řídicí panel **Zabezpečení a audit** je domovskou obrazovkou pro všechno, co v OMS souvisí se zabezpečením. Poskytuje celkový přehled o stavu zabezpečení vašich počítačů. Umožňuje také zobrazit všechny události za posledních 24 hodin, 7 dní nebo za jakýkoli zadaný interval. Řídicí panel **Zabezpečení a audit** je přístupný podle tohoto postupu:
 
-1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
-2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
-3. The **Security and Audit** dashboard will appear:
+1. Na hlavním řídicím panelu **Microsoft Operations Management Suite** klikněte na dlaždici **Nastavení** nalevo.
+2. V okně **Nastavení** v části **Řešení** klikněte na možnost **Zabezpečení a audit**.
+3. Objeví se řídicí panel **Zabezpečení a audit**:
    
-    ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
+    ![Řídicí panel Zabezpečení a audit v OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
-
-> [!NOTE]
-> The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
-> 
-> 
-
-Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
-
-The OMS Security and Audit dashboard is organized in four major categories:
-
-* **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
-* **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
-* **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
-* **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
-* **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
+Pokud tento řídicí panel otvíráte poprvé a nemáte ve službě OMS žádná sledovaná zařízení, dlaždice nebudou obsahovat žádná data z agentů. Po instalaci agenta může načtení dat ještě nějakou dobu trvat, proto mohou zpočátku chybět některá data, která se ještě odesílají do cloudu.  V takovém případě je normální, že některé dlaždice neobsahují smysluplné informace. Další informace o instalaci agenta OMS v systému Windows obsahuje článek [Přímé připojení počítačů s Windows do OMS](https://technet.microsoft.com/library/mt484108.aspx) a článek [Připojení počítačů s Linuxem do OMS](https://technet.microsoft.com/library/mt622052.aspx) obsahuje stejné informace pro systém Linux.
 
 > [!NOTE]
-> for more information on how OMS keeps your data secure, read How OMS secures your data.
+> Agent bude shromažďovat informace na základě aktuálních povolených událostí, například název počítače, IP adresa a uživatelské jméno. Nejsou ale shromažďovány žádné soubory, dokumenty, databáze nebo soukromá data.   
 > 
 > 
 
-## Security domains
-When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
+Řešení jsou kolekce pravidel pro logiku, vizualizaci a získávání dat, které řeší klíčové problémy zákazníků. Zabezpečení a audit je jedním z nich, další mohou být přidána samostatně. Další informace o přidání nových řešení najdete v článku [Přidání řešení](https://technet.microsoft.com/library/mt674635.aspx).
+
+Řídicí panel Zabezpečení a audit v OMS je rozdělen do čtyř hlavních kategorií:
+
+* **Domény zabezpečení**: v této oblasti můžete podrobněji zkoumat záznamy o zabezpečení v různých časech, zobrazovat informace o posouzení malwaru, o zabezpečení sítě, o posouzení aktualizací, o identitě a přístupu a o počítačích s událostmi zabezpečení, stejně jako rychle přecházet do řídicího panelu Azure Security Center.
+* **Významné problémy**: tato možnost vám umožní rychle identifikovat celou řadu aktivních problémů a jejich závažnost.
+* **Zjištění (Preview)**: umožňuje identifikovat vzory útoků na vaše prostředky pomocí vizualizací výstrah zabezpečení.
+* **Analýza hrozeb**: umožňuje identifikovat vzory útoků vizualizací celkového počtu serverů s odchozími škodlivými přenosy, typu škodlivých hrozeb a mapy, která ukazuje, odkud příslušné adresy IP pocházejí. 
+* **Běžné dotazy na zabezpečení**: tato možnost poskytuje seznam nejběžnějších bezpečnostních dotazů které můžete použít k monitorování vašeho prostředí. Když kliknete na některý z těchto dotazů, otevře se okno **Vyhledávání** s výsledky pro daný dotaz.
 
 > [!NOTE]
-> data retention is according to the OMS pricing plan. For more information visit the [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) pricing page.
+> Další informace o tom, jak OMS zajišťuje ochranu vašich dat, obsahuje článek Jak OMS chrání vaše data.
 > 
 > 
 
-Incident response and forensics investigation scenarios will directly benefit from the results available in the **Security Records over Time** tile.
-
-![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
-
-When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
-
-![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
-
-The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
+## <a name="security-domains"></a>Domény zabezpečení
+Při monitorování prostředků je důležité, abyste byli schopni rychle se dostat k aktuálnímu stavu prostředí. Je ale také důležité mít možnost zpětně vysledovat události, ke kterým došlo v minulosti a které vám pomůžou pochopit, co se v daném okamžiku v prostředí děje. 
 
 > [!NOTE]
-> for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
+> Uchovávání dat probíhá podle cenového tarifu OMS. Další informace najdete v článku o cenách služby [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx).
 > 
 > 
 
-### Antimalware assessment
-This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
+Reakce na události a scénáře forenzního vyšetřování mohou informace dostupné na dlaždici **Záznamy zabezpečení v průběhu času** s výhodou využívat.
 
-![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
+![Záznamy zabezpečení v průběhu času](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
+Když kliknete na tuto dlaždici, otevře se okno **Vyhledávání** s výsledkem dotazu pro **Události zabezpečení** (typ = SecurityEvents) na základě dat z posledních sedmi dnů, například:
 
-![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
+![Záznamy zabezpečení v průběhu času](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
+
+Výsledek vyhledávání je rozdělen do dvou podoken: v levém podokně je rozpis počtu nalezených událostí zabezpečení, počítačů, ve kterých k nim došlo, počet účtů, které byly v těchto počítačích zjištěny a typy aktivit. V pravém podokně jsou celkové výsledky a chronologické zobrazení událostí zabezpečení s názvem počítače a aktivitou události. Kliknutím na **Zobrazit další** můžete také zobrazit podrobnosti o této události, například data, ID a zdroj události.
 
 > [!NOTE]
-> *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
+> Další informace o vyhledávacích dotazech OMS najdete v [Referenční příručce k vyhledávání pro službu OMS](https://technet.microsoft.com/library/mt450427.aspx).
 > 
 > 
 
-If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
+### <a name="antimalware-assessment"></a>Posouzení antimalwaru
+Tato možnost umožňuje rychle identifikovat počítače s nedostatečnou ochranou a počítače, které jsou zasažené malwarem. Načte se posouzení stavu malwaru a zjištěná ohrožení na monitorovaných serverech a výsledky se odešlou službě OMS v cloudu pro zpracování. Servery, na kterých byla nalezena ohrožení a servery s nedostatečnou ochranou se zobrazí v řídicím panelu posouzení malwaru, která je přístupný kliknutím na dlaždici **Posouzení antimalwaru**. 
 
-### Update assessment
-This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
+![Posouzení malwaru](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+Stejně jako u kterékoli jiné živé dlaždice na řídicím panelu OMS můžete kliknutím na ni zobrazit okno **Vyhledávání** s výsledkem dotazu. Pokud u této možnosti kliknete na možnost **Negenerují se sestavy** v části **Stav ochrany**, získáte výsledky dotazu, které odpovídají této jedné položce s názvem počítače a pořadím, jak je uvedeno níže:
+
+![Výsledky vyhledávání](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
+> *Pořadí* odráží stav ochrany (zapnuto, vypnuto, aktualizováno atd.) a nalezených hrozeb. Číselné vyjádření umožňuje využití této hodnoty v agregacích.
 > 
 > 
 
-### Identity and Access
-Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
+Pokud kliknete na název počítače, získáte chronologický přehled o stavu jeho zabezpečení. To je velmi užitečné v případech, kdy potřebujete zjistit, zda byl nainstalován antimalwarový software, případně kdy byl odebrán.   
+
+### <a name="update-assessment"></a>Posouzení aktualizací
+Tato možnost umožňuje rychle určit celkovou míru vystavení potenciálním problémům zabezpečení a zda a jak kritické jsou dostupné aktualizace pro vaše prostředí. Řešení Zabezpečení a audit v OMS pouze poskytuje vizualizaci těchto aktualizací, skutečná data pocházejí z řešení [System Updates](https://technet.microsoft.com/library/mt484096.aspx), což je jiný modul v rámci OMS. Následuje příklad aktualizací:
+
+![Aktualizace systému](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
 > [!NOTE]
-> currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
+> Další informace o řešení System Updates najdete v článku [Aktualizace serverů pomocí řešení System Updates](https://technet.microsoft.com/library/mt484096.aspx).
 > 
 > 
 
-By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
-
-When you click in the **Identity and Access** tile you will see the following dashboard:
-
-![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
-
-The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
-
-![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
-
-The detailed report provides important information about this event, including: the target computer, the type of logon (in this case Network logon), the activity (in this case event 4625) and a comprehensive timeline of each attempt. 
-
-### Computers
-This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
-
-![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
-
-You can continue your investigation by clicking on each computer and review the security events that were flagged.
-
-### Azure Security Center
-This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
-
-## Notable issues
-The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
-
-![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
-
-You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
-
-## Detections (Preview)
-The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
-
-![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
-
-This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
+### <a name="identity-and-access"></a>Identita a přístup
+Identita by měla být základní „řídicí plochou“ vaší organizace a její ochrana je tou nejvyšší prioritou. V minulosti byly kolem organizací vytyčeny perimetry, které byly hlavní obrannou linií. V současné době se ale čím dál víc dat a aplikací přesouvá do cloudu a novým perimetrem se proto stává identita. 
 
 > [!NOTE]
-> For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Aktuálně jsou data založena jen na základě přihlašovacích dat Security Events (událost s ID 4624); v budoucnu budou doplněna i přihlášení Office365 a Azure AD.
 > 
 > 
 
-## Threat Intelligence
-The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
+Monitorování aktivit kolem vaší identity budete moci proaktivně jednat ještě než k problematické události dojde nebo provést reaktivní akci k zastavení pokusu o útok. Řídicí panel **Identita a přístup** poskytuje přehled stavu vaší identity, včetně počtu neúspěšných pokusů o přihlášení, uživatelského účtu použitého při těchto pokusech, uzamčených účtů, účtů se změněným nebo resetovaným heslem nebo počtu účtů, jejichž uživatelé jsou právě přihlášení. 
 
-Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
+Když kliknete na dlaždici **Identita a přístupu**, zobrazí se následující řídicí panel:
 
-![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+![Identita a přístup](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-## Common security queries
-The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
+Informace, které jsou k dispozici na tomto řídicím panelu, vám pomůžou okamžitě identifikovat potenciálně podezřelé aktivity. Například je tu 338 pokusů o přihlášení jako **Administrator** a 100 % těchto pokusů o přihlášení se nezdařilo. Může to znamenat útok hrubou silou na tento účet. Když kliknete na tento účet, získáte další informace, které vám pomůžou určit cílový prostředek tohoto potenciálního rizika:
 
-* All Security Activities
-* Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
-* Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
-* Log on Activity by Computer
-* Accounts who terminated Microsoft antimalware on any computer
-* Computers where the Microsoft antimalware process was terminated
-* Computers where "hash.exe" was executed (replace with different process name)
-* All Process names that were executed
-* Log on Activity by Account
-* Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
+![Výsledky vyhledávání](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-## See also
-In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
+Podrobná sestava obsahuje důležité informace o této události, včetně cílového počítače, typu přihlášení (v tomto případě přihlášení k síti), aktivity (v tomto případě událost 4625) a podrobného časování každého pokusu. 
 
-* [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-* [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
-* [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
+### <a name="computers"></a>Počítače
+Tuto dlaždici můžete použít pro přístup ke všem počítačům, na kterých právě dochází k událostem zabezpečení. Po kliknutí na tuto dlaždici se zobrazí seznam počítačů s událostmi zabezpečení a počet událostí na každém z nich:
 
-<!--HONumber=Sep16_HO3-->
+![Počítače](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
+
+Můžete pokračovat v šetření kliknutím na každý počítač a kontrolou hlášených událostí zabezpečení.
+
+### <a name="azure-security-center"></a>Azure Security Center
+Tato dlaždice je v podstatě zkratkou k řídicímu panelu Azure Security Center. Další informace o tomto řešení najdete v článku [Začínáme s Azure Security Center](../security-center/security-center-get-started.md).
+
+## <a name="notable-issues"></a>Významné problémy
+Hlavním záměrem této skupiny možností je poskytnout rychlý přehled o problémech, které máte ve svém prostředí roztříděním na kritické události, na upozornění a na informativní sdělení. Dlaždice typu Aktivní problém obsahuje vizualizaci těchto problémů, ale neumožňuje zkoumání jejich podrobností. K tomu budete muset použít dolní část této dlaždice, ve které je název problému, počet zasažených objektů a závažnost.
+
+![Významné problémy](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
+
+Můžete si všimnout, že tyto problémy již jsou pokryté ostatními oblastmi skupiny **Domény zabezpečení**, což posiluje záměr tohoto zobrazení: vizualizovat nejdůležitější problémy ve vašem prostředí na jednom místě.
+
+## <a name="detections-preview"></a>Zjištění (Preview)
+Hlavním záměrem této možnosti je umožnit správcům IT rychle identifikovat potenciální ohrožení jejich prostředí a závažnost těchto hrozeb.
+
+![Analýza hrozeb](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+
+Tuto možnost můžete použít také při šetření incidentů k vyhodnocení a získání dalších informací o útoku.
+
+> [!NOTE]
+> Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagovat na incidenty pomocí služeb Azure Security Center a Microsoft Operations Management Suite) najdete informace, jak používat OMS při reakci na incidenty.
+> 
+> 
+
+## <a name="threat-intelligence"></a>Analýza hrozeb
+Nový oddíl analýzy hrozeb v řešení Zabezpečení a audit vizualizuje vzory možných útoků různými způsoby: celkový počet serverů s odchozími škodlivými přenosy, typy škodlivých hrozeb a mapa, která ukazuje, odkud příslušné IP adresy pocházejí. S mapou můžete pracovat a zjišťovat další informace klikáním na IP adresy.
+
+Žluté špendlíky na mapě označují příchozí provoz ze škodlivých IP adres. U serverů dostupných z internetu je určitý podíl škodlivého provozu normální, doporučujeme ale tyto pokusy kontrolovat a ujistit se, že nejsou úspěšné. Tyto indikátory jsou založené na protokolech služby IIS, WireData a brány Windows Firewall.  
+
+![Analýza hrozeb](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+
+## <a name="common-security-queries"></a>Běžné dotazy zabezpečení
+Seznam běžných dotazů zabezpečení může být užitečný pro rychlé získání informací z prostředků a jejich přizpůsobení podle potřeb vašeho prostředí. Mezi běžné dotazy patří:
+
+* Všechny aktivity zabezpečení
+* Aktivity zabezpečení v počítači "computer01.contoso.com" (nahraďte název počítače podle potřeby)
+* Aktivity zabezpečení v počítači "computer01.contoso.com" pro účet „Administrator“ (nahraďte název počítače a účet podle potřeby)
+* Aktivity přihlášení k počítači
+* Účty, pod kterými byl na počítači ukončen antimalware Microsoftu
+* Počítače, na kterých byl ukončen proces antimalwaru Microsoftu
+* Počítače, na kterých spuštěn program "hash.exe" (nahraďte název procesu podle potřeby)
+* Všechny názvy procesů, které byly spuštěny
+* Aktivity přihlášení podle účtu
+* Účty, které se vzdáleně přihlásily k počítači "computer01.contoso.com" (nahraďte název počítače podle potřeby)
+
+## <a name="see-also"></a>Viz také
+V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. Další informace o zabezpečení v OMS najdete v následujících článcích:
+
+* [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
+* [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

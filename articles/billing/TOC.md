@@ -23,16 +23,18 @@
 ### [Úprava profilu](../billing-how-to-change-azure-account-profile.md)
 ### [Aktualizace platebních informací](../billing-how-to-change-credit-card.md)
 ### [Propojení tenanta Office 365](../billing-add-office-365-tenant-to-azure-subscription.md)
+## Řešení potíží
+### [Problémy s registrací](../billing-troubleshoot-azure-sign-up-issues.md)
+### [Odmítnutá karta](../billing-credit-card-fails-during-azure-sign-up.md)
+### [Problémy s přihlašováním](../billing-cannot-login-subscription.md)
+
 # Referenční informace
 ## [Přehled rozhraní API](../billing-usage-rate-card-overview.md)
 ## [REST API – referenční informace](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partnerské řešení: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Partnerské řešení: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
-# Řešení potíží
-## [Problémy s registrací](../billing-troubleshoot-azure-sign-up-issues.md)
-## [Odmítnutá karta](../billing-credit-card-fails-during-azure-sign-up.md)
-## [Problémy s přihlašováním](../billing-cannot-login-subscription.md)
-# Podpora
+
+# Zdroje
 ## [Kontaktování podpory](../billing-how-to-create-billing-support-ticket.md)
 
 <!--HONumber=Nov16_HO2-->

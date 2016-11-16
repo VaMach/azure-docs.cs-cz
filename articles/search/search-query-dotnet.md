@@ -1,10 +1,11 @@
 ---
-title: Dotazování indexu Azure Search pomocí .NET SDK | Microsoft Docs
-description: Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání.
+title: "Dotazování indexu Azure Search pomocí .NET SDK | Dokumentace Microsoftu"
+description: "Sestavení vyhledávacího dotazu ve službě Azure Search a použití parametrů hledání k filtrování a řazení výsledků vyhledávání."
 services: search
-documentationcenter: ''
+manager: jhubbard
+documentationcenter: 
 author: brjohnstmsft
-
+ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -12,12 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+
 
 ---
-# Dotazování indexu Azure Search pomocí .NET SDK
+# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Dotazování indexu Azure Search pomocí .NET SDK
 > [!div class="op_single_selector"]
 > * [Přehled](search-query-overview.md)
-> * [Portál](search-explorer.md)
+> * [Azure Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
@@ -29,7 +34,7 @@ Před zahájením tohoto názorného průvodce byste již měli mít [vytvořen�
 
 Všimněte si, že ukázkový kód v tomto článku je napsán v jazyce C#. Úplný zdrojový kód najdete [na GitHubu](http://aka.ms/search-dotnet-howto).
 
-## I. Zjistěte klíč api-key správce služby Azure Search
+## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Zjistěte klíč api-key správce služby Azure Search
 Po vytvoření indexu Azure Search jste již téměř připraveni vydávat dotazy pomocí .NET SDK. Nejprve budete muset získat jeden z klíčů dotazů (api-key) vytvořených pro vyhledávací službu, kterou jste zřídili. .NET SDK bude tento klíč api-key odesílat v každém požadavku na vaši službu. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
 1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
@@ -43,7 +48,7 @@ Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## II. Vytvoření instance třídy SearchIndexClient
+## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Vytvoření instance třídy SearchIndexClient
 Chcete-li vydávat dotazy pomocí .NET SDK služby Azure Search, budete muset vytvořit instanci třídy `SearchIndexClient`. Tato třída obsahuje několik konstruktorů. Ten, který chcete, přijímá jako parametry název vaší vyhledávací služby, název indexu a objekt `SearchCredentials`. `SearchCredentials` zabalí váš klíč api-key.
 
 Následující kód vytvoří novou třídu `SearchIndexClient` pro index „hotels“ (vytvořený v tématu [Vytvoření indexu Azure Search pomocí .NET SDK](search-create-index-dotnet.md)) pomocí hodnot pro název vyhledávací služby a klíče api-key, které jsou uložené v konfiguračním souboru aplikace (`app.config` nebo `web.config`):
@@ -57,15 +62,15 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` obsahuje vlastnost `Documents`. Tato vlastnost poskytuje všechny metody, které potřebujete k dotazování indexů Azure Search.
 
-## III. Dotázání indexu
+## <a name="iii-query-your-index"></a>III. Dotázání indexu
 Vyhledávání pomocí .NET SDK je jednoduché, stačí na `SearchIndexClient` zavolat metodu `Documents.Search`. Tato metoda přijímá několik parametrů včetně textu vyhledávání, spolu s objektem `SearchParameters`, který lze použít pro další upřesnění dotazu.
 
-#### Typy dotazů
+#### <a name="types-of-queries"></a>Typy dotazů
 Dva hlavní [typy dotazů](search-query-overview.md#types-of-queries), které budete používat, jsou `search` a `filter`. Dotaz `search` vyhledává jeden nebo více výrazů ve všech *prohledávatelných* polích v indexu. Dotaz `filter` vyhodnocuje logický výraz na všech *filtrovatelných* polích v indexu.
 
 Vyhledávání i filtrování se provádí pomocí metody `Documents.Search`. Vyhledávací dotaz lze předat v parametru `searchText`, zatímco výraz filtru lze předat ve vlastnosti `Filter` třídy `SearchParameters`. Chcete-li filtrovat bez vyhledávání, stačí předat `"*"` jako hodnotu parametru `searchText`. Chcete-li vyhledávat bez filtrování, ponechte vlastnost `Filter` nenastavenou nebo instanci `SearchParameters` vůbec nepředávejte.
 
-#### Ukázky dotazů
+#### <a name="example-queries"></a>Ukázky dotazů
 Následující vzorový kód ukazuje několik různých způsobů dotazování indexu „hotels“, definovaného v tématu [Vytvoření indexu Azure Search pomocí .NET SDK](search-create-index-dotnet.md#DefineIndex). Všimněte si, že dokumenty vrácené ve výsledcích vyhledávání jsou instancemi třídy `Hotel`, která byla definovaná v tématu [Import dat do služby Azure Search pomocí .NET SDK](search-import-data-dotnet.md#HotelClass). Ukázkový kód využívá metody `WriteDocuments` k vypsání výsledků vyhledávání do konzoly. Tato metoda je popsaná v následujícím oddílu.
 
 ```csharp
@@ -122,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## IV. Zpracování výsledků vyhledávání
+## <a name="iv-handle-search-results"></a>IV. Zpracování výsledků vyhledávání
 Metoda `Documents.Search` vrací objekt `DocumentSearchResult`, který obsahuje výsledky dotazu. Ukázka v předchozím oddílu používala pro vypsání výsledků vyhledávání do konzoly metodu s názvem `WriteDocuments`:
 
 ```csharp
@@ -162,6 +167,9 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání konzolu. Stejně tak budete potřebovat zobrazit výsledky vyhledávání ve své aplikaci. Ukázku vykreslování výsledků vyhledávání ve webové aplikaci založené na ASP.NET MVC naleznete v [této ukázce na GitHubu](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

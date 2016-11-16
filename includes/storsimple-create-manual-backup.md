@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### Ruční vytvoření zálohy
+#### <a name="to-create-a-manual-backup"></a>Ruční vytvoření zálohy
 1. Na stránce **Zařízení** přejděte na kartu **Zásady zálohování**. Tato karta obsahuje všechny zásady zálohování v tabelárním formátu, včetně zásad svazku, který chcete zálohovat.
 2. Vyberte zásady kliknutím na libovolné místo v příslušném řádku, s výjimkou prvního sloupce. Ve spodní části stránky klikněte na **Take backup** (Zálohovat). Tlačítko se rozbalí a zobrazí se možnosti zálohování: místní snímek nebo cloudový snímek. 
 3. Po výběru některé z těchto možností se zobrazí výzva k potvrzení. Klikněte na **Ano**. 
@@ -18,6 +18,8 @@
    
    Záloha by se měla zobrazit v seznamu sad záloh uvedených v katalogu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

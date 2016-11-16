@@ -1,12 +1,12 @@
 ---
 title: Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
-description: Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor.
+description: "Tento dokument popisuje, jak začít pracovat se serverem Azure MFA a postup upgradu ze staršího agenta phonefactor."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Upgrade agenta PhoneFactor na server Azure Multi-Factor Authentication
 Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Authentication vyžaduje odinstalaci PhoneFactor agenta a přidružených součásti před instalací serveru Multi-Factor Authentication a jeho přidružených součásti.
 
-## Postup upgradu agenta PhoneFactor na server Azure Multi-Factor Authentication
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Postup upgradu agenta PhoneFactor na server Azure Multi-Factor Authentication
 <ol>
 <li>Nejprve zálohujte datový soubor PhoneFactor. Výchozí umístění instalace je C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -66,6 +70,6 @@ Upgrade z PhoneFactor agenta v5.x nebo starší na server Azure Multi-Factor Aut
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -14,18 +14,22 @@
 
 ## Vývoj
 ### [Složité plány pomocí REST API](scheduler-advanced-complexity.md)
+### [Koncepty a terminologie](scheduler-concepts-terms.md)
 
 ## Zabezpečení
 ### [Ověřování odchozích spojení](scheduler-outbound-authentication.md)
 
 # Referenční informace
-## [Koncepty a terminologie](scheduler-concepts-terms.md)
-## [REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [Rutiny PowerShellu](scheduler-powershell-reference.md)
+## [Rutiny PowerShellu pro Azure Scheduler](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/scheduler/)
 
-# Zdroje a prostředky
-## [Videa ke Scheduleru](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+# Zdroje
+## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=scheduler)
+## [Ceny](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 
 <!--HONumber=Nov16_HO2-->

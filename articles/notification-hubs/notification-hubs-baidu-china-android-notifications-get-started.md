@@ -1,31 +1,35 @@
 ---
-title: Začínáme s používáním Azure Notification Hubs s Baidu | Microsoft Docs
-description: V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do zařízení se systémem Android pomocí Baidu.
+title: "Začínáme s používáním Azure Notification Hubs s Baidu | Dokumentace Microsoftu"
+description: "V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do zařízení se systémem Android pomocí Baidu."
 services: notification-hubs
 documentationcenter: android
-author: wesmc7777
+author: ysxu
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+
 
 ---
-# Začínáme s použitím Notification Hubs pomocí Baidu
+# <a name="get-started-with-notification-hubs-using-baidu"></a>Začínáme s použitím Notification Hubs pomocí Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
+## <a name="overview"></a>Přehled
 Nabídka cloudu Baidu představuje čínskou cloudovou službu, kterou můžete použít k zasílání nabízených oznámení na mobilní zařízení. Tato služba je užitečná zejména v Číně, kde je doručování nabízených oznámení Android komplexní z důvodu přítomnosti různých obchodů s aplikacemi a nabízených služeb, navíc k dostupnosti zařízení Android, která nejsou obvykle připojena k GCM (Google Cloud Messaging).
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
-* Sada Android SDK (předpokládáme, že použijete Eclipse), kterou si můžete stáhnout z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">lokality Android</a>
+* Sada Android SDK (předpokládáme, že použijete Eclipse), kterou si můžete stáhnout z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">webu Android</a>
 * [Mobile Services Android SDK]
 * [Baidu Push Android SDK]
 
@@ -34,78 +38,78 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## Vytvořte účet Baidu
+## <a name="create-a-baidu-account"></a>Vytvořte účet Baidu
 Chcete-li použít Baidu, musíte mít účet Baidu. Pokud již účet máte, přihlaste se na [portál Baidu] a přejděte k dalšímu kroku. Jinak pro vytvoření účtu Baidu postupujte podle pokynů níže.  
 
 1. Přejděte na stránku [portál Baidu] a klikněte na odkaz **登录** (**Přihlášení**). Klikněte na tlačítko **立即注册** s spusťte proces registrace účtu.
    
-    ![][1]
+       ![][1]
 2. Zadejte požadované podrobnosti – telefon a e-mailovou adresu, heslo a ověřovací kód – a klikněte na tlačítko **Registrace**.
    
-    ![][2]
+       ![][2]
 3. Na e-mailovou adresu, kterou jste zadali, vám dorazí e-mail s odkazem k aktivaci Baidu.
    
-    ![][3]
+       ![][3]
 4. Přihlaste se k e-mailovému účtu, otevřete e-mail pro aktivaci Baidu a kliknutím na aktivační odkaz účet Baidu aktivujte.
    
-    ![][4]
+       ![][4]
 
 Po aktivaci účtu Baidu se přihlaste na [portál Baidu].
 
-## Zaregistrujte se jako vývojář Baidu
+## <a name="register-as-a-baidu-developer"></a>Zaregistrujte se jako vývojář Baidu
 1. Po přihlášení na [portál Baidu] klikněte na tlačítko **更多 >>** (**Další**).
    
-    ![][5]
+      ![][5]
 2. Posuňte se dolů v části **站长与开发者服务 (Správce webového serveru a služeb pro vývojáře)** a klikněte na tlačítko **百度开放云平台** (**Otevřená cloudová platforma Baidu**).
    
-    ![][6]
-3. Na další stránce klikněte na tlačítko **开发者服务** (**Služby pro vývojáře**) v pravém horním rohu.
+      ![][6]
+3. Na další stránce klikněte na tlačítko **开发者服务** (**Služby pro vývojáře**) v pravém horním rohu.
    
-    ![][7]
-4. Na další stránce klikněte na tlačítko **注册开发者** (**Registrovaní vývojáři**) z nabídky v pravém horním rohu.
+      ![][7]
+4. Na další stránce klikněte na tlačítko **注册开发者** (**Registrovaní vývojáři**) z nabídky v pravém horním rohu.
    
-    ![][8]
-5. Zadejte své jméno, popis a číslo mobilního telefonu pro příjem ověřovací textové zprávy a pak klikněte na tlačítko **送验证码** (**Odeslat ověřovací kód**). Všimněte si, že pro mezinárodní telefonní čísla bude nutné uvést kód země v závorkách. Například pro USA se bude jednat o číslo **(1) 1234567890**.
+      ![][8]
+5. Zadejte své jméno, popis a číslo mobilního telefonu pro příjem ověřovací textové zprávy a pak klikněte na tlačítko **送验证码** (**Odeslat ověřovací kód**). Všimněte si, že pro mezinárodní telefonní čísla bude nutné uvést kód země v závorkách. Například pro USA se bude jednat o číslo **(1) 1234567890**.
    
-    ![][9]
-6. Následně byste měli obdržet textovou zprávu s číslem ověření, jak je znázorněno v následujícím příkladu:
+      ![][9]
+6. Následně byste měli obdržet textovou zprávu s číslem ověření, jak je znázorněno v následujícím příkladu:
    
-    ![][10]
+      ![][10]
 7. Zadejte číslo ověření ze zprávy do **验证码** (**Potvrzovací kód**).
 8. Nakonec dokončete registraci vývojářů přijetím podmínek smlouvy Baidu a kliknutím na **提交** (**Odeslat**). Při úspěšném dokončení registrace se zobrazí následující stránka:
    
-    ![][11]
+      ![][11]
 
-## Vytvořte projekt nabízených oznámení cloudu Baidu
+## <a name="create-a-baidu-cloud-push-project"></a>Vytvořte projekt nabízených oznámení cloudu Baidu
 Při vytváření projektu nabízených oznámení cloudu Baidu obdržíte své ID aplikace, klíč rozhraní API a tajný klíč.
 
 1. Po přihlášení na [portál Baidu] klikněte na tlačítko **更多 >>** (**Další**).
    
-    ![][5]
+      ![][5]
 2. Posuňte se dolů v části **站长与开发者服务** (**Správce webového serveru a služeb pro vývojáře**) a klikněte na tlačítko **百度开放云平台** (**Otevřená cloudová platforma Baidu**).
    
-    ![][6]
-3. Na další stránce klikněte na tlačítko **开发者服务** (**Služby pro vývojáře**) v pravém horním rohu.
+      ![][6]
+3. Na další stránce klikněte na tlačítko **开发者服务** (**Služby pro vývojáře**) v pravém horním rohu.
    
-    ![][7]
+      ![][7]
 4. Na další stránce klikněte na tlačítko **云推送** (**Cloud Push**) z části **云服务** (**Cloudové služby**).
    
-    ![][12]
+      ![][12]
 5. Jakmile jste registrovaný vývojář, zobrazí se v horní nabídce **管理控制台** (**Konzola pro správu**). Klikněte na tlačítko **开发者服务管理** (**Správa služeb pro vývojáře**).
    
-    ![][13]
+      ![][13]
 6. Na další stránce klikněte na tlačítko **创建工程** (**Vytvořit projekt**).
    
-    ![][14]
+      ![][14]
 7. Zadejte název aplikace a klikněte na tlačítko **创建** (**Vytvořit**).
    
-    ![][15]
+      ![][15]
 8. Po úspěšném vytvoření projektu nabízených oznámení cloudu Baidu se zobrazí stránka s **AppID**, **klíčem rozhraní API** a **tajný klíč**. Poznamenejte si klíč rozhraní API a tajný klíč, který použijeme později.
    
-    ![][16]
+      ![][16]
 9. Nakonfigurujte projekt pro nabízená oznámení kliknutím na **云推送** (**Cloud Push**) v levém podokně.
    
-    ![][31]
+      ![][31]
 10. Na další stránce klikněte na tlačítko **推送设置** (**Nastavení Push**).
     
     ![][32]  
@@ -115,29 +119,29 @@ Při vytváření projektu nabízených oznámení cloudu Baidu obdržíte své 
 
 Zobrazí se **保存成功!zpráva ** (**Úspěšně uloženo!**).
 
-## Konfigurace centra oznámení
+## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
 1. Přihlaste se k [portál Azure Classic] a v dolní části obrazovky klikněte na **+ NOVÝ**.
 2. Klikněte na tlačítko **aplikační služby**, klikněte na tlačítko **Sběrnice**, klikněte na tlačítko **Notification Hubs** a pak klikněte na tlačítko **Rychle vytvořit**.
 3. Zadejte název pro vaše **Notification Hubs**, vyberte **Oblast** a **Obor názvů** kde bude toto centrum oznámení vytvořeno a pak klikněte na tlačítko **Vytvoření nového centra oznámení**.  
    
-    ![][17]
+      ![][17]
 4. Klikněte na obor názvů, ve kterém jste vytvořili centrum oznámení a pak klikněte na tlačítko **Notification Hubs** nahoře.
    
-    ![][18]
-5. Vyberte vytvořené centrum oznámení a pak klikněte na tlačítko **Konfigurovat** v hlavní nabídce.
+      ![][18]
+5. Vyberte vytvořené centrum oznámení a pak klikněte na tlačítko **Konfigurovat** v hlavní nabídce.
    
-    ![][19]
+      ![][19]
 6. Přejděte dolů do části **Nastavení oznámení baidu** a zadejte klíč rozhraní API a tajný klíč, který jste dříve získali z konzoly Baidu pro váš projekt nabízených oznámení cloudu Baidu. Klikněte na **Uložit**.
    
-    ![][20]
+      ![][20]
 7. Klikněte na tlačítko **Řídicí panel** v horní části pro Centrum oznámení a klikněte na tlačítko **Zobrazení připojovacího řetězce**.
    
-    ![][21]
+      ![][21]
 8. Poznamenejte si **DefaultListenSharedAccessSignature** a **DefaultFullSharedAccessSignature** z okna **Přístup k informacím připojení**.
    
     ![][22]
 
-## Připojte aplikaci k centru oznámení
+## <a name="connect-your-app-to-the-notification-hub"></a>Připojte aplikaci k centru oznámení
 1. V Eclipse ADT vytvořte nový projekt Android (**Soubor** > **Nový** > **Projekt aplikace Android**).
    
     ![][23]
@@ -259,7 +263,7 @@ Zobrazí se **保存成功!zpráva ** (**Úspěšně uloženo!**).
                 mUserId = userId;
     
                 try {
-                 if (hub == null) {
+                    if (hub == null) {
                         hub = new NotificationHub(
                                 ConfigurationSettings.NotificationHubName,
                                 ConfigurationSettings.NotificationHubConnectionString,
@@ -280,10 +284,10 @@ Zobrazí se **保存成功!zpráva ** (**Úspěšně uloženo!**).
                      try {
                          hub.registerBaidu(mUserId, mChannelId);
                          Log.i(TAG, "Registered with Notification Hub - '"
-                                + ConfigurationSettings.NotificationHubName + "'"
-                                + " with UserId - '"
-                                + mUserId + "' and Channel Id - '"
-                                + mChannelId + "'");
+                                 + ConfigurationSettings.NotificationHubName + "'"
+                                 + " with UserId - '"
+                                 + mUserId + "' and Channel Id - '"
+                                 + mChannelId + "'");
                      } catch (Exception e) {
                          Log.e(TAG, e.getMessage());
                      }
@@ -349,7 +353,7 @@ Zobrazí se **保存成功!zpráva ** (**Úspěšně uloženo!**).
             import com.baidu.android.pushservice.PushConstants;
             import com.baidu.android.pushservice.PushManager;
 
-## Odešlete oznámení do aplikace
+## <a name="send-notifications-to-your-app"></a>Odešlete oznámení do aplikace
 Příjem oznámení ve vaší aplikaci můžete rychle otestovat zasláním oznámení z [Azure Portal](https://portal.azure.com/) prostřednictvím tlačítka **Poslat na zkoušku** v centru oznámení, jak vidíte na následující obrazovce.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
@@ -361,10 +365,10 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 * **Rozhraní REST**: oznámení můžete podporovat na jakékoli backend platformě pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure oznámení centra .NET SDK**: Ve správci balíčků Nuget pro Visual Studio spusťte položku [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Services**: pro příklad odesílání oznámení z Azure Mobile Services back-end, které jsou integrovány v centrech oznámení, naleznete v tématu [Přidat nabízená oznámení do vaší aplikace pro Mobile Services](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
-* **Java / PHP**: Příklad odesílání oznámení pomocí rozhraní REST API najdete v části „Jak používat Notification Hubs z Javy/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **Mobile Apps**: Příklad zasílání oznámení z back-endu Azure App Service Mobile Apps integrovaného se službou Notification Hubs najdete v tématu [Přidání nabízených oznámení do mobilních aplikací](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Java / PHP**: Příklad odesílání oznámení pomocí rozhraní API REST najdete v části „Použití centra oznámení z Java/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-## (Volitelné) Odesílání oznámení z konzoly aplikace .NET.
+## <a name="optional-send-notifications-from-a-net-console-app"></a>(Volitelné) Odesílání oznámení z konzoly aplikace .NET.
 V této části ukážeme odesílání oznámení pomocí konzolové aplikace .NET.
 
 1. Vytvořte novou konzolovou aplikaci Visual C#:
@@ -393,8 +397,8 @@ V této části ukážeme odesílání oznámení pomocí konzolové aplikace .N
          SendNotificationAsync();
          Console.ReadLine();
 
-## Testování aplikace
-K testování této aplikace pomocí skutečného telefonu, jednoduše připojte telefon k počítači pomocí kabelu USB. Tento postup načte aplikaci do připojeného telefonu.
+## <a name="test-your-app"></a>Testování aplikace
+K testování této aplikace pomocí skutečného telefonu, jednoduše připojte telefon k počítači pomocí kabelu USB. Tento postup načte aplikaci do připojeného telefonu.
 
 K otestování této aplikace pomocí emulátoru na horním panelu nástrojů Eclipse klikněte na tlačítko **Spustit** a pak vyberte svou aplikaci. Spustí se emulátor a potom se načte a spustí aplikace.
 
@@ -445,6 +449,6 @@ Pro odeslání testovacího oznámení můžete použít kartu ladění na port�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

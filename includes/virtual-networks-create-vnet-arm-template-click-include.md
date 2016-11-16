@@ -1,4 +1,4 @@
-## Nasazení šablony ARM pomocí metody Click to Deploy
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Nasazení šablony ARM pomocí metody Click to Deploy
 Můžete opakovaně používat předdefinované šablony ARM nahrané v úložišti GitHub, které udržuje Microsoft a které je otevřené celé komunitě. Tyto šablony se dají nasazovat přímo z webu GitHub nebo si je můžete stáhnout a upravit podle potřeby. Pokud chcete nasadit šablonu, která vytvoří síť VNet se dvěma podsítěmi, použijte následující postup.
 
 1. V prohlížeči přejděte na stránku [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
@@ -22,6 +22,8 @@ Můžete opakovaně používat předdefinované šablony ARM nahrané v úloži�
     
      ![Vytvoření sítě VNet na portálu Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

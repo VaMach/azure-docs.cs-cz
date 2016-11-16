@@ -1,35 +1,39 @@
 ---
-title: Připojení k Azure SQL Data Warehouse | Microsoft Docs
-description: Postup vyhledání názvu serveru a připojovacího řetězce pro Azure SQL Data Warehouse
+title: "Připojení k Azure SQL Data Warehouse | Dokumentace Microsoftu"
+description: "Postup vyhledání názvu serveru a připojovacího řetězce pro Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/26/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+
 
 ---
-# Připojení k Azure SQL Data Warehouse
+# <a name="connect-to-azure-sql-data-warehouse"></a>Připojení k Azure SQL Data Warehouse
 Tento článek vám pomůže s prvním připojením k SQL Data Warehouse.
 
-## Vyhledání názvu serveru
+## <a name="find-your-server-name"></a>Vyhledání názvu serveru
 Prvním krokem při připojení k SQL Data Warehouse je vědět, jak najít název serveru.  Například název serveru v následujícím příkladu je sample.database.windows.net. Plně kvalifikovaný název serveru zjistíte následujícím způsobem:
 
-1. Přejděte na [portál Azure][portál Azure].
+1. Přejděte na [portál Azure Portal][portál Azure Portal].
 2. Klikněte na **Databáze SQL**. 
 3. Klikněte na databázi, ke které se chcete připojit.
 4. Vyhledejte úplný název serveru.
    
     ![Úplný název serveru][1]
 
-## Podporované ovladače a připojovací řetězce
+## <a name="supported-drivers-and-connection-strings"></a>Podporované ovladače a připojovací řetězce
 Azure SQL Data Warehouse podporuje [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] a [JDBC][JDBC]. Kliknutím na jeden z předchozích ovladačů vyhledáte nejnovější verzi a dokumentaci. Chcete-li automaticky vygenerovat připojovací řetězec pro ovladač, který používáte, z webu Azure Portal, můžete kliknout na **Zobrazit připojovací řetězce databáze** z předchozího příkladu.  Následuje několik příkladů toho, jak připojovací řetězce vypadají pro jednotlivé ovladače.
 
 > [!NOTE]
@@ -37,27 +41,27 @@ Azure SQL Data Warehouse podporuje [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 
 > 
 > 
 
-### Příklad připojovacího řetězce pro ADO.NET
+### <a name="adonet-connection-string-example"></a>Příklad připojovacího řetězce pro ADO.NET
 ```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-### Příklad připojovacího řetězce pro ODBC
+### <a name="odbc-connection-string-example"></a>Příklad připojovacího řetězce pro ODBC
 ```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
-### Příklad připojovacího řetězce pro PHP
+### <a name="php-connection-string-example"></a>Příklad připojovacího řetězce pro PHP
 ```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
-### Příklad připojovacího řetězce pro JDBC
+### <a name="jdbc-connection-string-example"></a>Příklad připojovacího řetězce pro JDBC
 ```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-## Nastavení připojení
+## <a name="connection-settings"></a>Nastavení připojení
 SQL Data Warehouse během připojování a vytváření objektů používá několik standardních nastavení. Tato nastavení nelze přepsat a zahrnují:
 
 | Nastavení databáze | Hodnota |
@@ -67,7 +71,7 @@ SQL Data Warehouse během připojování a vytváření objektů používá něk
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Informace o připojení a dotazování pomocí sady Visual Studio najdete v oddílu [Dotazování pomocí sady Visual Studio][Dotazování pomocí sady Visual Studio]. Další informace o možnostech ověřování najdete v oddílu [Ověřování do Azure SQL Data Warehouse][Ověřování do Azure SQL Data Warehouse].
 
 <!--Articles-->
@@ -85,7 +89,7 @@ Informace o připojení a dotazování pomocí sady Visual Studio najdete v odd�
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[portál Azure]: https://portal.azure.com
+[portál Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
@@ -94,6 +98,6 @@ Informace o připojení a dotazování pomocí sady Visual Studio najdete v odd�
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Začínáme se Schedulerem na portálu Azure | Microsoft Docs
-description: Začínáme se Schedulerem na portálu Azure
+title: "Začínáme se Schedulerem na webu Azure Portal | Dokumentace Microsoftu"
+description: "Začínáme se Schedulerem na portálu Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Začínáme se Schedulerem na portálu Azure
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Začínáme se Schedulerem na portálu Azure
 Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto kurzu se naučíte, jak vytvořit úlohu. Taky poznáte možnosti Scheduleru pro sledování a správu.
 
-## Vytvoření úlohy
+## <a name="create-a-job"></a>Vytvoření úlohy
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).  
 2. Klikněte na **+Nový** > v poli pro vyhledávání zadejte *Scheduler* > ve výsledcích vyberte **Scheduler** > klikněte na **Vytvořit**.
    
@@ -46,7 +50,7 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
       ![][recurrence-schedule]
 6. Klikněte na **Vytvořit**
 
-## Správa a sledování úloh
+## <a name="manage-and-monitor-jobs"></a>Správa a sledování úloh
 Úloha se po vytvoření objeví v hlavním řídicím panelu Azure. Klikněte na úlohu a otevře se nové okno s těmito kartami:
 
 1. Vlastnosti  
@@ -57,12 +61,12 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
    
    ![][job-overview]
 
-### Vlastnosti
+### <a name="properties"></a>Vlastnosti
 Tyto vlastnosti jsou jen pro čtení a popisují metadata správy pro úlohu Scheduleru.
 
    ![][job-properties]
 
-### Nastavení akce
+### <a name="action-settings"></a>Nastavení akce
 Pokud chcete nakonfigurovat úlohu, klikněte na ni na obrazovce **Úlohy**. Pokud jste pokročilá nastavení nenakonfigurovali v průvodci rychlým vytvořením podle svých představ, můžete je konfigurovat tady.
 
 Pro všechny typy akcí můžete změnit zásady opakovaných pokusů a akci při chybě.
@@ -75,7 +79,7 @@ Pro akce sběrnice můžete změnit obory názvů, cestu k tématu/frontě, nast
 
    ![][job-action-settings]
 
-### Plán
+### <a name="schedule"></a>Plán
 Pokud vám plán vytvořený v průvodci rychlým vytvořením nevyhovuje, můžete ho tady změnit.
 
 To je příležitost k sestavení [komplexních plánů a pokročilého opakování ve vaší úloze](scheduler-advanced-complexity.md).
@@ -84,7 +88,7 @@ Můžete změnit datum a čas zahájení, plán opakování a datum a čas ukon�
 
    ![][job-schedule]
 
-### Historie
+### <a name="history"></a>Historie
 Na kartě **Historie** jsou zobrazené vybrané metriky pro každé provedení vybrané úlohy v systému. Tyto metriky v reálném čase poskytují hodnoty ohledně kondice vašeho Scheduleru:
 
 1. Status  
@@ -100,19 +104,19 @@ Můžete kliknout na běh a zobrazí se **Podrobnosti historie** včetně komple
 
    ![][job-history-details]
 
-### Uživatelé
+### <a name="users"></a>Uživatelé
 Řízení přístupu na základě role ve službě Azure Scheduler umožňuje přesnou správu přístupu. Pokud se chcete naučit používat kartu Uživatelé, přečtěte si témě [Řízení přístupu Azure na základě rolí](../active-directory/role-based-access-control-configure.md).
 
-## Viz také
+## <a name="see-also"></a>Viz také
  [Co je Scheduler?](scheduler-intro.md)
 
  [Koncepty, terminologie a hierarchie entit Scheduleru](scheduler-concepts-terms.md)
 
- [Plány a fakturace ve službě Azure Scheduler](scheduler-plans-billing.md)
+ [Plány a fakturace v Azure Scheduleru](scheduler-plans-billing.md)
 
- [Sestavení komplexních plánů a pokročilé opakování ve službě Azure Scheduler](scheduler-advanced-complexity.md)
+ [Sestavení komplexních plánů a pokročilé opakování v Azure Scheduleru](scheduler-advanced-complexity.md)
 
- [REST API Scheduleru – referenční informace](https://msdn.microsoft.com/library/mt629143)
+ [Referenční materiály k rozhraní REST API Scheduleru](https://msdn.microsoft.com/library/mt629143)
 
  [Rutiny PowerShellu pro Scheduler – referenční informace](scheduler-powershell-reference.md)
 
@@ -151,6 +155,6 @@ Můžete kliknout na běh a zobrazí se **Podrobnosti historie** včetně komple
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

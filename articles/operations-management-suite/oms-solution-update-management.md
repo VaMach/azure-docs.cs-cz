@@ -1,242 +1,247 @@
 ---
-title: Update Management solution in OMS | Microsoft Docs
-description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
+title: "Aktualizace řešení pro správu v OMS | Dokumentace Microsoftu"
+description: "Tento článek vám objasní, jak toto řešení používat ke správě aktualizací pro počítače s Windows a Linuxem."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
-The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Aktualizace řešení pro správu v OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Aktualizace řešení pro správu v OMS
+Řešení pro správu aktualizací v OMS umožňuje spravovat aktualizace pro počítače s Windows a Linuxem.  Stav dostupných aktualizací na všech počítačích agenta můžete rychle vyhodnotit a zahájit proces instalace požadovaných aktualizací pro servery. 
 
-## Prerequisites
-* Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
+## <a name="prerequisites"></a>Požadavky
+* Agenti Windows musí být buď nakonfigurovaní na komunikaci se službou Windows Server Update Services (WSUS), nebo musí mít přístup ke službě Microsoft Update.  
   
   > [!NOTE]
-  > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
+  > Agenta Windows není možné spravovat současně s nástrojem System Center Configuration Manager.  
   > 
   > 
-* Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+* Agenty Linux musí mít přístup k úložišti aktualizací.  Agenta OMS pro Linux je možné stáhnout z webu [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
-## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
+## <a name="configuration"></a>Konfigurace
+Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a přidejte agenty Linux.  Agenti Windows se přidají automaticky bez dodatečné konfigurace.
 
-1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3. Perform the following steps for each Linux computer.
+1. Postupem popsaným v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md) přidejte řešení pro správu aktualizací z galerie řešení do pracovního prostoru.  
+2. Na portálu OMS vyberte **Nastavení** a potom **Připojené zdroje**.  Poznamenejte si **ID pracovního prostoru** a **primární klíč** nebo **sekundární klíč**.
+3. Pro každý počítač s Linuxem proveďte následující postup.
    
-   a.  Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+   a.    Nainstalujte nejnovější verzi agenta OMS pro Linux spuštěním následujících příkazů.  Hodnotu <Workspace ID> nahraďte ID pracovního prostoru a hodnotu <Key> primárním nebo sekundárním klíčem.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. To remove the agent, run the following command.
+   b. Pokud chcete agenta odebrat, spusťte následující příkaz.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
-## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager when you add this solution. There is no configuration or maintenance of these management packs required. 
+## <a name="management-packs"></a>Sady Management Pack
+Pokud je vaše skupina pro správu Center Operations Manager připojená k pracovnímu prostoru OMS, do Operations Manageru se po přidání tohoto řešení nainstalují následující sady Management Pack. Není potřeba žádná konfigurace ani údržba těchto sad Management Pack. 
 
-* Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
+* Aktualizace Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
-* Update Deployment MP
+* Aktualizace sady pro správu nasazení
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Další informace o způsobu, jakým se aktualizují sady pro správu řešení, najdete v tématu [Připojení Operations Manageru ke službě Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-## Data collection
-### Supported agents
-The following table describes the connected sources that are supported by this solution.
+## <a name="data-collection"></a>Shromažďování dat
+### <a name="supported-agents"></a>Podporovaní agenti
+Následující tabulka popisuje připojené zdroje, které toto řešení podporuje.
 
-| Connected Source | Supported | Description |
+| Připojený zdroj | Podporuje se | Popis |
 | --- | --- | --- |
-| Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
-| Azure storage account |No |Azure storage does not include information about system updates. |
+| Agenti systému Windows |Ano |Řešení shromažďuje informace o aktualizacích systému pro agenty Windows a inicializuje instalaci požadovaných aktualizací. |
+| Agenti systému Linux |Ano |Řešení shromažďuje informace o aktualizacích systému z agentů Linuxu. |
+| Skupina pro správu Operations Manageru |Ano |Řešení shromažďuje informace o aktualizacích systému z agentů v připojené skupině pro správu.<br>Přímé připojení z agenta Operations Manageru ke službě Log Analytics není potřeba. Data se přesměrovávají ze skupiny pro správu do úložiště OMS. |
+| Účet služby Azure Storage |Ne |Úložiště Azure neobsahuje informace o aktualizacích systému. |
 
-### Collection frequency
-For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+### <a name="collection-frequency"></a>Četnost shromažďování dat
+Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně.  Při instalaci aktualizace se informace aktualizují do 15 minut.  
 
-For each managed Linux computer, a scan is performed every 3 hours.  
+Pro každý spravovaný počítač s Linuxem se kontrola provádí každé tři hodiny.  
 
-## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
-![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+## <a name="using-the-solution"></a>Použití řešení
+Když přidáte řešení pro správu aktualizací do pracovního prostoru OMS, na řídicí panel OMS se přidá dlaždice **Správa aktualizací**. Na této dlaždici se zobrazuje počet a grafické vyjádření počtu počítačů ve vašem prostředí, které v současné době vyžadují aktualizace systému.<br><br>
+![Dlaždice Souhrn Správy aktualizací](media/oms-solution-update-management/update-management-summary-tile.png)  
 
-## Viewing Update Assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+## <a name="viewing-update-assessments"></a>Zobrazení posouzení aktualizací
+Klikněte na dlaždici **Správa aktualizací**. Otevře se řídicí panel **Správa aktualizací**. Řídicí panel obsahuje sloupce v následující tabulce. Každý sloupec uvádí až deset položek odpovídajících kritériím tohoto sloupce pro zadaný obor a časový rozsah. Kliknutím na **Zobrazit vše** v dolní části sloupce nebo na záhlaví sloupce můžete spustit hledání v protokolu, které vrátí všechny záznamy.
 
-| Column | Description |
+| Sloupec | Popis |
 | --- | --- |
-| **Computers Missing Updates** | |
-| Critical or Security Updates |Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer. |
-| Critical or Security Updates older than 30 days |Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Required Missing Updates** | |
-| Critical or Security Updates |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification. |
-| **Update Deployments** | |
-| Update Deployments |Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment. |
+| **Počítače s chybějícími aktualizacemi** | |
+| Důležité aktualizace nebo aktualizace zabezpečení |Obsahuje seznam prvních deset počítačů, ve kterých chybí aktualizace, seřazený podle počtu aktualizací, které v nich chybí. Kliknutím na název počítače spustíte hledání v protokolu, které vrátí všechny záznamy o aktualizaci pro tento počítač. |
+| Důležité aktualizace nebo aktualizace zabezpečení starší než 30 dní |Určuje počet počítačů, ve kterých chybí důležité aktualizace nebo aktualizace zabezpečení seskupené podle doby, která uplynula od publikování aktualizace. Klikněte na jednotlivé položky ke spuštění hledání v protokolu se všemi chybějícími a důležitými aktualizacemi. |
+| **Požadované chybějící aktualizace** | |
+| Důležité aktualizace nebo aktualizace zabezpečení |Uvádí seznam klasifikací aktualizací, které v počítači chybí, seřazený podle počtu počítačů postrádajících aktualizace v dané kategorii. Kliknutím na klasifikaci spustíte hledání v protokolu, které vrátí všechny záznamy o aktualizacích pro danou klasifikaci. |
+| **Nasazení aktualizace** | |
+| Nasazení aktualizace |Počet aktuálně plánovaných nasazení aktualizace a doba do dalšího plánovaného spuštění.  Kliknutím na dlaždici zobrazíte aktuálně spuštěné plány a dokončené aktualizace nebo naplánujete nové nasazení. |
 
 <br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
+![Řídicí panel Souhrn Správy aktualizací](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
 <br>
-![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
+![Zobrazení počítače s řídicím panelem Správa aktualizací](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+![Zobrazení balíčku s řídicím panelem Správa aktualizací](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
-## Installing updates
-Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
+## <a name="installing-updates"></a>Instalace aktualizací
+Po posouzení aktualizací pro všechny počítače s Windows ve vašem prostředí můžete nechat nainstalovat požadované aktualizace vytvořením *nasazení aktualizace*.  Nasazení aktualizace je plánovaná instalace požadovaných aktualizací pro jeden nebo více počítačů s Windows.  Kromě počítače nebo skupiny počítačů, které mají být součástí nasazení, určíte datum a čas nasazení.  
 
-Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+Aktualizace se instalují podle runbooků ve službě Azure Automation.  Tyto runbooky není v současné době možné zobrazit a nevyžadují žádnou konfiguraci.  Při vytvoření nasazení aktualizace se vytvoří plán, ve kterém se spouští hlavní runbook aktualizace v zadanou dobu pro zahrnuté počítače.  Tento hlavní runbook spouští podřízený runbook na každém agentovi Windows, který instaluje požadované aktualizace.  
 
-### Viewing update deployments
-Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
+### <a name="viewing-update-deployments"></a>Zobrazení nasazení aktualizace
+Klikněte na dlaždici **Aktualizovat nasazení** zobrazíte seznam existujících nasazení aktualizace.  Jsou seskupené podle stavu – **Naplánované**, **Spuštěné** a **Dokončeno**.<br><br> ![Stránka Plán nasazení aktualizace](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
-The properties displayed for each Update Deployment are described in the following table.
+Následující tabulka popisuje vlastnosti zobrazené u každého nasazení aktualizace.
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  *OneTime* is currently the only possible value. |
-| Start Time |Date and time that the Update Deployment is scheduled to start. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment. |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>-  Not Started<br>- Running<br>- Finished |
+| Název |Název nasazení aktualizace |
+| Plán |Typ plánu  Momentálně je jediná možná hodnota *Jednorázově*. |
+| Čas spuštění |Datum a čas, na kdy je naplánované spuštění nasazení aktualizace. |
+| Doba trvání |Počet minut, po které je povoleno spuštění nasazení aktualizace.  Pokud se všechny aktualizace nenainstalují v rámci této doby trvání, musí zbývající aktualizace počkat až do dalšího nasazení aktualizace. |
+| Servery |Počet počítačů ovlivněných nasazením aktualizace |
+| Status |Aktuální stav nasazení aktualizace<br><br>Možné hodnoty:<br>-    Není spuštěné<br>- Spuštěné<br>- Dokončeno |
 
-Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
+Klikněte na nasazení aktualizace a podívejte se na jeho podrobnou obrazovku, která zahrnuje sloupce v následující tabulce.  Tyto sloupce nebudou naplněné, pokud nasazení aktualizace ještě nezačalo.<br>
 
-| Column | Description |
+| Sloupec | Popis |
 | --- | --- |
-| **Computer Results** | |
-| Completed Successfully |Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Update Instance Results** | |
-| Instance Installation Status |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer. |
+| **Výsledky v počítači** | |
+| Úspěšně dokončeno |Uvádí počet počítačů v nasazení aktualizací podle stavu.  Klikněte na stav, aby se spustilo prohledávání protokolu, které vrátí všechny záznamy aktualizace s tímto stavem pro nasazení aktualizace. |
+| Stav instalace počítače |Zobrazí seznam počítačů zahrnutých v nasazení aktualizace a procento aktualizací, které se úspěšně nainstalovaly. Klikněte na jednotlivé položky ke spuštění hledání v protokolu se všemi chybějícími a důležitými aktualizacemi. |
+| **Aktualizace výsledků instance** | |
+| Stav instalace instance |Uvádí seznam klasifikací aktualizací, které v počítači chybí, seřazený podle počtu počítačů postrádajících aktualizace v dané kategorii. Kliknutím na počítač spustíte hledání v protokolu, které vrátí všechny záznamy o aktualizaci pro tento počítač. |
 
-<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br><br> ![Přehled výsledků nasazení aktualizace](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
-### Creating an Update Deployment
-Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
+### <a name="creating-an-update-deployment"></a>Vytvoření nasazení aktualizace
+Vytvořte nové nasazení aktualizace kliknutím na tlačítko **Přidat** v horní části obrazovky. Otevře se stránka **Nasazení nové aktualizace**.  Je nutné zadat hodnoty pro vlastnosti v následující tabulce.
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| Name |Unique name to identify the update deployment. |
-| Time Zone |Time zone to use for the start time. |
-| Start Time |Date and time to start the update deployment. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
+| Name (Název) |Jedinečný název pro identifikaci nasazení aktualizace. |
+| Časové pásmo |Časové pásmo, které se má použít pro čas spuštění |
+| Čas spuštění |Datum a čas spuštění aktualizace nasazení |
+| Doba trvání |Počet minut, po které je povoleno spuštění nasazení aktualizace.  Pokud se všechny aktualizace nenainstalují v rámci této doby trvání, musí zbývající aktualizace počkat až do dalšího nasazení aktualizace. |
+| Počítače |Názvy počítačů nebo skupin počítačů, které chcete zahrnout do nasazení aktualizace.  V rozevíracím seznamu vyberte jednu nebo více položek. |
 
-<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
+<br><br> ![Stránka Nasazení nové aktualizace](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### Time range
-By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
+### <a name="time-range"></a>Časové rozmezí
+Ve výchozím nastavení je rozsah dat analyzovaný v řešení Správa aktualizací ze všech připojených skupin pro správu generovaných během posledního dne. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Pokud chcete rozsah dat změnit, vyberte v horní části řídicího panelu **Podle data**. Můžete vybírat záznamy vytvořené nebo aktualizované během posledních 7 dní, 1 dne nebo 6 hodin. Nebo můžete vybrat **Vlastní** a zadat vlastní rozsah dat.<br><br> ![Možnost vlastního časového rozsahu](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
-## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
+## <a name="log-analytics-records"></a>Záznamy služby Log Analytics
+Řešená Správa aktualizací vytváří v úložišti OMS dva typy záznamů.
 
-### Update records
-A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
+### <a name="update-records"></a>Záznamy typu Aktualizace
+Záznam typu **Aktualizace** se vytvoří pro každou aktualizaci, která je nainstalovaná nebo která je potřeba v každém počítači. Vlastnosti záznamů tohoto typu uvádí následující tabulka.
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
-| Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
-| Classification for Windows |Classification of the update.<br>Possible values are:<br>- Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
-| Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
-| Computer |Name of the computer. |
-| InstallTimeAvailable |Specifies whether the installation time is available from other agents that installed the same update. |
-| InstallTimePredictionSeconds |Estimated installation time in seconds based on other agents that installed the same update. |
-| KBID |ID of the KB article that describes the update. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>. |
-| MSRCBulletinID |ID of the Microsoft security bulletin describing the update. |
-| MSRCSeverity |Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate |
-| Optional |Specifies whether the update is optional. |
-| Product |Name of the product the update is for.  Click **View** to open the article in a browser. |
-| PackageSeverity |The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. |
-| PublishDate |Date and time that the update was installed. |
-| RebootBehavior |Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots |
-| RevisionNumber |Revision number of the update. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| Title |Title of the update. |
-| UpdateID |GUID to uniquely identify the update. |
-| UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
+| Typ |*Aktualizace* |
+| SourceSystem |Zdroj, který schválil instalaci aktualizace<br>Možné hodnoty:<br>- Microsoft Update<br>-    Windows Update<br>-    SCCM<br>- Servery Linux (získané ze správců balíčků) |
+| Schválené |Určuje, jestli byla instalace aktualizace schválená.<br> Pro servery Linux je tento postup momentálně volitelné, protože OMS nespravuje opravy. |
+| Klasifikace pro Windows |Klasifikace aktualizace<br>Možné hodnoty:<br>-    Aplikace<br>- Důležité aktualizace<br>- Aktualizace definic<br>- Balíčky funkcí<br>– Aktualizace zabezpečení<br>- Aktualizace Service Pack<br>- Kumulativní aktualizace<br>- Aktualizace |
+| Klasifikace pro Linux |Klasifikace aktualizace<br>Možné hodnoty:<br>- Důležité aktualizace<br>– Aktualizace zabezpečení<br>- Další aktualizace |
+| Počítač |Název počítače |
+| InstallTimeAvailable |Určuje, jestli je k dispozici čas instalace z jiných agentů, kteří instalovali stejnou aktualizaci. |
+| InstallTimePredictionSeconds |Odhadovaná doba instalace v sekundách založená na jiných agentech, kteří instalovali stejnou aktualizaci. |
+| KBID |ID článku znalostní báze, který popisuje aktualizaci. |
+| ManagementGroupName |Název skupiny pro správu agentů SCOM.  Pro ostatní agenty to je AOI-<workspace ID>. |
+| MSRCBulletinID |ID bulletinu zabezpečení Microsoftu popisující aktualizaci. |
+| MSRCSeverity |Závažnost bulletinu zabezpečení Microsoftu.<br>Možné hodnoty:<br>- Kritická<br>- Důležitá<br>- Střední |
+| Nepovinné |Určuje, jestli je aktualizace volitelná |
+| Produkt |Název produktu, ke kterému se aktualizace vztahuje  Klikněte na **Zobrazit** pro otevření článku v prohlížeči. |
+| PackageSeverity |Závažnost chyby zabezpečení opravené v této aktualizaci uváděná dodavateli distribuce pro Linux |
+| PublishDate |Datum a čas instalace aktualizace |
+| RebootBehavior |Určuje, jestli aktualizace vyžaduje restartování.<br>Možné hodnoty:<br>- canrequestreboot<br>- neverreboots |
+| RevisionNumber |Číslo revize aktualizace |
+| SourceComputerId |Identifikátor GUID k jednoznačné identifikaci počítače |
+| TimeGenerated |Datum a čas poslední aktualizace záznamu |
+| Název |Název aktualizace |
+| UpdateID |Identifikátor GUID k jednoznačné identifikaci aktualizace |
+| UpdateState |Určuje, jestli je v tomto počítači nainstalovaná aktualizace.<br>Možné hodnoty:<br>- Nainstalováno – aktualizace je v tomto počítači nainstalovaná.<br>- Vyžadováno – Aktualizace není nainstalovaná a tento počítač ji vyžaduje. |
 
 <br>
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
+Při provádění jakékoli hledání v protokolu, které vrací záznamy typu **Aktualizace**, můžete vybrat zobrazení **Aktualizace** obsahující sadu dlaždic se souhrnem aktualizací vrácených hledáním. Můžete kliknout na položky v dlaždicích **Chybějící a použité aktualizace** a **Požadované a volitelné aktualizace** k určení rozsahu zobrazení této sady aktualizací. Vyberte zobrazení **Seznam** nebo **Tabulka** k vracení jednotlivých záznamů.<br> 
 
-![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
+![Zobrazení aktualizace hledání v protokolu s typem záznamu Aktualizace](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
+V zobrazení **Tabulka** můžete kliknout na **KBID** u jakéhokoli záznamu, aby se otevřel prohlížeč s článkem znalostní báze. Díky tomu si můžete rychle přečíst o podrobnostech konkrétní aktualizace.<br> 
 
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
+![Zobrazení tabulky hledání v protokolu s aktualizacemi typu záznamů Dlaždice](./media/oms-solution-update-management/update-la-view-table.png)
 
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
+V zobrazení **Seznam** klikněte na odkaz **Zobrazení** vedle KBID. Otevře se článek znalostní báze.<br>
 
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
+![Zobrazení seznamu hledání v protokolu s aktualizacemi typu záznamů Dlaždice](./media/oms-solution-update-management/update-la-view-list.png)
 
-### UpdateSummary records
-A record with a type of **UpdateSummary** is created for each Windows agent computer. This record is updated each time the computer is scanned for updates. **UpdateSummary** records have the properties in the following table.
+### <a name="updatesummary-records"></a>Záznamy UpdateSummary
+Pro každý počítač s agentem Windows se vytvoří záznam typu **UpdateSummary** . Tento záznam se aktualizuje pokaždé, se provádí vyhledávání aktualizací v počítači. Vlastnosti záznamů typu **UpdateSummary** uvádí následující tabulka.
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| Type |UpdateSummary |
+| Typ |UpdateSummary |
 | SourceSystem |OpsManager |
-| Computer |Name of the computer. |
-| CriticalUpdatesMissing |Number of critical updates missing on the computer. |
-| ManagementGroupName |Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>. |
-| NETRuntimeVersion |Version of the .NET runtime installed on the computer. |
-| OldestMissingSecurityUpdateBucket |Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-  180 days ago<br>- 150 days ago<br>- 120 days ago<br>- 90 days ago<br>- 60 days ago<br>- 30 days go<br>- Recent |
-| OldestMissingSecurityUpdateInDays |Number of days since the oldest missing security update on this computer was published. |
-| OsVersion |Version of the operating system installed on the computer. |
-| OtherUpdatesMissing |Number of other updates missing on the computer. |
-| SecurityUpdatesMissing |Number of security updates missing on the computer. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| TotalUpdatesMissing |Total number of updates missing on the computer. |
-| WindowsUpdateAgentVersion |Version number of the Windows Update agent on the computer. |
-| WindowsUpdateSetting |Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation |
-| WSUSServer |URL of WSUS server if the computer is configured to use one. |
+| Počítač |Název počítače |
+| CriticalUpdatesMissing |Počet důležitých aktualizací, které v počítači chybí |
+| ManagementGroupName |Název skupiny pro správu agentů SCOM. Pro ostatní agenty to je AOI-<workspace ID>. |
+| NETRuntimeVersion |Verze běhového prostředí .NET nainstalovaného v počítači |
+| OldestMissingSecurityUpdateBucket |Sektor ke kategorizaci času od posledního publikování nejstarší chybějící aktualizace zabezpečení v tomto počítači<br>Možné hodnoty:<br>- Starší<br>-    před 180 dny<br>- před 150 dny<br>-    před 120 dny<br>- před 90 dny<br>- před 60 dny<br>-    před 30 dny<br>-    Poslední |
+| OldestMissingSecurityUpdateInDays |Počet dní od publikování nejstarší chybějící aktualizace zabezpečení v tomto počítači |
+| OsVersion |Verze operačního systému nainstalovaného v počítači |
+| OtherUpdatesMissing |Počet ostatních aktualizací, které v počítači chybí |
+| SecurityUpdatesMissing |Počet aktualizací zabezpečení, které v počítači chybí |
+| SourceComputerId |Identifikátor GUID k jednoznačné identifikaci počítače |
+| TimeGenerated |Datum a čas poslední aktualizace záznamu |
+| TotalUpdatesMissing |Celkový počet aktualizací, které v počítači chybí |
+| WindowsUpdateAgentVersion |Číslo verze agenta Windows Update v počítači |
+| WindowsUpdateSetting |Nastavení způsobu, jakým bude počítač instalovat důležité aktualizace<br>Možné hodnoty:<br>- Zakázáno<br>- Upozornění před instalací<br>- Plánovaná instalace |
+| WSUSServer |Adresa URL serveru WSUS, pokud je počítač nakonfigurovaný na jeho používání |
 
-## Sample log searches
-The following table provides sample log searches for update records collected by this solution. 
+## <a name="sample-log-searches"></a>Ukázky hledání v protokolech
+V následující tabulce jsou uvedeny ukázky hledání v protokolech pro záznamy aktualizace shromážděné tímto řešením. 
 
-| Query | Description |
+| Dotaz | Popis |
 | --- | --- |
-| All computers with missing updates |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
-| All computers with missing critical or security updates |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
-| Critical or security updates needed by machines where updates are manually applied |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
-| Error events for machines that have missing critical or security required updates |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
-| All computers with missing update rollups |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Distinct missing updates across all computers |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
-| WSUS computer membership |Type=UpdateSummary &#124; measure count() by WSUSServer |
-| Automatic update configuration |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
-| Computers with automatic update disabled |Type=UpdateSummary WindowsUpdateSetting=Manual |
-| List of all the Linux machines which have a package update available |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
-| List of all the “Ubuntu” machines with any update available |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
+| Všechny počítače s chybějícími aktualizacemi |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Chybějící aktualizace v počítači COMPUTER01.contoso.com (nahraďte názvem svého počítače) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
+| Všechny počítače s chybějícími důležitými aktualizacemi nebo aktualizacemi zabezpečení |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
+| Důležité aktualizace nebo aktualizace zabezpečení vyžadované počítači, kde se aktualizace používají ručně |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
+| Chybové události pro počítače s chybějícími požadovanými důležitými aktualizacemi nebo aktualizacemi zabezpečení |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
+| Všechny počítače s chybějícími kumulativními aktualizacemi |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Konkrétní chybějící aktualizace ve všech počítačích |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
+| Členství počítačů WSUS |Type=UpdateSummary &#124; measure count() by WSUSServer |
+| Automatická konfigurace aktualizace |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
+| Počítače se zakázanými automatickými aktualizacemi |Type=UpdateSummary WindowsUpdateSetting=Manual |
+| Seznam všech počítačů Linux, které mají k dispozici aktualizaci balíčku |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
+| Seznam všech počítačů Linux, které mají k dispozici aktualizace balíčku pro řešení kritické chyby nebo chyby zabezpečení |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
+| Seznam všech balíčků, které mají k dispozici aktualizaci |Type=Update and OSType=Linux and UpdateState!="Not needed" |
+| Seznam všech balíčků pro řešení kritické chyby nebo chyby zabezpečení |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
+| Seznam všech počítačů s Ubuntu s jakoukoli dostupnou aktualizací |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
 
-## Next steps
-* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
+## <a name="next-steps"></a>Další kroky
+* K zobrazení podrobných údajů o aktualizaci použijte Hledání v protokolu služby [Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* [Vytvářejte vlastní řídicí panely](../log-analytics/log-analytics-dashboards.md) zobrazující shodu aktualizace pro vaše spravované počítače.
+* [Vytvářejte výstrahy](../log-analytics/log-analytics-alerts.md) při zjištění, že v počítačích chybí důležité aktualizace nebo že má počítač zakázané automatické aktualizace.  
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

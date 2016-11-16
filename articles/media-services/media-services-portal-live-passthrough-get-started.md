@@ -1,22 +1,26 @@
 ---
-title: Jak provést živé streamování pomocí místních kodérů na portálu Azure | Microsoft Docs
-description: Tento kurz vás provede kroky pro vytvoření Kanálu, který je nakonfigurován pro průchozí doručování.
+title: "Jak provést živé streamování pomocí místních kodérů na portálu Azure Portal | Dokumentace Microsoftu"
+description: "Tento kurz vás provede kroky pro vytvoření Kanálu, který je nakonfigurován pro průchozí doručování."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Jak provést živé streamování pomocí místních kodérů na portálu Azure
+# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Jak provést živé streamování pomocí místních kodérů na portálu Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +34,7 @@ Tento kurz vás provede kroky pro vytvoření **Kanálu**, který je nakonfiguro
 K dokončení kurzu potřebujete následující:
 
 * Účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-portal-create-account.md).
+* Účet Media Services.    Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-portal-create-account.md).
 * Webová kamera. Například [kodér Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Důrazně doporučujeme přečtení následujících článků:
@@ -39,7 +43,7 @@ Důrazně doporučujeme přečtení následujících článků:
 * [Přehled živého streamování pomocí služby Azure Media Services](media-services-manage-channels-overview.md)
 * [Živé streamování s místními kodéry, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"> </a>Běžný scénář živého streamování
+## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"> </a>Běžný scénář živého streamování
 Následující kroky popisují úlohy, které jsou běžně součástí procesu vytváření aplikací pro živé streamování, které používají kanály, nakonfigurované pro průchozí doručování. Tento kurz ukazuje, jak vytvořit a spravovat průchozí kanál a živé události.
 
 1. Připojte k počítači videokameru. Spusťte a nakonfigurujte místní kodér pro kódování v reálném čase, který produkuje RTMP s více přenosovými rychlostmi nebo fragmentovaný proud MP4. Další informace najdete v článku [Podpora RTMP ve službě Azure Media Services a kodéry pro kódování v reálném čase](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -97,14 +101,14 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
    > 
    > 
 
-## <a name="create-and-start-pass-through-channels-and-events"></a>Vytvoření a spuštění průchozího kanálu.
+## <a name="create-and-start-passthrough-channels-and-events"></a>Vytvoření a spuštění průchozího kanálu.
 Kanál je přidružený k událostem a programům, které vám umožňují řídit publikování a ukládání segmentů v živém datovém proudu. Kanály spravují události. 
 
-Nastavením délky **archivačního okna** můžete určit počet hodin, po které chcete uchovávat zaznamenaný obsah programu. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
+Nastavením délky **archivačního okna** můžete určit počet hodin, po které chcete uchovávat zaznamenaný obsah programu. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
 
 Každá událost je přidružena k assetu. Chcete-li publikovat událost, musíte pro přidružený prostředek vytvořit lokátor OnDemand. Tento lokátor vám umožní sestavit adresu URL pro streamování, kterou následně poskytnete svým klientům.
 
-Kanál podporuje až tři současně spuštěné programy, takže si můžete vytvořit několik archivů stejného příchozího datového proudu. To vám umožní podle potřeby publikovat a archivovat různé části události. Požadavek vaší firmy může být například takový, že chcete archivovat 6 hodin programu, ale vysílat jenom posledních 10 minut. K tomu potřebujete vytvořit dva současně spuštěné programy. Jeden program nastavíte, aby archivoval 6 hodin události, ale tento program nebudete publikovat. Druhý program nastavíte, aby archivoval 10 minut a tento program budete publikovat.
+Kanál podporuje až tři současně spuštěné programy, takže si můžete vytvořit několik archivů stejného příchozího datového proudu. To vám umožní podle potřeby publikovat a archivovat různé části události. Požadavek vaší firmy může být například takový, že chcete archivovat 6 hodin programu, ale vysílat jenom posledních 10 minut. K tomu potřebujete vytvořit dva současně spuštěné programy. Jeden program nastavíte, aby archivoval 6 hodin události, ale tento program nebudete publikovat. Druhý program nastavíte, aby archivoval 10 minut a tento program budete publikovat.
 
 Neměli byste znovu používat existující živé události. Místo toho vytvořte a spusťte novou událost pro každou jednotlivou událost.
 
@@ -121,15 +125,16 @@ Tento oddíl ukazuje, jak vytvořit průchozí kanál pomocí možnosti **Rychle
 
 Další podrobnosti o průchozích kanálech v [Živé streamování s místními kodéry, které vytvářejí proudy s více přenosovými rychlostmi.](media-services-live-streaming-with-onprem-encoders.md).
 
-1. V okně **Nastavení** klikněte na **Živé streamování**. 
+1. Na webu [Azure Portal](https://portal.azure.com/) zvolte účet Azure Media Services.
+2. V okně **Nastavení** klikněte na **Živé streamování**. 
    
     ![Začínáme](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Zobrazí se okno **Živé vysílání datového proudu**.
-2. Klikněte na **Rychle vytvořit** a vytvořte průchozí kanál s protokolem ingestování RTMP.
+3. Klikněte na **Rychle vytvořit** a vytvořte průchozí kanál s protokolem ingestování RTMP.
    
     Zobrazí se okno **VYTVOŘIT NOVÝ KANÁL**.
-3. Zadejte název nového kanálu a klikněte na **Vytvořit**. 
+4. Zadejte název nového kanálu a klikněte na **Vytvořit**. 
    
     Tím vytvoříte průchozí kanál s protokolem ingestování RTMP.
 
@@ -172,6 +177,9 @@ Prohlédněte si mapy kurzů k Media Services.
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

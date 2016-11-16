@@ -2,12 +2,12 @@ Některé balíčky se při spuštění v Azure nemusí pomocí systému pip nai
 
 V této části najdete popis způsobů řešení tohoto problému.
 
-### Vyžádání souborů wheel
+### <a name="request-wheels"></a>Vyžádání souborů wheel
 Pokud instalace balíčku vyžaduje kompilátor, pokuste se kontaktovat vlastníka balíčku a požádejte ho o zpřístupnění souborů wheel balíčku.
 
-Díky nedávno vydanému kompilátoru [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] je nyní snazší sestavovat balíčky, které mají nativní kód pro Python 2.7.
+Díky nedávno vydanému kompilátoru [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] je teď snazší sestavovat balíčky, které mají nativní kód pro Python 2.7.
 
-### Sestavení souborů wheel (vyžaduje Windows)
+### <a name="build-wheels-requires-windows"></a>Sestavení souborů wheel (vyžaduje Windows)
 Poznámka: Při použití této možnosti je nutné balíček zkompilovat pomocí prostředí Python, které odpovídá platformě, architektuře a verzi použité ve webové aplikaci ve službě Azure App Service (Windows/32-bit/2.7 nebo 3.4).
 
 Pokud se balíček nenainstaluje, protože vyžaduje kompilátor, můžete kompilátor nainstalovat na místním počítači a sestavit pro balíček soubor wheel, který potom zahrnete do úložiště.
@@ -37,7 +37,7 @@ Pokud chcete zahrnout všechny svoje závislosti do složky \wheelhouse, a index
 
     --no-index
 
-### Přizpůsobení instalace
+### <a name="customize-installation"></a>Přizpůsobení instalace
 Skript nasazení můžete přizpůsobit tak, aby nainstalovat balíček ve virtuálním prostředí pomocí alternativního instalačního programu, jako je například easy\_install.  Příklad tohoto postupu označený jako komentář najdete v souboru deploy.cmd.  Ujistěte se, že tyto balíčky nejsou uvedené v souboru requirements.txt, abyste systému pip zabránili v jejich instalaci.
 
 Do skriptu nasazení přidejte následující kód:
@@ -50,7 +50,7 @@ Do skriptu nasazení přidejte následující kód:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Zahrnutí virtuálního prostředí do úložiště (vyžaduje Windows)
+### <a name="include-the-virtual-environment-in-the-repository-requires-windows"></a>Zahrnutí virtuálního prostředí do úložiště (vyžaduje Windows)
 Poznámka: Při použití této možnosti je nutné použít virtuální prostředí, které odpovídá platformě, architektuře a verzi použité ve webové aplikaci ve službě Azure App Service (Windows/32-bit/2.7 nebo 3.4).
 
 Pokud do úložiště zahrnete virtuální prostředí, můžete skriptu nasazení zabránit ve správě virtuálního prostředí v Azure vytvořením prázdného souboru:
@@ -64,6 +64,6 @@ Existující virtuální prostředí v aplikaci se doporučuje odstranit, abyste
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

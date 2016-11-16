@@ -1,13 +1,13 @@
 ---
-title: Používání klíčů SSH s Hadoop na linuxových clusterech ze systému Windows | Microsoft Docs
-description: Zjistěte, jak můžete vytvářet a používat klíče SSH k ověřování clusterů v systému Linux HDInsight. Připojování clusterů z klientů se systémem Windows pomocí klienta PuTTY SSH.
+title: "Používání klíčů SSH s Hadoop na linuxových clusterech ze systému Windows | Dokumentace Microsoftu"
+description: "Zjistěte, jak můžete vytvářet a používat klíče SSH k ověřování clusterů v systému Linux HDInsight. Připojování clusterů z klientů se systémem Windows pomocí klienta PuTTY SSH."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/30/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d98b40b91f3f84aa717ed2f295fb9c341fe4a38
+
 
 ---
-# Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows
+# <a name="use-ssh-with-linuxbased-hadoop-on-hdinsight-from-windows"></a>Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows
 > [!div class="op_single_selector"]
 > * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 > * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -33,7 +37,7 @@ ms.author: larryfr
 > 
 > 
 
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * **PuTTY** a **PuTTYGen** pro klienty se systémem Windows. Tyto nástroje jsou k dispozici na adrese [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * Moderní webový prohlížeč, který podporuje HTML5.
 
@@ -43,20 +47,20 @@ NEBO
   
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-## Co je SSH?
+## <a name="what-is-ssh"></a>Co je SSH?
 SSH je nástroj pro přihlašování a vzdálené spouštění příkazů na vzdáleném serveru. Se systémem Linux HDInsight SSH vytvoří šifrované připojení k hlavnímu uzlu clusteru a poskytuje příkazový řádek, který použijete k zadávání příkazů. Příkazy jsou poté provedeny přímo na serveru.
 
-### Uživatelské jméno SSH
-Uživatelské jméno SSH je jméno sloužící k ověření clusteru HDInsight. Když zadáte uživatelské jméno SSH při vytváření clusteru, vytvoří se tento uživatel na všech uzlech v clusteru. Jakmile je cluster vytvořen, můžete použít toto uživatelské jméno pro připojení k hlavním uzlům clusteru HDInsight. Z hlavních uzlů se pak můžete připojit k jednotlivým pracovním uzlům.
+### <a name="ssh-user-name"></a>Uživatelské jméno SSH
+Uživatelské jméno SSH je jméno sloužící k ověření clusteru HDInsight. Když zadáte uživatelské jméno SSH při vytváření clusteru, vytvoří se tento uživatel na všech uzlech v clusteru. Jakmile je cluster vytvořen, můžete použít toto uživatelské jméno pro připojení k hlavním uzlům clusteru HDInsight. Z hlavních uzlů se pak můžete připojit k jednotlivým pracovním uzlům.
 
-### Heslo nebo veřejný klíč SSH
+### <a name="ssh-password-or-public-key"></a>Heslo nebo veřejný klíč SSH
 Uživatel SSH může pro ověření použít buď heslo nebo veřejný klíč. Heslo představuje vymyšlený textový řetězec, zatímco veřejný klíč je součástí páru kryptografických klíčů vygenerovaných k vaší jednoznačné identifikaci.
 
 Klíč je bezpečnější než heslo, ale vyžaduje další kroky pro vygenerování klíče a vy musíte zachovat soubory obsahující klíč v zabezpečeném umístění. Pokud někdo získá přístup k souborům klíčů, získá přístup k vašemu účtu. Případně pokud ztratíte soubory klíčů, nebudete se moci přihlásit ke svému účtu.
 
 Pár klíčů se skládá z veřejného klíče (která se odesílá na server HDInsight) a soukromého klíče (který je uložen v klientském počítači). Při připojování k serveru HDInsight pomocí SSH použije klient SSH privátní klíč ve vašem počítači k ověření na serveru.
 
-## Vytvoření klíče SSH
+## <a name="create-an-ssh-key"></a>Vytvoření klíče SSH
 Následující informace použijte, pokud plánujete používat klíče SSH s vaším clusterem. Pokud plánujete použít heslo, můžete tuto část přeskočit.
 
 1. Otevřete PuTTYGen.
@@ -89,15 +93,15 @@ Následující informace použijte, pokud plánujete používat klíče SSH s va
    > 
    > 
 
-## Vytvoření clusteru HDInsight se systémem Linux
+## <a name="create-a-linuxbased-hdinsight-cluster"></a>Vytvoření clusteru HDInsight se systémem Linux
 Při vytváření clusteru HDInsight se systémem Linux je nutné zadat veřejný klíč, který jste vytvořili dříve. V klientech se systémem Windows existují dva způsoby vytvoření clusteru HDInsight se systémem Linux:
 
 * **Portál Azure** – používá k vytvoření clusteru webový portál.
-* **Azure CLI pro Mac, Linux a Windows** – používá příkazy příkazového řádku k vytvoření clusteru.
+* **Azure CLI pro Mac, Linux a Windows** – používá příkazy příkazového řádku k vytvoření clusteru.
 
 Každá z těchto metod bude vyžadovat veřejný klíč. Úplné informace týkající se vytvoření clusteru HDInsight se systémem Linux naleznete v části [Clustery HDInsight se systémem Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-### Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 Pokud používáte [web Azure Portal][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, je nutné zadat **Uživatelské jméno SSH** a vybrat, zda chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
 
 Pokud vyberete **VEŘEJNÝ KLÍČ SSH**, můžete buď vložit veřejný klíč (zobrazený v části **Veřejný klíč pro vložení do pole klíčů oprávnění\_OpenSSH** v PuttyGen,) do pole **SSH PublicKey** nebo vybrat možnost **Vybrat soubor** a procházet a vybrat soubor, který obsahuje veřejný klíč.
@@ -106,12 +110,12 @@ Pokud vyberete **VEŘEJNÝ KLÍČ SSH**, můžete buď vložit veřejný klíč 
 
 Tento postup vytvoří přihlášení pro určeného uživatele a umožňuje ověření heslem nebo ověření pomocí klíče SSH.
 
-### Rozhraní příkazového řádku Azure pro Mac, Linux a Windows
+### <a name="azure-commandline-interface-for-mac-linux-and-windows"></a>Rozhraní příkazového řádku Azure pro Mac, Linux a Windows
 [Azure CLI pro Mac, Linux a Windows](../xplat-cli-install.md) můžete použít k vytvoření nového clusteru pomocí příkazu `azure hdinsight cluster create`.
 
 Další informace o použití tohoto příkazu naleznete v tématu [Vytvoření Hadoop Linux clusterů v nástroji HDInsight pomocí vlastních možností](hdinsight-hadoop-provision-linux-clusters.md).
 
-## Připojení ke clusteru HDInsight se systémem Linux
+## <a name="connect-to-a-linuxbased-hdinsight-cluster"></a>Připojení ke clusteru HDInsight se systémem Linux
 1. Otevřete PuTTY.
    
     ![rozhraní putty](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
@@ -140,7 +144,7 @@ Další informace o použití tohoto příkazu naleznete v tématu [Vytvoření 
 > 
 > 
 
-### Připojování k pracovním uzlům
+### <a name="connect-to-worker-nodes"></a>Připojování k pracovním uzlům
 Pracovní uzly nejsou přímo dostupné z oblasti mimo datové centrum Azure, ale jsou dostupné z hlavního uzlu clusteru pomocí protokolu SSH.
 
 Pokud jste zadali klíč SSH při vytváření uživatelského účtu, musíte provést následující kroky a použít privátní klíč pro ověřování do clusteru, pokud se chcete připojit k pracovním uzlům.
@@ -180,9 +184,9 @@ Pokud jste zadali klíč SSH při vytváření uživatelského účtu, musíte p
    > 
    > 
 9. Po vytvoření relace se řádek pro relaci PuTTY změní z `username@hn#-clustername` na `username@wn#-clustername`, což značí, že jste připojeni k pracovnímu uzlu. Všechny příkazy, které spustíte v tomto okamžiku, bude spouštěny v pracovním uzlu.
-10. Po dokončení provádění akcí v pracovním uzlu použijte příkaz `exit` k ukončení relace k uzlu pracovníka. Tím se vrátíte do řádku `username@hn#-clustername`.
+10. Po dokončení provádění akcí v pracovním uzlu použijte příkaz `exit` k ukončení relace k uzlu pracovníka. Tím se vrátíte do řádku `username@hn#-clustername`.
 
-## Přidat další účty
+## <a name="add-more-accounts"></a>Přidat další účty
 Pokud potřebujete přidat další účty do clusteru, postupujte následovně:
 
 1. Vygenerujte nový veřejný klíč a soukromý klíč pro nový uživatelský účet, jak je popsáno výše.
@@ -204,8 +208,8 @@ Pokud potřebujete přidat další účty do clusteru, postupujte následovně:
         sudo chown -hR <username>:<username> /home/<username>/.ssh
 6. Nyní byste měli být schopni ověřit server pomocí nového uživatelského účtu a soukromého klíče.
 
-## <a id="tunnel"></a>Tunelování SSH
-SSH lze použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight.
+## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelování SSH
+SSH lze použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight.
 
 > [!IMPORTANT]
 > Tunelové propojení SSH představuje požadavek pro přístup k webu uživatelského rozhraní pro některé služby Hadoop. Například uživatelské rozhraní Historie úloh nebo uživatelské rozhraní Správce prostředků lze otevřít pouze pomocí tunelového propojení SSH.
@@ -214,17 +218,17 @@ SSH lze použít k tunelování místních požadavků, například webových po
 
 Další informace o vytváření a používání tunelového propojení SSH naleznete v tématu [Používání tunelového propojení SSH pro přístup k webovému uživatelskému rozhraní Ambari, ResourceManager, JobHistory, NameNode, Oozie a jiným webovým uživatelským rozhraním](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte další informace o používání nástroje MapReduce s Hadoop v HDInsight.
 
-* [Použijte Hive s HDInsight](hdinsight-use-hive.md)
-* [Použijte Pig s HDInsight](hdinsight-use-pig.md)
-* [Použijte úlohy MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
+* [Použití úloh MapReduce se službou HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

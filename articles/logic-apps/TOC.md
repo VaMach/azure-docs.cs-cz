@@ -27,7 +27,7 @@
 ### [Rady pro řešení potíží](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Omezení a konfigurace](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## Enterprise Integration Pack (EIP)
+## Použití sady Enterprise Integration Pack (EIP)
 ### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Přehled účtů pro integraci](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Smlouvy](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -54,11 +54,11 @@
 ### [Schémata sledování X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Vlastní schémata sledování](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## brána
+## Použití brány
 ### [Připojení k místním prostředkům](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Instalace](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## Publikování
+## Automatizace
 ### [Šablona Automation](../app-service-logic/app-service-logic-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Publikování z VS](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -72,9 +72,21 @@
 ### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Preview](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
+## [Rutiny PowerShellu](/powershell/resourcemanager/)
+## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
+## [REST API](/rest/api/logic/)
+
 ## Schéma roku 2014 (před GA)
 ### [Konektor Azure Resource](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Souborový konektor](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)  
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps) 
+
+
 
 <!--HONumber=Nov16_HO2-->
 

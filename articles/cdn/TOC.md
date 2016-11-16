@@ -1,16 +1,13 @@
 # [Přehled](cdn-overview.md)
-## [Doporučené postupy pro Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [Co je Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Začínáme
-## [Používání Azure CDN](cdn-create-new-endpoint.md)
-## Začínáme s vývojem pro Azure CDN
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
+## [Povolení platformy Azure CDN](cdn-create-new-endpoint.md)
 
 # Postup
 ## Integrace
-### [Integrace s Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrace s Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Integrace se Storage](cdn-create-a-storage-account-with-cdn.md)
+### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Cloud Services](cdn-cloud-service-with-cdn.md)
+### [Úložiště](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
 
 ## Spravovat
@@ -29,9 +26,6 @@
 ### [Potlačení chování pomocí pravidel](cdn-rules-engine.md)
 ### [Získávání výstrah v reálném čase](cdn-real-time-alerts.md)
 
-## Automatizace
-### [Správa pomocí PowerShellu](cdn-manage-powershell.md)
-
 ## Analýza
 ### [Analýza vzorců používání](cdn-analyze-usage-patterns.md)
 ### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
@@ -39,21 +33,25 @@
 ### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
 
 ## Vývoj
-### Začínáme s vývojem pro Azure CDN
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.js](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
 
 ## Řešení potíží
-### [Řešení potíží se stavem 404](cdn-troubleshoot-endpoint.md)
-### [Řešení potíží s kompresí souborů](cdn-troubleshoot-compression.md)
+### [Stav 404](cdn-troubleshoot-endpoint.md)
+### [Komprese](cdn-troubleshoot-compression.md)
 
 # Referenční informace
-## [REST API – referenční informace](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# Související
-
-# Zdroje a prostředky
+## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Lokality POP v Azure CDN](cdn-pop-locations.md)
+## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/cdn/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cdn)
+
 
 
 <!--HONumber=Nov16_HO2-->
