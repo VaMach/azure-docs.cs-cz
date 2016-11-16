@@ -1,4 +1,5 @@
-# [Přehled](notification-hubs-push-notification-overview.md)
+# Přehled
+## [Co je Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 # Začínáme
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
@@ -9,9 +10,9 @@
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
 ## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
+## [Nejčastější dotazy](notification-hubs-push-notification-faq.md)
 
 # Postup
-
 ## Plánování a návrh
 ### [Doprovodné materiály k architektuře nabízení v podnicích](notification-hubs-enterprise-push-notification-architecture.md)
 
@@ -50,22 +51,24 @@
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
-
-
 ## Automatizace
 ### [Nasazení a správa Notification Hubs pomocí PowerShellu](notification-hubs-deploy-and-manage-powershell.md)
 ### [Odesílání plánovaných oznámení](notification-hubs-send-push-notifications-scheduled.md)
-
 
 ## Řešení potíží
 ### [Pokyny pro diagnostiku](notification-hubs-push-notification-fixer.md)
 
 # Referenční informace
-
-# Související
+## [Rutiny PowerShellu](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/notificationhubs/)
 
 # Zdroje a prostředky
-## [Nejčastější dotazy](notification-hubs-push-notification-faq.md)
+## [Ceny](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
 <!--HONumber=Nov16_HO2-->

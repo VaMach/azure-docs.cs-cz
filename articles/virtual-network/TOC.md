@@ -1,16 +1,15 @@
 # Přehled
 ## [Virtuální sítě](virtual-networks-overview.md)
-## [Skupiny zabezpečení sítě](virtual-networks-nsg.md)
 ## [Uživatelem definované trasy a předávání IP](virtual-networks-udr-overview.md)
+## [Partnerské vztahy virtuálních sítí](virtual-network-peering-overview.md)
+## [Kontinuita podnikových procesů](virtual-network-disaster-recovery-guidance.md)
+## [Nejčastější dotazy](virtual-networks-faq.md)
 ## Přidělování IP adres
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## [Partnerské vztahy virtuálních sítí](virtual-network-peering-overview.md)
 ## Virtuální počítače
 ### [Síťová rozhraní](virtual-network-network-interface-overview.md)
 ### [Překlad adres IP](virtual-networks-name-resolution-for-vms-and-role-instances.md)
-## [Kontinuita podnikových procesů](virtual-network-disaster-recovery-guidance.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/virtual-network)
 
 # Začínáme
 ## [Vytvoření virtuální sítě](virtual-networks-create-vnet-arm-pportal.md)
@@ -32,7 +31,7 @@
 #### [Rozhraní příkazového řádku (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Skupiny zabezpečení sítě
-#### [Azure Portal](virtual-networks-create-nsg-arm-portal.md)
+#### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [Rozhraní příkazového řádku](virtual-networks-create-nsg-arm-cli.md)
 #### [Šablona](virtual-networks-create-nsg-arm-template.md)
@@ -75,7 +74,9 @@
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [Rozhraní příkazového řádku (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### [Několik IP adres](virtual-network-multiple-ip-addresses-powershell.md)
+#### Několik IP adres
+##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
 ### Scénáře připojení
 #### [Virtuální síť k virtuální síti](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -92,6 +93,14 @@
 ##### [DMZ pomocí brány firewall a skupin zabezpečení sítě](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [DMZ pomocí brány firewall, směrování definovaného uživatelem a skupin zabezpečení sítě](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Ukázková aplikace](virtual-networks-sample-app.md)
+
+## Konfigurace
+### Urychlení sítě
+#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
+#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### Seznamy řízení přístupu
+#### [Portál Classic](virtual-networks-acl.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## Spravovat
 ### Skupiny zabezpečení sítě
@@ -110,22 +119,28 @@
 #### [Přesun virtuálního počítače do jiné podsítě](virtual-networks-move-vm-role-to-subnet.md)
 
 # Referenční informace
-## [Rutiny PowerShellu (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [Rutiny PowerShellu (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Rozhraní API (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [Rozhraní API (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
-## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
-## [Nejčastější dotazy](virtual-networks-faq.md)
+## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
+
 
 # Související
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines)
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Load Balancer](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
+# Zdroje
+## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
+## [Fórum o sítích](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Ceny](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
 <!--HONumber=Nov16_HO2-->

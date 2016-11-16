@@ -40,11 +40,11 @@
 ### [Správa s použitím automatizace](automation-manage-api-management.md)
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
 #Referenční informace
-## [Šablony](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Referenční informace k rutinám PowerShellu pro nasazení služeb](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Rutina PowerShell Resource Management]/powershell/resourcemanager()
+## [Referenční informace k rutinám PowerShellu pro nasazení Classic](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST API](/rest/api/apimanagement/)
 ## [Zásady](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Rutiny PowerShellu pro správu služeb](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [Šablony](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Dokument white paper: Cloud-based API Management (Cloudová správa rozhraní API)](http://j.mp/ms-apim-whitepaper)

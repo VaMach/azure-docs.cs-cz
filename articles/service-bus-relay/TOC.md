@@ -15,16 +15,19 @@
 
 # Referenční informace
 ## [Ukázky](service-bus-relay-samples.md)
-## [Referenční informace k rozhraní .NET API](https://msdn.microsoft.com/library/azure/jj933424)
 ## [Výjimky](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Kvóty](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

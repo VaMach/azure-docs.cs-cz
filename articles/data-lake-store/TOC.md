@@ -35,7 +35,7 @@
 ### [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 ### [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md)
 ### [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md)
- 
+
 ## Integrace se službami Azure
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí portálu](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -51,17 +51,14 @@
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
 
 # Referenční informace
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [Rutiny PowerShellu](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-
-# Související
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
+## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
 # Zdroje a prostředky
-## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fórum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)

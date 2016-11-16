@@ -184,15 +184,18 @@
 ## [Data](https://go.microsoft.com/fwlink/p/?linkid=833404)
 ## [Datová rozhraní](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [Systém](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [REST API](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [Rozhraní API Javy](https://go.microsoft.com/fwlink/p/?linkid=833410)
 ## [Ukázka kódu](http://aka.ms/servicefabricsamples)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+## [Rozhraní API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/servicefabric/)
 
 # Zdroje a prostředky
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
-## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
 <!--HONumber=Nov16_HO2-->

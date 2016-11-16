@@ -48,6 +48,10 @@
 ### [Navrácení fyzických serverů a virtuálních počítačů VMware po obnovení](site-recovery-failback-azure-to-vmware.md)
 ## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
 
+# Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell – Classic](/powershell/servicemanagement/)
+
 # Související
 ## [Azure Automation](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [Fórum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

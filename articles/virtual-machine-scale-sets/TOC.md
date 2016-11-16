@@ -26,11 +26,12 @@
 ### [Řešení potíží s automatickým škálováním](virtual-machine-scale-sets-troubleshoot.md)
 
 # Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [Rozhraní REST API pro škálovací sady](/rest/api/compute/virtualmachinescalesets)
-## [Rozhraní REST API pro virtuální počítače škálovacích sad](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Šablony Azure](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

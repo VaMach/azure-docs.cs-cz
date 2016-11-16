@@ -128,27 +128,31 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referenční informace
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Rozhraní JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Analýzy](app-insights-analytics-reference.md)
 ## [Vzorkování](app-insights-sampling.md)
 ## [IP adresy](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [Export datového modelu](app-insights-export-data-model.md)
-## [REST API](https://dev.applicationinsights.io/)
-## [Rozhraní JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Rozhraní Java SDK API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Migrace od monitorování koncových bodů Azure k testování dostupnosti](app-insights-migrate-azure-endpoint-tests.md)
 ## [Developer Analytics: jazyky, platformy a integrace](app-insights-platforms.md)
 ### [Příklady a názorné postupy](app-insights-code-samples.md)
-
 #### [Názorný postup: zapnutí telemetrie pro Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Názorný postup: Export do SQL s použitím Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Ukázka kódu: Analýza exportovaných dat](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Poznámky k vydání sady Application Insights SDK pro Windows Phone a Store](app-insights-release-notes-windows.md)
 ## [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Poznámky k verzi sady SDK – Application Insights](app-insights-release-notes.md)
+## [REST API](https://dev.applicationinsights.io/)
 
-# Zdroje a prostředky
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Podpora](app-insights-get-dev-support.md)
 
 

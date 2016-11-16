@@ -91,8 +91,12 @@
 ### [Řešení potíží se službou Data Factory](data-factory-troubleshoot.md)
 ### [Řešení potíží při použití brány správy dat](data-factory-troubleshoot-gateway-issues.md)
 ### [Nasazení pomocí šablon Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)
-# Referenční informace 
+
+# Referenční informace
 ## [Referenční informace pro vývojáře řešení založených na Azure Data Factory](data-factory-sdks.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [REST](https://docs.microsoft.com/rest/api/datafactory/)
 
 # Prostředky:
 ## [Případové studie](data-factory-customer-case-studies.md)
@@ -103,13 +107,6 @@
 ## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
 ## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
-
-
-
-
-
-
-
 
 
 <!--HONumber=Nov16_HO2-->

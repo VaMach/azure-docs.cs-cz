@@ -1,16 +1,16 @@
 # [Přehled](media-services-overview.md)
 ## [Koncepty](media-services-concepts.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
-## [Poznámky k verzi](media-services-release-notes.md)
+
+
 # Začínáme
 ## [Vytvoření a správa účtu](media-services-portal-create-account.md)
 ## [Vytvoření a nastavení vývojového prostředí](media-services-set-up-computer.md)
-## Video na vyžádání
+## Doručování videa na vyžádání
 ### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Živé streamování
+## Zajištění živého streamování
 ### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
@@ -166,12 +166,14 @@
 ###[Logika opakování](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referenční informace
-## [Sada Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [Rozhraní REST API služby Media Services](media-services-rest-how-to-use.md)
+## [Poznámky k verzi](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
 ## [Formáty a kodeky pracovního postupu Media Encoderu Premium](media-services-premium-workflow-encoder-formats.md)
 ## [Kodeky a formáty Media Encoderu Standard](media-services-media-encoder-standard-formats.md)
 
-# Související
+# Zdroje
+## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Komunita Azure Media Services](media-services-community.md)
 
 

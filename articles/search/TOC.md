@@ -55,14 +55,18 @@
 ### [Vícejazyčné vyhledávání](search-language-support.md)
 
 # Referenční informace
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [Rozhraní API služby REST](https://msdn.microsoft.com/library/azure/dn798935)
-## [Rozhraní REST API služby (verze Preview)](search-api-2015-02-28-preview.md)
-## [Rozhraní REST API pro správu](https://msdn.microsoft.com/library/azure/dn832684)
 ## [Verze rozhraní API](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Syntaxe dotazů Lucene](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Jednoduchá syntaxe dotazů](https://msdn.microsoft.com/library/azure/dn798920)
-# Zdroje a prostředky
+## [Rozhraní REST služby](/rest/api/searchservice/)
+## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
+## [Rozhraní REST pro správu](/rest/api/searchmanagement/)
+
+# Zdroje
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
+## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## Ukázkové weby
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
 ### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## Partneři a komunita
 ### [Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Omezující vlastnosti na více úrovních](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 

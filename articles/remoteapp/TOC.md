@@ -64,6 +64,12 @@
 ### [Řešení potíží s hybridní kolekcí](remoteapp-hybridtrouble.md)
 ### [Řešení potíží s cloudovou kolekcí](remoteapp-cloudtrouble.md)
 
+# Zdroje a prostředky
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

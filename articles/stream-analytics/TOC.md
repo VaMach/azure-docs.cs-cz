@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je služba Stream Analytics?](stream-analytics-introduction.md)
-## [Postup výuky pro Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Porovnání Storm a Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Začínáme
 ## [Zpracování streamovaných dat IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -8,12 +8,12 @@
 
 # Postup
 
-## Řešení streamování
-### [Sestavení řešení IoT](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Analýza sociálních médií](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analýza dat senzoru pomocí Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+## Vytváření streamovaných řešení
+### [Internet věcí](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Sociální média](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Data ze senzorů v Power BI](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 ### [Hodnocení v reálném čase s Machine Learningem](stream-analytics-machine-learning-integration-tutorial.md)
-### [Referenční architektura: Zpracování událostí v reálném čase](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Zpracování událostí v reálném čase](stream-analytics-real-time-event-processing-reference-architecture.md)
 
 ## Vývoj
 ### [Běžné vzory dotazů](stream-analytics-stream-analytics-query-patterns.md)
@@ -40,17 +40,21 @@
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [.NET](/dotnet/api/)
 ## [Dotazovací jazyk](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Porovnání Storm a Stream Analytics](stream-analytics-comparison-storm.md)
+## [REST](/rest/api/streamanalytics/)
 ## [Poznámky k verzi](stream-analytics-release-notes.md)
+
 # Zdroje a prostředky
-## [Blog MSDN](http://blogs.msdn.com/b/streamanalytics/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Ceny](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Fórum pro názory](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->
