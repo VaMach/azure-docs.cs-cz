@@ -79,6 +79,6 @@ Site Recovery poskytuje replikaci se sledováním aplikací, aby úlohy a aplika
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 
