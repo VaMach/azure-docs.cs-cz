@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/28/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1446cd8892e14988ff428eaa03233f8e9aefb8a
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 3ad64861bc4c3b0a938c75990fc516ef634943ef
 
 
 ---
@@ -27,7 +27,7 @@ Tento článek ukazuje, jak vytvořit virtuální počítač s Linuxem pomocí [
 Požadavky:
 
 * [Účet Azure](https://azure.microsoft.com/pricing/free-trial/)
-* [Soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md)
+* [Soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="sign-in"></a>Přihlášení
 Po přihlášení k webu Azure Portal s vaší identitou účtu Azure klikněte v levém horním rohu na **+ Nový**:
@@ -80,7 +80,7 @@ Otevřete nabídku veřejných IP adres v nastaveních síťové karty.
 ## <a name="ssh-to-the-vm"></a>Přístup k virtuálnímu počítači přes SSH
 Přístup přes SSH k veřejné IP adrese získáte pomocí veřejného klíče SSH.  Z pracovní stanice se systémem Mac nebo Linux můžete získat přístup přes SSH přímo z terminálu. Na pracovní stanici s Windows musíte pro přístup k Linuxu přes SSH použít PuTTY, MobaXTerm nebo Cygwin.  Pokud potřebujete pracovní stanici s Windows připravit na přístup k Linuxu přes SSH, můžete použít tento návod.
 
-[Jak použít klíče SSH s Windows v Azure](virtual-machines-linux-ssh-from-windows.md)
+[Jak použít klíče SSH s Windows v Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
@@ -89,9 +89,9 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ## <a name="next-steps"></a>Další kroky
 Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli otestovat a abychom si ukázali, jak se to dělá. Pokud budete chtít vytvořit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků.
 
-* [Vytvoření virtuálního počítače s Linuxem v Azure pomocí šablon](virtual-machines-linux-cli-deploy-templates.md)
-* [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI](virtual-machines-linux-create-cli-complete.md)
+* [Vytvoření virtuálního počítače s Linuxem v Azure pomocí šablon](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 

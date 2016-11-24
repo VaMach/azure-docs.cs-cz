@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 334d7391368509385dfc6c18ae1353d27faf7600
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
-Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Application Insights v sadě Visual Studio](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
+Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
 
 ![Příklad webového testu](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Webové testy můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, který je přístupný z veřejného internetu.
+Webové testy můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, který je přístupný z veřejného internetu. Na testovaný web není třeba nic přidávat. Dokonce se ani nemusí jednat o váš web – můžete například testovat službu REST API, na které jste závislí.
 
 Existují dva typy webového testu:
 
@@ -102,8 +102,20 @@ Alternativně můžete stáhnout soubor s výsledky a zkontrolovat v sadě Visua
 
 *Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
 
-## <a name="multistep-web-tests"></a>Vícekrokové webové testy
+### <a name="open-the-server-request-and-exceptions"></a>Otevření požadavku serveru a výjimek
+
+Z podrobných vlastností konkrétního testu můžete otevřít sestavu požadavku a dalších událostí, například výjimek, na straně serveru.
+
+![Výsledek spuštění webového testu](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Pokud související položky nevidíte, může to být způsobené spuštěným [vzorkováním](app-insights-sampling.md).
+
+## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
+
+> [!NOTE] 
+> Vícekrokové webové testy jsou zpoplatněné. [Cenové schéma](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
 
@@ -153,7 +165,7 @@ Nezapomeňte, že všechny prostředky stránky se musí načíst správně, vč
 
 Všimněte si, že webový test musí být zcela obsažen v souboru .webtest: programové funkce nelze použít v testu.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Doba zapojení a náhodná čísla do vícekrokového testu
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Doba zapojení a náhodná čísla do vícekrokového testu
 Předpokládejme, že testujete nástroj, který získá data závislá na čase, například akcie z externího kanálu. Při záznamu webového testu je nutné použít konkrétní časy, ale nastavit je jako parametry testu, čas spuštění a čas ukončení.
 
 ![Webový test s parametry.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Zásuvné moduly webového testu nabízejí způsob parametrizace časů.
 
 Teď nahrajte svůj test na portál. Při každém spuštění testu se budou používat dynamické hodnoty.
 
-## <a name="dealing-with-signin"></a>Vyřešení přihlášení
+## <a name="dealing-with-sign-in"></a>Vyřešení přihlášení
 Pokud se uživatelé přihlásí do aplikace, máte několik možností pro simulaci přihlášení, takže můžete otestovat stránky následující po přihlášení. Použitý přístup závisí na typu zabezpečení poskytovaném aplikací.
 
 Ve všech případech musíte v aplikaci vytvořit účet jenom pro účely testování. Pokud je to možné, omezte oprávnění tohoto testovacího účtu, aby webové testy nemohly žádným způsobem ovlivnit skutečné uživatele.
@@ -282,6 +294,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

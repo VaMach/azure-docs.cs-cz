@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: d78ceb2b616b5c574bede1e2df21c3415a9d757a
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Použití aplikace Fiddler k vyhodnocování a testování rozhraní REST API služby Azure Search
 > [!div class="op_single_selector"]
+>
 > * [Přehled](search-query-overview.md)
 > * [Průzkumník služby Search](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 Tento článek vysvětluje, jak použít aplikaci Fiddler, která je dostupná [zdarma ke stažení na webu Telerik](http://www.telerik.com/fiddler), k vydávání žádostí HTTP a zobrazování odpovědí pomocí rozhraní REST API služby Azure Search, bez nutnosti psaní jakéhokoli kódu. Azure Search je plně spravovaná, hostovaná cloudová vyhledávací služba v Microsoft Azure, která je snadno programovatelná prostřednictvím rozhraní .NET a REST API. Rozhraní REST API služby Azure Search jsou popsaná na webu [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -39,26 +40,26 @@ K provedení těchto kroků budete potřebovat službu Azure Search a `api-key`.
 ## <a name="create-an-index"></a>Vytvoření indexu
 1. Spusťte aplikaci Fiddler. V nabídce **Soubor** vypněte **Zachycování provozu**, a tím skryjte irelevantní aktivitu protokolu HTTP, která s aktuální úlohou nesouvisí.
 2. Na kartě **autora** zformulujete podobnou žádost jako na následujícím snímku obrazovky.
-   
+
       ![][1]
 3. Vyberte **PUT**.
 4. Zadejte adresu URL, která určuje adresu URL služby, atributy žádosti a verzi rozhraní API. Je nutné pamatovat na několik věcí:
-   
+
    * Jako předponu použijte HTTPS.
    * Atribut žádosti je „/indexes/hotels“. Toto dává službě Search pokyn k vytvoření indexu s názvem „hotely“.
-   * Verze rozhraní API se zadává malými písmeny jako „?api-version=2015-02-28“. Verze rozhraní API jsou důležité, protože služba Azure Search pravidelně nasazuje aktualizace. Ve výjimečných případech může aktualizace služby zavést zásadní změnu rozhraní API. Z tohoto důvodu služba Azure Search v každé žádosti vyžaduje verzi rozhraní API, abyste měli plně pod kontrolou, která verze se použije.
-     
+   * Verze rozhraní API se zadává malými písmeny jako „?api-version=2016-09-01“. Verze rozhraní API jsou důležité, protože služba Azure Search pravidelně nasazuje aktualizace. Ve výjimečných případech může aktualizace služby zavést zásadní změnu rozhraní API. Z tohoto důvodu služba Azure Search v každé žádosti vyžaduje verzi rozhraní API, abyste měli plně pod kontrolou, která verze se použije.
+
      Úplná adresa URL by měla vypadat podobně jako v následujícím příkladu.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. Zadejte hlavičku žádosti, přičemž hodnoty host a api-key nahraďte hodnotami platnými pro vaši službu.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. Do textu žádosti vložte pole, která tvoří definici indexu.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ Pokud se zobrazí kód HTTP 504, ověřte, jestli je v adrese URL určený proto
    ![][2]
 
 1. Vyberte **POST**.
-2. Zadejte adresu URL, která začíná HTTPS a dál obsahuje adresu URL služby a „/indexes/<'indexname'>/docs/index?api-version=2015-02-28“. Úplná adresa URL by měla vypadat podobně jako v následujícím příkladu.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. Zadejte adresu URL, která začíná HTTPS a dál obsahuje adresu URL služby a „/indexes/<'indexname'>/docs/index?api-version=2016-09-01“. Úplná adresa URL by měla vypadat podobně jako v následujícím příkladu.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. Hlavička žádosti by měla být stejná jako předtím. Nezapomeňte, že jste hodnoty host a api-key nahradili hodnotami, které jsou platné pro vaši službu.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. Text žádosti obsahuje čtyři dokumenty, které se mají přidat do indexu hotels.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ Teď, když jsou index a dokumenty nahrané, můžete na ně vydávat dotazy.  N
 
 1. Vyberte **GET**.
 2. Zadejte adresu URL, která začíná HTTPS a dál obsahuje adresu URL služby, „/indexes/<'indexname'>/docs?“ a nakonec parametry dotazu. Jako příklad použijte následující adresu URL, kde ukázkový název hostitele nahradíte názvem, který je platný pro vaši službu.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    Tento dotaz hledá výraz „motel“ a načte kategorie faset pro hodnocení.
 3. Hlavička žádosti by měla být stejná jako předtím. Nezapomeňte, že jste hodnoty host a api-key nahradili hodnotami, které jsou platné pro vaši službu.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ Následující příklad dotazu je převzatý z tématu [Operace prohledání in
 
 **Před nahrazením mezer:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **Po nahrazení mezer znakem +:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>Dotaz na systém
 Můžete taky dotázat systém a získat počet dokumentů a spotřebu úložiště. Žádost bude na kartě **autora** vypadat podobně, jako vidíte níže, a odpověď vrátí počet dokumentů a využité místo.
@@ -200,11 +201,11 @@ Můžete taky dotázat systém a získat počet dokumentů a spotřebu úložiš
  ![][5]
 
 1. Vyberte **GET**.
-2. Zadejte adresu URL, která obsahuje adresu URL služby a potom „/indexes/hotels/stats?api-version=2015-02-28“:
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. Zadejte adresu URL, která obsahuje adresu URL služby a potom „/indexes/hotels/stats?api-version=2016-09-01“:
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. Zadejte hlavičku žádosti, přičemž hodnoty host a api-key nahraďte hodnotami platnými pro vaši službu.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ Informace o bezkódovém přístupu k správě a používání služby Azure Sea
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

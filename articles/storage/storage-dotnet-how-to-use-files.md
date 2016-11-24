@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Když klient přistupuje k úložišti File, použitá verze SMB závisí na ver
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Připojení sdílené složky z virtuálního počítače Azure s Windows
 Abychom ukázali, jak připojit sdílenou složku Azure, vytvoříme teď virtuální počítač Azure s Windows a vzdáleně se k němu přihlásíme, abychom mohli připojit sdílenou složku.
 
-1. Nejdřív vytvořte nový virtuální počítač Azure podle pokynů v tématu [Vytvoření virtuálního počítače s Windows na webu Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Dál se do něj vzdáleně přihlaste podle pokynů v tématu [Přihlášení do virtuálního počítače s Windows přes web Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Nejdřív vytvořte nový virtuální počítač Azure podle pokynů v tématu [Vytvoření virtuálního počítače s Windows na webu Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Dál se do něj vzdáleně přihlaste podle pokynů v tématu [Přihlášení do virtuálního počítače s Windows přes web Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Ve virtuálním počítači otevřete okno PowerShell.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Nastavení přihlašovacích údajů pro účet úložiště ve virtuálním počítači jako trvalé
@@ -242,7 +242,7 @@ Teď můžete se sdílenou složkou pracovat z virtuálního počítače stejně
 
 Sdílenou složku taky můžete připojit z role, která běží v cloudové službě Azure, když se do ní vzdáleně přihlásíte.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Připojení sdílené složky z lokálního klienta s Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Připojení sdílené složky z lokálního klienta s Windows
 Pokud se chcete připojit ke sdílené složce z lokálního klienta, musíte nejdřív udělat tři kroky:
 
 * Nainstalovat verzi Windows, která podporuje SMB 3.0. Windows využije šifrování v SMB 3.0 pro bezpečný přenos dat mezi vaším lokálním klientem a sdílenou složkou Azure v cloudu.

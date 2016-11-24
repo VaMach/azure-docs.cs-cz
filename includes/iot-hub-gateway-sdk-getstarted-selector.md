@@ -36,7 +36,7 @@ Sada SDK poskytuje abstraktní vrstvu, která umožňuje vytvářet brány spou�
 ### <a name="messages"></a>Zprávy
 Ačkoli je představa modulů posílajících zprávy pohodlným způsobem, jak popsat koncepci funkce brány, neodráží přesně samotnou její činnost. Moduly spolu navzájem komunikují pomocí zprostředkovatele – publikují do něj zprávy (bus, pubsub nebo libovolné další vzorce zasílání zpráv) a zprostředkovatel následně zprávy směruje do připojených modulů.
 
-K publikování zpráv do zprostředkovatele používají moduly funkci **Broker_Publish**. Zprostředkovatel předává zprávy ostatním modulům zavoláním funkce zpětného volání. Zpráva se skládá ze sady vlastností klíč/hodnota a obsah se předává jako blok paměti.
+K publikování zpráv do zprostředkovatele používá modul funkci **Broker_Publish**. Zprostředkovatel předává zprávy ostatním modulům zavoláním funkce zpětného volání. Zpráva se skládá ze sady vlastností klíč/hodnota a obsah se předává jako blok paměti.
 
 ![Role zprostředkovatele v sadě Azure IoT Gateway SDK][3]
 
@@ -72,6 +72,6 @@ Obrázek nahoře ukazuje architekturu ukázky Hello World a relativní cesty ke 
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 487a006050bdb77f03db19b87a98dd3f4c64a738
+ms.sourcegitcommit: f6fa6511c8d54e191de27fda73aad9feb734191f
+ms.openlocfilehash: 1065ad38f5c3627e4afd441fcd4540db01632373
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-the-classic-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti prostřednictvím portálu Classic
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti prostřednictvím portálu Classic
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -55,9 +55,9 @@ Konfigurace pro připojení typu Point-to-Site je rozdělena do čtyř oddílů.
 * **Oddíl 3** Export a instalace klientských certifikátů.
 * **Oddíl 4** Konfigurace klienta VPN.
 
-## <a name="a-namevnetvpnasection-1-create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Oddíl 1 – Vytvoření virtuální sítě a brány VPN
+## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Oddíl 1 – Vytvoření virtuální sítě a brány VPN
 ### <a name="part-1-create-a-virtual-network"></a>Část 1: Vytvoření virtuální sítě
-1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com/). Tyto kroky používají portál Classic, nikoli Azure Portal. V současné době nelze připojení P2S vytvořit pomocí webu Azure Portal.
+1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com). Tyto kroky používají portál Classic, nikoli Azure Portal. V současné době nelze připojení P2S vytvořit pomocí webu Azure Portal.
 2. V levém dolním rohu obrazovky klikněte na **Nový**. V podokně navigace klikněte na **Network Services**, a poté klikněte na **Virtual Network**. Kliknutím na **Vytvořit vlastní** spustíte průvodce konfigurací.
 3. Na stránce **Podrobnosti virtuální sítě** zadejte následující informace, a poté klikněte na šipku Další vpravo dole.
    
@@ -86,7 +86,7 @@ Typ brány musí být nakonfigurován jako dynamický. Brány statického směro
 1. V klasickém portálu Azure na stránce **Sítě** klikněte na virtuální síť, kterou jste právě vytvořili, a přejděte na stránku **Řídicí panel**.
 2. Klikněte na tlačítko **Vytvořit bránu** umístěné v dolní části stránky **Řídicí panel**. Zobrazí se zpráva s dotazem **Opravdu chcete vytvořit bránu pro virtuální síť „VNet1“**. Kliknutím na **Ano** zahájíte proces vytváření brány. Vytvoření brány může trvat přibližně 15 minut.
 
-## <a name="a-namegenerateasection-2-generate-and-upload-certificates"></a><a name="generate"></a>Oddíl 2 – Generování a nahrávání certifikátů
+## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>Oddíl 2 – Generování a nahrávání certifikátů
 Certifikáty slouží k ověřování klientů VPN pro sítě Point-to-Site VPN. Můžete použít kořenový certifikát vygenerovaný podnikovým certifikačním řešením, stejně jako certifikát podepsaný svým držitelem. Do Azure můžete nahrát až 20 kořenových certifikátů. Po nahrání souboru .cer Azure informace obsažené v něm slouží k ověřování klientů, které mají nainstalovaný certifikát klienta. Certifikát klienta je nutné vygenerovat ze stejného certifikátu, který představuje soubor .cer.
 
 V této části provedete následující:
@@ -112,14 +112,14 @@ Dále vygenerujte certifikáty klientů. Můžete buď vygenerovat jedinečný c
 * Pokud používáte podnikové certifikační řešení, vygenerujte klientský certifikát s běžným názvem ve formátu 'name@yourdomain.com', namísto formátu rozhraní NetBIOS „Doména\uživatelské jméno“. 
 * Používáte-li certifikát podepsaný svým držitelem, naleznete informace o vygenerování certifikátu klienta v tématu [Práce s kořenovými certifikáty podepsanými svými držiteli pro účely konfigurace připojení Point-to-Site](vpn-gateway-certificates-point-to-site.md).
 
-## <a name="a-nameinstallclientcertasection-3-export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Oddíl 3 – Export a instalace klientského certifikátu
+## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Oddíl 3 – Export a instalace klientského certifikátu
 Nainstalujte certifikát klienta v každém počítači, který se má připojovat k virtuální síti. Klientský certifikát je vyžadován pro ověřování. Instalaci klientského certifikátu lze buď automatizovat, nebo ji lze provádět ručně. Následující kroky vás provedou procesem exportu a ruční instalace klientského certifikátu.
 
 1. Chcete-li exportovat klientský certifikát, použijte nástroj *certmgr.msc*. Klikněte pravým tlačítkem na klientský certifikát, který chcete exportovat, klikněte na **všechny úlohy**, a poté klikněte na **exportovat**.
 2. Exportujte klientský certifikát s privátním klíčem. Jedná se o soubor *.pfx*. Ujistěte se, že jste si poznamenali nebo si pamatujete heslo (klíč), které jste pro tento certifikát nastavili.
 3. Zkopírujte soubor *.pfx* na klientský počítač. Na klientském počítači spusťte instalaci dvojím kliknutím na soubor *.pfx*. Až budete vyzváni, zadejte heslo. Neměňte umístění instalace.
 
-## <a name="a-namevpnclientconfigasection-4-configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Oddíl 4 – Konfigurace klienta VPN
+## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Oddíl 4 – Konfigurace klienta VPN
 Chcete-li se připojit k virtuální síti, je potřeba nakonfigurovat také klienta VPN. Pro připojení klient vyžaduje klientský certifikát a správnou konfiguraci klienta VPN. Klienta VPN nakonfigurujete pomocí následujících kroků ve správném pořadí.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Část 1: Vytvoření konfiguračního balíčku klienta VPN
@@ -164,13 +164,14 @@ Příklad:
         NetBIOS over Tcpip..............: Enabled
 
 ## <a name="next-steps"></a>Další kroky
-Můžete přidávat virtuální počítače do svojí virtuální sítě. Viz [Vytvoření vlastního virtuálního počítače](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
-Další informace o virtuálních sítích najdete na stránce [Dokumentace k virtuálním sítím](https://azure.microsoft.com/documentation/services/virtual-network/).
+Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+
+Další informace o virtuálních sítích najdete na stránce [Dokumentace k virtuálním sítím](/azure/virtual-network).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

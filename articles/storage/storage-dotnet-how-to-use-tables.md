@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+ms.sourcegitcommit: ee390dcdeefbc1ed87317ae2e167b3c054911723
+ms.openlocfilehash: a8149b38872a8d5b5a5e30280712ca38d983f80c
 
 
 ---
@@ -287,7 +287,7 @@ Pokud chcete entitu aktualizovat, načtěte ji ze služby Table, upravte objekt 
     else
        Console.WriteLine("Entity could not be retrieved.");
 ```
-## <a name="insertorreplace-an-entity"></a>Vložení nebo nahrazení entity
+## <a name="insert-or-replace-an-entity"></a>Vložení nebo nahrazení entity
 Operace **Replace** se nezdaří, pokud byla entita od načtení ze serveru změněna.  Kromě toho musíte entitu nejdřív načíst ze serveru, aby operace **Replace** proběhla úspěšně.
 V některých případech ale nevíte, jestli entita existuje na serveru a jestli jsou hodnoty, které jsou v ní aktuálně uložené, relevantní. Vaše aktualizace by je měla všechny přepsat.  K tomu použijete operaci **InsertOrReplace**.  Tato operace vloží entitu, pokud neexistuje, nebo ji nahradí, pokud existuje, a to bez ohledu na to, kdy byla provedena poslední aktualizace.  V následujícím příkladu kódu je entita zákazník Ben Smith načtena, ale pak je uložena zpět na server prostřednictvím operace **InsertOrReplace**.  Jakékoli aktualizace provedené v entitě mezi operacemi načtení a aktualizace budou přepsány.
 ```csharp

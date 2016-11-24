@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Vytvoření služby BizTalk Services pomocí webu Azure Portal
-Vytvořte službu BizTalk Services na webu Azure Portal.
 
 > [!TIP]
 > Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ Po dokončení průvodce je služba Azure BizTalk vytvořená a připravená na 
 
 V závislosti na stavu služby BizTalk se může stát, že se některé operace nebudou dát provést. Seznam těchto operací najdete v článku [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md).
 
-## <a name="postprovisioning-steps"></a>Kroky pro zřízení
+## <a name="post-provisioning-steps"></a>Kroky pro zřízení
 * [Instalace certifikátu na místním počítači](#InstallCert)
 * [Přidání certifikátu pro produkční prostředí](#AddCert)
 * [Získání oboru názvů řízení přístupu](#ACS)
@@ -131,7 +130,7 @@ V rámci zřizování služby BizTalk se vytvoří certifikát podepsaný svým 
    ![Úprava certifikátu SSL][QuickGlance]
 5. Dvakrát klikněte na certifikát a pomocí průvodce ho nainstalujte. Ujistěte se, že certifikát instalujete do úložiště **Trusted Root Certificate Authorities** (Důvěryhodné kořenové certifikační autority).
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Přidání certifikátu pro produkční prostředí
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Přidání certifikátu pro produkční prostředí
 Certifikát podepsaný svým držitelem, který se automaticky vytvoří při vytváření služby BizTalk Services, je určený jenom k použití ve vývojovém prostředí. V produkčních scénářích ho nahraďte certifikátem pro produkční prostředí.
 
 1. Na kartě **Dashboard** (Řídicí panel) vyberte **Update SSL Certificate** (Aktualizovat certifikát SSL).
@@ -275,6 +274,6 @@ Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými karta
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

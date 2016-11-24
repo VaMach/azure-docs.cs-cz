@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
+ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
 
 
 ---
@@ -64,7 +64,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci a nakonfigurovat ji 
     Tento název musí být v doméně azurewebsites.net jedinečný, protože webová aplikace bude mít adresu URL {název}.azurewebsites.net. Není-li zadaný název jedinečný, v textovém poli se zobrazí červený vykřičník.
 4. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití webu Azure Portal ke správě prostředků Azure].
+    Další informace o skupinách prostředků najdete v tématu [Přehled Resource Manageru].
 5. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
     Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service].
@@ -111,7 +111,7 @@ V této části se dozvíte, jak vytvořit webovou aplikaci v jazyce Java pomoc�
     Tento název musí být v doméně azurewebsites.net jedinečný, protože webová aplikace bude mít adresu URL {název}.azurewebsites.net. Není-li zadaný název jedinečný, v textovém poli se zobrazí červený vykřičník.
 8. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Podrobnější informace o skupinách prostředků naleznete v tématu [Použití webu Azure Portal ke správě prostředků Azure].
+    Další informace o skupinách prostředků najdete v tématu [Přehled Resource Manageru].
 9. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
     Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service].
@@ -150,7 +150,7 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 [Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [webová aplikace ve službě Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Středisko pro vývojáře Java]: /develop/java/
-[Použití webu Azure Portal ke správě prostředků Azure]: ../azure-portal/resource-group-portal.md
+[Přehled Resource Manageru]: ../azure-resource-manager/resource-group-overview.md
 [Nahrání vlastní webové aplikace v jazyce Java do Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

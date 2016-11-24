@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/30/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 833ba11df57e27cf1f5e4045d144550bb14ca1c2
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: 6ac89d753ccbdd188e473b5d13a30b4622ad848d
 
 
 ---
@@ -27,8 +27,8 @@ S Azure Active Directory (Azure AD) B2C můžete zabezpečit webové rozhraní A
 
 > [!NOTE]
 > Tato ukázka byla napsána pro připojení pomocí naší [ukázkové aplikace iOS B2C](active-directory-b2c-devquickstarts-ios.md). Nejprve pokračujte podle aktuálního návodu a poté postupujte podle příslušné ukázky.
-> 
-> 
+>
+>
 
 **Passport** je ověřovací middleware pro Node.js. Passport je flexibilní a modulární a lze ho snadno nainstalovat v jakékoli webové aplikaci využívající Express nebo Restify. Komplexní sada strategií podporuje ověřování pomocí uživatelského jména a hesla, Facebooku, Twitteru a dalších. Vyvinuli jsme strategii pro Azure Active Directory (Azure AD). Nainstalujte tento modul a poté přidejte modul plug-in Azure AD `passport-azure-ad`.
 
@@ -52,7 +52,7 @@ Dále musíte ve svém adresáři B2C vytvořit aplikaci, která poskytne Azure 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Vytvořte svoje zásady
-V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tato aplikace obsahuje dvě možnosti pro identitu: registraci a přihlášení. Pro každý typ rozhraní musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  Když vytváříte tyto tři zásady, nezapomeňte:
+V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tato aplikace obsahuje dvě možnosti pro identitu: registraci a přihlášení. Pro každý typ rozhraní musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Když vytváříte tyto tři zásady, nezapomeňte:
 
 * Zvolit **Zobrazovaný název** a další atributy registrace ve svojí registrační zásadě.
 * Zvolit deklarace identity aplikace **Zobrazovaný název** a **ID objektu** v každé zásadě.  Můžete zvolit i další deklarace identity.
@@ -74,7 +74,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 Dokončená aplikace je také [k dispozici jako soubor ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) nebo ve větvi `complete` stejného úložiště.
 
 ## <a name="download-nodejs-for-your-platform"></a>Stažení Node.js pro vaši platformu
-Pro úspěšné fungování této ukázky je třeba mít funkční instalaci Node.js. 
+Pro úspěšné fungování této ukázky je třeba mít funkční instalaci Node.js.
 
 Nainstalujte si Node.js z [nodejs.org](http://nodejs.org).
 
@@ -85,8 +85,8 @@ Nainstalujte MongoDB z [mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
 > Tento návod předpokládá, že používáte výchozí instalaci a koncové body serveru pro MongoDB, což je v době psaní tohoto návodu `mongodb://localhost`.
-> 
-> 
+>
+>
 
 ## <a name="install-the-restify-modules-in-your-web-api"></a>Instalace modulů Restify ve webovém rozhraní API
 Restify použijeme k sestavení REST API. Restify je minimalistické a flexibilní rozhraní Node.js odvozené z Express. Obsahuje robustní sadu funkcí pro sestavování rozhraní REST API postavených na protokolu Connect.
@@ -163,13 +163,13 @@ Výstup příkazu by měl se měl podobat tomuto textu:
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## <a name="add-passportazuread-to-your-web-api"></a>Přidání passport-azuread do webového rozhraní API
+## <a name="add-passport-azuread-to-your-web-api"></a>Přidání passport-azuread do webového rozhraní API
 Nyní přidejte strategii OAuth pomocí `passport-azuread` – sady strategií, které propojují Azure AD s Passportem. Použijte tuto strategii pro nosné tokeny v ukázce REST API.
 
 > [!NOTE]
 > Přestože OAuth2 poskytuje rozhraní, ve kterém mohou být vydávané všechny známé typy tokenů, rozšířeného využití se dostalo pouze určitým typům tokenů. Tokeny pro ochranu koncových bodů jsou nosné tokeny. Tyto typy tokenů jsou v OAuth2 vydávány nejčastěji. Mnoho implementací předpokládá, že jsou nosné tokeny jediným typem vydávaných tokenů.
-> 
-> 
+>
+>
 
 V příkazovém řádku přejděte do adresáře `azuread`, pokud v něm ještě nejste.
 
@@ -215,7 +215,7 @@ Nainstalujte moduly v adresáři `node_modules`:
 * `npm install bunyan`
 
 ## <a name="create-a-serverjs-file-with-your-dependencies"></a>Vytvoření souboru server.js se závislostmi
-Soubor `server.js` poskytuje většinu funkčnosti vašeho serveru webového rozhraní API. 
+Soubor `server.js` poskytuje většinu funkčnosti vašeho serveru webového rozhraní API.
 
 V příkazovém řádku přejděte do adresáře `azuread`, pokud v něm ještě nejste:
 
@@ -258,7 +258,7 @@ clientID: <your client ID for this Web API you created in the portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
 identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
-tenantName:'<tenant name>', 
+tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
 passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
@@ -270,9 +270,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### <a name="required-values"></a>Požadované hodnoty
 `clientID`: ID klienta aplikace webového rozhraní API.
 
-`IdentityMetadata`: Tady `passport-azure-ad` hledá konfigurační data pro zprostředkovatele identity. Také zde hledá klíče pro ověření webových tokenů JSON. 
+`IdentityMetadata`: Tady `passport-azure-ad` hledá konfigurační data pro zprostředkovatele identity. Také zde hledá klíče pro ověření webových tokenů JSON.
 
-`audience`: Identifikátor URI z portálu, který identifikuje vaši volající aplikaci. 
+`audience`: Identifikátor URI z portálu, který identifikuje vaši volající aplikaci.
 
 `tenantName`: Název vašeho klienta (například **contoso.onmicrosoft.com**).
 
@@ -280,8 +280,8 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 > [!NOTE]
 > Pro naše B2C ve verzi Preview použijte stejné zásady v nastavení klienta i serveru. Pokud jste již dokončili návod a tyto zásady jste už vytvořili, nemusíte to dělat znovu. Vzhledem k tomu, že jste návod dokončili, nemělo by být třeba nastavovat nové zásady u návodů pro klienty na této stránce.
-> 
-> 
+>
+>
 
 ## <a name="add-configuration-to-your-serverjs-file"></a>Přidání konfigurace do souboru server.js
 Chcete-li načíst hodnoty z vytvořeného souboru `config.js` přidejte soubor `.config` jako požadovaný prostředek ve vaší aplikaci a pak nastavte globální proměnné na hodnoty v dokumentu `config.js`.
@@ -386,7 +386,7 @@ Nejprve vytvoříte schéma a poté vytvoříte objekt modelu, který použijete
 Teď, když máte model databáze, se kterým můžete pracovat, přidejte trasy, které budete používat pro svůj server REST API.
 
 ### <a name="about-routes-in-restify"></a>O trasách v Restify
-Trasy v Restify fungují stejně jako při použití balíku Express. Trasy se definují pomocí identifikátoru URI, který by měly volat klientské aplikace.  
+Trasy v Restify fungují stejně jako při použití balíku Express. Trasy se definují pomocí identifikátoru URI, který by měly volat klientské aplikace. 
 
 Typický vzor trasy Restify je:
 
@@ -544,7 +544,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ## <a name="create-your-server"></a>Vytvoření serveru
 Nyní jste definovali databázi a přidali trasy. Poslední věcí, kterou musíte udělat, je přidání instance serveru, která spravuje vaše volání.
 
-Restify a Express poskytují široké možnosti přizpůsobení serveru REST API, ale zde použijeme to nejzákladnější nastavení. 
+Restify a Express poskytují široké možnosti přizpůsobení serveru REST API, ale zde použijeme to nejzákladnější nastavení.
 
 ```Javascript
 
@@ -664,7 +664,7 @@ server.listen(serverPort, function() {
 
 });
 
-``` 
+```
 
 ## <a name="add-authentication-to-your-rest-api-server"></a>Přidání ověřování na server REST API
 Když teď máte fungující server REST API, můžete ho využít s Azure AD.
@@ -673,11 +673,11 @@ V příkazovém řádku přejděte do adresáře `azuread`, pokud v něm ještě
 
 `cd azuread`
 
-### <a name="use-the-oidcbearerstrategy-that-is-included-with-passportazuread"></a>Použití OIDCBearerStrategy, která je součástí passport-azure-ad
+### <a name="use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>Použití OIDCBearerStrategy, která je součástí passport-azure-ad
 > [!TIP]
 > Při psaní rozhraní API byste vždy měli propojit data s něčím jedinečným z tokenu, co uživatel nemůže zfalšovat. Server ukládá položky úkolů na základě hodnoty **oid** uživatele v tokenu (zavolaném prostřednictvím token.oid) a ten se ukládá do pole „vlastník“. Tato hodnota zajišťuje, že pouze tento uživatel bude mít přístup ke svým vlastním položkám ToDo. V rozhraní API se „vlastník“ nijak neprojevuje, takže externí uživatelé nemohou přistupovat k položkám úkolů jiných uživatelů ani když jsou ověřeni.
-> 
-> 
+>
+>
 
 Dále použijte nosnou strategii, která je součástí `passport-azure-ad`.
 
@@ -722,8 +722,8 @@ Passport používá stejný vzor pro všechny své strategie. Předáváte jí `
 
 > [!IMPORTANT]
 > Výše uvedený kód přijímá jakéhokoli uživatele, který se na vašem serveru ověří. Tento proces se nazývá automatická registrace. Na produkčních serverech neumožňujte žádným uživatelům přístup k rozhraní API bez toho, aby předtím prošli registračním procesem. Tento proces představujte obvyklý vzor, který můžete vidět u uživatelských aplikací, které vám umožňují zaregistrovat se pomocí Facebooku, ale poté vás požádají o vyplnění dodatečných informací. Pokud by se nejednalo o program v příkazovém řádku, mohli bychom extrahovat e-mail z vráceného objektu tokenu a poté požádat uživatele o vyplnění dodatečných informací. Jelikož toto je ukázka, přidáme je do databáze v paměti.
-> 
-> 
+>
+>
 
 ## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>Spuštění serverové aplikace kvůli ověření, že vás odmítne
 Můžete použít příkaz `curl`, abyste zjistili, zda jsou již koncové body chráněné pomocí OAuth2. Vrácené hlavičky by vám měly dostatečně napovědět, že jste na správné cestě.
@@ -760,7 +760,6 @@ Implementovali jste rozhraní REST API s použitím Restify a OAuth! Nyní máte
 Nyní se můžete přesunout k pokročilejším tématům, jako například:
 
 [Připojení k webovému rozhraní API pomocí iOS s B2C](active-directory-b2c-devquickstarts-ios.md)
-
 
 
 

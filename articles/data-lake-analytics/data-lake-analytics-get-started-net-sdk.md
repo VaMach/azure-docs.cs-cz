@@ -1,6 +1,6 @@
 ---
 title: "Začínáme s Azure Data Lake Analytics pomocí sady .NET SDK | Dokumentace Microsoftu"
-description: "Naučte se používat sadu .NET SDK k vytváření účtů Data Lake Store, vytváření úloh Data Lake Analytics a odesílání úloh napsaných v U-SQL. "
+description: "Naučte se používat sadu .NET SDK k vytváření účtů Data Lake Analytics, vytváření úloh Data Lake Analytics a odesílání úloh napsaných v U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Pro přístup k souborům v propojených účtech Storage je potřeba použít a
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Pro přístup k souborům v propojených účtech Storage je potřeba použít a
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Pro přístup k souborům v propojených účtech Storage je potřeba použít a
           }
         }
 
-1. Stisknutím klávesy **F5** spusťte aplikaci. Výstup bude vypadat přibližně takto:
+5. Stisknutím klávesy **F5** spusťte aplikaci. Výstup bude vypadat přibližně takto:
    
     ![Výstup úlohy U-SQL sady .NET SDK ve službě Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Zkontrolujte výstupní soubor.  Výchozí cesta a název souboru je c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Zkontrolujte výstupní soubor.  Výchozí cesta a název souboru je c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Viz také
 * Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
@@ -257,6 +257,6 @@ Pro přístup k souborům v propojených účtech Storage je potřeba použít a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

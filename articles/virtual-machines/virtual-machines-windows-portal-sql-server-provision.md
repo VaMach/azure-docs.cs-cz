@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 842b6e0b69661a91ebb997346b34da00576378c2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 4ad4c6cf0aca7ac5f1d179eb3d91ecb5846319b4
 
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
+> * [Azure Portal](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [PowerShell](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
@@ -57,7 +57,7 @@ V tomto kurzu provedete následující:
 6. U každé šablony je označena příslušná verze SQL Serveru a operační systém. Ze seznamu vyberte jednu z těchto imagí. Pak si v okně s podrobnostmi přečtěte popis image virtuálního počítače.
    
    > [!NOTE]
-   > Bitové kopie virtuálního počítače SQL zahrnují licenční náklady na SQL Server do ceny vytvořených virtuálních počítačů za minutu. Existuje další možnost používání vlastní licence (BYOL) a platby pouze za virtuální počítače. Tyto názvy bitových kopií mají předponu {BYOL}. Další informace o této možnosti najdete v tématu [Začínáme se serverem SQL ve službě Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > Bitové kopie virtuálního počítače SQL zahrnují licenční náklady na SQL Server do ceny vytvořených virtuálních počítačů za minutu. Existuje další možnost používání vlastní licence (BYOL) a platby pouze za virtuální počítače. Tyto názvy bitových kopií mají předponu {BYOL}. Další informace o této možnosti najdete v tématu [Začínáme se serverem SQL ve službě Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    > 
    > 
 7. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. U nových virtuálních počítačů se doporučuje používat model nasazení Resource Manageru. Klikněte na možnost **Vytvořit**.
@@ -101,7 +101,7 @@ V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte 
 Pro úlohy v produkčním prostředí doporučujeme vybrat velikost virtuálního počítače, která podporuje [Storage úrovně Premium](../storage/storage-premium-storage.md). Pokud nevyžadujete tuto úroveň výkonu, použijte tlačítko **Zobrazit vše**, kterým si zobrazíte všechny možnosti velikosti počítačů. Může například použít menší velikost počítače pro vývojové nebo testovací prostředí.
 
 > [!NOTE]
-> Další informace o velikostech virtuálních počítačů najdete v tématu [Velikosti virtuálních počítačů](virtual-machines-windows-sizes.md). Důležité informace o velikostech virtuálních počítačů s SQL Serverem najdete v tématu [Osvědčené postupy z hlediska výkonu pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> Další informace o velikostech virtuálních počítačů najdete v tématu [Velikosti virtuálních počítačů](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Důležité informace o velikostech virtuálních počítačů s SQL Serverem najdete v tématu [Osvědčené postupy z hlediska výkonu pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -120,7 +120,7 @@ V okně **Nastavení** nakonfigurujte úložiště, sítě a monitorování Azur
 * V části **Účet úložiště** můžete použít název automaticky zřízeného účtu úložiště. Můžete také kliknutím na **Účet úložiště** zvolit existující účet a nakonfigurovat typ účtu úložiště. Ve výchozím nastavení vytvoří Azure nový účet úložiště s místně redundantním úložištěm. Další informace o možnostech úložiště najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md).
 * V části **Síť** může přijmout automaticky zadané hodnoty. Můžete také kliknutím na jednotlivé funkce ručně nakonfigurovat **virtuální síť**, **podsíť**, **veřejnou IP adresu** a **skupinu zabezpečení sítě**. Pro účely tohoto kurzu nechejte nastavené výchozí hodnoty.
 * Azure umožňuje **monitorování** ve výchozím nastavení se stejným účtem, jaký je nastavený pro virtuální počítač. Tato nastavení tady můžete změnit.
-* V části **Skupina dostupnosti** zadejte nastavení dostupnosti. Pro účely tohoto kurzu můžete vybrat možnost **Žádná**. Pokud budete chtít nastavit Skupiny dostupnosti AlwaysOn SQL, nakonfigurujte dostupnost tak, aby se předešlo opětovnému vytvoření virtuálního počítače.  Další informace najdete v tématu [Správa dostupnosti virtuálních počítačů](virtual-machines-windows-manage-availability.md).
+* V části **Skupina dostupnosti** zadejte nastavení dostupnosti. Pro účely tohoto kurzu můžete vybrat možnost **Žádná**. Pokud budete chtít nastavit Skupiny dostupnosti AlwaysOn SQL, nakonfigurujte dostupnost tak, aby se předešlo opětovnému vytvoření virtuálního počítače.  Další informace najdete v tématu [Správa dostupnosti virtuálních počítačů](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Po dokončení konfigurace těchto nastavení klikněte na **OK**.
 
@@ -162,7 +162,7 @@ Pokud raději nechcete povolovat připojení k databázovému stroji prostředni
 Obecně se doporučuje zvýšit zabezpečení výběrem nejvíce omezujícího připojení, které váš scénář umožňuje. Všechny možnosti je ale možné zabezpečit prostřednictvím pravidel skupin zabezpečení sítě a ověřování SQL Serveru a Windows.
 
 Pro **port** se používá výchozí hodnota 1433. Můžete ale zadat i jiné číslo portu.
-Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="authentication"></a>Ověřování
 Pokud budete chtít vyžadovat ověřování SQL Serveru, klikněte v části **Ověřování SQL** na **Povolit**.
@@ -206,7 +206,7 @@ Ve výchozím nastavení Azure optimalizuje úložiště takto: 5000 vstupně-v�
 
 ![Automatizované opravy pro SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Další informace najdete v tématu [Automatizované opravy pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
+Další informace najdete v tématu [Automatizované opravy pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="automated-backup"></a>Automatizované zálohování
 Automatické zálohování databází můžete pro všechny databáze povolit v části **Automatizované zálohování**. Automatizované zálohování je ve výchozím nastavení zakázané.
@@ -221,7 +221,7 @@ Pokud chcete zálohy šifrovat, klikněte na **Povolit**. Pak zadejte **heslo**.
 
 ![Automatizované zálohování SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Další informace najdete v tématu [Automatizované zálohování pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+ Další informace najdete v tématu [Automatizované zálohování pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="azure-key-vault-integration"></a>Integrace se službou Azure Key Vault
 Pokud budete chtít ukládat tajné klíče zabezpečení v Azure pro šifrování, klikněte na **Integrace se službou Azure Key Vault** a klikněte na **Povolit**.
@@ -237,7 +237,7 @@ V následující tabulce jsou uvedeny parametry, které jsou nezbytné pro konfi
 | **Tajný kód objektu zabezpečení** |Tajný klíč objektu zabezpečení služby Azure Active Directory. Tento tajný klíč se také označuje jako Tajný klíč klienta. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Název přihlašovacího údaje** |**Název přihlašovacího údaje:** Integrace se službou Azure Key Vault vytvoří přihlašovací údaje v rámci SQL Serveru, díky čemuž mají virtuální počítače přístup do trezoru klíčů. Zvolte název pro tyto přihlašovací údaje. |moje_přihlaš1 |
 
-Další informace najdete v tématu [Konfigurace Integrace se službou Azure Key Vault pro virtuální počítače Azure](virtual-machines-windows-ps-sql-keyvault.md).
+Další informace najdete v tématu [Konfigurace Integrace se službou Azure Key Vault pro virtuální počítače Azure](virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Po dokončení konfigurace nastavení SQL Serveru klikněte na **OK**.
 
@@ -282,7 +282,7 @@ Přístup k počítači vám umožňuje podle potřeb přímo měnit nastavení 
 V tomto kurzu jsme pro virtuální počítač vybrali **veřejný** přístup a **ověřování SQL Serveru**. Tato nastavení automaticky nakonfigurovala virtuální počítač tak, aby povoloval připojení k SQL Serveru z libovolného klienta přes internet (za předpokladu, že má správné přihlašovací údaje SQL Serveru).
 
 > [!NOTE]
-> Pokud jste během zřizování nevybrali veřejný přístup, je nutné provést pár kroků navíc pro přístup k instanci SQL Serveru přes internet. Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem](virtual-machines-windows-sql-connect.md).
+> Pokud jste během zřizování nevybrali veřejný přístup, je nutné provést pár kroků navíc pro přístup k instanci SQL Serveru přes internet. Další informace najdete v tématu [Připojení virtuálnímu počítači s SQL Serverem](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -293,7 +293,7 @@ Následující části vysvětlují, jak se připojit k instanci SQL Serveru na 
 > 
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o používání SQL Serveru v Azure najdete v tématu [SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) a [Nejčastější dotazy](virtual-machines-windows-sql-server-iaas-faq.md).
+Další informace o používání SQL Serveru v Azure najdete v tématu [SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a [Nejčastější dotazy](virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v tématu [Azure Virtual Machines je nejlepší platformou pro SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 

@@ -15,7 +15,7 @@ Mezi běžná použití služby File Storage patří:
 ## <a name="file-storage-concepts"></a>Koncepty služby File Storage
 Služba File Storage obsahuje následující součásti:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Účet úložiště:** Veškerý přístup ke službě Azure Storage se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](../articles/storage/storage-scalability-targets.md).
 * **Sdílená složka:** Sdílená složka úložiště File Storage představuje sdílenou složku protokolu SMB v Azure. 
@@ -31,8 +31,7 @@ Služba File Storage obsahuje následující součásti:
 
 Podrobnosti o pojmenovávání sdílených složek, adresářů a souborů najdete v článku [Pojmenování a odkazování na sdílené složky, soubory a metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

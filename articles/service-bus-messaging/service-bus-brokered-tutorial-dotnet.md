@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d437ad6300970bd1f015413b8ad70620e2e7fd04
 
 
 ---
@@ -43,19 +43,19 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
 1. Otevřete Visual Studio jako správce tak, že v nabídce Start kliknete na program pravým tlačítkem a vyberete možnost **Spustit jako správce**.
 2. Vytvořte nový projekt konzolové aplikace. Klikněte na nabídku **Soubor** a vyberte možnost **Nový**, a pak klikněte na **Projekt**. V dialogu **Nový projekt** klikněte na **Visual C#** (pokud se **Visual C#** nezobrazí, podívejte se do části **Jiné jazyky**), klikněte na šablonu **Konzolová aplikace** a pojmenujte ji jako **QueueSample**. Použijte výchozí **Umístění**. Projekt vytvoříte kliknutím na **OK**.
 3. Pomocí správce balíčků NuGet do projektu přidejte knihovny ServiceBus:
-   
+
    1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **QueueSample** a pak klikněte na **Správa balíčků NuGet**.
    2. V dialogu **Správa balíčků NuGet** klikněte na kartu **Procházet** a vyhledejte **Azure Service Bus**, pak klikněte na **Instalovat**.
       <br />
 4. V Průzkumníku řešení poklikejte na soubor Program.cs a otevře se v editoru Visual Studio. Změňte název oboru názvů z výchozího názvu `QueueSample` na `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Upravte příkazy `using` tak, jak je vidět na následujícím kódu.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Vytvořte textový soubor s názvem Data.csv a zkopírujte do něj následující text oddělený čárkami.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Uložte a zavřete soubor Data.csv a poznamenejte si umístění, do kterého jste ho uložili.
 7. V Průzkumníku řešení klikněte pravým tlačítkem na název projektu (v tomto příkladu **QueueSample**), klikněte na **Přidat**, a pak klikněte na **Existující položka**.
 8. Přejděte k souboru Data.csv, který jste vytvořili v kroku 6. Klikněte na soubor a pak na **Přidat**. Zkontrolujte, že je v seznamu typů souborů označená možnost **Všechny soubory (*.*)**.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Vytvoření metody, která bude parsovat seznam zpráv
 1. Ve třídě `Program` před metodou `Main()` deklarujte dvě proměnné: jednu typu **DataTable**, která bude obsahovat seznam zpráv ze souboru Data.csv. Druhá by měla být typu List objekt se silnou typovou kontrolou pro [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Ta obsahuje seznam zprostředkovaných zpráv, který se bude používat v dalších krocích tohoto kurzu.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Mimo `Main()` definujte metodu `ParseCSV()`, která parsuje seznam zpráv v souboru Data.csv a načte zprávy do tabulky [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), jak je vidět tady. Tato metoda vrátí objekt **DataTable**.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. V metodě `Main()` přidejte příkaz, který zavolá metodu `ParseCSVFile()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Vytvoření metody, která načte seznam zpráv
-1. Mimo `Main()` definujte metodu `GenerateMessages()`, která vezme objekt **DataTable** vrácený z `ParseCSVFile()` a načte tabulku do seznamu zprostředkovaných zpráv se silnou typovou kontrolou. Metoda pak vrátí objekt **List**, jako v následujícím příkladu. 
-   
+1. Mimo `Main()` definujte metodu `GenerateMessages()`, která vezme objekt **DataTable** vrácený z `ParseCSVFile()` a načte tabulku do seznamu zprostředkovaných zpráv se silnou typovou kontrolou. Metoda pak vrátí objekt **List**, jako v následujícím příkladu.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
     }
     ```
 2. Do `Main()` přímo po zavolání `ParseCSVFile()` přidejte příkaz, který zavolá metodu `GenerateMessages()` s hodnotou vrácenou z `ParseCSVFile()` jako argument:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Dalším krokem je vytvoření projektu Visual Studia a napsání dvou pomocnýc
 
 ### <a name="obtain-user-credentials"></a>Získání pověření uživatele
 1. Nejdřív vytvořte tři globální řetězcové proměnné, do kterých se tyto údaje načtou. Deklarujte tyto proměnné přímo po deklaraci předchozích proměnných, například:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Dál vytvořte funkci, která přijme a uloží obor názvů služby a klíč SAS. Tuto metodu přidejte mimo `Main()`. Příklad: 
-   
+2. Dál vytvořte funkci, která přijme a uloží obor názvů služby a klíč SAS. Tuto metodu přidejte mimo `Main()`. Příklad:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. Do `Main()` přímo po zavolání `GenerateMessages()` přidejte příkaz, který zavolá metodu `CollectUserInput()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ V nabídce **Sestavení** ve Visual Studiu můžete kliknout na **Sestavit řeš
 V tomto kroku definujete operace správy, které použijete pro vytvoření pověření sdíleného přístupového podpisu (SAS), kterým se vaše aplikace bude ověřovat.
 
 1. V zájmu jednoduchosti a přehlednosti se v tomto kurzu všechny operace fronty budou umístěné v samostatné metodě. Ve třídě `Program` po metodě `Main()` vytvořte asynchronní metodu `Queue()`. Příklad:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ V tomto kroku definujete operace správy, které použijete pro vytvoření pov�
     }
     ```
 2. Dalším krokem je vytvoření pověření SAS pomocí objektu [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Metoda vytvoření převezme název a hodnotu klíče SAS získané v metodě `CollectUserInput()`. Do metody `Queue()` přidejte následující kód:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ V tomto kroku definujete operace správy, které použijete pro vytvoření pov�
     }
     ```
 3. Vytvořte nový objekt správy oboru názvů s identifikátorem URI, který jako argumenty obsahuje název a pověření pro správu získané v předchozím kroku. Tento kód přidejte přímo po kódu přidaném v předchozím kroku. Ujistěte se, že jste `<yourNamespace>` nahradili názvem vašeho oboru názvů služby:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ V tomto kroku vytvoříte frontu, pak do ní odešlete zprávy obsažené v sezn
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Vytvoření fronty a odeslání zpráv do fronty
 1. Nejdřív vytvořte frontu. Pojmenujte ji třeba `myQueue` a deklarujte ji přímo po operacích správy, které jste přidali v metodě `Queue()` v předchozím kroku:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. V metodě `Queue()` vytvořte objekt pro vytváření pro přenos zpráv s nově vytvořeným identifikátorem URI služby Service Bus jako argument. Následující kód přidejte přímo po operacích správy, které jste přidali v předchozím kroku. Ujistěte se, že jste `<yourNamespace>` nahradili názvem vašeho oboru názvů služby:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Dál vytvořte objekt fronty pomocí třídy [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Následující kód přidejte přímo po kódu, který jste přidali v posledním kroku:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Dál přidejte kód který projde seznam zprostředkovaných zpráv, které jste předtím vytvořili, a každou z nich odešle do fronty. Následující kód přidejte přímo po příkazu `CreateQueueClient()` v předchozím kroku:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,14 +615,13 @@ Po dokončení předchozích kroků můžete sestavit a spustit aplikaci **Queue
 V nabídce **Sestavení** ve Visual Studiu klikněte na **Sestavit řešení** nebo stiskněte **Ctrl+Shift+B**. Pokud narazíte na chyby, zkontrolujte podle příkladu na konci předchozího kroku, že jste kód napsali správně.
 
 ## <a name="next-steps"></a>Další kroky
-Tento kurz vám ukázal, jak sestavit službu a klientskou aplikaci služby Service Bus pomocí funkcí zprostředkovaného zasílání zpráv služby Service Bus. Podobný kurz, který používá Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Tento kurz vám ukázal, jak sestavit službu a klientskou aplikaci služby Service Bus pomocí funkcí zprostředkovaného zasílání zpráv služby Service Bus. Podobný kurz, který používá Service Bus [WCF Relay](service-bus-messaging-overview.md#service-bus-relay), najdete v tématu [Kurz přenosu zpráv přes předávací službu Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Pokud se o službě [Service Bus](https://azure.microsoft.com/services/service-bus/) chcete dozvědět víc, pročtěte si následující témata.
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
 * [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Architektura služby Service Bus](service-bus-architecture.md)
-
 
 
 

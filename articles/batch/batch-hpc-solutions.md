@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 07/27/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
 
 
 ---
@@ -87,10 +87,10 @@ Zde se dozvíte další informace o výpočtech, datech, sítích a souvisejíc�
 > 
 
 ### <a name="compute-services"></a>Výpočetní služby
-Výpočetní služby Azure jsou jádrem řešení Big Compute. Různé výpočetní služby jsou vhodné pro různé scénáře. Tyto služby na základní úrovni nabízejí různé režimy pro aplikace, které běží na výpočetních instancích založených na virtuálních počítačích, které Azure poskytuje pomocí technologie Windows Server Hyper-V. Na těchto instancích mohou běžet standardní i vlastní nástroje a operační systémy Windows a Linux. Azure vám dává na výběr z různých [velikostí instancí](../virtual-machines/virtual-machines-windows-sizes.md) s různými konfiguracemi jader procesoru, paměti, kapacity disku a dalších vlastností. V závislosti na vašich potřebách můžete škálovat instance až na tisíce jader a poté vertikálně snížit kapacitu, až budete potřebovat méně prostředků.
+Výpočetní služby Azure jsou jádrem řešení Big Compute. Různé výpočetní služby jsou vhodné pro různé scénáře. Tyto služby na základní úrovni nabízejí různé režimy pro aplikace, které běží na výpočetních instancích založených na virtuálních počítačích, které Azure poskytuje pomocí technologie Windows Server Hyper-V. Na těchto instancích mohou běžet standardní i vlastní nástroje a operační systémy Windows a Linux. Azure vám dává na výběr z různých [velikostí instancí](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) s různými konfiguracemi jader procesoru, paměti, kapacity disku a dalších vlastností. V závislosti na vašich potřebách můžete škálovat instance až na tisíce jader a poté vertikálně snížit kapacitu, až budete potřebovat méně prostředků.
 
 > [!NOTE]
-> Využijte výhod výpočetně náročných instancí Azure ke zlepšení výkonu a škálovatelnosti úloh prostředí HPC, včetně paralelních aplikací MPI, které vyžadují nízkou latenci a vysokou propustnost aplikační sítě. Viz téma [O virtuálních počítačích řady H-series a A-series pro náročné výpočty](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+> Využijte výhod výpočetně náročných instancí Azure ke zlepšení výkonu a škálovatelnosti úloh prostředí HPC, včetně paralelních aplikací MPI, které vyžadují nízkou latenci a vysokou propustnost aplikační sítě. Viz téma [O virtuálních počítačích řady H-series a A-series pro náročné výpočty](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 

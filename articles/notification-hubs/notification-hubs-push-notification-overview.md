@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 38735f7c0154388e8698edc5bac931c5a079a865
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 005d2fb2bce7e42d1ce961b90610b16f299abfd0
 
 
 ---
@@ -68,7 +68,7 @@ Nabízená oznámení jsou jednou z nejžádanějších funkcí v cloudových sl
 
 * **Závislost na platformě** Aby bylo možné odesílat oznámení do zařízení na různých platformách, musí být v back-endu kódováno více rozhraní. Nejenže se liší v detailech nastavení, ale na platformě je závislý dokonce i způsob prezentace oznámení (dlaždice, informační zpráva nebo oznámení „badge“). Tyto rozdíly by mohly vést k tomu, že back-endový kód bude velmi složitý a jeho údržba bude obtížná.
 * **Škálování** Škálování této infrastruktury má dva aspekty:
-  
+
   * Podle pokynů pro systém PNS je nutné tokeny zařízení obnovovat při každém spuštění aplikace. To vede k velkému objemu přenosů (a následným přístupům do databáze) jen v souvislosti udržováním tokenů zařízení v aktuálním stavu. Když počet zařízení naroste (případně až na miliony), náklady na vytvoření a údržbu této infrastruktury nejsou zanedbatelné.
   * Většina systému PNS nepodporuje vysílání na více zařízení. Z toho vyplývá, že při vysílání na miliony zařízení se produkují miliony volání do systémů PNS. Schopnost škálovat podle těchto požadavků není triviální, protože vývojáři aplikací obvykle chtějí udržet nízkou celkovou latenci. Například by zpráva neměla na poslední zařízení, které ji dostane, přijít po více než 30 minutách od odeslání oznámení, protože v mnoha případech by vůbec nemělo smysl nabízená oznámení používat.
 * **Směrování** Systémy PNS poskytují způsob, jak odeslat zprávu do zařízení. Ve většině aplikací jsou však oznámení určena pro určité uživatele nebo specifické skupiny (například všechny zaměstnance přiřazené k určitému zákaznickému účtu). Aby tedy bylo možné oznámení směrovat na správná zařízení, musí back-end aplikace udržovat registr, v němž jsou konkrétní uživatelské skupiny přidruženy k tokenům zařízení. Tato dodatečná režie prodlužuje celkovou dobu nutnou pro publikování a navyšuje náklady na údržbu aplikace.
@@ -81,19 +81,19 @@ Služba Notification Hubs eliminuje složitost: není nutné překonávat zmín�
 Služba Notification Hubs poskytuje infrastrukturu nabízených oznámení připravenou k použití, která má následující výhody:
 
 * **Multiplatformní použití**
-  
+
   * Podpora pro všechny hlavní mobilní platformy. Služba Notification Hubs může nabízená oznámení odesílat do aplikací pro Windows Store, iOS, Android a Windows Phone.
   * Služba Notification Hubs poskytuje společné rozhraní pro odesílání oznámení na všechny podporované platformy. Nejsou nutné protokoly specifické pro platformy. Back-end aplikace může nabízená oznámení odesílat ve formátech specifických pro platformu, nebo nezávislých na platformě. Aplikace komunikuje pouze se službou Notification Hubs.
   * Správa popisovačů zařízení. Služba Notification Hubs udržuje registr popisovačů a zpětnou vazbu ze systémů PNS.
 * **Možnost použití s libovolným back-endem**: cloudový nebo lokální, .NET, PHP, Java, Node atd.
 * **Škálování** Služba Notification Hubs provádí škálování na miliony zařízení bez nutnosti přepracování nebo komplikovaného skládání architektury.
 * **Bohatá sada schémat doručování**:
-  
+
   * *Vysílání*: Umožňuje téměř simultánní vysílání na miliony zařízení na základě jednoho volání rozhraní API.
   * *Jednosměrové a vícesměrové vysílání*: Oznámení můžete odesílat na základě značek představujících jednotlivé uživatele, což bude zahrnovat všechna jejich zařízení; nebo pro širší skupinu, například pro různé typy zařízení (tablet versus telefon).
   * *Segmentace*: Oznámení můžete odesílat složitým segmentům definovaným výrazy ve značkách (například na všechna zařízení v Praze, která sledují určitý fotbalový tým).
-    
-    Každé zařízení může při odesílání svého popisovače do centra oznámení uvést jednu nebo více *značek*. Projděte si další informace o [značek]. Značky není třeba předem zřizovat nebo nastavovat. Značky poskytují jednoduchý způsob, jak oznámení odesílat určitým uživatelům nebo skupinám. Vzhledem k tomu, že značky mohou obsahovat identifikátor specifický pro aplikaci (například ID uživatele nebo skupiny), je díky jejich použití back-end aplikace zbaven povinnosti uchovávat a spravovat popisovače zařízení.
+
+    Každé zařízení může při odesílání svého popisovače do centra oznámení uvést jednu nebo více *značek*. Projděte si další informace o [značek](http://msdn.microsoft.com/library/azure/dn530749.aspx). Značky není třeba předem zřizovat nebo nastavovat. Značky poskytují jednoduchý způsob, jak oznámení odesílat určitým uživatelům nebo skupinám. Vzhledem k tomu, že značky mohou obsahovat identifikátor specifický pro aplikaci (například ID uživatele nebo skupiny), je díky jejich použití back-end aplikace zbaven povinnosti uchovávat a spravovat popisovače zařízení.
 * **Personalizace**: Každé zařízení může mít jednu nebo více šablon pro zajištění lokalizace a personalizace podle zařízení, aniž by to mělo dopad na kód back-endu.
 * **Zabezpečení**: Sdílený tajný přístupový klíč (SAS) nebo federovaného ověřování.
 * **Bohatá telemetrie**: K dispozici na portálu a programově.
@@ -111,7 +111,7 @@ Vývojáři v Mobile Apps mohou službu Notification Hubs využívat v rámci n�
 Zde jsou některé výhody, které vývojáři získají díky této integraci:
 
 * **Sady Mobile Apps Client SDK** Tyto multiplatformní sady SDK poskytují jednoduchá rozhraní API pro registraci a automaticky komunikují s centrem oznámení propojeným s touto mobilní aplikací. Vývojáři se nemusí zabývat přihlašovacími údaji pro Notification Hubs a pracovat s další službou.
-  
+
   * Tyto sady SDK automaticky označí dané zařízení ověřeným ID uživatele Mobile Apps, díky čemuž je možné uskutečnit scénář nabízených oznámení pro uživatele.
   * Sady SDK automaticky používají instalační ID Mobile Apps jako identifikátor GUID pro registraci v Notification Hubs, což vývojáře zbavuje nutnosti starat se o identifikátory GUID pro několik služeb.
 * **Instalační model** Služba Mobile Apps pracuje s nejnovějším modelem nabízených oznámení v Notification Hubs, který reprezentuje všechny vlastnosti nabízených oznámení související se zařízením v instalaci JSON, což vyhovuje Službě nabízených oznámení a nabízí snadné použití.

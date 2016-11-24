@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: cgronlun;chhavib;olgali
+ms.date: 11/11/2016
+ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df9009646627226acc8209486f990688efe95622
+ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
+ms.openlocfilehash: 7c712cb20d9e008c74436fc602326afa00250c63
 
 
 ---
 # <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Vytváření nových experimentů Machine Learningu na základě kopírování ukázkových experimentů
-Naučte se pracovat s experimenty pomocí ukázek z [Cortana Intelligence Galerie](http://gallery.cortanaintelligence.com/), místo abyste vytvářeli experimenty Machine Learningu od začátku. Ukázky můžete použít k sestavení vlastních řešení Machine Learningu.
+Naučte se pracovat s experimenty pomocí ukázek z [Cortana Intelligence Galerie](https://gallery.cortanaintelligence.com/), místo abyste vytvářeli experimenty Machine Learningu od začátku. Ukázky můžete použít k sestavení vlastních řešení Machine Learningu.
 
 V galerii jsou ukázkové experimenty vytvořené týmem Microsoft Azure Machine Learning, ale i ukázky sdílené komunitou Machine Learningu. Také můžete klást otázky nebo experimenty komentovat.
 
@@ -30,7 +30,7 @@ Abyste se dozvěděli, jak používat galerii, podívejte se na tříminutové v
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Nalezení experimentu pro zkopírování v Cortana Intelligence Gallery
-Pokud se chcete podívat, jaké experimenty jsou k dispozici, přejděte do [Galerie](http://gallery.cortanaintelligence.com/) a klikněte na **Experimenty** v horní části stránky.
+Pokud se chcete podívat, jaké experimenty jsou k dispozici, přejděte do [Galerie](https://gallery.cortanaintelligence.com/) a klikněte na **Experimenty** v horní části stránky.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Nalezení nejnovějších nebo nejoblíbenějších experimentů
 Na této stránce si můžete zobrazit **naposled přidané** experimenty, přechodem dolů se podívat, **co je oblíbené**, nebo si prohlédnout nejnovější **populární experimenty Microsoftu**.
@@ -43,16 +43,16 @@ Procházení všech experimentů:
 3. Experimenty, které splňují vaše požadavky, můžete najít několika různými způsoby:
    * **Vyberte filtry vlevo.** Pokud chcete například procházet experimenty, které používají algoritmus detekce anomálií založený na metodě PCA, vyberte v části **Categories** (Kategorie) možnost **Experiment** a v části **Algorithms Used** (Použité algoritmy) možnost **PCA-Based Anomaly Detection**. (Pokud tento algoritmus nevidíte, klikněte ve spodní části seznamu na **Show all** (Zobrazit vše)).<br></br>
      ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Použijte vyhledávací pole.** Pokud chcete například najít experimenty, kterými přispěl Microsoft, které se týkají rozpoznávaní číslic a které používají algoritmus podpůrného vektorového stroje se dvěma třídami, zadejte do vyhledávacího pole „digit recognition“. Vyberte filtry **Experiment**, **Microsoft content only** a **Two-Class Support Vector Machine**: ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+   * **Použijte vyhledávací pole.** Pokud chcete například najít experimenty, kterými přispěl Microsoft, které se týkají rozpoznávaní číslic a které používají algoritmus podpůrného vektorového stroje se dvěma třídami, zadejte do vyhledávacího pole „digit recognition“. Vyberte filtry **Experiment**, **Microsoft content only** a **Two-Class Support Vector Machine**: ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Kliknutím na experiment o něm zobrazíte více informací.
 5. Pokud chcete experiment spustit nebo upravit, klikněte na stránce experimentu na **Open in Studio** (Otevřít v nástroji Studio).
-   
+
    > [!NOTE]
    > Abyste mohli experiment otevřít v nástroji Machine Learning Studio, budete se muset přihlásit pomocí přihlašovacích údajů k účtu Microsoft. Pokud ještě nemáte pracovní prostor Machine Learning, vytvoří se bezplatný zkušební pracovní prostor. [Podívejte se, co je součástí bezplatné zkušební verze Machine Learning.](https://azure.microsoft.com/pricing/details/machine-learning/)
-   > 
-   > 
-   
-    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
+   >
+   >
+
+    ![](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Použití šablony v nástroji Machine Learning Studio
 Nový experiment v nástroji Machine Learning Studio je možné vytvořit i pomocí ukázky z galerie, která bude použita jako šablona.
@@ -67,11 +67,9 @@ V pracovním prostoru se vytvoří nový experiment, ve kterém ukázkový exper
 * [Využití R v experimentu](machine-learning-r-quickstart.md)
 * [Ukázkové experimenty s R](machine-learning-r-csharp-web-service-examples.md)
 * [Vytvoření rozhraní API webové služby](machine-learning-publish-a-machine-learning-web-service.md)
-* [Procházení aplikací připravených k použití](https://datamarket.azure.com/browse?query=machine+learning)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

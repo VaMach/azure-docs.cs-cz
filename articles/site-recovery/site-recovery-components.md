@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: ef9a7da86e7528d3052f89dbe1eaac6fbb90527c
 
 
 ---
@@ -94,7 +94,7 @@ Zde je seznam toho, co budete potřebovat:
 * [Další informace](site-recovery-failback-azure-to-vmware.md) o navrácení služeb po obnovení na portálu Azure Portal.
 * [Další informace](site-recovery-failback-azure-to-vmware-classic.md) o navrácení služeb po obnovení na portálu Classic.
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Replikace do Azure: virtuální počítače Hyper-V nejsou spravovány nástrojem VMM
+## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Replikace do Azure: virtuální počítače Hyper-V nejsou spravovány nástrojem VMM
 Následujícím způsobem můžete do Azure pomocí Site Recovery replikovat virtuální počítače Hyper-V, které nejsou spravovány nástrojem System Center VMM:
 
 * **Pomocí portálu Azure**-Pokud provádíte nasazení Site Recovery na portálu Azure, můžete převzít služby virtuálních počítačů do klasického úložiště nebo do Správce prostředků. [Další informace](site-recovery-hyper-v-site-to-azure.md).
@@ -120,7 +120,7 @@ Zde je seznam toho, co budete potřebovat:
 * [Další informace](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) o požadavcích pro nasazení portálu Azure.
 * [Další informace](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) o požadavcích pro nasazení portálu Classic.
 
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Replikace do Azure: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
+## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Replikace do Azure: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
 Virtuální počítače v cloudech VMM můžete replikovat do Azure pomocí Site Recovery následujícím způsobem:
 
 * **Pomocí portálu Azure**-Pokud provádíte nasazení Site Recovery na portálu Azure, můžete převzít služby virtuálních počítačů do klasického úložiště nebo do Správce prostředků. [Další informace](site-recovery-vmm-to-azure.md).
@@ -144,8 +144,8 @@ Zde je seznam toho, co budete potřebovat:
 
 ![Z VMM do Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* [Další informace](site-recovery-vmm-to-azure.md#azure-requirements) o požadavcích pro nasazení portálu Azure.
-* [Další informace](site-recovery-vmm-to-azure-classic.md#before-you-start) o požadavcích pro nasazení portálu Classic.
+* [Další informace](site-recovery-vmm-to-azure.md#azure-prerequisites) o požadavcích pro nasazení portálu Azure.
+* [Další informace](site-recovery-vmm-to-azure-classic.md) o požadavcích pro nasazení portálu Classic.
 
 ## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>Replikace do sekundární lokality: virtuální počítače VMware nebo fyzické servery
 Pokud chcete replikovat virtuální počítače VMware nebo fyzické servery do sekundární lokality, stáhněte si nástroj InMage Scout, který je součástí předplatného Azure Site Recovery. Nástroj se dá stáhnout z portálu Azure nebo z portálu Azure Classic.
@@ -167,7 +167,7 @@ Zde je seznam toho, co k tomu potřebujete:
 
 ![Z VMware do VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>Replikace do sekundární lokality: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
+## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>Replikace do sekundární lokality: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
 Pomocí Site Recovery můžete následujícím způsobem replikovat do sekundárního datového centra virtuální počítače Hyper-V, které jsou spravovány nástrojem System Center VMM:
 
 * **Pomocí portálu Azure** – Pokud nasadíte Site Recovery v portálu Azure. [Další informace](site-recovery-hyper-v-site-to-azure.md).
@@ -193,7 +193,7 @@ Zde je seznam toho, co budete potřebovat:
 * [Zde jsou další informace](site-recovery-vmm-to-vmm.md#azure-prerequisites) o požadavcích na nasazení do portálu Azure.
 * * [Zde jsou další informace](site-recovery-vmm-to-vmm-classic.md#before-you-start) o požadavcích na nasazení do portálu Azure Classic.
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>Replikace do sekundární lokality pomocí replikace sítě SAN: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
+## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>Replikace do sekundární lokality pomocí replikace sítě SAN: virtuální počítače Hyper-V jsou spravovány nástrojem VMM
 Můžete replikovat virtuální počítače Hyper-V, spravované v cloudech VMM, do sekundární lokality pomocí replikace sítě SAN za použití portálu Azure Classic. Tento scénář není na novém portálu Azure aktuálně podporován.
 
 V tomto scénáři nainstalujete během nasazování Site Recovery zprostředkovatele Azure Site Recovery na servery VMM. Zprostředkovatel koordinuje a orchestruje replikaci pomocí služby Site Recovery přes internet. Data se replikují mezi primárním a sekundárním polem úložiště s použitím synchronní replikace v síti SAN.
@@ -213,8 +213,8 @@ Zde je seznam toho, co budete potřebovat:
 
 [Zde jsou další informace](site-recovery-vmm-san.md#before-you-start) o požadavcích na nasazení.
 
-### <a name="onpremises"></a>Lokálně
-## <a name="hyperv-protection-lifecycle"></a>Životní cyklus ochrany Hyper-V
+### <a name="on-premises"></a>Lokálně
+## <a name="hyper-v-protection-lifecycle"></a>Životní cyklus ochrany Hyper-V
 Tento pracovní postup nastiňuje proces ochrany, replikace a převzetí služeb při selhání u virtuálních počítačů Hyper-V.
 
 1. **Povolení ochrany:** Nastavíte trezor Site Recovery, nakonfigurujete nastavení replikace pro cloud VMM nebo web Hyper-V a povolíte ochranu pro virtuální počítače. Spustí se úloha s názvem **Povolení ochrany** a lze ji monitorovat na kartě **Úlohy**. V rámci úlohy se zkontroluje, zda počítač splňuje požadavky, a potom se vyvolá metoda [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která nastaví replikaci do Azure na základě nastavení, které jste nakonfigurovali. Úloha **Povolení ochrany** také vyvolá metodu [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pro inicializaci úplné replikace virtuálního počítače.
@@ -229,7 +229,6 @@ Tento pracovní postup nastiňuje proces ochrany, replikace a převzetí služeb
 
 ## <a name="next-steps"></a>Další kroky
 [Příprava nasazení](site-recovery-best-practices.md)
-
 
 
 

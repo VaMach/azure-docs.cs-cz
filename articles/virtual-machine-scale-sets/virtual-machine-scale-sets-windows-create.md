@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 6fa8b353c47091c9b71173e98021117245cc6694
 
 
 ---
@@ -130,7 +130,7 @@ Máte teď všechny prostředky, které potřebujete pro konfiguraci škálovac�
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Tento příklad ukazuje škálovací sadu vytvářenou ze 3 virtuálních počítačů. Další informace o kapacitě škálovacích sad najdete v tématu [Přehled škálovacích sad virtuálních počítačů](virtual-machine-scale-sets-overview.md). Tento krok zahrnuje také nastavení velikosti (označované jako SkuName) virtuálních počítačů v sadě. Pokud chcete najít velikost, která vyhovuje vašim potřebám, nahlédněte do tématu [Velikosti virtuálních počítačů](../virtual-machines/virtual-machines-windows-sizes.md).
+    Tento příklad ukazuje škálovací sadu vytvářenou ze 3 virtuálních počítačů. Další informace o kapacitě škálovacích sad najdete v tématu [Přehled škálovacích sad virtuálních počítačů](virtual-machine-scale-sets-overview.md). Tento krok zahrnuje také nastavení velikosti (označované jako SkuName) virtuálních počítačů v sadě. Pokud chcete najít velikost, která vyhovuje vašim potřebám, nahlédněte do tématu [Velikosti virtuálních počítačů](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Do konfigurace škálovací sady přidejte konfiguraci síťového rozhraní:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Máte teď všechny prostředky, které potřebujete pro konfiguraci škálovac�
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Pokud chcete najít informace o jiných imagích, které je možné použít, nahlédněte do tématu [Procházení a výběr imagí virtuálních počítačů Azure pomocí Windows PowerShellu a Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Pokud chcete najít informace o jiných imagích, které je možné použít, nahlédněte do tématu [Procházení a výběr imagí virtuálních počítačů Azure pomocí Windows PowerShellu a Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Nahraďte hodnotu **$vhdContainers** seznamem cest, ve kterých jsou uloženy virtuální pevné disky, například https://mystorage.blob.core.windows.net/vhds, a pak vytvořte proměnnou:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")

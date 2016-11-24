@@ -2,18 +2,20 @@
 
 Pokud chcete odkázat na balíček CloudConfigurationManager, přidejte do své třídy tento příkaz `using`:
 
-    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+```csharp
+using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+```
 
 Tady je příklad, který ukazuje, jak z konfiguračního souboru získat připojovací řetězec:
-
-    // Parse the connection string and return a reference to the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
+```csharp
+// Parse the connection string and return a reference to the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+```
 Použití nástroje Azure Configuration Manager není povinné. Taky můžete použít API jako třeba [třídu ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) platformy .NET Framework.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

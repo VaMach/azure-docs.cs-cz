@@ -1,44 +1,61 @@
 ---
-title: Network interfaces | Microsoft Docs
-description: Learn about Azure network interfaces in Azure Resource Manager.
+title: "Síťová rozhraní | Dokumentace Microsoftu"
+description: "Přečtěte si o síťových rozhraních Azure v Azure Resource Manageru."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+
 
 ---
-# Network interfaces
-A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
+# <a name="network-interfaces"></a>Síťová rozhraní
+Síťové rozhraní (NIC) je propojení mezi virtuálním počítačem a základní softwarovou sítí. Tento článek vysvětluje, co je síťové rozhraní a jak se používá v modelu nasazení Azure Resource Manager.
 
-Microsoft recommends deploying new resources using the Resource Manager deployment model, but you can also deploy VMs with network connectivity in the [classic](virtual-network-ip-addresses-overview-classic.md) deployment model. If you're familiar with the classic model, there are important differences in VM networking in the Resource Manager deployment model. Learn more about the differences by reading the [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) article.
+Společnost Microsoft doporučuje nasazení nových prostředků pomocí modelu nasazení Resource Manager, ale virtuální počítače s připojením k síti můžete nasadit i v modelu nasazení [Classic](virtual-network-ip-addresses-overview-classic.md). Pokud již znáte model Classic, v modelu nasazení Resource Manager existují důležité rozdíly, co se týče sítí virtuálních počítačů. Další informace o těchto rozdílech najdete v článku [Sítě virtuálních počítačů – Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
-In Azure, a network interface:
+Síťové rozhraní v Azure:
 
-1. Is a resource that can be created, deleted, and has its own configurable settings.
-2. Must be connected to one subnet in one Azure Virtual Network (VNet) when it's created. If you're not familiar with VNets, learn more about them by reading the [Virtual network overview](virtual-networks-overview.md) article. The NIC must be connected to a VNet that exists in the same Azure [location](https://azure.microsoft.com/regions) and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the NIC. After a NIC is created, you can change the subnet it's connected to, but you cannot change the VNet it's connected to.
-3. Has a name assigned to it that cannot be changed after the NIC is created. The name must be unique within an Azure [resource group](../resource-group-overview.md#resource-groups), but doesn't have to be unique within the subscription, the Azure location it's created in, or the VNet it's connected to. Several NICs are typically created within an Azure subscription. It's recommended that you devise a naming convention that makes managing multiple NICs easier than using default names. See the [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) article for suggestions.
-4. May be attached to a VM, but can only be attached to a single VM that exists in the same location as the NIC.
-5. Has a MAC address, which is persisted with the NIC for as long as it remains attached to a VM. The MAC address is persisted whether the VM is restarted (from within the operating system) or stopped (de-allocated) and started using the Azure Portal, Azure PowerShell, or the Azure Command-Line Interface. If it's detached from a VM and attached to a different VM, the NIC receives a different MAC address. If the NIC is deleted, the MAC address is assigned to other NICs.
-6. Must have one primary **private** *IPv4* static or dynamic IP address assigned to it.
-7. May have one public IP address resource associated to it.
-8. Supports accelerated networking with single-root I/O virtualization (SR-IOV) for specific VM sizes running specific versions of the Microsoft Windows Server operating system. To learn more about this PREVIEW feature, read the [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) article.
-9. Can receive traffic not destined to private IP addresses assigned to it if IP forwarding is enabled for the NIC. If a VM is running firewall software for example, it routes packets not destined for its own IP addresses. The VM must still run software capable of routing or forwarding traffic, but to do so, IP forwarding must be enabled for a NIC.
-10. Is often created in the same resource group as the VM it's attached to or the same VNet that it's connected to, though it isn't required to be.
+1. Je prostředek, který lze vytvořit, odstranit a který má vlastní konfigurovatelné nastavení.
+2. Musí být při vytvoření připojené k jedné podsíti v jedné virtuální síti Azure. Pokud jsou pro vás virtuální sítě novinkou, přečtěte si článek [Přehled virtuálních síti](virtual-networks-overview.md), kde o nich zjistíte více. Síťové rozhraní musí být připojené k virtuální síti, která je ve stejném[ umístění](https://azure.microsoft.com/regions) a [předplatném](../azure-glossary-cloud-terminology.md#subscription) Azure jako síťové rozhraní. Po vytvoření síťového rozhraní můžete změnit podsíť, ke které je připojené, ale nelze změnit virtuální síť, ke které je připojené.
+3. Má přiřazený název, který po vytvoření síťového rozhraní již nelze změnit. Název musí být jedinečný v rámci [skupiny prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) Azure, ale nemusí být jedinečný v rámci předplatného, umístění Azure, v němž je vytvořené, ani virtuální sítě, ke které je připojené. V rámci předplatného Azure je obvykle vytvořeno několik síťových rozhraní. Místo používání výchozích názvů se doporučuje navrhnout zásady vytváření názvů pro usnadnění správy více síťových rozhraní. Návrhy najdete v článku [Doporučené zásady vytváření názvů pro prostředky Azure](../guidance/guidance-naming-conventions.md).
+4. Může být připojené k virtuálnímu počítači, ale pouze k jednomu, který je ve stejném umístění jako síťové rozhraní.
+5. Má adresu MAC, která přetrvává v síťovém rozhraní po celou dobu jeho připojení k virtuálnímu počítači. Adresa MAC přetrvává i v případě restartování virtuálního počítače (z operačního systému) nebo jeho zastavení (zrušení přidělení) a spuštění pomocí webu Azure Portal, Azure PowerShellu nebo rozhraní příkazového řádku Azure (Azure CLI). V případě odpojení síťového rozhraní od virtuálního počítače a připojení k jinému virtuálnímu počítači obdrží jinou adresu MAC. Pokud je síťové rozhraní odstraněno, adresa MAC se přiřadí jiným síťovým rozhraním.
+6. Musí mít přiřazenou jednu primární **privátní** statickou nebo dynamickou IP adresu *IPv4*.
+7. Může mít přiřazen jeden prostředek veřejné IP adresy.
+8. Podporuje urychlení sítí pomocí rozhraní SR-IOV (single-root I/O virtualization) pro určité velikosti virtuálních počítačů, na kterých běží určité verze operačního systému Microsoft Windows Server. Další informace o této funkci ve verzi PREVIEW najdete v článku [Urychlení sítí pro virtuální počítač](virtual-network-accelerated-networking-powershell.md).
+9. Může přijímat provoz, který není určen pro jemu přiřazené privátní IP adresy, pokud je pro dané síťové rozhraní povolené předávání IP adres. Pokud například na virtuálním počítači běží software brány firewall, směruje pakety, které nejsou určené pro jeho IP adresy. Na virtuálním počítači musí běžet software, který dokáže směrovat nebo předávat provoz, ale aby to mohl provádět, musí pro síťové rozhraní být povolené předávání IP adres.
+10. Je často vytvořené ve stejné skupině prostředků jako virtuální počítač, k němuž je připojené, nebo jako virtuální síť, k níž je připojené, přestože to není nutné.
 
-Multiple NICs can be attached to the same VM, provided the VM size supports it. To learn more about which VM sizes support multiple NIC, read the [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.
+## <a name="vms-with-multiple-network-interfaces"></a>Virtuální počítače s několika síťovými rozhraními
+K virtuálnímu počítači může být připojeno více síťových rozhraní, ale je při tom třeba vzít v úvahu následující skutečnosti:  
 
-## Next steps
-* Learn how to create a VM with a single NIC by reading the [Create a VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) article.
-* Learn how to create a VM with multiple NICs by reading the [Deploy a VM with multiple NIC](virtual-network-deploy-multinic-arm-ps.md) article.
-* Learn how to create a NIC with multiple IP configurations by reading the [Multiple IP addresses for Azure virtual machines](virtual-network-multiple-ip-addresses-powershell.md) article.
+* Velikost virtuálního počítače musí podporovat více síťových rozhraní. Další informace o tom, které velikosti virtuálních počítačů podporují více síťových rozhraní, najdete v článcích [Velikosti virtuálních počítačů s Windows Serverem](../virtual-machines/virtual-machines-windows-sizes.md) a [Velikosti virtuálních počítačů s Linuxem](../virtual-machines/virtual-machines-linux-sizes.md).
+* Virtuální počítač je nutné vytvořit alespoň se dvěma síťovými rozhraními. Pokud je virtuální počítač vytvořen pouze s jedním síťovým rozhraním, nebude k němu po vytvoření možné připojit další síťová rozhraní, a to ani v případě, že velikost virtuálního počítače podporuje více než jedno síťové rozhraní. Pokud byl virtuální počítač vytvořen alespoň se dvěma síťovými rozhraními a velikost virtuálního počítače podporuje více než dvě síťová rozhraní, můžete k němu po vytvoření připojit další síťová rozhraní.  
+* Pokud jsou k virtuálnímu počítači připojena alespoň tři síťová rozhraní, můžete od něj odpojit sekundární síťová rozhraní (primární síťové rozhraní nelze odpojit). Pokud jsou k virtuálnímu počítači připojena dvě síťová rozhraní nebo méně, nelze od něj síťová rozhraní odpojit.  
+* Pořadí síťových rozhraní ve virtuálním počítači je náhodné a může se také měnit následkem aktualizací infrastruktury Azure. IP adresy a odpovídající ethernetové adresy MAC však zůstanou stejné. Předpokládejme například, že operační systém identifikuje síťové rozhraní Azure NIC1 jako Eth1. Eth1 má IP adresu 10.1.0.100 a adresu MAC 00-0D-3A-B0-39-0D. Po aktualizaci nebo restartování infrastruktury Azure může operační systém najednou identifikovat síťové rozhraní Azure NIC1 jako Eth2, ale IP adresa a adresa MAC budou stejné, jako když operační systém identifikoval Azure NIC1 jako Eth1. Pokud restartování spustí zákazník, pořadí síťových rozhraní v operačním systému se nezmění.  
+* Pokud je virtuální počítač členem [skupiny dostupnosti](../azure-glossary-cloud-terminology.md#availability-set), všechny virtuální počítače v rámci této skupiny dostupnosti musí mít alespoň jedno síťové rozhraní. Pokud má virtuální počítač více síťových rozhraní, není nutné, aby všechny virtuální počítače měly stejný počet síťových rozhraní, pokud má každý z nich alespoň dvě.
+
+## <a name="next-steps"></a>Další kroky
+* Zjistěte, jak vytvořit virtuální počítač s jedním síťovým rozhraním v článku [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+* Zjistěte, jak vytvořit virtuální počítač s více síťovými rozhraními v článku [Nasazení virtuálního počítače s několika síťovými rozhraními](virtual-network-deploy-multinic-arm-ps.md).
+* Zjistěte, jak vytvořit síťové rozhraní s několika konfiguracemi protokolu IP v článku [Virtuální počítače Azure s několika IP adresami](virtual-network-multiple-ip-addresses-powershell.md).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

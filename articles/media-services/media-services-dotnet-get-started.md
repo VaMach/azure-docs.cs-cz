@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
+ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 
 
 ---
@@ -114,10 +114,17 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
+
 1. V sadě Visual Studio 2013, Visual Studio 2012 nebo Visual Studio 2010 SP1 vytvořte novou konzolovou aplikaci napsanou v jazyce C#. Zadejte **Název**, **Umístění**, **Název řešení** a potom klikněte na tlačítko **OK**.
 2. K instalaci **rozšíření sady SDK služby Azure Media Services pro .NET** použijte balíček NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions).  Rozšíření sady SDK služby Media Services pro .NET je sada metod rozšíření a pomocných funkcí, které vám zjednoduší kódování a usnadní vývoj pomocí služby Media Services. Při instalaci tohoto balíčku se nainstaluje také **sada SDK služby Media Services pro .NET** a přidá všechny ostatní požadované závislosti.
+
+    Přidání odkazů pomocí NuGet provedete následovně: v Průzkumníku řešení klikněte pravým tlačítkem myši na název projektu a vyberte **Správa balíčků NuGet**. Vyhledejte **windowsazure.mediaservices.extensions** a klikněte na **Nainstalovat**.
+
 3. Přidejte odkaz na sestavení System.Configuration. Toto sestavení obsahuje třídu **System.Configuration.ConfigurationManager**, která se používá pro přístup ke konfiguračním souborům, například App.config.
-4. Otevřete soubor App.config (pokud projekt soubor ve výchozím nastavení neobsahuje, přidejte ho) a přidejte do něj část *appSettings*. Nastavte hodnoty názvu účtu a klíče účtu Azure Media Services, jak vidíte v následujícím příkladu. Pokud chcete získat název účtu a informace o klíči, přejděte na [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS. Potom vyberte **Nastavení** > **Klíče**. Zobrazí se okno Správa klíčů, které ukazuje název účtu a primární a sekundární klíče.
+
+    Přidání odkazu provedete následovně: v Průzkumníku řešení klikněte pravým tlačítkem myši na název projektu, vyberte **Přidat** > **Odkaz...** a do vyhledávacího pole zadejte „configuration“. 
+
+4. Otevřete soubor App.config (pokud projekt soubor ve výchozím nastavení neobsahuje, přidejte ho) a přidejte do něj část *appSettings*. Nastavte hodnoty názvu účtu a klíče účtu Azure Media Services, jak vidíte v následujícím příkladu. Pokud chcete získat název účtu a informace o klíči, přejděte na [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS. Potom vyberte **Nastavení** > **Klíče**. Zobrazí se okno Správa klíčů, které ukazuje název účtu a primární a sekundární klíče. Zkopírujte hodnoty názvu účtu a primárního klíče.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
 6. Vytvořte novou složku v adresáři projektů a zkopírujte si soubor .mp4 nebo .wmv, který chcete kódovat a streamovat nebo progresivně stahovat. V tomto příkladu používáme cestu „C:\VideoFiles“.
 
 ## <a name="connect-to-the-media-services-account"></a>Připojení k účtu Media Services
+
 Když službu Media Services používáte s rozhraním .NET, musíte třídu **CloudMediaContext** používat pro většinu programovacích úloh: připojení k účtu Media Services, vytváření, aktualizace, otevírání a odstraňování následujících objektů: prostředky, soubory prostředků, úlohy, zásady přístupu, lokátory atd.
 
 Přepište výchozí třídu Program následujícím kódem. Kód ukazuje, jak číst hodnoty připojení ze souboru App.config a jak vytvořit objekt **CloudMediaContext**, abyste se mohli připojit ke službě Media Services. Další informace o připojení ke službám Media Services najdete v článku [Připojení ke službám Media Services pomocí sady SDK služby Media Services SDK pro .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+
 Funkce **Main** volá metody, které si definujeme v této části.
+
+> [!NOTE]
+> Dokud nepřidáte definice pro všechny funkce, budou se vám zobrazovat chyby kompilace.
 
     class Program
     {
@@ -193,8 +205,10 @@ Funkce **Main** volá metody, které si definujeme v této části.
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Vytvoření nového prostředku a odeslání videosouboru
+
 Ve službě Media Services můžete digitální soubory nahrát (nebo ingestovat) do prostředku. Entita **Prostředek** může obsahovat video, zvuk, obrázky, kolekci miniatur, textové stopy a soubory titulků (a metadata o těchto souborech.)  Jakmile soubory odešlete, bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování. Soubory v prostředku se nazývají **soubory prostředku**.
 
 Metoda **UploadFile** definovaná níže volá metodu **CreateFromFile** (definovanou v rozšíření sady SDK pro .NET). **CreateFromFile** vytvoří nový prostředek, do kterého se zadaný zdrojový soubor odešle.
@@ -281,7 +295,8 @@ Přidejte následující metodu do třídy Program.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publikování prostředku a získání adres URL pro streamování a progresivní stahování
-Pokud chcete prostředek streamovat nebo stáhnout, musíte ho nejdřív „publikovat“ vytvořením lokátoru. Lokátory zajišťují přístup k souborům, které jsou obsaženy v assetu. Služba Media Services podporuje dva typy lokátorů: lokátor OnDemandOrigin, používaný ke streamování médií (například MPEG DASH, HLS nebo technologie Smooth Streaming), a lokátor s přístupovým podpisem (SAS), používaný ke stahování mediálních souborů.
+
+Pokud chcete prostředek streamovat nebo stáhnout, musíte ho nejdřív „publikovat“ vytvořením lokátoru. Lokátory zajišťují přístup k souborům, které jsou obsaženy v assetu. Media Services podporuje dva typy lokátorů: lokátory OnDemandOrigin, používané ke streamování médií (například MPEG DASH, HLS nebo technologie Smooth Streaming), a lokátory s přístupovým podpisem (SAS), používané ke stahování mediálních souborů (další informace o lokátorech SAS najdete na [tomto](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogu).
 
 Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke streamování a stahování souborů.
 

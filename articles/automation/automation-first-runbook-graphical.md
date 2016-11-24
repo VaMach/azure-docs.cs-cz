@@ -16,13 +16,17 @@ ms.topic: get-started-article
 ms.date: 07/06/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: 6e5ccae8837491e042b85ba4b7d42227e194cb94
 
 
 ---
 # <a name="my-first-graphical-runbook"></a>Můj první grafický runbook
-> [AZURE.SELECTOR] - [Grafické](automation-first-runbook-graphical.md) - [prostředí PowerShell](automation-first-runbook-textual-powershell.md) - [pracovní postup prostředí PowerShell](automation-first-runbook-textual.md)
+
+> [!div class="op_single_selector"]
+> * [Grafický](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [Pracovní postup PowerShellu](automation-first-runbook-textual.md)
 > 
 > 
 
@@ -35,7 +39,7 @@ K dokončení tohoto kurzu potřebujete:
 * [Účet Spustit v Azure jako](automation-sec-configure-azure-runas-account.md), abyste si mohli runbook podržet a mohli ověřovat prostředky Azure.  Tento účet musí mít oprávnění ke spuštění a zastavení virtuálního počítače.
 * Virtuální počítač Azure.  Počítač zastavíme a spustíme, proto to nesmí být produkční počítač.
 
-## <a name="step-1-create-new-runbook"></a>Krok 1 – vytvoření nového runbooku
+## <a name="step-1---create-new-runbook"></a>Krok 1 – vytvoření nového runbooku
 Začneme vytvořením jednoduchého runbooku, který zobrazí text *Hello World*.
 
 1. Na portálu Azure otevřete účet Automation.  
@@ -46,7 +50,7 @@ Začneme vytvořením jednoduchého runbooku, který zobrazí text *Hello World*
 5. V tomto případě vytvoříme [grafický runbook](automation-graphical-authoring-intro.md), proto jako **Typ runbooku** vyberte **Grafický**.<br> ![Nový runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Kliknutím na **Vytvořit** vytvoříte runbook a otevřete grafický editor.
 
-## <a name="step-2-add-activities-to-the-runbook"></a>Krok 2 – přidání aktivit do runbooku
+## <a name="step-2---add-activities-to-the-runbook"></a>Krok 2 – přidání aktivit do runbooku
 Ovládací prvek Knihovna na levé straně editoru vám umožní vybrat aktivity, které chcete do runbooku přidat.  Přidáme rutinu **Write-Output**, která zajistí textový výstup z runbooku.
 
 1. V ovládacím prvku Knihovna klikněte do textového pole hledání a zadejte text **Write-Output**.  Výsledky hledání se zobrazí níže. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
@@ -61,7 +65,7 @@ Ovládací prvek Knihovna na levé straně editoru vám umožní vybrat aktivity
 8. Do pole **Výraz** zadejte *"Hello World"* a potom dvakrát klikněte na tlačítko **OK**, a vraťte se tak na plátno.<br> ![Powershellový výraz](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. Kliknutím na **Uložit** runbook uložte.<br> ![Uložení runbooku](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
-## <a name="step-3-test-the-runbook"></a>Krok 3 – otestování runbooku
+## <a name="step-3---test-the-runbook"></a>Krok 3 – otestování runbooku
 Před publikováním runbooku, které ho zpřístupní v produkčním prostředí, chceme runbook otestovat a ujistit se, že bude fungovat správně.  Když runbook testujete, spustíte jeho  verzi **Koncept** a interaktivně zobrazíte jeho výsledek.
 
 1. Kliknutím na **Testovací podokno** otevřete okno Test.<br> ![Testovací podokno](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
@@ -71,7 +75,7 @@ Před publikováním runbooku, které ho zpřístupní v produkčním prostřed�
 4. Po dokončení úlohy runbooku se zobrazí jeho výstup. V našem případě bychom měli vidět text *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Zavřením okna Test se vraťte na plátno.
 
-## <a name="step-4-publish-and-start-the-runbook"></a>Krok 4 – publikování a spuštění runbooku
+## <a name="step-4---publish-and-start-the-runbook"></a>Krok 4 – publikování a spuštění runbooku
 Právě vytvořený runbook je stále v režimu konceptu. Před jeho spuštěním v produkčním prostředí ho musíme publikovat.  Když runbook publikujete, přepíšete vydanou verzi verzí v režimu konceptu.  V našem případě zatím ještě publikovanou verzi nemáme, protože jsme runbook teprve vytvořili.
 
 1. Kliknutím na **Publikovat** runbook publikujte a po zobrazení výzvy klikněte na **Ano**.<br> ![Publikování](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
@@ -88,7 +92,7 @@ Právě vytvořený runbook je stále v režimu konceptu. Před jeho spuštění
 11. Kliknutím na **Úlohy** otevřete okno Úloha, které patří k tomuto runbooku.  Vypíšou se všechny úlohy, které tento runbook vytvořil. Tady bychom měli vidět jenom jednu úlohu, protože jsme ji spustili jenom jednou.<br> ![Úlohy](media/automation-first-runbook-graphical/runbook-control-jobs.png)
 12. Na tuto úlohu můžete kliknout a otevřít podokno Úloha, které jsme zobrazili při spuštění runbooku.  Pomocí této možnosti se můžete vrátit v čase a zobrazit si podrobnosti libovolné úlohy, která byla pro konkrétní runbook vytvořena.
 
-## <a name="step-5-create-variable-assets"></a>Krok 5 – vytvoření proměnných assetů
+## <a name="step-5---create-variable-assets"></a>Krok 5 – vytvoření proměnných assetů
 Runbook jsme otestovali a publikovali, ale zatím nedělá nic užitečného. Chceme po něm, aby spravoval prostředky Azure.  Než runbook nakonfigurujeme pro ověřování, vytvoříme proměnnou, která bude uchovávat ID předplatného a bude na něj odkazovat potom, až v kroku 6 níže nastavíme aktivitu k ověření.  Zahrnutí odkazu na kontext předplatného usnadňuje práci s několika předplatnými.  Než budete pokračovat, zkopírujte si ID předplatného z možnosti Předplatné, která se nachází v navigačním podokně.  
 
 1. V okně Účty Automation klikněte na dlaždici **Assety** a otevřete okno **Assety**.
@@ -97,7 +101,7 @@ Runbook jsme otestovali a publikovali, ale zatím nedělá nic užitečného. Ch
 4. V okně Nová proměnná zadejte do pole **Název** text **AzureSubscriptionId** a do pole **Hodnota** zadejte ID předplatného.  Ponechte *řetězec* možnosti **Typ** a výchozí hodnotu možnosti **Šifrování**.  
 5. Kliknutím na **Vytvořit** vytvořte proměnnou.  
 
-## <a name="step-6-add-authentication-to-manage-azure-resources"></a>Krok 6 – přidání ověřování ke správě prostředků Azure
+## <a name="step-6---add-authentication-to-manage-azure-resources"></a>Krok 6 – přidání ověřování ke správě prostředků Azure
 Teď, když máme proměnnou, do které se uloží naše ID předplatného, můžeme runbook nakonfigurovat k ověřování pomocí přihlašovacích údajů Spustit jako, které jsou uvedené v [požadavcích](#prerequisites).  Provedeme to přidáním **assetu** připojení Spustit v Azure jako a přidáním rutiny **Add-AzureRMAccount** na plátno.  
 
 1. Kliknutím na **Upravit** v okně MyFirstRunbook otevřete grafický editor.<br> ![Úprava runbooku](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
@@ -126,7 +130,7 @@ Teď, když máme proměnnou, do které se uloží naše ID předplatného, mů�
 
 Váš runbook by měl v tuto chvíli vypadat následovně: <br>![Konfigurace ověření runbooku](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="step-7-add-activity-to-start-a-virtual-machine"></a>Krok 7 – přidání aktivity pro spuštění virtuálního počítače
+## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Krok 7 – přidání aktivity pro spuštění virtuálního počítače
 Teď přidáme aktivitu **Start-AzureRmVM**, která spustí virtuální počítač.  V rámci vašeho předplatného Azure můžete vybrat jakýkoli virtuální počítač, ale prozatím jeho název pevně zakódujeme do rutiny.
 
 1. V ovládacím prvku Knihovna zadejte do textového pole hledání text **Start-AzureRm**.
@@ -140,7 +144,7 @@ Teď přidáme aktivitu **Start-AzureRmVM**, která spustí virtuální počíta
 
 Váš runbook by měl v tuto chvíli vypadat následovně: <br>![Konfigurace ověření runbooku](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="step-8-add-additional-input-parameters-to-the-runbook"></a>Krok 8 – přidání dalších vstupních parametrů do runbooku
+## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>Krok 8 – přidání dalších vstupních parametrů do runbooku
 Náš runbook aktuálně spouští virtuální počítač ve skupině prostředků, kterou jsme uvedli v rutině **Start-AzureRmVM**, ale mohl by být užitečnější, pokud bychom při spuštění runbooku mohli zadat obojí.  Teď do runbooku přidáme vstupní parametry, které tuto funkci zajistí.
 
 1. Kliknutím na **Upravit** v podokně **MyFirstRunbook** otevřete grafický editor.
@@ -157,7 +161,7 @@ Náš runbook aktuálně spouští virtuální počítač ve skupině prostředk
 12. Kliknutím na **Spustit** spustíte runbook.  Zadejte **VMName** a **ResourceGroupName** pro virtuální počítač, který chcete spustit.<br> ![Spuštění runbooku](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
 13. Po dokončení runbooku zkontrolujte, jestli se virtuální počítač spustil.
 
-## <a name="step-9-create-a-conditional-link"></a>Krok 9 – vytvoření podmíněného propojení
+## <a name="step-9---create-a-conditional-link"></a>Krok 9 – vytvoření podmíněného propojení
 Teď runbook upravíme, aby se pokusil virtuální počítač spustit jenom v případě, pokud ještě není spuštěný.  Provedeme to přidáním rutiny **Get-AzureRmVM** do runbooku. Ta zobrazí stav úrovně instance virtuálního počítače. Potom pomocí fragmentu kódu PowerShellu přidáme modul s kódem pracovního postupu PowerShellu s názvem **Získání stavu**, abychom zjistili, jestli je virtuální počítač ve spuštěném nebo zastaveném stavu.  Podmíněné propojení z modulu **Získání stavu** spustí **Start-AzureRmVM** jenom v případě, kdy je aktuálně spuštěný stav zastavený.  Nakonec pomocí powershellové rutiny Write-Output pošleme na výstup zprávu, která bude informovat o tom, jestli spuštění virtuálního počítače bylo nebo nebylo úspěšné.
 
 1. Otevřete **MyFirstRunbook** v grafickém editoru.

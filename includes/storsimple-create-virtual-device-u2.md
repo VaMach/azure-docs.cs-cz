@@ -3,7 +3,7 @@
 2. Přejděte na stránku **Zařízení**. V dolní části stránky **Zařízení** klikněte na **Vytvořit virtuální zařízení**.
 3. V dialogovém okně **Vytvořit virtuální zařízení** zadejte následující podrobnosti.
    
-     ![Vytvoření virtuálního zařízení StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![Vytvoření virtuálního zařízení StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Název** – jedinečný název virtuálního zařízení.
    2. **Model** – zvolte model virtuálního zařízení. Toto pole se zobrazí, jenom pokud používáte verzi Update 2 nebo novější. Model zařízení 8010 nabízí úložiště Standard Storage 30 TB a model 8020 úložiště Premium Storage 64 TB. Pokud chcete nasadit zařízení pro scénáře obnovování položek ze záloh,
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

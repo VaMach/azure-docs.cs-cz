@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4da5dd65b39011ed0abb8bbbd47542d66e73ad6
+ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
+ms.openlocfilehash: 3185e396380e9a550dbc94517e50e9223ff518f6
 
 
 ---
@@ -124,7 +124,7 @@ Přiřaďte proměnnou podsítě pro další kroky, ve kterých se bude vytvář
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-frontend-configuration"></a>Vytvoření veřejné IP adresy pro front-end konfiguraci
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Vytvoření veřejné IP adresy pro front-end konfiguraci
 Vytvořte prostředek veřejné IP adresy „publicIP01“ ve skupině prostředků „appgw-rg“ pro oblast Západní USA.
 
 ```powershell
@@ -195,7 +195,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > 
 > 
 
-## <a name="create-an-application-gateway-by-using-newazurermapplicationgateway"></a>Vytvoření služby Application Gateway pomocí New-AzureApplicationGateway
+## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Vytvoření služby Application Gateway pomocí New-AzureApplicationGateway
 Vytvořte službu Application Gateway se všemi položkami konfigurace z předchozích kroků. V tomto příkladu má služba Application Gateway název „appgwtest“.
 
 ```powershell
