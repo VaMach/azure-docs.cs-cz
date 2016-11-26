@@ -1,63 +1,64 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
+ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
+ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
 
 ---
-# <a name="sql-data-warehouse-documentation"></a>Dokumentace ke službě SQL Data Warehouse
 
-Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi cloudového škálování Azure.  Služba SQL Data Warehouse je postavená na architektuře MPP (Massively Parallel Processing), díky které dokáže zpracovávat úlohy vaší organizace.
+# <a name="azure-container-registry-documentation"></a>Dokumentace k Azure Container Registry
+
+Azure Container Registry (Preview) je privátní registr pro hostování kontejnerových imagí. Pomocí Azure Container Registry můžete ukládat image ve formátu Dockeru pro všechny typy kontejnerových nasazení. Azure Container Registry se dobře integruje s orchestrátory hostovanými v Azure Container Service, mezi které patří Docker Swarm, DC/OS a Kubernetes. 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is">
+        <a href="/azure/container-registry/container-registry-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/sql-data-warehouse.svg" alt="" />
+                            <img src="./media/index/container-registry.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Další informace o Azure SQL Data Warehouse</h3>
+                        <h3>Informace o Azure Container Registry</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse">
+    <li>
+        <a href="/azure/container-registry/container-registry-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="./media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Knihovna videí o Azure SQL Data Warehouse</h3>
+                        <h3>Začínáme s vytvářením registru pomocí portálu</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-     <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+    <li>
+        <a href="/azure/container-registry/container-registry-get-started-azure-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+                            <img src="./media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme vytvářet SQL Data Warehouse s využitím webu Azure Portal</h3>
+                        <h3>Začínáme s vytvářením registru pomocí rozhraní CLI</h3>
                     </div>
                 </div>
             </div>
@@ -66,18 +67,17 @@ Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi c
     </li>
 </ul>
 
----
 ## <a name="reference"></a>Referenční informace
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
+        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referenční informace k Azure PowerShellu</p>
+                        <h3>Rozhraní příkazového řádku</h3>
+                        <p>Referenční informace k rozhraní CLI</p>
                     </div>
                 </div>
             </div>
@@ -85,13 +85,13 @@ Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi c
         </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
+        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Referenční informace pro T-SQL</p>
+                        <h3>REST</h3>
+                        <p>Reference k rozhraní REST API</p>
                     </div>
                 </div>
             </div>
@@ -99,14 +99,6 @@ Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi c
         </a>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě SQL Data Warehouse </div>
-    </a>
-</div>
 
 
 

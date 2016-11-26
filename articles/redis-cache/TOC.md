@@ -46,7 +46,7 @@
 ###[Použití clusteru Redis pro horizontální snížení nebo zvýšení kapacity](cache-how-to-premium-clustering.md)
 
 #Referenční informace
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ## [Java](https://docs.microsoft.com/java/api/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/)
@@ -60,6 +60,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

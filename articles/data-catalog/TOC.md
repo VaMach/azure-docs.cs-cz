@@ -2,12 +2,11 @@
 ## [Co je Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Obvyklé scénáře](data-catalog-common-scenarios.md)
 ## [Podporované zdroje dat](data-catalog-dsr.md)
-## [Co je nového?](data-catalog-whats-new.md)
 
 # Začínáme
 ## [Začínáme s Azure Data Catalogem](data-catalog-get-started.md)
 ## [Zavedení Azure Data Catalogu](data-catalog-adopting-data-catalog.md)
-## [Požadavky Azure Data Catalogu](data-catalog-prerequisites.md)
+## [Požadavky](data-catalog-prerequisites.md)
 ## [Nejčastější dotazy](data-catalog-frequently-asked-questions.md)
 
 # Postup
@@ -30,12 +29,16 @@
 ## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologie](data-catalog-terminology.md)
 ## [Poznámky k verzi](data-catalog-release-notes.md)
-## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
+## [REST](/rest/api/datacatalog/)
 
 # Zdroje a prostředky
+## [Poznámky k verzi](data-catalog-whats-new.md)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -28,10 +28,9 @@
 
 ### [Přehled](sql-data-warehouse-connect-overview.md)
 ### [Připojovací řetězce](sql-data-warehouse-connection-strings.md)
-### Dotaz
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalace sady Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Vývoj
@@ -82,8 +81,7 @@
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Data Factory z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Pokyny k PolyBase](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -111,6 +109,7 @@
 ## Výkon
 
 ### [Přehled](sql-data-warehouse-overview-manage-user-queries.md)
+### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Dotazy](sql-data-warehouse-manage-monitor.md)
 ### [Úloha](sql-data-warehouse-develop-concurrency.md)
 ### [Řešení problémů](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +145,6 @@
 ### [Správa dat](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

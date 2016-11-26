@@ -66,22 +66,23 @@
 ### [Restartování nebo změna velikosti virtuálního počítače](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
 ## [Tvorba šablon Resource Manageru](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Komunitní šablony](https://azure.microsoft.com/documentation/templates/)
-## [Rozhraní REST pro Compute](/rest/api/compute/)
-## [Rozhraní REST pro službu Network](/rest/api/)
-## [Rozhraní REST pro Storage](/rest/api/storageservices/)
+## [Komunitní šablony](https://azure.microsoft.com/documentation/templates)
+## [Rozhraní REST pro Compute](/rest/api/compute)
+## [Rozhraní REST pro službu Network](/rest/api)
+## [Rozhraní REST pro Storage](/rest/api/storageservices)
 
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
-## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
+## [Regionální dostupnost](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

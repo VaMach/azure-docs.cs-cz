@@ -8,31 +8,31 @@
 # Postup
 ## Plánování a návrh
 ### [Seznam úloh pro správce a vývojáře](biztalk-services-administration-and-development-task-list.md)
-
 ## [Zálohování a obnovení](biztalk-backup-restore.md)
-
 ## Konfigurace
 ### [Omezování](biztalk-throttling-thresholds.md)
 ### [Nastavení a monitorování služby](biztalk-dashboard-monitor-scale-tabs.md)
-
 ## Integrace
 ### [Hybridní připojení](integration-hybrid-connection-create-manage.md)
-
 ## Migrace
 ### [Řešení EDI z BizTalk Serveru do BizTalk Services](biztalk-migrating-to-edi-guide.md)
-
 ## Monitorování
 ### [Úlohy, které závisí na stavy služby](biztalk-service-state-chart.md)
-
 ## Zabezpečení
 ### [Řízení přístupu](biztalk-issuer-name-issuer-key.md)
-
 ## [Řešení problémů](biztalk-troubleshoot-using-ops-logs.md)
 
 # Referenční informace
 ## [Poznámky k verzi](biztalk-release-notes.md)
 
+# Zdroje a prostředky
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=biztalk-services)
+## [Ceny](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

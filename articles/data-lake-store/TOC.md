@@ -51,19 +51,22 @@
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
 
 # Referenční informace
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
+## [REST](/rest/api/datalakestore/)
 
 # Zdroje a prostředky
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fórum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

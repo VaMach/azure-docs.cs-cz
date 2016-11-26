@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
-ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 ---
 # <a name="automation-documentation"></a>Dokumentace ke službě Automation
@@ -125,14 +125,50 @@ Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotr
 
 ## <a name="reference"></a>Referenční informace
 
-### <a name="powershell"></a>PowerShell
-[Referenční informace k Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-### <a name="net"></a>.NET
-[Referenční informace pro spravované rozhraní API pro Azure](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Automation – referenční informace k rozhraní REST API](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referenční informace k Azure PowerShellu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referenční informace pro spravované rozhraní API pro Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Automation – referenční informace k rozhraní REST API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 
 <div class="downloadHolder">
@@ -145,6 +181,6 @@ Stažení dokumentace ke službě Automation </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

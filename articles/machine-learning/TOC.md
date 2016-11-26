@@ -1,7 +1,5 @@
 # Přehled
 ## [Co je Machine Learning?](machine-learning-what-is-machine-learning.md)
-## [Co je nového?](machine-learning-whats-new.md)
-## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 ## Machine Learning Studio
 ### [Co je Studio?](machine-learning-what-is-ml-studio.md)
 ### [Možnosti sady Studio](machine-learning-studio-overview-diagram.md)
@@ -9,56 +7,13 @@
 ## Vědecké zpracování týmových dat
 ### [Přehled](http://aka.ms/datascienceprocess)
 ### [Životní cyklus](data-science-process-overview.md)
-### [Nástroje](machine-learning-data-science-environment-setup.md)
 ### [Návody](data-science-process-walkthroughs.md)
-## [Identifikace scénářů](machine-learning-data-science-plan-your-environment.md)
-## [Zobrazení ukázkových scénářů](machine-learning-data-science-plan-sample-scenarios.md)
-## Příklady
-### [Ukázkové experimenty](machine-learning-sample-experiments.md)
-### [Ukázkové datové sady](machine-learning-use-sample-datasets.md)
-### [Příklad změn zákazníka](machine-learning-azure-ml-customer-churn-scenario.md)
-## Rozhraní API
-### [Detekce anomálií](machine-learning-apps-anomaly-detection.md)
-### [Analýza textu](machine-learning-apps-text-analytics.md)
-### [Kognitivní služby](https://azure.microsoft.com/services/cognitive-services/)
-### Doporučení
-#### [Přehled](machine-learning-recommendation-api-sample-application.md)
-#### [Rychlý start](machine-learning-recommendation-api-quick-start-guide.md)
-#### [Referenční informace](machine-learning-recommendation-api-documentation.md)
-#### [Použití JavaScriptu](machine-learning-recommendation-api-javascript-integration.md)
-#### [Nejčastější dotazy](machine-learning-recommendation-api-faq.md)
-## Cortana Analytics
-### Prediktivní údržba
-#### [Přehled](cortana-analytics-playbook-predictive-maintenance.md)
-#### [Architektura](cortana-analytics-architecture-predictive-maintenance.md)
-#### [Technický průvodce](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Telemetrie vozidel
-#### [Přehled](cortana-analytics-playbook-vehicle-telemetry.md)
-#### [Směrnice](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
-#### [Nastavení](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Vědecké zkoumání dat
-### [Použití clusterů Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-### [Použití Hadoopu s 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Použití SQL Serveru](machine-learning-data-science-process-sql-walkthrough.md)
-### [Použití SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-## Webové služby
-### [Příklady s R](machine-learning-r-csharp-web-service-examples.md)
-### [Binární klasifikátor](machine-learning-r-csharp-binary-classifier.md)
-### [Model clusteru](machine-learning-r-csharp-cluster-model.md)
-### [Lineární regrese s množstvím proměnných](machine-learning-r-csharp-multivariate-linear-regression.md)
-### [Vytváření prognóz – Exponenciální vyhlazování](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-### [Vytváření prognóz – ETS a STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-### [Vytváření prognóz – ARIMA](machine-learning-r-csharp-arima.md)
-### [Analýza přežití](machine-learning-r-csharp-survival-analysis.md)
-### [Analýza mínění na základě slovníku](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-### [Testování rozdílu v proporcích](machine-learning-r-csharp-difference-in-two-proportions.md)
-### [Sada normální distribuce](machine-learning-r-csharp-normal-distribution.md)
-### [Sada binomické distribuce](machine-learning-r-csharp-binomial-distribution.md)
-### [Nejčastější dotazy k Marketplace](machine-learning-marketplace-faq.md)
-
+## [Nejčastější dotazy](machine-learning-faq.md)
+## [Co je nového?](machine-learning-whats-new.md)
 # Začínáme
 ## [Vytvoření prvního experimentu](machine-learning-create-experiment.md)
-## [Vytvoření prediktivního řešení](machine-learning-walkthrough-develop-predictive-solution.md)
+## Ukázka podrobného postupu
+### [Vytvoření prediktivního řešení](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Vytvoření pracovního prostoru](machine-learning-walkthrough-1-create-ml-workspace.md)
 ### [2: Nahrání dat](machine-learning-walkthrough-2-upload-data.md)
 ### [3: Vytvoření experimentu](machine-learning-walkthrough-3-create-new-experiment.md)
@@ -71,86 +26,87 @@
 ### [3: Položení toho správného dotazu](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Předpověď odpovědi](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Kopírování práce jiných](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-## [Nejčastější dotazy](machine-learning-faq.md)
-
 # Postup
-## Instalace nástrojů 
+## Nastavení nástrojů a pomůcek
 ### [Nastavení prostředí](machine-learning-data-science-environment-setup.md)
 ### [Nastavení virtuálních počítačů](machine-learning-data-science-virtual-machines.md)
 ### [Přizpůsobení Hadoopu](machine-learning-data-science-customize-hadoop-cluster.md)
-## Nastavení virtuálního počítače
-### [Přehled virtuálních počítačů DS](machine-learning-data-science-virtual-machine-overview.md)
-### [Jak používat virtuální počítač DS](machine-learning-data-science-vm-do-ten-things.md)
-### [Zřízení virtuálního počítače DS](machine-learning-data-science-provision-vm.md)
-### [Nastavení virtuálního počítače Azure](machine-learning-data-science-setup-virtual-machine.md)
-### [Nastavení virtuálního počítače SQL](machine-learning-data-science-setup-sql-server-virtual-machine.md)
-### [Zřízení virtuálního počítače s Linuxem](machine-learning-data-science-linux-dsvm-intro.md)
-### [Použití virtuálního počítače s Linuxem](machine-learning-data-science-linux-dsvm-walkthrough.md)
-## Správa pracovního prostoru
-### [Vytvoření pracovního prostoru](machine-learning-create-workspace.md)
-### [Správa pracovního prostoru](machine-learning-manage-workspace.md)
-### [Řešení problémů](machine-learning-troubleshooting-creating-ml-workspace.md)
-### [Nasazení pomocí architektury ARM](machine-learning-deploy-with-resource-manager-template.md)
-### [Vytvoření v jiné oblasti](machine-learning-multi-geo.md)
-## Načtení dat do úložiště
-### [Přehled](machine-learning-data-science-ingest-data.md)
-### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
-### [Použití Průzkumníka úložiště](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
-### [Použití AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
-### [Použití Pythonu](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
-### [Použití služby SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-### [Přesun do virtuálního počítače](machine-learning-data-science-move-sql-server-virtual-machine.md)
-### [Migrace do databáze SQL](machine-learning-data-science-move-sql-azure.md)
-### [Načítání do tabulek Hive](machine-learning-data-science-move-hive-tables.md)
-### [Načítání z místního SQL](machine-learning-data-science-move-sql-azure-adf.md)
-## Import trénovacích dat
-### [Přehled](machine-learning-data-science-import-data.md)
-### [Z místního souboru](machine-learning-import-data-from-local-file.md)
-### [Z online zdrojů](machine-learning-import-data-from-online-sources.md)
-### [Z experimentu](machine-learning-import-data-from-an-experiment.md)
-### [Použití tabulek oddílů SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
-### [Použití místního SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
-## Zkoumání a vizualizace dat
-### [Příprava dat](machine-learning-data-science-prepare-data.md)
-### Zkoumání dat
-#### [Přehled](machine-learning-data-science-explore-data.md)
-#### [Použití Pandasu](machine-learning-data-science-explore-data-blob.md)
-#### [Použití virtuálních počítačů SQL](machine-learning-data-science-explore-data-sql-server.md)
-#### [Použití tabulek Hive](machine-learning-data-science-explore-data-hive-tables.md)
-### Ukázková data
-#### [Přehled](machine-learning-data-science-sample-data.md)
-#### [Použití služby Blob Storage](machine-learning-data-science-sample-data-blob.md)
-#### [Použití SQL Serveru](machine-learning-data-science-sample-data-sql-server.md)
-#### [Použití tabulek Hive](machine-learning-data-science-sample-data-hive.md)
-### Zpracování dat
-#### [Přístup pomocí Pythonu](machine-learning-python-data-access.md)
-#### [Zpracování dat objektů blob](machine-learning-data-science-process-data-blob.md)
-#### [Použití Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
-#### [Použití virtuálních počítačů SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
-#### [Použití Data Pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-### Použití Sparku
-#### [Přehled](machine-learning-data-science-spark-overview.md)
-#### [Zkoumání dat](machine-learning-data-science-spark-data-exploration-modeling.md)
-#### [Modely skóre](machine-learning-data-science-spark-model-consumption.md)
-#### [Pokročilé zkoumání dat](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-#### [Použití Scaly a Sparku](machine-learning-data-science-process-scala-walkthrough.md)
-## Data modelu
-### Návrh funkcí
+### Nastavení virtuálního počítače
+#### [Přehled virtuálních počítačů DS](machine-learning-data-science-virtual-machine-overview.md)
+#### [Jak používat virtuální počítač DS](machine-learning-data-science-vm-do-ten-things.md)
+#### [Zřízení virtuálního počítače DS](machine-learning-data-science-provision-vm.md)
+#### [Nastavení virtuálního počítače Azure](machine-learning-data-science-setup-virtual-machine.md)
+#### [Nastavení virtuálního počítače SQL](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+#### [Zřízení virtuálního počítače s Linuxem](machine-learning-data-science-linux-dsvm-intro.md)
+#### [Použití virtuálního počítače s Linuxem](machine-learning-data-science-linux-dsvm-walkthrough.md)
+### Správa pracovního prostoru
+#### [Vytvoření](machine-learning-create-workspace.md)
+#### [Správa](machine-learning-manage-workspace.md)
+#### [Řešení problémů](machine-learning-troubleshooting-creating-ml-workspace.md)
+#### [Nasazení pomocí architektury ARM](machine-learning-deploy-with-resource-manager-template.md)
+#### [Vytvoření v jiné oblasti](machine-learning-multi-geo.md)
+## Analýza obchodních potřeb
+### [Technické potřeby](machine-learning-data-science-plan-your-environment.md)
+### [Určení scénáře](machine-learning-data-science-plan-sample-scenarios.md)
+## Získání dat a jejich pochopení
+### Načtení dat do úložiště
+#### [Přehled](machine-learning-data-science-ingest-data.md)
+#### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
+#### [Použití Průzkumníka úložiště](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+#### [Použití AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
+#### [Použití Pythonu](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
+#### [Použití služby SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
+#### [Přesun do virtuálního počítače](machine-learning-data-science-move-sql-server-virtual-machine.md)
+#### [Migrace do databáze SQL](machine-learning-data-science-move-sql-azure.md)
+#### [Načítání do tabulek Hive](machine-learning-data-science-move-hive-tables.md)
+#### [Načítání z místního SQL](machine-learning-data-science-move-sql-azure-adf.md)
+#### [Načítání z tabulek oddílů SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
+### Import trénovacích dat
+#### [Přehled](machine-learning-data-science-import-data.md)
+#### [Z místního souboru](machine-learning-import-data-from-local-file.md)
+#### [Z online zdrojů](machine-learning-import-data-from-online-sources.md)
+#### [Z experimentu](machine-learning-import-data-from-an-experiment.md)
+#### [Použití místního SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
+### Zkoumání a vizualizace dat
+#### [Příprava dat](machine-learning-data-science-prepare-data.md)
+#### Zkoumání dat
+##### [Přehled](machine-learning-data-science-explore-data.md)
+##### [Použití Pandasu](machine-learning-data-science-explore-data-blob.md)
+##### [Použití virtuálních počítačů SQL](machine-learning-data-science-explore-data-sql-server.md)
+##### [Použití tabulek Hive](machine-learning-data-science-explore-data-hive-tables.md)
+#### Ukázková data
+##### [Přehled](machine-learning-data-science-sample-data.md)
+##### [Použití služby Blob Storage](machine-learning-data-science-sample-data-blob.md)
+##### [Použití SQL Serveru](machine-learning-data-science-sample-data-sql-server.md)
+##### [Použití tabulek Hive](machine-learning-data-science-sample-data-hive.md)
+#### Zpracování dat
+##### [Přístup pomocí Pythonu](machine-learning-python-data-access.md)
+##### [Zpracování dat objektů blob](machine-learning-data-science-process-data-blob.md)
+##### [Použití Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
+##### [Použití virtuálních počítačů SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
+##### [Použití Data Pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
+#### Zpracování dat pomocí Sparku
+##### [Přehled](machine-learning-data-science-spark-overview.md)
+##### [Zkoumání dat](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Modely skóre](machine-learning-data-science-spark-model-consumption.md)
+##### [Pokročilé zkoumání dat](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+##### [Použití Scaly a Sparku](machine-learning-data-science-process-scala-walkthrough.md)
+## Vývoj modelů
+### Technické a vybrané funkce
 #### [Přehled](machine-learning-data-science-create-features.md)
 #### [Použití Pandasu](machine-learning-data-science-create-features-blob.md)
 #### [Použití SQL a Pythonu](machine-learning-data-science-create-features-sql-server.md)
 #### [Použití dotazů Hive](machine-learning-data-science-create-features-hive.md)
-#### [Přehled TDSP](machine-learning-data-science-select-features.md)
+#### [Výběr funkcí TDSP](machine-learning-data-science-select-features.md)
 ### Vytvoření a trénování modelů
-#### [Vytvoření prvního experimentu](machine-learning-create-experiment.md)
 #### [Převod na bodování](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Správa iterací](machine-learning-manage-experiment-iterations.md)
+#### [Vytváření modelů přes PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Výběr algoritmů
 ##### [Volba algoritmů](machine-learning-algorithm-choice.md)
 ##### [Tahák s algoritmy](machine-learning-algorithm-cheat-sheet.md)
 ##### [Použití lineární regrese](machine-learning-linear-regression-in-azure.md)
 ##### [Použití analýzy textu](machine-learning-text-analytics-module-tutorial.md)
-##### [Referenční informace k algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 #### Vyhodnocování a interpretace výsledků
 ##### [Vyhodnocení výkonu](machine-learning-evaluate-model-performance.md)
 ##### [Optimalizace parametrů](machine-learning-algorithm-parameters-optimize.md)
@@ -160,7 +116,7 @@
 ##### [Spouštění skriptů R](machine-learning-extend-your-experiment-with-r.md)
 ##### [Tvorba vlastních modulů R](machine-learning-custom-r-modules.md)
 ##### [Spouštění skriptů Pythonu](machine-learning-execute-python-scripts.md)
-## Nasazení
+## Modely nasazení a využití
 ### [Přehled](machine-learning-deploy-consume-web-service-guide.md)
 ### Modely nasazení
 #### [Jak to funguje](machine-learning-model-progression-experiment-to-web-service.md)
@@ -188,14 +144,36 @@
 #### [Použití Excelu](machine-learning-consuming-from-excel.md)
 #### [Použití doplňků Excelu](machine-learning-excel-add-in-for-web-services.md)
 #### [Použití šablony webové aplikace](machine-learning-consume-web-service-with-web-app-template.md)
-
-#Referenční informace
+## Příklady
+### [Ukázkové experimenty](machine-learning-sample-experiments.md)
+### [Ukázkové datové sady](machine-learning-use-sample-datasets.md)
+### [Příklad změn zákazníka](machine-learning-azure-ml-customer-churn-scenario.md)
+### Kompletní scénáře
+#### [Použití clusterů Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+#### [Použití Hadoopu s 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [Použití SQL Serveru](machine-learning-data-science-process-sql-walkthrough.md)
+#### [Použití SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+### Ukázky webových služeb
+#### [Příklady s R](machine-learning-r-csharp-web-service-examples.md)
+#### [Binární klasifikátor](machine-learning-r-csharp-binary-classifier.md)
+#### [Model clusteru](machine-learning-r-csharp-cluster-model.md)
+#### [Lineární regrese s množstvím proměnných](machine-learning-r-csharp-multivariate-linear-regression.md)
+#### [Vytváření prognóz – Exponenciální vyhlazování](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+#### [Vytváření prognóz – ETS a STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+#### [Vytváření prognóz – ARIMA](machine-learning-r-csharp-arima.md)
+#### [Analýza přežití](machine-learning-r-csharp-survival-analysis.md)
+#### [Analýza mínění na základě slovníku](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+#### [Testování rozdílu v proporcích](machine-learning-r-csharp-difference-in-two-proportions.md)
+#### [Sada normální distribuce](machine-learning-r-csharp-normal-distribution.md)
+#### [Sada binomické distribuce](machine-learning-r-csharp-binomial-distribution.md)
+#### [Nejčastější dotazy k Marketplace](machine-learning-marketplace-faq.md)
+# Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Modul PowerShell pro Machine Learning](machine-learning-powershell-module.md)
+## [Referenční informace k algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [Rychlý start s R](machine-learning-r-quickstart.md)
-## [Přehled PowerShellu](machine-learning-powershell-module.md)
-## [Vytváření modelů přes PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [Rozhraní REST API pro webovou službu](https://msdn.microsoft.com/library/azure/dn950030.aspx)
 ## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-
+## [Rozhraní REST API pro správu](/rest/api/machinelearning/index)
 # Související
 ## Galerie Cortana Intelligence
 ### [Přehled](machine-learning-gallery-how-to-use-contribute-publish.md)
@@ -208,12 +186,34 @@
 ### [Kurzy](machine-learning-gallery-tutorials.md)
 ### [Kolekce](machine-learning-gallery-collections.md)
 ### [Vlastní moduly](machine-learning-gallery-custom-modules.md)
-
+## Cortana Analytics
+### Rozhraní API
+#### [Detekce anomálií](machine-learning-apps-anomaly-detection.md)
+#### [Analýza textu](machine-learning-apps-text-analytics.md)
+#### [Kognitivní služby](https://azure.microsoft.com/services/cognitive-services/)
+#### Doporučení
+##### [Přehled](machine-learning-recommendation-api-sample-application.md)
+##### [Rychlý start](machine-learning-recommendation-api-quick-start-guide.md)
+##### [Referenční informace](machine-learning-recommendation-api-documentation.md)
+##### [Použití JavaScriptu](machine-learning-recommendation-api-javascript-integration.md)
+##### [Nejčastější dotazy](machine-learning-recommendation-api-faq.md)
+#### Prediktivní údržba
+##### [Přehled](cortana-analytics-playbook-predictive-maintenance.md)
+##### [Architektura](cortana-analytics-architecture-predictive-maintenance.md)
+##### [Technický průvodce](cortana-analytics-technical-guide-predictive-maintenance.md)
+#### Telemetrie vozidel
+##### [Přehled](cortana-analytics-playbook-vehicle-telemetry.md)
+##### [Směrnice](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
+##### [Nastavení](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 # Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
-## [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Videa](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

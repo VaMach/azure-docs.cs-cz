@@ -18,6 +18,7 @@
 #### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [Brána OMS](log-analytics-oms-gateway.md)
 ### Zdroje dat
 #### [Přehled zdrojů dat](log-analytics-data-sources.md)
 #### [Události systému Windows](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Správa výstrah](log-analytics-solution-alert-management.md)
 #### [Správa kapacit](log-analytics-capacity.md)
 #### [Sledování změn](log-analytics-change-tracking.md)
-#### [Posouzení konfigurace](log-analytics-configuration-assessment.md)
 #### [Kontejnery](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
 #### [Posouzení malwaru](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [Posouzení SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Posouzení aktualizace systému](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Linková data](log-analytics-wire-data.md)
+#### [Posouzení SCOM](log-analytics-scom-assessment.md)
 ## Analýza
 ### [Řídicí panely](log-analytics-dashboards.md)
 ### [Návrhář zobrazení](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Zdroje a prostředky
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

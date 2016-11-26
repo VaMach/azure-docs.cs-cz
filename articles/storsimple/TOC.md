@@ -1,7 +1,4 @@
-# Přehled StorSimple
-
 # StorSimple Virtual Array
-
 ## Přehled
 ### [Informace o řešení](storsimple-ova-overview.md)
 
@@ -54,6 +51,7 @@
 ### Instalace
 #### [Kontrola zabezpečení](storsimple-safety.md)
 #### [Rozbalení modelu 8100, jeho usazení do racku a propojení kabely](storsimple-8100-hardware-installation.md)
+
 #### [Rozbalení modelu 8600, jeho usazení do racku a propojení kabely](storsimple-8600-hardware-installation.md)
 #### [Podporovaný hardware pro rozhraní sítí 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +61,7 @@
 ##### [Fyzické zařízení v Azure – aktualizace 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fyzické zařízení v Azure – GA](storsimple-deployment-walkthrough.md)
 #### [Fyzické zařízení na portálu Government – aktuální](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Fyzické zařízení na portálu Government – aktuální](storsimple-deployment-walkthrough-gov.md)
 #### [Virtuální zařízení v Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter pro SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -139,7 +138,7 @@
 ##### [Vytvoření balíčku pro podporu](storsimple-create-manage-support-package.md)
 
 ### Migrace
-#### [Z řad 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Z řad 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Z jiných zařízení úložišť](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizace
@@ -160,22 +159,26 @@
 ### [Vydání – GA](storsimple-july-2014-release-notes.md)
 
 ## Referenční informace
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Rutiny Windows PowerShellu pro StorSimple] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Související
 ## [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
 
 # Zdroje a prostředky
-## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marketingový blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Blog podpory](http://blogs.msdn.com/b/storsimple/)
 ## [Oznámení třetích stran](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storsimple)
-## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

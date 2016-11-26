@@ -22,7 +22,7 @@
 ### [Zobrazení událostí a protokolů auditu](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Zobrazování oznámení o výstrahách](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Referenční informace
+# Související
 ## [Funkce šablon Azure Resource Manageru](../resource-group-template-functions.md)
 ## [Osvědčené postupy pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Běžné metriky pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Azure Insights PowerShell – ukázky kódu pro rychlý start](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Rozhraní příkazového řádku Azure Insights – ukázky kódu pro rychlý start](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Zdroje a prostředky
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

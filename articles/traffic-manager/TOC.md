@@ -17,10 +17,11 @@
 ## [Konfigurace metody směrování](traffic-manager-configure-routing-method.md)
 ## [Test nastavení](traffic-manager-testing-settings.md)
 ## [Řešení potíží s koncovým bodem v degradovaném stavu](traffic-manager-troubleshooting-degraded.md)
-## [Použití síťových prostředků](../virtual-network/resource-groups-networking.md)
+## [Kombinace služeb pro vyrovnávání zatížení](traffic-manager-load-balancing-azure.md)
+## [Použití síťových prostředků](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell (Classic)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [Azure DNS](/azure/dns/)
 
 # Zdroje a prostředky
-##[Ceny](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Omezení služby](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Ceny](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Omezení služby](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Videa](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

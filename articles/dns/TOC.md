@@ -13,12 +13,13 @@
 ### [Rozhraní příkazového řádku](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegování domény do Azure DNS](dns-domain-delegation.md)
+## [Vytvoření vlastních záznamů DNS pro webovou aplikaci](dns-web-sites-custom-domain.md)
 
 # Postup
 
 ## Správa zón DNS
 ### [PowerShell](dns-operations-dnszones.md)
-### [Rozhraní příkazového řádku](dns-operations-dnszones.md)
+### [Rozhraní příkazového řádku](dns-operations-dnszones-cli.md)
 
 ## [Správa záznamů DNS](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Import a export souboru zóny DNS](dns-import-export.md)
-## [Používání Azure DNS s ostatními službami Azure](dns-for-azure-services.md)
+## [Integrace s ostatními službami Azure](dns-for-azure-services.md)
 ## [Ochrana záznamů a zón DNS](dns-protect-zones-recordsets.md)
 ## [Automatizace operací DNS se sadou .NET SDK](dns-sdk.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Rozhraní REST API](/rest/api/dns/)
 
 # Související
@@ -46,11 +47,12 @@
 ## [Web Apps](/azure/app-service-web/)
 
 # Zdroje a prostředky
-## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
-## [Fórum o sítích](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=dns)
 ## [Ceny](https://azure.microsoft.com/pricing/details/dns/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

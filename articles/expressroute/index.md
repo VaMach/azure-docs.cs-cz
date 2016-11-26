@@ -1,14 +1,18 @@
 ---
 layout: LandingPage
----
-#ExpressRoute Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
+ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+---
+#<a name="expressroute-documentation"></a>Dokumentace ke službě ExpressRoute
+
+Azure ExpressRoute umožňuje rozšířit vaše místní sítě do cloudu Microsoftu přes vyhrazené soukromé připojení zajišťované poskytovatelem připojení. Co se týká připojení, může se jednat o síť typu any-to-any (IP VPN), síť Ethernet typu point-to-point nebo virtuální křížové připojení prostřednictvím poskytovatele připojení ve společném umístění.
 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/express-route-introduction">
+        <a href="/azure/expressroute/expressroute-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -18,7 +22,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn About Express Route</h3>
+                        <h3>Další informace o ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Express Route Video Library</h3>
+                        <h3>Knihovna videí k Azure ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with ExpressRoute</h3>
+                        <h3>Začínáme s ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -65,21 +69,50 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 ---
 
-##Reference
+## <a name="reference"></a>Referenční informace
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referenční informace k Azure PowerShellu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[ExpressRoute REST API Reference](https://msdn.microsoft.com/library/mt586720)
-
-
+<li>
+        <a href="https://msdn.microsoft.com/library/mt586720">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referenční materiály k rozhraní REST API služby ExpressRoute</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
         <div class="img"></div>
         <div class="text">
-            Download ExpressRoute Documentation
-        </div>
+Stažení dokumentace ke službě ExpressRoute </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

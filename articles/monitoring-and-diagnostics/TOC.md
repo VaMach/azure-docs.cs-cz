@@ -1,13 +1,12 @@
 # Přehled
-## [Monitorování v Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)
+## [Přehled služby Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
 ## [Metriky](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 ## [Výstrahy](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 ## [Automatické škálování](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)
-## [Osvědčené postupy pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Protokol aktivit](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 ## [Diagnostické protokoly](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 ## [Integrace partnerů](../monitoring-and-diagnostics/monitoring-partners.md)
-## [Návod s využitím rozhraní REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+
 
 # Začínáme
 ## [Začínáme se službou Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md)
@@ -21,11 +20,12 @@
 ### [Konfigurace webhooku pro upozornění na metriku](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 ### [Vytvoření upozornění na metriku pomocí šablony Resource Manageru](../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md)
 ## Použití automatického škálování
+### [Osvědčené postupy pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Běžné metriky pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Automatické škálování škálovacích sad virtuálních počítačů pomocí šablon Resource Manageru](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 ### [Konfigurace webhooků a e-mailových oznámení pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
-## Správa protokolu aktivit
+## Použití protokolu aktivit
 ### [Zobrazení událostí v protokolu aktivit](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Konfigurace webhooku v upozornění protokolu aktivit](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archivace protokolu aktivit](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
@@ -35,7 +35,8 @@
 ### [Archiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Streamování do Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 ### [Povolení diagnostických nastavení pomocí šablon Resource Manageru](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
-
+## Použití rozhraní REST API
+### [Návod s využitím rozhraní REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
 
 # Referenční informace
@@ -43,10 +44,8 @@
 ## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [Seznam podporovaných metrik](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST](https://docs.microsoft.com/rest/api/monitor/)
+## [REST API](https://msdn.microsoft.com/library/azure/dn931943)
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

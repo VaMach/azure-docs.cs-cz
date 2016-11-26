@@ -1,27 +1,27 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-# <a name="api-management-documentation"></a>Dokumentace ke službě API Management
+# <a name="analysis-services-documentation"></a>Dokumentace ke službě Analysis Services
 
-Služba API Management pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb.  Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, informací o podniku, analýz, zabezpečení a ochrany.
+Služba Azure Analysis Services, která je založená na osvědčeném analytickém modulu Microsoft SQL Server Analysis Services, zajišťuje modelování dat na podnikové úrovni v cloudu.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/api-management/api-management-key-concepts">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/api-management.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Informace o službě API Management</h3>
+                        <h3>Informace o Analysis Services</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -39,7 +39,7 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Knihovna videí ke službě API Management</h3>
+                        <h3>Knihovna videí k Azure</h3>
                     </div>
                 </div>
             </div>
@@ -47,45 +47,26 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
         </a>
     </li>
     <li>
-        <a href="/azure/api-management/api-management-get-started">
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme se službou API Management</h3>
+                        <h3>Vytvoření serveru Analysis Services</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/api-management/api-management-howto-create-apis">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Začínáme vytvářet rozhraní API ve službě Azure API Management</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
+    </li>    
 </ul>
 
 ---
-
 ## <a name="reference"></a>Referenční informace
 
 <ul class="panelContent cardsW">
@@ -96,7 +77,7 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Rutina API Management Resource Manager PowerShellu</p>
+                        <p>Rutiny PowerShellu pro Azure Resource Manager</p>
                     </div>
                 </div>
             </div>
@@ -104,13 +85,13 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
         </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
+        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby API Management</p>
+                        <p>Referenční informace k rozhraní REST API služby Azure Analysis Services</p>
                     </div>
                 </div>
             </div>
@@ -122,10 +103,10 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
 ---
 
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Stažení dokumentace ke službě API Management </div>
+Stáhnout dokumentaci ke službě Analysis Services </div>
     </a>
 </div>
 

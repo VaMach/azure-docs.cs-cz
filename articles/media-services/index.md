@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 472f14b049093920b43ef249b0286d78b2fbbece
-ms.openlocfilehash: 48030ab29d18b0963f1770732761a464abaed446
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: a7eda833f1bbaaa64ebfb1a26925dc42cbf6cb9c
 
 ---
 # <a name="media-services-documentation"></a>Dokumentace ke službě Media Services
@@ -161,14 +161,50 @@ Pomocí Media Services můžete vytvářet kompletní pracovní postupy od zač�
 
 ## <a name="reference"></a>Referenční informace
 
-### <a name="powershell"></a>PowerShell
-[Referenční informace k Azure PowerShell](/powershell/azureps-cmdlets-docs/)
-
-### <a name="net"></a>.NET
-[Referenční informace pro spravované rozhraní API pro .NET](/dotnet/api/)
-
-### <a name="rest"></a>REST
-[Referenční informace k rozhraní REST API služby Media Services](/rest/api/media/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referenční informace k Azure PowerShellu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referenční informace ke spravovanému rozhraní API .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/media/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referenční materiály k rozhraní REST API služby Media Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
@@ -180,6 +216,6 @@ Stáhnout dokumentaci ke službě Media Services </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

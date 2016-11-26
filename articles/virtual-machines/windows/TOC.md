@@ -176,13 +176,15 @@
 ### [Opětovné nasazení virtuálního počítače](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Tvorba šablon Resource Manageru](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Komunitní šablony](https://azure.microsoft.com/documentation/templates/)
-## [Rozhraní REST pro Compute](/rest/api/compute/)
-## [Rozhraní REST pro službu Network](/rest/api/)
-## [Rozhraní REST pro Storage](/rest/api/storageservices/)
+## [Komunitní šablony](https://azure.microsoft.com/documentation/templates)
+## [Rozhraní REST pro Compute](/rest/api/compute)
+## [Rozhraní REST pro službu Network](/rest/api)
+## [Rozhraní REST pro Storage](/rest/api/storageservices)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/#Windows)
@@ -191,6 +193,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

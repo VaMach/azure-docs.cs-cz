@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: edfc23605c738fbe8aac99c0db89c6f588a09d60
-ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
 
 ---
 #<a name="sql-database-documentation"></a>Dokumentace ke službě SQL Database
@@ -104,23 +104,80 @@ Azure SQL Database je cloudová relační databázová služba schopná obslouž
 
 ---
 
-##<a name="reference"></a>Referenční informace
+## <a name="reference"></a>Referenční informace
 
-###<a name="powershell"></a>PowerShell
-[Referenční informace pro Azure PowerShell] (/powershell/azureps-cmdlets-docs)
-
-###<a name="net"></a>.NET
-[Referenční informace pro spravované rozhraní .NET](/dotnet/api)
-
-### <a name="java"></a>Java
-[Referenční informace sady Java SDK](/java/api)
-
-###<a name="rest"></a>REST
-[Referenční informace k rozhraní REST API služby SQL Database](/rest/api/sql)
-
-###<a name="tsql"></a>T-SQL
-[Referenční informace pro T-SQL](https://msdn.microsoft.com/library/azure/bb510741)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referenční informace pro Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referenční informace ke spravovanému rozhraní .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Referenční informace k sadě Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/sql">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referenční materiály k rozhraní REST API služby SQL Database</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/bb510741">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>T-SQL</h3>
+                        <p>Referenční informace pro T-SQL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
@@ -132,6 +189,6 @@ Stáhnout dokumentaci ke službě SQL Database </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

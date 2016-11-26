@@ -1,6 +1,6 @@
 # Přehled
 ## [Zasílání zpráv](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Relay](../service-bus-relay/service-bus-relay-overview.md)
+## [Relay](../service-bus-relay/relay-what-is-it.md)
 # Referenční informace
 ## [Rutiny PowerShellu pro Resource Manager](/powershell/resourcemanager)
 ## [Referenční informace pro spravované rozhraní API služby Service Bus](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
