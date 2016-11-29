@@ -7,7 +7,7 @@ ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 ---
 #<a name="redis-cache-documentation"></a>Dokumentace ke službě Redis Cache
 
-Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti Redis Cache. Poskytuje přístup k zabezpečené vyhrazené mezipaměti Redis, která je spravovaná Microsoftem a dostupná z libovolné aplikace v Azure. Azure Redis Cache nabízí vysokou propustnost a trvale nízkou latenci při přístupu k datům a zajišťuje tak rychlost a škálovatelnost aplikací Azure.
+Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti Redis Cache. Poskytuje přístup k zabezpečené vyhrazené mezipaměti Redis, která je spravovaná Microsoftem a dostupná z libovolné aplikace v Azure. Azure Redis Cache nabízí vysokou propustnost a trvale nízkou latenci při přístupu k datům a zajišťuje tak rychlost a škálovatelnost aplikací Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +64,7 @@ Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
