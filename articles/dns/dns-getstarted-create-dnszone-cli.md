@@ -3,8 +3,8 @@ title: "Vytvoření zóny DNS pomocí rozhraní příkazového řádku | Dokumen
 description: "Naučte se krok za krokem vytvářet zóny DNS pro Azure DNS a začněte svoji doménu DNS hostovat pomocí rozhraní příkazového řádku"
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
 ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
