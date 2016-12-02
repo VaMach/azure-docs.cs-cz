@@ -30,7 +30,6 @@
 
 
 ## Použití sady Enterprise Integration Pack (EIP)
-### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Přehled účtů pro integraci](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Smlouvy](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Zpracování B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -87,10 +86,9 @@
 
 # Zdroje
 ## [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
 <!--HONumber=Nov16_HO4-->

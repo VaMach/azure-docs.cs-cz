@@ -79,7 +79,6 @@
 
 # Řešení potíží
 ## [Odstraňování potíží v Azure Stack](azure-stack-troubleshooting.md)
-## [Poskytovatel prostředků Web Apps](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Zdroje a prostředky
 ## [Nástroje](azure-stack-tools-paas-services.md)

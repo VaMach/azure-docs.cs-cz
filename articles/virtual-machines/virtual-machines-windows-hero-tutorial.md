@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b54a45ed9472cfc457649a0e32c82259d95c87f0
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -30,8 +30,8 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Volba image virtuálního počítače z Marketplace
 Jako příklad používáme image systému Windows Server 2012 R2 Datacenter, je to ale pouze jedna z mnoha imagí, které Azure nabízí. Volba image závisí na tom, jaké máte předplatné. Některé desktopové image jsou například dostupné pro [Předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
-2. V nabídce centra klikněte na **Nový**  >  **Virtual Machines**  >  **Windows Server 2012 R2 Datacenter**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. V nabídce centra klikněte na **Nový**  > **Compute** >  **Windows Server 2012 R2 Datacenter**.
    
     ![Snímek obrazovky zobrazující image virtuálního počítače Azure dostupné na Portálu](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. V okně **Windows Server 2012 R2 Datacenter** v části **Vybrat model nasazení** ověřte, že je vybrán **Resource Manager**. Klikněte na možnost **Vytvořit**.
@@ -95,6 +95,6 @@ Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

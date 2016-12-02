@@ -4,8 +4,8 @@ hide_bc: true
 title: Dokumentace k Microsoft Azure | Dokumenty Microsoftu
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 translationtype: Human Translation
-ms.sourcegitcommit: 267a6facc9ed8e6f75c150d627545deafc589040
-ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
+ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
+ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 ---
 <div id="main" class="v2">
@@ -2248,7 +2248,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scheduler</h3>
-                                                    <p>Spouštění úloh v rámci jednoduchých nebo složitých opakovaných plánů</p>
+                                                    <p>Spouštění úloh v rámci jednoduchých nebo složitých opakovaných plánů</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                 </ul>
             </li>
             <li>
-                <a href="#developer">Developer</a>
-                <ul id="developer">
+                <a href="#sdktools">Sada SDK / Nástroje</a>
+                <ul id="sdktools">
                     <li>
-                        <a href="#developer-all">vše</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdktools-all">vše</a>
+                        <ul id="sdktools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Jazyky a architektury</h1>
@@ -2861,6 +2861,6 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -21,7 +21,7 @@
 ## [Ukázky](service-bus-relay-samples.md)
 ## [Rozhraní .NET API pro hybridní připojení](/dotnet/api/microsoft.servicebus)
 ## [Rozhraní .NET API pro WCF Relay](/dotnet/api/microsoft.servicebus)
-
+## [Nastavení portu](service-bus-relay-port-settings.md)
 
 # Zdroje a prostředky
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -33,6 +33,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

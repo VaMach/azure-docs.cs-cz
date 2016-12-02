@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 317d6980d304cc503cc43358c4b91459d4abd1ba
-ms.openlocfilehash: 6b08f27a27a31fcc665ab051438a962ddc711767
+ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
+ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
 
 
 ---
 
 # <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 (Preview)
-Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu [az-vm-create](/cli/azure/vm?branch=master#create) v Azure CLI 2.0 (Preview). 
+Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu [az-vm-create](/cli/azure/vm#create) v Azure CLI 2.0 (Preview). 
 
 > [!NOTE] 
 > Azure CLI 2.0 Preview je naše multiplatformní rozhraní příkazového řádku příští generace. Vyzkoušejte si jej a dejte nám vědět, co si myslíte na [stránce projektu na GitHubu](https://github.com/Azure/azure-cli).
@@ -127,6 +127,6 @@ K [rychlému vytvoření virtuálního počítače s Linuxem jako hostitele Dock
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -111,7 +111,7 @@
 ### Informace
 #### [Přehled](sql-database-business-continuity.md)
 #### [Zálohování databází](sql-database-automated-backups.md)
-#### [Dlouhodobé uchování](sql-database-long-term-retention.md) 
+#### [Dlouhodobé uchovávání](sql-database-long-term-retention.md)
 #### [Obnovení databází pomocí záloh](sql-database-recovery-using-backups.md)
 #### [Požadavky na ověřování pro zotavení po havárii](sql-database-geo-replication-security-config.md)
 #### [Scénáře návrhu pro kontinuitu podnikových procesů](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

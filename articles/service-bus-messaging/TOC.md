@@ -25,7 +25,7 @@
 # Postup
 ## Plánování a návrh
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)
-### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
+### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
 ### [Zvládání výpadků a havárií](service-bus-outages-disasters.md)
 
 ## Vývoj
@@ -46,8 +46,8 @@
 ### [Použití AMQP s dělenými frontami a tématy](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Spárované obory názvů](service-bus-paired-namespaces.md)
 ### [Spojení entit s automatickým přeposíláním](service-bus-auto-forwarding.md)
-## Spravovat
-### [Použití šablon ARM](service-bus-resource-manager-overview.md)
+## Správa
+### [Použití šablon Azure Resource Manageru](service-bus-resource-manager-overview.md)
 ### [Použití PowerShellu ke zřizování entit](service-bus-powershell-how-to-provision.md)
 
 # Referenční informace
@@ -57,6 +57,10 @@
 ## [Kvóty](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
+## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Průvodce protokolem AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [Operace na základě odpovědí na požadavky AMQP 1.0](service-bus-amqp-request-response.md)
 
 # Zdroje a prostředky
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 
