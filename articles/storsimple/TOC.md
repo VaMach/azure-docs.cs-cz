@@ -7,16 +7,41 @@
 #### [Kontrola požadavků](storsimple-ova-system-requirements.md)
 #### [Pochopení limitů](storsimple-ova-limits.md)
 #### [Kontrola osvědčených postupů](storsimple-ova-best-practices.md)
-### Nasazení
+
+### Nasazení (Azure Portal)
+#### [Příprava nasazení](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [Nasazení služby StorSimple Manager](storsimple-virtual-array-manage-service.md)
+#### [Zřizování v prostředí Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [Zřizování v prostředí VMWare](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Nastavení jako souborového serveru](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [Nastavení jako serveru iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Nasazení (portál Azure Classic)
 #### [Příprava nasazení](storsimple-ova-deploy1-portal-prep.md)
-#### [Nasazení služby StorSimple Manager](storsimple-ova-manage-service.md)
+##### [Nasazení služby StorSimple Manager](storsimple-ova-manage-service.md)
 #### [Zřizování v prostředí Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Zřizování v prostředí VMWare](storsimple-ova-deploy2-provision-vmware.md)
 #### [Nastavení jako souborového serveru](storsimple-ova-deploy3-fs-setup.md)
 #### [Nastavení jako serveru iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## Postup
-### [Správa prostřednictvím portálu Azure Portal](storsimple-ova-manager-service-administration.md)
+### [Správa prostřednictvím portálu Azure Portal](storsimple-virtual-array-manager-service-administration.md)
+#### [Instalace nejnovější aktualizace](storsimple-virtual-array-install-update.md)
+#### [Vytvoření a správa záloh](storsimple-virtual-array-backup.md)
+#### [Klonování ze zálohy](storsimple-virtual-array-clone.md)
+#### [Převzetí služeb při selhání a zotavení po havárii](storsimple-virtual-array-failover-dr.md)
+#### [Deaktivace a odstranění](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Správa sdílených složek](storsimple-virtual-array-manage-shares.md)
+#### [Správa svazků](storsimple-virtual-array-manage-volumes.md)
+#### [Zobrazení přehledu služby](storsimple-virtual-array-service-summary.md)
+#### [Zobrazení přehledu zařízení](storsimple-virtual-array-device-summary.md)
+#### [Správa účtů úložiště](storsimple-virtual-array-manage-storage-accounts.md)
+#### [Správa záznamů ACR](storsimple-virtual-array-manage-acrs.md)
+#### [Správa úloh](storsimple-virtual-array-manage-jobs.md)
+#### [Změna hesla zařízení](storsimple-virtual-array-change-device-admin-password.md)
+#### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Správa přes portál Azure Classic](storsimple-ova-manager-service-administration.md)
 #### [Instalace nejnovější aktualizace](storsimple-ova-install-update-01.md)
 #### [Vytvoření a správa záloh](storsimple-ova-backup.md)
 #### [Obnovení ze zálohy](storsimple-ova-restore.md)
@@ -30,7 +55,7 @@
 #### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-ova-configure-mpio-windows-server.md)
 ### [Konfigurace prostřednictvím místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md)
 
-## Poznámky k verzi
+## Poznámky k verzi
 ### [Aktualizace 0.3 – aktuální](storsimple-ova-update-03-release-notes.md)
 ### [Aktualizace 0.2 a 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -61,7 +86,7 @@
 ##### [Fyzické zařízení v Azure – aktualizace 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fyzické zařízení v Azure – GA](storsimple-deployment-walkthrough.md)
 #### [Fyzické zařízení na portálu Government – aktuální](storsimple-deployment-walkthrough-gov-u2.md)
-##### [Fyzické zařízení na portálu Government – aktuální](storsimple-deployment-walkthrough-gov.md)
+##### [Fyzické zařízení na portálu Government – aktualizace 1](storsimple-deployment-walkthrough-gov.md)
 #### [Virtuální zařízení v Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter pro SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -113,9 +138,11 @@
 ##### [Správa akcí MMC prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Vytváření řešení
-#### [Distribuovaný globální obor názvů](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Automatizované zotavení souborového serveru po havárii do Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple se službou Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple s VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [StorSimple s Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Distribuovaný globální obor názvů](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Monitorování
 #### [Použití řídicího panelu služby](storsimple-service-dashboard.md)
@@ -148,7 +175,7 @@
 #### [Instalace aktualizace 1.2](storsimple-install-update-1.md)
 #### [Aktualizace zařízení](storsimple-update-device.md)
 
-## Poznámky k verzi
+## Poznámky k verzi
 ### [Aktualizace 3 – aktuální](storsimple-update3-release-notes.md)
 ### [Aktualizace 2.2](storsimple-update21-release-notes.md)
 ### [Aktualizace 2](storsimple-update2-release-notes.md)
@@ -160,7 +187,18 @@
 
 ## Referenční informace
 ### [Azure PowerShell](/powershell/servicemanagement)
-### [Rutiny Windows PowerShellu pro StorSimple] (https://technet.microsoft.com/library/dn688168.aspx)
+### [Rutiny prostředí Windows PowerShell pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple Data Manager (Private Preview)
+
+## Přehled
+### [Informace o řešení](storsimple-data-manager-overview.md)
+
+## Začínáme
+### [Použití StorSimple Data Manageru](storsimple-data-manager-ui.md)
+
+## Postup
+### [Transformace dat pomocí .NET](storsimple-data-manager-dotnet-jobs.md)
 
 # Související
 ## [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
@@ -179,6 +217,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 
