@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Vytvoření centra událostí
 1. Přihlaste se na web [Azure Portal][Azure Portal] a v levém horním rohu obrazovky klikněte na **Nový**.
-2. Klikněte na **Data + Analýza** a poté klikněte na **Event Hubs**.
+2. Klikněte na **Internet věcí** a pak na **Event Hubs**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. V okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
@@ -34,6 +34,6 @@ Centrum událostí je teď vytvořené a vy máte připojovací řetězce, kter�
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

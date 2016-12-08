@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/26/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
 
 
 ---
@@ -68,7 +68,7 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
    > Váš název účtu úložiště musí být jedinečný v rámci Azure. Pokud se už název účtu úložiště, který vyberete, používá, bude tato informace uvedena na Portálu Azure.
    > 
    > 
-4. Zadejte model nasazení, který se má použít: **Resource Manager** nebo **Classic**. Doporučuje se používat model nasazení **Resource Manager**. Další informace najdete v tématu [Vysvětlení nasazení pomocí modelu nasazení Resource Manager a modelu Classic](../resource-manager-deployment-model.md).
+4. Zadejte model nasazení, který se má použít: **Resource Manager** nebo **Classic**. Doporučuje se používat model nasazení **Resource Manager**. Další informace najdete v tématu [Vysvětlení nasazení pomocí modelu nasazení Resource Manager a modelu Classic](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Účty úložiště Blob Storage je možné vytvářet pouze pomocí modelu nasazení Resource Manageru.
@@ -162,6 +162,6 @@ Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

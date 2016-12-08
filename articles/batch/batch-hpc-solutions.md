@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 11/17/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
+ms.sourcegitcommit: 088d3d55a437165607e73ac2d6a3abe27e9b2639
+ms.openlocfilehash: 755fafcbc01e1da89d7ef3fa99b92da60c95bf8c
 
 
 ---
@@ -65,7 +65,7 @@ Spuštěné aplikace pro Batch a prostředí HPC často zahrnují služby *sprá
 * **Správce clusteru** – zřizuje, uvolňuje a spravuje výpočetní prostředky (nebo výpočetní uzly). Správce clusteru může automatizovat instalaci image operačního systému a aplikací na výpočetní uzly, škálovat výpočetní prostředky podle požadavků a sledovat výkon uzlů.
 * **Plánovač úloh** – Určuje prostředky (například procesory nebo paměť), které aplikace potřebuje, a podmínky, při jejichž splnění bude spuštěná. Plánovač úloh organizuje frontu úloh a přiděluje jim prostředky na základě přiřazené priority nebo dalších vlastností.
 
-U nástrojů pro clustering a plánování úloh, které jsou navržené pro clustery založené na systémech Windows nebo Linux, by měla být migrace do Azure bezproblémová . Například [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), bezplatné řešení výpočetního clusteru pro úlohy v prostředí HPC systému Windows a Linux od společnosti Microsoft, nabízí několik možností pro spuštění ve službě Azure. Můžete také sestavit clustery s Linuxem ke spouštění opensourcových nástrojů, jako jsou Torque a SLURM. Do Azure můžete také přinést komerční řešení, jako jsou [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) a [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+U nástrojů pro clustering a plánování úloh, které jsou navržené pro clustery založené na systémech Windows nebo Linux, by měla být migrace do Azure bezproblémová . Například [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), bezplatné řešení výpočetního clusteru pro úlohy v prostředí HPC systému Windows a Linux od společnosti Microsoft, nabízí několik možností pro spuštění ve službě Azure. Můžete také sestavit clustery s Linuxem ke spouštění opensourcových nástrojů, jako jsou Torque a SLURM. Do Azure můžete také přinést komerční řešení, jako jsou [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony a Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) a [Univa Grid Engine](http://www.univa.com/products/grid-engine).
 
 Jak uvidíte v následujících částech, výhod služeb Azure můžete taky využít ke správě výpočetních prostředků a plánování úloh bez tradičních nástrojů pro správu clusteru nebo dodatečně k nim.
 
@@ -90,7 +90,7 @@ Zde se dozvíte další informace o výpočtech, datech, sítích a souvisejíc�
 Výpočetní služby Azure jsou jádrem řešení Big Compute. Různé výpočetní služby jsou vhodné pro různé scénáře. Tyto služby na základní úrovni nabízejí různé režimy pro aplikace, které běží na výpočetních instancích založených na virtuálních počítačích, které Azure poskytuje pomocí technologie Windows Server Hyper-V. Na těchto instancích mohou běžet standardní i vlastní nástroje a operační systémy Windows a Linux. Azure vám dává na výběr z různých [velikostí instancí](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) s různými konfiguracemi jader procesoru, paměti, kapacity disku a dalších vlastností. V závislosti na vašich potřebách můžete škálovat instance až na tisíce jader a poté vertikálně snížit kapacitu, až budete potřebovat méně prostředků.
 
 > [!NOTE]
-> Využijte výhod výpočetně náročných instancí Azure ke zlepšení výkonu a škálovatelnosti úloh prostředí HPC, včetně paralelních aplikací MPI, které vyžadují nízkou latenci a vysokou propustnost aplikační sítě. Viz téma [O virtuálních počítačích řady H-series a A-series pro náročné výpočty](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Využijte [instance Azure pro náročné výpočty, například řadu H-series](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), a zlepšete výkon a škálovatelnost úloh v prostředí HPC. Tyto instance podporují paralelní aplikace MPI vyžadující nízkou latenci a vysokou propustnost aplikační sítě. Pro rozšíření scénářů výpočtů a vizualizací jsou k dispozici také virtuální počítače řady [N-series](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) s grafickými procesory NVIDIA.  
 > 
 > 
 
@@ -124,7 +124,7 @@ K připojení vašeho řešení Big Compute k místním prostředkům nebo prost
 
 ## <a name="next-steps"></a>Další kroky
 * Přečtěte si technické pokyny k vytvoření vlastního řešení v článku o [technických prostředcích pro Batch a prostředí HPC](big-compute-resources.md).
-* Prodiskutujte své možnosti služby Azure s našimi partnery, jako jsou například Cycle Computing nebo UberCloud.
+* Prodiskutujte své možnosti Azure s našimi partnery, mezi které patří Cycle Computing, Rescale nebo UberCloud.
 * Přečtěte si informace o řešeních pro Azure Big Compute, o které se podělili [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) a [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 * Podívejte se na aktuální novinky na [blogu týmu pro Microsoft HPC a Batch](http://blogs.technet.com/b/windowshpc/) a [blogu Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -137,6 +137,6 @@ K připojení vašeho řešení Big Compute k místním prostředkům nebo prost
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

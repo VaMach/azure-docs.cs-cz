@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 V tomto článku se naučíte používat rozhraní REST API WebHDFS a rozhraní REST API Data Lake Store k provádění správy účtů a operací systému souborů v Azure Data Lake Store. Azure Data Lake Store zpřístupňuje vlastní rozhraní REST API pro operace správy účtů. Data Lake Store je nicméně kompatibilní s ekosystémy HDFS a Hadoop, a proto podporuje použití rozhraní REST API WebHDFS pro operace systému souborů.
@@ -47,7 +48,7 @@ V tomto článku se naučíte používat rozhraní REST API WebHDFS a rozhraní 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Jak můžu ověřovat pomocí služby Azure Active Directory?
 Ověřování pomocí služby Azure Active Directory můžete provádět dvěma přístupy.
 
-### <a name="enduser-authentication-interactive"></a>Ověření koncového uživatele (interaktivní)
+### <a name="end-user-authentication-interactive"></a>Ověření koncového uživatele (interaktivní)
 V tomto scénáři aplikace vyzve uživatele k přihlášení a všechny operace se provádějí v kontextu uživatele. V případě interaktivního ověřování proveďte následující postup.
 
 1. Prostřednictvím aplikace přesměrujte uživatele na tuto adresu URL:
@@ -88,7 +89,7 @@ V tomto scénáři aplikace vyzve uživatele k přihlášení a všechny operace
 
 Další informace o interaktivním ověřování uživatelů najdete v tématu [Tok poskytování autorizačních kódů](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Ověřování služba-služba (neinteraktivní)
+### <a name="service-to-service-authentication-non-interactive"></a>Ověřování služba-služba (neinteraktivní)
 V tomto scénáři aplikace poskytuje svoje vlastní přihlašovací údaje k provedení operací. V tomto případě musíte vydat požadavek POST podobný tomu, který vidíte níže. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Zobrazený výstup by měl vypadat asi takto:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/21/2016
+ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
+ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
+ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 Tento článek je seznam častých dotazů (a příslušných odpovědí) ke službě Azure Backup. Naše komunita odpovídá rychle a pokud je dotaz pokládán často, přidáme ho do tohoto článku. Odpovědi na otázky obvykle poskytují odkaz nebo informace o podpoře. Dotazy k Azure Backup můžete pokládat v části Disqus u tohoto článku nebo u souvisejících článků. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Jaké jsou podporované operační systémy, ze kterých mohu zálohovat do Azure pomocí Azure Backup? <br/>
-Azure Backup podporuje pro zálohování souborů a složek, zálohování aplikací pomocí serveru Azure Backup a SCDPM následující seznam operačních systémů.
+Azure Backup podporuje pro zálohování souborů a složek a pro zálohování úloh aplikací chráněných pomocí Azure Backup Serveru a SCDPM následující operační systémy.
 
 | Operační systém | Platforma | Skladová jednotka (SKU) |
 |:--- | --- |:--- |
@@ -43,7 +43,7 @@ Azure Backup podporuje pro zálohování souborů a složek, zálohování aplik
 
 Pro zálohování virtuálního počítače Azure,
 
-* **Linux**: Azure Backup podporuje [seznam distribucí schválených Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
+* **Linux**: Azure Backup podporuje [seznam distribucí schválených pro Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
 * **Windows Server**: Verze starší než Windows Server 2008 R2 nejsou podporovány.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Kde mohu stáhnout nejnovější verzi agenta Azure Backup? <br/>
@@ -59,14 +59,14 @@ Ano, přihlašovací údaje trezoru vyprší po 48 hodinách. Pokud soubor vypr�
 Ano. Od září 2016 můžete vytvořit 25 úložišť záloh na jedno předplatné. Můžete vytvořit až 25 trezorů služby Recovery Services pro každou podporovanou oblast záloh Azure na jedno předplatné. Pokud potřebujete další trezory, vytvořte nové předplatné.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Je nějak omezený počet serverů/počítačů, které lze zaregistrovat k trezoru? <br/>
-Ano, k jednomu trezoru můžete zaregistrovat až 50 počítačů. Pro virtuální počítače Azure IaaS je limit 200 virtuálních počítačů na jeden trezor. Pokud potřebujete zaregistrovat více počítačů, vytvořte nový trezor.
+Ano, k jednomu trezoru můžete zaregistrovat až 50 počítačů. Pro virtuální počítače Azure IaaS je limit 200 virtuálních počítačů na jeden trezor. Pokud potřebujete zaregistrovat víc počítačů, vytvořte nový trezor.
 
 ## <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Jak mohu zaregistrovat svůj server k jinému datovému centru?<br/>
 Zálohovaná data se odesílají do datového centra trezoru, ke kterému je agent registrován. Nejjednodušší způsob, jak změnit datové centrum, je odinstalování agenta a jeho přeinstalování a zaregistrování k novému trezoru, který patří k požadovanému datovému centru.
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Co se stane, když přejmenuji server Windows, který zálohuje data do Azure?<br/>
 Když server přejmenujete, všechna stávající nastavená zálohování se zastaví.
-Je třeba zaregistrovat nový název serveru k trezoru služby Backup. Když vytvoříte novou registraci, první zálohování je úplné zálohování a ne přírůstkové zálohování. Pokud potřebujete obnovit data, která byla dříve zálohovaná do trezoru se starým názvem, můžete tak učinit pomocí možnosti [**Jiný server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) v průvodci **Obnova dat**.
+Zaregistrujte nový název serveru k trezoru služby Backup. Když zaregistrujete nový název trezoru, první zálohování bude provedeno jako *úplné*. Pokud potřebujete obnovit data, která byla dříve zálohovaná do trezoru se starým názvem, můžete tak učinit pomocí možnosti [**Jiný server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) v průvodci **Obnova dat**.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Z jakých typů jednotek mohu zálohovat soubory a složky? <br/>
 Následující jednotky/svazky nelze zálohovat:
@@ -105,9 +105,9 @@ Ne. Trezor je vytvořený na úrovni předplatného a po vytvoření ho nelze p�
 Ano. Služba agenta během přípravy operace zálohování převádí odstraněná duplicitní data na normální data. Poté optimalizuje data pro zálohování, zašifruje je, a zašifrovaná data odešle do online služby zálohování.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Pokud zruším úlohu zálohování poté, co již byla spuštěná, dojde k odstranění přenášených dat? <br/>
-Ne. Trezor záloh uloží všechna zálohovaná data, která byla přenesená až do okamžiku zrušení. Azure Backup používá mechanismus kontrolních bodů k příležitostnému přidávání kontrolních bodů do zálohovaných dat během zálohování. Díky kontrolním bodům v zálohovaných datech je možné při dalším procesu zálohování ověřit integritu souborů. Další aktivované zálohování pak bude přírůstkové přes data zálohovaná dříve. Přírůstkové zálohování poskytuje lepší využití šířky pásma, takže není nutné přenášet stejná data opakovaně.
+Ne. Všechna data přenesená do trezoru před bodem zrušení v trezoru zůstanou. Azure Backup používá mechanismus kontrolních bodů k příležitostnému přidávání kontrolních bodů do zálohovaných dat během zálohování. Díky kontrolním bodům v zálohovaných datech je možné při dalším procesu zálohování ověřit integritu souborů. Následující zálohování proběhne jako přírůstkové vzhledem k naposledy zálohovaným datům. Přírůstkové zálohování přenáší jen nová nebo změněná data, což znamená lepší využití přenosové kapacity.
 
-V případě zálohování virtuálních počítačů Azure pokud dojde ke zrušení úlohy, přenášená data jsou ignorována a čerstvá záloha přenese přírůstková data z předchozí úspěšné úlohy zálohování.
+Když ve virtuálním počítači Azure zrušíte úlohu zálohování, budou dosud přenesená data ignorována. Při následujícím přírůstkovém zálohování se přenesou data, která se změnila od poslední úspěšně dokončené úlohy zálohování.
 
 ## <a name="why-am-i-seeing-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-had-scheduled-regular-backups-previously-br"></a>Proč se zobrazuje upozornění „Zálohování Azure nebyla pro tento server konfigurovaná“ i přesto, že jsem už dříve naplánoval pravidelná zálohování? <br/>
 Toto upozornění se zobrazí v případě, že se nastavení plánu zálohování uložené na místním serveru neshodují s nastaveními uloženými v trezoru záloh. Pokud došlo k obnovení serveru nebo nastavení do známého stavu, může dojít ke ztrátě synchronizace plánů zálohování. Pokud se zobrazí toto upozornění, [překonfigurujte zásadu zálohování](backup-azure-manage-windows-server.md) a poté **spusťte Zálohovat nyní**, aby došlo k opětovné synchronizaci místního serveru s Azure. 
@@ -122,16 +122,16 @@ Kvůli bezproblémové ochraně dat odesílaných z místních prostředků nebo
 * \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Mohu nainstalovat agenta Azure Backup na virtuální počítač Azure, který už je zálohovaný službou Azure Backup pomocí rozšíření virtuálního počítače? <br/>
-Jistě. Azure Backup poskytuje zálohování na úrovni virtuálních počítačů pro virtuální počítače Azure, které používají rozšíření virtuálního počítače. Chcete-li chránit soubory a složky na hostovaném operačním systému Windows, můžete na něj nainstalovat agenta Azure Backup.
+Jistě. Azure Backup poskytuje zálohování na úrovni virtuálních počítačů pro virtuální počítače Azure, které používají rozšíření virtuálního počítače. Pokud chcete chránit soubory a složky na hostovaném operačním systému Windows, nainstalujte na něj agenta Azure Backup.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Mohu nainstalovat agenta Azure Backup na virtuální počítač Azure a použít ho k zálohování souborů a složek umístěných na dočasném úložišti poskytnutém virtuálním počítačem Azure? <br/>
-Agenta Azure Backup můžete nainstalovat na hostovaný operační systém Windows a zálohovat soubory a složky na dočasné úložiště. Nicméně počítejte s tím, že zálohy selžou, jakmile dojde k vymazání dat na dočasném úložišti.  Navíc pokud dojde k vymazání dat na dočasném úložišti, budete moci provést obnovení pouze na stálé úložiště.
+Ano. Nainstalujte agenta Azure Backup na hostovaný operační systém Windows a zálohujte soubory a složky do dočasného úložiště. Nicméně počítejte s tím, že zálohy selžou, jakmile dojde k vymazání dat na dočasném úložišti. Navíc pokud dojde k vymazání dat na dočasném úložišti, budete moci provést obnovení pouze na stálé úložiště.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Nainstaloval jsem agenta Azure Backup, aby chránil moje soubory a složky. Mohu nyní do Azure nainstalovat SCDPM, aby spolupracoval s Azure Backup při ochraně místních aplikací a úloh virtuálního počítače? <br/>
-Chcete-li používat Azure Backup s SCDPM, doporučujeme nejdříve nainstalovat SCDPM a až poté nainstalovat agenta Azure Backup. To zajistí bezproblémovou integraci agenta Azure Backup s SCDPM a umožní ochranu souborů a složek, úloh aplikací a virtuálních počítačů do Azure přímo z konzoly pro správu SCDPM. Instalovat SCDPM až po instalaci agenta Azure Backup pro výše uvedené účely se nedoporučuje ani nepodporuje.
+Když chcete používat Azure Backup se sadou System Center Data Protection Manager (DPM), nainstalujte nejprve DPM a až potom agenta Azure Backup. Instalaci součástí Azure Backup v tomto pořadí zajistí, že agent Azure Backup bude fungovat se sadou DPM. Instalovat agenta Azure Backup dříve než DPM se nedoporučuje ani nepodporuje.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Jaká je maximální délka cesty k souboru, kterou lze zadat jako součást zásady Azure Backup pomocí agenta Azure Backup? <br/>
-Agent Azure Backup se spoléhá na systém souborů NTFS. [Specifikace délky cesty k souboru je omezená rozhraním API systému Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). V případě zálohování souborů, u nichž cesta k souboru přesahuje délku určenou rozhraním API systému Windows, můžete k zálohování zvolit nadřazenou složku nebo diskovou jednotku se soubory, které chcete zálohovat.  
+Agent Azure Backup se spoléhá na systém souborů NTFS. [Specifikace délky cesty k souboru je omezená rozhraním API systému Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Při zálohování souborů, u nichž je délka cesty k souboru větší než povoluje rozhraní API systému Windows, můžete k zálohování zvolit nadřazenou složku nebo diskovou jednotku se soubory, které chcete zálohovat.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Jaké znaky jsou povolené v cestě k souboru zásady Azure Backup pomocí agenta Azure Backup? <br>
  Agent Azure Backup se spoléhá na systém souborů NTFS. Pro specifikaci souboru povoluje [znaky podporované systémem souborů NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions).  
@@ -143,12 +143,12 @@ Ano.
 Ano, služba Backup obsahuje několik výstrah založených na událostech, které lze použít ve skriptu prostředí PowerShell. Úplný popis najdete v tématu [Oznámení o upozorněních](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Existuje nějaké omezení velikosti jednotlivých zdrojů zálohovaných dat? <br/>
-Zatímco na úrovni trezoru není množství dat, která lze zálohovat, nijak omezeno, u Azure Backup platí omezení (pro všechny praktické účely jsou limity dostatečně vysoké) maximální velikosti zdroje dat. K srpnu 2015 je maximální velikost zdroje dat pro podporované operační systémy:
+Množství dat, která můžete do trezoru zálohovat, není nijak omezené. Azure Backup omezuje maximální velikost pro zdroj dat, ale tato omezení jsou značně velká. K srpnu 2015 je maximální velikost zdroje dat pro podporované operační systémy:
 
 | Zdroj č. | Operační systém | Maximální velikost zdroje dat |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 nebo novější |54400 GB |
-| 2 |Windows 8 nebo novější |54400 GB |
+| 1 |Windows Server 2012 nebo novější |54 400 GB |
+| 2 |Windows 8 nebo novější |54 400 GB |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 
@@ -197,7 +197,7 @@ Ne. Omezení počtu bodů obnovení jsme odstranili. Můžete vytvořit tolik bo
  Všechna data zálohovaná z agenta Azure Backup, SCDPM nebo serveru Azure Backup, projdou před odesláním kompresí a šifrováním. Po kompresi a šifrování jsou data v trezoru záloh o 30-40 % menší.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Existuje způsob, jak nastavit šířku pásma používaného službou Backup?<br/>
- Ano, k úpravě šířky pásma použijte možnost **Změnit vlastnosti** v agentu Backup. Upravte šířku pásma a dobu, kdy tuto šířku pásma používáte. Další informace najdete v tématu **Povolení omezení využití sítě (volitelné)** v článku [Zálohování klienta nebo Windows Serveru do Azure s využitím modelu nasazení Resource Manager](backup-configure-vault.md).
+ Ano, k úpravě šířky pásma použijte možnost **Změnit vlastnosti** v agentu Backup. Můžete upravit šířku pásma a dobu, kdy tuto šířku pásma používáte. Podrobné pokyny najdete v tématu **[Povolení omezení využití sítě](backup-configure-vault.md#enable-network-throttling)** v článku Zálohování klienta nebo Windows Serveru do Azure s využitím modelu nasazení Resource Manageru.
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure-br"></a>Moje šířka internetového pásma je omezená pro množství dat, která potřebuji zálohovat. Existuje způsob, jak přenést data do určitého umístění s velkým síťovým kanálem a předat je do Azure? <br/>
 Data do Azure můžete zálohovat přes standardní online proces zálohování, nebo můžete využít službu Import/export úložiště Azure pro přenos dat do úložiště objektů blob v Azure. Jiný způsob přenosu zálohovaných dat do úložiště Azure neexistuje. Informace o tom, jak používat službu Import/export úložiště Azure s Azure Backup naleznete v článku [Pracovní postup offline zálohování](backup-azure-backup-import-export.md).
@@ -212,7 +212,7 @@ Počet obnovení z Azure Backup není omezený.
 Ano. Data jsou zašifrována na místním serveru, klientu nebo počítači SCDPM pomocí AES256 a odesílaná jsou přes zabezpečené spojení HTTPS.
 
 ## <a name="is-the-backup-data-on-azure-encrypted-as-wellbr"></a>Jsou šifrovaná i zálohovaná data v Azure?<br/>
- Ano. Data odeslaná do Azure zůstávají šifrovaná (neaktivní uložená data). Microsoft nikdy nedešifruje zálohovaná data. V případě zálohování virtuálních počítačů Azure se Azure Backup spoléhá na šifrování virtuálního počítače tj. pokud je váš virtuální počítač šifrovaný pomocí služby Azure Disk Encryption nebo jiné technologie šifrování, Azure Backup k zabezpečení dat použije toto šifrování.
+ Ano. Data odeslaná do Azure zůstávají šifrovaná (neaktivní uložená data). Microsoft nikdy nedešifruje zálohovaná data. Při zálohování virtuálního počítače Azure spoléhá služba Azure Backup na šifrování virtuálního počítače. Například pokud je váš virtuální počítač šifrovaný pomocí služby Azure Disk Encryption nebo jiné technologie šifrování, Azure Backup k zabezpečení dat použije toto šifrování.
 
 ## <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Jaká je minimální délka šifrovacího klíče, který se používá k šifrování zálohovaných dat? <br/>
  Šifrovací klíč by měl obsahovat alespoň 16 znaků.
@@ -221,7 +221,7 @@ Ano. Data jsou zašifrována na místním serveru, klientu nebo počítači SCDP
 Klíč, pomocí kterého se šifrují zálohovaná data, je přítomen pouze u zákazníka. Microsoft neudržuje jeho kopii v Azure a nemá ke klíči žádný přístup. Pokud zákazník klíč ztratí, Microsoft nemůže zálohovaná data obnovit.
 
 ## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Jak změním umístění mezipaměti, zadané pro agenta Azure Backup?<br/>
- Chcete-li změnit umístění mezipaměti, postupujte podle následujícího seznamu.
+ Umístění mezipaměti můžete změnit podle následujícího postupu.
 
 * Zastavte modul zálohování spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními:
 
@@ -255,10 +255,26 @@ Pro složku mezipaměti nedoporučujeme používat následující umístění:
 * Řídké
 * Bod rozboru
 
-Pro správné fungování agenta Azure Backup doporučujeme, aby složka mezipaměti ani metadata virtuálního pevného disku neobsahovaly výše uvedené atributy.
+Složka mezipaměti ani metadata virtuálního pevného nemají atributy vyžadované pro agenta Azure Backup.
+
+## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Trezory služby Recovery Services jsou založené na Resource Manageru. Jsou trezory služby Backup (v klasickém režimu) stále podporovány? <br/>
+Ano, trezory Backup jsou stále podporovány. Trezory Backup vytvářejte na [portálu Classic](https://manage.windowsazure.com). Trezory Recovery Services vytvářejte na webu [Azure Portal](https://portal.azure.com). Důrazně ale doporučujeme, abyste si vytvořili trezor Recovery Services, protože všechna budoucí vylepšení budou dostupná jenom pro trezory Recovery Services.
+
+## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Můžu migrovat trezor Backup do trezoru Služeb zotavení? <br/>
+Bohužel ne. Obsah trezoru Backup nyní nejde migrovat do trezoru Služeb zotavení. Na přidání této funkce pracujeme, zatím ale není dostupná.
+
+## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Podporují trezory Recovery Services klasické virtuální počítače nebo virtuální počítače využívající Resource Manager? <br/>
+Trezory Recovery Services podporují oba modely.  Do trezoru služby Recovery Services můžete zálohovat klasický virtuální počítač (vytvořený na portálu Classic) nebo virtuální počítač vytvořený pomocí Resource Manageru (na webu Azure Portal).
+
+## <a name="i-have-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Svoje klasické virtuální počítače jsem zálohoval do trezoru služby Backup. Můžu migrovat svoje virtuální počítače z klasického režimu do režimu Resource Manageru a chránit je pomocí trezoru služby Recovery Services?
+Při převádění virtuálních počítačů z klasického režimu do režimu Resource Manageru Body neproběhne automatická migrace bodů obnovení klasických virtuálních počítačů do trezoru služby Recovery Services. Při převedení záloh virtuálních počítačů použijte tento postup:
+
+1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**.
+2. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a síť odpovídající tomuto virtuálnímu počítači.
+3. Vytvořte trezor služby Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Podrobnosti o zálohování virtuálních počítačů do trezoru služby Recovery Services naleznete v tématu [První pohled: Ochrana virtuálních počítačů s trezorem Recovery Services](backup-azure-vms-first-look-arm.md).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-Soubor nastavení JSON obsahuje seznam modulů, které se mají načíst. Každý modul musí určovat tyto údaje:
+Soubor nastavení JSON obsahuje seznam modulů, které se mají načíst, a propojení mezi těmito moduly.
+Každý modul musí určovat tyto údaje:
 
-* **module_name**: jedinečný název modulu.
-* **module_path**: cesta ke knihovně obsahující modul. V systému Linux se jedná o soubor .so, v systému Windows o soubor .dll.
+* **name**: jedinečný název modulu.
+* **loader**: zavaděč, který umí načíst požadovaný modul.  Zavaděče jsou rozšiřovacím bodem pro načítání různých typů modulů. Poskytujeme zavaděče pro použití s moduly napsanými v nativním C, Node.js, Javě a .NET. Ukázka Hello World používá pouze nativní zavaděč, protože všechny moduly v této ukázce jsou dynamické knihovny napsané v C. Další informace o používání modulů napsaných v jiných jazycích najdete v ukázkách [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) a [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
+    * **name**: název zavaděče sloužícího k načtení modulu.  
+    * **entrypoint**: cesta ke knihovně obsahující modul. V systému Linux se jedná o soubor .so, v systému Windows o soubor .dll. Všimněte si, že tento vstupní bod se odvíjí od typu použitého zavaděče. Například vstupním bodem zavaděče Node.js je soubor .js, vstupním bodem zavaděče Java je cesta k třídě + název třídy a vstupním bodem zavaděče .NET je název sestavení + název třídy.
+
 * **args**: libovolné konfigurační informace, které modul vyžaduje.
+
+Následující kód ukazuje kód JSON, který deklaruje všechny moduly pro ukázku Hello World na Linuxu. Jestli modul vyžaduje nějaké argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru, a modul Hello World nepřebírá žádné argumenty.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 Soubor JSON obsahuje také propojení mezi moduly, která se předají do zprostředkovatele. Propojení má dvě vlastnosti:
 
@@ -69,35 +101,16 @@ Soubor JSON obsahuje také propojení mezi moduly, která se předají do zprost
 
 Každé propojení definuje trasu a směr zpráv. Zprávy z modulu `source` se doručí do modulu `sink`. Hodnota `source` může být nastavená na „\*“, což značí, že modul `sink` bude přijímat zprávy ze všech modulů.
 
-Následující příklad ukazuje soubor nastavení JSON, který se používá ke konfiguraci ukázky Hello World v systému Linux. Všechny zprávy vytvořené modulem `hello_world` budou využité modulem `logger`. Jestli modul vyžaduje argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru. Modul Hello World nepřebírá žádné argumenty:
+Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly použitými v ukázce Hello World na Linuxu. Všechny zprávy vytvořené modulem `hello_world` budou využité modulem `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Publikování zpráv modulu Hello World
@@ -216,6 +229,6 @@ Další informace o použití sady IoT Gateway SDK najdete v následujících t�
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

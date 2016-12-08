@@ -1,22 +1,22 @@
 ---
 title: Co je Azure Relay? | Dokumentace Microsoftu
 description: "Přehled služby Azure Relay"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: banisadr
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/28/2016
-ms.author: babanisa
+ms.date: 11/16/2016
+ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dc81f26a64b376eb34894268ea0b17152647ed79
-ms.openlocfilehash: c4c01d1a7a82fe9d696223a5abc05f559ead0f6a
+ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
+ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
 
 
 ---
@@ -32,7 +32,7 @@ Mezi klíčové schopnosti, které služba Relay nabízí, patří obousměrná 
 Azure Relay má dvě funkce:
 
 1. [Hybridní připojení](#hybrid-connections) – Pomocí otevřených webových soketů umožňuje scénáře s podporou více platforem.
-2. [Přenosy WCF](#wcf-relays) – Pomocí technologie Windows Communication Foundation (WCF) umožňuje vzdálená volání procedur.
+2. [Přenosy WCF](#wcf-relays) – Pomocí technologie Windows Communication Foundation (WCF) umožňuje vzdálená volání procedur. WCF Relay je starší verze nabídky služby Relay kterou již mnozí uživatelé používají ve svých programovacích modelech WCF.
 
 Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k prostředkům existujícím v rámci podnikové sítě. Použití jedné nebo druhé funkce závisí na konkrétních požadavcích, jak je popsáno v následující tabulce:
 
@@ -40,7 +40,7 @@ Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k pro
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |x |
+| **.NET Framework** |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Otevřený protokol založený na standardech** | |x |
@@ -49,15 +49,13 @@ Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k pro
 *Podle všeobecné dostupnosti
 
 ## <a name="hybrid-connections"></a>Hybridní připojení
-Schopnost zabezpečených hybridních připojení služby Azure Relay s podporou otevřených protokolů je důsledkem vývoje stávajících funkcí služby Relay. Hybridní připojení můžete nasadit na jakékoli platformě a v libovolném jazyku se základní podporou protokolu WebSocket, konkrétně rozhraní WebSocket API v běžných webových prohlížečích. Hybridní připojení jsou založená na protokolech HTTP a WebSocket.
+Schopnost zabezpečených [hybridních připojení služby Azure Relay](relay-hybrid-connections-protocol.md) s podporou otevřených protokolů je důsledkem vývoje stávajících funkcí služby Relay. Hybridní připojení můžete nasadit na jakékoli platformě a v libovolném jazyku se základní podporou protokolu WebSocket, konkrétně rozhraní WebSocket API v běžných webových prohlížečích. Hybridní připojení jsou založená na protokolech HTTP a WebSocket.
 
 ## <a name="wcf-relays"></a>Přenosy WCF
 Služba WCF Relay funguje s celým rozhraním .NET Framework (NETFX) i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu.
 
 ## <a name="service-history"></a>Historie služby
 Hybridní připojení nahrazuje starší funkci služby BizTalk Services se stejným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost hybridních připojení doplňuje stávající službu WCF Relay a tyto dvě schopnosti služby v dohledné budoucnosti budou existovat vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
-
-WCF Relay je starší verze nabídky služby Relay kterou již mnozí uživatelé používají ve svých programovacích modelech WCF.
 
 ## <a name="next-steps"></a>Další kroky:
 * [Přenos – nejčastější dotazy](relay-faq.md)
@@ -68,6 +66,6 @@ WCF Relay je starší verze nabídky služby Relay kterou již mnozí uživatel�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Správa zabezpečení v Azure | Dokumentace Microsoftu"
-description: " Tento článek popisuje kroky pro zlepšení zabezpečení vzdálené správy při správě prostředí Microsoft Azure včetně cloudových služeb, služby Virtual Machines a vlastních aplikací."
+description: "Tento článek popisuje kroky pro zlepšení zabezpečení vzdálené správy při správě prostředí Microsoft Azure včetně cloudových služeb, služby Virtual Machines a vlastních aplikací."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: f44ecd49d034ef6ec82baa402e613308a5b3e1a9
+ms.openlocfilehash: 5cee18e58bcf505547315e14dd378b36c0b3f651
 
 
 ---
@@ -70,19 +70,19 @@ Azure nabízí mechanismy zabezpečení na podporu správců, kteří spravují 
 * webový portál pro správu
 * filtrování síťových paketů
 
-V kombinaci konfigurace zabezpečení na straně klienta a datacenter s nasazenou bránou pro správu můžete omezit a sledovat přístup správce ke cloudovým aplikacím a datům.
+S konfigurací zabezpečení na straně klienta a s bránou pro správu nasazenou v datovém centru můžete omezit a sledovat přístup správce ke cloudovým aplikacím a datům.
 
 > [!NOTE]
 > Některá doporučení v tomto článku můžou vést k vyšší spotřebě datových, síťových nebo počítačových prostředků a můžou zvýšit náklady na licence nebo předplatné.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Posílené pracovní stanice pro správu
 Cílem posílení pracovní stanice je odstranění všech funkcí, kromě těch nejdůležitějších (které jsou nutné pro provoz), abyste maximálně zmenšili prostor k útoku. Posílení systému zahrnuje minimalizaci počtu nainstalovaných služeb a aplikací, omezení provádění aplikací, omezení přístupu k síti jenom na to nejnutnější a udržování systému v plně aktuálním stavu. Kromě toho používání posílené pracovní stanice pro správu odlučuje nástroje a činnosti správy od jiných úloh koncových uživatelů.
 
 V rámci místního podnikového prostředí můžete omezit prostor k útoku na fyzickou infrastrukturu pomocí vyhrazené správy sítí, serverových místností s přístupem na kartu a pracovních stanic, které běží v chráněných oblastech sítě. V případě cloudu nebo modelu hybridního IT může být péče o služby zabezpečené správy složitější z důvodu nedostatku fyzického přístupu k prostředkům IT. Implementace řešení ochrany vyžaduje pečlivou konfiguraci softwaru, procesy zaměřené na zabezpečení a všestranné zásady.
 
-Používáním softwaru s minimálními oprávněními na uzamknuté pracovní stanici pro správu cloudu (i pro vývoj aplikací) můžete snížit riziko bezpečnostních incidentů, protože tak můžete standardizovat prostředí vzdálené správy a vývoje. Konfigurace posílené pracovní stanice pomůže s ochranou před narušením zabezpečení účtů, které se používají ke správě důležitých cloudových prostředků, protože uzavře řadu běžných cest, kudy přichází malware a různá zneužití. K řízení a izolování chování klientského systému a ke zmírnění hrozeb, včetně prohlížení e-mailu a internetu, můžete konkrétně použít [nástroj Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) a technologii Hyper-V.
+Používáním softwaru s minimálními oprávněními na uzamknuté pracovní stanici pro správu cloudu (a pro vývoj aplikací) můžete snížit riziko bezpečnostních incidentů, protože tak můžete standardizovat prostředí vzdálené správy a vývoje. Konfigurace posílené pracovní stanice pomůže s ochranou před narušením zabezpečení účtů, které se používají ke správě důležitých cloudových prostředků, protože uzavře řadu běžných cest, kudy přichází malware a různá zneužití. K řízení a izolování chování klientského systému a ke zmírnění hrozeb, včetně prohlížení e-mailu a internetu, můžete konkrétně použít [nástroj Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) a technologii Hyper-V.
 
 Na posílené pracovní stanici správce používá běžný uživatelský účet (která blokuje akce na úrovni pro správu) a přidružené aplikace se řídí pomocí seznamu povolených položek. Základní prvky posílené pracovní stanice jsou následující:
 
@@ -106,23 +106,23 @@ Pokud chcete centralizovat veškerý přístup pro správu a zjednodušit sledov
 
 Brána vzdálené plochy je proxy služba protokolu RDP založená na zásadách, která vynucuje požadavky na zabezpečení. Zavedení brány VP spolu s architekturou NAP (Network Access Protection) pro Windows Server pomáhá zajistit, že se připojí pouze klienti, kteří splňují konkrétní bezpečnostní kritéria stanovená objekty zásad skupiny (GPO) ve službě Active Directory Domain Services (AD DS). Navíc platí:
 
-* Na bráně VP zřiďte [certifikát pro správu Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx), aby byla jediným hostitelem s povoleným přístupem k portálu pro správu Azure.
+* Na bráně VP zřiďte [certifikát pro správu Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx), aby byla jediným hostitelem s povoleným přístupem k webu Azure Portal.
 * Připojte bránu VP ke stejné [doméně pro správu](http://technet.microsoft.com/library/bb727085.aspx) jako pracovní stanice správce. Je to nezbytné, když používáte VPN typu site-to-site s protokolem IPsec nebo ExpressRoute v rámci domény, která má jednosměrný vztah důvěryhodnosti k Azure AD, nebo pokud federujete přihlašovací údaje mezi místní instancí AD DS a Azure AD.
-* Pokud chcete, aby brána VP ověřila platnost názvu klientského počítače (propojení s doménou) a povolila přístup k portálu pro správu Azure, na konfigurujte [zásady autorizace připojení klienta](http://technet.microsoft.com/library/cc753324.aspx).
+* Pokud chcete, aby brána VP ověřila platnost názvu klientského počítače (propojení s doménou) a povolila přístup k webu Azure Portal, na konfigurujte [zásady autorizace připojení klienta](http://technet.microsoft.com/library/cc753324.aspx).
 * Protokol IPsec pro [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) slouží k ochraně před odposloucháváním provozu správy a před odcizením tokenu. Popřípadě zvažte použití izolovaného internetového odkazu prostřednictvím [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Povolte vícefaktorové ověřování (prostřednictvím služby [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) nebo ověřování pomocí čipové karty, aby ho mohli používat správci, kteří se připojují prostřednictvím brány VP.
 * Pokud chcete minimalizovat počet povolených koncových bodů pro správu, nakonfigurujte v Azure [omezení IP adres](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) nebo [skupiny zabezpečení sítě](../virtual-network/virtual-networks-nsg.md) prostředku.
 
 ## <a name="security-guidelines"></a>Pokyny pro zabezpečení
-Obecně platí, že zabezpečení pracovních stanic správce používaných s cloudem je velmi podobné postupům používaným pro všechny místní pracovní stanice – například minimalizovaná oprávnění k sestavení a omezující oprávnění. Některé jedinečné aspekty správy cloudu se více podobají vzdálené nebo podnikové správě mimo IP síť. Patří sem používání a auditování přihlašovacích údajů, vzdálený přístup s rozšířeným zabezpečením a detekce a reakce na ohrožení.
+Obecně platí, že zabezpečení pracovních stanic správce používaných s cloudem je podobné postupům používaným pro všechny místní pracovní stanice – například minimalizovaná oprávnění k sestavení a omezující oprávnění. Některé jedinečné aspekty správy cloudu se více podobají vzdálené nebo podnikové správě mimo IP síť. Patří sem používání a auditování přihlašovacích údajů, vzdálený přístup s rozšířeným zabezpečením a detekce a reakce na ohrožení.
 
 ### <a name="authentication"></a>Ověřování
-K omezení zdrojových IP adres pro přístup k nástrojům pro správu a požadavkům na audit přístupu můžete použít přihlašovací omezení Azure. Abyste Azure pomohli s identifikací klientů pro správu (pracovní stanice nebo aplikace), můžete nakonfigurovat rozhraní SMAPI (prostřednictvím zákazníkem vyvinutých nástrojů, například rutin Windows PowerShell) a portál pro správu Azure tak, aby na straně klienta vyžadovaly instalaci certifikátů pro správu (kromě certifikátů SSL). V případě přístupu pro správce doporučujeme vyžadovat vícefaktorové ověřování.
+K omezení zdrojových IP adres pro přístup k nástrojům pro správu a požadavkům na audit přístupu můžete použít přihlašovací omezení Azure. Abyste Azure pomohli s identifikací klientů pro správu (pracovní stanice nebo aplikace), můžete nakonfigurovat rozhraní SMAPI (prostřednictvím zákazníkem vyvinutých nástrojů, například rutin Windows PowerShell) a web Azure Portal tak, aby na straně klienta vyžadovaly instalaci certifikátů pro správu (kromě certifikátů SSL). V případě přístupu pro správce doporučujeme vyžadovat vícefaktorové ověřování.
 
 Některé aplikace nebo služby, které nasadíte do Azure, můžou mít vlastní mechanismy ověřování pro přístup koncových uživatelů i správce, zatímco ostatní plně využívají výhody Azure AD. V závislosti na tom, jestli federujete přihlašovací údaje prostřednictvím služby Active Directory Federation Services (AD FS), vám synchronizace adresářů nebo správa uživatelských účtů výhradně v cloudu a pomocí [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (část Azure AD Premium) pomůže se správou životních cyklů identit mezi prostředky.
 
 ### <a name="connectivity"></a>Připojení
-K zabezpečení připojení klientů k virtuálním sítím Azure je k dispozici několik mechanismů. Dva z těchto mechanismů [VPN typu site-to-site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) a [VPN typu point-to-site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) umožňují používání standardního protokolu IPsec (S2S) nebo SSTP ([Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx)) (P2S) pro šifrování a tunelové propojení. Když se Azure připojuje ke správě veřejně přístupných služeb Azure, například k portálu pro správu Azure, vyžaduje protokol HTTPS (Hypertext Transfer Protocol Secure).
+K zabezpečení připojení klientů k virtuálním sítím Azure je k dispozici několik mechanismů. Dva z těchto mechanismů [VPN typu site-to-site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) a [VPN typu point-to-site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) umožňují používání standardního protokolu IPsec (S2S) nebo SSTP ([Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx)) (P2S) pro šifrování a tunelové propojení. Když se Azure připojuje ke správě veřejně přístupných služeb Azure, například k webu Azure Portal, vyžaduje protokol HTTPS (Hypertext Transfer Protocol Secure).
 
 Samostatná posílená pracovní stanice, která není k Azure připojená prostřednictvím brány VP, musí k vytvoření počátečního připojení ke službě Azure Virtual Network používat síť VPN typu Point-to-Site s protokolem SSTP a potom musí vytvořit připojení RDP k jednotlivým virtuální počítačům zevnitř tunelu VPN.
 
@@ -139,13 +139,13 @@ V případě posílených pracovních stanic doporučujeme, tři primární konf
 | Konfigurace | Výhody | Nevýhody |
 | --- | --- | --- |
 | Samostatná posílená pracovní stanice |Přísně řízená pracovní stanice |vyšší náklady na vyhrazené stolní počítače |
-| Menší riziko zneužití aplikací |Zvýšené úsilí vynaložené na správu | |
-| Jasné oddělení povinností | | |
-| Podnikový počítač jako virtuální počítač |Snížení náklady na hardware | |
-| Odloučení role a aplikací | | |
+| - | Menší riziko zneužití aplikací |Zvýšené úsilí vynaložené na správu |
+| - | Jasné oddělení povinností | - |
+| Podnikový počítač jako virtuální počítač |Snížení náklady na hardware | - |
+| - | Odloučení role a aplikací | - |
 | Windows používá šifrování jednotky pomocí BitLockeru |Kompatibilita s většinou počítačů |Sledování prostředků |
-| Nákladová efektivnost a přenositelnost | | |
-| Izolované prostředí správy | | |
+| - | Nákladová efektivnost a přenositelnost | - |
+| - | Izolované prostředí správy |- |
 
 Je důležité, aby posílená pracovní stanice byla hostitelem a ne hostem a aby neobsahovala nic, co by stálo mezi hostitelským operačním systémem a hardwarem. Dodržování „zásady čistého zdroje“ (také označovaného jako „bezpečný původ“) znamená, že hostitel musí být posílený nejvíc. V opačném případě bude posílená pracovní stanice (host) terčem útoků na systém, na kterém je hostovaná.
 
@@ -153,7 +153,7 @@ Funkce správy můžete odloučit ještě pomocí vyhrazených imagů systému p
 
 V případě prostředí IT, která nemají místní infrastrukturu (například žádný přístup k místní instanci AD DS pro GPO, protože všechny servery jsou v cloudu), můžou služby jako [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) zjednodušit nasazování a údržbu konfigurací pracovních stanic.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Samostatná posílená pracovní stanice určená pro správu
+### <a name="stand-alone-hardened-workstation-for-management"></a>Samostatná posílená pracovní stanice určená pro správu
 V případě samostatné posílené pracovní stanice mají správci stolní nebo přenosný počítač používaný pro úlohy správy a jiný, samostatný stolní nebo přenosný počítač pro úlohy, které nepotřebují žádné oprávnění. Pracovní stanice vyhrazená pro správu služeb Azure nepotřebuje instalaci dalších aplikací. Kromě toho používání pracovních stanic, které podporují [služby TPM (Trusted Platform Module)](https://technet.microsoft.com/library/cc766159) (TPM) nebo podobné technologie šifrování na úrovni hardwaru, usnadňuje ověřování zařízení a ochranu před napadením. TPM může také podporovat ochranu celého svazku systémové jednotky jejím [šifrováním pomocí BitLockeru](https://technet.microsoft.com/library/cc732774.aspx).
 
 V případě scénáře se samostatnou posílenou pracovní stanicí (viz následující obrázek) je místní instance brány Windows Firewall (nebo brány firewall klienta jiného výrobce) nakonfigurovaná tak, aby blokovala příchozí připojení, například RDP. Správce se může přihlásit k posílené pracovní stanici a spustit relaci RDP, která se připojuje k Azure po navázání připojení VPN ke službě Azure Virtual Network, ale nemůže se přihlásit k podnikovému počítači pomocí RDP, aby se připojil k samotné posílené pracovní stanici.
@@ -187,14 +187,14 @@ Nepředpokládejte, že po uzamčení pracovní stanice už není nutné splnit 
 | Chybný postup | Správný postup |
 | --- | --- |
 | Neposílejte přihlašovací údaje pro přístup správce nebo jiné tajné údaje e-mailem (např. SSL nebo certifikáty pro správu). |Zachovávejte důvěrnost tak, že názvy účtů a hesla sdělíte ústně (ale neukládejte je do hlasové pošty), provádějte vzdálenou instalaci certifikátů klienta a serveru (prostřednictvím šifrované relace), stahujte z chráněných síťových sdílených položek nebo data předávejte ručně pomocí vyměnitelného média. |
-| Životní cykly certifikátu pro správu spravujte proaktivně. | |
+| - | Životní cykly certifikátu pro správu spravujte proaktivně. |
 | Neukládejte hesla účtů do úložiště aplikací (například tabulek, webů SharePoint nebo sdílených složek) v nezašifrované podobě nebo bez použití algoritmu hash. |Vytvořte zásady pro správu zabezpečení a zásady pro posilování systému a používejte je na svoje vývojové prostředí. |
-| K zajištění řádného přístup k webům Azure s protokoly SSL a TLS používejte pravidla pro připnutí certifikátu ze sady nástrojů [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751). | |
+| - | K zajištění řádného přístup k webům Azure s protokoly SSL a TLS používejte pravidla pro připnutí certifikátu ze sady nástrojů [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751). |
 | Nesdílejte účty a hesla mezi správci a nepoužívejte stejné heslo pro několik účtů nebo služeb (zejména v případě účtů na sociálních sítích nebo účtů pro jiné běžné aktivity). |Vytvořte si vyhrazený účet Microsoft pro správu svého předplatného Azure – účet, který nebudete používat pro osobní e-maily. |
 | Konfigurační soubory neposílejte e-mailem. |Konfigurační soubory a profily vždy instalujte z důvěryhodného zdroje (například ze šifrovaného USB flash disku). Nepoužívejte mechanismy, který se dají snadno ohrozit, například e-mail. |
 | Nepoužívejte slabá nebo jednoduchá přihlašovací hesla. |Prosazujte zásady silných hesel, cykly vypršení platnosti (změna po prvním použití), časové limity konzoly a automatické uzamykání účtů. K přístupu do úložiště hesel používejte systém pro správu hesel klientů s vícefaktorovým ověřováním. |
 | Nevystavujte porty pro správu přístupu z internetu. |Uzamkněte porty a IP adresy Azure a omezte tak přístup ke správě. Další informace najdete v dokumentu white paper k [zabezpečení sítě Azure](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
-| Používejte bránu firewall, připojení VPN a architektury NAP pro všechna připojení správy. | |
+| - | Používejte bránu firewall, připojení VPN a architektury NAP pro všechna připojení správy. |
 
 ## <a name="azure-operations"></a>Provoz Azure
 Provozní technici a zaměstnanci podpory Microsoftu, kteří přistupují k produkčním systémům Azure, používají [posílené pracovní stanice s virtuálními počítači](#stand-alone-hardened-workstation-for-management), které jsou na nich zřízené pro potřeby interního přístupu k podnikové síti a k aplikacím (například e-mailu, intranetu atd.). Všechny počítače pracovních stanic pro správu jsou vybavené čipy TPM a spouštěcí jednotka hostitele je zašifrovaná pomocí BitLockeru. Počítače jsou připojené ke speciální organizační jednotce (OU) v primární podnikové doméně Microsoftu.
@@ -210,7 +210,7 @@ Minimalizace počtu úloh, které můžou správci provádět na posílené prac
 * Standardní uživatel. Práce v režimu standardního uživatele přináší řadu výhod. Největší z nich je ta, že krádež přihlašovacích údajů správce prostřednictvím malwaru je podstatně obtížnější. Standardní uživatelský účet kromě toho nemá oprávnění vyšší úrovně v kořenovém operačním systému a mnoho možností konfigurace a rozhraní API je ve výchozím nastavení uzamčeno.
 * AppLocker. K omezení programů a skriptů, které můžou uživatelé spouštět, můžete použít [AppLocker](http://technet.microsoft.com/library/ee619725.aspx). AppLocker můžete spustit v režimu auditování nebo vynucení. Ve výchozím nastavení má AppLocker povolovací pravidlo, které umožňuje uživatelům s tokenem správce spouštět všechny kódy na straně klienta. Účelem tohoto pravidla je ochrana správců před tím, aby sami sebe uzamkli a platí jenom pro zvýšené tokeny. Další informace najdete v článku o integritě kódu jako součásti [zabezpečení jádra](http://technet.microsoft.com/library/dd348705.aspx) systému Windows Server.
 * Podepisování kódu. Podepisování kódu všech nástrojů a skriptů, které správci používají, nabízí ovladatelné mechanismy pro nasazování zásad, které slouží k uzamčení aplikací. Škálování algoritmů hash neodpovídá rychlým změnám kódu a cesty k souborům neposkytují vysokou úroveň zabezpečení. Doporučujeme, abyste zkombinovali pravidla AppLockeru se [zásadami spouštění](http://technet.microsoft.com/library/ee176961.aspx) prostředí PowerShell, které umožňuje [spouštění](http://technet.microsoft.com/library/hh849812.aspx) jenom konkrétních podepsaných kódů a skriptů.
-* Zásady skupiny. Vytvořte globální zásady správy, které se budou používat na libovolné pracovní stanice domény, které se používají pro správu, (a zablokujte přístup ze všech ostatních) a také na uživatelské účty na těchto pracovních stanicích ověřené.
+* Zásady skupiny. Vytvořte globální zásady správy, které se budou používat na libovolné pracovní stanice domény, které se používají pro správu (a zablokujte přístup ze všech ostatních), a na uživatelské účty na těchto pracovních stanicích ověřené.
 * Zřizování s rozšířeným zabezpečením. Zabezpečte svůj image posílené pracovní stanice, abyste byli lépe chráněni před manipulací. Používejte bezpečnostní opatření, například šifrování a izolaci k ukládání imagů, virtuálních počítačů a skriptů a omezte přístup (použijte třeba auditovatelný proces vrácení a rezervace).
 * Opravy chyb. Udržujte konzistentní sestavení (nebo mějte samostatné image pro vývoj, provoz a další úlohy správy), pravidelně kontrolujte změny a malware, udržujte sestavení v aktuálním stavu a počítače aktivujte jenom v případě potřeby.
 * Šifrování. Zajistěte, aby pracovní stanice pro správu byly vybaveny čipy TPM pro bezpečnější povolování [systému souborů EFS](https://technet.microsoft.com/library/cc700811.aspx) (Encrypting File System) a BitLockeru. Pokud používáte Windows To Go, používejte jenom šifrované USB klíče spolu s BitLockerem.
@@ -235,6 +235,6 @@ Následující prostředky vám poskytnou další obecné informace o Azure a so
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

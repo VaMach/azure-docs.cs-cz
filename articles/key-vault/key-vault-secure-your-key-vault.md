@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5557dbef45d8599010a909635eebf399a5bcd2c8
 
 
 ---
@@ -71,7 +71,7 @@ K rozhraní roviny správy a roviny dat se přistupuje prostřednictvím různý
 ## <a name="management-plane-access-control"></a>Řízení přístupu roviny správy
 Rovina správy se skládá z operací, které mají vliv na samotný trezor klíčů. Můžete například vytvořit nebo odstranit trezor klíčů. Můžete získat seznam trezorů klíčů v určitém předplatném. Můžete načíst vlastnosti trezoru klíčů (například SKU, značky) a nastavit zásady přístupu trezoru klíčů, které řídí, kteří uživatelé a aplikace mají přístup ke klíčům a tajným klíčům v trezoru klíčů. Řízení přístupu roviny správy používá RBAC. Úplný seznam operací trezoru klíčů, které lze provádět prostřednictvím roviny správy, najdete v tabulce v předchozí části. 
 
-### <a name="rolebased-access-control-rbac"></a>Řízení přístupu podle role (RBAC)
+### <a name="role-based-access-control-rbac"></a>Řízení přístupu podle role (RBAC)
 Každé předplatné Azure zahrnuje službu (adresář) Azure Active Directory. Uživatelům, skupinám a aplikacím z tohoto adresáře lze udělit přístup ke správě prostředků v tomto předplatném Azure, které používají model nasazení Azure Resource Manager. Tento typ řízení přístupu je označován řízení přístupu podle role (RBAC). Ke správě tohoto přístupu můžete používat [Azure Portal](https://portal.azure.com/), [nástroje Azure CLI](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) nebo [rozhraní Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 S modelem Azure Resource Manager vytváříte trezor klíčů ve skupině prostředků a řídíte přístup k rovině správy tohoto trezoru klíčů pomocí služby Azure Active Directory. Můžete například uživatelům nebo skupině udělit schopnost spravovat trezory klíčů v určité skupině prostředků.
@@ -210,7 +210,7 @@ Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi 
 * [RBAC: vestavěné role](../active-directory/role-based-access-built-in-roles.md)
   
   Tento článek podrobně popisuje všechny vestavěné role dostupné v RBAC.
-* [Principy nasazení podle modelu Resource Manager a klasického nasazení](../resource-manager-deployment-model.md)
+* [Principy nasazení podle modelu Resource Manager a klasického nasazení](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Tento článek popisuje model nasazení Resource Manager ve srovnání s klasickým modelem nasazení a vysvětluje, jaké výhody přináší Resource Manager a skupiny prostředků.
 * [Správa řízení přístupu na základě role pomocí Azure PowerShellu](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Pokud máte dotazy k trezorům klíčů, navštivte [fóra služby Azure Key Vau
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

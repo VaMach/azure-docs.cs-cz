@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Instalace aplikací HDInsight
 Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux. Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se seznámíte s postupem instalace publikované aplikace. Pokud instalujete vlastní aplikaci, přečtěte si článek [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md). 
 
-Aktuálně je dostupná jedna publikovaná aplikace:
+Aktuálně jsou dostupné tři publikované aplikace:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) nabízí analytikům interaktivní způsob zjišťování, analýzy a vizualizace výsledků v případě velkých objemů dat. Získávejte dalších zdroje dat snadněji, abyste mohli rychle zjišťovat nové vztahy a získávat potřebné odpovědi.
+* **Kolekce dat Streamsets pro HDInsight** poskytuje plně vybavené integrované vývojové prostředí (IDE) umožňující navrhovat, testovat, nasazovat a spravovat kanály ingestace typu any-to-any, které zachytávají streamovaná data a data dávek a zahrnují celou řadu transformací v průběhu streamování – to vše bez nutnosti psát vlastní kód. 
+* **Cask CDAP 3.5 pro HDInsight** poskytuje první jednotnou integrační platformu pro velké objemy dat, která o 80 % zkracuje dobu potřebnou k nasazení aplikací pracujících s daty a datových jezer do ostrého provozu. Tato aplikace podporuje pouze clustery Standard HBase 3.4.
 
-> [!NOTE]
-> Aplikace Datameer je momentálně podporovaná jenom v clusterech Azure HDInsight verze 3.2.
-> 
-> 
 
 Pokyny uvedené v tomto článku se týkají webu Azure Portal. Šablonu Azure Resource Manageru můžete exportovat z portálu nebo získat její kopii od dodavatelů, a poté k jejímu nasazení můžete použít Azure PowerShell a rozhraní příkazového řádku Azure.  Viz článek [Vytváření clusterů Hadoop na systému Linux v HDInsight pomocí šablon Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,7 +44,7 @@ Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do exi
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na tlačítko **Procházet** a pak klikněte na tlačítko **Clustery HDInsight**.
 3. Klikněte na cluster HDInsight.  Pokud ho ještě nemáte, vytvořte ho.  Viz článek [Vytvoření clusterů](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Z okna **Nastavení** klikněte na tlačítko **Aplikace** pod kategorií **Obecné**. Okno **Nainstalované aplikace** uvádí všechny nainstalované aplikace. 
+4. Klikněte na **Aplikace** v kategorii **Konfigurace**. Zobrazí se seznam nainstalovaných aplikací, pokud tam nějaké jsou.
    
     ![nabídka portálu pro aplikace hdInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. V nabídce okna klikněte na **Přidat**. 
@@ -120,6 +118,6 @@ Viz článek [Řešení potíží instalace](hdinsight-apps-install-custom-appli
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

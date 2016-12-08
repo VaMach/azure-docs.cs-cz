@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc8295aaa68a0d41a34f714b34642585b13b67d
-ms.openlocfilehash: 37da0020c8fc51a422ce6c70fed26329863a90f0
+ms.sourcegitcommit: 1c603d37735bbbfdfaaf4a191e2ad1ce6ff5b2b7
+ms.openlocfilehash: 67f3e923680a9a2f399c0839d2ec11ef4615da00
 
 
 ---
@@ -37,12 +38,12 @@ Mnoha firmám a aplikacím stačí vytváření databází a nastavování výko
 
 [Elastické fondy](sql-database-elastic-pool.md) ve službě SQL Database řeší právě tento problém. Princip je jednoduchý. Přidělíte výkon fondu a platíte za celkový výkon poskytovaný všem databázím ve fondu společně, namísto za výkon jednotlivých databází. Výkon jednotlivých databází už nemusíte navyšovat ani omezovat podle aktuálních požadavků. Databáze ve fondu, označované jako *elastické databáze*, se budou automaticky škálovat podle potřeby v reálném čase. Elastické databáze výkon spotřebovávají, ale nepřekračují omezení fondu, takže vaše náklady budou předvídatelné, i když využívání databáze odhadnutelné nebude. A navíc můžete [přidávat a odebírat databáze ve fondu](sql-database-elastic-pool-manage-portal.md), škálovat aplikace od několik databází k tisícům a přitom mít rozpočet stále pod kontrolou. Další informace o návrhových schématech aplikací SaaS využívajících elastické fondy najdete v tématu [Návrhová schémata pro víceklientské aplikace SaaS využívající službu Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Ať už si vyberete kteroukoli cestu – jednotlivé nebo elastické databáze – nejste k ní odsouzeni na věčné časy. Můžete inovativně míchat izolované databáze s elastickými fondy a měnit úrovně služeb izolovaných databází i celých fondů. Kromě toho s výkonem a dostupností, které Azure nabízí, můžete služby Azure kombinovat se službou SQL Database podle konkrétních potřeb vašich moderních aplikací, rozpočtových možností a efektivity prostředků a otvírat tak zcela nové obchodní příležitosti.
+Ať už si vyberete kteroukoli cestu – jednotlivé nebo elastické databáze – nejste k ní odsouzeni na věčné časy. Můžete kombinovat izolované databáze s fondy elastické databáze a rychle a snadno měnit úrovně služeb izolovaných databází i celých fondů a přizpůsobit je tak pro vaše konkrétní potřeby. Kromě toho s výkonem a dostupností, které Azure nabízí, můžete se službou SQL Database kombinovat další služby Azure podle konkrétních potřeb vašich aplikací pro zvýšení ekonomičnosti provozu a efektivity prostředků a otevírat tak zcela nové obchodní příležitosti.
 
-Jak ale můžeme srovnávat relativní výkon databází a jejich fondů? Jak poznáme správnou hodnotu nastavení při přidávání nebo ubírání výkonu? Odpovědí je jednotka DTU (Database Transaction Unit) pro izolované databáze a eDTU (elastická jednotka DTU) pro elastické databáze a fondy. Podrobnosti viz téma [Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb](sql-database-service-tiers.md).
+Jak ale můžeme srovnávat relativní výkon databází a jejich fondů? Jak poznáme správnou hodnotu nastavení při přidávání nebo ubírání výkonu? Odpověď najdete pomocí integrovaných nástrojů pro sledování výkonu a upozorňování v kombinaci s hodnoceními výkonu na základě jednotek DTU (Database Transaction Unit) pro izolované databáze a elastických DTU (eDTU) pro elastické databáze a fondy databáze. Společně vám pomohou rychle vyhodnotit dopad vertikálního navýšení nebo snížení kapacity v závislosti na vašich aktuálních nebo plánovaných požadavcích na výkon. Podrobnosti viz téma [Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb](sql-database-service-tiers.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Udržujte své aplikace a podnikáni v chodu
-Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.microsoft.com/support/legal/sla/) dosahuje špičkové hodnoty 99,99 %, protože staví na globální síti Microsoftem spravovaných datových center. Může tedy udržet vaše aplikace v nepřetržitém provozu každý den po celý rok. S každou databází SQL můžete využít integrovanou ochranu dat, odolnost proti chybám a ochranné mechanismy, které byste jinak museli pracně navrhovat, kupovat, vytvářet a spravovat. I tak si v závislosti na požadavcích vaší firmy můžete vyžádat další vrstvy ochrany a zajistit, aby se vaše aplikace a firmu mohla rychle zotavit v případě přírodní katastrofy, lidské chyby nebo čehokoli jiného. Služba SQL Database nabízí v každé úrovni služeb jinou sadu možností, které můžete využít k zahájení a udržení provozu. Můžete využít obnovení databáze do určitého bodu v čase, a to až 35 dnů zpět. Kromě toho, pokud dojde k výpadku datového centra hostujícího vaše databáze, mohou službu převzít repliky databáze v jiné oblasti. Nebo můžete použít repliky k upgradu nebo přemístění do jiných oblastí.
+Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.microsoft.com/support/legal/sla/) dosahuje špičkové hodnoty 99,99 %, protože staví na globální síti Microsoftem spravovaných datových center. Může tedy udržet vaše aplikace v nepřetržitém provozu každý den po celý rok. S každou službou SQL Database využíváte integrované zabezpečení, odolnost proti chybám a ochranu dat, které byste jinak museli kupovat nebo navrhovat, sestavovat a spravovat. I tak si v závislosti na požadavcích vaší firmy můžete potřebovat další vrstvy ochrany a zajistit, aby se vaše aplikace a firma mohly rychle zotavit v případě katastrofy, chyby nebo čehokoli jiného. SQL Database nabízí v každé úrovni služby komplexní sadu funkcí a možností pro zajištění kontinuity podnikových procesů, které můžete využít k zahájení a udržení provozu. Můžete využít obnovení databáze do určitého bodu v čase, a to až 35 dnů zpět. Kromě toho, pokud dojde k výpadku datového centra hostujícího vaše databáze, můžete databáze obnovit z geograficky redundantních kopií nebo nedávných záloh, případně mohou službu převzít repliky databáze v jiné oblasti. Repliky můžete použít také k upgradu nebo přemístění do jiných oblastí.
 
 ![Geografická replikace služby SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,11 +60,9 @@ Nyní, když jste si přečetli úvod do služby SQL Database a znáte odpověď
 * Začněte [vytvářet první databáze](sql-database-get-started.md).
 * [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md)
 * Začněte vytvářet vaši první aplikaci v jazyce C#, Java, Node.js, PHP, Python nebo Ruby: [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md).
-* Můžete také využít rejstřík všech článků včetně popisů na stránce [Všechna témata týkající se služby Azure SQL Database](sql-database-index-all-articles.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

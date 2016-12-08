@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: bb74c4e5e7712220f666324f6ba301c8019432f0
-ms.openlocfilehash: 8a0048c180c62ef2b76aac2a2337cfd640683bac
+ms.sourcegitcommit: 89239cf97da19a634e1eda516a6b43028cde96a0
+ms.openlocfilehash: 23b6e29b7e0c2da14cfa76e04e4e1fe9b6b71906
 
 
 ---
@@ -46,7 +46,7 @@ Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pra
 |![Ikona rozhraní API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|[![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![Ikona rozhraní API][Todoisticon]<br/>**Todoist**|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|
 |![Ikona rozhraní API][Vimeoicon]<br/>**Vimeo**|![Ikona rozhraní API][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Ikona rozhraní API][WordPressicon]<br/>**WordPress**|
-|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**
+|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**|[![Ikona rozhraní API][FileSystemIcon]<br/>**Systém souborů**][FileSystemdoc]
 
 > [!NOTE]
 > Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si aplikaci logiky](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete okamžitě vytvořit jednoduchou aplikaci logiky s krátkou životností. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
@@ -143,6 +143,7 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Připojí se k Mandrillu a lze ho použít pro komunikaci."
 [youtubedoc]: ./connectors-create-api-youtube.md "Připojí se k YouTube a může komunikovat s videi a kanály."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Připojí se ke SparkPostu a lze ho použít pro komunikaci."
+[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Pomocí konektoru systému souborů můžete komunikovat s místním systémem souborů."
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -227,6 +228,7 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
@@ -238,6 +240,6 @@ Konektory lze také v aplikacích používat jako akce. Akce jsou užitečné pr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

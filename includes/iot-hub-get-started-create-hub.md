@@ -1,7 +1,7 @@
 ## <a name="create-an-iot-hub"></a>Vytvoření centra IoT
-Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připojovat. Následující kroky vám ukážou, jak tuto úlohu dokončit pomocí portálu Azure.
+Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke službě bude připojovat. Následující kroky vám ukážou, jak tuto úlohu dokončit pomocí portálu Azure.
 
-1. Přihlaste se k [portálu Azure][lnk-portal].
+1. Přihlaste se na web [Azure Portal][lnk-portal].
 2. Na panelu vlevo klikněte na **Nový** > **Internet věcí** > **Azure IoT Hub**.
    
     ![Panel portálu Azure][1]
@@ -19,7 +19,7 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 5. Po úspěšném vytvoření centra IoT kliknutím na dlaždici nového centra IoT na webu Azure Portal otevřete okno nového centra IoT. Poznačte si **Název hostitele** a klikněte na **Zásady sdíleného přístupu**.
    
     ![Okno nového centra IoT][4]
-6. V okně **Zásady sdíleného přístupu** klikněte na zásady **iothubowner** a potom si z okna **iothubowner** zkopírujte a poznamenejte připojovací řetězec. Další informace najdete v článku [Řízení přístupu][lnk-access-control] v Příručce pro vývojáře pro Azure IoT Hub.
+6. V okně **Zásady sdíleného přístupu** klikněte na zásady **iothubowner** a potom si z okna **iothubowner** zkopírujte a poznamenejte připojovací řetězec. Další informace najdete v tématu [Řízení přístupu][lnk-access-control] v Příručce pro vývojáře pro Azure IoT Hub.
    
     ![Okno zásad sdíleného přístupu][5]
 
@@ -37,6 +37,6 @@ Vytvořte centrum IoT pro simulované zařízení, ke kterému se budete připoj
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

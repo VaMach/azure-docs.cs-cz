@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
-ms.openlocfilehash: 7d6bcf84b8d1de1b9f77385909d81ad6baafe9d9
+ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
+ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
 
 
 ---
 # <a name="azure-functions-overview"></a>Přehled Azure Functions
-Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Díky tomu se ještě zvýší produktivita vývoje, a navíc můžete použít jazyk podle vlastní volby, například C#, F# Node.js, Python nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure.
+Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Služba Functions může ještě zvýšit produktivitu vývoje, a navíc k vývoji můžete použít jazyk podle vlastní volby, například C#, F#, Node.js, Python nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure.
 
 Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začít používat Azure Functions, začněte tématem [Vytvoření první funkce Azure](functions-create-first-azure-function.md). Pokud hledáte další odborné informace o Functions, přejděte k části [referenční informace pro vývojáře](functions-reference.md).
 
@@ -31,10 +31,10 @@ Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začí
 Toto jsou některé klíčové funkce Azure Functions:
 
 * **Volba jazyka** – Pište funkce pomocí jazyka C#, F#, Node.js, Python, F#, PHP, Batch, Bash nebo libovolného spustitelného jazyka.
-* **Cenový model platba za použití** – Platíte jen za čas, kdy byl kód spuštěný. Prostudujte plán služby App Service Dynamic jako jednu z možností uvedených níže v [části týkající se cen](#pricing).  
+* **Cenový model platba za použití** – Platíte jen za čas, kdy byl kód spuštěný. Viz možnost plánu hostování Consumption v [části týkající se cen](#pricing).  
 * **Přineste si vlastní závislosti** – Functions podporuje NuGet a NPM, takže můžete používat své oblíbené knihovny.  
 * **Integrované zabezpečení** – Chraňte funkce aktivované protokolem HTTP pomocí poskytovatelů OAuth, jako jsou Azure Active Directory, Facebook, Google, Twitter a účet Microsoft.  
-* **Zjednodušená integrace** – Snadné využívání služeb Azure a nabídek softwaru jako služby (SaaS). Příklady najdete níže v [části týkající se integrace](#integrations).  
+* **Zjednodušená integrace** – Snadné využívání služeb Azure a nabídek softwaru jako služby (SaaS). Příklady najdete v [části týkající se integrace](#integrations).  
 * **Flexibilní vývoj** – Kódujte funkce přímo na portálu nebo nastavte průběžnou integraci a nasaďte kód prostřednictvím nástrojů GitHub, Visual Studio Team Services a dalších [podporovaných vývojových nástrojů](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Open Source** – Modul runtime Functions je typu Open Source a [je dostupný na GitHubu](https://github.com/azure/azure-webjobs-sdk-script).  
 
@@ -43,7 +43,7 @@ Azure Functions je vynikající řešení pro zpracování dat, integraci systé
 
 Functions poskytuje šablony, které vám pomůžou začít s klíčovými scénáři, včetně těchto:
 
-* **BlobTrigger** – Zpracování objektů blob Azure Storage po jejich přidání do kontejnerů. Tuto funkci můžete použít k změně velikosti obrázků.
+* **BlobTrigger** – Zpracování objektů blob Azure Storage po jejich přidání do kontejnerů. Tuto funkci můžete použít k změně velikosti imagí.
 * **EventHubTrigger** – Reakce na události doručené do centra událostí Azure. Toto je obzvlášť užitečné pro scénáře instrumentace aplikací, zpracování činnosti nebo pracovního postupu uživatele a internetu věcí (IoT).
 * **Obecný webhook** – Zpracování žádostí webhooku protokolu HTTP z jakékoli služby, která podporuje webhooky.
 * **Webhook GitHubu** – Reakce na události, které nastaly v úložištích GitHubu. Příklady najdete v tématu [Vytvoření webhooku nebo funkce rozhraní API](functions-create-a-web-hook-or-api-function.md).
@@ -56,7 +56,7 @@ Functions poskytuje šablony, které vám pomůžou začít s klíčovými scén
 Azure Functions podporuje *triggery*, které představují jeden ze způsobů spuštění provádění kódu, a *vazby*, které zjednodušují kódování u vstupních a výstupních dat. Podrobný popis triggerů a vazeb podporovaných Azure Functions najdete v tématu [Referenční informace pro vývojáře triggerů a vazeb Azure Functions](functions-triggers-bindings.md).
 
 ## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integrace
-Azure Functions se integruje s celou řadou služeb Azure a služeb třetích stran. Pomocí nich můžete aktivovat funkci a spustit provedení, nebo je můžete použít jako vstup a výstup kódu. Azure Functions podporuje následující integrace služeb. 
+Azure Functions se integruje s celou řadou služeb Azure a služeb třetích stran. Tyto služby mohou aktivovat funkci a spustit provádění, nebo mohou sloužit jako vstup a výstup kódu. Azure Functions podporuje následující integrace služeb. 
 
 * Azure DocumentDB
 * Azure Event Hubs 
@@ -70,7 +70,7 @@ Azure Functions se integruje s celou řadou služeb Azure a služeb třetích st
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Kolik stojí Functions?
 Azure Functions nabízí dva druhy cenových plánů. Zvolte ten, který nejlíp vyhovuje vašim potřebám: 
 
-* **Plán Dynamic Hosting** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. Úplné podrobnosti o cenách jsou dostupné na [stránce Ceny Functions](/pricing/details/functions). 
+* **Plán Consumption** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. Úplné podrobnosti o cenách jsou dostupné na [stránce Ceny Functions](/pricing/details/functions). 
 * **Plán služby App Service** – Spouštějte funkce stejně jako webové a mobilní aplikace nebo aplikace API. Pokud již službu App Service používáte pro jiné aplikace, můžete spouštět funkce v tomtéž plánu bez dalších poplatků. Úplné podrobnosti najdete na [stránce App Service – ceny](/pricing/details/app-service/).
 
 Další informace o škálování funkcí najdete v tématu [Postup škálování Azure Functions](functions-scale.md).
@@ -83,13 +83,13 @@ Další informace o škálování funkcí najdete v tématu [Postup škálován�
 * [Testování Azure Functions](functions-test-a-function.md)  
   Toto téma popisuje různé nástroje a techniky pro testování funkcí.
 * [Postup škálování Azure Functions](functions-scale.md)  
-  Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (včetně plánu služby Dynamic), a výběr správného plánu. 
+  Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu. 
 * [Další informace o Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
 Článek [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.
 
 Infrastruktura služby AD FS s vysokou dostupností mezi geografickými lokalitami umožňuje využití následujících funkcí:
@@ -76,7 +76,7 @@ Podle následujících pokynů můžete vytvořit profil Traffic Manageru. Dalš
    
    **Typ cílového prostředku:** Jako hodnotu této vlastnosti vyberte možnost Veřejná IP adresa. 
    
-   **Cílový prostředek:** Prostřednictvím této možností můžete vybírat z různých názvů DNS, které máte v rámci předplatného k dispozici. Zvolte název DNS.
+   **Cílový prostředek:** Prostřednictvím této možností můžete vybírat z různých názvů DNS, které máte v rámci předplatného k dispozici. Zvolte název DNS odpovídající konfigurovanému koncovému bodu.
    
    Přidejte koncový bod pro každou geografickou oblast, do které chcete směrovat provoz Azure Traffic Manageru.
    Další informace a podrobné pokyny pro přidávání či konfigurování koncových bodů v Traffic Manageru najdete v článku [Přidávání, zakazování, povolování nebo odstraňování koncových bodů](../traffic-manager/traffic-manager-endpoints.md).
@@ -94,13 +94,13 @@ Podle následujících pokynů můžete vytvořit profil Traffic Manageru. Dalš
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Test směrování a přihlášení ke službě AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Test směrování a přihlášení ke službě AD FS
 ### <a name="routing-test"></a>Test směrování
 Zcela jednoduchým testem směrování je pokus o testování názvu DNS služby FS pomocí příkazu Ping z počítače v každé geografické oblasti. V závislosti na zvolené metodě směrování bude v zobrazení příkazu Ping uveden koncový bod, do kterého jsou pakety příkazu Ping ve skutečnosti odesílány. Pokud jste například vybrali směrování podle výkonu, bude dosažen koncový bod nejblíže oblasti klienta. Níže je uveden snímek dvou provedení příkazu Ping z klientských počítačů ve dvou různých oblastech: jednoho v oblasti Východní Asie a jednoho v Západní USA. 
 
 ![Test směrování](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Test přihlášení ke službě AD FS
+### <a name="ad-fs-sign-in-test"></a>Test přihlášení ke službě AD FS
 Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpInitiatedSignon.aspx. Abyste to mohli provést, musíte ve vlastnostech služby AD FS povolit IdpInitiatedSignOn. Pomocí níže uvedených pokynů ověřte nastavení služby AD FS.
 
 1. Pomocí PowerShellu spusťte níže uvedenou rutinu na serveru služby AD FS a povolte požadovanou možnost. 
@@ -126,6 +126,6 @@ Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpIniti
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

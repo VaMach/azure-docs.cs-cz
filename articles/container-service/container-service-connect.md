@@ -17,12 +17,52 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
+ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Připojení ke clusteru Azure Container Service
+Clustery DC/OS, Kubernetes a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST.  V případě Kubernetes je tento koncový bod bezpečně zpřístupněn na internetu a můžete k němu přímo přistupovat z libovolného počítače připojeného k internetu. V případě DC/OS a Docker Swarm je nutné pro možnost bezpečného připojení ke koncovému bodu REST vytvořit tunel SSH. Jednotlivá připojení jsou popsána níže.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Připojení ke clusteru Kubernetes
+Pokud se chcete připojit ke clusteru Kubernetes, musíte mít nainstalovaný nástroj příkazového řádku `kubectl`.  Nejjednodušším způsobem, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 `az`.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+Případně si můžete klienta stáhnout přímo ze [stránky vydaných verzí](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+
+Jakmile budete mít `kubectl` nainstalovaný, je třeba, abyste na svůj počítač zkopírovali přihlašovací údaje clusteru.  Nejjednodušší způsob je opět pomocí nástroje příkazového řádku `az`:
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+Tento příkaz stáhne přihlašovací údaje clusteru do složky `$HOME/.kube/config`, kde `kubectl` očekává, že budou umístěné.
+
+Případně můžete použít `scp` a bezpečně zkopírovat soubor ze složky `$HOME/.kube/config` na hlavním virtuálním počítači do svého místního počítače.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+Pokud jste v systému Windows, budete muset použít Bash na Ubuntu ve Windows nebo nástroj PuTTY „pscp“.
+
+Jakmile bude `kubectl` nakonfigurovaný, můžete ho otestovat pomocí příkazu:
+
+```console
+kubectl get nodes
+```
+
+který by měl zobrazit uzly ve vašem clusteru.
+
+Další pokyny najdete v tématu [Rychlé představení Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Připojení ke clusteru DC/OS nebo Swarm
+
 Clustery DC/OS a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST. Tyto koncové body ale nejsou k dispozici pro vnější svět. Pokud chcete tyto koncové body spravovat, je nutné vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu SSH můžete proti koncovým bodům clusteru spouštět příkazy a na svém vlastním systému si můžete přes prohlížeč zobrazit uživatelské rozhraní clusteru. Tento dokument vás provede vytvořením tunelu SSH z Linuxu, OS X a Windows.
 
 > [!NOTE]
@@ -126,6 +166,6 @@ Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
