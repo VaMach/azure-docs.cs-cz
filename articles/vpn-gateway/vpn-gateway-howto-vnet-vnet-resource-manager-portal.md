@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
+ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Konfigurace propojení VNet-to-VNet pomocí webu Azure Portal
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Konfigurace propojení VNet-to-VNet pomocí webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,17 +35,18 @@ Když použijete k propojení virtuálních sítí Azure Portal, musí tyto sít
 
 ![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modely a metody nasazení pro propojení VNet-to-VNet
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modely a metody nasazení pro propojení VNet-to-VNet
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích VNet-to-VNet. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Partnerské vztahy virtuálních sítí
+**Partnerské vztahy virtuálních sítí**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>Informace o propojeních VNet-to-VNet
+## <a name="about-vnet-to-vnet-connections"></a>Informace o propojeních VNet-to-VNet
 Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN Azure VPN, která poskytuje zabezpečené tunelové propojení prostřednictvím protokolu IPsec/IKE. Virtuální sítě, které propojujete, se mohou nacházet v různých oblastech nebo předplatných.
 
 Dokonce můžete kombinovat komunikaci VNet-to-VNet s konfigurací s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
@@ -122,6 +123,7 @@ Pokud již máte virtuální síť vytvořenou, ověřte, zda jsou nastavení ko
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Přidání dalšího adresního prostoru a vytvoření podsítí
 Po vytvoření virtuální sítě můžete přidat další adresní prostor a vytvořit podsítě.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Vytvoření podsítě brány
@@ -187,17 +189,16 @@ Na jednotlivá připojení můžete dvakrát kliknout a zobrazit tak další inf
 
 ![Základy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
 Projděte si Nejčastější dotazy, kde najdete další informace o propojeních VNet-to-VNet.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
-Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Kroky jsou uvedeny v tématu [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
+ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
 
 
 ---
 # <a name="application-gateway-overview"></a>Přehled služby Application Gateway
+
 ## <a name="what-is-application-gateway"></a>Co je Application Gateway
+
 Microsoft Azure Application Gateway poskytuje Application Delivery Controller (ADC) jako službu, která vaší aplikaci nabízí různé možnosti vyrovnávání zatížení vrstvy 7. ADC umožňuje zákazníkům optimalizovat produktivitu webové farmy tím, že se ukončování protokolu SSL, které je náročné na CPU, přesměruje do služby Application Gateway. Nabízí také další možnosti přesměrování vrstvy 7, jako je kruhové dotazování na distribuci příchozích přenosů, spřažení relací na základě souborů cookie, přesměrování založené na cestách URL a možnost hostování několika webů za jedinou službou Application Gateway. Application Gateway má také firewall webových aplikací (WAF), který aplikace chrání před většinou z 10 nejčastějších webových hrozeb podle OWASP. Application Gateway je možné nakonfigurovat jako internetovou bránu nebo jen jako interní bránu, případně jako kombinaci obojího. Službu Application Gateway je možné plně spravovat v Azure, je škálovatelná a vysoce dostupná. Nabízí celou řadu možností diagnostiky a protokolování, které zlepšují správu. Application Gateway funguje s virtuálními počítači, cloudovými službami a interními nebo externími webovými aplikacemi.
 
 Application Gateway je specializované virtuální zařízení pro vaši aplikaci. Kvůli škálovatelnosti a vysoké dostupnosti je složené z několika instancí pracovních procesů. Když vytvoříte aplikační bránu, bude příchozímu síťovému přenosu přidružen koncový bod (veřejná virtuální IP adresa nebo interní IP adresa interního nástroje na vyrovnávání zatížení), který se pro něj použije. Tuto virtuální IP adresu nebo IP adresu interního nástroje pro vyrovnávání zatížení poskytuje služba Azure Load Balancer, která funguje na úrovni přenosu (TCP/UDP) a vyrovnává zatížení v podobě veškerých příchozích síťových přenosů mezi instancemi pracovních procesů služby Application Gateway. Application Gateway následně přesměruje přenosy HTTP/HTTPS podle vlastní konfigurace bez ohledu na to, jestli se jedná o virtuální počítač, cloudovou službu, interní nebo externí IP adresu. Informace o smlouvě SLA a cenách najdete na příslušných stránkách [SLA](https://azure.microsoft.com/support/legal/sla/) a [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Funkce
+
 Služba Application Gateway v současné době podporuje doručování aplikací vrstvy 7 pomocí následujících funkcí:
 
 * **[Firewall webových aplikací (Preview)](application-gateway-webapplicationfirewall-overview.md)** – Firewall webových aplikací (WAF) ve službě Azure Application Gateway chrání webové aplikace před běžnými webovými útoky, jako jsou například útoky prostřednictvím injektáže SQL, skriptování mezi weby a napadení relace.
@@ -41,6 +44,7 @@ Služba Application Gateway v současné době podporuje doručování aplikací
 * **[Rozšířená diagnostika](application-gateway-diagnostics.md)** – Služba Application Gateway poskytuje úplnou diagnostiku a protokoly přístupů. Protokoly brány firewall jsou dostupné pro prostředky služby Application Gateway, které mají povolený Firewall webových aplikací.
 
 ## <a name="benefits"></a>Výhody
+
 Služba Application Gateway je užitečná pro:
 
 * Aplikace, které vyžadují, aby se požadavky ze stejné uživatelské/klientské relace pokaždé dostaly ke stejnému back-endovému virtuálnímu počítači. Příklady těchto aplikací by mohly být aplikace nákupních košíků a servery webové pošty.
@@ -56,11 +60,12 @@ Vyrovnávání zatížení ve službě Application Gateway jako služba spravova
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Velikosti a instance brány
-Služba Application Gateway je v současné době nabízena ve třech velikostech: krátkodobé používání, střednědobé používání a dlouhodobé používání. Instance krátkodobého používání jsou určené pro scénáře vývoje a testování.
 
-V současnosti existují pro službu Application Gateway dvě skladové jednotky (SKU): WAF a Standard.
+Služba Application Gateway je v současné době nabízena ve třech velikostech: **Small** (krátkodobé používání), **Medium** (střednědobé používání) a **Large** (dlouhodobé používání). Instance krátkodobého používání jsou určené pro scénáře vývoje a testování.
 
-V rámci jednoho předplatného můžete vytvořit až 50 služeb Application Gateway a každá z nich může mít až 10 instancí. Každá služba Application Gateway se může skládat z 20 naslouchacích procesů HTTP. Úplný seznam omezení služby Application Gateway najdete v části [Omezení a kvóty předplatného a služeb Azure](../azure-subscription-service-limits.md).
+V současnosti existují pro službu Application Gateway dvě skladové jednotky (SKU): **WAF** a **Standard**.
+
+V rámci jednoho předplatného můžete vytvořit až 50 služeb Application Gateway a každá z nich může mít až 10 instancí. Každá služba Application Gateway se může skládat z 20 naslouchacích procesů HTTP. Úplný seznam omezení služby Application Gateway najdete na stránce [Omezení služby Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé instance služby Application Gateway:
 
@@ -75,20 +80,23 @@ Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé i
 >
 
 ## <a name="health-monitoring"></a>Monitorování stavu
+
 Služba Azure Application Gateway automaticky monitoruje stav back-endových instancí prostřednictvím základních nebo vlastních sond stavu. Díky používání sond stavu je zajištěno, že na provoz reagují pouze hostitelé, kteří jsou v pořádku. Další informace najdete v tématu [Přehled monitorování stavu ve službě Application Gateway](application-gateway-probe-overview.md).
 
 ## <a name="configuring-and-managing"></a>Konfigurace a správa
+
 Služba Application Gateway může pro svůj koncový bod při konfiguraci mít veřejnou IP adresu, privátní IP adresu nebo obojí. Služba Application Gateway je nakonfigurována ve virtuální síti ve vlastní podsíti. Podsíť vytvořená nebo používaná pro službu Application Gateway nemůže obsahovat žádný jiný typ prostředků, jediné povolené prostředky v podsíti jsou další služby Application Gateway. Pro zabezpečení vašich back-endových prostředků mohou být back-endové servery obsažené v rámci jiné podsítě ve stejné virtuální síti jako služba Application Gateway. Tato další podsíť není vyžadována pro back-endové aplikace. Dokud má služba Application Gateway přístup k IP adrese, je schopna poskytovat back-endovým serverům možnosti ADC.
 
 Službu Application Gateway můžete vytvořit a spravovat pomocí rozhraní REST API, rutin prostředí PowerShell, rozhraní příkazového řádku Azure nebo webu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="next-steps"></a>Další kroky
+
 Po získání informací o službě Application Gateway můžete [vytvořit službu Application Gateway](application-gateway-create-gateway-portal.md) nebo [vytvořit přesměrování zpracování SSL ve službě Application Gateway](application-gateway-ssl-arm.md) pro vyrovnávání zatížení připojení HTTPS.
 
 Další informace o vytvoření služby Application Gateway používající směrování obsahu na základě adresy URL najdete v tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-arm-ps.md).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

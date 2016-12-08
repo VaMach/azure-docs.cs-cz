@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Služba HDInsight připojená k doméně ve verzi Preview](hdinsight-domain-joined-introduction.md)
+## [Kafka (Preview)](hdinsight-apache-kafka-introduction.md)
 
 # Začínáme
 ## [Začínáme s Hadoopem](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Začínáme s interaktivním Hivem ve verzi Preview](hdinsight-hadoop-use-interactive-hive.md)
-## [Začínáme s R Serverem ve verzi Preview](hdinsight-hadoop-r-server-get-started.md)
+## [Začínáme s R Serverem](hdinsight-hadoop-r-server-get-started.md)
 ## [Začínáme se Sparkem](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Začínáme s HBase a NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Začínáme s Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Izolovaný prostor (sandbox) systému Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Nástroje služby Data Lake s Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Nástroje pro Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [Použití DataFu s Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clustery na vyžádání](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Odeslání úloh systému Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Použití R Serveru ve verzi Preview
+## Použít R Serveru
 ### [Možnosti úložiště](hdinsight-hadoop-r-server-storage.md)
 ### [Instalace nástroje RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Kontexty služby Compute](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Použití Sparku pro zpracování v paměti
+### [Pomocí Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Samostatná aplikace](hdinsight-apache-spark-create-standalone-application.md)
 ### [Zpracování událostí streamování](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Konfigurace](hdinsight-domain-joined-configure.md)
 ### [Správa](hdinsight-domain-joined-manage.md)
 ### [Konfigurace zásad Hivu](hdinsight-domain-joined-run-hive.md)
+## Pomocí Kafka (Preview)
+### [Replikace dat Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Použití se Sparkem](hdinsight-apache-spark-with-kafka.md)
+### [Použití se Stormem](hdinsight-apache-storm-with-kafka.md)
 ## Vývoj
 ### [Vývoj programů MapReduce v Javě](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Vývoj úloh MapReduce ve Scaldingu](hdinsight-hadoop-mapreduce-scalding.md)
@@ -174,12 +181,12 @@
 #### [Ladění výkonu dotazů Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referenční informace
-## [REST API – referenční informace](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Rozhraní Spark REST API pro vzdálené úlohy](https://msdn.microsoft.com/library/mt613023.aspx)
-## [Rutiny PowerShellu](https://msdn.microsoft.com/library/mt438705.aspx)
+## [Rutiny PowerShellu](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [Sada .NET SDK pro Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [Sada .NET SDK pro HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Knihovna .NET pro Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST API – referenční informace](/rest/api/hdinsight/)
+## [Rozhraní Spark REST API pro vzdálené úlohy](/rest/api/hdinsightspark/)
 
 # Související
 ## Clustery s Windows
@@ -217,6 +224,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

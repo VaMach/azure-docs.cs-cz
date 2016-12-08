@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Nejčastější dotazy k Azure Data Lake Storu
 V tomto článku se dozvíte o nejčastějších dotazech týkajících se Azure Data Lake Storu.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>Jak si mám poradit se zotavením po havárii a poškozením dat v případě účtu Azure Data Lake Store?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Jak mohu ještě více chránit svá data před katastrofami na úrovni celé oblasti nebo před náhodným odstraněním?
 Data ve vašem účtu Azure Data Lake Store jsou odolná vůči krátkodobému selhání hardwaru v rámci oblasti díky automatizovaným replikám. Tím se zajišťuje odolnost a vysoká dostupnost splňující podmínky smlouvy SLA pro Azure Data Lake Store. Nabízíme pokyny, jak data ještě více ochránit před výjimečnými výpadky celé oblasti nebo nechtěným odstraněním.
 
 ### <a name="disaster-recovery-guidance"></a>Pokyny pro zotavení po havárii
@@ -52,6 +52,6 @@ Organizace také můžou povolit [protokolování diagnostiky](data-lake-store-d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

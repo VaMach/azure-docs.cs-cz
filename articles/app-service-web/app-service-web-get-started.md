@@ -131,6 +131,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

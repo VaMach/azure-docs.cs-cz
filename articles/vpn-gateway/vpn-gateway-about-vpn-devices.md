@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: 63d31ae31703a8d43bf2ffec2e6ccdc5da3a46a3
 
 
 ---
-# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
-Ke konfiguraci připojení typu Site-to-Site (S2S) VPN je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace. 
+# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
+Ke konfiguraci připojení typu Site-to-Site (S2S) VPN je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace.
 
 > [!NOTE]
 > Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
-> 
-> 
+>
+>
 
 Není-li vaše zařízení v tabulce [Ověřená zařízení VPN](#devicetable), přejděte k oddílu [Neověřená zařízení VPN](#additionaldevices) tohoto článku. Je možné, že vaše zařízení bude i přesto fungovat s Azure. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
@@ -36,10 +36,10 @@ Není-li vaše zařízení v tabulce [Ověřená zařízení VPN](#devicetable),
 * Došlo ke změně terminologie pro statické a dynamické směrování. Pravděpodobně narazíte na oba výrazy. Funkce se nezměnily, změnily se pouze jejich názvy.
   * Statické směrování = PolicyBased
   * Dynamické směrování = RouteBased
-* Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure. 
+* Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure.
 
 ## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Ověřená zařízení VPN
-Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat. 
+Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat.
 
 Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
@@ -66,19 +66,19 @@ Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají př
 | Open Systems AG |Mission Control Security Gateway |Není k dispozici |[Průvodce instalací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Průvodce instalací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Připravuje se) |Není kompatibilní |
 | Palo Alto Networks |Všechna zařízení se systémem PAN-OS |PAN-OS 6.1.5 a novější (PolicyBased), PAN-OS 7.0.5 a novější (RouteBased) |[Pokyny ke konfiguraci](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Pokyny ke konfiguraci](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |Všechny |Fireware XTM v11.x |[Pokyny ke konfiguraci](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) |Není kompatibilní |
+| Watchguard |Všechny |Fireware XTM v11.x |[Pokyny ke konfiguraci](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network) |Není kompatibilní |
 
 (*) Směrovače řady ISR 7200 podporují pouze sítě VPN typu PolicyBased.
 
-## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Neověřená zařízení VPN
-Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je možné, že bude fungovat s připojením typu Site-to-Site. Ověřte, že vaše zařízení VPN splňuje minimální požadavky uvedené v oddílu Požadavky služby Gateway článku [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). Zařízení splňující minimální požadavky by také měla fungovat s bránami VPN. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
+## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Neověřená zařízení VPN
+Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je možné, že bude fungovat s připojením typu Site-to-Site. Ověřte, že vaše zařízení VPN splňuje minimální požadavky uvedené v oddílu Požadavky služby Gateway článku [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md). Zařízení splňující minimální požadavky by také měla fungovat s bránami VPN. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
 
 ## <a name="editing-device-configuration-samples"></a>Ukázky úpravy konfigurace zařízení
-Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé hodnoty tak, aby odpovídaly nastavení vašeho prostředí. 
+Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé hodnoty tak, aby odpovídaly nastavení vašeho prostředí.
 
 **Postup úpravy ukázky:**
 
-1. Otevřete ukázku pomocí Poznámkového bloku. 
+1. Otevřete ukázku pomocí Poznámkového bloku.
 2. Vyhledejte všechny řetězce *text* a nahraďte je hodnotami, které odpovídají vašemu prostředí. Nezapomeňte zahrnout < a >. Zadané názvy by měly být jedinečné. Pokud příkaz nefunguje, obraťte se na dokumentaci výrobce zařízení.
 
 | **Text v ukázce** | **Změňte na** |
@@ -98,8 +98,8 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 ## <a name="ipsec-parameters"></a>Parametry protokolu IPsec
 > [!NOTE]
 > Přestože jsou hodnoty uvedené v následující tabulce podporovány službou Azure VPN Gateway, v současné době neexistuje způsob, jak zadat nebo vybrat konkrétní kombinaci ze služby Azure VPN Gateway. Musíte zadat jakákoli omezení ze strany místního zařízení VPN. Kromě toho musíte uchytit MSS na 1350.
-> 
-> 
+>
+>
 
 ### <a name="ike-phase-1-setup"></a>Nastavení protokolu IKE Fáze 1
 | **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
@@ -153,7 +153,6 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

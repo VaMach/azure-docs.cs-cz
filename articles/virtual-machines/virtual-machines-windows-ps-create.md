@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Projděte si téma [Velikosti virtuálních počítačů v Azure](virtual-machines-windows-sizes.md), kde najdete seznam dostupných velikostí pro virtuální počítač.
+    Projděte si téma [Velikosti virtuálních počítačů v Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), kde najdete seznam dostupných velikostí pro virtuální počítač.
 3. Nakonfigurujte nastavení operačního systému pro virtuální počítač. Tento příkaz nastaví název počítače, typ operačního systému a přihlašovací údaje účtu pro virtuální počítač.
    
     ```powershell
@@ -128,13 +128,13 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Další informace o výběru image, která se má použít, najdete v tématu [Vyhledání a výběr imagí virtuálních počítačů v Azure pomocí PowerShellu nebo CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Další informace o výběru image, která se má použít, najdete v tématu [Vyhledání a výběr imagí virtuálních počítačů v Azure pomocí PowerShellu nebo CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Přidejte síťové rozhraní, které jste vytvořili, do konfigurace.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Definujte název a umístění pevného disku virtuálního počítače. Soubor virtuálního pevného disku je uložený v kontejneru. Tento příkaz vytvoří disk v kontejneru nazvaném **vhds/WindowsVMosDisk.vhd** v účtu úložiště, který jste vytvořili.
+6. Definujte název a umístění pevného disku virtuálního počítače. Soubor virtuálního pevného disku je uložený v kontejneru. Tento příkaz vytvoří disk v kontejneru s názvem **vhds/myOsDisk1.vhd** v účtu úložiště, který jste vytvořili.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 7. Přidejte informace o disku operačního systému do konfigurace virtuálního počítače. Nahraďte hodnotu **$diskName** názvem pro disk operačního systému. Vytvořte proměnnou a přidejte informace o disku do konfigurace.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Nakonec vytvořte virtuální počítač.
    
@@ -153,12 +153,12 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud byly nějaké problémy s nasazením, je dalším krokem projít si téma [Řešení potíží s nasazením skupin prostředků pomocí webu Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
-* Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md), kde najdete informace o tom, jak spravovat virtuální počítač, který jste vytvořili.
-* Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md) můžete vytvořit virtuální počítač pomocí šablony.
+* Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), kde najdete informace o tom, jak spravovat virtuální počítač, který jste vytvořili.
+* Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) můžete vytvořit virtuální počítač pomocí šablony.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

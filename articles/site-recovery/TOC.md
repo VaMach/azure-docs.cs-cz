@@ -2,7 +2,7 @@
 ## [Co je Site Recovery?](site-recovery-overview.md)
 ## [Jak funguje Site Recovery?](site-recovery-components.md)
 ## [Jaké úlohy můžete chránit?](site-recovery-workload.md)
-## [Které operační systémy se podporují?](site-recovery-support-matrix.md)
+## [Matice podpory Site Recovery](site-recovery-support-matrix.md)
 ## [Nejčastější dotazy](site-recovery-faq.md)
 ## [Podívejte se na základní přehled](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell – Classic](/powershell/servicemanagement/)
 
 # Související
@@ -63,6 +63,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

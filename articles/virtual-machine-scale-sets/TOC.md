@@ -1,12 +1,13 @@
 # Přehled
-## [Škálovací sady](virtual-machine-scale-sets-overview.md)
-## [Aspekty návrhu pro škálovací sady](virtual-machine-scale-sets-design-overview.md)
+## [Co jsou škálovací sady virtuálních počítačů?](virtual-machine-scale-sets-overview.md)
 
 # Začínáme
 ## [Vytvoření škálovací sady pro Windows](virtual-machine-scale-sets-windows-create.md)
 ## [Vytvoření škálovací sady pro Linux](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Postup
+## Plánování a návrh
+### [Aspekty návrhu](virtual-machine-scale-sets-design-overview.md)
 ## Nasazení
 ### [Škálovací sada s využitím portálu](virtual-machine-scale-sets-portal-create.md)
 ### [Škálovací sada s použitím sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -19,21 +20,24 @@
 ### [Automatické škálování a škálovací sady](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Vertikální škálování ve škálovací sadě](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrady pro škálovací sady](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Pokročilé automatické škálování](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Použití DSC a škálovacích sad](virtual-machine-scale-sets-dsc.md)
 
 ## Řešení potíží
-### [Řešení potíží s automatickým škálováním](virtual-machine-scale-sets-troubleshoot.md)
+### [Automatické škálování](virtual-machine-scale-sets-troubleshoot.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/compute/)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+## Ceny 
+### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

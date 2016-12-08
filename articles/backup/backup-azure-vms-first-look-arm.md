@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: 85b291e3916d1274fefc71bc0c1f12cac2920bb4
+ms.openlocfilehash: 77b4f6e5ee18cb3772487820bc72d7794f82162f
 
 
 ---
@@ -45,6 +45,36 @@ Další informace o ochraně virtuálních počítačů služby Storage úrovně
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+V závislosti na počtu virtuálních počítačů, které chcete chránit, můžete začít z různých výchozích bodů – pokud chcete zálohovat několik virtuálních počítačů v rámci jedné operace, přejděte do trezoru služby Recovery Services a spusťte zálohování z řídicího panelu trezoru. Pokud máte jeden virtuální počítač, který chcete zálohovat, můžete jej zálohovat přímo z okna správy virtuálních počítačů.
+
+## <a name="configure-backup-from-vm-management-blade"></a>Konfigurace služby Backup z okna správy virtuálních počítačů
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
+2. V nabídce centra klikněte na **Další služby** a v seznamu prostředků zadejte **Virtuální počítače**.  Zobrazí se seznam virtuálních počítačů. Ze seznamu virtuálních počítačů vyberte virtuální počítač, který chcete zálohovat. Otevře se okno správy virtuálních počítačů. 
+ ![Okno Správa virtuálních počítačů](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+ 
+3. V okně správy virtuálních počítačů klikněte na možnost Zálohovat na levé straně v části Nastavení.
+![Možnost Zálohovat v okně správy virtuálních počítačů](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. Otevře se okno Povolit zálohování. V tomto okně se očekávají dva vstupy: trezor služby Recovery Services (prostředek služby Azure Backup sloužící k ukládání záloh virtuálních počítačů) a Zásady zálohování (zásady zálohování určují plán zálohování a dobu uchování kopií záloh). Toto okno má několik výchozích možností. Můžete si je přizpůsobit podle požadavků jednotlivých záloh. 
+![Průvodce povolením zálohování](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Pro trezor služby Recovery Services můžete vybrat existující trezor nebo vytvořit nový trezor. Pokud vytváříte nový trezor, vytvoří se ve stejné skupině prostředků a stejném umístění jako virtuální počítač. Pokud chcete vytvořit trezor služby Recovery Services s jinými hodnotami, [vytvořte trezor služby Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) před kliknutím na možnost Zálohovat v Kroku 3, a vyberte jej v tomto okně. 
+
+6. V okně Zásady zálohování vyberte zásadu zálohování, kterou chcete použít pro trezor a klikněte na **OK**.
+    ![Výběr zásad zálohování](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    Detaily výchozí zásady jsou uvedené v podrobnostech. Pokud chcete vytvořit zásadu, vyberte v rozevírací nabídce **Vytvořit novou**. Rozevírací nabídka také nabízí možnost přepnout čas pořizování snímků. Pokyny k definování zásad zálohování naleznete v tématu [Definování zásad zálohování](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Po kliknutí na **OK** jsou zásady zálohování přidružené k virtuálnímu počítači.
+    
+7. Klikněte na Povolit zálohování a nakonfigurujte službu Backup na virtuálním počítači. Tím se aktivuje nasazení. 
+![Tlačítko Povolit zálohování](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. Průběh konfigurace můžete sledovat prostřednictvím oznámení. 
+![Oznámení Povolení zálohování](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Jakmile je nasazení konfigurace zálohování dokončené, kliknutím na možnost Zálohovat v okně správy virtuálních počítačů přejdete do okna Zálohovaná položka, které odpovídá zálohovanému virtuálnímu počítači.
+![Zobrazení Zálohovaná položka virtuálního počítače](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Konfigurace služby Backup v zobrazení Trezor služby Recovery Services
 Dokončíte tyto hlavní kroky.  
 
 1. Vytvoření trezoru Recovery Services pro virtuální počítač.
@@ -187,16 +217,16 @@ Chcete-li spustit **Zálohovat nyní**:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalace agenta virtuálního počítače na virtuální počítač
-Tyto informace jsou poskytnuté pro případ potřeby. Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Virtuální počítače migrované z místních datových center nebudou mít agenta virtuálního počítače nainstalovaného. V takovém případě je potřeba agenta virtuálního počítače nainstalovat. Pokud máte problémy se zálohováním virtuálního počítače Azure, zkontrolujte, zda je agent virtuálního počítače na virtuálním počítači správně nainstalovaný (viz následující tabulka). Pokud vytváříte vlastní virtuální počítač, před jeho zřízením [se ujistěte, že je zaškrtávací políčko **Nainstalovat agenta virtuálního počítače** zaškrtnuté](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+Tyto informace jsou poskytnuté pro případ potřeby. Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Virtuální počítače migrované z místních datových center nebudou mít agenta virtuálního počítače nainstalovaného. V takovém případě je potřeba agenta virtuálního počítače nainstalovat. Pokud máte problémy se zálohováním virtuálního počítače Azure, zkontrolujte, zda je agent virtuálního počítače na virtuálním počítači správně nainstalovaný (viz následující tabulka). Pokud vytváříte vlastní virtuální počítač, před jeho zřízením [se ujistěte, že je zaškrtávací políčko **Nainstalovat agenta virtuálního počítače** zaškrtnuté](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Další informace o [Agentu virtuálního počítače](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) a [jak ho nainstalovat](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Další informace o [Agentu virtuálního počítače](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) a [jak ho nainstalovat](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Následující tabulka poskytuje další informace o agentu virtuálního počítače pro virtuální počítače s Windows nebo Linuxem.
 
 | **Operace** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalace agenta virtuálního počítače |<li>Stáhněte si a nainstalujte [MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). K dokončení instalace je potřeba oprávnění správce. <li>[Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. |<li> Nainstalujte nejnovějšího [agenta systému Linux](https://github.com/Azure/WALinuxAgent) z Githubu. K dokončení instalace je potřeba oprávnění správce. <li> [Aktualizujte vlastnost virtuálního počítače](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby indikovala, že je agent nainstalovaný. |
-| Aktualizace agenta virtuálního počítače |Aktualizace agenta virtuálního počítače je stejně jednoduchá, jako přeinstalace [binárních souborů agenta virtuálního počítače](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |Postupujte podle pokynů v tématu [Aktualizace agenta virtuálního počítače s Linuxem](../virtual-machines/virtual-machines-linux-update-agent.md). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |
+| Aktualizace agenta virtuálního počítače |Aktualizace agenta virtuálního počítače je stejně jednoduchá, jako přeinstalace [binárních souborů agenta virtuálního počítače](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |Postupujte podle pokynů v tématu [Aktualizace agenta virtuálního počítače s Linuxem](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |
 | Ověření instalace agenta virtuálního počítače |<li>Ve virtuálním počítači Azure přejděte do složky *C:\WindowsAzure\Packages*. <li>Měl by být přítomný soubor WaAppAgent.exe.<li> Pravým tlačítkem myši klikněte na soubor, přejděte na **Vlastnosti** a poté vyberte kartu **Podrobnosti**. Pole Verze produktu by mělo být 2.6.1198.718 nebo vyšší. |Není dostupné. |
 
 ### <a name="backup-extension"></a>Rozšíření zálohování

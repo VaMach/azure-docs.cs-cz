@@ -1,16 +1,15 @@
-Pokud jste tak ještě neučinili, můžete získat [bezplatnou zkušební verzi předplatného Azure](https://azure.microsoft.com/pricing/free-trial/) a [rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) [připojené k vašemu účtu Azure](../articles/xplat-cli-connect.md). Jakmile to uděláte, můžete spuštěním následujících příkazů rychle vytvořit sadu škálování:
+Pokud jste tak ještě neučinili, můžete získat [bezplatnou zkušební verzi předplatného Azure](https://azure.microsoft.com/pricing/free-trial/) a [rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) [připojené k vašemu účtu Azure](../articles/xplat-cli-connect.md). Následujícím způsobem ověřte, že je Azure CLI v režimu Resource Manager:
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+Nyní pomocí příkazu `azure vmss quick-create` vytvořte škálovací sadu. Následující příklad vytvoří škálovací sadu `myVMSS` s pěti instancemi virtuálních počítačů ve skupině prostředků `myResourceGroup`:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
 Chcete-li přizpůsobit umístění nebo IMAGE-URN, podívejte se na příkazy `azure location list` a `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -30,7 +29,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME

@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
+ms.openlocfilehash: 3149797c078764fa54c488e8498790ea91d1a1b1
 
 
 ---
@@ -246,9 +246,12 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [Používání úložiště Queue z Pythonu](storage-python-how-to-use-queue-storage.md)
 * [Používání úložiště File z Pythonu](storage-python-how-to-use-file-storage.md)
 
+## <a name="next-steps"></a>Další kroky
+
+* [Vytvoření účtu úložiště](storage-create-storage-account.md)
+* [Začínáme se službou Azure Storage v pěti minutách](storage-getting-started-guide.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

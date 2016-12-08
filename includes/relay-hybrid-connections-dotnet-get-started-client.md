@@ -3,17 +3,21 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Přidání balíčku NuGet služby Relay
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
-2. Klikněte na kartu **Procházet**, vyhledejte „Microsoft Azure Relay“ a vyberte položku **Microsoft Azure Relay**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
+2. Klikněte na kartu **Procházet**, vyhledejte „Microsoft.Azure.Relay“ a vyberte položku **Microsoft Azure Relay**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
 
 ### <a name="write-some-code-to-send-messages"></a>Napsání kódu pro odesílání zpráv
-1. Na začátek souboru Program.cs přidejte následující příkaz `using`.
+1. Do horní části souboru Program.cs přidejte následující příkazy `using`.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. V podrobnostech o hybridním připojení přidejte konstanty do třídy `Program`. Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření hybridního připojení.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
@@ -21,7 +25,7 @@
     ```
 3. Do třídy `Program` přidejte následujícím postupem novou metodu:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. Ve třídě `Program` přidejte do metody `Main` následující řádek kódu.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Soubor Program.cs by měl vypadat takhle.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

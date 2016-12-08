@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je Application Insights?](app-insights-overview.md)
-## [Jak to funguje](app-insights-detect-triage-diagnose.md)
+## [Sledování výkonu v cyklu vývoje a provozu](app-insights-detect-triage-diagnose.md)
 
 # Začínáme
 ## Monitorování Azure
@@ -63,8 +63,8 @@
 #### [Metriky a výstrahy](app-insights-alerts.md)
 
 ### [Inteligentní detekce](app-insights-proactive-diagnostics.md)
-#### [Detekce poruch](app-insights-proactive-failure-diagnostics.md)
-#### [Detekce anomálií](app-insights-proactive-performance-diagnostics.md)
+#### [Anomálie selhání](app-insights-proactive-failure-diagnostics.md)
+#### [Anomálie výkonu](app-insights-proactive-performance-diagnostics.md)
 
 ## Analýza
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referenční informace
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Rozhraní API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Rozhraní JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analýzy](app-insights-analytics-reference.md)
+## [Reference pro analýzy](app-insights-analytics-reference.md)
 ## [Vzorkování](app-insights-sampling.md)
 ## [IP adresy](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,9 +145,9 @@
 ## [Poznámky k vydání sady Application Insights SDK pro Windows Phone a Store](app-insights-release-notes-windows.md)
 ## [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Poznámky k verzi sady SDK – Application Insights](app-insights-release-notes.md)
-## [REST API](https://dev.applicationinsights.io/)
+## [Rozhraní REST API pro přístup k datům](https://dev.applicationinsights.io/)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -30,8 +30,8 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Volba image virtuálního počítače z Marketplace
 Jako příklad používáme image systému Windows Server 2012 R2 Datacenter, je to ale pouze jedna z mnoha imagí, které Azure nabízí. Volba image závisí na tom, jaké máte předplatné. Některé desktopové image jsou například dostupné pro [Předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
-2. V nabídce centra klikněte na **Nový**  >  **Virtual Machines**  >  **Windows Server 2012 R2 Datacenter**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. V nabídce centra klikněte na **Nový**  > **Compute** >  **Windows Server 2012 R2 Datacenter**.
    
     ![Snímek obrazovky zobrazující image virtuálního počítače Azure dostupné na Portálu](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. V okně **Windows Server 2012 R2 Datacenter** v části **Vybrat model nasazení** ověřte, že je vybrán **Resource Manager**. Klikněte na možnost **Vytvořit**.
@@ -49,7 +49,7 @@ Po výběru image můžete použít výchozí nastavení a rychle vytvořit virt
 4. Až to budete mít, přejděte kliknutím na **OK** k další části. 
    
     ![Snímek obrazovky, který zobrazuje nastavení v okně **Základy** pro konfiguraci virtuálního počítače Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Zvolte [velikost](virtual-machines-windows-sizes.md) virtuálního počítače a poté pokračujte kliknutím na **Vybrat**. 
+5. Zvolte [velikost](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtuálního počítače a poté pokračujte kliknutím na **Vybrat**. 
    
     ![Snímek obrazovky okna Velikost zobrazující velikosti virtuálního počítače Azure, ze kterých můžete vybírat](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. V okně **Nastavení** můžete změnit možnosti úložiště a sítě. V tomto kurzu přijměte výchozí nastavení. Pokud jste vybrali velikost virtuálního počítače, který to podporuje, můžete výběrem možnosti **Premium (SSD)** jako **Typ disku** vyzkoušet službu Azure Storage úrovně Premium. Jakmile budete se změnami hotovi, klikněte na **OK**.
@@ -76,7 +76,7 @@ Po výběru image můžete použít výchozí nastavení a rychle vytvořit virt
    
    ![Snímek obrazovky zobrazující zprávu o ověření identity virtuálního počítače](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-Pokud budete mít s připojením problémy, projděte si téma [Poradce při potížích s připojením k virtuálnímu počítači s Windows v Azure pomocí Vzdálené plochy](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Pokud budete mít s připojením problémy, projděte si téma [Poradce při potížích s připojením k virtuálnímu počítači s Windows v Azure pomocí Vzdálené plochy](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Nyní můžete s virtuálním počítačem pracovat stejně jako s jakýmkoli jiným serverem.
 
@@ -88,13 +88,13 @@ Pokud virtuální počítač nepoužíváte, je vhodné ho zastavit, aby vám zb
 Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
 ## <a name="next-steps"></a>Další kroky
-* Můžete [nainstalovat službu IIS](virtual-machines-windows-hero-role.md) a experimentovat se svým novým virtuálním počítačem. Tento kurz také ukazuje, jak otevřít port 80 pro příchozí webový provoz pomocí skupiny zabezpečení sítě (NSG). 
-* Můžete také [vytvořit virtuální počítač s Windows pomocí prostředí PowerShell](virtual-machines-windows-ps-create.md) nebo [vytvořit virtuální počítač se systémem Linux](virtual-machines-linux-quick-create-cli.md) pomocí rozhraní příkazového řádku Azure.
-* Pokud vás zajímá automatizace nasazení, projděte si téma [Vytvoření virtuálního počítač s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md).
+* Můžete [nainstalovat službu IIS](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a experimentovat se svým novým virtuálním počítačem. Tento kurz také ukazuje, jak otevřít port 80 pro příchozí webový provoz pomocí skupiny zabezpečení sítě (NSG). 
+* Můžete také [vytvořit virtuální počítač s Windows pomocí prostředí PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nebo [vytvořit virtuální počítač se systémem Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pomocí rozhraní příkazového řádku Azure.
+* Pokud vás zajímá automatizace nasazení, projděte si téma [Vytvoření virtuálního počítač s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -17,7 +17,7 @@ K používání třídy EventProcessorHost potřebujete [účet služby Azure St
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Vytvoření projektu jazyka Java pomocí hostitele EventProcessor
 Klientská knihovna Java pro Event Hubs je k dispozici pro použití v projektech Maven z [centrálního úložiště Maven][Maven balíček], a může být odkazováno pomocí následující deklarace závislostí uvnitř souboru projektu Maven:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
 
 1. Pro následující příklad nejprve vytvořte nový projekt Maven pro aplikaci konzoly nebo prostředí v oblíbeném vývojovém prostředí Java. Třída bude volána ```ErrorNotificationHandler```.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
     ```
 4. Nahraďte následující pole hodnotami použitými při vytváření Event Hubu a účtu úložiště.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -195,6 +195,6 @@ Pro různé typy prostředí sestavení můžete explicitně získat nejnovějš
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

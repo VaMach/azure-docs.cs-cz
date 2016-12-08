@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Naučte se používat web Azure Portal k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace o službě Data Lake Store najdete v tématu [Přehled o Azure Data Lake Store](data-lake-store-overview.md).
@@ -58,8 +59,8 @@ Pokud chcete začít s Data Lake Store, podívejte se na následující videa.
    * **Umístění**: Vyberte umístění, kde chcete vytvořit účet Data Lake Store.
    * **Nastavení šifrování**. Můžete zvolit, jestli chcete účet Data Lake Store šifrovat. Pokud zvolíte možnost šifrování, můžete také určit způsob správy hlavního šifrovacího klíče, který chcete použít k šifrování dat v účtu.
      
-     * (Výchozí) Z rozevíracího seznamu vyberte **Nepovolovat šifrování**, pokud šifrování používat nechcete.
-     * (Volitelné) Vyberte **Používat klíče spravované službou Azure Data Lake**, pokud chcete, aby Azure Data Lake Store spravoval šifrovací klíče.
+     * (Volitelné) Z rozevíracího seznamu vyberte **Nepovolovat šifrování**, pokud šifrování používat nechcete.
+     * (Výchozí) Vyberte **Používat klíče spravované službou Azure Data Lake**, pokud chcete, aby služba Azure Data Lake Store spravovala šifrovací klíče.
        
          ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Volitelné) Vyberte **Zvolit klíče z Azure Key Vault**, pokud chcete používat vlastní klíče, které máte v Azure Key Vaultu. Pomocí této možnosti můžete také vytvořit účet a klíče Key Vaultu, pokud je ještě nemáte.
@@ -136,6 +137,6 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

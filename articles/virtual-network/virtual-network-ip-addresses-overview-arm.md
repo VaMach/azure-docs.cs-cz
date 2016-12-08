@@ -1,148 +1,154 @@
 ---
-title: Public and private IP addressing in Azure Resource Manager | Microsoft Docs
-description: Learn about public and private IP addressing in Azure Resource Manager
+title: IP adresy | Dokumentace Microsoftu
+description: "Další informace o veřejných a privátních IP adresách v Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 38dc72d7248584006a478413b5da9a6b230e6b89
+
 
 ---
-# IP addresses in Azure
-You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure:
+# <a name="ip-addresses-in-azure"></a>IP adresy v Azure
+Přiřazením IP adres k prostředkům Azure umožníte komunikaci s ostatními prostředky Azure, místní sítí a internetem. Existují dva typy IP adres, které můžete v Azure využít:
 
-* **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services
-* **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[classic deployment model](virtual-network-ip-addresses-overview-classic.md).
-
-If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
-
-## Public IP addresses
-Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
-
-In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources:
-
-* Virtual machines (VM)
-* Internet-facing load balancers
-* VPN gateways
-* Application gateways
-
-### Allocation method
-There are two methods in which an IP address is allocated to a *public* IP resource - *dynamic* or *static*. The default allocation method is *dynamic*, where an IP address is **not** allocated at the time of its creation. Instead, the public IP address is allocated when you start (or create) the associated resource (like a VM or load balancer). The IP address is released when you stop (or delete) the resource. This causes the IP address to change when you stop and start a resource.
-
-To ensure the IP address for the associated resource remains the same, you can set the allocation method explicitly to *static*. In this case an IP address is assigned immediately. It is released only when you delete the resource or change its allocation method to *dynamic*.
+* **Veřejné IP adresy**: Slouží ke komunikaci s internetem, včetně veřejně přístupných služeb Azure.
+* **Privátní IP adresy**: Slouží ke komunikaci v rámci virtuální sítě Azure (VNet) a místní sítě, pokud použijete VPN Gateway nebo okruh ExpressRoute pro rozšíření sítě do Azure.
 
 > [!NOTE]
-> Even when you set the allocation method to *static*, you cannot specify the actual IP address assigned to the *public IP resource*. Instead, it gets allocated from a pool of available IP addresses in the Azure location the resource is created in.
-> 
+> Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: [Resource Manager a klasický model](../resource-manager-deployment-model.md).  Tento článek se věnuje modelu nasazení Resource Manager, který Microsoft doporučuje pro většinu nových nasazení namísto [klasického modelu nasazení](virtual-network-ip-addresses-overview-classic.md).
 > 
 
-Static public IP addresses are commonly used in the following scenarios:
+Pokud už klasický model nasazení znáte, prohlédněte si [rozdíly v IP adresování mezi klasickým nasazením a nasazením Resource Manageru](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
-* End-users need to update firewall rules to communicate with your Azure resources.
-* DNS name resolution, where a change in IP address would require updating A records.
-* Your Azure resources communicate with other apps or services that use an IP address-based security model.
-* You use SSL certificates linked to an IP address.
+## <a name="public-ip-addresses"></a>Veřejné IP adresy
+Veřejné IP adresy umožňují prostředkům Azure komunikovat s internetem a veřejnými službami Azure, jako jsou například [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Databases](../sql-database/sql-database-technical-overview.md) a [Azure Storage](../storage/storage-introduction.md).
+
+[Veřejná IP](resource-groups-networking.md#public-ip-address) adresa v Azure Resource Manageru je prostředek, který má svoje vlastní vlastnosti. Veřejnou IP adresu můžete přiřadit libovolnému z následujících prostředků:
+
+* Virtuální počítače
+* Internetové nástroje pro vyrovnávání zatížení
+* VPN Gateway
+* Application Gateway
+
+### <a name="allocation-method"></a>Metoda přidělování
+Existují dvě metody přidělení IP adresy *veřejnému* IP prostředku – *dynamická* a *statická*. Výchozí metoda přidělení je *dynamická*, při které IP adresa **není** přidělená v okamžiku svého vytvoření. Místo toho se veřejná IP adresa přidělí, když spustíte (nebo vytvoříte) přidružený prostředek (jako je virtuální počítač nebo nástroj pro vyrovnávání zatížení). Když tento prostředek zastavíte (nebo odstraníte), IP adresa se uvolní. To způsobuje, že se IP adresa při zastavení a spuštění prostředku změní.
+
+Pokud chcete zajistit, aby IP adresa přidruženého prostředku zůstala stejná, můžete explicitně nastavit *statickou* metodu přidělování. V tomto případě se IP adresa přiřadí okamžitě. Uvolní se, jenom když prostředek odstraníte nebo změníte jeho metodu přidělování na *dynamickou*.
 
 > [!NOTE]
-> The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-> 
-> 
+> Ani při nastavení *statické* metody přidělování není možné určit vlastní IP adresu přiřazenou *veřejnému IP prostředku*. Tato adresa se vybírá z fondu dostupných IP adres v umístění Azure, ve kterém je prostředek vytvořený.
+>
 
-### DNS hostname resolution
-You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully-qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** will resolve to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+Statické veřejné IP adresy se obvykle používají v následujících scénářích:
+
+* Koncoví uživatelé potřebují aktualizovat pravidla brány firewall pro komunikaci s prostředky Azure.
+* Překlad názvů DNS, kde by změna IP adresy vyžadovala aktualizace záznamů A.
+* Vaše prostředky Azure komunikují s ostatními aplikacemi nebo službami, které využívají model zabezpečení založený na IP adresách.
+* Využíváte certifikáty SSL propojené k IP adrese.
+
+> [!NOTE]
+> Seznam rozsahů IP adres, ze kterých se veřejné IP adresy (dynamické/statické) přidělují prostředkům Azure, je zveřejněný na webu [Rozsahy IP adres datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+>
+
+### <a name="dns-hostname-resolution"></a>Překlad názvů hostitelů DNS
+Můžete zadat popisek názvu domény DNS pro veřejný IP prostředek. Na serverech DNS spravovaných Azure se vytvoří mapování *popisek_názvu_domény*.*umístění*.cloudapp.azure.com na veřejnou IP adresu. Pokud například vytvoříte veřejný IP prostředek, který jako *popisek_názvu_domény* má **contoso** a jako *umístění* v Azure používá **Západní USA**, plně kvalifikovaný název domény (FQDN) **contoso.westus.cloudapp.azure.com** se přeloží na veřejnou IP adresu tohoto prostředku. Tento plně kvalifikovaný název domény můžete použít k vytvoření vlastního záznamu CNAME domény odkazujícího na veřejnou IP adresu v Azure.
 
 > [!IMPORTANT]
-> Each domain name label created must be unique within its Azure location.  
-> 
-> 
+> Každý vytvořený popisek názvu domény musí být v rámci příslušného umístění Azure jedinečný.  
+>
 
-### Virtual machines
-You can associate a public IP address with a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM by assigning it to its **network interface**. In the case of a multi-network interface VM, you can assign it to the *primary* network interface only. You can assign either a dynamic or a static public IP address to a VM.
+### <a name="virtual-machines"></a>Virtuální počítače
+Veřejnou IP adresu můžete k virtuálnímu počítači s [Windows](../virtual-machines/virtual-machines-windows-about.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md) přidružit tak, že ji přiřadíte jeho **síťovému rozhraní**. V případě virtuálních počítačů s více síťovými rozhraními můžete přiřazovat jenom k *primárnímu* síťovému rozhraní. Virtuálnímu počítači můžete přiřadit dynamickou nebo statickou veřejnou IP adresu.
 
-### Internet-facing load balancers
-You can associate a public IP address with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables [multi-VIP](../load-balancer/load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
+### <a name="internet-facing-load-balancers"></a>Internetové nástroje pro vyrovnávání zatížení
+Veřejnou IP adresu můžete přiřadit službě [Azure Load Balancer](../load-balancer/load-balancer-overview.md) tak, že ji přiřadíte konfiguraci **front-endu** tohoto nástroje pro vyrovnávání zatížení. Tato veřejná IP adresa slouží jako virtuální IP adresa (VIP) s vyrovnáváním zatížení. Front-endu nástroje pro vyrovnávání zatížení můžete přiřadit dynamickou nebo statickou veřejnou IP adresu. Front-endu nástroje pro vyrovnávání zatížení můžete také přiřadit několik veřejných IP adres, což umožňuje použití scénářů s [několika VIP](../load-balancer/load-balancer-multivip.md), jako je víceklientské prostředí s weby využívajícími SSL.
 
-### VPN gateways
-[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) is used to connect an Azure virtual network (VNet) to other Azure VNets or to an on-premises network. You need to assign a public IP address to its **IP configuration** to enable it to communicate with the remote network. Currently, you can only assign a *dynamic* public IP address to a VPN gateway.
+### <a name="vpn-gateways"></a>VPN Gateway
+[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) se používá k připojení virtuální sítě Azure (VNet) k ostatním virtuálním sítím Azure nebo k místní síti. Abyste povolili komunikaci se vzdálenou sítí, musíte přiřadit veřejnou IP adresu její **konfiguraci protokolu IP**. V současné době je možné službě VPN Gateway přiřadit jenom *dynamickou* veřejnou IP adresu.
 
-### Application gateways
-You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. Currently, you can only assign a *dynamic* public IP address to an application gateway frontend configuration.
+### <a name="application-gateways"></a>Application Gateway
+Veřejnou IP adresu můžete přiřadit službě [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) tak, že ji přiřadíte konfiguraci **front-endu** této brány. Tato veřejná IP adresa slouží jako virtuální IP adresa (VIP) s vyrovnáváním zatížení. V současné době je možné službě Application Gateway přiřadit jenom *dynamickou* veřejnou IP adresu.
 
-### At-a-glance
-The table below shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+### <a name="at-a-glance"></a>Přehledně
+Následující tabulka ukazuje konkrétní vlastnost, jejímž prostřednictvím je možné veřejnou IP adresu přiřadit prostředku nejvyšší úrovně, a metody přidělení (dynamické nebo statické), které je možné použít.
 
-| Top-level resource | IP Address association | Dynamic | Static |
+| Prostředek nejvyšší úrovně | Přidružení IP adresy | Dynamická | Statická |
 | --- | --- | --- | --- |
-| Virtual machine |Network interface |Yes |Yes |
-| Load balancer |Front end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
-| Application gateway |Front end configuration |Yes |No |
+| Virtuální počítač |Síťové rozhraní |Ano |Ano |
+| Nástroj pro vyrovnávání zatížení |Konfigurace front-endu |Ano |Ano |
+| VPN Gateway |Konfigurace protokolu IP brány |Ano |Ne |
+| Application Gateway |Konfigurace front-endu |Ano |Ne |
 
-## Private IP addresses
-Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
+## <a name="private-ip-addresses"></a>Privátní IP adresy
+Privátní IP adresy umožňují prostředkům Azure komunikovat s ostatními prostředky ve [virtuální](virtual-networks-overview.md) nebo místní síti prostřednictvím brány sítě VPN nebo okruhu ExpressRoute, a to bez použití IP adresy dostupné na internetu.
 
-In the Azure Resource Manager deployment model, a private IP address is associated to the following types of Azure resources:
+V modelu nasazení Azure Resource Manager se IP adresa přidruží k následujícím typům prostředků Azure:
 
-* VMs
-* Internal load balancers (ILBs)
-* Application gateways
+* Virtuální počítače
+* Interní nástroje pro vyrovnávání zatížení
+* Application Gateway
 
-### Allocation method
-A private IP address is allocated from the address range of the subnet to which the resource is attached. The address range of the subnet itself is a part of the VNet's address range.
+### <a name="allocation-method"></a>Metoda přidělování
+Privátní IP adresa se přiděluje z rozsahu adres v podsíti, ke které je prostředek připojen. Rozsah adres samotné podsítě je součástí rozsahu adres virtuální sítě.
 
-There are two methods in which a private IP address is allocated: *dynamic* or *static*. The default allocation method is *dynamic*, where the IP address is automatically allocated from the resource's subnet (using DHCP). This IP address can change when you stop and start the resource.
+Existují dvě metody přidělení privátní IP adresy: *dynamická* a *statická*. Výchozí metodou je *dynamické* přidělení, kdy se IP adresa automaticky přiděluje z podsítě prostředku (pomocí protokolu DHCP). Tuto IP adresa se může při zastavení a spuštění prostředku změnit.
 
-You can set the allocation method to *static* to ensure the IP address remains the same. In this case, you also need to provide a valid IP address that is part of the resource's subnet.
+Pokud chcete zajistit, aby IP adresa zůstávala stejná, můžete nastavit *statickou* metodu přidělení. V tomto případě musíte také poskytnout platnou IP adresu, která je součástí podsítě prostředku.
 
-Static private IP addresses are commonly used for:
+Statické privátní IP adresy se obvykle používají pro:
 
-* VMs that act as domain controllers or DNS servers.
-* Resources that require firewall rules using IP addresses.
-* Resources accessed by other apps/resources through an IP address.
+* Virtuální počítače, které slouží jako řadiče domény nebo servery DNS.
+* Prostředky, které vyžadují pravidla brány firewall s využitím IP adres.
+* Prostředky, ke kterým se přistupuje z jiných aplikací nebo prostředků prostřednictvím IP adresy.
 
-### Virtual machines
-A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
+### <a name="virtual-machines"></a>Virtuální počítače
+Privátní IP adresa se přiřazuje **síťovému rozhraní** virtuálního počítače s [Windows](../virtual-machines/virtual-machines-windows-about.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md). V případě virtuálního počítače s několika síťovými rozhraními se privátní IP adresa přiřadí každému z těchto rozhraní. Pro síťové rozhraní můžete určit dynamickou nebo statickou metodu přidělení.
 
-#### Internal DNS hostname resolution (for VMs)
-All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
+#### <a name="internal-dns-hostname-resolution-for-vms"></a>Překlad názvů hostitelů interních služeb DNS (pro virtuální počítače)
+Všechny virtuální počítače Azure jsou ve výchozím nastavení nakonfigurované se [servery DNS spravovanými Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) (pokud explicitně nenakonfigurujete vlastní servery DNS). Tyto servery DNS poskytují interní překlad IP adres pro virtuální počítače umístěné ve stejné virtuální síti.
 
-When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-network interface VM, the hostname is mapped to the private IP address of the primary network interface.
+Když vytvoříte virtuální počítač, do serverů DNS spravovaných Azure se přidá mapování názvu hostitele na jeho IP adresu. V případě virtuálního počítače s několika síťovými rozhraními se název hostitele mapuje na privátní IP adresu primárního síťového rozhraní.
 
-VMs configured with Azure-managed DNS servers will be able to resolve the hostnames of all VMs within their VNet to their private IP addresses.
+Virtuální počítače nakonfigurované servery DNS spravovanými Azure mohou překládat názvy hostitelů všech virtuálních počítačů v rámci virtuální sítě na jejich privátní IP adresy.
 
-### Internal load balancers (ILB) & Application gateways
-You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) or an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration.
+### <a name="internal-load-balancers-ilb-application-gateways"></a>Interní nástroje pro vyrovnávání a Application Gateway
+Privátní IP adresu můžete přiřadit konfiguraci **front-endu** nástroje [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) nebo služby [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Tato privátní IP adresa slouží jako interní koncový bod, který je přístupný pouze pro prostředky v příslušné virtuální síti (VNet) a ve vzdálených sítích připojených k virtuální síti. Konfiguraci front-endu můžete přiřadit dynamickou nebo statickou privátní IP adresu.
 
-### At-a-glance
-The table below shows the specific property through which a private IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+### <a name="at-a-glance"></a>Přehledně
+Následující tabulka ukazuje konkrétní vlastnost, jejímž prostřednictvím je možné privátní IP adresu přiřadit prostředku nejvyšší úrovně, a metody přidělení (dynamické nebo statické), které je možné použít.
 
-| Top-level resource | IP address association | Dynamic | Static |
+| Prostředek nejvyšší úrovně | Přidružení IP adresy | Dynamická | Statická |
 | --- | --- | --- | --- |
-| Virtual machine |Network interface |Yes |Yes |
-| Load balancer |Front end configuration |Yes |Yes |
-| Application gateway |Front end configuration |Yes |Yes |
+| Virtuální počítač |Síťové rozhraní |Ano |Ano |
+| Nástroj pro vyrovnávání zatížení |Konfigurace front-endu |Ano |Ano |
+| Application Gateway |Konfigurace front-endu |Ano |Ano |
 
-## Limits
-The limits imposed on IP addressing are indicated in the full set of [limits for networking](../azure-subscription-service-limits.md#networking-limits) in Azure. These limits are per region and per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+## <a name="limits"></a>Omezení
+Omezení IP adresování jsou uvedená v kompletní sadě [omezení sítě](../azure-subscription-service-limits.md#networking-limits) v Azure. Tato omezení platí pro jednotlivé oblasti a jednotlivá předplatná. Pokud chcete v závislosti na svých obchodních potřebách zvýšit výchozí omezení na povolené maximum, [kontaktujte podporu](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Pricing
-In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
+## <a name="pricing"></a>Ceny
+Za veřejné IP adresy se může účtovat nominální poplatek. Další informace o cenách IP adres v Azure najdete na stránce [Ceny IP adres](https://azure.microsoft.com/pricing/details/ip-addresses).
 
-## Next steps
-* [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-* [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
-* [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+## <a name="next-steps"></a>Další kroky
+* [Nasazení virtuálního počítače se statickou veřejnou IP adresou pomocí webu Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+* [Nasazení virtuálního počítače se statickou veřejnou IP adresou pomocí šablony](virtual-network-deploy-static-pip-arm-template.md)
+* [Nasazení virtuálního počítače se statickou privátní IP adresou pomocí webu Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

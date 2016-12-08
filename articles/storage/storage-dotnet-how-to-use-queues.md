@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18af1ce4f6ebb235e66e17d99dc5ae6156b84a59
+ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
+ms.openlocfilehash: 93c1d5261e7826258250c4547e4e287bc7e13d1e
 
 ---
 
@@ -52,9 +52,9 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 Přidejte do horní části souboru `program.cs` následující příkazy `using`:
 
 ```csharp
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager
-    using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
 ### <a name="parse-the-connection-string"></a>Analýza připojovacího řetězce
@@ -64,7 +64,7 @@ Přidejte do horní části souboru `program.cs` následující příkazy `using
 Třída **CloudQueueClient** vám umožňuje načíst fronty uložené v rámci Queue Storage. Tady je jeden ze způsobů, jak vytvořit klienta služby:
 
 ```csharp
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
     
 Teď můžete napsat kód, který bude číst data z Queue Storage a bude je tam také zapisovat.
@@ -73,198 +73,198 @@ Teď můžete napsat kód, který bude číst data z Queue Storage a bude je tam
 Tento příklad ukazuje, jak vytvořit frontu, pokud ještě neexistuje:
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a container.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a container.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
+// Create the queue if it doesn't already exist
+queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>Vložení zprávy do fronty
 Pokud chcete vložit zprávu do existující fronty, vytvořte nejdříve novou třídu **CloudQueueMessage**. Pak zavolejte metodu **AddMessage**. **CloudQueueMessage** je možné vytvořit buď z řetězce (ve formátu UTF-8), nebo z **bajtového** pole. Tady je kód, který vytvoří frontu (pokud neexistuje) a vloží zprávu „Hello, World“:
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Create the queue if it doesn't already exist.
-    queue.CreateIfNotExists();
+// Create the queue if it doesn't already exist.
+queue.CreateIfNotExists();
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    queue.AddMessage(message);
+// Create a message and add it to the queue.
+CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+queue.AddMessage(message);
 ```
 
 ## <a name="peek-at-the-next-message"></a>Zobrazení náhledu další zprávy
 Pomocí volání metody **PeekMessage** můžete prohlížet zprávy ve frontě, aniž byste je z fronty odebrali.
 
 ```csharp
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = queue.PeekMessage();
+// Peek at the next message
+CloudQueueMessage peekedMessage = queue.PeekMessage();
 
-    // Display message.
-    Console.WriteLine(peekedMessage.AsString);
+// Display message.
+Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Změna obsahu zpráv zařazených ve frontě
 Podle potřeby můžete změnit obsah zprávy přímo ve frontě. Pokud zpráva představuje pracovní úlohu, mohli byste tuto funkci použít k aktualizaci stavu pracovních úloh. Následující kód aktualizuje zprávy ve frontě o nový obsah a prodlouží časový limit viditelnosti na 60 sekund. Uloží se tím stav práce spojený se zprávou a klient získá další minutu, aby mohl pokračovat ve zpracování zprávy. Tímto způsobem může sledovat vícekrokového pracovní postupy pro zprávy ve frontě, aniž by bylo nutné v případě, že krok zpracování z důvodu selhání hardwaru nebo softwaru selže, začít znovu od začátku. Obvykle byste udržovali také hodnotu počtu opakování, a pokud by se pokus o zpracování zprávy opakoval více než *n*krát, odstranili byste ji. Je to ochrana proti tomu, aby zpráva při každém pokusu o zpracování nevyvolala chyby aplikace.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Get the message from the queue and update the message contents.
-    CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.");
-    queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
-        MessageUpdateFields.Content | MessageUpdateFields.Visibility);
+// Get the message from the queue and update the message contents.
+CloudQueueMessage message = queue.GetMessage();
+message.SetMessageContent("Updated contents.");
+queue.UpdateMessage(message,
+    TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
+    MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
-## <a name="dequeue-the-next-message"></a>Vyřazení další zprávy z fronty
+## <a name="de-queue-the-next-message"></a>Vyřazení další zprávy z fronty
 Váš kód vyřazuje zprávy z fronty ve dvou krocích. Zavoláním metody **GetMessage** získáte další zprávu ve frontě. Zpráva vrácená metodou **GetMessage** se stane neviditelnou pro jakýkoli jiný kód, který čte zprávy z této fronty. Ve výchozím nastavení tato zpráva zůstává neviditelná po dobu 30 sekund. Aby bylo možné odebrání zprávy z fronty dokončit, musíte také zavolat metodu **DeleteMessage**. Tento dvoukrokový proces odebrání zprávy zaručuje, aby v případě, že se vašemu kódu nepodaří zprávu zpracovat z důvodu selhání hardwaru nebo softwaru, mohla stejnou zprávu získat jiná instance vašeho kódu a bylo možné to zkusit znovu. Váš kód zavolá metodu **DeleteMessage** hned po zpracování zprávy.
 
 ```csharp
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Get the next message
-    CloudQueueMessage retrievedMessage = queue.GetMessage();
+// Get the next message
+CloudQueueMessage retrievedMessage = queue.GetMessage();
 
-    //Process the message in less than 30 seconds, and then delete the message
-    queue.DeleteMessage(retrievedMessage);
+//Process the message in less than 30 seconds, and then delete the message
+queue.DeleteMessage(retrievedMessage);
 ```
 
-## <a name="use-asyncawait-pattern-with-common-queue-storage-apis"></a>Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
+## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Použití vzoru Async-Await s běžnými rozhraním API Queue Storage
 Tento příklad ukazuje způsob použití vzoru Async-Await s běžnými rozhraním API Queue Storage. Ukázka volá asynchronní verzi každé z daných metod, jak indikuje přípona *Async* každé metody. Při použití asynchronní metody pozastaví vzor async-await místní provádění kódu až do dokončení volání. Toto chování umožňuje aktuálnímu vláknu provádět další činnosti, což pomáhá zabránit vzniku kritických bodů z hlediska výkonu a zlepšuje celkovou rychlost reakce aplikace. Další podrobnosti o použití vzoru Async-Await v rozhraní .NET najdete v tématu [Async a Await (C# a Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
 ```csharp
-    // Create the queue if it doesn't already exist
-    if(await queue.CreateIfNotExistsAsync())
-    {
-        Console.WriteLine("Queue '{0}' Created", queue.Name);
-    }
-    else
-    {
-        Console.WriteLine("Queue '{0}' Exists", queue.Name);
-    }
+// Create the queue if it doesn't already exist
+if(await queue.CreateIfNotExistsAsync())
+{
+    Console.WriteLine("Queue '{0}' Created", queue.Name);
+}
+else
+{
+    Console.WriteLine("Queue '{0}' Exists", queue.Name);
+}
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+// Create a message to put in the queue
+CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
-    // Async enqueue the message
-    await queue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+// Async enqueue the message
+await queue.AddMessageAsync(cloudQueueMessage);
+Console.WriteLine("Message added");
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+// Async dequeue the message
+CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
 
-    // Async delete the message
-    await queue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+// Async delete the message
+await queue.DeleteMessageAsync(retrievedMessage);
+Console.WriteLine("Deleted message");
 ```
     
-## <a name="leverage-additional-options-for-dequeuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
+## <a name="leverage-additional-options-for-de-queuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
 Načítání zpráv z fronty si můžete přizpůsobit dvěma způsoby.
 Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nastavit delší nebo kratší časový limit neviditelnosti, aby měl váš kód více nebo méně času na úplné zpracování jednotlivých zpráv. V následujícím příkladu kódu se pomocí metody **GetMessages** získá 20 zpráv v jednom volání. Následně se každá zpráva zpracuje pomocí smyčky **foreach**. Také se pro každou zprávu nastaví časový limit neviditelnosti 5 minut. Pozor, 5minutový časový limit začíná pro všechny zprávy najednou, takže po uplynutí 5 minut od volání metody **GetMessages** pak budou všechny zprávy, které nebyly odstraněny, opět viditelné.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
-        queue.DeleteMessage(message);
-    }
+foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
+{
+    // Process all messages in less than 5 minutes, deleting each message after processing.
+    queue.DeleteMessage(message);
+}
 ```
 
 ## <a name="get-the-queue-length"></a>Získání délky fronty
 Podle potřeby můžete získat odhadovaný počet zpráv ve frontě. Metoda **FetchAttributes** požádá Službu front o načtení atributů fronty, včetně počtu zpráv. Vlastnost **ApproximateMessageCount** vrátí poslední hodnotu načtenou metodou **FetchAttributes** bez volání Služby front.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Fetch the queue attributes.
-    queue.FetchAttributes();
+// Fetch the queue attributes.
+queue.FetchAttributes();
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = queue.ApproximateMessageCount;
+// Retrieve the cached approximate message count.
+int? cachedMessageCount = queue.ApproximateMessageCount;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+// Display number of messages.
+Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Odstranění fronty
 Pokud budete chtít odstranit frontu se všemi zprávami, které v ní jsou, zavolejte metodu **Delete** pro objekt fronty.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Delete the queue.
-    queue.Delete();
+// Delete the queue.
+queue.Delete();
 ```
     
 
@@ -289,7 +289,6 @@ Teď, když jste se naučili základy používání služby Queue Storage, podí
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,7 +12,7 @@
 ## [Správa licencí AD](active-directory-licensing-what-is.md)
 ## [Získejte Azure pro vaši organizaci](sign-up-organization.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
-
+## [Kurzy aplikací SaaS](active-directory-saas-tutorial-list.md)
 
 # Postup
 ## Správa uživatelů
@@ -279,7 +279,7 @@
 # Referenční informace
 ## [Rutiny PowerShellu](/powershell/ )
 ## [Referenční informace k Java API](/java/api)
-## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Limity a omezení služby](active-directory-service-limits-restrictions.md)
 
 # Související
@@ -291,12 +291,12 @@
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

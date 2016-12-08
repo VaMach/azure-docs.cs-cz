@@ -16,27 +16,27 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdc41f9068de3e1ea796e1a3172a99dd185d9f9c
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: 1312babe3317f33c204379f3080c62ecb6297e27
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-powershell"></a>Vytvoření virtuální sítě pomocí připojení Site-to-Site s použitím prostředí PowerShell
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-powershell"></a>Vytvoření virtuální sítě pomocí připojení Site-to-Site s použitím prostředí PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Classic – portál Azure Classic](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Tento článek vás provede procesem vytvoření virtuální sítě a připojení VPN brány VPN Gateway typu Site-to-Site k místní síti pomocí modelu nasazení Azure Resource Manager. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
-![Diagram Site-to-site](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site") 
+![Diagram Site-to-site](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích Site-to-Site. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj. 
+Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích Site-to-Site. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
 
 [!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -48,7 +48,7 @@ Před zahájením konfigurace ověřte, zda máte následující.
 
 * Kompatibilní zařízení VPN a někoho, kdo jej umí nakonfigurovat. Viz [Informace o zařízeních VPN](vpn-gateway-about-vpn-devices.md). Pokud nevíte, jak nakonfigurovat zařízení VPN, nebo neznáte rozsahy IP adres v konfiguraci vaší místní sítě, budete se muset spojit s někým, kdo vám s tím pomůže.
 * Veřejnou IP adresu pro vaše zařízení VPN. Tato IP adresa nesmí být umístěná za překladem adres (NAT).
-* Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
+* Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial).
 * Nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
 
 ## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Připojení k vašemu předplatnému
@@ -60,7 +60,7 @@ Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Připo
 
 Zkontrolujte předplatná pro příslušný účet.
 
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription
 
 Určete předplatné, které chcete použít.
 
@@ -74,7 +74,7 @@ Pokud již máte virtuální síť s podsítí brány, která je /29 nebo větš
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Chcete-li vytvořit virtuální síť a podsíť brány
-Podle následující ukázky vytvořte virtuální síť a podsíť brány. Nahraďte hodnoty svými hodnotami. 
+Podle následující ukázky vytvořte virtuální síť a podsíť brány. Nahraďte hodnoty svými hodnotami.
 
 Nejdříve vytvořte skupinu prostředků:
 
@@ -82,7 +82,7 @@ Nejdříve vytvořte skupinu prostředků:
 
 Poté vytvořte virtuální síť. Ověřte, že se zadané adresní prostory nepřekrývají s adresními prostory ve vaší místní síti.
 
-Následující ukázka vytvoří virtuální síť s názvem *testvnet* a dvě podsítě: jednu s názvem *GatewaySubnet* a druhou s názvem *Subnet1*. Je důležité vytvořit jednu podsíť s konkrétním názvem *GatewaySubnet*. Pokud použijete jiný název, konfigurace připojení se nezdaří. 
+Následující ukázka vytvoří virtuální síť s názvem *testvnet* a dvě podsítě: jednu s názvem *GatewaySubnet* a druhou s názvem *Subnet1*. Je důležité vytvořit jednu podsíť s konkrétním názvem *GatewaySubnet*. Pokud použijete jiný název, konfigurace připojení se nezdaří.
 
 Nastavte proměnné.
 
@@ -107,18 +107,18 @@ Vytvořte podsíť brány.
 
     Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 
-Nastavte konfiguraci. 
+Nastavte konfiguraci.
 
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## <a name="3-a-namelocalnetaadd-your-local-network-gateway"></a>3. <a name="localnet"></a>Přidání místní síťové brány
-Ve virtuální síti brána místní sítě obvykle odkazuje na vaše místní umístění. Pro toto umístění určíte název, podle kterého na ně bude Azure odkazovat, a také zadáte předponu adresního prostoru pro bránu místní sítě. 
+Ve virtuální síti brána místní sítě obvykle odkazuje na vaše místní umístění. Pro toto umístění určíte název, podle kterého na ně bude Azure odkazovat, a také zadáte předponu adresního prostoru pro bránu místní sítě.
 
-Azure pomocí zadané předpony IP adresy rozpozná, jaký provoz má zasílat na vaše místní umístění. To znamená, že budete muset zadat každou předponu adresy, kterou chcete přidružit k vaší bráně místní sítě. Tyto předpony můžete snadno aktualizovat v případě změny vaší místní sítě. 
+Azure pomocí zadané předpony IP adresy rozpozná, jaký provoz má zasílat na vaše místní umístění. To znamená, že budete muset zadat každou předponu adresy, kterou chcete přidružit k vaší bráně místní sítě. Tyto předpony můžete snadno aktualizovat v případě změny vaší místní sítě.
 
 Při použití příkladů v prostředí PowerShell je potřeba počítat s následujícím:
 
-* *GatewayIPAddress* je IP adresa vašeho místního zařízení VPN. Zařízení VPN nesmí být umístěné za překladem adres (NAT). 
+* *GatewayIPAddress* je IP adresa vašeho místního zařízení VPN. Zařízení VPN nesmí být umístěné za překladem adres (NAT).
 * *AddressPrefix* je váš místní adresní prostor.
 
 Chcete-li přidat bránu místní sítě s jednou předponou adresy:
@@ -148,17 +148,17 @@ Konfigurace brány definuje podsíť a veřejnou IP adresu, která se bude použ
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-    $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+    $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 
 ## <a name="a-namecreategatewaya6-create-the-virtual-network-gateway"></a><a name="CreateGateway"></a>6. Vytvoření brány virtuální sítě
-V tomto kroku vytvoříte bránu virtuální sítě. Dokončení vytvoření brány může trvat delší dobu. Často 45 minut nebo déle. 
+V tomto kroku vytvoříte bránu virtuální sítě. Dokončení vytvoření brány může trvat delší dobu. Často 45 minut nebo déle.
 
 Použijte následující hodnoty:
 
-* Hodnota *-GatewayType* pro konfiguraci Site-to-Site je *Vpn*. Typ brány je vždy specifický pro konfiguraci, kterou implementujete. Například jiné konfigurace brány mohou vyžadovat jako -GatewayType hodnotu ExpressRoute. 
-* Hodnota *-VpnType* může být *RouteBased* (v některé dokumentaci nazývaná Dynamická brána), nebo *PolicyBased* (v některé dokumentaci nazývaná Statická brána). Další informace o typech brány VPN najdete v tématu [Informace o branách VPN](vpn-gateway-about-vpngateways.md#vpntype).
+* Hodnota *-GatewayType* pro konfiguraci Site-to-Site je *Vpn*. Typ brány je vždy specifický pro konfiguraci, kterou implementujete. Například jiné konfigurace brány mohou vyžadovat jako -GatewayType hodnotu ExpressRoute.
+* Hodnota *-VpnType* může být *RouteBased* (v některé dokumentaci nazývaná Dynamická brána), nebo *PolicyBased* (v některé dokumentaci nazývaná Statická brána). Další informace o typech brány VPN najdete v tématu [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Hodnota *-GatewaySku* může být *Basic*, *Standard*, nebo *HighPerformance*.     
-  
+
         New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
         -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
@@ -171,7 +171,7 @@ Se zjištěním veřejné IP adresy vaší brány virtuální sítě vám pomů�
     Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
 ## <a name="a-namecreateconnectiona8-create-the-vpn-connection"></a><a name="CreateConnection"></a>8. Vytvoření připojení VPN
-Dále vytvoříte připojení VPN typu Site-to-Site mezi bránou virtuální sítě a zařízením VPN. Nezapomeňte hodnoty nahradit vlastními. Sdílený klíč se musí shodovat s hodnotou, kterou jste použili pro konfiguraci zařízení VPN. Všimněte si, že hodnota `-ConnectionType` pro připojení Site-to-Site je *IPsec*. 
+Dále vytvoříte připojení VPN typu Site-to-Site mezi bránou virtuální sítě a zařízením VPN. Nezapomeňte hodnoty nahradit vlastními. Sdílený klíč se musí shodovat s hodnotou, kterou jste použili pro konfiguraci zařízení VPN. Všimněte si, že hodnota `-ConnectionType` pro připojení Site-to-Site je *IPsec*.
 
 Nastavte proměnné.
 
@@ -184,7 +184,7 @@ Vytvořte připojení.
     -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
     -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-Za malou chvíli dojde k vytvoření připojení. 
+Za malou chvíli dojde k vytvoření připojení.
 
 ## <a name="a-nametoverifyato-verify-a-vpn-connection"></a><a name="toverify"></a>Ověření připojení VPN
 Existuje několik různých způsobů, jak ověřit připojení VPN.
@@ -192,7 +192,7 @@ Existuje několik různých způsobů, jak ověřit připojení VPN.
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="a-namemodifyato-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Úprava předpony IP adresy pro místní síťovou bránu
-Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podle následujících pokynů. K dispozici jsou dvě sady pokynů. Pokyny, které zvolíte, závisí na tom, jestli jste už vytvořili připojení brány. 
+Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podle následujících pokynů. K dispozici jsou dvě sady pokynů. Pokyny, které zvolíte, závisí na tom, jestli jste už vytvořili připojení brány.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
@@ -200,12 +200,11 @@ Pokud potřebujete změnit předpony pro bránu místní sítě, postupujte podl
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
-* Do virtuálních sítí můžete přidat virtuální počítače. Kroky jsou uvedeny v tématu [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+*  Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

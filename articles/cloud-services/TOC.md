@@ -98,9 +98,9 @@
 ### [Cloud Services – nejčastější dotazy](cloud-services-faq.md)
 
 # Referenční informace
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Opravy hostovaného operačního systému](cloud-services-guestos-msrc-releases.md)
 ## Vyřazení hostovaného operačního systému
 ### [Zásady vyřazení](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

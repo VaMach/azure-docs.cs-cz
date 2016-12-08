@@ -1,6 +1,6 @@
 ---
 title: "Začínáme s Azure Data Lake Analytics pomocí Azure PowerShellu | Dokumentace Microsoftu"
-description: "Naučte se používat prostřední Azure PowerShell k vytvoření účtu Data Lake Store, vytvoření úlohy Data Lake Analytics pomocí U-SQL a odeslání úlohy. "
+description: "Naučte se používat Azure PowerShell k vytvoření účtu Data Lake Analytics, vytvoření úlohy Data Lake Analytics pomocí U-SQL a odeslání úlohy. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: 57c52a8c28e5a87a63fded3db7d0a2a785e47a53
 
 
 ---
@@ -209,6 +209,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
+ms.openlocfilehash: 69b333b0c43d2e3e4d62168650123322a79579ba
 
 
 ---
@@ -84,7 +84,7 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Položky **accountname** a **accountkey** nahraďte názvem svého účtu Azure Storage a jeho klíčem. Informace o tom, jak získat přístupový klíč k úložišti, najdete v článku o [zobrazení, kopírování a opětovném vytváření přístupových klíčů úložiště](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> Položky **accountname** a **accountkey** nahraďte názvem svého účtu Azure Storage a jeho klíčem. Informace o tom, jak získat přístupový klíč k úložišti, najdete v článku o [zobrazení, kopírování a opětovném vytváření přístupových klíčů úložiště](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 > 
 > 
 
@@ -272,7 +272,7 @@ Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 
 V příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
 
 > [!NOTE]
-> Podrobnosti o vlastnostech JSON použitých ve výše uvedeném příkladu najdete v článku [Anatomie kanálu](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+> Podrobnosti o vlastnostech JSON použitých ve výše uvedeném příkladu najdete v článku [Anatomie kanálu](data-factory-create-pipelines.md).
 > 
 > 
 

@@ -1,60 +1,75 @@
-
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
+title: "Začínáme vytvářet internetový nástroj pro vyrovnávání zatížení v modelu nasazení Classic pomocí portálu Azure Classic | Microsoft Docs"
+description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v modelu nasazení Classic pomocí portálu Azure Classic"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
+editor: 
 tags: azure-service-management
-
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 7153d0321a95a19cf7de17aa1c77d1369330a79b
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Začínáme vytvářet internetový nástroj pro vyrovnávání zatížení (Classic) na portálu Azure Classic
+
+> [!div class="op_single_selector"]
+> * [Portál Azure Classic](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Než začnete pracovat s prostředky Azure, je potřeba si uvědomit, že Azure má v současné době dva modely nasazení: Azure Resource Manager a klasický. Před zahájením práce s jakýmikoli prostředky Azure se ujistěte, že rozumíte [modelům nasazení a příslušným nástrojům](../azure-classic-rm.md). Dokumentaci k různým nástrojům můžete zobrazit kliknutím na karty v horní části tohoto článku. Tento článek se týká modelu nasazení Classic. Případně [zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení pomocí Azure Resource Manageru](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up an Internet-facing load balancer for virtual machines
-In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Nastavení internetového nástroje pro vyrovnávání zatížení pro virtuální počítače
 
-**To configure a load-balanced set for virtual machines**
+Abyste mohli vyrovnávat zatížení síťového provozu z internetu napříč virtuálními počítači cloudové služby, musíte vytvořit sadu s vyrovnáváním zatížení. Tento postup předpokládá, že již máte vytvořené virtuální počítače, a že všechny jsou v rámci stejné cloudové služby.
 
-1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2. Click **Endpoints**, and then click **Add**.
-3. On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4. On the **Specify the details of the endpoint** page:
-   
-   * In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-   * In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
-   * In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
-5. Select **Create a load-balanced set**, and then click the right arrow.
-6. On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
-7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
-8. In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
-9. On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
-10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+**Konfigurace sady s vyrovnáváním zatížení pro virtuální počítače**
 
-For the additional virtual machines in the load-balanced set, repeat steps 8-10.
+1. Na portálu Azure Classic klikněte na **Virtuální počítače** a potom klikněte na název virtuálního počítače v sadě s vyrovnáváním zatížení.
+2. Klikněte na **Koncové body** a potom na **Přidat**.
+3. Na stránce **Přidat koncový bod do virtuálního počítače** klikněte na šipku doprava.
+4. Na stránce **Zadat podrobnosti o koncovém bodu**:
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+   * V části **Název** zadejte název koncového bodu nebo vyberte název ze seznamu předdefinovaných koncových bodů pro běžné protokoly.
+   * V části **Protokol** vyberte podle potřeby protokol vyžadovaný typem koncového bodu, buď TCP, nebo UDP.
+   * V části **Veřejný port a privátní port** zadejte podle potřeby čísla portů, které chcete, aby virtuální počítač používat. Můžete použít privátní port a pravidla brány firewall na virtuálním počítači k přesměrování provozu ve směru vhodném pro vaši aplikaci. Privátní port může být stejný jako veřejný port. Například koncovému bodu pro webový provoz (HTTP) můžete přiřadit port 80 jako veřejný i privátní port.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+5. Vyberte možnost **Vytvořit sadu s vyrovnáváním zatížení** a potom klikněte na šipku doprava.
+6. Na stránce **Konfigurovat sadu s vyrovnáváním zatížení** zadejte název sady s vyrovnáváním zatížení a potom přiřaďte hodnoty pro chování testů služby Azure Load Balancer. Služba Load Balancer pomocí testů určuje, jestli jsou virtuální počítače v sadě s vyrovnáváním zatížení dostupné k přijímání příchozího provozu.
+7. Kliknutím na značku zaškrtnutí vytvořte koncový bod s vyrovnáváním zatížení. Na stránce **Koncové body virtuálního počítače** uvidíte ve sloupci **Název sady s vyrovnáváním zatížení** hodnotu **Ano**.
+8. Na portálu klikněte na **Virtuální počítače**, klikněte na název dalšího virtuálního počítače v sadě s vyrovnáváním zatížení, klikněte na **Koncové body** a potom na **Přidat**.
+9. Na stránce **Přidat koncový bod do virtuálního počítače** klikněte na **Přidat koncový bod do existující sady s vyrovnáváním zatížení**, vyberte název sady s vyrovnáváním zatížení a potom klikněte na šipku doprava.
+10. Na stránce **Zadat podrobnosti o koncovém bodu** zadejte název koncového bodu a potom klikněte na značku zaškrtnutí.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+U dalších virtuálních počítačů v sadě s vyrovnáváním zatížení opakujte kroky 8-10.
+
+## <a name="next-steps"></a>Další kroky
+
+[Začínáme s konfigurací interního nástroje pro vyrovnávání zatížení](load-balancer-get-started-ilb-arm-ps.md)
+
+[Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
+
+[Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO5-->
+
 

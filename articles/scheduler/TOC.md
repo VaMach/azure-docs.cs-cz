@@ -5,6 +5,7 @@
 
 # Začínáme
 ## [Vytvoření a správa událostí](scheduler-get-started-portal.md)
+## [Koncepty a terminologie](scheduler-concepts-terms.md)
 
 # Postup
 ## Plánování a návrh
@@ -14,7 +15,7 @@
 
 ## Vývoj
 ### [Složité plány pomocí REST API](scheduler-advanced-complexity.md)
-### [Koncepty a terminologie](scheduler-concepts-terms.md)
+
 
 ## Zabezpečení
 ### [Ověřování odchozích spojení](scheduler-outbound-authentication.md)
@@ -24,14 +25,17 @@
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/scheduler/)
 
-# Zdroje
-## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=scheduler)
+# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=scheduler)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

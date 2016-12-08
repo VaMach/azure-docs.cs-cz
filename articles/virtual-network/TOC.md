@@ -13,7 +13,7 @@
 
 # Začínáme
 ## [Vytvoření virtuální sítě](virtual-networks-create-vnet-arm-pportal.md)
-## [Nasazení virtuálního počítače do virtuální sítě](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [Nasazení virtuálního počítače do virtuální sítě](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # Postup
 ## Plánování a návrh
@@ -143,6 +143,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
-ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
+ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
+ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
 
 ---
 #<a name="documentdb-documentation"></a>Dokumentace ke službě DocumentDB
@@ -71,7 +71,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -89,7 +89,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -107,7 +107,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -125,7 +125,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -143,7 +143,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -161,7 +161,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -176,18 +176,29 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
 
 ---
 
-##<a name="reference"></a>Referenční informace
-
-###<a name="net"></a>.NET
-[Referenční informace pro spravované rozhraní .NET](/dotnet/api)
+## <a name="reference"></a>Referenční informace
 
 ### <a name="java"></a>Java
-[Referenční informace sady Java SDK](/java/api)
+[Referenční informace sady Java SDK](http://azure.github.io/azure-documentdb-java)
 
-###<a name="rest"></a>REST
-[Referenční informace pro rozhraní DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481)
+### <a name="net"></a>.NET
+[Referenční informace pro spravované rozhraní .NET](https://msdn.microsoft.com/library/azure/dn948556)
 
+### <a name="node"></a>Node
+[Referenční informace k sadě Node SDK](http://azure.github.io/azure-documentdb-node/DocumentClient)
 
+### <a name="python"></a>Python
+[Referenční dokumentace k Pythonu](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
+
+### <a name="sql"></a>SQL
+[Referenční informace k SQL](https://msdn.microsoft.com/library/azure/dn782250)
+
+### <a name="rest"></a>REST
+[Reference k rozhraní REST API](/rest/api/documentdb)
+
+[Referenční informace k rozhraní API poskytovatele prostředků](/rest/api/documentdbresourceprovider)
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
@@ -199,6 +210,6 @@ Stáhnout dokumentaci ke službě DocumentDB </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

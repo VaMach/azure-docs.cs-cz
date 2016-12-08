@@ -1,6 +1,5 @@
 # Přehled
-## [Co je Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [Jak to funguje](active-directory-b2c-overview.md)
+## [Přehled](active-directory-b2c-overview.md)
 ## [Typy aplikací](active-directory-b2c-apps.md)
 ## [B2C tenanti v produkčním měřítku a ve verzi Preview](active-directory-b2c-reference-tenant-type.md)
 
@@ -51,10 +50,12 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Zdroje a prostředky
-## [Podpora](active-directory-b2c-support.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Fórum Azure pro názory](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Podpora](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

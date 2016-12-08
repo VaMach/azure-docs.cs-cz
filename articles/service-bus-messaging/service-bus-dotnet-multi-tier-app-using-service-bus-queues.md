@@ -1,13 +1,13 @@
 ---
 title: "Vícevrstvá aplikace .NET | Dokumentace Microsoftu"
 description: "Kurz .NET, který vám pomůže vytvořit vícevrstvou aplikaci v Azure, která používá fronty Service Bus ke komunikaci mezi vrstvami."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 
 ---
-# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
 ## <a name="introduction"></a>Úvod
 Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí. Tyto kroky předpokládají, že nemáte žádné předchozí zkušenosti s používáním Azure.
 
@@ -39,7 +39,7 @@ Na následujícím snímku obrazovky je vidět hotová aplikace.
 
 ![][0]
 
-## <a name="scenario-overview-interrole-communication"></a>Přehled scénáře: komunikace mezi rolemi
+## <a name="scenario-overview-inter-role-communication"></a>Přehled scénáře: komunikace mezi rolemi
 Abyste mohli odeslat objednávku ke zpracování, musí komponenta uživatelského prostředí front-endu, která běží ve webové roli, pracovat s logikou střední úrovně běžící v roli pracovního procesu. Tento příklad používá zprostředkované zasílání zpráv pro komunikaci mezi vrstvami.
 
 Pomocí zprostředkovaného zasílání zpráv mezi webem a prostředními úrovněmi odděluje obě části. Na rozdíl od přímého přenosu zpráv (tzn. TCP nebo HTTP) se webová úroveň nemusí k prostřední úrovni připojit přímo, namísto toho odesílá pracovní jednotky jako zprávy do služby Service Bus, která je spolehlivě uchová, dokud nebude prostřední vrstva připravená je spotřebovat a zpracovat.
@@ -410,6 +410,6 @@ Další informace o víceúrovňových scénářích najdete v:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

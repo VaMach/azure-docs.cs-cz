@@ -1,6 +1,6 @@
 ---
-title: "Co je skupina zabezpečení sítě (NSG)"
-description: "Seznamte se s distribuovanou bránou firewall v Azure, která používá skupiny zabezpečení sítě (NSG), a s používáním skupin NSG k izolování a řízení toku provozu ve virtuálních sítích."
+title: "Skupiny zabezpečení sítě | Dokumentace Microsoftu"
+description: "Zjistěte, jak izolovat a řídit tok provozu ve virtuálních sítích pomocí distribuované brány firewall v Azure používající skupiny zabezpečení sítě."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
+ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Co je skupina zabezpečení sítě (NSG)?
+# <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+
 Skupina zabezpečení sítě (NSG) obsahuje seznam pravidel seznamu řízení přístupu (ACL), která instancím virtuálních počítačů ve službě Virtual Network povolují nebo odpírají síťový provoz. Skupiny NSG můžou být přidružené buď k podsítím, nebo k jednotlivým instancím virtuálních počítačů v této podsíti. Pokud je skupina NSG přidružená k podsíti, pravidla seznamu ACL platí pro všechny instance virtuálních počítačů v této podsíti. Provoz směřující do konkrétního virtuálního počítače se navíc dá dál omezit tím, že se přímo k tomuto virtuálnímu počítači přidruží skupina NSG.
+
+> [!NOTE]
+> Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: [Resource Manager a klasický model](../resource-manager-deployment-model.md). Tento článek popisuje použití obou modelů, ale Microsoft doporučuje, aby většina nových nasazení používala model Resource Manager.
 
 ## <a name="nsg-resource"></a>Prostředek NSG
 Skupiny NSG obsahují následující vlastnosti.
@@ -36,10 +40,9 @@ Skupiny NSG obsahují následující vlastnosti.
 > [!NOTE]
 > Seznamy ACL založené na koncových bodech a skupiny zabezpečení sítě nejsou podporované ve stejné instanci virtuálního počítače. Pokud chcete použít skupinu NSG a už máte seznam ACL pro koncové body, nejdřív tento seznam odeberte. Informace o tom, jak to provést, najdete v tématu [Správa seznamů řízení přístupu (ACL) pro koncové body pomocí prostředí PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>Pravidla NSG
-Pravidla NSG obsahují následující vlastnosti.
+Pravidla NSG obsahují následující vlastnosti:
 
 | Vlastnost | Popis | Omezení | Požadavky |
 | --- | --- | --- | --- |
@@ -90,37 +93,27 @@ Jak vidíte ve výchozích pravidlech níže, provoz směřující z/do virtuál
 ## <a name="associating-nsgs"></a>Přidružení skupin NSG
 Skupinu NSG můžete přidružit k virtuálním počítačům, síťovým kartám a podsítím, a to v závislosti na modelu nasazení, který používáte.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Přidružení skupiny NSG k virtuálnímu počítači (pouze nasazení Classic)** Pokud přidružíte skupinu NSG k virtuálnímu počítači, pravidla pro přístup k síti obsažená v této skupině se použijí na veškerý provoz směřující z/do virtuálního počítače. 
 * **Přidružení skupiny NSG k síťové kartě (pouze nasazení Resource Manager)** Pokud přidružíte skupinu NSG k síťové kartě, pravidla pro přístup k síti obsažená v této skupině se použijí jenom na tuto síťovou kartu. To znamená, že pokud se skupina NSG použije na jednu síťovou kartu ve virtuálním počítači s více síťovými kartami, nebude mít vliv na provoz směřující do ostatních síťových karet. 
 * **Přidružení skupiny NSG k podsíti (všechna nasazení).** Pokud přidružíte skupinu NSG k podsíti, pravidla pro přístup k síti obsažená v této skupině se použijí na všechny prostředky IaaS a PaaS v této podsíti. 
 
 K virtuálnímu počítači (nebo síťové kartě, podle modelu nasazení) a podsíti, ke které je síťová karta nebo virtuální počítač vázán, můžete přidružit odlišné skupiny NSG. Pokud k tomu dojde, na provoz se použijí všechna pravidla pro přístup k síti, a to podle priority v jednotlivých skupinách NSG v následujícím pořadí:
 
-* **Příchozí provoz**
-  
-  1. Skupina NSG použitá na podsíť. 
-     
-     Pokud má skupina NSG odpovídající pravidlo odepření provozu, paket se vloží sem.
-  2. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
-     
-     Pokud má skupina NSG VM\NIC odpovídající pravidlo pro zamítnutí přenosu, paket se vloží do složky VM\NIC, i když má skupina NSG podsítě odpovídající pravidlo povolení provozu.
-* **Odchozí provoz**
-  
-  1. Skupina NSG použitá na síťovou kartu (Resource Manager) nebo virtuální počítač (Classic). 
-     
-     Pokud má skupina NSG VM\NIC odpovídající pravidlo odepření provozu, paket se vloží sem.
-  2. Skupina NSG použitá na podsíť.
-     
-     Pokud má skupina NSG podsítě odpovídající pravidlo pro zamítnutí přenosu, paket se vloží sem, i když má skupina NSG VM\NIC odpovídající pravidlo povolení provozu.
-     
-      ![Seznamy ACL skupiny NSG](./media/virtual-network-nsg-overview/figure2.png)
+- **Příchozí provoz**
+
+  1. **Skupina NSG použitá na podsíť**: Pokud má skupina NSG odpovídající pravidlo pro odepření provozu, paket se zahodí.
+
+  2. **Skupina NSG použitá na síťovou kartu** (Resource Manager) nebo virtuální počítač (Classic): Pokud má skupina NSG VM\NIC odpovídající pravidlo pro odepření provozu, paket se ve skupině VM\NIC zahodí, i když má skupina NSG podsítě odpovídající pravidlo pro povolení provozu.
+
+- **Odchozí provoz**
+
+  1. **Skupina NSG použitá na síťovou kartu** (Resource Manager) nebo virtuální počítač (Classic): Pokud má skupina NSG VM\NIC odpovídající pravidlo pro odepření provozu, paket se zahodí.
+
+  2. **Skupina NSG použitá na podsíť**: Pokud má skupina NSG podsítě odpovídající pravidlo pro odepření provozu, paket se zde zahodí, i když má skupina NSG VM\NIC odpovídající pravidlo pro povolení provozu.
 
 > [!NOTE]
 > Přestože k podsíti, virtuálnímu počítači nebo síťové kartě se dá přidružit jenom jedna skupina NSG, tutéž skupinu NSG můžete přidružit k libovolnému počtu prostředků.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implementace
 Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Classic pomocí různých nástrojů uvedených níže.
@@ -133,12 +126,14 @@ Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Cl
 | Azure CLI |[![Ano][green]](virtual-networks-create-nsg-classic-cli.md) |[![Ano][green]](virtual-networks-create-nsg-arm-cli.md) |
 | Šablona ARM |![Ne](./media/virtual-network-nsg-overview/red.png) |[![Ano][green]](virtual-networks-create-nsg-arm-template.md) |
 
-| **Klíč** | ![Ano](./media/virtual-network-nsg-overview/green.png) Podporuje se. | ![Ne](./media/virtual-network-nsg-overview/red.png) Nepodporuje se. |
-| --- | --- | --- |
-|  | | |
+**Klíč**
+
+![Ano](./media/virtual-network-nsg-overview/green.png) Podporuje se.
+
+![Ne](./media/virtual-network-nsg-overview/red.png) Nepodporuje se.
 
 ## <a name="planning"></a>Plánování
-Před implementací skupin NSG je nutné odpovědět na tyto otázky:    
+Před implementací skupin NSG je nutné odpovědět na tyto otázky:
 
 1. Do/z jakých typů prostředků chcete filtrovat provoz (síťové karty ve stejném virtuálním počítači, virtuální počítače nebo jiné prostředky, například cloudové služby nebo prostředí aplikačních služeb připojené ke stejné podsíti, nebo mezi prostředky připojenými k různým podsítím)?
 2. Jsou prostředky, z/do kterých chcete filtrovat provoz, připojené k podsítím v existujících virtuálních sítích, nebo budou připojené k novým virtuálním sítím nebo podsítím?
@@ -276,6 +271,6 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -27,6 +27,7 @@
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
 ## Vývoj
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
+### [Upgrade rozhraní REST API](search-api-migration.md)
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)
 ## Spravovat
 ### Správa Azure Search
@@ -37,12 +38,14 @@
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
 ### [Výkon a optimalizace](search-performance-optimization.md)
 ## Načtení dat
-### [Zdroje dat indexu](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Tabulky Azure](search-howto-indexing-azure-tables.md)
-#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [Objekty blob sdíleného svazku clusteru](search-howto-index-csv-blobs.md)
-### [Konfigurace připojení virtuálního počítače Azure s SQL Serverem](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Přehled indexeru](search-indexer-overview.md)
+### [Indexer pro Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+### [Indexer pro Azure Table Storage](search-howto-indexing-azure-tables.md)
+### [Indexer pro Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Indexer pro Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Indexování objektů blob CSV](search-howto-index-csv-blobs.md)
+### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
+### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapování polí v indexerech](search-indexer-field-mappings.md)
 ##  Návrh vyhledávání
 ### [Příklady dotazů syntaxe Lucene](search-query-lucene-examples.md)
@@ -56,15 +59,15 @@
 
 # Referenční informace
 ## [Verze rozhraní API](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Syntaxe dotazů Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Jednoduchá syntaxe dotazů](https://msdn.microsoft.com/library/azure/dn798920)
+## [Rozhraní .NET služby](/dotnet/api/microsoft.azure.search)
+## [Rozhraní .NET pro správu](/dotnet/api/microsoft.azure.management.search)
 ## [Rozhraní REST služby](/rest/api/searchservice/)
 ## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Rozhraní REST pro správu](/rest/api/searchmanagement/)
+## [Syntaxe dotazů Lucene](https://msdn.microsoft.com/library/azure/mt589323)
+## [Jednoduchá syntaxe dotazů](https://msdn.microsoft.com/library/azure/dn798920)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## Ukázkové weby
@@ -82,6 +85,6 @@
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,10 +1,10 @@
 # Přehled
 ## [Co je Azure Backup?](backup-introduction-to-azure-backup.md)
 # Začínáme
-## [Nejčastější dotazy](backup-azure-backup-faq.md)
 ## [Zálohování souborů a složek](backup-try-azure-backup-in-10-mins.md)
 ## [Zálohování virtuálních počítačů Azure](backup-azure-vms-first-look.md)
 ## [Ochrana virtuálních počítačů Azure](backup-azure-vms-first-look-arm.md)
+## [Nejčastější dotazy](backup-azure-backup-faq.md)
 # Postup
 ## Automatizace zálohování pomocí PowerShellu
 ### [Virtuální počítače Azure na webu Azure Portal](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Selhání zálohování virtuálních počítačů Azure: S agentem virtuálního počítače nebylo možné komunikovat – Dílčí úloze snímku virtuálního počítače vypršel časový limit](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Pomalé zálohování souborů a složek ve službě Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

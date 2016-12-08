@@ -13,7 +13,7 @@
 ### [Import definice rozhraní API](api-management-howto-import-api.md)
 ## Zabezpečení back-endu
 ### [Ochrana webového rozhraní API back-endu pomocí AAD](api-management-howto-protect-backend-with-aad.md)
-### [Připojení přes VPN nebo ExpressRoute](api-management-howto-setup-vpn.md)
+### [Připojení k virtuální síti](api-management-using-with-vnet.md)
 ### [Vzájemné ověřování certifikátů](api-management-howto-mutual-certificates.md)
 ## Konfigurace zásad
 ### [Vlastní ukládání do mezipaměti](api-management-sample-cache-by-key.md)
@@ -40,16 +40,20 @@
 ### [Správa s použitím automatizace](automation-manage-api-management.md)
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
 #Referenční informace
-## [Rutina PowerShell Resource Management]/powershell/resourcemanager()
-## [Referenční informace k rutinám PowerShellu pro nasazení Classic](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST API](/rest/api/apimanagement/)
-## [Zásady](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Šablony](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Zásady](https://msdn.microsoft.com/library/azure/dn894081)
+## [Šablony](https://msdn.microsoft.com/library/azure/mt697540)
 #Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=api-management)
 ## [Dokument white paper: Cloud-based API Management (Cloudová správa rozhraní API)](http://j.mp/ms-apim-whitepaper)
-## [Pokyny k návrhu rozhraní API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [Pokyny k implementaci rozhraní API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Pokyny k návrhu rozhraní API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Pokyny k implementaci rozhraní API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Využívání služeb SOAP WCF přes HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Propojení Event Hubs se službou API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management – jde skvěle dohromady s ostatními službami Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

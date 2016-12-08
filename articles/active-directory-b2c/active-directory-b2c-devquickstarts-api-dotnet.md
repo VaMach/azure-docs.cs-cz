@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: afc0249def57095e58e4d57230faee01daf7bb52
 
 
 ---
@@ -34,11 +34,11 @@ Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá i
 * Jste do aplikace zahrnuli **webovou aplikaci** nebo **webové rozhraní API**.
 * Pro webovou aplikaci používáte **identifikátor URI přesměrování** `https://localhost:44316/`. Toto je výchozí umístění klienta webové aplikace pro tuto ukázku kódu.
 * Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. Budete ho potřebovat později.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Vytvořte svoje zásady
-V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Klient v této ukázce kódu obsahuje tři činnosti identity: registrace, přihlášení a úprava profilu. Pro každý typ činnosti musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Když vytváříte tyto tři zásady, nezapomeňte:
+V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Klient v této ukázce kódu obsahuje tři činnosti identity: registrace, přihlášení a úprava profilu. Pro každý typ činnosti musíte vytvořit zásadu, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Když vytváříte tyto tři zásady, nezapomeňte:
 
 * Zvolit v okně zprostředkovatelé identity buď **Registrace pomocí ID uživatele** nebo **Registrace pomocí e-mailu**.
 * Zvolit **Zobrazovaný název** a další atributy registrace ve svojí registrační zásadě.

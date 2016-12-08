@@ -1,5 +1,5 @@
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. Na panelu vlevo klikněte na **Nový**, na **Data + úložiště** a nakonec na **DocumentDB (NoSQL)**.
+2. Na panelu vlevo klikněte na **Nový**, klikněte na **Databáze** a pak na **NoSQL (DocumentDB)**.
    
    ![Snímek obrazovky webu Azure Portal se zvýrazněním položek Další služby a DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 3. V okně **Nový účet** zadejte požadovanou konfiguraci účtu DocumentDB.
@@ -16,11 +16,11 @@
    ![Rychlé vytváření databází – snímek obrazovky s centrem oznámení, na kterém je vidět vytváření účtu DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Snímek obrazovky s centrem oznámení, na kterém je vidět úspěšné vytvoření účtu DocumentDB a jeho nasazení do skupiny prostředků – oznámení online tvůrce databází](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Účet DocumentDB je po vytvoření připravený k použití s výchozím nastavením. Výchozí konzistence účtu DocumentDB je nastavená na možnost **Relace**.  Výchozí konzistenci můžete upravit kliknutím na **Výchozí konzistence** v nabídce prostředků. Další informace o úrovních konzistence, které nabízí DocumentDB, najdete v tématu [Úrovně konzistence v DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
-   
-   ![Snímek obrazovky okna Skupina prostředků – začátek vývoje aplikace](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
-   
-   ![Snímek obrazovky okna Úroveň konzistence – konzistence relace](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+5. Účet DocumentDB je po vytvoření připravený k použití s výchozím nastavením. Chcete-li zkontrolovat výchozí nastavení, na panelu vlevo klikněte na ikonu **NoSQL (DocumentDB)**, klikněte na svůj nový účet a pak na **Výchozí konzistence** v nabídce prostředků.
+
+   ![Snímek obrazovky znázorňující postup otevření účtu databáze DocumentDB na webu Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+
+   Výchozí konzistence účtu DocumentDB je nastavená na možnost **Relace**.  Výchozí konzistenci můžete upravit kliknutím na **Výchozí konzistence** v nabídce prostředků. Další informace o úrovních konzistence, které nabízí DocumentDB, najdete v tématu [Úrovně konzistence v DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [Postup: Vytvoření účtu DocumentDB]: #Howto
 [Další kroky]: #NextSteps

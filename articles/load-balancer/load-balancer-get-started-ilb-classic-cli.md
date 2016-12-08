@@ -3,8 +3,8 @@ title: "Vytvoření interního nástroje pro vyrovnávání zatížení pomocí 
 description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení pomocí rozhraní příkazového řádku Azure v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
@@ -14,25 +14,29 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4364d3bcdffd278bef35b224a8e22062814ca490
-
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: b65d386af78847b7994f7df0b379e30d3e35618c
 
 ---
+
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Začínáme vytvářet interní nástroj pro vyrovnávání zatížení (Classic) pomocí rozhraní příkazového řádku Azure
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Cloudové služby](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-cli.md).
+> [!IMPORTANT]
+> Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: [Resource Manager a klasický model](../azure-resource-manager/resource-manager-deployment-model.md).  Tento článek se věnuje použití klasického modelu nasazení. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Vytvoření sady interního nástroje pro vyrovnávání zatížení pro virtuální počítače
+
 Pokud chcete vytvořit sadu interního nástroje pro vyrovnávání zatížení a servery, které do ní budou posílat provoz, musíte provést následující:
 
 1. Vytvořte instanci interního vyrovnávání zatížení, která bude koncovým bodem příchozího provozu, u kterého se bude vyrovnávat zatížení napříč servery sady s vyrovnáváním zatížení.
@@ -40,18 +44,22 @@ Pokud chcete vytvořit sadu interního nástroje pro vyrovnávání zatížení 
 3. Nakonfigurujte servery, které budou posílat provoz k vyrovnání zatížení, aby posílaly provoz na virtuální IP adresu instance interního vyrovnávání zatížení.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Vytvoření interního nástroje pro vyrovnávání zatížení pomocí rozhraní příkazového řádku krok za krokem
+
 Tento průvodce ukazuje, jak vytvořit interní nástroj pro vyrovnávání zatížení založený na výše uvedeném scénáři.
 
 1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
 2. Spuštěním příkazu **azure config mode** přejděte do režimu Classic, jak vidíte níže.
-   
-        azure config mode asm
-   
+
+    ```azurecli
+    azure config mode asm
+    ```
+
     Očekávaný výstup:
-   
+
         info:    New mode is asm
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Vytvoření koncového bodu a sady nástroje pro vyrovnávání zatížení
+
 Tento scénář předpokládá, že máte virtuální počítače DB1 a DB2 v cloudové službě s názvem mytestcloud. Oba virtuální počítače používají virtuální síť s názvem testvnet s podsítí subnet-1.
 
 Tento průvodce vytvoří sadu interního nástroje pro vyrovnávání zatížení používající port 1433 jako privátní port a port 1433 jako místní port.
@@ -59,16 +67,12 @@ Tento průvodce vytvoří sadu interního nástroje pro vyrovnávání zatížen
 Jedná se o běžný scénář, kdy máte virtuální počítače systému SQL na back-endu, který pomocí interního nástroje pro vyrovnávání zatížení zaručuje, že databázové servery nebudou přímo přístupné přes veřejnou IP adresu.
 
 ### <a name="step-1"></a>Krok 1
+
 Vytvořte sadu interního nástroje pro vyrovnávání zatížení pomocí příkazu `azure network service internal-load-balancer add`.
 
-     azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
-
-Použité parametry:
-
-**-r** – název cloudové služby<BR>
-**-n** – název interního nástroje pro vyrovnávání zatížení<BR>
-**-t** – název podsítě (stejná podsíť, jakou používají virtuální počítače, které přidáte do daného interního nástroje pro vyrovnávání zatížení)<BR>
-**-a** – (volitelné) přidání statické privátní IP adresy<BR>
+```azurecli
+azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
+```
 
 Další informace získáte pomocí příkazu `azure service internal-load-balancer --help`.
 
@@ -85,28 +89,25 @@ Následuje příklad výstupu:
     info:    service internal-load-balancer list command OK
 
 
-## <a name="step-2"></a>Krok 2
+### <a name="step-2"></a>Krok 2
+
 Sadu interního nástroje pro vyrovnávání zatížení konfigurujete při přidání prvního koncového bodu. V tomto kroku přidružíte porty koncového bodu, virtuálního počítače a testu k sadě interního nástroje pro vyrovnávání zatížení.
 
-    azure vm endpoint create db1 1433 -k 1433 tcp -t 1433 -r tcp -e 300 -f 600 -i ilbset
+```azurecli
+azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
+```
 
-Použité parametry:
+### <a name="step-3"></a>Krok 3
 
-**-k** – port místního virtuálního počítače<BR>
-**-t** – port testu<BR>
-**-r** – protokol testu<BR>
-**-e** – interval testu v sekundách<BR>
-**-f** – interval časového limitu v sekundách <BR>
-**-i** – název interního nástroje pro vyrovnávání zatížení <BR>
-
-## <a name="step-3"></a>Krok 3
 Ověřte konfiguraci nástroje pro vyrovnávání zatížení pomocí příkazu `azure vm show` *název virtuálního počítače*.
 
-    azure vm show DB1
+```azurecli
+azure vm show DB1
+```
 
 Výstup bude:
 
-        azure vm show DB1
+    azure vm show DB1
     info:    Executing command vm show
     + Getting virtual machines
     data:    DNSName "mytestcloud.cloudapp.net"
@@ -153,31 +154,34 @@ Výstup bude:
     data:    Network Endpoints 2 loadBalancerName "ilbset"
     info:    vm show command OK
 
-
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Vytvoření koncového bodu vzdálené plochy pro virtuální počítač
+
 Koncový bod vzdálené plochy k přesměrování síťového provozu z veřejného portu na místní port konkrétního virtuálního počítače můžete vytvořit pomocí příkazu `azure vm endpoint create`.
 
-    azure vm endpoint create web1 54580 -k 3389
-
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Odebrání virtuálního počítače z nástroje pro vyrovnávání zatížení
+
 Odebrat virtuální počítač ze sady interního nástroje pro vyrovnávání zatížení můžete odstraněním přidruženého koncového bodu. Po odebrání koncového bodu již virtuální počítač nebude patřit do sady nástroje pro vyrovnávání zatížení.
 
- Když použijeme výše uvedený příklad, koncový bod vytvořený pro virtuální počítač DB1 můžete odebrat z interního nástroje pro vyrovnávání zatížení ilbset pomocí příkazu `azure vm endpoint delete`.
+Když použijeme výše uvedený příklad, koncový bod vytvořený pro virtuální počítač DB1 můžete odebrat z interního nástroje pro vyrovnávání zatížení ilbset pomocí příkazu `azure vm endpoint delete`.
 
-    azure vm endpoint delete DB1 tcp-1433-1433
-
+```azurecli
+azure vm endpoint delete DB1 tcp-1433-1433
+```
 
 Další informace získáte pomocí příkazu `azure vm endpoint --help`.
 
 ## <a name="next-steps"></a>Další kroky
+
 [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení pomocí spřažení se zdrojovou IP adresou](load-balancer-distribution-mode.md)
 
 [Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

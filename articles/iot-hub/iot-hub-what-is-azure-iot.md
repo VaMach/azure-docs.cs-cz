@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/05/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2dbf639abfa505eb329769bcc346efb5f1db443e
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: 00b2e90901d763d218d1118f1d7ef2bf617a2d2f
 
 
 ---
@@ -30,25 +30,25 @@ Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou ob
 * Přijímat nahrávání souborů ze zařízení.
 * Odesílat příkazy typu cloud-zařízení na konkrétní zařízení.
 
-Pomocí služby IoT Hub můžete implementovat vlastní back-end řešení. Kromě toho služba IoT Hub obsahuje registr identit zařízení, který slouží ke zřizování zařízení, jejich zabezpečených přihlašovacích údajů a práv k připojení do služby. Další informace o IoT Hub naleznete v části [Co je IoT Hub?][Ink-iot-hub].
+Pomocí služby IoT Hub můžete implementovat vlastní back-end řešení. Kromě toho služba IoT Hub obsahuje registr identit, který slouží ke zřizování zařízení, jejich zabezpečených přihlašovacích údajů a práv pro připojení ke službě IoT Hub. Další informace o službě IoT Hub najdete v části [Co je IoT Hub?][lnk-iot-hub].
 
-V článku [Přehled správy zařízení ve službě Azure IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení IoT založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
+V článku [Přehled správy zařízení ve službě IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
 
-K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK zařízení IoT. Sady SDK zařízení IoT zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace naleznete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
+K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK pro zařízení Azure IoT. Sady SDK pro zařízení zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK pro zařízení si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace najdete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
 
-Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kurz [Začínáme se službu IoT Hub][lnk-getstarted].
+Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kurz [Začínáme se službou IoT Hub][lnk-getstarted].
 
 Možná by vás také mohla zajímat sada [Azure IoT Suite][lnk-iot-suite], což je kolekce předkonfigurovaných řešení. Sada IoT vám umožní rychle začít vytvářet a škálovat projekty IoT tak, abyste vyřešili běžné scénáře IoT – například vzdálené monitorování, správa assetu či prediktivní údržba.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[Ink-iot-hub]: iot-hub-what-is-iot-hub.md
+[lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

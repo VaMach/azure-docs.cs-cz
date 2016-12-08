@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7450400920517bed56f608fd74c62238f2fb9eab
+ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
+ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
 
 
 ---
-# <a name="tutorial-develop-usql-scripts-using-data-lake-tools-for-visual-studio"></a>Kurz: Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio
+# <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Kurz: Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Naučte se nainstalovat nástroje Data Lake pro Visual Studio a používat tyto nástroje k psaní a testování skriptů U-SQL.
@@ -72,7 +72,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 4. Přejděte do složky, kam chcete nahrát soubory,
 5. Klikněte pravým tlačítkem na libovolné prázdné místo a pak klikněte na položku **Nahrát**.
 
-## <a name="develop-usql-scripts"></a>Vývoj skriptů U-SQL
+## <a name="develop-u-sql-scripts"></a>Vývoj skriptů U-SQL
 Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Postup vytvoření a odeslání úlohy Data Lake Analytics**
@@ -195,7 +195,7 @@ Přehrání úlohy umožňuje sledovat průběh provádění úlohy a vizuálně
 ### <a name="heat-map"></a>Heat mapa
 Nástroje Data Lake pro Visual Studio poskytují v zobrazení úlohy barevné překryvné vrstvy vybrané uživatelem, které znázorňují průběh, vstup/výstup dat, dobu provádění nebo propustnost vstupu/výstupu u každé fáze. Uživatelé díky tomu mohou přímo a intuitivně najít potenciální problémy a distribuci vlastností úlohy. V rozevíracím seznamu můžete zvolit zdroj dat, který chcete zobrazit.  
 
-## <a name="run-usql-locally"></a>Místní spuštění U-SQL
+## <a name="run-u-sql-locally"></a>Místní spuštění U-SQL
 Pomocí místního spuštění U-SQL v sadě Visual Studio můžete provádět tyto úkony:
 
 * Místní spuštění skriptů U-SQL společně se sestaveními C#.
@@ -225,7 +225,7 @@ Toto video ukazuje funkci místního spuštění U-SQL:
 
     U skriptů spuštěných ve službě Data Lake se jako kořenová složka použije výchozí účet úložiště a odpovídajícím způsobem se prohledá.
 
-### <a name="test-usql-scripts-locally"></a>Místní testování skriptů U-SQL
+### <a name="test-u-sql-scripts-locally"></a>Místní testování skriptů U-SQL
 Pokyny týkající se vývoje skriptů U-SQL najdete v tématu [Vývoj skriptů U-SQL](#develop-and-test-u-sql-scripts). Pokud chcete místně sestavovat a spouštět skripty U-SQL, v rozevíracím seznamu clusteru vyberte položku **(Místní)** a klikněte na možnost **Odeslat**. Ujistěte se, zda odkazujete na správná data – můžete buď odkazovat na absolutní cestu, nebo umístit data pod složku DataRoot.
 
 ![Místní odeslání projektu U-SQL sady Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
@@ -255,7 +255,10 @@ Následující postup funguje pouze v sadě Visual Studio 2015. Ve starší sad�
 1. Vytvořte projekt sestavení C# a sestavte jej tak, aby generoval výstupní knihovnu DLL.
 2. Zaregistruje knihovnu DLL pomocí příkazu U-SQL:
 
-     CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    
 3. Nastavte zarážky v kódu C#.
 4. Stiskněte klávesu **F5** a laďte skript, a to s místním odkazem na knihovnu DLL jazyka C#.  
 
@@ -267,6 +270,8 @@ Pokud chcete začít s Data Lake Analytics pomocí různých nástrojů, projdě
 * [Začínáme se službou Data Lake Analytics pomocí sady .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 * [Ladění kódu C# v úlohách U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 
+Pokud se chcete naučit pracovat s nástroji Data Lake pro Visual Studio Code, přečtěte si téma [Použití nástrojů Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+
 Další témata týkající se vývoje:
 
 * [Analýza webových protokolů pomocí služby Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
@@ -274,7 +279,7 @@ Další témata týkající se vývoje:
 * [Začínáme s jazykem U-SQL v Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 * [Vývoj uživatelem definovaných operátorů U-SQL pro úlohy Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## <a name="appxa-powershell-sample-for-preparing-the-tutorial"></a>Ukázka Appx-A PowerShell pro přípravu kurzu
+## <a name="appx-a-powershell-sample-for-preparing-the-tutorial"></a>Ukázka Appx-A PowerShell pro přípravu kurzu
 Následující skript prostředí PowerShell vám připraví účet Azure Data Lake Analytics a zdrojová data tak, abyste mohli přejít rovnou k části [Vývoj skriptů U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
@@ -347,6 +352,6 @@ Následující skript prostředí PowerShell vám připraví účet Azure Data L
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

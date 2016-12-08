@@ -9,6 +9,7 @@
 ### [Osvědčené postupy šifrování a zabezpečení dat](azure-security-data-encryption-best-practices.md)
 ### [Příručka zabezpečení úložiště](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
+### [Osvědčené postupy pro úlohy IaaS](azure-security-iaas.md)
 ### [Antimalware od Microsoftu](azure-security-antimalware.md)
 ### [Šifrování disku](azure-security-disk-encryption.md)
 ### [Šifrování virtuálních počítačů Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

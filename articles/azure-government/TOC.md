@@ -1,11 +1,11 @@
 # Přehled
-## [Co je Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Co je Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Soudnictví a bezpečnost veřejnosti](documentation-government-overview-jps.md)
 ## [Ministerstvo obrany](documentation-government-overview-dod.md)
 
 # Začínáme
-## [Příručka pro vývojáře](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Příručka pro vývojáře](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # Postup
 ## Plánování
@@ -15,10 +15,11 @@
 ### [Image](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace pro partnery](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Předplatné](documentation-government-manage-subscriptions.md)
 
 # Referenční informace
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ## [Služby](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
@@ -28,10 +29,10 @@
 ### [Monitorování a správa](documentation-government-services-monitoringandmanagement.md)
 
 # Zdroje a prostředky
-## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Ceny](https://azure.microsoft.com/pricing/)
+## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

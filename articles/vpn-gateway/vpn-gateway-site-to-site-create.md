@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-classic-portal"></a>Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí portálu Azure Classic
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí portálu Azure Classic
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ Tento článek vás provede procesem vytvoření virtuální sítě a připojen�
 
 ![Diagram Site-to-site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích Site-to-Site. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
@@ -48,7 +48,7 @@ Před zahájením konfigurace ověřte, zda máte následující.
 
 * Kompatibilní zařízení VPN a někoho, kdo jej umí nakonfigurovat. Viz [Informace o zařízeních VPN](vpn-gateway-about-vpn-devices.md). Pokud nevíte, jak nakonfigurovat zařízení VPN, nebo neznáte rozsahy IP adres v konfiguraci vaší místní sítě, budete se muset spojit s někým, kdo vám s tím pomůže.
 * Veřejnou IP adresu pro vaše zařízení VPN. Tato IP adresa nesmí být umístěná za překladem adres (NAT).
-* Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
+* Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial).
 
 ## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Vytvoření virtuální sítě
 1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com/).
@@ -68,7 +68,7 @@ Zadejte následující informace, a poté klikněte na šipku Další vpravo dol
 * **Konfigurace sítě Site-to-Site VPN**: Zaškrtněte políčko **Konfigurovat síť Site-to-Site VPN**.
 * **Místní síť**: Místní síť představuje váš fyzický místní server. Můžete vybrat místní síť, kterou jste vytvořili dříve, nebo můžete vytvořit novou místní síť. Pokud však vyberete použití místní sítě, kterou jste vytvořili dříve, přejděte na stránku konfigurace **Místní sítě** a ověřte, že IP adresa zařízení VPN (veřejná adresa IPv4) pro příslušné zařízení VPN je správná.
 
-## <a name="a-nameconnectivityasitetosite-connectivity-page"></a><a name="Connectivity"></a>Stránka Připojení typu Site-to-Site
+## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Stránka Připojení typu Site-to-Site
 Pokud vytváříte novou místní síť, zobrazí se stránka **Připojení typu Site-to-Site**. Chcete-li použít místní síť, kterou jste vytvořili dříve, tato stránka se v průvodci nezobrazí, a můžete přejít k dalšímu oddílu.
 
 Zadejte následující informace, a poté klikněte na šipku Další.
@@ -97,11 +97,11 @@ Kliknutím na značku zaškrtnutí v dolní části stránky zahájíte vytvář
 Nakonfigurujte bránu virtuální sítě a vytvořte bezpečné připojení typu Site-to-Site. Viz [Konfigurace brány virtuální sítě v portálu Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## <a name="next-steps"></a>Další kroky
-Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v dokumentaci ke službě [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+ Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -104,6 +104,6 @@ Sestavení týmu dříve, než dojde k incidentu, je pro vaši organizaci velmi 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

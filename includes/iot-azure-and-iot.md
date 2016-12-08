@@ -13,7 +13,7 @@ Následující diagram ukazuje typickou architekturu řešení IoT. Diagram neob
 ![Architektura řešení IoT][img-solution-architecture]
 
 > [!NOTE]
-> Podrobné informace o architektuře IoT najdete v článku [Referenční architektura IoT v Microsoft Azure][lnk-refarch].
+> Podrobné informace o architektuře IoT najdete v článku [Referenční architektura IoT v systému Microsoft Azure][lnk-refarch].
 > 
 > 
 
@@ -30,9 +30,9 @@ Jeden z největších problémů, kterým projekty IoT čelí, je způsob spoleh
 * Můžou potřebovat chráněné, vlastní nebo průmyslové protokoly aplikací.
 * Můžou být vytvořená pomocí rozsáhlé sady oblíbených hardwarových a softwarových platforem.
 
-Kromě výše uvedených požadavků musí jakékoli řešení IoT zajistit také škálování, zabezpečení a spolehlivost. Výslednou sadu požadavků na připojení je obtížné implementovat pomocí tradičních technologií, jakými jsou webové kontejnery a zprostředkovatelé zasílání zpráv. Azure IoT Hub a sady SDK pro zařízení IoT usnadňují implementace řešení, které tyto požadavky splňují.
+Kromě výše uvedených požadavků musí jakékoli řešení IoT zajistit také škálování, zabezpečení a spolehlivost. Výslednou sadu požadavků na připojení je obtížné implementovat pomocí tradičních technologií, jakými jsou webové kontejnery a zprostředkovatelé zasílání zpráv. Azure IoT Hub a sady SDK pro zařízení Azure IoT usnadňují implementace řešení, které tyto požadavky splňují.
 
-Zařízení může komunikovat přímo s koncovým bodem cloudové brány, nebo pokud zařízení nemůže používat žádné komunikační protokoly, které cloudová brána podporuje, může se připojit prostřednictvím zprostředkující brány. Například [brána protokolu Azure IoT ][lnk-protocol-gateway] může provádět překlad protokolu v případě, že zařízení nemohou použít žádný protokol, který služba IoT Hub podporuje.
+Zařízení může komunikovat přímo s koncovým bodem cloudové brány, nebo pokud zařízení nemůže používat žádné komunikační protokoly, které cloudová brána podporuje, může se připojit prostřednictvím zprostředkující brány. Například [brána protokolu Azure IoT ][lnk-protocol-gateway] může provádět překlad protokolu v případě, že zařízení nemohou použít žádný z protokolů, které služba IoT Hub podporuje.
 
 ### <a name="data-processing-and-analytics"></a>Zpracování a analýza dat
 V rámci cloudu se většina dat zpracovává v back-endu řešení IoT, jedná se například o filtrování a agregování telemetrických dat a jejich směrování do dalších služeb. Back-end řešení IoT:
@@ -60,6 +60,6 @@ Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatel�
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Security Center Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: ca6b16a891f599135c193198b5b0acc7bbd6425e
 
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+---
+# <a name="security-center-documentation"></a>Dokumentace ke službě Security Center
+
+Security Center pomáhá předcházet hrozbám, zjišťovat je a reagovat na ně a nabízí lepší přehled o zabezpečení prostředků Azure a kontrolu nad nimi. Poskytuje integrované bezpečnostní sledování a správu zásad ve vašich předplatných Azure, pomáhá zjišťovat hrozby, kterých byste si jinak nevšimli, a spolupracuje s řadou řešení zabezpečení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Security Center</h3>
+                        <h3>Další informace o službě Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Security Center Video Library</h3>
+                        <h3>Knihovna videí ke službě Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Security Center</h3>
+                        <h3>Začínáme se službou Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -63,17 +67,35 @@ Security Center helps you prevent, detect, and respond to threats with increased
 </ul>
 
 ---
-## Reference
+## <a name="reference"></a>Referenční informace
 
-### REST
-[Security Center REST API Reference](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100))
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referenční materiály k rozhraní REST API služby Security Center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>    
 
 ---
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Security Center Documentation
-        </div>
+Stažení dokumentace ke službě Security Center </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

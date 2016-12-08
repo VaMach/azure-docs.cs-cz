@@ -16,6 +16,7 @@
 # Postup
 ## Sestavení
 ### [Vytvoření konektoru](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Použití konektoru systému souborů](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Nástroje sady Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Použití Azure Functions](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Aplikace logiky jako volatelné koncové body](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -27,8 +28,8 @@
 ### [Rady pro řešení potíží](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Omezení a konfigurace](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
+
 ## Použití sady Enterprise Integration Pack (EIP)
-### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Přehled účtů pro integraci](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Smlouvy](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Zpracování B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -49,10 +50,7 @@
 ### [Integrace X12](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Kódování X12](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Dekódování X12](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Sledování B2B](../app-service-logic/app-service-logic-track-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Schémata sledování AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Schémata sledování X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Vlastní schémata sledování](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 
 ## Použití brány
 ### [Připojení k místním prostředkům](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -64,6 +62,12 @@
 
 ## Spravovat
 ### [Monitorování Logic Apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Monitorování zpráv B2B](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Schéma sledování AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Schéma sledování X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Vlastní schémata sledování](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Sledování zpráv B2B](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 ### [Účty pro integraci](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Ceny](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -82,12 +86,11 @@
 
 # Zdroje
 ## [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps) 
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

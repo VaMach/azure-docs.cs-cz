@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Vytvoření, spuštění nebo odstranění aplikační brány
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrs
 Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a odstranění aplikační brány.
 
 ## <a name="before-you-begin"></a>Než začnete
+
 1. Nainstalujte nejnovější verzi rutin prostředí Azure PowerShell pomocí instalační služby webové platformy. Nejnovější verzi můžete stáhnout a nainstalovat v části **Windows PowerShell** na stránce [Položky ke stažení](https://azure.microsoft.com/downloads/).
 2. Pokud už máte virtuální síť, vyberte buď existující prázdnou podsíť, nebo vytvořte novou podsíť výhradně pro účely služby Application Gateway v existující virtuální síti. Službu Application Gateway nelze nasadit do jiné virtuální sítě, než prostředky, které máte v úmyslu nasadit za službou Application Gateway, pokud nepoužijete partnerský vztah virtuálních sítí. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 3. Ověřte, že máte funkční virtuální síť s platnou podsítí. Ujistěte se, že žádné virtuální počítače nebo cloudová nasazení nepoužívají podsíť. Služba Application Gateway musí být sama o sobě v podsíti virtuální sítě.
 4. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo mít své koncové body vytvořené buď ve virtuální síti, nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Co je potřeba k vytvoření služby Application Gateway?
-Když použijete příkaz **New-AzureApplicationGateway** k vytvoření aplikační brány, v tomhle bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se konfiguruje buď pomocí XML, nebo objektu konfigurace.
+Když k vytvoření služby Application Gateway použijete příkaz `New-AzureApplicationGateway`, v tomto bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se konfiguruje buď pomocí XML, nebo objektu konfigurace.
 
 Hodnoty jsou:
 
@@ -52,6 +54,7 @@ Hodnoty jsou:
 * **Pravidlo:** Pravidlo váže naslouchací proces a fond back-end serverů a definuje, ke kterému fondu back-end serverů se má provoz směrovat při volání příslušného naslouchacího procesu.
 
 ## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
+
 Pro vytvoření nové aplikační brány:
 
 1. Vytvořte prostředek aplikační brány.
@@ -66,7 +69,8 @@ Pro vytvoření nové aplikační brány:
 ![Příklad scénáře][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Vytvořte prostředek aplikační brány
-Když chcete vytvořit bránu, použijte rutinu **New-AzureApplicationGateway** a zadejte vlastní hodnoty. Fakturace brány se nespustí v tomhle okamžiku. Fakturace začíná v pozdější fázi, po úspěšném spuštění brány.
+
+Pokud chcete vytvořit bránu, použijte rutinu `New-AzureApplicationGateway` a zadejte vlastní hodnoty. Fakturace brány se nespustí v tomhle okamžiku. Fakturace začíná v pozdější fázi, po úspěšném spuštění brány.
 
 Následující příklad vytvoří aplikační bránu pomocí virtuální sítě s názvem „testvnet1“ a podsítě s názvem „subnet-1“.
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Popis*, *InstanceCount* a *GatewaySize* jsou volitelné parametry.
 
-Když chcete ověřit vytvoření brány, můžete použít rutinu **Get-AzureApplicationGateway**.
+Pokud chcete ověřit vytvoření brány, můžete použít rutinu `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -95,19 +99,22 @@ DnsName       :
 ```
 
 > [!NOTE]
-> Výchozí hodnota pro *InstanceCount* je 2 s maximální hodnotou 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Malá, Střední a Velká.
+> Výchozí hodnota *InstanceCount* je 2, přičemž maximální hodnota je 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Malá, Střední a Velká.
 > 
 > 
 
 Hodnoty *VirtualIPs* a *DnsName* se zobrazují jako prázdné, protože se brána ještě nespustila. Vytvoří se, jakmile bude brána v běžícím stavu.
 
 ## <a name="configure-the-application-gateway"></a>Nakonfigurujte aplikační bránu
+
 Aplikační bránu můžete nakonfigurovat pomocí XML nebo objektu konfigurace.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>Nakonfigurujte aplikační bránu pomocí XML
+
 V následujícím příkladu použijete soubor XML k nakonfigurování všech nastavení aplikační brány a potvrdíte je pro prostředek aplikační brány.  
 
 ### <a name="step-1"></a>Krok 1
+
 Zkopírujte následující text do Poznámkového bloku.
 
 ```xml
@@ -210,21 +217,24 @@ Následující příklad ukazuje, jak použít konfigurační soubor k nastaven�
 ```
 
 ### <a name="step-2"></a>Krok 2
-Dále nastavte aplikační bránu. Použijte rutinu **Set-AzureApplicationGatewayConfig** s konfiguračním souborem XML.
+
+Dále nastavte aplikační bránu. Použijte rutinu `Set-AzureApplicationGatewayConfig` s konfiguračním souborem XML.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Nakonfigurujte aplikační bránu pomocí objektu konfigurace
-Následující příklad ukazuje, jak se provádí konfigurace aplikační brány pomocí objektu konfigurace. Všechny položky konfigurace se musí nakonfigurovat individuálně a potom se musí přidat k objektu konfigurace aplikační brány. Po vytvoření objektu konfigurace použijte příkaz **Set-AzureApplicationGateway** pro potvrzení konfigurace předem vytvořenému prostředku aplikační brány.
+
+Následující příklad ukazuje, jak se provádí konfigurace aplikační brány pomocí objektu konfigurace. Všechny položky konfigurace se musí nakonfigurovat individuálně a potom se musí přidat k objektu konfigurace aplikační brány. Po vytvoření objektu konfigurace použijte příkaz `Set-AzureApplicationGateway` pro potvrzení konfigurace k předem vytvořenému prostředku služby Application Gateway.
 
 > [!NOTE]
-> Před přiřazením hodnoty každému objektu konfigurace musíte deklarovat, který typ objektu používá prostředí PowerShell pro úložiště. První řádek vytvoření individuálních položek definuje, jaký model Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(název objektu) se použije.
+> Před přiřazením hodnoty každému objektu konfigurace musíte deklarovat, který typ objektu používá prostředí PowerShell pro úložiště. První řádek vytvoření individuálních položek definuje, jaký model **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(název objektu)** se použije.
 > 
 > 
 
 ### <a name="step-1"></a>Krok 1
+
 Vytvořte všechny položky individuální konfigurace.
 
 Vytvořte front-end IP adresu, jak je znázorněno v následujícím příkladu.
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Krok 2
+
 Přiřaďte všechny položky individuální konfigurace objektu konfigurace aplikační brány ($appgwconfig).
 
 Přidejte front-end IP adresu ke konfiguraci.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Krok 3
-Potvrďte objekt konfigurace k prostředku aplikační brány pomocí **Set-AzureApplicationGatewayConfig**.
+Potvrďte objekt konfigurace k prostředku služby Application Gateway pomocí rutiny `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Spusťte bránu
-Jakmile se nakonfiguruje brána, spusťte jí pomocí rutiny **Start-AzureApplicationGateway**. Fakturace aplikační brány se spustí až po úspěšném spuštění brány.
+
+Jakmile se brána nakonfiguruje, pomocí rutiny `Start-AzureApplicationGateway` ji spusťte. Fakturace aplikační brány se spustí až po úspěšném spuštění brány.
 
 > [!NOTE]
-> Rutina **Start-AzureApplicationGateway** může trvat až 15-20 minut.
+> Dokončení rutiny `Start-AzureApplicationGateway` může trvat 15 až 20 minut.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Ověřte stav brány.
-Pro kontrolu stavu brány použijte rutinu **Get-AzureApplicationGateway**. Když se v předcházejícím kroku podařilo úspěšně spustit **Start-AzureApplicationGateway**, položka *State* by měla být ve stavu Spuštěno a *Vip* a *DnsName* by měly obsahovat platné položky.
+
+Pomocí rutiny `Get-AzureApplicationGateway` zkontrolujte stav brány. Pokud se v předcházejícím kroku podařilo úspěšně spustit rutinu `Start-AzureApplicationGateway`, položka *State* (Stav) by měla mít hodnotu Running (Spuštěno) a *Vip* a *DnsName* by měly obsahovat platné položky.
 
 Následující příklad ukazuje aplikační bránu, která je aktivní, spuštěná a připravená přijmout provoz určený pro `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Odstranění služby Application Gateway
+
 Pro odstranění aplikační brány:
 
-1. Použijte rutinu **Stop-AzureApplicationGateway** pro zastavení brány.
-2. Použijte rutinu **Remove-AzureApplicationGateway** pro odstranění brány.
-3. Prověřte odstranění brány pomocí rutiny **Get-AzureApplicationGateway**.
+1. Pomocí rutiny `Stop-AzureApplicationGateway` zastavte bránu.
+2. Pomocí rutiny `Remove-AzureApplicationGateway` bránu odeberte.
+3. Zkontrolujte odstranění brány pomocí rutiny `Get-AzureApplicationGateway`.
 
-Následující příklad ukazuje rutinu **Stop-AzureApplicationGateway** na prvním řádku, následovanou výstupem.
+Následující příklad ukazuje rutinu `Stop-AzureApplicationGateway` na prvním řádku, následovanou výstupem.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Jakmile je aplikační brána v zastaveném stavu, pro odstranění služby použijte rutinu **Remove-AzureApplicationGateway**.
+Jakmile je služba Application Gateway v zastaveném stavu, pomocí rutiny `Remove-AzureApplicationGateway` službu odstraňte.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Když chcete prověřit, jestli se služba odstranila, použijte rutinu **Get-AzureApplicationGateway**. Tenhle krok není povinný.
+Pokud chcete zkontrolovat, že se služba odstranila, můžete použít rutinu `Get-AzureApplicationGateway`. Tenhle krok není povinný.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Další kroky
+
 Pokud chcete konfigurovat přesměrování zpracování SSL, přejděte do části [Konfigurace aplikační brány pro přesměrování zpracování SSL](application-gateway-ssl.md).
 
 Pokud chcete provést konfiguraci aplikační brány pro použití s interním nástrojem pro vyrovnávání zatížení, přečtěte si část [Vytvoření aplikační brány s interním nástrojem pro vyrovnávání zatížení (ILB)](application-gateway-ilb.md).
@@ -443,6 +458,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

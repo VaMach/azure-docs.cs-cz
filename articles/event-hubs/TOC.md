@@ -24,22 +24,22 @@
 ### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
 
 # Referenční informace
-## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Referenční informace k rozhraní REST API služby Event Hubs](https://msdn.microsoft.com/library/azure/dn790674)
-## [Referenční informace k rozhraní .NET API Event Hubs](https://msdn.microsoft.com/library/azure/jj933424)
-## [Referenční informace k rozhraní API třídy EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
 ## [Kvóty a omezení](event-hubs-quotas.md)
-## [Výjimky zasílání zpráv služby Event Hubs](event-hubs-messaging-exceptions.md)
+## [Výjimky zasílání zpráv](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
 # Zdroje a prostředky
+## [Ceny](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Správa prostředků Service Bus a Event Hubs pomocí Průzkumníka Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Postup výuky pro Event Hubs](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

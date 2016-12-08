@@ -153,6 +153,7 @@
 ### [Místní připojení](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Pokročilá konfigurace](web-sites-transform-extend.md)
+### [Konfigurace kontejneru pro App Service v Linuxu](app-service-linux-using-custom-docker-image.md)
 ### [Skupiny prostředků](app-service-move-resources.md)
 ### [Převod WordPressu na Multisite](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

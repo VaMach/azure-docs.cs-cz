@@ -3,9 +3,8 @@ title: "Vytvoření interního nástroje pro vyrovnávání zatížení pro clou
 description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
@@ -14,20 +13,22 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85e22954c19d7d51579029c7426f0ee79b780504
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 7b2a5ea00a78f5643919f7095478801b13593ea6
 
 ---
 
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Začínáme vytvářet interní nástroj pro vyrovnávání zatížení (Classic) pro cloudové služby
 
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Cloudové služby](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-ps.md).
+> [!IMPORTANT]
+> Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: [Resource Manager a klasický model](../azure-resource-manager/resource-manager-deployment-model.md).  Tento článek se věnuje použití klasického modelu nasazení. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurace interního nástroje pro vyrovnávání zatížení pro cloudové služby
 
@@ -43,25 +44,25 @@ Konfigurace interního nástroje pro vyrovnávání zatížení musí být nasta
 V sadě Visual Studio otevřete konfigurační soubor služby (.cscfg) svého nasazení v cloudu a přidejte následující část, která vytvoří interní vyrovnávání zatížení pod poslední položkou `</Role>` pro konfiguraci sítě.
 
 ```xml
-    <NetworkConfiguration>
-      <LoadBalancers>
-        <LoadBalancer name="name of the load balancer">
-          <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
-        </LoadBalancer>
-      </LoadBalancers>
-    </NetworkConfiguration>
+<NetworkConfiguration>
+    <LoadBalancers>
+    <LoadBalancer name="name of the load balancer">
+        <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+    </LoadBalancer>
+    </LoadBalancers>
+</NetworkConfiguration>
 ```
 
 Přidejme hodnoty pro soubor s konfigurací sítě, abychom ukázali, jak bude vypadat. V příkladu předpokládejme, že jste vytvořili síť s názvem test_vnet s podsítí 10.0.0.0/24 s názvem test_subnet a statickou IP adresou 10.0.0.4. Nástroj pro vyrovnávání zatížení bude mít název testLB.
 
 ```xml
-    <NetworkConfiguration>
-      <LoadBalancers>
-        <LoadBalancer name="testLB">
-          <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
-        </LoadBalancer>
-      </LoadBalancers>
-    </NetworkConfiguration>
+<NetworkConfiguration>
+    <LoadBalancers>
+    <LoadBalancer name="testLB">
+        <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+    </LoadBalancer>
+    </LoadBalancers>
+</NetworkConfiguration>
 ```
 
 Další informace o schématu nástroje pro vyrovnávání zatížení najdete v tématu [Přidání nástroje pro vyrovnávání zatížení](https://msdn.microsoft.com/library/azure/dn722411.aspx).
@@ -71,21 +72,21 @@ Další informace o schématu nástroje pro vyrovnávání zatížení najdete v
 Změňte definiční soubor služby (.csdef) tak, aby přidal koncové body do interního vyrovnávání zatížení. V okamžiku vytvoření instance role definiční soubor služby přidá příslušné instance rolí do interního vyrovnávání zatížení.
 
 ```xml
-    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-      <Endpoints>
-        <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
-      </Endpoints>
-    </WorkerRole>
+<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+    <Endpoints>
+    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+    </Endpoints>
+</WorkerRole>
 ```
 
 Použijme stejné hodnoty z výše uvedeného příkladu a přidejme tyto hodnoty do definičního souboru služby.
 
 ```xml
-    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
-      <Endpoints>
-        <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
-      </Endpoints>
-    </WorkerRole>
+<WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+    <Endpoints>
+    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+    </Endpoints>
+</WorkerRole>
 ```
 
 Vyrovnávání zatížení síťového provozu bude probíhat pomocí nástroje pro vyrovnávání zatížení testLB, který používá port 80 pro příchozí požadavky a odesílá provoz do instancí rolí pracovního procesu rovněž na portu 80.
@@ -99,6 +100,6 @@ Vyrovnávání zatížení síťového provozu bude probíhat pomocí nástroje 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
 
 
 ---
@@ -192,7 +192,7 @@ Když kliknete na databázi, abyste vyřešili toto doporučení, otevře se okn
 Pokud chcete povolit auditování, vyberte **Zapnuto** pod možností **Auditování**.
 
 ### <a name="monitor-applications"></a>Monitorování aplikací
-Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Preventivní kroky**. Také ukazuje rozpis aplikací na hostitele nebo virtuální IP adresu, jak je znázorněno na následujícím snímku obrazovky.
+Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../azure-resource-manager/resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Preventivní kroky**. Také ukazuje rozpis aplikací na hostitele nebo virtuální IP adresu, jak je znázorněno na následujícím snímku obrazovky.
 
 ![Stav zabezpečení aplikací](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ V tomto článku jste zjistili, jak ve službě Azure Security Center používat
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

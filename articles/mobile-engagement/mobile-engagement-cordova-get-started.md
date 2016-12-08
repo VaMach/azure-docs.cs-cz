@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 18a32c7282fd24280cb634b90db20721503437e7
 
 
 ---
@@ -45,10 +45,10 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro aplikaci Cordova
+## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro aplikaci Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnecting-appaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu, která je zapotřebí pro shromažďování dat a odesílání nabízených oznámení. 
 
 Pomocí Cordovy si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
@@ -67,8 +67,10 @@ Pomocí Cordovy si vytvoříme základní aplikaci, na které si tuto integraci 
         $ cordova platform add android
         $ cordova run android
 4. Přidejte plugin Cordova Console. 
-   
-    $ cordova plugin add cordova-plugin-console 
+
+    ```
+    $ cordova plugin add cordova-plugin-console
+    ``` 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Nainstalujte plugin Azure Mobile Engagement pro Cordovu a přitom zadejte hodnoty proměnných pro jeho konfiguraci.
@@ -87,7 +89,7 @@ Pomocí Cordovy si vytvoříme základní aplikaci, na které si tuto integraci 
 
 *Ikona Reach pro iOS*: Musí být název prostředku včetně přípony (např. mojeikonanotifikace.png). Soubor ikony musí být přidán do projektu iOS s XCode (přes nabídku pro přidání souborů).
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
+## <a name="a-idmonitoraenabling-real-time-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
 1. V projektu Cordova upravte soubor  **www/js/index.js** a přidejte volání Mobile Engagementu, aby byla deklarována nová aktivita při přijetí události *deviceReady*.
    
          onDeviceReady: function() {
@@ -114,10 +116,10 @@ Pomocí Cordovy si vytvoříme základní aplikaci, na které si tuto integraci 
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegrate-pushaenabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní komunikovat s uživateli přes nabízená oznámení a zprávy v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
@@ -203,7 +205,7 @@ Nyní vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat
     ![][10]
 9. Nyní byste měli na svém zařízení nebo emulátoru vidět nabízené oznámení z této kampaně. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>Další kroky
+## <a name="a-idnext-stepsanext-steps"></a><a id="next-steps"></a>Další kroky
 [Přehled všech metod, které jsou k dispozici pro sadu Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->

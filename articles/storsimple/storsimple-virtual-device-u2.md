@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/23/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4582e81a0d2e7bf5be401e72885e2ee751087cf5
+ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
+ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
 
 
 ---
@@ -33,7 +33,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
 | **Dostupnost v oblastech** |Všechny oblasti Azure |Oblasti Azure, které podporují službu Premium Storage<br></br>Seznam oblastí naleznete v tématu [podporované oblasti pro 8020](#supported-regions-for-8020) |
-| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage]() |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
 <sup>1</sup> *Dříve označované jako 1100*.
@@ -92,7 +92,7 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 * Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Další informace o [oblastech, které jsou aktuálně podporovány pro 8020](#supported-regions-for-8020).
 * Je vhodné použít výchozí server DNS poskytovaný platformou Azure místo zadávání vlastního názvu serveru DNS. Pokud název serveru DNS není platný nebo pokud server DNS není schopen správně přeložit IP adresy, vytvoření virtuálního zařízení se nezdaří.
 * Připojení point-to-site a site-to-site jsou volitelná, ale nejsou vyžadována. Pokud chcete, můžete nastavit tyto možnosti pro pokročilejší scénáře. 
-* Můžete vytvořit [virtuální počítače Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (hostitelské servery) ve virtuální síti, které mohou používat svazky vystavené virtuálním zařízením. Tyto servery musí splňovat následující požadavky:                             
+* Můžete vytvořit [virtuální počítače Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostitelské servery) ve virtuální síti, které mohou používat svazky vystavené virtuálním zařízením. Tyto servery musí splňovat následující požadavky:                             
   
   * Být virtuální počítače Windows nebo Linux s nainstalovaným softwarem iniciátoru iSCSI.
   * Běžet ve stejné virtuální síti jako virtuální zařízení.
@@ -103,7 +103,7 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 Před vytvořením virtuálního zařízení aktualizujte svoji službu Azure StorSimple následujícím způsobem:
 
 * Přidejte [záznamy řízení přístupu](storsimple-manage-acrs.md) pro virtuální počítače, které budou představovat hostitelské servery pro virtuální zařízení.
-* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage]() nebo [účet služby Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Storage úrovně Standard]((../storage/storage-create-storage-account.md) nebo [účet služby Storage úrovně Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Pro vytvoření virtuálního zařízení použijte jiný účet úložiště, než jaký se používá pro vaše data. Použití stejného účtu úložiště může vést k nižšímu výkonu.
 
 Před zahájením se ujistěte, že máte k dispozici následující informace:
@@ -127,6 +127,7 @@ Pokud se vytváření virtuálního zařízení v tomto kroku nezdaří, je mož
 Před zahájením tohoto postupu se ujistěte, že máte kopii šifrovacího klíče dat služby. Šifrovací klíč dat služby byl vytvořen při konfiguraci prvního zařízení StorSimple, přičemž jste dostali pokyn uložit jej na bezpečném místě. Pokud nemáte kopii šifrovacího klíče dat služby, obraťte se o pomoc na podporu společnosti Microsoft.
 
 Pomocí následujících kroků proveďte konfiguraci a registraci virtuálního zařízení StorSimple.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Krok 3 (nepovinný): Úprava konfiguračních nastavení zařízení
@@ -259,6 +260,6 @@ Pokud během vytváření virtuálního zařízení není k dispozici připojen�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

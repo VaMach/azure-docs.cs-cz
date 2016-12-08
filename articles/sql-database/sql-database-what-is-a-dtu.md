@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: e062d55e990faeb0776f643b297788afd87ac1e3
 
 
 ---
@@ -32,7 +32,7 @@ DTU je jednotka měření pro prostředky, u kterých je zaručena dostupnost pr
 [Změnit úrovně služeb](sql-database-scale-up.md) můžete kdykoli s minimální odstávkou aplikace (obecně v průměru méně než čtyři sekundy). Mnoha firmám a aplikacím stačí vytváření databází a nastavování výkonu izolovaných databází na vyžádání, zejména v případě, že jsou vzorce používání relativně předvídatelné. Ale pokud vaše vzorce používání předvídatelné nejsou, může být správa nákladů a údržba obchodního modelu velmi těžká. Pro tento scénář použijete elastický fond s určitým počtem jednotek eDTU.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Co jsou elastické jednotky databázové transakce (eDTU)
-eDTU je jednotka měření sady prostředků (DTU), které mohou být sdíleny v rámci sady databází na serveru Azure SQL – nazývá se [elastický fond](sql-database-elastic-pool.png). Elastické fondy poskytují jednoduché a nákladově efektivní řešení správy výkonnostních cílů pro více databází, jejichž vzory používání se značně liší a nelze je předvídat. Další informace najdete v popisu [elastických fondů a úrovní služeb](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+eDTU je jednotka měření sady prostředků (DTU), které mohou být sdíleny v rámci sady databází na serveru Azure SQL – nazývá se [elastický fond](sql-database-elastic-pool.md). Elastické fondy poskytují jednoduché a nákladově efektivní řešení správy výkonnostních cílů pro více databází, jejichž vzory používání se značně liší a nelze je předvídat. Další informace najdete v popisu [elastických fondů a úrovní služeb](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
 
 ![Úvod do služby SQL Database: eDTU podle vrstvy a úrovně](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -54,7 +54,6 @@ Fondy jsou vhodné pro velký počet databází s konkrétními vzory využití.
 * Informace o limitech jiných prostředků než procesory, paměť, datový vstup/výstup či vstup výstup protokolu transakcí najdete v článku [Limity prostředků Azure SQL Database](sql-database-resource-limits.md).
 * Chcete-li pochopit svou spotřebu (DTU), přečtěte si článek [SQL Database Query Performance Insight](sql-database-query-performance.md).
 * Chcete-li lépe pochopit metodiku používanou úlohou srovnávacího testu OLTP k určení kombinace pro jednotku DTU, přečtěte si článek [Přehled srovnávacích testů SQL Database](sql-database-benchmark-overview.md).
-
 
 
 

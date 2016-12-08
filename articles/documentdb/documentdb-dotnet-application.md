@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
+ms.openlocfilehash: 3b756b11ce762cbbc56650ea9d49715d899bfbdb
 
 
 ---
@@ -44,14 +44,18 @@ Tento návod popisuje, jak pomocí služby DocumentDB, kterou poskytuje Azure, u
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Předpoklady pro tento databázový kurz
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
-* Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
+
+    NEBO
+
+    Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) nebo Visual Studio 2013 Update 4 nebo vyšší. Pokud používáte sadu Visual Studio 2013, budete muset nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) a přidat podporu pro C# 6.0. 
 * Azure SDK pro rozhraní .NET verze 2.5.1 nebo vyšší, k dispozici prostřednictvím [instalace webové platformy Microsoft][instalace webové platformy Microsoft].
 
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Visual Studio 2013 s aktualizací Update 4 a sady Azure SDK pro .NET verze 2.5.1. Pokud konfigurace vašeho serveru využívá jiné verze, je možné, že se vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte předpoklady uvedené výše, řešení by mělo fungovat.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
+Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Nyní když máte účet, můžeme vytvořit nový projekt ASP.NET.
 5. V podokně šablon vyberte **MVC**.
 6. Pokud se chystáte hostovat aplikaci v Azure, vyberte v pravé dolní části možnost **Hostovat v cloudu**, aby se hostitelem aplikace stala služba Azure. Rozhodli jsme se pro hostování v cloudu a spuštění aplikace hostované na webu Azure. Výběrem této možnosti se pro vás předem zřídí web Azure, aby bylo mnohem snazší nasadit konečnou funkční aplikaci. Pokud aplikaci chcete hostovat v jiné službě nebo v tuto chvíli nechcete konfigurovat Azure, stačí zrušit zaškrtnutí políčka **Hostovat v cloudu**.
 7. Klikněte na **OK** a nechte Visual Studio odvést svou práci s generováním prázdné šablony ASP.NET MVC. 
+
+    Pokud se zobrazí chyba „Během zpracování vaší žádosti došlo k chybě“, přečtěte si oddíl [Řešení potíží](#troubleshooting).
+
 8. Pokud se rozhodnete aplikaci hostovat v cloudu, zobrazí se nejméně jedna další obrazovka, která vás bude žádat o přihlášení k účtu Azure a zadání několika hodnot pro nový web. Zadejte všechny dodatečné hodnoty a pokračujte. 
    
       Nevybrali jsme tady Databázový server, protože v tomto projektu nepoužíváme server služby Azure SQL Database. Později na Portálu Azure vytvoříme nový účet Azure DocumentDB.
@@ -536,6 +543,25 @@ Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme 
 
 Za několik sekund Visual Studio dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Řešení potíží
+
+Pokud se při pokusu o nasazení webové aplikace zobrazí chyba „Během zpracování vaší žádosti došlo k chybě“, postupujte následovně: 
+
+1. Zavřete chybovou zprávu a pak znovu vyberte **Microsoft Azure Web Apps**. 
+2. Přihlaste se a vyberte **Nový** pro vytvoření nové webové aplikace. 
+3. Na obrazovce **Vytvořit webovou aplikaci v systému Microsoft Azure** proveďte následující: 
+    
+    - Název webové aplikace: todo-net-app
+    - Plán služby App Service: Vytvořte nový s názvem todo-net-app
+    - Skupina prostředků: Vytvořte novou s názvem todo-net-app
+    - Oblast: Vyberte oblast co nejblíže uživatelům vaší aplikace.
+    - Databázový server: Klikněte na Bez databáze a pak klikněte na **Vytvořit**. 
+
+4. Na obrazovce * todo-net-app klikněte na **Ověřit připojení**. Po ověření připojení klikněte na **Publikovat**. 
+    
+    Aplikace se pak zobrazí v prohlížeči.
+
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Další kroky
 Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které nebyly součástí tohoto kurzu, si můžete stáhnout nebo naklonovat z [GitHubu][GitHub]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
 
@@ -550,6 +576,6 @@ Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

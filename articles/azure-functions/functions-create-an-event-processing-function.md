@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 ---
@@ -29,7 +29,7 @@ V tomto tématu se dozvíte, jak vytvořit novou funkci v jazyce C#, která se s
 ## <a name="prerequisites"></a>Požadavky
 Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Vytvoření funkce spouštěné časovačem ze šablony
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Vytvoření funkce spouštěné časovačem ze šablony
 Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/). 
 
 1. Přejděte na stránku [portálu Azure Functions](https://functions.azure.com/signin) a přihlaste se pomocí účtu Azure.
@@ -72,13 +72,13 @@ Další informace o službě Azure Functions najdete v těchto tématech.
 * [Testování Azure Functions](functions-test-a-function.md)  
   Toto téma popisuje různé nástroje a techniky pro testování funkcí.
 * [Postup škálování Azure Functions](functions-scale.md)  
-  Toto téma popisuje plány služby, které jsou dostupné s Azure Functions (včetně plánu služby Dynamic), a výběr správného plánu.  
+  Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

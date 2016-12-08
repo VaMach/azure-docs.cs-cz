@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
 
 
 ---
@@ -180,7 +180,7 @@ Můžete taky zobrazit zdrojový kód pro předkonfigurované řešení. Zdrojov
 Jakmile budete hotovi, můžete předkonfigurované řešení z vašeho předplatného Azure odstranit na stránce [azureiotsuite.com][lnk-azureiotsuite]. Tento web umožňuje snadno odstranit všechny prostředky, které byly zřízeny při vytvoření předkonfigurovaného řešení.
 
 > [!NOTE]
-> Abyste zajistili, že jste odstranili opravdu všechno spojené s předkonfigurovaným řešením, odstraňte řešení na stránce [azureiotsuite.com][lnk-azureiotsuite] – neodstraňujte jednoduše jenom skupinu prostředků na portálu.
+> Abyste zajistili, že jste odstranili opravdu všechno spojené s předkonfigurovaným řešením, odstraňte řešení na stránce [azureiotsuite.com][lnk-azureiotsuite] – neodstraňujte jenom skupinu prostředků na portálu.
 > 
 > 
 
@@ -229,6 +229,6 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

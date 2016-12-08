@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Abyste mohli ověřovat pomocí AWS, musíte zadat sadu přihlašovacích údaj�
 ## <a name="configure-automation-account"></a>Konfigurace účtu Automation
 Pokud má Azure Automation komunikovat s AWS, musíte nejdřív načíst přihlašovací údaje AWS a uložit je jako assety ve službě Azure Automation.  Proveďte následující kroky, které jsou popsány v dokumentu AWS [Správa přístupových klíčů k vašemu účtu AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html), vytvořte přístupový klíč a zkopírujte **Access Key ID** (ID přístupového klíče) a **Secret Access Key** (Tajný přístupový klíč) (případně si můžete soubor s klíčem stáhnout a uložit na bezpečné místo).
 
-Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí účtu Azure Automation asset přihlašovacích údajů, bezpečně klíče uložte a odkazujte na ně ve svých runboocích.  Postupujte podle kroků v části **Vytvoření nových assetů přihlašovacích údajů** v článku [Assety přihlašovacích údajů ve službě Azure Automation](automation-credentials.md#creating-a-new-credential-asset) a zadejte následující informace:
+Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí účtu Azure Automation asset přihlašovacích údajů, bezpečně klíče uložte a odkazujte na ně ve svých runboocích.  Postupujte podle kroků v části **Vytvoření nových assetů přihlašovacích údajů** v článku [Assety přihlašovacích údajů ve službě Azure Automation](automation-credentials.md) a zadejte následující informace:
 
 1. Do pole **Název** zadejte **AWScred** nebo odpovídající hodnotu v souladu se svými standardy pro vytváření názvů.  
 2. Do pole **Uživatelské jméno** zadejte svoje **Přístupové ID**, do polí **Heslo** a **Potvrzení hesla** zadejte svůj **Tajný přístupový klíč**.   
@@ -42,6 +42,7 @@ Po vytvoření a zkopírování bezpečnostních klíčů AWS vytvořte pomocí 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

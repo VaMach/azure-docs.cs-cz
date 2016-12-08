@@ -116,6 +116,6 @@ V tomto dokumentu jste se seznámili s komponentami správy zásad a monitorová
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -1,6 +1,5 @@
 # Přehled
-## [Co je služba Azure Active Directory Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
-## [Jak to funguje](active-directory-ds-overview.md)
+## [Co je služba Azure Active Directory Domain Services?](active-directory-ds-overview.md)
 ## [Hodí se pro vás?](active-directory-ds-comparison.md)
 ## [Funkce](active-directory-ds-features.md)
 ## [Scénáře](active-directory-ds-scenarios.md)
@@ -36,9 +35,11 @@
 
 # Zdroje a prostředky 
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Kontaktujte nás](active-directory-ds-contact-us.md)
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Kontaktujte nás](active-directory-ds-contact-us.md)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

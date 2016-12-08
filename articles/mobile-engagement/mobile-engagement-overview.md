@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení 
 
 Díky Azure Mobile Engagementu mohou vydavatelé aplikací a marketingoví odborníci lépe porozumět uživatelům aplikací a komunikovat s nimi.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Analýza s možností reakce v reálném čase maximalizuje návratnost investic
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Analýza s možností reakce v reálném čase maximalizuje návratnost investic
 Spouštějte scénáře zapojení podle chování a demografie uživatelů tím, že zkombinujete kolekci `big data` se zpracováním zpráv v reálném čase. Mobile Engagement dokáže odpovědět na téměř všechny otázky, které jsou relevantní pro vaše konkrétní obchodní potřeby. Můžete například vytvořit vlastní řídicí panely a měřit s jejich pomocí klíčové ukazatele výkonu, rychle najít a opravit kritická místa využití v cestě uživatelů, sledovat míru uchování a věrnosti uživatelů a podle toho určit, jaké kampaně přinášejí nejvyšší návratnost investic. 360° zobrazení cesty uživatele v Mobile Engagementu umožňuje snadno a průběžně vylepšovat a optimalizovat uživatelské prostředí – což přináší vyšší míru uchování a zlepšuje využití aplikace. 
 
-## <a name="valueadded-push-and-communications-platform"></a>Platforma pro oznámení a komunikaci s přidanou hodnotou
+## <a name="value-added-push-and-communications-platform"></a>Platforma pro oznámení a komunikaci s přidanou hodnotou
 Mobile Engagement poskytuje funkci zasílání zpráv v aplikaci a bezproblémově pracuje s nativními bránami nabízených oznámení, jako například Google GCM, APNS společnosti Apple a MPNS společnosti Microsoft. Navíc vám umožňuje vytvářet cílené kampaně tím, že analyzuje chování uživatelů s cílem určit jedinečné zákaznické segmenty.
 
 Vývojáři aplikací tak mohou své zákazníky oslovit vysoce účinným, ale nevtíravým způsobem.
@@ -47,7 +47,7 @@ Společnost Microsoft se dlouhodobě zavázala k ochraně vašeho soukromí, kte
 ### <a name="next-steps"></a>Další kroky:
 [Doporučené postupy a proces vytvoření Mobile Engagementu](mobile-engagement-getting-started-best-practices.md)
 
-[Začínáme](/documentation/services/mobile-engagement/)
+[Začínáme](/index.md)
 
 [Stažení ukázek aplikací se zdrojovým kódem](https://aka.ms/azmedemoapps)
 

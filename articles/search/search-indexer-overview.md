@@ -13,24 +13,25 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 9a8a4454a0676c403356e9989665242978949011
-
+ms.sourcegitcommit: 2cddd262f912efff029bb05f0f3f3551409167ed
+ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
 
 ---
+
 # <a name="indexers-in-azure-search"></a>Indexery ve službě Azure Search
 > [!div class="op_single_selector"]
+>
 > * [Přehled](search-indexer-overview.md)
 > * [Azure Portal](search-import-data-portal.md)
-> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 > * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 > * [Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (Preview)](search-howto-indexing-azure-tables.md)
-> 
-> 
+>
+>
 
  **Indexer** ve službě Azure Search je prohledávací modul, který extrahuje prohledávatelná data a metadata z externího zdroje dat a naplní index na základě mapování pole-pole mezi indexem a zdrojem dat. Tento přístup se někdy nazývá model Pull, protože služba si vyžádá data, aniž byste museli psát kód, který by vložil data do indexu bez vyžádání.
 
@@ -45,8 +46,6 @@ Všeobecně dostupné indexery jako SQL Azure nebo DocumentDB můžete vytvořit
 * [Rozhraní API služby REST](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Indexery verze Preview, jako je třeba Azure Blob Storage nebo Table Storage, vyžadují kód a rozhraní API verze Preview, třeba [rozhraní API Azure Search Preview REST pro indexery](search-api-indexers-2015-02-28-preview.md). Pro funkce verze Preview většinou nejsou dostupné nástroje portálu.
-
 ## <a name="basic-configuration-steps"></a>Postup základní konfigurace
 Indexery můžou nabízet funkce, které jsou jedinečné pro daný zdroj dat. Z toho důvodu se budou některé aspekty konfigurace indexeru nebo zdroje dat lišit podle typu indexeru. Všechny indexery ale sdílejí stejné základní složení a požadavky. Níže najdete popis kroků společných pro všechny indexery.
 
@@ -56,12 +55,12 @@ Indexer automatizuje některé úkoly související s příjmem dat, ale vytvá�
 ### <a name="step-2-create-a-data-source"></a>Krok 2: Vytvoření zdroje dat
 Indexer získává data ze **zdroje dat**, který obsahuje informace, jako je například připojovací řetězec. Aktuálně jsou podporované tyto zdroje dat:
 
-* [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* Služba [Azure Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
-* [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+* Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
-Zdroje dat se konfigurují a spravují nezávisle na indexerech, které je používají, což znamená, že několik indexerů může používat zdroj dat k načtení více indexů současně. 
+Zdroje dat se konfigurují a spravují nezávisle na indexerech, které je používají, což znamená, že několik indexerů může používat zdroj dat k načtení více indexů současně.
 
 ### <a name="step-3create-and-schedule-the-indexer"></a>Krok 3: Vytvoření a naplánování indexeru
 Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexer můžete odkazovat na zdroj dat z jiné služby, pokud se tento zdroj dat nachází ve stejném předplatném. Další informace o strukturování indexeru najdete v tématu [Vytvoření indexeru (rozhraní API Azure Search REST)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
@@ -69,16 +68,15 @@ Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexe
 ## <a name="next-steps"></a>Další kroky
 Teď jste získali základní představu. V dalším kroku se zaměříme na požadavky a úlohy specifické pro různé typy zdrojů dat.
 
-* [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* Služba [Azure Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
-* [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+* Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexování objektů blob CSV pomocí indexeru Azure Search Blob (Preview)](search-howto-index-csv-blobs.md)
 * [Indexování objektů blob JSON pomocí indexeru Azure Search Blob (Preview)](search-howto-index-json-blobs.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

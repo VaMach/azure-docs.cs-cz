@@ -1,43 +1,43 @@
+<!--
+Used in:
+sql-database-performance-guidance.md  
+sql-database-resource-limits.md
+sql-database-service-tiers.md  
+-->
+
 ### <a name="basic-service-tier"></a>Úroveň služeb Basic
-|  |  |
-| --- | --- |
-| Maximální počet DTU |5 |
-| Maximální velikost databáze (GB) |2 |
-| Maximální úložiště OLTP v paměti (GB) |Není k dispozici |
+| **Úroveň služeb** | **Basic** |
+| --- | :---: |
+| Maximální počet DTU | 5 |
+| Maximální velikost databáze |2 GB|
+| Maximální úložiště OLTP v paměti |Není dostupné. |
 | Maximální počet souběžných pracovních procesů |30 |
 | Maximální počet souběžných přihlášení |30 |
 | Maximální počet souběžných relací |300 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 7 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
+|||
 
 ### <a name="standard-service-tier"></a>Úroveň služeb Standard
-|  |  |
-| --- |:---:|
-| **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
-| Maximální počet DTU |&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Maximální velikost databáze (GB) |250 |
-| Maximální úložiště OLTP v paměti (GB) |Není k dispozici |
-| Maximální počet souběžných pracovních procesů |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Maximální počet souběžných přihlášení |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Maximální počet souběžných relací |600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
+| **Úroveň služeb** | **S0** | **S1** | **S2** | **S3** |
+| --- |---:| ---:|---:|---:|---:|
+| Maximální počet DTU | 10 | 20 | 50 | 100 |
+| Maximální velikost databáze | 250 GB| 250 GB | 250 GB | 250 GB |
+| Maximální úložiště OLTP v paměti | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. |
+| Maximální počet souběžných pracovních procesů | 60 | 90 | 120 | 200 |
+| Maximální počet souběžných přihlášení | 60 | 90 | 120 | 200 |
+| Maximální počet souběžných relací |600 | 900 | 1200 | 2400 |
+||||||
 
-### <a name="premium-service-tier"></a>Úroveň služeb Premium
-|  |  |
-| --- |:---:|
-| **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
-| Maximální počet DTU |125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |
-| Maximální velikost databáze (GB) |500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
-| Maximální úložiště OLTP v paměti (GB) |&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32 |
-| Maximální počet souběžných pracovních procesů |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Maximální počet souběžných přihlášení |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Maximální počet souběžných relací |2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
+### <a name="premium-service-tier"></a>Úroveň služeb Premium 
+| **Úroveň služeb** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| --- |---:|---:|---:|---:|---:|---:|
+| Maximální počet DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Maximální velikost databáze | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
+| Maximální úložiště OLTP v paměti | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
+| Maximální počet souběžných pracovních procesů | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maximální počet souběžných přihlášení | 200 | 400| 800| 1600| 2400| 6400 |
+| Maximální počet souběžných relací | 30000| 30000| 30000| 30000| 30000| 30000 |
+|||||||
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

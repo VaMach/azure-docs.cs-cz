@@ -1,69 +1,72 @@
 
 ### <a name="basic-elastic-pool-limits"></a>Základní limity elastického fondu
-|  |  |
-| --- |:---:|
-| Maximální počet eDTU na fond |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Maximální velikost úložiště na fond (GB)* |&nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
-| Maximální počet databází na fond |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Maximální úložiště vnitřní paměti OLTP (GB) na fond |Není k dispozici |
-| Maximální počet souběžných pracovních procesů na fond |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Maximální počet souběžných přihlášení na fond |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Maximální počet souběžných relací na fond |4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| Maximální počet eDTU na databázi* |5 |
-| Minimální počet eDTU na databázi* |0,5 |
-| Maximální velikost úložiště na databázi (GB)** |2 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 7 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
-|  | |
 
-* Maximální a minimální počet eDTU na databázi lze nastavit na kteroukoli z uvedených hodnot, pokud je vybraná velikost DTU fondu minimálně stejně velká, jako maximální počet eDTU na databázi. 
-
-** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
+| Velikost fondu (v eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
+| Maximální místo v úložišti pro každý fond* | 5 GB| 10 GB| 20 GB| 29 GB| 39 GB| 78 GB| 117 GB| 156 GB|
+| Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Maximální počet souběžných pracovních procesů na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Minimální počet eDTU na databázi | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} |
+| Maximální počet eDTU na databázi | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} |
+||||||||
 
 ### <a name="standard-elastic-pool-limits"></a>Standardní limity elastického fondu
-|  |  |
-| --- |:---:|
-| Maximální počet eDTU na fond |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Maximální velikost úložiště na fond (GB)* |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Maximální počet databází na fond |&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Maximální úložiště vnitřní paměti OLTP (GB) na fond |Není k dispozici |
-| Maximální počet souběžných pracovních procesů na fond |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Maximální počet souběžných přihlášení na fond |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Maximální počet souběžných relací na fond |4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Maximální počet eDTU na databázi* |10, 20, 50, 100 |
-| Minimální počet eDTU na databázi* |0, 10, 20, 50, 100 |
-| Maximální velikost úložiště na databázi (GB)** |250 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
-|  | |
 
-* Maximální a minimální počet eDTU na databázi lze nastavit na kteroukoli z uvedených hodnot, pokud je vybraná velikost DTU fondu minimálně stejně velká, jako maximální počet eDTU na databázi. 
+| Velikost fondu (v eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |---: |
+| Maximální místo v úložišti pro každý fond* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
+| Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Maximální počet souběžných pracovních procesů na fond | 100 | 200 | 400 | 600 |  800 | 1600 |
+| Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 |  800 | 1600 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Minimální počet eDTU na databázi | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Maximální počet eDTU na databázi | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
-** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
+### <a name="standard-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Standard (pokračování)
+
+| Velikost fondu (v eDTU)  |  **1200** | **1600** | **2000** | **2500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Maximální místo v úložišti pro každý fond* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 
+| Maximální počet databází pro každý fond | 500 | 500 | 500 | 500 | 500 | 
+| Maximální počet souběžných pracovních procesů na fond |  2400 | 3200 | 4000 | 5000 |
+| Maximální počet souběžných přihlášení na fond |  2400 | 3200 | 4000 | 5000 | 
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 |30000 | 
+| Minimální počet eDTU na databázi | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Maximální počet eDTU na databázi | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
 ### <a name="premium-elastic-pool-limits"></a>Prémiové limity elastického fondu
-|  |  |
-| --- |:---:|
-| Maximální počet eDTU na fond |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
-| Maximální velikost úložiště na fond (GB)* |250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
-| Maximální počet databází na fond |50 |
-| Maximální úložiště vnitřní paměti OLTP (GB) na fond |Není k dispozici |
-| Maximální počet souběžných pracovních procesů na fond |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Maximální počet souběžných přihlášení na fond |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Maximální počet souběžných relací na fond |4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Maximální počet eDTU na databázi* |125, 250, 500, 1000 |
-| Minimální počet eDTU na databázi* |0, 125, 250, 500, 1000 |
-| Maximální velikost úložiště na databázi (GB)** |500 |
-| Obnovení do bodu v čase |Libovolný bod za posledních 35 dnů |
-| Zotavení po havárii |Aktivní geografická replikace |
-|  | |
 
-* Maximální a minimální počet eDTU na databázi lze nastavit na kteroukoli z uvedených hodnot, pokud je vybraná velikost DTU fondu minimálně stejně velká, jako maximální počet eDTU na databázi. 
+| Velikost fondu (v eDTU)  | **125** | **250** | **500** | **1000** | **1500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Maximální místo v úložišti pro každý fond* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
+| Maximální počet databází pro každý fond | 50 | 100 | 100 | 100 | 100 |  
+| Maximální počet souběžných pracovních procesů na fond | 200 | 400 | 800 | 1600 |  2400 | 
+| Maximální počet souběžných přihlášení na fond | 200 | 400 | 800 | 1600 |  2400 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Minimální počet eDTU na databázi | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} | {0,25,50,75,<br>125,250,500,<br>1000} | 
+| Maximální počet eDTU na databázi | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000} |  
+||||||||
 
-** Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
+### <a name="premium-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Premium (pokračování)
+
+| Velikost fondu (v eDTU)  |  **2000** | **2500** | **3000** | **3500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Maximální místo v úložišti pro každý fond* | 750 GB| 750 GB| 750 GB| 750 GB| 
+| Maximální počet databází pro každý fond | 100 | 100 | 100 | 100 | 100 | 
+| Maximální počet souběžných pracovních procesů na fond |  3200 | 4000 | 4800 | 5600 | 
+| Maximální počet souběžných přihlášení na fond |  3200 | 4000 | 4800 | 5600 | 
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Minimální počet eDTU na databázi | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | 
+| Maximální počet eDTU na databázi | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | 
+||||||||
+
+\* Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: 7107c64a25b3f60d7789cec57181eec9ce844f6b
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 V tomto článku zjistíte, jak můžete k vytvoření SQL Data Warehouse použít PowerShell.
 
@@ -40,23 +40,23 @@ Na začátek budete potřebovat:
 
 > [!NOTE]
 > Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti o cenách najdete v tématu [SQL Data Warehouse – ceny][SQL Data Warehouse – ceny].
-> 
-> 
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Vytvoření SQL Data Warehouse
 1. Otevřete Windows PowerShell.
 2. Spuštěním této rutiny se přihlaste do Azure Resource Manageru.
-   
+
     ```Powershell
     Login-AzureRmAccount
     ```
 3. Vyberte předplatné, které chcete použít pro aktuální relaci.
-   
+
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
 4. Vytvořte databázi. Tento příklad vytvoří databázi s názvem mynewsqldw s úrovní cíle služby DW400 na serveru s názvem sqldwserver1, který je ve skupině prostředků s názvem mywesteuroperesgp1.
-   
+
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
@@ -94,7 +94,7 @@ Pokud vás zajímají další informace o tom, jak SQL Data Warehouse spravovat 
 
 [Jak nainstalovat a nakonfigurovat Azure PowerShell]: ../powershell-install-configure.md
 [Jak vytvořit SQL Data Warehouse z portálu Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
 [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [jak vytvořit skupinu prostředků]: ../resource-group-template-deploy-portal.md#create-resource-group
 

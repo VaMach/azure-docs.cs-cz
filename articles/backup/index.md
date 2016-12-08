@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 50a8865afe60b47b094e3fa64ab622c229a8a4a4
-ms.openlocfilehash: fc7e57b12158c34b2ee0de334f1b08469765f39d
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
 
 ---
 #<a name="backup-documentation"></a>Dokumentace ke službě Backup
@@ -104,13 +104,39 @@ Azure Backup je cloudová služba, kterou můžete využívat k zálohování (n
 
 ---
 
-##<a name="reference"></a>Referenční informace
+## <a name="reference"></a>Referenční informace
 
-###<a name="net"></a>.NET
-[Referenční informace pro spravované rozhraní .NET](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referenční informace ke spravovanému rozhraní .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/recoveryservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referenční materiály k rozhraní REST API služby Backup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-###<a name="rest"></a>REST
-[Referenční informace k rozhraní REST API služby Backup](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
@@ -122,6 +148,6 @@ Stáhnout dokumentaci ke službě Azure Backup </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

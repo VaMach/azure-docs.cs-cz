@@ -13,21 +13,22 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: 02eebb8517183abbdbd500820d8c8beb57865ac5
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Odesílání dat do služby Azure Search pomocí REST API
 > [!div class="op_single_selector"]
+>
 > * [Přehled](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
 Tento článek vám ukáže, jak používat [REST API služby Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) k importu dat do indexu Azure Search.
 
@@ -35,7 +36,7 @@ Před zahájením tohoto názorného průvodce byste již měli mít [vytvořen�
 
 Pro vkládání dokumentů do indexu pomocí REST API budete vydávat na URL koncového bodu indexu požadavek HTTP POST. Text žádosti požadavku HTTP je objekt JSON obsahující dokumenty, které se mají přidat, upravit nebo odstranit.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifikace klíče api-key správce služby Azure Search
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifikace klíče api-key správce služby Azure Search
 Při odesílání požadavků HTTP na vaši službu pomocí REST API musí *každá* žádost na rozhraní API obsahovat klíč api-key, který byl vygenerovaný pro zřízenou službu Vyhledávání. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
 1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
@@ -65,9 +66,9 @@ Každý objekt JSON v poli „value“ reprezentuje dokument, který se má inde
 Nyní, když jste shromáždili potřebné hodnoty polí pro akce indexu, jste připraveni vytvořit vlastní požadavek HTTP a text žádosti ve formátu JSON pro import vašich dat.
 
 #### <a name="request-and-request-headers"></a>Požadavek a hlavičky požadavku
-V URL budete muset poskytnout název služby, název indexu (v tomto případě „hotels“) a správnou verzi rozhraní API (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2015-02-28`). Budete muset definovat `Content-Type` a hlavičky požadavku `api-key`. K tomu použijte jeden z klíčů správce vaší služby.
+V URL budete muset poskytnout název služby, název indexu (v tomto případě „hotels“) a správnou verzi rozhraní API (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2016-09-01`). Budete muset definovat `Content-Type` a hlavičky požadavku `api-key`. K tomu použijte jeden z klíčů správce vaší služby.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Stavový kód `207` se vrátí, pokud nebyla alespoň jedna položka úspěšně
 
 > [!NOTE]
 > Často to znamená, že zatížení vaší služby vyhledávání dosahuje bodu, kdy začnou požadavky indexování vracet odpovědi `503`. V tom případě důrazně doporučujeme, aby se váš klientský kód stáhnul a chvíli počkal před tím, než to zkusí znovu. Systému tak poskytnete čas k obnovení, což zvýší šanci na úspěšné provedení dalších požadavků. Rychlé opakování požadavků pouze prodlouží situaci.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Stavový kód `429` bude vrácen, pokud jste překročili kvótu pro počet dokumentů na index.
@@ -171,8 +172,8 @@ Stavový kód `503` bude vrácen, pokud nedošlo k úspěšné indexaci položek
 
 > [!NOTE]
 > V tom případě důrazně doporučujeme, aby se váš klientský kód stáhnul a chvíli počkal před tím, než to zkusí znovu. Systému tak poskytnete čas k obnovení, což zvýší šanci na úspěšné provedení dalších požadavků. Rychlé opakování požadavků pouze prodlouží situaci.
-> 
-> 
+>
+>
 
 Další informace o akcích dokumentu a úspěšných/neúspěšných odpovědích naleznete v tématu [Přidání, aktualizování nebo odstranění dokumentů](https://msdn.microsoft.com/library/azure/dn798930.aspx). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
@@ -181,7 +182,6 @@ Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

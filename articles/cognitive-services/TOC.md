@@ -45,15 +45,15 @@
 ## [Vývoj s použitím služby Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Referenční informace
-## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
-# Zdroje 
+# Zdroje a prostředky 
 ## [Ceny](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/15/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,11 +43,11 @@ Zálohování virtuálního počítače se skládá z pěti hlavních kroků:
 ![Zobrazení procesu zálohování virtuálního počítače na nejvyšší úrovni](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Classic](../resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače založené na správci prostředků. Podrobnosti o zálohování virtuálních počítačů do trezoru Recovery Services naleznete v tématu [První seznámení: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md).
+> Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Classic](../azure-resource-manager/resource-manager-deployment-model.md). Tento kurz je určen pro použití s virtuálními počítači, které lze vytvořit na portálu Azure Classic. Služba Azure Backup podporuje virtuální počítače založené na správci prostředků. Podrobnosti o zálohování virtuálních počítačů do trezoru Recovery Services naleznete v tématu [První seznámení: Ochrana virtuálních počítačů pomocí trezoru Recovery Services](backup-azure-vms-first-look-arm.md).
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>Krok 1 – Vytvoření trezoru záloh pro virtuální počítač
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Krok 1 – Vytvoření trezoru záloh pro virtuální počítač
 Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obnovení. Trezor záloh obsahuje také zásady zálohování, které se aplikují na zálohované virtuální počítače.
 
 1. Přihlaste se k [portálu Azure Classic](http://manage.windowsazure.com/).
@@ -86,7 +86,7 @@ Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obn
 
 Po výběru možnosti úložiště pro svůj trezor jste připraveni k přidružení virtuálního počítače k trezoru. Chcete-li začít přidružení, vyhledejte a zaregistrujte virtuální počítače Azure.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>Krok 2 – Vyhledání a registrace virtuálních počítačů Azure
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Krok 2 – Vyhledání a registrace virtuálních počítačů Azure
 Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhledávání pro identifikaci nových virtuálních počítačů. Ten vrátí seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast.
 
 1. Přihlaste se k [portálu Azure Classic](http://manage.windowsazure.com/).
@@ -133,12 +133,12 @@ Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhl
 
     ![Stav registrace 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>Krok 3 – Na virtuální počítač nainstalujte agenta virtuálního počítače
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Krok 3 – Na virtuální počítač nainstalujte agenta virtuálního počítače
 Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Můžete přeskočit na [ochranu virtuálních počítačů](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
 
 Pokud byl virtuální počítač přenesen z místního datového centra, pravděpodobně na něm není agent virtuálního počítače nainstalovaný. Před pokračováním k ochraně virtuálního počítače je potřeba na něj nainstalovat agenta virtuálního počítače. Podrobné pokyny k instalaci agenta virtuálního počítače naleznete v [oddílu Agent virtuálního počítače v článku Zálohování virtuálních počítačů](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>Krok 4 – Vytvoření zásady zálohování
+## <a name="step-4---create-the-backup-policy"></a>Krok 4 – Vytvoření zásady zálohování
 Předtím, než aktivujete úlohu prvotního zálohování, nastavte plán pořizování snímků zálohy. Plán pořizování snímků záloh a doba jejich uchování se nazývá zásada zálohování. Informace o zachování jsou založené na trojgeneračním schématu rotace záloh.
 
 1. Na portálu Azure Classic přejděte v **Recovery Services** do trezoru záloh a klikněte na **Registrované položky**.
@@ -175,7 +175,7 @@ Předtím, než aktivujete úlohu prvotního zálohování, nastavte plán poři
 
     Nyní, když jste vytvořili zásadu, přejděte k dalšímu kroku a spusťte prvotní zálohování.
 
-## <a name="step-5-initial-backup"></a>Krok 5 – Prvotní zálohování
+## <a name="step-5---initial-backup"></a>Krok 5 – Prvotní zálohování
 Jakmile je virtuální počítač chráněný zásadou, můžete si tento vztah prohlédnout na kartě **Chráněné položky**. Před provedením prvotního zálohování bude **Stav ochrany** ukazovat **Chráněno – (čekání na prvotní zálohování)**. Ve výchozím nastavení je první plánovanou zálohou *prvotní záloha*.
 
 ![Zálohování čeká na zpracování](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -211,6 +211,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

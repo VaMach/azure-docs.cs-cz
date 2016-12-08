@@ -3,8 +3,8 @@ title: "CDN Azure – Přehled | Dokumentace Microsoftu"
 description: "Zjistěte, co je Síť pro doručování obsahu (CDN) Azure, a jak ji používat k doručování širokopásmového obsahu díky ukládání objektů blob a statického obsahu do mezipaměti."
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
+ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
 
 
 ---
@@ -57,7 +57,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | Duální sada protokolů IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Podpora vlastních názvů domén](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ukládání řetězce dotazu do mezipaměti](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geografická filtrování](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geografická filtrování](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Rychlé vyprázdnění](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Předběžné načítání prostředku](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Základní analýza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +69,8 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | Nastavení mezipaměti nebo hlaviček (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Přesměrování nebo přepsání adresy URL (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Pravidla mobilních zařízení (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Ověření tokenu](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Víte o funkci, kterou byste uvítali v CDN Azure?  [Sdělte nám svůj názor](https://feedback.azure.com/forums/169397-cdn)! 
@@ -89,6 +91,6 @@ Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

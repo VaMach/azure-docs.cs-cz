@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
+ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Naučte se vytvářet cluster HBase v HDInsight, vytvářet tabulky HBase a dotazovat tabulky pomocí Hive. Obecné informace o HBase naleznete v tématu [Přehled HDInsight HBase][hdinsight-hbase-overview].
@@ -95,7 +95,7 @@ Po dokončení dalšího postupu to bude dávat větší smysl.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![prostředí hbase hdinsight hadoop][img-hbase-shell]
+    ![Prostředí HDInsight Hadoop HBase][img-hbase-shell]
 4. Získání jednoho řádku
    
         get 'Contacts', '1000'
@@ -113,16 +113,16 @@ HBase obsahuje několik metod načítání dat do tabulek.  Další informace na
 
 Ukázkový datový soubor se odeslal do veřejného kontejneru objektu blob *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Obsah datového souboru je:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Můžete vytvořit textový soubor a případně soubor nahrát do vlastního účtu úložiště. Pokyny naleznete v tématu [Nahrávání dat pro úlohy Hadoop do HDInsight][hdinsight-upload-data].
 
@@ -142,10 +142,18 @@ Můžete vytvořit textový soubor a případně soubor nahrát do vlastního ú
 ## <a name="use-hive-to-query-hbase"></a>Použití Hive k dotazování HBase
 Data v tabulkách HBase můžete dotazovat pomocí Hive. Tati část vytvoří tabulku Hive, která se mapuje na tabulku HBase a použije k dotazování dat v tabulce HBase.
 
+> [!NOTE]
+> Pokud jsou Hive a HBase na různých clusterech ve stejné virtuální síti, je nutné při vyvolání prostředí Hive předat kvorum zookeeper:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Otevřete **PuTTY** a připojte se ke clusteru.  Pokyny naleznete v předchozím postupu.
 2. Otevřete prostředí Hive.
    
        hive
+       
 3. Spusťte následující skript HiveQL k vytvoření tabulky Hive, která se mapuje na tabulku HBase. Před spuštěním tohoto prohlášení ověřte, zda jste vytvořili ukázkové tabulky odkazované dříve v tomto kurzu pomocí prostředí HBase.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -221,53 +229,21 @@ Další informace o HBase Rest naleznete v tématu [Referenční příručka Apa
 ## <a name="check-cluster-status"></a>Kontrola stavu clusteru
 HBase v HDInsight se dodává s webovým uživatelským rozhraním pro sledování clusterů. Pomocí webového uživatelského rozhraní, můžete žádat o statistické údaje nebo informace o oblastech.
 
-SSH lze také použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight. Další informace naleznete v tématu [Použití SSH se systémem Linux Hadoop v HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**Přístup k hlavnímu uživatelskému rozhraní HBase**
 
-**Vytvoření relace tunelování SSH**
+1. Otevřete webové uživatelské rozhraní Ambari na adrese https://&lt;název_clusteru>.azurehdinsight.net.
+2. V nabídce vlevo klikněte na **HBase**.
+3. V horní části stránky klikněte na **Rychlé odkazy**, najeďte myší na odkaz na aktivní uzel Zookeeper a klikněte na **Hlavní uživatelské rozhraní HBase**.  Uživatelské rozhraní se otevře na nové kartě prohlížeče:
 
-1. Otevřete **PuTTY**.  
-2. Pokud jste zadali klíč SSH při vytváření uživatelského účtu v průběhu procesu tvorby, je třeba provést následující krok a vybrat privátní klíč pro použití při ověřování clusteru:
-   
-    V poli **Kategorie** rozbalte položku **Připojení**, rozbalte položku **SSH** a vyberte možnost **Auth**. Nakonec klikněte na tlačítko **Procházet** a vyberte soubor .ppk, který obsahuje soukromý klíč.
-3. V části **Kategorie** klikněte na tlačítko **Relace**.
-4. Z možností Základní pro vaši obrazovku relace PuTTY zadejte následující hodnoty:
-   
-   * **Název hostitele**: adresa SSH serveru HDInsight v názvu hostitele (nebo IP adresa). Adresa SSH je váš název clusteru, pak **-ssh.azurehdinsight.net**. Například *mycluster-ssh.azurehdinsight.net*.
-   * **Port**: 22. Port SSH na primárním hlavním uzlu je 22.  
-5. V části **Kategorie** nalevo od dialogového okna rozbalte položku **Připojení**, rozbalte položku **SSH** a pak klikněte na tlačítko **Tunely**.
-6. Uveďte následující informace o možnostech řízení formuláře přesměrování portu SSH:
-   
-   * **Zdrojový port** – port na straně klienta, který chcete přesměrovat. Například 9876.
-   * **Dynamicky** – umožňuje dynamické směrování proxy SOCKS.
-7. Klikněte na tlačítko **Přidat** a přidejte nastavení.
-8. Klikněte na tlačítko **Otevřít** v dolní části dialogového okna a otevřete připojení SSH.
-9. Po zobrazení výzvy se přihlaste na server s použitím účtu SSH. Tím vytvoříte relaci SSH a povolte tunelové propojení.
+  ![Hlavní uživatelské rozhraní HDInsight HBase](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Hledání plně kvalifikovaného názvu domény zookeepers pomocí Ambari**
+  Hlavní uživatelské rozhraní HBase obsahuje tyto části:
 
-1. Přejděte na https://<ClusterName>.azurehdinsight.net/.
-2. Dvakrát zadejte přihlašovací údaje uživatelského účtu clusteru.
-3. V levé nabídce klikněte na tlačítko **zookeeper**.
-4. Klikněte na jeden ze tří odkazů **ZooKeeper Server** v seznamu Souhrn.
-5. Zkopírujte **Hostname**. Například zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Postup konfigurace programu klienta (Firefox) a kontrola stavu clusteru**
-
-1. Otevřete Firefox.
-2. Klikněte na tlačítko **Otevřít nabídku**.
-3. Klikněte na tlačítko **Možnosti**.
-4. Klikněte na tlačítko **Upřesnit**, klikněte na tlačítko **Síť** a pak klikněte na tlačítko **Nastavení**.
-5. Vyberte možnost **Ruční konfigurace proxy**.
-6. Zadejte následující hodnoty:
-   
-   * **Socks hostitele**: localhost
-   * **Port**: Použijte stejný port, jako jste nakonfigurovali v tunelování Putty SSH.  Například 9876.
-   * **SOCKS v5**: (zaškrtnuto)
-   * **Vzdálený DNS**: (zaškrtnuto)
-7. Klikněte na tlačítko **OK** a uložte změny.
-8. Přejděte na adresu http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
-
-V clusteru s vysokou dostupností najdete odkaz na aktuální aktivní hlavní uzel HBase, který je hostitelem webového uživatelského rozhraní.
+  - oblastní servery
+  - zálohování hlavních serverů
+  - tabulky
+  - úlohy
+  - atributy softwaru
 
 ## <a name="delete-the-cluster"></a>Odstranění clusteru
 Aby se zabránilo nekonzistencím, doporučujeme zakázat tabulky HBase před odstraněním clusteru.
@@ -310,6 +286,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

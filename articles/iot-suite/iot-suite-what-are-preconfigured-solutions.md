@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
 
 
 ---
@@ -73,7 +73,7 @@ Do řešení můžete přidat další simulovaná zařízení, která vysílají
 ## <a name="iot-hub"></a>IoT Hub
 V tomto předkonfigurovaném řešení odpovídá instance IoT Hubu *cloudové bráně* v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
-Centrum IoT získává telemetrická data ze zařízení v jednom koncovém bodě. Centrum IoT také udržuje pro každé zařízení specifické koncové body, odkud zařízení získávají příkazy, které do nich byly zaslány.
+Centrum IoT získává telemetrická data ze zařízení v jednom koncovém bodě. IoT Hub také udržuje pro každé zařízení specifické koncové body, odkud zařízení získávají příkazy, které do nich byly zaslány.
 
 Centrum IoT zpřístupňuje získaná telemetrická data přes koncový bod čtení telemetrických dat na straně služby.
 
@@ -130,6 +130,6 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Site Recovery přispívá ke strategii BCDR orchestrací replikace místních vi
 Pokud dojde k výpadkům v primární lokalitě, sekundární lokalita převezme služby při selhání, aby úlohy zůstaly dostupné. Až se obnoví normální provozní podmínky, vrátíte služby po obnovení zpět do primárního umístění.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery na portálu Azure
-V Azure existují dva různé [modely nasazení](../resource-manager-deployment-model.md) pro vytváření prostředků a práci s nimi. Model Azure Resource Manager a klasický model správy služeb. Azure má také dva portály. [Portál Azure Classic](https://manage.windowsazure.com/) a web [Azure Portal](https://portal.azure.com).
+V Azure existují dva různé [modely nasazení](../azure-resource-manager/resource-manager-deployment-model.md) pro vytváření prostředků a práci s nimi. Model Azure Resource Manager a klasický model správy služeb. Azure má také dva portály. [Portál Azure Classic](https://manage.windowsazure.com/) a web [Azure Portal](https://portal.azure.com).
 
 * Site Recovery je možné nasadit na portálu Classic i na webu Azure Portal.
 * Na portálu Azure Classic můžete podporovat Site Recovery s klasickým modelem správy služeb.
@@ -79,6 +79,6 @@ Site Recovery poskytuje replikaci se sledováním aplikací, aby úlohy a aplika
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

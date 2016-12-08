@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
+ms.openlocfilehash: cb1fd606fa03650980a02325b82774ce9ef8cf77
 
 
 ---
@@ -46,7 +46,7 @@ Azure DocumentDB nabízí následující klíčové funkce a výhody:
 * **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s DocumentDB je jednoduché, srozumitelné a nevyžaduje, abyste se naučili pracovat s novými nástroji nebo využívali vlastní rozšíření technologií JSON nebo JavaScript. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. DocumentDB pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
 * **Automatické indexování:** DocumentDB ve výchozím nastavení [automaticky indexuje](documentdb-indexing.md) všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak DocumentDB spravuje data?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak DocumentDB spravuje data?
 Azure DocumentDB spravuje data JSON prostřednictvím dobře definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
 
 Databázový účet DocumentDB je jedinečný obor názvů, který vám dává přístup k Azure DocumentDB. Před vytvořením databázového účtu si musíte pořídit předplatné Azure, které vám umožní přístup k různým službám Azure. 
@@ -71,6 +71,8 @@ Azure DocumentDB zveřejňuje prostředky přes rozhraní REST API, které je mo
 | neuvedeno |[Sada JavaScript SDK na straně serveru](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Knihovna Python](http://azure.github.io/azure-documentdb-python/) |
 
+Pomocí [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md) můžete vyvíjet a testovat aplikace místně bez vytváření předplatného Azure a bez jakýchkoli nákladů. Jakmile budete spokojeni s fungováním aplikace v emulátoru DocumentDB, můžete přejít na účet Azure DocumentDB v cloudu.
+
 Kromě základních operací vytvoření, čtení, aktualizace a odstranění nabízí DocumentDB také bohaté rozhraní SQL k získávání dokumentů JSON a podporu spouštění logiky aplikací JavaScript z transakcí na straně serveru. Rozhraní pro spouštění dotazů a skriptů jsou k dispozici prostřednictvím všech knihoven platforem i rozhraní REST API. 
 
 ### <a name="sql-query"></a>Dotaz SQL
@@ -92,6 +94,7 @@ Nemáte účet Azure? Můžete:
 
 * Zaregistrovat se k [bezplatné zkušební verzi Azure](https://azure.microsoft.com/free/), s níž získáte 30 dnů a 200 USD na vyzkoušení všech služeb Azure. 
 * Pokud máte předplatné MSDN, jste oprávněni získat [bezplatný kredit Azure v hodnotě 150 USD měsíčně](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), který můžete využít pro libovolnou službu Azure. 
+* Stáhněte si [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md) pro místní vývoj aplikací.
 
 Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu kurzů](https://azure.microsoft.com/documentation/learning-paths/documentdb/), kde si můžete projít všechny pro vás dostupné materiály. 
 
@@ -100,6 +103,6 @@ Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu k
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

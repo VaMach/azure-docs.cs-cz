@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
+ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Sada Azure IoT Gateway SDK (beta verze) – Začínáme používat systém Linux
+# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Sada Azure IoT Gateway SDK – Začínáme používat systém Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Postup pro sestavení ukázky
@@ -38,45 +38,48 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 ## <a name="how-to-run-the-sample"></a>Spuštění ukázky
 1. Skript **build.sh** generuje výstup ve složce **build** v místní kopii úložiště **azure-iot-gateway-sdk**. To zahrnuje dva moduly používané v tomto příkladu.
    
-    Skript umístí modul **liblogger_hl.so** do složky **build/modules/logger/** a modul **libhello_world_hl.so** do složky **build/modules/hello_world/**. Tyto cesty použijte jako hodnotu **module path**, jak vidíte v následujícím souboru nastavení JSON.
-2. Soubor **hello_world_lin.json** ve složce **samples/hello_world/src** je příklad souboru nastavení JSON pro Linux, který můžete použít ke spuštění ukázky. Následující příklad nastavení JSON vychází z předpokladu, že budete ukázku spouštět z kořenové složky místní kopie úložiště **azure-iot-gateway-sdk**.
-3. U modulu **logger_hl** nastavte v části **args** hodnotu **filename** na název a cestu souboru, který bude obsahovat data protokolu.
-   
-    Toto je příklad souboru nastavení JSON pro Linux, který bude zapisovat do souboru **log.txt** ve složce, ve které spustíte ukázku.
+    Skript sestavení umístí modul **liblogger.so** do složky **build/modules/logger/** a modul **libhello_world.so** do složky **build/modules/hello_world/**. Tyto cesty použijte jako hodnotu **module path**, jak vidíte v následujícím souboru nastavení JSON.
+2. Proces hello_world_sample přijímá jako argument v příkazovém řádku cestu ke konfiguračnímu souboru JSON. Příklad souboru JSON je součástí úložiště v umístění **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** a níže je jeho kopie. Tento soubor bude fungovat, pokud jste neupravili skript sestavení, aby umístil moduly nebo ukázkové spustitelné soubory do jiných než výchozích umístění.
+
+   > [!NOTE]
+   > Cesty k modulům jsou relativní vzhledem k aktuálnímu pracovnímu adresáři, ze kterého je spuštěn spustitelný soubor hello_world_sample, ne k adresáři, ve kterém je spustitelný soubor umístěn. Ukázkový konfigurační soubor JSON ve výchozím nastavení zapíše do aktuálního pracovního adresáře soubor log.txt.
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger_hl",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
-          },
-          "args" : 
-          {
-            "filename":"./log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger_hl"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-4. Ve svém prostředí přejděte do složky **azure-iot-gateway-sdk**.
-5. Spusťte následující příkaz:
+3. Přejděte do složky **azure-iot-gateway-sdk**.
+4. Spusťte následující příkaz:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +92,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

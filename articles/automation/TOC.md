@@ -67,23 +67,24 @@
 ### [Pozastavení úlohy runbooku](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Referenční informace
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
-## [Rutiny PowerShellu](https://msdn.microsoft.com/library/azure/dn690262)
-## [Rozhraní REST API pro Resource Manager](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [REST nasazení modelu Classic](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation) 
-## [Školení pro Azure Automation](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation)
+## [Školení pro Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

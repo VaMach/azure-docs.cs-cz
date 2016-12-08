@@ -1,5 +1,5 @@
 ---
-title: "Webové role a role pracovních procesů Pythonu při použití sady Visual Studio | Dokumentace Microsoftu"
+title: "Začínáme se službou Azure Cloud Services a Pythonem| Dokumentace Microsoftu"
 description: "Přehled vytváření cloudových služeb Azure včetně webových rolí a rolí pracovního procesu pomocí nástrojů Python Tools pro Visual Studio"
 services: cloud-services
 documentationcenter: python
@@ -12,15 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
+
 Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů pomocí nástrojů [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
 
 ## <a name="prerequisites"></a>Požadavky
@@ -365,6 +366,6 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
