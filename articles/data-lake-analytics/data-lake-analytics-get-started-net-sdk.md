@@ -30,7 +30,7 @@ V tomto kurzu budete vyvíjet konzolovou aplikaci C# pro odesílání úloh U-SQ
 ## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
-* **Visual Studio 2015, Visual Studio 2013 Update 4 nebo Visual Studio 2012 s nainstalovaným Visual C++.**.
+* **Visual Studio 2015, Visual Studio 2013 Update 4 nebo Visual Studio 2012 s nainstalovaným Visual C++**.
 * **Sada Microsoft Azure SDK pro .NET verze 2.5 nebo vyšší**.  Nainstalujte ji pomocí [Instalačního programu webové platformy](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Účet služby Azure Data Lake Analytics**. Viz [Správa služby Data Lake Analytics pomocí sady Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
 
