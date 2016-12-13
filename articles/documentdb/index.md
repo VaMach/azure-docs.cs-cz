@@ -195,7 +195,7 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

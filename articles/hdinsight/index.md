@@ -138,7 +138,7 @@ Azure HDInsight je distribuce Apache Hadoopu vytvořená pro cloud.  Azure HDIn
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -152,7 +152,7 @@ Azure HDInsight je distribuce Apache Hadoopu vytvořená pro cloud.  Azure HDIn
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

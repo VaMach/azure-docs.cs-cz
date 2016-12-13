@@ -66,7 +66,7 @@ Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správ
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -78,7 +78,7 @@ Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správ
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

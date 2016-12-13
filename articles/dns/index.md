@@ -88,7 +88,8 @@ Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje
 
 <h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
-<li><div class="cardSize">
+<li>
+    <div class="cardSize"><p />
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -101,7 +102,7 @@ Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -117,7 +118,7 @@ Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">

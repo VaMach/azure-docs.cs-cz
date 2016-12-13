@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
 
 ---
-#<a name="cloud-services-documentation"></a>Dokumentace ke službě Cloud Services
+# <a name="cloud-services-documentation"></a>Dokumentace ke službě Cloud Services
 
 Služba Cloud Services je příkladem implementace platformy jako služby (PaaS). Je navržena tak, aby podporovala aplikace, které jsou škálovatelné a spolehlivé a jejichž provoz je nákladově efektivní. Cloud Services přináší výhody virtualizace, ale nabízí i kontrolu nad virtuálními počítači, pokud jde o konfiguraci, opravy a instalaci softwaru.  
 
@@ -89,8 +89,7 @@ Služba Cloud Services je příkladem implementace platformy jako služby (PaaS)
 <h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-    <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -103,7 +102,7 @@ Služba Cloud Services je příkladem implementace platformy jako služby (PaaS)
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

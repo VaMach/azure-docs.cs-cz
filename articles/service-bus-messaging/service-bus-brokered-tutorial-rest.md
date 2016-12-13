@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
@@ -50,7 +50,7 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
 2. Vytvořte nový projekt konzolové aplikace. Klikněte na nabídku **Soubor** a vyberte možnost **Nový**, a pak klikněte na **Projekt**. V dialogovém okně **Nový projekt** klikněte na **Visual C#** (pokud se **Visual C#** nezobrazí, podívejte se do části **Jiné jazyky**), klikněte na šablonu **Konzolová aplikace** a pojmenujte ji jako **Microsoft.ServiceBus.Samples**. Použijte výchozí Umístění. Kliknutím na tlačítko **OK** vytvořte projekt.
 3. V souboru Program.cs zkontrolujte, že vaše příkazy `using` vypadají takto:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
 4. V případě potřeby přejmenujte obor názvů pro program z výchozího názvu Visual Studia na `Microsoft.ServiceBus.Samples`.
 5. Ve třídě `Program` přidejte tyto globální proměnné:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ Když v prvním kroku získáte pověření a obor názvů, můžete pak v sadě
     ```
 6. V `Main()` vložte tento kód:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ V dalším kroku se napíše metoda, která zpracuje obor názvů a klíč SAS, 
 ### <a name="create-a-getsastoken-method"></a>Vytvořte metodu GetSASToken()
 Následující kód vložte za metodu `Main()` ve třídě `Program`:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ V dalším kroku se napíše metoda, která pomocí příkazu HTTP PUT ve stylu 
 
 Následující kód vložte přímo po kódu `GetSASToken()`, který jste přidali v předchozím kroku:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST
 
 1. Následující kód vložte přímo po kódu `CreateQueue()`, který jste přidali v předchozím kroku:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST
     ```
 2. V hlavičce HTTP `BrokerProperties` jsou umístěné standardní vlastnosti zprostředkované zprávy. Vlastnosti zprostředkovatele musí být serializované ve formátu JSON. Pro zprávu chcete specifikovat hodnotu **TimeToLive** 30 sekund a přidat označení zprávy „M1“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ V tomto kroku přidáte metodu, která pomocí příkazu HTTP POST ve stylu REST
     Nezapomeňte, že se přidaly a přidají vlastnosti zprostředkované zprávy. Požadavek na odeslání proto musí specifikovat verzi API, která podporuje všechny vlastnosti zprostředkované zprávy, které jsou součástí požadavku. Pokud specifikovaná verze API nepodporuje některou vlastnost zprostředkované zprávy, bude se taková vlastnost ignorovat.
 3. Vlastní vlastnosti zprávy jsou definované jako sada párů klíčových hodnot. Každá vlastní vlastnost je uložená ve své vlastní hlavičce TPPT. Chcete přidat vlastní vlastnosti „Priority“ a „Customer“, proto přidejte následující kód bezprostředně před volání `webClient.UploadData()` ukázané v předchozím příkladu:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ V dalším kroku se přidá metoda, která pomocí příkazu HTTP DELETE ve styl
 
 Následující kód vložte přímo po kódu `SendMessage()`, který jste přidali v předchozím kroku:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ V dalším kroku se napíše metoda, která pomocí příkazu HTTP PUT ve stylu 
 ### <a name="create-a-topic"></a>Vytvoření tématu
 Následující kód vložte přímo po kódu `ReceiveAndDeleteMessage()`, který jste přidali v předchozím kroku:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Vytvoření odběru
 Následující kód vytvoří odběr tématu, který jste vytvořili v předchozím kroku. Následující kód přidejte přímo po definici `CreateTopic()`:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ V tomto kroku přidáte kód, který načte vlastnosti zprávy, a pak odstraní 
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Načtení informačního kanálu Atom se zadanými prostředky
 Následující kód přidejte přímo po metodě `CreateSubscription()`, kterou jste přidali v předchozím kroku:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Odstranění entit přenosu zpráv
 Následující kód přidejte přímo po kódu, který jste přidali v předchozím kroku:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Formátování informačního kanálu Atom
 Metoda `GetResources()` obsahuje volání metody `FormatXml()`, která přeformátuje načtený informační kanál Atom tak, aby byl lépe čitelný. Následující kód je definice `FormatXml()`, přidejte ho přímo po kódu `DeleteResource()`, který jste přidali v předchozí části:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Pokud se neobjevily žádné chyby, spusťte aplikaci stisknutím klávesy F5. K
 ### <a name="example"></a>Příklad
 Následující příklad obsahuje kompletní kód tak, jak by měl vypadat, pokud jste správně provedli všechny kroku v tomto kurzu.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;

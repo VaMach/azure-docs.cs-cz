@@ -29,7 +29,7 @@ Infrastrukturu aplikace obvykle tvoří celá řada komponent, může to být t�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,7 +120,7 @@ Infrastrukturu aplikace obvykle tvoří celá řada komponent, může to být t�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -135,7 +135,7 @@ Infrastrukturu aplikace obvykle tvoří celá řada komponent, může to být t�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
