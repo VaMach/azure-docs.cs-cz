@@ -26,6 +26,10 @@
 ### [3: Položení toho správného dotazu](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Předpověď odpovědi](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Kopírování práce jiných](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [Rychlý start s R](machine-learning-r-quickstart.md)
+
+
 # Postup
 ## Nastavení nástrojů a pomůcek
 ### [Nastavení prostředí](machine-learning-data-science-environment-setup.md)
@@ -52,7 +56,7 @@
 ### Načtení dat do úložiště
 #### [Přehled](machine-learning-data-science-ingest-data.md)
 #### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
-#### [Použití Průzkumníka úložiště](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+#### [Použití Storage Exploreru](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
 #### [Použití AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
 #### [Použití Pythonu](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
 #### [Použití služby SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
@@ -167,14 +171,15 @@
 #### [Sada normální distribuce](machine-learning-r-csharp-normal-distribution.md)
 #### [Sada binomické distribuce](machine-learning-r-csharp-binomial-distribution.md)
 #### [Nejčastější dotazy k Marketplace](machine-learning-marketplace-faq.md)
+
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
 ## [Modul PowerShell pro Machine Learning](machine-learning-powershell-module.md)
-## [Referenční informace k algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Rychlý start s R](machine-learning-r-quickstart.md)
-## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [Rozhraní REST API pro správu](/rest/api/machinelearning/index)
+## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Související
+
 ## Galerie Cortana Intelligence
 ### [Přehled](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Odvětví](machine-learning-gallery-industries.md)
@@ -205,7 +210,10 @@
 ##### [Přehled](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Směrnice](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Nastavení](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Zdroje a prostředky
+## [Kódy chyb rozhraní REST služby Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +222,7 @@
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

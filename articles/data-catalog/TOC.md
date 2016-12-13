@@ -26,19 +26,20 @@
 ### [Ukázky pro vývojáře](data-catalog-samples.md)
 
 # Referenční informace
-## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologie](data-catalog-terminology.md)
-## [Poznámky k verzi](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
 
 # Zdroje a prostředky
-## [Poznámky k verzi](data-catalog-whats-new.md)
+## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
+## [Terminologie](data-catalog-terminology.md)
+## Poznámky k verzi
+### [Poznámky k verzi – nové](data-catalog-whats-new.md)
+### [Poznámky k verzi](data-catalog-release-notes.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -59,9 +59,9 @@
 ### [Pokyny pro diagnostiku](notification-hubs-push-notification-fixer.md)
 
 # Referenční informace
-## [Rutiny PowerShellu](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/notificationhubs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

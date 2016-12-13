@@ -61,12 +61,15 @@
 ### [Rozhraní API pro prohledávání protokolů](log-analytics-log-search-api.md)
 ### [Rozhraní API pro výstrahy](log-analytics-api-alerts.md)
 
+# Referenční informace
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Zdroje a prostředky
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

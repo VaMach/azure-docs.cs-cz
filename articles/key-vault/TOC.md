@@ -27,16 +27,12 @@
 ### [Vytvoření a správa pomocí příkazového řádku](key-vault-manage-with-cli.md)
 
 # Referenční informace
-## [Informace o klíčích a tajných klíčích](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Ukázky kódu](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [Rutiny pro Key Vault v prostředí PowerShell Resource Manageru](/powershell/resourcemanager/)
-## [Rutiny pro Key Vault v prostředí PowerShell Classic](/powershell/servicemanagement/)
-## [Key Vault s použitím Azure CLI](/cli/azure/)
-## [Referenční informace ke službě Key Vault v Javě](/java/api/)
-## [Referenční informace pro spravované rozhraní API služby Key Vault](/dotnet/api/) 
-## [Reference k REST API Key Vault](/rest/api/keyvault) 
-## [Node.js pro Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (Preview)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Související
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,11 +41,13 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Zdroje a prostředky
+## [Informace o klíčích a tajných klíčích](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Ukázky kódu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Ceny](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Fóra](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

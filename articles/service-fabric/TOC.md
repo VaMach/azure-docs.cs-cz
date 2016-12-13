@@ -3,6 +3,7 @@
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
 ## [Scénáře aplikací](service-fabric-application-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
+## [Terminologie](service-fabric-technical-overview.md)
 
 # Začínáme
 ## Nastavení vývojového prostředí
@@ -176,21 +177,13 @@
 ### [Zátěžový test aplikace](service-fabric-vso-load-test.md)
 
 # Referenční informace
-## [Terminologie](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Data](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Datová rozhraní](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Systém](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Ukázka kódu](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Rozhraní API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Rozhraní API Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Zdroje a prostředky
+## [Ukázka kódu](http://aka.ms/servicefabricsamples)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +191,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -33,12 +33,10 @@
 ### [Osvědčené postupy a vzory zabezpečení](security-best-practices-and-patterns.md)
 ### [Navrhování odolných aplikací](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Referenční informace
+# Související
 ## [Centrum zabezpečení](security-microsoft-trust-center.md)
 ## [Středisko Microsoft Security Response Center](azure-security-response-center.md)
 ## [Testování průniku](azure-security-pen-testing.md)
-
-# Související
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +50,7 @@
 ## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

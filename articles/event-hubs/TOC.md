@@ -24,14 +24,14 @@
 ### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
 
 # Referenční informace
-## [Kvóty a omezení](event-hubs-quotas.md)
-## [Výjimky zasílání zpráv](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Zdroje a prostředky
+## [Kvóty a omezení](event-hubs-quotas.md)
+## [Výjimky zasílání zpráv](event-hubs-messaging-exceptions.md)
+## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Ceny](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
@@ -40,6 +40,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

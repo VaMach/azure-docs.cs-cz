@@ -1,11 +1,11 @@
 ---
 title: Co je Azure Backup? | Dokumentace Microsoftu
-description: "Pomocí Azure Backup a Služeb zotavení můžete zálohovat a obnovovat data a aplikace Windows Serverů, klientských počítačů Windows, serverů System Center DPM a virtuálních počítačů Azure."
+description: "Pomocí Azure Backup a Recovery Services můžete zálohovat a obnovovat data a aplikace Windows Serverů, klientských počítačů s Windows, serverů System Center DPM a virtuálních počítačů Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor: 
 keywords: "zálohování a obnovení; recovery services; řešení zálohování"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/6/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: c827c37ae4164ebd9cd2a971e94f073de8c59b46
+ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
+ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
 
 
 ---
@@ -35,7 +35,7 @@ Tradiční řešení zálohování se vyvinula tak, že cloud považují za konc
 
 **Více možností úložiště** – Jedním z aspektů vysoké dostupnosti je replikace úložiště. Azure Backup nabízí dva typy replikace: [místně redundantní úložiště](../storage/storage-redundancy.md#locally-redundant-storage) a [geograficky replikované úložiště](../storage/storage-redundancy.md#geo-redundant-storage). Možnost úložiště pro zálohování zvolte podle potřeby:
 
-* Místně redundantní úložiště (LRS) replikuje vaše data třikrát (vytváří tři kopie dat) v párovém datovém centru ve stejné oblasti. Místně redundantní úložiště představuje možnost s nízkými náklady a je vhodné pro zákazníky, kteří hledí na cenu, protože tento typ úložiště chrání data proti selháním místního hardwaru.
+* Místně redundantní úložiště (LRS) replikuje vaše data třikrát (vytváří tři kopie dat) ve spárovaném datovém centru ve stejné oblasti. Místně redundantní úložiště představuje možnost s nízkými náklady a je vhodné pro zákazníky, kteří hledí na cenu, protože tento typ úložiště chrání data proti selháním místního hardwaru.
 * Geograficky replikované úložiště (GRS) replikuje vaše data do sekundární oblasti (vzdáleného stovky kilometrů od primárního umístění zdrojových dat). Geograficky replikované úložiště je nákladnější než místně redundantní úložiště, ale nabízí vyšší úroveň trvanlivosti vašich dat i v případě regionálního výpadku.
 
 **Neomezené přenosy dat** – Azure Backup neomezuje množství příchozích ani odchozích dat, která přenesete. V rámci Azure Backup se přenesená data neúčtují. Pokud ale použijete službu importu/exportu v Azure k importu velkého množství dat, účtují se náklady související s příchozími daty. Další informace o těchto nákladech najdete v části [Pracovní postup zálohování offline v Azure Backup](backup-azure-backup-import-export.md). Odchozí data jsou data přenesená z trezoru služby Backup během operace obnovování.
@@ -52,9 +52,9 @@ Pokud si nejste jisti, která komponenta Azure Backup splňuje vaše potřeby, n
 | Komponenta | Výhody | Omezení | Co se chrání? | Kde jsou zálohy uložené? |
 | --- | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) |<li>Zálohování souborů a složek ve fyzickém nebo virtuálním operačním systému Windows (virtuální počítač může být místní nebo v Azure)<li>Není vyžadován samostatný záložní server. |<li>Zálohování 3x denně <li>Nerozpoznávají se aplikace; obnovování pouze na úrovni souboru, složky nebo svazku. <li>  Bez podpory Linux |<li>Soubory <li>Složky |Trezor služby Azure Backup |
-| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu (je-li hostovaný na Hyper-V) |Chybí heterogenní podpora (zálohování virtuálních počítačů VMWare, zálohování úloh Oracle). |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk,<li>  Páska (pouze místní) |
-| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu (je-li hostovaný na Hyper-V)<li>Nevyžaduje licenci produktu System Center |<li>Chybí heterogenní podpora (zálohování virtuálních počítačů VMWare, zálohování úloh Oracle).<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk |
-| Zálohování virtuálních počítačů Azure IaaS |<li>Nativní zálohy pro Windows a Linux<li>Bez nutnosti instalace konkrétního agenta<li>Zálohování na úrovni prostředků infrastruktury bez potřeby infrastruktury zálohování |<li>Zálohování a obnovení na úrovni disku pouze jednou za den<li>Nemožnost místního zálohování |<li>Virtuální počítače <li>Všechny disky (pomocí PowerShellu) |<p>Trezor služby Azure Backup</p> |
+| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware <li>Ochrana virtuálních počítačů VMware pomocí DPM 2012 R2 |Nejde zálohovat úlohu Oracle.|<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk,<li>  Páska (pouze místní) |
+| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu (je-li hostovaný na Hyper-V)<li>Ochrana virtuálních počítačů VMware pomocí DPM 2012 R2<li>Nevyžaduje licenci produktu System Center |<li>Nejde zálohovat úlohu Oracle.<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk |
+| Zálohování virtuálních počítačů Azure IaaS |<li>Nativní zálohy pro Windows a Linux<li>Bez nutnosti instalace konkrétního agenta<li>Zálohování na úrovni prostředků infrastruktury bez potřeby infrastruktury zálohování |<li>Zálohování virtuálních počítačů jednou denně <li>Obnovení virtuálních počítačů pouze na úrovni disku<li>Nemožnost místního zálohování |<li>Virtuální počítače <li>Všechny disky (pomocí PowerShellu) |<p>Trezor služby Azure Backup</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Jaké jsou scénáře nasazení pro jednotlivé komponenty?
 | Komponenta | Lze nasadit v Azure? | Lze nasadit místně? | Podpora cílového úložiště |
@@ -95,7 +95,7 @@ Následující tabulka uvádí komponenty Azure Backup s podporou pro Linux.
 Azure Backup chrání virtuální počítače služby Storage úrovně Premium. Azure Premium Storage představuje úložiště využívající disky SSD (solid-state drive) určené pro podporu úloh náročných na množství vstupně-výstupních operací. Služba Storage úrovně Premium je zajímavá pro úlohy virtuálních počítačů. Další informace o službě Storage úrovně Premium najdete v tématu [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Zálohování virtuálních počítačů služby Storage úrovně Premium
-Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění. Pracovní umístění s názvem „AzureBackup-“ odpovídá celkové velikosti dat na prémiových discích připojených k virtuálnímu počítači.
+Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění. Pracovní umístění s názvem „AzureBackup-“ odpovídá celkové velikosti dat na prémiových discích připojených k virtuálnímu počítači. Zkontrolujte, jestli v účtu úložiště je dostatek volného místa pro dočasné pracovní umístění. Další informace najdete v článku věnovaném [omezení Storage úrovně Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > Pracovní umístění neměňte, ani neupravujte.
@@ -122,10 +122,10 @@ Následující části obsahují tabulky, které shrnují dostupnost nebo podpor
 
 ![klíč tabulky](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Trezor záloh je upřednostňovaným cílem úložiště napříč všemi komponentami. Aplikace System Center DPM a Server Backup také poskytují možnost kopie místního disku. Pouze System Center DPM však nabízí možnost zápisu dat na zařízení páskového úložiště.
+Trezor záloh je upřednostňovaným cílem úložiště napříč všemi komponentami. Aplikace System Center DPM a Azure Backup Server také poskytují možnost kopie místního disku. Pouze System Center DPM však nabízí možnost zápisu dat na zařízení páskového úložiště.
 
 #### <a name="compression"></a>Komprese
-Díky komprimování záloh dochází ke zmenšení potřebného prostoru úložiště. Jedinou komponentou, která nepoužívá komprimaci, je rozšíření virtuálního počítače. V případě používání rozšíření virtuálního počítače se veškerá zálohovaná data zkopírují bez komprese z vašeho účtu úložiště do trezoru záloh ve stejné oblasti. Zpracováním bez komprese se mírně zvýší využití úložného prostoru. Při ukládání dat bez komprese je však možné rychlejší obnovení.
+Díky komprimování záloh dochází ke zmenšení potřebného prostoru úložiště. Jedinou komponentou, která nepoužívá komprimaci, je rozšíření virtuálního počítače. Rozšíření virtuálního počítače kopíruje veškerá zálohovaná data z vašeho účtu úložiště do trezoru služby Backup ve stejné oblasti. Při přenosu dat se nepoužívá žádná komprese. Přenosem dat bez komprese se mírně zvýší využití úložiště. Ukládání dat bez komprese však umožňuje rychlejší obnovení v případě, že potřebujete tento bod obnovení.
 
 #### <a name="incremental-backup"></a>Přírůstkové zálohování
 Všechny komponenty podporují přírůstkové zálohování bez ohledu na typ cílového úložiště (disk, páska, trezor záloh). Přírůstkové zálohování díky přenášení pouze změn od poslední zálohy zajišťuje efektivitu zálohování z hlediska úložiště a času.
@@ -169,24 +169,27 @@ Zálohování virtuálních počítačů Azure vyžaduje nastavení šifrování
 
 Rozšíření virtuálního počítače (ve virtuálním počítači IaaS) čte data přímo z účtu úložiště Azure přes síť úložiště, takže není potřeba tento provoz komprimovat.
 
-Pokud svá data zálohujete do aplikace System Center DPM nebo na Azure Backup Server, komprese dat, komprimujte data z primárního serveru na záložní server. Šetří se tím šířka pásma.
+Pokud svá data zálohujete do aplikace System Center DPM nebo na Azure Backup Server, komprese dat, komprimujte data z primárního serveru na záložní server. Komprese dat před jejich zálohováním do DPM nebo na Azure Backup Server šetří šířku pásma.
 
 #### <a name="network-throttling"></a>Omezování šířky pásma sítě
 Agent Azure Backup nabízí možnost omezování šířky pásma sítě, která vám umožňuje kontrolu využití šířky pásma sítě během přenosu dat. Omezování může být užitečné, pokud potřebujete zálohovat data v pracovní době, ale nechcete, aby proces zálohování narušoval ostatní internetový provoz. Omezování pro přenos dat platí pro činnosti zálohování a obnovení.
 
 ### <a name="backup-and-retention"></a>Zálohování a uchovávání
+
+Azure Backup má limit 9999 bodů obnovení (označovaných také jako záložní kopie nebo snímky) na jeden trezor služby Backup. V následující tabulce jsou uvedené maximální frekvence zálohování (do trezoru) pro jednotlivé komponenty. Konfigurace zásady zálohování určuje, jak rychle se spotřebovávají body obnovení. Pokud například vytváříte bod obnovení každý den, můžete zachovat body obnovení 27 let, teprve potom vám dojdou. Pokud vytváříte bod obnovení každý měsíc, můžete zachovat body obnovení 833 let, teprve potom vám dojdou. Služba Backup pro body obnovení nenastavuje omezení času vypršení platnosti.
+
 |  | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Frekvence zálohování<br/> (do trezoru služby Backup) |Tři zálohy za den |Dvě zálohy za den |Dvě zálohy za den |Jedna záloha za den |
 | Frekvence zálohování<br/> (na disk) |Neuvedeno |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy</p> |Neuvedeno |
 | Možnosti uchovávání |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |
-| Doba uchovávání |Až 99 let |Až 99 let |Až 99 let |Až 99 let |
-| Body obnovení v trezoru služby Backup |Neomezeno |Unlimited |Unlimited |Unlimited |
+| Maximální počet bodů obnovení na server |9999|9999|9999|9999|
+| Maximální doba uchovávání |Závisí na četnosti zálohování |Závisí na četnosti zálohování |Závisí na četnosti zálohování |Závisí na četnosti zálohování |
 | Body obnovení na místním disku |Neuvedeno |<li>64 pro souborové servery,<li>448 pro aplikační servery |<li>64 pro souborové servery,<li>448 pro aplikační servery |Neuvedeno |
 | Body obnovení na pásku |Neuvedeno |Unlimited |Neuvedeno |Neuvedeno |
 
 ## <a name="what-is-the-vault-credential-file"></a>Co je soubor s přihlašovacími údaji trezoru?
-Soubor s přihlašovacími údaji trezoru je certifikát vytvořený portálem pro každý trezor služby Backup. Portál poté odešle veřejný klíč do Access Control Service (ACS). Privátní klíč budete mít k dispozici v rámci stahování přihlašovacích údajů. Použijte ho k registraci počítačů, které budete chránit. Privátní klíč vám umožňuje ověřovat servery nebo počítače pro odesílání zálohovaných dat do konkrétního trezoru služby Backup.
+Soubor s přihlašovacími údaji trezoru je certifikát vytvořený portálem pro každý trezor služby Backup. Portál poté odešle veřejný klíč do Access Control Service (ACS). Privátní klíč budete mít k dispozici v rámci stahování přihlašovacích údajů. Použijte ho k registraci počítačů, které chráníte. Privátní klíč vám umožňuje ověřovat servery nebo počítače pro odesílání zálohovaných dat do konkrétního trezoru služby Backup.
 
 Přihlašovací údaje úložiště slouží jen k registraci serverů nebo počítačů. S přihlašovacími údaji trezoru je ale třeba nakládat opatrně. V případě jejich ztráty nebo jejich získání jinými uživateli mohou být použity k registraci jiných počítačů pro stejný trezor. Vzhledem k tomu, že jsou zálohovaná data šifrovaná pomocí hesla přístupného jen pro vás, nemůže dojít k ohrožení bezpečnosti stávajících zálohovaných dat. Platnost přihlašovacích údajů trezoru vyprší po 48 hodinách. I když přihlašovací údaje pro trezor služby Backup můžete stahovat, jak často chcete, k registraci je možné použít jen nejnovější přihlašovací údaje.
 
@@ -207,7 +210,7 @@ Následující koncepty vám mohou pomoct při rozhodování ohledně zálohová
 Podrobné pokyny pro ochranu dat na Windows Serveru nebo pro ochranu virtuálního počítače v Azure najdete v jednom z následujících kurzů:
 
 * [Zálohování souborů a složek](backup-try-azure-backup-in-10-mins.md)
-* [Zálohování virtuálních počítačů Azure](backup-azure-vms-first-look.md)
+* [Zálohování virtuálních počítačů Azure](backup-azure-vms-first-look-arm.md)
 
 Podrobnosti o ochraně jiných úloh můžete zkusit najít v některém z těchto článků:
 
@@ -215,12 +218,12 @@ Podrobnosti o ochraně jiných úloh můžete zkusit najít v některém z těch
 * [Zálohování úloh aplikací](backup-azure-microsoft-azure-backup.md)
 * [Zálohování virtuálních počítačů Azure IaaS](backup-azure-vms-prepare.md)
 
-[zelená]: ./media/backup-introduction-to-azure-backup/green.png
-[žlutá]: ./media/backup-introduction-to-azure-backup/yellow.png
-[červená]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

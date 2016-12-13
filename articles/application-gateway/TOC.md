@@ -41,11 +41,17 @@
 ## Spravovat
 ### [Diagnostika](application-gateway-diagnostics.md)
 ### [Řešení problémů](application-gateway-troubleshooting-502.md)
+
 # Referenční informace
-## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Azure CLI 2.0 (Preview)](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://msdn.microsoft.com/library/mt684941)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
-
 # Související
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtuální síť](/azure/virtual-network/)
@@ -61,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

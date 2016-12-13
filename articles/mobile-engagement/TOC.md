@@ -117,20 +117,23 @@
 
 # Referenční informace
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Související
 ## Obsah sady SDK
 ### [Sada SDK pro Android](mobile-engagement-android-sdk-content.md)
 ### [Sada SDK pro iOS](mobile-engagement-ios-sdk-content.md)
 ### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# Zdroje a prostředky
 ## Poznámky k verzi
 ### [Sada SDK pro Android](mobile-engagement-android-release-notes.md)
 ### [Sada SDK pro iOS](mobile-engagement-ios-release-notes.md)
 ### [Sada Web SDK](mobile-engagement-web-release-notes.md)
 ### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
 ## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

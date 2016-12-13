@@ -83,18 +83,20 @@
 
 
 # Referenční informace
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [Sada .NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [Ukázky .NET](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Ukázky Node.js](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Ukázky Pythonu](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Tahák pro gramatiku jazyka SQL](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Poskytovatel prostředků REST](/rest/api/documentdbresourceprovider/)
+
+# Související
+## [Ukázky .NET](documentdb-dotnet-samples.md)
+## [Ukázky Node.js](documentdb-nodejs-samples.md)
+## [Ukázky Pythonu](documentdb-python-samples.md)
+## [Syntaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Tahák pro gramatiku jazyka SQL](documentdb-sql-query-cheat-sheet.md)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

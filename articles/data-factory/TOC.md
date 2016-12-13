@@ -81,13 +81,14 @@
 ### [Řešení potíží při použití brány správy dat](data-factory-troubleshoot-gateway-issues.md)
 
 # Referenční informace
-## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [Referenční informace pro vývojáře řešení založených na Azure Data Factory](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 
 # Zdroje a prostředky
+## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Případové studie](data-factory-customer-case-studies.md)
 ### [Doporučení produktů](data-factory-product-reco-usecase.md)
 ### [Profilování zákazníků](data-factory-customer-profiling-usecase.md)
@@ -100,6 +101,6 @@
 ## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

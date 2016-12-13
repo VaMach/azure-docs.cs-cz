@@ -1,14 +1,12 @@
-
 ---
-title: Azure Guidance | Microsoft Docs
-description: Best practices and guidance for Azure
-services: ''
+title: "Doprovodné materiály k Azure | Dokumentace Microsoftu"
+description: "Osvědčené postupy a doprovodné materiály k Azure"
+services: 
 documentationcenter: na
 author: bennage
 manager: marksou
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
 ms.service: guidance
 ms.devlang: na
@@ -17,100 +15,104 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: christb
+translationtype: Human Translation
+ms.sourcegitcommit: 5f3ced657cf3d6587a63789b3dd3ca41cd2856f0
+ms.openlocfilehash: 0061e1ff2ae2d6b8ed7b7c3bb60405e76d4cc91b
+
 
 ---
-# Azure Guidance
+# <a name="azure-guidance"></a>Doprovodné materiály k Azure
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
+Tým Microsoftu pro vzory a postupy je součástí zákaznického poradního týmu Azure. Naším cílem je pomáhat vývojářům, architektům a IT specialistům odborníky zajistit úspěšnost na platformě Microsoft Azure. Vyvíjíme doprovodné materiály, které ukazují osvědčené postupy pro vytváření cloudových řešení v Azure.
 
-## Checklists
-These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
+## <a name="checklists"></a>Kontrolní seznamy
+Tyto seznamy pomáhají rychle zkontrolovat základní aspekty dostupnosti a škálovatelnosti. 
 
-* [Availability Checklist][AvailabilityChecklist] 
+* [Kontrolní seznam k dostupnosti][AvailabilityChecklist] 
   
-    A summary of recommended practices for ensuring availability.
-* [Scalability Checklist][ScalabilityChecklist]
+    Přehled doporučených postupů pro zajištění dostupnosti
+* [Kontrolní seznam ke škálovatelnosti][ScalabilityChecklist]
   
-    A summary of recommended practices for designing and implementing scalable services and handling data management.
+    Přehled doporučených postupů pro návrh a implementaci škálovatelných služeb a zpracování správy dat
 
-## Best practices articles
-These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
+## <a name="best-practices-articles"></a>Články k osvědčeným postupům
+Tyto články obsahují podrobné informace o důležitých konceptech běžně spojovaných s cloud computingem. 
 
-* [API Design][APIDesign] 
+* [Návrh rozhraní API][APIDesign] 
   
-    A discussion of design issues to consider when designing a web API.
-* [API Implementation][APIImplementation] 
+    Diskuze nad aspekty návrhu, které je potřeba vzít v úvahu při navrhování webového rozhraní API
+* [Implementace rozhraní API][APIImplementation] 
   
-    A set of recommended practices for implementing and publishing a web API.
-* [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
+    Sada doporučených postupů pro implementaci a publikování webového rozhraní API
+* [Doprovodné materiály k zabezpečení rozhraní API](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
   
-    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
-* [Autoscaling guidance][AutoscalingGuidance] 
+    Diskuze nad aspekty ověřování a autorizace (například typy tokenů, ověřovací protokoly, autorizační toky a snižování rizik)
+* [Pokyny k automatickému škálování][AutoscalingGuidance] 
   
-    A summary of considerations for scaling solutions without the need for manual intervention.
-* [Background Jobs guidance][BackgroundJobsGuidance] 
+    Souhrn předpokladů pro řešení škálování bez nutnosti ručního zásahu
+* [Pokyny k úlohám na pozadí][BackgroundJobsGuidance] 
   
-    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
-* [Content Delivery Network (CDN) guidance][CDNGuidance] 
+    Popis dostupných možností a doporučených postupů pro implementaci úloh, které by se měly provádět na pozadí, nezávisle na jakýchkoli interaktivních operacích a operacích v popředí.
+* [Pokyny k síti pro doručování obsahu (CDN)][CDNGuidance] 
   
-    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
-* [Caching guidance][CachingGuidance] 
+    Obecné pokyny a doporučené postupy pro využití CDN k zajištění minimálního zatížení aplikací a maximální dostupnosti a výkonu
+* [Pokyny k ukládání do mezipaměti][CachingGuidance] 
   
-    A summary of how to use caching to improve the performance and scalability of a system.
-* [Data Partitioning guidance][DataPartitioningGuidance]
+    Přehled toho, jak ukládání do mezipaměti využít ke zlepšení výkonu a škálovatelnosti systému
+* [Pokyny k dělení dat][DataPartitioningGuidance]
   
-    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
-* [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+    Strategie, které je možné využít k dělení dat s cílem vylepšit škálovatelnost, omezit kolize a optimalizovat výkon
+* [Pokyny k monitorování a diagnostice][MonitoringandDiagnosticsGuidance] 
   
-    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
-* [Recommended naming conventions][naming-conventions] 
+    Obecné pokyny k tomu, jak sledovat využití systému jednotlivými uživateli a využití prostředků a obecně monitorovat stav a výkon vašeho systému
+* [Doporučené zásady vytváření názvů][naming-conventions] 
   
-    Recommended naming conventions for Azure resources.
-* [Retry General guidance][RetryGeneralGuidance] 
+    Doporučené zásady vytváření názvů pro prostředky Azure
+* [Obecné pokyny k opakovaným pokusům][RetryGeneralGuidance] 
   
-    Discussion of the general concepts for handling transient faults.
-* [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+    Diskuze nad obecnými koncepcemi pro zpracování přechodných selhání
+* [Pokyny k opakovaným pokusům pro konkrétní služby][RetryServiceSpecificGuidance]
   
-    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
+    Přehled funkcí opakování pro celou řadu služeb Azure, včetně informací, které pomáhají při využití, úpravách a rozšíření mechanismu opakování pro konkrétní služby
 
-## Scenario guides
-* [Running Elasticsearch on Azure][elasticsearch] 
+## <a name="scenario-guides"></a>Pokyny pro scénáře
+* [Spuštění Elasticsearch v Azure][elasticsearch] 
   
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
-* [Identity management for multitenant applications][identity-multitenant] 
+    Elasticsearch je vysoce škálovatelný opensourcový vyhledávací web a databáze. Je vhodný pro situace, které vyžadují rychlou analýzu a zjišťování údajů uložených v rozsáhlých datových sadách. Tyto pokyny se zaměřují na některé klíčové aspekty, které je potřeba vzít v úvahu při navrhování clusteru služby Elasticsearch.
+* [Správa identit pro víceklientské aplikace][identity-multitenant] 
   
-    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
-* [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+    Víceklientská architektura je taková, ve které několik vzájemně izolovaných tenantů sdílí jednu aplikaci. V těchto pokynech se dozvíte, jak spravovat identity uživatelů ve víceklientské aplikaci a využívat [Azure Active Directory][AzureAD] pro zpracování přihlašování a ověřování.
+* [Vývoj řešení pro velké objemy dat](https://msdn.microsoft.com/library/dn749874.aspx)
   
-    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    Tato příručka se zabývá využitím HDInsight v různých scénářích – při iterativním zkoumání, ve formě datového skladu, pro procesy ETL a pro integraci do stávajících systémů BI. Zahrnuje také vysvětlení konceptů velkých objemů dat a pokyny k plánování a návrhu řešení pro velké objemy dat a implementaci těchto řešení.
 
-## Patterns
-* [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
+## <a name="patterns"></a>Vzory
+* [Vzory návrhu v cloudu: Doporučené postupy pro cloudové aplikace](https://msdn.microsoft.com/library/dn568099.aspx)
   
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
-* [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
+    Článek Vzory návrhu v cloudu nabízí knihovnu vzorů návrhu a související témata s postupy. Zabývá se výhodami využití vzorů a ukazuje, jak jednotlivé vzory zapadají do architektur cloudových aplikací.
+* [Optimalizace výkonu pro cloudové aplikace](https://github.com/mspnp/performance-optimization)
   
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    Tyto materiály ukazují obvyklé chyby, které aplikacím při zatížení brání ve škálování. Zahrnuje ukázky demonstrující osm typických chyb, [základy analýzy výkonu](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) a pokyny pro [vyhodnocení výkonu na základě klíčových metrik](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference architectures
-Our reference architectures are arranged by scenario.
-Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
+## <a name="reference-architectures"></a>Referenční architektury
+Naše referenční architektury jsou uspořádané podle scénářů.
+Každá jednotlivá architektura nabízí osvědčené postupy, předepsané kroky a spustitelnou komponentu, která tato doporučení shrnuje.
 
-The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+Aktuální knihovny referenčních architektur je dostupná na webu [http://aka.ms/architecture](http://aka.ms/architecture).
 
-## Resiliency guidance
-These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+## <a name="resiliency-guidance"></a>Doprovodné materiály k zajištění odolnosti
+Tato témata popisují postup návrhu aplikací, které jsou odolné vůči selhání v distribuované cloudovém prostředí.   
 
-* [Resiliency overview][ResiliencyOvervew]
+* [Přehled odolnosti][ResiliencyOvervew]
   
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
-* [Resiliency checklist][resiliency-checklist]
+     Postup vytváření aplikací na platformě Azure, které se mohou zotavit z chyb a nadále fungovat Popisuje strukturovaný přístup pro zajištění odolnosti proti chybám, od návrhu až po implementaci, nasazení a provoz.
+* [Kontrolní seznam k odolnosti][resiliency-checklist]
   
-    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
-* [Failure mode analysis][resiliency-fma] 
+    Kontrolní seznam doporučení, který vám pomůže plánovat pro různé režimy selhání, které by mohly nastat
+* [Analýza režimu selhání][resiliency-fma] 
   
-    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+    Analýza režimu selhání (FMA) je proces pro zajištění odolnosti systému prostřednictvím identifikace možných bodů selhání. Jako výchozí bod pro vaše procesy FMA tento článek obsahuje katalog potenciálních režimů selhání a jejich možných zmírnění. 
 
 <!-- links -->
 
@@ -151,4 +153,10 @@ These topics describe how to design applications that are resilient to failure i
 [resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
 [resiliency-checklist]: guidance-resiliency-checklist.md
 [ResiliencyOvervew]: guidance-resiliency-overview.md
+
+
+
+
+<!--HONumber=Dec16_HO1-->
+
 

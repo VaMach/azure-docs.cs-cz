@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: dca0fb0b2de4943b9a031d2759756654a0c7280f
-ms.openlocfilehash: 6a72b28f95338ebe04e764d7f83e8db3e3e91b78
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
 
 ---
-#<a name="vpn-gateway-documentation"></a>Dokumentace brány sítě VPN
+#<a name="vpn-gateway-documentation"></a>Dokumentace služby VPN Gateway
 
 Azure VPN Gateway je brána virtuální privátní sítě (VPN), která slouží ke směrování síťového provozu mezi virtuálními sítěmi Azure a místními umístěními a také mezi virtuálními sítěmi v rámci Azure (VNet-to-VNet).  
 
@@ -174,7 +174,7 @@ Azure VPN Gateway je brána virtuální privátní sítě (VPN), která slouží
                 <div class="card">
                     <div class="cardText">
                         <h3>Java</h3>
-                        <p>Referenční materiály k sadě Java SDK</p>
+                        <p>Referenční informace k sadě Java SDK</p>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@ Azure VPN Gateway je brána virtuální privátní sítě (VPN), která slouží
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby VPN Gateway</p>
+                        <p>Rozhraní REST API služby VPN Gateway</p>
                     </div>
                 </div>
             </div>
@@ -207,6 +207,6 @@ Stáhnout dokumentaci ke službě VPN Gateway </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
