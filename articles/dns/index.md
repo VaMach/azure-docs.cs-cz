@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
 
 ---
-#<a name="dns-documentation"></a>Dokumentace ke službě DNS
+# <a name="dns-documentation"></a>Dokumentace ke službě DNS
 
 Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje překlad názvů s využitím infrastruktury Microsoft Azure.  Pokud svoje domény hostujete v Azure, můžete spravovat svoje DNS záznamy pomocí stejných přihlašovacích údajů, rozhraní API a nástrojů a za stejných fakturačních podmínek jako u ostatních služeb Azure.
 
@@ -89,7 +89,7 @@ Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje
 <h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
