@@ -53,7 +53,7 @@ Existují dva hlavní režimy úprav pravidel stylů – **Upravit všechna prav
 
 V této části chceme změnit styl jenom záhlaví. Na panelu nástrojů editoru stylů klikněte na možnost **Vybrat prvek** a potom klikněte na **Vybrat prvek k přizpůsobení**. Když najedete myší na jednotlivé prvky, tyto prvky se zvýrazní, aby označily, jaké styly prvku byste začali upravovat, pokud byste myší klikli. Najeďte myší na text, který představuje název společnosti v záhlaví („Portál pro vývojáře Fabrikam“, pokud jste postupovali podle pokynů v předchozí části), a klikněte na něj. V editoru stylů se zobrazí sada pojmenovaných a podle kategorií seřazených pravidel stylů.
 
-Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uvedený v parametru @headings-font-family..
+Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uvedený v parametru @headings-font-family.
 
 > Pokud znáte architekturu [bootstrap][bootstrap], upřesňujeme, že tato pravidla jsou ve skutečnosti [proměnné LESS][proměnné LESS] v motivu spuštění, který používá portál pro vývojáře.
 > 
