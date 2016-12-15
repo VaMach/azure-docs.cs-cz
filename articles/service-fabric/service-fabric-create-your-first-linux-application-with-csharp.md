@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každ
 ## <a name="build-the-application"></a>Sestavení aplikace
 Šablony generátoru Service Fabric Yeoman zahrnují skript sestavení, který můžete použít k sestavení aplikace z terminálu (po přejití do složky aplikace).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru pomoc
 
 1. Připojte se k místnímu clusteru služby Service Fabric.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Pomocí instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
@@ -83,7 +83,18 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 2. V Service Fabric Exploreru vyhledejte uzel, který je hostitelem primární repliky pro službu actor. Na snímku níže je to uzel 3.
    
     ![Vyhledání primární repliky v Service Fabric Exploreru][sfx-primary]
-3. Klikněte na uzel, který jste našli v předchozím kroku, a potom v nabídce Akce vyberte **Deaktivovat (restartovat)**. Tato akce restartuje jeden z pěti uzlů v místním clusteru a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných v jiném uzlu. Při provádění této akce věnujte pozornost výstupu z klienta testování a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
+3. Klikněte na uzel, který jste našli v předchozím kroku, a potom v nabídce Akce vyberte **Deaktivovat (restartovat)**. Tato akce restartuje jeden uzel v místním clusteru a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných v jiném uzlu. Při provádění této akce věnujte pozornost výstupu z klienta testování a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Přidání více služeb do stávající aplikace
+
+Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky: 
+1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
+2. Spusťte `yo azuresfcsharp:AddService`.
+
+
+
 
 ## <a name="next-steps"></a>Další kroky
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

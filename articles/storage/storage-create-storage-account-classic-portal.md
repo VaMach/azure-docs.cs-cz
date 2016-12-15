@@ -4,7 +4,7 @@ description: "Přečtěte si, jak vytvořit nový účet úložiště, spravovat
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ Adresa URL pro přístup k objektu v účtu úložiště se sestaví připojení
 
 Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Podrobnější informace najdete v tématu [Konfigurace vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md).
 
-### <a name="service-colocation-with-an-affinity-group"></a>Společné umístění služeb pomocí skupiny vztahů
+### <a name="service-co-location-with-an-affinity-group"></a>Společné umístění služeb pomocí skupiny vztahů
 *Skupina vztahů* je geografické seskupení vašich služeb Azure a virtuálních počítačů a vaším účtem úložiště Azure. Skupina vztahů může zlepšit výkon služby vyhledáním úloh počítačů ve stejném datovém centru nebo v blízkosti cílové skupiny uživatelů. Navíc se vám neúčtují žádné poplatky za odchozí data, pokud k datům ve vašem úložišti přistupují jiné služby, které patří do stejné skupiny vztahů.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Pokud chcete odstranit účet úložiště, který už nepoužíváte, použijte
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
