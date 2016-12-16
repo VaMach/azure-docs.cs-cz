@@ -121,8 +121,6 @@ API Apps jsou jedním ze čtyř typů aplikací, které nabízí Azure App Servi
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
