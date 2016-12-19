@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Začínáme s ověřováním Azure Multi-Factor Authenticatin v cloudu
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Začínáme s ověřováním Azure Multi-Factor Authenticatin v cloudu
 V tomto článku se dozvíte, jak začít používat Azure Multi-Factor Authentication v cloudu.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, j
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Zapnutí dvoustupňového ověřování pro uživatele
+## <a name="turn-on-two-step-verification-for-users"></a>Zapnutí dvoustupňového ověřování pro uživatele
 Pokud chcete začít požadovat dvoustupňové ověřování pro uživatele, změňte stav uživatele ze zakázaného na povolený.  Další informace týkající se stavů uživatele najdete v části [Stavy uživatele v Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md).
 
 Pomocí následujícího postupu povolte MFA pro uživatele.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Zapnutí Multi-Factor Authentication
+### <a name="to-turn-on-multi-factor-authentication"></a>Zapnutí Multi-Factor Authentication
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
 2. Na levé straně klikněte na službu **Active Directory**.
 3. Pod oblastí Adresáře klikněte na adresář pro uživatele, který si přejete povolit.
@@ -66,8 +66,8 @@ Pomocí následujícího postupu povolte MFA pro uživatele.
 
 Až uživatele povolíte, měli byste je upozornit e-mailem. Při dalším pokusu o přihlášení se jim zobrazí výzva k přihlášení účtu k dvoustupňovému ověřování. Až začnou dvoustupňové ověřování používat, budou také muset nastavit hesla pro aplikace, aby se jim nestalo, že pro ně budou uzamknuty aplikace nezaložené na prohlížeči.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Automatizace PowerShellu k automatizaci zapnutí dvoustupňového ověřování
-Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShellu](../powershell-install-configure.md) můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Automatizace PowerShellu k automatizaci zapnutí dvoustupňového ověřování
+Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShellu](/powershell/azureps-cmdlets-docs) můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
 
 * Povoleno
 * Vynuceno
@@ -107,6 +107,6 @@ Teď, když máte nastavené Azure Multi-Factor Authentication v cloudu, můžet
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

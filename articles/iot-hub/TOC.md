@@ -8,6 +8,10 @@
 ### [Začínáme se službou IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Začínáme se službou IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Začínáme se službou IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Začínáme se sadou SDK pro zařízení Azure IoT
+### [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
+### [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
 ## Začínáme s Raspberry Pi
 ### [Začínáme s Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lekce 1: Konfigurace zařízení
@@ -32,6 +36,7 @@
 ## [Začínáme se sadou Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Začínáme se sadou Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # Postup
 ## [Kurz zpracování zpráv ze zařízení na cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Kurz zpracování zpráv ze zařízení na cloud (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [Použití úloh zařízení k aktualizaci firmwaru zařízení pro .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Úlohy vysílání a plánování pro Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Úlohy vysílání a plánování pro .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Plánování nasazení
+## Plánování
 ### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [Sady SDK pro zařízení a služby](iot-hub-devguide-sdks.md)
 ### [Podpora MQTT](iot-hub-mqtt-support.md)
 ### [Glosář](iot-hub-devguide-glossary.md)
-## Správa služby
+## Správa
 ### [Vytvoření IoT Hubu pomocí portálu](iot-hub-create-through-portal.md)
-### [Vytvoření IoT Hubu pomocí rozhraní příkazového řádku](iot-hub-create-using-cli.md)
+### [Vytvoření IoT Hubu pomocí rozhraní CLI 2.0 (Preview)](iot-hub-create-using-cli.md)
+### [Vytvoření IoT Hubu pomocí rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
 ### [Vytvoření IoT Hubu pomocí rozhraní REST](iot-hub-rm-rest.md)
 ### [Vytvoření IoT Hubu pomocí Powershellu](iot-hub-rm-template-powershell.md)
 ### [Vytvoření IoT Hubu pomocí šablony](iot-hub-rm-template.md)
@@ -96,17 +102,16 @@
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
 
 # Referenční informace
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Azure CLI 2.0 (Preview)](/cli/azure/iot)
+## [.NET (služba)](/dotnet/api/microsoft.azure.devices)
+## [.NET (zařízení)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (služba)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (zařízení)](/java/api/com.microsoft.azure.iothub)
 ## [Sady Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [Rozhraní API sady Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [Rozhraní REST API poskytovatele prostředků](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [Rozhraní REST API identit zařízení](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Rozhraní REST API zasílání zpráv zařízení](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
-## [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
+## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (identity zařízení)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [Rozhraní REST API REST (zasílání zpráv zařízení)](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Související
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -125,6 +130,6 @@
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

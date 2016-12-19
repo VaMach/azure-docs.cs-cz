@@ -2,8 +2,8 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
 
 ---
 #<a name="virtual-network-documentation"></a>Dokumentace ke službě Virtual Network
@@ -22,7 +22,7 @@ Azure Virtual Network (VNet) je logické znázornění vaší vlastní sítě v 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Informace o službě Azure Virtual Network</h3>
+                        <h3>Informace o službě Virtual Network</h3>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@ Azure Virtual Network (VNet) je logické znázornění vaší vlastní sítě v 
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Referenční informace pro Azure PowerShell</p>
+                        <p>Referenční informace k Azure PowerShellu</p>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@ Azure Virtual Network (VNet) je logické znázornění vaší vlastní sítě v 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Virtual Network</p>
+                        <p>Rozhraní REST API služby Virtual Network</p>
                     </div>
                 </div>
             </div>
@@ -191,6 +191,6 @@ Stáhnout dokumentaci ke službě Virtual Network </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

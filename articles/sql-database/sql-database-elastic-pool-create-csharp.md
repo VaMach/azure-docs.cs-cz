@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 
 
 ---
@@ -59,7 +60,7 @@ Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knih
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool-c-example"></a>Vytvoření fondu elastické databáze SQL – příklad v jazyce C#
+## <a name="create-a-sql-elastic-database-pool---c-example"></a>Vytvoření fondu elastické databáze SQL – příklad v jazyce C#
 Následující příklad vytvoří skupinu prostředků, server, pravidlo brány firewall, elastický fond a poté databázi SQL ve fondu. Proměnné `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` získáte pomocí postupu v oddílu [Vytvoření instančního objektu pro přístup k prostředkům](#create-a-service-principal-to-access-resources).
 
 Nahraďte obsah souboru **Program.cs** následujícím ukázkovým kódem a aktualizujte hodnoty `{variables}` hodnotami vaší aplikace (bez závorek `{}`).
@@ -314,6 +315,6 @@ Následující skript prostředí PowerShell vytvoří aplikaci Active Directory
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -25,7 +25,7 @@
 # Postup
 ## Plánování a návrh
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)
-### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
+### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
 ### [Zvládání výpadků a havárií](service-bus-outages-disasters.md)
 
 ## Vývoj
@@ -51,18 +51,20 @@
 ### [Použití PowerShellu ke zřizování entit](service-bus-powershell-how-to-provision.md)
 
 # Referenční informace
-## [Podrobnosti o cenách](service-bus-pricing-billing.md)
-## [Ukázky](service-bus-samples.md)
-## [Výjimky](service-bus-messaging-exceptions.md)
-## [Kvóty](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Zdroje a prostředky
 ## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Průvodce protokolem AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [Operace na základě odpovědí na požadavky AMQP 1.0](service-bus-amqp-request-response.md)
-
-# Zdroje a prostředky
+## [Podrobnosti o cenách](service-bus-pricing-billing.md)
+## [Ukázky](service-bus-samples.md)
+## [Výjimky](service-bus-messaging-exceptions.md)
+## [Kvóty](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

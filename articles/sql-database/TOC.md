@@ -22,6 +22,7 @@
 ## Zabezpečení
 ### [Azure Security Center pro službu Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Začínáme
 ## Servery a databáze
 ### Izolované databáze
@@ -189,6 +190,7 @@
 #### [Upgrade s využitím webu Azure Portal](sql-database-upgrade-server-portal.md)
 #### [Upgrade s využitím PowerShellu](sql-database-upgrade-server-powershell.md)
 #### [Doporučení pro cenovou úroveň](sql-database-service-tier-advisor.md)
+
 # Postup
 ## Vytvoření a správa
 ### Servery a databáze
@@ -315,7 +317,6 @@
 #### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Řešení potíží
 ### [Problémy s připojením](sql-database-troubleshoot-common-connection-issues.md)
 ### [Chyba přechodného připojení](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell – Classic](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (elastická databáze)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Rutiny Azure SQL Database](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [Rutiny SQL Serveru](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Související
 ## Knihovna pro správu služby SQL Database
-### [Referenční informace ke knihovně pro správu SQL Database](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Získání balíčku knihovny pro správu SQL Database](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [Ovladače SQL Serveru](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

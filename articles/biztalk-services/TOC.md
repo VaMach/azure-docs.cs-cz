@@ -22,10 +22,8 @@
 ### [Řízení přístupu](biztalk-issuer-name-issuer-key.md)
 ## [Řešení problémů](biztalk-troubleshoot-using-ops-logs.md)
 
-# Referenční informace
-## [Poznámky k verzi](biztalk-release-notes.md)
-
 # Zdroje a prostředky
+## [Poznámky k verzi](biztalk-release-notes.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Ceny](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
@@ -33,6 +31,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

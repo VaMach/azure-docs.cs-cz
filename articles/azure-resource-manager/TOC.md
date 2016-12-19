@@ -55,19 +55,20 @@
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure CLI](/cli/azure)
-## [Java](/java/api)
+## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Schémata šablon](https://github.com/Azure/azure-resource-manager-schemas)
-## [Omezování požadavků](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
 # Zdroje a prostředky
+## [Omezování požadavků](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -195,16 +195,18 @@
 ### [Logika opakování](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referenční informace
-## [Poznámky k verzi](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (správa prostředků)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Zdroje a prostředky
+## [Poznámky k verzi](media-services-release-notes.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Komunita Azure Media Services](media-services-community.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

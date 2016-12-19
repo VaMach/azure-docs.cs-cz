@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Úvod do Apache Storm v HDInsight: analýzy v reálném čase pro Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Úvod do Apache Storm v HDInsight: analýzy v reálném čase pro Hadoop
 Apache Storm v HDInsight vám umožní vytvářet distribuovaná analytická řešení v reálném čase v prostředí Azure pomocí [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Co je to Apache Storm?
@@ -53,7 +53,7 @@ Chcete-li začít používat Storm, otevřete část [Začínáme pracovat se St
 V clusteru HDInsight můžete zřídit nové Storm během několika minut. Zadejte název clusteru, velikost, účet správce a účet úložiště. Azure vytvoří cluster, včetně vzorových topologií a řídicího panelu webové správy.
 
 > [!NOTE]
-> Clustery Storm můžete také vytvářet pomocí [Azure CLI](../xplat-cli-install.md) nebo [Azure PowerShell](../powershell-install-configure.md).
+> Clustery Storm můžete také vytvářet pomocí [Azure CLI](../xplat-cli-install.md) nebo [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Ačkoli můžete určit počet uzlů v clusteru během vytváření, můžete ch
 ### <a name="support"></a>Podpora
 Storm v HDInsight obsahuje nepřetržitou plnou podporu na úrovni rozlehlé sítě. Storm v HDInsight má také SLA 99,9 %. To znamená, že zaručujeme, že cluster bude mít externí konektivitu alespoň na úrovni 99,9 % času.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Běžné případy použití pro analýzu v reálném čase
+## <a name="common-use-cases-for-real-time-analytics"></a>Běžné případy použití pro analýzu v reálném čase
 Následují některé obvyklé scénáře, pro které můžete použít Apache Storm v HDInsight. Pro informace o scénářích reálného světa si přečtěte téma [Jak společnosti využívají Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet věcí (IoT)
@@ -196,7 +196,7 @@ Topologii příkladu, která ukazuje, jak nakonfigurovat protokolování, najdet
 ## <a name="next-steps"></a>Další kroky
 Další informace o řešení pro analýzu v reálném čase s Apache Storm v HDInsight:
 
-* [Začínáme se Storm v HDInsight][gettingstarted]
+* [Začínáme se Stormem v HDInsight][gettingstarted]
 * [Příklad topologií pro Storm v HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ Další informace o řešení pro analýzu v reálném čase s Apache Storm v HD
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

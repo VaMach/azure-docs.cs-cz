@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
+ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
 
 ---
 #<a name="iot-hub-documentation"></a>Dokumentace ke službě IoT Hub
@@ -103,68 +103,51 @@ Azure IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabe
 </ul>
 
 ---
-
-## <a name="reference"></a>Referenční informace
-
+ 
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>IoT Hub s Azure CLI</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace ke spravovanému rozhraní API .NET</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (služba)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (zařízení)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (služba)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (zařízení)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">Sady Azure IoT SDK</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referenční informace sady Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby IoT Hub</p>
+                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">Rozhraní REST API (poskytovatel prostředků)</a></p>
+                        <p><a href="/rest/api/iothub/device-identities-rest">Rozhraní REST API (identity zařízení)</a></p>
+                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">Rozhraní REST API (zasílání zpráv zařízení)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -178,6 +161,6 @@ Stáhnout dokumentaci ke službě IoT Hub </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

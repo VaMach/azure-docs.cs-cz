@@ -25,6 +25,8 @@
 ### [Omezení služby](search-limits-quotas-capacity.md)
 ### [Škálovatelnost služby](search-capacity-planning.md)
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
+
+
 ## Vývoj
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade rozhraní REST API](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Vícejazyčné vyhledávání](search-language-support.md)
 
 # Referenční informace
-## [Verze rozhraní API](search-api-versions.md)
-## [Rozhraní .NET služby](/dotnet/api/microsoft.azure.search)
+## [.NET](/dotnet/api/microsoft.azure.search)
 ## [Rozhraní .NET pro správu](/dotnet/api/microsoft.azure.management.search)
-## [Rozhraní REST služby](/rest/api/searchservice/)
-## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
-## [Rozhraní REST pro správu](/rest/api/searchmanagement/)
-## [Syntaxe dotazů Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Jednoduchá syntaxe dotazů](https://msdn.microsoft.com/library/azure/dn798920)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (správa)](/rest/api/searchmanagement)
 
 # Zdroje a prostředky
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
+## Rozhraní API služby Search
+##X [Verze rozhraní API](search-api-versions.md)
+## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## Ukázkové weby
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
