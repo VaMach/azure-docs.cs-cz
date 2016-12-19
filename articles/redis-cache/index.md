@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 99a123b0efaea3e4e298aed44cea72547bfa7094
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentace ke službě Redis Cache
 
-Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti Redis Cache. Poskytuje přístup k zabezpečené vyhrazené mezipaměti Redis, která je spravovaná Microsoftem a dostupná z libovolné aplikace v Azure. Azure Redis Cache nabízí vysokou propustnost a trvale nízkou latenci při přístupu k datům a zajišťuje tak rychlost a škálovatelnost aplikací Azure.
+Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti Redis Cache. Poskytuje přístup k zabezpečené vyhrazené mezipaměti Redis, která je spravovaná Microsoftem a dostupná z libovolné aplikace v Azure. Azure Redis Cache nabízí vysokou propustnost a trvale nízkou latenci při přístupu k datům a zajišťuje tak rychlost a škálovatelnost aplikací Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -149,7 +149,7 @@ Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti 
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Referenční informace pro Azure PowerShell</p>
+                        <p>Referenční informace k Azure PowerShellu</p>
                     </div>
                 </div>
             </div>
@@ -205,7 +205,7 @@ Služba Azure Redis Cache je založená na oblíbené opensourcové mezipaměti 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Redis Cache</p>
+                        <p>Rozhraní REST API služby Redis Cache</p>
                     </div>
                 </div>
             </div>
@@ -225,6 +225,6 @@ Stáhnout dokumentaci ke službě Redis Cache </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

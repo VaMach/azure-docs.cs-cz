@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
 Pokud je vaše organizace federovaná pomocí služby Azure Active Directory, použijte ověřování Azure Multi-Factor Authentication nebo Active Directory Federation Services, které používá Azure AD. Následující postupy použijte k zabezpečení prostředků Azure Active Directory s ověřováním Azure Multi-Factor Authentication nebo Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpečení prostředků Azure AD pomocí služby AD FS
 Když chcete zabezpečit prostředek v cloudu, nejdříve povolte účet pro uživatele a pak nastavte pravidlo deklarací identity. Postupujte takto:
 
-1. Povolte účet pomocí kroků v části [Zapnutí ověřování Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users).
+1. Povolte účet pomocí kroků v části [Zapnutí ověřování Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users).
 2. Spusťte konzolu pro správu služby AD FS.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Přejděte na **Vztahy důvěryhodnosti předávající strany** a klikněte pravým tlačítkem na vztah důvěryhodnosti předávající strany. Vyberte **Upravit pravidla deklarací identity…**
@@ -34,13 +34,13 @@ Když chcete zabezpečit prostředek v cloudu, nejdříve povolte účet pro už
 5. Z rozevírací nabídky vyberte **Odesílat deklarace pomocí vlastního pravidla** a klikněte na **Další**.
 6. Zadejte název pravidla deklarace identity.
 7. V části Vlastní pravidlo přidejte následující text:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Odpovídající deklarace identity:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ První věc, kterou je potřeba udělat, je konfigurace deklarací identity slu�
 10. V Průvodci přidáním pravidla – deklarace identity transformace vyberte **Odesílat deklarace pomocí vlastního pravidla** v rozevíracím seznamu a klikněte na **Další**.
 11. Do pole pod Název pravidla deklarace napište *Nechat uživatele přihlášené*.
 12. Do pole Vlastní pravidlo zadejte:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ První věc, kterou je potřeba udělat, je konfigurace deklarací identity slu�
 15. Klikněte na tlačítko **OK**.
 16. Zavřete správu služby AD FS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Konfigurovat důvěryhodné IP adresy ověřování Azure Multi-Factor Authentication s federovanými uživateli
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurovat důvěryhodné IP adresy ověřování Azure Multi-Factor Authentication s federovanými uživateli
 Teď, když máme vytvořené deklarace identity, můžeme nakonfigurovat důvěryhodné IP adresy.
 
 1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
@@ -100,7 +100,6 @@ A to je vše! Od tohoto okamžiku musí federovaní uživatelé služeb Office 3
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

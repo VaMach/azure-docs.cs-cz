@@ -45,7 +45,7 @@
 ## [Vývoj s použitím služby Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Referenční informace
-## [Rutiny PowerShellu](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Zdroje a prostředky 
@@ -54,6 +54,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

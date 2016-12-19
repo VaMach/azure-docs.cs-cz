@@ -11,9 +11,13 @@
 ## Integrace
 ###[Místní brána dat](analysis-services-gateway.md)
 
-# Odkazy
+# Referenční informace
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices/)
+
+# Související
 ##[Připojení zdrojů dat](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

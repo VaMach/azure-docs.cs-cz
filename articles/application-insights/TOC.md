@@ -30,18 +30,20 @@
 
 # Postup
 ## Plánování a návrh
-
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
 ### [Analýzy pro vývojáře pomocí nástrojů Application Insights a HockeyApp](app-insights-developer-analytics.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
 ### [Analýzy používání pomocí nástroje Application Insights](app-insights-overview-usage.md)
 ### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
+## Migrace
+### [Migrace od monitorování koncových bodů Azure k testování dostupnosti](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Konfigurace
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Diagnostika](app-insights-azure-diagnostics.md)
+## [IP adresy](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Získání další telemetrie](app-insights-asp-net-more.md)
@@ -102,7 +104,6 @@
 ### [Průběžný export](app-insights-export-telemetry.md)
 ### [Export do Power BI](app-insights-export-power-bi.md)
 
-
 ## Vývoj
 
 ### [Rozhraní API pro vlastní události a metriky](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## Správa
-
 ### [Správa cen a kvót](app-insights-pricing.md)
 ### [Sledování výkonu aplikací pomocí Application Insights pro SCOM](app-insights-scom.md)
 
+##Export
+## [Export datového modelu](app-insights-export-data-model.md)
 
 ## Zabezpečení
-
 ### [Shromažďování, uchovávání a ukládání dat](app-insights-data-retention-privacy.md)
 ### [Prostředky, role a řízení přístupu](app-insights-resources-roles-access-control.md)
-
-
 ## Řešení potíží
 ### [Žádná data v .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analýzy](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referenční informace
-## [Rozhraní API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [Rozhraní JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [REST](https://dev.applicationinsights.io/)
+
+# Zdroje a prostředky
 ## [Reference pro analýzy](app-insights-analytics-reference.md)
-## [Vzorkování](app-insights-sampling.md)
-## [IP adresy](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Export datového modelu](app-insights-export-data-model.md)
-## [Migrace od monitorování koncových bodů Azure k testování dostupnosti](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Developer Analytics: jazyky, platformy a integrace](app-insights-platforms.md)
+### [Vzorkování](app-insights-sampling.md)
 ### [Příklady a názorné postupy](app-insights-code-samples.md)
 #### [Názorný postup: zapnutí telemetrie pro Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Názorný postup: Export do SQL s použitím Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Poznámky k vydání sady Application Insights SDK pro Windows Phone a Store](app-insights-release-notes-windows.md)
 ## [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Poznámky k verzi sady SDK – Application Insights](app-insights-release-notes.md)
-## [Rozhraní REST API pro přístup k datům](https://dev.applicationinsights.io/)
-
-# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

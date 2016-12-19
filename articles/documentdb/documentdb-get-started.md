@@ -13,19 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/29/2016
+ms.date: 11/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
+ms.openlocfilehash: a71130709ea33a8f6efb14ed0e4609a366d3ac98
 
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
@@ -51,12 +53,13 @@ Můžeme začít!
 ## <a name="prerequisites"></a>Předpoklady
 Ujistěte se prosím, že máte následující:
 
-* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).
+* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). 
+    * Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/)
 * .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
-Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS).
+Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS). Pokud používáte emulátor DocumentDB, postupujte prosím podle kroků v tématu [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md), abyste nastavili emulátor, a přeskočte k části [Nastavení řešení v sadě Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -618,6 +621,6 @@ Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual St
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

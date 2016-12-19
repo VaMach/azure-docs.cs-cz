@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/13/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 93bf35edd2173c147f48512d92bc8e4734cd1dbd
+ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
+ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
 
 
 ---
@@ -26,14 +26,14 @@ ms.openlocfilehash: 93bf35edd2173c147f48512d92bc8e4734cd1dbd
 > [!div class="op_single_selector"]
 > * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 > * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-> 
-> 
+>
+>
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umožňuje přihlašovat se ke clusteru služby HDInsight v Linuxu a spouštět příkazy pomocí rozhraní příkazového řádku. Tento dokument poskytuje základní informace o SSH a konkrétní informace o použití SSH s HDInsight.
 
 ## <a name="what-is-ssh"></a>Co je SSH?
 
-SSH je kryptografický síťový protokol, který umožňuje zabezpečeně komunikovat se vzdáleným serverem přes nezabezpečenou síť. SSH slouží k zajištění zabezpečeného přihlášení ke vzdálenému serveru prostřednictvím příkazového řádku. V tomto případě k hlavním uzlům nebo k hraničnímu uzlu clusteru HDInsight. 
+SSH je kryptografický síťový protokol, který umožňuje zabezpečeně komunikovat se vzdáleným serverem přes nezabezpečenou síť. SSH slouží k zajištění zabezpečeného přihlášení ke vzdálenému serveru prostřednictvím příkazového řádku. V tomto případě k hlavním uzlům nebo k hraničnímu uzlu clusteru HDInsight.
 
 SSH můžete také využít k tunelování síťového provozu z vašeho klienta do clusteru HDInsight. Použití tunelu umožňuje přístup k těm službám v clusteru HDInsight, které nejsou přímo zveřejněné na internetu. Další informace o použití tunelování SSH s HDInsight najdete v tématu [Použití tunelování SSH s HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -76,7 +76,7 @@ Nástroj `ssh-keygen` představuje nejjednodušší způsob vytvoření páru ve
 > Pokud používáte klienta SSH s grafickým uživatelským rozhraním, jako je MobaXTerm nebo puTTY, vyhledejte si popis vytvoření klíčů v dokumentaci k tomuto klientovi.
 
     ssh-keygen -t rsa -b 2048
-   
+
 Budete vyzváni k zadání následujících informací:
 
 * Umístění souboru: Výchozí umístění je `~/.ssh/id_rsa`.
@@ -91,7 +91,7 @@ Budete vyzváni k zadání následujících informací:
 Po dokončení příkazu budete mít dva nové soubory:
 
 * __id\_rsa__: Tento soubor obsahuje privátní klíč.
-    
+
     > [!WARNING]
     > Přístup k tomuto souboru musíte omezit, abyste zabránili neoprávněnému přístupu ke službám zabezpečeným pomocí veřejného klíče.
 
@@ -171,29 +171,30 @@ Pokud k ověření uživatelského účtu používáte klíč SSH, musíte ově�
 1. V textovém editoru otevřete `~/.ssh/config`. Pokud tento soubor neexistuje, můžete ho vytvořit tak, že na příkazovém řádku zadáte `touch ~/.ssh/config`.
 
 2. Do souboru přidejte následující: Nahraďte *CLUSTERNAME* názvem clusteru HDInsight.
-   
+
         Host CLUSTERNAME-ssh.azurehdinsight.net
           ForwardAgent yes
-   
+
     Tato položka nakonfiguruje přesměrování agenta SSH pro váš cluster HDInsight.
 
 3. Proveďte test přesměrování agenta SSH pomocí následujícího příkazu z terminálu:
-   
+
         echo "$SSH_AUTH_SOCK"
-   
+
     Tento příkaz by měl vrátit informace podobné následujícímu textu:
-   
+
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
-   
+
     Když se nic nevrátí, znamená to, že nástroj `ssh-agent` není spuštěný. Přečtěte si informace o spouštěcích skriptech agenta v tématu [Použití nástroje ssh-agent s SSH (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) nebo v dokumentaci ke klientovi SSH vyhledejte konkrétní kroky k instalaci a konfiguraci `ssh-agent`.
 
 4. Jakmile si ověříte, že  se **ssh-agent** spustil, podle následujícího postupu přidejte svůj privátní klíč SSH k agentovi:
-   
+
         ssh-add ~/.ssh/id_rsa
-   
+
     Pokud je privátní klíč uložen v jiném souboru, nahraďte `~/.ssh/id_rsa` cestou k souboru.
 
-###<a name="a-iddomainjoineda-domain-joined-hdinsight"></a><a id="domainjoined"></a> HDInsight připojený k doméně
+<a id="domainjoined"></a>
+### <a name="domain-joined-hdinsight"></a>HDInsight připojený k doméně
 
 [HDInsight s připojením k doméně](hdinsight-domain-joined-introduction.md) integruje protokol Kerberos s platformou Hadoop ve službě HDInsight. Protože uživatel SSH není uživatelem domény služby Active Directory, můžete spouštět příkazy Hadoop až po ověření pomocí služby Active Directory. K ověření relace SSH pomocí Active Directory použijte následující kroky:
 
@@ -232,6 +233,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

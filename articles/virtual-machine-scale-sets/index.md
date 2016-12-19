@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentace ke škálovacím sadám virtuálních počítačů
@@ -47,7 +47,7 @@ ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,25 +57,7 @@ ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme se škálovacími sadami virtuálních počítačů s Windows</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Začínáme se škálovacími sadami virtuálních počítačů s Linuxem</h3>
+                        <h3>Začínáme se sadami škálování virtuálních počítačů</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +107,7 @@ ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API škálovacích sad virtuálních počítačů</p>
+                        <p>Rozhraní REST API pro Škálovací sady virtuálních počítačů</p>
                     </div>
                 </div>
             </div>
@@ -145,6 +127,6 @@ Stažení dokumentace ke škálovacím sadám virtuálních počítačů </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

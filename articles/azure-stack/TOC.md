@@ -72,10 +72,10 @@
 ### [Nasazení adaptéru poskytovatele prostředků SQL Serveru v Azure Stacku](azure-stack-sql-resource-provider-deploy.md)
 
 ## Plánování a nasazení App Service
-### [Přehled Azure Stack Web Apps](azure-stack-app-service-overview.md)
-### [Než začnete s Azure Stack Web Apps](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: Přidání dalších webových rolí pracovního procesu](azure-stack-webapps-add-worker-roles.md)
-### [Přidání poskytovatele prostředků Web Apps do Azure Stacku](azure-stack-app-service-deploy.md)
+### [Přehled App Service v Azure Stacku](azure-stack-app-service-overview.md)
+### [Než začnete](azure-stack-app-service-before-you-get-started.md)
+### [Přidání dalších webových rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md)
+### [Přidání poskytovatele prostředků App Service do Azure Stacku](azure-stack-app-service-deploy.md)
 
 # Řešení potíží
 ## [Odstraňování potíží v Azure Stack](azure-stack-troubleshooting.md)
@@ -86,6 +86,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

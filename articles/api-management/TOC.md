@@ -39,21 +39,25 @@
 ### [Správa uživatelských účtů](api-management-howto-create-or-invite-developers.md)
 ### [Správa s použitím automatizace](automation-manage-api-management.md)
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
-#Referenční informace
+
+# Referenční informace
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Zdroje a prostředky
 ## [Zásady](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Šablony](https://msdn.microsoft.com/library/azure/mt697540)
-#Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=api-management)
 ## [Dokument white paper: Cloud-based API Management (Cloudová správa rozhraní API)](http://j.mp/ms-apim-whitepaper)
-## [Pokyny k návrhu rozhraní API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [Pokyny k implementaci rozhraní API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Pokyny k návrhu rozhraní API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [Pokyny k implementaci rozhraní API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Využívání služeb SOAP WCF přes HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Propojení Event Hubs se službou API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management – jde skvěle dohromady s ostatními službami Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
@@ -63,6 +67,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,12 +16,13 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Práce s aktivačními událostmi a vazbami](functions-triggers-bindings.md)
+#### [Vazby DocumentDB](functions-bindings-documentdb.md)
 #### [Vazby centra událostí](functions-bindings-event-hubs.md)
 #### [HTTP a webhookové vazby](functions-bindings-http-webhook.md)
 #### [Vazby Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Výstupní vazby centra oznámení](functions-bindings-notification-hubs.md)
 #### [Aktivační události služby Service Bus a vazby pro fronty a témata](functions-bindings-service-bus.md)
-#### Vazby úložiště
+#### Vazby služby Storage
 ##### [Vazby objektů blob](functions-bindings-storage-blob.md)
 ##### [Vazby front](functions-bindings-storage-queue.md)
 ##### [Vazby tabulek](functions-bindings-storage-table.md)
@@ -49,6 +50,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

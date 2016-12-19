@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Existuje celá řada přístupů, které lze využít pro instalaci požadovaný
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalace a konfigurace Azure Powershellu
-Budete potřebovat, aby na vašem počítači byl nainstalovaný Azure PowerShell verze 1.2.1 nebo novější. Všechny kroky nutné k tomu, abyste ve svém počítači mohli pracovat s Azure PowerShellem, najdete v článku [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Nejjednodušší je využít instalaci Web PI uvedenou v tomto článku. Instalaci Web PI využijte, i když už máte Azure PowerShell nainstalovaný. Zajistíte tak, abyste měli jeho nejnovější verzi.
+Budete potřebovat, aby na vašem počítači byl nainstalovaný Azure PowerShell verze 1.2.1 nebo novější. Všechny kroky nutné k tomu, abyste ve svém počítači mohli pracovat s Azure PowerShellem, najdete v článku [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Nejjednodušší je využít instalaci Web PI uvedenou v tomto článku. Instalaci Web PI využijte, i když už máte Azure PowerShell nainstalovaný. Zajistíte tak, abyste měli jeho nejnovější verzi.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Získání a spuštění konfiguračního skriptu požadovaných součástí pro Azure Disk Encryption
 Konfigurační skript požadovaných součástí pro Azure Disk Encryption nastaví všechny požadované součásti, které jsou potřeba pro šifrování Azure Virtual Machines.
@@ -182,6 +182,6 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

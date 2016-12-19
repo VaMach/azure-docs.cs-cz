@@ -167,7 +167,7 @@
 #### [Přehled architektury sítě](app-service-app-service-environment-network-architecture-overview.md)
 #### [Podrobnosti o konfiguraci sítě pomocí ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
 
-## Zálohování
+## Backup
 ### [Zálohování aplikace v Azure](web-sites-backup.md)
 ### [Obnovení aplikace v Azure](web-sites-restore.md)
 ### [Použití služby REST k zálohování a obnovení aplikací App Service](websites-csm-backup.md)
@@ -247,9 +247,9 @@
 ### [Řešení potíží s výkonem webových aplikací](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referenční informace
-## [Azure CLI](/cli/azure/)
-## [Java](/java/api/)
+## [Azure CLI 2.0 (Preview)](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Související
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

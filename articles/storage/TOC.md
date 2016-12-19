@@ -43,33 +43,25 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-
-
 # Postup
-
 ## [Vytvoření účtu úložiště](storage-create-storage-account.md)
-
 ## Úložiště objektů blob
 ### [Přehled služby](https://msdn.microsoft.com/library/dd179376.aspx)
 ### [Vrstvy Hot a Cool](storage-blob-storage-tiers.md)
 ### [Vlastní domény](storage-custom-domain-name.md)
 ### [Anonymní přístup k objektům blob](storage-manage-access-to-resources.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
-
 ## Úložiště front
 ### [Koncepty](https://msdn.microsoft.com/library/dd179353.aspx)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
-
 ## Úložiště tabulek
 ### [Přehled](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [Průvodce návrhem tabulky](storage-table-design-guide.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
-
 ## Úložiště souborů
 ### [Přehled](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
 ### [Řešení problémů se Soubory Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-
 ## Použití disků virtuálních počítačů
 ### Storage úrovně Premium
 #### [Vysoce výkonné úložiště pro úlohy virtuálních počítačů](storage-premium-storage.md)
@@ -77,24 +69,20 @@
 #### [Návrh pro vysoký výkon](storage-premium-storage-performance.md)
 ### Storage úrovně Standard
 #### [Zálohování disků virtuálních počítačů s přírůstkovými snímky](storage-incremental-snapshots.md)
-
 ## Plánování a návrh
 ### [Replikace](storage-redundancy.md)
 ### [Škálovatelnost a cíle výkonnosti](storage-scalability-targets.md)
 ### [Kontrolní seznam pro výkon a škálovatelnost](storage-performance-checklist.md)
 ### [Souběžnost](storage-concurrency.md)
-
 ## Vývoj
 ### [Ukázky](storage-samples.md)
 ### [Konfigurace připojovacích řetězců](storage-configure-connection-string.md)
 ### [Použití emulátoru úložiště](storage-use-emulator.md)
 ### [Nastavení a načtení vlastností a metadat](storage-properties-metadata.md)
-
 ## Spravovat
 ### [PowerShell](storage-powershell-guide-full.md)
 ### [Azure CLI](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
-
 ## Zabezpečení
 ### [Příručka zabezpečení](storage-security-guide.md)
 ### [Šifrování pro neaktivní uložená data](storage-service-encryption.md)
@@ -105,7 +93,6 @@
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-
 ## Monitorování a odstraňování potíží
 ### Metriky a protokolování
 #### [Storage Analytics](storage-analytics.md)
@@ -117,29 +104,29 @@
 #### [V klasickém nasazení](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Řešení problémů s úložištěm souborů](storage-troubleshoot-file-connection-problems.md)
 ### [Pokyny pro zotavení po havárii](storage-disaster-recovery-guidance.md)
-
 ## Přenos dat
 ### [Přesouvání dat do a ze Storage](storage-moving-data.md)
 ### [Nástroj příkazového řádku AzCopy](storage-use-azcopy.md)
 ### [Služba Import/export pro Blob Storage](storage-import-export-service.md)
 
-
-
 # Referenční informace
-## [PowerShell](/powershell/storage/)
+## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
-## [Java](/java/api/)
-
 ## .NET
-### [Objekty blob, fronty, tabulky a soubory](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-### [Poskytovatel prostředků](/dotnet/api/)
-### [Přesuny dat](/dotnet/api/)
-
-## REST
-### [Objekty blob, fronty, tabulky a soubory](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [Poskytovatel prostředků](/rest/api/storagerp/)
+### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
+### [Pohyb dat](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Objekty blob, tabulky, fronty a soubory](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+## [Java](/java/api/)
+## [Node.js](http://azure.github.io/azure-storage-node)
+## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
+## [C++](http://azure.github.io/azure-storage-cpp)
+## [iOS](https://github.com/Azure/azure-storage-ios)
+## [Android](http://azure.github.io/azure-storage-android)
+## [REST]
+### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Poskytovatel prostředků](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
-
 
 # Související
 ## Klasický portál
@@ -147,8 +134,6 @@
 ### [Povolení a zobrazení metrik](storage-enable-and-view-metrics-classic-portal.md)
 ### [Monitorování, diagnostika a řešení potíží](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [Kurz odstraňování potíží](storage-e2e-troubleshooting-classic-portal.md)
-
-
 
 # Zdroje
 ## [Ceny](https://azure.microsoft.com/pricing/details/storage/blobs/)
@@ -160,7 +145,7 @@
 
 ## Azure Storage Explorer
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
-### [Správa objektů blob pomocí Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Správa objektů blob pomocí Storage Exploreru (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 
 ## Balíčky NuGet
 ### [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -181,6 +166,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

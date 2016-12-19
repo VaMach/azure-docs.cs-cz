@@ -70,7 +70,7 @@ Hotový kód z tohoto kurzu si můžete stáhnout z Githubu [tady](https://githu
 
 Vaše centrum oznámení je teď nakonfigurováno pro práci se službou Firebase Cloud Messaging. Zároveň máte připojovací řetězce, pomocí kterých můžete svojí aplikaci zaregistrovat pro příjem a odesílání nabízených oznámení.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Připojte aplikaci k centru oznámení
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Připojte aplikaci k centru oznámení
 ### <a name="add-google-play-services-to-the-project"></a>Přidejte do projektu služby Google Play
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -74,7 +74,7 @@ Clustery prostředí HDInsight obsahují následující součásti a nástroje.
 * **[ZooKeeper](#zookeeper)**: koordinace procesů v distribuovaných systémech.
 
 > [!NOTE]
-> Informace o konkrétní součásti a informace o verzi naleznete v tématu [Komponenty systému Hadoop, správa verzí a nabídky služeb v prostředí HDInsight][component-versioning]
+> Informace o konkrétní součásti a informace o verzi najdete v tématu [Komponenty systému Hadoop, správa verzí a nabídky služeb v prostředí HDInsight][component-versioning].
 > 
 > 
 
@@ -148,7 +148,7 @@ Clustery prostředí HDInsight podporují následující jazyky založené na JV
 * Jython (Python pro jazyk Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Jazyky pro Hadoop
+### <a name="hadoop-specific-languages"></a>Jazyky pro Hadoop
 Clustery HDInsight podporují následující jazyky, které jsou určené konkrétně pro ekosystém Hadoop:
 
 * Pig Latin pro úlohy Pig
@@ -167,12 +167,12 @@ Jako součást cloudového ekosystému Azure nabízí systém Hadoop v prostřed
 * Podpora služby Virtual Network. Clustery prostředí HDInsight lze použít se službou Azure Virtual Network pro podporu izolace cloudových prostředků nebo hybridních scénářů, propojujících tyto cloudové prostředky s těmi, které jsou ve vašem datovém centru.
 * Nízké vstupní náklady Spusťte si [bezplatnou zkušební verzi](https://azure.microsoft.com/free/) nebo se podívejte na [podrobnosti o cenách prostředí HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Další informace o výhodách platformy Hadoop v prostředí HDInsight najdete na [marketingové stránce] o [funkcích Azure pro HDInsight].
+Další informace o výhodách platformy Hadoop v prostředí HDInsight najdete v tématu [Funkce Azure pro HDInsight][marketing-page].
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard a HDInsight Premium
 HDInsight nabízí cloud pro velké objemy dat ve dvou kategoriích, Standard a Premium. HDInsight Standard poskytuje cluster v podnikovém měřítku, který mohou organizace použít ke spouštění úloh s velkými objemy dat. HDInsight Premium z toho vychází a poskytuje rozšířené analytické a bezpečnostní možnosti pro cluster prostředí HDInsight. Další informace viz [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Zdroje dalších informací o analýze velkých objemů dat, systému Hadoop a službě HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Zdroje dalších informací o analýze velkých objemů dat, systému Hadoop a službě HDInsight
 Poznatky z tohoto úvodu do systému Hadoop v cloudu a analýzy velkých objemů dat si můžete doplnit prostřednictvím níže uvedených zdrojů.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Dokumentace systému Hadoop pro HDInsight
@@ -204,6 +204,6 @@ Tyto nástroje BI vám mohou pomoci při analýze velkých objemů dat:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -21,9 +21,8 @@
 ### [Ověřování odchozích spojení](scheduler-outbound-authentication.md)
 
 # Referenční informace
-## [Rutiny PowerShellu pro Azure Scheduler](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/scheduler/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/scheduler/)
@@ -36,6 +35,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

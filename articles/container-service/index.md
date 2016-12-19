@@ -1,12 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 9bb2c847b6e7b87b58fee04a6fe33edb801f9558
+ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
+ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
 
 ---
 
-#<a name="azure-container-service-documentation"></a>Dokumentace ke službě Azure Container Service
+# <a name="azure-container-service-documentation"></a>Dokumentace ke službě Azure Container Service
 
 Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správu clusteru virtuálních počítačů, ve kterých je předem nakonfigurované spouštění kontejnerizovaných aplikací. Container Service používá optimalizovanou konfiguraci oblíbených opensourcových nástrojů pro plánování a orchestraci. Díky tomu můžete při nasazování a správě kontejnerových aplikací v Microsoft Azure využívat své stávající dovednosti nebo stavět na rozsáhlých a stále se rozšiřujících odborných znalostech komunity.
 
@@ -51,55 +51,45 @@ Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správ
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace k rozhraní API pro správu služeb .NET</p>
-                    </div>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Compute</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
@@ -110,6 +100,6 @@ Stažení dokumentace ke službě Azure Container Service </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -5,43 +5,36 @@ includes/sql-database-create-new-server-firewall-portal.md
 Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
-articles/sql-database/sql-database-get-started-tutorial.md
+articles/sql-database/sql-database-get-started.md
 articles/sql-database/sql-database-configure-firewall-settings
+articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-new-azure-sql-server-level-firewall"></a>Vytvoření nové brány firewall na úrovni serveru SQL Azure
-Pomocí následujícího postupu vytvoříte na webu Azure Portal pravidlo brány firewall na úrovni serveru, které umožní připojení z jednotlivé IP adresy (vašeho klientského počítače) nebo celého rozsahu IP adres k logickému serveru služby SQL Database.
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Vytvoření pravidla brány firewall na úrovni serveru na webu Azure Portal
 
-1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
-2. Ve výchozím okně klikněte na **Servery SQL**.
-   
-      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. V okně **Servery SQL** klikněte na server, pro který se má pravidlo brány firewall vytvořit.
-   
-     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Zkontrolujte vlastnosti serveru a potom klikněte na **Firewall**.
-   
-     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-   
-   > [!NOTE]
-   > K oknu **Nastavení brány firewall** na úrovni serveru se dostanete také z panelu nástrojů v okně **Databáze**.
-    
-    
-6. Klikněte na **Přidat IP adresu klienta**. Azure do polí pravidel doplní vaši IP adresu.
-   
-      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
-7. Případně můžete kliknout na přidanou IP adresu a upravit adresu brány firewall. Tím povolíte přístup k rozsahu IP adres.
-   
-      ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
-8. Klikněte na tlačítko **Uložit** a vytvořte tak pravidlo brány firewall na úrovni serveru.
-   
-     ![Nová brána firewall serveru](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
-   
-   > [!IMPORTANT]
-   > Vaše IP adresa klienta se občas může změnit a vy pak nebudete mít přístup k serveru, dokud nevytvoříte nové pravidlo brány firewall. IP adresu můžete zkontrolovat pomocí [Bing](http://www.bing.com/search?q=my%20ip%20address). Poté přidejte jednu IP adresu nebo rozsah IP adres. Podrobnosti najdete v tématu [Správa nastavení brány firewall](../articles/sql-database/sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
-   > 
-   > 
+1. V okně SQL Server v části Nastavení klikněte na **Brána firewall**. Otevře se okno Brána firewall pro SQL Server.
 
+    ![Brána firewall SQL Serveru](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png)
+    
+2. Zkontrolujte zobrazenou IP adresu klienta a pomocí prohlížeče podle vašeho výběru ověřte, že je to vaše IP adresa na internetu (zadejte dotaz Jaká je moje IP adresa). Čas od času si adresy z různých důvodů neodpovídají.
+
+    ![Vaše IP adresa](../articles/sql-database/media/sql-database-get-started/your-ip-address.png)
+
+3. Za předpokladu, že se IP adresy shodují, klikněte na panelu nástrojů na **Přidat IP adresu klienta**.
+
+    ![Přidat IP adresu klienta](../articles/sql-database/media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > Bránu firewall služby SQL Database na serveru můžete otevřít pro jednu IP adresu nebo pro celý rozsah adres. Otevření brány firewall umožňuje uživatelům a správcům SQL přihlásit se k jakékoli databázi na serveru, ke kterému mají platné přihlašovací údaje.
+    >
+
+4. Kliknutím na **Uložit** na panelu nástrojů uložte toto pravidlo brány firewall na úrovni serveru a potom klikněte na **OK**.
+
+    ![Přidat IP adresu klienta](../articles/sql-database/media/sql-database-get-started/save-firewall-rule.png)
+
+> [!Tip]
+> Kurz najdete v článku [Kurz k SQL Database: Vytvoření serveru, pravidla brány firewall na úrovni serveru, ukázkové databáze a pravidla brány firewall na úrovni databáze a připojení k SQL Serveru](../articles/sql-database/sql-database-get-started.md).    
+>
 
 
 <!--HONumber=Nov16_HO5-->

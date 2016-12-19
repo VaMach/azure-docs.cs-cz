@@ -8,7 +8,7 @@
 ## Integrace
 ### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Úložiště](cdn-create-a-storage-account-with-cdn.md)
+### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
 
 ## Spravovat
@@ -44,12 +44,13 @@
 ### [Komprese](cdn-troubleshoot-compression.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Lokality POP v Azure CDN](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Zdroje a prostředky
+## [Lokality POP v Azure CDN](cdn-pop-locations.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cdn)
 ## [Ceny](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +58,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

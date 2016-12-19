@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knih
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Vytvoření serveru služby SQL Database, pravidla brány firewall a databáze SQL – ukázka v jazyce C#
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Vytvoření serveru služby SQL Database, pravidla brány firewall a databáze SQL – ukázka v jazyce C#
 Následující příklad vytvoří skupinu prostředků, server, pravidlo brány firewall a databázi SQL. Proměnné `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` získáte pomocí postupu v oddílu [Vytvoření instančního objektu pro přístup k prostředkům](#create-a-service-principal-to-access-resources).
 
 Nahraďte obsah souboru **Program.cs** následujícím ukázkovým kódem a aktualizujte hodnoty `{variables}` hodnotami vaší aplikace (bez závorek `{}`).
@@ -292,6 +293,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

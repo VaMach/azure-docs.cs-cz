@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Architektura služby Service Bus
-Tento článek popisuje architekturu zpracování zpráv a přenosů služby Azure Service Bus.
+Tento článek popisuje architekturu zpracování zpráv služby Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Jednotky škálování služby Service Bus
 Service Bus se organizuje podle *jednotek škálování*. Jednotka škálování je jednotka nasazení a obsahuje všechny komponenty potřebné k tomu, aby služba běžela. Každá oblast nasadí jednu nebo víc jednotek škálování služby Service Bus.
@@ -49,7 +49,7 @@ Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy
 ![Zpracování příchozích událostí požadavků na předání WCF](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když znáte přehled architektury služby Service Bus, ji můžete začít používat. K tomu vám pomůžou tyto odkazy:
+Teď, když znáte přehled architektury služby Service Bus, navštivte následující odkazy, abyste získali další informace:
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
 * [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Teď, když znáte přehled architektury služby Service Bus, ji můžete začí
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

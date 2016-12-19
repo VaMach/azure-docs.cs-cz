@@ -45,21 +45,21 @@
 ###[Aktualizace na jinou velikost a úroveň](cache-how-to-scale.md)
 ###[Použití clusteru Redis pro horizontální snížení nebo zvýšení kapacity](cache-how-to-premium-clustering.md)
 
-#Referenční informace
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Referenční informace
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Azure CLI 2.0 (Preview)](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Klienti Redis](http://redis.io/clients)
 ## [Příkazy Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Zdroje a prostředky
 ## [Ukázky mezipaměti Redis Cache](cache-redis-samples.md)
-
-#Zdroje a prostředky
-##[Ceny](https://azure.microsoft.com/pricing/details/cache/)
+## [Ceny](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

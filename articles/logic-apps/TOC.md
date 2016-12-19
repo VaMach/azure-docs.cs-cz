@@ -72,13 +72,11 @@
 ### [Ceny](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Referenční informace
+## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historie schématu
 ### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Preview](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-
-## [Rutiny PowerShellu](/powershell/resourcemanager/)
-## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
-## [REST API](/rest/api/logic/)
+## [REST](/rest/api/logic/)
 
 ## Schéma roku 2014 (před GA)
 ### [Konektor Azure Resource](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -91,6 +89,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 3bd265e2376180e5285c81b011b469b6a46353b0
 
 ---
 #<a name="virtual-machines-documentation"></a>Dokumentace k Virtual Machines
@@ -75,7 +75,7 @@ Virtuální počítač Azure vám nabídne flexibilitu virtualizace bez nutnosti
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Virtual Machines</p>
+                        <p>Rozhraní REST API služby Virtual Machines</p>
                     </div>
                 </div>
             </div>
@@ -122,6 +122,6 @@ Stáhnout dokumentaci ke službě Virtual Machines </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

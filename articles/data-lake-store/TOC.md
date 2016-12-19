@@ -12,6 +12,7 @@
 ## [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
 ## [Použití Azure CLI](data-lake-store-get-started-cli.md)
 ## [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
+## [Pomocí Pythonu](data-lake-store-get-started-python.md)
 
 # Postup
 ## Kopírování dat
@@ -21,14 +22,6 @@
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Nahrávání dat z offline zdrojů](data-lake-store-offline-bulk-data-upload.md)
 
-## Vývoj
-### [Pomocí PowerShellu](data-lake-store-get-started-powershell.md)
-### [Pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)
-### [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
-### [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
-### [Použití Azure CLI](data-lake-store-get-started-cli.md)
-### [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
-
 ## Zabezpečení dat
 ### [Přehled zabezpečení](data-lake-store-security-overview.md)
 ### [Řízení přístupu v Data Lake Store](data-lake-store-access-control.md)
@@ -37,6 +30,7 @@
 ### [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md)
 
 ## Integrace se službami Azure
+### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí portálu](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí prostředí PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +43,16 @@
 
 ## Spravovat
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
+### [Plánování pro vysokou dostupnost](data-lake-store-troubleshooting-guidance.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (správa účtů)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (správa systému souborů)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Zdroje a prostředky
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +64,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

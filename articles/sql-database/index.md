@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 64e7a12fea6e6ae837d7ae0aacf3ac7426605707
 
 ---
 #<a name="sql-database-documentation"></a>Dokumentace ke službě SQL Database
@@ -114,7 +114,7 @@ Azure SQL Database je cloudová relační databázová služba schopná obslouž
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Referenční informace pro Azure PowerShell</p>
+                        <p>Referenční informace k Azure PowerShellu</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@ Azure SQL Database je cloudová relační databázová služba schopná obslouž
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby SQL Database</p>
+                        <p>Rozhraní REST API služby SQL Database</p>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,6 @@ Stáhnout dokumentaci ke službě SQL Database </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

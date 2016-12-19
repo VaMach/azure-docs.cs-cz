@@ -51,7 +51,7 @@
 
 # Referenční informace
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Související
@@ -80,6 +80,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

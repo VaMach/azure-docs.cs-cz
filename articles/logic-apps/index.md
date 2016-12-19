@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4885c54a2bc592d0e6da8c1f39ec7360fa97d6fd
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: ba5941d636a605059d981ddda8ea66288a682451
 
 ---
 # <a name="logic-apps-documentation"></a>Dokumentace ke službě Logic Apps
@@ -144,7 +144,7 @@ Služba Logic Apps je návrhářský nástroj pro modelování a automatizaci pr
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Logic Apps</p>
+                        <p>Rozhraní REST API služby Logic Apps</p>
                     </div>
                 </div>
             </div>
@@ -162,6 +162,6 @@ Stažení dokumentace ke službě Logic Apps </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

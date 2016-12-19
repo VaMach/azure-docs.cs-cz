@@ -4,8 +4,8 @@ hide_bc: true
 title: Dokumentace k Microsoft Azure | Dokumenty Microsoftu
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 translationtype: Human Translation
-ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
-ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
+ms.sourcegitcommit: b6c08febd8c95c1aa6a2af4563ed4fdee8ee022f
+ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
 
 ---
 <div id="main" class="v2">
@@ -145,7 +145,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Databáze SQL</p>
+                                                <p>SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -264,12 +264,12 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 <p>CDN</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
@@ -383,7 +383,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                              </li>
                             <li>
                                 <div class="group">
-                                    <h3>Úložiště</h3>
+                                    <h3>Storage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -499,12 +499,12 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
@@ -579,7 +579,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Hledání</p>
+                                                <p>Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -956,7 +956,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -968,13 +968,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Směrování příchozího provozu s cílem dosažení vysokého výkonu a dostupnosti</p>
+                                                    <p>Route incoming traffic for high performance and availability</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/expressroute/">
                                     <div class="cardSize">
@@ -1010,7 +1010,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Úložiště</h3>
+                                                    <h3>Storage</h3>
                                                     <p>Trvalé a široce škálovatelné cloudové úložiště s vysokou dostupností</p>
                                                 </div>
                                             </div>
@@ -1243,7 +1243,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hledání</h3>
+                                                    <h3>Search</h3>
                                                     <p>Plně spravované hledání jako služba</p>
                                                 </div>
                                             </div>
@@ -1305,7 +1305,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Databáze SQL</h3>
+                                                    <h3>SQL Database</h3>
                                                     <p>Spravovaná relační databáze jako služba</p>
                                                 </div>
                                             </div>
@@ -2248,14 +2248,14 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scheduler</h3>
-                                                    <p>Spouštění úloh v rámci jednoduchých nebo složitých opakovaných plánů</p>
+                                                    <p>Spouštění úloh v rámci jednoduchých nebo složitých opakovaných plánů</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2267,13 +2267,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Směrování příchozího provozu s cílem dosažení vysokého výkonu a dostupnosti</p>
+                                                    <p>Route incoming traffic for high performance and availability</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                 </ul>
             </li>
             <li>
-                <a href="#sdktools">Sada SDK / Nástroje</a>
-                <ul id="sdktools">
+                <a href="#sdkstools">Sady SDK nebo nástroje</a>
+                <ul id="sdkstools">
                     <li>
-                        <a href="#sdktools-all">vše</a>
-                        <ul id="sdktools-all" class="cardsF">
+                        <a href="#sdkstools-all">vše</a>
+                        <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Jazyky a architektury</h1>
@@ -2376,16 +2376,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">Získat sadu .NET SDK</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Získat sadu .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Začínáme</a>
+                                                    <a href="https://docs.microsoft.com/dotnet/api/">Začínáme</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">Referenční materiály k rozhraní API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Získat ukázky</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Další informace</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2403,16 +2406,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python">Získat sadu Python SDK</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Získat sadu Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Začínáme</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Začínáme</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Referenční materiály k rozhraní API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Získat ukázky</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/python">Další informace</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2430,16 +2436,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Získání sady Node.js SDK</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Získání sady Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Začínáme</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Začínáme</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">Referenční materiály k rozhraní API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Získat ukázky</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Další informace</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2457,16 +2466,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Získat sadu Java SDK</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">Získat sadu Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Začínáme</a>
+                                                    <a href="https://docs.microsoft.com/java/api/">Začínáme</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Referenční materiály k rozhraní API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Získat ukázky</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Další informace</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2484,16 +2496,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/downloads/">Získat sadu Ruby SDK</a>
+                                                    <a href="https://rubygems.org/gems/azure">Získat sadu Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Začínáme</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Začínáme</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Referenční materiály k rozhraní API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Získat ukázky</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Další informace</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2511,13 +2526,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">Začínáme s REST</a>
+                                                    <a href="https://docs.microsoft.com/rest/api/">Začínáme s REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Referenční materiály</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Získání příkladů</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Získat ukázky</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2861,6 +2876,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

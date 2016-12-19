@@ -1,14 +1,11 @@
 # Přehled
 ## [Co je Azure Automation?](automation-intro.md)
 ## [Zabezpečení v Azure Automation](automation-security-overview.md)
-
 # Začínáme
 ## [Vytvoření runbooku](automation-first-runbook-graphical.md)
 ## [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
 ## [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
 ## [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
-
-
 # Postup
 ## Vytváření runbooků
 ### [Typy runbooků](automation-runbook-types.md)
@@ -55,26 +52,22 @@
 ### [Spuštění/zastavení virtuálního počítače se značkami JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Odebrání skupiny prostředků](automation-scenario-remove-resourcegroup.md)
 ### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
-
+### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Monitorování](automation-manage-send-joblogs-log-analytics.md)
-
 ## Migrace
 ### [Migrace z Orchestratoru](automation-orchestrator-migration.md)
 ### [Přesun účtu služby Automation](automation-migrate-account-subscription.md)
-
 ## Řešení potíží
 ### [Odstraňování běžných chyb](automation-troubleshooting-automation-errors.md)
 ### [Pozastavení úlohy runbooku](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Classic PowerShell](/powershell/servicemanagement)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
-## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
-
 # Zdroje a prostředky
+## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
 ## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +78,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
