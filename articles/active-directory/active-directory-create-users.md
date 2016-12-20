@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Přidání nových uživatelů nebo uživatelů s účty Microsoft do služby Azure Active Directory
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Přidání nových uživatelů nebo uživatelů s účty Microsoft do služby Azure Active Directory
 Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysvětluje, jak pro vaši organizaci přidat nové uživatele a jak přidat uživatele, kteří mají účty Microsoft. Další informace o přidávání uživatelů z dalších adresářů ve službě Azure Active Directory nebo přidávání uživatelů z partnerských společností najdete v článku o [přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory](active-directory-create-users-external.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
 
 ## <a name="add-a-user"></a>Přidání uživatele
@@ -38,8 +38,8 @@ Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysv
 > [!IMPORTANT]
 > Pokud vaše organizace používá více než jednu doménu, měli byste vědět o následujících problémech týkajících se přidávání uživatelských účtů:
 > 
-> * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com, **jako první** a **až potom** geoffgrisso@contoso.com..
-> * **Nepřidávejte** geoffgrisso@contoso.com dřív než geoffgrisso@contoso.onmicrosoft.com.. Správné pořadí je důležité a náprava chyby může být náročná.
+> * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com, **jako první** a **až potom** geoffgrisso@contoso.com.
+> * **Nepřidávejte** geoffgrisso@contoso.com dřív než geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
 > 
 > 
 
@@ -87,6 +87,6 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
