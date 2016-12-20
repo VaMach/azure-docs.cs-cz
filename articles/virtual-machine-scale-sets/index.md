@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentace ke škálovacím sadám virtuálních počítačů
@@ -69,53 +69,34 @@ ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell pro škálovací sady virtuálních počítačů</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/vmss">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Škálovací sady virtuálních počítačů s využitím rozhraní Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API pro Škálovací sady virtuálních počítačů</p>
+                        <p><a href="/rest/api/compute/">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
@@ -127,6 +108,6 @@ Stažení dokumentace ke škálovacím sadám virtuálních počítačů </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

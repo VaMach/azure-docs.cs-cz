@@ -18,6 +18,7 @@
 ### [Webová aplikace Java](documentdb-java-application.md)
 ### [Webová aplikace Python Flask](documentdb-python-application.md)
 ## [Vývoj v místním prostředí](documentdb-nosql-local-emulator.md)
+### [Export certifikátů emulátoru](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [Nejčastější dotazy](documentdb-faq.md)
 
 # Postup
@@ -41,13 +42,17 @@
 ### [Kvóty prostředků](documentdb-limits.md)
 ### [Zvýšení kvót](documentdb-increase-limits.md)
 ### [Jednotky žádostí](documentdb-request-units.md)
-### [Rozhraní příkazového řádku Azure a Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Vytvoření účtu](documentdb-automation-resource-manager-cli.md)
+#### [Přidání nebo odebrání oblastí](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Podpora brány firewall](documentdb-firewall-support.md)
 ### [Uvedení údajů o účtu](documentdb-supercharge-your-account.md)
 
 ## Vývoj
 ### [Dotaz SQL](documentdb-sql-query.md)
 ### [Uložené procedury, triggery a funkce UDF](documentdb-programming.md)
+### [Sledování změn pomocí kanálu změn](documentdb-change-feed.md)
 ### [Testování výkonu](documentdb-performance-testing.md)
 ### [Tipy pro zvýšení výkonu](documentdb-performance-tips.md)
 ### DocumentDB pro vývojáře MongoDB
@@ -112,6 +117,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
