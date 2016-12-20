@@ -53,8 +53,8 @@
 ### [Pomalé zálohování souborů a složek ve službě Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup)
-## [.NET](/dotnet/api/microsoft.azure.management.backupservices)
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
@@ -63,6 +63,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
