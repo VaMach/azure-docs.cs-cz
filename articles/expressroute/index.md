@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 48de017fea28d3f76097095cfca17fd03ace65b2
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
 
 ---
 #<a name="expressroute-documentation"></a>Dokumentace ke službě ExpressRoute
@@ -69,37 +69,32 @@ Azure ExpressRoute umožňuje rozšířit vaše místní sítě do cloudu Micros
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referenční informace k Azure PowerShellu</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API služby ExpressRoute</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Reference k rozhraní REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Reference k rozhraní REST API (Classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -113,6 +108,6 @@ Stažení dokumentace ke službě ExpressRoute </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
