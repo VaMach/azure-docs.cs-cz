@@ -64,7 +64,7 @@ Ukázka kódu, která je k dispozici [na GitHubu](https://azure.microsoft.com/do
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
