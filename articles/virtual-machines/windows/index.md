@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se vytvářet virtuální počítače s Windows. Dokumentace usnadňuje plánování, nasazení a správu výpočetního prostředí virtuálních počítačů v cloudu."
 translationtype: Human Translation
-ms.sourcegitcommit: cd8dfa8b436cd165b3438a1823a571feebb0f4f4
-ms.openlocfilehash: 0a2b4c08e5da4d9c16e12f33c5f1a3f9ae863498
+ms.sourcegitcommit: 0970a23966dc099fe4d145ddc66f9a73c109e8a1
+ms.openlocfilehash: 1c56e72a39ff0ea47dcda600b61c937691c63dab
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Dokumentace k virtuálním počítačům s Windows
+# <a name="windows-virtual-machines-documentation"></a>Dokumentace k virtuálním počítačům s Windows
 
-Azure Virtual Machines (VM) je jedním z několika typů výpočetních prostředků škálovatelných na vyžádání, které Azure nabízí. Obvykle zvolíte virtuální počítač, když potřebujete větší kontrolu nad výpočetním prostředí, než nabízí jiné možnosti. Virtuální počítač Azure vám nabídne flexibilitu virtualizace bez nutnosti zakoupení a údržby fyzického hardwaru, na kterém běží. A přitom si můžete udržet kontrolu nad konfigurací, aplikováním oprav chyb a instalací softwaru, který na něm běží.
+Naučte se vytvářet virtuální počítače s Windows. Kurzy, reference k rozhraní API a další dokumentace usnadňují plánování, nasazení a správu výpočetního prostředí virtuálních počítačů v cloudu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Stažení dokumentace k virtuálnímu počítači s Windows </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

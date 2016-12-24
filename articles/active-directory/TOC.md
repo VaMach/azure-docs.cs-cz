@@ -66,7 +66,6 @@
 
 #### [Události auditu](active-directory-reporting-audit-events.md)
 #### [Uchování](active-directory-reporting-retention.md)
-#### [Obnovení dat](active-directory-reporting-backfill.md)
 #### [Latence](active-directory-reporting-latencies.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
 ### Vysvětlení sestav
@@ -203,6 +202,7 @@
 #### [Nastavení zásad skupiny](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Nastavení Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Nejčastější dotazy](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Řešení problémů](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrace partnerů s Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Přehled](active-directory-b2b-collaboration-overview.md)
 #### [Jak to funguje](active-directory-b2b-how-it-works.md)
@@ -297,6 +297,6 @@
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

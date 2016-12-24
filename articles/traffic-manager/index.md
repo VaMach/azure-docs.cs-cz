@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se spravovat příchozí provoz s cílem dosažení optimálního výkonu aplikací. Dokumentace ukazuje, jak můžete distribuovat provoz do Azure nebo externích koncových bodů služby."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
+ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
 
 ---
 #<a name="traffic-manager-documentation"></a>Dokumentace ke službě Traffic Manager
 
-Azure Traffic Manager umožňuje řídit distribuci provozu generovaného uživateli pro koncové body služby v různých oblastech. Traffic Manager pomocí DNS (Domain Name System) přesměrovává klientské žádosti na nejvhodnější koncové body na základě vybrané metody směrování provozu a stavu koncových bodů, čímž aplikace dosáhne vyšší dostupnosti a rychlosti odezvy.
+Naučte se používat Traffic Manager ke směrování příchozího provozu s cílem dosažení optimálního výkonu a spolehlivosti aplikací. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete spravovat provoz do Azure nebo externích koncových bodů služby.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,6 +130,6 @@ Stáhnout dokumentaci ke službě Traffic Manager </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

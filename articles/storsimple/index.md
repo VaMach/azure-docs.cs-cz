@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Azure StorSimple, integrované řešení úložiště, které spravuje úlohy úložiště mezi místními zařízeními a úložištěm cloudu Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: 24d70182b209126a71c6a9846136d4d31ab3b7ce
+ms.openlocfilehash: 4eb0e15f1030b4b1e987edc4fc2fa64e302b5851
 
 ---
 #<a name="storsimple-documentation"></a>Dokumentace ke službě StorSimple
 
-StorSimple a Microsoft Azure nabízejí jedinečné a integrované řešení archivace v primárním úložišti a zotavení po havárii, kde Azure funguje jako rozšíření místního úložiště. Další informace o nasazení a správě řešení StorSimple
+Naučte se používat Azure StorSimple, integrované řešení úložiště, které spravuje úlohy úložiště mezi místními zařízeními a úložištěm cloudu Azure. Kurzy a další dokumentace ukazují, jak nastavit správu úložiště, zálohování nezávislé na umístění a zotavení po havárii.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -147,6 +148,6 @@ Stáhnout dokumentaci ke službě StorSimple </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se nastavovat a spravovat úložiště Data Lake ve velkém měřítku, které je kompatibilní s Hadoopem, a přistupovat k němu pro účely analýzy dat libovolné velikosti, typu a rychlosti příjmu."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d26d0f965ad1195ab41e04e870ead1b335ff513e
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Dokumentace ke službě Data Lake Store
 
-Azure Data Lake Store je vysoce škálovatelné úložiště pro analytické úlohy u velkých objemů dat. Azure Data Lake umožňuje zaznamenávat data libovolné velikosti, typu a rychlosti příjmu do jediného místa pro účely provozní a zjišťovací analýzy.  Služba Azure Data Lake Store je přístupná z Hadoop (dostupné s clusterem HDInsight) pomocí scénářů kompatibilních s WebHDFS. Zahrnuje funkce na úrovni vyžadované velkými firmami v oblasti zabezpečení, spravovatelnosti, škálovatelnosti, spolehlivosti a dostupnosti.
+Naučte se použít Data Lake Store k vytvoření úložiště ve velkém měřítku, které je kompatibilní s Hadoopem, pro účely analýzy dat libovolné velikosti, typu a rychlosti příjmu. Kurzy, odkazy na rozhraní API a další dokumentace obsahují informace o tom, jak nastavit a úložiště Data Lake a přistupovat k němu pro účely provozní a zjišťovací analýzy.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -211,6 +212,6 @@ Stáhnout dokumentaci ke službě Azure Data Lake Store </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

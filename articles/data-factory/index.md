@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat službu Data Factory k nastavování automatizovaných datových kanálů do místních a cloudových zdrojů a z nich s cílem přesouvat a zpracovávat data pro analýzu."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 627543dce9888903254875eab218d33029000088
+ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
+ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
 
 ---
 # <a name="azure-data-factory-documentation"></a>Dokumentace ke službě Azure Data Factory
 
-Azure Data Factory je cloudová služba pro integraci dat, která automatizuje pohyb a transformaci dat. Pomocí služby Data Factory můžete vytvářet řešení pro integraci dat, která mohou ingestovat data z různých úložišť, transformovat je a zpracovávat a výsledná data publikovat zpátky do úložišť dat.
+Naučte se používat cloudovou službu pro integraci dat Data Factory k sestavování služeb úložišť dat, přesouvání a zpracování v automatizovaných datových kanálech. V kurzech a další dokumentaci se naučíte nastavit a spravovat datové kanály a také přesouvat a transformovat data pro analýzu.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -86,52 +87,44 @@ Azure Data Factory je cloudová služba pro integraci dat, která automatizuje p
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referenční informace k Azure PowerShellu</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Spravované referenční materiály služby Data Factory</p>
-                    </div>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Referenční informace pro vývojáře řešení založených na Azure Data Factory</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/datafactory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API služby Data Factory – referenční informace</p>
+                        <p><a href="/rest/api/datafactory/">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -147,6 +140,6 @@ Stažení dokumentace ke službě Data Factory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

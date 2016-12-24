@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak můžete porozumět fakturaci Azure a také spravovat a monitorovat využití a náklady. Kurzy, nejčastější dotazy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
+ms.sourcegitcommit: 640915b6305b2865b21937e19c324e8e7f1ba0a7
+ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
 
 ---
 # <a name="azure-billing-documentation"></a>Dokumentace ke službě Azure Billing
 
-Zákazníci a partneři chtějí mít možnost přesně předpovídat a spravovat náklady na Azure. Jak přecházejí z modelu Capex na Opex, potřebují také analýzu s porovnáním metod „showback“ a „chargeback“ a přesnější odhady nákladů, zvláště u velkých cloudových nasazení.
+Zjistěte, jak můžete porozumět fakturaci Azure a monitorovat využití a náklady. Kurzy, nejčastější dotazy, reference k rozhraní API a další dokumentace ukazují, jak můžete spravovat svůj účet.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,6 +110,7 @@ Stažení dokumentace ke službě Billing </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

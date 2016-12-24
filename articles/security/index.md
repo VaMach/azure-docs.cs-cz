@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak můžete přizpůsobit možnosti zabezpečení ve službách Azure, abyste splnili požadavky nasazení služeb a dat v cloudu."
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: 07febed306b53cc62c882f3f7865284e96875bf8
+ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
 
 ---
 # <a name="security-documentation"></a>Dokumentace ke službě Security
 
-Infrastruktura Azure je od zařízení až po aplikace navržena tak, aby umožňovala hostování milionů zákazníků současně a poskytovala důvěryhodný základ pro splnění potřeb zabezpečení jednotlivých podniků. Azure navíc poskytuje širokou škálu konfigurovatelných možností zabezpečení a umožňuje jejich nastavování, takže můžete zabezpečení přizpůsobit jedinečným požadavkům svého nasazení.
+Zjistěte, jak používat Azure Security k ochraně služeb a dat v cloudu. Kurzy a další dokumentace vám pomohou přizpůsobit možnosti zabezpečení ve službách Azure, abyste splnili požadavky nasazení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -114,6 +115,6 @@ Stažení dokumentace ke službě Security </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

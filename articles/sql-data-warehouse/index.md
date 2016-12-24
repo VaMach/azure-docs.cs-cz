@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat službu SQL Data Warehouse, která kombinuje SQL Server s architekturou MPP (Massively Parallel Processing). Dokumentace ukazuje, jak načítat, analyzovat, spravovat a exportovat data."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
+ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
+ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
 
 ---
+
 # <a name="sql-data-warehouse-documentation"></a>Dokumentace ke službě SQL Data Warehouse
 
-Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi cloudového škálování Azure.  Služba SQL Data Warehouse je postavená na architektuře MPP (Massively Parallel Processing), díky které dokáže zpracovávat úlohy vaší organizace.
+Naučte se používat službu SQL Data Warehouse, která relační databázi kombinuje SQL Serveru s architekturou MPP (Massively Parallel Processing). Kurzy a další dokumentace ukazují, jak načítat data do skladu a potom je analyzovat, spravovat a exportovat.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -53,7 +55,8 @@ Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,36 +70,35 @@ Azure SQL Data Warehouse kombinuje relační databázi SQL Server s možnostmi c
 </ul>
 
 ---
-## <a name="reference"></a>Referenční informace
 
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referenční informace k Azure PowerShellu</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Rutiny prostředí PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Referenční informace pro T-SQL</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Omezení kapacity</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">Elementy jazyka T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">Příkazy jazyka T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">Zobrazení systému jazyka T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -110,6 +112,6 @@ Stáhnout dokumentaci ke službě SQL Data Warehouse </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -8,6 +8,7 @@
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
+## [Oprávnění](security-center-permissions.md)
 ## [Nejčastější dotazy](security-center-faq.md)
 
 # Postup
@@ -69,6 +70,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

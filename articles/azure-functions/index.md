@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se vyvíjet a nasazovat funkce v jazyce podle svého výběru a využívat je ke spouštění úloh na pozadí nebo plánování bez speciální infrastruktury."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Dokumentace ke službě Azure Functions
 
-Azure Functions je řešení umožňující snadno spouštět malé kousky kódu („funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Můžete navíc použít jazyk podle vlastní volby, například C#, F#, Node.js, Python nebo PHP.
+Naučte se používat službu Functions k vývoji a nasazování malých částí kódu v jazyce podle vašeho výběru a v cloudu bez nastavování infrastruktury. Kurzy, šablony a další dokumentace ukazují postup při vytváření funkcí pro úlohy, které chcete spouštět ve vlákně na pozadí nebo podle konkrétního plánu.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Stáhnout dokumentaci ke službě Azure Functions </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

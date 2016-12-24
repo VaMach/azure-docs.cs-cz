@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak pomocí Notification Hubs odesílat nabízená oznámení z jakéhokoli back-endu na jakékoli mobilní zařízení. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 54bebbed74b344ff854a83b2b6c4abdb5ba68321
+ms.sourcegitcommit: 0d46d0e04550578a81c636aa118dc02c08428838
+ms.openlocfilehash: 8a4712af44c474cea93f04bf598e6595ba0dadee
 
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentace ke službě Notification Hubs
 
-Služba Azure Notification Hubs poskytuje snadno použitelnou, multiplatformní a horizontálně škálovanou infrastrukturu, která vám umožní odesílat mobilní nabízená oznámení z jakékoli back-endu (cloudového nebo lokálního) na libovolnou mobilní platformu.
-
-S Notification Hubs můžete snadno odesílat multiplatformní a personalizovaná nabízená oznámení, která překrývají rozdíly v detailním nastavení různých systémů oznámení platforem (PNS). Pomocí jednoho volání rozhraní API můžete cílit na jednotlivé uživatele nebo na celé segmenty zahrnující miliony uživatelů, a to na všech jejich zařízeních.
+Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro více platforem k zasílání nabízených oznámení, k rychlému rozesílání milionů zpráv. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavení a odesílání nabízených oznámení z jakéhokoli back-endu na jakékoli mobilní zařízení. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,7 +30,7 @@ S Notification Hubs můžete snadno odesílat multiplatformní a personalizovan�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -160,52 +159,45 @@ S Notification Hubs můžete snadno odesílat multiplatformní a personalizovan�
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Rutiny prostředí PowerShell pro Notification Hubs</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace k rozhraní .NET API pro Notification Hubs</p>
-                    </div>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API pro Notification Hubs</p>
+                        <p><a href="/rest/api/notificationhubs">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
@@ -219,6 +211,6 @@ Stáhnout dokumentaci k Notification Hubs </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

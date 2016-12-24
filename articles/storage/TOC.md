@@ -107,14 +107,49 @@
 ## Přenos dat
 ### [Přesouvání dat do a ze Storage](storage-moving-data.md)
 ### [Nástroj příkazového řádku AzCopy](storage-use-azcopy.md)
-### [Služba Import/export pro Blob Storage](storage-import-export-service.md)
-
+### [S použitím služby importu a exportu](storage-import-export-service.md)
+### [S použitím nástroje pro import a export](storage-import-export-tool-how-to.md)
+#### [ Nastavení nástroje pro import a export](storage-import-export-tool-setup.md)
+#### [Příprava pevných disků pro úlohu importu](storage-import-export-tool-preparing-hard-drives-import.md)
+##### [Nastavení vlastností a metadat během procesu importu](storage-import-export-tool-setting-properties-metadata-import.md)
+##### [Ukázkový pracovní postup pro přípravu pevných disků pro úlohu importu](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+##### [Stručná referenční příručka pro často používané příkazy pro úlohy importu](storage-import-export-tool-quick-reference.md)
+#### [Náhled využití disku pro úlohu exportu](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [Kontrola stavu úlohy s použitím kopií souborů protokolu](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Oprava úlohy importu](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Oprava úlohy exportu](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Řešení potíží s nástrojem pro import a export](storage-import-export-tool-troubleshooting-v1.md)
+#### [Formát souboru manifestu služby importu a exportu](storage-import-export-file-format-manifest.md)
+#### [Formát souborů metadat a vlastností služby importu a exportu](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formát souboru protokolu služby importu a exportu](storage-import-export-file-format-log.md)
+### [S použitím nástroje pro import a export (verze 1)](storage-import-export-tool-how-to-v1.md)
+#### [ Nastavení nástroje pro import a export](storage-import-export-tool-setup-v1.md)
+#### [Příprava pevných disků pro úlohu importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+##### [Nastavení vlastností a metadat během procesu importu](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+##### [Ukázkový pracovní postup pro přípravu pevných disků pro úlohu importu](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+##### [Stručná referenční příručka pro často používané příkazy pro úlohy importu](storage-import-export-tool-quick-reference-v1.md)
+#### [Náhled využití disku pro úlohu exportu](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [Kontrola stavu úlohy s použitím kopií souborů protokolu](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Oprava úlohy importu](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Oprava úlohy exportu](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Řešení potíží s nástrojem pro import a export](storage-import-export-tool-troubleshooting-v1.md)
+#### [Formát souboru manifestu služby importu a exportu](storage-import-export-file-format-manifest.md)
+#### [Formát souborů metadat a vlastností služby importu a exportu](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formát souboru protokolu služby importu a exportu](storage-import-export-file-format-log.md)
+### [S použitím rozhraní API REST služby importu a exportu Azure](storage-import-export-using-the-rest-api.md)
+#### [Vytvoření úlohy importu](storage-import-export-creating-an-import-job.md)
+#### [Vytvoření úlohy exportu](storage-import-export-creating-an-export-job.md)
+#### [Načítání informací o stavu úlohy](storage-import-export-retrieving-state-info-for-a-job.md)
+#### [Vytváření výčtu úloh](storage-import-export-enumerating-jobs.md)
+#### [Rušení a odstraňování úloh](storage-import-export-cancelling-and-deleting-jobs.md)
+#### [Zálohování manifestů jednotek](storage-import-export-backing-up-drive-manifests.md)
+#### [Diagnostika a zotavení z chyb pro úlohy importu a exportu](storage-import-export-diagnostics-and-error-recovery.md)
 # Referenční informace
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Pohyb dat](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Přesuny dat](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
 ### [Objekty blob, tabulky, fronty a soubory](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -123,7 +158,7 @@
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
-## [REST]
+## REST
 ### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Poskytovatel prostředků](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
@@ -166,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

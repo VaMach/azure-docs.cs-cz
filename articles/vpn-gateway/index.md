@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se konfigurovat brány virtuální privátní sítě (VPN) ke správě přenosů dat mezi cloudovými virtuálními sítěmi a místními systémy, nebo mezi cloudovými virtuálními sítěmi."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
 #<a name="vpn-gateway-documentation"></a>Dokumentace služby VPN Gateway
 
-Azure VPN Gateway je brána virtuální privátní sítě (VPN), která slouží ke směrování síťového provozu mezi virtuálními sítěmi Azure a místními umístěními a také mezi virtuálními sítěmi v rámci Azure (VNet-to-VNet).  
+Naučte se konfigurovat VPN Gateway, bránu virtuální privátní sítě. Dokumentace ukazuje, jak můžete posílat síťový provoz mezi virtuálními sítěmi Azure a místními systémy nebo jinými virtuálními sítěmi Azure (VNet).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,78 +123,33 @@ Azure VPN Gateway je brána virtuální privátní sítě (VPN), která slouží
  
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell – reference</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (Classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>VPN Gateway s využitím Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace ke spravovanému rozhraní .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referenční informace k sadě Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API služby VPN Gateway</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (Classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +163,6 @@ Stáhnout dokumentaci ke službě VPN Gateway </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

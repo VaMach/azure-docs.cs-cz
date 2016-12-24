@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se přidávat do vlastních webových nebo mobilních aplikací robustní možnosti vyhledávání. Reference k rozhraním API a další dokumentace."
 translationtype: Human Translation
-ms.sourcegitcommit: 3273e748265fa23efadd010bb5f0bc9ce43223b6
-ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
+ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
+ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
 
 ---
 # <a name="azure-search-documentation"></a>Dokumentace ke službě Azure Search
 
-Služba Azure Search je spravovaná cloudová vyhledávací služba, která vám pomůže do vlastních aplikací zabudovat výkonné hledání a následně prostřednictvím zobrazení portálu monitorovat službu, index a dotazovací aktivity. Mezi klíčové funkce patří škálovatelné fulltextové vyhledávání ve více jazycích, geografické vyhledávání, filtrování a fasetová navigace, našeptávání dotazů, zvýraznění shod a vlastní analyzátory.
+Naučte se přidávat do vlastních webových nebo mobilních aplikací možnosti vyhledávání s použitím spravované cloudové vyhledávací služby Azure Search. V kurzech, referencích k rozhraním API a další dokumentaci najdete informace o tom, jak přidat škálovatelné fulltextové vyhledávání ve více jazycích, geografické vyhledávání, filtrování a fasetovou navigaci, našeptávání dotazů, zvýraznění shod a vlastní analyzátory.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Služba Azure Search je spravovaná cloudová vyhledávací služba, která vám
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=search">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,69 +121,38 @@ Služba Azure Search je spravovaná cloudová vyhledávací služba, která vám
     </li>
 </ul>
 
-
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api/microsoft.azure.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Rozhraní .NET API služby</p>
-                    </div>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">Správa .NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/microsoft.azure.management.search">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Rozhraní .NET API pro správu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/searchservice/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní API služby REST</p>
+                        <p><a href="/rest/api/searchservice">Reference k rozhraní REST API</a></p>
+                        <p><a href="/rest/api/searchmanagement">Reference k rozhraní REST API (správa)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/searchmanagement/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Rozhraní REST API pro správu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
@@ -194,6 +164,6 @@ Stáhnout dokumentaci ke službě Azure Search </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

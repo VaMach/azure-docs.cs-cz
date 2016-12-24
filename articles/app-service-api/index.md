@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak můžete používat API Apps v Azure App Service pro vývoj, hostování a používání rozhraní API v cloudu i místně. Kurzy, videa a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
-ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
-
+ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
+ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
 
 ---
 # <a name="app-service---api-apps-documentation"></a>Dokumentace k App Service – API Apps
 
-API Apps jsou jedním ze čtyř typů aplikací, které nabízí Azure App Service. API Apps v Azure App Service nabízí bohatou sadu funkcí pro vývoj, hostování a používání rozhraní API v cloudu i lokálně. Azure App Service je plně spravovaná platforma pro webové, mobilní a integrační scénáře.
+Naučte se, jak můžete používat API Apps v Azure App Service pro vývoj, hostování a používání rozhraní API v cloudu i místně. Kurzy, videa a další dokumentace ukazují, jak vytvářet a nasazovat aplikace API.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,6 +131,6 @@ Stáhnout dokumentaci k Mobile Apps </div>
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

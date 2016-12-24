@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se využívat službu Event Hubs k ingestování milionů událostí za sekundu z připojených aplikací a zařízení IoT na široké škále platformy."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Dokumentace ke službě Event Hubs
 
-Vysoce škálovatelná služba Event Hubs slouží ke zpracování příchozích dat. Dokáže ingestovat miliony událostí za sekundu a umožňuje zpracovávat a analyzovat masivní objemy dat vytvářených zařízeními a aplikacemi připojenými k vaší síti. Event Hubs slouží jako „vstupní brána“ pro kanál události. Jakmile jsou data shromážděna ve službě Event Hubs, lze je transformovat a ukládat pomocí libovolného zprostředkovatele datové analýzy v reálném čase nebo adaptérů pro dávkování či ukládání.
+Naučte se využívat službu Event Hubs ke shromažďování a správě milionů událostí za sekundu z připojených aplikací a zařízení IoT. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavení škálovatelného ingestování událostí na široké škále platforem.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -125,6 +126,6 @@ Stáhnout dokumentaci ke službě Event Hubs </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

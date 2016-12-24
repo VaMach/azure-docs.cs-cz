@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se využívat službu Content Delivery Network (CDN) k doručování obsahu z globálních datových center do libovolného zařízení. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
+ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
 
 ---
 # <a name="cdn-documentation"></a>Dokumentace ke službě CDN
 
-Azure Content Delivery Network (CDN) poskytuje vývojářům globálně dostupné řešení pro doručování obsahu s vysokým datovým tokem uloženého v Azure nebo na jiném místě.  Pomocí CDN můžete udržovat v mezipaměti veřejně dostupné objekty načítané z úložiště objektů blob v Azure, webové aplikace, virtuálního počítače, složce aplikace nebo jiného umístění dostupného přes protokol HTTP nebo HTTPS.  CDN se obvykle používá k poskytování statického obsahu, jako jsou obrázky, šablony stylů, dokumenty, soubory, skripty na straně klienta a stránky HTML.
+Naučte se využívat službu Content Delivery Network (CDN) k doručování širokopásmového obsahu, který je hostovaný v Azure nebo kdekoli jinde. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy využití CDN k doručování obsahu z globálních datových center do libovolného zařízení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,6 +120,6 @@ Stáhnout dokumentaci ke službě Azure CDN </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

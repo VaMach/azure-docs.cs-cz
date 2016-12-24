@@ -55,12 +55,15 @@
 ### [Sledování změn pomocí kanálu změn](documentdb-change-feed.md)
 ### [Testování výkonu](documentdb-performance-testing.md)
 ### [Tipy pro zvýšení výkonu](documentdb-performance-tips.md)
-### DocumentDB pro vývojáře MongoDB
-#### [Podpora protokolů pro MongoDB](documentdb-protocol-mongodb.md)
-#### [Vytvoření účtu](documentdb-create-mongodb-account.md)
-#### [Připojení k účtu](documentdb-connect-mongodb-account.md)
-#### [Použití MongoChef](documentdb-mongodb-mongochef.md)
-#### [Ukázky podpory protokolů](documentdb-mongodb-samples.md)
+
+## Použití podpory DocumentDB pro MongoDB
+### [Podpora protokolů pro MongoDB](documentdb-protocol-mongodb.md)
+### [Vytvoření účtu](documentdb-create-mongodb-account.md)
+### [Připojení k účtu](documentdb-connect-mongodb-account.md)
+### [Migrace dat](documentdb-mongodb-migrate.md)
+### [Použití Robomongo](documentdb-mongodb-robomongo.md)
+### [Použití MongoChef](documentdb-mongodb-mongochef.md)
+### [Ukázky podpory protokolů](documentdb-mongodb-samples.md)
 
 ## Použití portálu
 ### [Vytvoření účtu databáze](documentdb-create-account.md)
@@ -117,6 +120,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
