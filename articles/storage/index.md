@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Azure Storage – úložiště pro objekty blob, tabulky, fronty, soubory a disky virtuálních počítačů v cloudu. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
-ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
-#<a name="storage-documentation"></a>Dokumentace ke službě Storage
 
-Azure Storage je řešení cloudového úložiště pro moderní aplikace, které se opírají o odolnost, dostupnost a škálovatelnost, aby mohly vyhovět potřebám zákazníků.  Jde o vysoce škálovatelné, elastické, globálně dostupné řešení, které automaticky rozděluje datovou zátěž podle aktuálního provozu.  Azure Storage nabízí pro potřeby aplikací tyto čtyři typy úložišť: Blob Storage, Table Storage, Queue Storage, Disk Storage a File Storage.
+# <a name="storage-documentation"></a>Dokumentace ke službě Storage
+
+Zjistěte, jak používat Azure Storage, službu cloudového úložiště, která je odolná, dostupná a škálovatelná. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete nastavit a spravovat úložiště pro objekty blob, tabulky, fronty, soubory a disky virtuálních počítačů.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,91 +87,56 @@ Azure Storage je řešení cloudového úložiště pro moderní aplikace, kter�
 </ul>
 
 ---
-
-## <a name="reference"></a>Referenční informace
-
+ 
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/storage">PowerShell</a></p>
+                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/storage">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Referenční materiály ke službě Storage s využitím Azure CLI</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Pohyb dat</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Objekty blob, tabulky, fronty a soubory</a></p>
+                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
+                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
+                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referenční materiály ke službě Storage v Javě</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt347887">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Rozhraní API pro spravované referenční materiály služby Storage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storageservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Storage</p>
-                    </div>
+                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: Import/export</a></p>
+                        <p><a href="/rest/api/storagerp">REST: Poskytovatel prostředků</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
-        <a href="/rest/api/storagerp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>REST API pro poskytovatele prostředků úložiště – referenční informace</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
 </ul>
 
 <div class="downloadHolder">
@@ -182,6 +149,6 @@ Stáhnout dokumentaci ke službě Storage </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

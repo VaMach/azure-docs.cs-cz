@@ -44,7 +44,7 @@
 ##### [Schéma Media Encoderu Standard](media-services-mes-schema.md)
 ##### [Vstupní metadata](media-services-input-metadata-schema.md)
 ##### [Výstupní metadata](media-services-output-metadata-schema.md)
-#### Přednastavení MES 
+#### [Přednastavení MES](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -134,8 +134,8 @@
 ### [Zpracování pomocí technologie Hyperlapse](media-services-hyperlapse-content.md)
 ### [Zpracování pomocí detektoru obličejů](media-services-face-and-emotion-detection.md)
 ### [Zpracování pomocí detektoru pohybu](media-services-motion-detection.md)
-### [Zpracování pomocí Face Redaction](media-services-face-redaction.md)
-#### [Názorný postup rozmazání obličejů](media-services-redactor-walkthrough.md)
+### [Zpracování pomocí Face Redactoru](media-services-face-redaction.md)
+#### [Názorný postup práce s Face Redactorem](media-services-redactor-walkthrough.md)
 ### [Zpracování pomocí miniatur videí](media-services-video-summarization.md)
 ### [Zpracování pomocí technologie OCR](media-services-video-optical-character-recognition.md)
 
@@ -207,6 +207,6 @@
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

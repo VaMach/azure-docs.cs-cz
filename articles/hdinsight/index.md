@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Hadoop v HDInsightu. Z dokumentace se dozvíte, jak pomocí Hadoopu, Sparku, HBase, R-Serveru a dalších technologií zpracovávat, analyzovat a zkoumat velké objemy dat."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 28b6ebfae16a5c2e119fc4f1af0dcee6a348d47f
+ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
+ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Dokumentace ke službě HDInsight
 
-Azure HDInsight je distribuce Apache Hadoopu vytvořená pro cloud.  Azure HDInsight zpřístupňuje součásti platformy Hadoop z distribuce platformy Hortonworks Data Platform (HDP) dostupné v cloudu a nasazuje a zřizuje spravované clustery se zvýšenou spolehlivostí a dostupností.  Azure HDInsight poskytuje konfigurace clusterů pro Apache Hadoop, Spark, HBase nebo Storm.  Můžete také přizpůsobit clustery pomocí skriptových akcí.  
+Naučte se používat Hadoop v cloudu v HDInsight pro analýzu streamování nebo historických dat. V kurzech a další dokumentaci se dozvíte, jak vytvářet clustery, zpracovávat a analyzovat velké objemy dat a vyvíjet řešení s použitím Hadoopu, Sparku, HBase, R-Serveru, Stormu a dalších technologií v ekosystému Hadoop.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -176,6 +177,6 @@ Stáhnout dokumentaci ke službě HDInsight </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

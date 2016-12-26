@@ -19,6 +19,7 @@
 ## [Připojení aplikace logiky k řešení vzdáleného monitorování](iot-suite-logic-apps-tutorial.md)
 ## [Přizpůsobení předkonfigurovaného řešení](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Použití dynamické telemetrie s řešením vzdáleného monitorování](iot-suite-dynamic-telemetry.md)
+## [Vytvoření vlastního pravidla v řešení vzdáleného monitorování](iot-suite-custom-rule.md)
 ## [Informace o zařízení v řešení vzdáleného monitorování](iot-suite-remote-monitoring-device-info.md)
 
 # Referenční informace
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

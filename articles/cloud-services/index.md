@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Kurzy, reference k rozhraní API a další dokumentace ukazují, jak využívat Cloud Services k hostování a spouštění vysoce dostupných a škálovatelných cloudových aplikací a rozhraní API."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
 # <a name="cloud-services-documentation"></a>Dokumentace ke službě Cloud Services
 
-Služba Cloud Services je příkladem implementace platformy jako služby (PaaS). Je navržena tak, aby podporovala aplikace, které jsou škálovatelné a spolehlivé a jejichž provoz je nákladově efektivní. Cloud Services přináší výhody virtualizace, ale nabízí i kontrolu nad virtuálními počítači, pokud jde o konfiguraci, opravy a instalaci softwaru.  
+Naučte se používat Cloud Services k hostování a spouštění vysoce dostupných škálovatelných cloudových aplikací a rozhraní API.  Kurzy, reference k rozhraní API a další dokumentace ukazují, jak spravovat hostitele virtuálních počítačů a konfigurovat, opravovat a instalovat software.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +126,6 @@ Stažení dokumentace ke službě Cloud Services </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

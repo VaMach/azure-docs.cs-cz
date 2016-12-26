@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 334d7391368509385dfc6c18ae1353d27faf7600
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
@@ -58,7 +58,7 @@ V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte n
 
     **Odpověď HTTP**: vrácený kód stavu, který se počítá jako úspěšný. 200 je kód, který označuje, že byla vrácena normální webová stránka.
 
-    **Shoda obsahu**: řetězec, například „Vítejte!“ Testujeme, zda se vyskytuje v každé odpovědi. Musí být prostý řetězec bez zástupných znaků. Nezapomeňte, že pokud se obsah vaší stránka změní, bude pravděpodobně nutné jej aktualizovat.
+    **Shoda obsahu**: řetězec, například „Vítejte!“ U každé odpovědi testujeme výskyt přesné shody (s rozlišováním velkých a malých písmen). Musí být prostý řetězec bez zástupných znaků. Nezapomeňte, že pokud se obsah vaší stránka změní, bude pravděpodobně nutné jej aktualizovat.
 * **Výstrahy** jsou ve výchozím nastavení odesílány, pokud se vyskytnou selhání ve třech umístěních po dobu delší než pět minut. Selhání v jednom umístění bude pravděpodobně problém se sítí a nejedná se o problém s webem. Ale můžete změnit prahovou hodnotu na citlivější nebo méně citlivou a můžete také změnit, komu mají být e-maily zasílány.
 
     Můžete nastavit [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán, když je vydána výstraha. (Všimněte si, že v současné době parametry dotazu neprocházejí jako vlastnosti.)
@@ -279,21 +279,21 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Další kroky
-[Vyhledávání diagnostických protokolů][diagnostika]
+[Prohledávání diagnostických protokolů][diagnostic]
 
-[Poradce při potížích][qna].
+[Řešení potíží][qna]
 
 [IP adresy webových testovacích agentů](app-insights-ip-addresses.md)
 
 <!--Link references-->
 
-[dostupnost-azure]: ../insights-create-web-tests.md
-[diagnostika]: app-insights-diagnostic-search.md
+[azure-availability]: ../insights-create-web-tests.md
+[diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -9,6 +9,9 @@
       - name: "Připojení"
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
+      - name: "Stav připojení"
+        tocHref: /azure/active-directory/connect-health/
+        topicHref: /azure/active-directory/connect-health/
       - name: "Vývoj"
         tocHref: /azure/active-directory/develop/
         topicHref: azure/active-directory/develop/

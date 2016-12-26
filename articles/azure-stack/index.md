@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Azure Stack Preview k doručování služeb Azure z vašeho datového centra. Podívejte se na předvedení funkcí z prostředí pro testování konceptu."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Dokumentace ke službě Azure Stack
 
-Microsoft Azure Stack je nová hybridní cloudová platforma, která vám umožní poskytovat služby Azure z datového centra vaší organizace. Verze Microsoft Azure Stack Technical Preview 2 je zpřístupněná prostřednictvím POC (Proof of Concept, testování konceptu). POC je prostředí pro seznámení s funkcemi Azure Stack a jejich předvedení. Umožňuje nasadit všechny požadované komponenty v jednom fyzickém počítači a vytvořit prostředí pro vyhodnocení klíčových konceptů a možností a ověření modelu rozšiřitelnosti pro rozhraní API.
+Naučte se používat Azure Stack Technical Preview k doručování služeb Azure z datového centra vaší organizace. Kurzy a další dokumentace ukazují, jak využít prostředí pro testování konceptu k předvedení funkcí Azure Stack a jejich výuce.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Stáhnout dokumentaci ke službě Azure Stack </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

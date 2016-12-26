@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Maximální počet eDTU na databázi | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>Limity elastického fondu úrovně Standard (pokračování) **
+### <a name="standard-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Standard (pokračování) 
 
 | Velikost fondu (v eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Maximální počet eDTU na databázi | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>Limity elastického fondu úrovně Premium (pokračování) **
+### <a name="premium-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Premium (pokračování) 
 
 | Velikost fondu (v eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -72,9 +72,8 @@ sql-database-service-tiers.md
 
 \* Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
 
-\** Velikost fondu 3000 eDTU pro elastický fond Standard a 4000 eDTU pro elastický fond Premium je v současnosti dostupná jenom prostřednictvím PowerShellu a REST API. Tyto velikosti fondů budou brzy dostupné i na webu Azure Portal. 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak nastavit katalog dat, jehož prostřednictvím může organizace najít, pochopit a využívat zdroje dat. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
+ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
 
 ---
 #<a name="data-catalog-documentation"></a>Dokumentace ke službě Data Catalog
 
-Azure Data Catalog je plně spravovaná cloudová služba, která umožňuje uživatelům zjišťovat zdroje dat, které potřebují a pochopit zdroje dat, které naleznou. Zároveň pomáhá organizacím získat větší hodnotu z jejich stávajících investic. Data Catalog poskytuje možnosti, které umožní každému uživateli – od analytiků přes vědce zabývající se zpracováním dat po vývojáře – zjišťovat, pochopit a využívat zdroje dat. Data Catalog dat obsahuje crowdsourcingový model metadat a poznámek a umožňuje všem uživatelům přispět svými znalostmi k vybudování komunity a kultury dat.
+Zjistěte, jak použít službu Data Catalog, jejímž prostřednictvím může vaše organizace a váš tým najít, pochopit a využívat zdroje dat. Kurzy, reference k rozhraní REST API a další dokumentace ukazují, jak plánovat a vytvářet úložiště dat, ve kterém spotřebitelé dat mohou zjistit dostupné zdroje dat a získat znalosti, kterými přispěli odborníci na danou oblast.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,6 +76,7 @@ Stažení dokumentace ke službě Data Catalog </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

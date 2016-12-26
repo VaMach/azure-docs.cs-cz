@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat služby monitorování a diagnostiky ke sledování výkonu, správě zabezpečení a rozpoznávání trendů. Reference k rozhraní API, osvědčené postupy a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 086574639b31ee82ab72efbc93d58af735524a1b
-ms.openlocfilehash: b03565feb98f18d2a90d72e154901baf0dd89df0
+ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
+ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Dokumentace ke službě Monitoring and Diagnostics
 
-Monitoring and Diagnostics je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb a zaměřující se na problematiku vývoje a správy cloudových aplikací.  Monitoring and Diagnostics představuje novou generaci platforem middlewaru pro vytváření a správu těchto podnikových cloudových aplikací 1. úrovně.
+Naučte se používat služby monitorování a diagnostiky Azure ke sledování výkonu, správě zabezpečení a rozpoznávání trendů. Kurzy, reference k rozhraní API, osvědčené postupy a další dokumentace vám pomůžou pochopit, jakým způsobem využívat monitorování a diagnostiku a jak plánovat a nasazovat škálovatelná a spolehlivá řešení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,66 +106,45 @@ Monitoring and Diagnostics je platforma distribuovaných systémů usnadňujíc�
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Rutiny PowerShellu pro monitorování a diagnostiku</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI pro monitorování a diagnostiku</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn802153">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Spravované referenční materiály služby Monitoring and Diagnostics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn931943">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Monitoring and Diagnostics</p>
+                        <p><a href="/rest/api/monitor/">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
@@ -175,6 +155,7 @@ Stažení dokumentace ke službě Monitoring and Diagnostics </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

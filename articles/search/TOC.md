@@ -69,7 +69,7 @@
 # Zdroje a prostředky
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
 ## Rozhraní API služby Search
-##X [Verze rozhraní API](search-api-versions.md)
+## [Verze rozhraní API](search-api-versions.md)
 ## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## Ukázkové weby
@@ -87,6 +87,6 @@
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

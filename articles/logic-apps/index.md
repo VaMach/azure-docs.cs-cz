@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se vyvíjet aplikace logiky, které automatizují a zjednodušují obchodní pracovní postupy v místě i v cloudu. Kurzy, šablony a reference k rozhraní API"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 87c52e5ee76ed7848061315de8c8ba8a36b0d349
+ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
+ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
 
 ---
 # <a name="logic-apps-documentation"></a>Dokumentace ke službě Logic Apps
 
-Služba Logic Apps je návrhářský nástroj pro modelování a automatizaci procesů do pracovních postupů. Existuje mnoho cloudových i lokálních konektorů, které můžete rychle integrovat do všech služeb a protokolů. Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.
+Naučte se vyvíjet Logic Apps, které zjednodušují a integrují škálovatelné pracovní postupy v cloudu. Kurzy, šablony a reference k rozhraní API vám pomůžou navrhovat a nasazovat automatizované obchodní pracovní postupy v místě i v cloudu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -154,6 +155,7 @@ Stažení dokumentace ke službě Logic Apps </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

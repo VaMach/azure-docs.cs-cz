@@ -10,11 +10,11 @@
 
 # Začínáme
 ## [Začínáme s Hadoopem](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Začínáme s interaktivním Hivem ve verzi Preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Začínáme s R Serverem](hdinsight-hadoop-r-server-get-started.md)
 ## [Začínáme se Sparkem](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Začínáme s HBase a NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Začínáme s interaktivním Hivem ve verzi Preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Začínáme s Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Izolovaný prostor (sandbox) systému Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Nástroje služby Data Lake s Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
@@ -224,6 +224,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

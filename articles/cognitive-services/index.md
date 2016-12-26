@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Přečtěte si, jak aplikace obohatit o inteligentní funkce, jako jsou vidění, řeč nebo jazyková analýza. Získejte úvodní příručky a reference k rozhraní API."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: f59bb52f11334d93bbc6cf655b7f790a58a3ebfd
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Dokumentace ke službě Cognitive Services
 
-Služba Cognitive Services (Preview) poskytuje řadu rozhraní API, které je možné využít k zajištění přirozené a kontextové interakce v rámci vašich aplikací.  Služba Cognitive Services nabízí rozhraní API pro zpracování obrazu, jazyka a řeči a pro vyhledávání a také rozhraní Knowledge API.
+Zjistěte, jak ve vašich aplikacích zprovoznit pomocí Cognitive Services přirozené a kontextové interakce. Úvodní kurzy a reference k rozhraní API pomáhají začlenit funkce umělé inteligence pro text, řeč, vidění a hledání. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -68,52 +69,31 @@ Služba Cognitive Services (Preview) poskytuje řadu rozhraní API, které je mo
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referenční informace k Azure PowerShellu</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Spravované referenční materiály služby Cognitive Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API služby Cognitive Services</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -127,6 +107,6 @@ Stažení dokumentace ke službě Cognitive Services </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

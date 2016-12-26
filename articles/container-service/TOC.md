@@ -17,8 +17,13 @@
 ### [Monitorování pomocí služby OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitorování pomocí služby Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitorování pomocí služby Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## [Správa pomocí Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Monitorování s Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+## Správa pomocí Kubernetes
+### [Začínáme s Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Interakce s webovým uživatelským rozhraním Kubernetes](container-service-kubernetes-ui.md)
 ## [Správa pomocí Dockeru Swarm](container-service-docker-swarm.md)
+### [Docker a Docker Compose](container-service-docker-swarm.md)
+### [Kontinuální integrace Dockeru Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
@@ -29,6 +34,6 @@
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
