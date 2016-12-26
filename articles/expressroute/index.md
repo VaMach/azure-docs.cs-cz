@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak můžete konfigurovat a spravovat privátní připojení ExpressRoute ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
+ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
 
 ---
 #<a name="expressroute-documentation"></a>Dokumentace ke službě ExpressRoute
 
-Azure ExpressRoute umožňuje rozšířit vaše místní sítě do cloudu Microsoftu přes vyhrazené soukromé připojení zajišťované poskytovatelem připojení. Co se týká připojení, může se jednat o síť typu any-to-any (IP VPN), síť Ethernet typu point-to-point nebo virtuální křížové připojení prostřednictvím poskytovatele připojení ve společném umístění.
-
+Naučte se, jak můžete použít ExpressRoute k nastavení rychlého privátního připojení ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení. Kurzy, rozhraní REST API a další dokumentace vám pomůžou konfigurovat a spravovat okruh ExpressRoute.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -108,6 +108,6 @@ Stažení dokumentace ke službě ExpressRoute </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

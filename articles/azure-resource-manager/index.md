@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se využívat Resource Manager k nasazování a správě prostředků řešení ve formě skupiny a k vytváření šablon pro konzistentní a opakovatelné nasazování prostředků."
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a7b6655d2314b198706177f1adaf1b88eb135307
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Dokumentace ke službě Azure Resource Manager
 
-Infrastrukturu aplikace obvykle tvoří celá řada komponent, může to být třeba virtuální počítač, účet úložiště a virtuální síť nebo webová aplikace, databáze, databázový server a služby jiných výrobců. Tyto komponenty nevidíte jako samostatné entity, ale jako související a vzájemně provázané části jedné entity. Chcete je nasadit, spravovat a monitorovat jako skupinu. Azure Resource Manager umožňuje pracovat s prostředky ve vašem řešení jako se skupinou. Všechny prostředky pro vaše řešení můžete nasadit, aktualizovat nebo odstranit v rámci jediné koordinované operace. Pro nasazení použijete šablonu a tato šablona může fungovat v různých prostředích, jako například v testovacím, přípravném nebo produkčním prostředí. Resource Manager poskytuje funkce zabezpečení, auditování a označování, které vám po nasazení pomohou prostředky spravovat.
+Naučte se využívat Resource Manager k nasazování, monitorování a správě prostředků řešení ve formě skupiny. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavování skupin prostředků a vytváření šablon pro konzistentní a opakovatelné nasazování.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,7 @@ Stáhnout dokumentaci ke službě Azure Resource Manager </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Pomocí dokumentace k Backupu se naučíte zálohovat do cloudu. Prohlédněte si kurzy a videa pro aplikaci, server Windows a zálohování virtuálních počítačů Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
+ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
+ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
 
 ---
 #<a name="backup-documentation"></a>Dokumentace ke službě Backup
 
-Azure Backup je cloudová služba, kterou můžete využívat k zálohování (nebo ochraně) a obnovování vašich dat v cloudu Microsoftu.  Azure Backup nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením.  
+Naučte se používat Azure Backup k ochraně dat pro dlouhodobé uchování a obnovení v cloudu. Kurzy, videa a další dokumentaci ukazují, jak můžete zálohovat data, aplikace, servery Windows a virtuální počítače Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -103,40 +104,34 @@ Azure Backup je cloudová služba, kterou můžete využívat k zálohování (n
 </ul>
 
 ---
-
-## <a name="reference"></a>Referenční informace
-
+ 
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace ke spravovanému rozhraní .NET</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/recoveryservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Backup</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
@@ -148,6 +143,6 @@ Stáhnout dokumentaci ke službě Azure Backup </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

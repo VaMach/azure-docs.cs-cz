@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se vytvářet a spravovat registry kontejnerů pro ukládání imagí nasazení pomocí spravované služby registru Dockeru. Kurzy, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Dokumentace k Azure Container Registry
 
-Azure Container Registry (Preview) je privátní registr pro hostování kontejnerových imagí. Pomocí Azure Container Registry můžete ukládat image ve formátu Dockeru pro všechny typy kontejnerových nasazení. Azure Container Registry se dobře integruje s orchestrátory hostovanými v Azure Container Service, mezi které patří Docker Swarm, DC/OS a Kubernetes. 
+Naučte se používat registr kontejneru k ukládání a správě imagí pro všechny typy kontejnerových nasazení. Kurzy, reference k rozhraní REST API a další dokumentace ukazují, jak vytvářet a spravovat kontejnerové registry pomocí této spravované služby registru Dockeru.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ Azure Container Registry (Preview) je privátní registr pro hostování kontejn
 </ul>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

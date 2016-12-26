@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Naučte se vytvářet, nasazovat a spravovat virtuální počítače s Windows nebo Linuxem. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: fc2fb1a52416e5743476a2fc4e57956b602a1689
 
 ---
-#<a name="virtual-machines-documentation"></a>Dokumentace k Virtual Machines
+# <a name="virtual-machines-documentation"></a>Dokumentace k Virtual Machines
 
-Virtuální počítač Azure vám nabídne flexibilitu virtualizace bez nutnosti zakoupení a údržby fyzického hardwaru, na kterém virtuální počítač běží. Nevyhnete se ale údržbě virtuálního počítače (tzn. konfiguraci, aplikování oprav chyb a údržbě softwaru, který na tomto virtuálním počítači běží).
+Naučte se vytvářet virtuální počítače Azure. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete vytvářet a nasazovat virtuální počítače s Windows a Linuxem, jakož i komplexní šablony virtuálních počítačů.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,6 +60,6 @@ Stáhnout dokumentaci ke službě Virtual Machines </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

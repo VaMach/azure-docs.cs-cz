@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
@@ -30,15 +30,15 @@ V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provád�
 * Vytvoření logického SQL serveru Azure
 * Zobrazení vlastností logického SQL serveru Azure
 * Vytvoření pravidla brány firewall na úrovni serveru
-* Vytvoření ukázkové databáze Adventure Works LT
+* Vytvoření ukázkové databáze Adventure Works LT jako izolované databáze
 * Zobrazení vlastností ukázkové databáze Adventure Works LT v Azure
 
 V tomto kurzu můžete také využít nejnovější verzi aplikace SQL Server Management Studio pro:
 
 * Připojení k logickému serveru a jeho hlavní databázi
-* Zobrazení vlastností hlavní databáze
+* Dotaz na hlavní databázi
 * Připojení k ukázkové databázi
-* Zobrazení vlastností uživatelské databáze
+* Dotaz na ukázkovou databázi
 
 Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databázi, která je spuštěná ve skupině prostředků Azure a připojená k logickému serveru. Dál budete mít nakonfigurované pravidlo brány firewall na úrovni serveru, které objektu zabezpečení na úrovni serveru umožňuje přihlášení k serveru ze zadaná IP adresy (nebo rozsahu IP adres). 
 
@@ -208,7 +208,7 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
     ![Přihlašovací údaje serveru](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Databázi je možné na server přidat jako izolovanou databázi (to je výchozí nastavení) nebo do elastického fondu SQL. Další informace o elastických fondech najdete v části věnované [elastickým fondům](sql-database-elastic-pool.md).
+    > Databázi je možné na server přidat jako izolovanou databázi (to je výchozí nastavení), nebo do elastického fondu. Další informace o elastických fondech najdete v části věnované [elastickým fondům](sql-database-elastic-pool.md).
     >
 
 7. V části Cenová úroveň změňte cenovou úroveň na **Basic**. (Cenovou úroveň můžete zvýšit v případě potřeby později, ale pro účely výuky doporučujeme využít nejnižší úroveň.)
@@ -299,11 +299,13 @@ Tento kurz jste nyní dokončili, ale k dispozici je celá řada dalších kurz�
 * Pokud chcete začít vytvářet tabulky a další objekty, přečtěte si v článku [Vytvoření tabulky](https://msdn.microsoft.com/library/ms365315.aspx) téma věnované postupu při vytváření tabulek.
 
 ## <a name="additional-resources"></a>Další zdroje
-[Co je SQL Database?](sql-database-technical-overview.md)
+
+- Technický přehled najdete v tématu [Co je SQL Database?](sql-database-technical-overview.md).
+- Informace o cenách najdete v tématu [Ceny Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

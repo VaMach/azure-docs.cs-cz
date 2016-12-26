@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat SQL Database, databázi jako službu v cloudu. Kurzy, videa a další dokumentace ukazují, jak můžete nastavit, připojit a spravovat relační databázi."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
 
 ---
 
 # <a name="sql-database-documentation"></a>Dokumentace ke službě SQL Database
 
-Azure SQL Database je cloudová relační databázová služba schopná obsloužit i kriticky důležité aplikace, založená na produktu Microsoft SQL Server. Nabízí předvídatelný výkon, škálovatelnost bez přerušení provozu, kontinuitu podnikových procesů a ochranu dat – to vše s minimální nutností správy. Protože je služba SQL Database založena na databázovém stroji SQL Server, podporuje stávající nástroje, knihovny a rozhraní API což usnadňuje přesunutí a rozšíření do cloudu.
+Naučte se používat SQL Database, relační databázi jako službu v cloudu, která je založená na stroji Microsoft SQL Serveru. Kurzy, videa a další dokumentace ukazují, jak můžete nastavit, připojit a spravovat databázi SQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -162,6 +163,6 @@ Stáhnout dokumentaci ke službě SQL Database </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

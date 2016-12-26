@@ -1,22 +1,25 @@
-
 ---
-title: Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty | Microsoft Docs
-description: Vyzkoušejte funkce Azure RemoteAppu bez instalace služby.
+title: "Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty | Dokumentace Microsoftu"
+description: "Vyzkoušejte funkce Azure RemoteAppu bez instalace služby."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 95e9fb49-78bb-4797-8d66-aeb42d00f208
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+
 
 ---
-# Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
 > [!IMPORTANT]
 > Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -40,6 +43,9 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

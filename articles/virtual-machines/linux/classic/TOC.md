@@ -52,7 +52,7 @@
 ### [Webová aplikace pomocí sady Visual Studio](../../virtual-machines-linux-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Cluster s přímým přístupem do paměti vzdáleného počítače (RDMA) pro spouštění aplikací MPI](../../virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Jak používat podřízený plugin Azure s Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Jak používat podřízený plugin Azure s Jenkins](../../virtual-machines-azure-slave-plugin-for-jenkins.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
 
 ## Sada HPC Pack
 ### [Cluster Windows RDMA pro spouštění aplikací MPI](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -83,6 +83,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

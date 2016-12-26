@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat middlewarovou platformu Service Fabric k balení a nasazování mikroslužeb pro aplikace s rozsahem cloudu. Kurzy, reference k rozhraní API a ukázky kódu"
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Dokumentace k platformě Service Fabric
 
-Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb. Service Fabric se taky zaměřuje na problematiku vývoje a správy cloudových aplikací. Vývojáři a správci se můžou vyhnout problémům se složitou infrastrukturou a místo toho se soustředit na implementaci zásadních a náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné. 
+Naučte se používat Service Fabric k balení, nasazování a správě škálovatelných a spolehlivých mikroslužeb. Kurzy, reference k rozhraní API a ukázky kódu ukazují, jak použít tuto middlewarovou platformu k vytváření a správě aplikací s rozsahem cloudu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Stáhnout dokumentaci k platformě Service Fabric </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

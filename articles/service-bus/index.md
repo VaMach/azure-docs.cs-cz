@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak nastavit až zasílání zpráv, které spojuje aplikace a služby mezi místními i cloudovými prostředí.  Kurzy, videa, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
+ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
 
 ---
 #<a name="service-bus-documentation"></a>Dokumentace ke službě Service Bus
 
-Service Bus poskytuje cloudovou komunikaci s podnikovým zasíláním zpráv a předávanou komunikaci, která umožňuje propojení místních řešení s cloudem. 
+Naučte se používat Service Bus k připojení mezi místními i cloudovými prostředí. Kurzy, videa, reference k rozhraní API a další dokumentace ukazují, jak můžete nastavit zasílání zpráv cloudu mezi aplikacemi a službami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -244,6 +245,6 @@ Stáhnout dokumentaci ke službě Service Bus </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

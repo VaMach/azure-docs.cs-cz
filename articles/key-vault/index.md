@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se využívat službu Key Vault k vytváření a správě klíčů, kterí zajišťují přístup k vašim cloudovým prostředků, aplikacím a řešením a jejich šifrování. Kurzy, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: 017bbfb8485a7e449157e4ddb05149b5e1cc393f
+ms.openlocfilehash: ae529bdad36eeddb959ac4b0ad5c9ccffc3ac30a
 
 ---
 # <a name="key-vault-documentation"></a>Dokumentace ke službě Key Vault
 
-Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče používané cloudovými aplikacemi a službami. Pomocí Key Vault můžete šifrovat klíče a tajné klíče (např. ověřovací klíče, klíče účtu úložiště, šifrovací klíče dat, soubory PFX a hesla) pomocí klíčů chráněných moduly hardwarového zabezpečení (HSM). Pro zvýšené bezpečí můžete klíče importovat nebo generovat v modulech HSM.
+Naučte se využívat službu Azure Key Vault k ochraně kryptografických a tajných klíčů používaných cloudovými aplikacemi a službami. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy vytváření a správy klíčů, které umožňují přístup k vašim prostředkům a řešením a jejich šifrování.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,6 +161,6 @@ Dokumentace pro službu Key Vault ke stažení </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Scheduler k plánování a vyvolávání úloh, jako jsou například opakující se akce aplikace a běžná údržba. Kurzy, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7ab6ecc4f1193245e9778d8a92bb2a5591edfff5
+ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
+ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
 
 ---
 # <a name="scheduler-documentation"></a>Dokumentace ke službě Scheduler
 
-Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet v cloudu.  Potom naplánuje a automaticky spustí tyto akce.  Scheduler pak udržuje historii výsledků provedení úloh, která se dá zobrazit.
+Naučte se používat Scheduler k plánování a automatickému vyvolávání opakujících se úloh v cloudu. Kurzy, reference k rozhraní API a další dokumentace vám ukáží, jak můžete plánovat a monitorovat úlohy, jako jsou například opakující se akce aplikace a běžná údržba.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,52 +69,33 @@ Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Rutiny PowerShellu pro Azure Scheduler</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Spravované referenční materiály služby Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Rozhraní REST API služby Scheduler</p>
+                        <p><a href="/rest/api/scheduler">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
@@ -124,6 +106,7 @@ Stažení dokumentace ke službě Scheduler </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

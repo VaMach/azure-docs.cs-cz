@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se spravovat svoje záznamy DNS pomocí služby Azure Domain Name System. Dokumentace ukazuje, jak nastavit a spravovat zóny DNS a záznamy pro názvy domén."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
+ms.sourcegitcommit: 1e30c21b967e9862ae24907ac5db56a341c11cf5
+ms.openlocfilehash: a0110b01879360e4558dffed6343da1ef72cfe86
 
 ---
 # <a name="dns-documentation"></a>Dokumentace ke službě DNS
 
-Služba Azure DNS (Domain Name System) je určená pro domény DNS a zajišťuje překlad názvů s využitím infrastruktury Microsoft Azure.  Pokud svoje domény hostujete v Azure, můžete spravovat svoje DNS záznamy pomocí stejných přihlašovacích údajů, rozhraní API a nástrojů a za stejných fakturačních podmínek jako u ostatních služeb Azure.
+Naučte se spravovat svoje záznamy DNS pomocí hostující služby Azure Domain Name System. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak nastavit a spravovat zóny DNS a záznamy pro názvy domén.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Stažení dokumentace ke službě DNS </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

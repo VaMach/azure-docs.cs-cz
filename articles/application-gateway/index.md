@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se nasadit cloudový kontroler doručování aplikací. V dokumentaci je uvedeno, jak nastavit směrování na úrovni aplikace a vyrovnávání zatížení pro webový front-end."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 3bf27e3ba3e53aa2f06a078b81fff18fc449bc1c
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Dokumentace ke službě Application Gateway
 
-Azure Application Gateway přináší řadič pro poskytování aplikací (ADC) jako službu.  Umožňuje zákazníkům optimalizovat produktivitu webové farmy tím, že se ukončování protokolu SSL, které je náročné na CPU, přesměruje na aplikační bránu.  Jde o vyhrazené virtuální zařízení pro vaši aplikaci, které zajišťuje škálovatelnost a vysokou dostupnost a zároveň nabízí bohatou sadou nástrojů diagnostiky a protokolování pro lepší možnosti správy.
+Naučte se nasadit kontroler doručování aplikací (ADC) Application Gateway jako službu. Kurzy, reference k rozhraním API a další dokumentace obsahují informace o tom, jak nastavit směrování na úrovni aplikace a vyrovnávání zatížení, což vám umožňuje vytvořit škálovatelný a vysoce dostupný webový front-end.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Application Gateway přináší řadič pro poskytování aplikací (ADC) 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,15 +113,15 @@ Azure Application Gateway přináší řadič pro poskytování aplikací (ADC) 
                 <div class="card">
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
-                        <p><a href="/powershell/resourcemanager">Rutiny prostředí PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 Preview</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -136,13 +137,13 @@ Azure Application Gateway přináší řadič pro poskytování aplikací (ADC) 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Rozhraní REST API Classic</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">Reference k rozhraní REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Reference k rozhraní REST API (Classic)</a></p>
                     </div>
                 </div>
             </div>
@@ -160,6 +161,6 @@ Stažení dokumentace ke službě Application Gateway </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

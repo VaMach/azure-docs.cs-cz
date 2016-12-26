@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat Load Balancer pro síťový výkon aplikací. Spravujte provoz pro virtuální počítače a cloudové prostředky a také ve virtuálních sítích na více místech."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
+ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
 
 ---
 #<a name="load-balancer-documentation"></a>Dokumentace k nástroji pro vyrovnávání zatížení
 
-Azure Load Balancer zajišťuje vysokou dostupnost a výkon sítě pro vaše aplikace.  Load Balancer se dá nakonfigurovat tak, aby sledoval příchozí přenosy z Internetu k virtuálním počítačům, provoz mezi cloudovými prostředky, provoz ve virtuální síti mezi jednotlivými místy podniku nebo externí přenosy pro konkrétní virtuální počítač.
+Naučte se konfigurovat Load Balancer k zajištění vysoké dostupnosti a síťového výkonu pro vaše aplikace. Dokumentace ukazuje, jak vyrovnávat zatížení provozu z a do virtuálních počítačů a cloudových prostředků a také ve virtuálních sítích na více místech.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Stáhnout dokumentaci k nástroji pro vyrovnávání zatížení </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
