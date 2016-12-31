@@ -3,7 +3,7 @@ title: "Správa kontejnerů v Azure Container Service přes rozhraní REST API |
 description: "Do clusteru Azure Container Service Mesos můžete nasadit kontejnery pomocí rozhraní Marathon REST API."
 services: container-service
 documentationcenter: 
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
+ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
 
 
 ---
@@ -33,7 +33,7 @@ I když jsou pro mnoho populárních úloh k dispozici rozhraní, tento dokument
 Až se připojíte ke clusteru Azure Container Service, budete mít na DC/OS a související rozhraní REST API přístup přes adresu http://localhost:local-port. Příklady v tomto dokumentu předpokládají, že máte k dispozici tunel na portu 80. Například koncový bod Marathonu je k dispozici na adrese `http://localhost/marathon/v2/`. Další informace o různých rozhraních API najdete v dokumentaci Mesosphere pro rozhraní [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) a [Chronos API](https://mesos.github.io/chronos/docs/api.html) a v dokumentaci Apache pro rozhraní [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Získání informací z DC/OS a Marathonu
-Než do clusteru DC/OS nasadíte kontejnery, zjistěte si určité informace o clusteru DC/OS, například názvy a aktuální stav agentů DC/OS. To provedete tak, že zašlete dotaz na koncový bod `master/slaves` rozhraní REST API DC/OS. Pokud všechno proběhne správně, uvidíte seznam agentů DC/OS a u každého z nich několik vlastností.
+Než do clusteru DC/OS nasadíte kontejnery, zjistěte si určité informace o clusteru DC/OS, například názvy a aktuální stav agentů DC/OS. To provedete tak, že zašlete dotaz na koncový bod `master/slaves` rozhraní REST API DC/OS. Pokud všechno proběhne správně, dotaz vrátí seznam agentů DC/OS a u každého z nich několik vlastností.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -47,8 +47,8 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Nasazení kontejneru formátovaného Dockerem
-Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON, který popisuje zamýšlené nasazení. Následující ukázka nasadí kontejner Nginx a sváže port 80 agenta DC/OS s portem 80 kontejneru. Kromě toho si všimněte, že vlastnost acceptedResourceRoles je nastavena na slave_public. Kontejner se tak nasadí do agenta v sadě škálování veřejně přístupných agentů.
+## <a name="deploy-a-docker-formatted-container"></a>Nasazení kontejneru formátovaného Dockerem
+Kontejnery formátované Dockerem nasadíte přes Marathon pomocí souboru JSON, který popisuje zamýšlené nasazení. Následující ukázka nasadí kontejner Nginx a sváže port 80 agenta DC/OS s portem 80 kontejneru. Kromě toho si všimněte, že vlastnost acceptedResourceRoles je nastavena na slave_public. Kontejner se tak nasadí do agenta ve škálovací sadě veřejně přístupných agentů.
 
 ```json
 {
@@ -100,7 +100,7 @@ Rozhraní Marathon API je možné použít i k nasazením aplikací se škálov�
 Spusťte následující příkaz, kterým se zahájí škálování aplikace na více systémů.
 
 > [!NOTE]
-> Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> Identifikátor URI je http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -108,7 +108,7 @@ Spusťte následující příkaz, kterým se zahájí škálování aplikace na 
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Nakonec pošlete na koncový bod Marathon dotaz na aplikace. Nyní uvidíte, že tam jsou tři nové kontejnery Nginx.
+Nakonec pošlete na koncový bod Marathon dotaz na aplikace. Vidíte, že tam jsou nyní tři kontejnery Nginx.
 
 ```
 curl localhost/marathon/v2/apps
@@ -159,7 +159,7 @@ Rozhraní Marathon API je možné použít i k nasazením aplikací se škálov�
 Spusťte následující příkaz, kterým se zahájí škálování aplikace na více systémů.
 
 > [!NOTE]
-> Identifikátor URI bude http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
+> Identifikátor URI je http://localhost/marathon/v2/apps/ a pak ID aplikace, která se bude škálovat. Pokud používáte ukázku Nginx, která je zde k dispozici, identifikátor URI by byl http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,145 +1,159 @@
 ---
-title: Cloud business continuity - database recovery - SQL Database | Microsoft Docs
-description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
-keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
+title: "Provozní kontinuita v cloudu – obnovení databází – SQL Database | Dokumentace Microsoftu"
+description: "Zjistěte, jak Azure SQL Database podporuje provozní kontinuitu v cloudu a obnovení databází a jak pomáhá udržovat klíčové cloudové aplikace v chodu."
+keywords: "provozní kontinuita, provozní kontinuita v cloudu, zotavení databáze po havárii, obnovení databáze"
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
+documentationcenter: 
+author: anosov1960
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/20/2016
-ms.author: carlrab
+ms.date: 10/13/2016
+ms.author: carlrab;sashan
+translationtype: Human Translation
+ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
+ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+
 
 ---
-# Overview of business continuity with Azure SQL Database
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
+# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Přehled provozní kontinuity se službou Azure SQL Database
+Tento přehled popisuje možnosti, které služba Azure SQL Database nabízí pro zajištění provozní kontinuity a zotavení po havárii. Poskytuje možnosti, doporučení a kurzy pro zotavení z ničivých událostí, které mohou způsobit ztrátu dat nebo nedostupnost databáze a aplikace. Zabývá se i tím, co dělat v případě, kdy chyba uživatele nebo aplikace ovlivňuje integritu dat, když dojde k výpadku oblasti Azure nebo když aplikace vyžaduje údržbu. 
 
-## SQL Database features that you can use to provide business continuity
-SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
+## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>Funkce služby SQL Database, pomocí kterých můžete zajistit provozní kontinuitu
+SQL Database poskytuje řadu funkcí provozní kontinuity, včetně automatizovaných záloh a volitelné replikace databáze. Každá má jiné vlastnosti ohledně odhadovaného času obnovení (ERT) a potenciální ztráty dat posledních transakcí. Jakmile tyto možnosti pochopíte, můžete si mezi nimi vybírat a ve většině scénářů je spolu kombinovat a používat pro různé scénáře. Při vývoji plánu provozní kontinuity musíte pochopit maximální přijatelnou dobu úplného obnovení aplikace po ničivé události – to je vaše plánovaná doba obnovení (RTO). Musíte také porozumět maximálnímu množství posledních aktualizací dat (časový interval), jejichž ztrátu může aplikace tolerovat při obnovení po ničivé události – cíl bodu obnovení (RPO). 
 
-The following table compares the ERT and RPO for the three most common scenarios.
+Následující tabulka porovnává ERT a RPO pro tři nejběžnější scénáře.
 
-| Capability | Basic tier | Standard tier | Premium tier |
+| Schopnost | Úroveň Basic | Úroveň Standard | Úroveň Premium |
 | --- | --- | --- | --- |
-| Point in Time Restore from backup |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |
-| Geo-Restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
-| Active Geo-Replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
+| Obnovení k určitému bodu v čase ze zálohy |Libovolný bod obnovení do 7 dní |Libovolný bod obnovení do 35 dní |Libovolný bod obnovení do 35 dní |
+| Geografické obnovení z geograficky replikovaných záloh |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |
+| Obnovení z úložiště záloh Azure Backup Vault |ERT < 12 h, RPO < 1 týden |ERT < 12 h, RPO < 1 týden |ERT < 12 h, RPO < 1 týden |
+| Aktivní geografická replikace |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
-### Use database backups to recover a database
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
+### <a name="use-database-backups-to-recover-a-database"></a>Obnovení databáze pomocí záloh databáze
+SQL Database automaticky provádí kombinaci zálohování úplné databáze každý týden, rozdílového zálohování databáze každou hodinu a zálohování protokolů transakcí každých pět minut, čímž pomáhá chránit vaši firmu před ztrátou dat. Tyto zálohy se uchovávají v místně redundantním úložišti po dobu 35 dní pro databáze v úrovních služby Standard a Premium, a po dobu 7 dní pro databáze v úrovni služby Basic – další podrobnosti o úrovních služeb najdete v článku o [úrovních služeb](sql-database-service-tiers.md). Pokud doba uchovávání vaší úrovně služby nevyhovuje požadavkům vaší organizace, můžete dobu uchovávání prodloužit [změnou úrovně služby](sql-database-scale-up.md). Pro zajištění ochrany před výpadkem datového centra se úplné a rozdílové zálohy databáze také replikují do [spárovaného datového centra](../best-practices-availability-paired-regions.md). Další podrobnosti najdete v článku o [automatickém zálohování databáze](sql-database-automated-backups.md).
 
-You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
+Pokud předdefinovaná doba uchovávání není pro vaši aplikaci dostatečná, můžete ji prodloužit konfigurací zásad dlouhodobého uchovávání pro vaše databáze. Další informace najdete v tématu [Dlouhodobé uchovávání](sql-database-long-term-retention.md). 
 
-> [!IMPORTANT]
-> To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
-> 
-> 
-
-Use automated backups as your business continuity and recovery mechanism if your application:
-
-* Is not considered mission critical.
-* Doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
-* Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss. 
-* Is cost sensitive. 
-
-If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database regularly to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md). 
-
-### Use Active Geo-Replication to reduce recovery time and limit data loss associated with a recovery
-In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
-
-If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users experience a small amount of downtime and need to reconnect. 
+Tyto automatické zálohy databáze můžete použít k obnovení databáze po různých ničivých událostech, a to jak v rámci vašeho datového centra, tak do jiného datového centra. Při použití automatických záloh databáze závisí odhadovaný čas obnovení na několika faktorech. Patří mezi ně celkový počet obnovovaných databází ve stejném regionu a ve stejnou dobu, velikost databáze, velikost protokolu transakcí a šířka pásma sítě. Ve většině případů čas obnovení nepřekročí 12 hodin. Při obnovování do jiné oblasti dat je potenciální ztráta dat omezena na 1 hodinu díky geograficky redundantnímu úložišti s rozdílovými zálohami prováděnými každou hodinu. 
 
 > [!IMPORTANT]
-> To use Active Geo-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
+> Pokud chcete provést obnovení pomocí automatizovaného zálohování, musíte být členem role Přispěvatel SQL Serveru nebo vlastník předplatného – viz [RBAC: Předdefinované role](../active-directory/role-based-access-built-in-roles.md). Obnovení můžete provést pomocí webu Azure Portal, prostředí PowerShell nebo rozhraní REST API. Nelze použít jazyk Transact-SQL.
 > 
 > 
 
-Use Active Geo-Replication if your application meets any of these criteria:
+Automatizované zálohování použijte pro zajištění provozní kontinuity a jako mechanismus obnovení, pokud vaše aplikace:
 
-* Is mission critical.
-* Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
-* Downtime will result in financial liability.
-* Has a high rate of data change is high and losing an hour of data is not acceptable.
-* The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
+* Není považována za klíčovou.
+* Nemá zavazující smlouvu SLA, a proto 24hodinový nebo delší výpadek nebude mít za následek finanční závazky.
+* Pracuje s nízkou mírou změn dat (málo transakcí za hodinu) a ztráta změn provedených během až jedné hodiny je přijatelnou ztrátou dat. 
+* Je citlivá na změny nákladů. 
 
-## Recover a database after a user or application error
-*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 
+Pokud potřebujete rychlejší obnovení, použijte [aktivní geografickou replikaci](sql-database-geo-replication-overview.md) (věnujeme se jí níže). Pokud potřebujete mít možnost obnovit data z období staršího než 35 dní, zvažte pravidelné zálohování databáze do souboru bacpac (komprimovaný soubor, který obsahuje schéma databáze a příslušná data) uloženého v Azure Blob Storage nebo v jiném umístění, které si zvolíte. Další informace o tom, jak vytvořit transakčně konzistentní archiv databáze, najdete v tématech [Vytvoření kopie databáze](sql-database-copy.md) a [export kopie databáze](sql-database-export.md). 
 
-In this scenario, these are your recovery options.
+### <a name="use-active-geo-replication-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Zkrácení času obnovení a omezení ztráty dat spojené s obnovením pomocí aktivní geografické replikace
+Kromě používání záloh databáze k obnovení databáze v případě narušení provozu můžete pomocí [aktivní geografické replikace](sql-database-geo-replication-overview.md) nakonfigurovat databázi, aby měla až čtyři sekundární databáze pro čtení v oblastech podle vašeho výběru. Tyto sekundární databáze jsou synchronizovány s primární databází pomocí mechanismu asynchronní replikace. Tato funkce slouží k ochraně před narušením provozu v případě výpadku datového centra nebo během upgradu aplikace. Aktivní geografickou replikaci můžete použít také k zajištění lepšího výkonu dotazů jen pro čtení pro uživatele rozptýlené v různých geografických umístěních.
 
-### Perform a point-in-time restore
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
-
-For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
-
-### Restore a deleted database
-If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
-
-For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
+Pokud primární databáze neočekávaně přejde do režimu offline nebo je třeba ji do režimu offline převést z důvodu údržby, můžete sekundární databázi rychle povýšit na primární databázi (tomu se také říká převzetí služeb při selhání) a nakonfigurovat aplikace, aby se připojovaly k nové primární databázi. U plánovaného převzetí služeb při selhání nedojde ke ztrátě dat. V případě neplánovaného převzetí služeb při selhání může kvůli povaze asynchronní replikace dojít ke ztrátě menšího množství dat u posledních transakcí. Po převzetí služeb při selhání můžete později provést navrácení služeb po obnovení – buď podle plánu, nebo když se datové centrum vrátí do režimu online. Ve všech případech se uživatelé setkají s krátkým výpadkem a budou se muset znovu připojit. 
 
 > [!IMPORTANT]
-> If the logical server is deleted, you cannot recover a deleted database. 
+> Pokud chcete použít aktivní geografickou replikaci, musíte být vlastníkem předplatného nebo musíte mít oprávnění správce na SQL Serveru. Konfigurovat a provádět převzetí služeb při selhání můžete pomocí webu Azure Portal, prostředí PowerShell nebo rozhraní REST API s použitím oprávnění k předplatnému nebo pomocí jazyka Transact-SQL s použitím oprávnění v rámci SQL Serveru.
 > 
 > 
 
-### Import from a database archive
-If the data loss occurred outside the current retention period for automated backups and you have been archiving the database, you can [Import an archived BACPAC file](sql-database-import.md) to a new database. At this point, you can either replace the original database with the imported database or copy the needed data from the imported data into the original database. 
+Aktivní geografickou replikaci použijte v případě, že vaše aplikace splňuje některá z těchto kritérií:
 
-## Recover a database to another region from an Azure regional data center outage
+* Je zvlášť důležitá.
+* Má smlouvu SLA, která nepovoluje výpadek delší než 24 hodin.
+* Výpadek bude mít za následek finanční závazky.
+* Pracuje s vysokou mírou změn dat a ztráta dat za jednu hodinu je nepřijatelná.
+* Další náklady na aktivní geografickou replikaci jsou nižší než potenciální finanční závazky a související ztráta podnikání.
+
+## <a name="recover-a-database-after-a-user-or-application-error"></a>Obnovení databáze po chybě uživatele nebo aplikace
+* Nikdo není dokonalý! Uživatel může omylem odstranit některá data, nedopatřením smazat důležitou tabulku nebo dokonce smazat celou databázi. Nebo může aplikace kvůli vadě náhodou přepsat dobrá data chybnými daty. 
+
+V takovém scénáři máte následující možnosti obnovení.
+
+### <a name="perform-a-point-in-time-restore"></a>Obnovení k určitému bodu v čase
+Pomocí automatizovaného zálohování můžete obnovit kopii databáze do známého bodu v čase, kdy byla v pořádku, za předpokladu, že čas spadá do doby uchovávání databáze. Po obnovení databáze můžete původní databázi nahradit obnovenou databází nebo zkopírovat potřebná data z obnovené databáze do původní databáze. Pokud databáze používá aktivní geografickou replikaci, doporučujeme zkopírovat požadovaná data z obnovené kopie do původní databáze. Pokud původní databázi nahradíte obnovenou databází, budete muset překonfigurovat a znovu synchronizovat aktivní geografickou replikaci (to může u velkých databází trvat poměrně dlouho). 
+
+Další informace a podrobné pokyny k obnovení databáze do určitého bodu v čase pomocí webu Azure Portal nebo prostředí PowerShell najdete v části [Obnovení k určitému bodu v čase](sql-database-recovery-using-backups.md#point-in-time-restore). Obnovení nelze provést pomocí jazyka Transact-SQL.
+
+### <a name="restore-a-deleted-database"></a>Obnovení odstraněné databáze
+Pokud se odstraní databáze, ale neodstraní se logický server, můžete odstraněnou databázi obnovit do bodu, kdy byla odstraněna. Tak se záloha databáze obnoví do stejného logického serveru SQL, ze kterého byla odstraněna. Můžete ji obnovit s použitím původního názvu nebo pro obnovenou databázi zadat nový název.
+
+Další informace a podrobné pokyny k obnovení odstraněné databáze pomocí webu Azure Portal nebo prostředí PowerShell najdete v části [Obnovení odstraněné databáze](sql-database-recovery-using-backups.md#deleted-database-restore). Obnovení nelze provést pomocí jazyka Transact-SQL.
+
+> [!IMPORTANT]
+> Pokud byl odstraněn logický server, není možné obnovit odstraněnou databázi. 
+> 
+> 
+
+### <a name="restore-from-azure-backup-vault"></a>Obnovení z úložiště záloh Azure Backup Vault
+Pokud došlo ke ztrátě dat mimo aktuální dobu uchovávání pro automatizované zálohování a databáze je nakonfigurovaná pro dlouhodobé uchovávání, můžete ji obnovit z týdenní zálohy v úložišti záloh Azure Backup Vault do nové databáze. V tuto chvíli můžete původní databázi nahradit obnovenou databází nebo zkopírovat potřebná data z obnovené databáze do původní databáze. Pokud potřebujete načíst starší verzi databáze před upgradem hlavní aplikace nebo kvůli vyhovění požadavku auditorů nebo soudnímu příkazu, můžete vytvořit novou databázi pomocí úplné zálohy uložené v úložišti záloh Azure Backup Vault.  Další informace najdete v tématu [Dlouhodobé uchovávání](sql-database-long-term-retention.md).
+
+## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Obnovení databáze do jiné oblasti po výpadku regionálního datového centra Azure
 <!-- Explain this scenario -->
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+Přestože je taková situace výjimečná, i u datového centra Azure může dojít k výpadku. Při výpadku dojde k narušení provozu, které může trvat jen několik minut nebo až několik hodin. 
 
-* One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
-* Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover takes only a few seconds, while recovery from backups takes hours.
+* Jednou z možností je počkat, až výpadek skončí a databáze se vrátí do režimu online. Tento postup funguje pro aplikace, které si mohou dovolit mít databázi v režimu offline. Například vývojový projekt nebo bezplatná zkušební verze, na které nemusíte neustále pracovat. Když dojde k výpadku datového centra, nikdy nevíte, jak dlouho bude trvat, proto tato možnost funguje pouze pokud databázi nějakou dobu nepotřebujete.
+* Další možností převzetí služeb při selhání do jiné oblasti dat, pokud používáte aktivní geografickou replikaci, nebo obnovení pomocí geograficky redundantních záloh databáze (geografické obnovení). Převzetí služeb při selhání trvá jenom pár sekund, zatímco obnovení ze záloh trvá hodiny.
 
-When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Když přijmete opatření, bude doba obnovení a množství ztracených dat v případě výpadku datového centra záviset na tom, jak se rozhodnete využít ve své aplikaci funkce provozní kontinuity popsané výše. Samozřejmě se podle požadavků vaší aplikace můžete rozhodnout pro použití kombinace záloh databáze a aktivní geografické replikace. Diskuzi o aspektech návrhu aplikací pro samostatné databáze a pro elastické fondy pomocí těchto funkcí provozní kontinuity najdete v tématech [Návrh aplikace pro zotavení po havárii cloudu](sql-database-designing-cloud-solutions-for-disaster-recovery.md) a [Strategie zotavení po havárii elastických fondů](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
+Následující části poskytují přehled postupů k obnovení pomocí záloh databáze nebo aktivní geografické replikace. Podrobné pokyny, včetně požadavků na plánování, postupů po obnovení a informací o simulaci výpadku pro vyzkoušení postupu zotavení po havárii, najdete v tématu [Obnovení služby SQL Database po výpadku](sql-database-disaster-recovery.md).
 
-### Prepare for an outage
-Regardless of the business continuity feature you use, you must:
+### <a name="prepare-for-an-outage"></a>Příprava na výpadek
+Bez ohledu na funkce provozní kontinuity, které používáte, musíte:
 
-* Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
-* Determine how to redirect clients and client applications to the new server
-* Document other dependencies, such as auditing settings and alerts 
+* Určit a připravit cílový server, včetně pravidel brány firewall na úrovni serveru, přihlášení a oprávnění na úrovni hlavní databáze
+* Určit, jak přesměrovat klienty a klientské aplikace na nový server
+* Zdokumentovat další závislosti, například nastavení auditování a výstrahy 
 
-If you do not plan and prepare properly, bringing your applications online after a failover or a recovery takes additional time and likely also require troubleshooting at a time of stress - a bad combination.
+Pokud si vše pečlivě nenaplánujete a nepřipravíte, může převod aplikací do režimu online po obnovení nebo převzetí služeb při selhání trvat déle. Navíc pravděpodobně bude vyžadovat řešení potíží ve vypjaté situaci, a to není dobrá kombinace.
 
-### Failover to a geo-replicated secondary database
-If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
-
-> [!NOTE]
-> When the data center comes back online, you can failback to the original primary (or not).
-> 
-> 
-
-### Perform a Geo-Restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. 
+### <a name="failover-to-a-geo-replicated-secondary-database"></a>Převzetí služeb při selhání do geograficky replikované sekundární databáze
+Pokud používáte jako mechanismus obnovení aktivní geografickou replikaci, [vynuťte převzetí služeb při selhání do geograficky replikované sekundární databáze](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Během několika sekund se sekundární databáze povýší a stane se z ní nová primární databáze připravená zaznamenávat nové transakce a reagovat na všechny dotazy – pouze se ztrátou dat, která se nestihla replikovat v posledních sekundách. Informace o automatizaci procesu převzetí služeb při selhání najdete v tématu [Návrh aplikace pro zotavení po havárii cloudu](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> If the data center comes back online before you switch your application over to the recovered database, you can simply cancel the recovery.  
+> Když se datové centrum vrátí do režimu online, můžete provést navrácení služeb po obnovení do původní databáze (nebo nemusíte).
 > 
 > 
 
-### Perform post failover / recovery tasks
-After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
+### <a name="perform-a-geo-restore"></a>Provedení geografického obnovení
+Pokud používáte jako mechanismus obnovení automatizované zálohování s replikací geograficky redundantního úložiště, [zahajte obnovení databáze pomocí geografického obnovení](sql-database-disaster-recovery.md#recover-using-geo-restore). K obnovení obvykle dojde během 12 hodin – se ztrátou dat až za jednu hodinu v závislosti na času pořízení a replikace poslední hodinové rozdílové zálohy. Dokud se obnovení nedokončí, databáze není schopná zaznamenávat žádné transakce ani reagovat na dotazy. 
 
-* Redirect clients and client applications to the new server and restored database
-* Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
-* Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
-* Configure auditing, as appropriate
-* Configure alerts, as appropriate
+> [!NOTE]
+> Pokud datové centrum přejde do režimu online předtím, než svoji aplikaci přepnete na obnovenou databázi, můžete obnovení jednoduše zrušit.  
+> 
+> 
 
-## Upgrade an application with minimal downtime
-Sometimes an application needs to be taken offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path in the event something goes wrong. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
+### <a name="perform-post-failover--recovery-tasks"></a>Provedení úloh po převzetí služeb při selhání nebo obnovení
+Po obnovení s použitím libovolného mechanismu musíte provést následující dodatečné úlohy, abyste pro uživatele zprovoznili své aplikace:
 
-## Next steps
-For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Přesměrujte klienty a klientské aplikace na nový server a obnovenou databázi.
+* Ujistěte se, že platí odpovídající pravidla brány firewall na úrovni serveru, aby se uživatelé mohli připojit (nebo použijte [brány firewall na úrovni databáze](sql-database-firewall-configure.md#creating-database-level-firewall-rules)).
+* Ujistěte se, že se používají odpovídající přihlášení a oprávnění na úrovni hlavní databáze (nebo použijte [obsažené uživatelé](https://msdn.microsoft.com/library/ff929188.aspx))
+* Podle potřeby nakonfigurujte auditování.
+* Podle potřeby nakonfigurujte výstrahy.
+
+## <a name="upgrade-an-application-with-minimal-downtime"></a>Upgrade aplikace s minimálními výpadky
+Někdy je třeba aplikaci převést do režimu offline kvůli plánované údržbě, jako je upgrade aplikace. Téma [Správa upgradů aplikací](sql-database-manage-application-rolling-upgrade.md) popisuje, jak pomocí aktivní geografické replikace povolit postupné upgrady cloudových aplikací a snížit tak dobu výpadku během upgradů na minimum a zároveň zajistit cestu k obnovení v případě, že dojde k chybě. Tento článek se zabývá dvěma různými způsoby orchestrace procesu upgradu a popisuje výhody i nevýhody obou možností.
+
+## <a name="next-steps"></a>Další kroky
+Diskuzi o aspektech návrhu aplikací pro samostatné databáze a pro elastické fondy najdete v tématech [Návrh aplikace pro zotavení po havárii cloudu](sql-database-designing-cloud-solutions-for-disaster-recovery.md) a [Strategie zotavení po havárii elastických fondů](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+
+
+
+<!--HONumber=Dec16_HO2-->
+
 

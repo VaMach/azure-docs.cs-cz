@@ -3,8 +3,8 @@ title: "Úvod do Storage | Dokumentace Microsoftu"
 description: "Přehled Azure Storage, online úložiště v cloudu od Microsoftu. Naučte se, jak řešení cloudových úložišť co nejlépe využít ve svých aplikacích."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
-ms.openlocfilehash: 3149797c078764fa54c488e8498790ea91d1a1b1
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Azure Premium Storage nabízí podporu vysoce výkonných disků s nízkou laten
 * Konfigurační dat pro cloudové aplikace
 * Velké objemy dat, jako jsou protokoly a další velké datové sady
 
-Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí praktický způsob přiřazení zásad zabezpečení skupinám objektů. Účet úložiště může obsahovat libovolný počet kontejnerů a kontejner může obsahovat libovolný počet objektů blob až do limitu kapacity úložiště 500 TB.  
+Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí praktický způsob přiřazení zásad zabezpečení skupinám objektů. Účet úložiště může obsahovat libovolný počet kontejnerů a kontejner může obsahovat libovolný počet objektů blob až do limitu kapacity úložiště 500 TB.
 
 Úložiště Blob nabízí tři typy objektů blob – objekty blob bloku, doplňovací objekty blob a objekty blob stránky (disky).
 
@@ -104,7 +104,7 @@ Při navrhování aplikací pro škálování ve větším měřítku jsou jedno
 ## <a name="file-storage"></a>File Storage
 Azure File Storage nabízí cloudové sdílené složky SMB, takže můžete rychle a bez nákladných přepisů migrovat starší aplikace, které spoléhají na sdílené složky, do Azure. S úložištěm Azure File můžou aplikace běžící v cloudových službách nebo virtuálních počítačích Azure připojit sdílenou složku v cloudu stejným způsobem, jako desktopová aplikace připojí typickou sdílenou složku SMB. Potom může sdílenou složku File Storage připojit a používat libovolný počet aplikací.
 
-Protože je sdílená složka File Storage standardní sdílnou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
+Protože je sdílená složka File Storage standardní sdílenou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes rozhraní API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
 
 Podobně jako ostatní služby úložiště Azure i úložiště File zpřístupňuje rozhraní REST API pro přístup k datům ve sdílené složce. Lokální aplikace můžou zavolat REST API úložiště File a získat přístup k datům ve sdílené složce. Podnik tak má možnost třeba migrovat některé starší aplikace na Azure a ostatní aplikace nechat běžet ze své organizace. Všimněte si, že připojení sdílené složky je možné jen pro aplikace, které běží v Azure. Lokální aplikace má ke sdílené složce možný přístup jen přes REST API.
 
@@ -128,32 +128,32 @@ Další informace o sdílených přístupových podpisech najdete v tématu [Pou
 ## <a name="replication-for-durability-and-high-availability"></a>Replikace pro odolnost a vysokou dostupnost
 Data na vašem účtu Microsoft Azure Storage se vždy replikují, aby byla zajištěna jejich stálost a vysoká dostupnost. Replikace zkopíruje data, a to buď v rámci stejného datového centra, nebo do druhého datového centra (v závislosti na možnosti replikace, kterou zvolíte). Replikace chrání vaše data a udrží vaše aplikace v provozu v případě krátkodobého selhání hardwaru. Pokud se vaše data replikují do druhého datového centra, jsou také chráněná proti závažnému selhání v primární lokalitě.
 
-Replikace zajišťuje, že váš účet úložiště splňuje [smlouvu o úrovni služeb (SLA) pro Storage](https://azure.microsoft.com/support/legal/sla/storage/) i při selhání. Podívejte se do smlouvy SLA na informace o zárukách služby Azure Storage na stálost a dostupnost. 
+Replikace zajišťuje, že váš účet úložiště splňuje [smlouvu o úrovni služeb (SLA) pro Storage](https://azure.microsoft.com/support/legal/sla/storage/) i při selhání. Podívejte se do smlouvy SLA na informace o zárukách služby Azure Storage na stálost a dostupnost.
 
-Při vytvoření účtu úložiště si můžete vybrat jednu z těchto možností replikace:  
+Při vytvoření účtu úložiště si můžete vybrat jednu z těchto možností replikace:
 
-* **Místně redundantní úložiště (LRS):** Místně redundantní úložiště udržuje tři kopie dat. LRS se replikuje třikrát v rámci jednoho datového centra v jedné oblasti. LRS chrání vaše data před běžnými výpadky hardwaru, ale ne před výpadkem celého datového centra.  
-  
+* **Místně redundantní úložiště (LRS):** Místně redundantní úložiště udržuje tři kopie dat. LRS se replikuje třikrát v rámci jednoho datového centra v jedné oblasti. LRS chrání vaše data před běžnými výpadky hardwaru, ale ne před výpadkem celého datového centra.
+
     LRS se nabízí se slevou. Pro maximální odolnost doporučujeme použít geograficky redundantní úložiště popsané dole.
-* **Zónově redundantní úložiště (ZRS):** Zónově redundantní úložiště udržuje tři kopie dat. ZRS se replikuje třikrát v rámci dvou nebo tří zařízení buďto v jedné oblasti nebo v rámci dvou oblastí, a nabízí tak větší odolnost LRS. ZRS zajistí, aby vaše data byla odolná v jedné oblasti.  
-  
-    ZRS poskytuje větší odolnost než LRS, ale pro maximální odolnost doporučujeme použít geograficky redundantní úložiště popsané dole.  
-  
+* **Zónově redundantní úložiště (ZRS):** Zónově redundantní úložiště udržuje tři kopie dat. ZRS se replikuje třikrát v rámci dvou nebo tří zařízení buďto v jedné oblasti nebo v rámci dvou oblastí, a nabízí tak větší odolnost LRS. ZRS zajistí, aby vaše data byla odolná v jedné oblasti.
+
+    ZRS poskytuje větší odolnost než LRS, ale pro maximální odolnost doporučujeme použít geograficky redundantní úložiště popsané dole.
+
   > [!NOTE]
   > ZRS je aktuálně dostupné jen pro objekty blob bloku a podporuje se od verze 2014-02-14.
-  > 
+  >
   > Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS.
-  > 
-  > 
+  >
+  >
 * **Geograficky redundantní úložiště (GRS):** GRS udržuje šest kopií dat. S GRS data se replikují třikrát v rámci primární oblasti a třikrát v sekundární oblasti stovky kilometrů od primární oblasti, takže poskytuje nejvyšší úroveň odolnosti. V případě výpadku primární oblasti převezme služby sekundární oblast. GRS zajistí, aby vaše data byla odolná ve dvou oblastech.
-  
+
     Informace o primárních a sekundárních párech podle oblastí najdete v článku [Oblasti Azure](https://azure.microsoft.com/regions/).
-* **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS):** Geograficky redundantní úložiště s přístupem pro čtení replikuje data do sekundárního geografického umístění a v sekundárním umístění poskytne k datům přístup pro čtení. Geograficky redundantní úložiště s přístupem pro čtení vám umožní přistupovat k datům z primárního nebo sekundárního umístění pro případ, že bude jedno umístění nedostupné. Při vytváření účtu úložiště je geograficky redundantní úložiště s přístupem pro čtení výchozí volbou. 
-  
+* **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS):** Geograficky redundantní úložiště s přístupem pro čtení replikuje data do sekundárního geografického umístění a v sekundárním umístění poskytne k datům přístup pro čtení. Geograficky redundantní úložiště s přístupem pro čtení vám umožní přistupovat k datům z primárního nebo sekundárního umístění pro případ, že bude jedno umístění nedostupné. Při vytváření účtu úložiště je geograficky redundantní úložiště s přístupem pro čtení výchozí volbou.
+
   > [!IMPORTANT]
   > Pokud jste při vytváření účtu nezvolili replikaci ZRS, můžete způsob replikace později změnit. Pokud ale z LRS přejdete na GRS nebo RA-GRS, může se vám účtovat jednorázový poplatek za přenos dat.
-  > 
-  > 
+  >
+  >
 
 Další informace o replikaci úložiště najdete v tématu [Replikace Azure Storage](storage-redundancy.md).
 
@@ -200,7 +200,7 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [Klientské nástroje pro Azure Storage](storage-explorers.md)
 * [Sady SDK a nástroje Azure](https://azure.microsoft.com/tools/)
 * [Emulátor úložiště Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Nástroj příkazového řádku AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Další kroky
@@ -252,6 +252,6 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [Začínáme se službou Azure Storage v pěti minutách](storage-getting-started-guide.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

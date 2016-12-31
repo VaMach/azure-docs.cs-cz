@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Vytvoření indexu Azure Search pomocí rozhraní REST API
@@ -30,16 +30,16 @@ ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
 >
 >
 
-Tento článek vás provede procesem vytvoření [indexu](https://msdn.microsoft.com/library/azure/dn798941.aspx) Azure Search pomocí rozhraní REST API služby Azure Search.
+Tento článek vás provede procesem vytvoření [indexu](https://docs.microsoft.com/rest/api/searchservice/Create-Index) Azure Search pomocí rozhraní REST API služby Azure Search.
 
 Předtím, než podle těchto pokynů vytvoříte index, byste už měli mít [vytvořenou službu Azure Search](search-create-service-portal.md).
 
 Pokud chcete vytvořit index Azure Search pomocí rozhraní REST API, vydáte jednu žádost HTTP POST do koncového bodu adresy URL služby Azure Search. Definice indexu bude obsažená v textu žádosti jako obsah JSON ve správném formátu.
 
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifikace klíče rozhraní API správce služby Azure Search
-Teď, když máte zřízenou službu Azure Search, můžete vydávat žádosti HTTP na koncový bod adresy URL služby pomocí rozhraní REST API. *Všechny* žádosti rozhraní API ale musí obsahovat klíč rozhraní API vygenerovaný pro službu Search, kterou jste zřídili. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
+Teď, když máte zřízenou službu Azure Search, můžete vydávat žádosti HTTP na koncový bod adresy URL služby pomocí rozhraní REST API. *Všechny* žádosti rozhraní API musí obsahovat klíč rozhraní API (api-key) vygenerovaný pro službu Search, kterou jste zřídili. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k webu [Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
@@ -56,7 +56,7 @@ Jedna žádost HTTP POST do služby vytvoří váš index. Text žádosti HTTP P
 1. První vlastností tohoto objektu JSON je název indexu.
 2. Druhou vlastností tohoto objektu JSON je pole JSON s názvem `fields`, které obsahuje samostatný objekt JSON pro každé pole v indexu. Každý z těchto objektů JSON obsahuje více párů název/hodnota pro každý atribut pole, včetně „name“, „type“ atd.
 
-Při navrhování indexu je důležité zohlednit uživatelskou práci při vyhledávání a potřeby podniku, protože každému poli se musí přiřadit [správné atributy](https://msdn.microsoft.com/library/azure/dn798941.aspx). Tyto atributy určují, které funkce vyhledávání (filtrování, používání faset, řazení fulltextového vyhledávání atd.) se použijí u kterých polí. Pokud kterýkoli atribut nezadáte, příslušná funkce hledání se ve výchozím nastavení povolí, ledaže ji výslovně zakážete.
+Při navrhování indexu je důležité zohlednit uživatelskou práci při vyhledávání a potřeby podniku, protože každému poli se musí přiřadit [správné atributy](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Tyto atributy určují, které funkce vyhledávání (filtrování, používání faset, řazení fulltextového vyhledávání atd.) se použijí u kterých polí. Pokud kterýkoli atribut nezadáte, příslušná funkce hledání se ve výchozím nastavení povolí, ledaže ji výslovně zakážete.
 
 V našem příkladu jsme nazvali index „hotels“ a pole jsme definovali takto:
 
@@ -84,7 +84,7 @@ Atributy indexu jsme pro každé pole pečlivě zvolili podle toho, jak se pravd
 
 Upozorňujeme, že právě jedno pole v indexu typu `Edm.String` musí být určené jako klíčové pole.
 
-Výše uvedená definice indexu používá pro pole `description_fr` vlastní analyzátor jazyka, protože je určené k ukládání francouzského textu. Další informace o analyzátorech jazyka najdete v [tématu jazykové podpory na webu MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) a příslušném [příspěvku na blogu](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+Výše uvedená definice indexu používá pro pole `description_fr` analyzátor jazyka, protože je určené k ukládání francouzského textu. Další informace o analyzátorech jazyka najdete v [tématu jazykové podpory](https://docs.microsoft.com/rest/api/searchservice/Language-support) a příslušném [příspěvku na blogu](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
 ## <a name="iii-issue-the-http-request"></a>III. Vydání žádosti HTTP
 1. Použijte definici indexu jako text žádosti a vydejte žádost HTTP POST do adresy URL koncového bodu služby Azure Search. V adrese URL nezapomeňte použít název služby jako název hostitele a vložit správné `api-version` jako parametr řetězce dotazu (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2016-09-01`).
@@ -97,7 +97,7 @@ Abyste mohli vydat níže uvedenou žádost, budete muset zadat vlastní název 
     api-key: [api-key]
 
 
-V případě úspěšné žádosti by se měl zobrazit stavový kód 201 (vytvořeno). Další informace o vytvoření indexu prostřednictvím rozhraní REST API najdete v referenčních informacích rozhraní API na webu [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Další informace o ostatních stavových kódech HTTP, které se mohou zobrazit při selhání, najdete v tématu [Stavové kódy HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+V případě úspěšné žádosti by se měl zobrazit stavový kód 201 (vytvořeno). Další informace o vytvoření indexu prostřednictvím rozhraní REST API najdete v [referenčních informacích k rozhraní API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 Pokud jste s indexem hotovi a chcete ho odstranit, stačí vydat žádost HTTP DELETE. Takto bychom například odstranili index „hotely“:
 
@@ -110,6 +110,6 @@ Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
