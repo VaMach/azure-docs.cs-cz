@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -126,7 +126,7 @@ Další informace o tom, jaká data používá funkce resetování hesla a jaké
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Krok 3: Resetování hesla ke službě Azure AD v roli uživatele
 Nyní jsou konfigurované zásady resetování hesel a zadány kontaktní údaje uživatele, a uživatel tedy může provést samoobslužné resetování hesla.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Provedení samoobslužného resetování hesla
+#### <a name="to-perform-a-self-service-password-reset"></a>Provedení samoobslužného resetování hesla
 1. Když přejdete na web, jako je například [**portal.microsoftonline.com**](http://portal.microsoftonline.com), uvidíte přihlašovací obrazovku podobnou obrazovce níže.  Kliknutím na odkaz **Nezdařil se přístup k účtu?** otestujte uživatelské rozhraní pro resetování hesla.
    
    ![][011]
@@ -185,7 +185,7 @@ Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve s
   > Pokud používáte starší verzi systému Windows Server 2008 nebo 2008 R2, můžete tuto funkci také využívat, ale aby bylo možné vynutit místní zásady hesel služby AD v cloudu, bude nejprve nutné [stáhnout a nainstalovat komponenty popsané v článku znalostní báze KB 2386717](https://support.microsoft.com/kb/2386717).
   > 
   > 
-* Je nutné mít nainstalovaný nástroj Azure AD Connect a prostředí služby AD musí být připravené na synchronizaci s cloudem.  Další informace najdete v tématu [Použití místní infrastruktury identity v cloudu](active-directory-aadconnect.md).
+* Je nutné mít nainstalovaný nástroj Azure AD Connect a prostředí služby AD musí být připravené na synchronizaci s cloudem.  Další informace najdete v tématu [Použití místní infrastruktury identity v cloudu](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Před otestováním zpětného zápisu hesla je nutné nejprve dokončit úplný import a synchronizaci ze služeb AD a Azure AD ve službě Azure AD Connect.
@@ -199,7 +199,7 @@ Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve s
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Krok 1: Stažení nejnovější verze služby Azure AD Connect
-Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout po kliknutí sem](active-directory-aadconnect.md#install-azure-ad-connect).
+Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout po kliknutí sem](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Kontrola verze služby Azure AD Sync
 1. Přejděte do složky **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -256,12 +256,40 @@ Správnost instalace služby můžete ověřit také otevřením Prohlížeče u
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Krok 3: Konfigurace brány firewall
-Po povolení zpětného zápisu hesla v nástroji Azure AD Connect je nutné zkontrolovat, zda se služba může připojit ke cloudu.
+Po povolení zpětného zápisu hesla je třeba zajistit, aby měl počítač, na kterém běží služba Azure AD Connect, přístup ke cloudovým službám Microsoftu pro příjem žádostí o zpětný zápis hesla. Tento krok zahrnuje aktualizaci pravidel připojení v síťových zařízeních (proxy servery, brány firewall atd.) pro povolení odchozích připojení k určitým adresám URL a IP adresám vlastněným Microsoftem přes konkrétní síťové porty. Tyto změny se mohou lišit v závislosti na verzi nástroje Azure AD Connect. Pro širší kontext si můžete přečíst o tom, [jak funguje zpětný zápis hesla](active-directory-passwords-learn-more.md#how-password-writeback-works), a o [modelu zabezpečení zpětného zápisu hesla](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Pokud ve svém prostředí blokujete odchozí připojení, bude také po dokončení instalace nutné přidat následující pravidla brány firewall. Po provedení těchto změn je nutné počítač se službou AAD Connect restartovat:
-   * Povolte odchozí připojení přes port 443 TCP.
-   * Povolte odchozí připojení k webu https://ssprsbprodncu-sb.accesscontrol.windows.net/.
-   * Pokud používáte proxy server nebo máte obecné potíže s připojením, povolte odchozí připojení přes porty TCP 9350-9354 a 5671.
+#### <a name="why-do-i-need-to-do-this"></a>Proč je nutné to udělat?
+
+Aby zpětný zápis hesla fungoval správně, musí být počítač, na kterém běží služba Azure AD Connect, schopný navázat odchozí připojení HTTPS k webu **.servicebus.windows.net* a ke konkrétním IP adresám, které Azure používá a které jsou definovány v [seznamu rozsahů IP adres datacentra Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Pro nástroj Azure AD Connect verze 1.0.8667.0 a vyšší:
+
+- **Možnost 1:** Povolení všech odchozích připojení HTTPS přes port 443 (pomocí adresy URL nebo IP adresy).
+    - Kdy to použít:
+        - Tuto možnost použijte, pokud chcete co nejjednodušší konfiguraci, kterou nebude nutné aktualizovat v případě budoucích změn rozsahů IP adres datacentra Azure.
+    - Požadované kroky:
+        - Povolení všech odchozích připojení HTTPS přes port 443 pomocí adresy URL nebo IP adresy.
+<br><br>
+- **Možnost 2:** Povolení odchozích připojení HTTPS ke konkrétním adresám URL a rozsahům IP adres.
+    - Kdy to použít:
+        - Tuto možnost použijte, pokud se nacházíte v prostředí omezené sítě nebo pokud z jakéhokoli důvodu nechcete povolit odchozí připojení.
+        - V této konfiguraci bude nutné pro zajištění fungování zpětného zápisu hesla zajistit týdenní aktualizace vašich síťových zařízení pomocí nejnovějších IP adres ze seznamu rozsahů IP adres datacentra Microsoft Azure. Tyto rozsahy IP adres jsou k dispozici v podobě souboru XML, který se aktualizuje každou středu (Tichomoří) a začíná platit následující pondělí (Tichomoří).
+    - Požadované kroky:
+        - Povolení všech odchozích připojení HTTPS k webu *.servicebus.windows.net
+        - Povolení všech odchozích připojení HTTPS ke všem IP adresám v seznamu rozsahů IP adres datacentra Microsoft Azure a týdenní udržování aktualizované konfigurace
+
+> [!NOTE]
+> Pokud jste nakonfigurovali zpětný zápis hesla podle výše uvedených pokynů a v protokolu událostí služby Azure AD Connect se nezobrazí žádné chyby, ale během testování dochází k chybám připojení, příčinou může být některé síťové zařízení ve vašem prostředí, které blokuje připojení HTTPS k požadovaným IP adresám. Například zatímco připojení k webu *https://*.servicebus.windows.net* je povolené, připojení ke konkrétní IP adrese v tomto rozsahu může být blokované. Pokud chcete tento problém vyřešit, budete muset buď nakonfigurovat své síťové prostředí tak, aby povolovalo odchozí připojení HTTPS přes port 443 ke všem adresám URL nebo IP adresám (viz Možnost 1 výše), nebo ve spolupráci se síťovým týmem explicitně povolit připojení HTTPS ke konkrétním IP adresám (viz Možnost 2 výše).
+
+**Pro starší verze:**
+
+- Povolte odchozí připojení TCP přes porty 443, 9350-9354 a 5671. 
+- Povolte odchozí připojení k webu *https://ssprsbprodncu-sb.accesscontrol.windows.net/*.
+
+> [!NOTE]
+> Pokud používáte verzi služby Azure AD Connect starší než 1.0.8667.0, Microsoft důrazně doporučuje upgrade na [nejnovější verzi služby Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), která zahrnuje řadu vylepšení zpětného zápisu přes síť, která zjednodušují konfiguraci.
+
+Jakmile budou síťová zařízení nakonfigurována, restartujte počítač, na kterém běží nástroj Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4: Nastavení odpovídajících oprávnění služby Active Directory
 Pro každou doménovou strukturu obsahující uživatele, jejichž hesla budou resetována, platí, že pokud X je účet určený pro danou doménovou strukturu v průvodci konfigurací (během počáteční konfigurace), pak je účtu X nutné přidělit rozšířená oprávnění **resetovat heslo**, **změnit heslo**, **oprávnění k zápisu** do atributu `lockoutTime` a **oprávnění k zápisu** do atributu `pwdLastSet` v kořenu každé domény v této struktuře. Tato oprávnění je nutné označit jako děděná všemi uživatelskými objekty.  
@@ -365,6 +393,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

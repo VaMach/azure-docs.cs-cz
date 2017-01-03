@@ -4,12 +4,20 @@ Pokud jste tak ještě neučinili, můžete získat [bezplatnou zkušební verzi
 azure config mode arm
 ```
 
-Nyní pomocí příkazu `azure vmss quick-create` vytvořte škálovací sadu. Následující příklad vytvoří škálovací sadu `myVMSS` s pěti instancemi virtuálních počítačů ve skupině prostředků `myResourceGroup`:
+Nyní pomocí příkazu `azure vmss quick-create` vytvořte škálovací sadu. Následující příklad vytvoří škálovací sadu pro Linux s názvem `myVMSS` s pěti instancemi virtuálních počítačů ve skupině prostředků `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+Následující příklad vytvoří škálovací sadu pro Windows se stejnou konfigurací:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Chcete-li přizpůsobit umístění nebo IMAGE-URN, podívejte se na příkazy `azure location list` a `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

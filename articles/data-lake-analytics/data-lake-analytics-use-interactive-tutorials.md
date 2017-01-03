@@ -1,5 +1,5 @@
 ---
-title: "Seznámení se službou Data Lake Analytics a jazykem U-SQL pomocí interaktivních kurzů webu Azure Portal | Dokumentace Microsoftu"
+title: "Seznámení se službou Data Lake Analytics a jazykem U-SQL pomocí interaktivních kurzů na webu Azure Portal | Dokumentace Microsoftu"
 description: "Rychlý start při seznámení se službou Data Lake Analytics a jazykem U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c2a9bd7f78afc77f72236d0204f39798f0388362
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Použití interaktivních kurzů Azure Data Lake Analytics
-web Azure Portal poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
+Azure Portal poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
 
 > [!NOTE]
 > Pokud chcete absolvovat stejný kurz pomocí sady Visual Studio, informace najdete v tématu [Analýza webových protokolů pomocí Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
@@ -45,27 +45,27 @@ Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 ## <a name="create-data-lake-analytics-account"></a>Vytvoření účtu Data Lake Analytics
 Je nutné, abyste před spuštěním jakékoli úlohy měli účet Data Lake Analytics.
 
-Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).  Tento účet se nazývá výchozí účet Data Lake Store.  Účet Data Lake Store můžete vytvořit předem nebo při vytváření účtu Data Lake Analytics. V tomto kurzu vytvoříte účet Data Lake Store s účtem Analytics.
+Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), výchozího účtu Data Lake Store.  V tomto kurzu vytvoříte výchozí účet Data Lake Store s účtem Analytics, ale můžete si ho vytvořit i předem.
 
 **Vytvoření účtu Data Lake Analytics**
 
-1. Přihlaste se k [webu Azure Portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Kliknutím na položku **Microsoft Azure** v levém horním rohu otevřete Úvodní panel.
 3. Klikněte na dlaždici **Marketplace**.  
 4. Do vyhledávacího pole v okně **Vše** napište **Azure Data Lake Analytics** a stiskněte klávesu **ENTER**. V seznamu se zobrazí položka **Azure Data Lake Analytics**.
 5. Klikněte v seznamu na položku **Azure Data Lake Analytics**.
 6. V dolní části okna klikněte na možnost **Vytvořit**.
-7. Zadejte nebo vyberte tyto položky:
+7. Zadejte nebo vyberte:
    
     ![Okno portálu Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
    
    * **Název**: Zadejte název účtu Analytics.
-   * **Data Lake Store**: Každý účet Data Lake Analytics má závislý účet Data Lake Store. Účet Data Lake Analytics a závislý účet Data Lake Store se musí nacházet ve stejném datovém centru Azure. Postupujte podle pokynů a vytvořte nový účet Data Lake Store nebo vyberte některý z existujících.
+   * **Data Lake Store**: Každý účet Data Lake Analytics má závislý účet Data Lake Store. Účet Data Lake Analytics a závislý účet Data Lake Store se musí nacházet ve stejném datovém centru Azure. Postupujte podle pokynů a vytvořte účet Data Lake Store nebo vyberte některý z existujících.
    * **Předplatné**: Zvolte předplatné Azure použité pro účet Analytics.
-   * **Skupina prostředků**. Vyberte některou z existujících skupin prostředků Azure nebo vytvořte novou. Aplikace obvykle obsahují celou řadu součástí, například webovou aplikaci, databázi, databázový server, úložiště a služby třetích stran. Azure Resource Manager (ARM) umožňuje pracovat s prostředky v aplikaci jako se skupinou, která se nazývá Skupina prostředků Azure. Všechny prostředky pro aplikaci můžete nasadit, aktualizovat, sledovat nebo odstranit v rámci jediné koordinované operace. Pro nasazení použijete šablonu a tato šablona může fungovat v různých prostředích, jako je testovací, přípravné nebo produkční prostředí. Můžete zpřehlednit fakturaci ve své organizaci tím, že zobrazíte souhrnné náklady za celou skupinu. Další informace najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md). 
+   * **Skupina prostředků**. Vyberte některou z existujících skupin prostředků Azure nebo vytvořte novou. Aplikace obvykle obsahují celou řadu součástí, například webovou aplikaci, databázi, databázový server, úložiště a služby třetích stran. Azure Resource Manager (ARM) umožňuje pracovat s prostředky v aplikaci jako se skupinou, která se nazývá Skupina prostředků Azure. Prostředky pro aplikaci můžete nasadit, aktualizovat, monitorovat nebo odstranit v rámci jediné koordinované operace. Pro nasazení použijete šablonu a tato šablona může fungovat v různých prostředích, jako například v testovacím, přípravném nebo produkčním prostředí. Můžete zpřehlednit fakturaci ve své organizaci tím, že zobrazíte souhrnné náklady za celou skupinu. Další informace najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md). 
    * **Umístění**. Vyberte datové centrum Azure pro účet Data Lake Analytics. 
 8. Vyberte položku **Připnout na Úvodní panel**. Je to nezbytné pro absolvování tohoto kurzu.
-9. Klikněte na možnost **Vytvořit**. Tím přejdete na Úvodní panel portálu. Na domovskou stránku se přidá nová dlaždice s popiskem „Nasazení Azure Data Lake Analytics“. Vytvoření účtu Data Lake Analytics chvíli trvá. Jakmile je účet vytvořený, portál ho otevře v novém okně.
+9. Klikněte na možnost **Vytvořit**. Tím přejdete na Úvodní panel portálu. Na domovskou stránku se přidá nová dlaždice s popiskem Nasazování služby Azure Data Lake Analytics. Vytvoření účtu Data Lake Analytics chvíli trvá. Jakmile je účet vytvořený, portál ho otevře v novém okně.
    
     ![Okno portálu Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -79,7 +79,7 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
     ![Interaktivní kurzy Data Lake Analytics](./media/data-lake-analytics-use-interactive-tutorials/data-lake-analytics-explore-interactive-tutorials.png)
 4. Pokud se zobrazí oranžové upozornění „Nejsou nastaveny ukázky, klikněte...“, kliknutím na možnost **Kopírovat ukázková data** zkopírujte ukázková data do výchozího účtu Data Lake Store. Interaktivní kurz nejde bez těchto dat spustit.
 5. V okně **Interaktivní kurzy** klikněte na možnost **Analýza webového protokolu**. Portál otevře kurz v novém okně portálu.
-6. Klikněte na položku **1 Úvod** a postupujte podle pokynů.
+6. Klikněte na **Úvod** a postupujte podle pokynů.
 
 ## <a name="see-also"></a>Viz také
 * [Přehled služby Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
@@ -91,6 +91,6 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

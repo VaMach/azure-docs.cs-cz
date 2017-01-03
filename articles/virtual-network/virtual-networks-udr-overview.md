@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Tento tok komunikace je možný díky tomu, že Azure pomocí řady systémovýc
 * Z jedné podsítě do jiné v rámci jedné virtuální sítě.
 * Z virtuálních počítačů do internetu.
 * Z jedné virtuální sítě do jiné prostřednictvím brány sítě VPN.
+* Z jedné virtuální sítě do jiné prostřednictvím služby VNet Peering (Řetězení služeb).
 * Z virtuální sítě do místní sítě prostřednictvím brány sítě VPN.
 
 Následující obrázek znázorňuje jednoduché uspořádání s jednou virtuální sítí, dvěma podsítěmi, několika virtuálními počítači a systémovými trasami, které umožňují tok provozu IP.
@@ -111,6 +112,6 @@ Tento virtuální počítač virtuálního zařízení musí být schopný přij
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

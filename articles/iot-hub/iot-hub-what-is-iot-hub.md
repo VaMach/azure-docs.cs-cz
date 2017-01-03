@@ -1,6 +1,6 @@
 ---
 title: "Přehled služby Azure IoT Hub | Dokumentace Microsoftu"
-description: "Přehled služby Azure IoT Hub: co je služba IoT Hub, připojení zařízení, schémata komunikace s internetem věcí a schéma komunikace s asistencí služby"
+description: "Přehled služby Azure IoT Hub: co je služba IoT Hub, připojení zařízení, schémata komunikace s internetem věcí, brány a schéma komunikace s asistencí služby"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
+ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
+ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
 
 
 ---
@@ -24,6 +24,7 @@ ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
 Vítá vás služba Azure IoT Hub. Tento článek obsahuje přehled služby Azure IoT Hub a popisuje důvody implementace řešení internetu věcí (IoT) pomocí této služby. Azure IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení IoT a back-endem řešení. Azure IoT Hub:
 
 * Nabízí několik možností komunikace zařízení-cloud a cloud-zařízení, včetně jednosměrného zasílání zpráv, přenosu souborů a metod požadavek-odpověď.
+* Poskytuje integrované deklarativní směrování zpráv do dalších služeb Azure.
 * Poskytuje dotazovatelné úložiště metadat zařízení a synchronizované stavové informace.
 * Umožňuje zabezpečit komunikaci a řízení přístupu pomocí klíčů specifických pro jednotlivá zařízení a certifikátů X.509.
 * Zajišťuje rozsáhlé monitorování událostí připojení zařízení a správy identity zařízení.
@@ -58,6 +59,7 @@ Kromě bohatých možností komunikace [zařízení-cloud][lnk-d2c-guidance] a [
 
 * **Dvojče zařízení**. Pomocí [dvojčat zařízení][lnk-twins] můžete ukládat, synchronizovat a dotazovat se na metadata a stav zařízení. Dvojčata zařízení jsou dokumenty JSON, které obsahují informace o stavu zařízení (metadata, konfigurace a podmínky). IoT Hub udržuje takové dvojče pro každé zařízení, které k IoT Hub připojíte. 
 * **Ověřování podle zařízení a zabezpečené připojení**. Každému zařízení můžete zřídit vlastní [klíč zabezpečení][lnk-devguide-security], který umožňuje připojení ke službě IoT Hub. [Registr identit služby IoT Hub][lnk-devguide-identityregistry] uchovává identity a klíče zařízení. Back-end řešení může jednotlivá zařízení přidat na seznam povolených nebo blokovaných, což umožňuje úplnou kontrolu přístupu zařízení.
+* **Směrování zpráv typu zařízení-cloud do služeb Azure na základě deklarativních pravidel**. IoT Hub vám umožňuje definovat trasy zpráv na základě pravidel zpráv, díky čemuž máte kontrolu nad tím, kam služba IoT Hub odesílá zprávy typu zařízení-cloud. Pravidla zpráv nevyžadují psaní kódu a mohou nahradit vlastní dispečery zpráv po ingestování.
 * **Sledování operací připojení zařízení**. O událostech připojení zařízení a operacích správy identity zařízení můžete dostávat podrobné protokoly operací. Tato schopnost sledování vašemu řešení IoT umožní identifikovat problémy s připojením, například zařízení, která se snaží připojit pomocí nesprávných přihlašovacích údajů nebo posílat zprávy příliš často, nebo zamítnout všechny zprávy typu cloud-zařízení.
 * **Rozsáhlá sada knihoven zařízení**. [Sady SDK pro zařízení Azure IoT][lnk-device-sdks] jsou dostupné a podporované pro různé jazyky a platformy – pro řadu distribucí systému Linux, systém Windows a operační systémy v reálném čase. Sady SDK pro zařízení Azure IoT také podporují spravované jazyky,  jako je C#, Java či JavaScript.
 * **Protokoly a rozšiřitelnost IoT**. Pokud vaše řešení nemůže používat knihovny zařízení, služba IoT Hub zpřístupní veřejný protokol, který zařízením  umožní nativně používat protokoly MQTT v3.1.1, HTTP 1.1 nebo AMQP 1.0. Službu IoT Hub můžete také rozšířit tak, aby podporovala vlastní protokoly. Provedete to následovně:
@@ -77,7 +79,7 @@ Brána pole se od jednoduchého zařízení pro směrování provozu (napříkla
 Služba Azure IoT Hub implementuje schéma [komunikace s asistencí služby][lnk-service-assisted-pattern], které zprostředkovává komunikaci mezi zařízeními a back-endem řešení. Komunikace s asistencí služby má za cíl navázat důvěryhodné, obousměrné komunikační trasy mezi řídicím systémem, například službou IoT Hub, a zařízeními pro zvláštní účely, která jsou nasazena v nedůvěryhodném fyzickém umístění. Schéma zavádí následující zásady:
 
 * Zabezpečení má přednost před všemi dalšími možnostmi.
-* Zařízení nepřijímají nevyžádané informace o síti. Zařízení navazuje všechna připojení a vytváří trasy jako pouze odchozí. Aby zařízení mohlo přijmout příkaz z back-endu, musí pravidelně inicializovat připojení a kontrolovat případné čekající příkazy ke zpracování.
+* Zařízení nepřijímají nevyžádané informace o síti. Zařízení navazuje všechna připojení a vytváří trasy jako pouze odchozí. Aby zařízení mohlo přijmout příkaz z back-endu řešení, musí pravidelně inicializovat připojení a kontrolovat případné čekající příkazy ke zpracování.
 * Zařízení by se měla připojovat pouze k dobře známým službám (nebo k nim vytvářet trasu), se kterými mají partnerský vztah, například ke službě IoT Hub.
 * Komunikační trasa mezi zařízením a službou nebo mezi zařízením a bránou je zabezpečená na úrovni aplikačního protokolu.
 * Autorizace a ověření na úrovni systému jsou založeny na identifikaci jednotlivých zařízení. Díky tomu jsou přístupové údaje a povolení téměř okamžitě odvolatelné.
@@ -89,9 +91,11 @@ Mobilní průmysl v obrovském měřítku používá schéma komunikace s asiste
 IoT Hub se podporuje přes cestu veřejného partnerského vztahu ExpressRoute.
 
 ## <a name="next-steps"></a>Další kroky
-V článku [Přehled správy zařízení ve službě IoT Hub][lnk-device-management] zjistíte, jak Azure IoT Hub umožňuje pomocí správy zařízení založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
+Informace o tom, jak odesílat zprávy ze zařízení a přijímat je ze služby IoT Hub, a jak konfigurovat trasy zpráv služby IoT Hub, najdete v tématu [Odesílání a příjem zpráv pomocí služby IoT Hub][lnk-send-messages].
 
-K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK pro zařízení Azure IoT. Sady SDK pro zařízení zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem příkazů typu cloud-zařízení. Při používání sad SDK pro zařízení si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace najdete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
+V tématu [Přehled správy zařízení ve službě IoT Hub][lnk-device-management] zjistíte, jak služba IoT Hub umožňuje pomocí správy zařízení založené na standardech provádět vzdálenou správu, konfiguraci a aktualizaci vašich zařízení.
+
+K implementaci klientských aplikací v celé řadě hardwarových platforem a operačních systémů zařízení můžete použít sady SDK pro zařízení Azure IoT. Sady SDK pro zařízení zahrnují knihovny, které usnadňují odesílání telemetrických dat do služby IoT Hub a příjem zpráv typu cloud-zařízení. Při používání sad SDK pro zařízení si ke komunikaci se službou IoT Hub můžete vybrat z řady síťových protokolů. Další informace najdete v tématu [informace sadách SDK pro zařízení][lnk-device-sdks].
 
 Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kurz [Začínáme se službou IoT Hub][lnk-get-started].
 
@@ -112,6 +116,7 @@ Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kur
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
@@ -121,6 +126,7 @@ Pokud chcete začít s psaním kódu a spouštěním ukázek, přečtěte si kur
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Dec16_HO2-->
 
 

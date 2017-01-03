@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: 2c4a92fadaa845fc0d14e5101a87aabe8f8d2891
+ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
+ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
 
 
 ---
@@ -37,18 +37,43 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 * Windows 7
 * Windows 8 / Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
-> Windows 7 ve výchozím nastavení obsahuje jenom prostředí Windows PowerShell 2.0 Rutiny prostředí PowerShell pro Service Fabric vyžadují PowerShell 3.0 nebo novější. Můžete [stáhnout prostředí Windows PowerShell 5.0][powershell5-stažení] z webu Microsoft Download Center.
+> Windows 7 ve výchozím nastavení obsahuje jenom prostředí Windows PowerShell 2.0 Rutiny prostředí PowerShell pro Service Fabric vyžadují PowerShell 3.0 nebo novější. Můžete si [stáhnout prostředí Windows PowerShell 5.0][powershell5-download] z webu Microsoft Download Center.
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Instalace modulu runtime, sady SDK a nástrojů
-Instalace webové platformy nabízí dvě konfigurace pro vývoj Service Fabric:
+## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
+### <a name="to-use-visual-studio-2017-rc"></a>Použití sady Visual Studio 2017 RC
+Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017 RC. Tuto úlohu je potřeba povolit jako součást instalace sady Visual Studio.
+Kromě toho budete muset sadu Microsoft Azure Service Fabric SDK nainstalovat pomocí instalačního programu webové platformy.
 
-* [Instalace modulu runtime Service Fabric, sady SDK a nástrojů pro sadu Visual Studio 2015 (je vyžadována verze Visual Studio 2015 Update 2 nebo novější)][full-bundle-vs2015]
-* [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů pro Visual Studio)][core-sdk]
+* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
+
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Použití sady Visual Studio 2015 (vyžaduje Visual Studio 2015 Update 2 nebo novější)
+Pro sadu Visual Studio 2015 jsou nainstalované nástroje Service Fabric společně se sadou SDK, pomocí Instalace webové platformy:
+
+* [Instalace sady Microsoft Azure Service Fabric SDK a nástrojů][full-bundle-vs2015]
+
+### <a name="sdk-installation-only"></a>Jenom instalace sady SDK
+Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
+* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
+
+> [!WARNING]
+> Zákazníci nás informovali o chybách během instalace při použití těchto odkazů ke spuštění nebo při jejich použití v prohlížeči Chrome. Jedná se o známé problémy instalace webové platformy, kterými se zabýváme.  Jako alternativní řešení vyzkoušejte tento postup:
+>- Otevřete výše uvedené odkazy v prohlížeči Internet Explorer nebo Edge, nebo
+>- Spusťte instalaci webové platformy z nabídky Start, vyhledejte „Service Fabric“ a nainstalujte sadu SDK.
+> 
+> Omlouváme se za nepříjemnosti. 
+
+Aktuální verze jsou:
+* Sada Service Fabric SDK 2.4.145
+* Modul runtime Service Fabric 5.4.145
+* Nástroje sady Visual Studio 2015 1.4.41209
+
+Seznam podporovaných verzí najdete v tématu [Podpora pro Service Fabric](service-fabric-support.md)
 
 ## <a name="enable-powershell-script-execution"></a>Povolení spouštění skriptů prostředí PowerShell
 Platforma Service Fabric používá skripty prostředí Windows PowerShell k vytvoření místního vývojového clusteru a k nasazení aplikací ze sady Visual Studio. Systém Windows ve výchozím nastavení spouštění těchto skriptů blokuje. Pokud je chcete povolit, musíte upravit zásady spouštění prostředí PowerShell. Otevřete prostředí PowerShell jako správce a zadejte tento příkaz:
@@ -66,16 +91,17 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 * [Prohlédněte si ukázky kódu Service Fabric na GitHubu](https://aka.ms/servicefabricsamples)
 * [Vizualizujte cluster pomocí Service Fabric Exploreru](service-fabric-visualizing-your-cluster.md)
 * [Postupujte podle studijního plánu Service Fabric a získejte obecný úvod k platformě](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Stránka kampaně Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "odkaz na VS 2015 WebPI"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "odkaz na Dev15 WebPI"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "odkaz na Core SDK WebPI"
-[powershell5-stažení]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Odkaz na VS 2015 WebPI"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Odkaz na Dev15 WebPI"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Odkaz na Core SDK WebPI"
+[powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

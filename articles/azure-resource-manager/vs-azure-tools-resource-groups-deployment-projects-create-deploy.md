@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -189,7 +189,7 @@ V tomto okamžiku jste nasadili infrastrukturu pro vaši aplikaci, ale zatím ne
    
     Mezi vlastnosti patří:
    
-   * Pole **Additional Properties** (Další vlastnosti) obsahuje pracovní umístění balíčku pro nasazení webu, který se vloží do úložiště Azure. Poznamenejte si složku (ExampleApp) a soubor (package.zip). Tyto hodnoty budete zadávat jako parametry při nasazování aplikace. 
+   * Pole **Additional Properties** (Další vlastnosti) obsahuje pracovní umístění balíčku pro nasazení webu, který se vloží do úložiště Azure. Poznamenejte si složku (ExampleApp) a soubor (package.zip). Tyto hodnoty musíte znát, protože je uvádíte jako parametry při nasazování aplikace. 
    * Pole **Include File Path** (Cesta k souboru pro zahrnutí) obsahuje cestu, kde je balíček vytvořen. Pole **Include Targets** (Zahrnout cíle) obsahuje příkaz, který proces nasazení provede. 
    * Výchozí hodnota **Build;Package** umožňuje sestavení a vytvoření balíčku pro nasazení webu (package.zip).  
      
@@ -219,6 +219,6 @@ V tomto okamžiku jste nasadili infrastrukturu pro vaši aplikaci, ale zatím ne
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

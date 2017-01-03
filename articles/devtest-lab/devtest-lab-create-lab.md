@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
+ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 
 
 ---
@@ -39,9 +39,8 @@ Následující kroky ukazují postup vytvoření testovacího prostředí ve slu
    1. Zadejte **Název testovacího prostředí** pro nové prostředí.
    2. Vyberte **Předplatné**, které bude přidruženo k testovacímu prostředí.
    3. Vyberte **Umístění**, do kterého se testovací prostředí uloží.
-   4. Chcete-li povolit a nastavit parametry pro automatické vypínání virtuálních počítačů v testovacím prostředí, vyberte **Automatické vypnutí**.
-   5. Vyberte **Typ úložiště** a určete typ úložného disku pro virtuální počítače v testovacím prostředí. 
-   6. Vyberte **Vytvořit**.
+   4. Chcete-li povolit a nastavit parametry pro automatické vypínání virtuálních počítačů v testovacím prostředí, vyberte **Automatické vypnutí**. 
+   5. Vyberte **Vytvořit**.
       
       ![Okno pro vytvoření testovacího prostředí](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -59,6 +58,6 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

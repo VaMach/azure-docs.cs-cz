@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
 
 
 ---
@@ -45,7 +45,7 @@ Kromě času potřebného k instalaci sady Azure SDK pro rozhraní .NET bude abs
 
 ## <a name="prerequisites"></a>Požadavky
 * Kurz předpokládá, že jste již dříve pracovali s ASP.NET MVC a sadou Visual Studio. Pokud potřebujete úvodní informace, prostudujte téma [Začínáme s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](http://go.microsoft.com/fwlink/?LinkId=523751). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
@@ -61,8 +61,8 @@ Kurz je napsán pro sadu Visual Studio 2015 se sadou [Azure SDK pro .NET](../dot
 
 Pokud máte sadu Visual Studio 2013 a chcete ji používat, můžete si [stáhnout nejnovější sadu Azure SDK pro sadu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Některé obrazovky se mohou lišit od ilustrací.
 
-## <a name="configure-a-new-web-project"></a>Konfigurace nového webového projektu
-Dalším krokem je vytvoření webového projektu v sadě Visual Studio a webové aplikace ve službě Azure App Service. V této části kurzu nakonfigurujete nový webový projekt. 
+## <a name="create-a-web-application"></a>Vytvoření webové aplikace
+Dalším krokem je vytvoření projektu webové aplikace v sadě Visual Studio a webové aplikace ve službě Azure App Service. V této části kurzu nakonfigurujete nový webový projekt. 
 
 1. Otevřete sadu Visual Studio 2015.
 2. Klikněte na položku **Soubor > Nový > Projekt**.
@@ -89,7 +89,7 @@ Dalším krokem je vytvoření webového projektu v sadě Visual Studio a webov�
     Tato nastavení dávají sadě Visual Studio pokyn, aby pro webový projekt vytvořila webovou aplikaci Azure.
 10. Klikněte na tlačítko **OK**.
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Konfigurace prostředků Azure pro novou webovou aplikaci
+## <a name="create-the-azure-resources"></a>Vytvoření prostředků Azure
 Nyní sadě Visual Studio řeknete, které prostředky Azure má vytvořit.
 
 1. V dialogovém okně **Vytvoření služby App Service** klikněte na tlačítko **Přidat účet** a přihlaste se k Azure pomocí ID a hesla účtu, který používáte ke správě předplatného Azure.
@@ -126,16 +126,16 @@ Nyní sadě Visual Studio řeknete, které prostředky Azure má vytvořit.
    
     V rámci tohoto kurzu zajistí cenová úroveň Free dostatečný výkon.
 8. V dialogovém okně **Konfigurace plánu služby App Service** klikněte na tlačítko **OK**.
-9. V dialogovém okně **Vytvoření služby App Service** klikněte na možnost **Vytvořit**.
+9. V dialogovém okně **Vytvořit službu App Service** klikněte na **Vytvořit**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Vytvoření projektu a webové aplikace sadou Visual Studio
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Kontrola prostředků Azure v sadě Visual Studio
 Zanedlouho, obvykle během méně než minuty, sada Visual Studio vytvoří webový projekt a webovou aplikaci.  
 
 Okno **Průzkumník řešení** zobrazuje soubory a složky v novém projektu.
 
 ![Průzkumník řešení](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-Okno **Aktivita služby Azure App Service** ukazuje, že byla vytvořena webová aplikace.
+Okno **Aktivita služby Azure App Service** ukazuje, že v Azure byly vytvořeny prostředky App Service. Pokud chcete nový projekt začít hned publikovat, můžete tady kliknout na odkaz. Ale v tomto kurzu se později dozvíte, jak soubory publikovat kdykoli.
 
 ![Webová aplikace vytvořená v okně Aktivita služby Azure App Service](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ Okno **Průzkumník cloudu** umožňuje zobrazit a spravovat prostředky Azure, 
 
 ![Webová aplikace vytvořená v průzkumníku cloudu](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Nasazení webového projektu do webové aplikace Azure
-V této části nasadíte webový projekt do webové aplikace.
+## <a name="deploy-the-web-project-to-azure"></a>Nasazení webového projektu do Azure
+V této části nasadíte webový projekt do prostředku webové aplikace, který jste vytvořili v Azure App Service.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na požadovaný projekt a zvolte možnost **Publikovat**.
    
@@ -152,7 +152,10 @@ V této části nasadíte webový projekt do webové aplikace.
    
     Během několika sekund se zobrazí průvodce **Publikování webu**. Průvodce se otevře s *profilem publikování*, který obsahuje nastavení pro nasazení webového projektu do nové webové aplikace.
    
-    Profil publikování obsahuje uživatelské jméno a heslo pro nasazení.  Tyto přihlašovací údaje byly vygenerovány pro vás a není nutné je zadat. Heslo je zašifrováno ve skrytém souboru konkrétního uživatele ve složce `Properties\PublishProfiles`.
+    > [!TIP] 
+    > Profil publikování obsahuje uživatelské jméno a heslo pro nasazení.  Tyto přihlašovací údaje byly vygenerovány pro vás a není nutné je zadat. Heslo je zašifrováno ve skrytém souboru konkrétního uživatele ve složce `Properties\PublishProfiles`.
+    >
+    >
 2. Na kartě **Připojení** průvodce **Publikování webu** klikněte na tlačítko **Další**.
    
     ![Kliknutí na tlačítko Další na kartě Připojení v průvodci Publikování webu](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -219,6 +222,6 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

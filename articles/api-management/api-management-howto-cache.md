@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ Tento průvodce vám ukáže, jak přidat ukládání odpovědí do mezipaměti 
 > 
 
 ## <a name="prerequisites"></a>Požadavky
-Než začnete provádět kroky podle této příručky, musíte mít instanci služby API Management s nakonfigurovaným rozhraním API a produktem. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Vytvoření instance API Management] v kurzu [Začínáme s Azure API Management][Začínáme s Azure API Management].
+Než začnete provádět kroky podle této příručky, musíte mít instanci služby API Management s nakonfigurovaným rozhraním API a produktem. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Create an API Management service instance] v kurzu [Začínáme se službou Azure API Management][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurace operace pro ukládání do mezipaměti
 V tomto kroku zkontrolujete nastavení ukládání do mezipaměti operace **GET Resource (cached)** v ukázkovém rozhraní Echo API.
 
 > [!NOTE]
-> Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním Echo API, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Začínáme s Azure API Management][Začínáme s Azure API Management].
+> Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním Echo API, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Začínáme se službou Azure API Management][Get started with Azure API Management].
 > 
 > 
 
@@ -80,20 +80,22 @@ Zobrazí zásady této operace v editoru zásad.
 
 Definice zásad této operace obsahuje zásady, které definují konfiguraci ukládání do mezipaměti, které jste zkontrolovali pomocí karty **Ukládání do mezipaměti** v předchozím kroku.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Změny zásad ukládání do mezipaměti provedené v editoru zásad se projeví na kartě **Ukládání do mezipaměti** příslušné operace a naopak.
@@ -138,7 +140,7 @@ Do pole **param2** zadejte hodnotu **25** a potom klikněte na **HTTP Get**.
 Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Protože výsledky operace se ukládají do klíčů pomocí řetězce dotazu, předchozí odpověď uložená v mezipaměti se ne vrátila.
 
 ## <a name="next-steps"> </a>Další kroky
-* Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][Zásady ukládání do mezipaměti] v článku [Zásady API Managementu][Zásady API Managementu].
+* Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][Caching policies] v článku [Zásady API managementu][API Management policy reference].
 * Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -153,25 +155,25 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Přidání operací do rozhraní API]: api-management-howto-add-operations.md
-[Přidání a publikování produktu]: api-management-howto-add-products.md
-[Sledování a analýza]: api-management-monitoring.md
-[Přidání rozhraní API do produktu]: api-management-howto-add-products.md#add-apis
-[Publikování produktu]: api-management-howto-add-products.md#publish-product
-[Začínáme s Azure API Management]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Zásady API Managementu]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Zásady ukládání do mezipaměti]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Vytvoření instance API Management]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Konfigurace operace pro ukládání do mezipaměti]: #configure-caching
-[Kontrola zásad ukládání do mezipaměti]: #caching-policies
-[Volání operace a testování ukládání do mezipaměti]: #test-operation
-[Další kroky]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

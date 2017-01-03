@@ -11,31 +11,32 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 
 ---
+
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Dotazování indexu Azure Search pomocí REST API
 > [!div class="op_single_selector"]
+>
 > * [Přehled](search-query-overview.md)
 > * [Azure Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
-Tento článek vám ukáže postup dotazování indexu pomocí [REST API služby Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Tento článek vám ukáže postup dotazování indexu pomocí [REST API služby Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
 Před zahájením tohoto názorného průvodce byste již měli mít [vytvořený index Azure Search](search-what-is-an-index.md) a ten by měl být [naplněný daty](search-what-is-data-import.md).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Zjistěte klíč api-key správce služby Azure Search
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Zjistěte klíč api-key správce služby Azure Search
 Klíčovou komponentou každé operace vyhledávání na REST API služby Azure Search je klíč *api-key*, který byl vygenerován pro službu, kterou jste zřídili. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k [webu Azure Portal](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k webu [Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
@@ -47,11 +48,11 @@ Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## <a name="ii-formulate-your-query"></a>II. Formulování dotazu
-Existují dva způsoby [vyhledávání v indexu pomocí REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx). První způsob je vydání požadavku HTTP POST, kde parametry dotazu budou určené v objektu JSON v textu požadavku. Druhý způsob je vydání požadavku HTTP GET, kde parametry dotazu budou určené v rámci URL požadavku. Všimněte si, že metoda POST má [mírnější omezení](https://msdn.microsoft.com/library/azure/dn798927.aspx) velikosti parametrů dotazu, než metoda GET. Z tohoto důvodu doporučujeme používat metodu POST, pokud pro vás neplatí zvláštní podmínky, kdy by bylo pohodlnější použití metody GET.
+Existují dva způsoby [vyhledávání v indexu pomocí REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). První způsob je vydání požadavku HTTP POST, kde parametry dotazu budou určené v objektu JSON v textu požadavku. Druhý způsob je vydání požadavku HTTP GET, kde parametry dotazu budou určené v rámci URL požadavku. Všimněte si, že metoda POST má [mírnější omezení](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) velikosti parametrů dotazu, než metoda GET. Z tohoto důvodu doporučujeme používat metodu POST, pokud pro vás neplatí zvláštní podmínky, kdy by bylo pohodlnější použití metody GET.
 
-U metody POST i GET budete muset v URL požadavku poskytnout *název služby*, *název indexu* a správnou *verzi rozhraní API* (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2015-02-28`). U metody GET zadáte parametry dotazu místo *query_string* na konci URL. Formát URL vidíte níže:
+U metody POST i GET budete muset v URL požadavku poskytnout *název služby*, *název indexu* a správnou *verzi rozhraní API* (v době publikování tohoto dokumentu je aktuální verze rozhraní API `2016-09-01`). U metody GET zadáte parametry dotazu místo *query_string* na konci URL. Formát URL vidíte níže:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
 Formát pro metodu POST je stejný, ale jako parametr řetězce dotazu obsahuje pouze api-version.
 
@@ -61,9 +62,9 @@ Zde naleznete několik ukázky dotazů na index s názvem „hotels“. Dotazy j
 Vyhledat výraz „budget“ v celém indexu a vrátit pouze pole `hotelName`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "budget",
     "select": "hotelName"
@@ -73,9 +74,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Použít na index filtr pro nalezení hotelů levnějších než 150 dolarů za noc a vrátit pole `hotelId` a `description`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -86,9 +87,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Prohledat celý index, seřadit podle určitého pole (`lastRenovationDate`) v sestupném pořadí, vzít první dva výsledky a zobrazit pouze pole `hotelName` a `lastRenovationDate`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -110,7 +111,7 @@ Musíte definovat dvě hlavičky požadavku pro metodu GET, nebo tři hlavičky 
 Níže naleznete požadavek HTTP GET s jednoduchým dotazem, který vyhledá výraz „motel“ v indexu „hotels“ pomocí REST API služby Azure Search.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
 Accept: application/json
 api-key: [query key]
 ```
@@ -118,7 +119,7 @@ api-key: [query key]
 Zde je stejný vzorový dotaz, tentokrát pomocí HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]
@@ -161,11 +162,10 @@ Po úspěšném požadavku dotazu nastane stavový kód `200 OK` a výsledky vyh
 }
 ```
 
-Zjistěte více v sekci „Odpověď“ tématu [Vyhledávání dokumentů](https://msdn.microsoft.com/library/azure/dn798927.aspx). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Zjistěte více v sekci „Odpověď“ tématu [Vyhledávání dokumentů](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

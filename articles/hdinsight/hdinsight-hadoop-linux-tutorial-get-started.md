@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+ms.sourcegitcommit: e37e9aa4419929e91664ec1d70c9610de33e3b45
+ms.openlocfilehash: 4ee5a7df3398924f7f40e7cd0467a08c55f299e8
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
+# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Kurz Hadoopu: začněte používat systém Hadoop pro Linux v HDInsight
 > [!div class="op_single_selector"]
 > * [Založený na Linuxu](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Založený na Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. V současnosti se HDInsight dodává se 4 různými typy clusterů: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) a [Storm](hdinsight-storm-overview.md).  Každý typ clusteru podporuje odlišnou sadu komponent. Všechny 4 typy clusteru podporují Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
+Naučte se vytvářet linuxové clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. V současné době je součástí služby HDInsight šest různých typů clusterů: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interaktivní Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) a [R server](hdinsight-hadoop-r-server-overview.md).  Každý typ clusteru podporuje odlišnou sadu komponent. Všech šest typů clusteru podporuje Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,36 +41,48 @@ Než začnete tento kurz, musíte mít:
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Vytvoření clusteru
-Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte některé úlohy a pak cluster odstraníte. V této části vytvoříte linuxový cluster Hadoop v HDInsight pomocí [šablony Azure Resource Manageru](../resource-group-template-deploy.md). Šablona Resource Manageru je plně přizpůsobitelná a umožňuje snadné vytváření prostředků Azure, jako například HDInsight. Zkušenosti s šablonou Resource Manageru nejsou pro postup dle tohoto kurzu vyžadovány. Další metody vytváření clusterů a principy vlastnosti používaných v tomto kurzu, naleznete v části [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Šablona Resource Manageru používaná v tomto kurzu se nachází ve veřejném kontejneru objektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na portálu Azure. 
+Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte některé úlohy a pak cluster odstraníte. V této části vytvoříte linuxový cluster Hadoop ve službě HDInsight pomocí [šablony Azure Resource Manageru](../resource-group-template-deploy.md). Šablona Resource Manageru je plně přizpůsobitelná a umožňuje snadné vytváření prostředků Azure, jako například HDInsight. Zkušenosti s šablonou Resource Manageru nejsou pro postup dle tohoto kurzu vyžadovány. Další metody vytváření clusterů a principy vlastnosti používaných v tomto kurzu, naleznete v části [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Pomocí selektoru v horní části stránky vyberte možnosti vytvoření clusteru.
+
+Šablona Resource Manageru použitá v tomto kurzu je umístěná v [Githubu](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+
+1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na webu Azure Portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Z okna **Parametry** zadejte následující údaje:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Zadejte nebo vyberte tyto hodnoty:
    
     ![šablona Resource Manageru pro zahájení práce s HDInsight Linux na portálu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
    
-   * **Název clusteru**: Zadejte název pro cluster Hadoop, který chcete vytvořit.
-   * **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
-   * **Uživatelské jméno a heslo SSH**: výchozí uživatelské jméno **sshuser**.  Můžete ho změnit. 
+    * **Předplatné**: Vyberte své předplatné Azure.
+    * **Skupina prostředků**: Vytvořte novou skupinu prostředků nebo vyberte existující.  Skupina prostředků je kontejner komponent Azure.  V tomto případě skupina prostředků obsahuje cluster HDInsight a závislý účet služby Azure Storage. 
+    * **Umístění**: Vyberte umístění Azure, ve kterém chcete cluster vytvořit.  Pro dosažení lepšího výkonu zvolte co nejbližší umístění. 
+    * **Typ clusteru**: Pro účely tohoto kurzu vyberte **hadoop**.
+    * **Název clusteru**: Zadejte název pro cluster Hadoop, který chcete vytvořit.
+    * **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
+    * **Uživatelské jméno a heslo SSH**: výchozí uživatelské jméno **sshuser**.  Můžete ho změnit. 
      
-     Další parametry jsou volitelné podle tohoto kurzu. Můžete je nechat, jak jsou. 
-     
+    Některé vlastnosti jsou v šabloně pevně kódované.  Takové hodnoty můžete konfigurovat v šabloně.
+
+    * **Umístění**: Umístění clusteru i závislý účet úložiště používají stejné umístění jako skupina prostředků.
+    * **Verze clusteru**: 3.4
+    * **Typ operačního systému**: Linux
+    * **Počet pracovních uzlů**: 2
+
      Každý cluster obsahuje závislost účtu úložiště Azure Blob. Obvykle se označuje jako výchozí účet úložiště. Cluster HDInsight a jeho výchozí účet úložiště musí být umístěny společně a nacházet se ve stejné oblasti Azure. Odstraněním clusterů nedojde k odstranění účtu úložiště. V šabloně je výchozí název účtu úložiště definován jako název clusteru s připojeným názvem „úložiště“. 
-3. Klikněte na možnost **OK** a uložte parametry.
-4. V okně **Vlastní nasazení** zadejte **Nový název skupiny prostředků**, chcete-li vytvořit novou skupinu prostředků.  Skupina prostředků je kontejner, který seskupuje cluster, účet závislého úložiště a další prostředky. Umístění skupiny prostředků se může lišit od umístění v clusteru.
-5. Klikněte na tlačítko **Smluvní podmínky** a pak klikněte na tlačítko **Vytvořit**.
-6. Ověřte zaškrtnutí políčka **Kód pin pro řídicí panel** a pak klikněte na tlačítko **Vytvořit**. Zobrazí se nová dlaždice s názvem **Nasazení šablony**. Vytvoření clusteru trvá přibližně 20 minut. 
-7. Jakmile je cluster vytvořen, popis dlaždice se změní na zadaný název skupiny prostředků. A portálu automaticky otevře dvě okna s clusterem a nastavením clusteru. 
+
+3. Vyberte **Souhlasím s podmínkami a ujednáními uvedenými nahoře** a **Připnout na řídicí panel** a pak klikněte na **Koupit**. Na řídicím panelu portálu by se měla zobrazit nová dlaždice s názvem **Nasazení šablony**. Vytvoření clusteru trvá přibližně 20 minut. Jakmile je cluster vytvořen, popis dlaždice se změní na zadaný název skupiny prostředků. Na portálu se v novém okně automaticky otevře skupina prostředků. V seznamu bude uvedený cluster i výchozí úložiště.
    
-   ![Počáteční nastavení clusteru HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
-   
-   Existují dva uvedené prostředky, cluster a výchozí účet úložiště.
+    ![Počáteční skupina prostředků HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+
+4. Kliknutím na název clusteru otevřete cluster v novém okně.
+
+   ![Počáteční nastavení clusteru HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+
 
 ## <a name="run-hive-queries"></a>Spuštění dotazů Hive
 [Apache Hive](hdinsight-use-hive.md) je nejoblíbenější součástí používanou v HDInsight. Existuje mnoho způsobů spouštění úloh Hive v HDInsight. V tomto kurzu použijete zobrazení Ambari Hive z portálu ke spuštění několika úloh Hive. Další metody pro odesílání úloh Hive naleznete v části [Použití Hive v HDInsight](hdinsight-use-hive.md).
 
-1. Přejděte na adresu **https://&lt;ClusterName>.azurehdinsight.net**, kde &lt;ClusterName> je název clusteru vytvořeného v předchozí části pro otevření Ambari.
+1. Klikněte na **Řídicí panel clusteru** uvedený na předchozím snímku obrazovky a pak klikněte na **Řídicí panel clusteru HDInsight**.  Můžete také přejít na adresu **https://&lt;název_clusteru>.azurehdinsight.net**, kde &lt;název_clusteru> je název clusteru vytvořeného v předchozí části pro otevření Ambari.
 2. Zadejte uživatelské jméno a heslo Hadoop, které jste zadali v předchozí části. Výchozí uživatelské jméno **admin**.
 3. Otevřete **Zobrazení Hive**, jak je znázorněno na následujícím snímku obrazovky:
    
@@ -119,15 +131,15 @@ V tomto kurzu jste se naučili, jak vytvořit cluster HDInsight se systémem Lin
 
 Další informace o analýze dat pomocí HDInsight naleznete v následujících tématech:
 
-* Další informace o používání Hive s HDInsight, včetně postupu, jak provádět dotazy Hive ze sady Visual Studio naleznete v části [Používání Hive s HDInsight][hdinsight-use-hive].
-* Další informace o jazyce Pig používaném k transformaci dat naleznete v části [Používání Pig s HDInsight][hdinsight-use-pig].
-* Další informace o MapReduce, způsobu jak psát programy, které zpracovávají data v Hadoop, naleznete v části [Používání MapReduce s HDInsight][hdinsight-use-mapreduce].
+* Další informace o používání Hivu se službou HDInsight, včetně postupu provádění dotazů Hivu ze sady Visual Studio, najdete v tématu [Použití Hivu se službou HDInsight][hdinsight-use-hive].
+* Další informace o jazyce Pig používaném k transformaci dat najdete v tématu [Použití Pigu se službou HDInsight][hdinsight-use-pig].
+* Další informace o MapReduce, způsobu psaní programů, které zpracovávají data v Hadoopu, najdete v tématu [Použití MapReduce se službou HDInsight][hdinsight-use-mapreduce].
 * Další informace o použití nástrojů HDInsight pro Visual Studio k analýze dat na HDInsight naleznete v části [Začněte používat nástroje Visual Studio Hadoop pro HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 Pokud jste připraveni začít pracovat s vlastními daty a potřebujete vědět více o způsobu, jakým HDInsight ukládá data nebo jak načítá data do HDInsight, projděte si následující témata:
 
 * Informace o používání úložiště objektů blob Azure HDInsight naleznete v tématu [Používání úložiště Azure Blob s HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Informace o tom, jak nahrát data do HDInsight naleznete v tématu [Odesílání dat do HDInsight][hdinsight-upload-data].
+* Informace o tom, jak nahrát data do služby HDInsight, najdete v tématu [Nahrání dat do služby HDInsight][hdinsight-upload-data].
 
 Pokud chcete získat další informace o vytváření a správě clusteru služby HDInsight, projděte si následující témata:
 
@@ -149,8 +161,8 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#Install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -163,6 +175,6 @@ Pokud chcete získat další informace o vytváření a správě clusteru služb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

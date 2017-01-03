@@ -4,7 +4,7 @@ description: "Tato stránka obsahuje pokyny pro vytvoření, konfiguraci, spušt
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: f4648ea78c07d501164b44389302cedf717b28bd
+ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
+ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
 
 
 ---
@@ -28,8 +28,6 @@ ms.openlocfilehash: f4648ea78c07d501164b44389302cedf717b28bd
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Application Gateway poskytuje mnoho funkcí Application Delivery Controlleru (ADC), včetně vyrovnávání zatížení protokolu HTTP, spřažení relace na základě souborů cookie, přesměrování zpracování SSL (Secure Sockets Layer), vlastních testů stavu, podpory více webů a mnoha dalších. Úplný seznam podporovaných funkcí najdete v tématu [Přehled služby Application Gateway](application-gateway-introduction.md).
 
@@ -37,8 +35,6 @@ Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a ods
 
 > [!IMPORTANT]
 > Než začnete pracovat s prostředky Azure, je potřeba si uvědomit, že Azure má v současné době dva modely nasazení: Resource Manager a Classic. Před zahájením práce s jakýmikoli prostředky Azure se ujistěte, že [modelům nasazení a příslušným nástrojům](../azure-classic-rm.md) rozumíte. Dokumentaci k různým nástrojům můžete zobrazit kliknutím na karty v horní části tohoto článku. Tento dokument se týká vytvoření služby Application Gateway pomocí Azure Resource Manageru. Pokud chcete použít klasickou verzi, přejděte na téma [Vytvoření klasického nasazení služby Application Gateway pomocí prostředí PowerShell](application-gateway-create-gateway.md).
-> 
-> 
 
 ## <a name="before-you-begin"></a>Než začnete
 
@@ -106,8 +102,6 @@ V předchozím příkladu jsme vytvořili skupinu prostředků s názvem **appgw
 
 > [!NOTE]
 > Pokud pro svoji službu Application Gateway potřebujete nakonfigurovat vlastní test paměti, přečtěte si článek [Vytvoření služby Application Gateway s vlastními testy paměti pomocí prostředí PowerShell](application-gateway-create-probe-ps.md). Další informace najdete v článku [Vlastní testy paměti a sledování stavu](application-gateway-probe-overview.md).
-> 
-> 
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Vytvoření virtuální sítě a podsítě pro službu Application Gateway
 
@@ -145,9 +139,9 @@ Vytvořte prostředek veřejné IP adresy **publicIP01** ve skupině prostředk�
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway-configuration-object"></a>Vytvořte objekt konfigurace aplikační brány 
+## <a name="create-the-application-gateway-configuration-objects"></a>Vytvoření objektů konfigurace aplikační brány
 
-Před vytvořením služby Application Gateway musíte nastavit všechny položky konfigurace. Následující kroky slouží k vytvoření položek konfigurace potřebné pro prostředek služby Application Gateway.
+Před vytvořením aplikační brány musíte nastavit všechny položky konfigurace. Následující kroky slouží k vytvoření položek konfigurace potřebné pro prostředek služby Application Gateway.
 
 ### <a name="step-1"></a>Krok 1
 
@@ -215,8 +209,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > Výchozí hodnota **InstanceCount** je 2, přičemž maximální hodnota je 10. Výchozí hodnota **GatewaySize** je Medium (Střední). Můžete si vybrat mezi hodnotami **Standard_Small** (Standardní_malá), **Standard_Medium** (Standardní_střední) a **Standard_Large** (Standardní_velká).
-> 
-> 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Vytvoření služby Application Gateway pomocí New-AzureApplicationGateway
 
@@ -225,8 +217,6 @@ Vytvořte službu Application Gateway se všemi položkami konfigurace z předch
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
-
-### <a name="step-9"></a>Krok 9
 
 Načtěte podrobnosti o DNS a VIP služby Application Gateway z veřejného IP prostředku připojeného ke službě Application Gateway.
 
@@ -262,8 +252,6 @@ Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -F
 
 > [!NOTE]
 > K potlačení zprávy s potvrzením o odstranění se dá použít přepínač **-force**.
-> 
-> 
 
 Pokud chcete zkontrolovat, že se služba odstranila, můžete použít rutinu `Get-AzureRmApplicationGateway`. Tenhle krok není povinný.
 
@@ -315,6 +303,6 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

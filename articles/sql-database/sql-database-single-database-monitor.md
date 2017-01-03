@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: c0c9d107ff1642d66e96de5409863e4e894d1b6b
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
 Monitorování výkonu databáze SQL v Azure začíná sledováním využití prostředků relativně ke zvolené úrovni výkonu databáze. Monitorování vám pomůže určit, zda má databáze nadbytečnou kapacitu nebo zda má naopak potíže s vyčerpáním prostředků, a podle toho se můžete rozhodnout, zda je třeba změnit úroveň výkonu nebo [úroveň služeb](sql-database-service-tiers.md) vaší databáze. Databázi můžete monitorovat pomocí grafických nástrojů na [portálu Azure](https://portal.azure.com) nebo pomocí [zobrazení dynamické správy SQL](https://msdn.microsoft.com/library/ms188754.aspx).
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorování databází na portálu Azure
-Na [portálu Azure](https://portal.azure.com/) můžete monitorovat využití izolované databáze jednoduše tak, že vyberete databázi a kliknete na graf **Monitorování**. Zobrazí se okno **Metrika**, které můžete upravit kliknutím na **Upravit graf**. Přidejte následující metriky:
+Na webu [Azure Portal](https://portal.azure.com/) můžete monitorovat využití samostatné databáze tak, že vyberete databázi a kliknete na graf **Monitorování**. Zobrazí se okno **Metrika**, které můžete upravit kliknutím na **Upravit graf**. Přidejte následující metriky:
 
 * Procento CPU
 * Procento DTU
@@ -43,18 +44,17 @@ Například pokud očekáváte nárůst zatížení databáze, můžete nastavit
 Metrika výkonu vám také pomůže zjistit, zda je možné úroveň výkonu snížit. Předpokládejme, že používáte databáze S2 v úrovni Standard a všechny metriky ukazují, že databáze v průměru nevyužívá více než 10 % dostupného výkonu. Je pravděpodobné, že databáze bude dobře fungovat i v úrovni Standard S1. Než se však rozhodnete ke snížení úrovně výkonu, zvažte možnost výskytu špiček nebo náhlého kolísání zátěže.
 
 ## <a name="monitor-databases-using-dmvs"></a>Monitorování databází pomocí zobrazení dynamické správy
-Stejné metriky, které jsou přístupné na portálu, můžete zobrazit také prostřednictvím systémových zobrazení: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) v logické **hlavní** databázi vašeho serveru a [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) v uživatelské databázi. Pomocí zobrazení **sys.resource_stats** můžete sledovat hrubší data v delších časových obdobích. Pomocí zobrazení **sys.dm_db_resource_stats** můžete sledovat data s větším rozlišením a v kratších úsecích. Další informace najdete v tématu [Azure SQL Database – průvodce výkonem](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+Stejné metriky, které jsou přístupné na portálu, můžete zobrazit také prostřednictvím systémových zobrazení: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) v logické **hlavní** databázi vašeho serveru a [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) v uživatelské databázi. Pomocí zobrazení **sys.resource_stats** můžete sledovat hrubší data v delších časových obdobích. Pomocí zobrazení **sys.dm_db_resource_stats** můžete sledovat data s větším rozlišením a v kratších úsecích. Další informace najdete v tématu [Azure SQL Database – průvodce výkonem](sql-database-performance-guidance.md#monitor-resource-use).
 
 > [!NOTE]
 > **Sys.dm_db_resource_stats** vrací prázdný výsledek při použití pro databáze s úrovněmi Web a Business, které jsou již ukončené.
-> 
-> 
+>
+>
 
-Pro fondy elastické databáze můžete monitorovat jednotlivé databáze ve fondu pomocí technik popsaných v této části. Můžete ale také monitorovat fond jako celek. Další informace viz [Monitorování a správa fondu elastické databáze](sql-database-elastic-pool-manage-portal.md).
-
-
+U elastických fondů můžete monitorovat jednotlivé databáze ve fondu pomocí technik popsaných v této části. Můžete ale také monitorovat fond jako celek. Další informace najdete v tématu [Monitorování a správa elastického fondu](sql-database-elastic-pool-manage-portal.md).
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Dec16_HO2-->
 
 

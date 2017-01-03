@@ -1,116 +1,120 @@
 ---
-title: Manage a SQL Database with SSMS | Microsoft Docs
-description: Learn how to use SQL Server Management Studio to manage SQL Database servers and databases.
+title: "Správa služby SQL Database pomocí SSMS | Dokumentace Microsoftu"
+description: "Správa serverů a databází služby SQL Database v nástroji SQL Server Management Studio"
 services: sql-database
 documentationcenter: .net
 author: stevestein
 manager: jhubbard
 editor: tysonn
-
+ms.assetid: da6f3608-5993-4134-a497-ff2811e9f31f
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2016
+ms.topic: get-started-article
+ms.date: 09/29/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
+ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+
 
 ---
-# Managing Azure SQL Database using SQL Server Management Studio
+# <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Správa služby Azure SQL Database pomocí nástroje SQL Server Management Studio
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
+> * [Azure Portal](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-command-line-tools.md)
+> * [PowerShell](sql-database-manage-powershell.md)
 > 
 > 
 
-You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
+SQL Server Management Studio (SSMS) umožňuje spravovat servery a databáze služby Azure SQL Database. Toto téma vás provede běžnými úlohami v nástroji SSMS. Než začnete, měli byste už mít ve službě Azure SQL Database vytvořený server a databázi. Další informace najdete v tématech [Vytvoření první databáze služby Azure SQL Database](sql-database-get-started.md) a [Připojení a dotazy pomocí SSMS](sql-database-connect-query-ssms.md).
 
-It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. 
+> [!TIP]
+> Pokud potřebujete kurz, ve kterém se naučíte vytvořit server, vytvořit bránu firewall založenou na serveru, zobrazit vlastnosti serveru, připojit se pomocí nástroje SQL Server Management Studio, vytvářet dotazy v hlavní databázi, vytvořit vzorovou databázi a prázdnou databázi nebo se připojit pomocí nástroje SQL Server Management Studio a vytvářet dotazy ve vzorové databázi, přejděte na stránku [kurzu Začínáme](sql-database-get-started.md).
+>
+
+Při práci se službou Azure SQL Database doporučujeme vždy používat nejnovější verzi nástroje SSMS. 
 
 > [!IMPORTANT]
-> Always use the latest version of SSMS because it is continually improved to work with the latest updates to Azure and SQL Database. To get the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Vždy používejte nejnovější verzi SSMS, protože nástroj neustále vylepšujeme tak, aby fungoval s nejnovějšími aktualizacemi služeb Azure a SQL Database. Pokud chcete získat nejnovější verzi, projděte si téma [Stažení nástroje SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
-## Create and manage Azure SQL databases
-While connected to the **master** database, you can create databases on the server and modify or drop existing databases. The following steps describe how to accomplish several common database management
-tasks through Management Studio. To perform these tasks, make sure you are connected to the
-**master** database with the server-level principal login that you
-created when you set up your server.
+## <a name="create-and-manage-azure-sql-databases"></a>Vytvoření a správa databází služby Azure SQL Database
+Pokud jste připojeni k **hlavní** databázi, můžete vytvářet databáze na serveru a měnit nebo odstraňovat existující databáze. Následující kroky popisují, jak provádět některé běžné úlohy správy databází v Management Studiu. Abyste mohli provádět tyto úlohy, ujistěte se, že jste k **hlavní** databázi připojeni pomocí hlavního přihlášení na úrovni serveru, které jste vytvořili při vytvoření vašeho serveru.
 
-To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+Pokud chcete otevřít okno dotazu v Management Studiu, otevřete složku databází, rozbalte složku **Systémové databáze**, klikněte pravým tlačítkem na **hlavní**a potom klikněte na **Nový dotaz**.
 
-* Use the **CREATE DATABASE** statement to create a database. For
-  more information, see [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). The following statement creates a database named **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250 GB.
+* Pomocí příkazu **CREATE DATABASE** vytvoříte databázi. Další informace najdete v tématu [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). Následující příkaz vytvoří databázi s názvem **myTestDB** a určí, že se bude jednat o databázi edice Standard S0 s výchozí maximální velikostí 250 GB.
   
       CREATE DATABASE myTestDB
       (EDITION='Standard',
        SERVICE_OBJECTIVE='S0');
 
-Click **Execute** to run the query.
+Kliknutím na **Spustit** dotaz spustíte.
 
-* Use the **ALTER DATABASE** statement to modify an existing database, for example if you want to change the name and edition of the database. For more information, see [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). The following statement modifies the database you created in the previous step to change edition to Standard S1.
+* Příkaz **ALTER DATABASE** můžete použít k upravení existující databáze, například pokud chcete změnit název a edici databáze. Další informace najdete v tématu [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). Následující příkaz upraví databázi, kterou jste vytvořili v předchozím kroku, a změní její edici na Standard S1.
   
       ALTER DATABASE myTestDB
       MODIFY
       (SERVICE_OBJECTIVE='S1');
-* Use **the DROP DATABASE** Statement to delete an existing database. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The following statement deletes the **myTestDB** database, but don't drop it now because you will use it to create logins in the next step.
+* Pomocí příkazu **DROP DATABASE** můžete odstranit existující databázi. Další informace najdete v tématu [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). Následující příkaz odstraní databázi **myTestDB**, ale teď ji neodstraňujte, protože ji budete potřebovat k vytvoření přihlášení v dalším kroku.
   
       DROP DATABASE myTestBase;
-* The master database has the **sys.databases** view that you can use to view details about all databases. To view all existing databases, execute the following statement:
+* Hlavní databáze obsahuje zobrazení **sys.databases**, které můžete použít k zobrazení podrobností o všech databázích. Pokud chcete zobrazit všechny existující databáze, spusťte následující příkaz:
   
       SELECT * FROM sys.databases;
-* In SQL Database, the **USE** statement is not supported for switching between databases. Instead, you need to establish a connection directly to the target database.
+* Ve službě SQL Database není příkaz **USE** podporován pro přepínání mezi databázemi. Místo toho musíte vytvořit připojení přímo k cílové databázi.
 
 > [!NOTE]
-> Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information.
+> Řada příkazů Transact-SQL pro vytváření nebo úpravy databází musí být spouštěna v rámci samostatné vlastní dávky a není možné je seskupit s dalšími příkazy Transact-SQL. Další informace najdete v informacích pro konkrétní příkazy.
 > 
 > 
 
-## Create and manage logins
-The **master** database contains logins and which logins have permission to create databases or other logins. Manage logins by connecting to the **master** database with the server-level principal login that you created when you set up your server. You can use the **CREATE LOGIN**, **ALTER LOGIN**, or **DROP LOGIN** statements to execute queries against the master database that manages logins across the entire server. For more information, see [Managing Databases and Logins in SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
+## <a name="create-and-manage-logins"></a>Vytváření a správa přihlášení
+**Hlavní** databáze obsahuje přihlášení a určuje, která přihlášení mají oprávnění k vytváření databází nebo dalších přihlášení. Přihlášení můžete spravovat, pokud se připojíte k **hlavní** databázi pomocí hlavního přihlášení na úrovni serveru, které jste vytvořili při vytvoření vašeho serveru. Pomocí příkazů **CREATE LOGIN**, **ALTER LOGIN** a **DROP LOGIN** můžete spouštět dotazy v hlavní databázi, která spravuje přihlášení v rámci celého serveru. Další informace najdete v tématu [Správa databází a přihlášení ve službě SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
 
-* Use the **CREATE LOGIN** statement to create a server-level login. For more information, see [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). The following statement creates a login called **login1**. Replace **password1** with the password of your choice.
+* Příkaz **CREATE LOGIN** slouží k vytvoření přihlášení na úrovni serveru. Další informace najdete v tématu [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). Následující příkaz vytvoří přihlášení s názvem **login1**. Hodnotu **password1** nahraďte heslem, které jste si zvolili.
   
       CREATE LOGIN login1 WITH password='password1';
-* Use the **CREATE USER** statement to grant database-level permissions. All logins must be created in the **master** database. For a login to connect to a different database, you must grant it database-level permissions using the **CREATE USER** statement on that database. For more information, see [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
-* To give login1 permissions to a database called **myTestDB**, complete the following steps:
+* Příkaz **CREATE USER** slouží k udělení oprávnění na úrovni databáze. Všechna přihlášení musí být vytvořena v **hlavní** databázi. Pokud chcete vytvořit přihlášení pro připojení k jiné databázi, musíte mu v této databázi udělit oprávnění na úrovni databáze pomocí příkazu **CREATE USER**. Další informace najdete v tématu [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
+* Pokud chcete přihlášení login1 udělit oprávnění k databázi s názvem **myTestDB**, proveďte následující kroky:
   
-  1. To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
+  1. Aktualizujte Průzkumník objektů, aby se zobrazila databáze **myTestDB**, kterou jste vytvořili. To provedete kliknutím pravým tlačítkem na název serveru v Průzkumníku objektů a potom kliknutím na **Aktualizovat**.  
      
-     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
-  2. Right-click **myTestDB** database and select **New Query**.
-  3. Execute the following statement against the myTestDB database to create a database user named **login1User** that corresponds to the server-level login **login1**.
+     Pokud jste připojení zavřeli, můžete se znovu připojit výběrem možnosti **Připojit Průzkumník objektů** v nabídce Soubor.
+  2. Klikněte na databázi **myTestDB** pravým tlačítkem a pak klikněte na **Nový dotaz**.
+  3. Spuštěním následujícího příkazu v databázi myTestDB vytvoříte uživatele databáze s názvem **login1User**, který odpovídá přihlášení na úrovni serveru s názvem **login1**.
      
          CREATE USER login1User FROM LOGIN login1;
-* Use the **sp\_addrolemember** stored procedure to give the user account the appropriate level of permissions on the database. For more information, see [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). The following statement gives **login1User** read-only permissions to the database by adding **login1User** to the **db\_datareader** role.
+* Pomocí uložené procedury **sp\_addrolemember** můžete tomuto uživatelskému účtu udělit odpovídající úroveň oprávnění v databázi. Další informace najdete v tématu [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). Následující příkaz přidá uživatele **login1User** do role **db\_datareader** a udělí tak uživateli **login1User** v databázi oprávnění jen pro čtení.
   
       exec sp_addrolemember 'db_datareader', 'login1User';    
-* Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
+* Příkaz **ALTER LOGIN** můžete použít k úpravě existujícího přihlášení, například pokud chcete změnit heslo pro přihlášení. Další informace najdete v tématu [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). Příkaz **ALTER LOGIN** spouštějte v **hlavní** databázi. Přejděte zpátky do okna dotazu, který je připojený k této databázi. Následující příkaz upraví přihlášení **login1** a resetuje jeho heslo. Hodnotu **newPassword** nahraďte heslem, které si zvolíte, a **oldPassword** nahraďte aktuálním heslem přihlášení.
   
       ALTER LOGIN login1
       WITH PASSWORD = 'newPassword'
       OLD_PASSWORD = 'oldPassword';
-* Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
+* Pomocí příkazu **DROP LOGIN** můžete odstranit existující přihlášení. Odstranění přihlášení na úrovni serveru odstraní také všechny přidružené uživatelské účty v databázích. Další informace najdete v tématu [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). Příkaz **DROP LOGIN** spouštějte v **hlavní** databázi. Tento příkaz odstraní přihlášení **login1**.
   
       DROP LOGIN login1;
-* The master database has the **sys.sql\_logins** view that you can use to view logins. To view all existing logins, execute the following statement:
+* Hlavní databáze obsahuje zobrazení **sys.sql\_logins**, které můžete použít k zobrazení přihlášení. Pokud chcete zobrazit všechna existující přihlášení, spusťte následující příkaz:
   
       SELECT * FROM sys.sql_logins;
 
-## Monitor SQL Database using Dynamic Management Views
-SQL Database supports several dynamic management views that you can use to monitor an individual database. A few examples of the type of monitor data you can retrieve through these views are following. For
-complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+## <a name="monitor-sql-database-using-dynamic-management-views"></a>Monitorování služby SQL Database pomocí zobrazení dynamické správy
+Služba SQL Database podporuje několik zobrazení dynamické správy, která umožňují monitorovat jednotlivé databáze. Níže je několik příkladů typů dat monitorování, která můžete načíst pomocí těchto zobrazení. Veškeré podrobnosti a další příklady použití najdete v tématu [Monitorování služby SQL Database pomocí zobrazení dynamické správy](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
-* Querying a dynamic management view requires **VIEW DATABASE STATE** permissions. To grant the **VIEW DATABASE STATE** permission to a specific database user, connect to the database and execute the following statement against the database:
+* Dotaz na zobrazení dynamické správy vyžaduje oprávnění **VIEW DATABASE STATE**. Pokud chcete udělit oprávnění **VIEW DATABASE STATE** konkrétnímu uživateli databáze, připojte se k databázi a spusťte v této databázi následující příkaz:
   
       GRANT VIEW DATABASE STATE TO login1User;
-* Calculate database size using the **sys.dm\_db\_partition\_stats** view. The **sys.dm\_db\_partition\_stats** view returns page and row-count information for every partition in the database, which you can use to calculate the database size. The following query returns the size of your database in megabytes:
+* Pomocí zobrazení **sys.dm\_db\_partition\_stats** můžete vypočítat velikost databáze. Zobrazení **sys.dm\_db\_partition\_stats** vrátí informace o počtu stránek a řádků pro každý oddíl databáze, které můžete použít k výpočtu velikosti databáze. Následující dotaz vrátí velikost databáze v megabajtech:
   
       SELECT SUM(reserved_page_count)*8.0/1024
       FROM sys.dm_db_partition_stats;   
-* Use the **sys.dm\_exec\_connections** and **sys.dm\_exec\_sessions** views to retrieve information about current user connections and internal tasks associated with the database. The following query returns information about the current connection:
+* Zobrazení **sys.dm\_exec\_connections** a **sys.dm\_exec\_sessions** slouží k načtení informací o aktuálních připojeních uživatelů a interních úlohách souvisejících s databází. Následující dotaz vrátí informace o aktuálním připojení:
   
       SELECT
           e.connection_id,
@@ -122,7 +126,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
           sys.dm_exec_sessions s
           INNER JOIN sys.dm_exec_connections e
             ON s.session_id = e.session_id;
-* Use the **sys.dm\_exec\_query\_stats** view to retrieve aggregate performance statistics for cached query plans. The following query returns information about the top five queries ranked by average CPU time.
+* Zobrazení **sys.dm\_exec\_query\_stats** umožňuje načíst agregovanou statistiku výkonu plánů dotazů v mezipaměti. Následující dotaz vrátí informace o prvních pěti dotazech seřazených podle průměrné doby využití procesoru.
   
       SELECT TOP 5 query_stats.query_hash AS "Query Hash",
           SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -138,4 +142,10 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
            CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
       GROUP BY query_stats.query_hash
       ORDER BY 2 DESC;
+
+
+
+
+<!--HONumber=Jan17_HO1-->
+
 
