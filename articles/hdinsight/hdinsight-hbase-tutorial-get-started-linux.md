@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
-ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Naučte se vytvářet cluster HBase v HDInsight, vytvářet tabulky HBase a dotazovat tabulky pomocí Hive. Obecné informace o HBase naleznete v tématu [Přehled HDInsight HBase][hdinsight-hbase-overview].
+Naučte se vytvářet cluster HBase v HDInsight, vytvářet tabulky HBase a dotazovat tabulky pomocí Hive. Obecné informace o HBase najdete v tématu [Přehled HBase ve službě HDInsight][hdinsight-hbase-overview].
 
 Informace v tomto dokumentu se týkají clusterů se systémem Linux HDInsight. Informace o clusterech založených na systému Windows využívají k přepínání volič karty v horní části stránky.
 
@@ -45,7 +45,7 @@ Následující postup používá šablonu Azure Resource Manageru pro vytvořen�
 
 1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal. Šablona se nachází ve veřejném kontejneru objektů blob. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Z okna **Vlastní nasazení** zadejte:
    
    * **Předplatné**: Vyberte předplatné Azure, které se použije k vytvoření clusteru.
@@ -102,7 +102,7 @@ Po dokončení dalšího postupu to bude dávat větší smysl.
    
     Zobrazí se stejné výsledky jako pomocí příkazu vyhledávání, protože existuje pouze jeden řádek.
    
-    Další informace o schématu tabulky HBase naleznete v tématu [Úvod do navrhování schémat HBase][hbase-schema]. Další příkazy HBase naleznete v tématu [Referenční příručka Apache HBase][hbase-quick-start].
+    Další informace o schématu tabulky HBase najdete v tématu [Úvod do navrhování schémat HBase][hbase-schema]. Další příkazy HBase najdete v tématu [Referenční příručka Apache HBase][hbase-quick-start].
 5. Opusťte prostředí
    
         exit
@@ -124,7 +124,7 @@ Ukázkový datový soubor se odeslal do veřejného kontejneru objektu blob *was
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Můžete vytvořit textový soubor a případně soubor nahrát do vlastního účtu úložiště. Pokyny naleznete v tématu [Nahrávání dat pro úlohy Hadoop do HDInsight][hdinsight-upload-data].
+Můžete vytvořit textový soubor a případně soubor nahrát do vlastního účtu úložiště. Pokyny najdete v tématu [Nahrávání dat pro úlohy Hadoop do služby HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > Tento postup používá tabulku kontaktů HBase, kterou jste vytvořili v posledním postupu.
@@ -255,7 +255,7 @@ V tomto kurzu HBase pro HDInsight jste se dozvěděli, jak vytvořit cluster HBa
 
 Další informace naleznete v tématu:
 
-* [Přehled HDInsight HBase][hdinsight-hbase-overview]: HBase je databáze NoSQL open source Apache postavená na Hadoop poskytující náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat.
+* [Přehled HBase ve službě HDInsight][hdinsight-hbase-overview]: HBase je NoSQL open source databáze Apache postavená na systému Hadoop, která poskytuje náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -286,6 +286,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

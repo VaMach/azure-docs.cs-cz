@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 05361e08b93c93491111661b5fe997ebf5053d16
 
 
 ---
@@ -28,17 +28,20 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu si projdeme postup vytvoření aplikace pro Linux a vytvoření služby pomocí Javy.
+Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu vytvoříme aplikaci pro Linux a sestavíme službu pomocí Javy.  Následující video Microsoft Virtual Academy vás také provede procesem vytváření aplikace Java v Linuxu:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, ujistěte se, že máte [v Linuxu nastavené vývojové prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman teď vytvoříme novou aplikaci s jedinou službou.
+Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
 
 1. V terminálu zadejte **yo azuresfjava**.
 2. Pojmenujte svoji aplikaci.
-3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolíme službu Reliable Actors.
+3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolíme službu Reliable Actor.
    
    ![Generátor Service Fabric Yeoman pro Javu][sf-yeoman]
 
@@ -86,7 +89,7 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 3. Klikněte na uzel, který jste našli v předchozím kroku, a potom v nabídce Akce vyberte **Deaktivovat (restartovat)**. Restartuje se tak jeden z pěti uzlů v místním clusteru a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných v jiném uzlu. Věnujte přitom pozornost výstupu z klienta testování a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Sestavení a nasazení aplikace pomocí modulu plug-in Eclipse Neon
-Pokud jste nainstalovali modul plug-in služby pro Eclipse Neon, můžete ho použít k vytvoření, sestavení a nasazení aplikací Service Fabric vytvořených v jazyce Java.  Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**.
+Pokud jste nainstalovali [modul plug-in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) pro Eclipse Neon, můžete ho použít k vytvoření, sestavení a nasazení aplikací Service Fabric vytvořených v jazyce Java.  Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**.
 
 ### <a name="create-the-application"></a>Vytvoření aplikace
 Modul plug-in Service Fabric je dostupný prostřednictvím rozšíření Eclipse.
@@ -98,17 +101,26 @@ Modul plug-in Service Fabric je dostupný prostřednictvím rozšíření Eclips
 3. Budete vyzváni k potvrzení použití perspektivy služby Service Fabric, která optimalizuje Eclipse pro použití s projekty Service Fabric. Zvolte Ano.
 
 ### <a name="deploy-the-application"></a>Nasazení aplikace
-Šablony Service Fabric zahrnují sadu úloh Gradlu pro sestavování a nasazování aplikací, které můžete aktivovat prostřednictvím Eclipse.
+Šablony Service Fabric zahrnují sadu úloh Gradlu pro sestavování a nasazování aplikací, které můžete aktivovat prostřednictvím Eclipse. 
 
 1. Zvolte **Run > Run Configurations** (Spustit > Konfigurace spuštění).
-2. Rozbalte **Gradle Project** (Projekt Gradlu) a zvolte **ServiceFabricDeployer**.
-3. Klikněte na **Run** (Spustit).
+2. Zadejte **local** (místní) nebo **cloud** (v cloudu). Výchozí nastavení je **local** (místní). Pro nasazení na vzdálený cluster vyberte **cloud** (v cloudu).
+3. Ujistěte se, že jsou v publikačních profilech vyplněné správné informace a podle potřeby upravte soubor `local.json` nebo `cloud.json`.
+4. Klikněte na **Run** (Spustit).
 
 Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stavu můžete využít Service Fabric Explorer.
+
+## <a name="adding-more-services-to-an-existing-application"></a>Přidání více služeb do stávající aplikace
+
+Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky: 
+1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
+2. Spusťte `yo azuresfjava:AddService`.
+
 
 ## <a name="next-steps"></a>Další kroky
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
+* Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -117,6 +129,6 @@ Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stav
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

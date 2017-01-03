@@ -1,6 +1,6 @@
 ---
 title: "Začínáme se službou Event Hubs v jazyce C# | Dokumentace Microsoftu"
-description: "Tento kurz vám pomůže naučit se základy používání služby Azure Event Hubs s jazykem C# a knihovny EventProcessorHost."
+description: "Tento kurz vám pomůže naučit se základy používání služby Azure Event Hubs s jazykem C# a knihovny Event Processor Host."
 services: event-hubs
 documentationcenter: 
 author: jtaubensee
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/02/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+ms.sourcegitcommit: 015dbab81f807cd05d1fedb97f5fc62a012f2084
+ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
 ## <a name="introduction"></a>Úvod
 Event Hubs je služba, která zpracovává velké objemy dat událostí (telemetrie) z připojených zařízení a aplikací. Data, která shromáždíte pomocí služby Event Hubs, můžete uložit pomocí úložného clusteru nebo transformovat pomocí zprostředkovatele datové analýzy v reálném čase. Schopnost shromažďovat a zpracovávat velké množství událostí je klíčovou komponentou moderních aplikačních architektur, například internetu věcí (Internet of Things – IoT).
 
-Díky tomuto kurzu se dozvíte, jak pomocí portálu Azure Classic vytvořit centrum událostí (Event Hub). Taky se naučíte, jak v centru událostí shromažďovat zprávy pomocí konzolové aplikace napsané v jazyce C# a jak je paralelně znovu přijímat pomocí knihovny [Event Processor Host][Event Processor Host] jazyka C#.
+Díky tomuto kurzu se dozvíte, jak pomocí webu Azure Portal vytvořit centrum událostí. Taky se naučíte, jak v centru událostí shromažďovat zprávy pomocí konzolové aplikace napsané v jazyce C# a jak je paralelně znovu přijímat pomocí knihovny [Event Processor Host][Event Processor Host] jazyka C#.
 
 K absolvování tohoto kurzu potřebujete:
 
@@ -65,9 +65,10 @@ Stiskněte v okně **Sender** kombinaci kláves **Ctrl + C**. Aplikace Sender 
 ## <a name="next-steps"></a>Další kroky
 Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete podívat na některý z následujících scénářů:
 
-* Úplná [ukázková aplikace, která používá službu Event Hubs][ukázková aplikace, která používá službu Event Hubs]
-* Ukázka [horizontálního navýšení kapacity zpracování událostí pomocí služby Event Hubs][horizontální navýšení kapacity zpracování událostí pomocí služby Event Hubs]
-* [Přehled služby Event Hubs][Přehled služby Event Hubs]
+* Úplná [ukázková aplikace, která používá službu Event Hubs][sample application that uses Event Hubs]
+* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Horizontální navýšení kapacity zpracování událostí ve službě Event Hubs][Scale out Event Processing with Event Hubs] – ukázka
+* [Přehled služby Event Hubs][Event Hubs overview]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -76,16 +77,15 @@ Gratulujeme, sestavili jste funkční aplikaci, která vytvoří centrum událos
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Portál Azure Classic]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Přehled služby Event Hubs]: event-hubs-overview.md
-[ukázková aplikace, která používá službu Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[horizontální navýšení kapacity zpracování událostí pomocí služby Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[řešení zasílání zpráv ve frontě]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -185,7 +185,7 @@ Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve s
   > Pokud používáte starší verzi systému Windows Server 2008 nebo 2008 R2, můžete tuto funkci také využívat, ale aby bylo možné vynutit místní zásady hesel služby AD v cloudu, bude nejprve nutné [stáhnout a nainstalovat komponenty popsané v článku znalostní báze KB 2386717](https://support.microsoft.com/kb/2386717).
   > 
   > 
-* Je nutné mít nainstalovaný nástroj Azure AD Connect a prostředí služby AD musí být připravené na synchronizaci s cloudem.  Další informace najdete v tématu [Použití místní infrastruktury identity v cloudu](active-directory-aadconnect.md).
+* Je nutné mít nainstalovaný nástroj Azure AD Connect a prostředí služby AD musí být připravené na synchronizaci s cloudem.  Další informace najdete v tématu [Použití místní infrastruktury identity v cloudu](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Před otestováním zpětného zápisu hesla je nutné nejprve dokončit úplný import a synchronizaci ze služeb AD a Azure AD ve službě Azure AD Connect.
@@ -199,7 +199,7 @@ Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve s
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Krok 1: Stažení nejnovější verze služby Azure AD Connect
-Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout po kliknutí sem](active-directory-aadconnect.md#install-azure-ad-connect).
+Zpětný zápis hesla je k dispozici ve vydáních služby Azure AD Connect nebo nástroje Azure AD Sync s číslem verze **1.0.0419.0911** nebo vyšším.  Zpětný zápis hesla s automatickým odemknutím účtu je k dispozici ve vydáních služby Azure AD Connect a nástroje Azure AD Sync s číslem verze **1.0.0485.0222** nebo vyšším. Pokud používáte starší verzi, než budete pokračovat, upgradujte prosím alespoň na tuto verzi. [Nejnovější verzi služby Azure AD Connect si můžete stáhnout po kliknutí sem](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Kontrola verze služby Azure AD Sync
 1. Přejděte do složky **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -393,6 +393,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

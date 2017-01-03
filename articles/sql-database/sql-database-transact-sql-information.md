@@ -1,102 +1,98 @@
 ---
-title: Unsupported in Azure SQL Database T-SQL | Microsoft Docs
-description: Transact-SQL statements that are less than fully supported in Azure SQL Database
+title: "Nepodporované příkazy jazyka T-SQL v Azure SQL Database | Dokumentace Microsoftu"
+description: "Příkazy jazyka Transact-SQL, které služba Azure SQL Database plně nepodporuje"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/30/2016
+ms.date: 11/28/2016
 ms.author: rick.byham@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 7db5939c88045ab59d7d9fb4b58f07374d7bca01
+ms.openlocfilehash: ebec6ca87cfd5e9d2c4ea726d5d31d20998ef33f
+
 
 ---
-# Azure SQL Database Transact-SQL differences
-Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. A partial list of supported features for applications follows:
+# <a name="azure-sql-database-transact-sql-differences"></a>Rozdíly u Transact-SQL ve službě Azure SQL Database   
+Většinu funkcí jazyka Transact-SQL, na kterých závisejí aplikace, podporují jak Microsoft SQL Server, tak Azure SQL Database. Například hlavní součásti SQL, jako jsou datové typy, operátory, řetězce, aritmetické, logické a kurzorové funkce atd., fungují stejně jako v SQL Serveru.
 
-* Data types.
-* Operators.
-* String, arithmetic, logical, and cursor functions.
+## <a name="why-some-transact-sql-is-not-supported"></a>Proč nejsou některé příkazy jazyka Transact-SQL podporované
+Azure SQL Database je navržená tak, aby izolovala funkce od závislostí na hlavní databázi a operačním systému. Proto je řada serverových aktivit pro službu SQL Database nevhodná. Příkazy jazyka Transact-SQL většinou nejsou k dispozici, pokud konfigurují možnosti serveru, součásti operačního systému nebo určují konfiguraci systému souborů. Pokud potřebujete funkce, které se nacházejí mimo uživatelskou databázi, nabízí SQL Database často odpovídající alternativu. Můžete také použít jinou funkci nebo službu Azure. 
 
-However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. Features that are deprecated in SQL Server are generally not supported in SQL Database.
+Například skupina dostupnosti Always On je nahrazena aktivní geografickou replikací. Z uvedených důvodů nejsou podporované příkazy Transact-SQL, které se týkají skupin dostupnosti, ani zobrazení dynamické správy týkající se skupiny dostupnosti Always On.  
 
-> [!NOTE]
-> This topic discusses the features that are available with SQL Database when upgraded to the current version; SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md).
-> 
-> 
+Seznam podporovaných a nepodporovaných funkcí služby SQL Database najdete v tématu [Požadavky, pokyny a funkce služby Azure SQL Database](sql-database-features.md).
 
-The following sections list features that are partially supported, and the features that are completely unsupported.
+Obecně platí, že SQL Database nepodporuje zastaralou syntaxi SQL Serveru.
 
-## Features partially supported in SQL Database V12
-SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+## <a name="transact-sql-syntax-partially-supported-in-sql-database"></a>SQL Database podporuje částečně syntaxi jazyka Transact-SQL.
+SQL Database podporuje některé (ale ne všechny) argumenty, které existují v odpovídajících příkazech jazyka Transact-SQL v SQL Serveru 2016. Například příkaz `CREATE PROCEDURE` je dostupný, ale všechny možnosti příkazu `CREATE PROCEDURE` dostupné nejsou. Popis celé syntaxe by byl nepřehledný a zbytečný. Podrobnosti o podporovaných částech každého příkazu najdete v tématech o syntaxi, na které zde odkazujeme.
 
-* Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-* DMVs are generally available for features that are available.
-* Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
-* [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
-* Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
-* Stored procedures: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
-* Tables: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
-* Types (custom): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
-* Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
-* Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
+- Databáze: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)   
+- Funkce: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)   
+- Přihlášení: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)   
+- Uložené procedury: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)   
+- Tabulky: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)   
+- Typy (vlastní): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
+- Uživatelé: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)   
+- Zobrazení: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)   
 
-## Features not supported in SQL Database
-* Collation of system objects
-* Connection related: Endpoint statements, ORIGINAL_DB_NAME. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-* Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
-* Cross database ownership chaining, TRUSTWORTHY setting
-* Data Collector
-* Database Diagrams
-* Database Mail
-* DATABASEPROPERTY (use DATABASEPROPERTYEX instead)
-* EXECUTE AS logins
-* Encryption: extensible key management
-* Eventing: events, event notifications, query notifications
-* Features related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
-* Features that relate to high availability, which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
-* Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture.
-* Features that rely upon the SQL Server Agent or the MSDB database: jobs, alerts, operators, Policy-Based Management, database mail, central management servers.
-* FILESTREAM
-* Functions: fn_get_sql, fn_virtualfilestats, fn_virtualservernodes
-* Global temporary tables
-* Hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
-* HAS_DBACCESS
-* KILL STATS JOB
-* Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, and four-part names
-* Master/target servers
-* .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
-* Resource governor
-* Semantic search
-* Server credentials. Use database scoped credentials instead.
-* Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMVs are not available though some are replaced by database-level DMVs.
-* Serverless express: localdb, user instances
-* Service broker
-* SET REMOTE_PROC_TRANSACTIONS
-* SHUTDOWN
-* sp_addmessage
-* sp_configure options and RECONFIGURE. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-* sp_helpuser
-* sp_migrate_user_to_contained
-* SQL Server audit. Use SQL Database auditing instead.
-* SQL Server Profiler
-* SQL Server trace
-* Trace flags. Some trace flag items have been moved to compatibility modes.
-* Transact-SQL debugging
-* Triggers: Server-scoped or logon triggers
-* USE statement: To change the database context to a different database, you must make a new connection to the new database.
+## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>Syntaxe jazyka Transact-SQL nepodporovaná službou SQL Database   
+Kromě příkazů jazyka Transact-SQL souvisejících s nepodporovanými funkcemi popsanými v tématu [Požadavky, pokyny a funkce služby Azure SQL Database](sql-database-features.md) nejsou podporované ani následující příkazy a jejich skupiny:
+- Kolace systémových objektů
+- Související s připojením: příkazy ENDPOINT, `ORIGINAL_DB_NAME`. Služba SQL Database nepodporuje ověřování Windows, ale podporuje podobné ověřování Azure Active Directory. Některé typy ověřování vyžadují nejnovější verzi SQL Server Management Studia (SSMS). Další informace najdete v tématu [Připojení k SQL Database nebo SQL Data Warehouse pomocí ověřování služby Azure Active Directory](sql-database-aad-authentication.md).
+- Mezidatabázové dotazy, které používají tři nebo čtyři názvy částí (mezidatabázové dotazy jen pro čtení jsou podporované prostřednictvím [dotazů do Elastic Database](sql-database-elastic-query-overview.md)).
+- Mezidatabázové řetězení vlastnictví, nastavení `TRUSTWORTHY`
+- `DATABASEPROPERTY` Místo toho použijte `DATABASEPROPERTYEX`.
+- `EXECUTE AS LOGIN` Místo toho použijte EXECUTE AS USER.
+- Šifrování je podporované s výjimkou služby EKM (extensible key management).
+- Stavy: událostí, oznámení událostí a oznámení dotazů
+- Syntaxe spojená s umístěním databázových souborů, jejich velikostí a databázovými soubory, které automaticky spravuje Microsoft Azure.
+- Syntaxe týkající se vysoké dostupnosti, která je spravovaná prostřednictvím účtu Microsoft Azure. Patří sem syntaxe zálohování, obnovení, Always On, zrcadlení databáze, přesouvání protokolu a režimů obnovení.
+- Syntaxe, která závisí na čtečce protokolů, protože tato čtečka není v SQL Database k dispozici: nabízená replikace a Change Data Capture. SQL Database může být odběratelem článku nabízené replikace.
+- Syntaxe, která závisí na službě SQL Server Agent nebo na databázi MSDB: výstrahy, operátory a servery centrální správy. Použijte raději skriptování, například v Azure PowerShellu.
+- Funkce: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
+- Globální dočasné tabulky
+- Syntaxe spojená s nastavením serverového hardwaru: paměť, pracovní vlákna, spřažení procesorů, příznaků trasování atd. Místo ní použijte úrovně služby.
+- `HAS_DBACCESS`
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT` a názvy složené ze čtyř částí
+- .NET Framework – [integrace modulu CLR do SQL Serveru](http://msdn.microsoft.com/library/ms254963.aspx)
+- Sémantické vyhledávání
+- Přihlašovací údaje serveru. Místo nich použijte přihlašovací údaje v oboru databáze.
+- Serverové položky: serverové role, `IS_SRVROLEMEMBER`, `sys.login_token`. K dispozici nejsou příkazy `GRANT`, `REVOKE` a `DENY` serverových oprávnění, i když některé z nich jsou nahrazené oprávněními na úrovni databáze. Některá praktická serverová zobrazení dynamických zpráv (DMV) mají odpovídající databázová zobrazení dynamických zpráv.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- Možnosti `sp_configure` a `RECONFIGURE`. Některé možnosti jsou dostupné prostřednictvím příkazu [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
+- Auditování SQL Serveru. Místo něho použijte auditování SQL Database.
+- Trasování SQL Serveru
+- Příznaky trasování. Některé příznaky trasování byly přesunuty do kompatibilních režimů.
+- Ladění Transact-SQL
+- Aktivační události: serverové nebo přihlašovací aktivační události
+- Příkaz `USE`: Pokud chcete změnit kontext databáze na jinou databázi, musíte k nové databázi vytvořit nové připojení.
 
-## Full Transact-SQL reference
-For more information about Transact-SQL grammar, usage, and examples, see [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) in SQL Server Books Online. 
+## <a name="full-transact-sql-reference"></a>Kompletní reference k jazyku Transact-SQL
+Další informace o syntaxi a používání jazyka Transact-SQL, včetně příkladů, najdete v tématu [Reference k jazyku Transact-SQL (databázový stroj)](https://msdn.microsoft.com/library/bb510741.aspx) v dokumentaci SQL Server Books Online. 
 
-### About the "Applies to" tags
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+### <a name="about-the-applies-to-tags"></a>Informace o značkách „Platí pro“
+Referenční zdroje k jazyku Transact-SQL obsahují témata, která se týkají SQL Serveru verze 2008 až po současnost. Pod názvem tématu je pruh ikon se čtyřmi platformami SQL Serveru a vyznačenou platností. Například skupiny dostupnosti byly zavedeny v SQL Serveru 2012. Téma [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) uvádí, že příkaz platí pro **SQL Server (počínaje verzí 2012)**. Příkaz neplatí pro SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ani pro Parallel Data Warehouse.
 
-In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
+Někdy je možné v produktu použít obecný předmět tématu, i když jsou mezi jednotlivým produkty drobné rozdíly. Tam, kde je to možné, jsou rozdíly v tématu uvedené u středových bodů.
+
+
+
+<!--HONumber=Jan17_HO1-->
+
 

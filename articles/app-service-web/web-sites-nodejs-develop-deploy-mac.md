@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2537b0c4dcc71d02d25959a0b21d96bce7deaac6
 
 
 ---
@@ -186,22 +186,22 @@ Node.js poskytuje bohatý ekosystém modulů, které mohou vaše aplikace využ�
 
 Narazíte-li na problémy s aplikací poté, co byla nasazena do Azure, vyhledejte informace týkající se diagnostiky problému v tématu [Postup ladění aplikace Node.js ve službě Azure App Service](web-sites-nodejs-debug.md) .
 
-Tento článek používá portál Azure k vytvoření webové aplikace. Tytéž operace lze rovněž provést pomocí [rozhraní příkazového řádku Azure](../xplat-cli-install.md) nebo prostředí [Azure PowerShell](../powershell-install-configure.md).
+Tento článek používá portál Azure k vytvoření webové aplikace. Tytéž operace lze rovněž provést pomocí [rozhraní příkazového řádku Azure](../xplat-cli-install.md) nebo prostředí [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Podrobnější informace týkající se postupu při vývoji aplikací Node.js v Azure naleznete ve [Středisku pro vývojáře Node.js](/develop/nodejs/).
 
-[helloworld-dokončeno]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-[helloworld-místníhostitel]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-[portál-rychlé-vytvoření]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-[portál-rychlé-vytvoření2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
-[nastavení-publikování-git]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-[přechod-do-řídicího-panelu]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-[nasazení-část]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
+[helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
+[helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
+[portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
+[portal-quick-create2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
+[setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
+[go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
+[deployment-part]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

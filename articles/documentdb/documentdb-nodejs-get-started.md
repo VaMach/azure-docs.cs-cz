@@ -1,6 +1,6 @@
 ---
-title: Kurz k NoSQL Node.js pro DocumentDB | Microsoft Docs
-description: "Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze Node a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON."
+title: Kurz k NoSQL Node.js pro DocumentDB | Dokumentace Microsoftu
+description: "Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze NoSQL a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON."
 keywords: "kurz node.js, databáze uzlů"
 services: documentdb
 documentationcenter: node.js
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 9d4d49e1a05487a06e071c54008a333dc88c4a50
+ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
+ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 9d4d49e1a05487a06e071c54008a333dc88c4a50
 > * [C++](documentdb-cpp-get-started.md)
 > 
 
-Vítejte v kurzu k Node.js pro sadu Azure DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB, včetně databáze Node, a dotazuje se na ně.
+Vítejte v kurzu k Node.js pro sadu Azure DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
@@ -67,10 +67,10 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 3. Vytvořte dva prázdné javascriptové soubory, které budou obsahovat následující příkazy:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux nebo OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Přes npm nainstalujte modul documentdb. Použijte následující příkaz:
    * ```npm install documentdb --save```
 
@@ -265,7 +265,7 @@ Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.
 
 [Kolekci](documentdb-resources.md#collections) je možné vytvořit pomocí funkce [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) třídy **DocumentClient**. Kolekce je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace.
 
-Pro vytvoření nové kolekce s ```id``` zadaným v objektu ```config``` zkopírujte a vložte funkci **getCollection** pod funkci **getDatabase**. Opět zkontrolujeme, že kolekce se stejným ID ```FamilyCollection``` ještě neexistuje. Pokud existuje, místo vytvoření nové kolekce se vrátí kolekce s tímto ID.
+Pro vytvoření nové kolekce s ```id``` zadaným v objektu ```config``` zkopírujte a vložte funkci **getCollection** pod funkci **getDatabase** v souboru app.js. Opět zkontrolujeme, že kolekce se stejným ID ```FamilyCollection``` ještě neexistuje. Pokud existuje, místo vytvoření nové kolekce se vrátí kolekce s tímto ID.
 
                 } else {
                     resolve(result);
@@ -368,7 +368,7 @@ Blahopřejeme! Úspěšně jste vytvořili dokument DocumentDB.
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Krok 8: Dotazování prostředků DocumentDB
 DocumentDB podporuje [bohaté dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázka kódu obsahuje dotaz, který je možné spustit proti dokumentům v kolekci.
 
-Zkopírujte funkci **queryCollection** a vložte ji pod funkci **getFamilyDocument**. Jak je vidět níže, DocumentDB podporuje dotazy podobné jazyku SQL. Další informace o vytváření komplexních dotazů najdete v [Query Playground](https://www.documentdb.com/sql/demo) a [dokumentaci k dotazům](documentdb-sql-query.md).
+Zkopírujte funkci **queryCollection** a vložte ji pod funkci **getFamilyDocument** v souboru app.js. Jak je vidět níže, DocumentDB podporuje dotazy podobné jazyku SQL. Další informace o vytváření komplexních dotazů najdete v [Query Playground](https://www.documentdb.com/sql/demo) a [dokumentaci k dotazům](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -425,7 +425,7 @@ Blahopřejeme! Úspěšně jste se dotázali na dokument DocumentDB.
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Krok 9: Nahrazení dokumentu
 DocumentDB podporuje nahrazování dokumentů JSON.
 
-Zkopírujte funkci **replaceDocument** a vložte ji pod funkci **queryCollection**.
+Zkopírujte funkci **replaceFamilyDocument** a vložte ji pod funkci **queryCollection** v souboru app.js.
 
                     }
                     console.log();
@@ -472,7 +472,7 @@ Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Krok 10: Odstranění dokumentu
 DocumentDB podporuje odstraňování dokumentů JSON.
 
-Zkopírujte funkci **deleteDocument** a vložte ji pod funkci **replaceDocument**.
+Zkopírujte funkci **deleteFamilyDocument** a vložte ji pod funkci **replaceFamilyDocument**.
 
                 else {
                     resolve(result);
@@ -516,7 +516,7 @@ Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Krok 11: Odstranění databáze Node
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
-Zkopírujte a vložte následující fragment kódu (funkce **cleanup**), který odstraní databázi a všechny podřízené prostředky.
+Zkopírujte a pod funkci **deleteFamilyDocument** vložte funkci **cleanup**, která odebere databázi a všechny podřízené prostředky.
 
                 else {
                     resolve(result);
@@ -537,7 +537,7 @@ Zkopírujte a vložte následující fragment kódu (funkce **cleanup**), který
         });
     }
 
-Zkopírujte a vložte kód pod voláním funkce **deleteDocument**, aby se spustila funkce **cleanup**.
+Zkopírujte a vložte kód pod volání funkce **deleteFamilyDocument**, aby se spustila funkce **cleanup**.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -600,7 +600,9 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup by měl odpovídat u
 Blahopřejeme! Dokončili jste kurz k Node.js a máte svou první konzolovou aplikaci DocumentDB!
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Získání úplného řešení kurzu k Node.js
-Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
+Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu, nebo si jenom chcete stáhnout kód, můžete ho získat z [Githubu](https://github.com/Azure-Samples/documentdb-node-getting-started).
+
+Abyste mohli spustit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
 * [Účet DocumentDB][documentdb-create-account]
 * Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) dostupné na GitHubu
@@ -609,7 +611,11 @@ Přes npm nainstalujte modul **documentdb**. Použijte následující příkaz:
 
 * ```npm install documentdb --save```
 
-Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.authKey, jak je popsáno v části [Krok 3: Nastavení konfigurací aplikace](#Config).
+Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.authKey, jak je popsáno v části [Krok 3: Nastavení konfigurací aplikace](#Config). 
+
+Potom v terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node app.js```.
+
+A to je vše, stačí sestavit a máte hotovo. 
 
 ## <a name="next-steps"></a>Další kroky
 * Hledáte složitější ukázku Node.js? Přečtěte si [Vytvoření webové aplikace Node.js pomocí DocumentDB](documentdb-nodejs-application.md).
@@ -624,6 +630,6 @@ Dále v souboru ```config.js``` aktualizujte hodnoty config.endpoint a config.au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
