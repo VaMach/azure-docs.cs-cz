@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
-ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
@@ -58,8 +58,7 @@ Až budete připravení pokračovat, klikněte na **OK**.
 
 ![Vytvoření nasazení 4](media/acs-portal4-new.png)  <br />
 
-Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID a tajný klíč klienta instančního objektu.
-Další informace o tom, jak vytvořit instanční objekt, najdete na [této](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) stránce. 
+Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID a tajný kód klienta instančního objektu. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md). 
 
 ![Vytvoření nasazení 4,5](media/acs-portal10.PNG)  <br />
 
@@ -197,6 +196,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

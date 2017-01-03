@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích."
 translationtype: Human Translation
-ms.sourcegitcommit: 23e9c07934b0f4e74fa365de4c13fb978c8b6b84
-ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
+ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
+ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentace ke službě Mobile Engagement
 
-Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení uživatelů, která na základě dat poskytuje přehledy o využití aplikace, nabízí segmentaci uživatelů a umožňuje zasílat nabízená oznámení a zprávy v aplikaci.
+Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení mobilních aplikací s použitím služby Mobile Engagement. V kurzech, sadách SDK a další dokumentaci se dozvíte, jak získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=mobile-engagement">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=mobile-engagement">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -176,6 +177,24 @@ Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení 
 
 ---
 
+<h2>Referenční informace</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Jazyky</h3>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+---
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
         <div class="img"></div>
@@ -187,6 +206,6 @@ Stáhnout dokumentaci ke službě Azure Mobile Engagement </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

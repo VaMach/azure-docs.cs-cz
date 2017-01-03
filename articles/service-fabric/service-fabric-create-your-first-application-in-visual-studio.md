@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ Následující video vás provede kroky v tomto kurzu:
 > 
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Pomocí průvodce novým projektem můžete vytvořit první projekt aplikace a s ním i první projekt služby. Další služby můžete přidat později.
+Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. První projekt aplikace a s ním i první projekt služby vytvoříte pomocí průvodce novým projektem. Pokud budete chtít, můžete později přidat i další služby.
 
 1. Spusťte sadu Visual Studio jako správce.
 2. Klikněte na **Soubor > Nový projekt > Cloud > Aplikace Service Fabric**.
@@ -91,7 +91,7 @@ Teď máte aplikaci a můžete ji zkusit spustit.
    
     ![Podrobnosti v prohlížeči diagnostických událostí][6]
    
-    Místní cluster obsahuje pět uzlů hostovaných na jednom počítači. Napodobuje tím cluster s pěti uzly, ve kterém se uzly nachází na různých počítačích. Zkusme teď jeden z uzlů v místním clusteru zastavit, abychom napodobili situaci, kdy daný počítač přestane pracovat, a současně spustíme program Visual Studio Debugger.
+    Místní cluster obsahuje pět uzlů hostovaných na jednom počítači. Napodobuje tím cluster s pěti uzly, ve kterém se uzly nachází na různých počítačích. Abychom napodobili situaci, kdy počítač přestane pracovat, zatímco je na něm spuštěn ladící program sady Visual Studio, zkusme teď jeden z uzlů místního clusteru zastavit.
    
    > [!NOTE]
    > Diagnostické události aplikace vydávané šablonou projektu používají zahrnutou třídu `ServiceEventSource`. Další informace najdete v tématu [Místní monitorování a diagnostika služeb](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
@@ -100,13 +100,13 @@ Teď máte aplikaci a můžete ji zkusit spustit.
 4. Najděte ve svém projektu služby třídu odvozenou od StatefulService (třeba MyStatefulService) a na první řádek metody `RunAsync` umístěte zarážku.
    
     ![Zarážka v metodě RunAsync stavové služby][7]
-5. Na hlavním panelu systému klikněte pravým tlačítkem na aplikaci Local Cluster Manager a výběrem možnosti **Manage Local Cluster** (Správa místního clusteru) spusťte Service Fabric Explorer.
+5. Pokud chcete spustit Service Fabric Explorer, na hlavním panelu systému klikněte pravým tlačítkem na aplikaci Local Cluster Manager a vyberte **Manage Local Cluster** (Správa místního clusteru).
    
     ![Spuštění nástroje Service Fabric Explorer z aplikace Local Cluster Manager][systray-launch-sfx]
    
     Service Fabric Explorer nabízí vizuální znázornění clusteru, včetně sady aplikací, které jsou v něm nasazené, a sady fyzických uzlů, které ho tvoří. Další informace o nástroji Service Fabric Explorer najdete v tématu [Vizualizace vašeho clusteru](service-fabric-visualizing-your-cluster.md).
 6. V levém podokně rozbalte položky **Cluster > Uzly** a najděte uzel, na kterém běží váš kód.
-7. Kliknutím na **Akce > Deaktivovat (restartovat)** simulujte restartování počítače. (Upozorňujeme, že deaktivaci můžete provést taky z místní nabídky v zobrazení seznamu uzlů v levém podokně.)
+7. Kliknutím na **Akce > Deaktivovat (restartovat)** simulujte restartování počítače. Nebo deaktivujte uzel ze zobrazení seznamu uzlů v levém podokně.)
    
     ![Zastavení uzlu v Service Fabric Exploreru][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Teď máte aplikaci a můžete ji zkusit spustit.
     ![Prohlížeč diagnostických událostí po převzetí služeb při selhání][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Přepnutí režimu clusteru
-Místní cluster pro vývoj je ve výchozím nastavení nakonfigurovaný tak, aby běžel jako cluster s pěti uzly, což se hodí při ladění služeb nasazených na více uzlech. Nasazení aplikace do clusteru pro vývoj s pěti uzly může ovšem určitý čas trvat. Pokud chcete rychle iterovat změny bez toho, aby vaše aplikace běžela na pěti uzlech, můžete cluster pro vývoj přepnout do režimu jednoho uzlu. Jestliže chcete svůj kód spustit na clusteru s jedním uzlem, klikněte na hlavním panelu systému pravým tlačítkem na nástroj Local Cluster Manager a vyberte **Přepnout režim clusteru -> 1 uzel**.  
+Místní vývojový cluster je ve výchozím nastavení nakonfigurovaný tak, aby běžel jako cluster s pěti uzly, což se hodí při ladění služeb nasazených na více uzlech. Nasazení aplikace do vývojového clusteru s pěti uzly může ovšem určitý čas trvat. Pokud chcete rychle iterovat změny kódu bez toho, aby vaše aplikace běžela na pěti uzlech, přepněte vývojový cluster do režimu jednoho uzlu. Jestliže chcete svůj kód spustit na clusteru s jedním uzlem, klikněte na hlavním panelu systému pravým tlačítkem na nástroj Local Cluster Manager a vyberte **Přepnout režim clusteru -> 1 uzel**.  
 
 ![Přepnutí režimu clusteru][switch-cluster-mode]
 
-Po změně režimu clusteru se cluster pro vývoj restartuje a zároveň se z něj odeberou všechny na něm zřízené nebo spuštěné aplikace.
+Po změně režimu clusteru se vývojový cluster restartuje a zároveň se z něj odeberou všechny na něm zřízené nebo spuštěné aplikace.
 
 ## <a name="cleaning-up"></a>Čištění
-  Před zabalení je dobré si uvědomit, že místní cluster je naprosto skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
+Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
 
 1. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
 2. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Cluster odstraňte jenom v případě, že se místní cluster nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
@@ -131,8 +131,9 @@ Po změně režimu clusteru se cluster pro vývoj restartuje a zároveň se z n�
 ## <a name="next-steps"></a>Další kroky
 * Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Zkuste si vytvořit službu pomocí programovacího modelu [Reliable Services](service-fabric-reliable-services-quick-start.md) nebo [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Zjistěte, jak vystavit svoje služby na internetu, prostřednictvím [rozhraní front-end webové služby](service-fabric-add-a-web-frontend.md).
+* Zjistěte, jak vystavit svoje služby na internetu pomocí [rozhraní front-end webové služby](service-fabric-add-a-web-frontend.md).
 * Projděte si [testovací prostředí](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) a vytvořte bezstavovou službu, nakonfigurujte sledování a hlášení o stavu a proveďte upgrade aplikace.
+* Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ Po změně režimu clusteru se cluster pro vývoj restartuje a zároveň se z n�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

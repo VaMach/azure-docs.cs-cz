@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Z tohoto okna se můžete připojit k virtuálnímu počítači pomocí vzdálen
 
 ![Správa prostředků][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Jak si přizpůsobit okno prostředků
-Azure vám okna pro vaše prostředky předem nakonfiguruje. Dlaždice v těchto oknech si ale můžete nastavit podle vlastních potřeb.  Snadno můžete přepnout do režimu přizpůsobení, ve kterém můžete přidávat a odebírat dlaždice a měnit si jejich velikost a uspořádání. Když si budete chtít okno přizpůsobit, udělejte toto:
-
-1. Vyhledejte prostředek.
-2. V horní části okna, které si chcete přizpůsobit, klikněte na tlačítko se třemi tečkami (...).
-3. Klikněte na Přidat části.
-4. Začněte přetahovat požadované části.  
-
-![Přizpůsobování oken][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Jak získat nápovědu
 Pokud byste někdy měli s něčím nějaký problém, jsme tu pro vás.  Portál obsahuje stránku nápovědy a podpory, která vás navede správným směrem.  V závislosti na tom, jaký máte [plán podpory](https://azure.microsoft.com/support/plans/), můžete také přímo na portálu vytvářet lístky žádostí o podporu.  Po vytvoření lístku můžete spravovat lístek v celém jeho životním cyklu přímo z portálu. Na stránku nápovědy a podpory se dostanete tak, že přejdete na Procházet -> Nápověda a podpora.  
 
@@ -97,6 +87,6 @@ Portál Microsoft Azure radikálně zjednodušuje vytváření a správu aplikac
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

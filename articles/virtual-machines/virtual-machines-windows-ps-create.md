@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ Tento článek ukazuje, jak rychle vytvořit virtuální počítač Azure s Wind
 Žádný z kroků pro vytvoření virtuálního počítače v tomto článku není možné vynechat a celý postup by neměl trvat déle než 30 minut. Příklad hodnot parametrů v příkazech nahraďte názvy, které dávají smysl pro vaše prostředí.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
-Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
+Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azureps-cmdlets-docs), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
 
 ## <a name="step-2-create-a-resource-group"></a>Krok2: Vytvoření skupiny prostředků
 Všechny prostředky musí být obsažené ve skupině prostředků, takže si nejprve vytvořte tuto skupinu.  
@@ -159,6 +159,6 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

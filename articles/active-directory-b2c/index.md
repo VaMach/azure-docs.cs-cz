@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se nasazovat komplexní správu identit zákazníků v cloudu. Dokumentace ukazuje, jak můžete chránit webové a mobilní aplikace namířené k zákazníkům."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Dokumentace ke službě Active Directory B2C
 
-Azure Active Directory B2C je komplexní cloudové řešení pro správu identit pro webové a mobilní aplikace určené uživatelům. Jedná se o vysoce dostupnou globální službu, která je škálovatelná pro stovky milionů uživatelských identit. Azure Active Directory B2C je postavené na platformě zabezpečené na podnikové úrovni a chrání tak vaše aplikace, firmu i uživatele.
+Naučte se nastavovat a spravovat komplexní správu identit zákazníků v cloudu pomocí Active Directory B2C. Kurzy, reference a další dokumentace ukazují způsoby ochrany webových a mobilních aplikací namířených k zákazníkům pomocí zabezpečeného přihlášení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Stáhnout dokumentaci ke službě Active Directory B2C </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 
