@@ -181,6 +181,6 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 
