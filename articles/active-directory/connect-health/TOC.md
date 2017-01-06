@@ -4,7 +4,7 @@
 # Začínáme
 ## [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
-## [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adds.md)
+## [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 
 # Postup
 ## [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Příručka návrhu hybridní identity](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Zdroje a prostředky
-##[Azure AD Connect – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
+##[Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

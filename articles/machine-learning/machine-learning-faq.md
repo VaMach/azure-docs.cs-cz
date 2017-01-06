@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
+ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
 
 
 ---
@@ -140,7 +140,7 @@ Vzhledem k tomu, že se data přenášejí do prohlížeče a mohou být velká,
 ### <a name="algorithms"></a>Algoritmy
 **Jaké stávající algoritmy podporuje Machine Learning Studio?**
 
-Machine Learning Studio poskytuje nejmodernější algoritmy, například škálovatelné vylepšené rozhodovací stromy, systémy bayesovského rozhodování, hluboké neuronové sítě a rozhodovací džungle vyvinuté v Microsoft Research. K dispozici jsou i škálovatelné open-source balíčky pro strojové učení, například Vowpal Wabbit. Machine Learning Studio podporuje algoritmy strojového učení pro binární klasifikaci a klasifikaci s více třídami, regresi a clustering. Podívejte se úplný seznam [modulů v Machine Learning][machine-learning-modules].
+Machine Learning Studio poskytuje nejmodernější algoritmy, například škálovatelné vylepšené rozhodovací stromy, systémy bayesovského rozhodování, hluboké neuronové sítě a rozhodovací džungle vyvinuté v Microsoft Research. K dispozici jsou i škálovatelné open-source balíčky pro strojové učení, například Vowpal Wabbit. Machine Learning Studio podporuje algoritmy strojového učení pro binární klasifikaci a klasifikaci s více třídami, regresi a clustering. Podívejte se na úplný seznam [modulů služby Machine Learning][machine-learning-modules].
 
 **Navrhnete mi automaticky algoritmus Machine Learning vhodný pro moje data?**
 
@@ -185,7 +185,7 @@ Ne, ve studiu není žádné prostředí REPL.
 ### <a name="python-module"></a>Modul Python
 **Je možné vytvořit vlastní modul Python?**
 
-V této chvíli ne, ale stejného výsledku je možné dosáhnout, když použijete jeden nebo více modulů [Execute Python Script][python].
+V této chvíli ne, ale stejného výsledku je možné dosáhnout použitím jednoho nebo více modulů [Execute Python Script][python].
 
 **Je pro Python k dispozici prostředí REPL?**
 
@@ -245,7 +245,7 @@ Ne.
 
 **Kolik dat je možné použít k trénování?**
 
-Moduly v nástroji Machine Learning Studio podporují datové sady, které obsahují až 10 GB hustých číselných dat pro běžné případy použití. Pokud modul přijímá více než jeden vstup, celková velikost všech vstupů je dohromady 10 GB. Větší datové sady je před ingestováním možné vzorkovat pomocí dotazů Hive nebo Azure SQL Database nebo předzpracováním moduly [Učení dle počtů][counts].  
+Moduly v nástroji Machine Learning Studio podporují datové sady, které obsahují až 10 GB hustých číselných dat pro běžné případy použití. Pokud modul přijímá více než jeden vstup, celková velikost všech vstupů je dohromady 10 GB. Větší datové sady je před ingestováním možné vzorkovat pomocí dotazů služby Azure SQL Database nebo Hivu nebo předzpracováním moduly [Učení dle počtů][counts].  
 
 Během normalizace příznaků lze následující typy dat rozšířit do větších datových sad. Tyto typy jsou omezeny na méně než 10 GB:
 
@@ -289,9 +289,6 @@ Machine Learning Studio využívá uživatelem zadaný účet Azure Storage k uk
 
 Pokud jste změnili přístupové klíče účtu úložiště, znovu je v pracovním prostoru synchronizujte přes portál Azure Classic.  
 
-## <a name="azure-marketplace"></a>Azure Marketplace
-Přečtěte si téma s [častými otázkami k publikování a používání aplikací na Machine Learning Marketplace](machine-learning-marketplace-faq.md).
-
 ## <a name="support-and-training"></a>Podpora a školení
 **Kde získám školení pro Azure Machine Learning?**
 
@@ -332,7 +329,7 @@ Další informace o fakturaci a cenách najdete v tématu [Machine Learning – 
 
  Služba Azure Machine Learning má možnost bezplatného předplatného (podrobnosti v tématu [Machine Learning – ceny](https://azure.microsoft.com/pricing/details/machine-learning/)) a v nástroji Machine Learning Studio je dostupná osmihodinová zkušební verze (pokud ji chcete vyzkoušet, přihlaste se do nástroje [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
 
- Když se navíc zaregistrujete k bezplatné zkušební verzi Azure, získáte možnost vyzkoušet si všechny služby Azure po dobu jednoho měsíce. Další informace o bezplatné zkušební verzi Azure najdete v [těchto častých otázkách](/pricing/free-trial-faq/).
+ Když se navíc zaregistrujete k bezplatné zkušební verzi Azure, získáte možnost vyzkoušet si všechny služby Azure po dobu jednoho měsíce. Další informace o bezplatné zkušební verzi Azure najdete v [těchto častých otázkách](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **Co je transakce?**
 
@@ -432,7 +429,7 @@ Nové fakturační plány jsou dostupné ve třech produkčních oblastech, kde 
 
 Ano. Ceny plánů se podle oblasti liší. Pokud webovou službu nasadíte do jiné oblasti, je potřeba k ní přiřadit plán určený právě pro tuto oblast.
 
-### <a name="new-web-services-overages"></a>Nové webové služby – nadlimitní využívání
+### <a name="new-web-services---overages"></a>Nové webové služby – nadlimitní využívání
 **Jak můžu ověřit, jestli webové služby nevyužívám nadlimitně?**
 
 Využití všech plánů najdete na stránce Plány na portálu Azure Machine Learning Web Services. Přihlaste se k portálu a v nabídce klikněte na možnost Plány.
@@ -545,6 +542,6 @@ Přístup hosta je omezený zkušební přístup, který umožňuje vytvářet a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

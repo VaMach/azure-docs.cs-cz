@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
-ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Přehled
 V tomto kurzu vás provede jednotlivými kroky implementace aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí sady SDK služby Azure Media Services (AMS) pro .NET.
@@ -36,11 +36,11 @@ Kurz představuje základní pracovní postup služby Media Services a nejběžn
 
 ### <a name="ams-model"></a>Model AMS
 
-Následující obrázek ukazuje některé z nejčastěji používaných objektů při vývoji aplikace VoD na základě modelu Media Services OData. 
+Následující obrázek ukazuje některé z nejčastěji používaných objektů při vývoji aplikace VoD na základě modelu Media Services OData.
 
 Kliknutím na obrázek zobrazíte jeho plnou velikost.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 Celý model můžete zobrazit [zde](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -60,8 +60,8 @@ Kurz vás seznámí s postupem plnění následujících úloh:
 ## <a name="prerequisites"></a>Požadavky
 K dokončení kurzu potřebujete následující:
 
-* K dokončení tohoto kurzu potřebujete mít účet Azure. 
-  
+* K dokončení tohoto kurzu potřebujete mít účet Azure.
+
     Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. Až kredity vyčerpáte, můžete si účet ponechat a stále používat bezplatné služby a funkce Azure, například funkci Web Apps ve službě Azure App Service.
 * Operační systémy: Windows 8 nebo novější, Windows 2008 R2, Windows 7.
 * Rozhraní .NET 4.0 nebo novější
@@ -72,26 +72,26 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
 
 1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
 2. Klikněte na **+Nový** > **Média a CDN** > **Media Services**.
-   
+
     ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. V okně **VYTVOŘIT ÚČET MEDIA SERVICES** zadejte požadované hodnoty.
-   
+
     ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
    3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. V poli **Umístění** vyberte zeměpisnou oblast, která se použije k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se použije ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné. 
+   4. V poli **Umístění** vyberte zeměpisnou oblast, která se použije k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se použije ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné.
    5. V poli **Účet úložiště** vyberte účet úložiště, který bude sloužit jako úložiště objektů blob mediálního obsahu z vašeho účtu Media Services. Můžete vybrat existující účet úložiště ve stejné zeměpisné oblasti jako váš účet Media Services, nebo můžete vytvořit účet úložiště. Nový účet úložiště bude vytvořen ve stejné oblasti. Pro názvy účtů úložiště platí stejná pravidla jako pro názvy účtů Media Services.
-      
+
        Další informace o ukládání a úložištích najdete [tady](../storage/storage-introduction.md).
    6. Zaškrtněte **Připnout na řídicí panel**, abyste viděli průběh nasazení účtu.
 4. Klikněte na tlačítko **Vytvořit** dole na formuláři.
-   
-    Po úspěšném vytvoření účtu se stav změní na **Spuštěno**. 
-   
+
+    Po úspěšném vytvoření účtu se stav změní na **Spuštěno**.
+
     ![Nastavení Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Ke správě vašeho účtu AMS (například nahrávání videí, kódování assetů, sledovat průběhu úloh) použijte okno **Nastavení**.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurace koncového bodu streamování pomocí webu Azure Portal
@@ -108,19 +108,19 @@ Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úlo�
 
 Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
 
-1. V okně **Nastavení** klikněte na **Koncové body streamování**. 
-2. Klikněte na výchozí koncový bod streamování. 
-   
+1. V okně **Nastavení** klikněte na **Koncové body streamování**.
+2. Klikněte na výchozí koncový bod streamování.
+
     Zobrazí se okno **VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI**.
 3. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
-   
+
     ![Jednotky streamování](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Kliknutím na tlačítko **Uložit** uložte provedené změny.
-   
+
    > [!NOTE]
    > Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
@@ -131,20 +131,20 @@ Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, p
 
 3. Přidejte odkaz na sestavení System.Configuration. Toto sestavení obsahuje třídu **System.Configuration.ConfigurationManager**, která se používá pro přístup ke konfiguračním souborům, například App.config.
 
-    Přidání odkazu provedete následovně: v Průzkumníku řešení klikněte pravým tlačítkem myši na název projektu, vyberte **Přidat** > **Odkaz...** a do vyhledávacího pole zadejte „configuration“. 
+    Přidání odkazu provedete následovně: v Průzkumníku řešení klikněte pravým tlačítkem myši na název projektu, vyberte **Přidat** > **Odkaz...** a do vyhledávacího pole zadejte „configuration“.
 
 4. Otevřete soubor App.config (pokud projekt soubor ve výchozím nastavení neobsahuje, přidejte ho) a přidejte do něj část *appSettings*. Nastavte hodnoty názvu účtu a klíče účtu Azure Media Services, jak vidíte v následujícím příkladu. Pokud chcete získat název účtu a informace o klíči, přejděte na [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS. Potom vyberte **Nastavení** > **Klíče**. Zobrazí se okno Správa klíčů, které ukazuje název účtu a primární a sekundární klíče. Zkopírujte hodnoty názvu účtu a primárního klíče.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Následujícím kódem přepište existující příkazy **using** na začátku souboru Program.cs.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -266,7 +266,7 @@ Pokud chcete využít výhod dynamického balení, proveďte následující:
 Následující kód ukazuje, jak se odeslat kódovací úlohu. Úloha obsahuje jednu úlohu, která určuje převod souboru mezzanine do sady souborů MP4 s adaptivní přenosovou rychlostí pomocí **standardu pro kodér médií**. Kód předá úlohu a čeká na její dokončení.
 
 Když úloha kódování skončí, budete mít možnost publikovat prostředky a potom streamovat nebo progresivně stahovat soubory MP4.
- 
+
 Přidejte následující metodu do třídy Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -309,7 +309,7 @@ Pokud chcete prostředek streamovat nebo stáhnout, musíte ho nejdřív „publ
 
 ### <a name="some-details-about-url-formats"></a>Podrobnosti o formátech adres URL
 
-Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke streamování a stahování souborů. Ukázka v tomto kurzu budou výstupy adresy URL, které můžete vložit do příslušných prohlížečů. V této části je pár příkladů, jak vypadají jiné formáty. 
+Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke streamování a stahování souborů. Ukázka v tomto kurzu budou výstupy adresy URL, které můžete vložit do příslušných prohlížečů. V této části je pár příkladů, jak vypadají jiné formáty.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Streamovací adresa URL pro MPEG DASH má následující formát:
 
@@ -324,7 +324,7 @@ Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 
-SAS adresa URL používaná ke stahování souborů má následující formát:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>SAS adresa URL používaná ke stahování souborů má následující formát:
 
 {blob container name}/{asset name}/{file name}/{SAS signature}
 
@@ -449,14 +449,14 @@ Další informace najdete v následujících tématech:
 ## <a name="download-sample"></a>Stažení ukázky
 Následující ukázka kódu obsahuje kód, který jste vytvořili v tomto kurzu: [ukázka](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps-media-services-learning-paths"></a>Další kroky: Mapy kurzů ke službě Media Services
+## <a name="next-steps"></a>Další kroky 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Hledáte něco jiného?
-Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
+
 
 <!-- Anchors. -->
 
