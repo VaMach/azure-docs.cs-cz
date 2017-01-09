@@ -5,6 +5,6 @@ Mapu kurzů k AMS můžete zobrazit tady:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
