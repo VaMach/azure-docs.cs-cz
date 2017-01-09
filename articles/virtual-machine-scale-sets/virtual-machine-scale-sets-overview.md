@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed7c49603891b9719819143003d27888f800a95
-ms.openlocfilehash: 21a7feb9eb2588643ffc67408de9f8e60aff7798
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Více o škálovacích sadách virtuálních počítačů se dozvíte v těchto 
 ## <a name="creating-and-managing-vm-scale-sets"></a>Vytváření a správa škálovacích sad virtuálních počítačů
 Škálovací sadu virtuálních počítačů můžete vytvořit na portálu [Azure Portal](https://portal.azure.com) – vyberte položku *Nový* a zadejte text „škálovací“ na vyhledávacím panelu. Ve výsledcích se objeví „Škálovací sada virtuálních počítačů“. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. 
 
-Škálovací sady virtuálních počítačů je také možné definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx) stejně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md).
+Škálovací sady virtuálních počítačů je také možné definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx) stejně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Sadu příkladových šablon škálovacích sad virtuálních počítačů najdete v [úložišti GitHub pro šablony Quickstart určené pro Azure](https://github.com/Azure/azure-quickstart-templates). (Hledejte šablony, které mají v názvu *vmss*.)
 
@@ -148,6 +148,6 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

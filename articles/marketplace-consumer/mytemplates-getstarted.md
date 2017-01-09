@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cada217a967597ecb44d84c469367157c7bc785e
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Začínáme se soukromými šablonami na portálu Azure
-Šablona [Azure Resource Manageru](../resource-group-authoring-templates.md) je deklarativní šablona, která slouží k definování nasazení. Můžete definovat, které prostředky se mají pro řešení nasadit, a určit parametry a proměnné, které vám umožní zadat hodnoty pro různá prostředí. Šablona se skládá z JSON a z výrazů, které můžete použít k vytvoření hodnot pro nasazení.
+Šablona [Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) je deklarativní šablona, která slouží k definování nasazení. Můžete definovat, které prostředky se mají pro řešení nasadit, a určit parametry a proměnné, které vám umožní zadat hodnoty pro různá prostředí. Šablona se skládá z JSON a z výrazů, které můžete použít k vytvoření hodnot pro nasazení.
 
 Můžete použít novou schopnost **Šablony** v [webu Azure Portal](https://portal.azure.com) spolu s poskytovatelem prostředků **Microsoft.Gallery** jako rozšíření [Azure Marketplace](https://azure.microsoft.com/marketplace/) a umožnit tak uživatelům vytváření, správu a nasazování soukromých šablon z osobní knihovny.
 
@@ -35,16 +35,16 @@ Následující návrhy vám pomohou naplno využít výhody **šablon** při pr�
 * **Šablona** je zapouzdřující prostředek, který obsahuje šablonu Resource Manageru a další metadata. Chová se velmi podobně jako položka v Marketplace. Klíčovým rozdílem je, že se jedná o soukromou položku, na rozdíl od veřejných položek Marketplace.
 * Knihovna **Šablony** dobře funguje pro uživatele, kteří potřebují přizpůsobit svá nasazení.
 * **Šablony** dobře fungují pro uživatele, kteří potřebují jednoduché úložiště v rámci Azure.
-* Začněte s existující šablonou Resource Manageru. Najděte šablony na [GitHubu](https://github.com/Azure/azure-quickstart-templates) nebo [exportujte šablonu](../resource-manager-export-template.md) z existující skupiny prostředků.
+* Začněte s existující šablonou Resource Manageru. Najděte šablony na [GitHubu](https://github.com/Azure/azure-quickstart-templates) nebo [exportujte šablonu](../azure-resource-manager/resource-manager-export-template.md) z existující skupiny prostředků.
 * **Šablony** jsou vázané na uživatele, který je publikuje. Název vydavatele je viditelný každému, kdo k němu má přístup pro čtení.
 * **Šablony** jsou prostředky Resource Manageru a po publikování je nelze přejmenovat.
 
 ## <a name="add-a-template-resource"></a>Přidání prostředku šablony
 Existují dva způsoby, jak lze na portálu Azure vytvořit prostředek **šablony**.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Způsob 1: Vytvoření nového prostředku šablony ze spuštěné skupiny prostředků
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Způsob 1: Vytvoření nového prostředku šablony ze spuštěné skupiny prostředků
 1. Na portálu Azure přejděte do existující skupiny prostředků. V **Nastavení** vyberte **Exportovat šablonu**.
-2. Když je šablona Resource Manageru exportovaná, uložte ji pomocí tlačítka **Uložit šablonu** do úložiště **Šablony**. Podrobné informace o exportování šablony najdete [zde](../resource-manager-export-template.md).
+2. Když je šablona Resource Manageru exportovaná, uložte ji pomocí tlačítka **Uložit šablonu** do úložiště **Šablony**. Podrobné informace o exportování šablony najdete [zde](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Export skupiny prostředků](media/rg-export-portal1.PNG)  <br />
 3. Vyberte příkazové tlačítko **Uložit do šablony**.
@@ -62,7 +62,7 @@ Existují dva způsoby, jak lze na portálu Azure vytvořit prostředek **šablo
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Způsob 2: Přidání nového prostředku šablony z procházení
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>Způsob 2: Přidání nového prostředku šablony z procházení
 Můžete také přidat novou **šablonu** od začátku pomocí příkazového tlačítka +Přidat v **Procházet > Šablony**. Budete muset zadat Název, Popis a JSON šablony Resource Manageru.
 
 ![Přidání šablony](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Klikněte na **Vybrat** a **Ok**. Nyní vidíte uživatele a skupiny, které jst
 > 
 
 ## <a name="next-steps"></a>Další kroky
-* Další informace o vytváření šablon Resource Manageru naleznete v tématu [Vytváření šablon](../resource-group-authoring-templates.md).
-* Funkce, které můžete použít v šabloně Resource Manageru, jsou popsané v tématu [Funkce šablony](../resource-group-template-functions.md).
-* Doprovodné materiály o navrhování šablon naleznete v tématu [Osvědčené postupy pro navrhování šablon Azure Resource Manageru](../best-practices-resource-manager-design-templates.md).
+* Další informace o vytváření šablon Resource Manageru naleznete v tématu [Vytváření šablon](../azure-resource-manager/resource-group-authoring-templates.md).
+* Funkce, které můžete použít v šabloně Resource Manageru, jsou popsané v tématu [Funkce šablony](../azure-resource-manager/resource-group-template-functions.md).
+* Doprovodné materiály o navrhování šablon naleznete v tématu [Osvědčené postupy pro navrhování šablon Azure Resource Manageru](../azure-resource-manager/best-practices-resource-manager-design-templates.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

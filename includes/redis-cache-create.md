@@ -35,6 +35,6 @@ Po nakonfigurování možností nové mezipaměti klikněte na **Vytvořit**. Vy
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

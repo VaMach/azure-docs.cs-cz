@@ -2,6 +2,6 @@
 > Než začnete pracovat s prostředky Azure, seznamte se s těmito modly nasazení: [modelem Resource Manager i klasickým modelem](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

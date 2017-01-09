@@ -13,21 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 3b756b11ce762cbbc56650ea9d49715d899bfbdb
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
 
 
 ---
 # <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md) 
-> 
+> * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Pro větší názornost, jak lze pomocí Azure DocumentDB efektivně ukládat dokumenty JSON a zadávat na ně dotazy, obsahuje tento článek úplný podrobný návod, jak pomocí Azure DocumentDB vytvořit aplikaci pro seznam úkolů. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB.
@@ -50,7 +51,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
     Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) nebo Visual Studio 2013 Update 4 nebo vyšší. Pokud používáte sadu Visual Studio 2013, budete muset nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) a přidat podporu pro C# 6.0. 
-* Azure SDK pro rozhraní .NET verze 2.5.1 nebo vyšší, k dispozici prostřednictvím [instalace webové platformy Microsoft][instalace webové platformy Microsoft].
+* Azure SDK pro rozhraní .NET verze 2.5.1 nebo vyšší, k dispozici prostřednictvím [instalace webové platformy Microsoft][Microsoft Web Platform Installer].
 
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Visual Studio 2013 s aktualizací Update 4 a sady Azure SDK pro .NET verze 2.5.1. Pokud konfigurace vašeho serveru využívá jiné verze, je možné, že se vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte předpoklady uvedené výše, řešení by mělo fungovat.
 
@@ -430,9 +431,9 @@ Přidejme nějaký kód do DocumentDBRepository a ItemController, aby byl zázna
    
     Teto kód zavolá do DocumentDBRepository a použije metodu CreateItemAsync, aby se nová položka úkolu zachovala v databázi. 
    
-    **Poznámka k zabezpečení:** Atribut **ValidateAntiForgeryToken** zde slouží k tomu, aby pomohl zabezpečit tuto aplikace před útokem CSRF. Není třeba provádět žádnou další akci, jen přidat tento atribut – vaše zobrazení musí s tímto tokenem proti padělání pracovat také. Další informace k tomuto tématu a příklady, jak toto správně implementovat, najdete v článku o [zabránění útoku CSRF][Zabránění útoku CSRF]. Zdrojový kód dostupný na [GitHubu][GitHub] má toto plně implementováno.
+    **Poznámka k zabezpečení:** Atribut **ValidateAntiForgeryToken** zde slouží k tomu, aby pomohl zabezpečit tuto aplikace před útokem CSRF. Není třeba provádět žádnou další akci, jen přidat tento atribut – vaše zobrazení musí s tímto tokenem proti padělání pracovat také. Další informace k tomuto tématu a příklady, jak toto správně implementovat, najdete v článku o [zabránění útoku CSRF][Preventing Cross-Site Request Forgery]. Zdrojový kód dostupný na [GitHubu][GitHub] má toto plně implementováno.
    
-    **Poznámka k zabezpečení:** U parametru metody používáme i atribut **Bind**, abychom zvýšili zabezpečení před útoky typu OVERPOST. Další informace najdete v tématu [Základní operace CRUD v ASP.NET MVC][Základní operace CRUD v ASP.NET MVC].
+    **Poznámka k zabezpečení:** U parametru metody používáme i atribut **Bind**, abychom zvýšili zabezpečení před útoky typu OVERPOST. Další informace najdete v tématu [Základní operace CRUD v ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 Tímto je kód potřebný k přidávání nových položek do databáze hotový.
 
@@ -517,7 +518,7 @@ Aplikaci otestujete na svém místním počítači tak, že provedete následuj�
    
     ![Snímek obrazovky webové aplikace vytvořené v tomto databázovém kurzu](./media/documentdb-dotnet-application/image24.png)
    
-    Pokud používáte sadu Visual Studio 2013 a zobrazí se chybová zpráva „Nelze vyčkat v těle klauzule problému.“ je třeba nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Můžete také porovnat kód proti vzorovému projektu na [GitHubu][GitHub]. 
+    Pokud používáte sadu Visual Studio 2013 a zobrazí se chybová zpráva „Nelze vyčkat v těle klauzule problému.“ je třeba nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Můžete také porovnat svůj kód proti vzorovému projektu na [GitHubu][GitHub]. 
 2. Klikněte na odkaz **Vytvořit nový** a do polí **Název** a **Popis** zadejte hodnoty. Zaškrtávací políčko **Dokončeno** ponechte prázdné, jinak bude nová **položka** přidána ve stavu dokončení a nezobrazí se v úvodním seznamu.
    
     ![Snímek obrazovky zobrazení pro vytváření](./media/documentdb-dotnet-application/image25.png)
@@ -569,13 +570,13 @@ Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupn
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[instalace webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Zabránění útoku CSRF]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Základní operace CRUD v ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -216,7 +216,7 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
   * [Povolení protokolu HTTPS pro web Azure](web-sites-configure-ssl-certificate.md)
 * Odstranění skupiny prostředků obsahující webovou aplikaci a veškeré související prostředky Azure, se kterými již nechcete pracovat
   
-    Informace týkající se práce se skupinami prostředků na portálu Azure naleznete v tématu [Nasazení prostředků pomocí šablon Resource Manageru a portálu Azure](../resource-group-template-deploy-portal.md).   
+    Informace týkající se práce se skupinami prostředků na portálu Azure naleznete v tématu [Nasazení prostředků pomocí šablon Resource Manageru a portálu Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) a [Vytvoření a nasazení mobilní aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect. Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 

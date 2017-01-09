@@ -11,6 +11,6 @@ Symbol (+) značí, že se tento článek týká připojení propojujících ví
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

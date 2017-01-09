@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření fondu elastické databáze s C# | Dokumentace Microsoftu"
-description: "Pomocí technik vývoje databází v C# můžete v Azure SQL Database vytvořit škálovatelný fond elastické databáze umožňující sdílení prostředků mezi mnoha databázemi."
+title: "Vytvoření elastického fondu pomocí jazyka C# | Dokumentace Microsoftu"
+description: "Pomocí technik vývoje databází v jazyce C# můžete ve službě Azure SQL Database vytvořit škálovatelný elastický fond umožňující sdílení prostředků mezi mnoha databázemi."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Vytvoření fondu elastické databáze v jazyce C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Vytvoření elastického fondu pomocí jazyka C&#x23;
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 > 
 > 
 
-Tento článek popisuje, jak v jazyce C# vytvořit fond elastické databáze Azure SQL pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Chcete-li vytvořit samostatnou databázi SQL, přečtěte si téma [Vytvoření databáze SQL pomocí jazyka C# s knihovnou SQL Database Library pro .NET](sql-database-get-started-csharp.md).
+Tento článek popisuje, jak v jazyce C# vytvořit elastický fond SQL Azure pomocí knihovny [Azure SQL Database Library pro .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Chcete-li vytvořit samostatnou databázi SQL, přečtěte si téma [Vytvoření databáze SQL pomocí jazyka C# s knihovnou SQL Database Library pro .NET](sql-database-get-started-csharp.md).
 
 Azure SQL Database Library pro .NET poskytuje rozhraní API založené na [Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md), které zabaluje rozhraní [SQL Database REST API založené na Správci prostředků](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -60,7 +60,7 @@ Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knih
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>Vytvoření fondu elastické databáze SQL – příklad v jazyce C#
+## <a name="create-a-sql-elastic-pool---c-example"></a>Vytvoření elastického fondu SQL – příklad v jazyce C#
 Následující příklad vytvoří skupinu prostředků, server, pravidlo brány firewall, elastický fond a poté databázi SQL ve fondu. Proměnné `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` získáte pomocí postupu v oddílu [Vytvoření instančního objektu pro přístup k prostředkům](#create-a-service-principal-to-access-resources).
 
 Nahraďte obsah souboru **Program.cs** následujícím ukázkovým kódem a aktualizujte hodnoty `{variables}` hodnotami vaší aplikace (bez závorek `{}`).
@@ -260,7 +260,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Vytvoření instančního objektu pro přístup k prostředkům
-Následující skript prostředí PowerShell vytvoří aplikaci Active Directory (AD) a instanční objekt, který potřebujeme k ověření naší aplikace v jazyce C#. Skript vypíše hodnoty potřebné pro předchozí ukázku v jazyce C#. Podrobné informace najdete v tématu [Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell](../resource-group-authenticate-service-principal.md).
+Následující skript prostředí PowerShell vytvoří aplikaci Active Directory (AD) a instanční objekt, který potřebujeme k ověření naší aplikace v jazyce C#. Skript vypíše hodnoty potřebné pro předchozí ukázku v jazyce C#. Podrobné informace najdete v tématu [Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -315,6 +315,6 @@ Následující skript prostředí PowerShell vytvoří aplikaci Active Directory
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

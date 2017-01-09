@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ V tomto článku se dozvíte, jak začít používat Azure Multi-Factor Authenti
 
 > [!NOTE]
 > V následující dokumentaci naleznete informace o tom, jak povolit uživatelům používání **portálu Azure Classic**. Pokud hledáte informace o nastavení ověřování Azure Multi-Factor Authentication pro uživatele O365, najdete je v tématu [Nastavení ověřování Multi-Factor Authentication pro Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
-> 
-> 
 
 ![MFA v cloudu](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, j
 
 > [!NOTE]
 > Licence jsou k dispozici pro uživatele, kteří mají Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite (EMS).  MFA je zahrnuto v Azure AD Premium a EMS. Pokud máte dostatek licencí, nemusíte vytvářet poskytovatele ověřování.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Zapnutí dvoustupňového ověřování pro uživatele
 Pokud chcete začít požadovat dvoustupňové ověřování pro uživatele, změňte stav uživatele ze zakázaného na povolený.  Další informace týkající se stavů uživatele najdete v části [Stavy uživatele v Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md).
@@ -75,13 +71,11 @@ Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD 
 
 > [!IMPORTANT]
 > Nedoporučujeme vám přesouvat uživatele přímo ze stavu Zakázáno do stavu Vynuceno. Aplikace nezaložené na prohlížeči přestanou fungovat, protože uživatel neabsolvoval registraci MFA a nezískal [heslo aplikace](multi-factor-authentication-whats-next.md#app-passwords). Pokud máte aplikace nezaložené na prohlížeči a potřebujete hesla aplikace, doporučujeme vám přejít ze stavu Zakázáno do Povoleno. To vám umožní zaregistrovat a získat hesla aplikací pro uživatele. Potom můžete uživatele převést do stavu Vynuceno.
-> 
-> 
 
 Použití prostředí PowerShell představuje možnost pro hromadné povolení uživatelů. Aktuálně neexistuje žádná funkce hromadného povolení na portálu Azure a je nutné vybrat jednotlivé uživatele zvlášť. To může být poměrně náročný úkol, pokud máte spoustu uživatelů. Vytvořením skriptu PowerShellu pomocí následujícího postupu můžete projít seznam uživatelů a povolit je.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Zde naleznete příklad:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

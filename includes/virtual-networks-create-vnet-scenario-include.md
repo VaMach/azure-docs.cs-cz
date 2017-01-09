@@ -10,6 +10,6 @@ V tomto scénáři vytvoříte virtuální síť VNet s názvem **TestVNet** s v
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -173,8 +173,7 @@
 #### [Nejčastější dotazy k Marketplace](machine-learning-marketplace-faq.md)
 
 # Referenční informace
-## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
-## [Modul PowerShell pro Machine Learning](machine-learning-powershell-module.md)
+## [PowerShell](machine-learning-powershell-module.md)
 ## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -223,6 +222,6 @@
 ## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

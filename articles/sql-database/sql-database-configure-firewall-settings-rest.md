@@ -1,47 +1,52 @@
 ---
-title: Azure SQL Database server-level firewall rules using the REST API | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: "Pravidla brány firewall na úrovni serveru služby Azure SQL Database pomocí rozhraní REST API | Dokumentace Microsoftu"
+description: "Zjistěte, jak nakonfigurovat bránu firewall pro IP adresy, ze kterých se přistupuje k databázím SQL Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: fc874f3c-c623-4924-8cb7-32a8c31e666c
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+
 
 ---
-# Configure Azure SQL Database server-level firewall rules using the REST API
+# <a name="configure-azure-sql-database-server-level-firewall-rules-using-the-rest-api"></a>Konfigurace pravidel brány firewall na úrovni serveru služby Azure SQL Database pomocí rozhraní REST API
 > [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure portal](sql-database-configure-firewall-settings.md)
+> * [Přehled](sql-database-firewall-configure.md)
+> * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 > * [REST API](sql-database-configure-firewall-settings-rest.md)
 > 
 > 
 
-Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
+Microsoft Azure SQL Database používá pravidla brány firewall k umožnění připojení k vašim serverům a databázím. Nastavení brány firewall můžete definovat na úrovni serveru nebo databáze pro hlavní nebo uživatelskou databázi na serveru služby Azure SQL Database a selektivně tak umožnit přístup k dané databázi.
 
 > [!IMPORTANT]
-> To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). If you are making connections inside the Azure cloud boundary, you may have to open some additional TCP ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+> Pokud chcete umožnit aplikacím z Azure připojení k vašemu databázovému serveru, musí být povolená připojení Azure. Další informace o pravidlech brány firewall a povolení připojení z Azure najdete v tématu [Brána firewall služby Azure SQL Database](sql-database-firewall-configure.md). Pokud provádíte připojení v rámci cloudu Azure, možná bude nutné otevřít některé další porty TCP. Další informace najdete v části **SQL Database verze V12: Vnější vs. vnitřní** tématu [Porty nad 1433 pro technologii ADO.NET 4.5 a službu SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 > 
 > 
 
-## Manage server-level firewall rules through REST API
-1. Managing firewall rules through REST API must be authenticated. For information, see [Developer's guide to authorization with the Azure Resource Manager API](../resource-manager-api-authentication.md).
-2. Server-level rules can be created, updated, or deleted using REST API
+## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Správa pravidel brány firewall na úrovni serveru přes rozhraní REST API
+1. Správa pravidel brány firewall přes rozhraní REST API musí být ověřená. Informace najdete v [Průvodce vývojáře k ověřování pomocí rozhraní API Azure Resource Manageru](../azure-resource-manager/resource-manager-api-authentication.md).
+2. Pravidla na úrovni serveru můžete vytvořit, aktualizovat nebo odstranit pomocí rozhraní REST API.
    
-    To create or update a server-level firewall rule, execute the PUT method using the following:
+    Pokud chcete vytvořit nebo aktualizovat pravidlo brány firewall na úrovni serveru, proveďte metodu PUT následujícím způsobem:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
    
-    Request Body
+    Text žádosti
    
         {
          "properties": { 
@@ -50,36 +55,42 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
             }
         } 
 
-    To remove an existing server-level firewall rule, execute the DELETE method using the following:
+    Pokud chcete odstranit existující pravidlo brány firewall na úrovni serveru, proveďte metodu DELETE následujícím způsobem:
 
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## Manage firewall rules using the REST API
-* [Create or Update Firewall Rule](https://msdn.microsoft.com/library/azure/mt445501.aspx)
-* [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/mt445502.aspx)
-* [Get Firewall Rule](https://msdn.microsoft.com/library/azure/mt445503.aspx)
-* [List All Firewall Rules](https://msdn.microsoft.com/library/azure/mt604478.aspx)
+## <a name="manage-firewall-rules-using-the-rest-api"></a>Správa pravidel brány firewall pomocí rozhraní REST API
+* [Vytvoření nebo aktualizace pravidla brány firewall](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [Odstranění pravidla brány firewall](https://msdn.microsoft.com/library/azure/mt445502.aspx)
+* [Získání pravidla brány firewall](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [Výpis všech pravidel brány firewall](https://msdn.microsoft.com/library/azure/mt604478.aspx)
 
-## Next steps
-For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+## <a name="next-steps"></a>Další kroky
+Informace o tom, jak pomocí jazyka Transact SQL vytvořit pravidla brány firewall na úrovni serveru a databáze, najdete v článku [Konfigurace pravidel brány firewall na úrovni serveru a databáze služby Azure SQL Database pomocí jazyka T-SQL](sql-database-configure-firewall-settings-tsql.md). 
 
-For how to articles on creating server-level firewall rules using other methods, see: 
+V těchto článcích najdete informace o vytváření pravidel brány firewall na úrovni serveru dalšími metodami: 
 
-* [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+* [Konfigurace pravidel brány firewall na úrovni serveru služby Azure SQL Database pomocí webu Azure Portal](sql-database-configure-firewall-settings.md)
+* [Konfigurace pravidel brány firewall na úrovni serveru služby Azure SQL Database pomocí prostředí PowerShell](sql-database-configure-firewall-settings-powershell.md)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Kurz týkající se vytvoření databáze najdete v článku [Vytvoření databáze SQL během několika minut pomocí webu Azure Portal](sql-database-get-started.md).
+S připojováním k databázi SQL Azure z open source aplikací nebo aplikací třetích stran vám pomůžou [Ukázky kódu pro rychlý start klientů se službou SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+S pochopením přecházení do databází vám pomůže článek [Správa přístupu k databázi a zabezpečení přihlášení](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-## Additional resources
-* [Securing your database](sql-database-security.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+## <a name="additional-resources"></a>Další zdroje
+* [Zabezpečení databáze](sql-database-security-overview.md)
+* [Security Center pro databázový stroj SQL Server a Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
+
+
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

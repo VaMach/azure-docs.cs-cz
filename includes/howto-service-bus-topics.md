@@ -14,7 +14,7 @@ Pokud chcete začít používat témata a předplatné služby Service Bus v Azu
 
 Vytvoření oboru názvů:
 
-1. Přihlaste se na web [Azure Portal][Azure Portal].
+1. Přihlaste se k webu [Azure Portal][Azure portal].
 2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 3. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 4. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
@@ -35,7 +35,7 @@ Vytvoření oboru názvů:
    
     ![connection-string][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Vytvoření oboru názvů:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

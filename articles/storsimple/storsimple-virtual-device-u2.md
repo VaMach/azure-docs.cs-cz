@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
-ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
+ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
+ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
 
 
 ---
@@ -33,7 +33,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
 | **Dostupnost v oblastech** |Všechny oblasti Azure |Oblasti Azure, které podporují službu Premium Storage<br></br>Seznam oblastí naleznete v tématu [podporované oblasti pro 8020](#supported-regions-for-8020) |
-| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
 <sup>1</sup> *Dříve označované jako 1100*.
@@ -41,7 +41,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 <sup>2</sup> *Pro cloudovou vrstvu používají zařízení 8010 i 8020 službu Azure Standard Storage. Rozdíl je pouze u místní vrstvy v rámci zařízení*.
 
 #### <a name="supported-regions-for-8020"></a>Podporované oblasti pro 8020
-Oblasti služby Premium Storage, které jsou aktuálně podporovány pro zařízení 8020, jsou uvedeny v následující tabulce. Tento seznam bude průběžně aktualizován s tím, jak bude služba Premium Storage k dispozici v dalších oblastech. 
+Oblasti služby Premium Storage, které jsou aktuálně podporovány pro zařízení 8020, jsou uvedeny v následující tabulce. Tento seznam bude průběžně aktualizován s tím, jak bude služba Premium Storage k dispozici v dalších oblastech.
 
 | Sér. č. | Aktuálně podporované v oblastech |
 | --- | --- |
@@ -68,7 +68,7 @@ Tento článek popisuje podrobný postup nasazení virtuálního zařízení Sto
 * Připojíte se k virtuálnímu zařízení.
 * Naučíte se pracovat s virtuálním zařízením.
 
-Tento kurz se vztahuje na všechna virtuální zařízení StorSimple používající software verze Update 2 nebo vyšší. 
+Tento kurz se vztahuje na všechna virtuální zařízení StorSimple používající software verze Update 2 nebo vyšší.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Jak se liší virtuální zařízení od fyzického zařízení
 Virtuální zařízení StorSimple je čistě softwarová verze zařízení StorSimple, která běží na jednom uzlu virtuálního počítače Microsoft Azure. Virtuální zařízení podporuje scénáře zotavení po havárii, ve kterých fyzické zařízení není k dispozici, a je vhodné pro použití v načítání na úrovni položek ze zálohy, místní zotavení po havárii a scénáře vývoje a testování v cloudu.
@@ -91,9 +91,9 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 
 * Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Další informace o [oblastech, které jsou aktuálně podporovány pro 8020](#supported-regions-for-8020).
 * Je vhodné použít výchozí server DNS poskytovaný platformou Azure místo zadávání vlastního názvu serveru DNS. Pokud název serveru DNS není platný nebo pokud server DNS není schopen správně přeložit IP adresy, vytvoření virtuálního zařízení se nezdaří.
-* Připojení point-to-site a site-to-site jsou volitelná, ale nejsou vyžadována. Pokud chcete, můžete nastavit tyto možnosti pro pokročilejší scénáře. 
+* Připojení point-to-site a site-to-site jsou volitelná, ale nejsou vyžadována. Pokud chcete, můžete nastavit tyto možnosti pro pokročilejší scénáře.
 * Můžete vytvořit [virtuální počítače Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostitelské servery) ve virtuální síti, které mohou používat svazky vystavené virtuálním zařízením. Tyto servery musí splňovat následující požadavky:                             
-  
+
   * Být virtuální počítače Windows nebo Linux s nainstalovaným softwarem iniciátoru iSCSI.
   * Běžet ve stejné virtuální síti jako virtuální zařízení.
   * Moci se připojit k cíli iSCSI virtuálního zařízení prostřednictvím interní IP adresy virtuálního zařízení.
@@ -103,7 +103,7 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 Před vytvořením virtuálního zařízení aktualizujte svoji službu Azure StorSimple následujícím způsobem:
 
 * Přidejte [záznamy řízení přístupu](storsimple-manage-acrs.md) pro virtuální počítače, které budou představovat hostitelské servery pro virtuální zařízení.
-* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Storage úrovně Standard]((../storage/storage-create-storage-account.md) nebo [účet služby Storage úrovně Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage](../storage/storage-create-storage-account.md) nebo [účet služby Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Pro vytvoření virtuálního zařízení použijte jiný účet úložiště, než jaký se používá pro vaše data. Použití stejného účtu úložiště může vést k nižšímu výkonu.
 
 Před zahájením se ujistěte, že máte k dispozici následující informace:
@@ -112,9 +112,9 @@ Před zahájením se ujistěte, že máte k dispozici následující informace:
 * Kopie šifrovacího klíče dat služby z fyzického zařízení.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Vytvoření a konfigurace virtuálního zařízení
-Před provedením těchto postupů se ujistěte, že jste splnili [požadavky na virtuální zařízení](#prerequisites-for-the-virtual-device). 
+Před provedením těchto postupů se ujistěte, že jste splnili [požadavky na virtuální zařízení](#prerequisites-for-the-virtual-device).
 
-Po vytvoření virtuální sítě, konfiguraci služby StorSimple Manager a registraci fyzického zařízení StorSimple u služby můžete pomocí následujících kroků vytvořit a nakonfigurovat virtuální zařízení StorSimple. 
+Po vytvoření virtuální sítě, konfiguraci služby StorSimple Manager a registraci fyzického zařízení StorSimple u služby můžete pomocí následujících kroků vytvořit a nakonfigurovat virtuální zařízení StorSimple.
 
 ### <a name="step-1-create-a-virtual-device"></a>Krok 1: Vytvoření virtuálního zařízení
 Pomocí následujících kroků vytvořte virtuální zařízení StorSimple.
@@ -144,8 +144,8 @@ Software Snapshot Manager zařízení StorSimple se nachází na hostiteli syst�
 
 > [!NOTE]
 > Pro virtuální zařízení je hostitelem systému Windows virtuální počítač Azure.
-> 
-> 
+>
+>
 
 Při konfiguraci zařízení ve Snapshot Manageru zařízení StorSimple budete vyzváni k zadání IP adresy a hesla zařízení StorSimple pro ověření zařízení úložiště. Podrobný postup je uveden v části [Konfigurace hesla Snapshot Manageru zařízení StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -167,13 +167,13 @@ Po povolení vzdálené správy na stránce konfigurace zařízení StorSimple m
 
 > [!WARNING]
 > **Pro zvýšení zabezpečení důrazně doporučujeme používat pro připojování ke koncovým bodům protokol HTTPS a po dokončení vzdálené relace PowerShellu koncové body odstranit.**
-> 
-> 
+>
+>
 
 Při nastavování vzdálené komunikace pro vaše virtuální zařízení je vhodné dodržovat postupy uvedené v části [Vzdálené připojení k zařízení StorSimple](storsimple-remote-connect.md).
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Přímé připojení k virtuálnímu zařízení
-K virtuálnímu zařízení se lze také připojit přímo. Pokud se chcete k virtuálnímu zařízení připojit přímo z jiného počítače mimo virtuální síť nebo mimo prostředí Microsoft Azure, musíte vytvořit další koncové body níže popsaným postupem. 
+K virtuálnímu zařízení se lze také připojit přímo. Pokud se chcete k virtuálnímu zařízení připojit přímo z jiného počítače mimo virtuální síť nebo mimo prostředí Microsoft Azure, musíte vytvořit další koncové body níže popsaným postupem.
 
 Prostřednictvím následujících kroků vytvořte na virtuálním zařízení veřejný koncový bod.
 
@@ -227,8 +227,8 @@ Zotavení po havárii je jedním z klíčových scénářů, pro něž je virtu�
 > [!NOTE]
 > * Při použití virtuálního zařízení jako sekundárního zařízení pro zotavení po havárii mějte na paměti, že zařízení 8010 má k dispozici úložiště Standard Storage 30 TB a zařízení 8020 úložiště Premium Storage 64 TB. Vyšší kapacita virtuálního zařízení 8020 může být pro scénář zotavení po havárii vhodnější.
 > * Ze zařízení se softwarem Update 2 nelze převzít služby při selhání nebo klonovat na zařízení se softwarem starším než Update 1. Můžete však převzít služby při selhání ze zařízení se softwarem Update 2 na zařízení se softwarem Update 1 (1.1 nebo 1.2)
-> 
-> 
+>
+>
 
 Podrobný postup je popsán v části [Převzetí služeb při selhání na virtuální zařízení](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -245,21 +245,20 @@ Pokud virtuální zařízení odstraníte nebo vypnete, zobrazí se na stránce 
 Pokud během vytváření virtuálního zařízení není k dispozici připojení k internetu, daný krok vytváření se nezdaří. Chcete-li zjistit, zda za selhání může připojení k internetu, proveďte na klasickém webu Azure Portal následující kroky:
 
 1. Vytvořte v Azure virtuální počítač s Windows Serverem 2012. Tento virtuální počítač by měl používat stejný účet úložiště, virtuální síť a podsíť jako vaše virtuální zařízení. Pokud již máte v Azure hostitele s Windows Serverem, který používá stejný účet úložiště, virtuální síť a podsíť, můžete jej také použít pro řešení potíží s připojením k internetu.
-2. Vzdáleně se přihlaste k virtuálnímu počítači, který jste vytvořili v předchozím kroku. 
+2. Vzdáleně se přihlaste k virtuálnímu počítači, který jste vytvořili v předchozím kroku.
 3. Na virtuálním počítači otevřete okno příkazového řádku (stiskněte Win + R a zadejte `cmd`).
 4. V příkazovém řádku spusťte následující příkaz.
-   
+
     `nslookup windows.net`
-5. Pokud se `nslookup` nezdaří, pak problém s připojením k internetu brání virtuálnímu zařízení v registraci do služby StorSimple Manager. 
+5. Pokud se `nslookup` nezdaří, pak problém s připojením k internetu brání virtuálnímu zařízení v registraci do služby StorSimple Manager.
 6. Proveďte požadované změny své virtuální sítě a ujistěte se, že virtuální zařízení může přistupovat k webům Azure, například „windows.net“.
 
 ## <a name="next-steps"></a>Další kroky
 * Podívejte se, jak [použít službu StorSimple Manager pro správu virtuálního zařízení](storsimple-manager-service-administration.md).
-* Naučte se [obnovit svazek StorSimple ze zálohovacího skladu](storsimple-restore-from-backup-set.md). 
+* Naučte se [obnovit svazek StorSimple ze zálohovacího skladu](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
