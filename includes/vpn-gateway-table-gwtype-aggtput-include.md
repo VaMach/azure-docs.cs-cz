@@ -16,6 +16,6 @@ SKU brány UltraPerformance se v této tabulce neuvádí. Informace o SKU UltraP
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Budete potřebovat síť Azure, ke které se připojí virtuální počítače A
 * Síť by měla být ve stejném umístění jako trezor služby Recovery Services.
 * V závislosti na modelu prostředků, který budete chtít použít pro virtuální počítače Azure, které převezmou služby po selhání, nastavíte síť Azure v [režimu Resource Manageru](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) nebo [klasickém režimu](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * Doporučujeme nastavit síť ještě před tím, než začnete. Pokud to neuděláte, budete to muset udělat při nasazení služby Site Recovery.
-Mějte na paměti, že sítě Azure používané pro Site Recovery se nedají [přesouvat](../resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
+Mějte na paměti, že sítě Azure používané pro Site Recovery se nedají [přesouvat](../azure-resource-manager/resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
 
 ### <a name="set-up-an-azure-storage-account"></a>Nastavení účtu úložiště Azure
 * K ukládání dat replikovaných do Azure budete potřebovat účet úložiště Azure úrovně Standard. Účet musí být ve stejné oblasti jako trezor Služeb zotavení.
 * V závislosti na modelu prostředků, který budete chtít použít pro virtuální počítače Azure, které převezmou služby po selhání, nastavíte účet v [režimu Resource Manageru](../storage/storage-create-storage-account.md) nebo [klasickém režimu](../storage/storage-create-storage-account-classic-portal.md).
 * Doporučujeme nastavit účet ještě před tím, než začnete. Pokud to neuděláte, budete to muset udělat při nasazení služby Site Recovery.
-- Mějte na paměti, že účty úložiště používané pro Site Recovery se nedají [přesouvat](../resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
+- Mějte na paměti, že účty úložiště používané pro Site Recovery se nedají [přesouvat](../azure-resource-manager/resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
 
 ### <a name="prepare-the-vmm-server"></a>Příprava serveru VMM
 * Zkontrolujte, že server VMM splňuje příslušné [požadavky](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Během nasazování Site Recovery musíte nastavit mapování sítě. Mapování
 
     ![Nový trezor](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Máte-li více předplatných, vyberte jedno z nich.
-4. [Vytvořte skupinu prostředků](../resource-group-template-deploy-portal.md) nebo vyberte existující skupinu. Zadejte oblast Azure. Počítače budou replikovány do této oblasti. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. [Vytvořte skupinu prostředků](../azure-resource-manager/resource-group-template-deploy-portal.md) nebo vyberte existující skupinu. Zadejte oblast Azure. Počítače budou replikovány do této oblasti. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Pokud chcete mít k trezoru rychlý přístup z řídicího panelu, klikněte na **Připnout na řídicí panel** > **Vytvořit trezor**.
 
     ![Nový trezor](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ Po nasazení a zprovoznění nasazení si můžete přečíst [další informace
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

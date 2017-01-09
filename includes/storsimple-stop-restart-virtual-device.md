@@ -16,6 +16,6 @@ K restartování virtuálního zařízení slouží následující rutina.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

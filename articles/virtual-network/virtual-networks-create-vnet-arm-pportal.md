@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: d68f6a7e935f530630ee33f48cfad1b9e01e66a8
+ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
+ms.openlocfilehash: c7257faad9a41174fb1d65e04c99cd96a8af3ea9
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: d68f6a7e935f530630ee33f48cfad1b9e01e66a8
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure nabízí dva modely nasazení: Azure Resource Manager a Classic. Microsoft doporučuje vytváření prostředků prostřednictvím modelu nasazení Resource Manager. Další informace o rozdílech mezi těmito dvěma modely najdete v článku [Vysvětlení modelů nasazení Azure](../resource-manager-deployment-model.md).
+Azure nabízí dva modely nasazení: Azure Resource Manager a Classic. Microsoft doporučuje vytváření prostředků prostřednictvím modelu nasazení Resource Manager. Další informace o rozdílech mezi těmito dvěma modely najdete v článku [Vysvětlení modelů nasazení Azure](../azure-resource-manager/resource-manager-deployment-model.md).
  
 Tento článek vysvětluje, jak vytvořit virtuální síť prostřednictvím modelu nasazení Resource Manager pomocí webu Azure Portal. Virtuální síť můžete vytvořit také prostřednictvím modelu nasazení Resource Manager pomocí jiných nástrojů nebo prostřednictvím modelu nasazení Classic. Pokud to chcete provést, vyberte odpovídající možnost z následujícího seznamu:
 
@@ -83,6 +83,6 @@ Zjistěte, jak připojit:
 - Virtuální síť k místní síti pomocí virtuální privátní sítě (VPN) typu Site-to-Site nebo okruhu ExpressRoute. Informace najdete v článcích [Připojení virtuální sítě k místní síti pomocí sítě VPN typu Site-to-Site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) a [Propojení virtuální sítě s okruhem ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ Rozhraní API pro JavaScript Power BI umožňuje snadné vkládání sestav Powe
 
 Ke vložení sestavy Power BI do své aplikace použijete element iframe, který je hostovaný jako součást aplikace. Element iframe slouží jako hranice mezi vaší aplikací a sestavou, jak je vidět na následujícím obrázku. 
 
-![Vložený element iframe Power BI bez rozhraní API pro Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Vložený element iframe Power BI bez rozhraní API pro Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 Element iframe sice proces vkládání dost usnadňuje, ale bez rozhraní API pro JavaScript API spolu sestava a aplikace nemohou interagovat. Tento nedostatek interakce potom může mít za následek pocit, že sestava vlastně není součástí příslušné aplikace. Sestava a aplikace skutečně potřebují vzájemně komunikovat, jak ukazuje následující obrázek.
 
-![Vložený element iframe Power BI s rozhraním API pro Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Vložený element iframe Power BI s rozhraním API pro Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Rozhraní API pro JavaScript Power BI umožňuje psát kód, který bezpečně prochází hranicí elementu iframe. Díky tomu aplikace může programově provádět v sestavě různé akce a naslouchat událostem z akcí, které uživatelé v této sestavě provedou.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>K čemu je možné využít rozhraní API pro JavaScript Power BI?
 Pomocí rozhraní API pro JavaScript API můžete spravovat sestavy, přejít na stránky v sestavě, filtrovat sestavu a zpracovávat události vkládání. Strukturu rozhraní API ukazuje následující diagram.
 
-![Diagram rozhraní API pro JavaScript Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Diagram rozhraní API pro JavaScript Power BI](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Správa sestav
 Rozhraní API pro Javascript umožňuje spravovat chování na úrovni sestav a stránek:
@@ -139,6 +139,6 @@ Další informace o rozhraní API pro JavaScript Power BI najdete pod následuj�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

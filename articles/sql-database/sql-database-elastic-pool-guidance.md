@@ -1,128 +1,138 @@
 ---
-title: When should an elastic database pool be used?
-description: An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases.
+title: "Kdy je vhodné používat elastický fond?"
+description: "Elastický fond je kolekce dostupných prostředků, které sdílí skupina elastických databází. Tento dokument obsahuje pokyny, které vám pomohou vyhodnotit vhodnost použití elastického fondu pro skupinu databází."
 services: sql-database
-documentationcenter: ''
-author: stevestein
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 08/08/2016
-ms.author: sstein
+ms.date: 12/19/2016
+ms.author: sstein;carlrab
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: a79b78a4e8e683afe5b41a41911e7d5f020eff88
+
 
 ---
-# When should an elastic database pool be used?
-Assess whether using an elastic database pool is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
+# <a name="when-should-an-elastic-pool-be-used"></a>Kdy je vhodné používat elastický fond?
+Na základě způsobů využití databází a cenových rozdílů mezi elastickým fondem a samostatnými databázemi vyhodnoťte, jestli se použití elastického fondu vyplatí. Poskytujeme také další pokyny, které vám pomůžou určit aktuální požadovanou velikost fondu pro stávající sadu databází SQL.  
 
-* For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
+* Přehled fondů najdete v tématu [Elastické fondy služby SQL Database](sql-database-elastic-pool.md).
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
-> 
-> 
+> Elastické fondy jsou obecně dostupné ve všech oblastech Azure s výjimkou oblasti Západní Indie, kde jsou aktuálně ve verzi Preview. Obecná dostupnost elastických fondů v této oblasti bude zajištěna co nejdříve.
+>
+>
 
-## Elastic database pools
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. So the developer may overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the developer can spend less and risk a poor performance experience for their customers. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+## <a name="elastic-pools"></a>Elastické fondy
+Vývojáři SaaS sestavují aplikace nad datovými úrovněmi velkého rozsahu, které se skládají z několika databází. Běžným aplikačním postupem je zřídit pro každého zákazníka izolovanou databázi. Ale různí zákazníci mají často proměnlivé a nepředvídatelné vzorce využití a je těžké odhadnout požadavky jednotlivých databázových uživatelů na prostředky. Proto vývojáři mohou za cenu značných nákladů prostředky naddimenzovat a zajistit tak příznivou propustnost a dobu odezvy pro všechny databáze. Nebo mohou utratit méně a riskovat, že jejich zákazníky ovlivní nízký výkon. Další informace o návrhových schématech aplikací SaaS využívajících elastické fondy najdete v tématu [Návrhová schémata pro víceklientské aplikace SaaS využívající službu Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Pools enable the developer to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the developer budget. Pools make it easy for the developer to reason over the impact of budget on performance and vice versa for their pool. The developer simply adds databases to the pool, sets the minimum and maximum eDTUs  for the databases, and then sets the eDTU of the pool based on their budget. A developer can use pools  to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.  
+Elastické fondy v Azure SQL Database umožňují vývojářům SaaS optimalizovat poměr cena/výkon pro skupinu databází v rámci předem daného rozpočtu a pro všechny databáze přitom zajistit elasticitu výkonu. Fondy umožňují vývojářům zakoupit pro fond sdílený více databázemi jednotky eDTU (elastic Database Transaction Unit), které umožňují zajistit nepředvídatelná období využití ze strany jednotlivých databází. Požadavek fondu na eDTU je určený agregačním využitím jeho databází. Rozpočet vývojáře určuje počet jednotek eDTU, které má fond k dispozici. Fondy umožňují vývojářům u jednotlivých fondů snadno porovnat vliv rozpočtu na výkon a naopak. Vývojář jednoduše do fondu přidá databáze, nastaví minimální a maximální počet jednotek eDTU pro tyto databáze a potom na základě svého rozpočtu nastaví eDTU fondu. Vývojáři mohou fondy využít k tomu, aby zajistili elegantní růst svých služeb od úsporného startupu až po zralé podnikání, a to ve stále se zvětšujícím měřítku.  
 
-## When to consider a pool
-Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
+## <a name="when-to-consider-a-pool"></a>Kdy zvažovat použití fondu
+Fondy jsou vhodné pro velký počet databází s konkrétními vzory využití. Pro danou databázi je tento vzor charakterizován nízkou mírou průměrného využití s relativně málo častými nárůsty využití.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
+Čím více databází je možné do fondu přidat, tím větší budou vaše úspory. V závislosti na vzorech využití aplikací je možné dosáhnout úspor už u pouhých dvou databází S3.  
 
-The following sections help you understand how to assess if your specific collection of databases will benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
+Následující části vás seznámí s postupy, pomocí kterých můžete vyhodnotit, jestli pro vaši konkrétní kolekci databází bude použití fondu přínosné. V příkladech se používají fondy Standard, ale stejné principy platí také pro fondy Basic a Premium.
 
-### Assessing database utilization patterns
-The following figure shows an example of a database that spends much time idle, but also periodically spikes with activity. This is a utilization pattern that is well suited for a pool:
+### <a name="assessing-database-utilization-patterns"></a>Vyhodnocení vzorů využití databáze
+Na následujícím obrázku je příklad databáze, která je většinu doby nečinná, ale má také pravidelné špičky aktivity. Tento vzor využití se pro fond skvěle hodí:
 
-   ![a single database suitable for a pool](./media/sql-database-elastic-pool-guidance/one-database.png)
+   ![izolovaná databáze vhodná pro fond](./media/sql-database-elastic-pool-guidance/one-database.png)
 
-For the five-minute period illustrated above, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 performance level is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
+Po uvedená pětiminutová období DB1 využívá až 90 jednotek DTU, ale celkové průměrné využití nedosahuje ani pěti jednotek DTU. Ke spuštění této úlohy v izolované databázi se vyžaduje úroveň výkonu S3. To ale znamená, že v období nízké aktivity je většina prostředků nevyužitá.
 
-A pool allows these unused DTUs to be shared across multiple databases, and so reduces the total amount of DTUs needed and overall cost.
+Fond umožňuje sdílet tyto nevyužité jednotky DTU napříč několika databázemi a snižuje tak počet potřebných jednotek DTU a celkové náklady.
 
-Building on the previous example, suppose there are additional databases with similar utilization patterns as DB1. In the next two figures below, the utilization of four databases and 20 databases are layered onto the same graph to illustrate the non-overlapping nature of their utilization over time:
+Využijeme předchozí příklad a budeme předpokládat, že existují další databáze s podobnými vzory využití jako DB1. Na následujících dvou obrázcích je využití čtyř databází a 20 databází zakresleno do stejného grafu. Vidíte tak, že se jejich využití v čase nepřekrývá:
 
-   ![four databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/four-databases.png)
+   ![Čtyři databáze se vzorem využití, který je vhodný pro fond](./media/sql-database-elastic-pool-guidance/four-databases.png)
 
-   ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
+  ![Dvacet databází se vzorem využití, který je vhodný pro fond](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
 
-The aggregate DTU utilization across all 20 databases is illustrated by the black line in the above figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 performance levels for single databases.
+Agregované využití DTU napříč všemi 20 databázemi je na předchozím obrázku znázorněné černou čárou. Ukazuje se, že agregované využití DTU nikdy nepřekračuje 100 jednotek DTU. Znamená to, že těchto 20 databází může v průběhu tohoto časového období sdílet 100 jednotek eDTU. Výsledkem je 20krát nižší počet DTU a 13krát nižší cena ve srovnání se zařazením jednotlivých databází do úrovní výkonu S3 pro izolované databáze.
 
-This example is ideal for the following reasons:
+Tento příklad je ideální z následujících důvodů:
 
-* There are large differences between peak utilization and average utilization per database.  
-* The peak utilization for each database occurs at different points in time.
-* eDTUs are shared between a large number of databases.
+* Ukazuje velké rozdíly mezi využitím ve špičce a průměrným využitím jednotlivých databází.  
+* Špičky využití pro jednotlivé databáze nastávají v různých časových okamžicích.
+* Jednotky eDTU jsou sdílené mezi mnoha databázemi.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+Cena za fond závisí na jednotkách eDTU fondu. Přestože je cena ze jednotku eDTU pro fond 1,5krát vyšší než cena za jednotku DTU pro izolovanou databázi, **jednotky eDTU fondu může sdílet velký počet databází, a proto stačí menší celkový počet jednotek eDTU**. Tyto rozdíly v cenách a sdílení jednotek eDTU jsou základem potenciálních úspor, které fondy mohou nabídnout.  
 
-The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
+Následující hrubé odhady související s počtem databází a jejich využitím pomáhají zajistit, že fond ve srovnání s použitím úrovní výkonu pro izolované databáze poskytuje snížení nákladů.
 
-### Minimum number of databases
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+### <a name="minimum-number-of-databases"></a>Maximální počet databází
+Pokud je součet jednotek DTU úrovní výkonu pro izolované databáze větší než 1,5násobek počtu jednotek eDTU potřebných pro fond, je elastický fond cenově výhodnější. Dostupné velikosti najdete v tématu [Omezení úložiště a eDTU pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
-***Example***<br>
-At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
+***Příklad***<br>
+K tomu, aby fond se 100 jednotkami eDTU byl cenově výhodnější než použití úrovní výkonu pro izolované databáze, jsou potřeba nejméně dvě databáze S3 nebo nejméně 15 databází S0.
 
-### Maximum number of concurrently peaking databases
-By sharing eDTUs, not all databases in a pool can simultaneously use eDTUs up to the limit available when using performance levels for single databases. The fewer databases that concurrently peak, the  lower the pool eDTU can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their eDTU limit.
+### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximální počet databází se souběžnými špičkami
+Vzhledem k tomu, že jednotky eDTU se sdílejí, nemohou je současně využít všechny databáze ve fondu limit až po limit dostupný při použití úrovní výkonu pro izolované databáze. Čím méně databází má současně špičku, tím nižší počet jednotek eDTU ve fondu je možné nastavit a tím výhodnější fond bude. Obecně platí, že svůj limit eDTU by mělo současně využívat nejvýše 2/3 (nebo 67 %) databází ve fondu.
 
-***Example***<br>
-To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization.  Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs.  And if the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.  
+***Příklad***<br>
+Aby bylo možné snížit náklady pro tři databáze S3 ve fondu s 200 jednotkami eDTU, mohou nejvýše dvě z těchto databází dosahovat špičky svého využití současně. Pokud současně dosahují špičky více než dvě z těchto čtyř databází S3, bylo by nutné velikost fondu nastavit na více než 200 jednotek eDTU. Pokud se velikost fondu nastaví na více než 200 jednotek eDTU, bude nutné do fondu přidat další databáze S3, jinak náklady nebudou nižší než při použití úrovní výkonu pro izolované databáze.
 
-Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
+Všimněte si, tento příklad nebere v úvahu využití ostatních databází ve fondu. Pokud se v libovolném konkrétním časovém okamžiku do určité míry využívají všechny databáze, může méně než 2/3 (nebo 67 %) z nich dosahovat špičky současně.
 
-### DTU utilization per database
-A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
+### <a name="dtu-utilization-per-database"></a>Využití DTU na databázi
+Velký rozdíl mezi maximálním a průměrným využitím databáze ukazuje na delší doby nízkého využití a krátká období vysokého využití. Tento vzor využití je ideální pro sdílení prostředků mezi databázemi. Použití fondu pro databázi byste měli zvážit, pokud je její využití ve špičce přibližně 1,5krát větší než průměrné využití.
 
-***Example***<br>
-An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool.  Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
+***Příklad***<br>
+Databáze S3, která ve špičce využívá 100 DTU a průměrně využívá 67 DTU nebo méně, je vhodným kandidátem pro sdílení jednotek eDTU ve fondu. Databáze S1, která ve špičce využívá 20 DTU a průměrně využívá 13 DTU nebo méně, je vhodným kandidátem pro fond.
 
-## Sizing an elastic pool
-The best size for a pool depends on the aggregate eDTUs and storage resources needed for all databases in the pool. This involves determining the larger of the following:
+## <a name="sizing-an-elastic-pool"></a>Nastavení velikosti elastického fondu
+Ideální velikost fondu závisí na agregovaných jednotkách eDTU a prostředcích úložiště potřebných pro všechny databáze ve fondu. To znamená, že je potřeba určit větší z následujících dvou hodnot:
 
-* Maximum DTUs utilized by all databases in the pool.
-* Maximum storage bytes utilized by all databases in the pool.
+* Maximální počet jednotek DTU využitých všemi databázemi ve fondu
+* Maximální počet bajtů úložiště využitých všemi databázemi ve fondu
 
-For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Dostupné velikosti najdete v tématu [Omezení úložiště a eDTU pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
-SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
+SQL Database automaticky vyhodnotí historické údaje používání prostředků databází na existujícím serveru SQL Database a doporučí odpovídající konfigurace fondu na webu Azure Portal. Kromě těchto doporučení integrované prostředí odhaduje využití eDTU pro vlastní skupinu databází na serveru. Interaktivním přidáváním databází do fondu a jejich odebíráním díky tomu můžete prostřednictvím citlivostních analýz získat analýzy využití prostředků a rady týkající se požadované velikosti dřív, než potvrdíte požadované změny. Postupy najdete v tématu [Monitorování, správa a nastavení velikosti elastického fondu](sql-database-elastic-pool-manage-portal.md).
 
-For more flexible resource usage assessments that allow ad hoc sizing estimates for servers earlier than V12, as well as sizing estimates for databases in different servers, see the [Powershell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md).
+Flexibilnější vyhodnocení využití prostředků, které umožňuje odhady velikosti ad hoc pro servery dřívější než V12 a odhady velikosti pro databáze na různých serverech, najdete v tématu [Skript prostředí PowerShell pro určení databází vhodných pro elastický fond](sql-database-elastic-pool-database-assessment-powershell.md).
 
-| Capability | Portal experience | PowerShell script |
+| Schopnost | Prostředí portálu | Skript PowerShellu |
 |:--- |:--- |:--- |
-| Granularity |15 seconds |15 seconds |
-| Considers pricing differences between a pool and performance levels for single databases |Yes |No |
-| Allows customizing the list of the databases analyzed |Yes |Yes |
-| Allows customizing the period of time used in the analysis |No |Yes |
-| Allows customizing the list of databases analyzed across different servers |No |Yes |
-| Allows customizing the list of databases analyzed on v11 servers |No |Yes |
+| Členitost |15 sekund |15 sekund |
+| Zvažuje cenové rozdíly mezi fondem a úrovněmi výkonu pro izolované databáze |Ano |Ne |
+| Umožňuje přizpůsobení seznamu analyzovaných databází |Ano |Ano |
+| Umožňuje přizpůsobení časového období použitého při analýze |Ne |Ano |
+| Umožňuje přizpůsobení seznamu databází, které se analyzují napříč různými servery |Ne |Ano |
+| Umožňuje přizpůsobení seznamu databází, které se analyzují na serverech v11 |Ne |Ano |
 
-In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
+V případech, kdy nejde používat nástroje, vám při odhadování, jestli je fond cenově výhodnější než izolované databáze, pomůže následující postup:
 
-1. Estimate the eDTUs needed for the pool as follows:
-   
-   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
-   <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
-2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
-3. Take the larger of the eDTU estimates from Step 1 and Step 2.
-4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
-5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
+1. Následujícím způsobem odhadněte počet jednotek eDTU potřebných pro fond:
 
-## Summary
-Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all of your databases. This article is just a starting point to help with your decision as to whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all of your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a very large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
+   MAX(<*celkový počet databází* X *průměrné využití DTU na databázi*>,<br>
+   <*počet databází se souběžnou špičkou* X *využití DTU ve špičce na databázi*)
+2. Odhadněte potřebnou velikost úložiště pro fond (sečtěte počet bajtů potřebných pro všechny databáze ve fondu). Potom určete velikost fondu v jednotkách eDTU, která toto úložiště poskytuje. Omezení úložiště fondů na základě velikosti fondu v jednotkách eDTU najdete v tématu [Omezení úložiště a eDTU pro elastické fondy a elastické databáze](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+3. Použijte větší z odhadovaného počtu eDTU z kroku 1 a kroku 2.
+4. Prohlédněte si [stránku s cenami SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) a najděte nejmenší velikost fondu v jednotkách eDTU, která je větší než odhad z kroku 3.
+5. Porovnejte cenu fondu z kroku 5 s cenou při použití odpovídajících úrovní výkonu pro izolované databáze.
 
-## Next steps
-* [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
-* [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-* [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-* [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
+## <a name="summary"></a>Souhrn
+Ne všechny izolované databáze jsou optimálními kandidáty pro fondy. Vynikajícími kandidáty jsou databáze se vzorcem využití, pro který je charakteristické nízké průměrné využití a poměrně málo četné špičky využití. Vzorce využití aplikací jsou dynamické vzorce, proto informace a nástroje popsané v tomto článku využijte k úvodnímu posouzení toho, jestli pro některé nebo všechny vaše databáze je fond dobrou volbou. Tento článek je jenom výchozím bodem, který usnadní vaše rozhodování, jestli použití elastického fondu je nebo není vhodné. Nezapomeňte, že byste měli průběžně monitorovat historické využití prostředků a neustále znovu vyhodnocovat úrovně výkonu všech vašich databází. Mějte na paměti, že databáze můžete snadno přesouvat do a z elastických fondů. Pokud máte velký počet databází, může mít několik fondů různých velikostí, mezi které můžete svoje databáze rozdělit.
+
+## <a name="next-steps"></a>Další kroky
+* [Vytvoření elastického fondu](sql-database-elastic-pool-create-portal.md)
+* [Monitorování, správa a nastavení velikosti elastického fondu](sql-database-elastic-pool-manage-portal.md)
+* [Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb](sql-database-service-tiers.md)
+* [Skript prostředí PowerShell pro určení databází vhodných pro elastický fond](sql-database-elastic-pool-database-assessment-powershell.md)
+
+
+
+<!--HONumber=Jan17_HO1-->
+
 

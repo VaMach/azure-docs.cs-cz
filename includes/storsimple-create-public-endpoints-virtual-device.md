@@ -14,6 +14,6 @@ Po vytvoření koncového bodu můžete zobrazit jeho podrobnosti, abyste zjisti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

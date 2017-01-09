@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 4e86c1c1460f7b6eb312f10a0666f92b33697763
@@ -147,14 +147,11 @@ Nyní můžete pomocí Git kdykoli provádět nucené doručení (push) z kořen
 
 Vyhledejte upřednostňované kroky při vývoji a nasazení pro vaše jazykové prostředí:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started.md)
-> * [Node.js](app-service-web-nodejs-get-started.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
+* [.NET](web-sites-dotnet-get-started.md)
+* [PHP](app-service-web-php-get-started.md)
+* [Node.js](app-service-web-nodejs-get-started.md)
+* [Python](web-sites-python-ptvs-django-mysql.md)
+* [Java](web-sites-java-get-started.md)
 
 Další možností je pokračovat v práci s první webovou aplikací. Příklad:
 

@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Začínáme
-## [Nasazení pomocí šablony Resource Manageru](../resource-group-template-deploy.md)
+## [Nasazení pomocí šablony Resource Manageru](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Postup
 ## Nasazení
-### [Vytváření šablon Azure Resource Manageru](../resource-group-authoring-templates.md)
+### [Vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Spravovat
-### [Použití portálu Preview ke správě prostředků](resource-group-portal.md)
+### [Použití portálu Preview ke správě prostředků](../azure-resource-manager/resource-group-portal.md)
 ### [Správa přístupu pomocí RBAC](../active-directory/role-based-access-control-configure.md)
-### [Použití značek k uspořádání prostředků](../resource-group-using-tags.md)
+### [Použití značek k uspořádání prostředků](../azure-resource-manager/resource-group-using-tags.md)
 ### [Škálování prostředků](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Vytvoření nového instančního objektu Azure](../resource-group-create-service-principal-portal.md)
+### [Vytvoření nového instančního objektu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Monitorování
 ### [Monitorování metrik služeb](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Povolení monitorování a diagnostiky](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Zobrazování oznámení o výstrahách](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Související
-## [Funkce šablon Azure Resource Manageru](../resource-group-template-functions.md)
+## [Funkce šablon Azure Resource Manageru](../azure-resource-manager/resource-group-template-functions.md)
 ## [Osvědčené postupy pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Běžné metriky pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooky pro oznámení automatického škálování](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

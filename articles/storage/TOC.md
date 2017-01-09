@@ -161,7 +161,7 @@
 ## REST
 ### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Poskytovatel prostředků](/rest/api/storagerp)
-### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Import/export](/rest/api/storageimportexport)
 
 # Související
 ## Klasický portál
@@ -201,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

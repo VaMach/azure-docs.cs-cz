@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: e194caf503b767cb89f6d066ab4561f72b510ef5
-ms.openlocfilehash: 47bffbf85b100a808d79e464e6f381d0d8abd153
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,19 +36,21 @@ V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí ro
 ## <a name="prerequisites"></a>Požadavky
 * Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
 * Nainstalujte na svůj počítač nástroj [Curl](https://curl.haxx.se/dlwiz/). Pomocí nástroje CURL a příkazů REST vytvoříte objekt pro vytváření dat.
-* Postupujte podle pokynů v [tomto článku](../resource-group-create-service-principal-portal.md) a proveďte následující:
+* Postupujte podle pokynů v [tomto článku](../azure-resource-manager/resource-group-create-service-principal-portal.md) a proveďte následující:
   1. V Azure Active Directory vytvořte webovou aplikaci s názvem **ADFGetStartedApp**.
   2. Získejte **ID klienta** a **tajný klíč**.
   3. Získejte **ID tenanta**.
-  4. Přiřaďte aplikaci **ADFGetStartedApp** k roli **Přispěvatel Data Factory**.  
-* Nainstalujte [Azure PowerShell](../powershell-install-configure.md).  
+  4. Přiřaďte aplikaci **ADFGetStartedApp** k roli **Přispěvatel Data Factory**.
+* Nainstalujte [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
-  1. Spusťte příkaz **Login-AzureRmAccount** a zadejte uživatelské jméno a heslo, které používáte k přihlášení na webu Azure Portal.  
+  1. Spusťte příkaz **Login-AzureRmAccount** a zadejte uživatelské jméno a heslo, které používáte k přihlášení na webu Azure Portal.
   2. Spuštěním příkazu **Get-AzureRmSubscription** zobrazte všechna předplatná pro tento účet.
   3. Spuštěním rutiny **Get-AzureRmSubscription -SubscriptionName NazevPredplatnehoAzure | Set-AzureRmContext** vyberte předplatné, se kterým chcete pracovat. Místo **NazevPredplatnehoAzure** uveďte název svého předplatného Azure.
-* Spuštěním následujícího příkazu v prostředí PowerShell vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**:  
+* Spuštěním následujícího příkazu v prostředí PowerShell vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**:
 
-       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Některé kroky v tomto kurzu vychází z předpokladu, že používáte skupinu prostředků s názvem ADFTutorialResourceGroup. Pokud používáte jinou skupinu prostředků, použijte v postupech v tomto kurzu místo skupiny ADFTutorialResourceGroup název vaší skupiny prostředků.
 
@@ -61,10 +63,12 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
 >
 >
 
-    {  
-        "name": "FirstDataFactoryREST",  
-        "location": "WestUS"
-    }  
+```JSON
+{
+    "name": "FirstDataFactoryREST",
+    "location": "WestUS"
+}
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -72,30 +76,34 @@ Vytvořte následující soubory JSON ve složce, ve které je umístěn soubor 
 >
 >
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
-
+}
+```
 
 ### <a name="hdinsightondemandlinkedservicejson"></a>hdinsightondemandlinkedservice.json
-    {
-        "name": "HDInsightOnDemandLinkedService",
-        "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-                "version": "3.2",
-                "clusterSize": 1,
-                "timeToLive": "00:30:00",
-                "linkedServiceName": "AzureStorageLinkedService"
-            }
+
+```JSON
+{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+            "version": "3.2",
+            "clusterSize": 1,
+            "timeToLive": "00:30:00",
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
+}
+```
 
 Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu kódu JSON:
 
@@ -117,28 +125,30 @@ Je třeba počítat s následujícím:
 Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
-    }
 
+```JSON
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
 
 Kód JSON určuje datovou sadu s názvem **AzureBlobInput**, která představuje vstupní data pro aktivitu v kanálu. Kromě toho určuje, že se vstupní data nachází v kontejneru objektů blob s názvem **adfgetstarted** ve složce s názvem **inputdata**.
 
@@ -155,24 +165,27 @@ Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu 
 | external |Pokud vstupní data nevygenerovala služba Data Factory, je tato vlastnost nastavená na hodnotu true. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adfgetstarted/partitioneddata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
+
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adfgetstarted/partitioneddata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
         }
     }
+}
+```
 
 Kód JSON definuje datovou sadu s názvem **AzureBlobOutput**, která představuje výstupní data pro aktivitu v kanálu. Kromě toho určuje, že se mají výsledky ukládat do kontejneru objektů blob s názvem **adfgetstarted** do složky s názvem **partitioneddata**. Oddíl **availability** určuje, že se výstupní sada vytváří jednou měsíčně.
 
@@ -182,42 +195,44 @@ Kód JSON definuje datovou sadu s názvem **AzureBlobOutput**, která představu
 >
 >
 
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [{
-                "type": "HDInsightHive",
-                "typeProperties": {
-                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                    "scriptLinkedService": "AzureStorageLinkedService",
-                    "defines": {
-                        "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                        "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
-                    }
-                },
-                "inputs": [{
-                    "name": "AzureBlobInput"
-                }],
-                "outputs": [{
-                    "name": "AzureBlobOutput"
-                }],
-                "policy": {
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "scheduler": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "name": "RunSampleHiveActivity",
-                "linkedServiceName": "HDInsightOnDemandLinkedService"
+```JSON
+{
+    "name": "MyFirstPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [{
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                "scriptLinkedService": "AzureStorageLinkedService",
+                "defines": {
+                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                }
+            },
+            "inputs": [{
+                "name": "AzureBlobInput"
             }],
-            "start": "2016-07-10T00:00:00Z",
-            "end": "2016-07-11T00:00:00Z",
-            "isPaused": false
-        }
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "policy": {
+                "concurrency": 1,
+                "retry": 3
+            },
+            "scheduler": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "name": "RunSampleHiveActivity",
+            "linkedServiceName": "HDInsightOnDemandLinkedService"
+        }],
+        "start": "2016-07-10T00:00:00Z",
+        "end": "2016-07-11T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
 
@@ -238,27 +253,30 @@ V kódu JSON aktivity určujete, že má skript Hive běžet ve výpočetní slu
 V prostředí Azure PowerShell spusťte následující příkazy (po nahrazení ukázkových hodnot vašimi vlastními):
 
 > [!IMPORTANT]
-> Postup získání ID klienta, tajného klíče klienta, ID tenanta a ID předplatného naleznete v sekci [Požadavky](#prerequisites).   
+> Postup získání ID klienta, tajného klíče klienta, ID tenanta a ID předplatného naleznete v sekci [Požadavky](#prerequisites).
 >
 >
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```PowerShell
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "FirstDataFactoryREST"
-
+$rg = "ADFTutorialResourceGroup"
+$adf = "FirstDataFactoryREST"
+```
 
 
 ## <a name="authenticate-with-aad"></a>Ověření pomocí ADD
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken)
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
+(ConvertFrom-Json $responseToken)
+```
 
 
 ## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
@@ -268,17 +286,23 @@ V tomto kroku vytvoříte službu Azure Data Factory s názvem **FirstDataFactor
 
     Zkontrolujte, že název objektu pro vytváření dat zadaný zde (ADFCopyTutorialDF) odpovídá názvu zadanému v souboru **datafactory.json**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```
 2. Příkaz spusťte pomocí **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Zkontrolujte výsledky. Pokud byl objekt pro vytváření dat vytvořen úspěšně, v části **výsledky** se zobrazí JSON pro příslušný objekt pro vytváření dat. V opačném případě se zobrazí chybová zpráva.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Zkontrolujte výsledky. Pokud byl objekt pro vytváření dat vytvořen úspěšně, v části **výsledky** se zobrazí JSON pro příslušný objekt pro vytváření dat. V opačném případě se zobrazí chybová zpráva.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 Je třeba počítat s následujícím:
 
-* Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba **Název objektu pro vytváření dat „FirstDataFactoryREST“ není k dispozici**, proveďte následující kroky:  
+* Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se ve výsledcích zobrazí chyba **Název objektu pro vytváření dat „FirstDataFactoryREST“ není k dispozici**, proveďte následující kroky:
   1. Změňte název (například vaše_jménoFirstDataFactoryREST) v souboru **datafactory.json**. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
   2. V prvním příkazu, kde je proměnné **$cmd** přiřazena hodnota, nahraďte FirstDataFactoryREST novým názvem a spusťte příkaz.
   3. Spuštěním následujících dvou příkazů vyvoláte rozhraní REST API za účelem vytvoření objektu pro vytváření dat a tisku výsledků operace.
@@ -288,11 +312,14 @@ Je třeba počítat s následujícím:
 
   * Spuštěním následujícího příkazu v prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory:
 
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
       Spuštěním následujícího příkazu si můžete ověřit, zda je zprostředkovatel služby Data Factory zaregistrovaný:
-
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Přihlaste se na web [Azure Portal ](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
 
 Před vytvořením kanálu je nejdřív potřeba vytvořit několik entit služby Data Factory. Nejdřív vytvoříte propojené služby, které spojí úložiště dat / výpočetní služby s vaším úložištěm dat, definujete vstupní a výstupní datové sady reprezentující data v propojených úložištích dat.
@@ -305,88 +332,121 @@ V tomto kroku propojíte se svým objektem pro vytváření dat svůj účet slu
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Příkaz spusťte pomocí **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Zkontrolujte výsledky. Pokud byla propojená služba vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto propojenou službu. V opačném případě se zobrazí chybová zpráva.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Vytvoření propojené služby Azure HDInsight
-V tomto kroku propojíte se svým objektem pro vytváření dat cluster HDInsight na vyžádání. Cluster HDInsight se automaticky vytvoří za běhu, a až dokončí zpracování, po určité zadané době nečinnosti se odstraní. Místo clusteru HDInsight na vyžádání můžete použít také vlastní cluster HDInsight. Podrobnosti najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).  
+V tomto kroku propojíte se svým objektem pro vytváření dat cluster HDInsight na vyžádání. Cluster HDInsight se automaticky vytvoří za běhu, a až dokončí zpracování, po určité zadané době nečinnosti se odstraní. Místo clusteru HDInsight na vyžádání můžete použít také vlastní cluster HDInsight. Podrobnosti najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
 2. Příkaz spusťte pomocí **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Zkontrolujte výsledky. Pokud byla propojená služba vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto propojenou službu. V opačném případě se zobrazí chybová zpráva.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Zkontrolujte výsledky. Pokud byla propojená služba vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto propojenou službu. V opačném případě se zobrazí chybová zpráva.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Vytvoření datových sad
-V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data pro zpracování Hive. Tyto datové sady odkazují na službu **StorageLinkedService**, kterou už jste v tomto kurzu vytvořili. Propojená služba odkazuje na účet služby Azure Storage a datové sady určují kontejner, složku a název souboru v úložišti, který obsahuje vstupní a výstupní data.   
+V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data pro zpracování Hive. Tyto datové sady odkazují na službu **StorageLinkedService**, kterou už jste v tomto kurzu vytvořili. Propojená služba odkazuje na účet služby Azure Storage a datové sady určují kontejner, složku a název souboru v úložišti, který obsahuje vstupní a výstupní data.
 
 ### <a name="create-input-dataset"></a>Vytvoření vstupní datové sady
 V tomto kroku vytvoříte vstupní datovou sadu, která bude představovat vstupní data ve službě Azure Blob Storage.
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Příkaz spusťte pomocí **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
 
-        Write-Host $results
-   ### <a name="create-output-dataset"></a>Vytvoření výstupní datové sady
-   V tomto kroku vytvoříte výstupní datovou sadu, která bude představovat výstupní data ve službě Azure Blob Storage.
-4. Přiřaďte příkaz k proměnné s názvem **cmd**.
+    ```PowerShell
+    Write-Host $results
+    ```
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-5. Příkaz spusťte pomocí **Invoke-Command**.
+### <a name="create-output-dataset"></a>Vytvoření výstupní datové sady
+V tomto kroku vytvoříte výstupní datovou sadu, která bude představovat výstupní data ve službě Azure Blob Storage.
 
-        $results = Invoke-Command -scriptblock $cmd;
-6. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
+1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
-        Write-Host $results
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
+2. Příkaz spusťte pomocí **Invoke-Command**.
+
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
+
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-pipeline"></a>Vytvoření kanálu
-V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vstupní řez je dostupný jednou měsíčně (frequency: Month, interval: 1), výstupní řez se vytváří také jednou měsíčně a vlastnost scheduler pro aktivitu je také nastavena na jednou měsíčně. Nastavení výstupní datové sady a vlastnosti scheduler se musí shodovat. V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte.  
+V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vstupní řez je dostupný jednou měsíčně (frequency: Month, interval: 1), výstupní řez se vytváří také jednou měsíčně a vlastnost scheduler pro aktivitu je také nastavena na jednou měsíčně. Nastavení výstupní datové sady a vlastnosti scheduler se musí shodovat. V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte.
 
 Ujistěte se, že se ve složce **adfgetstarted/inputdata** ve službě Azure Blob Storage nachází soubor **input.log**, a spuštěním následujícího příkazu kanál nasaďte. Časy **start** a **end** jsou nastavené na minulost a vlastnost **isPaused** má hodnotu false, takže se kanál (aktivita v kanálu) spustí hned po nasazení.
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Příkaz spusťte pomocí **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Zkontrolujte výsledky. Pokud byla datová sada vytvořena úspěšně, v části **výsledky** se zobrazí JSON pro tuto datovou sadu. V opačném případě se zobrazí chybová zpráva.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 4. Úspěšně jste vytvořili první kanál pomocí prostředí Azure PowerShell, blahopřejeme!
 
 ## <a name="monitor-pipeline"></a>Monitorování kanálu
 V tomto kroku použijete rozhraní REST API služby Data Factory k monitorování řezů vytvářených kanálem.
 
-    $ds ="AzureBlobOutput"
+```PowerShell
+$ds ="AzureBlobOutput"
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+$results2 = Invoke-Command -scriptblock $cmd;
 
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
-
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 > [!IMPORTANT]
-> Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.  
+> Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.
 >
 >
 
@@ -399,10 +459,10 @@ Spouštějte Invoke-Command a další příkaz, dokud se u řezu neobjeví stav 
 >
 >
 
-Azure Portal můžete použít také k monitorování řezů a odstraňování jakýchkoli potíží. Přečtěte si podrobnosti o [monitorování kanálů pomocí webu Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).  
+Azure Portal můžete použít také k monitorování řezů a odstraňování jakýchkoli potíží. Přečtěte si podrobnosti o [monitorování kanálů pomocí webu Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
 ## <a name="summary"></a>Souhrn
-V tomto kurzu jste vytvořili objekt pro zpracování dat Azure, který zpracovává data pomocí skriptu Hive v clusteru HDInsight Hadoop. Pomocí editoru služby Data Factory na webu Azure Portal jste provedli tyto kroky:  
+V tomto kurzu jste vytvořili objekt pro zpracování dat Azure, který zpracovává data pomocí skriptu Hive v clusteru HDInsight Hadoop. Pomocí editoru služby Data Factory na webu Azure Portal jste provedli tyto kroky:
 
 1. Vytvořili jste **objekt pro vytváření dat** Azure.
 2. Vytvořili jste dvě **propojené služby**:
@@ -427,6 +487,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

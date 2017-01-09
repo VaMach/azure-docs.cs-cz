@@ -30,7 +30,7 @@
 ### [Konfigurace webhooku v upozornění protokolu aktivit](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archivace protokolu aktivit](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Streamování protokolu aktivit do služby Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Audit operací pomocí Resource Manageru](../resource-group-audit.md)
+### [Audit operací pomocí Resource Manageru](../azure-resource-manager/resource-group-audit.md)
 ## Správa diagnostických protokolů
 ### [Archiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Streamování do Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -49,6 +49,6 @@
 ## [Ukázky pro Azure CLI 2.0 (Preview)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Seznam podporovaných metrik](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

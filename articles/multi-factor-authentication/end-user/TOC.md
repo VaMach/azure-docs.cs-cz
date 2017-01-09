@@ -1,19 +1,19 @@
 # Přehled
 ## [Co je dvoustupňové ověřování?](multi-factor-authentication-end-user.md)
-## [Jak se mě to týká?](../multi-factor-authentication-end-user-signin.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Jak se mě to týká?](multi-factor-authentication-end-user-signin.md)
 
 # Začínáme
-## [Nastavení účtu](../multi-factor-authentication-end-user-first-time.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Nastavení účtu](multi-factor-authentication-end-user-first-time.md)
 
 # Postup
-## [Správa nastavení](../multi-factor-authentication-end-user-manage-settings.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Řešení problémů](../multi-factor-authentication-end-user-troubleshoot.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Nastavení hesel aplikací](../multi-factor-authentication-end-user-app-passwords.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Správa nastavení](multi-factor-authentication-end-user-manage-settings.md)
+## [Řešení problémů](multi-factor-authentication-end-user-troubleshoot.md)
+## [Nastavení hesel aplikací](multi-factor-authentication-end-user-app-passwords.md)
 ## Použití aplikace Microsoft Authenticator
-### [Začínáme](../multi-factor-authentication-microsoft-authenticator.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-### [Nejčastější dotazy](../multi-factor-authentication-app-faq.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+### [Začínáme](microsoft-authenticator-app-how-to.md)
+### [Nejčastější dotazy](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

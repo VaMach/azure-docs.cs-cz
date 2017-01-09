@@ -278,6 +278,6 @@ Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najde
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
