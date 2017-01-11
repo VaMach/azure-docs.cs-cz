@@ -102,6 +102,6 @@ Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25d8b204f328514ebcfc69228dcbf9342bdf205b
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
 
 
 ---
@@ -80,9 +80,9 @@ Název účtu a primární klíč budete potřebovat pro přístup k účtu Medi
     ![Klíče služby Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## <a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování
-Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa vašim klientům prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access).
+Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa vašim klientům prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services podporuje následující technologie streamování s adaptivní přenosovou rychlostí: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH.
 
-Služba Media Services poskytuje dynamické balení, což vám umožní dodávat váš obsah s adaptivní přenosovou rychlostí s kódováním MP4 nebo technologie Smooth Streaming ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming a HDS) bez nutnosti mít uložené předem zabalené verze pro každý z těchto formátů streamování.
+Služba Media Services poskytuje dynamické balení, což vám umožní dodávat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming) bez nutnosti mít uložené předem zabalené verze pro každý z těchto formátů streamování.
 
 Pokud chcete využít výhod dynamického balení, proveďte následující:
 
@@ -128,9 +128,9 @@ Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahr
 Po dokončení nahrávání se nový prostředek zobrazí v okně **Assety**. 
 
 ## <a name="encode-assets"></a>Kódování assetů
-Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování streamování s adaptivní přenosovou rychlostí vašim klientům. Služba Media Services podporuje následující technologie adaptivní přenosové rychlosti streamování: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH a HDS (pouze pro držitele licence Adobe PrimeTime/Access). Příprava vašich videí pro streamování s adaptivní přenosovou rychlostí spočívá v zakódování zdrojového videa zdroje do souborů s více přenosovými rychlostmi. Ke kódování vašich videí byste měli použít kodér **Media Encoder Standard**.  
+Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování streamování s adaptivní přenosovou rychlostí vašim klientům. Služba Media Services podporuje následující technologie streamování s adaptivní přenosovou rychlostí: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH. Příprava vašich videí pro streamování s adaptivní přenosovou rychlostí spočívá v zakódování zdrojového videa zdroje do souborů s více přenosovými rychlostmi. Ke kódování vašich videí byste měli použít kodér **Media Encoder Standard**.  
 
-Služba Media Services také poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, technologie Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
+Služba Media Services také poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS nebo technologie Smooth Streaming, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
 
 Pokud chcete využít výhod dynamického balení, proveďte následující:
 
@@ -221,6 +221,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

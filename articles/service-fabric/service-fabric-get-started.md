@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/15/2016
-ms.author: ryanwi, mikhegn
+ms.date: 12/13/2016
+ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
-ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
+ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
+ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 
 
 ---
@@ -37,7 +37,6 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 * Windows 7
 * Windows 8 / Windows 8.1
 * Windows Server 2012 R2
-* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -45,21 +44,17 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 > 
 > 
 
-## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
-### <a name="to-use-visual-studio-2017-rc"></a>Použití sady Visual Studio 2017 RC
-Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017 RC. Tuto úlohu je potřeba povolit jako součást instalace sady Visual Studio.
-Kromě toho budete muset sadu Microsoft Azure Service Fabric SDK nainstalovat pomocí instalačního programu webové platformy.
+## <a name="install-the-runtime-sdk-and-tools"></a>Instalace modulu runtime, sady SDK a nástrojů
+Instalace webové platformy nabízí dvě konfigurace pro vývoj Service Fabric.
 
-* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
+Visual Studio 2017 (měly by být nainstalované úlohy pro vývoj a správu Azure):
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Použití sady Visual Studio 2015 (vyžaduje Visual Studio 2015 Update 2 nebo novější)
-Pro sadu Visual Studio 2015 jsou nainstalované nástroje Service Fabric společně se sadou SDK, pomocí Instalace webové platformy:
+* [Instalace modulu runtime Service Fabric a sady SDK (bez nástrojů sady Visual Studio)][core-sdk]
 
-* [Instalace sady Microsoft Azure Service Fabric SDK a nástrojů][full-bundle-vs2015]
+Visual Studio 2015 (vyžaduje verzi Visual Studio 2015 Update 2 nebo novější):
 
-### <a name="sdk-installation-only"></a>Jenom instalace sady SDK
-Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
-* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
+* [Instalace modulu runtime Service Fabric, sady SDK a nástrojů)][full-bundle-vs2015]
+* [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů sady Visual Studio)][core-sdk]
 
 > [!WARNING]
 > Zákazníci nás informovali o chybách během instalace při použití těchto odkazů ke spuštění nebo při jejich použití v prohlížeči Chrome. Jedná se o známé problémy instalace webové platformy, kterými se zabýváme.  Jako alternativní řešení vyzkoušejte tento postup:
@@ -102,6 +97,6 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
 Tento článek vysvětluje jednotky databázové transakce (DTU) a elastické jednotky databázové transakce (eDTU). Popisuje také, co se stane při dosažení maximálního počtu DTU nebo eDTU.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Co jsou jednotky databázové transakce (DTU)
-DTU je měrná jednotka prostředků zaručeně dostupných izolované databázi Azure SQL při určitém stupni výkonu v rámci [jedné úrovně databázové služby](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Jednotka DTU představuje kombinaci měření vstupu/výstupu pro procesor, paměť a data a vstupu/výstupu protokolu transakcí v poměru určeném úlohou srovnávacího testu OLTP, která je navržena jako typická pro úlohy OLTP v reálném světě. Zdvojnásobení jednotek DTU zvýšením úrovně výkonu databáze odpovídá zdvojnásobení sady prostředků, které jsou pro příslušnou databázi k dispozici. Například databáze Premium P11 se 1 750 DTU nabízí 350x více DTU výpočetního výkonu než databáze Basic s 5 DTU. Chcete-li lépe pochopit metodiku používanou úlohou srovnávacího testu OLTP k určení kombinace pro jednotku DTU, přečtěte si článek [Přehled srovnávacích testů SQL Database](sql-database-benchmark-overview.md).
+DTU je jednotka měření pro prostředky, u kterých je zaručena dostupnost pro samostatnou databázi Azure SQL na konkrétní úrovni výkonu v rámci [úrovně služeb pro samostatné databáze](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Jednotka DTU představuje kombinaci měření vstupu/výstupu pro procesor, paměť a data a vstupu/výstupu protokolu transakcí v poměru určeném úlohou srovnávacího testu OLTP, která je navržena jako typická pro úlohy OLTP v reálném světě. Zdvojnásobení jednotek DTU zvýšením úrovně výkonu databáze odpovídá zdvojnásobení sady prostředků, které jsou pro příslušnou databázi k dispozici. Například databáze Premium P11 se 1 750 DTU nabízí 350x více DTU výpočetního výkonu než databáze Basic s 5 DTU. Chcete-li lépe pochopit metodiku používanou úlohou srovnávacího testu OLTP k určení kombinace pro jednotku DTU, přečtěte si článek [Přehled srovnávacích testů SQL Database](sql-database-benchmark-overview.md).
 
-![Úvod do služby SQL Database: DTU izolované databáze podle úrovní](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Úvod do služby SQL Database: DTU samostatné databáze podle úrovní](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 [Změnit úrovně služeb](sql-database-scale-up.md) můžete kdykoli s minimální odstávkou aplikace (obecně v průměru méně než čtyři sekundy). Mnoha firmám a aplikacím stačí vytváření databází a nastavování výkonu na vyžádání, zejména v případě, že jsou vzorce používání relativně předvídatelné. Ale pokud vaše vzorce používání předvídatelné nejsou, může být správa nákladů a údržba obchodního modelu velmi těžká. Pro tento scénář použijete elastický fond s určitým počtem jednotek eDTU.
 
@@ -37,7 +37,7 @@ eDTU je jednotka měření sady prostředků (DTU), které mohou být sdíleny v
 
 ![Úvod do služby SQL Database: eDTU podle vrstvy a úrovně](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Fond obdrží stanovený počet eDTU za stanovenou cenu. V rámci fondu disponují jednotlivé databáze flexibilní možností automatického škálování v rámci stanovených parametrů. V případě velkého zatížení může databáze spotřebovávat více eDTU, aby splnila požadavky. Databáze při nízkém zatížení spotřebovávají méně eDTU a databáze bez zatížení nespotřebovávají žádné eDTU. Zřizováním prostředků pro celý fond, a nikoli pro izolované databáze, se úkoly správy zjednodušují. Kromě toho můžete předem odhadnout náklady na fond.
+Fond obdrží stanovený počet eDTU za stanovenou cenu. V rámci fondu disponují jednotlivé databáze flexibilní možností automatického škálování v rámci stanovených parametrů. V případě velkého zatížení může databáze spotřebovávat více eDTU, aby splnila požadavky. Databáze při nízkém zatížení spotřebovávají méně eDTU a databáze bez zatížení nespotřebovávají žádné eDTU. Zřizováním prostředků pro celý fond, a nikoli pro jednotlivé databáze, se úkoly správy zjednodušují. Kromě toho můžete předem odhadnout náklady na fond.
 
 Další eDTU lze do existujícího fondu přidat bez jakéhokoli výpadku databáze a bez jakéhokoli vlivu na databáze v elastickém fondu. Podobně platí, že pokud již přidané eDTU nejsou potřebné, lze je z existujícího fondu kdykoli odebrat. Databáze můžete do fondu přidávat nebo je z něj odebírat. Pokud databáze podle předpokladu nedostatečně využívá prostředky, odeberte ji.
 
@@ -51,13 +51,13 @@ Fondy jsou vhodné pro velký počet databází s konkrétními vzory využití.
 Úrovně výkonu se kalibrují a řídí tak, aby poskytovaly zdroje potřebné ke spuštění vaší úlohy databáze až po maximální limity, které jsou pro vybranou úroveň služeb či úroveň výkonu povoleny. Pokud úloha dosahuje limity pro procesory / datový vstup/výstup / vstup/výstup protokolu, budete i nadále využívat prostředky na maximální povolené úrovni; je ale pravděpodobné, že se u vašich dotazů zvýší latence. Tyto limity nevedou k žádným chybám, ale mohou zpomalit zpracování úlohy, pokud se zpomalení nezvýší natolik, že začne docházet k vypršení časového limitu dotazů. Pokud dosahujete limitů pro maximální povolený počet souběžných relací/požadavků uživatelů (pracovních vláken), zobrazují se explicitní chyby. Informace o limitech jiných prostředků než procesory, paměť, datový vstup/výstup či vstup výstup protokolu transakcí najdete v článku [Limity prostředků Azure SQL Database](sql-database-resource-limits.md).
 
 ## <a name="next-steps"></a>Další kroky
-* Další informace o jednotkách DTU a eDTU dostupných pro izolované databáze a elastické fondy najdete v článku [Úrovně služby](sql-database-service-tiers.md).
+* Informace o DTU a eDTU, které jsou k dispozici pro samostatné databáze a pro elastické fondy, najdete v článku [Úroveň služeb](sql-database-service-tiers.md).
 * Informace o limitech jiných prostředků než procesory, paměť, datový vstup/výstup či vstup výstup protokolu transakcí najdete v článku [Limity prostředků Azure SQL Database](sql-database-resource-limits.md).
 * Chcete-li pochopit svou spotřebu (DTU), přečtěte si článek [SQL Database Query Performance Insight](sql-database-query-performance.md).
 * Chcete-li lépe pochopit metodiku používanou úlohou srovnávacího testu OLTP k určení kombinace pro jednotku DTU, přečtěte si článek [Přehled srovnávacích testů SQL Database](sql-database-benchmark-overview.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
