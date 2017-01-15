@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
 ### <a name="create-a-new-android-project"></a>Vytvořte nový projekt Android
 1. V nástroji Android Studio spusťte nový projekt Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio – nový projekt][13]
 2. Zvolte faktor formuláře **Telefon i tablet** a hodnotu **Minimální SDK**, které chcete podporovat. Pak klikněte na tlačítko **Další**.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio – pracovní postup vytvoření projektu][14]
 3. Zvolte možnost **Prázdná aktivita** pro hlavní aktivitu, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Dokončit**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Přidejte do projektu služby Google Play
@@ -660,10 +660,10 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 
 <!-- URLs. -->
-[Začínáme s nabízenými oznámeními v mobilních službách]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Odkazování na projekt knihovny]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Pokyny centra oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
