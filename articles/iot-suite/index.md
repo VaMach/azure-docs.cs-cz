@@ -99,6 +99,6 @@ Stáhnout dokumentaci k sadě IoT Suite </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

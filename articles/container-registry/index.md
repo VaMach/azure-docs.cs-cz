@@ -100,6 +100,6 @@ Naučte se používat registr kontejneru k ukládání a správě imagí pro vš
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
