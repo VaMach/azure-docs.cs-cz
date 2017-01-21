@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Vytvoření účtu Azure pro Media Services
-Účet Media Services vytvoříte na portálu Azure Classic. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na portálu Azure Classic budete připravení nastavit počítač pro vývoj pro platformu Media Services.
+Účet Media Services vytvoříte na webu Azure Portal. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na webu Azure Portal budete připravení nastavit počítač pro vývoj pro Media Services.
 
 ## <a name="setting-up-for-media-services-development"></a>Příprava na vývoj pro Media Services
 Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Services pomocí sady Media Services SDK for Java.
 
 ### <a name="prerequisites"></a>Požadavky
 * Účet Media Services v novém nebo existujícím předplatném Azure. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
-* Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure středisko pro vývojáře v jazyce Java][Azure středisko pro vývojáře v jazyce Java].
+* Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure střediska pro vývojáře Java][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Návod: Použití Media Services s Javou
 Tento kód ukazuje, jak vytvořit asset, uložit do assetu soubor média, spustit úlohu s úkolem transformace assetu a vytvořit lokátor pro streamování videa.
@@ -260,16 +260,16 @@ Nahraďte proměnné 'clientId' a 'clientSecret' vašimi hodnotami. Kód taky pr
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Další zdroje
-Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny Azure pro jazyk Java][Dokumentace pro knihovny Azure pro jazyk Java].
+Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny Azure pro Javu][Azure Libraries for Java documentation].
 
 <!-- URLs. -->
 
-[Azure středisko pro vývojáře v jazyce Java]: http://azure.microsoft.com/develop/java/
-[Dokumentace pro knihovny Azure pro jazyk Java]: http://dl.windowsazure.com/javadoc/
-[Vývoj pro klientské služby Media Services]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

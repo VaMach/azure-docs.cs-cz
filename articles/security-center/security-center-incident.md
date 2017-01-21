@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9029b6a0fc97525ff8a462a725a256b3997e44f1
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
 
 
 ---
@@ -34,21 +34,23 @@ Aktuální incidenty zabezpečení můžete zkontrolovat jejich prohlížením n
 1. Na řídicím panelu Security Center uvidíte dlaždici **Výstrahy zabezpečení**.
    
     ![Dlaždice Výstrahy zabezpečení ve službě Security Center](./media/security-center-incident/security-center-incident-fig1.png)
+
 2. Klikněte na tuto dlaždici a rozbalte ji. Pokud je zjištěn incident zabezpečení, zobrazí se v grafu výstrah zabezpečení, jak vidíte níže:
    
-   ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig2.png)
+    ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig2.png)
+
 3. Popis incidentu zabezpečení má v porovnání s ostatními výstrahami jinou ikonu. Po kliknutí na ikonu se zobrazí podrobnosti o daném incidentu.
    
-   ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig3.png)
-4. Na dlaždici **Incident** se zobrazí další podrobností o daném incidentu zabezpečení, které obsahují úplný popis, závažnost (která je v tomto případě vysoká), aktuální stav (v tomto případě je stále *aktivní*, což naznačuje, že uživatel nepodnikl opatření k jeho *zavření* – to lze provést kliknutím pravým tlačítkem na incident v okně **Výstrahy zabezpečení**), napadené prostředky (v tomto případě *VM1*), postup nápravy incidentu a v dolním podokně se nachází výstrahy, které byly součástí tohoto incidentu. Pokud chcete získat další informace o jednotlivých výstrahách, klikněte na ně a otevře se další okno, jak vidíte níže:
+    ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig3.png)
+
+4. Na dlaždici **Incident** se zobrazí další podrobnosti o daném incidentu zabezpečení, které obsahují úplný popis, závažnost (která je v tomto případě vysoká), aktuální stav (v tomto případě je stále *aktivní*, což naznačuje, že uživatel ještě nepodnikl žádné akce – to lze provést kliknutím pravým tlačítkem na incident v okně **Výstrahy zabezpečení**), napadené prostředky (v tomto případě *VM1*), postup nápravy incidentu a v dolním podokně se nachází výstrahy, které byly součástí tohoto incidentu. Pokud chcete získat další informace o jednotlivých výstrahách, klikněte na ně a otevře se další okno, jak vidíte níže:
    
-   ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig4.png)
+    ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig4.png)
 
 Informace v tomto okně se budou lišit podle výstrah. Další informace o řešení těchto výstrah najdete v tématu [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md). Některé důležité informace týkající se této funkce:
 
 * Nový filtr umožňuje přizpůsobit zobrazení na Pouze incident, Pouze výstrahy nebo obojí. 
 * Stejná výstraha může existovat jako součást incidentu (pokud se to na ni vztahuje) a zároveň může být viditelná jako samostatná výstraha. 
-* Zavřením incidentu se nezavřou jeho související výstrahy.
 
 ## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používat funkci incidentů zabezpečení. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
@@ -63,6 +65,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

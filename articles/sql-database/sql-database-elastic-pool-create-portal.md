@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ Po nastavení cenové úrovně klikněte na tlačítko Konfigurovat fond a násl
 
     Pokud databáze, s kterými pracujete, mají dostatek historických telemetrických dat, graf **Odhadované eDTU a využití GB** a pruhový graf **Skutečné využití eDTU** se aktualizují, aby vám pomohly s rozhodováním o hodnotách konfigurace. Služba vám také může zobrazovat doporučení s cílem nastavit optimální velikost fondu. Viz část [Dynamická doporučení](#dynamic-recommendations).
 
-3. Pomocí ovládacích prvků na stránce **Konfigurace fondu** můžete zkontrolovat nastavení a konfigurovat fond. V tématu [Omezení elastických fondů](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) najdete podrobnosti o omezeních pro jednotlivé úrovně služby a téma [Cenové a výkonové požadavky elastických fondů](sql-database-elastic-pool-guidance.md) obsahuje podrobné pokyny k optimalizaci velikosti fondu. Další podrobnosti o nastavení fondu najdete v tématu [Vlastnosti elastického fondu](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Pomocí ovládacích prvků na stránce **Konfigurace fondu** můžete zkontrolovat nastavení a konfigurovat fond. V tématu [Omezení elastických fondů](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) najdete podrobnosti o omezeních pro jednotlivé úrovně služby a téma [Cenové a výkonové požadavky elastických fondů](sql-database-elastic-pool-guidance.md) obsahuje podrobné pokyny k optimalizaci velikosti fondu. Další podrobnosti o nastavení fondu najdete v tématu [Vlastnosti elastického fondu](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Konfigurace elastického fondu](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -99,7 +99,7 @@ Po nastavení cenové úrovně klikněte na tlačítko Konfigurovat fond a násl
 
 ## <a name="understand-pool-recommendations"></a>Vysvětlení doporučení k fondům
 
-Služba SQL Database vyhodnocuje historii využití a doporučí použití jednoho nebo několika fondů, jakmile to začne být cenově výhodnější než použití samostatných databází. Každé doporučení je konfigurováno pro jedinečnou podmnožinu databází serveru, která je pro fond nejvhodnější.
+Služba SQL Database vyhodnocuje historii využití a doporučí použití jednoho nebo několika fondů, jakmile to začne být cenově výhodnější než použití izolované databáze. Každé doporučení je konfigurováno pro jedinečnou podmnožinu databází serveru, která je pro fond nejvhodnější.
 
 ![doporučený fond](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -112,7 +112,7 @@ Doporučení fondu zahrnuje:
 
 Při vytváření doporučení bere služba v úvahu telemetrická data za posledních 30 dní. Aby databáze mohla být zařazena mezi kandidáty pro elastický fond, musí existovat alespoň 7 dní. Databáze, které již v elastickém fondu jsou, se nepovažují za kandidáty pro doporučení elastického fondu.
 
-Služba vyhodnocuje potřebné prostředky a cenovou výhodnost přesunu samostatných databází v každé úrovni služby do fondu ve stejné úrovni. Například pro všechny databáze na serveru, které jsou v úrovni Standard, se zvažuje výhodnost jejich přesunu do elastického fondu také s úrovní Standard. To znamená, že služba nikdy nenavrhne přesun databáze mezi úrovněmi, například přesun databáze s úrovní Standard do fondu s úrovní Premium.
+Služba vyhodnocuje potřebné prostředky a cenovou výhodnost přesunu jednotlivých databází v každé úrovni služby do fondu ve stejné úrovni. Například pro všechny databáze na serveru, které jsou v úrovni Standard, se zvažuje výhodnost jejich přesunu do elastického fondu také s úrovní Standard. To znamená, že služba nikdy nenavrhne přesun databáze mezi úrovněmi, například přesun databáze s úrovní Standard do fondu s úrovní Premium.
 
 ### <a name="dynamic-recommendations"></a>Dynamická doporučení
 
@@ -129,6 +129,6 @@ Po přidání databází do fondu se dynamicky vygeneruje doporučení na zákla
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

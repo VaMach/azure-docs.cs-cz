@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
-ms.author: osamazia
+ms.date: 01/03/2017
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -101,7 +101,7 @@ Podporujeme až 4000 předpon, které jsou nám inzerované prostřednictvím so
 
 Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel musí odfiltrovat výchozí trasy a privátní IP adresy (RFC 1918) z cest pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Tranzitní směrování a směrování mezi oblastmi
+## <a name="transit-routing-and-cross-region-routing"></a>Tranzitní směrování a směrování mezi oblastmi
 Službu ExpressRoute nejde nakonfigurovat jako tranzitní směrovače. Ohledně služeb tranzitního směrování se budete muset spoléhat na svého poskytovatele připojení.
 
 ## <a name="advertising-default-routes"></a>Inzerování výchozích tras
@@ -117,7 +117,7 @@ Výchozí trasy jsou povolené jenom na relacích soukromého partnerského vzta
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Podpora komunit protokolu BGP (Preview)
+## <a name="support-for-bgp-communities"></a>Podpora komunit protokolu BGP
 Tato část obsahuje přehled použití komunit protokolu BGP se službou ExpressRoute. Microsoft bude inzerovat trasy v cestách veřejného partnerského vztahu a partnerského vztahu Microsoftu s trasami, které jsou označené odpovídajícími hodnotami komunity. Důvody tohoto postupu a podrobnosti o hodnotách komunity jsou popsané dál. Microsoft ale nebude ctít žádné hodnoty komunity přiřazené trasám inzerovaným Microsoftu.
 
 Pokud se připojujete k Microsoftu prostřednictvím ExpressRoute v libovolném umístění partnerského vztahu v rámci geopolitické oblasti, budete mít přístup ke všem cloudovým službám Microsoftu přes všechny oblasti v rámci geopolitické hranice. 
@@ -126,41 +126,41 @@ Pokud jste například připojení k Microsoftu prostřednictvím ExpressRoute v
 
 Podrobný seznam geopolitických oblastí, přidružených oblastí Azure a odpovídajících umístění partnerského vztahu ExpressRoute najdete na stránce [Partneři ExpressRoute a umístění partnerského vztahu](expressroute-locations.md).
 
-Můžete zakoupit víc než jeden okruh ExpressRoute na geopolitickou oblast. Použití víc připojení nabízí významné výhody vysoké dostupnosti z důvodu georedundance. V případech, kdy máte víc okruhů ExpressRoute, obdržíte stejnou sadu předpon inzerovaných Microsoftem na cestě veřejného partnerského vztahu i partnerského vztahu Microsoftu. To znamená, že bude mít z vaší sítě do Microsoftu víc cest. To může potenciálně v rámci vaší sítě způsobovat přijímání neoptimálních rozhodnutí o směrování. V důsledku toho se můžete u různých služeb setkat s neoptimálním průběhem připojení. 
+Můžete zakoupit víc než jeden okruh ExpressRoute na geopolitickou oblast. Použití víc připojení nabízí významné výhody vysoké dostupnosti z důvodu georedundance. V případech, kdy máte víc okruhů ExpressRoute, obdržíte stejnou sadu předpon inzerovaných Microsoftem na cestě veřejného partnerského vztahu i partnerského vztahu Microsoftu. To znamená, že bude mít z vaší sítě do Microsoftu víc cest. To může potenciálně v rámci vaší sítě způsobovat přijímání neoptimálních rozhodnutí o směrování. V důsledku toho se můžete u různých služeb setkat s neoptimálním průběhem připojení. Při rozhodování o směrování se na tyto hodnoty komunity můžete spoléhat, abyste nabízeli [uživatelům optimální směrování](expressroute-optimize-routing.md).
 
-Microsoft označí předpony inzerované prostřednictvím veřejného partnerského vztahu a partnerského vztahu Microsoftu příslušnými hodnotami komunity protokolu BGP, které označují oblast, ve které jsou předpony hostované. Při rozhodování o směrování se na tyto hodnoty komunity můžete spoléhat, abyste nabízeli [zákazníkům optimální směrování](expressroute-optimize-routing.md).
-
-| **Geopolitická oblast** | **Oblast Microsoft Azure** | **Hodnota komunity protokolu BGP** |
-| --- | --- | --- |
-| **Severní Amerika** | | |
-| Východ USA |12076:51004 | |
-| Východní USA 2 |12076:51005 | |
-| Západní USA |12076:51006 | |
-| Západní USA 2 |12076:51026 | |
-| Západní střed USA |12076:51027 | |
-| Střed USA – sever |12076:51007 | |
-| Střed USA – jih |12076:51008 | |
-| Střed USA |12076:51009 | |
-| Střední Kanada |12076:51020 | |
-| Východní Kanada |12076:51021 | |
-| **Jižní Amerika** | | |
-| Brazílie – jih |12076:51014 | |
-| **Evropa** | | |
-| Severní Evropa |12076:51003 | |
-| Západní Evropa |12076:51002 | |
-| **Asie a Tichomoří** | | |
-| Východní Asie |12076:51010 | |
-| Jihovýchodní Asie |12076:51011 | |
-| **Japonsko** | | |
-| Japonsko – východ |12076:51012 | |
-| Japonsko – západ |12076:51013 | |
-| **Austrálie** | | |
-| Austrálie – východ |12076:51015 | |
-| Austrálie – jihovýchod |12076:51016 | |
-| **Indie** | | |
-| Indie – jih |12076:51019 | |
-| Indie – západ |12076:51018 | |
-| Indie – střed |12076:51017 | |
+| **Oblast Microsoft Azure** | **Hodnota komunity protokolu BGP** |
+| --- | --- |
+| **Severní Amerika** | |
+| Východ USA |12076:51004 |
+| Východní USA 2 |12076:51005 |
+| Západní USA |12076:51006 |
+| Západní USA 2 |12076:51026 |
+| Západní střed USA |12076:51027 |
+| Střed USA – sever |12076:51007 |
+| Střed USA – jih |12076:51008 |
+| Střed USA |12076:51009 |
+| Střední Kanada |12076:51020 |
+| Východní Kanada |12076:51021 |
+| **Jižní Amerika** | |
+| Brazílie – jih |12076:51014 |
+| **Evropa** | |
+| Severní Evropa |12076:51003 |
+| Západní Evropa |12076:51002 |
+| Spojené království – jih | 12076:51024 |
+| Spojené království – západ | 12076:51025 |
+| **Asie a Tichomoří** | |
+| Východní Asie |12076:51010 |
+| Jihovýchodní Asie |12076:51011 |
+| **Japonsko** | |
+| Japonsko – východ |12076:51012 |
+| Japonsko – západ |12076:51013 |
+| **Austrálie** | |
+| Austrálie – východ |12076:51015 |
+| Austrálie – jihovýchod |12076:51016 |
+| **Indie** | |
+| Indie – jih |12076:51019 |
+| Indie – západ |12076:51018 |
+| Indie – střed |12076:51017 |
 
 Všechny trasy inzerované Microsoftem budou označené odpovídající hodnotou komunity. 
 
@@ -173,16 +173,34 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 | **Služba** | **Hodnota komunity protokolu BGP** |
 | --- | --- |
-| **Výměna** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype pro firmy** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Jiné služby Office 365** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Online Skype pro firmy |12076:5030 |
+| CRM Online |12076:5040 |
+| Jiné online služby Office 365 |12076:5100 |
 
 > [!NOTE]
 > Microsoft nectí žádné hodnoty komunity protokolu BGP, které jste přiřadili trasám inzerovaným Microsoftu.
 > 
 > 
+
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Podpora komunity protokolu BGP v národních cloudech (Preview)
+
+| **Oblast Azure národních cloudů**| **Hodnota komunity protokolu BGP** |
+| --- | --- |
+| **US Government** |  |
+| USA (Gov) – Iowa | 12076:51109 |
+| USA (Gov) – Virginia | 12076:51105 |
+
+
+| **Služba v národních cloudech** | **Hodnota komunity protokolu BGP** |
+| --- | --- |
+| **US Government** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Online Skype pro firmy |12076:5130 |
+| CRM Online |12076:5140 |
+| Jiné online služby Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Další kroky
 * Nakonfigurujte připojení ExpressRoute.
@@ -194,6 +212,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

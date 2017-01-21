@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "název objektu služby, název instančního objektu, setspn, ověřování azure"
+keywords: "název instančního objektu, setspn, ověřování azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Než se do toho pustíme, je tu několik věcí, které potřebujete pochopit a 
 V této části provedete následující kroky a vytvoříte nový účet Azure Automation na portálu Azure.  Tím vytvoříte účet Spustit jako i účet Spustit jako pro Azure Classic.  
 
 > [!NOTE]
-> Uživatel provádějící tyto kroky *musí* být členem role správců předplatného a spolusprávcem předplatného, který uživatelům uděluje přístup k předplatnému.  Také je nutné přidat uživatele do výchozí služby Active Directory takového předplatného jako Uživatele. Účtu nemusíte přiřazovat privilegovanou roli.
+> Uživatel provádějící tyto kroky musí být členem role Správci služeb nebo spolusprávcem předplatného, což danému uživateli uděluje přístup k předplatnému. Také je nutné přidat uživatele do výchozí služby Active Directory takového předplatného jako Uživatele. Účtu nemusíte přiřazovat privilegovanou roli. Uživatelé, kteří před přidáním do role Spolusprávce předplatného nejsou členy služby Active Directory tohoto předplatného, budou přidáni do služby Active Directory jako Hosté a zobrazí se jim upozornění „Nemáte oprávnění k vytvoření...“ v okně **Přidání účtu Automation**. Uživatele, kteří byli nejprve přidáni do role spolusprávce, je možné odebrat ze služby Active Directory předplatného a znovu je přidat – tak se z nich stanou úplní Uživatelé ve službě Active Directory. Takovou situaci můžete ověřit v podokně **Azure Active Directory** na webu Azure Portal. Vyberte **Uživatelé a skupiny**, potom **Všichni uživatelé** a po výběru konkrétního uživatele vyberte **Profil**.  Hodnota atributu **Typ uživatele** v profilu uživatele by neměla být **Host**.  
 > 
 > 
 
@@ -137,7 +137,7 @@ Než budete pokračovat, zkontrolujte následující:
 
 1. Stáhli a nainstalovali jste [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) – pokud používáte Windows 7.   
     Pokud používáte Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 nebo Windows 7 SP1, je k instalaci dostupný [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395).
-2. Azure PowerShell 1.0. Informace o této verzi a její instalaci najdete v článku [Postup instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Informace o této verzi a její instalaci najdete v článku [Postup instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
 3. Vytvořili jste účet Automation.  Na tento účet se bude v obou níže uvedených skriptech odkazovat jako na hodnotu pro parametry -AutomationAccountName a -ApplicationDisplayName.
 
 Pokud chcete získat hodnoty pro *SubscriptionID*, *ResourceGroup* a *AutomationAccountName*, které jsou požadovanými parametry skriptů, vyberte na portálu Azure v okně **Účet automatizace** svůj účet Automation a vyberte **Všechna nastavení**.  V okně **Všechna nastavení** v části **Nastavení účtu** vyberte **Vlastnosti**.  V okně **Vlastnosti** si můžete tyto hodnoty opsat.<br> ![Vlastnosti účtu Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Můžete použít níže uvedený aktualizovaný ukázkový kód z ukázkového 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

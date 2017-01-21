@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: rachelap;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
 
 
 ---
@@ -168,13 +168,11 @@ V této části nahradíte implementaci kódu na straně serveru generovaného v
         package io.swagger.api.impl;
    
         import io.swagger.api.*;
-        import io.swagger.model.*;
+        
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-        import java.io.InputStream;
-        import com.sun.jersey.core.header.FormDataContentDisposition;
-        import com.sun.jersey.multipart.FormDataParam;
+               
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
    
@@ -271,7 +269,7 @@ V této části se dozvíte, jak vytvořit novou aplikaci API pomocí Portálu A
     ![Použití živého REST API kontaktů Java v Azure][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Další kroky
-V tomto článku jste úspěšně použili soubor dat JSON pro Swagger a automaticky generovaný kód Java získaný v editoru Swagger.io. Jednoduchými změnami kódu a procesem nasazení v Gitu jste získali funkční aplikaci API napsanou v jazyce Java. V dalším kurzu se dozvíte, jak [využívat aplikace API z klientů JavaScript pomocí CORS][CORS pro rozhraní API v App Service]. Další kurzy v této sérii vás seznámí s postupem implementace ověřování a autorizace.
+V tomto článku jste úspěšně použili soubor dat JSON pro Swagger a automaticky generovaný kód Java získaný v editoru Swagger.io. Jednoduchými změnami kódu a procesem nasazení v Gitu jste získali funkční aplikaci API napsanou v jazyce Java. V dalším kurzu se dozvíte, jak [využívat aplikace API z klientů JavaScript pomocí CORS][App Service API CORS]. Další kurzy v této sérii vás seznámí s postupem implementace ověřování a autorizace.
 
 Pokud chcete pracovat s tímto příkladem, zjistěte si další informace o [Sada SDK úložiště pro jazyk Java], abyste objekty blob JSON mohli nastavit jako trvalé. Nebo můžete pomocí [Sada SDK Document DB Java] ukládat kontaktní údaje v Azure DocumentDB. 
 
@@ -282,7 +280,7 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 <!-- URL List -->
 
-[CORS pro rozhraní API v App Service]: app-service-api-cors-consume-javascript.md
+[App Service API CORS]: app-service-api-cors-consume-javascript.md
 [Azure Portal]: https://portal.azure.com/
 [Sada SDK Document DB Java]: ../documentdb/documentdb-java-application.md
 [bezplatná zkušební verze]: https://azure.microsoft.com/pricing/free-trial/
@@ -319,6 +317,6 @@ Další informace o používání Javy v Azure najdete na webu [Středisko pro v
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

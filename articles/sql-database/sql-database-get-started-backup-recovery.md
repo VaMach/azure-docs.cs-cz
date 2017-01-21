@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provád�
 
 * Dokončili jste kurz [Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio](sql-database-get-started.md) nebo ekvivalentní [verzi tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md). Pokud ne, tak tento požadovaný kurz dokončete nebo spusťte skript prostředí PowerShell na konci [verze tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md) a teprve potom pokračujte.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Stejné úlohy můžete v úvodním kurzu provádět i pomocí [PowerShellu](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Přihlášení pomocí stávajícího účtu
 Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/Index) se k webu Azure Portal připojíte následujícím postupem.
@@ -179,6 +178,11 @@ V této části kurzu obnovíte databázi k určitému bodu v čase do nové dat
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Konfigurace dlouhodobého uchovávání automatizovaných záloh v trezoru služby Azure Recovery Services 
 
 V této části kurzu [nakonfigurujete trezor služby Azure Recovery Services pro uchovávání automatizovaných záloh](sql-database-long-term-retention.md) po dobu delší, než je doba uchovávání vaší úrovně služby. 
+
+
+> [!TIP]
+> Chcete-li odstranit zálohy, přečtěte si téma [Odstranění dlouhodobého uchovávání záloh](sql-database-long-term-retention-delete.md).
+
 
 1. Otevřete okno **SQL Server** pro váš server **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ V této části kurzu obnovíte databázi do nové databáze ze zálohy v trezor
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o automatických zálohách generovaných službou najdete v článku [automatické zálohy](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- Další informace o automatických zálohách generovaných službou najdete u popisu [automatických záloh](sql-database-automated-backups.md).
 - Další informace o dlouhodobém uchovávání záloh najdete v části [dlouhodobé uchovávání záloh](sql-database-long-term-retention.md)
 - Další informace o obnovování ze záloh najdete v části [obnovení ze zálohy](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
