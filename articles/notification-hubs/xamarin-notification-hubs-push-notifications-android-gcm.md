@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+ms.sourcegitcommit: cafe4f2d9ae9a79fd2e27b8734bda43bb774eeb2
+ms.openlocfilehash: e0ef1b006a2b202c08a71caaff4ef4d763d50d0a
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
 
 ## <a name="overview"></a>Přehled
 V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace systému Xamarin.Android.
-Vytvoříte prázdnou aplikaci systému Xamarin.Android, která bude přijímat nabízená oznámení pomocí služby GCM (Google Cloud Messaging). Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci. Dokončený kód je k dispozici ve vzorku [Aplikace NotificationHubs][GitHub].
+Vytvoříte prázdnou aplikaci systému Xamarin.Android, která bude přijímat nabízená oznámení pomocí služby GCM (Google Cloud Messaging). Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci. Dokončený kód je k dispozici v ukázce [aplikace NotificationHubs][GitHub].
 
 Tento kurz představuje scénář jednoduchého vysílání přes centra oznámení.
 
@@ -68,10 +68,11 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
 ### <a name="create-a-new-project"></a>Vytvoření nového projektu
 1. V Xamarin Studiu klikněte na tlačítko **Nové řešení**, klikněte na tlačítko **Aplikace pro Android** a klikněte na tlačítko **Další**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. Zadejte **Název aplikace** a **Identifikátor**. Klikněte na tlačítko **Cílové plaformy**, které chcete podporovat, a pak klikněte na tlačítko **Další** a **Vytvořit**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     Dojde k vytvoření nového projektu pro Android.
 
@@ -84,7 +85,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. Volitelně můžete nastavit **Minimální verzi systému Android** na jinou úroveň rozhraní API.
 3. Volitelně můžete nastavit **Cílovou verzi systému Android** na jinou verzi rozhraní API, kterou chcete zacílit (musí se jednat o úroveň rozhraní API 8 nebo vyšší).
 
@@ -151,7 +152,7 @@ Klient služby GCM (Google Cloud Messaging) dostupný na úložišti součástí
 6. Vytvořte novou třídu **MyBroadcastReceiver**.
    
    > [!NOTE]
-   > Projdeme s vámi vytvoření třídy **BroadcastReceiver** od začátku níže. Rychlá alternativa k ručnímu vytvoření souboru **MyBroadcastReceiver.cs** představuje odkaz na soubor **GcmService.cs** nacházející se v projektu vzorku Xamarin.Android, který je součástí [vzorků NotificationHubs][GitHub]. Duplikování souboru **GcmService.cs** a změna názvů tříd může být skvělým místem, kde lze také začít.
+   > Projdeme s vámi vytvoření třídy **BroadcastReceiver** od začátku níže. Rychlou alternativou k ručnímu vytváření souboru **MyBroadcastReceiver.cs** je použít soubor **GcmService.cs** nacházející se v ukázkovém projektu Xamarin.Android, který je součástí [ukázek NotificationHubs][GitHub]. Duplikování souboru **GcmService.cs** a změna názvů tříd může být skvělým místem, kde lze také začít.
    > 
    > 
 7. Přidejte následující možnosti pomocí příkazů do souboru **MyBroadcastReceiver.cs** (odkazující na komponentu a sestavení, které jste přidali dříve):
@@ -343,10 +344,10 @@ Pokud spustíte tuto aplikaci v emulátoru, ujistěte se, že používáte virtu
 
 1. Z části **Nástroje** klikněte na tlačítko **Otevřít správce emulátoru Android**, vyberte zařízení a pak klikněte na tlačítko **Upravit**.
    
-       ![][18]
+      ![][18]
 2. Vyberte **rozhraní API Google** v části **Cíl** a pak klikněte na tlačítko **OK**.
    
-       ![][19]
+      ![][19]
 3. Na horním panelu nástrojů klikněte na tlačítko **Spustit** a pak vyberte svou aplikaci. Spustí se emulátor a pak se spustí aplikace.
    
    Aplikace načte *registrationId* z GCM a zaregistruje se pomocí centra oznámení.
@@ -371,7 +372,7 @@ V této části si ukážeme odesílání oznámení pomocí konzolové aplikace
 
 1. Vytvořte novou konzolovou aplikaci Visual C#:
    
-       ![][20]
+      ![][20]
 2. Ve Visual Studiu klikněte na položku **Nástroje**, klikněte na **Správce balíčků NuGet** a pak klikněte na **Konzola Správce balíčků**.
    
     Tím se zobrazí Konzola Správce balíčků ve Visual Studiu.
@@ -398,17 +399,17 @@ V této části si ukážeme odesílání oznámení pomocí konzolové aplikace
          Console.ReadLine();
 7. Stiskněte klávesu F5 a spusťte aplikaci. Měli byste obdržet oznámení v aplikaci.
    
-       ![][21]
+      ![][21]
 
 #### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(Volitelné) Odesílání oznámení pomocí mobilní služby
 1. Sledujte [Začínáme používat Mobile Services]
 2. Přihlaste se do [portál Azure Classic] a vyberte mobilní služby.
 3. Vyberte kartu **Plánovač** nahoře.
    
-       ![][22]
+      ![][22]
 4. Vytvořte novou naplánovanou úlohu, vložte název a vyberte **Na vyžádání**.
    
-       ![][23]
+      ![][23]
 5. Po vytvoření úlohy klikněte na název úlohy. Klikněte na kartu **Skript** v horním panelu.
 6. Vložte následující skript dovnitř funkce plánovače. Ujistěte se, zda jste nahradili zástupné symboly pomocí názvu centra oznámení a připojovacího řetězce pro *DefaultFullSharedAccessSignature* získaného dříve. Klikněte na **Uložit**.
    
@@ -432,12 +433,12 @@ V této části si ukážeme odesílání oznámení pomocí konzolové aplikace
 V tomto jednoduchém příkladu jste vysílali oznámení pro všechna zařízení Android. Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití centra oznámení pro nabízená oznámení uživatelům]. Pokud chcete segmentovat uživatele podle zájmových skupin, můžete si přečíst kurz [Používání centra oznámení k odesílání novinek]. Další informace o tom, jak používat centra oznámení, naleznete v tématu [Průvodce centry oznámení] a v tématu [Centra oznámení s postupy pro Android].
 
 <!-- Anchors. -->
-[Povolení služby GCM (Google Cloud Messaging)]: #register
-[Konfigurace centra oznámení]: #configure-hub
-[Připojování aplikace k centru oznámení]: #connecting-app
-[Spuštění aplikace v emulátoru]: #run-app
-[Odesílání oznámení z back-endu]: #send
-[Další kroky]:#next-steps
+[Enable Google Cloud Messaging]: #register
+[Configure your Notification Hub]: #configure-hub
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next steps]:#next-steps
 
 <!-- Images. -->
 
@@ -458,27 +459,27 @@ V tomto jednoduchém příkladu jste vysílali oznámení pro všechna zařízen
 
 
 <!-- URLs. -->
-[Odeslání stránky aplikace]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikace]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK pro Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Začínáme používat Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript a HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [portál Azure Classic]: https://manage.windowsazure.com/
-[Objekt služby WNS]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Centra oznámení s postupy pro Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Použití centra oznámení pro nabízená oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
 [Používání centra oznámení k odesílání novinek]: /manage/services/notification-hubs/breaking-news-dotnet
-[Stránka komponenty GCMClient]: http://components.xamarin.com/view/GCMClient
-[Stránka Xamarin.NotificationHub Githubu]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Komponenta klienta zasílání zpráv cloudu Google]: http://components.xamarin.com/view/GCMClient/
 [Komponenta zasílání zpráv Azure]: http://components.xamarin.com/view/azure-messaging
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

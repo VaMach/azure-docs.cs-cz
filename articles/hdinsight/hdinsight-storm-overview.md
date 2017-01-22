@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ Apache Storm v HDInsight představuje spravovaný cluster integrovaný do prost�
   * Podporuje směs programovacích jazyků: čtení dat v jazyce Java a následné zpracování pomocí jazyka C#
     
     > [!NOTE]
-    > Topologie C# jsou podporovány pouze na clusterech HDInsight se systémem Windows.
+    > Pokud chcete v clusteru založeném na Linuxu používat topologii jazyka C#, musíte aktualizovat balíček NuGet Microsoft.SCP.Net.SDK, který používá váš projekt, na verzi 0.10.0.6 nebo vyšší. Verze balíčku se zároveň musí shodovat s hlavní verzí Stormu nainstalovanou ve službě HDInsight. Například Storm ve službě HDInsight verze 3.3 a 3.4 používá Storm 0.10.x, zatímco HDInsight 3.5 používá Storm 1.0.x.
     > 
+    > Topologie jazyka C# v clusterech založených na Linuxu musí používat technologii .NET 4.5. a pro spuštění v clusteru HDInsight musí používat Mono. Většina věcí bude fungovat, ale i přesto byste si měli přečíst dokument [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) (Kompatibilita Mono), kde najdete potenciální nekompatibility.
     > 
   * Použijte rozhraní **Trident** Java k vytváření topologie Storm, které podporují „přesně jedno“ zpracování zpráv, stálost ukládání „transakcí“ a sadu běžných operací analýz datového proudu
 * Obsahuje integrované funkce škálování nahoru a dolů: škálování clusteru HDInsight bez jakéhokoli dopadu na spouštění topologií Storm
@@ -206,6 +207,6 @@ Další informace o řešení pro analýzu v reálném čase s Apache Storm v HD
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

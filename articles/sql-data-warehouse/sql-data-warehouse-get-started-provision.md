@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -26,46 +26,46 @@ ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 Tento kurz využívá portál Azure k vytvoření služby SQL Data Warehouse, která obsahuje ukázkovou databázi AdventureWorksDW.
 
 ## <a name="prerequisites"></a>Požadavky
 Na začátek budete potřebovat:
 
-* **Účet Azure:** Pokud si chcete vytvořit účet, přečtěte si článek [Bezplatná zkušební verze Azure][Bezplatná zkušební verze Azure] nebo [Kredity Azure pro předplatitele MSDN][Kredity Azure pro předplatitele MSDN].
-* **Azure SQL Server:** Další podrobnosti najdete v tématu [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal].
+* **Účet Azure**: Pokud si chcete vytvořit účet, přejděte na stránku [Bezplatná zkušební verze Azure][Azure Free Trial] nebo [Kredity Azure pro předplatitele MSDN][MSDN Azure Credits].
+* **Server SQL Azure:** Další podrobnosti najdete v části [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Create an Azure SQL Database logical server with the Azure portal].
 
 > [!NOTE]
-> Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti najdete v tématu [SQL Data Warehouse – ceny][SQL Data Warehouse – ceny].
-> 
-> 
+> Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti najdete v tématu [SQL Data Warehouse – ceny][SQL Data Warehouse pricing].
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Vytvoření SQL Data Warehouse
 1. Přihlaste se k [portálu Azure](https://portal.azure.com).
 2. Klikněte na **+ Nový** > **Data + úložiště** > **SQL Data Warehouse**.
-   
+
     ![Vytvoření](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. V okně **SQL Data Warehouse** vyplňte potřebné informace a kliknutím na Vytvořit proveďte vytvoření.
-   
+
     ![Vytvoření databáze](./media/sql-data-warehouse-get-started-provision/create-database.png)
-   
+
    * **Server:** Doporučujeme nejdříve vybrat server.  
    * **Název databáze:** Název, který se použije k odkazování na SQL Data Warehouse.  Musí být pro server jedinečný.
-   * **Výkon:** Doporučujeme začít se 400 [DWU][DWU]. Výkon datového skladu můžete upravit posunutím jezdce doleva nebo doprava, případně pak můžete vertikálně navýšit nebo snížit kapacitu i po jeho vytvoření.  Pokud vás zajímají další informace o jednotkách DWU, projděte si v naší dokumentaci informace o [škálování](sql-data-warehouse-manage-compute-overview.md) nebo informace na [stránce s cenami][SQL Data Warehouse – ceny]. 
+   * **Výkon:** Doporučujeme začít se 400 [DWU][DWU]. Výkon datového skladu můžete upravit posunutím jezdce doleva nebo doprava, případně pak můžete vertikálně navýšit nebo snížit kapacitu i po jeho vytvoření.  Pokud vás zajímají další informace o DWU, projděte si naši dokumentaci ke [škálování](sql-data-warehouse-manage-compute-overview.md) nebo [stránku s cenami][SQL Data Warehouse pricing].
    * **Předplatné:** Vyberte [předplatné], na které se bude tuto službu SQL Data Warehouse fakturovat.
-   * **Skupina prostředků**: [Skupiny prostředků][Skupina prostředků] jsou kontejnery, které jsou navržené tak, aby vám pomohly při správě kolekce prostředků Azure. Další informace o [skupinách prostředků](../azure-resource-manager/resource-group-overview.md).
+   * **Skupina prostředků:** [Skupiny prostředků][Resource group] jsou kontejnery, které jsou navržené tak, aby vám pomohly při správě kolekce prostředků Azure. Další informace o [skupinách prostředků](../azure-resource-manager/resource-group-overview.md).
    * **Zvolit zdroj:** Klikněte na **Zvolit zdroj** > **Ukázka**. Azure automaticky vyplní možnost **Vyberte vzorek** s možností AdventureWorksDW.
 
-> [!NOTE]
-> Výchozí kolace pro SQL Data Warehouse je SQL_Latin1_General_CP1_CI_AS. V případě potřeby jiné kolace je možné použít [T-SQL][T-SQL] k vytvoření databáze s jinou kolací.
-> 
-> 
+   > [!NOTE]
+   > Výchozí kolace pro SQL Data Warehouse je SQL_Latin1_General_CP1_CI_AS. V případě potřeby jiné kolace je možné pomocí [T-SQL][T-SQL] vytvořit databázi s jinou kolací.
+   >
+   >
 
 1. Kliknutím na **Vytvořit** si vytvořte svoji službu SQL Data Warehouse.
-2. Počkejte několik minut. Když je váš datový sklad připraven, můžete se vrátit do [portálu Azure](https://portal.azure.com). Svoji službu SQL Data Warehouse najdete na řídicím panelu v části s vašimi databázemi SQL nebo ve skupině prostředků, kterou jste použili k jejímu vytvoření. 
-   
+2. Počkejte několik minut. Když je váš datový sklad připraven, můžete se vrátit do [portálu Azure](https://portal.azure.com). Svoji službu SQL Data Warehouse najdete na řídicím panelu v části s vašimi databázemi SQL nebo ve skupině prostředků, kterou jste použili k jejímu vytvoření.
+
     ![zobrazení portálu](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
@@ -77,18 +77,18 @@ Pokud budete chtít načíst data do SQL Data Warehouse, najdete další informa
 
 Pokud se pokoušíte migrovat existující databázi do SQL Data Warehouse, podívejte na [přehled migrace](sql-data-warehouse-overview-migrate.md) nebo použijte [nástroj pro migraci](sql-data-warehouse-migrate-migration-utility.md).
 
-Pravidla brány firewall lze také konfigurovat pomocí jazyka Transact-SQL. Další informace najdete v tématu [sp_set_firewall_rule][sp_set_firewall_rule] a [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Pravidla brány firewall lze také konfigurovat pomocí jazyka Transact-SQL. Další informace najdete v tématech [sp_set_firewall_rule][sp_set_firewall_rule] a [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-Také může být užitečné podívat se na část [Osvědčené postupy][Osvědčené postupy].
+Také může být užitečné podívat se na [Osvědčené postupy][Best practices].
 
 <!--Article references-->
-[Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Vytvoření logického serveru Azure SQL Database pomocí PowerShellu]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[skupiny prostředků]: ../resource-group-template-deploy-portal.md
-[Osvědčené postupy]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [předplatné]: ../azure-glossary-cloud-terminology.md#subscription
-[skupina prostředků]: ../azure-glossary-cloud-terminology.md#resource-group
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
 
 <!--MSDN references-->
@@ -96,13 +96,12 @@ Také může být užitečné podívat se na část [Osvědčené postupy][Osvě
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[SQL Data Warehouse – ceny]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Bezplatná zkušební verze Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Kredity Azure pro předplatitele MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
