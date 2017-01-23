@@ -3,7 +3,7 @@ title: "Začínáme s rozhraním příkazového řádku Azure Batch CLI | Dokume
 description: "Rychlý úvod k příkazům Batch v rozhraní příkazového řádku Azure CLI pro správu prostředků služby Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/30/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Při vytváření prostředků Batch, jako jsou fondy a úlohy, můžete určit 
 
 Ačkoli mnoho operací vytváření prostředků lze provádět pouze prostřednictvím parametrů příkazového řádku, některé funkce vyžadují soubor ve formátu JSON obsahující podrobnosti o prostředku. Soubor JSON je například třeba použít, pokud chcete určit soubory prostředků pro úkol při spuštění.
 
-Chcete-li najít soubor JSON potřebný k vytvoření prostředku, vyhledejte potřebné informace v [referenční dokumentaci rozhraní Batch REST API][rest_api] na webu MSDN. Každé téma „Přidání prostředku *typ prostředku*“ obsahuje ukázkový soubor JSON pro vytvoření prostředku, který můžete použít jako šablony pro své soubory JSON. Soubor JSON pro vytvoření fondu například najdete v části [Přidání fondu k účtu][rest_add_pool].
+Pokud chcete najít soubor JSON potřebný k vytvoření prostředku, přečtěte si dokumentaci [Reference k rozhraní REST API služby Batch na webu MSDN][rest_api]. Každé téma „Přidání prostředku *typ prostředku*“ obsahuje ukázkový soubor JSON pro vytvoření prostředku, který můžete použít jako šablony pro své soubory JSON. Například soubor JSON pro vytvoření fondu najdete v části [Přidání fondu k účtu][rest_add_pool].
 
 > [!NOTE]
 > Pokud při vytváření prostředku určíte soubor JSON, všechny ostatní parametry zadané na příkazovém řádku pro příslušný prostředek budou ignorovány.
@@ -273,6 +273,6 @@ Cílem této části je poskytnout vám prostředky, které můžete použít p�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

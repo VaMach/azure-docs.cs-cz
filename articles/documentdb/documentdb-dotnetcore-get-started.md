@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 86c0258cca0a4ffa507ac30da12a7a62d3e4f853
-ms.openlocfilehash: 2150deb06732985db634e23472fa075c743e19c8
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
 
 
 ---
@@ -25,6 +25,7 @@ ms.openlocfilehash: 2150deb06732985db634e23472fa075c743e19c8
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
@@ -44,7 +45,7 @@ Budeme se zabývat těmito tématy:
 * Odstranění dokumentu
 * Odstranění databáze
 
-Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/arramac/documentdb-dotnet-core-getting-started). Pro rychlé pokyny přeskočte na [oddíl Získání úplného řešení](#GetSolution).
+Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Pro rychlé pokyny přeskočte na [oddíl Získání úplného řešení](#GetSolution).
 
 Potom prosím použijte hlasovací tlačítka v horní nebo dolní části stránky, abychom získali zpětnou vazbu. Pokud chcete, abychom vás kontaktovali přímo, můžete nám nechat e-mailovou adresu v komentářích.
 
@@ -77,7 +78,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 7. Ve výsledcích vyhledejte **Microsoft.Azure.DocumentDB.Core** a klikněte na **Nainstalovat**.
    ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core).
 
-Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/arramac/documentdb-dotnet-core-getting-started).
+Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
@@ -173,32 +174,6 @@ Zkopírujte a vložte metodu **WriteToConsoleAndPromptToContinue** pod metodu **
 
 [Databázi](documentdb-resources.md#databases) DocumentDB je možné vytvořit pomocí metody [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) třídy **DocumentClient**. Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
 
-Zkopírujte a vložte metodu **CreateDatabaseIfNotExists** pod metodu **WriteToConsoleAndPromptToContinue**.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDatabaseIfNotExists(string databaseName)
-    {
-            // Check to verify a database with the id=FamilyDB does not exist
-            try
-            {
-                    await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-                    this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
-            }
-            catch (DocumentClientException de)
-            {
-                    // If the database does not exist, create a new database
-                    if (de.StatusCode == HttpStatusCode.NotFound)
-                    {
-                            await this.client.CreateDatabaseAsync(new Database { Id = databaseName });
-                            this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
-                    }
-                    else
-                    {
-                            throw;
-                    }
-            }
-    }
-
 Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvoření klienta. Tím se vytvoří databáze s názvem *FamilyDB*.
 
     private async Task GetStartedDemo()
@@ -206,7 +181,7 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvo
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
@@ -219,42 +194,6 @@ Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.
 > 
 
 [Kolekci](documentdb-resources.md#collections) je možné vytvořit pomocí metody [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) třídy **DocumentClient**. Kolekce je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace.
-
-Zkopírujte a vložte metodu **CreateDocumentCollectionIfNotExists** pod metodu **CreateDatabaseIfNotExists**.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-    {
-        try
-        {
-            await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-        }
-        catch (DocumentClientException de)
-        {
-            // If the document collection does not exist, create a new collection
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                DocumentCollection collectionInfo = new DocumentCollection();
-                collectionInfo.Id = collectionName;
-
-                // Configure collections for maximum query flexibility including string range queries.
-                collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
-                // Here we create a collection with 400 RU/s.
-                await this.client.CreateDocumentCollectionAsync(
-                    UriFactory.CreateDatabaseUri(databaseName),
-                    collectionInfo,
-                    new RequestOptions { OfferThroughput = 400 });
-
-                this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
 
 Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvoření databáze. Tím se vytvoří kolekce dokumentů s názvem *FamilyCollection_oa*.
 
@@ -604,8 +543,8 @@ Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou apl
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).
-* [Účet DocumentDB][documentdb-create-account]
-* Řešení [GetStarted](https://github.com/arramac/documentdb-dotnet-core-getting-started) dostupné na GitHubu
+* [Účet DocumentDB][documentdb-create-account].
+* Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) dostupné na GitHubu
 
 Pokud chcete obnovit odkazy na sadu DocumentDB .NET Core SDK v sadě Visual Studio, klikněte v Průzkumníkovi řešení pravým tlačítkem na řešení **GetStarted** a pak klikněte na **Povolit obnovení balíčků NuGet**. Dále v souboru Program.cs aktualizujte hodnoty EndpointUrl a AuthorizationKey tak, jak je popsáno v části [Připojení k účtu DocumentDB](#Connect).
 
@@ -622,6 +561,6 @@ Pokud chcete obnovit odkazy na sadu DocumentDB .NET Core SDK v sadě Visual Stud
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

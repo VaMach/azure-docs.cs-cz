@@ -63,6 +63,6 @@ Ve službě Azure Search je zvýrazňování přesné části výsledků vyhled�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

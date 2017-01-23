@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
-ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
 
 
 ---
@@ -62,7 +62,7 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
       * `Microsoft.Azure.Management.DataLake.StoreUploader` – Tento kurz používá verzi v0.10.6-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – Tento kurz používá verzi v2.2.8-preview.
         
-        ![Přidání zdroje Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
+        ![Přidání zdroje Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Vytvoření nového účtu Azure Data Lake")
    4. Zavřete **Správce balíčků Nuget**.
 6. Otevřete soubor **Program.cs**, odstraňte stávající kód a potom vložte následující příkazy, čímž přidáte odkazy na obory názvů.
    
@@ -126,7 +126,7 @@ Několik věcí, které je vhodné vědět o fragmentu kódu uvedeném výše.
 > 
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Pokud používáte ověřování služba-služba s tajným klíčem klienta
-Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
+Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -138,7 +138,7 @@ Následující fragment kódu lze použít k neinteraktivnímu ověřování va�
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Pokud používáte ověřování služba-služba s certifikátem
-Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../resource-group-create-service-principal-portal.md).
+Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -261,6 +261,6 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,3 +1,4 @@
+
 ---
 title: "Nejčastější dotazy k Azure Backup | Dokumentace Microsoftu"
 description: "Odpovědi na nejčastější dotazy ohledně služby zálohování, agenta zálohování, zálohování a uchovávání, obnovení, zabezpečení a další časté dotazy k zálohování a zotavení po havárii."
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ Azure Backup podporuje pro zálohování souborů a složek a pro zálohování 
 | Windows 7 a nejnovější aktualizace Service Packu |64bitová verze |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 a nejnovější aktualizace Service Packu |64bitová verze |Enterprise, Pro |
 | Windows 10 |64bitová verze |Enterprise, Pro, Home |
+| Windows Server 2016 |64bitová verze |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Datacenter, Foundation |
 | Windows Server 2012 a nejnovější aktualizace Service Packu |64bitová verze |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Workgroup |
@@ -172,7 +174,7 @@ Ano. Pomocí DPM můžete zadat denní, týdenní, měsíční nebo roční plá
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>Je nějaký rozdíl mezi zásadami uchovávání informací pro DPM a Windows Server nebo klienta (tj. pro Windows Server bez DPM)?<br/>
 Ne, DPM i Windows Server nebo klient mohou mít denní, týdenní, měsíční nebo roční zásady uchovávání.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Mohu konfigurovat zásady uchovávání informací selektivně – tj. nakonfigurovat týdenní a denní, ale ne roční a měsíční?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Mohu konfigurovat zásady uchovávání informací selektivně – tj. nakonfigurovat týdenní a denní, ale ne roční a měsíční?<br/>
 Ano, struktura uchovávání Azure Backup vám poskytuje úplnou flexibilitu při definování zásad uchovávání informací podle vašich požadavků.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Mohu „naplánovat zálohování“ na 18:00 a pro „zásady uchovávání informací“ zadat jiný čas?<br/>
@@ -275,6 +277,6 @@ Při převádění virtuálních počítačů z klasického režimu do režimu R
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

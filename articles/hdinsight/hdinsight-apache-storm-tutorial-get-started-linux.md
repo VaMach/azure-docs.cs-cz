@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 09f5ba954dd712d71f41397b2243b6d3f3f0ca42
-ms.openlocfilehash: a70fe33047bc47096f7964d93dce411da9e0da9c
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -52,7 +52,7 @@ V této části vytvoříte cluster HDInsight verze 3.5 (Storm verze 1.0.1) pomo
 
 1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight-35.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight-35.json" target="_blank"><img src="./media/hdinsight-apache-storm-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     Tato šablona se nachází v kontejneru veřejného objektu blob *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
 
@@ -80,7 +80,7 @@ V této části vytvoříte cluster HDInsight verze 3.5 (Storm verze 1.0.1) pomo
      > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Použití SSH (PuTTY) se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__, klikněte na **OK** a pak vyberte __Připnout na řídicí panel__.
+3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__ a klikněte na **OK**, pak vyberte __Připnout na řídicí panel__.
 
 6. Klikněte na **Koupit**. Zobrazí se nová dlaždice s názvem Odeslání nasazení pro šablonu nasazení. Vytvoření clusteru trvá přibližně 20 minut.
 
@@ -216,6 +216,6 @@ Příklady topologií, které se dají použít se systémem Storm ve službě H
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

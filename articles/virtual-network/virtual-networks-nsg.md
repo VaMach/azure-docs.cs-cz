@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
-ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
@@ -120,17 +120,11 @@ Skupiny NSG můžete implementovat v modelech nasazení Resource Manager nebo Cl
 
 | Nástroj pro nasazení | Classic | Resource Manager |
 | --- | --- | --- |
-| Portál Classic |![Ne](./media/virtual-network-nsg-overview/red.png) |![Ne](./media/virtual-network-nsg-overview/red.png) |
-| portál Azure |![Ano](./media/virtual-network-nsg-overview/green.png) |[![Ano][green]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Ano][green]](virtual-networks-create-nsg-classic-ps.md) |[![Ano][green]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Ano][green]](virtual-networks-create-nsg-classic-cli.md) |[![Ano][green]](virtual-networks-create-nsg-arm-cli.md) |
-| Šablona ARM |![Ne](./media/virtual-network-nsg-overview/red.png) |[![Ano][green]](virtual-networks-create-nsg-arm-template.md) |
-
-**Klíč**
-
-![Ano](./media/virtual-network-nsg-overview/green.png) Podporuje se.
-
-![Ne](./media/virtual-network-nsg-overview/red.png) Nepodporuje se.
+| Portál Classic | Ne  | Ne |
+| portál Azure   | Ano | [Ano](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Ano](virtual-networks-create-nsg-classic-ps.md) | [Ano](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Ano](virtual-networks-create-nsg-classic-cli.md) | [Ano](virtual-networks-create-nsg-arm-cli.md) |
+| Šablona ARM   | Ne  | [Ano](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Plánování
 Před implementací skupin NSG je nutné odpovědět na tyto otázky:
@@ -265,12 +259,8 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 * [Nasazení skupin NSG v modelu Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Správa protokolů NSG](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
-[žlutá]: ./media/virtual-network-nsg-overview/yellow.png
-[červená]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -11,122 +11,125 @@ keywords: "Docker, Kontejnery, Mikroslužby, Mesos, Azure, dcos, swarm, kubernet
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
-ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
+ms.sourcegitcommit: dc7ce9f0524567b861a40940f02cd07e0b7b22bf
+ms.openlocfilehash: 52331c92a4e3e254c044c9cba85a937b6ba95011
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Nasazení clusteru Azure Container Service
 Azure Container Service umožňuje rychlé nasazení oblíbených open-source řešení pro clustering a orchestraci kontejnerů. Pomocí Azure Container Service můžete nasadit clustery DC/OS, Kubernetes a Docker Swarm s pomocí šablon Azure Resource Manageru nebo webu Azure Portal. Tyto clustery nasadíte pomocí sad škálování virtuálních počítačů Azure, a díky tomu bude u nich možné využívat nabídky Azure v oblasti sítí a úložišť. Pro přístup k Azure Container Service potřebujete předplatné Azure. Pokud žádné nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
+> [!NOTE]
+> Podpora pro Kubernetes je v Azure Container Service momentálně ve verzi preview.
+>
+
 Tento dokument vás provede nasazením clusteru Azure Container Service pomocí [Portálu Azure](#creating-a-service-using-the-azure-portal), [rozhraní příkazového řádku (CLI) Azure](#creating-a-service-using-the-azure-cli) a [modulu Azure PowerShell](#creating-a-service-using-powershell).  
 
 ## <a name="create-a-service-by-using-the-azure-portal"></a>Vytvoření služby pomocí Portálu Azure
-Přihlaste se k webu Azure Portal, vyberte **Nový** a na Azure Marketplace vyhledejte **Azure Container Service**.
+1. Přihlaste se k webu Azure Portal, vyberte **Nový** a na Azure Marketplace vyhledejte **Azure Container Service**.
 
-![Vytvoření nasazení 1](media/acs-portal1.png)  <br />
+    ![Vytvoření nasazení 1](media/acs-portal1.png)  <br />
 
-Vyberte **Azure Container Service** a klikněte na **Vytvořit**.
+2. Vyberte **Azure Container Service** a klikněte na **Vytvořit**.
 
-![Vytvoření nasazení 2](media/acs-portal2.png)  <br />
+    ![Vytvoření nasazení 2](media/acs-portal2.png)  <br />
 
-Zadejte následující informace:
+3. Zadejte následující informace:
 
-* **Uživatelské jméno:** Toto je uživatelské jméno, které se bude pro účet používat na všech virtuálních počítačích a v sadách škálování virtuálních počítačů v clusteru Azure Container Service.
-* **Předplatné:** Vyberte předplatné Azure.
-* **Skupina prostředků:** Vyberte existující skupinu prostředků nebo vytvořte novou.
-* **Umístění:** Vyberte oblast Azure pro nasazení Azure Container Service.
-* **Veřejný klíč SSH:** Přidejte veřejný klíč, který se bude používat pro ověřování u virtuálních počítačů Azure Container Service. Je velmi důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu ssh-rsa a příponu 'username@domain'. Měl by vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Pokyny k vytváření klíčů SSH (Secure Shell) najdete v tématech [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) a [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+    * **Uživatelské jméno:** Toto je uživatelské jméno, které se bude pro účet používat na všech virtuálních počítačích a v sadách škálování virtuálních počítačů v clusteru Azure Container Service.
+    * **Předplatné:** Vyberte předplatné Azure.
+    * **Skupina prostředků:** Vyberte existující skupinu prostředků nebo vytvořte novou.
+    * **Umístění:** Vyberte oblast Azure pro nasazení Azure Container Service.
+    * **Veřejný klíč SSH:** Přidejte veřejný klíč, který se bude používat pro ověřování u virtuálních počítačů Azure Container Service. Je velmi důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu ssh-rsa a příponu 'username@domain'. Měl by vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Pokyny k vytváření klíčů SSH (Secure Shell) najdete v tématech [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) a [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
-Až budete připravení pokračovat, klikněte na **OK**.
+4. Až budete připravení pokračovat, klikněte na **OK**.
 
-![Vytvoření nasazení 3](media/acs-portal3.png)  <br />
+    ![Vytvoření nasazení 3](media/acs-portal3.png)  <br />
 
-Vyberte typ orchestrace. Dostupné možnosti:
+5. Vyberte typ orchestrace. Dostupné možnosti:
 
-* **DC/OS:** Nasadí cluster DC/OS.
-* **Swarm:** Nasadí cluster Docker Swarm.
-* **Kubernetes**: Nasadí cluster Kubernetes.
+    * **DC/OS:** Nasadí cluster DC/OS.
+    * **Swarm:** Nasadí cluster Docker Swarm.
+    * **Kubernetes**: Nasadí cluster Kubernetes.
 
-Až budete připravení pokračovat, klikněte na **OK**.
+6. Až budete připravení pokračovat, klikněte na **OK**.
 
-![Vytvoření nasazení 4](media/acs-portal4-new.png)  <br />
+    ![Vytvoření nasazení 4](media/acs-portal4-new.png)  <br />
 
-Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID a tajný kód klienta instančního objektu. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md). 
+7. Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID a tajný kód klienta instančního objektu. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 
-![Vytvoření nasazení 4,5](media/acs-portal10.PNG)  <br />
+    ![Vytvoření nasazení 4,5](media/acs-portal10.PNG)  <br />
 
-Zadejte následující informace:
+7. V okně nastavení **Azure Container Service** zadejte následující informace:
 
-* **Počet hlavních serverů:** Počet hlavních serverů v clusteru. Pokud je vybráno „Kubernetes“, bude počet hlavních serverů nastaven na výchozí hodnotu 1.
-* **Počet agentů**: U Docker Swarm a Kubernetes to bude počáteční počet agentů ve škálovací sadě agentů. U DC/OS to bude počáteční počet agentů v privátní sadě škálování. Kromě toho se vytvoří sada škálování obsahující předem určený počet agentů. Počet agentů v této veřejné sadě škálování závisí na tom, kolik hlavních serverů bylo vytvořeno v clusteru: jeden veřejný agent pro jeden hlavní server a dva veřejní agenti pro tři nebo pět hlavních serverů.
-* **Velikost virtuálního počítače agenta:** Velikost těchto virtuálních počítačů.
-* **Předpona DNS:** Celosvětově jedinečný název, který se bude používat jako předpona klíčových částí plně kvalifikované názvy domény pro službu.
+    * **Počet hlavních serverů:** Počet hlavních serverů v clusteru. Pokud je vybrán Kubernetes, bude počet hlavních serverů nastaven na výchozí hodnotu 1.
+    * **Počet agentů**: U Docker Swarm a Kubernetes to bude počáteční počet agentů ve škálovací sadě agentů. U DC/OS to bude počáteční počet agentů v privátní sadě škálování. Kromě toho se vytvoří sada škálování obsahující předem určený počet agentů. Počet agentů v této veřejné sadě škálování závisí na tom, kolik hlavních serverů bylo vytvořeno v clusteru: jeden veřejný agent pro jeden hlavní server a dva veřejní agenti pro tři nebo pět hlavních serverů.
+    * **Velikost virtuálního počítače agenta:** Velikost těchto virtuálních počítačů.
+    * **Předpona DNS:** Celosvětově jedinečný název, který se bude používat jako předpona klíčových částí plně kvalifikované názvy domény pro službu.
 
-Až budete připravení pokračovat, klikněte na **OK**.
+8. Až budete připravení pokračovat, klikněte na **OK**.
 
-![Vytvoření nasazení 5](media/acs-portal5.png)  <br />
+    ![Vytvoření nasazení 5](media/acs-portal5.png)  <br />
 
-Až se dokončí ověření služby, klikněte na **OK**.
+9. Až se dokončí ověření služby, klikněte na **OK**.
 
-![Vytvoření nasazení 6](media/acs-portal6.png)  <br />
+    ![Vytvoření nasazení 6](media/acs-portal6.png)  <br />
 
-Kliknutím na **Vytvořit** zahájíte proces nasazení.
+10. Kliknutím na **Koupit** zahájíte proces nasazení.
 
-![Vytvoření nasazení 7](media/acs-portal7.png)  <br />
+    ![Vytvoření nasazení 7](media/acs-portal7.png)  <br />
 
-Pokud se rozhodnete nasazení připnout na Azure Portal, uvidíte jeho stav.
+    Pokud se rozhodnete nasazení připnout na Azure Portal, uvidíte jeho stav.
 
-![Vytvoření nasazení 8](media/acs-portal8.png)  <br />
+    ![Vytvoření nasazení 8](media/acs-portal8.png)  <br />
 
 Po dokončení nasazování bude cluster Azure Container Service připraven k použití.
 
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Vytvoření služby pomocí rozhraní příkazového řádku Azure CLI
 Pokud chcete vytvořit instanci Azure Container Service pomocí příkazového řádku, potřebujete předplatné Azure. Pokud žádné nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Také musíte mít [nainstalováno](../xplat-cli-install.md) a [nakonfigurováno](../xplat-cli-connect.md) rozhraní příkazového řádku Azure CLI.
 
-Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon z GitHubu. 
+1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon z GitHubu. 
 
-* [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
-* [Šablona Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
+    * [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
+    * [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+    * [Šablona Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-Dále se ujistěte, že rozhraní Azure CLI je připojeno k předplatnému Azure. Můžete to provést pomocí následujícího příkazu:
+2. Dále se ujistěte, že rozhraní Azure CLI je připojeno k předplatnému Azure. Můžete to provést pomocí následujícího příkazu:
 
-```bash
-azure account show
-```
-Pokud není účet Azure vrácen, použijte následující příkaz, kterým přihlásíte rozhraní CLI k Azure:
+    ```bash
+    azure account show
+    ```
+    Pokud není účet Azure vrácen, použijte následující příkaz, kterým přihlásíte rozhraní CLI k Azure:
 
-```bash
-azure login -u user@domain.com
-```
+    ```bash
+    azure login -u user@domain.com
+    ```
 
-Potom nakonfigurujte nástroje Azure CLI tak, aby používaly Azure Resource Manager:
+3. Nakonfigurujte nástroje Azure CLI tak, aby používaly Azure Resource Manager.
 
-```bash
-azure config mode arm
-```
+    ```bash
+    azure config mode arm
+    ```
 
-Vytvořte skupinu prostředků Azure a cluster Container Service pomocí následujícího příkazu, kde:
+4. Vytvořte skupinu prostředků Azure a cluster Container Service pomocí následujícího příkazu, kde:
 
-* **RESOURCE_GROUP** je název skupiny prostředků, kterou chcete použít pro tuto službu.
-* **LOCATION** je oblast Azure, kde se skupina prostředků a nasazení Azure Container Service vytvoří.
-* **TEMPLATE_URI** je umístění souboru nasazení. Poznámka: Tato hodnota musí být soubor RAW, nikoli ukazatel na uživatelské rozhraní GitHub. Tuto adresu URL najdete tak, že vyberete soubor azuredeploy.json na webu GitHub a kliknete na tlačítko **Raw**.
+    * **RESOURCE_GROUP** je název skupiny prostředků, kterou chcete použít pro tuto službu.
+    * **LOCATION** je oblast Azure, kde se skupina prostředků a nasazení Azure Container Service vytvoří.
+    * **TEMPLATE_URI** je umístění souboru nasazení. Poznámka: Tato hodnota musí být soubor RAW, nikoli ukazatel na uživatelské rozhraní GitHub. Tuto adresu URL najdete tak, že vyberete soubor azuredeploy.json na webu GitHub a kliknete na tlačítko **Raw**.
 
-> [!NOTE]
-> Při spuštění tohoto příkazu vás prostředí vyzve k zadání hodnot parametrů nasazení.
-> 
-> 
+    > [!NOTE]
+    > Při spuštění tohoto příkazu vás prostředí vyzve k zadání hodnot parametrů nasazení.
+    > 
 
-```bash
-azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
-```
+    ```bash
+    azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
+    ```
 
 ### <a name="provide-template-parameters"></a>Zadání parametrů šablony
 Tato verze příkazu vyžaduje, abyste parametry definovali interaktivně. Pokud chcete zadat parametry, jako je řetězec ve formátu JSON, můžete to udělat pomocí přepínače `-p`. Příklad:
@@ -146,35 +149,35 @@ Pokud chcete zobrazit příklad souboru parametrů s názvem `azuredeploy.parame
 ## <a name="create-a-service-by-using-powershell"></a>Vytvoření služby pomocí prostředí PowerShell
 Cluster Azure Container Service můžete také nasadit v prostředí PowerShell. Tento dokument je založen na verzi 1.0 [modulu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon. Všimněte si, že tyto dvě šablony jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
+1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon. Všimněte si, že tyto dvě šablony jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
 
-* [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
-* [Šablona Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
+    * [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
+    * [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+    * [Šablona Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-Před vytvořením clusteru v rámci vašeho předplatného Azure ověřte, že daná relace prostředí PowerShell je přihlášena k Azure. Můžete to provést pomocí příkazu `Get-AzureRMSubscription`:
+2. Před vytvořením clusteru v rámci vašeho předplatného Azure ověřte, že daná relace prostředí PowerShell je přihlášena k Azure. Můžete to provést pomocí příkazu `Get-AzureRMSubscription`:
 
-```powershell
-Get-AzureRmSubscription
-```
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-Pokud se potřebujete přihlásit k Azure, použijte příkaz `Login-AzureRMAccount`:
+3. Pokud se potřebujete přihlásit k Azure, použijte příkaz `Login-AzureRMAccount`:
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-Pokud nasazení provádíte do nové skupiny prostředků, je třeba nejdřív vytvořit skupinu prostředků. Pokud chcete vytvořit novou skupinu prostředků, použijte příkaz `New-AzureRmResourceGroup` a zadejte název skupiny prostředků a cílovou oblast:
+4. Pokud nasazení provádíte do nové skupiny prostředků, je třeba nejdřív vytvořit skupinu prostředků. Pokud chcete vytvořit novou skupinu prostředků, použijte příkaz `New-AzureRmResourceGroup` a zadejte název skupiny prostředků a cílovou oblast:
 
-```powershell
-New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
+    ```
 
-Po vytvoření skupiny prostředků můžete vytvořit cluster pomocí následujícího příkazu. Pro parametr `-TemplateUri` bude zadán identifikátor URI požadované šablony. Při spuštění tohoto příkazu vás PowerShell vyzve k zadání hodnot parametrů nasazení.
+5. Po vytvoření skupiny prostředků můžete vytvořit cluster pomocí následujícího příkazu. Pro parametr `-TemplateUri` bude zadán identifikátor URI požadované šablony. Při spuštění tohoto příkazu vás PowerShell vyzve k zadání hodnot parametrů nasazení.
 
-```powershell
-New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
-```
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
+    ```
 
 ### <a name="provide-template-parameters"></a>Zadání parametrů šablony
 Pokud PowerShell znáte, víte, že mezi parametry dostupnými pro rutinu můžete cyklicky přepínat zadáním znaménka minus (-) a následným stisknutím klávesy TAB. Stejně to funguje i při práci s parametry, které definujete v šabloně. Jakmile zadáte název šablony, rutina načte šablonu, provede analýzu parametrů a dynamicky přidá parametry šablony do příkazu. Díky tomu je zadání hodnot parametrů šablony velmi snadné. A pokud zapomenete zadat hodnotu požadovaného parametru, prostředí PowerShell vás vyzve k jejímu zadání.

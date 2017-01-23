@@ -195,6 +195,6 @@ Naučte se využívat Mobile Apps ve službě Azure App Service k sestavování 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

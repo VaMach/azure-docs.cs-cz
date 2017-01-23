@@ -157,6 +157,6 @@ Tato témata popisují postup návrhu aplikací, které jsou odolné vůči selh
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
+ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
+ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
 
 
 ---
@@ -40,7 +40,7 @@ Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k pro
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |
+| **.NET Framework** |x |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Otevřený protokol založený na standardech** | |x |
@@ -55,7 +55,7 @@ Schopnost zabezpečených [hybridních připojení služby Azure Relay](relay-hy
 Služba WCF Relay funguje s celým rozhraním .NET Framework (NETFX) i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu.
 
 ## <a name="service-history"></a>Historie služby
-Hybridní připojení nahrazuje starší funkci služby BizTalk Services se stejným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost hybridních připojení doplňuje stávající službu WCF Relay a tyto dvě schopnosti služby v dohledné budoucnosti budou existovat vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
+Hybridní připojení nahrazuje starší funkci služby BizTalk Services s podobným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost hybridních připojení doplňuje stávající funkci WCF Relay a tyto dvě schopnosti služby v dohledné budoucnosti budou ve službě Relay existovat vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
 
 ## <a name="next-steps"></a>Další kroky:
 * [Přenos – nejčastější dotazy](relay-faq.md)
@@ -66,6 +66,6 @@ Hybridní připojení nahrazuje starší funkci služby BizTalk Services se stej
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

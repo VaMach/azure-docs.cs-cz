@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: eeb10e8325918ac699e3c1fe94d15eee5f730fce
 
 
 ---
@@ -28,8 +28,6 @@ Další informace o službách Cloud Services a jejich porovnání se službami 
 
 > [!TIP]
 > Chcete si vytvořit jednoduchý web? Pokud váš scénář zahrnuje jen jednoduchý front-endový web, zvažte [Použití jednoduché webové aplikace]. V případě potřeby budete moci snadno upgradovat na Cloud Service, až vaše webová aplikace naroste a vaše požadavky se změní.
->
->
 
 V následujícím kurzu si vytvoříte jednoduchou webovou aplikaci, hostovanou v rámci webové role. Přes výpočetní emulátor si budete moci svou aplikaci lokálně otestovat a pak ji přes nástroje příkazového řádku PowerShellu nasadit.
 
@@ -40,8 +38,6 @@ Jedná se o jednoduchou aplikaci "hello world":
 ## <a name="prerequisites"></a>Požadavky
 > [!NOTE]
 > Tento kurz používá prostředí Azure PowerShell, které vyžaduje systém Windows.
->
->
 
 * Nainstalujte a nakonfigurujte [Azure Powershell].
 * Stáhněte a nainstalujte sadu [Azure SDK pro .NET 2.7]. V nastavení instalace vyberte:
@@ -75,8 +71,6 @@ Proveďte následující kroky, a vytvořte tak nový projekt Azure Cloud Servic
 
    > [!NOTE]
    > Pokud nezadáte název role, použije se výchozí název. Název můžete zadat jako první parametr rutiny: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 Aplikace Node.js je definována v souboru **server.js**, který je umístěn v adresáři pro webovou roli (ve výchozím nastavení **WebRole1**). Zde je kód:
 
@@ -90,7 +84,9 @@ Aplikace Node.js je definována v souboru **server.js**, který je umístěn v a
 Tento kód je v podstatě stejný jako u příkladu "Hello World" na webu [nodejs.org] až na to, že používá číslo portu přiřazené cloudovému prostředí.
 
 ## <a name="deploy-the-application-to-azure"></a>Nasazení aplikace v Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete si [aktivovat výhody předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) nebo si [zaregistrovat bezplatný účet](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Stažení nastavení publikování v systému Azure
 Než aplikaci nasadíte v systému Azure, musíte si nejdřív stáhnout nastavení publikování pro své předplatné Azure.
@@ -106,12 +102,13 @@ Než aplikaci nasadíte v systému Azure, musíte si nejdřív stáhnout nastave
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] Po importu nastavení publikování zvažte, zda byste neměli smazat soubor .publishSettings. Obsahuje totiž informace, které by někomu mohly umožnit přístup na váš účet.
+    > [!NOTE]
+    > Po importu nastavení publikování zvažte, zda byste neměli smazat soubor .publishSettings. Obsahuje totiž informace, které by někomu mohly umožnit přístup na váš účet.
 
 ### <a name="publish-the-application"></a>Publikování aplikace
 Pokud chcete aplikaci publikovat, spusťte následující příkazy:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** určuje název pro nasazení. Název musí být jedinečný, jinak se proces publikování nezdaří. Příkaz **Get-Date** přiřadí k řetězci datum/čas, aby byl název jedinečný.
@@ -124,8 +121,6 @@ Po úspěšném publikování uvidíte odpověď podobnou této:
 
 > [!NOTE]
 > Při prvním publikování může trvat několik minut, než se aplikace nasadí a bude k dispozici.
->
->
 
 Po dokončení nasazení se otevře okno prohlížeče a zobrazí stránku cloudové služby.
 
@@ -162,8 +157,6 @@ Může se stát, že po nasazení budete chtít aplikaci zastavit a vyhnout se t
 
    > [!NOTE]
    > Odstraněním služby nedojde k odstranění účtu úložiště, který byl vytvořen při prvním publikování služby. Budou vám tedy i nadále účtovány poplatky za využívání úložiště. Pokud se úložiště nepoužívá pro nic jiného, můžete je odstranit.
-   >
-   >
 
 ## <a name="next-steps"></a>Další kroky
 Další informace najdete ve [Středisku pro vývojáře Node.js].
@@ -172,25 +165,25 @@ Další informace najdete ve [Středisku pro vývojáře Node.js].
 
 [Porovnání webů Azure, služby Cloud Services a služby Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [Použití jednoduché webové aplikace]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure Powershell]: ../powershell-install-configure.md
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK pro .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[připojení PowerShellu]: ../powershell-install-configure.md#step-3-connect
+[připojení PowerShellu]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Přehled vytváření hostované služby pro Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Středisku pro vývojáře Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[Výsledek příkazu New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Výstup příkazu Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Webový prohlížeč zobrazující webovou stránku Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Výstup příkazu Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Okno prohlížeče zobrazující stránku Hello World, adresa URL ukazuje na to, že je stránka hostovaná na platformě Azure]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stav příkazu Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Stav příkazu Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

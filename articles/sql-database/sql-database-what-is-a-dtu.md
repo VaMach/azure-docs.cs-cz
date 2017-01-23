@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
+ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
 
 
 ---
@@ -37,9 +37,9 @@ eDTU je jednotka měření sady prostředků (DTU), které mohou být sdíleny v
 
 ![Úvod do služby SQL Database: eDTU podle vrstvy a úrovně](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Fond obdrží stanovený počet eDTU za stanovenou cenu. V rámci fondu disponují jednotlivé databáze flexibilní možností automatického škálování v rámci stanovených parametrů. V případě velkého zatížení může databáze spotřebovávat více eDTU, aby splnila požadavky. Databáze při nízkém zatížení spotřebovávají méně eDTU a databáze bez zatížení nespotřebovávají žádné eDTU. Zřizováním prostředků pro celý fond, a nikoli pro izolované databáze, se úkoly správy zjednodušují. Kromě toho můžete předem odhadnout náklady na fond.
+Fond obdrží stanovený počet eDTU za stanovenou cenu. V rámci elastického fondu disponují jednotlivé databáze flexibilní možností automatického škálování v rámci nakonfigurovaných mezí. V případě velkého zatížení může databáze spotřebovávat více eDTU, aby splnila požadavky, zatímco při nízkém zatížení databáze spotřebovávají méně eDTU a databáze bez zatížení dokonce nespotřebovávají žádné eDTU. Zřizování prostředků pro celý fond, a nikoli pro jednotlivé databáze, zjednoduše úlohy správy a umožňuje předem odhadnout náklady na fond.
 
-Další eDTU lze do existujícího fondu přidat bez jakéhokoli výpadku databáze a bez jakéhokoli vlivu na databáze v elastickém fondu. Podobně platí, že pokud již přidané eDTU nejsou potřebné, lze je z existujícího fondu kdykoli odebrat. Databáze můžete do fondu přidávat nebo je z něj odebírat. Pokud databáze podle předpokladu nedostatečně využívá prostředky, odeberte ji.
+Další eDTU lze do existujícího fondu přidat bez jakéhokoli výpadku databáze a bez jakéhokoli vlivu na databáze ve fondu. Podobně platí, že pokud již přidané eDTU nejsou potřebné, lze je z existujícího fondu kdykoli odebrat. Do fondu můžete přidávat databáze nebo je z něj odebírat, nebo můžete omezit množství eDTU, které databáze může využívat v případě velkého zatížení a vyhradit tak eDTU pro ostatní databáze. Pokud databáze podle předpokladu nedostatečně využívá prostředky, můžete ji odebrat z fondu a nakonfigurovat jako izolovanou databázi s předvídatelným množstvím požadovaných prostředků.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Jak lze určit počet DTU potřebných pro určitou úlohu?
 Pokud máte v úmyslu migrovat existující úlohu místního počítače nebo virtuálního počítače SQL Server do Azure SQL Database, můžete k odhadnutí potřebného počtu DTU použít [Kalkulačku DTU](http://dtucalculator.azurewebsites.net/). Pro existující úlohy Azure SQL Database můžete použít [SQL Database Query Performance Insight](sql-database-query-performance.md), abyste pochopili spotřebu databázových prostředků (TU) a lépe porozuměli možnostem optimalizace úloh. Můžete také použít DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) a získat informace o spotřebě prostředků za poslední hodinu. Můžete také zadávat dotazy na zobrazení katalogu [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx). Získáte stejná data za posledních 14 dní, průměry za pětiminutová období ale mohou být méně přesné.

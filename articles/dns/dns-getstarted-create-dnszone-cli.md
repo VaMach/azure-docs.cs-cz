@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření zóny DNS pomocí rozhraní příkazového řádku | Dokumentace Microsoftu"
-description: "Naučte se krok za krokem vytvářet zóny DNS pro Azure DNS a začněte svoji doménu DNS hostovat pomocí rozhraní příkazového řádku"
+description: "Naučte se vytvářet zóny DNS v DNS Azure. Pomocí tohoto podrobného průvodce můžete vytvořit a spravovat svou první zónu DNS pomocí rozhraní příkazového řádku Azure CLI."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
+ms.sourcegitcommit: f156e4d4c5ffddb7e93ebf21baa75864e0e260e9
+ms.openlocfilehash: d00792a4bb19e194dbbcee8b9c11e4a744891388
 
 ---
 
@@ -26,154 +26,76 @@ ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-Tento článek vás provede jednotlivými kroky při vytváření zóny DNS pomocí rozhraní příkazového řádku. Zónu DNS taky můžete vytvořit pomocí prostředí PowerShell nebo Portálu Azure.
+Tento článek vás provede kroky k vytvoření zóny DNS pomocí rozhraní příkazového řádku Azure CLI pro různé platformy, které je dostupné pro Windows, Mac a Linux. Zónu DNS můžete vytvořit také pomocí [Azure PowerShellu](dns-getstarted-create-dnszone.md) nebo webu [Azure Portal](dns-getstarted-create-dnszone-portal.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## <a name="before-you-begin"></a>Než začnete
+[!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 
-Tyto pokyny používají rozhraní příkazového řádku Microsoft Azure CLI. Nezapomeňte aktualizovat na nejnovější rozhraní příkazového řádku Azure CLI (0.9.8 nebo novější), abyste mohli používat příkazy Azure DNS. Pokud chcete zkontrolovat, která verze rozhraní příkazového řádku Azure CLI je na počítači aktuálně nainstalovaná, napište `azure -v`.
 
-## <a name="step-1---set-up-azure-cli"></a>Krok 1 – Nastavení rozhraní příkazového řádku Azure CLI
+## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
-### <a name="1-install-azure-cli"></a>1. Instalace rozhraní příkazového řádku Azure CLI
+Zóna DNS se vytvoří příkazem `azure network dns zone create`. Pokud chcete zobrazit nápovědu k tomuto příkazu, zadejte `azure network dns zone create -h`.
 
-Můžete nainstalovat rozhraní příkazového řádku Azure CLI pro Windows, Linux nebo MAC. Je nutné provést následující kroky, abyste mohli spravovat Azure DNS pomocí rozhraní příkazového řádku Azure CLI. Další informace najdete v tématu [Instalace rozhraní příkazového řádku Azure CLI](../xplat-cli-install.md). Příkazy DNS vyžadují rozhraní příkazového řádku Azure CLI verze 0.9.8 nebo novější.
-
-Všechny příkazy poskytovatele sítě v rozhraní příkazového řádku se dají najít tímto příkazem:
+Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků s názvem *MyResourceGroup*. Nahraďte hodnoty vlastními a použijte tento příklad k vytvoření zóny DNS.
 
 ```azurecli
-azure network
+azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### <a name="2-switch-cli-mode"></a>2. Přepnutí režimu rozhraní příkazového řádku
+## <a name="verify-your-dns-zone"></a>Ověření zóny DNS
 
-Azure DNS používá Azure Resource Manager. Nezapomeňte přepnout režim rozhraní příkazového řádku tak, aby se používaly příkazy ARM.
-
-```azurecli
-azure config mode arm
-```
-
-### <a name="3-sign-in-to-your-azure-account"></a>3. Přihlášení k účtu Azure
-
-Zobrazí se výzva k ověření pomocí přihlašovacích údajů. Nezapomeňte, že lze použít pouze účty ORGID.
-
-```azurecli
-azure login -u "username"
-```
-
-### <a name="4-select-the-subscription"></a>4. Výběr předplatného
-
-Zvolte předplatné Azure, které chcete použít.
-
-```azurecli
-azure account set "subscription name"
-```
-
-### <a name="5-create-a-resource-group"></a>5. Vytvoření skupiny prostředků
-
-Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. To slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Všechny prostředky DNS jsou ale globální, a ne místní, takže volba umístění skupiny prostředků nemá na Azure DNS žádný vliv.
-
-Pokud používáte některou ze stávajících skupin prostředků, můžete tento krok přeskočit.
-
-```azurecli
-azure group create -n myresourcegroup --location "West US"
-```
-
-### <a name="6-register"></a>6. Registrace
-
-Službu Azure DNS spravuje poskytovatel prostředků Microsoft.Network. Abyste mohli používat Azure DNS, je nutné zaregistrovat předplatné Azure k používání tohoto poskytovatele prostředků. Jedná se o jednorázovou operaci u každého odběru.
-
-```azurecli
-azure provider register --namespace Microsoft.Network
-```
-
-## <a name="step-2---create-a-dns-zone"></a>Krok 2 – Vytvoření zóny DNS
-
-Zóna DNS se vytvoří příkazem `azure network dns zone create`. Pokud chcete, můžete zónu DNS vytvořit společně se značkami. Značky jsou páry název-hodnota, které Azure Resource Manager používá k označování prostředků pro účely fakturace nebo seskupování. Další informace o značkách najdete v tématu [Použití značek k uspořádání prostředků Azure](../resource-group-using-tags.md).
-
-V Azure DNS je nutné zadávat názvy zón bez závěrečné tečky **„.“**. Například jako „**contoso.com**“ místo „**contoso.com.**“.
-
-### <a name="to-create-a-dns-zone"></a>Postup vytvoření zóny DNS
-
-Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků s názvem *MyResourceGroup*.
-
-Nahraďte hodnoty vlastními a použijte tento příklad k vytvoření zóny DNS.
-
-```azurecli
-azure network dns zone create myresourcegroup contoso.com
-```
-
-### <a name="to-create-a-dns-zone-and-tags"></a>Postup vytvoření zóny DNS a značek
-
-Rozhraní příkazového řádku Azure DNS podporuje určení značek zón DNS pomocí volitelného parametru *-Tag*. Následující příklad ukazuje, jak vytvořit zónu DNS se dvěma značkami: project = demo a env = test.
-
-Nahraďte hodnoty vlastními a použijte níže uvedený příklad k vytvoření zóny DNS a značek.
-
-```azurecli
-azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
-```
-
-## <a name="view-records"></a>Zobrazení záznamů
+### <a name="view-records"></a>Zobrazení záznamů
 
 Při vytvoření zóny DNS se taky vytvoří tyto záznamy DNS:
 
-* Záznam Start of Authority (SOA). Tento záznam se nachází v kořenovém adresáři každé zóny DNS.
-* Záznamy autoritativního názvového serveru (NS). Tyto záznamy ukazují, které názvové servery zónu hostují. Azure DNS používá fond názvových serverů, takže různým zónám se můžou v Azure DNS přiřadit různé názvové servery. Další informace najdete v tématu [Delegování domény do Azure DNS](dns-domain-delegation.md).
+* Záznam *Start of Authority* (SOA). Tento záznam se nachází v kořenovém adresáři každé zóny DNS.
+* Záznamy autoritativního názvového serveru (NS). Tyto záznamy ukazují, které názvové servery zónu hostují. DNS Azure používá fond názvových serverů, takže různým zónám se můžou v DNS Azure přiřadit různé názvové servery. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
 
-Pokud chcete tyto záznamy zobrazit, použijte `azure network dns-record-set show`.
+Pokud chcete tyto záznamy zobrazit, použijte příkaz `azure network dns-record-set list`:
 
-*Použití: network dns record-set show \<skupina_prostředků\> \<název_zóny_dns\> \<název\> \<typ\>*
+```azurecli
+azure network dns record-set list MyResourceGroup contoso.com
 
-Pokud tento příkaz v níže uvedeném příkladu spustíte se skupinou prostředků *myresourcegroup*, názvem sady záznamů *"@"* (pro kořenový záznam) a typem *SOA*, získáte tento výstup:
-
-    azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/SOA
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    SOA record:
-    data:      Email                         : msnhst.microsoft.com
-    data:      Expire time                   : 604800
-    data:      Host                          : edge1.azuredns-cloud.net
-    data:      Minimum TTL                   : 300
-    data:      Refresh time                  : 900
-    data:      Retry time                    : 300
-    data:                                    :
-
-Pokud chcete zobrazit záznamy NS vytvořené se zónou, použijte tento příkaz:
-
-    azure network dns record-set show myresourcegroup "contoso.com" "@" NS
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    NS records
-    data:        Name server domain name     : ns1-05.azure-dns.com
-    data:        Name server domain name     : ns2-05.azure-dns.net
-    data:        Name server domain name     : ns3-05.azure-dns.org
-    data:        Name server domain name     : ns4-05.azure-dns.info
-    data:
-    info:    network dns-record-set show command OK
+info:    Executing command network dns record-set list
++ Looking up the DNS Record Sets
+data:    Name                            : @
+data:    Type                            : NS
+data:    TTL                             : 172800
+data:    Records:
+data:      ns1-01.azure-dns.com.
+data:      ns2-01.azure-dns.net.
+data:      ns3-01.azure-dns.org.
+data:      ns4-01.azure-dns.info.
+data:
+data:    Name                            : @
+data:    Type                            : SOA
+data:    TTL                             : 3600
+data:    Email                           : azuredns-hostmaster.microsoft.com
+data:    Host                            : ns1-01.azure-dns.com.
+data:    Serial Number                   : 2
+data:    Refresh Time                    : 3600
+data:    Retry Time                      : 300
+data:    Expire Time                     : 2419200
+data:    Minimum TTL                     : 300
+data:
+info:    network dns record-set list command OK
+```
 
 > [!NOTE]
 > Sady záznamů v kořenovém adresáři (tj. *vrcholu*) zóny DNS používají jako název sady záznamu **@**.
 
-## <a name="test"></a>Test
+### <a name="test-name-servers"></a>Testování názvových serverů
 
-Zónu DNS můžete otestovat pomocí nástrojů DNS, jako je například nslookup, DIG nebo rutina `Resolve-DnsName` prostředí PowerShell.
+Přítomnost zóny DNS na názvových serverech DNS Azure můžete otestovat pomocí nástrojů DNS, jako je například nslookup, dig nebo rutina `Resolve-DnsName` prostředí PowerShell.
 
-Pokud jste doménu ještě nedelegovali k používání nové zóny v Azure DNS, je nutné dotaz DNS nasměrovat přímo na jeden z názvových serverů zóny. Názvové servery zóny jsou uvedené v záznamech NS, jejichž seznam se dá zobrazit příkazem „azure network dns record-set show“, viz výše. V níže uvedeném příkazu nezapomeňte dosadit správné hodnoty zóny.
+Pokud jste doménu ještě nedelegovali k používání nové zóny v Azure DNS, je nutné dotaz DNS nasměrovat přímo na jeden z názvových serverů zóny. Názvové servery zóny jsou uvedené v záznamech NS, které můžete zobrazit příkazem `azure network dns record-set list`.
 
-Následující příklad používá DIG k dotazu na doménu contoso.com pomocí názvových serverů přiřazených zóně DNS. Dotaz musí odkazovat na názvový server, u kterého jsme použili *@\<názvový_server_pro_zónu\>*, a název zóny, který používá DIG.
+Následující příklad používá nástroj dig k dotazu na doménu contoso.com pomocí názvových serverů přiřazených zóně DNS. Nezapomeňte dosadit správné hodnoty vaší zóny.
 
-     <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
+     > dig @ns1-01.azure-dns.com contoso.com
+     
+     <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
      Got answer:
@@ -187,8 +109,7 @@ Následující příklad používá DIG k dotazu na doménu contoso.com pomocí 
     contoso.com.                        IN      A
 
      AUTHORITY SECTION:
-    contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
-    msnhst.microsoft.com. 6 900 300 604800 300
+    contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
 
     Query time: 93 msec
     SERVER: 208.76.47.5#53(208.76.47.5)
@@ -197,11 +118,11 @@ Následující příklad používá DIG k dotazu na doménu contoso.com pomocí 
 
 ## <a name="next-steps"></a>Další kroky
 
-Po vytvoření zóny DNS vytvořte [sady záznamů a záznamy](dns-getstarted-create-recordset-cli.md), abyste mohli začít překládat názvy své internetové domény.
+Po vytvoření zóny DNS v ní [vytvořte záznamy a sady záznamů DNS](dns-getstarted-create-recordset-cli.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

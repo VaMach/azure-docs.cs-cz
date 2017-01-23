@@ -70,7 +70,7 @@ Fondy umožňují databázím sdílet a využívat prostředky (měřené v jedn
 
 V následující tabulce jsou popsané charakteristiky úrovní služeb fondů.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 Každá databáze ve fondu současně dodržuje pravidla pro izolované databáze určená danou úrovní. Například fond s úrovní Basic má omezení maximálního počtu relací na fond 4800 – 28800, ale jednotlivé databáze ve fondu Basic mají omezení 300 relací.
 

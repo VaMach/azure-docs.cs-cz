@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ K vývoji modelu prediktivní analýzy zpravidla použijete data z jednoho nebo 
 
 **Azure Machine Learning Studio** nabízí interaktivní vizuální pracovní prostor, abyste mohli snadno vytvářet, testovat a iterovat model prediktivní analýzy. Při práci přetahujete ***datové sady*** a analytické ***moduly*** na interaktivní ***plátno***, kde je vzájemně propojujete. Tím vzniká experiment, který pak spustíte v nástroji Machine Learning Studio. Iterace návrhu modelu probíhá tak, že experiment upravíte, v případě potřeby uložíte kopii, a spustíte jej znovu. Jakmile budete připraveni, můžete ***výukový experiment*** převést na ***prediktivní experiment*** a publikovat jej jako ***webovou službu***, aby k vašemu modelu měli přístup i jiní uživatelé.
 
+Nevyžaduje se žádné programování – model prediktivní analýzy se konstruuje vizuálním propojováním datových sad a modulů.
+
 > [!TIP]
 > Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-Nevyžaduje se žádné programování – model prediktivní analýzy se konstruuje vizuálním propojováním datových sad a modulů.
 
 ![Diagram nástroje Azure ML Studio: Vytváření experimentů, čtení dat z mnoha zdrojů, zápis dat se stanoveným skóre, zápis modelů][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Začínáme s nástrojem Machine Learning Studio
 Když poprvé vstoupíte do nástroje [Machine Learning Studio](https://studio.azureml.net), zobrazí se stránka **Domů**. Zde si můžete zobrazit dokumentaci, videa a webináře a najdete tu i další přínosné materiály.
 
-V horní části jsou tři karty: **Domů** (zde začínáte), **Studio** a **Galerie**.
+Vlevo nahoře klikněte na nabídku ![Nabídka](media/machine-learning-what-is-ml-studio/menu.png) a zobrazí se několik možností.
 
-### <a name="studio"></a>Studio
-Po kliknutí na kartu **Studio** se zobrazí výzva, abyste se přihlásili účtem Microsoft či školním nebo pracovním účtem. Jakmile se přihlásíte, na levé straně uvidíte následující karty:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Po kliknutí na **Cortana Intelligence** přejdete na domovskou stránku sady [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Cortana Intelligence Suite je plně spravovaná sada pro pokročilou analýzu velkých objemů dat, která vám umožní získat z dat užitečné informace. Úplnou dokumentaci, včetně příběhů zákazníků, najdete na domovské stránce sady.
+
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Tady jsou dvě možnosti – **Domů**, což je stránka, na které jste začali, a **Studio**.
+
+Kliknutím na **Studio** přejdete do nástroje **Azure Machine Learning Studio**. Nejprve se zobrazí výzva, abyste se přihlásili účtem Microsoft, případně školním nebo pracovním účtem. Jakmile se přihlásíte, na levé straně uvidíte následující karty:
 
 * **PROJEKTY** – Kolekce experimentů, datových sad, poznámkových bloků a jiných prostředků představující jeden objekt
-* **EXPERIMENTY** – Experimenty, které byly vytvořeny, spuštěny a uloženy jako koncepty
+* **EXPERIMENTY** – Experimenty, které jste vytvořili a spustili nebo uložili jako koncepty
 * **WEBOVÉ SLUŽBY** – Webové služby, které jste nasadili z experimentů
 * **POZNÁMKOVÉ BLOKY** – Jupyter Notebooks, které jste vytvořili
 * **DATOVÉ SADY** – Datové sady, které jste nahráli do nástroje Studio
@@ -59,7 +64,7 @@ Po kliknutí na kartu **Studio** se zobrazí výzva, abyste se přihlásili úč
 * **NASTAVENÍ** – Kolekce nastavení, kterou můžete použít ke konfiguraci účtu a prostředků
 
 ### <a name="gallery"></a>Galerie
-Po kliknutí na kartu **Galerie** přejdete na web Cortana Intelligence Gallery. Tato galerie je místo, kde komunita datových vědců a vývojářů může sdílet řešení vytvořená pomocí komponent sady Cortana Intelligence Suite.
+Kliknutím na **Galerie** přejdete na web **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. Galerie je místo, kde komunita datových vědců a vývojářů sdílí řešení vytvořená pomocí komponent sady Cortana Intelligence Suite.
 
 Další informace o galerii najdete v tématu [Sdílení a hledání řešení na webu Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -116,6 +121,6 @@ Jakmile je váš model prediktivní analýzy připraven, můžete jej přímo v 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

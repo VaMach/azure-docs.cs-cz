@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bf0ca0768939cbc99947191eab80a789f551363
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Aktuální výstrahy můžete zkontrolovat jejich prohlížením na dlaždici **
 1. Na řídicím panelu Security Center uvidíte dlaždici **Výstrahy zabezpečení**.
    
     ![Dlaždice Výstrahy zabezpečení ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Kliknutím na dlaždici **Výstrahy zabezpečení** otevřete okno, které obsahuje podrobnosti o výstrahách, jak je uvedeno dále.
    
    ![Okno Výstrahy zabezpečení ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 V dolní části tohoto okna jsou uvedené podrobnosti pro každou výstrahu. Chcete-li je seřadit, klikněte na sloupec, podle kterého chcete řadit. Definice pro každý sloupec je uvedená dále:
 
-* **Alert** (Výstraha): Stručné vysvětlení výstrahy.
+* **Description** (Popis): Stručné vysvětlení výstrahy.
 * **Count** (Počet): Seznam všech výstrah tohoto konkrétního typu, které byly zjištěny v určitý den.
 * **Detected by** (Zjistil): Služba, která je zodpovědná za aktivaci výstrahy.
 * **Date** (Datum): Datum, kdy došlo k události.
 * **State** (Stav): Aktuální stav výstrahy. Existují dva typy stavů:
-  
   * **Active** (Aktivní): Výstraha zabezpečení byla zjištěna.
-  * **Dismissed** (Zamítnuto): Výstraha zabezpečení byla uživatelem zamítnuta. Tento stav se obvykle používá pro výstrahy, které byly prozkoumány, ale buď zmírněny, nebo vyhodnoceny, že nedošlo ke skutečnému útoku.
 * **Severity** (Závažnost): Úroveň závažnosti, tj. vysoká, střední nebo nízká.
 
 ### <a name="filtering-alerts"></a>Filtrování výstrah
@@ -63,10 +62,7 @@ Výstrahy můžete filtrovat podle data, stavu nebo závažnosti. Filtrování v
 
 1. Klikněte v okně **Výstrahy zabezpečení** na **Filtr**. Otevře se okno **Filtr** a vy vyberte hodnoty pro datum, stav a závažnost výstrah, které chcete vidět.
    
-    ![Filtrování výstrah ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Po prozkoumání výstrahy zabezpečení můžete zjistit, že se jedná ve vašem prostředí o falešný poplach nebo o očekávané chování určitého prostředku. Pokud bez ohledu na důvod zjistíte, že výstraha zabezpečení není použitelná, můžete výstrahu zamítnout a pak ji odfiltrovat ze zobrazení. Existují dva způsoby zamítnutí výstrahy zabezpečení. Klikněte pravým tlačítkem na výstrahu a vyberte **Dismiss** (Zamítnout) nebo podržte ukazatel myši nad položku, klikněte na tři tečky, které se zobrazí napravo, a vyberte **Dismiss** (Zamítnout). Zamítnuté výstrahy zabezpečení můžete zobrazit kliknutím na **Filtr** a výběrem **Dismissed** (Zamítnuté).
-   
-   ![Zavírání výstrah ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtrování výstrah ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Reakce na výstrahy zabezpečení
 Vyberte výstrahu zabezpečení, abyste se dozvěděli další informace o událostech, které výstrahu vygenerovaly a kroky, pokud existují, které je třeba provést k nápravě útoku. Výstrahy zabezpečení jsou seskupené podle typu a data. Kliknutím na výstrahu zabezpečení se otevře okno obsahující seznam seskupených výstrah.
@@ -98,6 +94,6 @@ V tomto dokumentu jste zjistili, jak ve službě Security Center konfigurovat z�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
