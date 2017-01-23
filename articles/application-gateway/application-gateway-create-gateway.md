@@ -4,7 +4,7 @@ description: "Tahle stránka poskytuje pokyny pro vytvoření, konfiguraci, spu�
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: b78d8167ec5aacee34ed235637bc396f9b869a39
 
 
 ---
@@ -28,8 +28,6 @@ ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Šablona Azure Resource Manageru](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání, směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Application Gateway poskytuje mnoho funkcí Application Delivery Controlleru (ADC), včetně vyrovnávání zatížení protokolu HTTP, spřažení relace na základě souborů cookie, přesměrování zpracování SSL (Secure Sockets Layer), vlastních testů stavu, podpory více webů a mnoha dalších. Úplný seznam podporovaných funkcí najdete v tématu [Přehled služby Application Gateway](application-gateway-introduction.md).
 
@@ -43,6 +41,7 @@ Tenhle článek vás provede kroky k vytvoření, konfiguraci, spuštění a ods
 4. Servery, které nakonfigurujete pro použití služby Application Gateway, musí existovat nebo mít své koncové body vytvořené buď ve virtuální síti, nebo s přiřazenou veřejnou IP adresou nebo virtuální IP adresou.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Co je potřeba k vytvoření služby Application Gateway?
+
 Když k vytvoření služby Application Gateway použijete příkaz `New-AzureApplicationGateway`, v tomto bodě se nenastaví žádná konfigurace a nově vytvořený prostředek se konfiguruje buď pomocí XML, nebo objektu konfigurace.
 
 Hodnoty jsou:
@@ -63,8 +62,6 @@ Pro vytvoření nové aplikační brány:
 
 > [!NOTE]
 > Když potřebujete nakonfigurovat vlastní test paměti svojí aplikační brány, přečtěte si část [Vytvořit bránu s vlastními testy paměti pomocí prostředí PowerShell](application-gateway-create-probe-classic-ps.md). Další informace najdete v části [vlastní testy paměti a sledování stavu](application-gateway-probe-overview.md).
-> 
-> 
 
 ![Příklad scénáře][scenario]
 
@@ -72,7 +69,7 @@ Pro vytvoření nové aplikační brány:
 
 Pokud chcete vytvořit bránu, použijte rutinu `New-AzureApplicationGateway` a zadejte vlastní hodnoty. Fakturace brány se nespustí v tomhle okamžiku. Fakturace začíná v pozdější fázi, po úspěšném spuštění brány.
 
-Následující příklad vytvoří aplikační bránu pomocí virtuální sítě s názvem „testvnet1“ a podsítě s názvem „subnet-1“.
+Následující příklad vytvoří aplikační bránu pomocí virtuální sítě s názvem testvnet1 a podsítě s názvem subnet-1:
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -100,8 +97,6 @@ DnsName       :
 
 > [!NOTE]
 > Výchozí hodnota *InstanceCount* je 2, přičemž maximální hodnota je 10. Výchozí hodnota *GatewaySize* je Medium (Střední). Můžete vybrat mezi Malá, Střední a Velká.
-> 
-> 
 
 Hodnoty *VirtualIPs* a *DnsName* se zobrazují jako prázdné, protože se brána ještě nespustila. Vytvoří se, jakmile bude brána v běžícím stavu.
 
@@ -166,8 +161,6 @@ Upravte hodnoty položek konfigurace v závorkách. Uložte soubor s příponou 
 
 > [!IMPORTANT]
 > Položka protokolu Http nebo Https rozlišuje velká a malá písmena.
-> 
-> 
 
 Následující příklad ukazuje, jak použít konfigurační soubor k nastavení služby Application Gateway. V příkladu se vyrovnává zatížení provozu HTTP na veřejném portu 80 a síťový provoz mezi dvěma IP adresami se odesílá na port back-end 80.
 
@@ -229,9 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 Následující příklad ukazuje, jak se provádí konfigurace aplikační brány pomocí objektu konfigurace. Všechny položky konfigurace se musí nakonfigurovat individuálně a potom se musí přidat k objektu konfigurace aplikační brány. Po vytvoření objektu konfigurace použijte příkaz `Set-AzureApplicationGateway` pro potvrzení konfigurace k předem vytvořenému prostředku služby Application Gateway.
 
 > [!NOTE]
-> Před přiřazením hodnoty každému objektu konfigurace musíte deklarovat, který typ objektu používá prostředí PowerShell pro úložiště. První řádek vytvoření individuálních položek definuje, jaký model **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(název objektu)** se použije.
-> 
-> 
+> Před přiřazením hodnoty každému objektu konfigurace musíte deklarovat, který typ objektu používá prostředí PowerShell pro úložiště. První řádek vytvoření jednotlivých položek definuje, jaký model `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` se použije.
 
 ### <a name="step-1"></a>Krok 1
 
@@ -363,8 +354,6 @@ Jakmile se brána nakonfiguruje, pomocí rutiny `Start-AzureApplicationGateway` 
 
 > [!NOTE]
 > Dokončení rutiny `Start-AzureApplicationGateway` může trvat 15 až 20 minut.
-> 
-> 
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
@@ -454,10 +443,10 @@ Pokud chcete další informace o obecných možnostech vyrovnávání zatížen�
 * [Nástroj pro vyrovnávání zatížení Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-[scénář]: ./media/application-gateway-create-gateway/scenario.png
+[scenario]: ./media/application-gateway-create-gateway/scenario.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
