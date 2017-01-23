@@ -3,7 +3,7 @@ title: "Azure Active Directory B2C: Volání webového rozhraní API z aplikace 
 description: "V tomto článku se dozvíte, jak vytvořit aplikaci „seznam úkolů“ pro iOS, která volá webové rozhraní API Node.js pomocí nosných tokenů OAuth 2.0 přes knihovnu třetí strany"
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: objectivec
 ms.topic: hero-article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
-# <a name="azure-ad-b2c-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: Volání webového rozhraní API z aplikace pro iOS s použitím knihovny třetích stran
+# <a name="azure-ad-b2c--call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: Volání webového rozhraní API z aplikace pro iOS s použitím knihovny třetích stran
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Platforma Microsoft identity používá otevřené standardy, jako je například OAuth2 nebo OpenID Connect. To umožňuje vývojářům využívat všechny knihovny, které chtějí integrovat do našich služeb. Abychom vývojářům usnadnili používání naší platformy i s ostatními knihovnami, napsali jsme několik návodů, jako je tento. Popisují, jak nakonfigurovat knihovny třetích stran tak, aby se daly připojit k platformě Microsoft identity. Většinu knihoven, které implementují [specifikace RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749), bude možné připojit k platformě Microsoft Identity.
@@ -28,9 +28,9 @@ Platforma Microsoft identity používá otevřené standardy, jako je napříkla
 Pokud jste ještě nikdy nepracovali s OAuth2 nebo OpenID Connect, pak vám tahle vzorová konfigurace možná nebude moc dávat smysl. Doporučujeme prohlédnout si stručný [přehled protokolu, který uvádíme tady](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Některé funkce naší platformy, které mají vyjádření v rámci těchto standardů (například podmíněný přístup nebo správa zásad služby Intune), vyžadují, abyste použili open source knihovny identit Microsoft Azure. 
-> 
-> 
+> Některé funkce naší platformy, které mají vyjádření v rámci těchto standardů (například podmíněný přístup nebo správa zásad služby Intune), vyžadují, abyste použili open source knihovny identit Microsoft Azure.
+>
+>
 
 Na platformě B2C nejsou podporovány úplně všechny scénáře a funkce Azure Active Directory.  Pokud chcete zjistit, zda byste měli používat platformu B2C, přečtěte si článek [o omezeních B2C](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá i
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Vytvořte svoje zásady
-V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tahle aplikace obsahuje možnosti pro jednu identitu: kombinované přihlášení a registraci. Tuto zásadu je třeba vytvořit pro každý typ činnosti, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Při vytváření zásady nezapomeňte na následující:
+V Azure AD B2C je každé uživatelské rozhraní definováno [zásadou](active-directory-b2c-reference-policies.md). Tahle aplikace obsahuje možnosti pro jednu identitu: kombinované přihlášení a registraci. Tuto zásadu je třeba vytvořit pro každý typ činnosti, jak je popsáno v [článku o zásadách](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Při vytváření zásady nezapomeňte na následující:
 
 * Ve vytvářené zásadě zvolit **zobrazovaný název** a atributy registrace.
 * Zvolit deklarace identity aplikace **Zobrazovaný název** a **ID objektu** v každé zásadě. Můžete zvolit i další deklarace identity.
@@ -63,7 +63,7 @@ Kód k tomuto kurzu je udržovaný [na GitHubu](https://github.com/Azure-Samples
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Můžete si také stáhnout kompletní kód a začít ihned: 
+Můžete si také stáhnout kompletní kód a začít ihned:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ Potřebujeme vytvořit úložiště účtů AccountStore a pak do něj vložit d
 
 V této chvíli bychom vás v souvislosti se službou B2C chtěli upozornit na několik věcí, které vám pomohou lépe porozumět tomuto kódu:
 
-1. Azure AD B2C používá *zásadu*, která je uvedena v parametrech dotazů pro zpracování vašeho požadavku. To umožňuje službě Azure Active Directory fungovat nezávisle, pouze pro vaši aplikaci. Abychom mohli poskytnout tyhle zvláštní parametry dotazů, potřebujeme poskytnout metodu `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` s parametry našich vlastních zásad. 
+1. Azure AD B2C používá *zásadu*, která je uvedena v parametrech dotazů pro zpracování vašeho požadavku. To umožňuje službě Azure Active Directory fungovat nezávisle, pouze pro vaši aplikaci. Abychom mohli poskytnout tyhle zvláštní parametry dotazů, potřebujeme poskytnout metodu `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` s parametry našich vlastních zásad.
 2. Azure AD B2C používá obory téměř stejným způsobem jako ostatní servery OAuth2. Protože se při používání B2C řeší ověřování uživatele i přístup k prostředkům, jsou ke správnému fungování toku některé obory naprosto nezbytné. Tohle je obor `openid`. Obor `openid` vám automaticky poskytují naše sady SDK Microsoft identity, takže jej v konfiguraci sady SDK neuvidíte. Protože ale používáme knihovnu třetí strany, musíme tento obor specifikovat.
 
 ```objc
@@ -274,7 +274,7 @@ V této chvíli bychom vás v souvislosti se službou B2C chtěli upozornit na n
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Dále zkontrolujte, zda ji opravdu voláte v AppDelegate pod metodou `didFinishLaunchingWithOptions:`. 
+Dále zkontrolujte, zda ji opravdu voláte v AppDelegate pod metodou `didFinishLaunchingWithOptions:`.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ Vytvoříme každou z níže uvedených metod.
 
 > [!NOTE]
 > Nezapomeňte vytvořit vazbu `loginView` na aktuální webové zobrazení, které je obsaženo ve scénáři. Jinak nebudete mít webové zobrazení, které se automaticky otevře, když je čas na ověření.
-> 
-> 
+>
+>
 
 * Vytvořte třídu `LoginViewController.m`
 * Přidejte několik proměnných, které budou během ověřování přenášet stav
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Musíme webovému zobrazení sdělit, jak se má chovat, když se uživatel pot�
 
 * Napište kód pro zpracování výsledku požadavku OAuth2
 
-Potřebujeme kód, který bude zpracovávat redirectURL, která se vrací z webového zobrazení. Pokud se to nepodařilo, zkusíme to znovu. Mezitím knihovna zahlásí chybu, kterou uvidíte v konzole, nebo kterou nesynchronně zpracujete. 
+Potřebujeme kód, který bude zpracovávat redirectURL, která se vrací z webového zobrazení. Pokud se to nepodařilo, zkusíme to znovu. Mezitím knihovna zahlásí chybu, kterou uvidíte v konzole, nebo kterou nesynchronně zpracujete.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ Vytvoříme metodu, kterou budeme volat pokaždé, když obdržíme požadavek n
 Tím jste vytvořili hlavní způsob, jakým budeme pracovat s naší aplikací pro přihlašování. Až se přihlásíme, bude třeba použít tokeny, které jsme obdrželi. Za tímto účelem vytvoříme pomocný kód, který zavolá API služby REST s použitím této knihovny.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Vytvoření třídy `GraphAPICaller` pro zpracování našich požadavků na rozhraní API služby REST
-Pokaždé, když načteme aplikaci, načte se nám i konfigurace. Jakmile obdržíme token, musíme s ním něco udělat. 
+Pokaždé, když načteme aplikaci, načte se nám i konfigurace. Jakmile obdržíme token, musíme s ním něco udělat.
 
 * Vytvořte soubor `GraphAPICaller.h`
 
@@ -511,7 +511,7 @@ Nyní jsme vytvořili rozhraní a můžeme přidat aktuální implementaci:
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Nyní jsme vytvořili rozhraní a můžeme přidat aktuální implementaci:
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ Nyní se můžete přesunout k pokročilejším tématům o B2C. Můžete vyzkou
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Práce s šablonami Azure Resource Manageru ve Visual Studio Code
-Šablony Azure Resource Manageru jsou soubory JSON, které popisují prostředek a související závislosti. Tyto soubory mohou být někdy velké a složité, proto jsou důležité podpůrné nástroje. Visual Studio Code je nový, jednoduchý, open source editor kódu pro různé platformy. Podporuje vytváření a úpravy šablon Resource Manageru prostřednictvím [nového rozšíření](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code běží všude a nevyžaduje přístup k internetu, pokud nechcete své šablony Resource Manageru také rovnou nasadit.
+Šablony Azure Resource Manageru jsou soubory JSON, které popisují prostředek a související závislosti. Tyto soubory mohou být někdy velké a složité, proto jsou důležité podpůrné nástroje. Visual Studio Code je nový, jednoduchý, open source editor kódu pro různé platformy. Podporuje vytváření a úpravy šablon Resource Manageru prostřednictvím [nového rozšíření](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code běží všude a přístup k internetu vyžaduje pouze pokud chcete nasadit své šablony Resource Manageru do předplatného Azure.
 
 Pokud VS Code ještě nemáte, můžete si jej nainstalovat z adresy [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ V předchozích krocích byla nainstalována podpora nástrojů, nyní je však 
 
 1. Zkopírujte obsah souboru z úložiště [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) do schránky.
 2. Spusťte VS Code 
-3. Ve VS Code můžete otevřít soubor fragmentů JSON buď tak, že přejdete do **File** (Soubor)  -> **Preferences** (předvolby)  -> **User Snippets** (uživatelské úryvky)  -> **JSON**, nebo vyberte **F1** a začnete zadávat **preferences**, abyste mohli vybrat **Preferences: Snippets**.
+3. Ve VS Code můžete otevřít soubor fragmentů JSON tak, že přejdete do **File** (Soubor) -> **Preferences** (Předvolby) -> **User Snippets** (Uživatelské fragmenty) -> **JSON**. Nebo stiskněte **F1** a začněte zadávat **preferences**, abyste mohli vybrat **Preferences: Snippets** (Předvolby: Fragmenty).
    
     ![předvolby fragmentů](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,19 +61,19 @@ Nejjednodušší způsob, jak začít pracovat s šablonou, je buď stáhnout si
 1. Pokud jste exportovali šablonu ze skupiny prostředků, otevřete extrahované soubory ve VS Code.
    
     ![zobrazení souborů](./media/resource-manager-vs-code/show-files.png)
-2. Otevřete soubor template.json, abyste jej mohli upravit a přidat některé další prostředky. Za **"resources": [** přidejte stisknutím klávesy enter nový řádek.. Pokud zadáte **arm**, zobrazí se seznam možností. Tyto možnosti jsou fragmenty šablony, které jste nainstalovali. Mělo by to vypadat takto: 
+2. Otevřete soubor template.json, abyste jej mohli upravit a přidat některé další prostředky. Za `"resources": [` přidejte stisknutím klávesy Enter nový řádek. Pokud zadáte **arm**, zobrazí se seznam možností. Tyto možnosti jsou fragmenty šablony, které jste nainstalovali. 
    
     ![zobrazení fragmentů](./media/resource-manager-vs-code/type-snippets.png)
-3. Zvolte požadovaný fragment. V tomto článku volíme **arm ip**, abychom vytvořili novou veřejnou IP adresu. Za uzavírací závorku „}“ nově vytvořeného prostředku vložte čárku, abyste byla syntaxe šablony platná.
+3. Zvolte požadovaný fragment. V tomto článku volíme **arm ip**, abychom vytvořili novou veřejnou IP adresu. Za uzavírací závorku `}` nově vytvořeného prostředku vložte čárku, aby byla syntaxe šablony platná.
    
      ![přidání čárky](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code má integrovanou technologii IntelliSense. Při úpravách šablony VS Code navrhuje dostupné hodnoty. Pokud například chcete přidat do šablony část proměnné, přidejte **""** (dvě dvojité uvozovky) a mezi těmito uvozovkami vyberte **Ctrl + mezerník**. Zobrazí se možnosti, mezi nimi **variables** (proměnné).
+4. VS Code má integrovanou technologii IntelliSense. Při úpravách šablony VS Code navrhuje dostupné hodnoty. Pokud například chcete přidat do šablony část proměnné, přidejte `""` (dvě dvojité uvozovky) a mezi těmito uvozovkami stiskněte **Ctrl + mezerník**. Zobrazí se možnosti, mezi nimi **variables** (proměnné).
    
     ![přidání proměnných](./media/resource-manager-vs-code/add-variables.png)
-5. Technologie IntelliSense může také navrhovat dostupné hodnoty nebo funkce. Pokud chcete nastavit vlastnost na hodnotu parametru, vytvořte výraz s **"[]"** a **Ctrl + mezerník**. Můžete začít zadávat název funkce. Po nalezení požadované funkce stiskněte klávesu **Tab**.
+5. Technologie IntelliSense může také navrhovat dostupné hodnoty nebo funkce. Pokud chcete nastavit vlastnost na hodnotu parametru, vytvořte výraz s `"[]"` a **Ctrl + mezerník**. Můžete začít zadávat název funkce. Po nalezení požadované funkce stiskněte klávesu **Tab**.
    
     ![přidání parametru](./media/resource-manager-vs-code/select-parameters.png)
-6. Uvnitř funkce znovu vyberte **Ctrl + mezerník**, tím zobrazíte seznam dostupných parametrů ve vaší šabloně.
+6. Pokud chcete zobrazit seznam dostupných parametrů ve vaší šabloně, znovu stiskněte **Ctrl + mezerník** uvnitř funkce.
    
     ![přidání parametru](./media/resource-manager-vs-code/select-avail-parameters.png)
 7. Pokud jsou v šabloně jakékoli problémy s ověřením schématu, zobrazí se v editoru známé podtržení vlnovkou. Seznam chyb a upozornění můžete zobrazit zadáním **Ctrl + Shift + M** nebo výběrem piktogramů v levém dolním stavovém řádku.
@@ -89,31 +89,47 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
 
 ### <a name="windows"></a>Windows
 1. Otevřete příkazový řádek prostředí PowerShell. 
-2. Přihlaste se zadáním příkazu: 
+2. Pro přihlášení zadejte: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Pokud máte více předplatných, získejte seznam předplatných příkazem:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     A vyberte předplatné, které chcete použít.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Aktualizujte parametry v souboru parameters.json.
 5. Spuštěním Deploy.ps1 nasaďte svou šablonu do služby Azure.
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Otevřete okno terminálu. 
-2. Přihlaste se zadáním příkazu:
-   
-        azure login 
+2. Pro přihlášení zadejte:
+
+  ```azurecli
+  azure login
+  ```
+
 3. Pokud máte více předplatných, vyberte správné předplatné příkazem:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Aktualizujte parametry v souboru parameters.json.
 5. Nasaďte šablonu (pokud chcete) příkazem:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Další kroky
 * Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
@@ -123,6 +139,6 @@ Když je šablona připravena, můžete nasadit nové prostředky podle následu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

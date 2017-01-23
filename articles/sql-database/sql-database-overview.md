@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -27,7 +27,7 @@ Toto téma obsahuje přehled databází SQL Azure. Informace o logických SQL se
 ## <a name="what-is-azure-sql-database"></a>Co je databáze SQL Azure?
 Každá databáze ve službě Azure SQL Database je přidružená k logickému serveru. Databáze může být:
 
-- Samostatná databáze s [vlastní sadou prostředků](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
+- Izolovaná databáze s [vlastní sadou prostředků](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
 - Součástí [elastického fondu](sql-database-elastic-pool.md), který [sdílí sadu prostředků](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU)
 - Součástí [sady horizontálně dělených databází s horizontálním navýšením kapacity](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling); tyto databáze můžou být buď izolované, nebo součástí fondu
 - Součástí sady databází, které se podílejí na [vzoru návrhu SaaS pro více klientů](sql-database-design-patterns-multi-tenancy-saas-applications.md); tyto databáze můžou být buď izolované, nebo součástí fondu (nebo obojí) 
@@ -65,12 +65,12 @@ Logické servery Azure SQL Database můžete spravovat několika způsoby:
 - Přehled logických SQL serverů Azure najdete v tématu [Přehled logického serveru SQL Database](sql-database-server-overview.md).
 - Informace o podpoře a odlišnostech jazyka Transact-SQL najdete v tématu [Odlišnosti jazyka Transact-SQL ve službě Azure SQL Database](sql-database-transact-sql-information.md).
 - Informace o konkrétních kvótách a omezeních prostředků závisí na vaší **úrovni služeb**. Přehled úrovní služeb najdete v tématu [Úrovně služeb SQL Database](sql-database-service-tiers.md).
-- Pokyny pro zabezpečení najdete v tématu [Omezení a pokyny pro zabezpečení služby Azure SQL Database](sql-database-security-guidelines.md).
+- Přehled funkcí zabezpečení najdete v tématu [Přehled zabezpečení služby Azure SQL Database](sql-database-security-overview.md).
 - Informace o dostupnosti a podpoře ovladačů pro službu SQL Database najdete v tématu [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

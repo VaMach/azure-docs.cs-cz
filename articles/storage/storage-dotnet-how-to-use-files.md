@@ -3,7 +3,7 @@ title: "Začínáme s Azure File Storage ve Windows | Dokumentace Microsoftu"
 description: "Ukládejte data souborů do cloudu pomocí Azure File Storage a připojte svou cloudovou sdílenou složku z virtuálního počítače Azure nebo z lokální aplikace s Windows."
 services: storage
 documentationcenter: .net
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
@@ -12,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
-ms.author: minet
+/ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
 ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
 ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
@@ -667,6 +667,7 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 * [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Nastavení trvalých připojení k Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+
 
 
 <!--HONumber=Dec16_HO1-->

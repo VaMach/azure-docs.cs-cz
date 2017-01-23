@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ Na dlaždici **Stav zabezpečení prostředku** můžete sledovat stav zabezpeč
 
 ![Dlaždice stavu zabezpečení prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Pokud Security Center identifikuje ohrožení zabezpečení, které je potřeba řešit, jako je například virtuální počítač s chybějícími aktualizacemi zabezpečení nebo podsíť bez [skupiny zabezpečení sítě](../virtual-network/virtual-networks-nsg.md), budou zde uvedené.
+Pokud Security Center identifikuje ohrožení zabezpečení, které je potřeba řešit, jako je například virtuální počítač s chybějícími aktualizacemi zabezpečení nebo podsíť bez [skupiny zabezpečení sítě](/virtual-network/virtual-networks-nsg.md), budou zde uvedené.
 
 ### <a name="monitor-virtual-machines"></a>Monitorování virtuálních počítačů
 Po kliknutí na **Virtuální počítače** na dlaždici **Stav zabezpečení prostředku** se otevře okno **Virtuální počítače** s dalšími podrobnostmi o připojování a preventivních krocích a seznamem všech virtuálních počítačů, které monitoruje Security Center, jak je znázorněno na následujícím snímku obrazovky.
@@ -162,22 +162,22 @@ Tato tabulka je řazená podle závažnosti (virtuální počítače a podsítě
 * Oranžová: Střední priorita, mělo by se řešit co nejdříve.
 * Zelená (poslední): Stav v pořádku.
 
-V tomto zobrazení topologie obsahuje první úroveň [virtuální sítě](../virtual-network/virtual-networks-overview.md), [brány virtuální sítě](../vpn-gateway/vpn-gateway-site-to-site-create.md) a [virtuální sítě (klasické)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Na druhé úrovni jsou podsítě a na třetí úrovni virtuální počítače, které patří do těchto podsítí. V pravém sloupci je aktuální stav skupiny zabezpečení sítě pro tyto prostředky, jak ukazuje následující příklad:
+V tomto zobrazení topologie obsahuje první úroveň [virtuální sítě](../virtual-network/virtual-networks-overview.md), [brány virtuální sítě](/vpn-gateway/vpn-gateway-site-to-site-create.md) a [virtuální sítě (klasické)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Na druhé úrovni jsou podsítě a na třetí úrovni virtuální počítače, které patří do těchto podsítí. V pravém sloupci je aktuální stav skupiny zabezpečení sítě pro tyto prostředky, jak ukazuje následující příklad:
 
 ![Stav skupiny zabezpečení sítě v části topologie sítě](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 Dolní část tohoto okna obsahuje doporučení pro tento virtuální počítač, podobně jako jsme už uváděli dříve. Kliknutím na doporučení získáte další informace nebo použijete potřebný ovládací prvek zabezpečení nebo konfiguraci zabezpečení.
 
 ### <a name="monitor-data"></a>Monitorování dat
-Když kliknete na **Data** na dlaždici **Stav zabezpečení prostředku**, otevře se okno **SQL** s doporučeními pro problémy, jako je zakázané auditování nebo transparentní šifrování dat. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze.
+Když kliknete na **Data** na dlaždici **Stav zabezpečení prostředků**, otevře se okno **Datové prostředky** s doporučeními pro SQL a službu Storage. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze. Další informace o šifrování úložiště najdete v tématu Povolení šifrování účtu úložiště Azure v Azure Security Center.
 
-![Stav prostředků SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Datové prostředky](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Můžete kliknout na jakékoli doporučení a získáte další podrobnosti o další akci pro řešení problému. Následující příklad ukazuje rozbalení doporučení **Auditování databáze nepovoleno**.
+V části **Doporučení SQL** můžete kliknout na jakékoli doporučení a získáte další podrobnosti o další akci pro řešení problému. Následující příklad ukazuje rozbalení doporučení **Auditování databáze a detekce hrozeb u databází SQL**.
 
-![Podrobnosti o doporučení SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Podrobnosti o doporučení SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Okno **Povolit auditování u databází SQL** obsahuje následující informace:
+Okno **Povolit auditování a detekci hrozeb u databází SQL** obsahuje následující informace:
 
 * Seznam databází SQL
 * Server, na kterém jsou umístěné
@@ -185,14 +185,15 @@ Okno **Povolit auditování u databází SQL** obsahuje následující informace
 * Aktuální stav
 * Závažnosti problému
 
-Když kliknete na databázi, abyste vyřešili toto doporučení, otevře se okno **Auditování a detekce hrozeb**, jak je znázorněno na následujícím snímku obrazovky.
+Když kliknete na databázi, abyste vyřešili toto doporučení, otevře se okno **Auditování a detekce hrozeb**, jak je znázorněno na následující obrazovce.
 
 ![Okno Auditování a detekce hrozeb](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Pokud chcete povolit auditování, vyberte **Zapnuto** pod možností **Auditování**.
 
 ### <a name="monitor-applications"></a>Monitorování aplikací
-Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../azure-resource-manager/resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Preventivní kroky**. Také ukazuje rozpis aplikací na hostitele nebo virtuální IP adresu, jak je znázorněno na následujícím snímku obrazovky.
+
+Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../azure-resource-manager/resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Doporučení pro aplikace**. Také ukazuje rozpis aplikací na hostitele nebo virtuální IP adresu, jak je znázorněno na následujícím snímku obrazovky.
 
 ![Stav zabezpečení aplikací](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +217,6 @@ V tomto článku jste zjistili, jak ve službě Azure Security Center používat
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

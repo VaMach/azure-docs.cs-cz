@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Připojení ke clusteru Azure Container Service
 Clustery DC/OS, Kubernetes a Docker Swarm nasazené v Azure Container Service zpřístupňují koncové body REST.  V případě Kubernetes je tento koncový bod bezpečně zpřístupněn na internetu a můžete k němu přímo přistupovat z libovolného počítače připojeného k internetu. V případě DC/OS a Docker Swarm je nutné pro možnost bezpečného připojení ke koncovému bodu REST vytvořit tunel SSH. Jednotlivá připojení jsou popsána níže.
+
+> [!NOTE]
+> Podpora pro Kubernetes je v Azure Container Service momentálně ve verzi preview.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Připojení ke clusteru Kubernetes
 Pokud se chcete připojit ke clusteru Kubernetes, musíte mít nainstalovaný nástroj příkazového řádku `kubectl`.  Nejjednodušším způsobem, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 `az`.
@@ -51,13 +55,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Pokud jste v systému Windows, budete muset použít Bash na Ubuntu ve Windows nebo nástroj PuTTY „pscp“.
 
-Jakmile bude `kubectl` nakonfigurovaný, můžete ho otestovat pomocí příkazu:
+Jakmile bude `kubectl` nakonfigurovaný, můžete ho otestovat uvedením uzlů ve vašem clusteru:
 
 ```console
 kubectl get nodes
 ```
 
-který by měl zobrazit uzly ve vašem clusteru.
+Nakonec můžete zobrazit řídicí panel Kubernetes. Nejprve je potřeba provést:
+
+```console
+kubectl proxy
+```
+
+Uživatelské rozhraní Kubernetes je nyní k dispozici na adrese: http://localhost:8001/ui
 
 Další pokyny najdete v tématu [Rychlé představení Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
 
@@ -166,6 +176,6 @@ Nasazení a správa kontejnerů pomocí DC/OS nebo Swarmu:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

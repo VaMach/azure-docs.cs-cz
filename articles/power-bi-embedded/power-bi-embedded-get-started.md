@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
 
 Prostředky pro **Microsoft Power BI Embedded** se zřizují prostřednictvím [rozhraní API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). V tomto případě je prostředkem, který zřídíte, **kolekce Pracovních prostorů Power BI**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Vytvoření kolekce pracovních prostorů
 **Kolekce pracovních prostorů** je prostředek Azure nejvyšší úrovně a kontejner pro obsah, který se vloží do vaší aplikace. **Kolekci pracovních prostorů** lze vytvořit dvěma způsoby:
@@ -39,16 +39,16 @@ Projděme si postup pro sestavení **kolekce pracovních prostorů** na webu Azu
 1. Otevřete a přihlaste se k **webu Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Klikněte na **+ Nový** na horním panelu.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. V části **Data + analýzy** klikněte na **Power BI Embedded**.
 4. V **okně pro vytvoření** zadejte požadované informace. Pokud jde o **cenu**, nahlédněte do [cen za Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klikněte na **Vytvořit**.
 
 Zřizování **kolekce pracovních prostorů** bude chvíli trvat. Po dokončení se otevře **okno kolekce pracovních prostorů**.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 Toto **okno pro vytvoření** obsahuje informace potřebné k volání rozhraní API, která slouží k vytváření pracovních prostorů a nasazování obsahu do nich.
 
@@ -57,11 +57,11 @@ Toto **okno pro vytvoření** obsahuje informace potřebné k volání rozhraní
 ## <a name="view-power-bi-api-access-keys"></a>Zobrazení přístupových klíčů k rozhraním API v Power BI
 Jednou z nejdůležitějších informací potřebných k volání rozhraní REST API pro Power BI jsou **přístupové klíče**. Na jejich základě se generují **tokeny aplikací** používané k ověřování vašich žádostí o rozhraní API. Pokud si chcete **přístupové klíče** zobrazit, klikněte na **Přístupové klíče** v **okně Nastavení**. Další informace o **tokenech aplikace** naleznete v části [Ověřování a autorizace pomocí Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 Jak si všimnete, máte dva klíče.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Zkopírujte tyto klíče a zabezpečeně je uložte do své aplikace. Je velmi důležité, abyste s těmito klíči zacházeli jako s heslem, protože poskytují přístup k veškerému obsahu ve vaší **kolekci pracovních prostorů**.
 
@@ -70,7 +70,10 @@ Ačkoli jsou uvedeny dva klíče, najednou je zapotřebí pouze jeden z nich. Dr
 Nyní když máte instanci Power BI pro vaši aplikaci a **přístupové klíče**, můžete do vlastní aplikace naimportovat sestavu. Než si řekneme, jak sestavu importovat, dozvíte se v další části, jak vytvářet datové sady a sestavy Power BI určené pro vložení do aplikace.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Vytváření datových sad a sestav Power BI určených pro vložení do aplikace
-Nyní když jste si pro svou aplikaci vytvořili instanci Power BI a máte **přístupové klíče**, musíte si vytvořit datové sady a sestavy Power BI, které do ní chcete vložit. Datové sady a sestavy lze vytvořit pomocí **Power BI Desktop**. [Power BI Desktop si můžete stáhnout zdarma](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Nebo pokud chcete rychle začít, můžete si stáhnout [ukázkový soubor PBIX prodejní analýzy](http://go.microsoft.com/fwlink/?LinkID=780547). Další informace o použití **Power BI Desktop** najdete v části [Začínáme s Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Nyní když jste si pro svou aplikaci vytvořili instanci Power BI a máte **přístupové klíče**, musíte si vytvořit datové sady a sestavy Power BI, které do ní chcete vložit. Datové sady a sestavy lze vytvořit pomocí **Power BI Desktop**. [Power BI Desktop si můžete stáhnout zdarma](https://go.microsoft.com/fwlink/?LinkId=521662). Nebo pokud chcete rychle začít, můžete si stáhnout [ukázkový soubor PBIX prodejní analýzy](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Další informace o použití **Power BI Desktop** najdete v části [Začínáme s Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Se službou **Power BI Desktop** se ke zdroji dat připojíte importem kopie dat do **Power BI Desktop** nebo přímým připojením zdroje dat pomocí **DirectQuery**.
 
@@ -86,14 +89,11 @@ Po uložení práce v **Power BI Desktop** se vytvoří soubor PBIX. Tento soubo
 
 > [!NOTE]
 > **Power BI Embedded** má další rozhraní API pro změnu serveru a databáze, na které datová sada odkazuje, a nastavení přihlašovacích údajů pro účet služby, který datová sada bude používat pro připojení k databázi. Viz [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) a [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
-> 
-> 
 
 ## <a name="next-steps"></a>Další kroky
 V předchozích krocích jste vytvořili kolekci pracovních prostorů a první sestavu a datovou sadu. Nyní je čas se dozvědět, jak napsat kód pro **Power BI Embedded**. Abychom vám pomohli začít, vytvořili jsme ukázkovou webovou aplikaci: [Začínáme s ukázkou](power-bi-embedded-get-started-sample.md). Na ukázce se dozvíte, jak:
 
 * Zřídit obsah
-  
   * Vytvořit pracovní prostor
   * Naimportovat soubor PBIX
   * Aktualizovat připojovací řetězce a nastavit přihlašovací údaje pro vaše datové sady
@@ -104,9 +104,11 @@ V předchozích krocích jste vytvořili kolekci pracovních prostorů a první 
 * [Ověřování a autorizace s Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Chcete se ještě na něco zeptat? [Vyzkoušejte komunitu Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

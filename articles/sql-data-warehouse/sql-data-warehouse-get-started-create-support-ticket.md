@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Jak vytvořit lístek podpory pro SQL Data Warehouse
-Pokud byste měli s SQL Data Warehouse nějaké problémy, můžete si vytvořit lístek podpory, aby vám mohl náš technický tým pomoct.
+Pokud máte se službou SQL Data Warehouse nějaké problémy, můžete si vytvořit lístek podpory, aby vám mohl náš technický tým pomoct.
+
+> [!NOTE] 
+> Od 20. 12. 2016 je kontrola stavu prostředků na webu Azure Portal nepřesná. Na vyřešení tohoto problému aktivně pracujeme. 
+
 
 ## <a name="create-a-support-ticket"></a>Vytvoření lístku podpory
-1. Otevřete [portál Azure Portal][portál Azure Portal].
+1. Otevřete [Azure Portal][Azure portal].
 2. Na domovské obrazovce klikněte na dlaždici **Nápovědy a podpora**.
    
     ![Nápověda a podpora](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -38,7 +42,7 @@ Pokud byste měli s SQL Data Warehouse nějaké problémy, můžete si vytvořit
     ![Typ žádosti](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
    
    > [!NOTE]
-   > Ve výchozím nastavení obsahuje každý server SQL (např. myserver.database.windows.net) **kvóty DTU** o hodnotě 45 000. Tato kvóta je jednoduše bezpečnostní omezení. Kvótu můžete zvýšit vytvořením lístku podpory a výběrem *kvóty* jako typu požadavku. Pokud chcete vypočítat potřebnou DTU, vynásobte celkovou potřebnou [DWU][DWU] číslem 7,5. Pokud například chcete hostovat dvě DW6000 na jednom serveru SQL, měli byste požadovat kvóty DTU o hodnotě 90 000.  Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. 
+   > Ve výchozím nastavení obsahuje každý server SQL (např. myserver.database.windows.net) **kvóty DTU** o hodnotě 45 000. Tato kvóta je jednoduše bezpečnostní omezení. Kvótu můžete zvýšit vytvořením lístku podpory a výběrem *kvóty* jako typu požadavku. Chcete-li vypočítat potřebné DTU, vynásobte celkové potřebné [DWU][DWU] číslem 7,5. Pokud například chcete hostovat dvě DW6000 na jednom serveru SQL, měli byste požadovat kvóty DTU o hodnotě 90 000.  Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. 
    > 
    > 
 5. Vyberte **předplatné**, pod které spadá databáze s problémem, který chcete nahlásit.
@@ -47,13 +51,13 @@ Pokud byste měli s SQL Data Warehouse nějaké problémy, můžete si vytvořit
 6. Jako prostředek vyberte **SQL Data Warehouse**.
    
     ![Prostředek](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Vyberte svůj [plán podpory Azure][plán podpory Azure].
+7. Vyberte svůj [plán podpory Azure][Azure support plan].
    
    * **Podpora k fakturaci, správě kvót a předplatného** je k dispozici na všech úrovních podpory.
-   * **Podpora k problémům vyžadujícím opravu** je poskytována prostřednictvím podpory [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] nebo [Premier][Premier]. Problémy vyžadující opravu jsou problémy, které mají zákazníci při používání Azure a u kterých se dá předpokládat, že je způsobila společnosti Microsoft.
-   * V rámci podpory na úrovních [Professional Direct][Professional Direct] a [Premier][Premier] jsou k dispozici služby **mentorování vývojářů** a **poradenské služby**. 
+   * Podpora k problémům vyžadujícím **opravu** je poskytována prostřednictvím plánů podpory [Developer Support][Developer], [Standard Support][Standard], [Professional Direct][Professional Direct] nebo [Premier Support][Premier]. Problémy vyžadující opravu jsou problémy, které mají zákazníci při používání Azure a u kterých se dá předpokládat, že je způsobila společnosti Microsoft.
+   * V rámci podpory na úrovni plánů [Professional Direct][Professional Direct] a [Premier Support][Premier] jsou k dispozici služby **mentorování vývojářů** a **poradenské služby**. 
      
-     Pokud máte plán podpory Premier Support, můžete také problémy týkající se SQL Data Warehouse nahlásit na [online portálu Microsoft Premier][online portálu Microsoft Premier].  Další informace o různých plánech podpory, včetně rozsahu, doby odezvy, cen atd. najdete v tématu věnovaném [plánům podpory Azure][plán podpory Azure].  Nejčastější dotazy týkající se podpory Azure najdete v [nejčastějších dotazech týkajících se podpory Azure][nejčastějších dotazech týkajících se podpory Azure].  
+     Pokud máte plán podpory Premier Support, můžete také problémy týkající se služby SQL Data Warehouse nahlásit na [online portálu Microsoft Premier][Microsoft Premier online portal].  Další informace o různých plánech podpory, včetně rozsahu, doby odezvy, cen atd. najdete v tématu věnovaném [plánům podpory Azure][Azure support plan].  Nejčastější dotazy týkající se podpory Azure najdete v [nejčastějších dotazech týkajících se podpory k Azure][Azure support FAQs].  
      
      ![Plán podpory](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. Vyberte **typ problému** a **kategorii**.
@@ -73,7 +77,7 @@ Po odeslání žádosti o podporu vás bude kontaktovat tým podpory Azure. Poku
 ![Zkontrolování stavu](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Další prostředky
-Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow][Stack Overflow] nebo na [fóru pro Azure SQL Data Warehouse na MSDN][fóru pro Azure SQL Data Warehouse na MSDN].
+Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow][Stack Overflow] nebo na [fóru pro Azure SQL Data Warehouse na webu MSDN][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[portál Azure Portal]: https://portal.azure.com/
-[plán podpory Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
 [Developer]: https://azure.microsoft.com/support/plans/developer/  
 [Standard]: https://azure.microsoft.com/support/plans/standard/  
 [Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
 [Premier]: https://azure.microsoft.com/support/plans/premier/  
-[nejčastějších dotazech týkajících se podpory Azure]: https://azure.microsoft.com/support/faq/
-[online portálu Microsoft Premier]: https://premier.microsoft.com/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[fóru pro Azure SQL Data Warehouse na MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

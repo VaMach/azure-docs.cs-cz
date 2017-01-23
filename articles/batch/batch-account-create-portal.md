@@ -3,7 +3,7 @@ title: "Vytvoření účtu Azure Batch | Dokumentace Microsoftu"
 description: "Naučte se vytvořit účet Azure Batch na webu Azure Portal, abyste mohli spouštět velké paralelní úlohy v cloudu."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
 Přečtěte si, jak vytvořit účet Azure Batch na webu [Azure Portal][azure_portal] a kde najít důležité vlastnosti účtu, jako jsou přístupové klíče a adresy URL účtu. Probereme také ceny účtů Batch a propojení účtu Azure Storage s účtem Batch, mohli používat [balíčky aplikací](batch-application-packages.md) a [zachovat výstup úloh a úkolů](batch-task-output.md).
 
 ## <a name="create-a-batch-account"></a>Vytvoření účtu Batch
-1. Přihlaste se k webu [Azure Portal][azure_portal].
+1. Přihlaste se na web [Azure Portal][azure_portal].
 2. Klikněte na **Nový** > **Compute** > **Batch Service**.
    
     ![Batch na webu Marketplace][marketplace_portal]
@@ -83,7 +83,7 @@ Doporučujeme vytvořit účet úložiště pro výhradní použití vaším ú�
 > 
 > 
 
-  ![Opakované generování klíčů k účtu úložiště][4]
+  ![Obnovování klíčů účtu úložiště][4]
 
 ## <a name="batch-service-quotas-and-limits"></a>Kvóty a omezení služby Batch
 Pamatujte, že podobně jako pro předplatné a další služby Azure, i pro účty Batch platí určité [kvóty a omezení](batch-quota-limit.md). Aktuální kvóty účtu Batch se zobrazují na portálu ve **vlastnostech** účtu.
@@ -113,7 +113,7 @@ Kromě webu Azure Portal můžete účty Batch vytvářet a spravovat následuj�
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[4]: ./media/batch-account-create-portal/batch_acct_04.png "Opakované generování klíčů k účtu úložiště"
+[4]: ./media/batch-account-create-portal/batch_acct_04.png "Obnovování klíčů účtu úložiště"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
@@ -124,6 +124,6 @@ Kromě webu Azure Portal můžete účty Batch vytvářet a spravovat následuj�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

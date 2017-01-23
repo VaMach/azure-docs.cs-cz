@@ -84,6 +84,6 @@ Tento skript vytvoří novou skupinu prostředků Azure a nový server. Po výzv
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

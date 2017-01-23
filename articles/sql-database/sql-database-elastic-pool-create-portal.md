@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření nového elastického fondu pomocí portálu Azure Portal | Dokumentace Microsoftu"
-description: "Jak přidat škálovatelný fond elastické databáze do konfigurace vaší databáze SQL pro snazší administraci a sdílení prostředků mezi mnoha databázemi."
+description: "Jak přidat škálovatelný elastický fond do konfigurace vaší databáze SQL pro snazší administraci a sdílení prostředků mezi mnoha databázemi."
 keywords: "škálovatelná databáze, konfigurace databáze"
 services: sql-database
 documentationcenter: 
@@ -9,20 +9,20 @@ manager: jhubbard
 editor: 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
 ms.workload: data-management
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1a0b8609acd99ec188f92a32ed4cb44a68edc3b2
-ms.openlocfilehash: 54deca0518d82de59a58e02fc38693179c486b64
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Vytvoření nového fondu elastické databáze pomocí portálu Azure
+# <a name="create-a-new-elastic-pool-with-the-azure-portal"></a>Vytvoření nového elastického fondu pomocí webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: 54deca0518d82de59a58e02fc38693179c486b64
 
 Tento článek ukazuje, jak vytvořit [elastický fond](sql-database-elastic-pool.md) pomocí webu [Azure Portal](https://portal.azure.com/). Fond můžete vytvořit dvěma způsoby. Pokud znáte cílovou konfiguraci fondu, můžete ho vytvořit od začátku sami, nebo můžete začít s fondem, který vám doporučí služba. SQL Database má vestavěné inteligentní algoritmy, které vám na základě historické telemetrie využívání vašich databází doporučí konfiguraci fondu, pokud bude cenově výhodnější než aktuální stav.
 
-Můžete přidat více fondů na jeden server, ale nemůžete přidat databáze z různých serverů do stejného fondu. K vytvoření fondu potřebujete nejméně jednu databázi na serveru verze 12. Pokud žádnou nemáte, přečtěte si téma [Vytvoření první databáze Azure SQL](sql-database-get-started.md). Můžete vytvořit fond obsahující jen jednu databázi, ale fondy jsou cenově efektivní, pouze pokud obsahují více databází. Viz článek [Cenové a výkonové požadavky fondu elastické databáze](sql-database-elastic-pool-guidance.md).
+Můžete přidat více fondů na jeden server, ale nemůžete přidat databáze z různých serverů do stejného fondu. K vytvoření fondu potřebujete nejméně jednu databázi na serveru verze 12. Pokud žádnou nemáte, přečtěte si téma [Vytvoření první databáze Azure SQL](sql-database-get-started.md). Můžete vytvořit fond obsahující jen jednu databázi, ale fondy jsou cenově efektivní, pouze pokud obsahují více databází. Viz [Cenové a výkonové požadavky elastického fondu](sql-database-elastic-pool-guidance.md).
 
 > [!NOTE]
 > Elastické fondy jsou obecně dostupné ve všech oblastech Azure s výjimkou oblasti Západní Indie, kde jsou aktuálně ve verzi Preview.  Verze GA pro elastické fondy se v této oblasti objeví co nejdřív.
@@ -58,7 +58,7 @@ Tento článek ukazuje, jak vytvořit nový fond z existujícího okna **serveru
 
     ![doporučený fond](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-3. Objeví se okno **Fond elastické databáze**, ve kterém můžete zadat nastavení pro svůj fond. Pokud jste v některém z předchozích kroků klikli na **Nový fond**, ve výchozím nastavení bude cenová úroveň **Standard** a nebudou ještě vybrané žádné databáze. Můžete vytvořit prázdný fond nebo zadat sadu existujících databází z daného serveru, které se mají přesunout do fondu. Pokud vytváříte doporučený fond, doporučená cenová úroveň, nastavení výkonu a seznam databází budou předem vyplněné, ale stále je můžete změnit.
+3. Otevře se okno **elastického fondu**, ve kterém můžete zadat nastavení pro svůj fond. Pokud jste v některém z předchozích kroků klikli na **Nový fond**, ve výchozím nastavení bude cenová úroveň **Standard** a nebudou ještě vybrané žádné databáze. Můžete vytvořit prázdný fond nebo zadat sadu existujících databází z daného serveru, které se mají přesunout do fondu. Pokud vytváříte doporučený fond, doporučená cenová úroveň, nastavení výkonu a seznam databází budou předem vyplněné, ale stále je můžete změnit.
 
     ![Konfigurace elastického fondu](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
@@ -89,7 +89,7 @@ Po nastavení cenové úrovně klikněte na tlačítko Konfigurovat fond a násl
 
     Pokud databáze, s kterými pracujete, mají dostatek historických telemetrických dat, graf **Odhadované eDTU a využití GB** a pruhový graf **Skutečné využití eDTU** se aktualizují, aby vám pomohly s rozhodováním o hodnotách konfigurace. Služba vám také může zobrazovat doporučení s cílem nastavit optimální velikost fondu. Viz část [Dynamická doporučení](#dynamic-recommendations).
 
-3. Pomocí ovládacích prvků na stránce **Konfigurace fondu** můžete zkontrolovat nastavení a konfigurovat fond. V tématu [Omezení elastických fondů](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) najdete podrobnosti o omezeních pro jednotlivé úrovně služby a téma [Cenové a výkonové požadavky fondů elastické databáze](sql-database-elastic-pool-guidance.md) obsahuje podrobné pokyny k optimalizaci velikosti fondu. Další podrobnosti o nastavení fondu najdete v tématu [Vlastnosti elastického fondu](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Pomocí ovládacích prvků na stránce **Konfigurace fondu** můžete zkontrolovat nastavení a konfigurovat fond. V tématu [Omezení elastických fondů](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) najdete podrobnosti o omezeních pro jednotlivé úrovně služby a téma [Cenové a výkonové požadavky elastických fondů](sql-database-elastic-pool-guidance.md) obsahuje podrobné pokyny k optimalizaci velikosti fondu. Další podrobnosti o nastavení fondu najdete v tématu [Vlastnosti elastického fondu](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Konfigurace elastického fondu](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -110,7 +110,7 @@ Doporučení fondu zahrnuje:
 - hodnoty **eDTU MAX** a **eDTU MIN** pro každou databázi,
 - seznam doporučených databází pro fond.
 
-Při vytváření doporučení bere služba v úvahu telemetrická data za posledních 30 dní. Aby databáze mohla být zařazena mezi doporučené pro fond elastické databáze, musí existovat alespoň 7 dní. Databáze, které již ve fondu elastické databáze jsou, se nepovažují za kandidáty pro doporučení fondu elastické databáze.
+Při vytváření doporučení bere služba v úvahu telemetrická data za posledních 30 dní. Aby databáze mohla být zařazena mezi kandidáty pro elastický fond, musí existovat alespoň 7 dní. Databáze, které již v elastickém fondu jsou, se nepovažují za kandidáty pro doporučení elastického fondu.
 
 Služba vyhodnocuje potřebné prostředky a cenovou výhodnost přesunu jednotlivých databází v každé úrovni služby do fondu ve stejné úrovni. Například pro všechny databáze na serveru, které jsou v úrovni Standard, se zvažuje výhodnost jejich přesunu do elastického fondu také s úrovní Standard. To znamená, že služba nikdy nenavrhne přesun databáze mezi úrovněmi, například přesun databáze s úrovní Standard do fondu s úrovní Premium.
 
@@ -129,6 +129,6 @@ Po přidání databází do fondu se dynamicky vygeneruje doporučení na zákla
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: c7cb4b872723e07b720c87ecef9d9d8f136c25eb
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -156,11 +156,11 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 - Přehled databází SQL Azure najdete v tématu [Přehled služby SQL Database](sql-database-overview.md).
 - Informace o podpoře a odlišnostech jazyka Transact-SQL najdete v tématu [Odlišnosti jazyka Transact-SQL ve službě Azure SQL Database](sql-database-transact-sql-information.md).
 - Informace o konkrétních kvótách a omezeních prostředků závisí na vaší **úrovni služeb**. Přehled úrovní služeb najdete v tématu [Úrovně služeb SQL Database](sql-database-service-tiers.md).
-- Pokyny pro zabezpečení najdete v tématu [Omezení a pokyny pro zabezpečení služby Azure SQL Database](sql-database-security-guidelines.md).
+- Přehled funkcí zabezpečení najdete v tématu [Přehled zabezpečení služby Azure SQL Database](sql-database-security-overview.md).
 - Informace o dostupnosti a podpoře ovladačů pro službu SQL Database najdete v tématu [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
