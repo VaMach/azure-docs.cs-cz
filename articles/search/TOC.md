@@ -61,14 +61,13 @@
 
 # Referenční informace
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [Rozhraní .NET pro správu](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (správa)](/dotnet/api/microsoft.azure.management.search)
+## [Python (správa)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (správa)](/rest/api/searchmanagement)
 
 # Zdroje a prostředky
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
-## Rozhraní API služby Search
 ## [Verze rozhraní API](search-api-versions.md)
 ## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

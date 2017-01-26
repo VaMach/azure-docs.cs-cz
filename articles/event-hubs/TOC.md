@@ -16,7 +16,9 @@
 ### [Upozornění uživatelů na data přijatá ze senzorů](event-hubs-sensors-notify-users.md)
 ### [Ukázková aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ### [Horizontální zvyšování kapacity zpracování událostí pomocí ukázkové aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+
 ## Spravovat
+### [Knihovny pro správu služby Service Bus](event-hubs-management-libraries.md)
 ### [Event Hubs Archive](event-hubs-archive-overview.md)
 ### [Povolení funkce Event Hubs Archive pomocí šablony](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 ### [Streamování dat Diagnostiky Azure pomocí Event Hubs](event-hubs-streaming-azure-diags-data.md)
@@ -40,6 +42,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

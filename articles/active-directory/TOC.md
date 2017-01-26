@@ -139,12 +139,15 @@
 
 ### [Umožnění vzdáleného přístupu k aplikacím](active-directory-application-proxy-get-started.md)
 #### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
-#### [Publikování aplikací](active-directory-application-proxy-publish.md)
+#### Publikování aplikací
+##### [Azure Portal](application-proxy-publish-azure-portal.md)
+##### [Portál Classic](active-directory-application-proxy-publish.md)
 #### Publikování v samostatných sítích
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Portál Classic](active-directory-application-proxy-connectors.md)
 #### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
 #### [Jednotné přihlašování](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Aplikace pracující s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
 #### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
 #### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +215,7 @@
 #### [Formát souboru CSV](active-directory-b2b-references-csv-file-format.md)
 #### [Uživatelské objekty](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [Tokeny uživatele](active-directory-b2b-references-external-user-token-format.md)
-### [Integrace místních identit pomocí Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrace místních identit pomocí Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegování přístupu k prostředkům
@@ -284,7 +287,8 @@
 
 # Související
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD pro vývojáře](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

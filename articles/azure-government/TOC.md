@@ -18,6 +18,9 @@
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Předplatné](documentation-government-manage-subscriptions.md)
+## Nasazení
+### Web a mobilní zařízení
+#### [App Services](documentation-government-howto-deploy-webandmobile.md)
 
 # Referenční informace
 ## [Služby](documentation-government-services.md)
@@ -27,12 +30,14 @@
 ### [Sítě](documentation-government-networking.md)
 ### [Zabezpečení a identita](documentation-government-services-securityandidentity.md)
 ### [Monitorování a správa](documentation-government-services-monitoringandmanagement.md)
+### [Webové a mobilní služby](documentation-government-services-webandmobile.md)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/)
 ## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

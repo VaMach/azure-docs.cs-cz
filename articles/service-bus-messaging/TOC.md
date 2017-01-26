@@ -1,9 +1,10 @@
 # Přehled
-## [Co je Service Bus Messaging?](service-bus-queues-topics-subscriptions.md)
-## [Srovnání front Azure a front Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [Co je Service Bus Messaging?](service-bus-messaging-overview.md)
+## [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Nejčastější dotazy](service-bus-faq.md)
 
 # Začínáme
+## [Sestavení vícevrstvé aplikace Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Vytvoření oboru názvů](service-bus-create-namespace-portal.md)
 ## Použití front
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -24,11 +25,13 @@
 
 # Postup
 ## Plánování a návrh
+### [Srovnání front Azure a front Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)
 ### [Asynchronní zasílání zpráv a vysoká dostupnost](service-bus-async-messaging.md)
 ### [Zvládání výpadků a havárií](service-bus-outages-disasters.md)
 
 ## Vývoj
+### [Fronty, témata a odběry](service-bus-queues-topics-subscriptions.md)
 ### [Aplikace, které používají fronty](service-bus-create-queues.md)
 ### [Aplikace, které používají témata nebo předplatná](service-bus-create-topics-subscriptions.md)
 ### [Ověřování a autorizace](service-bus-authentication-and-authorization.md)
@@ -46,7 +49,9 @@
 ### [Použití AMQP s dělenými frontami a tématy](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Spárované obory názvů](service-bus-paired-namespaces.md)
 ### [Spojení entit s automatickým přeposíláním](service-bus-auto-forwarding.md)
-## Správa
+
+## Spravovat
+### [Knihovny pro správu Service Bus](service-bus-management-libraries.md)
 ### [Použití šablon Azure Resource Manageru](service-bus-resource-manager-overview.md)
 ### [Použití PowerShellu ke zřizování entit](service-bus-powershell-how-to-provision.md)
 
@@ -75,6 +80,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

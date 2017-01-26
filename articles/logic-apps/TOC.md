@@ -61,6 +61,7 @@
 ### [Publikování z VS](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Spravovat
+### [Použití průzkumníka Visual Studio Cloud Explorer](../app-service-logic/app-service-logic-manage-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Monitorování Logic Apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Monitorování zpráv B2B](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Schéma sledování AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -78,7 +79,7 @@
 ### [Preview](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [REST](/rest/api/logic/)
 
-## Schéma roku 2014 (před GA)
+## Schéma roku&2014; (před GA)
 ### [Konektor Azure Resource](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Souborový konektor](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -89,6 +90,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

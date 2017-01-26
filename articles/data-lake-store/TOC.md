@@ -29,6 +29,13 @@
 ### [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md)
 ### [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Výkon
+### [Průvodce laděním výkonu pro Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Průvodce laděním výkonu pro Spark ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Průvodce laděním výkonu pro Hive ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Průvodce laděním výkonu pro MapReduce ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Průvodce laděním výkonu pro Storm ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+
 ## Integrace se službami Azure
 ### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -44,6 +51,7 @@
 ## Spravovat
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
 ### [Plánování pro vysokou dostupnost](data-lake-store-troubleshooting-guidance.md)
+### [Průvodce laděním výkonu](data-lake-store-performance-tuning-guidance.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
@@ -64,6 +72,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

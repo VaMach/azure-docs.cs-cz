@@ -3,6 +3,8 @@
 ## [Hodí se pro vás?](active-directory-ds-comparison.md)
 ## [Funkce](active-directory-ds-features.md)
 ## [Scénáře](active-directory-ds-scenarios.md)
+## [Jak funguje synchronizace](active-directory-ds-synchronization.md)
+## [Kompatibilní software jiných výrobců](active-directory-ds-compatible-software.md)
 
 # Začínáme
 ## [Vytvoření skupiny pro správu](active-directory-ds-getting-started.md)
@@ -21,8 +23,8 @@
 ## [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
 ## [Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Vytvoření OU ve spravované doméně](active-directory-ds-admin-guide-create-ou.md)
+## [Správa zásad skupiny ve spravované doméně](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Výběr virtuální sítě](active-directory-ds-networking.md)
-## [Synchronizace s místním adresářem](active-directory-ds-synchronization.md)
 
 ## Řešení potíží
 ### [Nejčastější dotazy](active-directory-ds-faqs.md)
@@ -33,13 +35,13 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Zdroje a prostředky 
+# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Fórum Azure AD pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Kontaktujte nás](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

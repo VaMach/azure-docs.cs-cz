@@ -17,14 +17,16 @@
 ### [Mapování sítě](site-recovery-network-mapping.md)
 ### [Mapování úložiště mezi místními lokalitami](site-recovery-storage-mapping.md)
 ## Replikace
-### [Virtuální počítače VMWare a servery do Azure](site-recovery-vmware-to-azure.md)
-### [Virtuální počítače VMWare a servery na sekundární lokalitu](site-recovery-vmware-to-vmware.md)
+### [Virtuální počítače VMware a fyzické servery do Azure](site-recovery-vmware-to-azure.md)
+### [Virtuální počítače VMware a fyzické servery do sekundární lokality](site-recovery-vmware-to-vmware.md)
+### [Virtuální počítače VMware s podporou více tenantů do pomocí programu CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Virtuální počítače Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
 ### [Virtuální počítače Hyper-V do Azure (bez VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Virtuální počítače Hyper-V na sekundární lokalitu](site-recovery-vmm-to-vmm.md)
 ### [Virtuální počítače Hyper-V na sekundární lokalitu se sítí SAN](site-recovery-vmm-san.md)
 ### [Virtuální počítače Hyper-V s jedním serverem VMM](site-recovery-single-vmm.md)
 ## Migrace
+### [Migrace do Azure](site-recovery-migrate-to-azure.md)
 ### [Migrace mezi oblastmi Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Instance Windows AWS do Azure](site-recovery-migrate-aws-to-azure.md)
 ## Úlohy
@@ -64,6 +66,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
