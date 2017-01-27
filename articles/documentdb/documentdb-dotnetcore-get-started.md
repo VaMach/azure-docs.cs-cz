@@ -1,23 +1,22 @@
 ---
 title: 'Kurz k NoSQL: Sada DocumentDB .NET Core SDK | Dokumentace Microsoftu'
 description: "Kurz k NoSQL, v rámci kterého se vytvoří online databáze a konzolová aplikace v jazyce C# pomocí sady DocumentDB .NET Core SDK. DocumentDB je databáze NoSQL pro JSON."
-keywords: "kurz nosql, online databáze konzolová aplikace jazyka c#"
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -49,6 +48,9 @@ Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://git
 
 Potom prosím použijte hlasovací tlačítka v horní nebo dolní části stránky, abychom získali zpětnou vazbu. Pokud chcete, abychom vás kontaktovali přímo, můžete nám nechat e-mailovou adresu v komentářích.
 
+> [!NOTE]
+> Sada DocumentDB .NET Core SDK použitá v tomto kurzu není ještě kompatibilní s aplikacemi pro univerzální platformu Windows (UWP). Verzi Preview sady .NET Core SDK, která podporuje aplikace UWP, pošlete e-mail na adresu [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
 Můžeme začít!
 
 ## <a name="prerequisites"></a>Předpoklady
@@ -70,10 +72,10 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 1. Otevřete v počítači **Visual Studio 2015**.
 2. V nabídce **Soubor** vyberte **Nový** a zvolte **Projekt**.
 3. V dialogovém okně **Nový projekt** vyberte **Šablony** / **Visual C#** / **.NET Core**/**Konzolová aplikace (.NET Core)**, pojmenujte projekt a pak klikněte na **OK**.
-   ![Snímek obrazovky okna Nový projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Snímek obrazovky okna Nový projekt](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. V **Průzkumníku řešení** klikněte pravým tlačítkem na novou konzolovou aplikaci v rámci řešení v nástroji Visual Studio.
 5. Nabídku neopouštějte a klikněte na **Spravovat balíčky NuGet**.
-   ![Snímek obrazovky místní nabídky projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Snímek obrazovky místní nabídky projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
 7. Ve výsledcích vyhledejte **Microsoft.Azure.DocumentDB.Core** a klikněte na **Nainstalovat**.
    ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core).
@@ -367,7 +369,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili dva dokumenty DocumentDB.  
 
-![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
 DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi DocumentDB SQL, tak LINQ – které spouštíme oproti dokumentům vloženým v předchozím kroku.
@@ -421,7 +423,7 @@ Blahopřejeme! Úspěšně jste provedli dotaz proti kolekci DocumentDB.
 
 Následující diagram ilustruje, jak se volá syntaxe dotazu DocumentDB SQL proti kolekci, kterou jste vytvořili. Stejná logika platí také pro dotaz LINQ.
 
-![Diagram ilustrující obor a význam dotazu použitého v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram ilustrující obor a význam dotazu použitého v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Klíčové slovo [FROM](documentdb-sql-query.md#from-clause) je v dotazu volitelné, protože dotazy DocumentDB již mají obor nastaven na jedinou kolekci. Proto je možné příkaz „FROM Families f“ vyměnit za „FROM root r“ nebo jakoukoli jinou proměnnou, kterou si zvolíte. DocumentDB standardně vyvodí, že Families, root nebo zvolený název proměnné odkazují na aktuální kolekci.
 
@@ -556,11 +558,10 @@ Pokud chcete obnovit odkazy na sadu DocumentDB .NET Core SDK v sadě Visual Stud
 * Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

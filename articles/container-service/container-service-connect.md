@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 01/12/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: ea59ff3f527d051e01baf12f596ff44af8a0dfc1
-ms.openlocfilehash: 7fe3bc6a5eab1d1b9a8b73ab3c88f9808817369a
+ms.sourcegitcommit: 2549ca9cd05f44f644687bbdf588f7af01bae3f4
+ms.openlocfilehash: 79162e5d31346370e596f39fa4827d49625897b3
 
 
 ---
@@ -43,7 +43,7 @@ Podle následujícího postupu nainstalujete a nakonfigurujete `kubectl` ve vaš
 > 
 
 ### <a name="install-kubectl"></a>Instalace kubectl
-Jedním ze způsobů, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 (Preview) `az acs kubernetes install cli`. Pokud chcete spustit tento příkaz, ujistěte se, že jste [nainstalovali](/cli/azure/install-az-cli2) nejnovější příkazový řádek Azure CLI 2.0 (Preview) a jste přihlášení k účtu Azure (`az login`).
+Jedním ze způsobů, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 (Preview) `az acs kubernetes install-cli`. Pokud chcete spustit tento příkaz, ujistěte se, že jste [nainstalovali](/cli/azure/install-az-cli2) nejnovější příkazový řádek Azure CLI 2.0 (Preview) a jste přihlášení k účtu Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -211,6 +211,6 @@ Nasazení a správa kontejnerů ve vašem clusteru:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
