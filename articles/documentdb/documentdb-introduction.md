@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: cb1fd606fa03650980a02325b82774ce9ef8cf77
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,7 +44,7 @@ Azure DocumentDB nabízí následující klíčové funkce a výhody:
 * **Přizpůsobitelné úrovně konzistence:** Pro dosažení optimálního poměru mezi konzistencí a výkonem si můžete vybrat ze čtyř dobře definovaných úrovní konzistence. Pro dotazy a operace čtení DocumentDB nabízí čtyři úrovně konzistence: silnou, s ohraničenou odolností, založenou na relaci a případnou. Tyto podrobné, dobře definované úrovně konzistence umožňují zvolit vhodný poměr mezi konzistencí, dostupností a latencí. Další informace najdete v tématu o [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu v DocumentDB](documentdb-consistency-levels.md).
 * **Plně spravovaná služba:** Není nutné spravovat prostředky databáze a počítačů. DocumentDB je plně spravovaná služba Microsoft Azure – nepotřebujete spravovat virtuální počítače, nasazovat a konfigurovat software, spravovat škálování nebo řešit komplexní upgradování datové vrstvy. Každá databáze je automaticky zálohována a chráněna proti selháním v dané oblasti. Snadno si můžete přidat účet DocumentDB a zřídit kapacitu podle potřeby. Díky tomu se můžete soustředit na svou aplikaci, ne na provoz a správu databáze. 
 * **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s DocumentDB je jednoduché, srozumitelné a nevyžaduje, abyste se naučili pracovat s novými nástroji nebo využívali vlastní rozšíření technologií JSON nebo JavaScript. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. DocumentDB pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
-* **Automatické indexování:** DocumentDB ve výchozím nastavení [automaticky indexuje](documentdb-indexing.md) všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
+* **Automatické indexování:** DocumentDB ve výchozím nastavení automaticky indexuje všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
 
 ## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak DocumentDB spravuje data?
 Azure DocumentDB spravuje data JSON prostřednictvím dobře definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
@@ -103,6 +103,6 @@ Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu k
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

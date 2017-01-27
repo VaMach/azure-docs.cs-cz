@@ -1,5 +1,5 @@
 ---
-title: "Vícevrstvá aplikace .NET | Dokumentace Microsoftu"
+title: "Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus | Dokumentace Microsoftu"
 description: "Kurz .NET, který vám pomůže vytvořit vícevrstvou aplikaci v Azure, která používá fronty Service Bus ke komunikaci mezi vrstvami."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
+ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
 
 
 ---
@@ -33,7 +33,7 @@ Naučíte se:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-V tomto kurzu sestavíte a spustíte vícevrstvou aplikaci v cloudové službě Azure. Front-endem bude webová role ASP.NET MVC a back-endem bude role pracovního procesu, která používá frontu Service Bus. Můžete vytvořit stejnou vícevrstvou aplikaci s front-endem jako webový projekt, který je nasazený do webové stránky Azure namísto cloudové služby. Pokyny k tomu, co je potřeba udělat jinak na front-endu webové stránky Azure, najdete v části [Další kroky](#nextsteps). Taky můžete vyzkoušet kurz [Hybridní lokální/cloudová aplikace .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+V tomto kurzu sestavíte a spustíte vícevrstvou aplikaci v cloudové službě Azure. Front-endem je webová role ASP.NET MVC a back-endem je role pracovního procesu, která používá frontu Service Bus. Můžete vytvořit stejnou vícevrstvou aplikaci s front-endem jako webový projekt, který není nasazený do cloudové služby, ale na web Azure. Pokyny k tomu, co je potřeba udělat jinak na front-endu webové stránky Azure, najdete v části [Další kroky](#nextsteps). Taky můžete vyzkoušet kurz [Hybridní lokální/cloudová aplikace .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Na následujícím snímku obrazovky je vidět hotová aplikace.
 
@@ -61,8 +61,8 @@ V následující části se probírá kód, který tuto architekturu implementuj
 ## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
-1. Nainstalujte si Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK][Stažení nástrojů a SDK].
-2. Klikněte na **Instalovat sadu SDK** pro verzi Visual Studia, kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
+1. Nainstalujte si Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK](https://azure.microsoft.com/downloads/).
+2. Ve sloupci **.NET** klikněte na verzi sady Visual Studio, kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
 3. Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 4. V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
 5. Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu. Pokud nemáte Visual Studio nainstalované, SDK taky nainstaluje bezplatnou verzi Visual Studio Express.
@@ -109,7 +109,7 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
 
 1. V souboru OnlineOrder.cs ve Visual Studiu nahraďte existující definici oboru názvů následujícím kódem.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +121,14 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
    ```
 2. V **Průzkumníku řešení** poklikejte na **Controllers\HomeController.cs**. Na začátek souboru přidejte následující příkazy **using**, které přidají obory názvů pro model, který jste právě vytvořili, a pro Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. v souboru HomeController.cs ve Visual Studiu taky místo existující definice oboru názvů zadejte následující kód. Tento kód obsahuje metody pro zpracování odesílání položek do fronty.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +193,7 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
     ![][28]
 11. Nakonec upravte stránku pro odesílání tak, aby obsahovala nějaké informace o frontě. V **Průzkumníku řešení** poklikejte na soubor **Views\Home\Submit.cshtml** a otevře se v editoru Visual Studio. Po `<h2>Submit</h2>` přidejte následující řádek. Hodnota `ViewBag.MessageCount` je zatím prázdná. Zaplníte ji později.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Teď je implementované vaše uživatelské prostředí. Stisknutím klávesy **F5** můžete spustit svoji aplikaci a zkontrolovat, že vypadá tak, jak má.
@@ -207,7 +207,7 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
 2. Zadejte název třídy **QueueConnector.cs**. Klikněte na **Přidat** a třída se vytvoří.
 3. Teď přidejte kód, který bude obsahovat informace o připojení a inicializovat připojení k frontě Service Bus. Celý obsah souboru QueueConnector.cs nahraďte následujícím kódem a zadejte hodnoty pro `your Service Bus namespace` (název vašeho oboru názvů) a `yourKey` – to je **primární klíč**, který jste předtím získali z webu Azure Portal.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +269,13 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
 4. Teď musíte zajistit, aby se vaše metoda **Initialize** volala. V **Průzkumníku řešení** poklikejte na **Global.asax\Global.asax.cs**.
 5. Přidejte následující řádek na konec metody **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Nakonec aktualizujte webový kód, který jste vytvořili předtím, aby se položky odesílaly do fronty. V **Průzkumníku řešení** poklikejte na **Controllers\HomeController.cs**.
 7. Aktualizujte metodu `Submit()` (přetížení, které nepřijímá žádné parametry) následujícím způsobem, aby se získal počet zpráv pro frontu.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +291,7 @@ Teď přidejte kód pro odesílání položek do fronty. Nejdřív vytvořte tř
    ```
 8. Aktualizujte metodu `Submit(OnlineOrder order)` (přetížení, které přijímá jeden parametr) následujícím způsobem, aby se do fronty odesílaly informace o objednávce.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +334,18 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
 10. Přejděte do podsložky pro **FrontendWebRole\Models** a poklikejte na **OnlineOrder.cs**, tím ho přidáte do projektu.
 11. Ve **WorkerRole.cs** změňte hodnotu proměnné **QueueName** z `"ProcessingQueue"` na `"OrdersQueue"`, jak je vidět v následujícím kódu.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Na začátek souboru WorkerRole.cs přidejte následující příkaz using.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. Ve funkci `Run()` ve volání `OnMessage()` místo obsahu klauzule `try` vložte následující kód.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +362,16 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
 Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Stránka služeb Service Bus][sbwacom]  
-* [Jak používat fronty služby Service Bus][sbwacomqhowto]  
+* [Stránka služby Service Bus][sbacom]  
+* [Jak používat fronty Service Bus][sbacomqhowto]  
 
 Další informace o víceúrovňových scénářích najdete v:  
 
-* [Vícevrstvá aplikace .NET cloudových služeb Azure, která používá tabulky, fronty a objekty blob][mutitierstorage]  
+* [Vícevrstvá aplikace .NET, která používá tabulky, fronty a objekty blob služby Storage][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Stažení nástrojů a SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +391,12 @@ Další informace o víceúrovňových scénářích najdete v:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

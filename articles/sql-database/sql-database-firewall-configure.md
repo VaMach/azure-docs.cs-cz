@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: ae1cacf0ff003e69a16d6beac48abc36a7f18896
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
 
 
 ---
@@ -39,6 +39,10 @@ Bránu firewall nakonfigurujete tak, že vytvoříte pravidla brány firewall ur
 
 * **Pravidla brány firewall na úrovni serveru:** Tato pravidla umožňují klientům přístup k celému serveru SQL Azure, jinými slovy ke všem databázím na stejném logickém serveru. Tato pravidla se ukládají v **hlavní** databázi. Pravidla brány firewall na úrovni serveru můžete konfigurovat pomocí portálu nebo pomocí příkazů jazyka Transact-SQL. Pokud chcete vytvořit pravidla brány firewall na úrovni serveru pomocí portálu Azure Portal nebo PowerShellu, musíte být vlastníkem nebo přispěvatelem předplatného. Pokud chcete vytvořit pravidlo brány firewall na úrovni serveru pomocí příkazu Transact-SQL, musíte se připojit k instanci služby SQL Database jako přihlášení objektu zabezpečení nebo správce Azure Active Directory (to znamená, že musí být pravidlo brány firewall na úrovni serveru nejdřív vytvořené uživatelem s oprávněními na úrovni Azure).
 * **Pravidla brány firewall na úrovni databáze:** Tato pravidla umožňují klientům přístup k jednotlivým databázím na serveru služby Azure SQL Database. Můžete je vytvořit pro každou databázi – ukládají se v jednotlivých databázích. (Pravidla brány firewall na úrovni databáze můžete vytvořit i pro **hlavní** databázi) Tato pravidla mohou být užitečná při omezování přístupu k určitým (zabezpečeným) databázím na stejném logickém serveru. Pravidla brány firewall na úrovni databáze lze konfigurovat pouze pomocí příkazů jazyka Transact-SQL.
+
+   > [!NOTE]
+   > Kurz demonstrující použití brány firewall na úrovni databáze najdete v článku [Kurz k SQL Database: Ověřování pomocí SQL Serveru, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md).
+   >
 
 **Doporučení:** Společnost Microsoft doporučuje pro zvýšení zabezpečení a přenositelnosti databází používat pravidla brány firewall na úrovni databáze kdykoli je to možné. Použijte pravidla brány firewall na úrovni serveru pro správce a pokud máte mnoho databází se stejnými požadavky na přístup a nechcete ztrácet čas konfigurací jednotlivých databází.
 
@@ -150,6 +154,6 @@ S pochopením přecházení do databází vám pomůže článek [Správa přís
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

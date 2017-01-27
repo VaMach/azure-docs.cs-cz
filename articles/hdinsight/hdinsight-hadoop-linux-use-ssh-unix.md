@@ -1,6 +1,6 @@
 ---
-title: "Použití klíče SSH se systémem Linux Hadoop z Linuxu, Unixu nebo OS X | Dokumentace Microsoftu"
-description: " Do systému HDInsight, založeného na Linuxu, můžete přistupovat pomocí systém protokolu Secure Shell (SSH). Dokument poskytuje informace o používání SSH s HDInsight od klientů OS X, Linux a Unix."
+title: "Použití klíče SSH pro HDInsight (Hadoop) z Windows, Linuxu, Unixu nebo OS X | Dokumentace Microsoftu"
+description: " Pro přístup k systému HDInsight můžete použít Secure Shell (SSH). Tento dokument obsahuje informace o používání SSH pro přístup k systému HDInsight z klientů s Windows, Linuxem, Unixem nebo OS X.."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Použití SSH se systémem Linux Hadoop v HDInsight z OS X, Linux a Unix
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Použití klíče SSH pro HDInsight (Hadoop) z Windows, Linuxu, Unixu nebo OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umožňuje přihlašovat se ke clusteru služby HDInsight v Linuxu a spouštět příkazy pomocí rozhraní příkazového řádku. Tento dokument poskytuje základní informace o SSH a konkrétní informace o použití SSH s HDInsight.
 
@@ -233,6 +231,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

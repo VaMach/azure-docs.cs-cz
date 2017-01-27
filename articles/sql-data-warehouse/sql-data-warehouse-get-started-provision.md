@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -43,8 +43,8 @@ Na začátek budete potřebovat:
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>Vytvoření SQL Data Warehouse
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
-2. Klikněte na **+ Nový** > **Data + úložiště** > **SQL Data Warehouse**.
+1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
+2. Klikněte na **+ Nový** > **Databáze** > **SQL Data Warehouse**.
 
     ![Vytvoření](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. V okně **SQL Data Warehouse** vyplňte potřebné informace a kliknutím na Vytvořit proveďte vytvoření.
@@ -102,6 +102,6 @@ Také může být užitečné podívat se na [Osvědčené postupy][Best practic
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 
