@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Zásady zabezpečení můžete nakonfigurovat pro každé předplatné nebo skup
    > Doporučujeme zapnout pro každé z vašich předplatných shromažďování dat, aby se zajistila dostupnost sledování zabezpečení pro všechny stávající i nové virtuální počítače. Pokud povolíte shromažďování dat, nainstaluje se agent sledování. Pokud teď na tomto místě nechcete shromažďování dat zapnout, můžete to udělat později v zobrazení **Stav** a **Doporučení**. Shromažďování dat můžete také povolit pouze pro předplatné nebo pro vybrané virtuální počítače. Další informace o podporovaných virtuálních počítačích najdete v článku [Azure Security Center – nejčastější dotazy](security-center-faq.md).
    > 
    > 
-5. Pokud ještě nemáte nakonfigurovaný účet úložiště, může se vám při otevření okna **Zásady zabezpečení** zobrazit upozornění podobné následujícímu snímku obrazovky:
+5. Pokud ještě nemáte nakonfigurovaný účet úložiště, může se vám při otevření okna **Zásady zabezpečení** zobrazit upozornění podobné následujícímu snímku obrazovky. Pokud nevyberete účet úložiště pro každou oblast, vytvoří se automaticky.
    
     ![Výběr úložiště](./media/security-center-policies/security-center-policies-fig2.png)
 6. Pokud se vám zobrazí toto upozornění, klikněte na tuto možnost a vyberte oblast, jak je znázorněno na následujícím snímku obrazovky:
@@ -111,6 +111,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

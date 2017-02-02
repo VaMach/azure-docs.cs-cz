@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Začínáme se zálohováním a obnovením pro ochranu a obnovení dat
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provádět tyto akce:
 
 - Zobrazení existujících záloh databáze
@@ -95,6 +32,9 @@ V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provád�
 
 **Časový odhad**: Dokončení tohoto kurzu trvá přibližně 30 minut (za předpokladu, že už máte splněné požadavky).
 
+> [!TIP]
+> Stejné úlohy můžete v úvodním kurzu provádět i pomocí [PowerShellu](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -105,11 +45,11 @@ V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provád�
 * Dokončili jste kurz [Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio](sql-database-get-started.md) nebo ekvivalentní [verzi tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md). Pokud ne, tak tento požadovaný kurz dokončete nebo spusťte skript prostředí PowerShell na konci [verze tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md) a teprve potom pokračujte.
 
 
-> [!TIP]
-> Stejné úlohy můžete v úvodním kurzu provádět i pomocí [PowerShellu](sql-database-get-started-backup-recovery-powershell.md).
+> [!NOTE]
+> Tento kurz vám pomůže seznámit se s obsahem těchto výukových okruhů: [Zálohování SQL Database](sql-database-automated-backups.md), [Dlouhodobé uchovávání záloh](sql-database-long-term-retention.md) a [Obnovení databáze Azure SQL pomocí automatizovaných záloh](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Přihlášení pomocí stávajícího účtu
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Přihlášení k webu Azure Portal pomocí účtu Azure
 Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/Index) se k webu Azure Portal připojíte následujícím postupem.
 
 1. Otevřete prohlížeč, kterému dáváte přednost, a připojte se k [portálu Azure](https://portal.azure.com/).
@@ -117,7 +57,6 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 3. Na **přihlašovací stránce** zadejte přihlašovací údaje ke svému předplatnému.
    
    ![Přihlášení](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ V této části kurzu zobrazíte informace o nejstarším bodu obnovení z [auto
 
 1. Otevřete okno **Databáze SQL** pro vaši databázi **sqldbtutorialdb**.
 
-    ![Nové okno ukázkové databáze](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Nové okno ukázkové databáze](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Na panelu nástrojů klikněte na **Obnovit**.
 
-    ![panel nástrojů – obnovit](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![panel nástrojů – obnovit](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. V okně Obnovit zkontrolujte nejstarší bod obnovení.
 
-    ![nejstarší bod obnovení](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![nejstarší bod obnovení](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Obnovení databáze k dřívějšímu bodu v čase
 
@@ -143,37 +82,37 @@ V této části kurzu obnovíte databázi k určitému bodu v čase do nové dat
 
 1. V okně **Obnovit** databáze zkontrolujte výchozí název nové databáze, do které se má vaše databáze obnovit k dřívějšímu bodu v čase (výchozí název tvoří název existující databáze s připojeným časovým razítkem). Tento název se změní, aby odpovídal času, který zadáte v několika dalších krocích.
 
-    ![název obnovené databáze](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![název obnovené databáze](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Klikněte na ikonu **kalendáře** ve vstupním poli **Bod obnovení (UTC)**.
 
-    ![bod obnovení](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![bod obnovení](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. V kalendáři vyberte datum v rámci doby uchovávání.
 
-    ![datum bodu obnovení](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![datum bodu obnovení](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. Do vstupního pole **Bod obnovení (UTC)** zadejte pro vybrané datum čas, ke kterému chcete obnovit data v databázi z automatizovaných záloh databáze.
 
-    ![čas bodu obnovení](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![čas bodu obnovení](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Všimněte si, že došlo ke změně názvu databáze, aby odpovídal datu a času, které jste vybrali. Všimněte si také, že nemůžete změnit server, na který provádíte obnovení k určitému bodu v čase. Pokud chcete provést obnovení na jiný server, použijte [Geografické obnovení](sql-database-disaster-recovery.md#recover-using-geo-restore). A konečně si všimněte, že můžete provést obnovení do [elastického fondu](sql-database-elastic-jobs-overview.md) nebo do jiné cenové úrovně. 
-    >
+   >[!NOTE]
+   >Všimněte si, že došlo ke změně názvu databáze, aby odpovídal datu a času, které jste vybrali. Všimněte si také, že nemůžete změnit server, na který provádíte obnovení k určitému bodu v čase. Pokud chcete provést obnovení na jiný server, použijte [Geografické obnovení](sql-database-disaster-recovery.md#recover-using-geo-restore). A konečně si všimněte, že můžete provést obnovení do [elastického fondu](sql-database-elastic-jobs-overview.md) nebo do jiné cenové úrovně. 
+   >
 
 4. Kliknutím na **OK** obnovte svou databázi k dřívějšímu bodu v čase do nové databáze.
 
 5. Pokud chcete zobrazit stav úlohy obnovení, na panelu nástrojů klikněte na ikonu oznámení.
 
-    ![průběh úlohy obnovení](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![průběh úlohy obnovení](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. Po dokončení úlohy obnovení otevřete okno **Databáze SQL** a zobrazte nově obnovenou databázi.
 
-    ![obnovená databáze](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![obnovená databáze](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > Odtud se můžete pomocí aplikace SQL Server Management Studio připojit k obnovené databázi a provádět požadované úlohy, jako je například [extrakce části dat z obnovené databáze a zkopírování do existující databáze nebo odstranění existující databáze a přejmenování obnovené databáze na název existující databáze](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> Odtud se můžete pomocí aplikace SQL Server Management Studio připojit k obnovené databázi a provádět požadované úlohy, jako je například [extrakce části dat z obnovené databáze a zkopírování do existující databáze nebo odstranění existující databáze a přejmenování obnovené databáze na název existující databáze](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Konfigurace dlouhodobého uchovávání automatizovaných záloh v trezoru služby Azure Recovery Services 
 
@@ -182,11 +121,11 @@ V této části kurzu [nakonfigurujete trezor služby Azure Recovery Services pr
 
 > [!TIP]
 > Chcete-li odstranit zálohy, přečtěte si téma [Odstranění dlouhodobého uchovávání záloh](sql-database-long-term-retention-delete.md).
-
+>
 
 1. Otevřete okno **SQL Server** pro váš server **sqldbtutorialserver**.
 
-    ![Okno SQL Server](./media/sql-database-get-started/sql-server-blade.png)
+   ![Okno SQL Server](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Klikněte na **Dlouhodobé uchovávání záloh**.
 
@@ -246,9 +185,9 @@ V této části kurzu [nakonfigurujete trezor služby Azure Recovery Services pr
 
    ![zobrazení trezoru služby recovery services](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > Po nakonfigurování se zálohy v trezoru objeví během příštích sedm dnů. Nepokračujte v tomto kurzu, dokud se zálohy neobjeví v trezoru.
-   >
+> [!IMPORTANT]
+> Po nakonfigurování se zálohy v trezoru objeví během příštích sedm dnů. Nepokračujte v tomto kurzu, dokud se zálohy neobjeví v trezoru.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Zobrazení záloh v rámci dlouhodobého uchovávání
 
@@ -260,17 +199,17 @@ V této části kurzu zobrazíte informace o zálohách databáze v rámci [dlou
 
 2. Otevřete okno **Databáze SQL** pro vaši databázi **sqldbtutorialdb**.
 
-    ![Nové okno ukázkové databáze](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Nové okno ukázkové databáze](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Na panelu nástrojů klikněte na **Obnovit**.
 
-    ![panel nástrojů – obnovit](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![panel nástrojů – obnovit](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. V okně Obnovit klikněte na **Dlouhodobé**.
 
 5. V části Zálohy v trezoru Azure klikněte na **Zvolit zálohu** a zobrazte dostupné zálohy databáze v rámci dlouhodobého uchovávání záloh.
 
-    ![zálohy v trezoru](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![zálohy v trezoru](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Obnovení databáze ze zálohy v rámci dlouhodobého uchovávání záloh
 
@@ -278,28 +217,25 @@ V této části kurzu obnovíte databázi do nové databáze ze zálohy v trezor
 
 1. V okně **Zálohy v trezoru Azure** klikněte na zálohu, kterou chcete obnovit, a potom klikněte na **Vybrat**.
 
-    ![výběr zálohy v trezoru](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![výběr zálohy v trezoru](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. Do textového pole **Název databáze** zadejte název obnovené databáze.
 
-    ![nový název databáze](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![nový název databáze](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Kliknutím na **OK** obnovte databázi ze zálohy v trezoru do nové databáze.
 
 4. Pokud chcete zobrazit stav úlohy obnovení, na panelu nástrojů klikněte na ikonu oznámení.
 
-    ![průběh úlohy obnovení z trezoru](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![průběh úlohy obnovení z trezoru](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Po dokončení úlohy obnovení otevřete okno **Databáze SQL** a zobrazte nově obnovenou databázi.
 
-    ![obnovená databáze z trezoru](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![obnovená databáze z trezoru](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > Odtud se můžete pomocí aplikace SQL Server Management Studio připojit k obnovené databázi a provádět požadované úlohy, jako je například [extrakce části dat z obnovené databáze a zkopírování do existující databáze nebo odstranění existující databáze a přejmenování obnovené databáze na název existující databáze](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> Odtud se můžete pomocí aplikace SQL Server Management Studio připojit k obnovené databázi a provádět požadované úlohy, jako je například [extrakce části dat z obnovené databáze a zkopírování do existující databáze nebo odstranění existující databáze a přejmenování obnovené databáze na název existující databáze](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -309,6 +245,6 @@ V této části kurzu obnovíte databázi do nové databáze ze zálohy v trezor
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

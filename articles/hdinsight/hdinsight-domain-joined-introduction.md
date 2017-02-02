@@ -1,5 +1,5 @@
 ---
-title: "Přehled zabezpečení služby HDInsight | Dokumentace Microsoftu"
+title: "Zabezpečení Hadoop – clustery HDInsight připojené k doméně – Azure | Dokumentace Microsoftu"
 description: "Zjistěte..."
 services: hdinsight
 documentationcenter: 
@@ -16,18 +16,19 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>Představení clusterů HDInsight připojených k doméně (Preview)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Úvod do zabezpečení Hadoop s clustery HDInsight připojenými k doméně (Preview)
+
 Služba Azure HDInsight až doteď podporovala jako místního správce pouze jednoho uživatele. To dobře fungovalo pro menší aplikace, týmy nebo oddělení. S tím, jak se úlohy založené na systému Hadoop stávaly oblíbenějšími v podnikovém sektoru, zvyšovala se i potřeba schopností na podnikové úrovni, jako například ověřování ve službě Active Directory, podpora více uživatelů a řízení přístupu na základě rolí. Pomocí clusterů HDInsight připojených k doméně můžete vytvořit cluster HDInsight připojený k doméně služby Active Directory a nakonfigurovat seznam zaměstnanců podniku, kteří se pro přihlášení ke clusteru mohou ověřovat prostřednictvím služby Azure Active Directory. Nikdo jiný mimo podnik se ke clusteru HDInsight nemůže přihlásit ani připojit. Podnikový správce může za účelem zabezpečení Hivu nakonfigurovat řízení přístupu založené na rolích pomocí [Apache Ranger](http://hortonworks.com/apache/ranger/) a tím omezit přístup k datům na nutné minimum. Kromě toho může správce také provádět audit přistupování k datům zaměstnanci a jakýchkoli změn provedených v zásadách řízení přístupu. Tím dosáhne vysokého stupně dohledu nad firemními prostředky.
 
 > [!NOTE]
-> Nové funkce popsané v této verzi Preview jsou dostupné jenom na clusterech HDInsight založených na Linuxu pro úlohy Hivu. Další úlohy, jako například HBase, Spark, Storm a Kafka, budou povoleny v budoucích verzích. 
-> 
-> 
+> Nové funkce popsané v této verzi Preview jsou dostupné jenom na clusterech HDInsight založených na Linuxu pro úlohy Hivu. Další úlohy, jako například HBase, Spark, Storm a Kafka, budou povoleny v budoucích verzích.
+>
+>
 
 ## <a name="benefits"></a>Výhody
 Zabezpečení podniku se skládá ze čtyř hlavních pilířů – Zabezpečení perimetru, Ověřování, Autorizace a Šifrování.
@@ -53,11 +54,10 @@ Ochrana dat je důležitá pro splnění požadavků na zabezpečení organizace
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](hdinsight-domain-joined-configure.md).
 * Pokud chcete spravovat clustery HDInsight připojené k doméně, přečtěte si téma [Správa clusterů HDInsight připojených k doméně](hdinsight-domain-joined-manage.md).
 * Pokud chcete konfigurovat zásady Hivu a spouštět dotazy Hivu, přečtěte si téma [Konfigurace zásad Hivu pro clustery HDInsight připojené k doméně](hdinsight-domain-joined-run-hive.md).
-* Pokud chcete spouštět dotazy Hivu pomocí SSH na clusterech HDInsight připojených k doméně, přečtěte si téma [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Linux, Unix nebo OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Pokud chcete spouštět dotazy Hivu pomocí SSH na clusterech HDInsight připojených k doméně, přečtěte si téma [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Linux, Unix nebo OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

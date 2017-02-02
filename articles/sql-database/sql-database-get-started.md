@@ -1,6 +1,6 @@
 ---
-title: "Kurz k SQL Database: Vytvoření serveru, pravidla brány firewall na úrovni serveru, ukázkové databáze a pravidla brány firewall na úrovni databáze a připojení k aplikaci SQL Server Management Studio | Dokumentace Microsoftu"
-description: "Zjistěte, jak nastavit logický server služby SQL Database, pravidlo brány firewall serveru, databáze SQL a ukázková data. Zjistíte také, jak se připojit pomocí nástrojů klienta, konfigurovat uživatele a nastavit pravidlo brány firewall databáze."
+title: "Azure Portal: Začínáme s Azure SQL Database | Dokumentace Microsoftu"
+description: "Naučíte se vytvářet logický server SQL Database, pravidlo brány firewall na úrovni serveru a databáze pomocí webu Azure Portal. Dál se naučíte k dotazování využívat aplikaci SQL Server Management Studio."
 keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Kurz k SQL Database: Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio
 
 V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provádět tyto akce:
 
@@ -44,17 +44,22 @@ Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databá
 
 **Časový odhad**: Tento kurz trvá přibližně 30 minut (za předpokladu, že už máte splněné požadavky).
 
+> [!TIP]
+> Stejné úlohy můžete v úvodním kurzu provádět i pomocí jazyka [C#](sql-database-get-started-csharp.md) nebo prostředí [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Požadavky
 
 * Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * Musíte být schopni připojit se k webu Azure Portal pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> Stejné úlohy můžete v úvodním kurzu provádět i pomocí jazyka [C#](sql-database-get-started-csharp.md) nebo prostředí [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Tento kurz vám pomůže seznámit se s obsahem těchto výukových okruhů: [Přehled serveru SQL Database](sql-database-server-overview.md), [přehled SQL Database](sql-database-overview.md) a [přehled pravidel brány firewall pro Azure SQL Database](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Přihlášení pomocí stávajícího účtu
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Přihlášení k webu Azure Portal pomocí účtu Azure
 Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/Index) se k webu Azure Portal připojíte následujícím postupem.
 
 1. Otevřete prohlížeč, kterému dáváte přednost, a připojte se k [portálu Azure](https://portal.azure.com/).
@@ -103,7 +108,7 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
     ![Umístění serveru](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > V tomto okně nejde měnit zaškrtnutí políčka **Povolit službám Azure přístup k serveru**. Toto nastavení můžete změnit v okně brány firewall serveru. Další informace najdete v článku [Začínáme se zabezpečením](sql-database-get-started-security.md).
+    > V tomto okně nejde měnit zaškrtnutí políčka **Povolit službám Azure přístup k serveru**. Toto nastavení můžete změnit v okně brány firewall serveru. Další informace najdete v článku [Začínáme se zabezpečením](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Klikněte na možnost **Vytvořit**.
@@ -183,7 +188,7 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
     ![Dotaz na systémové objekty hlavní databáze](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Pokud chcete prozkoumat zabezpečení SQL, přečtěte se téma [Začínáme se zabezpečením SQL](sql-database-get-started-security.md).
+    > Pokud chcete prozkoumat zabezpečení SQL, přečtěte se téma [Začínáme se zabezpečením SQL](sql-database-control-access-sql-authentication-get-started.md).
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Vytvoření nové databáze na webu Azure Portal pomocí ukázky Adventure Works LT
@@ -291,7 +296,7 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 ## <a name="next-steps"></a>Další kroky
 Tento kurz jste nyní dokončili, ale k dispozici je celá řada dalších kurzů, které staví na tom, co jste se v tomto kurzu naučili. 
 
-* Pokud se chcete začít seznamovat se zabezpečením Azure SQL Database, přečtěte si téma [Začínáme se zabezpečením](sql-database-get-started-security.md).
+* Pokud se chcete začít seznamovat se zabezpečením Azure SQL Database, přečtěte si téma [Začínáme se zabezpečením](sql-database-control-access-sql-authentication-get-started.md).
 * Pokud znáte Excel, zjistěte, jak se [připojit k databázi SQL v Azure pomocí aplikace Excel](sql-database-connect-excel.md).
 * Jste-li připraveni na psaní kódu, zvolte si programovací jazyk v tématu [Knihovny pro připojení ke službě SQL Database a systému SQL Server](sql-database-libraries.md).
 * Pokud chcete do Azure přesunout databáze z místního systému SQL Server, přečtěte si téma [Migrace databáze do služby SQL Database](sql-database-cloud-migrate.md).
@@ -306,6 +311,6 @@ Tento kurz jste nyní dokončili, ale k dispozici je celá řada dalších kurz�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

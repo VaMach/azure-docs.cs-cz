@@ -116,12 +116,12 @@ Detekce hrozeb ve službě SQL Database nabízí kromě auditování ještě dal
 ## <a name="compliance"></a>Dodržování předpisů
 Kromě uvedených vlastností a funkcí, které aplikaci pomáhají splnit nejrůznější požadavky týkající se dodržování bezpečnostních předpisů, služba Azure SQL Database také podléhá pravidelným auditům a získala certifikáty pro celou řadu norem v oblasti dodržování předpisů. Další informace najdete v [Centru zabezpečení Microsoft Azure](https://azure.microsoft.com/support/trust-center/), kde také najdete nejnovější seznam [certifikátů služby SQL Database v oblasti dodržování předpisů](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## <a name="next-steps"></a>Další kroky
 
 - Přehled všech funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md).
 - Diskuzi o používání funkcí řízení přístupu ve službě SQL Database najdete v tématu [Řízení přístupu](sql-database-control-access.md).
 - Diskuzi o proaktivním monitorování najdete v tématech [Začínáme s auditováním služby SQL Database](sql-database-auditing-get-started.md) a [Začínáme s detekcí hrozeb služby SQL Database](sql-database-threat-detection-get-started.md).
-
 
 
 

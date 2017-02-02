@@ -1,6 +1,6 @@
 ---
-title: "Pravidla brány firewall na úrovni serveru a databáze služby Azure SQL Database pomocí jazyka T-SQL | Dokumentace Microsoftu"
-description: "Zjistěte, jak nakonfigurovat bránu firewall pro IP adresy, ze kterých se přistupuje k databázím SQL Azure."
+title: "T-SQL: Pravidla brány firewall služby SQL Database | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí Transact-SQL nakonfigurovat pravidla brány firewall na úrovni serveru a databáze pro IP adresy, ze kterých se přistupuje k databázím Azure SQL."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Pouze uživatel databáze s oprávněním **CONTROL** k databázi (například v
 
 Další informace o těchto uložených procedurách najdete v článcích [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) a [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Kurz demonstrující použití brány firewall na úrovni databáze najdete v článku [Kurz k SQL Database: Ověřování pomocí SQL Serveru, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## <a name="next-steps"></a>Další kroky
 V těchto článcích najdete informace o vytváření pravidel brány firewall na úrovni serveru dalšími metodami: 
 
@@ -94,6 +99,6 @@ S pochopením přecházení do databází vám pomůže článek [Správa přís
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -56,12 +56,12 @@ Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloud
 
 ## <a name="prerequisites"></a>Požadavky
 * Webové rozhraní API ASP.NET – tento kurz předpokládá základní znalosti práce s [webovým rozhraním API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET v nástroji Visual Studio.
-* Účet Azure – můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele nástroje Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Účet Azure – můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele nástroje Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](http://go.microsoft.com/fwlink/?LinkId=523751). Tam si můžete v App Service hned vytvořit krátkodobou úvodní aplikaci – **nepožaduje se žádná platební karta**, ani to s sebou nenese žádné závazky.
+    Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](https://azure.microsoft.com/try/app-service/). Tam si můžete v App Service hned vytvořit krátkodobou úvodní aplikaci – **nepožaduje se žádná platební karta**, ani to s sebou nenese žádné závazky.
 * Visual Studio 2015 se [sadou Azure SDK pro .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) – sada SDK nainstaluje nástroj Visual Studio 2015 automaticky, pokud ho ještě nemáte.
   
-  * V sadě Visual Studio klikněte na Nápověda -> O aplikaci Microsoft Visual Studio a ujistěte se, že máte Azure App Service Tools ve verzi 2.9.1 nebo vyšší.
+  * V sadě Visual Studio klikněte na Nápověda -> O aplikaci Microsoft Visual Studio a ujistěte se, že máte Azure App Service Tools ve verzi&2;.9.1 nebo vyšší.
     
     ![Verze Azure App Tools](./media/app-service-api-dotnet-get-started/apiversion.png)
     
@@ -442,6 +442,6 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

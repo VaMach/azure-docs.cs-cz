@@ -207,11 +207,15 @@
 ### [Řešení potíží pomocí sady Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referenční informace
-## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Back-endová sada SDK pro .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Back-endová sada SDK pro Node.js](https://azure.github.io/azure-mobile-apps-node/)
+## [Klientská sada SDK pro Android](https://azure.github.io/azure-mobile-apps-android-client/)
+## [Klientská sada SDK pro iOS](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [Klientská sada SDK pro JavaScript/Cordovu](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Klientská sada SDK pro Windows/Xamarin](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Související
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Referenční informace k App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Úložiště GitHub](https://github.com/Azure/azure-mobile-apps)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Zdroje a prostředky
@@ -219,6 +223,14 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Ukázky
+### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Synchronizace strukturovaných dat](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Rychlý start dokončen
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [Back-end .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Osvědčené postupy pro App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Seznam prostředků WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -227,6 +239,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

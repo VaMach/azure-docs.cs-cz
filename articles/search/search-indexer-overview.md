@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2cddd262f912efff029bb05f0f3f3551409167ed
-ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
+ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
+ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 
 ---
 
@@ -27,13 +27,13 @@ ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
 > * [Přehled](search-indexer-overview.md)
 > * [Azure Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
+> * [DocumentDB](search-howto-index-documentdb.md)
 > * [Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (Preview)](search-howto-indexing-azure-tables.md)
 >
 >
 
- **Indexer** ve službě Azure Search je prohledávací modul, který extrahuje prohledávatelná data a metadata z externího zdroje dat a naplní index na základě mapování pole-pole mezi indexem a zdrojem dat. Tento přístup se někdy nazývá model Pull, protože služba si vyžádá data, aniž byste museli psát kód, který by vložil data do indexu bez vyžádání.
+**Indexer** ve službě Azure Search je prohledávací modul, který extrahuje prohledávatelná data a metadata z externího zdroje dat a naplní index na základě mapování pole-pole mezi indexem a zdrojem dat. Tento přístup se někdy nazývá model Pull, protože služba si vyžádá data, aniž byste museli psát kód, který by vložil data do indexu bez vyžádání.
 
 Můžete použít indexer jako jediný prostředek přijímání dat, nebo můžete použít kombinaci postupů, kdy se indexer použije k načtení jenom některých polí v indexu.
 
@@ -56,7 +56,7 @@ Indexer automatizuje některé úkoly související s příjmem dat, ale vytvá�
 Indexer získává data ze **zdroje dat**, který obsahuje informace, jako je například připojovací řetězec. Aktuálně jsou podporované tyto zdroje dat:
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB](search-howto-index-documentdb.md)
 * Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -69,7 +69,7 @@ Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexe
 Teď jste získali základní představu. V dalším kroku se zaměříme na požadavky a úlohy specifické pro různé typy zdrojů dat.
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB](search-howto-index-documentdb.md)
 * Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexování objektů blob CSV pomocí indexeru Azure Search Blob (Preview)](search-howto-index-csv-blobs.md)
@@ -77,6 +77,6 @@ Teď jste získali základní představu. V dalším kroku se zaměříme na po�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
