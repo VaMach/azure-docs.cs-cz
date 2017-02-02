@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: arluca
 translationtype: Human Translation
 ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
@@ -61,7 +61,6 @@ Ve výchozím nastavení jsme předem vybrali čtyři čítače výkonu. Kliknut
 * [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
 
 
 
