@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eda73900ded4c587bacfa3b4d4e8465c1de5a5ed
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
 
 
 ---
 # <a name="api-apps-overview"></a>Přehled API Apps
-API Apps v Azure App Service nabízejí funkce k usnadnění vývoje, hostování a používání rozhraní API v cloudu i lokálně. Aplikace API poskytují zabezpečení na úrovni potřebné ve velkých firmách, snadné řízení přístupu, hybridní připojení, automatické generování sad SDK a bezproblémovou integraci s [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+API Apps v Azure App Service nabízejí funkce k usnadnění vývoje, hostování a používání rozhraní API v cloudu i lokálně. Aplikace API poskytují zabezpečení na úrovni potřebné ve velkých firmách, snadné řízení přístupu, hybridní připojení, automatické generování sad SDK a bezproblémovou integraci s [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) je plně spravovaná platforma pro webové, mobilní a integrační scénáře. API Apps jsou jedním ze čtyř typů aplikací, které služba [Azure App Service](../app-service/app-service-value-prop-what-is.md) nabízí.
 
@@ -33,8 +33,8 @@ Toto jsou některé klíčové funkce API Apps:
 * **Použití existujícího rozhraní API bez nutnosti jeho přizpůsobení:** Abyste mohli využívat výhod API Apps, nemusíte kód svých stávajících rozhraní API nijak upravovat. Kód stačí do aplikace API jen nasadit. Vaše rozhraní API může používat libovolný jazyk nebo rozhraní podporované službou App Service, včetně technologií ASP.NET, C#, Java, PHP, Node.js a Python.
 * **Snadné požívání:** Integrovaná podpora [metadat rozhraní API Swaggeru](http://swagger.io/) umožňuje snadné použití vašich rozhraní API pro nejrůznější klienty.  Automaticky generuje kód klienta pro vaše rozhraní API v různých jazycích, včetně C#, Javy a JavaScriptu. Můžete snadno konfigurovat [CORS](app-service-api-cors-consume-javascript.md), aniž byste měnili kód. Další informace najdete v tématech [Metadata App Service API Apps pro zjišťování rozhraní API a generování kódu](app-service-api-metadata.md) a [Využití aplikace API z JavaScriptu pomocí CORS](app-service-api-cors-consume-javascript.md). 
 * **Snadné řízení přístupu:** Aplikace API jsou chráněny před neověřeným přístupem, a to bez jediné změny v kódu. Integrované služby ověřování zajišťují přístup k rozhraní API pro jiné služby nebo klienty představující uživatele. Mezi podporované zprostředkovatele identity patří Azure Active Directory, Facebook, Twitter, Google a účet Microsoft. Klienti mohou používat knihovnu ADAL (Active Directory Authentication Library) nebo sadu SDK pro Mobile Apps. Další informace najdete v tématu [Ověřování a autorizace API Apps v Azure App Service](app-service-api-authentication.md).
-* **Integrace nástroje Visual Studio:** Vyhrazené nástroje v nástroji Visual Studio zjednodušují práci při vytváření, nasazování, využívání, ladění a správě aplikací API. Další informace najdete v tématu [Uvedení sady Azure SDK 2.8.1 pro .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
-* **Integrace s Logic Apps:** Aplikace API, které vytvoříte, mohou být využívány službou [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Další informace najdete v tématech [Používání vlastního rozhraní API hostovaného v App Service pomocí aplikací logiky](../app-service-logic/app-service-logic-custom-hosted-api.md) a [Nová verze schématu 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+* **Integrace nástroje Visual Studio:** Vyhrazené nástroje v nástroji Visual Studio zjednodušují práci při vytváření, nasazování, využívání, ladění a správě aplikací API. Další informace najdete v tématu [Uvedení sady Azure SDK 2.8.1 pro .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
+* **Integrace s Logic Apps:** Aplikace API, které vytvoříte, mohou být využívány službou [App Service Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).  Další informace najdete v tématech [Používání vlastního rozhraní API hostovaného v App Service pomocí aplikací logiky](../logic-apps/logic-apps-custom-hosted-api.md) a [Nová verze schématu 2015-08-01-preview](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 Kromě toho může aplikace API využívat funkce služeb [Web Apps](../app-service-web/app-service-web-overview.md) a [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). A platí to i naopak: pokud používáte webovou aplikaci nebo mobilní aplikaci k hostování rozhraní API, může využívat funkce aplikací API, například metadata Swagger ke generování klientského kódu a CORS pro přístup k prohlížeči mezi doménami. Jediný rozdíl mezi všemi třemi typy aplikací (API, webová aplikace a mobilní aplikace) je název a ikona, které se pro ně používají na Portálu Azure.
 
@@ -62,6 +62,6 @@ Pokud se chcete v souvislosti s aplikacemi API na něco zeptat, otevřete vlákn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

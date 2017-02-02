@@ -63,6 +63,6 @@ Nyní, když máte aplikaci registrovanou v Azure AD B2C, můžete dokončit jed
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

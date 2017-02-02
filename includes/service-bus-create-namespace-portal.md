@@ -1,4 +1,10 @@
-1. Přihlaste se na web [Azure Portal][Azure Portal].
+## <a name="create-a-service-namespace"></a>Vytvoření oboru názvů služby
+
+Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejdřív vytvořit obor názvů. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace. 
+
+Vytvoření oboru názvů:
+
+1. Přihlaste se k webu [Azure Portal][Azure portal].
 2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Podniková integrace** a pak na **Service Bus**.
 3. V dialogovém okně **Vytvořit obor názvů** zadejte název oboru názvů. Systém okamžitě kontroluje, jestli je název dostupný.
 4. Po kontrole, že je název oborů názvů k dispozici, zvolte cenovou úroveň (Basic, Standard nebo Premium).
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

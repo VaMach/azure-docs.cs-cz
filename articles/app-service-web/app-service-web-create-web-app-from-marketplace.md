@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a04c7129cd2e16c129f3e4b8e8e40f76ff37114d
 
 
 ---
@@ -40,7 +40,7 @@ Pro účely tohoto kurzu nasadíte web s blogem WordPress z Azure Marketplace. J
 Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. Chcete-li jako databázi raději použít SQL Database, informace naleznete v [Project Nami], který je rovněž k dispozici prostřednictvím Azure Marketplace.
 
 > [!NOTE]
-> K absolvování tohoto kurzu potřebujete účet Microsoft Azure. Pokud nemáte účet, můžete si [aktivovat výhody předplatitele Visual Studio][aktivovat] nebo se [zaregistrovat k bezplatné zkušební verzi][bezplatná zkušební verze].
+> K absolvování tohoto kurzu potřebujete účet Microsoft Azure. Pokud nemáte účet, můžete si [aktivovat výhody předplatitele sady Visual Studio][activate] nebo se [zaregistrovat k bezplatné zkušební verzi][free trial].
 > 
 > Chcete-li začít se službou Azure App Service dříve, než se zaregistrujete k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service]. Odtud můžete ihned vytvořit krátkodobou úvodní webovou aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 > 
@@ -72,12 +72,12 @@ Web WordPress, který v tomto kurzu nasadíte, využívá jako databázi MySQL. 
     ![Konfigurace předplatného pro webovou aplikaci][ConfigSubscription]
 4. Vyberte **skupinu prostředků** nebo vytvořte novou.
    
-    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru][SkupinyProstředků].
+    Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru][ResourceGroups].
    
     ![Konfigurace skupiny prostředků pro webovou aplikaci][ConfigResourceGroup]
 5. Vyberte **umístění/plán služby App Service** nebo vytvořte nové.
    
-    Podrobnější informace o plánech služby App Service naleznete v tématu [Přehled plánů služby Azure App Service][AzureAppServicePlans].
+    Podrobnější informace o plánech služby App Service najdete v tématu [Přehled plánů služby Azure App Service][AzureAppServicePlans].
    
     ![Konfigurace plánu služby pro webovou aplikaci][ConfigServicePlan]
 6. Klikněte na možnost **Databáze** a poté v okně **Nová databáze MySQL** zadejte požadované hodnoty pro konfiguraci databáze MySQL.
@@ -127,7 +127,7 @@ V tomto kurzu jste se seznámili s postupem vytvoření a nasazení ukázkové w
 
 Další informace týkající se práce s webovými aplikacemi App Service Web Apps naleznete prostřednictvím odkazů v levé části stránky (máte-li široké okno prohlížeče) nebo v horní části stránky (máte-li úzké okno prohlížeče).
 
-Další informace o vývoji webových aplikací WordPress v Azure naleznete v části [Vývoj aplikací WordPress ve službě Azure App Service][WordPressVAzure].
+Další informace o vývoji webových aplikací WordPress v Azure najdete v tématu [Vývoj aplikací WordPress ve službě Azure App Service][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -136,15 +136,15 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
-[aktivovat]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[bezplatná zkušební verze]: https://azure.microsoft.com/pricing/free-trial/
-[Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[SkupinyProstředků]: ../azure-resource-manager/resource-group-overview.md
+[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
+[Vyzkoušet službu App Service]: https://azure.microsoft.com/try/app-service/
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
-[WordPressVAzure]: ./develop-wordpress-on-app-service-web-apps.md
+[WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
 <!-- IMG List -->
 
@@ -168,6 +168,6 @@ Další informace o vývoji webových aplikací WordPress v Azure naleznete v č
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -65,8 +65,8 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
   
    Tento krok stáhne předem nakonfigurovanou image virtuálního počítače, místně jej spustí a následně v něm nastaví místní cluster služby Service Fabric. Očekávejte, že tento proces zabere několik minut. Pokud se instalace úspěšně dokončí, zobrazí se ve výstupu zpráva s oznámením, že se spouští cluster.
    
-
     ![Spouštění instalace clusteru po zřízení virtuálního počítače][cluster-setup-script]
+    
 5. Otestujte správné nastavení clusteru tak, že přejdete do Service Fabric Exploreru na adrese http://192.168.50.50:19080/Explorer (za předpokladu, že jste ponechali výchozí IP adresu privátní sítě).
 
     ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]

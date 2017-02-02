@@ -3,7 +3,7 @@
    
     Poznamenejte si cestu k sadě SDK, abyste ji mohli použít později. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Otevřete soubor **build.gradle** v adresáři aplikace.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)

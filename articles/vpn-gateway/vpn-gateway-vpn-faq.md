@@ -3,8 +3,8 @@ title: "Virtuální síť – VPN Gateway – nejčastější dotazy | Dokumenta
 description: "Nejčastější dotazy k branám VPN. Nejčastější dotazy týkající se propojení Microsoft Azure Virtual Network mezi různými místy, připojení s hybridní konfigurací a bran VPN"
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d653865993d75cf926151a14cc4f059e4eaba035
-ms.openlocfilehash: f0e7c08a0783452665028ea3479c14b02a27258f
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
 # <a name="vpn-gateway-faq"></a>Nejčastější dotazy k branám VPN
 ## <a name="connecting-to-virtual-networks"></a>Připojování k virtuálním sítím
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Je možné propojit virtuální sítě v různých oblastech Azure?
-Ano. Žádné omezení oblastí se ve skutečnosti neuplatňuje. Jedna virtuální síť může být propojena s jinou virtuální sítí ve stejném oblasti nebo v jiné oblasti Azure.
+Ano. Žádné omezení oblastí se ve skutečnosti neuplatňuje. Jedna virtuální síť může být propojena s jinou virtuální sítí ve stejném oblasti nebo v jiné oblasti Azure. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Je možné propojovat virtuální sítě v rámci různých předplatných?
 Ano.
@@ -102,7 +102,7 @@ Ve výchozím nastavení nebude klientský počítač vytvářet připojení k s
 Automatické opětné připojení a DDNS se u sítí VPN s připojením Point-to-Site aktuálně nepodporují.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Je možné současně používat konfigurace Site-to-Site a Point-to-Site pro stejnou virtuální síť?
-Ano. Obě tato řešení budou funkční, pokud pro bránu používáte síť VPN typu RouteBased. Pro model nasazení Classic je potřebná dynamická brána. Připojení Point-to-Site pro brány VPN se statickým směrováním ani brány používající typ sítě VPN PolicyBased se nepodporuje.
+Ano. Obě tato řešení budou funkční, pokud pro bránu používáte síť VPN typu RouteBased. Pro model nasazení Classic je potřebná dynamická brána. Připojení Point-to-Site pro brány VPN se statickým směrováním ani brány používající rutinu `-VpnType PolicyBased` není podporované.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Je možné nakonfigurovat klienta Point-to-Site tak, aby se připojoval k několik virtuálním sítím současně?
 Ano, je to možné. Nesmějí se však překrývat předpony IP adres virtuálních sítí ani adresní prostory připojení Point-to-Site různých virtuálních sítí.
@@ -129,7 +129,7 @@ Ano, rozhraní API i rutinu prostředí PowerShell pro nastavení předsdílené
 ### <a name="can-i-use-other-authentication-options"></a>Je možné použít jiné možnosti ověřování?
 Ověřování je omezeno na použití předsdílených klíčů (PSK).
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Co je to „podsíť brány“ a proč je potřebná?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Co je to „podsíť brány“ a proč je potřebná?
 Aby bylo možné povolit propojení mezi různými místy, spouští se služba brány.
 
 Pro virtuální síť je třeba vytvořit podsíť brány, aby bylo možné konfigurovat bránu VPN. Pro správné fungování všech podsítí brány je nutné, aby měly název GatewaySubnet. Nenastavujte pro podsíť brány jiný název. A v podsíti brány nenasazujte virtuální počítače ani žádná jiná zařízení.
@@ -140,7 +140,14 @@ Minimální velikost podsítě brány zcela závisí na konfiguraci, kterou chce
 Ne.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Jak určit provoz, který má procházet bránou VPN?
-Pokud používáte portál Azure Classic, přidejte všechny rozsahy, které chcete odesílat prostřednictvím brány pro virtuální síť, na stránce Sítě v části Místní sítě.
+
+####<a name="resource-manager-deployment-model"></a>Model nasazení Resource Manager
+* PowerShell: K určení provozu na místní síťové bráně použijte parametr AddressPrefix.
+* Azure Portal: Přejděte k položce Brána místní sítě > Konfigurace > Adresní prostor.
+
+####<a name="classic-deployment-model"></a>Model nasazení Classic
+* Azure Portal: Přejděte k položce klasická virtuální síť > připojení k síti VPN > připojení k Site-to-site VPN > Název místní lokality > Místní lokalita > Klientský adresní prostor. 
+* Portál Azure Classic: Přidejte všechny rozsahy, které chcete odesílat prostřednictvím brány pro virtuální síť, na stránce Sítě v části Místní sítě. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Je možné konfigurovat vynucené tunelování?
 Ano. Informace najdete v části [Konfigurace vynuceného tunelování](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +174,7 @@ Ne, obě virtuální sítě MUSÍ používat sítě VPN založené na směrován
 Ano, je chráněn šifrováním s použitím protokolu IPsec/IKE.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Prochází provoz připojení VNet-to-VNet přes páteřní strukturu Azure?
-Ano.
+Ano tento provoz prochází přes páteřní strukturu Azure. Neprochází přes veřejný internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Ke kolika místních serverům a virtuálním sítím se může připojit jedna virtuální síť?
 Nejvýše k 10 dohromady u bran s dynamickým směrováním Basic a Standard; ke 30 u bran VPN s vysokým výkonem.
@@ -176,7 +183,7 @@ Nejvýše k 10 dohromady u bran s dynamickým směrováním Basic a Standard; ke
 Ano, sítě VPN Point-to-Site (P2S) je možné používat spolu s bránami VPN, které se připojují k několika místním serverům a dalším virtuálním sítím.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Je možné nakonfigurovat více tunelových propojení mezi virtuální sítí a místního serverem prostřednictvím sítě VPN pro více serverů?
-Ne, redundantní tunelová propojení mezi virtuální sítí Azure a místním serverem nejsou podporována.
+Ano, ale budete muset nakonfigurovat BGP na obou tunelech ve stejné lokalitě.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Mohou se adresní prostory mezi propojenými virtuálními sítěmi a místními servery překrývat?
 Ne. Překrývající se adresní prostory by způsobily selhání při odesílání souboru konfigurace sítě nebo při provádění operace „Vytvoření virtuální sítě“.
@@ -185,10 +192,12 @@ Ne. Překrývající se adresní prostory by způsobily selhání při odesílá
 Ne, všechna tunelové propojení sítí VPN Point-to-Site sdílejí tutéž bránu VPN Azure a dostupnou šířku pásma.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Je možné používat bránu VPN Azure pro provoz mezi místními servery a jinou virtuální sítí?
-**Model nasazení Classic**<br>
+
+####<a name="resource-manager-deployment-model"></a>Model nasazení Resource Manager
+Ano. Další informace najdete v článku o [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Model nasazení Classic
 Provoz prostřednictvím brány VPN Azure s použitím modelu nasazení Classic je možný, je však závislý na staticky definovaných adresních prostorech v souboru konfigurace sítě. Protokol BGP není u virtuálních sítí a bran VPN Azure používajících model nasazení Classic dosud podporován. Bez protokolu BGP je ruční definování adresních prostorů pro přenos velmi náchylné k chybám a nedoporučuje se.<br>
-**Model nasazení Resource Manager**<br>
-Pokud používáte model nasazení Resource Manager, najdete další informace v části [BGP](#bgp).
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Generuje Azure stejný předsdílený klíč protokolu IPsec/IKE pro všechna připojení k síti VPN pro stejnou virtuální síť?
 Ne, Azure ve výchozím nastavení pro různá připojení k síti VPN generuje různé předsdílené klíče. Prostřednictvím rozhraní API REST nebo rutiny prostředí PowerShell pro nastavení předsdíleného klíče však můžete nastavit požadovanou hodnotu klíče. Klíčem MUSÍ být alfanumerický řetězec o délce 1 až 128 znaků.
@@ -216,6 +225,6 @@ Další informace o virtuálních sítích najdete v tématu [Nejčastější do
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

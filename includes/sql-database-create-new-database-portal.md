@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Vytvoření nové databáze SQL Azure
+## <a name="create-a-new-azure-sql-database"></a>Vytvoření nové databáze SQL Azure
 Pomocí následujícího postupu můžete na portálu Azure vytvořit novou databázi SQL Azure na novém nebo stávajícími logickém serveru služby SQL Database.
 
 1. Pokud nejste připojeni, připojte se k webu [Azure Portal](http://portal.azure.com).
@@ -33,7 +33,7 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
    * Cenová úroveň: Pokud teprve začínáte, použijte výchozí hodnotu S0.
    * Kolace: Platí pouze pokud byla zvolena prázdná databáze.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. Klikněte na možnost **Vytvořit**. V oznamovací oblasti uvidíte, že nasazení bylo zahájeno.
    
     ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,6 +41,8 @@ Pomocí následujícího postupu můžete na portálu Azure vytvořit novou data
    
      ![Nová databáze](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 
