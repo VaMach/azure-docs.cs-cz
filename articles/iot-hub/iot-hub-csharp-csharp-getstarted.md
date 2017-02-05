@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 128e3607829d3838cdbb285fa95a1f7cd2112229
 
 
 ---
@@ -27,7 +27,7 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace .NET:
 
 * **CreateDeviceIdentity** vytváří identitu zařízení a přiřazený bezpečnostní klíč k připojení aplikace simulovaného zařízení.
 * **ReadDeviceToCloudMessages** zobrazuje telemetrické údaje odesílané aplikací simulovaného zařízení.
-* **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu MQTT.
+* **SimulatedDevice** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu AMQP.
 
 > [!NOTE]
 > Informace o sadách SDK služby Azure IoT Hub, s jejichž pomocí můžete sestavit aplikace, které poběží v zařízení, i back-end vašeho řešení, najdete v tématu [Sady SDK služby IoT Hub][lnk-hub-sdks].
@@ -202,12 +202,12 @@ V této části vytvoříte konzolovou aplikaci .NET, která simuluje zařízen�
 7. Nakonec do metody **Main** přidejte následující řádky:
    
         Console.WriteLine("Simulated device\n");
-        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey), TransportType.Mqtt);
+        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));
    
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
    
-   Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol MQTT nebo HTTP, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTP, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
+   Ve výchozím nastavení metoda **Create** vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol HTTP, použijte přepis metody **Create**, který umožňuje určit protokol. Pokud používáte protokol HTTP, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
 
 Tento kurz vás provede postupem vytvoření aplikace simulovaného zařízení služby IoT Hub. K přidání nezbytného kódu do aplikace zařízení můžete také použít rozšíření [Připojená služba pro službu Azure IoT Hub][lnk-connected-service] sady Visual Studio.
 
@@ -270,6 +270,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

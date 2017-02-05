@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Použití HDFS kompatibilního Úložiště objektů blob v Azure s Hadoop v HDInsight
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Použití HDFS kompatibilního Úložiště objektů blob v Azure s Hadoop v HDInsight
 Naučte se používat nízkonákladové Úložiště objektů blob v Azure s HDInsight, vytvořte si účet Azure storage a kontejner Blob storage a pak adresujte obsažená data.
 
 Úložiště objektů blob v Azure je robustní a obecně univerzální úložiště, které se jednoduše integruje s HDInsight. Pomocí rozhraní Hadoop systému souborů DFS (HDFS) se dá použít celá sada součástí k přímému zpracování strukturovaných nebo nestrukturovaných dat v Blob storage.
@@ -34,12 +34,12 @@ Ukládání dat do Blob storage vám umožní bezpečné odstranění clusterů 
 > 
 > 
 
-Informace o vytváření clusteru služby HDInsight najdete v tématu [Začínáme se službou HDInsight][hdinsight-get-started] nebo [Tvorba clusterů HDInsight][hdinsight-creation].
+Informace o vytváření clusteru HDInsight najdete v tématu [Začínáme se službou HDInsight][hdinsight-get-started] nebo [Tvorba clusterů HDInsight][hdinsight-creation].
 
 ## <a name="hdinsight-storage-architecture"></a>Architektura úložiště HDInsight
 Následující diagram představuje abstraktní zobrazení architektury úložiště HDInsight:
 
-![Clustery Hadoop používají rozhraní API HDFS pro přístup a ukládání strukturovaných i nestrukturovaných dat do Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Clustery Hadoop používají rozhraní API HDFS pro přístup a ukládání strukturovaných i nestrukturovaných dat do služby Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura HDInsight Storage")
 
 Služba HDInsight poskytuje přístup do systému souborů DFS, který je místně připojen k výpočetním uzlům. Tento systém souborů je přístupný pomocí plně kvalifikovaného identifikátoru URI, například:
 
@@ -78,7 +78,7 @@ Předpokládaná výkonová náročnost společně umístěných výpočetních 
 
 Existuje více výhod  spojených s ukládáním dat do Úložiště objektů blob v Azure místo HDFS.
 
-* **Opakované použití dat a sdílení:** data v HDFS se nachází uvnitř výpočetního clusteru. Jenom aplikace, které mají přístup k výpočetnímu clusteru, můžou používat data pomocí rozhraní API HDFS. Data v Úložišti objektů blob v Azure jsou přístupná prostřednictvím rozhraní API HDFS nebo prostřednictvím [rozhraní API REST úložiště objektů Blob][blob-storage-restAPI]. Proto s větším počtem aplikací (včetně jiných clusterů HDInsight) a nástrojů  se dají vytvářet a využívat data.
+* **Opakované použití dat a sdílení:** data v HDFS se nachází uvnitř výpočetního clusteru. Jenom aplikace, které mají přístup k výpočetnímu clusteru, můžou používat data pomocí rozhraní API HDFS. Data ve službě Azure Blob Storage jsou přístupná prostřednictvím rozhraní API HDFS nebo prostřednictvím [rozhraní API REST služby Blob Storage][blob-storage-restAPI]. Proto s větším počtem aplikací (včetně jiných clusterů HDInsight) a nástrojů  se dají vytvářet a využívat data.
 * **Archivace dat:** Ukládání dat do Úložiště objektů blob v Azure umožní bezpečné odstranění clusterů HDInsight, které jsou používány pro výpočty, aniž by se ztratila uživatelská data.
 * **Náklady na úložiště dat:** Ukládání dat v systému souborů DFS je z dlouhodobého hlediska dražší než ukládání dat do Úložiště objektů Blob v Azure, protože náklady na výpočetní cluster jsou vyšší než náklady na kontejner Úložiště objektů Blob v Azure. Navíc se data nemusí nahrávat znovu pro každou generaci výpočetních clusterů, náklady na nahrávání dat jsou tak nižší.
 * **Elastické škálování:** I když HDFS poskytuje škálovaný systém souborů, škála se určuje podle počtu uzlů, které vytvoříte pro svůj cluster. Změna škálování může být složitější než využití elastického škálování, které je automaticky k dispozici v Úložišti objektů blob v Azure.
@@ -92,7 +92,7 @@ Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, k
 > 
 
 ## <a name="create-blob-containers"></a>Vytvoření kontejnerů objektů Blob
-K použití objektů blob je třeba nejprve vytvořit [Účet úložiště Azure][azure-storage-create]. Jako součást zadání uveďte oblast Azure, kam se budou ukládat objekty, které vytvoříte pomocí tohoto účtu. Účet úložiště a clusteru musí být uloženy ve stejné oblasti. Databáze serveru SQL metaúložiště Hive a databáze serveru SQL metaúložiště Oozie musí být také umístěny ve stejné oblasti.
+K použití objektů blob je třeba nejprve vytvořit [Účet služby Azure Storage][azure-storage-create]. Jako součást zadání uveďte oblast Azure, kam se budou ukládat objekty, které vytvoříte pomocí tohoto účtu. Účet úložiště a clusteru musí být uloženy ve stejné oblasti. Databáze serveru SQL metaúložiště Hive a databáze serveru SQL metaúložiště Oozie musí být také umístěny ve stejné oblasti.
 
 Bez ohledu na svoje umístění patří každý objekt blob, který vytvoříte, do kontejneru v účtu úložiště Azure. Tento kontejner může být existující objekt blob, který se vytvořil mimo HDInsight, nebo to může být kontejner, který se vytvořil pro cluster služby HDInsight.
 
@@ -126,7 +126,7 @@ Když chcete vytvořit kontejner, použijte následující příkaz:
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ### <a name="using-azure-powershell"></a>Použití Azure Powershell
-Když jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install], můžete použít následující z příkazového řádku Azure PowerShell k vytvoření účtu úložiště a kontejneru:
+Pokud jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install], můžete použít následující z příkazového řádku Azure PowerShell k vytvoření účtu úložiště a kontejneru:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -216,7 +216,7 @@ Pomocí následujícího příkazu můžete zobrazit seznam rutin týkajících 
 ![Seznam rutin prostředí PowerShell týkajících se objektu blob.][img-hdi-powershell-blobcommands]
 
 ### <a name="upload-files"></a>Nahrání souborů
-Viz [Nahrání dat do HDInsight][hdinsight-upload-data].
+Viz [Nahrání dat do služby HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Stažení souborů
 Následující skript stáhne objekt blob bloku do aktuální složky. Před spuštěním skriptu změňte adresář na složku, ke které máte oprávnění k zápisu.
@@ -282,14 +282,14 @@ V tomhle článku jste se dozvěděli, jak používat HDFS kompatibilní Úloži
 
 Další informace naleznete v tématu:
 
-* [Začínáme s Azure HDInsight][hdinsight-get-started]
-* [Nahrání dat do HDInsight][hdinsight-upload-data].
-* [Použijte Hive s HDInsight][hdinsight-use-hive]
-* [Použijte Pig s HDInsight][hdinsight-use-pig]
-* [Použijte sdílené přístupové podpisy úložiště Azure pro omezení přístupu k datům s HDInsight][hdinsight-use-sas]
+* [Začínáme se službou Azure HDInsight][hdinsight-get-started]
+* [Nahrání dat do služby HDInsight][hdinsight-upload-data]
+* [Použití Hivu se službou HDInsight][hdinsight-use-hive]
+* [Použití Pigu se službou HDInsight][hdinsight-use-pig]
+* [Použití sdílených přístupových podpisů služby Azure Storage k omezení přístupu k datům pomocí HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

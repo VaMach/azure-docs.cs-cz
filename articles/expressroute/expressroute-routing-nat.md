@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
 
 
 ---
@@ -101,7 +101,7 @@ Podporujeme až 4000 předpon, které jsou nám inzerované prostřednictvím so
 
 Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel musí odfiltrovat výchozí trasy a privátní IP adresy (RFC 1918) z cest pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Tranzitní směrování a směrování mezi oblastmi
+## <a name="transit-routing-and-cross-region-routing"></a>Tranzitní směrování a směrování mezi oblastmi
 Službu ExpressRoute nejde nakonfigurovat jako tranzitní směrovače. Ohledně služeb tranzitního směrování se budete muset spoléhat na svého poskytovatele připojení.
 
 ## <a name="advertising-default-routes"></a>Inzerování výchozích tras
@@ -194,6 +194,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

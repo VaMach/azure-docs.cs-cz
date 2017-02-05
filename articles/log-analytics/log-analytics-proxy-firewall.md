@@ -4,7 +4,7 @@ description: "Nakonfigurujte nastavení proxy serveru a brány firewall, pokud v
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/02/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 
 
 ---
@@ -177,6 +177,6 @@ Pokud jste do OMS přidali řešení, můžete je zobrazit v konzole nástroje O
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

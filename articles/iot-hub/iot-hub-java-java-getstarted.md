@@ -1,6 +1,6 @@
 ---
-title: "Začínáme se službou Azure IoT Hub pro Javu | Dokumentace Microsoftu"
-description: "Úvodní kurz pro službu Azure IoT Hub pro Javu. Použití Azure IoT Hub a Javy spolu se sadami Azure IoT SDK k implementaci řešení internetu věcí."
+title: "Začínáme se službou Azure IoT Hub (Java) | Dokumentace Microsoftu"
+description: "Postup odesílání zpráv typu zařízení-cloud ze zařízení do služby Azure IoT Hub pomocí sad SDK Azure IoT pro Javu. Vytvoříte aplikaci simulovaného zařízení pro odesílání zpráv, aplikaci služby pro registraci zařízení v registru identit a aplikaci služby pro čtení zpráv typu zařízení-cloud ze služby IoT Hub."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: ae4727b27281be62a79f9387715eccd6b61e8e12
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-java"></a>Začínáme se službou Azure IoT Hub pro Javu
+# <a name="get-started-with-azure-iot-hub-java"></a>Začínáme se službou Azure IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Na konci tohoto kurzu budete mít tři konzolové aplikace Java:
@@ -46,12 +46,12 @@ Na závěr si poznamenejte hodnotu **Primární klíč** a potom klikněte na **
 
 ![Okno Zasílání zpráv služby IoT Hub na webu Azure Portal][6]
 
-Teď jste vytvořili službu IoT Hub, máte název hostitele služby IoT Hub, připojovací řetězec služby IoT Hub, primární klíč služby IoT Hub a název a koncový bod kompatibilní se službou Event Hubs, které potřebujete k dokončení kurzu.
+Teď jste vytvořili službu IoT Hub, máte název hostitele služby IoT Hub, připojovací řetězec služby IoT Hub, primární klíč služby IoT Hub a název a koncový bod kompatibilní se službou Event Hub, které potřebujete k dokončení tohoto kurzu.
 
 ## <a name="create-a-device-identity"></a>Vytvoření identity zařízení
 V této části vytvoříte konzolovou aplikaci Java, která v registru identit ve službě IoT Hub vytvoří identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru identit. Další informace najdete v části **Registr identit** v [Příručce pro vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
 
-1. Vytvořte prázdnou složku s názvem iot-java-get-started. Ve složce iot-java-get-started vytvořte pomocí následujícího příkazu na příkazovém řádku projekt Maven s názvem **create-device-identity**. Všimněte si, že se jedná o jeden dlouhý příkaz:
+1. Vytvořte prázdnou složku s názvem iot-java-get-started. Ve složce iot-java-get-started vytvořte pomocí následujícího příkazu v příkazovém řádku projekt Maven s názvem **create-device-identity**. Všimněte si, že se jedná o jeden dlouhý příkaz:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -105,21 +105,21 @@ V této části vytvoříte konzolovou aplikaci Java, která v registru identit 
         iotf.printStackTrace();
       }
     }
-    System.out.println("Device id: " + device.getDeviceId());
+    System.out.println("Device ID: " + device.getDeviceId());
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
 10. Soubor App.java uložte a zavřete.
-11. Aplikaci **create-device-identity** pomocí nástroje Maven sestavíte tak, že na příkazovém řádku ve složce create-device-identity spustíte následující příkaz:
+11. Aplikaci **create-device-identity** pomocí nástroje Maven sestavíte tak, že v příkazovém řádku ve složce create-device-identity spustíte následující příkaz:
     
     ```
     mvn clean package -DskipTests
     ```
-12. Aplikaci **create-device-identity** pomocí nástroje Maven spustíte tak, že na příkazovém řádku ve složce create-device-identity zadáte následující příkaz:
+12. Aplikaci **create-device-identity** pomocí nástroje Maven spustíte tak, že v příkazovém řádku ve složce create-device-identity spustíte následující příkaz:
     
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-13. Poznamenejte si **ID zařízení** a **klíč zařízení**. Tyto hodnoty budete potřebovat později při vytváření aplikace, která se ke službě IoT Hub připojí jako zařízení.
+13. Poznamenejte si **ID zařízení** a **Klíč zařízení**. Tyto hodnoty budete potřebovat později při vytváření aplikace, která se ke službě IoT Hub připojí jako zařízení.
 
 > [!NOTE]
 > V registru identit služby IoT Hub se uchovávají pouze identity zařízení za účelem bezpečného přístupu ke službě IoT Hub. Ukládají se tady ID zařízení a jejich klíče, které slouží jako zabezpečené přihlašovací údaje, a příznak povoleno/zakázáno, s jehož pomocí můžete zakázat přístup k jednotlivým zařízením. Pokud aplikace potřebuje pro zařízení ukládat další metadata, měla by používat úložiště pro konkrétní aplikaci. Další informace najdete v [Příručce pro vývojáře pro službu IoT Hub][lnk-devguide-identity].
@@ -134,7 +134,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
 > 
 > 
 
-1. Ve složce iot-java-get-started, kterou jste vytvořili v části *Vytvoření identity zařízení*, vytvořte pomocí následujícího příkazu na příkazovém řádku projekt Maven s názvem **read-d2c-messages**. Všimněte si, že se jedná o jeden dlouhý příkaz:
+1. Ve složce iot-java-get-started, kterou jste vytvořili v části *Vytvoření identity zařízení*, vytvořte pomocí následujícího příkazu v příkazovém řádku projekt Maven s názvem **read-d2c-messages**. Všimněte si, že se jedná o jeden dlouhý příkaz:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -262,7 +262,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     > 
     > 
 11. Soubor App.java uložte a zavřete.
-12. Aplikaci **read-d2c-messages** pomocí nástroje Maven sestavíte tak, že na příkazovém řádku ve složce read-d2c-messages spustíte následující příkaz:
+12. Aplikaci **read-d2c-messages** pomocí nástroje Maven sestavíte tak, že v příkazovém řádku ve složce read-d2c-messages spustíte následující příkaz:
     
     ```
     mvn clean package -DskipTests
@@ -271,7 +271,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
 ## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
 V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
-1. Ve složce iot-java-get-started, kterou jste vytvořili v části *Vytvoření identity zařízení*, vytvořte pomocí následujícího příkazu na příkazovém řádku projekt Maven s názvem **simulated-device**. Všimněte si, že se jedná o jeden dlouhý příkaz:
+1. Ve složce iot-java-get-started, kterou jste vytvořili v části *Vytvoření identity zařízení*, vytvořte pomocí následujícího příkazu v příkazovém řádku projekt Maven s názvem **simulated-device**. Všimněte si, že se jedná o jeden dlouhý příkaz:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -405,7 +405,7 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
     }
     ```
 12. Soubor App.java uložte a zavřete.
-13. Aplikaci **simulated-device** pomocí nástroje Maven sestavíte tak, že na příkazovém řádku ve složce simulated-device spustíte následující příkaz:
+13. Aplikaci **simulated-device** pomocí nástroje Maven sestavíte tak, že v příkazovém řádku ve složce simulated-device spustíte následující příkaz:
     
     ```
     mvn clean package -DskipTests
@@ -425,7 +425,7 @@ Nyní jste připraveni aplikaci spustit.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
-    ![Klientská aplikace služby Java IoT Hub pro monitorování zpráv typu zařízení-cloud][7]
+    ![Aplikace služby Java IoT Hub pro monitorování zpráv typu zařízení-cloud][7]
 2. V příkazovém řádku ve složce simulated-device spusťte následující příkaz, aby se do služby IoT Hub začala odesílat telemetrická data:
    
     ```
@@ -474,6 +474,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ K dokončení tohoto kurzu budete potřebovat:
 ### <a name="azure-account"></a>Účet Azure
 K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete:
 
-* [Otevřít bezplatný účet Azure](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. I po vyčerpání kreditů si můžete účet ponechat a používat bezplatné funkce a služby Azure.
-* [Aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Díky předplatnému MSDN každý měsíc získáváte kredity, které můžete použít pro placené služby Azure.
+* [Otevřít bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. I po vyčerpání kreditů si můžete účet ponechat a používat bezplatné funkce a služby Azure.
+* [Aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Díky předplatnému MSDN každý měsíc získáváte kredity, které můžete použít pro placené služby Azure.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Sadu Visual Studio 2015 se sadou Azure SDK pro .NET
 Tento kurz je napsán pro sadu Visual Studio 2015 se [sadou Azure SDK pro .NET](../dotnet-sdk.md)ve verzi 2.8.2 nebo novější. [Stáhněte si nejnovější verzi sady Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada Visual Studio se automaticky nainstaluje se sadou SDK, pokud ji ještě nemáte.
@@ -808,6 +808,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
