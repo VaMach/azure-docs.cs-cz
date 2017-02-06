@@ -1,7 +1,7 @@
-Ujistěte se, že jste již vytvořili obor názvů sběrnice, jak je znázorněno [zde][namespace-how-to].
+Ujistěte se, že jste již vytvořili obor názvů Service Bus, jak je znázorněno [zde][namespace-how-to].
 
 1. Přihlaste se k webu [Azure Portal][azure-portal].
-2. V levém navigačním podokně portálu klikněte na **Service Bus**.
+2. V levém navigačním podokně portálu klikněte na **Service Bus** (pokud položku **Service Bus** nevidíte, klikněte na **Další služby**).
 3. Vyberte obor názvů, ve kterém chcete vytvořit frontu. V tomto případě se jedná o **nstest1**.
    
     ![Vytvoření fronty][createqueue1]
@@ -21,6 +21,6 @@ Ujistěte se, že jste již vytvořili obor názvů sběrnice, jak je znázorně
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
