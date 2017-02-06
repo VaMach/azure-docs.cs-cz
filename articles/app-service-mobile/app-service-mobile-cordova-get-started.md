@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -31,15 +31,15 @@ V tomto kurzu se dozvíte, jak přidat cloudovou back-end službu k mobilní apl
 Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k používání funkce Mobile Apps v Azure App Service pro Apache Cordova.
 
 ## <a name="prerequisites"></a>Požadavky
-Pro absolvování tohoto kurzu potřebujete:
+Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
 * Počítač s nástrojem [Visual Studio Community 2015] nebo novějším
 * [Visual Studio Tools for Apache Cordova]
 * [Aktivní účet Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-Visual Studio je možné obejít a používat přímo příkazový řádek platformy Apache Cordova.  To je užitečné v případě, že kurz budete absolvovat na počítači Mac.  Tento kurz se nezabývá kompilací klientských aplikací Apache Cordova pomocí příkazového řádku.
+Visual Studio je možné obejít a používat přímo příkazový řádek platformy Apache Cordova.  Použití příkazového řádku je užitečné v případě, že kurz budete absolvovat na počítači Mac.  Tento kurz se nezabývá kompilací klientských aplikací Apache Cordova pomocí příkazového řádku.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Vytvoření nového back-endu mobilní aplikace Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Vytvoření back-endu mobilní aplikace Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Podívejte se na video zobrazující podobný postup.](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,11 +53,13 @@ Visual Studio je možné obejít a používat přímo příkazový řádek platf
 ## <a name="next-steps"></a>Další kroky
 Teď když jste dokončili tento kurz, jak rychle začít, přejděte k jednomu z následujících kurzů: 
 
-* [Přidání ověřování] do aplikace Apache Cordova
-* [Přidání nabízených oznámení] do aplikace Apache Cordova
+* [Přidání offline dat](app-service-mobile-cordova-get-started-offline-data.md) do aplikace Apache Cordova
+* [Přidání ověřování](app-service-mobile-cordova-get-started-users.md) do aplikace Apache Cordova
+* [Přidání nabízených oznámení](app-service-mobile-cordova-get-started-push.md) do aplikace Apache Cordova
 
 Další informace o klíčových konceptech Azure App Service
 
+* [Offline data]
 * [Ověřování]
 * [Nabízená oznámení]
 
@@ -70,11 +72,10 @@ Zjistěte, jak používat sady SDK.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Přidání ověřování]: app-service-mobile-cordova-get-started-users.md
-[Přidání nabízených oznámení]: app-service-mobile-cordova-get-started-push.md
+[Offline data]: app-service-mobile-offline-data-sync.md
 [Ověřování]: app-service-mobile-auth.md
 [Nabízená oznámení]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -83,6 +84,6 @@ Zjistěte, jak používat sady SDK.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
