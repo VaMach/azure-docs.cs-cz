@@ -99,6 +99,6 @@ S pochopením přecházení do databází vám pomůže článek [Správa přís
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

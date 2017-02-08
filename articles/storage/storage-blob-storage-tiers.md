@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ Pokud chcete odhadnout náklady za transakce v účtu úložiště Blob, je pot�
 
 Pokud chcete odhadnout náklady za transakce v účtu úložiště pro obecné účely, je potřeba započítat všechny transakce bez ohledu na operaci či rozhraní API.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Přístup k datům a cena za přenos dat – geografická replikace
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Přístup k datům a cena za přenos dat – geografická replikace
 Analýza úložiště sice k účtu úložiště nevypíše množství přečtených a zapsaných dat, toto množství lze ale zhruba odhadnout z tabulky metriky transakcí.
 Součet *TotalBillableRequests* všech položek rozhraní API v tabulce metrik transakcí udává celkové množství příchozích dat k tomuto rozhraní API v bajtech.
 Podobně součet *TotalEgress* udává celkové množství odchozích dat v bajtech.
@@ -345,6 +345,6 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

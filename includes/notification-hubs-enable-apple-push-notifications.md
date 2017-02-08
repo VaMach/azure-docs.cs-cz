@@ -25,34 +25,36 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
 
 1. Pokud jste aplikaci ještě nezaregistrovali, přejděte na stránky <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> na webu Apple Developer Center, přihlaste se pomocí Apple ID, klikněte na **Identifiers** (Identifikátory), potom na **App IDs** (ID aplikací) a nakonec klikněte na znak **+** a zaregistrujte novou aplikaci.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      
 2. Aktualizujte následující tři pole týkající se nové aplikace a potom klikněte na **Continue** (Pokračovat):
    
    * **Name** (Název): V části **App ID Description** (Popis ID aplikace) zadejte do pole **Name** (Název) popisný název aplikace.
    * **Bundle Identifier** (Identifikátor svazku): V části **Explicit App ID** (Explicitní ID aplikace) zadejte **identifikátor svazku** ve formě `<Organization Identifier>.<Product Name>`, jak je uvedeno v [Průvodci distribucí aplikace](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Použité hodnoty *Organization Identifier* (Identifikátor organizace) a *Product Name* (Název produktu) musí odpovídat identifikátoru organizace a názvu produktu, které budete používat při vytváření projektu prostředí XCode. Na níže uvedeném snímku se *NotificationHubs* používá jako identifikátor organizace a *GetStarted* slouží jako název produktu. Ujistěte se, že tyto hodnoty odpovídají hodnotám, které budete používat v projektu XCode. To vám umožní používání správného profilu publikování s XCode. 
    * **Push Notifications** (Nabízená oznámení): V části **App Services** (Služby aplikací) zaškrtněte možnost **Push Notifications** (Nabízená oznámení).
      
-     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
       Tím vygenerujete ID aplikace a budete vyzváni k potvrzení tohoto údaje. Kliknutím na **Register** (Zaregistrovat) potvrďte nové ID aplikace.
      
       Po kliknutí na **Register** (Zaregistrovat) se zobrazí obrazovka **Registration complete** (Registrace je dokončena), která je na obrázku níže. Klikněte na **Done** (Hotovo).
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+      
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
 1. V centru pro vývojáře v části App IDs (ID aplikací) najděte právě vytvořené ID aplikace a klikněte na jeho řádek.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-       Clicking on the app ID will display the app details. Click the **Edit** button at the bottom.
+      Kliknutím na ID aplikace zobrazíte podrobnosti o aplikaci. V dolní části klikněte na tlačítko **Edit** (Upravit).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      
 2. Přejděte do dolní části obrazovky a klikněte v části **Development Push SSL Certificate** (Vývojový certifikát pro nabízená oznámení SSL) na tlačítko **Create Certificate...** (Vytvořit certifikát...).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-       This displays the "Add iOS Certificate" assistant.
+      Zobrazí se průvodce Add iOS Certificate (Přidání certifikátu iOS).
    
    > [!NOTE]
    > Tento kurz používá vývojový certifikát. Stejný postup se používá při registraci produkčního certifikátu. Dejte pozor, abyste při odesílání oznámení používali stejný typ certifikátu.
@@ -65,7 +67,7 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-       This downloads the certificate and saves it to your computer in your Downloads folder.
+      Tím certifikát stáhnete a uložíte do počítače do složky se staženými soubory.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
@@ -75,9 +77,9 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
    > 
 5. Poklikejte na stažený nabízený certifikát **aps_development.cer**.
    
-       This installs the new certificate in the Keychain, as shown below:
+      Tím nový certifikát nainstalujete do Klíčenky, jak je znázorněno níže:
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
    > Název ve vašem certifikátu se může lišit, ale bude mu předcházet text **Apple Development iOS Push Services:**.
@@ -97,26 +99,25 @@ Abyste mohli odesílat nabízená oznámení do aplikace systému iOS, musíte a
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Vytvoření zřizovacího profilu pro aplikaci
 1. Na stránkách <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> vyberte **Provisioning Profiles** (Zřizovací profily), potom **All** (Všechny) a nakonec kliknutím na tlačítko **+** vytvořte nový profil. Tím spustíte průvodce **Add iOS Provisiong Profile** (Přidání zřizovacího profilu iOS).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 2. V části **Development** (Vývoj) vyberte jako typ zřizovacího profilu **iOS App Development** (Vývoj aplikací pro iOS) a klikněte na **Continue** (Pokračovat). 
 3. Potom v rozevíracím seznamu **App ID** (ID aplikace) vyberte právě vytvořené ID aplikace a klikněte na **Continue** (Pokračovat).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 4. Na obrazovce **Select certificates** (Výběr certifikátů) vyberte svůj obvyklý vývojářský certifikát, kterým podepisujete kód, a klikněte na **Continue** (Pokračovat). Toto není právě vytvořený nabízený certifikát.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 5. Potom vyberte **zařízení**, která chcete použít pro testování, a klikněte na **Continue** (Pokračovat).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 6. Nakonec do pole **Název profilu** zadejte název profilu a klikněte na **Generovat**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 7. Po vytvoření nového zřizovacího profilu si ho kliknutím stáhněte a nainstalujte na svém vývojovém počítači s XCode. Potom klikněte na **Done** (Hotovo).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

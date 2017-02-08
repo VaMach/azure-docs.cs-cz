@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Pokud už máte frontu služby Service Bus vytvořenou, přejděte do části [Z
 Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konzolovou aplikaci v jazyce C#.
 
 ### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
-1. Spusťte Visual Studio a vytvořte novou konzolovou aplikaci.
+
+- Spusťte Visual Studio a vytvořte novou konzolovou aplikaci.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Přidání balíčku Service Bus NuGet
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
@@ -62,12 +63,12 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Napsání kódu pro zaslání zprávy do fronty
 1. Na začátek souboru Program.cs přidejte následující příkaz using.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Do metody `Main` přidejte následující kód, nastavte proměnnou **connectionString** na připojovací řetězec, který jste získali při vytváření oboru názvů, a v proměnné **queueName** nastavte název fronty, který jste použili při vytváření fronty.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
    
     Soubor Program.cs by měl vypadat takhle.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
 1. Vytvořte novou konzolovou aplikaci a přidejte odkaz na balíček NuGet služby Service Bus, podobně jako předtím u odesílací aplikace.
 2. Na začátek souboru Program.cs přidejte následující příkaz `using`.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Do metody `Main` přidejte následující kód, nastavte proměnnou **connectionString** na připojovací řetězec, který jste získali při vytváření oboru názvů, a v proměnné **queueName** nastavte název fronty, který jste použili při vytváření fronty.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Abychom mohli do fronty odesílat zprávy, napíšeme v sadě Visual Studio konz
    
     Soubor Program.cs by měl vypadat takhle:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: charleywen
+ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 44f6761b3c3680af923f2a3b16671ca19672e281
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68ad5679a2a6fcb7cfca25410af3f2f113490bdc
 
 
 ---
-# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurace ExpressRoute a připojení typu site-to-site, která mohou v modelu nasazení Resource Manager existovat vedle sebe
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Classic](expressroute-howto-coexist-classic.md)
@@ -47,7 +47,7 @@ Možnost konfigurace VPN typu site-to-site a ExpressRoute má několik výhod. M
 * **Nejprve je nutné nakonfigurovat bránu ExpressRoute.** Bránu ExpressRoute musíte vytvořit předtím, než přidáte bránu VPN typu site-to-site.
 
 ## <a name="configuration-designs"></a>Návrhy konfigurace
-### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
 Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro ExpressRoute. To platí jenom pro virtuální sítě, které jsou propojené s cestou soukromého partnerského vztahu Azure. Neexistuje žádné řešení převzetí služeb při selhání založené na VPN pro služby, které jsou přístupné prostřednictvím veřejného partnerského vztahu Azure nebo partnerského vztahu Microsoftu. Okruh ExpressRoute je vždy primárním propojením. Data budou procházet cestou VPN typu site-to-site jenom v případě, když okruh ExpressRoute selže.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro Ex
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
 Svoji síť můžete nakonfigurovat tak, že některé weby jsou připojené přímo k Azure prostřednictvím VPN typu site-to-site a některé weby přes ExpressRoute. 
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -82,7 +82,7 @@ Existují dvě sady postupů, ze kterých si můžete vybrat, když konfigurujet
 ## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
 Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření připojení ExpressRoute a VPN site-to-site, která budou existovat společně.
 
-1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech.
+1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech.
 2. Přihlaste se ke svému účtu a nastavte prostředí.
    
         login-AzureRmAccount
@@ -160,7 +160,7 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
 > 
 > 
 
-1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech. 
+1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech. 
 2. Odstraňte existující bránu ExpressRoute nebo VPN typu site-to-site. 
    
         Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
@@ -183,7 +183,7 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
         $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 5. V tuto chvíli máte virtuální síť, která nemá žádné brány. Abyste vytvořili nové brány a dokončili připojení, můžete pokračovat [krokem 4 – Vytvoření brány ExpressRoute](#gw), který se nachází v předchozí sadě kroků.
 
-## <a name="to-add-pointtosite-configuration-to-the-vpn-gateway"></a>Přidání konfigurace point-to-site k bráně VPN
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Přidání konfigurace point-to-site k bráně VPN
 Podle následujících pokynů můžete k bráně VPN v nastavení koexistence přidat konfiguraci point-to-site.
 
 1. Přidejte fond adres klienta VPN. 
@@ -212,6 +212,6 @@ Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastěj
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -215,6 +215,6 @@ Ačkoli jsou moduly integrace v zásadě moduly PowerShellu, stále existuje řa
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
 
 ---
 
@@ -43,7 +43,7 @@ Ukázková šablona, která je k dispozici ve veřejném úložišti, používá
 
 Pokud chcete nasadit šablonu, kterou jste stáhli, pomocí prostředí PowerShell, použijte následující postup.
 
-1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
+1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 2. Stáhněte si soubor parametrů na místní disk.
 3. Upravte soubor a uložte ho.
 4. Spusťte rutinu **New-AzureRmResourceGroupDeployment**, která pomocí šablony vytvoří skupinu prostředků.
@@ -85,6 +85,6 @@ Pokud chcete nasadit šablonu pomocí rozhraní příkazového řádku Azure, po
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
