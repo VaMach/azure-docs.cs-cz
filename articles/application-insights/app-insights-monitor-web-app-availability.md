@@ -178,7 +178,7 @@ Zásuvné moduly webového testu nabízejí způsob parametrizace časů.
 
     ![Zvolte možnost přidat zásuvný modul pro testování webu a vyberte typ.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    V tomto příkladu používáme dvě instance zásuvného modulu Datum čas. Jedna instance je „před 15 minutami“ a druhá „teď“.
+    V tomto příkladu používáme dvě instance zásuvného modulu Datum čas. Jedna instance je „před&15; minutami“ a druhá „teď“.
 2. Otevřete vlastnosti každého zásuvného modulu. Pojmenujte ho a nastavte ho na použití aktuálního času. Pro jeden z nich nastavte Přidat minuty = -15.
 
     ![Nastavte název, použijte aktuální čas a přidejte minuty.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)

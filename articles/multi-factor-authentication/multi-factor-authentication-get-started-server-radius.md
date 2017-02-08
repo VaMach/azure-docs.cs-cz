@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b8ec2b5df0ae4656630364c5930029e46ee62dbd
 
 
 ---
-# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>Ověření služby RADIUS a server Azure Multi-Factor Authentication
+# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>Ověření služby RADIUS a server Azure Multi-Factor Authentication
 V části ověřování pomocí protokolu RADIUS umožňuje povolit a konfigurovat ověřování RADIUS pro server Azure Multi-Factor Authentication. RADIUS je standardní protokol pro přijímání požadavků na ověření a zpracování těchto požadavků. Server Azure Multi-Factor Authentication funguje jako server RADIUS a je vložen mezi vašeho klienta protokolu RADIUS (např. zařízení VPN) a cíl ověřování, který může být adresář služby Active Directory (AD), adresář LDAP nebo jiný server RADIUS, aby bylo možné přidat ověřování Azure Multi-Factor Authentication. Aby ověřování Azure Multi-Factor Authentication fungovalo, musíte server Azure Multi-Factor Authentication nakonfigurovat tak, aby komunikoval s klientskými servery a cílem ověřování. Server Azure Multi-Factor Authentication přijímá požadavky od klienta RADIUS, ověřuje pověření proti cíli ověřování, přidává ověřování Azure Multi-Factor Authentication a odesílá odpověď zpět do klienta protokolu RADIUS. Celé ověřování bude úspěšné pouze v případě, že primární ověřování Multi-Factor Authentication uspěje.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Pro konfiguraci ověřování pomocí protokolu RADIUS nainstalujte server Azure
 11. Pokud je server Azure Multi-Factor Authentication nainstalován na server připojený k doméně v prostředí služby Active Directory, vyberte doménu systému Windows.
 12. Pokud musí být uživatelé ověřování proti adresáři LDAP, vyberte vazbu protokolu LDAP. Při použití vazby protokolu LDAP musíte kliknout na ikonu integrace adresáře a upravit konfiguraci LDAP na kartě nastavení tak, aby server mohl vytvořit vazbu k adresáři. Pokyny ke konfiguraci LDAP naleznete v průvodci konfigurací serveru Proxy protokolu LDAP.
 13. Pokud mají být uživatelé ověřování proti jinému serveru RADIUS, vyberte servery RADIUS.
-14. Nakonfigurujte server, na který server předává požadavky protokolu RADIUS přes proxy kliknutím na tlačítko Přidat... .
+14. Nakonfigurujte server, na který server předává požadavky protokolu RADIUS přes proxy kliknutím na tlačítko Přidat.
 15. V dialogovém okně Přidat server RADIUS zadejte IP adresu serveru RADIUS a sdílený tajný klíč. Sdílený tajný klíč bude muset být stejný jak na serveru Azure Multi-Factor Authentication , tak i na serveru RADIUS. Změňte port ověřování a port monitorování účtů, pokud server RADIUS využívá jiné porty.
 16. Klikněte na tlačítko OK.
 17. Server Azure Multi-Factor Authentication musíte přidat jako klienta protokolu RADIUS v jiném serveru RADIUS, aby mohl zpracovávat požadavky na přístup odeslané ze serveru Azure Multi-Factor Authentication. Je nutné použít stejný sdílený tajný klíč konfigurovaný na serveru Azure Multi-Factor Authentication.
@@ -64,6 +64,6 @@ Chcete-li nakonfigurovat klienta RADIUS, postupujte podle pokynů:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

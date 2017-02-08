@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Definování případů použití a segmentů dává určitý návod, jak defino
 
 V závislosti na integraci budete jako obchodník moci sledovat analytické údaje v reálném čase, segmentovat cílovou skupinu a pak začít cíleně posílat inteligentní nabízená oznámení, abyste upoutali cílové uživatele v aplikaci nebo mimo ni.
 
-### <a name="usecases-to-get-started"></a>Případy použití pro začátek
+### <a name="use-cases-to-get-started"></a>Případy použití pro začátek
 1. Uvítací strategie: Vytvořte několik kampaní nabízených oznámení založených na chování koncových uživatelů při spuštění aplikace, abyste je znovu zaujali i 2, 5, 10 nebo 15 dnů po první relaci a zvýšili míru uchování po prvním spuštění.
 2. Propagujte nový obsah (funkce, článek/video nebo produkt) podle chování koncových uživatelů tak, aby se odesílané informace dostaly pouze ke koncovým uživatelům, které nejspíše zaujmou.
 3. Hodnocení aplikace: Zaměřte se na to méně než 1 % z vaší uživatelské základny, které s největší pravděpodobností v obchodě ohodnotí aplikaci 5 hvězdičkami.
@@ -66,13 +66,13 @@ Aby bylo možné při snaze o zapojení cílové skupiny co nejlépe pracovat s 
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Případy použití a osvědčené postupy
+### <a name="use-cases-and-best-practices"></a>Případy použití a osvědčené postupy
 Aby se vám lépe začínalo, stručně si v této části probereme některé klíčové případy použití, na které jsme narazili u našich zákazníků.
 
 #### <a name="media"></a>Média
 Shromažďujte údaje o typu obsahu, který cílový uživatel nejvíce využívá, podle tohoto chování segmentujte cílovou skupinu a potom směřujte určité typy obsahu pouze na ty, kteří je budou s největší pravděpodobností používat. Tím eliminujete odesílání spamu celé uživatelské základně a zajistíte lepší uchování.
 
-#### <a name="mcommerce"></a>M-commerce
+#### <a name="m-commerce"></a>M-commerce
 Shromažďujte údaje o produktových  kategoriích, které jsou v rámci aplikace nejnavštěvovanější, a na cílovou skupinu pak zaměřte propagaci slevy nebo nového produktu v kategorii, ve které tento koncový uživatel nejspíš nakoupí. Zaměřte se na zvyšování příjmů. Opakujeme, že cílem není spamovat!
 
 #### <a name="gaming"></a>Hraní her
@@ -134,6 +134,6 @@ Veškerá data tohoto typu se dají rozšířit o parametry (v Mobile Engagement
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -32,7 +32,7 @@ Když je nakonfigurována s režimem komunikace koncového šifrování protokol
 
 ![scénář koncového šifrování protokolu ssl][1]
 
-V tomto příkladu jsou požadavky, které používají šifrování TLS 1.2, přesměrované koncovým šifrováním protokolu SSL na back-endové servery fondu Pool1.
+V tomto příkladu jsou požadavky, které používají šifrování TLS&1;.2, přesměrované koncovým šifrováním protokolu SSL na back-endové servery fondu Pool1.
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>Koncové šifrování protokolu SSL a vytváření seznamu povolených certifikátů
 

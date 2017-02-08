@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f6fa6511c8d54e191de27fda73aad9feb734191f
-ms.openlocfilehash: cf946c491bc9868b9d79d09c1d019e894ecc39ff
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 
 
 ---
@@ -69,7 +69,7 @@ Pro tuto konfiguraci používáme následující hodnoty. Nastavíme proměnné 
 
 ## <a name="before-beginning"></a>Před zahájením
 * Ověřte, že máte předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial).
-* Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Při práci s prostředím PowerShell pro tuto konfiguraci se ujistěte, že jej spouštíte jako správce. 
+* Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Při práci s prostředím PowerShell pro tuto konfiguraci se ujistěte, že jej spouštíte jako správce. 
 
 ## <a name="a-namedeclareapart-1---log-in-and-set-variables"></a><a name="declare"></a>Část 1 – Přihlášení a nastavení proměnných
 V této části se přihlásíte a deklarujete hodnoty používané pro tuto konfiguraci. Deklarované hodnoty jsou použity v ukázkových skriptech. Změňte hodnoty tak, aby odpovídaly vašemu prostředí. Můžete také použít deklarované hodnoty a projít kroky jako cvičení.
@@ -268,7 +268,7 @@ Běžnou praxí je použití kořenového certifikátu pro řízení přístupu 
 1. Získejte kryptografický otisk klientského certifikátu, který chcete odvolat.
    
         $RevokedClientCert1 = "ClientCert1"
-        $RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+        $RevokedThumbprint1 = "?ef2af033d0686820f5a3c74804d167b88b69982f"
 2. Tento otisk přidejte do seznamu odvolaných kryptografických otisků.
    
         Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -294,6 +294,6 @@ Po dokončení připojení můžete do virtuálních sítí přidávat virtuáln
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ Hlavním záměrem této možnosti je umožnit správcům IT rychle identifikova
 
 ![Analýza hrozeb](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Tuto možnost můžete použít také při šetření incidentů k vyhodnocení a získání dalších informací o útoku.
+Tuto možnost můžete použít také při [šetření incidentů](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) k vyhodnocení a získání dalších informací o útoku.
 
 > [!NOTE]
 > Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagovat na incidenty pomocí služeb Azure Security Center a Microsoft Operations Management Suite) najdete informace, jak používat OMS při reakci na incidenty.
@@ -186,6 +187,6 @@ V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. D
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 4852d2b59faf01961fc8e39680bb05694dcde8d6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -457,7 +457,7 @@ Nyní když jsme dokončili ty zábavné části, zbývá již jen vytvořit ryc
             }
         }
 3. Budeme potřebovat webové uživatelské rozhraní, které se zobrazí uživateli. Přepišme soubor index.jsp, který jsme vytvořili dříve:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Nyní když jsme dokončili ty zábavné části, zbývá již jen vytvořit ryc
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. A nakonec napišme kód Javascript na straně klienta, který prováže webové uživatelské rozhraní se servletem:
    
         var todoApp = {
@@ -763,6 +764,6 @@ Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

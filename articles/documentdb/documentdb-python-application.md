@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,10 +47,14 @@ Podle postupu uvedeného v tomto kurzu sestavíte jednoduchou hlasovací aplikac
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    NEBO 
+
+    Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) nebo vyšší nebo bezplatnou verzi [Visual Studio Express](). Pokyny v tomto kurzu jsou psány konkrétně pro Visual Studio 2015. 
 * Python Tools for Visual Studio z [GitHubu](http://microsoft.github.io/PTVS/). V tomto kurzu se používá Python Tools for VS 2015. 
 * Azure Python SDK for Visual Studio, verze 2.4 nebo vyšší dostupná na [azure.com](https://azure.microsoft.com/downloads/). Použili jsme Microsoft Azure SDK for Python 2.7
-* Python 2.7 z [python.org][2]. Použili jsme Python 2.7.11 
+* Python 2.7 z [python.org][2] Použili jsme Python 2.7.11 
 
 > [!IMPORTANT]
 > Pokud Python 2.7 instalujete poprvé, je zapotřebí na obrazovce Customize Python 2.7.11 (Přizpůsobit Python 2.7.11) vybrat **Add python.exe to Path** (Přidat python.exe do proměnné PATH).
@@ -59,10 +63,10 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 > 
 > 
 
-* Microsoft Visual C++ Compiler for Python 2.7 z webu [Microsoft Download Center][3].
+* Microsoft Visual C++ Compiler for Python 2.7 z webu [Microsoft Download Center][3]
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [Krok 2: Vytvoření webové aplikace Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Krok 2: Vytvoření nové webové aplikace Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Další kurzy Pythonu Flask najdete na stránce [Velký kurz na Flask, část I:
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Instalační program webové platformy Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure Portal]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

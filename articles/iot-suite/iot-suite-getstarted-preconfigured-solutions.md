@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
 # <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Kurz: Začínáme s předkonfigurovanými řešeními
 ## <a name="introduction"></a>Úvod
-[Předkonfigurovaná řešení][lnk-preconfigured-solutions] Azure IoT Suite kombinují více služeb Azure IoT, aby mohla poskytovat komplexní řešení, implementující běžné obchodní scénáře IoT. Předkonfigurované řešení *vzdálené monitorování* se připojuje k zařízením a monitoruje je. Řešení můžete použít k analýze streamu dat ze všech zařízení a ke zlepšení obchodních výsledků díky tomu, že procesy mohou automaticky reagovat na tento stream dat.
+[Předkonfigurovaná řešení][lnk-preconfigured-solutions] pro sadu Azure IoT Suite kombinují více služeb Azure IoT, aby mohla poskytovat komplexní řešení implementující běžné obchodní scénáře IoT. Předkonfigurované řešení *vzdálené monitorování* se připojuje k zařízením a monitoruje je. Řešení můžete použít k analýze streamu dat ze všech zařízení a ke zlepšení obchodních výsledků díky tomu, že procesy mohou automaticky reagovat na tento stream dat.
 
 V tomto kurzu se dozvíte, jak zřídit předkonfigurované řešení vzdáleného monitorování. Také se seznámíte se základními funkcemi předkonfigurovaného řešení vzdáleného monitorování. Mnohé z těchto funkcí jsou přístupné prostřednictvím řídicího panelu řešení, který se nasazuje spolu s předem nakonfigurovaným řešením:
 
@@ -86,7 +86,7 @@ V podokně s informacemi o zařízení jsou uvedeny všechny příkazy, které t
 Řešení sleduje stav každého příkazu, který odešle. Zpočátku je výsledek uveden jako **Čekající**. Když zařízení ohlásí, že příkaz provedlo, výsledek je nastaven na **Úspěch**.
 
 ## <a name="add-a-new-simulated-device"></a>Přidání nového simulovaného zařízení
-Při nasazení předkonfigurovaného řešení jsou automaticky zřízena čtyři ukázková zařízení, která se zobrazí v seznamu zařízení. Tato zařízení jsou *simulovaná zařízení*, která běží ve webové úloze Azure. Simulované zařízení umožňují snadno experimentovat s předkonfigurovaným řešením, aniž by bylo nutné nasazovat skutečná fyzická zařízení. Pokud chcete k řešení připojit skutečné zařízení, přečtěte si článek [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm].
+Při nasazení předkonfigurovaného řešení jsou automaticky zřízena čtyři ukázková zařízení, která se zobrazí v seznamu zařízení. Tato zařízení jsou *simulovaná zařízení*, která běží ve webové úloze Azure. Simulované zařízení umožňují snadno experimentovat s předkonfigurovaným řešením, aniž by bylo nutné nasazovat skutečná fyzická zařízení. Pokud chcete k řešení připojit skutečné zařízení, přečtěte si kurz [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm].
 
 Následující kroky ukazují, jak do řešení přidat simulované zařízení:
 
@@ -98,7 +98,7 @@ Následující kroky ukazují, jak do řešení přidat simulované zařízení:
    
    ![Nastavení podrobností o zařízení na řídicím panelu][img-addnew]
    
-   Pokud se rozhodnete vytvořit**vlastní zařízení**, můžete kromě nového simulovaného zařízení vytvořit i zařízení fyzické. Další informace o připojení fyzických zařízení k řešení najdete v článku [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování sady IoT Suite][lnk-connect-rm].
+   Pokud se rozhodnete vytvořit**vlastní zařízení**, můžete kromě nového simulovaného zařízení vytvořit i zařízení fyzické. Další informace o připojení fyzických zařízení k řešení najdete v tématu [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování sady IoT Suite][lnk-connect-rm].
 4. Vyberte možnost **Ručně definovat vlastní ID zařízení** a zadejte jedinečný název zařízení, například **mydevice_01**.
 5. Klikněte na možnost **Vytvořit**.
    
@@ -112,7 +112,7 @@ Následující kroky ukazují, jak do řešení přidat simulované zařízení:
     ![Zobrazení telemetrie z nového zařízení][img-runningnew-2]
 
 ## <a name="edit-the-device-metadata"></a>Úprava metadat zařízení
-Když se zařízení připojí k řešení poprvé, odešle do řešení svá metadata. Při úpravě metadat zařízení prostřednictvím řídicího panelu řešení odešle nové hodnoty metadat do zařízení a uloží nové hodnoty v databázi řešení DocumentDB. Další informace najdete v článku [Registr identit zařízení a databáze DocumentDB][lnk-devicemetadata].
+Když se zařízení připojí k řešení poprvé, odešle do řešení svá metadata. Při úpravě metadat zařízení prostřednictvím řídicího panelu řešení odešle nové hodnoty metadat do zařízení a uloží nové hodnoty v databázi řešení DocumentDB. Další informace najdete v tématu [Registr identit zařízení a databáze DocumentDB][lnk-devicemetadata].
 
 1. Vraťte se zpět k seznamu zařízení.
 2. Na panelu **Seznam zařízení** vyberte nové zařízení a klikněte na tlačítko **Upravit**, kterým upravíte **vlastnosti zařízení**.
@@ -151,7 +151,7 @@ Pro zařízení, které jste právě přidali, ještě nejsou stanovena žádná
     ![Zobrazení akcí zařízení][img-actions]
 
 > [!NOTE]
-> Můžete definovat akce, které budou pomocí služby [Logic Apps][lnk-logic-apps] odesílat zprávy e-mailem nebo jako SMS v reakci na pravidlo nebo v rámci integrace s obchodním systémem. Další informace naleznete v tématu [Připojení Logic App k předkonfigurovanému řešení vzdáleného monitorování Azure IoT Suite][lnk-logicapptutorial].
+> Můžete definovat akce, které budou pomocí funkce [Logic Apps][lnk-logic-apps] odesílat zprávy e-mailem nebo jako SMS v reakci na pravidlo nebo v rámci integrace s obchodním systémem. Další informace najdete v tématu [Propojení funkce Logic Apps s předkonfigurovaným řešením vzdáleného monitorování sady Azure IoT Suite][lnk-logicapptutorial].
 > 
 > 
 
@@ -165,7 +165,7 @@ Zařízení můžete zakázat, zakázané zařízení lze následně odebrat:
 ![Zakázání a odebrání zařízení][img-disable]
 
 ## <a name="behind-the-scenes"></a>Informace pro pokročilé uživatele
-Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na [portálu Azure][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
+Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na webu [Azure Portal][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
 
 ![Předkonfigurované řešení na portálu Azure][img-portal]
 
@@ -177,17 +177,17 @@ Můžete taky zobrazit zdrojový kód pro předkonfigurované řešení. Zdrojov
 * Složka **Simulator** (Simulátor) obsahuje zdrojový kód pro simulované zařízení.
 * Složka **EventProcessor** (Procesor událostí) obsahuje zdrojový kód pro proces back-end, který zpracovává příchozí telemetrii.
 
-Jakmile budete hotovi, můžete předkonfigurované řešení z vašeho předplatného Azure odstranit na stránce [azureiotsuite.com][lnk-azureiotsuite]. Tento web umožňuje snadno odstranit všechny prostředky, které byly zřízeny při vytvoření předkonfigurovaného řešení.
+Jakmile budete hotovi, můžete předkonfigurované řešení z vašeho předplatného Azure odstranit na webu [azureiotsuite.com][lnk-azureiotsuite]. Tento web umožňuje snadno odstranit všechny prostředky, které byly zřízeny při vytvoření předkonfigurovaného řešení.
 
 > [!NOTE]
-> Abyste zajistili, že jste odstranili opravdu všechno spojené s předkonfigurovaným řešením, odstraňte řešení na stránce [azureiotsuite.com][lnk-azureiotsuite] – neodstraňujte jenom skupinu prostředků na portálu.
+> Abyste zajistili, že jste odstranili opravdu všechno spojené s předkonfigurovaným řešením, odstraňte řešení na webu [azureiotsuite.com][lnk-azureiotsuite] – neodstraňujte jenom skupinu prostředků na portálu.
 > 
 > 
 
 ## <a name="next-steps"></a>Další kroky
 Když jste teď nasadili fungující předkonfigurované řešení, můžete pokračovat v seznamování se sadou IoT Suite přečtením následujících článků:
 
-* [Návod na předkonfigurované řešení vzdáleného monitorování][lnk-rm-walkthrough]
+* [Návod pro předkonfigurované řešení vzdáleného monitorování][lnk-rm-walkthrough]
 * [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm]
 * [Oprávnění na webu azureiotsuite.com][lnk-permissions]
 
@@ -229,6 +229,6 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

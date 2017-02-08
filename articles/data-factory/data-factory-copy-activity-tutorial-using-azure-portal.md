@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 53a78b389868f25c290268731f285b7d997a44a6
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 
 ---
@@ -68,8 +68,8 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    2. Vyberte své **předplatné** Azure.
    3. Pro skupinu prostředků proveďte jeden z následujících kroků:
       
-      1. Vyberte **Použít existující** a z rozevíracího seznamu vyberte existující skupinu prostředků. 
-      2. Vyberte **Vytvořit novou** a zadejte název skupiny prostředků.   
+      - Vyberte **Použít existující** a z rozevíracího seznamu vyberte existující skupinu prostředků. 
+      - Vyberte **Vytvořit novou** a zadejte název skupiny prostředků.   
          
           Některé kroky v tomto kurzu vychází z předpokladu, že pro skupinu prostředků použijete název **ADFTutorialResourceGroup**. Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Vyberte **umístění** pro objekt pro vytváření dat. V rozevíracím seznamu jsou uvedené pouze oblasti podporované službou Data Factory.
@@ -135,38 +135,39 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
     ![Nabídka Nová datová sada](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Nahraďte kód JSON v pravém podokně následujícím fragmentem kódu JSON: 
    
-        {
-          "name": "InputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-              "folderPath": "adftutorial/",
-              "fileName": "emp.txt",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "external": true,
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "InputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+          "folderPath": "adftutorial/",
+          "fileName": "emp.txt",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Je třeba počítat s následujícím: 
+      }
+    }
+    ```   
+    Je třeba počítat s následujícím: 
    
    * Vlastnost **type** datové sady je nastavená na **AzureBlob**.
    * Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. Tuto propojenou službu jste vytvořili v kroku 2.
@@ -180,16 +181,18 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
      Pokud nezadáte **fileName** pro **výstupní tabulku**, generované soubory v **folderPath** se pojmenují podle následujícího formátu: Data.&lt;identifikátor GUID\&gt;.txt (například: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
      
      Pokud chcete nastavit **folderPath** a **fileName** dynamicky podle času **SliceStart**, použijte vlastnost **partitionedBy**. V následujícím příkladu folderPath používá rok, měsíc a den z vlastnosti SliceStart (čas zahájení zpracování řezu) a fileName používá hodinu z vlastnosti SliceStart. Pokud například začne být řez vytvářen v době 2016-09-20T08:00:00, vlastnost folderName je nastavená na wikidatagateway/wikisampledataout/2016/09/20 a vlastnost fileName je nastavená na 08.csv. 
-     
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-           ],
+
+    ```JSON     
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+       { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+       { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+       { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+       { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
+    ```
 3. Datovou sadu **InputDataset** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Zkontrolujte, jestli se datová sada **InputDataset** objevila v zobrazení stromu.
 
 > [!NOTE]
@@ -202,33 +205,34 @@ V této části kroku vytvoříte výstupní datovou sadu s názvem **OutputData
 
 1. V **editoru** služby Data Factory klikněte na **... Další**, klikněte na **Nová datová sada** a v rozevíracím seznamu klikněte na **Azure SQL**. 
 2. Nahraďte kód JSON v pravém podokně následujícím fragmentem kódu JSON:
-   
-        {
-          "name": "OutputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-              "tableName": "emp"
-            },
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+
+    ```JSON   
+    {
+      "name": "OutputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "emp"
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Je třeba počítat s následujícím: 
+      }
+    }
+    ```     
+    Je třeba počítat s následujícím: 
    
    * Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
    * Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService** (tuto propojenou službu jste vytvořili v kroku 2).
@@ -247,48 +251,50 @@ V tomto kroku vytvoříte kanál s **aktivitou kopírování**, která použív�
 
 1. V **editoru** služby Data Factory klikněte na **... Další** a poté na **Nový kanál**. Případně můžete ve stromovém zobrazení kliknout pravým tlačítkem na **anály** a pak kliknout na **Nový kanál**.
 2. Nahraďte kód JSON v pravém podokně následujícím fragmentem kódu JSON: 
-   
-        {
-          "name": "ADFTutorialPipeline",
-          "properties": {
-            "description": "Copy data from a blob to Azure SQL table",
-            "activities": [
+
+    ```JSON   
+    {
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from a blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
               {
-                "name": "CopyFromBlobToSQL",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "InputDataset"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "OutputDataset"
-                  }
-                ],
-                "typeProperties": {
-                  "source": {
-                    "type": "BlobSource"
-                  },
-                  "sink": {
-                    "type": "SqlSink",
-                    "writeBatchSize": 10000,
-                    "writeBatchTimeout": "60:00:00"
-                  }
-                },
-                "Policy": {
-                  "concurrency": 1,
-                  "executionPriorityOrder": "NewestFirst",
-                  "retry": 0,
-                  "timeout": "01:00:00"
-                }
+                "name": "InputDataset"
               }
             ],
-            "start": "2016-07-12T00:00:00Z",
-            "end": "2016-07-13T00:00:00Z"
+            "outputs": [
+              {
+                "name": "OutputDataset"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
           }
-        } 
-   
+        ],
+        "start": "2016-07-12T00:00:00Z",
+        "end": "2016-07-13T00:00:00Z"
+      }
+    } 
+    ```   
+    
     Je třeba počítat s následujícím:
    
    * V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **Copy**.
@@ -373,7 +379,7 @@ V tomto kroku budete pomocí webu Azure Portal monitorovat, co se děje v objekt
     
     ![Výsledky dotazu SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
 K monitorování kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v tématu [Monitorování a správa kanálů služby Azure Data Factory pomocí aplikace pro monitorování a správu](data-factory-monitor-manage-app.md).
 
 1. Na domovské stránce svého objektu pro vytváření dat klikněte na dlaždici **Monitorování a správa**.
@@ -407,6 +413,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

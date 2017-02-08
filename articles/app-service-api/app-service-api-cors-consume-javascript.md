@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ CORS můžete nakonfigurovat na Portálu Azure nebo pomocí nástrojů, které n
    Po kliknutí na **Uložit** bude aplikace API přijímat volání JavaScriptu ze zadaných adres URL.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurace CORS pomocí nástrojů, které nabízí Azure Resource Manager
-CORS můžete pro aplikaci API nakonfigurovat také pomocí [šablon Azure Resource Manageru](../resource-group-authoring-templates.md) v nástrojích příkazového řádku, jako je [Azure PowerShell](../powershell-install-configure.md) nebo [Azure CLI](../xplat-cli-install.md). 
+CORS můžete pro aplikaci API nakonfigurovat také pomocí [šablon Azure Resource Manageru](../resource-group-authoring-templates.md) v nástrojích příkazového řádku, jako je [Azure PowerShell](/powershell/azureps-cmdlets-docs) nebo [Azure CLI](../xplat-cli-install.md). 
 
 Příklad šablony Azure Resource Manageru, která nastaví vlastnost CORS, najdete v [souboru azuredeploy.json v úložišti pro ukázkovou aplikaci tohoto kurzu](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Najděte část šablony, která je podobná následujícímu příkladu:
 
@@ -61,7 +61,7 @@ Příklad šablony Azure Resource Manageru, která nastaví vlastnost CORS, najd
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Pokračování úvodních kurzů k .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Pokračování úvodních kurzů k .NET
 Pokud jste si vybrali sérii úvodních kurzů k aplikacím API pro Node.js nebo Java, pak jste tuto sérii dokončili. Přeskočte část [Další kroky](#next-steps) a najděte část s návrhy dalších kurzů k API Apps.
 
 Zbývající část tohoto článku je pokračování série úvodních kurzů k .NET, která předpokládá, že jste úspěšně dokončili [první kurz](app-service-api-dotnet-get-started.md).
@@ -252,6 +252,6 @@ V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App S
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
