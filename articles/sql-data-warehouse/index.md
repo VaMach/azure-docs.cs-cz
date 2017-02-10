@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se používat službu SQL Data Warehouse, která kombinuje SQL Server s architekturou MPP (Massively Parallel Processing). Dokumentace ukazuje, jak načítat, analyzovat, spravovat a exportovat data."
 translationtype: Human Translation
-ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
-ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
 
 ---
 
@@ -79,7 +79,7 @@ Naučte se používat službu SQL Data Warehouse, která relační databázi kom
                 <div class="card">
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
-                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Rutiny prostředí PowerShell</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Rutiny PowerShellu</a></p>
                     </div>
                 </div>
             </div>
@@ -102,13 +102,7 @@ Naučte se používat službu SQL Data Warehouse, která relační databázi kom
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě SQL Data Warehouse </div>
-    </a>
-</div>
+
 
 
 

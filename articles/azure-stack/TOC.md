@@ -16,6 +16,7 @@
 ## [Vytvoření účtu úložiště](azure-stack-provision-storage-account.md)
 ## [Připojení přes rozhraní příkazového řádku](azure-stack-connect-cli.md)
 ## [Připojení přes PowerShell](azure-stack-connect-powershell.md)
+## [Instalace sady Visual Studio](azure-stack-install-visual-studio.md)
 ## [Nejčastější dotazy](azure-stack-faq.md)
 
 # Nabídka služeb tenantům
@@ -28,6 +29,7 @@
 # Použití šablon
 ## [Přehled šablon](azure-stack-arm-templates.md)
 ## [Vývoj šablon](azure-stack-develop-templates.md)
+## [Kontrola šablon](azure-stack-validate-templates.md)
 ## [Nasazení šablon pomocí portálu](azure-stack-deploy-template-portal.md)
 ## [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)
 ## [Nasazení šablon pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -4,6 +4,7 @@
 ## [Scénáře aplikací](service-fabric-application-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
+## [Mapa obsahu](service-fabric-content-roadmap.md)
 
 # Začínáme
 ## Nastavení vývojového prostředí
@@ -18,17 +19,23 @@
 
 # Postup
 ## Sestavení aplikace
+### [Vzory a scénáře](service-fabric-patterns-and-scenarios.md)
 ### Základy
 #### [Programovací model](service-fabric-choose-framework.md)
 #### [Aplikační model](service-fabric-application-model.md)
 #### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
+#### [Prostředky manifestu služby](service-fabric-service-manifest-resources.md)
 #### [Nástroje](service-fabric-manage-application-in-visual-studio.md)
-#### [Ladění](service-fabric-debugging-your-application.md)
+#### Ladění
+##### [Ladění služby C# ve VS](service-fabric-debugging-your-application.md)
+##### [Ladění služby Java v Eclipse](service-fabric-debugging-your-application-java.md)
 #### Monitorování a diagnóza
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Konfigurace zásad zabezpečení pro aplikaci](service-fabric-application-runas-security.md)
-#### [Konfigurace aplikace pro více prostředí](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [Správa tajných klíčů aplikací](service-fabric-application-secret-management.md)  
+#### [Konfigurace zásad zabezpečení pro aplikaci](service-fabric-application-runas-security.md)  
+#### [Konfigurace aplikace pro více prostředí](service-fabric-manage-multiple-environment-app-configuration.md)  
+#### [Běžné chyby a výjimky](service-fabric-errors-and-exceptions.md) 
 
 ### Aplikace Reliable Services
 #### [Přehled](service-fabric-reliable-services-introduction.md)
@@ -36,12 +43,14 @@
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
 #### [Architektura](service-fabric-reliable-services-platform-architecture.md)
+#### [Životní cyklus Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Použití Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurace](service-fabric-reliable-services-configuration.md)
 #### [Oznámení](service-fabric-reliable-services-notifications.md)
 #### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 #### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
+#### [Zabezpečená komunikace s Reliable Services](service-fabric-reliable-services-secure-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [Vzdálená komunikace služby](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
@@ -62,6 +71,7 @@
 #### [Správa stavu](service-fabric-reliable-actors-state-management.md)
 #### [Konfigurace zprostředkovatele stavu](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+#### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
 ### Aplikace spustitelná hostem
 #### [Nasazení hostujícího spustitelného souboru](service-fabric-deploy-existing-app.md)
@@ -84,6 +94,7 @@
 #### [Plánování kapacity](service-fabric-cluster-capacity.md)
 #### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 #### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
+#### [Správa clusteru pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md) 
 #### [Zabezpečení](service-fabric-cluster-security.md)
 #### [Zotavení po havárii](service-fabric-disaster-recovery.md)
 
@@ -97,15 +108,19 @@
 #### [Odstranění clusteru](service-fabric-cluster-delete.md)
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-fabric-settings.md)
+#### [Přidání nebo výměna certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bezplatné vyzkoušení Party Clusteru](http://aka.ms/tryservicefabric)
 
 ### Samostatné clustery
 #### [Vytvoření samostatného clusteru](service-fabric-cluster-creation-for-windows-server.md)
+#### [Vytvoření samostatného clusteru v Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Škálování clusteru](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Upgrade clusteru](service-fabric-cluster-upgrade-windows-server.md)
 #### [Zabezpečení clusteru](service-fabric-windows-cluster-x509-security.md)
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-manifest.md)
+#### [Zabezpečení clusteru pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)  
+#### [Zabezpečení clusteru pomocí zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md) 
 
 ## Správa a orchestrace prostředků clusteru
 ### [Přehled Cluster Resource Manageru](service-fabric-cluster-resource-manager-introduction.md)
@@ -137,7 +152,6 @@
 ### [Řešení potíží s upgrady aplikací](service-fabric-application-upgrade-troubleshooting.md)
 ### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
 ### [Pokročilá témata týkající se upgradů aplikací](service-fabric-application-upgrade-advanced.md)
-### [Ukázka životního cyklu aplikace založené na REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
 ## Kontrola stavu aplikace a clusteru
 ### [Monitorování stavu Service Fabric](service-fabric-health-introduction.md)
@@ -153,7 +167,7 @@
 ### Protokoly diagnostiky Azure
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Trasování aplikace Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Shromažďování protokolů z procesu služeb](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
@@ -174,6 +188,7 @@
 #### [Během úloh](service-fabric-testability-workload-tests.md)
 #### [Vyvoláním ztráty dat](service-fabric-use-data-loss-api.md)
 #### [Pomocí testovacích scénářů](service-fabric-testability-scenarios.md)
+#### [Pomocí rozhraní API pro přechod uzlů](service-fabric-node-transition-apis.md)
 ### [Zátěžový test aplikace](service-fabric-vso-load-test.md)
 
 # Referenční informace
@@ -183,6 +198,8 @@
 ## [REST](/rest/api/servicefabric)
 
 # Zdroje a prostředky
+## [Běžné otázky týkající se Service Fabric](service-fabric-common-questions.md)
+## [Možnosti podpory pro Service Fabric](service-fabric-support.md)
 ## [Ukázka kódu](http://aka.ms/servicefabricsamples)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)

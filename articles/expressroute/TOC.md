@@ -45,9 +45,9 @@
 ### [Asymetrické směrování](expressroute-asymmetric-routing.md)
 
 ## Řešení potíží
+### [Ověření připojení ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Získání tabulek protokolu ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Získání tabulek protokolu ARP (Classic)](expressroute-troubleshooting-arp-classic.md)
-
 
 # Referenční informace
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
@@ -80,6 +80,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

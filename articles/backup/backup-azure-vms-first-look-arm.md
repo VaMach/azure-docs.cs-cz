@@ -59,7 +59,7 @@ V závislosti na počtu virtuálních počítačů, které chcete chránit, mů�
 
   ![Průvodce povolením zálohování](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. Pro trezor služby Recovery Services můžete vybrat existující trezor nebo vytvořit nový trezor. Pokud vytváříte nový trezor, vytvoří se ve stejné skupině prostředků a stejném umístění jako virtuální počítač. Pokud chcete vytvořit trezor služby Recovery Services s jinými hodnotami, [vytvořte trezor služby Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) před kliknutím na možnost Zálohovat v Kroku 3, a vyberte jej v tomto okně.
+5. Pro trezor služby Recovery Services můžete vybrat existující trezor nebo vytvořit nový trezor. Pokud vytváříte nový trezor, vytvoří se ve stejné skupině prostředků a stejném umístění jako virtuální počítač. Pokud chcete vytvořit trezor služby Recovery Services s jinými hodnotami, [vytvořte trezor služby Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) před kliknutím na možnost Zálohovat v Kroku&3;, a vyberte jej v tomto okně.
 
 6. V okně Zásady zálohování vyberte zásadu zálohování, kterou chcete použít pro trezor a klikněte na **OK**.
     ![Výběr zásad zálohování](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

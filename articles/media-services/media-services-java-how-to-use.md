@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Vytvoření účtu Azure pro Media Services
-Účet Media Services vytvoříte na webu Azure Portal. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na webu Azure Portal budete připravení nastavit počítač pro vývoj pro Media Services.
 
-## <a name="setting-up-for-media-services-development"></a>Příprava na vývoj pro Media Services
+Účet Media Services vytvoříte na webu Azure Portal. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na webu Azure Portal budete připravení nastavit počítač pro vývoj pro Media Services.
+ 
 Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Services pomocí sady Media Services SDK for Java.
 
 ### <a name="prerequisites"></a>Požadavky
@@ -34,6 +34,10 @@ Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Ser
 * Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure střediska pro vývojáře Java][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Návod: Použití Media Services s Javou
+
+>[!NOTE]
+>Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
+
 Tento kód ukazuje, jak vytvořit asset, uložit do assetu soubor média, spustit úlohu s úkolem transformace assetu a vytvořit lokátor pro streamování videa.
 
 Abyste mohli tento kód použít, musíte si nejdřív vytvořit účet Media Services. Informace o vytvoření účtu najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Dokumentaci Media Services Javadoc najdete v tématu [Dokumentace pro knihovny A
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

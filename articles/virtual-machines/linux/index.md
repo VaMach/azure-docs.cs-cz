@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Naučte se vytvářet virtuální počítač s distribucí Linuxu podle vašeho výběru. Dokumentace ukazuje různé způsoby vytváření šablon virtuálních počítačů."
+title: "Referenční informace k rozhraní API, kurzy a dokumentace k Azure Virtual Machines pro Linux | Dokumentace Microsoftu"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Dokumentace k virtuálnímu počítači s Linuxem
+# <a name="linux-virtual-machine-documentation"></a>Dokumentace k virtuálnímu počítači s Linuxem
 
-Pomocí Azure Virtual Machines můžete vytvořit linuxové virtuální počítače a spouštět je ve výpočetní, síťové a úložné infrastruktuře Azure.  Škálujte na tisíce počítačů pro zajištění plně internetových nasazení nebo spusťte jeden počítač jenom na pár minut a zpracujte důležitá čísla. V každém případě můžete počítat s rychlostí i konzistencí.
+Naučte se spouštět virtuální počítače v Azure s distribucí Linuxu podle vašeho výběru. Dokumentace, reference k rozhraní API a ukázky ukazují různé způsoby vytváření a nasazení šablon virtuálních počítačů.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,121 +97,55 @@ Pomocí Azure Virtual Machines můžete vytvořit linuxové virtuální počíta
 </ul>
 
 ---
-
-##<a name="reference"></a>Referenční informace
-
+ 
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Rutiny prostředí PowerShell</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Instalace rozhraní příkazového řádku Azure CLI</p>
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referenční informace ke spravovanému rozhraní API .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java SDK</h3>
-                        <p>Java API – referenční informace</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Compute</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Network)</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Network</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Storage)</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Storage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-    
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace k virtuálnímu počítači s Linuxem </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -128,7 +128,6 @@
 #### [Nasazení webové služby](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Použití externích dat](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Nasazení v několika oblastech](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publikování na Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Použití parametrů webové služby](machine-learning-web-service-parameters.md)
 #### [Povolení protokolování](machine-learning-web-services-logging.md)
 ### Správa webových služeb
@@ -157,23 +156,10 @@
 #### [Použití Hadoopu s 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [Použití SQL Serveru](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Použití SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Ukázky webových služeb
-#### [Příklady s R](machine-learning-r-csharp-web-service-examples.md)
-#### [Binární klasifikátor](machine-learning-r-csharp-binary-classifier.md)
-#### [Model clusteru](machine-learning-r-csharp-cluster-model.md)
-#### [Lineární regrese s množstvím proměnných](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Vytváření prognóz – Exponenciální vyhlazování](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Vytváření prognóz – ETS a STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Vytváření prognóz – ARIMA](machine-learning-r-csharp-arima.md)
-#### [Analýza přežití](machine-learning-r-csharp-survival-analysis.md)
-#### [Analýza mínění na základě slovníku](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Testování rozdílu v proporcích](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Sada normální distribuce](machine-learning-r-csharp-normal-distribution.md)
-#### [Sada binomické distribuce](machine-learning-r-csharp-binomial-distribution.md)
-#### [Nejčastější dotazy k Marketplace](machine-learning-marketplace-faq.md)
 
 # Referenční informace
-## [PowerShell](machine-learning-powershell-module.md)
+## [Modul PowerShell (nový)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Modul PowerShell (klasický)](machine-learning-powershell-module.md)
 ## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [Vlastní moduly](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### Rozhraní API
-#### [Detekce anomálií](machine-learning-apps-anomaly-detection.md)
+#### [Detekce anomálií](machine-learning-apps-anomaly-detection-api.md)
 #### [Analýza textu](machine-learning-apps-text-analytics.md)
 #### [Kognitivní služby](https://azure.microsoft.com/services/cognitive-services/)
 #### Doporučení
@@ -222,6 +208,6 @@
 ## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

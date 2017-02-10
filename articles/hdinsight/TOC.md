@@ -61,10 +61,12 @@
 ### [Předpověď výkonu HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Předpověď výsledků kontroly potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analýza webových protokolů](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Použití poznámkových bloků Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
 ### [Jádra aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Balíčky pro aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Použití místní aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Vývoj aplikací pomocí Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Vývoj aplikací pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Vzdálené ladění pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Správa prostředků](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +158,7 @@
 #### [Použití rozhraní příkazového řádku Azure](hdinsight-administer-use-command-line.md)
 ### [Správa clusterů pomocí webového uživatelského rozhraní Ambari](hdinsight-hadoop-manage-ambari.md)
 #### [Použití rozhraní Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Přidání účtů úložiště](hdinsight-hadoop-add-storage.md)
 ### [Nahrání dat pro úlohy Hadoopu](hdinsight-upload-data.md)
 ### [Import a export dat pomocí Sqoopu](hdinsight-use-sqoop.md)
 #### [Připojení přes SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +227,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

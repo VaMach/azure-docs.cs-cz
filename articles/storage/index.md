@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se používat Azure Storage – úložiště pro objekty blob, tabulky, fronty, soubory a disky virtuálních počítačů v cloudu. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
-ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -140,13 +140,7 @@ Zjistěte, jak používat Azure Storage, službu cloudového úložiště, kter�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Storage </div>
-    </a>
-</div>
+
 
 
 

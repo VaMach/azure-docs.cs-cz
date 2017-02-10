@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
+ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
+ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
 
 
 ---
@@ -81,6 +81,10 @@ Při vytváření skupiny prostředků pro ni musíte zadat umístění. Asi vá
 Každý poskytovatel prostředků nabízí sadu prostředků a operací pro práci se službou Azure. Pokud například chcete ukládat klíče a tajné klíče, využijete poskytovatele prostředků **Microsoft.KeyVault**. Tento poskytovatel prostředků nabízí typ prostředku nazvaný **vaults** pro vytvoření trezoru klíčů a typ prostředku s názvem **vaults/secrets** pro vytvoření tajných údajů v trezoru klíčů. 
 
 Než začnete nasazovat prostředky, měli byste získat přehled o dostupných poskytovatelích prostředků. Znalost názvů poskytovatelů prostředků a samotných prostředků vám umožní definovat prostředky, které chcete nasadit do Azure.
+
+Všechny poskytovatele prostředků můžete zobrazit přes portál. V okně vašeho předplatného vyberte **Poskytovatelé prostředků**:
+
+![zobrazení poskytovatelů prostředků](./media/resource-group-overview/view-resource-providers.png)
 
 Všechny poskytovatele prostředků načtete pomocí následující rutiny PowerShellu:
 
@@ -322,6 +326,6 @@ Zde je videoukázka tohoto přehledu:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

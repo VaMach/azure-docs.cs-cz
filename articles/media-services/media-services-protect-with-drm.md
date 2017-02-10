@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ Abyste mohli využívat dynamické šifrování, je třeba mít asset, který ob
 
 Toto téma bude užitečné pro vývojáře pracující na aplikacích, které doručují média chráněná několika technologiemi DRM, např. PlayReady a Widevine. Téma ukazuje, jak nakonfigurovat službu doručování licencí PlayReady pomocí zásad autorizace tak, aby licence PlayReady nebo Widevine mohli dostávat pouze autorizovaní klienti. Také ukazuje, jak používat dynamické šifrování s licencemi DRM PlayReady nebo Widevine přes streamování DASH.
 
-> [!NOTE]
-> Pokud chcete začít používat dynamické šifrování, musíte nejprve získat alespoň jednu jednotku škálování (také označovanou jako jednotka streamování). Další informace najdete v článku o [škálování služby Media Service](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
 
 ## <a name="download-sample"></a>Stažení ukázky
 Ukázku popsanou v tomto článku si můžete stáhnout [tady](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -160,8 +158,7 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. získat alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat Další informace najdete v článku o [konfiguraci koncových bodů streamování](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Přepište kód v souboru Program.cs kódem zobrazeným v této části.
+7. Přepište kód v souboru Program.cs kódem zobrazeným v této části.
 
     Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 
@@ -623,6 +620,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

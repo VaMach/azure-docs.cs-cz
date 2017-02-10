@@ -24,7 +24,9 @@
 ### Připojení prostřednictvím kódu programu
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Správa koncových bodů streamování pomocí portálu](media-services-portal-manage-streaming-endpoints.md)
+### [Správa koncových bodů streamování](media-services-streaming-endpoints-overview.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Postup aktualizace Media Services po postupném zavedení přístupových klíčů k úložišti](media-services-roll-storage-access-keys.md)
 ### [Kvóty a omezení](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Živé streamování](media-services-manage-channels-overview.md)
 ### [Místní kodéry](media-services-live-streaming-with-onprem-encoders.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Živé streamování s použitím cloudového kodéru](media-services-manage-live-encoder-enabled-channels.md)
 ### Kurzy použití cloudových kodérů
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Analýza využití dat v Log Analytics | Dokumentace Microsoftu"
-description: "Chcete-li zobrazit, kolik dat je odesíláno do služby OMS, můžete k tomu použít stránku Využití v Log Analytics."
+description: "Pokud chcete zobrazit, kolik dat je odesíláno do služby OMS, můžete k tomu použít řídicí panel Využití v Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,66 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/14/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+ms.sourcegitcommit: 92083407c2d2902227842e4320e9ad2ae6a3fa0b
+ms.openlocfilehash: 9ee0a8a01a335cc7a97375e65e1bbc77b1aa76e5
 
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
-Log Analytics v Operations Management Suite (OMS) shromažďuje data a pravidelně je odesílá do služby OMS.  Chcete-li zobrazit, kolik dat je odesíláno do služby OMS, můžete k tomu použít stránku **Využití**. Stránka **Využití** také ukazuje, kolik dat je denně odesíláno řešeními a jak často vaše servery data odesílají.
+Log Analytics shromažďuje data a pravidelně je odesílá do služby OMS.  Pokud chcete zobrazit, kolik dat je odesíláno do služby OMS, můžete k tomu použít řídicí panel **Využití Log Analytics**. Řídicí panel také ukazuje, kolik dat je odesíláno řešeními a jak často vaše servery data odesílají.
 
 > [!NOTE]
-> Máte-li bezplatný účet vytvořený pomocí [webu OMS](http://www.microsoft.com/oms), je odesílání dat do služby OMS omezeno na 500 MB denně. Pokud denní limit překročíte, analýza dat se zastaví a bude pokračovat na začátku dalšího dne. Bude také nutné znovu odeslat veškerá data, která nebyla přijata nebo zpracována v OMS.
-> 
-> 
+> Pokud máte bezplatný účet, je odesílání dat do služby OMS omezeno na 500 MB denně. Pokud denní limit překročíte, analýza dat se zastaví a bude pokračovat na začátku dalšího dne. V takovém případě bude nutné znovu odeslat veškerá data, která nebyla přijata nebo zpracována v OMS.
 
-Využití můžete zobrazit pomocí dlaždice **Využití** na řídicím panelu **Přehled** v OMS.
+Pokud jste denní limit využití překročili nebo se mu blížíte, můžete volitelně odebrat některé řešení a snížit tak množství dat, která se odesílají do služby OMS. Další informace o odebírání řešení najdete v tématu [Přidání řešení Log Analytics z Galerie řešení](log-analytics-add-solutions.md).
 
-![dlaždice využití](./media/log-analytics-usage/usage-tile.png)
+![řídicí panel využití](./media/log-analytics-usage/usage-dashboard01.png)
 
-Pokud jste denní limit využití překročili nebo se mu blížíte, můžete volitelně odebrat některé řešení a snížit tak množství dat, která odesíláte do služby OMS. Další informace o odebírání řešení najdete v tématu [Přidání řešení Log Analytics z Galerie řešení](log-analytics-add-solutions.md).
+Řídicí panel **Využití Log Analytics** obsahuje tyto informace:
 
-![řídicí panel využití](./media/log-analytics-usage/usage-dashboard.png)
-
-Stránka **Využití** zobrazuje následující informace:
-
-* Průměrné denní využití
-* Využití dat pro jednotlivá řešení za posledních 30 dnů
-* Množství dat odeslaných servery ve vašem prostředí do služby OMS za posledních 30 dnů
-* Cenová úroveň datového tarifu a odhadované náklady
-* Informace o smlouvě o rozsahu služeb (SLA) včetně toho, jak dlouho trvá zpracování vašich dat v OMS
+- Objem dat
+    - Objem dat v průběhu času (v závislosti na vašem aktuálním časovém rozsahu)
+    - Objem dat podle řešení
+    - Data, která nejsou spojena s počítačem
+- Počítače
+    - Počítače odesílající data
+    - Počítače, které během posledních 24 hodin neodeslaly žádná data
+- Nabídky
+    - Uzly Insight and Analytics
+    - Uzly Automation and Control
+    - Uzly zabezpečení
+- Výkon
+    - Čas potřebný k shromáždění a indexaci dat
+- Seznam dotazů
 
 ## <a name="to-work-with-usage-data"></a>Práce s daty o využití
-1. Na stránce **Přehled** klikněte na dlaždici **Využití**.
-2. Na stránce **Využití** si prohlédněte kategorie využití představující oblasti, o které se zajímáte.
-3. Máte-li řešení, které využívá příliš velkou část vaší denní kvóty pro nahrávání, měli byste zvážit odebrání takového řešení.
+1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
+2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na** Log Analytics**.  
+    ![Centrum Azure](./media/log-analytics-usage/hub.png)
+3. Na řídicím panelu **Log Analytics** se zobrazí seznam vašich pracovních prostorů. Vyberte pracovní prostor.
+4. Na řídicím panelu *pracovního prostoru* klikněte na **Využití Log Analytics**.
+5. Na řídicím panelu **Využití Log Analytics** klikněte na **Čas: Posledních 24 hodin** a změňte časový interval.  
+    ![časový interval](./media/log-analytics-usage/time.png)
+6. Zobrazte okna kategorií využití s oblastmi, které vás zajímají. Vyberte okno a pak v něm klikněte na některou položku, abyste zobrazili další podrobnosti v [Prohledávání protokolů](log-analytics-log-searches.md).  
+    ![příklad okna využití dat](./media/log-analytics-usage/blade.png)
+7. Na řídicím panelu Prohledávání protokolů zkontrolujte vrácené výsledky hledání.  
+    ![příklad prohledávání protokolů využití](./media/log-analytics-usage/usage-log-search.png)
 
-## <a name="to-view-your-estimated-cost-and-billing-information"></a>Zobrazení odhadovaných nákladů a informací o fakturaci
-1. Na stránce **Přehled** klikněte na dlaždici **Využití**.
-2. Na stránce **Využití** v části **Využití** klikněte na dvojitou šipku (**>**) vedle položky **Odhadované náklady**.
-3. V rozbalených podrobnostech **Váš datový tarif** uvidíte odhadované měsíční náklady.  
-    ![Váš datový tarif](./media/log-analytics-usage/usage-data-plan.png)
-4. Chcete-li zobrazit informace o fakturaci, kliknutím na **Zobrazit fakturu** zobrazíte informace o svém předplatném.
-   * Na stránce s předplatnými kliknutím na své předplatné zobrazíte podrobnosti a seznam položek řádku s využitím.  
-       ![předplatné](./media/log-analytics-usage/usage-sub01.png)
-   * Na stránce Souhrn pro vaše předplatné můžete provádět různé úlohy správy a zobrazit další podrobnosti o předplatném.  
-       ![podrobnosti o předplatném](./media/log-analytics-usage/usage-sub02.png)
-
-## <a name="to-view-data-batches-for-your-sla"></a>Zobrazení datových balíků pro vaši SLA
-1. Na stránce **Přehled** klikněte na dlaždici **Využití**.
-2. V části **Smlouva SLA** klikněte na **Stáhnout podrobnosti o SLA**.
-3. Stáhne se soubor XLSX aplikace Excel, ve kterém můžete údaje zkontrolovat.  
-    ![Podrobnosti o SLA](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>Další kroky
-* Chcete-li zobrazit podrobné informace shromážděné řešeními, přečtěte si téma [Vyhledávání protokolů v Log Analytics](log-analytics-log-searches.md).
+* Pokud chcete zobrazit podrobné informace shromážděné a odeslané do OMS funkcemi a řešeními, přečtěte si téma [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Naučte se používat virtuální síť v cloudu. Dokumentace ukazuje, jak nasadit virtuální síť, využít ji ke spuštění prostředků a integrovat s místní sítí."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Dokumentace ke službě Virtual Network
 
-Azure Virtual Network (VNet) je logické znázornění vaší vlastní sítě v cloudu.  Se službou VNet máte plnou kontrolu nad prvky sítě, můžete si virtuální síť segmentovat do podsítí a využít ji ke spuštění Azure Virtual Machines nebo Cloud Services.  Kromě toho můžete virtuální síť pomocí některé z možností připojení, které jsou k dispozici v Azure, připojit ke své lokální síti, čímž svou síť rozšíříte do cloudu a současně si zachováte kontrolu nad prostředky.
+Naučte se používat Virtual Network (VNet), logickou reprezentaci vaší vlastní sítě v cloudu. Dokumentace ukazuje, jak nastavit a spravovat virtuální síť, jak ji využít ke spuštění služby Virtual Machines nebo Cloud Services, jak připojit virtuální síť k místní síti na pracovišti a jak rozšířit síť do cloudu a zachovat si přitom kontrolu nad prostředky.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,16 +149,10 @@ Azure Virtual Network (VNet) je logické znázornění vaší vlastní sítě v 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Virtual Network </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

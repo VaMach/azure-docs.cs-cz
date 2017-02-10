@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
    
     Ukázkové rozhraní API poskytuje dva koncové body: Požadavek Get na `/contacts` vrací seznam jmen a e-mailových adres ve formátu JSON, zatímco `/contacts/{id}` vrací pouze vybraný kontakt.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Automatické generování (scaffold) kódu Node.js na základě metadat Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Automatické generování (scaffold) kódu Node.js na základě metadat Swagger
 [Swagger](http://swagger.io/) je formát souboru pro metadata, která popisují rozhraní RESTful API. Azure App Service nabízí [integrovanou podporu pro metadata Swagger](app-service-api-metadata.md). V této části kurzu modelujeme pracovní postup vývoje rozhraní API, při kterém nejprve vytvoříte metadata Swagger a pak pomocí nich automaticky vygenerujete (scaffold) serverový kód pro rozhraní API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Ačkoli App Service podporuje mnoho způsobů nasazení kódu do aplikace API, v
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ V tomto okamžiku jste úspěšně vytvořili aplikaci API a nasadili do ní kó
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

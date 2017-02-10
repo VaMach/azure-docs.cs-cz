@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se, jak můžete konfigurovat a spravovat privátní připojení ExpressRoute ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení."
 translationtype: Human Translation
-ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
-ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>Dokumentace ke službě ExpressRoute
@@ -90,7 +90,7 @@ Naučte se, jak můžete použít ExpressRoute k nastavení rychlého privátní
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Reference k rozhraní REST API</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Reference k rozhraní REST API (Classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referenční informace k rozhraní REST API (Classic)</a></p>
                     </div>
                 </div>
             </div>
@@ -98,13 +98,7 @@ Naučte se, jak můžete použít ExpressRoute k nastavení rychlého privátní
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě ExpressRoute </div>
-    </a>
-</div>
+
 
 
 

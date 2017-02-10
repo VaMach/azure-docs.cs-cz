@@ -51,7 +51,6 @@
 ## Spravovat
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
 ### [Plánování pro vysokou dostupnost](data-lake-store-troubleshooting-guidance.md)
-### [Průvodce laděním výkonu](data-lake-store-performance-tuning-guidance.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)

@@ -55,7 +55,7 @@
 #### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-ova-configure-mpio-windows-server.md)
 ### [Konfigurace prostřednictvím místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md)
 
-## Poznámky k verzi
+## Poznámky k verzi
 ### [Aktualizace 0.3 – aktuální](storsimple-ova-update-03-release-notes.md)
 ### [Aktualizace 0.2 a 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -138,6 +138,9 @@
 ##### [Správa akcí MMC prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Vytváření řešení
+#### [StorSimple s Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple s Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple s Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automatizované zotavení souborového serveru po havárii do Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple se službou Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple s VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -175,7 +178,7 @@
 #### [Instalace aktualizace 1.2](storsimple-install-update-1.md)
 #### [Aktualizace zařízení](storsimple-update-device.md)
 
-## Poznámky k verzi
+## Poznámky k verzi
 ### [Aktualizace 3 – aktuální](storsimple-update3-release-notes.md)
 ### [Aktualizace 2.2](storsimple-update21-release-notes.md)
 ### [Aktualizace 2](storsimple-update2-release-notes.md)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

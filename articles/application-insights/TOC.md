@@ -128,7 +128,7 @@
 
 # Referenční informace
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java](/java/api/com.microsoft.applicationinsights)
 ## [REST](https://dev.applicationinsights.io/)
 
 # Zdroje a prostředky
@@ -153,6 +153,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

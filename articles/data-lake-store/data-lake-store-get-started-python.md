@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/29/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8be210664540fc8294ea70271f037d168b328c9d
-ms.openlocfilehash: dc604f98eacec8d52c2849452bc3df34ef7634af
+ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
+ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
 
 
 ---
@@ -47,7 +47,7 @@ Naučte se používat sadu SDK pro Python pro Azure Data Lake Store k prováděn
 
 ## <a name="install-the-modules"></a>Instalace modulů
 
-Než budete moci začít pracovat se službou Data Lake Store pomocí Pythonu, je nutné nainstalovat následující moduly.
+Abyste mohli pracovat se službou Data Lake Store pomocí Pythonu, je nutné nainstalovat tři moduly.
 
 * Modul `azure-mgmt-resource`. Zahrnuje moduly Azure pro Active Directory atd.
 * Modul `azure-mgmt-datalake-store`. Zahrnuje operace správy účtů Azure Data Lake Store. Další informace o tomto modulu najdete v [referenčních informacích k modulu Azure Data Lake Store Management](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
@@ -207,6 +207,6 @@ Následující fragment kódu nejprve vytvoří klienta účtu Data Lake Store. 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

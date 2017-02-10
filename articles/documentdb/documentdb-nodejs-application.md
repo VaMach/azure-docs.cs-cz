@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
+ms.sourcegitcommit: 82da4d7324db83d71b21741f51ebe4e364c5a8f7
+ms.openlocfilehash: bde5635ddb43271920e6258c5df46d6ae6b41985
 
 
 ---
@@ -58,12 +58,16 @@ Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? T
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+   NEBO
+
+   Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] verze 0.10.29 nebo vyšší
 * [Generátor Express](http://www.expressjs.com/starter/generator.html) (lze nainstalovat prostřednictvím `npm install express-generator -g`)
 * [Git][Git]
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte, můžete přeskočit na [Krok 2: Vytvoření nové aplikace Node.js](#_Toc395783178).
+Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Krok 2: Vytvoření nové aplikace Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -542,6 +546,6 @@ Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 17057b78cbba962022afc92cdff4e506bcc0e46e
 
 
 ---
@@ -32,7 +32,7 @@ Tento kurz představuje scénář jednoduchého vysílání přes Mobile Engagem
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Nastavení Mobile Engagementu pro univerzální aplikaci pro Windows
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu, která je zapotřebí pro shromažďování dat a odesílání nabízených oznámení. Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Windows Universal SDK](mobile-engagement-windows-store-sdk-overview.md)
 
 Pomocí sady Visual Studio vytvoříte základní aplikaci, na které si tuto integraci předvedeme.
@@ -42,7 +42,7 @@ Následující postup předpokládá použití sady Visual Studio 2015, ačkoliv
 
 1. Spusťte Visual Studio a na obrazovce **Domů** vyberte **Nový projekt**.
 2. V místní nabídce vyberte **Windows** -> **Universal** -> **Prázdná aplikace (Universal Windows)**. Vyplňte **Název** aplikace a **Název řešení** a potom klikněte na **OK**.
-   
+
     ![][1]
 
 Nyní jste vytvořili projekt univerzální aplikace pro Windows, do kterého budete dál integrovat sadu Azure Mobile Engagement SDK.
@@ -50,86 +50,85 @@ Nyní jste vytvořili projekt univerzální aplikace pro Windows, do kterého bu
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Připojení aplikace k back-endu Mobile Engagementu
 1. Nainstalujte balíček NuGet [MicrosoftAzure.MobileEngagement] do projektu. Pokud cílíte na platformy Windows i Windows Phone, musíte to provést u obou projektů. U systému Windows 8.x a Windows Phone 8.1 umístí jeden balíček NuGet do každého projektu správné binární soubory pro konkrétní platformu.
 2. Otevřete **Package.appxmanifest** a ujistěte se, zda je přidána následující možnost:
-   
+
         Internet (Client)
-   
+
     ![][2]
 3. Nyní zkopírujte připojovací řetězec, který jste zkopírovali dříve pro aplikaci Mobile Engagementu, a vložte jej do souboru `Resources\EngagementConfiguration.xml` mezi značky `<connectionString>` a `</connectionString>`:
-   
+
     ![][3]
 
-    >[AZURE.TIP] Pokud vaše aplikace cílí na platformy Windows i Windows Phone, měli byste stále vytvořit dvě aplikace Mobile Engagementu – jednu pro každou podporovanou platformu. Dvě aplikace zajišťují, že můžete správně segmentovat publika a posílat vhodně cílená oznámení na každou platformu.
+    > [!TIP]
+    > Pokud vaše aplikace cílí na platformy Windows i Windows Phone, měli byste stále vytvořit dvě aplikace Mobile Engagementu – jednu pro každou podporovanou platformu. Dvě aplikace zajišťují, že můžete správně segmentovat publika a posílat vhodně cílená oznámení na každou platformu.
 
-    > [AZURE.IMPORTANT] NuGet automaticky nekopíruje prostředky sady SDK v aplikaci Windows 10 UWP. Je potřeba to provést ručně podle pokynů, které se zobrazí (readme.txt) při instalaci balíčku Nuget.  
+    > [!IMPORTANT]
+    > NuGet automaticky nekopíruje prostředky sady SDK v aplikaci Windows 10 UWP. Je potřeba to provést ručně podle pokynů, které se zobrazí (readme.txt) při instalaci balíčku Nuget.  
 
 1. V souboru `App.xaml.cs`:
-   
+
     a. Přidejte příkaz `using`:
-   
+
             using Microsoft.Azure.Engagement;
-   
+
     b. Přidejte metodu, která inicializuje Engagement:
-   
+
            private void InitEngagement(IActivatedEventArgs e)
            {
              EngagementAgent.Instance.Init(e);
-   
+
              //... rest of the code
            }
-   
+
     c. Inicializujte sadu SDK v metodě **OnLaunched**:
-   
+
             protected override void OnLaunched(LaunchActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
-   
+
     c. Do metody **OnActivated** vložte následující a metodu přidejte (pokud zatím není přítomná):
-   
+
             protected override void OnActivated(IActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
+## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku (aktivitu) na back-end Mobile Engagementu.
 
 1. V **MainPage.xaml.cs** přidejte následující příkaz `using`:
-   
+
     použití příkazu Microsoft.Azure.Engagement.Overlay;
 2. Změňte základní třídu **MainPage** z **Page** na **EngagementPageOverlay**:
-   
+
         class MainPage : EngagementPageOverlay
 3. V souboru `MainPage.xaml`:
-   
+
     a. Přidejte do deklarací oborů názvů:
-   
+
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
-   
+
     b. Nahraďte **Page** v názvu značky XML textem **engagement:EngagementPageOverlay**
 
 > [!IMPORTANT]
 > Pokud stránka přepíše metodu `OnNavigatedTo`, nezapomeňte volat `base.OnNavigatedTo(e)`. Jinak aktivita nebude hlášena (`EngagementPage` volá `StartActivity` uvnitř své metody `OnNavigatedTo`). To je obzvláště důležité v projektu Windows Phone, kde má výchozí šablona metodu `OnNavigatedTo`.
-> 
-> [!IMPORTANT]
-> Pro **univerzální aplikace pro Windows 10** použijte prosím místo metody nahoře [tuto doporučenou metodu](mobile-engagement-windows-store-advanced-reporting.md#recommended-method-overload-your-codepagecode-classes).
-> 
-> 
+>
+> Pro **univerzální aplikace pro Windows 10** použijte místo metody nahoře doporučenou metodu v části „Doporučení metoda: přetížení tříd Page“ tématu [Rozšířená tvorba sestav pomocí sady Windows Universal Apps Engagement SDK](mobile-engagement-windows-store-advanced-reporting.md).
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>Povolení přijímání nabízených oznámení WNS v aplikaci
 1. V souboru `Package.appxmanifest` na kartě **Aplikace** v části **Oznámení** nastavte **Podporující oznamovací zprávy:** na **Ano**
-   
+
     ![][5]
 
 ### <a name="initialize-the-reach-sdk"></a>Inicializace sady REACH SDK
@@ -146,24 +145,25 @@ Jste připravení odeslat oznámení. Dál ověříme, jestli jste základní in
 ### <a name="grant-access-to-mobile-engagement-to-send-notifications"></a>Udělení přístupu k Mobile Engagementu za účelem odesílání oznámení
 1. Otevřete [Centrum vývojářů pro Windows Store] ve webovém prohlížeči, přihlaste se a v případě potřeby si vytvořte účet.
 2. Klikněte na **Řídicí panel** v pravém horním rohu a pak klikněte na **Vytvořit novou aplikaci** z nabídky na levém panelu.
-   
+
     ![][9]
 3. Vytvoření aplikace rezervací názvu.
-   
+
     ![][10]
 4. Po vytvoření aplikace přejděte do části **Služby -> Nabízená oznámení** v nabídce vlevo.
-   
+
     ![][11]
 5. V části Nabízená oznámení klikněte na odkaz **web služeb Live Services**.
-   
+
     ![][12]
 6. Budete přesměrováni do části Přihlašovací údaje oznámení. Zkontrolujte, zda jste v části **Nastavení aplikace**, a poté zkopírujte **SID balíčku** a **Tajný klíč klienta**
-   
+
     ![][13]
 7. Přejděte do **Nastavení** v portálu Mobile Engagement a klikněte na část **Nativní oznámení** na levé straně. Klikněte na tlačítko **Upravit** a zadejte **Identifikátor zabezpečení balíčku (SID)** a **Tajný klíč**, jak je zobrazeno:
-   
+
     ![][6]
 8. Nakonec nezapomeňte přiřadit aplikaci Visual Studio k této vytvořené aplikaci v App Storu. V sadě Visual Studio klikněte na **Propojit aplikaci se Storem**.
+
     ![][7]
 
 ## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Odeslání oznámení do vaší aplikace

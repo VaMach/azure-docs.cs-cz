@@ -124,7 +124,7 @@ Když vytvoříte virtuální počítač, do serverů DNS spravovaných Azure se
 
 Virtuální počítače nakonfigurované servery DNS spravovanými Azure mohou překládat názvy hostitelů všech virtuálních počítačů v rámci virtuální sítě na jejich privátní IP adresy.
 
-### <a name="internal-load-balancers-ilb-application-gateways"></a>Interní nástroje pro vyrovnávání a Application Gateway
+### <a name="internal-load-balancers-ilb--application-gateways"></a>Interní nástroje pro vyrovnávání a Application Gateway
 Privátní IP adresu můžete přiřadit konfiguraci **front-endu** nástroje [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) nebo služby [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Tato privátní IP adresa slouží jako interní koncový bod, který je přístupný pouze pro prostředky v příslušné virtuální síti (VNet) a ve vzdálených sítích připojených k virtuální síti. Konfiguraci front-endu můžete přiřadit dynamickou nebo statickou privátní IP adresu.
 
 ### <a name="at-a-glance"></a>Přehledně

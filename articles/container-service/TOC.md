@@ -20,8 +20,9 @@
 ### [Monitorování s Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
 ## Správa pomocí Kubernetes
 ### [Začínáme s Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Konfigurace instančního objektu](container-service-kubernetes-service-principal.md)
 ### [Interakce s webovým uživatelským rozhraním Kubernetes](container-service-kubernetes-ui.md)
-## [Správa pomocí Dockeru Swarm](container-service-docker-swarm.md)
+## Správa pomocí Dockeru Swarm
 ### [Docker a Docker Compose](container-service-docker-swarm.md)
 ### [Kontinuální integrace Dockeru Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Referenční informace
@@ -34,6 +35,6 @@
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

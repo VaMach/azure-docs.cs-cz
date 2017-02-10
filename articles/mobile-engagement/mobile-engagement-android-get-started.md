@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
 
 
 ---
@@ -33,8 +33,8 @@ Také budete potřebovat sadu [Mobile Engagement Android SDK](https://aka.ms/vq9
 
 > [!IMPORTANT]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
-> 
-> 
+>
+>
 
 ## <a name="set-up-mobile-engagement-for-your-android-app"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
@@ -46,24 +46,24 @@ Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Eng
 
 ### <a name="create-an-android-project"></a>Vytvoření projektu Android
 1. Spusťte **Android Studio** a v místní nabídce vyberte **Start a new Android Studio project** (Začít nový projekt Android Studio).
-   
+
     ![][1]
 2. Zadejte název aplikace a doménu firmy. Poznamenejte si, co vyplňujete, protože budete tyto údaje potřebovat později. Klikněte na **Další**.
-   
+
     ![][2]
 3. Zvolte cílový typ zařízení a úroveň API a klikněte na**Next**.
-   
+
    > [!NOTE]
    > Mobile Engagement vyžaduje API minimálně úrovně 10 (Android 2.3.3).
-   > 
-   > 
-   
+   >
+   >
+
     ![][3]
 4. Zde vyberte **Blank Activity** (Prázdná aktivita), která je jedinou obrazovkou pro tuto aplikaci, a klikněte na **Next**.
-   
+
     ![][4]
 5. Na závěr ponechte výchozí nastavení a klikněte na**Finish** (Dokončit).
-   
+
     ![][5]
 
 Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile Engagement.
@@ -72,35 +72,35 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile
 1. Stáhněte sadu [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Extrahujte soubor archivu do složky v počítači.
 3. Identifikujte knihovnu .jar pro aktuální verzi této sady SDK a zkopírujte ji do schránky.
-   
+
       ![][6]
 4. Přejděte do sekce **Project** (Projekt) (1) a vložte .sloubor jar do složky libs (2).
-   
+
       ![][7]
 5. Pro načtení knihovny synchronizujte projekt.
-   
+
       ![][8]
 
 ### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Připojení aplikace k back-endu Mobile Engagementu pomocí připojovacího řetězce
 1. Zkopírujte následující řádky kódu do vytváření aktivity (je třeba provést pouze na jednom místě aplikace, obvykle v hlavní aktivitě). V případě této ukázkové aplikace otevřete MainActivity pod složkou src -> main -> java a přidejte následující:
-   
+
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
 2. Vyřešte reference stisknutím Alt+Enter nebo přidáním následujících příkazů pro import:
-   
+
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. Přejděte zpět na Azure Classic Portal na stránce **Connection Info** (Informace o připojení) vaší aplikace a zkopírujte obsah pole **Connection String** (Připojovací řetězec).
-   
+
       ![][9]
 4. Vložte jej do parametru `setConnectionString` a nahraďte celý zobrazený řetězec následujícím kódem:
-   
+
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
 ### <a name="add-permissions-and-a-service-declaration"></a>Přidání oprávnění a deklarace služby
 1. Přidejte oprávnění do souboru Manifest.xml vašeho projektu těsně před značku `<application>` nebo za ni.
-   
+
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -108,7 +108,7 @@ Android Studio nyní vytvoří ukázkovou aplikaci, do které integrujeme Mobile
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 2. Chcete-li deklarovat službu agenta, přidejte tento kód mezi značky `<application>` a `</application>`:
-   
+
         <service
              android:name="com.microsoft.azure.engagement.service.EngagementService"
              android:exported="false"
@@ -124,29 +124,29 @@ Přejděte na **MainActivity.java** a přidejte následující kód, kterým nah
     public class MainActivity extends EngagementActivity {
 
 > [!NOTE]
-> Pokud vaše základní třída není *Activity*, podívejte se do [Rozšířených možností hlášení pro Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) na postupy, jak dědit z různých tříd.
-> 
-> 
+> Pokud vaše základní třída není *Activity*, podívejte se do [Rozšířených možností hlášení pro Android](mobile-engagement-android-advanced-reporting.md) na postupy, jak dědit z různých tříd.
+>
+>
 
 Okomentujte následující řádek pro tento jednoduchý vzorový scénář:
 
     // setSupportActionBar(toolbar);
 
-Pokud chcete zachovat `ActionBar` ve vaší aplikaci, zobrazte si část [Rozšířená sestava Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
+Pokud chcete zachovat `ActionBar` ve vaší aplikaci, zobrazte si část [Rozšířená sestava Android](mobile-engagement-android-advanced-reporting.md).
 
-## <a name="connect-app-with-realtime-monitoring"></a>Připojení aplikace se sledováním v reálném čase
+## <a name="connect-app-with-real-time-monitoring"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="enable-push-notifications-and-inapp-messaging"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a name="enable-push-notifications-and-in-app-messaging"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Během kampaně vám Mobile Engagement umožňuje interagovat a KOMUNIKOVAT s uživateli pomocí nabízených oznámení a zpráv v aplikaci. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
 ### <a name="copy-sdk-resources-in-your-project"></a>Kopírování prostředků sady SDK do projektu
 1. Přejděte zpět na obsah stažené sady SDK a zkopírujte složku **res**.
-   
+
     ![][10]
 2. Přejděte zpět na Android Studio, vyberte adresář **main** projektu a vložte do něj zkopírovanou složku res, abyste prostředky přidali do projektu.
-   
+
     ![][11]
 
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]

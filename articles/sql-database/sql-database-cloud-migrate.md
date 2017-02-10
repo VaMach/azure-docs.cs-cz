@@ -1,5 +1,5 @@
 ---
-title: "Migrace databáze systému SQL Server do služby SQL Database | Dokumentace Microsoftu"
+title: "Migrace databáze SQL Serveru do služby Azure SQL Database | Dokumentace Microsoftu"
 description: "V této části se dozvíte, jak migrovat místní databázi systému SQL Server do služby Azure SQL Database v cloudu. Před migrací databáze otestujte kompatibilitu pomocí nástrojů pro migraci databáze."
 keywords: "migrace databáze, migrace databáze systému sql server, nástroje pro migraci databáze, migrace databáze, migrace sql database"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d9052bd10693c0b7942c0d90fdf89be37b44842d
-ms.openlocfilehash: b0093e48266aedda2b6c88b862c0056ebe3b3114
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---

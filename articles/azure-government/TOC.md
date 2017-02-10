@@ -36,6 +36,7 @@
 ## [Ceny](https://azure.microsoft.com/pricing/)
 ## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
+## [Web Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 
 <!--HONumber=Jan17_HO3-->

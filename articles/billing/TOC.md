@@ -1,7 +1,5 @@
-# Začínáme
-## [Vytvoření bezplatného účtu](https://azure.microsoft.com/free/)
+# [Začínáme](billing-getting-started.md)
 ## [Registrace s použitím účtu Office 365](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Ceník předplatného](https://azure.microsoft.com/pricing/)
 ## [Podporované země a měny](../billing-countries-and-currencies.md)
 ## [Omezení a kvóty](../azure-subscription-service-limits.md)
 ## [Nejčastější dotazy](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [Převod vlastnictví předplatného](../billing-subscription-transfer.md)
 ### [Nová aktivace deaktivovaného předplatného](../billing-subscription-become-disable.md)
 ### [Upgrade bezplatného předplatného](../billing-upgrade-azure-subscription.md)
-### [Přepnutí na jiné předplatné](../billing-how-to-switch-azure-offer.md)
+### [Přepnutí nabídky předplatného](../billing-how-to-switch-azure-offer.md)
 ### [Zrušení předplatného](../billing-how-to-cancel-azure-subscription.md)
 ## Správa účtu
 ### [Úprava profilu](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # Zdroje
 ## [Kontaktování podpory](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

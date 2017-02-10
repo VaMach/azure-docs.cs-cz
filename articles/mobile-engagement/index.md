@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Naučte se získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích."
 translationtype: Human Translation
-ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
-ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentace ke službě Mobile Engagement
 
-Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení mobilních aplikací s použitím služby Mobile Engagement. V kurzech, sadách SDK a další dokumentaci se dozvíte, jak získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích.
+Azure Mobile Engagement je platforma softwaru jako služby (SaaS) pro zapojení uživatelů, která na základě dat poskytuje přehledy o využití aplikace, nabízí segmentaci uživatelů a umožňuje zasílat nabízená oznámení a zprávy v aplikaci.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -206,6 +205,6 @@ Stáhnout dokumentaci ke službě Azure Mobile Engagement </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

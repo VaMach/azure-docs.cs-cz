@@ -10,12 +10,15 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
+## [Python](data-lake-analytics-get-started-python.md)
 
 # Postup
 ## Vývoj
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Funkce okna U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Uživatelsky definované operátory U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [Rozšíření U-SQL pomocí Pythonu](data-lake-analytics-u-sql-python-extensions.md)
+### [Kognitivní možnosti U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Vytváření řešení
 ### [Analýza webových protokolů](data-lake-analytics-analyze-weblogs.md)
@@ -52,6 +55,6 @@
 ## [Blog služby Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

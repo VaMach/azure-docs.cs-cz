@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ Následující kroky popisují úlohy, které jsou běžně součásti procesu v
 
 1. Připojte k počítači videokameru. Spusťte a nakonfigurujte místní kodér pro kódování v reálném čase, který umí produkovat datový proud s jednou přenosovou rychlostí v jednom z následujících protokolů: RTMP, technologie Smooth Streaming nebo RTP (MPEG-TS). Další informace najdete v článku [Podpora RTMP ve službě Azure Media Services a kodéry pro kódování v reálném čase](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Tento krok můžete provést i po vytvoření kanálu.
+    Tento krok můžete provést i po vytvoření kanálu.
 
-1. Vytvořte a spusťte kanál.
-2. Načtěte adresu URL ingestování kanálu.
+2. Vytvořte a spusťte kanál.
+3. Načtěte adresu URL ingestování kanálu.
 
-Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání datového proudu do kanálu.
+    Adresu URL ingestování používá kodér po kódování v reálném čase k odesílání datového proudu do kanálu.
 
-1. Načtěte adresu URL náhledu kanálu.
+4. Načtěte adresu URL náhledu kanálu.
 
-Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
+    Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
 
-1. Vytvořte asset.
-2. Pokud chcete asset během přehrávání dynamicky šifrovat, postupujte takto:
-3. Vytvořte klíč obsahu.
-4. Nakonfigurujte zásady autorizace klíče obsahu.
-5. Nakonfigurujte zásady doručení assetu (používané dynamickým balením a dynamickým šifrováním).
-6. Vytvořte program a nastavte ho, aby používal asset, který jste vytvořili.
-7. Publikujte asset přidružený k programu tím, že vytvoříte lokátor OnDemand.
+5. Vytvořte asset.
+6. Pokud chcete asset během přehrávání dynamicky šifrovat, postupujte takto:
+7. Vytvořte klíč obsahu.
+8. Nakonfigurujte zásady autorizace klíče obsahu.
+9. Nakonfigurujte zásady doručení assetu (používané dynamickým balením a dynamickým šifrováním).
+10. Vytvořte program a nastavte ho, aby používal asset, který jste vytvořili.
+11. Publikujte asset přidružený k programu tím, že vytvoříte lokátor OnDemand.
 
-Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
+    >[!NOTE]
+    >Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Koncový bod streamování, ze kterého chcete streamovat obsah, musí být ve stavu **Spuštěno**. 
 
-1. Jakmile budete připraveni začít streamovat a archivovat, spusťte program.
-2. Volitelně můžete dát kodéru pro kódování v reálném čase signál, aby spustil reklamu. Reklama bude vložena do výstupního datového proudu.
-3. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte program.
-4. Odstraňte program (a volitelně můžete odstranit i asset).
+12. Jakmile budete připraveni začít streamovat a archivovat, spusťte program.
+13. Volitelně můžete dát kodéru pro kódování v reálném čase signál, aby spustil reklamu. Reklama bude vložena do výstupního datového proudu.
+14. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte program.
+15. Odstraňte program (a volitelně můžete odstranit i asset).
 
 ## <a name="what-youll-learn"></a>Co se dozvíte
 Toto téma vám ukáže, jak provádět různé operace na kanálech a programech pomocí sady Media Services .NET SDK. Protože řada z těchto operací běží dlouho, používají se rozhraní API pro .NET, která spravují dlouho běžící operace.
@@ -100,7 +101,6 @@ Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zk
 
 ## <a name="considerations"></a>Požadavky
 * V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
-* Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
 
 ## <a name="download-sample"></a>Stažení ukázky
 Ukázku můžete získat a spustit z [tohoto odkazu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -117,7 +117,7 @@ Jako osvědčený postup doporučujeme k uložení názvu a klíče účtu Media
 > 
 > 
 
- Do souboru app.config přidejte oddíl appSettings a nastavte hodnoty názvu a klíče účtu Media Services.
+Do souboru app.config přidejte oddíl appSettings a nastavte hodnoty názvu a klíče účtu Media Services.
 
     <?xml version="1.0"?>
     <configuration>
@@ -524,12 +524,10 @@ Prohlédněte si mapy kurzů k Media Services.
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Hledáte něco jiného?
-Pokud toto téma neobsahovalo, co jste očekávali, něco mu chybí nebo nějakým způsobem nesplnilo vaše očekávání, pošlete nám svoje připomínky prostřednictvím služby Disqus níže.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

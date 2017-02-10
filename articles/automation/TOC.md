@@ -23,6 +23,7 @@
 ### [Naplánování runbooku](automation-scheduling-a-runbook.md)
 ### [Spouštění runbooků v datovém centru](automation-hybrid-runbook-worker.md)
 ### [Vstupní parametry runbooku](automation-runbook-input-parameters.md)
+### [Zpracování chyb v grafických runbookách](automation-runbook-graphical-error-handling.md)
 ### [Sledování úlohy runbooku](automation-runbook-execution.md)
 ### [Nastavení runbooku](automation-runbook-settings.md)
 ### [Správa dat Azure Automation](automation-managing-data.md)
@@ -78,6 +79,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

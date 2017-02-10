@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Přidejte Application Insights SDK pro sledování aplikace Node.js
-*Služba Application Insights je ve verzi Preview.*
 
-[Visual Studio Application Insights](app-insights-overview.md) monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami](app-insights-detect-triage-diagnose.md) a [zjistit, jak se vaše aplikace používá](app-insights-overview-usage.md). Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na virtuálních počítačích Azure a také webových aplikacích Azure.
+
+[Azure Application Insights](app-insights-overview.md) monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami](app-insights-detect-triage-diagnose.md) a [zjistit, jak se vaše aplikace používá](app-insights-overview-usage.md). Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na virtuálních počítačích Azure a také webových aplikacích Azure.
 
 Sada SDK poskytuje automatický sběr hodnot příchozích požadavků HTTP a odpovědí, čítačů výkonu (procesor, paměť, RPS) a neošetřených výjimek. Kromě toho můžete přidat vlastní volání ke sledování závislostí, metrik a dalších událostí.
 
@@ -95,7 +95,7 @@ Otevřete tyto porty pro odchozí přenosy v bráně firewall serveru:
 Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Přizpůsobené využití
-### <a name="disabling-autocollection"></a>Zakázání automatického sběru
+### <a name="disabling-auto-collection"></a>Zakázání automatického sběru
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -196,10 +196,10 @@ server.on("listening", () => {
 [výkon]: app-insights-web-monitor-performance.md
 [portál]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[role]: app-insights-resources-roles-access-control.md
+[prostředků]: app-insights-resources-roles-access-control.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

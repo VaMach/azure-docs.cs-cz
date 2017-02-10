@@ -1,5 +1,5 @@
 ---
-title: "Nasazení první webové aplikace v Javě do Azure během pěti minut | Dokumentace Microsoftu"
+title: "Nasazení první webové aplikace v Javě do Azure během pěti minut (CLI 2.0 Preview) | Dokumentace Microsoftu"
 description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service. Pusťte se hned do skutečného vývoje. Výsledky uvidíte okamžitě."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Nasazení první webové aplikace v Javě do Azure během pěti minut
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Nasazení první webové aplikace v Javě do Azure během pěti minut (CLI 2.0 Preview)
+
+> [!div class="op_single_selector"]
+> * [První web v HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [První aplikace v .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [První aplikace v PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [První aplikace v Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [První aplikace v Pythonu](app-service-web-get-started-python-cli-nodejs.md)
+> * [První aplikace v Javě](app-service-web-get-started-java.md)
+> 
+> 
+
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci v Javě do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -73,7 +84,7 @@ Teď nasadíme aplikaci v Javě do Azure pomocí FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. V části **Verze Javy** vyberte **Java 8** a klikněte na **Uložit**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Když se zobrazí oznámení **Nastavení webové aplikace se úspěšně aktualizovalo**, přejdete na http://*&lt;název_aplikace>*.azurewebsites.net a prohlédněte si výchozí servlet JSP v akci.
 3. V okně webové aplikace se posuňte dolů k položce **Přihlašovací údaje pro nasazení** (nebo ji vyhledejte) a potom na ni klikněte.
@@ -120,6 +131,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

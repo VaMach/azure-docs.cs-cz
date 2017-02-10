@@ -2,6 +2,7 @@
 ## [Co je DocumentDB?](documentdb-introduction.md)
 ## [Základní koncepty](documentdb-resources.md)
 ## [Globální distribuce](documentdb-distribute-data-globally.md)
+## [Analýza celkových nákladů na vlastnictví NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scénáře
 ### [Běžné případy použití](documentdb-use-cases.md)
 ### [Sociální funkce s DocumentDB](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Vytvoření první aplikace
 ### [Aplikace konzoly .NET](documentdb-get-started.md)
 ### [Aplikace konzoly .NET Core](documentdb-dotnetcore-get-started.md)
+### [Aplikace konzoly Java](documentdb-java-get-started.md)
 ### [Aplikace konzoly Node.js](documentdb-nodejs-get-started.md)
 ### [Aplikace konzoly C++](documentdb-cpp-get-started.md)
 ## Vytvoření webové aplikace
@@ -24,7 +26,6 @@
 # Postup
 
 ## Plánování
-### [Úložiště a výkon](documentdb-manage.md)
 ### [Dělení a škálování](documentdb-partition-data.md)
 ### [Konzistence](documentdb-consistency-levels.md)
 ### [Srovnání NoSQL a SQL](documentdb-nosql-vs-sql.md)
@@ -39,8 +40,6 @@
 ### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
 ### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
 ### [Úrovně výkonu](documentdb-performance-levels.md)
-### [Kvóty prostředků](documentdb-limits.md)
-### [Zvýšení kvót](documentdb-increase-limits.md)
 ### [Jednotky žádostí](documentdb-request-units.md)
 ### Azure CLI
 #### [Vytvoření účtu](documentdb-automation-resource-manager-cli.md)
@@ -120,6 +119,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

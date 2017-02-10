@@ -10,7 +10,7 @@
 ## [Nejčastější dotazy k Log Analytics](log-analytics-faq.md)
 
 # Postup
-## Integrace
+## Shromažďování dat
 ### Připojené zdroje
 #### [Agenti systému Windows](log-analytics-windows-agents.md)
 #### [Agenti systému Linux](log-analytics-linux-agents.md)
@@ -27,11 +27,15 @@
 #### [Protokoly IIS](log-analytics-data-sources-iis-logs.md)
 #### [Vlastní protokoly](log-analytics-data-sources-custom-logs.md)
 #### [Vlastní pole](log-analytics-custom-fields.md)
-## Vývoj
+## Dotazování dat
 ### [Přehled prohledávání protokolů](log-analytics-log-searches.md)
 ### [Reference ke službě Search](log-analytics-search-reference.md)
 ### [Skupiny počítačů](log-analytics-computer-groups.md)
 ### [Výstrahy](log-analytics-alerts.md)
+## Analýza dat
+### [Řídicí panely](log-analytics-dashboards.md)
+### [Návrhář zobrazení](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Řešení
 #### [Přehled řešení](log-analytics-add-solutions.md)
 #### [Posouzení AD](log-analytics-ad-assessment.md)
@@ -52,11 +56,7 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Linková data](log-analytics-wire-data.md)
 #### [Posouzení SCOM](log-analytics-scom-assessment.md)
-## Analýza
-### [Řídicí panely](log-analytics-dashboards.md)
-### [Návrhář zobrazení](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Automatizace
+## Vývoj
 ### [Rozhraní API kolekce dat](log-analytics-data-collector-api.md)
 ### [Rutiny PowerShellu](log-analytics-powershell-workspace-configuration.md)
 ### [Rozhraní API pro prohledávání protokolů](log-analytics-log-search-api.md)

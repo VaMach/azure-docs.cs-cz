@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak pomocí služby Media Services, rozšiřitelné cloudové platformy, bezpečně streamovat živé video nebo video na vyžádání ve vysílací kvalitě. Kurzy, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Dokumentace ke službě Media Services
 
-Azure Media Services je rozšiřitelná cloudová platforma, která vývojářům umožňuje vytvářet škálovatelné aplikace pro správu a doručování médií. Služba Media Services využívá rozhraní REST API, které vám umožní bezpečně nahrávat, ukládat, kódovat a balit obsah (video nebo zvuk) doručovaný na vyžádání i v živě streamovaný různým klientům (například do televizí, počítačů a mobilních zařízení).
-
-Pomocí Media Services můžete vytvářet kompletní pracovní postupy od začátku až do konce. V některých částech pracovního postupu můžete použít komponenty třetích stran. Můžete například obsah překódovat pomocí enkodéru jiného výrobce a pak ho nahrát, zabezpečit, zabalit a doručit pomocí Media Services.
+Zjistěte, jak pomocí služby Media Services, rozšiřitelné cloudové platformy, streamovat video ve vysílací kvalitě. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak bezpečně doručovat živé video a video na vyžádání nebo zvukový stream, který se škáluje milionům uživatelů.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -168,7 +167,7 @@ Pomocí Media Services můžete vytvářet kompletní pracovní postupy od zač�
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (správa služeb)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (správa prostředků)</a></p>
                     </div>
                 </div>
             </div>
@@ -200,16 +199,9 @@ Pomocí Media Services můžete vytvářet kompletní pracovní postupy od zač�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Media Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
