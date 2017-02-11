@@ -41,6 +41,6 @@ Veškeré žádosti o přenos na *www.contoso.com* se budou směrovat na *contos
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

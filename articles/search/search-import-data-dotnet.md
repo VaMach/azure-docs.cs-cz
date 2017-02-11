@@ -240,6 +240,6 @@ Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

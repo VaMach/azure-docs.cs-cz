@@ -229,6 +229,6 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
