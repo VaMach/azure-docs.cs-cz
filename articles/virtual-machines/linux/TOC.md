@@ -9,7 +9,7 @@
 ### [Výsledky srovnávacích testů Compute](../virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Oblasti a dostupnost](../virtual-machines-linux-regions-and-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Dostupnost virtuálních počítačů](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Security Center](../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Modely nasazení](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Škálovací sady virtuálních počítačů](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -20,7 +20,9 @@
 ## [Vytvoření virtuálního počítače pomocí portálu](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Vytvoření klíčů SSH v Linuxu a na Macu](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Kopírování souborů do virtuálního počítače s Linuxem](../virtual-machines-linux-copy-files-to-linux-vm-using-scp.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Různé způsoby vytváření virtuálních počítačů](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Různé způsoby vytváření virtuálních počítačů
+### [Azure CLI 1.0](../virtual-machines-linux-creation-choices-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Instalace rozhraní příkazového řádku Azure](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## Vytvoření virtuálního počítače pomocí Azure CLI
 ### [Azure CLI 1.0](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -114,13 +116,13 @@
 ### [Správa přístupu](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Použití zásad pro virtuální počítače](../virtual-machines-linux-policy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Nastavení služby Key Vault](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Zálohování pomocí služby Recovery Services](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Pokyny pro zotavení po havárii](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Zálohování pomocí služby Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Pokyny pro zotavení po havárii](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Správa virtuálních počítačů pomocí rozhraní příkazového řádku](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Použití jedinečného ID pro virtuální počítač](../virtual-machines-linux-unique-vm-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Infrastruktura aktualizace Red Hat Enterprise Linuxu](../virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Aktualizace Azure Linux Agenta](../virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Úvod do Linuxu na Azure](../virtual-machines/virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Úvod do Linuxu na Azure](../virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Automatizace](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Rozšíření vlastních skriptů](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -199,6 +201,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

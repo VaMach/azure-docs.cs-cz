@@ -35,6 +35,7 @@
 ### [Modelování dat](documentdb-modeling-data.md)
 ### [Použití geoprostorových dat](documentdb-geospatial.md)
 ### [Vývoj pro více oblastí](documentdb-developing-with-multiple-regions.md)
+### [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
 ### [Automatické vypršení dat](documentdb-time-to-live.md)
 ### [Přizpůsobení indexů](documentdb-indexing-policies.md)
 ### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
@@ -54,6 +55,9 @@
 ### [Sledování změn pomocí kanálu změn](documentdb-change-feed.md)
 ### [Testování výkonu](documentdb-performance-testing.md)
 ### [Tipy pro zvýšení výkonu](documentdb-performance-tips.md)
+### Osvědčené postupy
+#### [Nastavení s několika hlavními databázemi](documentdb-multi-region-writers.md)
+#### [Typy DateTime](documentdb-working-with-dates.md)
 
 ## Použití podpory DocumentDB pro MongoDB
 ### [Podpora protokolů pro MongoDB](documentdb-protocol-mongodb.md)
@@ -78,10 +82,10 @@
 
 ## Integrace
 ### [Nasazení webu pomocí služby Azure App Service](documentdb-create-documentdb-website.md)
-### [Protokolování aplikací pomocí funkce Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Protokolování aplikací pomocí funkce Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Vytvoření vazby na službu Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analýza dat pomocí systému Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrace se službou Azure Search](documentdb-search-indexer.md)
+### [Integrace se službou Azure Search](../search/search-howto-index-documentdb.md)
 ### [Přesun dat pomocí služby Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analýza dat v reálném čase pomocí Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Získávání oznámení pomocí funkce Logic Apps](documentdb-change-notification.md)
@@ -119,6 +123,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

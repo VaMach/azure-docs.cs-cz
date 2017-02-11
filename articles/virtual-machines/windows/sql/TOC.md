@@ -12,10 +12,14 @@
 # Postup
 ## Konfigurace vysoké dostupnosti
 ### [Možnosti vysoké dostupnosti](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Automatická konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-### [Ruční konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-### [Konfigurace vnitřního nástroje pro vyrovnávání zatížení pro skupinu dostupnosti](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-### [Konfigurace jednoho nebo více naslouchacích procesů skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [Konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Automaticky – pomocí šablony](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Ručně – požadavky](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Ručně – kurz](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+#### [Nástroj pro vyrovnávání zatížení – portál](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Nástroj pro vyrovnávání zatížení – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Několik oblastí](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
 ## Spravovat
 ### [Použití rozšíření agenta SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automatizované opravy](virtual-machines-windows-sql-automated-patching.md)
@@ -45,6 +49,6 @@
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

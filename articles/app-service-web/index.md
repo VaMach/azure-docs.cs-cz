@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak pomocí App Service Web Apps vytvářet a hostovat weby a webové aplikace. Kurzy, videa, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
+ms.sourcegitcommit: 74579a5e96c26f130c0c1cc59e8cf4d6975ea89d
+ms.openlocfilehash: e5bb9e8ea35411f159ddf342fe0fda0ba1759fb5
 
 ---
 # <a name="azure-web-apps-documentation"></a>Dokumentace ke službě Azure Web Apps
 
-App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná pro hostování webů a webových aplikací. Tato nabídka typu platforma jako služba (PaaS) v rámci Microsoft Azure umožňuje zaměřit se na obchodní logiku, zatímco Azure zajistí infrastrukturu pro spouštění a škálování aplikací.
+Naučte se, jak pomocí App Service Web Apps vytvářet a hostovat weby a webové aplikace. Kurzy, videa, reference k rozhraní API a další dokumentace ukazují, jak můžete vyvíjet na této plně spravované výpočetní platformě.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -65,7 +66,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,7 +102,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +120,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,7 +139,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -186,7 +187,7 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
                 <div class="card">
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
-                        <p><a href="/cli/azure/appservice">Azure CLI 2.0 Preview</a></p>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0 (Preview)</a></p>
                     </div>
                 </div>
             </div>
@@ -219,16 +220,10 @@ App Service Web Apps je plně spravovaná výpočetní platforma optimalizovaná
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Web Apps </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

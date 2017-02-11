@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak můžete vložit vizualizace dat Power BI a interaktivní sestavy do aplikací. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b15e8e9676cba8969505728e6b9f7f2db4559e9a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Dokumentace ke službě Power BI Embedded
 
-Power BI Embedded je služba Azure, která vývojářům umožňuje přidávání interaktivních sestav Power BI do jejich vlastních aplikací. Power BI Embedded funguje se stávajícími aplikacemi bez nutnosti přepracovat nebo změnit způsob, jakým se uživatelé přihlašují.
+Zjistěte, jak můžete přidat vizualizace dat a interaktivní sestavy do aplikací pomocí Power BI Embedded. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete bezproblémově vložit řídicí panely a sestavy Power BI do aplikací.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -128,15 +129,9 @@ Power BI Embedded je služba Azure, která vývojářům umožňuje přidáván�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Power BI Embedded </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

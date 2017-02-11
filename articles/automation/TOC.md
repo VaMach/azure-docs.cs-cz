@@ -19,8 +19,7 @@
 ### [Integrace správy zdrojového kódu](automation-source-control-integration.md)
 ## Automatizace runbooků
 ### [Spuštění runbooku](automation-starting-a-runbook.md)
-### [Spuštění runbooku z webového volání](automation-webhooks.md)
-### [Naplánování runbooku](automation-scheduling-a-runbook.md)
+### [Spuštění runbooku z webhooku](automation-webhooks.md)
 ### [Spouštění runbooků v datovém centru](automation-hybrid-runbook-worker.md)
 ### [Vstupní parametry runbooku](automation-runbook-input-parameters.md)
 ### [Zpracování chyb v grafických runbookách](automation-runbook-graphical-error-handling.md)
@@ -60,7 +59,7 @@
 ### [Přesun účtu služby Automation](automation-migrate-account-subscription.md)
 ## Řešení potíží
 ### [Odstraňování běžných chyb](automation-troubleshooting-automation-errors.md)
-### [Pozastavení úlohy runbooku](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Řešení potíží s funkcí Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
@@ -79,6 +78,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

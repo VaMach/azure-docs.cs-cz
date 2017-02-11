@@ -61,9 +61,10 @@
 ### [Předpověď výkonu HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Předpověď výsledků kontroly potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analýza webových protokolů](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-### [Použití poznámkových bloků Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Použití poznámkových bloků Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jádra aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Balíčky pro aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Použití externích balíčků s Jupyterem s využitím magických příkazů v buňkách](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Použití externích balíčků s Jupyterem s využitím akcí skriptů](hdinsight-apache-spark-python-package-installation.md)
 ### [Použití místní aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Vývoj aplikací pomocí Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -227,6 +228,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
