@@ -80,6 +80,7 @@
 
 
 # Související
+## [Monitorování místní infrastruktury identit a synchronizačních služeb v cloudu](../connect-health/active-directory-aadconnect-health.md)
 ## [Příručka návrhu hybridní identity](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Zastarání DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

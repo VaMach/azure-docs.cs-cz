@@ -1,10 +1,10 @@
 ---
 title: Co je Azure Backup? | Dokumentace Microsoftu
-description: "Pomocí Azure Backup a Recovery Services můžete zálohovat a obnovovat data a aplikace Windows Serverů, klientských počítačů s Windows, serverů System Center DPM a virtuálních počítačů Azure."
+description: "Pomocí Azure Backup a Recovery Services můžete zálohovat a obnovovat data a aplikace z Windows Serverů, počítačů s Windows, serverů System Center DPM a virtuálních počítačů Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "zálohování a obnovení; recovery services; řešení zálohování"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -33,10 +33,11 @@ Tradiční řešení zálohování se vyvinula tak, že cloud považují za konc
 
 **Neomezené škálování** – Azure Backup používá základní výkon a neomezený rozsah cloudu Azure k zajištění vysoké dostupnosti, a to bez jakékoli režie s údržbou nebo monitorováním. Můžete nastavit výstrahy pro poskytování informací o událostech, ale nemusíte se starat o vysokou dostupnost svých dat v cloudu.
 
-**Více možností úložiště** – Jedním z aspektů vysoké dostupnosti je replikace úložiště. Azure Backup nabízí dva typy replikace: [místně redundantní úložiště](../storage/storage-redundancy.md#locally-redundant-storage) a [geograficky replikované úložiště](../storage/storage-redundancy.md#geo-redundant-storage). Možnost úložiště pro zálohování zvolte podle potřeby:
+**Více možností úložiště** – Jedním z aspektů vysoké dostupnosti je replikace úložiště. Azure Backup nabízí dva typy replikace: [místně redundantní úložiště](../storage/storage-redundancy.md#locally-redundant-storage) a [geograficky redundantní úložiště](../storage/storage-redundancy.md#geo-redundant-storage). Možnost úložiště pro zálohování zvolte podle potřeby:
 
-* Místně redundantní úložiště (LRS) replikuje vaše data třikrát (vytváří tři kopie dat) ve spárovaném datovém centru ve stejné oblasti. Místně redundantní úložiště představuje možnost s nízkými náklady a je vhodné pro zákazníky, kteří hledí na cenu, protože tento typ úložiště chrání data proti selháním místního hardwaru.
-* Geograficky replikované úložiště (GRS) replikuje vaše data do sekundární oblasti (vzdáleného stovky kilometrů od primárního umístění zdrojových dat). Geograficky replikované úložiště je nákladnější než místně redundantní úložiště, ale nabízí vyšší úroveň trvanlivosti vašich dat i v případě regionálního výpadku.
+* Místně redundantní úložiště (LRS) replikuje vaše data třikrát (vytváří tři kopie dat) ve spárovaném datovém centru ve stejné oblasti. Místně redundantní úložiště nabízí cenově úsporný způsob ochrany dat před selháním místního hardwaru.
+
+* Geograficky redundantní úložiště (GRS) replikuje vaše data do sekundární oblasti (vzdálené stovky kilometrů od primárního umístění zdrojových dat). Geograficky redundantní úložiště je nákladnější než místně redundantní úložiště, ale nabízí vyšší úroveň odolnosti dat i v případě regionálního výpadku.
 
 **Neomezené přenosy dat** – Azure Backup neomezuje množství příchozích ani odchozích dat, která přenesete. V rámci Azure Backup se přenesená data neúčtují. Pokud ale použijete službu importu/exportu v Azure k importu velkého množství dat, účtují se náklady související s příchozími daty. Další informace o těchto nákladech najdete v části [Pracovní postup zálohování offline v Azure Backup](backup-azure-backup-import-export.md). Odchozí data jsou data přenesená z trezoru služby Backup během operace obnovování.
 
@@ -52,8 +53,8 @@ Pokud si nejste jisti, která komponenta Azure Backup splňuje vaše potřeby, n
 | Komponenta | Výhody | Omezení | Co se chrání? | Kde jsou zálohy uložené? |
 | --- | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) |<li>Zálohování souborů a složek ve fyzickém nebo virtuálním operačním systému Windows (virtuální počítač může být místní nebo v Azure)<li>Není vyžadován samostatný záložní server. |<li>Zálohování 3x denně <li>Nerozpoznávají se aplikace; obnovování pouze na úrovni souboru, složky nebo svazku. <li>  Bez podpory Linux |<li>Soubory <li>Složky |Trezor služby Azure Backup |
-| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware <li>Ochrana virtuálních počítačů VMware pomocí DPM 2012 R2 |Nejde zálohovat úlohu Oracle.|<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk,<li>  Páska (pouze místní) |
-| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu (je-li hostovaný na Hyper-V)<li>Ochrana virtuálních počítačů VMware pomocí DPM 2012 R2<li>Nevyžaduje licenci produktu System Center |<li>Nejde zálohovat úlohu Oracle.<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk |
+| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware <li>Zálohování a obnovení virtuálních počítačů VMware pomocí DPM 2012 R2 |Nejde zálohovat úlohu Oracle.|<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk,<li>  Páska (pouze místní) |
+| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware<li>Zálohování a obnovení virtuálních počítačů VMware <li>Nevyžaduje licenci produktu System Center |<li>Nejde zálohovat úlohu Oracle.<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk |
 | Zálohování virtuálních počítačů Azure IaaS |<li>Nativní zálohy pro Windows a Linux<li>Bez nutnosti instalace konkrétního agenta<li>Zálohování na úrovni prostředků infrastruktury bez potřeby infrastruktury zálohování |<li>Zálohování virtuálních počítačů jednou denně <li>Obnovení virtuálních počítačů pouze na úrovni disku<li>Nemožnost místního zálohování |<li>Virtuální počítače <li>Všechny disky (pomocí PowerShellu) |<p>Trezor služby Azure Backup</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Jaké jsou scénáře nasazení pro jednotlivé komponenty?
@@ -176,17 +177,26 @@ Agent Azure Backup nabízí možnost omezování šířky pásma sítě, která 
 
 ### <a name="backup-and-retention"></a>Zálohování a uchovávání
 
-Azure Backup má limit 9999 bodů obnovení (označovaných také jako záložní kopie nebo snímky) na jeden trezor služby Backup. V následující tabulce jsou uvedené maximální frekvence zálohování (do trezoru) pro jednotlivé komponenty. Konfigurace zásady zálohování určuje, jak rychle se spotřebovávají body obnovení. Pokud například vytváříte bod obnovení každý den, můžete zachovat body obnovení 27 let, teprve potom vám dojdou. Pokud vytváříte bod obnovení každý měsíc, můžete zachovat body obnovení 833 let, teprve potom vám dojdou. Služba Backup pro body obnovení nenastavuje omezení času vypršení platnosti.
+Azure Backup má limit 9999 bodů obnovení (označovaných také jako záložní kopie nebo snímky) na jednu *chráněnou instanci*. Chráněná instance je počítač, server (fyzický nebo virtuální) nebo úloha nakonfigurovaná pro zálohování dat do Azure. Další informace najdete v části [Co je chráněná instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Instance je chráněná, jakmile se uloží záložní kopie dat. Ochranou je právě tato záložní kopie dat. Pokud dojde ke ztrátě nebo poškození zdrojových dat, je možné je obnovit ze záložní kopie. V následující tabulce jsou uvedené maximální frekvence zálohování pro jednotlivé komponenty. Konfigurace zásady zálohování určuje, jak rychle se spotřebovávají body obnovení. Pokud například vytváříte bod obnovení každý den, můžete zachovat body obnovení 27 let, teprve potom vám dojdou. Pokud vytváříte bod obnovení každý měsíc, můžete zachovat body obnovení 833 let, teprve potom vám dojdou. Služba Backup pro body obnovení nenastavuje omezení času vypršení platnosti.
 
 |  | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Frekvence zálohování<br/> (do trezoru služby Backup) |Tři zálohy za den |Dvě zálohy za den |Dvě zálohy za den |Jedna záloha za den |
 | Frekvence zálohování<br/> (na disk) |Neuvedeno |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy</p> |Neuvedeno |
 | Možnosti uchovávání |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |
-| Maximální počet bodů obnovení na server |9999|9999|9999|9999|
+| Maximální počet bodů obnovení na chráněnou instanci |9999|9999|9999|9999|
 | Maximální doba uchovávání |Závisí na četnosti zálohování |Závisí na četnosti zálohování |Závisí na četnosti zálohování |Závisí na četnosti zálohování |
 | Body obnovení na místním disku |Neuvedeno |<li>64 pro souborové servery,<li>448 pro aplikační servery |<li>64 pro souborové servery,<li>448 pro aplikační servery |Neuvedeno |
 | Body obnovení na pásku |Neuvedeno |Unlimited |Neuvedeno |Neuvedeno |
+
+## <a name="what-is-a-protected-instance"></a>Co je chráněná instance
+Chráněná instance je obecný odkaz na počítač se systémem Windows, server (fyzický nebo virtuální) nebo databázi SQL, která byla nakonfigurovaná pro zálohování do Azure. Instance je chráněná v okamžiku, kdy pro příslušný počítač, server nebo databázi nakonfigurujete zásady zálohování a vytvoříte záložní kopii dat. Další kopie záložních dat pro tuto chráněnou instanci (používá se pro ně označení body obnovení) zvyšují objem využitého úložiště. Pro chráněnou instanci je možné vytvořit až 9999 bodů obnovení. Pokud bod obnovení odstraníte z úložiště, nebude se do celkového počtu 9999 bodů obnovení započítávat.
+Mezi běžné příklady chráněných instancí patří virtuální počítače, aplikační servery, databáze a osobní počítače s operačním systémem Windows. Například:
+
+* Virtuální počítač se spuštěnými prostředky infrastruktury hypervisoru Azure IaaS nebo Hyper-V. Hostovanými operačními systémy pro virtuální počítač může být Windows Server nebo Linux.
+* Aplikační server: Aplikačním serverem může být fyzický nebo virtuální počítač se systémem Windows Server a úlohy s daty, která je potřeba zálohovat. Mezi běžné úlohy patří Microsoft SQL Server, server Microsoft Exchange, server Microsoft SharePoint, Microsoft Dynamics a role souborového serveru ve Windows Serveru. K zálohování těchto úloh potřebujete System Center Data Protection Manager (DPM) nebo Azure Backup Server.
+* Osobní nebo přenosný počítač s operačním systémem Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Co je soubor s přihlašovacími údaji trezoru?
 Soubor s přihlašovacími údaji trezoru je certifikát vytvořený portálem pro každý trezor služby Backup. Portál poté odešle veřejný klíč do Access Control Service (ACS). Privátní klíč budete mít k dispozici v rámci stahování přihlašovacích údajů. Použijte ho k registraci počítačů, které chráníte. Privátní klíč vám umožňuje ověřovat servery nebo počítače pro odesílání zálohovaných dat do konkrétního trezoru služby Backup.
@@ -224,6 +234,6 @@ Podrobnosti o ochraně jiných úloh můžete zkusit najít v některém z těch
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

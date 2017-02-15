@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se spouštět analýzy IoT v cloudu s plně spravovaným zpracováním událostí. Analyzujte data v reálném čase z aplikací, senzorů, zařízení a dalších zdrojů."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Dokumentace ke službě Stream Analytics
 
-Služba Azure Stream Analytics je plně spravovaná platforma pro zpracování událostí v reálném čase, která pomáhá odkrývat informace hluboko skryté v získaných datech.  Stream Analytics usnadňuje nastavení analytických výpočtů v reálném čase prováděných s daty streamovanými ze zařízení, senzorů, webů, sociálních médií, aplikací, systémů infrastruktury a dalších zdrojů.
+Naučte se spouštět analýzy Internetu věcí (IoT) v cloudu pomocí služby Stream Analytics, plně spravovaného modulu pro zpracování událostí. Kurzy a další dokumentace ukazují, jak v reálném čase analyzovat data z aplikací, senzorů, zařízení, sociálních médií a dalších zdrojů. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,16 +162,10 @@ Služba Azure Stream Analytics je plně spravovaná platforma pro zpracování u
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Stream Analytics </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

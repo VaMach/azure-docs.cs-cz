@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat SQL Server Stretch Database k bezpečné migraci studených dat do Azure beze změny dotazů nebo aplikací. Kurzy a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Dokumentace k funkci SQL Server Stretch Database
 
-Funkce SQL Server Stretch Database umožňuje transparentní a zabezpečenou migraci vašich studených dat do cloudu Microsoft Azure. Tato funkce zajišťuje nákladově efektivní dostupnost dat, která nepoužíváte pravidelně, nevyžaduje změny dotazů ani aplikací a zabezpečuje data i během migrace. Funkce Stretch Database je určena pro transakční databáze s velkým množstvím málokdy používaných dat, která jsou obvykle uložena v malém počtu tabulek.
+Naučte se používat SQL Server Stretch Database k transparentní a bezpečné migraci studených dat do cloudu Azure. Kurzy a další dokumentace vám pomůžou zajistit nákladově efektivní dostupnost pro databáze se zřídka používanými daty bez nutnosti změn stávajících dotazů nebo aplikací.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ Funkce SQL Server Stretch Database umožňuje transparentní a zabezpečenou mig
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace k funkci SQL Server Stretch Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

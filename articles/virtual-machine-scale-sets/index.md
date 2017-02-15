@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Naučte se používat škálovací sady virtuálních počítačů k vytváření virtuálních počítačů s Windows nebo Linuxem a automatickým škálováním pro rozsáhlá výpočetní řešení, řešení pro velké objemy dat a kontejnerizovaná řešení."
+title: "Referenční informace k rozhraní API, kurzy a dokumentace k škálovacím sadám virtuálních počítačů Azure | Dokumentace Microsoftu"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentace ke škálovacím sadám virtuálních počítačů
 
-Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů.  Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. To usnadňuje vytváření rozsáhlých služeb zaměřených na vysoký výpočetní výkon, velké objemy dat a kontejnerizované úlohy.
+Naučte se používat škálovací sady virtuálních počítačů k nasazení a správě sady identických virtuálních počítačů s Windows nebo Linuxem a automatickým škálováním. V dokumentaci se dozvíte, jak škálovací sady využít k podpoře služeb, které cílí na rozsáhlá výpočetní řešení, řešení pro velké objemy dat a kontejnerizovaná řešení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,16 +110,10 @@ ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke škálovacím sadám virtuálních počítačů </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

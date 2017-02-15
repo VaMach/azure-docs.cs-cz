@@ -1,5 +1,5 @@
 ---
-title: " Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal | Dokumentace Microsoftu"
+title: " Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal | Dokumentace Microsoftus"
 description: "V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace 
 Tento kurz sestává z následujících úloh:
 
 1. Vytvoření účtu Azure Media Services
-2. Konfigurace koncového bodu streamování
+2. Spusťte koncový bod streamování.
 3. Nahrání videosouboru
 4. Zakódování zdrojového souboru do sady souborů MP4 s adaptivní přenosovou rychlostí
 5. Publikování assetu a získání adres URL streamování a progresivního stahování  
@@ -60,7 +60,7 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    6. Zaškrtněte **Připnout na řídicí panel**, abyste viděli průběh nasazení účtu.
 4. Klikněte na tlačítko **Vytvořit** dole na formuláři.
    
-    Po úspěšném vytvoření účtu se stav změní na **Spuštěno**. 
+    Po úspěšném vytvoření účtu se načte stránka s přehledem. V tabulce koncových bodů streamování bude účet mít výchozí koncový bod streamování ve stavu **Zastaveno**. Koncový bod streamování, ze kterého chcete streamovat obsah, musí být ve stavu **Spuštěno**. 
    
     ![Nastavení Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ Název účtu a primární klíč budete potřebovat pro přístup k účtu Medi
    
     ![Klíče služby Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování
-Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa vašim klientům prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services podporuje následující technologie streamování s adaptivní přenosovou rychlostí: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH.
+## <a name="start-streaming-endpoints"></a>Spusťte koncové body streamování. 
 
-Služba Media Services poskytuje dynamické balení, což vám umožní dodávat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming) bez nutnosti mít uložené předem zabalené verze pro každý z těchto formátů streamování.
+Při práci se službou Azure Media Services je jedním z nejběžnější scénářů doručování videa prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services poskytuje dynamické balení, které umožňuje doručovat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming). není přitom potřeba ukládat předem zabalené verze pro každý z těchto formátů streamování.
 
-Pokud chcete využít výhod dynamického balení, proveďte následující:
+>[!NOTE]
+>Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
 
-* Zakódovat váš soubor mezzanine (zdrojový soubor) do sady souborů MP4 s adaptivní přenosovou rychlostí (postup kódování je ukázán později v tomto kurzu).  
-* Vytvořit alespoň jednu jednotku streamování pro *koncový bod streamování*, ze kterého plánujete obsah doručovat. Následující postup popisuje, jak změnit počet jednotek streamování.
+Pokud chcete spustit koncový bod streamování, postupujte takto:
 
-Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
-
-Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
-
-1. V okně **Nastavení** klikněte na **Koncové body streamování**. 
+1. V okně Nastavení klikněte na Koncové body streamování. 
 2. Klikněte na výchozí koncový bod streamování. 
-   
-    Zobrazí se okno **VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI**.
-3. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
-   
-    ![Jednotky streamování](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Kliknutím na tlačítko **Uložit** uložte provedené změny.
-   
-   > [!NOTE]
-   > Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
-   > 
-   > 
+
+    Zobrazí se okno VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI.
+
+3. Klikněte na ikonu Spustit.
+4. Kliknutím na tlačítko Uložit uložte provedené změny.
 
 ## <a name="upload-files"></a>Nahrání souborů
 Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahrát zdrojová videa, zakódovat je do více přenosových rychlostí a výsledek publikovat. První krok pokrývá tato část. 
@@ -132,10 +121,7 @@ Při práci se službou Azure Media Services je jedním nejběžnější scéná
 
 Služba Media Services také poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS nebo technologie Smooth Streaming, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
 
-Pokud chcete využít výhod dynamického balení, proveďte následující:
-
-* zakódovat váš zdrojový soubor do sady souborů MP4 s více přenosovými rychlostmi (postup kódování je ukázán později v této části)
-* získat alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat Další informace naleznete v článku o [konfiguraci koncových bodů streamování](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Pokud chcete využít výhod dynamického balení, musíte zdrojový soubor zakódovat do sady souborů MP4 s více přenosovými rychlostmi (postup kódování je uvedený dále v této části).
 
 ### <a name="to-use-the-portal-to-encode"></a>Použití portálu ke kódování
 Tato část popisuje kroky, jak můžete zakódovat svůj obsah pomocí procesoru Media Encoder Standard.
@@ -221,6 +207,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

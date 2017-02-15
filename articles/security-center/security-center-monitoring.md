@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/10/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
-ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
+ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
+ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 
 ---
@@ -33,7 +33,7 @@ Další informace o tom, jak používat doporučení, najdete v článku [Implem
 
 Na dlaždici **Stav zabezpečení prostředku** můžete sledovat stav zabezpečení svých prostředků. V následujícím příkladu vidíte, že řada problémů má vysokou a střední závažnost a vyžadují pozornost. Zásady zabezpečení, které jsou povolené, budou mít vliv na typy ovládacích prvků, které jsou monitorovány.
 
-![Dlaždice stavu zabezpečení prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Dlaždice stavu zabezpečení prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 Pokud Security Center identifikuje ohrožení zabezpečení, které je potřeba řešit, jako je například virtuální počítač s chybějícími aktualizacemi zabezpečení nebo podsíť bez [skupiny zabezpečení sítě](/virtual-network/virtual-networks-nsg.md), budou zde uvedené.
 
@@ -169,7 +169,8 @@ V tomto zobrazení topologie obsahuje první úroveň [virtuální sítě](../vi
 Dolní část tohoto okna obsahuje doporučení pro tento virtuální počítač, podobně jako jsme už uváděli dříve. Kliknutím na doporučení získáte další informace nebo použijete potřebný ovládací prvek zabezpečení nebo konfiguraci zabezpečení.
 
 ### <a name="monitor-data"></a>Monitorování dat
-Když kliknete na **Data** na dlaždici **Stav zabezpečení prostředků**, otevře se okno **Datové prostředky** s doporučeními pro SQL a službu Storage. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze. Další informace o šifrování úložiště najdete v tématu Povolení šifrování účtu úložiště Azure v Azure Security Center.
+
+Když kliknete na **SQL & Data** na dlaždici **Stav zabezpečení prostředků**, otevře se okno **Datové prostředky** s doporučeními pro SQL a službu Storage. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze. Další informace o šifrování úložiště najdete v tématu [Povolení šifrování účtu úložiště Azure v Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Datové prostředky](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -217,6 +218,6 @@ V tomto článku jste zjistili, jak ve službě Azure Security Center používat
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

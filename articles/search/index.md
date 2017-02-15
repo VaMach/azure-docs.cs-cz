@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se přidávat do vlastních webových nebo mobilních aplikací robustní možnosti vyhledávání. Reference k rozhraním API a další dokumentace."
 translationtype: Human Translation
-ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
-ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Dokumentace ke službě Azure Search
@@ -132,8 +132,8 @@ Naučte se přidávat do vlastních webových nebo mobilních aplikací možnost
                     <div class="cardText">
                         <h3>Jazyky</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">Správa .NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (správa)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (správa)</a></p>
                    </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ Naučte se přidávat do vlastních webových nebo mobilních aplikací možnost
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/searchservice">Reference k rozhraní REST API</a></p>
-                        <p><a href="/rest/api/searchmanagement">Reference k rozhraní REST API (správa)</a></p>
+                        <p><a href="/rest/api/searchmanagement">Referenční informace k rozhraní REST API (správa)</a></p>
                     </div>
                 </div>
             </div>
@@ -154,13 +154,7 @@ Naučte se přidávat do vlastních webových nebo mobilních aplikací možnost
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Azure Search </div>
-    </a>
-</div>
+
 
 
 

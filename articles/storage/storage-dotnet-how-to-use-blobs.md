@@ -3,8 +3,8 @@ title: "Začínáme s Azure Blob Storage (úložiště objektů) pomocí rozhran
 description: "Ukládejte nestrukturovaná data v cloudu pomocí Azure Blob Storage (úložiště objektů)."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
 ms.service: storage
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
-ms.openlocfilehash: d2d1a5aae3e1965e7010b11218b6b1aa27ec524d
+ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
+ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
 
 ---
 
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Začínáme s úložištěm Azure Blob pomocí rozhraní .NET
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Přehled
 Úložiště objektů blob v Azure je služba, která ukládá nestrukturovaná data v cloudu jako objekty nebo objekty blob. Do Blob storage se dá ukládat jakýkoli druh textu nebo binárních dat, jako je dokument, soubor médií nebo instalátor aplikace. Blob storage se také nazývá úložiště objektů.
@@ -33,7 +33,7 @@ Tenhle kurz ukazuje, jak napsat kód .NET pro některé běžné scénáře s vy
 
 **Požadavky:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Účet úložiště Azure](storage-create-storage-account.md#create-a-storage-account)
@@ -185,7 +185,7 @@ Při volání **ListBlobs** na kontejneru _photos_ (viz předchozí ukázka) se 
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Volitelně můžete nastavit parametr **UseFlatBlobListing** metody **ListBlobs** na hodnotu **pravda**. V takovém případě bude každý objekt blob v kontejneru vrácen jako objekt **CloudBlockBlob**. Volání **ListBlobs** s vráceným plochým výpisem vypadá takhle:
+Volitelně můžete nastavit parametr **UseFlatBlobListing** metody **ListBlobs** na hodnotu **true**. V takovém případě bude každý objekt blob v kontejneru vrácen jako objekt **CloudBlockBlob**. Volání **ListBlobs** s vráceným plochým výpisem vypadá takhle:
 
 ```csharp
 // Loop over items within the container and output the length and URI.
@@ -395,7 +395,7 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 ### <a name="conceptual-guides"></a>Koncepční vodítka
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
 * [Začínáme se službou File Storage for .NET](storage-dotnet-how-to-use-files.md)
-* [Jak používat úložiště objektů blob v Azure pomocí WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Použití úložiště objektů blob v Azure pomocí WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
 [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -403,13 +403,13 @@ Teď, když jste se naučili základy používání Blob storage, podívejte se 
 [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-[Blog týmu Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-[Konfigurace připojovacích řetězců]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[Klientská knihovna pro .NET – referenční informace]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[REST API – referenční informace]: http://msdn.microsoft.com/library/azure/dd179355
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

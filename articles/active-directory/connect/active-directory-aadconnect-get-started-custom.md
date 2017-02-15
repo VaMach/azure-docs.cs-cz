@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: abc2b3a55b1c28f290b1b3e3dfe8ab05ab22ec16
+ms.sourcegitcommit: b162ad1b776223cdf848ed8d04b1b44f9437f86d
+ms.openlocfilehash: 431e4283efa6ca985d832ead05e455d49ffdac74
 
 
 ---
@@ -50,7 +50,7 @@ Po instalaci požadovaných součástí budete vyzváni, abyste vybrali metodu j
 | Možnost jednotného přihlašování | Popis |
 | --- | --- |
 | Synchronizace hesla |Uživatelé se můžou přihlašovat ke cloudovým službám Microsoft, například Office 365, stejným heslem jako v místní síti. Hesla uživatelů se synchronizují do Azure AD, protože ověření a hash hesla probíhá v cloudu. Další informace najdete v tématu [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Předávací ověřování (Preview)|Uživatelé se můžou přihlašovat ke cloudovým službám Microsoft, například Office 365, stejným heslem jako v místní síti.  Heslo uživatele se předává k ověření do místního kontroleru služby Active Directory. 
+|Předávací ověřování (Preview)|Uživatelé se můžou přihlašovat ke cloudovým službám Microsoft, například Office 365, stejným heslem jako v místní síti.  Heslo uživatele se předává k ověření do místního kontroleru služby Active Directory.
 | Federace se službou AD FS |Uživatelé se můžou přihlašovat ke cloudovým službám Microsoft, například Office 365, stejným heslem jako v místní síti.  Uživatelé jsou k přihlášení přesměrováni do místní instance služby AD FS a ověření probíhá místně. |
 | Nekonfigurovat |Ani jedna z funkcí není nainstalovaná a nakonfigurovaná. Tuto možnost zvolte, pokud už využíváte federační server třetí strany nebo jiné existující řešení. |
 |Povolit jednotné přihlašování|Tato možnost je dostupná pro synchronizaci hesla i pro předávací ověřování a poskytuje jednotné přihlašovací prostředí pro uživatele stolních počítačů v podnikové síti.  Další informace najdete v tématu [Jednotné přihlašování](active-directory-aadconnect-sso.md). </br>Poznámka: Pro zákazníky služby AD FS není tato možnost dostupná, protože AD FS už nabízí stejnou úroveň jednotného přihlašování.</br>(pokud PTA není vydané ve stejnou dobu)
@@ -95,7 +95,9 @@ Zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**.
 
 ### <a name="domain-and-ou-filtering"></a>Filtrování domén a organizačních jednotek
 Ve výchozím nastavení se synchronizují všechny domény a organizační jednotky. Pokud některé domény nebo organizační jednotky nechcete synchronizovat do Azure AD, můžete zrušit výběr těchto domén a organizačních jednotek.  
-![Filtrování domén a organizačních jednotek](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Tato stránka průvodce konfiguruje filtrování podle domén. Další informace najdete v tématu [filtrování podle domén](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![Filtrování organizačních jednotek domén](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Tato stránka průvodce konfiguruje filtrování podle domén a organizačních jednotek. Další informace najdete v tématu [filtrování podle domén](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) a [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Pokud používáte filtrování podle organizačních jednotek, ve výchozím nastavení se nové organizační jednotky přidané později synchronizují. Pokud chcete, aby se nové organizační jednotky nesynchronizovaly, můžete je po dokončení průvodce nakonfigurovat pomocí [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+
+Pokud chcete použít [filtrování podle skupin](#sync-filtering-based-on-groups), zajistěte, aby byly organizační jednotky zahrnuté ve skupinách a aby se nepoužívalo filtrování podle organizačních jednotek. Filtrování podle organizačních jednotek se vyhodnocuje dřív než filtrování podle skupin.
 
 Je také možné, že některé domény nejsou dostupné kvůli omezení brány firewall. Tyto domény nejsou ve výchozím nastavení vybrané a je u nich zobrazené upozornění.  
 ![Nedostupné domény](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
@@ -148,39 +150,6 @@ Na této obrazovce můžete vybrat volitelné funkce pro konkrétní scénáře.
 | Zpětný zápis zařízení |Umožňuje zpětný zápis objektů zařízení ve službě Azure AD do místní služby Active Directory pro potřeby podmíněného přístupu. Další informace najdete v tématu [Povolení zpětného zápisu zařízení v Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronizace atributů rozšíření adresáře |Když povolíte synchronizaci atributů rozšíření adresáře, určené atributy se synchronizují do Azure AD. Další informace najdete v tématu [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
-### <a name="enabling-single-sign-on-sso"></a>Povolení jednotného přihlašování (SSO)
-Konfigurace jednotného přihlašování pro použití se synchronizací hesel a s předávacím ověřováním je jednoduchý proces, který stačí pro každou doménovou strukturu synchronizovanou do služby AD provést pouze jednou.  Konfigurace zahrnuje tyto dva kroky:
-
-1.  Vytvoření potřebného účtu počítače v místní službě Active Directory.
-2.  Konfigurace zóny intranetu klientského počítače pro podporu jednotného přihlašování.
-
-#### <a name="creating-the-computer-account-in-active-directory"></a>Vytvoření účtu počítače ve službě Active Directory
-Pro každou doménovou strukturu přidanou přes nástroj AAD Connect bude třeba dodat přihlašovací údaje správce domény, aby v ní bylo možné vytvořit účet počítače.  Přihlašovací údaje slouží pouze k vytvoření účtu a neukládají se, ani se nepoužívají pro žádné jiné operace.  Jednoduše přidejte přihlašovací údaje na stránce Průvodce nástrojem AAD Connect „Povolit jednotné přihlašování“, jak je znázorněno níže:
-
-![Povolit jednotné přihlašování](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->Pokud pro nějakou doménovou strukturu nechcete použít jednotné přihlašování, můžete ji přeskočit.
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurace zóny intranetu pro klientské počítače
-Pokud chcete zajistit, aby se klient v zóně intranetu přihlásil automaticky, ujistěte se, že adresy URL jsou součástí zóny intranetu.  Tím je zajištěno, že stolní počítač připojený k doméně při připojení k podnikové síti automaticky odešle lístek Kerberos.
-Na počítači, který obsahuje Nástroje pro správu zásad skupiny:
-
-1.  Spusťte Nástroje pro správu zásad skupiny.
-2.  Upravte zásady skupiny, které se použijí na všechny uživatele.  Například Výchozí zásady domény.
-3.  Přejděte do okna Aktuální uživatel\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení a vyberte Seznam přiřazení webů k zónám, jak je znázorněno na následujícím obrázku.
-4.  Povolte zásady a do dialogového okna zadejte tyto dvě položky.
-   
-        Value: https://autologon.microsoftazuread-sso.com
-        Data: 1
-        Value: https://aadg.windows.net.nsatc.net 
-        Data: 1
-
-5.  Mělo by to vypadat nějak takto: ![Zóny intranetu](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.  Dvakrát klikněte na Ok.
-
-
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrování aplikací a atributů Azure AD
 Pokud chcete omezit atributy, které se budou synchronizovat do Azure AD, začněte výběrem služeb, které používáte. Pokud na této stránce provedete změny konfigurace, je nutné znovu spustit průvodce instalací a explicitně vybrat novou službu.
 
@@ -201,6 +170,39 @@ Schéma v Azure AD můžete rozšířit vlastními atributy, které přidala va�
 ![Rozšíření adresáře](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
 Další informace najdete v tématu [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+### <a name="enabling-single-sign-on-sso"></a>Povolení jednotného přihlašování (SSO)
+Konfigurace jednotného přihlašování pro použití se synchronizací hesel a s předávacím ověřováním je jednoduchý proces, který stačí pro každou doménovou strukturu synchronizovanou se službou AD provést pouze jednou. Konfigurace zahrnuje tyto dva kroky:
+
+1.  Vytvořte potřebný účet počítače v místní službě Active Directory.
+2.  Nakonfigurujte zónu intranetu klientského počítače pro podporu jednotného přihlašování.
+
+#### <a name="create-the-computer-account-in-active-directory"></a>Vytvoření účtu počítače ve službě Active Directory
+Pro každou doménovou strukturu přidanou v nástroji AAD Connect musíte zadat přihlašovací údaje správce domény, aby v ní bylo možné vytvořit účet počítače. Přihlašovací údaje slouží jenom k vytvoření účtu a neukládají se. Nepoužívají se ani pro žádné jiné operace. Jednoduše přidejte přihlašovací údaje v Průvodci nástrojem AAD Connect na stránce **Povolit jednotné přihlašování**, jak znázorňuje následující obrázek:
+
+![Povolit jednotné přihlašování](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Pokud pro konkrétní doménovou strukturu nechcete použít jednotné přihlašování, můžete ji přeskočit.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurace zóny intranetu pro klientské počítače
+Pokud chcete zajistit, aby se klient v zóně intranetu přihlásil automaticky, ujistěte se, že součástí zóny intranetu jsou dvě adresy URL. Tím se zajistí, že počítač připojený k doméně při připojení k podnikové síti automaticky odešle službě Azure AD lístek Kerberos.
+Na počítači, který obsahuje Nástroje pro správu zásad skupiny:
+
+1.  Spusťte Nástroje pro správu zásad skupiny.
+2.  Upravte zásady skupiny, které se použijí na všechny uživatele. Například Výchozí zásady domény.
+3.  Přejděte do **Konfigurace uživatele\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení** a vyberte **Seznam zařazení serverů do zón**, jak je znázorněné na následujícím obrázku.
+4.  Povolte zásady a do dialogového okna zadejte tyto dvě položky.
+
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
+
+5.  Mělo by to vypadat nějak takto:  
+![Zóny intranetu](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Dvakrát klikněte na **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurace federace se službou AD FS
 Konfigurace služby AD FS se službou Azure AD Connect je jednoduchá a dá se provést několika kliknutími. Před konfigurací jsou vyžadovány následující položky.
@@ -312,16 +314,8 @@ Zjistěte více o těchto běžných tématech: [plánovač a jak aktivovat sync
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
 
-## <a name="related-documentation"></a>Související dokumentace
-| Téma |
-| --- | --- |
-| Přehled služby Azure AD Connect |
-| Instalace s expresním nastavením |
-| Upgrade z nástroje DirSync |
-| Účty použité k instalaci |
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

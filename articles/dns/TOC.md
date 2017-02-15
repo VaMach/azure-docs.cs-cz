@@ -34,6 +34,9 @@
 ## [Ochrana záznamů a zón DNS](dns-protect-zones-recordsets.md)
 ## [Automatizace operací DNS se sadou .NET SDK](dns-sdk.md)
 
+## Řešení potíží
+### [Průvodce řešením problémů](dns-troubleshoot.md)
+
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Azure CLI 2.0 (Preview)](/cli/azure/network/dns)

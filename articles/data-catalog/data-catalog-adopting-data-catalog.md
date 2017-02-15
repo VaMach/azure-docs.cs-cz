@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ První pilotní projekt by měl zahrnovat několik jednotlivců, kteří produku
 
 Jeden z obchodních problémů, který řeší služba **Azure Data Catalog**, je připojení **Producentů dat** ke **Spotřebitelům dat**. Toho dosahuje tím, že slouží jako centrální úložiště pro informace o zdrojích dat organizace. Pomocí katalogu Data Catalog David zaregistruje datové zdroje společnosti Adventure Works a serveru SQL Server. Pomocí crowdsourcingu může každý uživatel, který objeví tento zdroj dat, sdílet své názory na data, a kromě toho používat data, která objevil. Například Nancy zjistí zdroje dat prohledáním katalogu a podělí se o své specializované znalosti o datech.  Nyní mohou ostatní uživatelé v organizaci těžit ze sdílené znalostní báze jednoduše vyhledáním katalogu dat.
 
-* Další informace o registraci zdrojů dat naleznete v tématu [Registrování zdrojů dat](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Další informace o zjišťování zdrojů dat naleznete v tématu [Prohledávání zdrojů dat](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Další informace o registraci zdrojů dat naleznete v tématu [Registrování zdrojů dat](data-catalog-get-started.md).
+* Další informace o zjišťování zdrojů dat naleznete v tématu [Prohledávání zdrojů dat](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Začněte v malém rozsahu a zaměřeně
 U většiny podnikových pilotních projektů byste měli katalog zaplnit zdroji dat vysoké hodnoty, aby obchodní uživatelé mohli rychle vidět hodnotu katalogu Data Catalog. IT je vhodné oddělení na zahájení identifikace běžných zdrojů dat, které byly zajímavé pro váš pilotní tým. Pro podporované zdroje dat, jako SQL Server, doporučujeme používat nástroj registrace zdroje dat služby **Azure Data Catalog**. Pomocí nástroje registrace zdroje dat můžete zaregistrovat širokou škálu zdrojů dat včetně databází SQL Server a Oracle a sestav služby SQL Server Reporting Services. Úplný seznam aktuálních zdrojů dat naleznete v části [Podporované zdroje dat služby Azure Data Catalog](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Jako součást pilotního projektu používá Nancyin tým také zdroje dat pops
 
 > [!NOTE]
 > Napsali jsme ukázkový nástroj, který používá rozhraní API služby **Azure Data Catalog** pro migraci sešitu aplikace Excel do katalogu Data Catalog. Chcete-li získat další informace o rozhraní API katalogu Data Catalog a ukázkový nástroj, můžete si [Stáhnout vzorek kódu sešitu Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) a prohlédnout si dokumentaci rozhraní [REST API služby Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Jakmile se realizuje pilotní projekt, je čas ke spuštění plánu přijetí katalogu Data Catalog.
 
@@ -142,9 +142,9 @@ Zde jsou některé tipy, jak začít:
 Než pilotní tým přejde na používání katalogu Data Catalog, naplánujte zahajovací schůzku a prodiskutujte očekávání pro pilotní projekt a poskytněte počáteční školení.
 
 ### <a name="set-expectations"></a>Nastavte očekávání
-Nastavení výjimek a cílů pomáhá podnikovým uživatelům zaměřit se na konkrétní výsledky. Chcete-li udržet dynamiku projektu, přiřazujte pravidelné úkoly (například denně nebo týdně podle rozsahu a doby trvání pilotního projektu). Jednou z nejcennějších možností katalogu Data Catalog jsou crowdsourcingové datové prostředky, takže firemní uživatelé mohou mít prospěch ze znalostí podnikových dat. Skvělé přiřazení úkolu je pro každého člena pilotního týmu zaregistrovat nebo opatřit poznámkami alespoň jeden zdroj dat, který použili. Viz [Registrace zdroje dat](data-catalog-get-started.md#exercise-2-registering-data-sources) a [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Nastavení výjimek a cílů pomáhá podnikovým uživatelům zaměřit se na konkrétní výsledky. Chcete-li udržet dynamiku projektu, přiřazujte pravidelné úkoly (například denně nebo týdně podle rozsahu a doby trvání pilotního projektu). Jednou z nejcennějších možností katalogu Data Catalog jsou crowdsourcingové datové prostředky, takže firemní uživatelé mohou mít prospěch ze znalostí podnikových dat. Skvělé přiřazení úkolu je pro každého člena pilotního týmu zaregistrovat nebo opatřit poznámkami alespoň jeden zdroj dat, který použili. Viz [Registrace zdroje dat](data-catalog-get-started.md) a [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md).
 
-V pravidelných intervalech se setkávejte s týmem, abyste posoudili některé poznámky. Dobré poznámky o zdrojích dat jsou jádrem úspěšného přijetí katalogu Data Catalog, protože poskytují smysluplný přehled zdrojů dat v centrálním umístění. Bez dobrých poznámek zůstanou znalosti o zdrojích dat roztroušené po celém podniku. Viz [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+V pravidelných intervalech se setkávejte s týmem, abyste posoudili některé poznámky. Dobré poznámky o zdrojích dat jsou jádrem úspěšného přijetí katalogu Data Catalog, protože poskytují smysluplný přehled zdrojů dat v centrálním umístění. Bez dobrých poznámek zůstanou znalosti o zdrojích dat roztroušené po celém podniku. Viz [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md).
 
 A samozřejmě opravdová zkouška projektu je, zda uživatelé dokáží vyhledat a porozumět zdrojům dat, které potřebují používat. Pilotní uživatelé by měli pravidelně zkoušet katalog, aby bylo zajištěno, že zdroje dat, které používají pro každodenní práci, jsou relevantní. Pokud požadovaný zdroj dat chybí nebo není správně opatřen poznámkami, má tato skutečnost sloužit jako připomenutí k zaregistrování dalších zdrojů dat nebo poskytnutí dalších poznámek. Tento návyk nepřidá pouze hodnotu úsilí pilotního projektu, ale zároveň vytvoří efektivní návyky, které se po dokončení pilotního projektu přenesou do dalších týmů.
 
@@ -162,11 +162,10 @@ Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší or
 * [Produktová stránka Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Dokumentace k Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Běžné scénáře služby Azure Data Catalog](data-catalog-common-scenarios.md)
-* [Registrace zdrojů dat](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Prohledávání zdrojů dat](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Přidání poznámek ke zdrojům dat](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Metadata crowdsourcingu](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Registrace zdrojů dat](data-catalog-get-started.md)
+* [Prohledávání zdrojů dat](data-catalog-get-started.md)
+* [Přidání poznámek ke zdrojům dat](data-catalog-get-started.md)
+* [Metadata crowdsourcingu](data-catalog-get-started.md)
 
 
 

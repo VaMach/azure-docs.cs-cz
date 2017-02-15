@@ -49,7 +49,11 @@
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
-# Zdroje a prostředky
+# Zdroje
+##  [Referenční informace ke stroji pravidel](cdn-rules-engine-reference.md)
+### [Podmíněné výrazy stroje pravidel](cdn-rules-engine-reference-conditional-expressions.md)
+### [Podmínky shody stroje pravidel](cdn-rules-engine-reference-match-conditions.md)
+### [Funkce stroje pravidel](cdn-rules-engine-reference-features.md)
 ## [Lokality POP v Azure CDN](cdn-pop-locations.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cdn)
 ## [Ceny](https://azure.microsoft.com/pricing/details/cdn/)
@@ -58,6 +62,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

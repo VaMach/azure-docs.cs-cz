@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
-ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -236,7 +236,7 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Povolení zpětného zápisu hesla pomocí Windows PowerShellu
 1. Na **počítači se službou Directory Sync** otevřete nové  ** okno Windows PowerShellu se zvýšenými oprávněními**.
 2. Pokud modul dosud není načtený, načtěte zadáním příkazu `import-module ADSync` do své aktuální relace rutiny služby Azure AD Connect.
-3. Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, například `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, například `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Spuštěním následující rutiny získejte aktuální stav zpětného zápisu pro aktuální konektor: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Spuštěním rutiny povolte zpětný zápis hesla: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`.
 

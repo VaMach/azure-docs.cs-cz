@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se používat middlewarovou platformu Service Fabric k balení a nasazování mikroslužeb pro aplikace s rozsahem cloudu. Kurzy, reference k rozhraní API a ukázky kódu"
 translationtype: Human Translation
-ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
-ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Dokumentace k platformě Service Fabric
@@ -127,7 +127,7 @@ Naučte se používat Service Fabric k balení, nasazování a správě škálov
                 <div class="card">
                     <div class="cardText">
                         <h3>Jazyky</h3>
-                        <p><a href="/java/api/microsoft.servicefabric.services">Java API</a></p>
+                        <p><a href="/java/api/microsoft.servicefabric.services">Rozhraní API Java</a></p>
                         <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
@@ -149,13 +149,7 @@ Naučte se používat Service Fabric k balení, nasazování a správě škálov
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci k platformě Service Fabric </div>
-    </a>
-</div>
+
 
 
 

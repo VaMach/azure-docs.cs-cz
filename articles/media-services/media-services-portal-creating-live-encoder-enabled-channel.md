@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ Následující část představuje obecné kroky, které jsou součástí proces
    
     Tuto adresu URL můžete použít, když chcete ověřit, jestli kanál správně přijímá proud živého vysílání.
 5. Vytvořte událost nebo program (tím se vytvoří také asset). 
-6. Publikujte událost (tím se vytvoří lokátor OnDemand pro přidružený asset).  
-   
-    Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
+6. Publikujte událost (tím se vytvoří lokátor OnDemand pro přidružený asset).    
 7. Jakmile budete připraveni začít streamovat a archivovat, spusťte událost.
 8. Volitelně můžete dát kodéru pro kódování v reálném čase signál, aby spustil reklamu. Reklama bude vložena do výstupního proudu.
 9. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte událost.
@@ -65,13 +63,12 @@ Následující část představuje obecné kroky, které jsou součástí proces
 ## <a name="in-this-tutorial"></a>V tomto kurzu
 V tomto kurzu budeme Azure Portal používat k provádění následujících úloh: 
 
-1. Konfigurace koncových bodů streamování.
-2. Vytvoření kanálu, který má povolené kódování v reálném čase.
-3. Získání ingestované adresy URL, která bude dodána kodéru pro kódování v reálném čase. Kodér pro kódování v reálném čase tuto adresu URL použije k ingestování datového proudu do kanálu. .
-4. Vytvoření události nebo programu (a assetu)
-5. Publikování assetu a získání adresy URL pro streamování  
-6. Přehrání obsahu 
-7. Čištění
+1. Vytvoření kanálu, který má povolené kódování v reálném čase.
+2. Získání ingestované adresy URL, která bude dodána kodéru pro kódování v reálném čase. Kodér pro kódování v reálném čase tuto adresu URL použije k ingestování datového proudu do kanálu.
+3. Vytvoření události nebo programu (a assetu)
+4. Publikování assetu a získání adresy URL pro streamování  
+5. Přehrání obsahu
+6. Čištění
 
 ## <a name="prerequisites"></a>Požadavky
 K dokončení kurzu potřebujete následující:
@@ -81,29 +78,7 @@ K dokončení kurzu potřebujete následující:
 * Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Vytvoření účtu](media-services-portal-create-account.md).
 * Webová kamera a kodér, který dokáže odesílat živý datový proud s jednou přenosovou rychlostí.
 
-## <a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování
-Služba Media Services poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS nebo Smooth Streaming, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů.
-
-Pokud chcete využít výhody dynamického balení, získejte alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat.  
-
-Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
-
-1. Přihlaste se na web [Azure Portal](https://portal.azure.com/) a vyberte svůj účet AMS.
-2. V okně **Nastavení** klikněte na **Koncové body streamování**. 
-3. Klikněte na výchozí koncový bod streamování. 
-   
-    Zobrazí se okno **VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI**.
-4. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
-   
-    ![Jednotky streamování](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Kliknutím na tlačítko **Uložit** uložte provedené změny.
-   
-   > [!NOTE]
-   > Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
-   > 
-   > 
-
-## <a name="create-a-channel"></a>Vytvoření KANÁLU
+## <a name="create-a-channel"></a>Vytvoření kanálu
 1. Na webu [Azure Portal](https://portal.azure.com/) vyberte Media Services a klikněte na název účtu Media Services.
 2. Vyberte **Živé streamování**.
 3. Vyberte **Vytvořit vlastní**. Tato možnost vám umožní vytvořit kanál, který má povolené kódování v reálném čase.
@@ -172,6 +147,9 @@ Pokud chcete archivovaný obsah zachovat, ale nechcete ho zpřístupňovat pro s
 ### <a name="createstartstop-events"></a>Vytvoření, spuštění a zastavení událostí
 Jakmile datový proud plyne do kanálu, můžete událost streamování zahájit tím, že vytvoříte asset, program a lokátor streamování. Datový proud se tak archivuje a zpřístupní se divákům prostřednictvím koncového bodu streamování. 
 
+>[!NOTE]
+>Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
+
 Událost můžete spustit dvěma způsoby: 
 
 1. Na stránce **Kanál** stisknutím **Živá událost** přidejte novou událost.
@@ -216,7 +194,7 @@ Chcete-li spravovat prostředky, vyberte **Nastavení** a klikněte na **Prostř
 
 ## <a name="considerations"></a>Požadavky
 * V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
-* Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
+* Zkontrolujte, že koncový bod streamování, ze kterého chcete streamovat obsah, je ve stavu **Spuštěno**.
 
 ## <a name="next-step"></a>Další krok
 Prohlédněte si mapy kurzů k Media Services.
@@ -229,6 +207,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

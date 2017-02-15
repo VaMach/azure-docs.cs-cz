@@ -1,6 +1,6 @@
 ---
-title: "Pravidla brány firewall na úrovni serveru služby Azure SQL Database pomocí rozhraní REST API | Dokumentace Microsoftu"
-description: "Zjistěte, jak nakonfigurovat bránu firewall pro IP adresy, ze kterých se přistupuje k databázím SQL Azure."
+title: "REST API: Pravidla brány firewall služby Azure SQL Database na úrovni serveru | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí rozhraní REST API nakonfigurovat pravidla brány firewall na úrovni serveru pro IP adresy, ze kterých se přistupuje k databázím Azure SQL."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
 
 
 ---

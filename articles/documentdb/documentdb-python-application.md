@@ -413,6 +413,6 @@ Další kurzy Pythonu Flask najdete na stránce [Velký kurz na Flask, část I:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

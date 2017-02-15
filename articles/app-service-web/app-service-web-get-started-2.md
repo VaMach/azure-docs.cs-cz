@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Přidání funkce do první webové aplikace
-V části [Nasazení první webové aplikace do Azure během pěti minut](app-service-web-get-started.md) jste nasadili ukázkovou webovou aplikaci do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md). V tomto článku do nasazené webové aplikace rychle přidáte některé skvělé funkce. Během několik minut provedete tyto úkony:
+V části [Nasazení první webové aplikace do Azure během pěti minut](app-service-web-get-started-cli-nodejs.md) jste nasadili ukázkovou webovou aplikaci do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md). V tomto článku do nasazené webové aplikace rychle přidáte některé skvělé funkce. Během několik minut provedete tyto úkony:
 
 * vynucení ověřování uživatelů
 * automatické škálování aplikace
@@ -157,6 +157,6 @@ Zjistěte, jak z nasazené aplikace vytěžit co nejvíce. Následující výče
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

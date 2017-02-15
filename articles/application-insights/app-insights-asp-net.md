@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
-ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
 
 
 ---
@@ -59,9 +59,7 @@ Otevřete okno Application Insights v sadě Visual Studio: klikněte na tlačít
 
 ![V sadě Visual Studio se zobrazí tlačítko Application Insights během ladění.](./media/app-insights-asp-net/55.png)
 
-Toto zobrazení (data z relace ladění) obsahuje telemetrii vygenerovanou na serverové straně vaší aplikace. Experimentujte s filtry a klikněte na události, které chcete zobrazit podrobněji.
-
-* *Žádná data? Ujistěte se, že je časový rozsah správný, a klikněte na ikonu Hledat.*
+Toto zobrazení obsahuje telemetrii vygenerovanou na serverové straně vaší aplikace. Experimentujte s filtry a klikněte na události, které chcete zobrazit podrobněji.
 
 [Další informace týkající se nástrojů Application Insights v sadě Visual Studio](app-insights-visual-studio.md).
 
@@ -72,34 +70,15 @@ Pokud jste zvolili *instalovat pouze sadu SDK,* můžete také zobrazit telemetr
 
 Portál obsahuje více grafů, analytických nástrojů a řídicích panelů než Visual Studio. 
 
-Otevřete prostředek Application Insights – buď se přihlaste na [portál Azure Portal](https://portal.azure.com/) a vyhledejte ho, nebo klikněte pravým tlačítkem na projekt v sadě Visual Studio a ten vás navede.
+Otevřete prostředek Application Insights na [portálu Azure](https://portal.azure.com/).
 
 ![Klikněte pravým tlačítkem na projekt a otevřete portál Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-* *Chyba přístupu? Pokud máte pro Microsoft více než jednu sadu přihlašovacích údajů, je možné, že jste přihlášení pomocí nesprávné sady. Odhlaste se z portálu a znovu se přihlaste.*
+Portál otevře zobrazení telemetrie z vaší aplikace: ![](./media/app-insights-asp-net/66.png)
 
-Portál otevře zobrazení telemetrie z vaší aplikace: ![Stránka přehledu Application Insights](./media/app-insights-asp-net/66.png)
-
-Klikněte na jakoukoli dlaždici nebo graf, aby se zobrazily podrobnější údaje.
-
-### <a name="more-detail-in-the-portal"></a>Podrobnější zobrazení portálu
-
-* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) zobrazí telemetrii skoro okamžitě.
-
-    ![V okně Přehled klikněte na Live Stream.](./media/app-insights-asp-net/livestream.png)
-
-    Otevřete Live Stream v době, kdy je spuštěná aplikace, aby se mohly propojit.
-
-    Live Stream zobrazuje telemetrii jenom minutu po odeslání. K dalším historickým zkoumáním použijte služby Search, Průzkumník metrik a Analytics. Zobrazení dat v těchto umístěních může zabrat několik minut.
-
-* Služba [**Search**](app-insights-diagnostic-search.md) zobrazuje jednotlivé události, jako jsou požadavky, výjimky a zobrazení stránek. Můžete filtrovat podle typu události, shody pojmů a vlastností hodnoty. Kliknutím na libovolnou událost zobrazíte její vlastnosti a související události. 
-
-    ![V okně Přehled klikněte na Search.](./media/app-insights-asp-net/search.png)
-
- * V režimu pro vývoj se může zobrazovat spousta událostí závislosti (AJAX). Jsou to synchronizace mezi prohlížečem a emulátorem serveru. Pokud je chcete skrýt, klikněte na filtr Závislost.
-* V grafech se zobrazuje [**agregovaná metrika** ](app-insights-metrics-explorer.md), jako jsou požadavky a míra selhání. Klikněte na libovolný graf a otevřete okno s dalšími podrobnostmi. Pokud chcete nastavit, filtry, velikost apod., klikněte na značku **Upravit** u kteréhokoli grafu.
-    
-    ![V okně Přehled klikněte na libovolný graf.](./media/app-insights-asp-net/metrics.png)
+* První telemetrie se zobrazí ve [Živé vysílání metrik](app-insights-metrics-explorer.md#live-metrics-stream).
+* Jednotlivé události se zobrazí ve **Vyhledávání** (1). Zobrazení dat může zabrat několik minut. Kliknutím na libovolnou událost zobrazíte její vlastnosti. 
+* Agregovaná metrika se zobrazí v grafech (2). Zobrazení dat na tomto místě může trvat minutu nebo dvě. Klikněte na libovolný graf a otevřete okno s dalšími podrobnostmi.
 
 [Další informace o používání Application Insights na portálu Azure](app-insights-dashboards.md).
 
@@ -196,6 +175,6 @@ Pokud používáte Visual Studio Team Services, můžete [získat značku pozná
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

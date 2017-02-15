@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -58,8 +58,8 @@ Adresa URL pro přístup k objektu v účtu úložiště je sestavena připojen�
 Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Pro účty úložiště Classic najdete informace v tématu věnovaném [konfiguraci vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md). Pro účty úložiště Resource Manager ještě tato funkce nebyla přidána na [Portál Azure](https://portal.azure.com), můžete ji ale konfigurovat pomocí PowerShellu. Další informace najdete v tématu věnovaném rutině [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
 ## <a name="create-a-storage-account"></a>vytvořit účet úložiště
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).
-2. V nabídce centra vyberte **Nový** -> **Data a úložiště** -> **Účet úložiště**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. V nabídce centra vyberte **Nový** -> **Úložiště** -> **Účet úložiště**.
 3. Zadejte název účtu úložiště. Podrobnosti o tom, jak se bude název vašeho účtu úložiště používat k adresování vašich objektů v úložišti Azure Storage, najdete v tématu [Koncové body účtu úložiště](#storage-account-endpoints).
    
    > [!NOTE]
@@ -162,6 +162,6 @@ Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

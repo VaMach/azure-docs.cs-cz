@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak můžete vložit vizualizace dat Power BI a interaktivní sestavy do aplikací. Kurzy, reference k rozhraní API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: d5a00a2035660bfd5c9d1fbf79d630d2a0231f41
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Dokumentace ke službě Power BI Embedded
 
-Power BI Embedded je služba Azure, která vývojářům umožňuje přidávání interaktivních sestav Power BI do jejich vlastních aplikací. Power BI Embedded funguje se stávajícími aplikacemi bez nutnosti přepracovat nebo změnit způsob, jakým se uživatelé přihlašují.
+Zjistěte, jak můžete přidat vizualizace dat a interaktivní sestavy do aplikací pomocí Power BI Embedded. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete bezproblémově vložit řídicí panely a sestavy Power BI do aplikací.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Power BI Embedded je služba Azure, která vývojářům umožňuje přidáván�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=power-bi-embedded">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,64 +87,51 @@ Power BI Embedded je služba Azure, která vývojářům umožňuje přidáván�
 
 ---
 
-## <a name="reference"></a>Referenční informace
-
+<h2>Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Rutiny PowerShellu služby Power BI Embedded</p>
+                        <h3>Příkazový řádek</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Spravované referenční materiály služby Power BI Embedded</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Jazyky</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://www.nuget.org/profiles/powerbi">Stažení sady .NET SDK</a></p>
+                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referenční materiály k rozhraní REST API služby Power BI Embedded</p>
+                        <p><a href="/rest/api/powerbiembedded/">Reference k rozhraní REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Power BI Embedded </div>
-    </a>
-</div>
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

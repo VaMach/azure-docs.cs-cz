@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ Microsoft Monitoring Agent musí mít přístup k číslu portu vašich domén a
 | \*.ods.opinsights.azure.com |443 |Ano |
 | \*.oms.opinsights.azure.com |443 |Ano |
 | \*.blob.core.windows.net |443 |Ano |
+| \*.azure-automation.net |443 |Ano |
 | ods.systemcenteradvisor.com |443 | |
 
 Následující postup slouží ke konfiguraci nastavení proxy serveru pro Microsoft Monitoring Agent pomocí Ovládacích panelů. Tento postup bude nutné použít pro každý server. pokud máte mnoho serverů, které je nutné nakonfigurovat, může být jednodušší použít skript, který tento proces zautomatizuje. Je-li to váš případ, podívejte se na další postup [Konfigurace nastavení proxy serveru pro Microsoft Monitoring Agent pomocí skriptu](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
@@ -105,6 +106,7 @@ Zde je seznam prostředků serveru pro správu a porty:<br>
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Ano |
+| \*.azure-automation.net |443 |Ano |
 
 <br>
 Zde je seznam prostředků OMS a konzoly nástroje Operations Manager a porty.<br>
@@ -131,45 +133,46 @@ Pomocí následujících postupů zaregistrujete skupinu pro správu nástroje O
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Konfigurace proxy serveru v konzole nástroje Operations Manager
 1. Otevřete konzolu nástroje Operations Manager a vyberte pracovní prostor **Správa**.
 2. Rozbalte **Operational Insights** a poté vyberte **Připojení služby Operational Insights**.<br>  
-    ![Operations Manager Připojení OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Operations Manager Připojení OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. V zobrazení Připojení OMS klikněte na **Konfigurovat proxy server**.<br>  
-    ![Operations Manager Připojení OMS Konfigurace proxy serveru](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Operations Manager Připojení OMS Konfigurace proxy serveru](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. V Průvodci nastavením služby Operational Insights: Proxy server zaškrtněte políčko **Použít proxy server pro přístup k webovým službám Operational Insights** a poté zadejte adresu URL s číslem portu, například **http://mojeproxy:80**.<br>  
-    ![Operations Manager Adresa proxy serveru OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![Operations Manager Adresa proxy serveru OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Zadání přihlašovacích údajů, pokud proxy server vyžaduje ověření
  Přihlašovací údaje proxy serveru a nastavení je nutné rozšířit i na spravované počítače, které se budou hlásit k OMS. Tyto servery by měly být ve *skupině monitorovacích serverů služby Microsoft System Center Advisor*. Přihlašovací údaje jsou šifrované v registru každého serveru ve skupině.
 
 1. Otevřete konzolu nástroje Operations Manager a vyberte pracovní prostor **Správa**.
 2. V části **Konfigurace RunAs** vyberte **Profily**.
-3. Otevřete profil **Proxy server profilu Spustit jako služby System Center Advisor**.  
-    ![obrázek profilu Proxy server profilu Spustit jako služby System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. Chcete-li použít účet Spustit jako, v Průvodci profilem Spustit jako klikněte na **Přidat**. Můžete vytvořit nový účet Spustit jako nebo použít existující účet. Tento účet musí mít dostatečná oprávnění k průchodu proxy serverem.  
-    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Chcete-li nastavit účet, který chcete spravovat, zvolením možnosti **Vybranou třídu, skupinu nebo objekt** otevřete dialogové okno Vyhledat objekty.  
-    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Vyhledejte a následně vyberte **Skupina monitorovacích serverů služby Microsoft System Center Advisor**.  
-    ![obrázek dialogového okna Vyhledat objekty](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Kliknutím na **OK** zavřete dialogové okno Přidat účet Spustit jako.  
-    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Dokončete průvodce a uložte změny.  
-    ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Otevřete profil **Proxy server profilu Spustit jako služby System Center Advisor**.<br>  
+   ![obrázek profilu Proxy server profilu Spustit jako služby System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. Chcete-li použít účet Spustit jako, v Průvodci profilem Spustit jako klikněte na **Přidat**. Můžete vytvořit nový účet Spustit jako nebo použít existující účet. Tento účet musí mít dostatečná oprávnění k průchodu proxy serverem.<br>   
+   ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Chcete-li nastavit účet, který chcete spravovat, zvolením možnosti **Vybranou třídu, skupinu nebo objekt** otevřete dialogové okno Vyhledat objekty.<br>  
+   ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Vyhledejte a následně vyberte **Skupina monitorovacích serverů služby Microsoft System Center Advisor**.<br>  
+   ![obrázek dialogového okna Vyhledat objekty](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Kliknutím na **OK** zavřete dialogové okno Přidat účet Spustit jako.<br>  
+   ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Dokončete průvodce a uložte změny.<br>  
+   ![obrázek Průvodce profilem Spustit jako](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Ověření, že se stáhly sady Management Pack pro OMS
-Pokud jste do OMS přidali řešení, můžete je zobrazit v konzole nástroje Operations Manager jako sady Management Pack v části **Správa**. Vyhledejte *System Center Advisor*, tak je najdete rychleji.  
-    ![stažené sady Management Pack](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Nebo můžete zkontrolovat sady Management Pack pro OMS pomocí následujícího příkazu prostředí Windows PowerShell na serveru pro správu nástroje Operations Manager:
+Pokud jste do OMS přidali řešení, můžete je zobrazit v konzole nástroje Operations Manager jako sady Management Pack v části **Správa**. Vyhledejte *System Center Advisor*, tak je najdete rychleji.<br>  
+   ![stažené sady Management Pack](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+Nebo můžete sady Management Pack pro OMS zkontrolovat pomocí následujícího příkazu Windows PowerShellu na serveru pro správu nástroje Operations Manager:
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Ověření, že nástroj Operations Manager odesílá data do služby OMS
 1. Na serveru pro správu nástroje Operations Manager otevřete Sledování výkonu (perfmon.exe) a vyberte **Sledování výkonu**.
 2. Klikněte na **Přidat** a poté vyberte **Skupiny pro správu služby Health Service**.
-3. Přidejte všechny čítače, které začínají na **HTTP**.  
-    ![přidání čítačů](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Pokud je vaše konfigurace nástroje Operations Manager v pořádku, uvidíte u čítačů správy služby Health Service aktivitu událostí a dalších datových položek v závislosti na sadách Management Pack, které jste přidali v OMS, a na konfigurovaných zásadách shromažďování protokolů.  
-    ![Sledování výkonu ukazující aktivitu](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Přidejte všechny čítače, které začínají na **HTTP**.<br>  
+   ![přidání čítačů](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Pokud je vaše konfigurace nástroje Operations Manager v pořádku, uvidíte u čítačů správy služby Health Service aktivitu událostí a dalších datových položek v závislosti na sadách Management Pack, které jste přidali v OMS, a na konfigurovaných zásadách shromažďování protokolů.<br>  
+   ![Sledování výkonu ukazující aktivitu](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>Další kroky
 * Článek [Přidání řešení Log Analytics z galerie řešení](log-analytics-add-solutions.md) popisuje přidání funkcí a shromažďování dat.
@@ -177,6 +180,6 @@ Pokud jste do OMS přidali řešení, můžete je zobrazit v konzole nástroje O
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

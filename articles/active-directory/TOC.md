@@ -240,12 +240,12 @@
 ## Zabezpečení identit
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Povolení](active-directory-identityprotection-enable.md)
-#### [Přihlašovací prostředí](active-directory-identityprotection-flows.md)
-#### [Odblokování uživatelů](active-directory-identityprotection-unblock-howto.md)
 #### [Rozpoznání ohrožení zabezpečení](active-directory-identityprotection-vulnerabilities.md)
-#### [Typy rizikových událostí](active-directory-identityprotection-risk-events-types.md)
-#### [Simulace rizikových událostí](active-directory-identityprotection-playbook.md)
+#### [Rizikové události](active-directory-identity-protection-risk-events.md)
 #### [Oznámení](active-directory-identityprotection-notifications.md)
+#### [Přihlašovací prostředí](active-directory-identityprotection-flows.md)
+#### [Simulace rizikových událostí](active-directory-identityprotection-playbook.md)
+#### [Odblokování uživatelů](active-directory-identityprotection-unblock-howto.md)
 #### [Glosář](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -301,6 +301,6 @@
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

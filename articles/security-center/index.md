@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak nastavit monitorování zabezpečení a správu zásad pro prostředky Azure. Kurzy, reference k rozhraní REST API a další dokumentace"
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Dokumentace ke službě Security Center
 
-Security Center pomáhá předcházet hrozbám, zjišťovat je a reagovat na ně a nabízí lepší přehled o zabezpečení prostředků Azure a kontrolu nad nimi. Poskytuje integrované bezpečnostní sledování a správu zásad ve vašich předplatných Azure, pomáhá zjišťovat hrozby, kterých byste si jinak nevšimli, a spolupracuje s řadou řešení zabezpečení.
+Naučte se využívat službu Security Center k získání přehledu o zabezpečení prostředků Azure a kontrole nad ním.  Kurzy, reference k rozhraní REST API a další dokumentace ukazují postupy nastavení monitorování zabezpečení a správy zásad, které fungují pro řadu různých řešení zabezpečení.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,15 +85,10 @@ Security Center pomáhá předcházet hrozbám, zjišťovat je a reagovat na ně
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Security Center </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

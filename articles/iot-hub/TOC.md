@@ -8,11 +8,8 @@
 ### [Začínáme se službou IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Začínáme se službou IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Začínáme se službou IoT Hub (Node)](iot-hub-node-node-getstarted.md)
-## Začínáme se sadou SDK pro zařízení Azure IoT
-### [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
-### [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
-## Začínáme s Raspberry Pi
+
+## Začínáme s Raspberry Pi (Node)
 ### [Začínáme s Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lekce 1: Konfigurace zařízení
 #### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -33,10 +30,123 @@
 #### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Řešení problémů](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+
+## Začínáme s Raspberry Pi (C)
+### [Začínáme s Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-get-started.md)
+### Lekce 1: Konfigurace zařízení
+#### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+#### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Získání nástrojů (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+#### [Vytvoření a nasazení aplikace blink](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+### Lekce 2: Vytvoření služby IoT Hub
+#### [Získání nástrojů Azure (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+#### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+### Lekce 4: Odesílání zpráv z cloudu do zařízení
+#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+### [Řešení problémů](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+
+## Začínáme s Intel Edison (Node)
+### [Začínáme s Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
+### Lekce 1: Konfigurace zařízení
+#### [Konfigurace zařízení](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+#### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+#### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+### Lekce 2: Vytvoření služby IoT Hub
+#### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+#### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+### Lekce 4: Odesílání zpráv z cloudu do zařízení
+#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+### [Řešení problémů](iot-hub-intel-edison-kit-node-troubleshooting.md)
+
+## Začínáme s Intel Edison (C)
+### [Začínáme s Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
+### Lekce 1: Konfigurace zařízení
+#### [Konfigurace zařízení](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+#### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+#### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+### Lekce 2: Vytvoření služby IoT Hub
+#### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+#### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+### Lekce 4: Odesílání zpráv z cloudu do zařízení
+#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
+
 ## [Začínáme se sadou Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Začínáme se sadou Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+## Začínáme s úvodní sadou IoT Gateway
+### Simulované zařízení
 
+#### [Začínáme se simulovaným zařízením](iot-hub-gateway-kit-c-sim-get-started.md)
+#### Lekce 1: Konfigurace NUC
+##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace zařízení](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+
+#### Lekce 3: Příjem zpráv ze simulovaného zařízení
+##### [Konfigurace a spuštění ukázkové aplikace BLE](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+##### [Čtení zpráv ze služby IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+
+#### Lekce 4: Uložení zpráv do Azure Table Storage
+##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+
+#### [Řešení potíží](iot-hub-gateway-kit-c-sim-troubleshooting.md)
+
+### Zařízení SensorTag
+#### [Začínáme se zařízením SensorTag](iot-hub-gateway-kit-c-get-started.md)
+#### Lekce 1: Konfigurace NUC
+##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace zařízení](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+#### Lekce 3: Příjem zpráv ze simulovaného zařízení
+##### [Konfigurace a spuštění ukázkové aplikace BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+##### [Čtení zpráv ze služby IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+#### Lekce 4: Uložení zpráv do Azure Table Storage
+##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
+## Začínáme se sadou SDK pro zařízení Azure IoT
+### [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
+### [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
 # Postup
 ## [Kurz zpracování zpráv ze zařízení na cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Kurz zpracování zpráv ze zařízení na cloud (Java)](iot-hub-java-java-process-d2c.md)
@@ -130,6 +240,6 @@
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
