@@ -7,12 +7,13 @@
 # Začínáme
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Aplikace Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Aplikace v ASP.NET
-#### [Nasazení první webové aplikace .NET do Azure během pěti minut](app-service-web-get-started-dotnet.md)
+#### [Vytvoření aplikace v ASP.NET v Azure pomocí sady Visual Studio](web-sites-dotnet-get-started.md)
 #### [Vytvoření služby REST pomocí rozhraní Web API ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Vytvoření webové aplikace ASP.NET 5 v prostředí Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Aplikace v Node.js
+#### [Vývoj Node.js pro App Service](app-service-web-nodejs-get-started.md)
 #### [Vytvoření webové aplikace v Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Vytvoření chatovací aplikace v Node.js s použitím Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Použití io.js spolu s Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Vývoj a nasazení pomocí WebMatrixu](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplikace v PHP
-#### [Nasazení první webové aplikace v PHP do Azure během pěti minut](app-service-web-get-started-php.md)
+#### [Vývoj aplikací v PHP pro App Service](app-service-web-php-get-started.md) 
 #### [Vytvoření webové aplikace v PHP-SQL a nasazení přes Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Vytvoření webové aplikace WordPress ve službě Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Vytvoření databáze MySQL v Azure a připojení k ní](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [WordPress na podnikové úrovni s použitím Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Aplikace v Javě
-#### [Nasazení první webové aplikace v Javě do Azure během pěti minut](web-sites-java-get-started.md)
 #### Vytvoření aplikace Hello World
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -254,11 +255,11 @@
 
 # Související
 ## [Poznámky k verzi Azure SDK pro .NET](azure-sdk-dotnet-release-notes.md)
-### [Verze 2.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Verze 2.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Verze 2.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Verze 2.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Verze 2.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Verze&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
+### [Verze&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
+### [Verze&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
+### [Verze&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
+### [Verze&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 # Zdroje a prostředky
 ## [Osvědčené postupy](app-service-best-practices.md)

@@ -40,14 +40,14 @@ Ano, u stejné služby Azure VPN Gateway je možné kombinovat připojení pomoc
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Podporuje služba Azure VPN Gateway směrování provozu pomocí protokolu BGP?
 Ano, směrování provozu pomocí protokolu BGP je podporováno, pouze s tou výjimkou, že služby Azure VPN Gateway **NEBUDOU** prezentovat výchozí směrování ostatním partnerům BGP. Pokud chcete povolit směrování provozu mezi více různými službami Azure VPN Gateway, je nutné povolit protokol BGP ve všech zprostředkujících připojení mezi sítěmi VNet.
 
-### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Je možné mít víc než jeden tunel mezi službou Azure VPN Gateway a místní sítí?
+### <a name="can-i-have-more-than-one-tunnels-between-azure-vpn-gateway-and-my-on-premises-network"></a>Je možné mít víc než jeden tunel mezi službou Azure VPN Gateway a místní sítí?
 Ano, můžete vytvořit více než jeden tunel VPN S2S mezi službou Azure VPN Gateway a místní sítí. Upozornění: Všechny tyto tunely se započítají do celkového počtu tunelů služeb Azure VPN Gateway. Pokud máte například dva redundantní tunely mezi službou Azure VPN Gateway a jednou z vašich místních sítí, tyto tunely vyčerpají 2 z celkové kvóty tunelů dostupných pro službu Azure VPN Gateway (služba Standard umožňuje vytvořit 10 tunelů a služba HighPerformance 30 tunelů).
 
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>Mohu mít více různých tunelů mezi dvěma sítěmi Azure VNet s protokolem BGP?
 Ne, redundantní tunely mezi párem virtuálních sítí nejsou podporovány.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Je možné použít protokol BGP pro síť VPN S2S provozovanou v koexistenci se sítí VPN ExpressRoute?
-Ano. 
+V tuto chvíli to není možné.
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Jakou adresu služba Azure VPN Gateway používá pro IP adresu partnera BGP?
 Služba Azure VPN Gateway přidělí jednu IP adresu z rozsahu GatewaySubnet definovaného pro virtuální síť. Ve výchozím nastavení se jedná o předposlední adresu v rozsahu. Pokud například používáte rozsah GatewaySubnet 10.12.255.0/27 v intervalu 10.12.255.0 až 10.12.255.31, IP adresa partnera BGP ve službě Azure VPN Gateway bude 10.12.255.30. Tyto informace můžete získat zobrazením informací služby Azure VPN Gateway.
@@ -63,6 +63,6 @@ Do zařízení VPN je nutné přidat směrování hostitele IP adresy partnera B
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

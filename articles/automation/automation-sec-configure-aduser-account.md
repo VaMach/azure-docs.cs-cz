@@ -1,6 +1,6 @@
 ---
 title: "Konfigurace účtu uživatele Azure AD | Dokumentace Microsoftu"
-description: "Tento článek popisuje způsob konfigurace přihlašovacích údajů účtu uživatele Azure AD pro runbooky ve službě Azure Automation za účelem ověřování ARM a ASM."
+description: "Tento článek popisuje způsob konfigurace přihlašovacích údajů uživatelského účtu Azure AD pro runbooky v Azure Automation za účelem ověřování."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Ověření runbooku pomocí správy služby Azure a Resource manageru
-Tento článek popisuje kroky, které musíte provést při konfiguraci účtu uživatele Azure AD pro runbooky služby Azure Automation, které běží s prostředky ASM (správa služby Azure) a ARM (Azure Resource Manager).  I když toto zůstává podporovanou identitou ověřování pro runbooky založené na ARM, doporučujeme používat nový účet Spustit v Azure jako.       
+Tento článek popisuje kroky, které musíte provést při konfiguraci uživatelského účtu Azure AD pro runbooky Azure Automation, které běží s prostředky správy služeb Azure a Azure Resource Manageru.  I když toto zůstává podporovanou identitou ověřování pro runbooky založené na Azure Resource Manageru, doporučujeme používat nový účet Spustit v Azure jako.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Vytvoření nového uživatele Azure Active Directory
 1. Přihlaste se k portálu Azure Classic jako správce služby pro předplatné Azure, které chcete spravovat.
@@ -39,12 +39,12 @@ Tento článek popisuje kroky, které musíte provést při konfiguraci účtu u
 12. Odhlaste se ze služby Azure a potom se přihlaste zpět pomocí právě vytvořeného účtu. Zobrazí se výzva ke změně uživatelského hesla.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Vytvoření účtu Automation na portálu Azure Classic
-V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ASM a ARM.  
+V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu Azure Service Manager a Azure Resource Manager.  
 
 > [!NOTE]
 > Účty Automation vytvořené na webu Azure Portal Classic můžete spravovat pomocí webu Azure Portal Classic i pomocí webu Azure Portal nebo pomocí sady rutin. Po vytvoření účtu už nezáleží na způsobu vytváření a správy prostředků v rámci účtu. Pokud máte v úmyslu pokračovat v používání webu Azure Portal Classic, doporučujeme, abyste ho používali k vytváření účtů Automation místo webu Azure Portal.
->
->
+> 
+> 
 
 1. Přihlaste se k portálu Azure Classic jako správce služby pro předplatné Azure, které chcete spravovat.
 2. Vyberte **Automation**.
@@ -60,7 +60,7 @@ V této části provedete následující kroky, abyste na webu Azure Portal vytv
 12. Na následující stránce **Definování přihlašovacích údajů** zadejte do pole **Uživatelské jméno** dříve vytvořené uživatelské jméno účtu uživatele AD a do pole **Heslo** a **Potvrzení hesla** zadejte heslo. Klikněte na tlačítko **OK** a uložte změny.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Vytvoření účtu Automation na webu Azure Portal
-V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu ARM.  
+V této části provedete následující kroky, abyste na webu Azure Portal vytvořili nový účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v režimu Azure Resource Manager.  
 
 1. Přihlaste se k portálu Azure jako správce služby pro předplatné Azure, které chcete spravovat.
 2. Vyberte **Účty Automation**.
@@ -68,12 +68,12 @@ V této části provedete následující kroky, abyste na webu Azure Portal vytv
 4. V okně **Přidat účet Automation** do pole **Název** zadejte název nového účtu Automation.
 5. Pokud máte více než jedno předplatné, zadejte předplatné pro nový účet a také novou nebo existující **skupinu prostředků** a **umístění** datového centra Azure.
 6. U možnosti **Vytvořit účet Spustit v Azure jako** vyberte **Ne** a klikněte na tlačítko **Vytvořit** tlačítko.  
-
+   
    > [!NOTE]
-   > Pokud se rozhodnete nevytvořit účet Spustit v Azure jako tím, že nevyberete možnost **Ne**, zobrazí se v okně **Přidání účtu Automation** zpráva upozornění.  Při vytváření účtu a jeho přiřazování k roli **přispěvatele** v předplatném, nebude mít účet odpovídající identitu ověřování v rámci adresářové služby vašeho předplatného, a proto nebude předplatné obsahovat žádné přístupové prostředky.  Všechny runbooky odkazující na tento účet kvůli tomu nebudou moct ověřit a provádět úlohy s prostředky ARM.
-   >
-   >
-
+   > Pokud se rozhodnete nevytvořit účet Spustit v Azure jako tím, že nevyberete možnost **Ne**, zobrazí se v okně **Přidání účtu Automation** zpráva upozornění.  Při vytváření účtu a jeho přiřazování k roli **přispěvatele** v předplatném, nebude mít účet odpovídající identitu ověřování v rámci adresářové služby vašeho předplatného, a proto nebude předplatné obsahovat žádné přístupové prostředky.  Všechny runbooky odkazující na tento účet kvůli tomu nebudou moct ověřit a provádět úlohy s prostředky Azure Resource Manager.
+   > 
+   > 
+   
     ![Přidání upozornění k účtu Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. Zatímco Azure vytváří účet Automation, můžete průběh sledovat v nabídce v části **Oznámení**.
 
@@ -93,6 +93,7 @@ Tyto řádky byste měli v runbooku opakovat po všech [kontrolních bodech](htt
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

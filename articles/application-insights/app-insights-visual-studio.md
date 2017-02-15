@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 06/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8886107f96f31f668ce55ebb4c76e58ad1f21268
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2334a85402049eb8654039e98cf2c3131a43de62
 
 
 ---
 # <a name="working-with-application-insights-in-visual-studio"></a>Práce s Application Insights v sadě Visual Studio
-V sadě Visual Studio (2015 a novější) můžete analyzovat výkon a diagnostikovat problémy v ladění i v produkčním prostředí pomocí telemetrie z [Visual Studio Application Insights](app-insights-overview.md).
+V sadě Visual Studio (2015 a novější) můžete analyzovat výkon a diagnostikovat problémy v ladění i v produkčním prostředí pomocí telemetrie z [Azure Application Insights](app-insights-overview.md).
 
 Pokud jste ještě [nenainstalovali Application Insights do své aplikace](app-insights-asp-net.md), proveďte to nyní.
 
@@ -94,6 +94,6 @@ Pokud chcete vyhledat anomálie v datech, vyberte jednu z možností anomálií 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/21/2016
-ms.author: darosa,sethm
+ms.date: 1/06/2016
+ms.author: darosa,sethm,jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: d36b40444af4ba68b016351f9ff016351e9fe58c
-ms.openlocfilehash: a4ccfdbc079a989477a80af7ac701dc77dce5a4f
+ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
+ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
 
 
 ---
@@ -31,9 +31,9 @@ V následující tabulce je zvýrazněno několik nejvýraznějších rozdílů.
 | --- | --- |
 | Vysoká propustnost |Variabilní propustnost |
 | Předvídatelný výkon |Variabilní latence |
-| Předvídatelná cena |Variabilní průběžná cena  |
-| Možnost navýšit a snížit zátěž |– |
-| Velikost zprávy > 256 kB |Velikost zprávy je 256 kB |
+| Pevné ceny |Variabilní průběžná cena  |
+| Možnost vertikálně navýšit a snížit kapacitu |– |
+| Velikost zprávy do 1 MB |Velikost zprávy do 256 kB |
 
 **Zasílání zpráv Azure Service Bus Premium** zajišťuje izolaci prostředků ve vrstvě CPU a paměti, takže každá úloha zákazníka běží izolovaně. Kontejner prostředků se nazývá *jednotka zasílání zpráv*. Každému prémiovému obor názvů se přiřadí aspoň jedna jednotka zasílání zpráv. Pro každý obor názvů Service Bus Premium můžete koupit 1, 2 nebo 4 jednotky zasílání zpráv. Jedna úloha nebo entita může zabírat několik jednotek zasílání zpráv a počet jednotek zasílání zpráv se dá změnit podle libosti, ale fakturuje se podle 24hodinoví/denní sazby. Výsledkem je předvídatelný a opakovatelný výkon vašeho řešení postaveného na Service Bus.
 
@@ -43,10 +43,19 @@ Vedle toho, že je tento výkon předvídatelnější, je také rychlejší. Zas
 Toto je několik rozdílů mezi úrovněmi zasílání zpráv Premium a Standard.
 
 ### <a name="partitioned-queues-and-topics"></a>Dělené fronty a témata
-Dělené fronty a témata jsou podporované v zasílání zpráv na úrovni Premium, ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovních Standard a Basic. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. Další informace o dělení najdete v oddílu [Dělené fronty a témata](service-bus-partitioning.md).
+Dělené fronty a témata jsou podporované v zasílání zpráv na úrovni Premium, ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovních Standard a Basic. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není pro zajištění výkonu potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. Další informace o dělení najdete v oddílu [Dělené fronty a témata](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Expresní entity
 Protože zasílání zpráv na úrovni Premium běží v kompletně izolovaném prostředí, nejsou expresní entity v oborech názvů úrovně Premium podporované. Další informace o expresní funkci najdete v popisu vlastnosti [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+
+## <a name="get-started-with-premium-messaging"></a>Začínáme se zasíláním zpráv na úrovni Premium
+
+Využití zasílání zpráv na úrovni Premium je jednoduché a je podobné standardnímu zasílání zpráv. Nejdřív [vytvořte obor názvů](service-bus-create-namespace-portal.md). Zkontrolujte, že jste v části Cenová úroveň vybrali *Premium*.
+
+![create-premium-namespace][create-premium-namespace]
+
+Teď můžete vytvořit [obor názvů Premium pomocí šablon Azure Resource Manageru](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+
 
 ## <a name="next-steps"></a>Další kroky
 Pokud se o zasílání zpráv Service Bus chcete dozvědět víc, pročtěte si následující témata.
@@ -56,9 +65,12 @@ Pokud se o zasílání zpráv Service Bus chcete dozvědět víc, pročtěte si 
 * [Přehled zasílání zpráv Service Bus](service-bus-messaging-overview.md)
 * [Jak používat fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

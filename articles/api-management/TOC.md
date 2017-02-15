@@ -39,17 +39,32 @@
 ### [Správa uživatelských účtů](api-management-howto-create-or-invite-developers.md)
 ### [Správa s použitím automatizace](automation-manage-api-management.md)
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
-
 # Referenční informace
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
-## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-
-
-# Zdroje a prostředky
-## [Zásady](https://msdn.microsoft.com/library/azure/dn894081)
-## [Šablony](https://msdn.microsoft.com/library/azure/mt697540)
+## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [Zásady](api-management-policies.md)
+### referenční příručce o zásadách
+#### [Zásady omezení přístupu](api-management-access-restriction-policies.md)
+#### [Pokročilé zásady](api-management-advanced-policies.md)
+#### [Zásady ověřování](api-management-authentication-policies.md)
+#### [Zásady ukládání do mezipaměti](api-management-caching-policies.md)
+#### [Mezidoménové zásady](api-management-cross-domain-policies.md)
+#### [Zásady transformace](api-management-transformation-policies.md)
+### [Zpracování chyb](api-management-error-handling-policies.md)
+### [Výrazy zásad](api-management-policy-expressions.md)
+## [Šablony](api-management-developer-portal-templates-reference.md)
+### Referenční informace k šablonám
+#### [Rozhraní API](api-management-api-templates.md)
+#### [Produkty](api-management-product-templates.md)
+#### [Aplikace](api-management-application-templates.md)
+#### [Problémy](api-management-issue-templates.md)
+#### [Profil uživatele](api-management-user-profile-templates.md)
+#### [Stránky](api-management-page-templates.md)
+### [Referenční informace k datovému modelu](api-management-template-data-model-reference.md)
+### [Ovládací prvky stránek](api-management-page-controls.md)
+### [Prostředky šablon](api-management-template-resources.md)
+# Zdroje
 ## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -67,6 +82,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

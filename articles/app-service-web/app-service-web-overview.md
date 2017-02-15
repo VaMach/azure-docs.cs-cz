@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
 
 
 ---
@@ -58,13 +58,25 @@ Kromě toho může webová aplikace využívat funkce služeb [API Apps](../app-
 Kromě Web Apps ve službě App Service nabízí Azure další služby, které lze použít k hostování webů a webových aplikací. Pro většinu scénářů je nejlepší volbou služba Web Apps.  V případě architektury mikroslužby zvažte službu [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), a pokud potřebujete větší kontrolu nad virtuálními počítači, v nichž je kód spuštěn, zvažte službu [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Příklady typických aplikačních scénářů, k nimž můžete použít službu Web Apps, naleznete v tématu [Srovnání Azure App Service, Virtual Machines, Service Fabric a Cloud Services](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Začínáme
-Chcete-li začít nasazením ukázkového kódu do nové webové aplikace ve službě App Service, postupujte podle kurzu [Nasazení první webové aplikace do Azure během 5 minut](app-service-web-get-started.md). Budete potřebovat bezplatný účet Azure.
+Pokud chcete začít nasazením ukázkového kódu do nové webové aplikace ve službě App Service, postupujte podle jednoho z kurzů v následujícím rozevíracím seznamu. Budete potřebovat bezplatný účet Azure.
 
-Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> [!div class="op_single_selector"]
+> * [Nasazení prvního webu v HTML do Azure během 5 minut](app-service-web-get-started-html-cli-nodejs.md)
+> * [Nasazení první webové aplikace v ASP.NET do Azure během 5 minut](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Nasazení první webové aplikace v PHP do Azure během 5 minut](app-service-web-get-started-php-cli-nodejs.md)
+> * [Nasazení první webové aplikace v Node.js do Azure během 5 minut](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Nasazení první webové aplikace v Pythonu do Azure během 5 minut](app-service-web-get-started-python-cli-nodejs.md)
+> * [Nasazení první webové aplikace v Javě do Azure během 5 minut](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> [App Service si můžete vyzkoušet](http://go.microsoft.com/fwlink/?LinkId=523751) bez účtu Azure. Můžete si vytvořit úvodní aplikaci a celou hodinu si s ní hrát, bez platebních karet a bez závazků.
+> 
+> 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

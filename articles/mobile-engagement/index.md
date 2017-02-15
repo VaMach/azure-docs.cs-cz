@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích."
 translationtype: Human Translation
-ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
-ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentace ke službě Mobile Engagement
@@ -195,17 +195,10 @@ Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Azure Mobile Engagement </div>
-    </a>
-</div>
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

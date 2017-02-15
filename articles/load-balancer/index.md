@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Naučte se používat Load Balancer pro síťový výkon aplikací. Spravujte provoz pro virtuální počítače a cloudové prostředky a také ve virtuálních sítích na více místech."
 translationtype: Human Translation
-ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
-ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Dokumentace k nástroji pro vyrovnávání zatížení
@@ -132,13 +132,7 @@ Naučte se konfigurovat Load Balancer k zajištění vysoké dostupnosti a síť
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci k nástroji pro vyrovnávání zatížení </div>
-    </a>
-</div>
+
 
 
 

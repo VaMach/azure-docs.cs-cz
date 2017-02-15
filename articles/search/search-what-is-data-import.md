@@ -51,6 +51,6 @@ Funkce indexeru je zpřístupněná na webu [Azure Portal](search-import-data-po
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

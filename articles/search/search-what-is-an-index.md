@@ -28,7 +28,7 @@ ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 > 
 
 ## <a name="what-is-an-index"></a>Co je index?
- *Index* je trvalé úložiště *dokumentů* a jiných objektů, které používá služba Azure Search. Dokument je jednou jednotkou prohledávatelných dat v indexu. Například internetový prodejce může mít dokument pro každou prodanou položku, zatímco tisková agentura může mít dokument pro každý článek atd. Mapování těchto položek do známějších databázových ekvivalentů: *indexů* se koncepčně podobá *tabulce*, kdy *dokumenty* přibližně odpovídají *řádkům* tabulky.
+*Index* je trvalé úložiště *dokumentů* a jiných objektů, které používá služba Azure Search. Dokument je jednou jednotkou prohledávatelných dat v indexu. Například internetový prodejce může mít dokument pro každou prodanou položku, zatímco tisková agentura může mít dokument pro každý článek atd. Mapování těchto položek do známějších databázových ekvivalentů: *indexů* se koncepčně podobá *tabulce*, kdy *dokumenty* přibližně odpovídají *řádkům* tabulky.
 
 Když přidáváte nebo nahráváte dokumenty a odesíláte vyhledávací dotazy do služby Azure Search, svoje požadavky odesíláte do konkrétního indexu ve vyhledávací službě.
 
@@ -69,6 +69,6 @@ Pokud se v průběhu času změní požadavky na úložiště dat, můžete zvý
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

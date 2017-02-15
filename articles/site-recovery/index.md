@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se nastavit zotavení po havárii cloudu a provozní kontinuitu pro fyzické servery a virtuální počítače prostřednictvím nasazení a správy replikace."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentace ke službě Site Recovery
 
-Služba Azure Site Recovery přispívá ke strategii zachování plynulého chodu podniku a zotavení po havárii (BCDR) tím, že orchestruje replikaci místních virtuálních počítačů a fyzických serverů. Servery a virtuální počítače můžete ze svého primárního místního datového centra replikovat do Azure nebo do sekundárního datového centra. Pokud v primární lokalitě dojde k výpadku, převezme služby sekundární lokalita, aby úlohy zůstaly přístupné a dostupné.
+Naučte se používat službu Site Recovery pro provozní kontinuitu a strategii zotavení po havárii pro privátní cloudy. Kurzy a další dokumentace obsahují informace o tom, jak plánovat, nasazovat a spravovat orchestraci replikace místních fyzických serverů a virtuálních počítačů do cloudu nebo do sekundárního datacentra.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -79,16 +80,10 @@ Služba Azure Site Recovery přispívá ke strategii zachování plynulého chod
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Site Recovery </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

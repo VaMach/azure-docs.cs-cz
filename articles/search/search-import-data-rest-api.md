@@ -182,6 +182,6 @@ Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

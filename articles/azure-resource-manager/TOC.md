@@ -28,6 +28,7 @@
 ### [Azure Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Vývojová a testovací prostředí](solution-dev-test-environments.md)
+### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Spravovat
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -41,7 +42,7 @@
 ### [Vytvoření instančního objektu pomocí PowerShellu](resource-group-authenticate-service-principal.md)
 ### [Vytvoření instančního objektu pomocí Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Vytvoření instančního objektu pomocí portálu](resource-group-create-service-principal-portal.md)
-### [Přístup aplikací k předplatným](resource-manager-api-authentication.md)
+### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
 ### [Nastavení zásad správy](resource-manager-policy.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)
 ### [Aspekty zabezpečení](best-practices-resource-manager-security.md)
@@ -69,6 +70,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -32,7 +32,7 @@ Pokud chcete ve VS Code pracovat s šablonami JSON, musíte nainstalovat rozší
 2. Otevřete okno rychlého otevření (Ctrl + P) 
 3. Spusťte následující příkaz: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Až budete vyzváni, ukončete a znovu spusťte VS Code, aby se rozšíření povolilo. 
    
    Hotovo!

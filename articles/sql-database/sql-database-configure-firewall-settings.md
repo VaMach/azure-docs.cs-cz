@@ -1,6 +1,6 @@
 ---
-title: "Konfigurace pravidla brány firewall na úrovni serveru služby SQL Database | Dokumentace Microsoftu"
-description: "Zjistěte, jak nakonfigurovat bránu firewall pro IP adresy, ze kterých se přistupuje k SQL serveru Azure."
+title: "Azure Portal: Pravidla brány firewall služby Azure SQL Database na úrovni serveru | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí webu Azure Portal nakonfigurovat pravidla brány firewall na úrovni serveru pro IP adresy, ze kterých se přistupuje k Azure SQL serveru."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
 
 
 ---
@@ -64,6 +64,6 @@ Kliknutím na **Uložit** uložte změny.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

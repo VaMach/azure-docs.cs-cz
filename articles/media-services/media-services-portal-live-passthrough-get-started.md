@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Jak provést živé streamování pomocí místních kodérů na portálu Azure
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Jak provést živé streamování pomocí místních kodérů na portálu Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -34,7 +34,7 @@ Tento kurz vás provede kroky pro vytvoření **Kanálu**, který je nakonfiguro
 K dokončení kurzu potřebujete následující:
 
 * Účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Účet Media Services.    Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-portal-create-account.md).
+* Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-portal-create-account.md).
 * Webová kamera. Například [kodér Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Důrazně doporučujeme přečtení následujících článků:
@@ -46,6 +46,9 @@ Důrazně doporučujeme přečtení následujících článků:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"> </a>Běžný scénář živého streamování
 Následující kroky popisují úlohy, které jsou běžně součástí procesu vytváření aplikací pro živé streamování, které používají kanály, nakonfigurované pro průchozí doručování. Tento kurz ukazuje, jak vytvořit a spravovat průchozí kanál a živé události.
 
+>[!NOTE]
+>Zkontrolujte, že koncový bod streamování, ze kterého chcete streamovat obsah, je ve stavu **Spuštěno**. 
+    
 1. Připojte k počítači videokameru. Spusťte a nakonfigurujte místní kodér pro kódování v reálném čase, který produkuje RTMP s více přenosovými rychlostmi nebo fragmentovaný proud MP4. Další informace najdete v článku [Podpora RTMP ve službě Azure Media Services a kodéry pro kódování v reálném čase](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Tento krok můžete provést i po vytvoření kanálu.
@@ -59,11 +62,7 @@ Následující kroky popisují úlohy, které jsou běžně součástí procesu 
 5. Vytvořte živou událost nebo program. 
    
     Na portálu Azure se při vytváření živé události vytvoří také asset. 
-   
-   > [!NOTE]
-   > Zajistěte, abyste na koncovém bodu streamování (ze kterého chcete streamovat obsah) měli aspoň jednu jednotku rezervovanou pro streaming.
-   > 
-   > 
+
 6. Jakmile budete připraveni začít streamovat a archivovat, spusťte událost nebo program.
 7. Volitelně můžete dát kodéru pro kódování v reálném čase signál, aby spustil reklamu. Reklama bude vložena do výstupního proudu.
 8. Kdykoli budete chtít zastavit streamování a archivaci události, zastavte událost nebo program.
@@ -79,29 +78,7 @@ Pokud chcete zobrazit upozornění a chyby, vytvořené na portálu Azure, klikn
 
 ![Oznámení](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-## <a name="configure-streaming-endpoints"></a>Konfigurace koncových bodů streamování
-Media Services poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS, Smooth Streaming nebo HDS, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit a platit za soubory pouze v jednom formátu úložiště a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
-
-Pokud chcete využít výhody dynamického balení, získejte alespoň jednu jednotku streamování pro koncový bod streamování, ze kterého plánujete obsah doručovat.  
-
-Pokud chcete vytvořit a změnit počet jednotek rezervovaných pro streaming, postupujte takto:
-
-1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
-2. V okně **Nastavení** klikněte na **Koncové body streamování**. 
-3. Klikněte na výchozí koncový bod streamování. 
-   
-    Zobrazí se okno **VÝCHOZÍ KONCOVÝ BOD STREAMOVÁNÍ – PODROBNOSTI**.
-4. Pokud chcete zadat počet jednotek streamování, posuňte jezdcem **Jednotky streamování**.
-   
-    ![Jednotky streamování](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Kliknutím na tlačítko **Uložit** uložte provedené změny.
-   
-   > [!NOTE]
-   > Přidělení jakýchkoli nových jednotek může trvat až 20 minut.
-   > 
-   > 
-
-## <a name="create-and-start-passthrough-channels-and-events"></a>Vytvoření a spuštění průchozího kanálu.
+## <a name="create-and-start-pass-through-channels-and-events"></a>Vytvoření a spuštění průchozího kanálu.
 Kanál je přidružený k událostem a programům, které vám umožňují řídit publikování a ukládání segmentů v živém datovém proudu. Kanály spravují události. 
 
 Nastavením délky **archivačního okna** můžete určit počet hodin, po které chcete uchovávat zaznamenaný obsah programu. Tuto hodnotu můžete nastavit v rozmezí od 5 minut po 25 hodin. Délka archivačního okna také určuje maximální časový úsek, který můžou klienti prohledávat od aktuální živé pozice směrem zpět v čase. Programy můžou běžet po určenou dobu a obsah, který se do délky okna nevejde, bude vždy zahozen. Hodnota této vlastnosti také určuje, jak dlouho můžou růst manifesty klientů.
@@ -180,6 +157,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

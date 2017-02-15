@@ -34,6 +34,7 @@
 ### [Vyhodnocení standardních hodnot](oms-security-baseline.md)
 ### [Posouzení malwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Posouzení aktualizace systému](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Produkty zabezpečení Connect](oms-security-connect-products.md)
 ## [Integrace s OMS](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -102,6 +102,6 @@ Také může být užitečné podívat se na [Osvědčené postupy][Best practic
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

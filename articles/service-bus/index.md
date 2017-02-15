@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Zjistěte, jak nastavit až zasílání zpráv, které spojuje aplikace a služby mezi místními i cloudovými prostředí.  Kurzy, videa, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
-ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 ---
 #<a name="service-bus-documentation"></a>Dokumentace ke službě Service Bus
@@ -227,7 +227,7 @@ Naučte se používat Service Bus k připojení mezi místními i cloudovými pr
                 <div class="card">
                     <div class="cardText">
                         <h3>Ostatní</h3>
-                        <p><a href="/dotnet/api/">Reference ke spravovanému rozhraní API</a></p>
+                        <p><a href="/dotnet/api/">Referenční informace pro spravované rozhraní API</a></p>
                    </div>
                 </div>
             </div>
@@ -235,13 +235,7 @@ Naučte se používat Service Bus k připojení mezi místními i cloudovými pr
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Service Bus </div>
-    </a>
-</div>
+
 
 
 

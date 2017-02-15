@@ -111,6 +111,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat službu Log Analytics ke shromažďování a analýze dat vygenerovaných prostředky ve vašem cloudovém a místním prostředí bez ohledu na jejich fyzické umístění."
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: bd819da72cbfdd58323321eb41ab28441e043c84
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
 
 ---
 
 # <a name="log-analytics-documentation"></a>Dokumentace ke službě Log Analytics
 
-Log Analytics je služba v rámci Operations Management Suite (OMS), která pomáhá shromažďovat a analyzovat data vygenerovaná prostředky ve vašem cloudovém a místním prostředí. Poskytuje přehledy v reálném čase pomocí integrovaného vyhledávání a vlastních řídicích panelů, díky kterým můžete analyzovat miliony záznamů napříč všemi svými úlohami a servery bez ohledu na jejich umístění.
+Naučte se používat službu Log Analytics, která je součástí sady Operations Management Suite OMS, ke shromažďování a analýze dat vygenerovaných prostředky ve vašem cloudovém a místním prostředí. Kurzy a další dokumentace ukazují, jak získávat informace v reálném čase napříč vašimi úlohami a servery bez ohledu na jejich fyzické umístění.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,16 +86,10 @@ Log Analytics je služba v rámci Operations Management Suite (OMS), která pom�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Log Analytics </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: " Vytvoření účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftu"
+title: " Vytvoření účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftus"
 description: "Tento kurz vás provede kroky pro vytvoření účtu služby Azure Media Services pomocí webu Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
 1. Přihlaste se na [Azure Portal](https://portal.azure.com/).
 2. Klikněte na **+Nové** > **Web + mobilní zařízení** > **Media Services**.
    
-    ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services – vytvoření](./media/media-services-create-account/media-services-new1.png)
 3. V okně **VYTVOŘIT ÚČET MEDIA SERVICES** zadejte požadované hodnoty.
    
-    ![Media Services – vytvoření](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Media Services – vytvoření](./media/media-services-create-account/media-services-new3.png)
    
    1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
@@ -69,9 +69,12 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    6. Zaškrtněte **Připnout na řídicí panel**, abyste viděli průběh nasazení účtu.
 4. Klikněte na tlačítko **Vytvořit** dole na formuláři.
    
-    Po úspěšném vytvoření účtu se stav změní na **Spuštěno**. 
+    Po úspěšném vytvoření účtu se načte stránka s přehledem. V tabulce koncových bodů streamování bude účet mít výchozí koncový bod streamování ve stavu **Zastaveno**. 
+
+    >[!NOTE]
+    >Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
    
-    ![Nastavení Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Nastavení Media Services](./media/media-services-create-account/media-services-settings.png)
    
     Ke správě vašeho účtu AMS (například nahrávání videí, kódování assetů, sledovat průběhu úloh) použijte okno **Nastavení**.
 
@@ -86,7 +89,7 @@ Název účtu a primární klíč budete potřebovat pro přístup k účtu Medi
     Zobrazí se okno **Správa klíčů**, které ukazuje název účtu a primární a sekundární klíče. 
 3. Stisknutím tlačítka kopírování zkopírujete hodnoty.
    
-    ![Klíče služby Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Klíče služby Media Services](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Další kroky
 Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu [Nahrání souborů](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

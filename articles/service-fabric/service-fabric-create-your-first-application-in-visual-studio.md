@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
+ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
 
 
 ---
@@ -131,6 +131,7 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Př
 ## <a name="next-steps"></a>Další kroky
 * Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Zkuste si vytvořit službu pomocí programovacího modelu [Reliable Services](service-fabric-reliable-services-quick-start.md) nebo [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+* Zkuste nasadit [kontejner Windows](service-fabric-deploy-container.md) nebo stávající aplikaci jako [hostující spustitelný soubor](service-fabric-deploy-existing-app.md).
 * Zjistěte, jak vystavit svoje služby na internetu pomocí [rozhraní front-end webové služby](service-fabric-add-a-web-frontend.md).
 * Projděte si [testovací prostředí](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) a vytvořte bezstavovou službu, nakonfigurujte sledování a hlášení o stavu a proveďte upgrade aplikace.
 * Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
@@ -152,6 +153,6 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Př
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

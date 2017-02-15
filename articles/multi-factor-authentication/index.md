@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se nasazovat vícefaktorové ověřování pomocí široké škály metod ověřování, které poskytují jednoduchý přihlašovací proces. Kurzy, sada SDK a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 6ff0e1c42ad151c56500596d99f63bae200368ed
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Dokumentace ke službě Multi-factor Authentication
 
-Azure Multi-Factor Authentication (MFA) je řešení dvoustupňového ověřování od Microsoftu. Azure MFA pomáhá chránit přístup k datům a aplikacím a současně plní požadavky uživatelů na jednoduchý proces přihlašování. Zajišťuje silné ověřování prostřednictvím celé řady metod ověřování, včetně ověřování pomocí telefonních hovorů, textových zpráv nebo mobilních aplikací.
+Naučte se nasazovat a spravovat Azure Multi-Factor Authentication, systém pro ověřování identit ve dvou krocích. Kurzy, sada SDK a další dokumentace ukazují, jak poskytovat silné ověřování pomocí široké škály metod ověřování a současně přitom zajistit jednoduchý přihlašovací proces.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,15 +105,10 @@ Azure Multi-Factor Authentication (MFA) je řešení dvoustupňového ověřová
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Multi-factor Authentication </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

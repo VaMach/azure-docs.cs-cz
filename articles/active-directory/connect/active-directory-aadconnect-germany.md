@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
 ## <a name="introduction"></a>Úvod
 Azure AD Connect poskytuje synchronizaci mezi vaší místní službou Active Directory a službou Azure Active Directory.
 V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) prováděl operátor. Při používání Microsoft Cloudu Německo je třeba brát v úvahu následující:
@@ -49,7 +49,7 @@ Po přihlášení na webu Azure Portal postupujte následovně:
 
 Měli byste vidět následující:
 
-![Okno Azure AD Connect](media\\active-directory-aadconnect-germany\\germany1.png)
+![Okno Azure AD Connect](media/active-directory-aadconnect-germany/germany1.png)
 
 Následující tabulka popisuje funkce zobrazené v okně.
 
@@ -68,6 +68,6 @@ Hledáte-li další informace a doprovodné materiály k vlastním nastavením n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

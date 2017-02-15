@@ -73,16 +73,18 @@ Přítomnost záznamů DNS na názvových serverech DNS Azure můžete otestovat
 
 Pokud jste doménu ještě nedelegovali k používání nové zóny v DNS Azure, je nutné [nasměrovat dotaz DNS přímo na jeden z názvových serverů zóny](dns-getstarted-create-dnszone.md#test-name-servers). V následujícím příkazu nezapomeňte dosadit správné hodnoty vaší zóny záznamů.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -59,7 +59,7 @@
 ### [Průvodce návrhem tabulky](storage-table-design-guide.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Úložiště souborů
-### [Přehled](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Přehled](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Řešení problémů se Soubory Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Použití disků virtuálních počítačů
@@ -75,13 +75,17 @@
 ### [Kontrolní seznam pro výkon a škálovatelnost](storage-performance-checklist.md)
 ### [Souběžnost](storage-concurrency.md)
 ## Vývoj
-### [Ukázky](storage-samples.md)
+### Ukázky
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Navrhování aplikací s vysokou dostupností pomocí RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Konfigurace připojovacích řetězců](storage-configure-connection-string.md)
 ### [Použití emulátoru úložiště](storage-use-emulator.md)
 ### [Nastavení a načtení vlastností a metadat](storage-properties-metadata.md)
 ## Spravovat
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Zabezpečení
 ### [Příručka zabezpečení](storage-security-guide.md)
@@ -122,7 +126,7 @@
 #### [Formát souboru manifestu služby importu a exportu](storage-import-export-file-format-manifest.md)
 #### [Formát souborů metadat a vlastností služby importu a exportu](storage-import-export-file-format-metadata-and-properties.md)
 #### [Formát souboru protokolu služby importu a exportu](storage-import-export-file-format-log.md)
-### [S použitím nástroje pro import a export (verze 1)](storage-import-export-tool-how-to-v1.md)
+### [S použitím nástroje pro import a export (verze&1;)](storage-import-export-tool-how-to-v1.md)
 #### [ Nastavení nástroje pro import a export](storage-import-export-tool-setup-v1.md)
 #### [Příprava pevných disků pro úlohu importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [Nastavení vlastností a metadat během procesu importu](storage-import-export-tool-setting-properties-metadata-import-v1.md)
@@ -149,7 +153,7 @@
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Přesuny dat](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Přesuny dat](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Objekty blob, tabulky, fronty a soubory](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Poskytovatel prostředků](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
