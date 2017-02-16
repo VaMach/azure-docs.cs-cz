@@ -10,7 +10,7 @@ sql-database-service-tiers.md
 | Velikost fondu (v eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Maximální místo v úložišti pro každý fond* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
-| Maximální úložiště vnitřní paměti OLTP na fond* | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | – |
+| Maximální úložiště vnitřní paměti OLTP na fond* | – | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. |
 | Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximální počet souběžných pracovních procesů na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -24,7 +24,7 @@ sql-database-service-tiers.md
 | Velikost fondu (v eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Maximální místo v úložišti pro každý fond* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
-| Maximální úložiště vnitřní paměti OLTP na fond* | – | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | – | 
+| Maximální úložiště vnitřní paměti OLTP na fond* | – | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | 
 | Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximální počet souběžných pracovních procesů na fond | 100 | 200 | 400 | 600 |  800 | 1600 |
 | Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 |  800 | 1600 |
@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Velikost fondu (v eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Maximální místo v úložišti pro každý fond* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Maximální místo v úložišti pro každý fond* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Maximální úložiště vnitřní paměti OLTP na fond* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Maximální počet databází pro každý fond | 100 | 100 | 100 | 100 | 100 | 
 | Maximální počet souběžných pracovních procesů na fond |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Maximální počet souběžných přihlášení na fond |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -79,6 +79,6 @@ sql-database-service-tiers.md
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
