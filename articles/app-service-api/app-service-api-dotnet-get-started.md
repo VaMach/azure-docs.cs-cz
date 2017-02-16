@@ -442,6 +442,6 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -231,6 +231,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

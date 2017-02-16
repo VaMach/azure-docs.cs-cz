@@ -227,6 +227,6 @@ Pro navrácení služby po obnovení existuje několik požadavků:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

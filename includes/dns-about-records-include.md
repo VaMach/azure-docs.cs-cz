@@ -23,6 +23,6 @@ Předpokládejme třeba, že už jste vytvořili záznam A „www“ v zóně �
 
 Výjimkou jsou typy záznamů SOA a CNAME. Standardy DNS nedovolují pro tyto typy více záznamů se stejným názvem, proto tyto sady záznamů můžou obsahovat jenom po jednom záznamu.
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

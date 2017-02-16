@@ -36,6 +36,6 @@ Nejdřív si musíte zaregistrovat svoji aplikaci v tenantovi Azure Active Direc
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

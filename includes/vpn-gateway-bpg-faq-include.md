@@ -68,6 +68,6 @@ Do zařízení VPN je nutné přidat směrování hostitele IP adresy partnera B
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
