@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 09/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e3c6c6919bb5ce50553a29536f821fe79f577
-ms.openlocfilehash: 3d8ee1d23fab0b410bce711afc27f8bbbad4c7e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0ca7a73d0d7db3651bec26deb4557fae5fc3451f
 
 
 ---
@@ -30,7 +30,7 @@ Data se ukládají na řádky tabulky a data v řádku jsou seskupena podle rodi
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Jak je implementována HBase v Azure HDInsight?
 HDInsight HBase je nabízena jako spravovaný cluster, který je integrován do prostředí Azure. Clustery jsou nakonfigurovány k přímému ukládání dat do úložiště Azure Blob, což zajišťuje nízkou latencí a zvýšení pružnosti ve volbách výkonu a nákladů. To umožňuje zákazníkům vytvářet interaktivní weby, které pracují s rozsáhlými datovými sadami a vytvářet služby, které ukládají údaje ze snímačů a telemetrie z milionů koncových bodů a analyzovat tato data pomocí úloh Hadoop. HBase a Hadoop jsou dobré počáteční body pro projekt velkých objemů dat v Azure; zejména umožňují spolupráci aplikací v reálném čase s rozsáhlými datovými sadami.
 
-Implementace HDInsight využívá architekturu škálování HBase k zajištění automatického dělení tabulek, silnou konzistenci pro čtení a zápis a automatické převzetí služeb při selhání. Výkon je zvýšen ukládáním do mezipaměti pro čtení a vysokou propustností datových proudů pro zápis. Cluster HBase můžete vytvořit uvnitř virtuální sítě. Podrobnosti najdete v tématu [Vytváření clusterů HDInsight v síti Azure Virtual Network][hbase-provision-vnet].
+Implementace HDInsight využívá architekturu škálování HBase k zajištění automatického dělení tabulek, silnou konzistenci pro čtení a zápis a automatické převzetí služeb při selhání. Výkon je zvýšen ukládáním do mezipaměti pro čtení a vysokou propustností datových proudů pro zápis. K dispozici pro HDInsight HBase je také zřizování virtuální sítě. Podrobnosti najdete v tématu [Zřizování clusterů HDInsight v síti Azure Virtual Network][hbase-provision-vnet].
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Jakým způsobem jsou data spravována v HDInsight HBase?
 Data mohou být spravována v HBase pomocí příkazů `create`, `get`, `put`, a `scan` z prostředí HBase. Data se zapisují do databáze pomocí `put` a čtou se pomocí `get`. Příkaz `scan` se používá k načítání dat z více řádků v tabulce. Data lze také spravovat pomocí rozhraní API HBase C#, které poskytuje knihovna klienta nad HBase REST API. Databáze aplikace HBase může být dotazována také pomocí Hive. Úvod do těchto programovacích modelů najdete v části [Začínáme používat HBase s Hadoopem ve službě HDInsight][hbase-get-started]. K dispozici jsou také koprocesory, které umožňují zpracování dat v uzlech, které hostují databáze.
@@ -53,8 +53,8 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 
 ## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Další kroky
 * [Začínáme používat HBase s Hadoopem ve službě HDInsight][hbase-get-started]
-* [Vytváření clusterů HDInsight v síti Azure Virtual Network][hbase-provision-vnet]
-* [Konfigurace replikace HBase v HDInsight](hdinsight-hbase-replication.md)
+* [Zřizování clusterů HDInsight v síti Azure Virtual Network][hbase-provision-vnet]
+* [Konfigurace replikace HBase v HDInsight](hdinsight-hbase-geo-replication.md)
 * [Analýza sentimentu Twitter s HBase v HDInsight][hbase-twitter-sentiment]
 * [Použití Mavenu k vytváření aplikací v Javě, které používají HBase s HDInsight (Hadoop)][hbase-build-java-maven]
 
@@ -84,6 +84,6 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

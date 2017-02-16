@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se, jak můžete používat Active Directory Domain Services k připojení virtuálních počítačů Azure k doméně bez použití řadiče domény a jak je spravovat pomocí zásad skupiny."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Dokumentace ke službě Active Directory Domain Services
 
-Azure AD Domain Services (DS) poskytuje služby spravované domény, například připojení k doméně, zásady skupiny, LDAP, ověřování protokolu Kerberos nebo NTLM, které jsou plně kompatibilní s Windows Server Active Directory.  Umožňuje uživatelům promptně nasazovat širokou škálu výpočetních řešení.
+Naučte se, jak můžete používat Active Directory Domain Services k připojení virtuálních počítačů Azure k doméně bez použití řadiče domény. Kurzy a další dokumentace ukazují, jak můžete spravovat virtuální počítače pomocí zásad skupiny.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Stažení dokumentace ke službě Active Directory Domain Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

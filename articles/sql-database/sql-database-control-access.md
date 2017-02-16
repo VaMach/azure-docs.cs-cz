@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
+ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
+ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
 Služba SQL Database zajišťuje zabezpečení řízením přístupu pomocí pravidel brány firewall omezujících připojení podle IP adresy, ověřovacích mechanismů vyžadujících po uživatelích prokázání identity a autorizačních mechanismů omezujících uživatelům přístup ke konkrétním akcím a datům. 
 
 > [!IMPORTANT]
-> Přehled funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md).
+> Přehled funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md). Kurz k ověřování pomocí SQL Serveru najdete v článku [Kurz k SQL Database: Ověřování pomocí SQL Serveru, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md). Kurz k ověřování pomocí Azure Active Directory najdete v článku [Kurz k SQL Database: Ověřování AAD, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-aad-authentication-get-started.md).
+
 >
 
 ## <a name="firewall-and-firewall-rules"></a>Brána firewall a pravidla brány firewall
@@ -69,10 +70,11 @@ Kromě toho můžete tyto funkce použít k omezení nebo zvýšení oprávněn�
 - Informace o uživateli a přihlašování najdete v tématu [Správa přihlašování](sql-database-manage-logins.md). 
 - Diskuzi o používání funkcí ochrany dat ve službě SQL Database najdete v tématu [Ochrana a zabezpečení dat](sql-database-protect-data.md).
 - Diskuzi o proaktivním monitorování najdete v tématech [Začínáme s auditováním služby SQL Database](sql-database-auditing-get-started.md) a [Začínáme s detekcí hrozeb služby SQL Database](sql-database-threat-detection-get-started.md).
+- Kurz k ověřování pomocí SQL Serveru najdete v článku [Kurz k SQL Database: Ověřování pomocí SQL Serveru, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md).
+- Kurz k ověřování pomocí Azure Active Directory najdete v článku [Kurz k SQL Database: Ověřování AAD, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

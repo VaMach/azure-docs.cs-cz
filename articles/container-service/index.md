@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Naučte se používat službu Container Service k nasazování a správě kontejnerů aplikací pomocí DC/OS, Dockeru Swarm nebo Kubernetes. Kurzy, reference k rozhraní API a další zdroje informací"
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Dokumentace ke službě Azure Container Service
 
-Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správu clusteru virtuálních počítačů, ve kterých je předem nakonfigurované spouštění kontejnerizovaných aplikací. Container Service používá optimalizovanou konfiguraci oblíbených opensourcových nástrojů pro plánování a orchestraci. Díky tomu můžete při nasazování a správě kontejnerových aplikací v Microsoft Azure využívat své stávající dovednosti nebo stavět na rozsáhlých a stále se rozšiřujících odborných znalostech komunity.
+Naučte se používat službu Container Service k nasazování a správě plně přenositelných kontejnerů aplikací. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete škálovat a orchestrovat kontejnery pomocí DC/OS, Dockeru Swarm nebo Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,6 +101,7 @@ Stažení dokumentace ke službě Azure Container Service </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

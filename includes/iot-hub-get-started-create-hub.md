@@ -2,7 +2,7 @@
 Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke službě bude připojovat. Následující kroky vám ukážou, jak tuto úlohu dokončit pomocí portálu Azure.
 
 1. Přihlaste se na web [Azure Portal][lnk-portal].
-2. Na panelu vlevo klikněte na **Nový** > **Internet věcí** > **IoT Hub**.
+2. Na panelu vlevo klikněte na **Nový** > **Internet věcí** > **Azure IoT Hub**.
    
     ![Panel portálu Azure][1]
 3. V okně **Centrum IoT** zvolte konfiguraci pro centrum IoT.
@@ -11,7 +11,7 @@ Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke
    
    * Do pole **Název** zadejte název centra IoT. Pokud je **název** platný a dostupný, zobrazí se v poli **Název** zelená značka zaškrtnutí.
    * Vyberte [cenovou a škálovací úroveň][lnk-pricing]. Tento kurz nevyžaduje konkrétní úroveň. V kurzu použijte bezplatnou úroveň F1.
-   * V části **Skupina prostředků** vytvořte skupinu prostředků nebo vyberte existující skupinu. Další informace najdete v článku [Použití skupin prostředků ke správě prostředků Azure][lnk-resource-groups].
+   * V možnosti **Skupina prostředků** vytvořte novou skupinu prostředků nebo vyberte existující. Další informace najdete v článku [Použití skupin prostředků ke správě prostředků Azure][lnk-resource-groups].
    * V nabídce **Umístění** vyberte umístění pro hostování vašeho centra IoT. V tomto kurzu zvolte nejbližší umístění.
 4. Po výběru možností konfigurace centra IoT klikněte na **Vytvořit**.  Vytvoření centra IoT může službě Azure zabrat několik minut. Pokud chcete zkontrolovat stav, můžete průběh sledovat na úvodním panelu nebo na panelu oznámení.
    
@@ -31,12 +31,12 @@ Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+[lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

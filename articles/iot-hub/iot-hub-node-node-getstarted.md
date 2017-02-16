@@ -12,11 +12,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 
 ---
@@ -27,7 +27,7 @@ Na konci tohoto kurzu budete mít tři konzolové aplikace Node.js:
 
 * **CreateDeviceIdentity.js** vytváří identitu zařízení a přiřazený bezpečnostní klíč k připojení simulované aplikace zařízení.
 * **ReadDeviceToCloudMessages.js** zobrazuje telemetrické zprávy odesílané simulovanou aplikací zařízení.
-* **SimulatedDevice.js** propojuje službu IoT Hub s identitou zařízení vytvořenou dříve a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu MQTT.
+* **SimulatedDevice.js** propojuje službu IoT Hub s identitou zařízení vytvořenou dříve a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu AMQP.
 
 > [!NOTE]
 > Informace o sadách Azure IoT SDK, s jejichž pomocí můžete vytvářet aplikace pro zařízení i back-end vašeho řešení, najdete v tématu [Sady SDK služby Azure IoT][lnk-hub-sdks].
@@ -113,7 +113,7 @@ V této části vytvoříte konzolovou aplikaci Node.js, která čte zprávy typ
 > 
 > 
 
-1. Vytvořte prázdnou složku s názvem **readdevicetocloudmessages**. Ve složce **readdevicetocloudmessages** vytvořte soubor package.json pomocí následujícího příkazu v příkazovém řádku. Přijměte všechny výchozí hodnoty:
+1. Vytvořte novou prázdnou složku s názvem **readdevicetocloudmessages**. Ve složce **readdevicetocloudmessages** vytvořte soubor package.json pomocí následujícího příkazu v příkazovém řádku. Přijměte všechny výchozí hodnoty:
    
     ```
     npm init
@@ -149,7 +149,7 @@ V této části vytvoříte konzolovou aplikaci Node.js, která čte zprávy typ
       console.log('');
     };
     ```
-7. Přidejte následující kód pro vytvoření **EventHubClient**, otevřete připojení k vašemu IoT Hub a vytvořte příjemce pro každý oddíl. Tato aplikace při vytváření přijímače používá filtr, aby přijímač četl pouze zprávy odeslané do služby IoT Hub až po jeho spuštění. Tento filtr je užitečný v testovacím prostředí, protože uvidíte pouze aktuální sadu zpráv. V produkčním prostředí byste se měli ujistit, že váš kód zpracovává všechny zprávy. Další informace najdete v kurzu [Postupy zpracování zpráv typu zařízení-cloud ve službě IoT Hub][lnk-process-d2c-tutorial]:
+7. Přidejte následující kód pro vytvoření **EventHubClient**, otevřete připojení k vašemu IoT Hub a vytvořte příjemce pro každý oddíl. Tato aplikace při vytváření přijímače používá filtr, aby přijímač četl pouze zprávy odeslané do služby IoT Hub až po jeho spuštění. Tento filtr je užitečný v testovacím prostředí, protože uvidíte pouze aktuální sadu zpráv. V produkčním prostředí by měl kód zpracovávat všechny zprávy – další informace najdete v kurzu [Postupy zpracování zpráv typu zařízení-cloud ve službě IoT Hub][lnk-process-d2c-tutorial]:
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,7 +171,7 @@ V této části vytvoříte konzolovou aplikaci Node.js, která čte zprávy typ
 ## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
 V této části vytvoříte konzolovou aplikaci Node.js, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
-1. Vytvořte prázdnou složku s názvem **simulateddevice**. Ve složce **simulateddevice** vytvořte soubor package.json pomocí následujícího příkazu v příkazovém řádku. Přijměte všechny výchozí hodnoty:
+1. Vytvořte novou prázdnou složku s názvem **simulateddevice**. Ve složce **simulateddevice** vytvořte soubor package.json pomocí následujícího příkazu v příkazovém řádku. Přijměte všechny výchozí hodnoty:
    
     ```
     npm init
@@ -179,15 +179,15 @@ V této části vytvoříte konzolovou aplikaci Node.js, která simuluje zaříz
 2. V příkazovém řádku ve složce **simulateddevice** spusťte následující příkaz k instalaci balíčku sady SDK pro zařízení **azure-iot-device** a balíčku **azure-iot-device-amqp**:
    
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-amqp --save
     ```
-3. Pomocí textového editoru vytvořte soubor **SimulatedDevice.js** ve složce **simulateddevice**.
+3. Pomocí textového editoru, vytvořte nový soubor **SimulatedDevice.js** ve složce **simulateddevice**.
 4. Na začátek souboru **SimulatedDevice.js** přidejte následující příkazy `require`:
    
     ```
     'use strict';
    
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
 5. Přidejte proměnnou **connectionString** a použijte ji k vytvoření instance **klienta**. Hodnotu **{youriothostname}** nahraďte názvem služby IoT Hub, kterou jste vytvořili v oddílu *Vytvoření služby IoT Hub*. Hodnotu **{yourdevicekey}** nahraďte klíčem zařízení, který jste vygenerovali v oddílu *Vytvoření identity zařízení*:
@@ -207,7 +207,7 @@ V této části vytvoříte konzolovou aplikaci Node.js, která simuluje zaříz
       };
     }
     ```
-7. Vytvořte zpětné volání a použijte funkci **setInterval**, která bude každou sekundu do služby IoT Hub odesílat zprávu:
+7. Vytvořte zpětné volání a použijte funkci **setInterval**, která bude každou sekundu do služby IoT Hub odesílat novou zprávu.
    
     ```
     var connectCallback = function (err) {
@@ -296,6 +296,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Tato stránka poskytuje přehled služby Application Gateway pro v
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
-ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
+ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
+ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
 
 
 ---
@@ -75,9 +75,7 @@ Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé i
 | 100K |35 Mb/s |100 Mb/s |200 Mb/s |
 
 > [!NOTE]
-> Tyto hodnoty jsou přibližné hodnoty propustnosti služby Application Gateway. Skutečná propustnost závisí na různých podrobnostech o prostředí, jako jsou například průměrná velikost stránky, umístění back-endových instancí a doba zpracování potřebná k doručení stránky. Pro přesné údaje o výkonu byste měli spustit vlastní testy, tyto hodnoty slouží pouze jako pomůcka pro plánování kapacity.
->
->
+> Tyto hodnoty jsou přibližné hodnoty propustnosti služby Application Gateway. Skutečná propustnost závisí na různých podrobnostech o prostředí, jako jsou například průměrná velikost stránky, umístění back-endových instancí a doba zpracování potřebná k doručení stránky. Přesné údaje o výkonu získáte, když spustíte vlastní testy. Tyto hodnoty slouží jenom jako vodítko při plánování kapacity.
 
 ## <a name="health-monitoring"></a>Monitorování stavu
 
@@ -97,6 +95,6 @@ Další informace o vytvoření služby Application Gateway používající smě
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

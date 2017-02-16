@@ -1,21 +1,10 @@
----
-services: virtual-machines
-title: How to Log on to a Virtual Machine Running Windows Server
-author: cynthn
-solutions: ''
-manager: timlt
-editor: tysonn
-
-{}
-
----
 1. Kliknutím na **Připojit** vytvoříte a stáhnete soubor protokolu Remote Desktop Protocol (.rdp). Kliknutím na **Otevřít** tento soubor použijete.
 2. Zobrazí se upozornění, že soubor RDP je od neznámého vydavatele. To je normální. Pokračujte kliknutím na **Připojit** v okně Připojení ke vzdálené ploše.
    
     ![Snímek obrazovky upozornění na neznámého vydavatele](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 3. V okně **Zabezpečení systému Windows** zadejte přihlašovací údaje k účtu virtuálního počítače a potom klikněte na **OK**.
    
-    **Místní účet** – Většinou je to uživatelské jméno a heslo k místnímu účtu, které jste zadávali při vytváření virtuálního počítače. V tomto případě je doménou název virtuálního počítače ve formátu *název_virtuálního_počítače*&#92;*uživatelské_jméno*.  
+     **Místní účet** – Většinou je to uživatelské jméno a heslo k místnímu účtu, které jste zadávali při vytváření virtuálního počítače. V tomto případě je doménou název virtuálního počítače ve formátu *název_virtuálního_počítače*&#92;*uživatelské_jméno*.  
    
     **Virtuální počítač připojený k doméně** – Pokud virtuální počítač patří do domény, zadejte uživatelské jméno ve formátu *doména*&#92;*uživatelské_jméno*. Účet také musí být členem skupiny Administrators nebo musí mít udělené oprávnění ke vzdálenému přístupu k virtuálnímu počítači.
    
@@ -24,6 +13,8 @@ editor: tysonn
    
    ![Snímek obrazovky zobrazující zprávu o ověření identity virtuálního počítače](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

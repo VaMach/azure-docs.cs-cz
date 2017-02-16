@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
 
 
 ---
@@ -93,7 +93,13 @@ Ve vyhledávání systému Azure budou strukturální aktualizace indexu vyžado
 
 Úpravy, které nevyžadují opětovné sestavení zahrnují přidání nového pole, změnu vyhodnocování profilů, změna navrhovatelů nebo změnu analyzátorů jazyka. Další informace naleznete v [aktualizaci indexu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
-## <a name="next-step"></a>Další krok
+## <a name="query-an-index-using-search-explorer"></a>Dotazování indexu pomocí Průzkumník služby Search
+
+Portál zahrnuje **Průzkumníka služby Search**, kterého můžete použít k zadávání dotazů na index, aniž byste museli programovat. Průzkumníka služby Search můžete použít na jakýkoli index.
+
+Funkce vyhledávání je založena na výchozím nastavení, jako je [jednoduchá syntaxe](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) a výchozí parametr dotazu searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents). Výsledky jsou vráceny ve formátu JSON, abyste si mohli prohlédnout celý dokument.
+
+## <a name="next-steps"></a>Další kroky
 Další informace o indexerech najdete na těchto odkazech:
 
 * [Indexování služby Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -107,6 +113,6 @@ Další informace o indexerech najdete na těchto odkazech:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -49,7 +49,7 @@ A právě to je nyní v Azure RemoteAppu možné – aktuálně jako omezeně do
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Jak získat rutiny prostředí Azure RemoteApp PowerShell
 Pokud chcete vyzkoušet tuto novou funkci ve verzi Preview, budete muset použít rutiny prostředí Azure PowerShell. Nový režim publikování aplikací aktuálně není možné povolit pomocí portálu pro správu Azure.
 
-Nejprve zkontrolujte, zda máte nainstalovaný [modul Azure PowerShell](../powershell-install-configure.md).
+Nejprve zkontrolujte, zda máte nainstalovaný [modul Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Potom spusťte konzolu PowerShellu v režimu správce a spusťte následující rutinu:
 
@@ -106,6 +106,6 @@ Pokud jste se dosud neúčastnili žádného vyhodnocování verzí Preview, pou
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

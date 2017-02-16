@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
+ms.openlocfilehash: 45288c24630a4931da9f89196236ab910de735ac
 
 
 ---
@@ -35,20 +35,21 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- |
-| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Západní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střed USA – západ, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **Jižní Amerika** |Brazílie – jih |Sao Paulo |
 | **Evropa** |Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih |Amsterdam, Dublin, Londýn, Newport (Wales), Paříž |
 | **Asie** |Východní Asie, Jihovýchodní Asie |Hongkong, Singapur |
 | **Japonsko** |Japonsko – západ, Japonsko – východ |Ósaka, Tokio |
 | **Austrálie** |Austrálie – jihovýchod, Austrálie – východ |Melbourne, Sydney |
 | **Indie** |Indie – západ, Indie – střed, Indie – jih |Čennaj, Bombaj |
+| **Jižní Korea** | Korea – střed, Korea – jih | Busan, Soul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Oblasti a geopolitické hranice pro národní cloudy
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia |Chicago, Dallas, New York, Washington DC |
+| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia, US DoD – střed+, US DoD – východ+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **Čína** |Severní Čína, Východní Čína |Peking, Šanghaj |
 | **Německo** |Střední Německo, Východní Německo |Berlín, Frankfurt |
 
@@ -71,11 +72,11 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Podporuje se |Podporuje se |Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Připravuje se |Připravuje se |Silicon Valley |
 | **China Telecom Global** |Podporuje se |Nepodporuje se |Hongkong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Podporuje se |Podporuje se |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Podporuje se |Podporuje se |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Podporuje se |Podporuje se |Amsterdam, Dublin, Londýn, Tokio |
 | **Comcast** |Podporuje se |Podporuje se |Chicago, Silicon Valley, Washington DC |
 | **Console**| Podporuje se | Podporuje se |Silicon Valley |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Podporuje se |Podporuje se |Los Angeles |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Podporuje se |Podporuje se |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, Londýn, Los Angeles, Melbourne, New York, Ósaka, Sao Paulo, Paříž+, Seattle, Silicon Valley, Singapur, Sydney, Tokio, Toronto, Washington DC |
 | **euNetworks** |Podporuje se |Podporuje se |Amsterdam |
 | **GÉANT** |Podporuje se |Podporuje se |Amsterdam |
@@ -84,7 +85,8 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Internet Solutions – Cloud Connect** |Podporuje se |Podporuje se |Amsterdam, Londýn |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Podporuje se |Podporuje se |Amsterdam, Londýn, Paříž |
 | **Jisc** |Podporuje se |Podporuje se |Londýn |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas, Las Vegas+, Londýn, Seattle, Silicon Valley, Washington DC |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Podporuje se | Podporuje se | Amsterdam | 
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas, Las Vegas+, Londýn, Seattle, Silicon Valley, Singapur, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se |Podporuje se |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sydney, Toronto, Washington DC |
 | **MTN** |Podporuje se |Podporuje se |Londýn |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Podporuje se |Podporuje se |Newport(Wales) |
@@ -112,8 +114,9 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Podporuje se |Podporuje se |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Chicago, New York+, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se | Podporuje se | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
 
 ### <a name="china"></a>Čína
@@ -130,6 +133,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Nepodporuje se |Frankfurt |
 | **e-shelter** |Podporuje se |Nepodporuje se |Berlín |
 | **Interxion** |Podporuje se |Nepodporuje se |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se  | Nepodporuje se | Berlín+ |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
 Pokud poskytovatel připojení není v předchozích částech uvedený, můžete přesto vytvořit připojení.

@@ -12,29 +12,32 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 9fd40ebce2f249d0ac7d42b3dc068083d90afc95
-ms.openlocfilehash: 3f224cb1a7e2d9d3527a79a2d1fe255354ae6783
+ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
+ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
 
 
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli"></a>Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI
-Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` v rozhraní příkazového řádku (CLI) Azure. Příkaz `quick-create` nasadí virtuální počítač se základní zabezpečenou infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu. 
 
-> [!NOTE] 
+Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu `azure vm quick-create` v rozhraní příkazového řádku (CLI) Azure. Příkaz `quick-create` nasadí virtuální počítač se základní zabezpečenou infrastrukturou, který můžete použít k rychlému vytvoření prototypu nebo otestování konceptu.
+
+> [!NOTE]
 Informace o vytvoření virtuálního počítače pomocí Azure CLI 2.0 (Preview) najdete v tématu [Vytvoření virtuálního počítače pomocí Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Tento článek vyžaduje:
 
-* účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/))
-* [rozhraní příkazového řádku Azure](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) s přihlášením `azure login`.
-* Rozhraní příkazového řádku Azure *musí být v *režimu Azure Resource Manager`azure config mode arm`.
+- [Účet Azure](https://azure.microsoft.com/pricing/free-trial/)
+
+- [Soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 
 Virtuální počítač s Linuxem můžete rychle nasadit také pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Rychlé příkazy
+
 Následující příklad ukazuje, jak nasadit virtuální počítač s CoreOS a připojit klíč SSH (Secure Shell). Vaše argumenty ale mohou být jiné:
 
 ```azurecli
@@ -42,9 +45,11 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
 ## <a name="detailed-walkthrough"></a>Podrobný postup
+
 V následujícím textu najdete podrobný návod, jak postupovat při nasazení virtuálního počítače UbuntuLTS, s názorným vysvětlením jednotlivých kroků.
 
 ## <a name="vm-quick-create-aliases"></a>Aliasy quick-create pro virtuální počítače
+
 Rychlým způsobem, jak zvolit distribuci, je použít aliasy rozhraní příkazového řádku Azure namapované na nejběžnější distribuce operačních systémů. Tyto aliasy jsou uvedené v následující tabulce (pro rozhraní příkazového řádku Azure verze 0.10). Všechna nasazení, která využívají `quick-create`, standardně směřují na virtuální počítače zálohované úložištěm SSD (solid-state drive), které nabízí rychlejší zřizování a vysoce výkonný přístup na disk. (Tyto aliasy představují jenom nepatrnou část dostupných distribucí na platformě Azure. Další image můžete vyhledat v Azure Marketplace pomocí [hledání image v PowerShellu](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [na webu](https://azure.microsoft.com/marketplace/virtual-machines/) nebo můžete [nahrát vlastní image](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
@@ -75,7 +80,7 @@ azure vm quick-create \
   --location westus \
   --os-type Linux \
   --admin-username myAdminUser \
-  --ssh-public-file ~/.ssh/id_rsa.pub \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
   --image-urn UbuntuLTS
 ```
 
@@ -209,7 +214,6 @@ K [rychlému vytvoření linuxového virtuálního počítače jako hostitele Do
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
 # <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>Připojení webové aplikace ve službě Azure App Service k Redis Cache prostřednictvím protokolu Memcache
-V tomto článku se dozvíte, jak připojit webovou aplikaci WordPress ve službě [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) k službě [Azure Redis Cache][12] pomocí protokolu [Memcache][13]. Máte-li stávající webovou aplikaci, která k ukládání do mezipaměti v paměti používá server s protokolem Memcache, můžete migrovat do služby Azure App Service a použít řešení ukládání do mezipaměti první strany v Microsoft Azure s malými či žádnými změnami kódu své aplikace. Můžete také použít stávající odborné znalosti protokolu Memcache k vytvoření vysoce škálovatelných distribuovaných aplikací ve službě Azure App Service se službou Azure Redis Cache k ukládání do mezipaměti v paměti, a to pomocí oblíbených rozhraní aplikací, jako jsou .NET, PHP, Node.js, Java a Python.  
+V tomto článku se dozvíte, jak připojit webovou aplikaci WordPress ve službě [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ke službě [Azure Redis Cache][12] pomocí protokolu [Memcache][13]. Máte-li stávající webovou aplikaci, která k ukládání do mezipaměti v paměti používá server s protokolem Memcache, můžete migrovat do služby Azure App Service a použít řešení ukládání do mezipaměti první strany v Microsoft Azure s malými či žádnými změnami kódu své aplikace. Můžete také použít stávající odborné znalosti protokolu Memcache k vytvoření vysoce škálovatelných distribuovaných aplikací ve službě Azure App Service se službou Azure Redis Cache k ukládání do mezipaměti v paměti, a to pomocí oblíbených rozhraní aplikací, jako jsou .NET, PHP, Node.js, Java a Python.  
 
 Služba App Service Web Apps umožňuje tento aplikační scénář pomocí shimu Web Apps Memcache, což je místní server s protokolem Memcache, který působí jako proxy server Memcache k ukládání volání služby Azure Redis Cache do mezipaměti. To umožňuje libovolné aplikaci, která komunikuje pomocí protokolu Memcache, ukládat data do mezipaměti ve službě Redis Cache. Tento shim Memcache pracuje na úrovni protokolu, takže jej může použít libovolná aplikace či rozhraní aplikace, pokud komunikuje pomocí protokolu Memcache.
 
@@ -38,7 +38,7 @@ Postupujte podle kroků uvedených v těchto článcích:
 Jakmile nasadíte škálovatelný web WordPress a zřídíte instanci služby Redis Cache, bude připraveni pokračovat a povolit Memcache Shim ve službě Azure App Service Web Apps.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>Povolení shimu Web Apps Memcache
-Chcete-li konfigurovat Memcache shim, je nutné vytvořit tři nastavení aplikace. To lze provést různými metodami, včetně [webu Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [klasického portálu][3], [rutin prostředí Azure PowerShell ][5] nebo [rozhraní příkazového řádku Azure CLI][5]. Pro účely tohoto příspěvku provedeme nastavení aplikace pomocí [webu Azure Portal][4]. Následující hodnoty lze získat v okně **Nastavení** vaší instance služby Redis Cache.
+Chcete-li konfigurovat Memcache shim, je nutné vytvořit tři nastavení aplikace. To lze provést různými metodami, včetně [webu Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [portálu Classic][3], [rutin Azure PowerShellu][5] nebo [rozhraní příkazového řádku Azure CLI][5]. Pro účely tohoto příspěvku provedeme nastavení aplikace pomocí [webu Azure Portal][4]. Následující hodnoty lze získat v okně **Nastavení** vaší instance služby Redis Cache.
 
 ![Okno nastavení služby Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -71,7 +71,7 @@ Jakmile dokončíte přidání uvedených tří (3) nastavení aplikace, klikně
 Chcete-li aplikaci umožnit komunikovat pomocí protokolu Memcache, je nutné nainstalovat rozšíření Memcache k PHP – jazykové rozhraní pro web WordPress.
 
 ### <a name="download-the-phpmemcache-extension"></a>Stažení rozšíření php_memcache
-Přejděte do [PECL][6]. V kategorii ukládání do mezipaměti klikněte na položku [memcache][7]. Ve sloupci položek ke stažení klikněte na odkaz DLL.
+Přejděte do [PECL][6]. V kategorii ukládání do mezipaměti klikněte na [memcache][7]. Ve sloupci položek ke stažení klikněte na odkaz DLL.
 
 ![Web PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -136,7 +136,7 @@ Soubor **object-cache.php** je nyní ve složce **wp-content** a funkce mezipam�
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Ověření funkce modulu plug-in Memcache Object Cache
 Všechny kroky k povolení shimu Memcache služby Web Apps jsou nyní dokončeny. Zbývá jen ověřit, zda se instance služby Redis Cache zaplňuje daty.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Povolení podpory portu bez SSL ve službě Azure Redis Cache
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Povolení podpory portu bez SSL ve službě Azure Redis Cache
 > [!NOTE]
 > V době napsání tohoto článku rozhraní příkazového řádku Redis nepodporuje připojení SSL, proto jsou nezbytné následující kroky.
 > 
@@ -158,7 +158,7 @@ Uvidíte, že je nyní nastaven port bez SSL. Klikněte na **Uložit**.
 
 ![Přístupový portál Redis bez SSL služby Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Připojení k službě Azure Redis Cache z rozhraní příkazového řádku redis
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>Připojení k službě Azure Redis Cache z rozhraní příkazového řádku redis
 > [!NOTE]
 > Tento krok předpokládá, že je ve vývojovém počítači místně nainstalován redis. [Nainstalujte místně Redis podle těchto pokynů][9].
 > 
@@ -177,10 +177,10 @@ Položku **&lt;hostname-for-redis-cache&gt;** nahraďte skutečným názvem host
 Volání k vypsání klíčů by mělo vrátit hodnotu. Pokud ne, zkuste přejít k příslušné webové aplikaci a zkuste to znovu.
 
 ## <a name="conclusion"></a>Závěr
-Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v paměti, která pomáhá zvýšit propustnost. Nezapomeňte, že Web Apps Memcache Shim lze použít s libovolným klientem Memcache bez ohledu na programovací jazyk či rozhraní aplikace. Chcete-li poskytnout zpětnou vazbu nebo položit dotazy týkající se shimu Web Apps Memcache, zveřejněte příspěvek na [fórech MSDN][10] nebo [Stackoverflow][11].
+Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v paměti, která pomáhá zvýšit propustnost. Nezapomeňte, že Web Apps Memcache Shim lze použít s libovolným klientem Memcache bez ohledu na programovací jazyk či rozhraní aplikace. Chcete-li poskytnout zpětnou vazbu nebo položit dotazy týkající se shimu Web Apps Memcache, zveřejněte příspěvek na [fórech na webu MSDN][10] nebo [StackOverflow][11].
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -191,7 +191,7 @@ Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v pamět
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v pamět
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

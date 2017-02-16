@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth
 Dvoustupňové ověřování je k dispozici ve výchozím nastavení pro globální správce, kteří mají uživatele služeb Azure Active Directory a Office 365. Pokud ale budete chtít využívat výhod [pokročilých funkcí](multi-factor-authentication-whats-next.md) měli byste si zakoupit plnou verzi Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Pokud si chcete stáhnout sadu SDK, budete potřebovat poskytovatele Azure Multi
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Vytvoření poskytovatele Multi-Factor Auth
+## <a name="to-create-a-multi-factor-auth-provider"></a>Vytvoření poskytovatele Multi-Factor Auth
 K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte následující postup.
 
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
@@ -64,6 +64,6 @@ K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte nás
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

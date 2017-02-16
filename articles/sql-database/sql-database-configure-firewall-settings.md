@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Kliknutím na **Uložit** uložte změny.
 ## <a name="next-steps"></a>Další kroky
 
 - Úvodní kurz najdete v článku [Kurz k SQL Database: Vytvoření serveru, pravidla brány firewall na úrovni serveru, ukázkové databáze, pravidla brány firewall na úrovni databáze a připojení k SQL Serveru](sql-database-get-started.md).
-- Úvodní kurz k zabezpečení najdete v článku [Začínáme se zabezpečením](sql-database-get-started-security.md).
+- Úvodní kurz k zabezpečení najdete v článku [Začínáme se zabezpečením](sql-database-control-access-sql-authentication-get-started.md).
 - S připojováním k databázi SQL Azure z open source aplikací nebo aplikací třetích stran vám pomůžou [Ukázky kódu pro rychlý start klientů se službou SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Pochopit postup vytvoření dalších uživatelů, kteří se můžou připojovat k databázím, vám pomůže článek [Ověřování a autorizace ve službě SQL Database: Udělení přístupu](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ Kliknutím na **Uložit** uložte změny.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

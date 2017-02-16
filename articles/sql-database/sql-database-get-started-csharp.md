@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ K dokončení kroků v tomto článku budete potřebovat následující:
 Chcete-li vytvořit databázi SQL pomocí jazyka C#, načtěte požadované knihovny správy (pomocí [konzoly správce balíčků](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klikněte na **Nástroje**  >  **Správce balíčků NuGet**  >  **Konzola správce balíčků**.
-2. Zadejte `Install-Package Microsoft.Azure.Management.Sql –Pre` a nainstalujte tak nejnovější knihovnu [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Zadejte `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` a nainstalujte tak knihovnu [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Zadejte `Install-Package Microsoft.Azure.Common.Authentication –Pre` a nainstalujte tak knihovnu [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Zadejte `Install-Package Microsoft.Azure.Management.Sql -Pre` a nainstalujte tak nejnovější knihovnu [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Zadejte `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` a nainstalujte tak knihovnu [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Zadejte `Install-Package Microsoft.Azure.Common.Authentication -Pre` a nainstalujte tak knihovnu [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Příklady v tomto článku používají synchronní formu každého požadavku rozhraní API a provádění se tedy zablokuje, dokud se nedokončí volání REST základní služby. Dostupné jsou i asynchronní metody
@@ -287,6 +287,6 @@ Nyní, když jste si vyzkoušeli SQL Database a nastavili databázi pomocí C#, 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

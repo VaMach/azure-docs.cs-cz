@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: fbb95696d8b9267d59d04769d3d7f48c29a8e4dd
+ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
+ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
 
 
 ---
@@ -63,7 +63,7 @@ Následující video poskytuje přehled služby Azure AD Connect Health pro sync
 >
 
 ## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health pro službu AD DS (Preview)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health pro službu AD FS podporuje monitorování řadičů domény instalovaných v systémech Windows Server 2008 R2, Windows Server 2012 a Windows Server 2012 R2. Snadná a nenákladná instalace agenta stavu umožňuje monitorovat místní prostředí AD DS přímo z cloudu. Služba Azure AD Connect Health pro AD DS poskytuje následující sadu klíčových funkcí:
+Azure AD Connect Health pro službu AD DS podporuje monitorování řadičů domény instalovaných v systémech Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 a Windows Server 2016. Snadná a nenákladná instalace agenta stavu umožňuje monitorovat místní prostředí AD DS přímo z cloudu. Služba Azure AD Connect Health pro AD DS poskytuje následující sadu klíčových funkcí:
 
 * Monitorování výstrah, aby se zjistilo, kdy řadiče domény nejsou v pořádku, společně s e-mailovými oznámeními pro kritické výstrahy.
 * Řídicí panel Řadiče domény, který poskytuje rychlý přehled kondice a provozního stavu řadičů domény.
@@ -121,6 +121,6 @@ Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, moni
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

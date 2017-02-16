@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat DocumentDB, databázi dokumentů typu NoSQL bez schémat. Kurzy ukazují, jak zajistit integraci s aplikacemi a využívat dotazy SQL v dokumentech JSON."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c0911518e954131f1c8de783d71fb17a9eea1945
+ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
+ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
 
 ---
 #<a name="documentdb-documentation"></a>Dokumentace ke službě DocumentDB
 
-Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, elastické škálování, globální distribuci a jednoduchý vývoj. Protože je DocumentDB databáze NoSQL bez schématu, poskytuje bohaté a známé schopnosti příkazů jazyka SQL s konsistentní nízkou latencí dat JSON.
+Naučte se používat DocumentDB ve vysoce výkonných aplikacích pro web, mobilní zařízení, hraní her a IoT. Kurzy a další dokumentace ukazují, jak v této databázové službě NoSQL ukládat data JSON a spouštět dotazy SQL ve flexibilním schématu.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -221,6 +222,6 @@ Stáhnout dokumentaci ke službě DocumentDB </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

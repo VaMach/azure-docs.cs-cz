@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
 Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jednotný vzhled všech webů a služeb, které spravují. Azure Active Directory tuto možnost nabízí a umožňuje přizpůsobení vzhledu následujících webových stránek, na které můžete přidat svoje firemní logo a vlastní barevná schémata:
 
 * **Přihlašovací stránka**: To je stránka, která se zobrazuje při přihlašování k Office 365 nebo k jiným webovým aplikacím, které používají Azure AD jako zprostředkovatele identity. Tuto stránku budete používat při vyhledávání domovské sféry nebo při zadávání přihlašovacích údajů. Vyhledávání domovské sféry umožňuje systému přesměrovat federované uživatele na jejich místní službu tokenů zabezpečení (například AD FS).
@@ -34,7 +34,7 @@ Toto téma popisuje možnosti přizpůsobení přihlašovací stránky a stránk
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Přizpůsobení přihlašovací stránky
+## <a name="customizing-the-sign-in-page"></a>Přizpůsobení přihlašovací stránky
 Pokud potřebujete v prohlížeči otevřít cloudové aplikace a služby, které si vaše organizace předplatila, obvykle použijete přihlašovací stránku.
 
 Pokud jste přihlašovací stránku změnili, může se taková změna projevit až za hodinu.
@@ -224,6 +224,6 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

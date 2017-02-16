@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b00cf526bfed1e8d8962127439f1e41225b8023d
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Runbooky v Azure Automation staví na prostředí Windows PowerShell nebo na pra
 [Galerie runbooků](automation-runbook-gallery.md#runbooks-in-runbook-gallery) obsahuje runbooky od Microsoftu a od komunity. Můžete je ve vašem prostředí použít beze změny, nebo si je můžete přizpůsobit pro vlastní účely. Jsou užitečné také jako reference, které vás seznámí se způsoby, jak vytvářet vlastní runbooky. Pokud si myslíte, že vaše runbooky můžou být ostatním uživatelům užitečné, můžete je přidat do galerie. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Vytvoření runbooků pomocí Azure Automation
-Můžete [vytvářet vlastní runbooky](automation-creating-importing-runbook.md) od nuly nebo můžete podle svých potřeb upravovat runbooky z [galerie runbooků](http://msdn.microsoft.com/library/azure/dn781422.aspx). Existují tři různé [typy runbooků](automation-runbook-types.md), ze kterých si můžete vybrat podle svých požadavků a podle prostředí PowerShell. Pokud chcete raději pracovat přímo s kódem PowerShellu, můžete použít [runbook PowerShellu](automation-runbook-types.md#powershell-runbooks) nebo [runbook pracovního postupu PowerShellu](automation-runbook-types.md#powershell-workflow-runbooks), který upravíte v režimu offline nebo pomocí [textového editoru](http://msdn.microsoft.com/library/azure/dn879137.aspx) na webu Azure Portal. Pokud dáváte přednost úpravě runbooku bez zasahování přímo do kódu, můžete pomocí [grafického editoru](automation-graphical-authoring-intro.md) na webu Azure Portal vytvořit [grafický runbook](automation-runbook-types.md#graphical-runbooks). 
+Můžete [vytvářet vlastní runbooky](automation-creating-importing-runbook.md) od nuly nebo můžete podle svých potřeb upravovat runbooky z [galerie runbooků](http://msdn.microsoft.com/library/azure/dn781422.aspx). Existují čtyři různé [typy runbooků](automation-runbook-types.md), ze kterých si můžete vybrat podle svých požadavků a podle prostředí PowerShell. Pokud chcete raději pracovat přímo s kódem PowerShellu, můžete použít [runbook PowerShellu](automation-runbook-types.md#powershell-runbooks) nebo [runbook pracovního postupu PowerShellu](automation-runbook-types.md#powershell-workflow-runbooks), který upravíte v režimu offline nebo pomocí [textového editoru](http://msdn.microsoft.com/library/azure/dn879137.aspx) na webu Azure Portal. Pokud dáváte přednost úpravě runbooku bez zasahování přímo do kódu, můžete pomocí [grafického editoru](automation-graphical-authoring-intro.md) na webu Azure Portal vytvořit [grafický runbook](automation-runbook-types.md#graphical-runbooks). 
 
 Raději se díváte, než čtete? Podívejte se na níže uvedené video z relace Microsoft Ignite v květnu 2015. Poznámka: Koncepty a funkce popsané v tomto videu jsou sice správné, ale služba Azure Automation se od okamžiku záznamu tohoto videa posunula hodně dopředu a obsahuje teď rozsáhlejší uživatelské rozhraní na webu Azure Portal a podporuje další funkce.
 
@@ -87,6 +87,6 @@ K dispozici jsou různé druhy zdrojů, ze kterých můžete získat další inf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

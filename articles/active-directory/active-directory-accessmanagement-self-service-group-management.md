@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
 
 
 ---
-# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Nastavení služby Azure Active Directory pro samoobslužnou správu skupin
+# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Nastavení služby Azure Active Directory pro samoobslužnou správu skupin
 Samoobslužná správa skupin uživatelům umožňuje vytvářet a spravovat skupiny zabezpečení nebo skupiny Office 365 ve službě Azure Active Directory (Azure AD). Uživatelé mohou také požádat o členství ve skupině zabezpečení nebo ve skupině Office 365. Vlastník skupiny pak může členství schválit nebo odepřít. Tímto způsobem můžete každodenní řízení členství ve skupině delegovat na uživatele, kteří chápou obchodní kontext takového členství. Funkce samoobslužné správy skupin jsou dostupné jenom pro skupiny zabezpečení a skupiny Office 365. Nejsou dostupné pro skupiny zabezpečení s povoleným e-mailem a pro distribuční seznamy.
 
 Samoobslužná správa skupin v současné době obsahuje dva základní scénáře: delegovanou správu skupin a samoobslužnou správu skupin.
@@ -30,7 +30,7 @@ Samoobslužná správa skupin v současné době obsahuje dva základní scéná
 * **Samoobslužná správa skupiny**
    – příkladem tohoto scénáře jsou dva uživatelé, kteří mají nezávisle nastavené weby SharePoint Online. Oba chtějí týmu toho druhého poskytnout přístup na svůj web. Aby toho dosáhli, můžou vytvořit jednu skupinu v Azure AD a potom v SharePointu Online každý z nich vybere tu skupinu, které chce poskytnout přístup na svůj web. Pokud chce uživatel získat přístup, požádá o něj na přístupovém panelu a po schválení získá přístup k oběma webům SharePoint Online automaticky. Později se jeden z nich rozhodne, že všichni uživatelé s přístupem k webu by měli získat přístup i k určité aplikaci SaaS. Správce aplikace SaaS může přidat přístupová práva k aplikacím na web SharePoint Online. Od toho okamžiku získají veškeré jím schválené žádosti přístup na oba weby SharePoint Online a také k této aplikaci SaaS.
 
-## <a name="making-a-group-available-for-end-user-selfservice"></a>Zpřístupnění skupiny pro samoobslužné funkce koncových uživatelů
+## <a name="making-a-group-available-for-end-user-self-service"></a>Zpřístupnění skupiny pro samoobslužné funkce koncových uživatelů
 1. Na [portálu Azure Classic](https://manage.windowsazure.com) otevřete adresář služby Azure AD.
 2. Na kartě **Konfigurace** nastavte možnost**Delegovaná správa skupin** na Povoleno.
 3. Nastavte možnost **Uživatelé můžou vytvářet skupiny zabezpečení** nebo **Uživatelé můžou vytvářet skupiny Office** na Povoleno.
@@ -53,6 +53,6 @@ Následující články poskytují další informace o službě Azure Active Dir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API. Dokumentace ukazuje, jak vytvořit moderní brány rozhraní API pro stávající služby back-end."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
 # <a name="api-management-documentation"></a>Dokumentace ke službě API Management
 
-Služba API Management pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb.  Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, informací o podniku, analýz, zabezpečení a ochrany.
+Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API vývojářům ze strany externích dodavatelů, partnerů i zaměstnanců. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy vytváření a správy moderních bran rozhraní API pro stávající služby back-end, ať už jsou hostované kdekoli.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Stažení dokumentace ke službě API Management </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
@@ -36,14 +36,14 @@ Některé prostředky nejsou v oblastech, kde zřídíte předkonfigurované ře
 
 Zelená položka je simulované zařízení, které představuje letecký motor. Další informace o těchto simulovaných zařízeních najdete v následující části.
 
-Šedé položky představují součásti, které implementují funkce *správy zařízení*. Aktuální verze předkonfigurovaného řešení prediktivní údržby tyto prostředky neposkytuje. Další informace o správě zařízení naleznete v tématu [předkonfigurované řešení pro vzdálený monitoring][lnk-remote-monitoring].
+Šedé položky představují součásti, které implementují funkce *správy zařízení*. Aktuální verze předkonfigurovaného řešení prediktivní údržby tyto prostředky neposkytuje. Další informace o správě zařízení najdete v tématu [Předkonfigurované řešení pro vzdálené monitorování][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Simulovaná zařízení
 V předkonfigurovaných řešeních simulované zařízení představuje letecký motor. Řešení obsahuje dva motory, které jsou součástí jednoho letadla. Každý motor vysílá čtyři typy telemetrických dat: ze snímače Sensor 9, Sensor 11, Sensor 14 a Sensor 15, které poskytují data potřebná k tomu, aby mohl model Machine Learning vypočítat zbývající dobu životnosti (RUL) pro tento motor. Každé simulované zařízení posílá do služby IoT Hub následující telemetrické zprávy:
 
 *Počet cyklů*. Cyklus představuje dokončený let proměnlivé délky v rozmezí 2 až 10 hodin, během kterého se každou půlhodinu zaznamenávají telemetrická data.
 
-*Telemetrická data*. V řešení jsou čtyři snímače, které představují vlastnosti motoru. Snímače jsou obecně označeny jako Sensor 9, Sensor 11, Sensor 14 a Sensor 15. Tyto 4 snímače představují dostatek telemetrických dat k tomu, aby bylo možné pomocí modelu Machine Learning dosáhnout pro RUL užitečných výsledků. Tento model je vytvořený z veřejné datové sady, obsahující data snímačů reálného motoru. Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
+*Telemetrická data*. V řešení jsou čtyři snímače, které představují vlastnosti motoru. Snímače jsou obecně označeny jako Sensor 9, Sensor 11, Sensor 14 a Sensor 15. Tyto 4 snímače představují dostatek telemetrických dat k tomu, aby bylo možné pomocí modelu Machine Learning dosáhnout pro RUL užitečných výsledků. Tento model je vytvořený z veřejné datové sady, obsahující data snímačů reálného motoru. Další informace o způsobu vytvoření modelu z původní sady dat najdete v tématu [Šablona prediktivní údržby v galerii Cortana Intelligence][lnk-cortana-analytics].
 
 Simulovaná zařízení mohou zpracovávat následující příkazy, odeslané ze služby IoT Hub:
 
@@ -61,7 +61,7 @@ Služba IoT Hub zajišťuje potvrzení příkazu zařízení.
 **Procesor událostí** přebírá průměrné hodnoty snímačů za dokončený cyklus. Potom tyto hodnoty předá do rozhraní API, které nabídne trénovaný model Machine Learning pro výpočet zbývající doby životnosti motoru.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Další informace o způsobu vytvoření modelu z původní sady dat naleznete v tématu [Šablona prediktivní údržby na webu Cortana Intelligence Gallery][lnk-cortana-analytics].
+Další informace o způsobu vytvoření modelu z původní sady dat najdete v tématu [Šablona prediktivní údržby v galerii Cortana Intelligence][lnk-cortana-analytics].
 
 ## <a name="lets-start-walking"></a>Začínáme
 Tato část vás provede součástmi řešení, popíše zamýšlený případ použití a poskytne vám příklady.
@@ -100,14 +100,14 @@ Simulace zpracuje úplnou datovou sadu s údaji o 148 cyklech a vytvoří koneč
 Simulaci lze zastavit v libovolný okamžik, ale kliknutím na tlačítko **Start simulace** spustíte simulaci znovu od začátku datové sady.
 
 ## <a name="next-steps"></a>Další kroky
-Když jste si vyzkoušeli předkonfigurované řešení prediktivní údržby, možná byste je chtěli upravit – pro tyto účely naleznete informace v tématu [Pokyny k přizpůsobení předkonfigurovaných řešení][lnk-customize].
+Když jste si vyzkoušeli předkonfigurované řešení prediktivní údržby, možná byste je chtěli upravit – pro tyto účely najdete informace v tématu [Pokyny k přizpůsobení předkonfigurovaných řešení][lnk-customize].
 
 V příspěvku [IoT Suite - Pod kapotou - Prediktivní údržba](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) na blogu TechNet naleznete další podrobnosti o předkonfigurovaném řešení prediktivní údržby.
 
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 
 * [Nejčastější dotazy k sadě IoT Suite][lnk-faq]
-* [Zabezpečení IoT od samého začátku][lnk-security-groundup]
+* [Zabezpečení IoT od počátku][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ Můžete si taky prostudovat některé další funkce a možnosti předkonfiguro
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

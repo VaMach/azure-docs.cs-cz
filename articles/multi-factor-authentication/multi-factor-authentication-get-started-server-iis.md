@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
 
 ![Ověřování IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Ověřování založené na formulářích služby IIS pomocí serveru Azure Multi-Factor Authentication
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Ověřování založené na formulářích služby IIS pomocí serveru Azure Multi-Factor Authentication
 Pro zabezpečení webové aplikace služby IIS, která používá ověřování založené na formulářích, nainstalujte server Azure Multi-Factor Authentication na webový server služby IIS a nakonfigurujte server podle následujícího postupu.
 
 1. V Azure Multi-Factor Authentication Serveru klikněte v levé nabídce na ikonu Ověřování IIS.
@@ -43,7 +43,7 @@ Pro zabezpečení webové aplikace služby IIS, která používá ověřování 
 13. Po zjištění nebo zadání Adresy URL a proměnných hodnot stránek  se zobrazí data webové stránky v panelu založeném na formulářích.
 14. V tématu povolit moduly plug-in IIS pro server Azure Multi-Factor Authentication přímo pod tématem dokončete ověřování konfigurace služby IIS.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Používání integrovaného ověřování systému Windows pomocí serveru Azure Multi-Factor Authentication Server
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Používání integrovaného ověřování systému Windows pomocí serveru Azure Multi-Factor Authentication Server
 Pro zabezpečení webové aplikace služby IIS, která používá integrované HTTP ověřování systému Windows, nainstalujte server Azure Multi-Factor Authentication na webový server služby IIS a nakonfigurujte server podle následujícího postupu.
 
 1. V rámci serveru Azure Multi-Factor Authentication klikněte na ikonu ověření služby IIS v levé nabídce.
@@ -56,7 +56,7 @@ Pro zabezpečení webové aplikace služby IIS, která používá integrované H
 8. Klikněte na tlačítko OK.
 9. V tématu [povolit moduly plug-in IIS pro server Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) přímo pod tématem dokončete ověřování konfigurace služby IIS.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Povolit moduly plug-in služby IIS a server Azure Multi-Factor Authentication
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Povolit moduly plug-in služby IIS a server Azure Multi-Factor Authentication
 Po konfiguraci adres URL založených na formulářích nebo adres URL protokolu HTTP ověřování a nastavení musíte vybrat místo, kam by měly být moduly plug-in Azure Multi-Factor Authentication IIS načteny a povoleny ve službě IIS. Použijte následující postup:
 
 1. Pokud používáte službu IIS 6, klikněte na kartu ISAPI a vyberte web, který webová aplikace spouští pod (například výchozí web), chcete-li povolit filtr Azure Multi-Factor Authentication ISAPI modulů plug-in pro tuto lokalitu.
@@ -74,6 +74,6 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

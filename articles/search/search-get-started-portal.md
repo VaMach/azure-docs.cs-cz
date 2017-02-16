@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Tento úvod bez kódu vám pomůže začít s Microsoft Azure Search pomocí fun
 Kurz předpokládá využití [ukázkové databáze Azure DocumentDB](#apdx-sampledata), kterou lze jednoduše vytvořit pomocí našich dat a pokynů, ale můžete také přizpůsobit tyto kroky vaším existujícím datům v DocumentDB nebo SQL Database.
 
 > [!NOTE]
-> Tento úvodní kurz vyžaduje [předplatné Azure](/pricing/free-trial/?WT.mc_id=A261C142F) a [službu Azure Search](search-create-service-portal.md). 
+> Tento úvodní kurz vyžaduje [předplatné Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) a [službu Azure Search](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Měli byste obdržet výstup ve formátu JSON, který začíná dokumentem s č�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

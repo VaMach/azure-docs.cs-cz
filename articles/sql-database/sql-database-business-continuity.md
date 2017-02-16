@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
-ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ Následující tabulka porovnává ERT a RPO pro tři nejběžnější scénář
 | Aktivní geografická replikace |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Obnovení databáze pomocí záloh databáze
-SQL Database automaticky provádí kombinaci zálohování úplné databáze každý týden, rozdílového zálohování databáze každou hodinu a zálohování protokolů transakcí každých pět minut, čímž pomáhá chránit vaši firmu před ztrátou dat. Tyto zálohy se uchovávají v místně redundantním úložišti po dobu 35 dní pro databáze v úrovních služby Standard a Premium, a po dobu 7 dní pro databáze v úrovni služby Basic – další podrobnosti o úrovních služeb najdete v článku o [úrovních služeb](sql-database-service-tiers.md). Pokud doba uchovávání vaší úrovně služby nevyhovuje požadavkům vaší organizace, můžete dobu uchovávání prodloužit [změnou úrovně služby](sql-database-scale-up.md). Pro zajištění ochrany před výpadkem datového centra se úplné a rozdílové zálohy databáze také replikují do [spárovaného datového centra](../best-practices-availability-paired-regions.md). Další podrobnosti najdete v článku o [automatickém zálohování databáze](sql-database-automated-backups.md).
+SQL Database automaticky provádí kombinaci zálohování úplné databáze každý týden, rozdílového zálohování databáze každou hodinu a zálohování protokolů transakcí každých pět minut, čímž pomáhá chránit vaši firmu před ztrátou dat. Tyto zálohy se uchovávají v geograficky redundantním úložišti po dobu 35 dní pro databáze v úrovních služby Standard a Premium, a po dobu 7 dní pro databáze v úrovni služby Basic – další podrobnosti o úrovních služeb najdete v článku o [úrovních služeb](sql-database-service-tiers.md). Pokud doba uchovávání vaší úrovně služby nevyhovuje požadavkům vaší organizace, můžete dobu uchovávání prodloužit [změnou úrovně služby](sql-database-scale-up.md). Pro zajištění ochrany před výpadkem datového centra se úplné a rozdílové zálohy databáze také replikují do [spárovaného datového centra](../best-practices-availability-paired-regions.md). Další podrobnosti najdete v článku o [automatickém zálohování databáze](sql-database-automated-backups.md).
 
 Pokud předdefinovaná doba uchovávání není pro vaši aplikaci dostatečná, můžete ji prodloužit konfigurací zásad dlouhodobého uchovávání pro vaše databáze. Další informace najdete v tématu [Dlouhodobé uchovávání](sql-database-long-term-retention.md). 
 
@@ -75,6 +75,10 @@ Aktivní geografickou replikaci použijte v případě, že vaše aplikace splň
 * Výpadek bude mít za následek finanční závazky.
 * Pracuje s vysokou mírou změn dat a ztráta dat za jednu hodinu je nepřijatelná.
 * Další náklady na aktivní geografickou replikaci jsou nižší než potenciální finanční závazky a související ztráta podnikání.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Obnovení databáze po chybě uživatele nebo aplikace
 * Nikdo není dokonalý! Uživatel může omylem odstranit některá data, nedopatřením smazat důležitou tabulku nebo dokonce smazat celou databázi. Nebo může aplikace kvůli vadě náhodou přepsat dobrá data chybnými daty. 
@@ -154,6 +158,6 @@ Diskuzi o aspektech návrhu aplikací pro samostatné databáze a pro elastické
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

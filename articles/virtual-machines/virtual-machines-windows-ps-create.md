@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
 
 
 ---
@@ -152,13 +152,13 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
     ```
 
 ## <a name="next-steps"></a>Další kroky
-* Pokud byly nějaké problémy s nasazením, je dalším krokem projít si téma [Řešení potíží s nasazením skupin prostředků pomocí webu Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
+* Pokud byly nějaké problémy s nasazením, je dalším krokem článek [Řešení chyb nasazení v Azure pomocí Azure Resource Manageru](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), kde najdete informace o tom, jak spravovat virtuální počítač, který jste vytvořili.
 * Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) můžete vytvořit virtuální počítač pomocí šablony.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

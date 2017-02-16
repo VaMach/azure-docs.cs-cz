@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm je škálovatelný výpočetní systém v reálném čase odolný proti chybám, distribuovaný určený pro zpracování datových proudů. Pomocí Storm v Azure HDInsight můžete vytvořit cloudový cluster Storm, který bude provádět analýzy velkých objemů dat v reálném čase.
 
-> [!NOTE]
-> Kroky v tomto článku vytváří cluster HDInsight se systémem Linux. Postup vytvoření Storm se systémem Windows v clusteru HDInsight, naleznete v části [Kurz Apache Storm: Začínáme s ukázkami používání analýzy dat Storm Starter v HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v článku [Vyřazení služby HDInsight pro Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -216,6 +216,6 @@ Příklady topologií, které se dají použít se systémem Storm ve službě H
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

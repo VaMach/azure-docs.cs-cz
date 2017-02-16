@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Naučte se používat službu Automation k automatizaci procesů a správy konfigurací s cílem šetřit čas a zvyšovat spolehlivost běžných administrativních úloh."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Dokumentace ke službě Automation
 
-Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky.
+Naučte se používat službu Automation, a tím šetřit čas a zvyšovat spolehlivost běžných administrativních úloh prováděných v cloudovém prostředí. Kurzy, reference k rozhraním API a další dokumentace obsahují informace o tom, jak automatizovat procesy pomocí runbooků nebo jak automatizovat správu konfigurace pomocí DSC (požadovaný stav konfigurace).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Stažení dokumentace ke službě Automation </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

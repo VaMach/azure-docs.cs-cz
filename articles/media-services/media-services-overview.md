@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Svůj obsah můžete streamovat nebo doručovat na vyžádání. Toto téma pře
 
 Pokud chcete vytvořit řešení Media Services, můžete použít následující pomůcky:
 
-* [Rozhraní REST API služby Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Rozhraní REST API služby Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Jednu z dostupných klientských sad SDK:
     * [Azure Media Services SDK pro .NET](https://github.com/Azure/azure-sdk-for-media-services),
     * [Azure SDK pro Javu](https://github.com/Azure/azure-sdk-for-java),
@@ -46,7 +46,7 @@ Následující obrázek ukazuje některé z nejčastěji používaných objektů
 
 Kliknutím na obrázek zobrazíte jeho plnou velikost.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Celý model můžete zobrazit [zde](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ Tato část popisuje běžné scénáře a nabízí odkazy na související tém
 ![Pracovní postup videa na vyžádání (VoD)](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
-    
+>Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Ochrana obsahu v úložišti a doručování streamovaných médií v nešifrované podobě
 1. Nahrajte vysoce kvalitní soubor mezzanine do assetu.
 
@@ -184,7 +184,8 @@ Služba Media Services podporuje integraci s Azure CDN. Informace o povolení Az
 Službu **Media Services** můžete škálovat tak, že určíte počet **jednotek rezervovaných pro streamování** a počet **jednotek rezervovaných pro kódování**, které chcete pro svůj účet zřídit.
 
 Svůj účet Media Services můžete škálovat také tím, že k němu přidáte účty úložiště. Každý účet úložiště je omezen na 500 TB. Pokud chcete úložiště rozšířit nad jeho výchozí omezení, můžete k jednomu účtu Media Services připojit více účtů úložiště.
-Zákazníci Media Services si podle svých potřeb zvolí buď koncový bod **Standard**, nebo jeden nebo několik koncových bodů streamování **Premium**. Koncový bod streamování Standard je vhodný pro většinu streamovacích úloh. Nabízí stejné funkce jako jednotky streamování Premium. Koncový bod streamování Standard je vhodný pro většinu streamovacích úloh. Pokud máte pokročilé úlohy nebo vaše kapacitní požadavky na neodpovídají cílové propustnosti standardního koncového bod streamování nebo pokud chcete řádit kapacitu služby StreamingEndpoint tak, aby rostoucí potřeby šířky pásma řešila úpravou jednotek škálování (označované také jako jednotky streamování premium), doporučuje se jednotky škálování přidělovat.
+Zákazníci Media Services si podle svých potřeb zvolí buď koncový bod **Standard**, nebo jeden nebo několik koncových bodů streamování **Premium**. Koncový bod streamování Standard je vhodný pro většinu streamovacích úloh. Nabízí stejné funkce jako jednotky streamování Premium.
+Koncový bod streamování Standard je vhodný pro většinu streamovacích úloh. Pokud máte pokročilé úlohy nebo vaše kapacitní požadavky na neodpovídají cílové propustnosti standardního koncového bod streamování nebo pokud chcete řádit kapacitu služby StreamingEndpoint tak, aby rostoucí potřeby šířky pásma řešila úpravou jednotek škálování (označované také jako jednotky streamování premium), doporučuje se jednotky škálování přidělovat.
 
 [Toto](media-services-portal-scale-streaming-endpoints.md) téma obsahuje odkazy na související témata.
 

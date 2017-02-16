@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
+ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
+ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 
 
 ---
@@ -178,7 +178,7 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
      
      Pokud pro **vstupní** datovou sadu nezadáte vlastnost **fileName**, považují se za vstupy všechny soubory a objekty blob ze vstupní složky (**folderPath**). Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
      
-     Pokud nezadáte **fileName** pro **výstupní tabulku**, generované soubory v **folderPath** se pojmenují podle následujícího formátu: Data.&lt;identifikátor GUID\&gt;.txt (například: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+     Pokud nezadáte **fileName** pro **výstupní tabulku**, generované soubory v **folderPath** se pojmenují podle následujícího formátu: Data.&lt;identifikátor GUID&gt;.txt (například Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
      
      Pokud chcete nastavit **folderPath** a **fileName** dynamicky podle času **SliceStart**, použijte vlastnost **partitionedBy**. V následujícím příkladu folderPath používá rok, měsíc a den z vlastnosti SliceStart (čas zahájení zpracování řezu) a fileName používá hodinu z vlastnosti SliceStart. Pokud například začne být řez vytvářen v době 2016-09-20T08:00:00, vlastnost folderName je nastavená na wikidatagateway/wikisampledataout/2016/09/20 a vlastnost fileName je nastavená na 08.csv. 
 
@@ -413,6 +413,6 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

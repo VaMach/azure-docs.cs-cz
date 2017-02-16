@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Zjistěte, jak můžete rychle vytvořit testovací prostředí aplikace pomocí opakovaně použitelných artefaktů. Kurzy, videa a další ukazují, jak můžete vytvářet, spravovat a zabezpečit laboratoře."
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
+ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
 
 ---
 #<a name="devtest-labs-documentation"></a>Dokumentace k DevTest Labs
 
-Služba Azure Devtest Labs pomáhá vývojářům a testerům rychle vytvářet prostředí v Azure a přitom minimalizovat ztráty a mít náklady pod kontrolou.  Díky rychlému zřizování prostředí systému Windows a Linux pomocí opakovaně použitelných šablon a artefaktů můžete otestovat nejnovější verzi vaší aplikace.
+Zjistěte, jak můžete použít službu Devtest Labs k rychlému vytvoření testovacích prostředí aplikace pomocí opakovaně použitelných artefaktů. Kurzy, videa a další dokumentace ukazují, jak můžete vytvářet, spravovat a zabezpečit laboratoře a jak přidávat a spravovat artefakty.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Stažení dokumentace ke službě DevTest Lab </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

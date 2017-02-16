@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 523687dafa670e1d48087df9a5810b79925c5cde
-ms.openlocfilehash: dc4030ce447349c4cd128a7824e0f726682f9714
+ms.sourcegitcommit: 52cf33c5b9f3c3818ef66b97f22d148f0bf7c859
+ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
 
 
 ---
@@ -75,18 +75,20 @@ V tomto kroku propojíte se svým objektem pro vytváření dat cluster HDInsigh
 2. Vyberte **HDInsight On Demand Linked Service** a klikněte na **Přidat**.
 3. Nahraďte kód **JSON** následujícím kódem:
 
-        {
-          "name": "HDInsightOnDemandLinkedService",
-          "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-              "version": "3.2",
-              "clusterSize": 1,
-              "timeToLive": "00:30:00",
-              "linkedServiceName": "AzureStorageLinkedService1"
-            }
-          }
+    ```JSON
+    {
+      "name": "HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "version": "3.2",
+          "clusterSize": 1,
+          "timeToLive": "00:30:00",
+          "linkedServiceName": "AzureStorageLinkedService1"
         }
+      }
+    }
+    ```
 
     Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu kódu JSON:
 
@@ -118,28 +120,29 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
 
     V tomto fragmentu kódu JSON vytváříte datovou sadu s názvem **AzureBlobInput**, která představuje vstupní data pro aktivitu v kanálu. Kromě toho určujete, že se vstupní data nachází v kontejneru objektů blob s názvem **adfgetstarted** ve složce s názvem **inputdata**.
 
-        {
-            "name": "AzureBlobInput",
-            "properties": {
-                "type": "AzureBlob",
-                "linkedServiceName": "AzureStorageLinkedService1",
-                "typeProperties": {
-                    "fileName": "input.log",
-                    "folderPath": "adfgetstarted/inputdata",
-                    "format": {
-                        "type": "TextFormat",
-                        "columnDelimiter": ","
-                    }
-                },
-                "availability": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "external": true,
-                "policy": {}
-            }
+    ```JSON
+    {
+        "name": "AzureBlobInput",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService1",
+            "typeProperties": {
+                "fileName": "input.log",
+                "folderPath": "adfgetstarted/inputdata",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {}
         }
-
+    }
+    ```
     Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu kódu JSON:
 
    | Vlastnost | Popis |
@@ -162,24 +165,26 @@ Nyní vytvoříte výstupní datovou sadu, která bude představovat výstupní 
 
     V tomto fragmentu kódu JSON vytváříte datovou sadu s názvem **AzureBlobOutput** a určujete strukturu dat vytvářených skriptem Hive. Kromě toho určujete, že se mají výsledky ukládat do kontejneru objektů blob s názvem **adfgetstarted** do složky s názvem **partitioneddata**. Oddíl **availability** určuje, že se výstupní sada vytváří jednou měsíčně.
 
-        {
-          "name": "AzureBlobOutput",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService1",
-            "typeProperties": {
-              "folderPath": "adfgetstarted/partitioneddata",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "availability": {
-              "frequency": "Month",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService1",
+        "typeProperties": {
+          "folderPath": "adfgetstarted/partitioneddata",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
           }
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1
         }
+      }
+    }
+    ```
 
     Popisy těchto vlastností najdete v části **Vytvoření vstupní datové sady**. U výstupní datové sady nenajdete vlastnost external, protože datovou sadu vytváří služba Data Factory.
 4. Uložte soubor **OutputDataset.json**.
@@ -196,49 +201,50 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vst
    >
    >
 
-        {
-            "name": "MyFirstPipeline",
-            "properties": {
-                "description": "My first Azure Data Factory pipeline",
-                "activities": [
-                    {
-                        "type": "HDInsightHive",
-                        "typeProperties": {
-                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                            "scriptLinkedService": "AzureStorageLinkedService1",
-                            "defines": {
-                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                            }
-                        },
-                        "inputs": [
-                            {
-                                "name": "AzureBlobInput"
-                            }
-                        ],
-                        "outputs": [
-                            {
-                                "name": "AzureBlobOutput"
-                            }
-                        ],
-                        "policy": {
-                            "concurrency": 1,
-                            "retry": 3
-                        },
-                        "scheduler": {
-                            "frequency": "Month",
-                            "interval": 1
-                        },
-                        "name": "RunSampleHiveActivity",
-                        "linkedServiceName": "HDInsightOnDemandLinkedService"
-                    }
-                ],
-                "start": "2016-04-01T00:00:00Z",
-                "end": "2016-04-02T00:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService1",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2016-04-01T00:00:00Z",
+            "end": "2016-04-02T00:00:00Z",
+            "isPaused": false
         }
-
+    }
+    ```
      V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
 
     V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
@@ -268,45 +274,45 @@ Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se n
 3. Mělo by se zobrazit následující dialogové okno:
 
    ![Dialogové okno publikování](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. Na stránce konfigurace objektu pro vytváření dat postupujte takto:
+4. Na stránce **konfigurace objektu pro vytváření dat** postupujte takto:
 
    1. Vyberte možnost **Create New Data Factory** (Vytvořit nový objekt pro vytváření dat).
-   2. Zadejte jedinečný **název** objektu pro vytváření dat. Například: **FirstDataFactoryUsingVS09152016**. Název musí být globálně jedinečný.  
+   2. Zadejte jedinečný **název** objektu pro vytváření dat. Například: **FirstDataFactoryUsingVS09152016**. Název musí být globálně jedinečný.
+   3. V poli **Předplatné** vyberte správné předplatné. Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.
+   4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit.
+   5. Vyberte **oblast** pro objekt pro vytváření dat.
+   6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.)
 
-        > [AZURE.IMPORTANT] Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
-3. V poli **Předplatné** vyberte správné předplatné.
-
-
-        > [AZURE.IMPORTANT] Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.  
-
-    4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit.
-    5. Vyberte **oblast** pro objekt pro vytváření dat.
-    6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.)
+        > [!IMPORTANT]
+        > Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.   
 1. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.     
 2. Zkontrolujte souhrn a klikněte na **Další**. Spustí se proces nasazení a zobrazí se **Stav nasazení**.
 3. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit.
 
 Všimněte si těchto důležitých bodů:
 
-* Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat:
+- Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat:
+    - V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu.
+        ```PowerShell   
+        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```
+        Spuštěním následujícího příkazu si můžete ověřit, jestli je zprostředkovatel služby Data Factory zaregistrovaný.
 
-  * V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu.
-
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-
-      Spuštěním následujícího příkazu si můžete ověřit, jestli je zprostředkovatel služby Data Factory zaregistrovaný.
-
-          Get-AzureRmResourceProvider
-  * Přihlaste se na web [Azure Portal](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
-* Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
-* Chcete-li vytvářet instance služby Data Factory, musíte být správce nebo spolusprávce předplatného Azure.
+        ```PowerShell
+        Get-AzureRmResourceProvider
+        ```
+    - Přihlaste se na web [Azure Portal](https://portal.azure.com) pomocí předplatného Azure a přejděte do okna Objekt pro vytváření dat nebo na webu Azure Portal vytvořte objekt pro vytváření dat. Zprostředkovatel se při takovém postupu zaregistruje automaticky.
+- Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
+- Chcete-li vytvářet instance služby Data Factory, musíte být správce nebo spolusprávce předplatného Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorování kanálu
 ### <a name="monitor-pipeline-using-diagram-view"></a>Monitorování kanálu pomocí Zobrazení diagramu
 1. Přihlaste se na web [Azure Portal](https://portal.azure.com/) a postupujte takto:
    1. Klikněte na **Další služby** a poté na **Objekty pro vytváření dat**.
-       ![Procházet datové továrny](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+       
+        ![Procházet -> Datové továrny](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
    2. Ze seznamu objektů pro vytváření dat vyberte název svého objektu pro vytváření dat (například: **FirstDataFactoryUsingVS09152016**).
+   
        ![Výběr objektu pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. Na domovské stránce objektu pro vytváření dat klikněte na **Diagram**.
 
@@ -343,7 +349,8 @@ Všimněte si těchto důležitých bodů:
 11. Kliknutím na řez otevřete okno **Datový řez** s podrobnostmi o řezu.
 
     ![Podrobnosti o datovém řezu](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. Kliknutím na spuštění aktivity v **seznamu spuštění aktivit** zobrazíte podrobnosti o spuštění aktivity (v našem scénáři aktivity Hivu) v okně **Podrobnosti o spuštění aktivit**.   
+12. Kliknutím na spuštění aktivity v **seznamu spuštění aktivit** zobrazíte podrobnosti o spuštění aktivity (v našem scénáři aktivity Hivu) v okně **Podrobnosti o spuštění aktivit**. 
+  
     ![Podrobnosti o spuštění aktivit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
     V souborech protokolů můžete zobrazit provedený dotaz Hivu s informacemi o jeho stavu. Tyto protokoly jsou užitečné při řešení potíží.  
@@ -388,16 +395,18 @@ Pomocí konfiguračních souborů v sadě Visual Studio můžete pro různá pro
 
 Podívejte se na následující definici JSON pro propojenou službu Azure Storage. U položky **connectionString** můžete určit jiné hodnoty vlastností accountname a accountkey pro různá prostředí (vývojové/testovací/produkční), do kterých nasazujete entity služby Data Factory. Provedete to tak, že pro každé prostředí použijete samostatný konfigurační soubor.
 
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="add-a-configuration-file"></a>Přidání konfiguračního souboru
 Následující postup umožňuje přidat pro každé prostředí jiný konfigurační soubor:   
@@ -408,64 +417,71 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
     ![Přidání konfiguračního souboru](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Přidejte parametry konfigurace a jejich hodnoty v následujícím formátu.
 
-        {
-            "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
-            "AzureStorageLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-                }
-            ],
-            "AzureSqlLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
-            ]
-        }
+    ```JSON
+    {
+        "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+        "AzureStorageLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        ],
+        "AzureSqlLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        ]
+    }
+    ```
 
     Tento příklad umožňuje nakonfigurovat vlastnost connectionString propojené služby Azure Storage a propojené služby Azure SQL. Všimněte si, že syntaxe pro určení názvu je [JsonPath](http://goessner.net/articles/JsonPath/).   
 
     Pokud má kód JSON vlastnost s polem hodnot, jak je znázorněno v následujícím kódu:  
 
-        "structure": [
-              {
-                  "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-            }
-        ],
+    ```JSON
+    "structure": [
+          {
+              "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
+        }
+    ],
+    ```
 
     Nakonfigurujte vlastnosti tak, jak je znázorněno v následujícím konfiguračním souboru (použijte indexování počítané od nuly):
 
-        {
-            "name": "$.properties.structure[0].name",
-            "value": "FirstName"
-        }
-        {
-            "name": "$.properties.structure[0].type",
-            "value": "String"
-        }
-        {
-            "name": "$.properties.structure[1].name",
-            "value": "LastName"
-        }
-        {
-            "name": "$.properties.structure[1].type",
-            "value": "String"
-        }
+    ```JSON
+    {
+        "name": "$.properties.structure[0].name",
+        "value": "FirstName"
+    }
+    {
+        "name": "$.properties.structure[0].type",
+        "value": "String"
+    }
+    {
+        "name": "$.properties.structure[1].name",
+        "value": "LastName"
+    }
+    {
+        "name": "$.properties.structure[1].type",
+        "value": "String"
+    }
+    ```
 
 ### <a name="property-names-with-spaces"></a>Názvy vlastností s mezerami
 Pokud název vlastnosti obsahuje mezery, použijte hranaté závorky, jak ukazuje následující příklad (název databázového serveru):
 
-     {
-         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-         "value": "MyAsqlServer.database.windows.net"
-     }
-
+```JSON
+ {
+     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+     "value": "MyAsqlServer.database.windows.net"
+ }
+```
 
 ### <a name="deploy-solution-using-a-configuration"></a>Nasazení řešení pomocí konfigurace
 Když v sadě VS publikujete entity služby Azure Data Factory, můžete určit, jakou konfiguraci chcete pro danou operaci publikování použít.
@@ -507,6 +523,6 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

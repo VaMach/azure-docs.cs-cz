@@ -3,7 +3,7 @@ title: "Časté otázky k Azure RemoteAppu | Dokumentace Microsoftu"
 description: "Přečtěte si odpovědi na časté otázky k Azure RemoteAppu."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Pokud nemůžete najít potřebné informace nebo máte další otázku, kterou 
 * **Kolik stojí RemoteApp?** Podívejte se na [Podrobnosti o cenách Azure RemoteAppu ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Stojí jeden typ kolekce více než druhý?** Ano, může to tak být. Záleží na požadavcích vaší kolekce. Hybridní kolekce vyžaduje připojení z Azure RemoteAppu k místní síti. Pokud používáte stávající virtuální síť / síť ExpressRoute, je to bez dalších poplatků. Pokud ale používáte novou virtuální síť Azure a bránu nebo ExpressRoute, budou se vám účtovat poplatky za [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) nebo [ ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Tyto poplatky (podrobně v odkazech) se přičtou k měsíčním nákladům na Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Kolekce - co je podporováno, které byste měli používat a další
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Kolekce - co je podporováno, které byste měli používat a další
 * **Jsou podporovány vlastní obchodní aplikace (LOB)?** Ano. Pokud v Azure RemoteAppu chcete používat vlastní aplikaci, vytvořte si [image vlastní šablony](remoteapp-create-custom-image.md) a nahrajte ho do kolekce RemoteAppu.
 * **Budou mé vlastní obchodní aplikace fungovat v Azure RemoteAppu?** Nejlépe to zjistíte tak, že to vyzkoušíte. Podívejte se do [Centra pro kompatibilitu VP](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Jaká metoda nasazení (cloudová nebo hybridní) je nejvhodnější pro moji organizaci?** Hybridní kolekce poskytují nejúplnější prostředí, pokud chcete plnou integraci s jednotným přihlašováním (SSO) a zabezpečené místní připojení k síti. Cloudové kolekce poskytují agilní a snadný způsob izolace nasazení pomocí několika metod ověřování. Další informace o [možnostech nasazení](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Pokud nemůžete najít potřebné informace nebo máte další otázku, kterou 
 
 * **Proč nemůžu poskytnout přístup k účtu Azure Active Directory?** Uživatelé Azure Active Directory musí pocházet z adresáře, který je spojen s vaším předplatným. Tento adresář můžete zobrazit nebo upravit na kartě Nastavení v portálu. Další informace najdete v části [Změna klienta Azure Active Directory používaného RemoteAppem](remoteapp-changetenant.md).
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Klienti – které zařízení můžu použít pro přístup k Azure RemoteAppu?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Klienti – které zařízení můžu použít pro přístup k Azure RemoteAppu?
 Informace o funkčních klientech, včetně postupu pro instalaci různých klientů najdete v části [Přístup k aplikacím v Azure RemoteAppu](remoteapp-clients.md).
 
 * **Jaká zařízení a operační systémy klientské aplikace podporují?**
@@ -126,6 +126,6 @@ Věděli jste, že kromě hodnocení tohoto článku a přidání komentářů p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Přehled řešení předkonfigurované prediktivní údržby
-Předkonfigurované řešení *prediktivní údržby* je jedním z [předkonfigurovaných řešení][lnk_preconfigured_solutions] vydaných jako součást sady [Microsoft Azure IoT Suite][lnk_iot_suite]. Toto řešení integruje sběr telemetrických údajů v reálném čase ze zařízení s prediktivním modelem, který využívá technologii [Azure Machine Learning][lnk_machine_learning].
+Předkonfigurované řešení *prediktivní údržby* je jedním z [předkonfigurovaných řešení][lnk_preconfigured_solutions] vydaných jako součást sady [Microsoft Azure IoT Suite][lnk_iot_suite]. Toto řešení integruje sběr telemetrických dat ze zařízení v reálném čase s prediktivním modelem vytvořeným pomocí služby [Azure Machine Learning][lnk_machine_learning].
 
 Pomocí sady Azure IoT Suite se mohou podniky snadno a rychle připojit k prostředkům, monitorovat je a analyzovat data v reálném čase. Předkonfigurované řešení prediktivní údržby přebírá data a pomocí podrobných řídicích panelů a vizualizací podnikům poskytuje nové informace, které jim můžou pomoct zvýšit efektivitu a výnosy.
 
@@ -48,9 +48,9 @@ Předkonfigurované řešení prediktivní údržby Azure IoT používá regresn
 *\[1\] A. Saxena and K. Goebel (2008). „Turbofan Engine Degradation Simulation Data Set“, datové úložiště NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o tom, jak Azure IoT Suite podporuje scénáře prediktivní údržby, najdete v článku [Získání hodnoty z Internetu věcí][lnk_capture_value].
+Další informace o tom, jak Azure IoT podporuje scénáře prediktivní údržby, najdete v tématu [Získání hodnoty z Internetu věcí][lnk_capture_value].
 
-[Prohlídka][lnk-predictive-walkthrough] předkonfigurovaného řešení prediktivní údržby
+[Návod][lnk-predictive-walkthrough] pro předkonfigurované řešení prediktivní údržby.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -63,13 +63,13 @@ Další informace o tom, jak Azure IoT Suite podporuje scénáře prediktivní �
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 
 * [Nejčastější dotazy k sadě IoT Suite][lnk-faq]
-* [Zabezpečení IoT od samého začátku][lnk-security-groundup]
+* [Zabezpečení IoT od počátku][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

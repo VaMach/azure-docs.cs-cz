@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -70,24 +70,26 @@ Tato části vás provede vytvořením nového centra oznámení a konfigurací 
 <p>Nezapomeňte vybrat režim <b>Sandboxu</b>, protože se jedná o vývoj. Používejte pouze režim <b>Výroba</b>, pokud chcete zasílat nabízená oznámení uživatelům, kteří si zakoupili aplikaci z obchodu s aplikacemi.</p>
 </li>
 </ol>
-&emsp;&emsp;![Konfigurace služby APNS na webu Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurace služby APNS na webu Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Konfigurace certifikační služby APNS na portálu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurace certifikační služby APNS na portálu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro odesílání nabízených oznámení.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Připojte aplikaci iOS k centru oznámení
 1. V Xcode vytvořte nový projekt iOS a vyberte šablonu **Jediné zobrazení aplikace**.
    
-       ![Xcode - Single View Application][8]
+    ![Xcode – jediné zobrazení aplikace][8]
+    
 2. Když nastavujete možnosti pro nový projekt, nezapomeňte použít stejný **Název produktu** a **Identifikátor organizace**, který jste použili při předchozím nastavení sady ID na portálu pro vývojáře Apple.
    
     ![Xcode – možnosti projektu][11]
+    
 3. V části **Cíle** klikněte na název projektu, klikněte na kartu **Nastavení sestavení** a rozbalte **Identitu podepisování kódu** a pak v části **Ladění** nastavte svoji identitu podepisování kódu. Přepněte **Úrovně** ze **Základní** na **Všechny** a nastavte **Profil zřizování** na profil zřizování, který jste vytvořili dříve.
    
     Pokud nevidíte nový profil zřizování, který jste vytvořili v Xcode, pokuste se aktualizovat profily pro podpisové identity. Klikněte na tlačítko **Xcode** na panelu nabídek, klikněte na tlačítko **Předvolby**, klikněte na kartu **Účet**, klikněte na tlačítko **Zobrazit podrobnosti**, klikněte na podpisovou identitu a pak klikněte na tlačítko Aktualizovat v pravém dolním rohu.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode – profil zřizování][9]
 4. Stáhněte si [Mobile Services iOS SDK verze 1.2.4] a soubor rozbalte. V Xcode klikněte pravým tlačítkem na projekt a klikněte na možnost **Přidat soubory do** a přidejte složku **WindowsAzureMessaging.framework** do projektu Xcode. Vyberte možnost **Kopírovat položky v případě potřeby** a pak klikněte na tlačítko **Přidat**.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Rozbalte Azure SDK][10]
 5. Přidejte nový soubor záhlaví projektu s názvem `HubInfo.h`. Tento soubor bude obsahovat konstanty pro vaše centrum oznámení.  Přidejte následující definice a nahraďte zástupné symboly literálu řetězce ve vašem *názvu centra* a *DefaultListenSharedAccessSignature*, který jste si předtím poznamenali.
    
         #ifndef HubInfo_h
@@ -464,17 +466,17 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 <!-- URLs. -->
 [Mobile Services iOS SDK verze 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Odeslání stránky aplikace]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikace]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK pro Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Začínáme používat Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Začínáme s nabízenými oznámeními v mobilních službách]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Upozornění uživatelů centra oznámení Azure pro iOS pomocí backendu .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
@@ -483,6 +485,6 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

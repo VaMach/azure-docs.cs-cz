@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ Před zahájením tohoto názorného průvodce byste již měli mít [vytvořen�
 
 Všimněte si, že ukázkový kód v tomto článku je napsán v jazyce C#. Úplný zdrojový kód najdete [na GitHubu](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Zjistěte klíč api-key správce služby Azure Search
+## <a name="identify-your-azure-search-services-query-api-key"></a>Zjistěte klíč api-key správce služby Azure Search
 Po vytvoření indexu Azure Search jste již téměř připraveni vydávat dotazy pomocí .NET SDK. Nejprve budete muset získat jeden z klíčů dotazů (api-key) vytvořených pro vyhledávací službu, kterou jste zřídili. .NET SDK bude tento klíč api-key odesílat v každém požadavku na vaši službu. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k webu [Azure Portal](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
@@ -48,7 +48,7 @@ Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
 Pro účely dotazování indexu můžete použít jeden z klíčů dotazů. Pro dotazy lze použít i klíče správce, ale ve svých aplikacích byste měli používat klíče dotazů, což lépe odpovídá [Principu minimálního oprávnění](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Vytvoření instance třídy SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Vytvoření instance třídy SearchIndexClient
 Chcete-li vydávat dotazy pomocí .NET SDK služby Azure Search, budete muset vytvořit instanci třídy `SearchIndexClient`. Tato třída obsahuje několik konstruktorů. Ten, který chcete, přijímá jako parametry název vaší vyhledávací služby, název indexu a objekt `SearchCredentials`. `SearchCredentials` zabalí váš klíč api-key.
 
 Následující kód vytvoří novou třídu `SearchIndexClient` pro index „hotels“ (vytvořený v tématu [Vytvoření indexu Azure Search pomocí .NET SDK](search-create-index-dotnet.md)) pomocí hodnot pro název vyhledávací služby a klíče api-key, které jsou uložené v konfiguračním souboru aplikace (`app.config` nebo `web.config`):
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` obsahuje vlastnost `Documents`. Tato vlastnost poskytuje všechny metody, které potřebujete k dotazování indexů Azure Search.
 
-## <a name="iii-query-your-index"></a>III. Dotázání indexu
+## <a name="query-your-index"></a>Dotázání indexu
 Vyhledávání pomocí .NET SDK je jednoduché, stačí na `SearchIndexClient` zavolat metodu `Documents.Search`. Tato metoda přijímá několik parametrů včetně textu vyhledávání, spolu s objektem `SearchParameters`, který lze použít pro další upřesnění dotazu.
 
 #### <a name="types-of-queries"></a>Typy dotazů
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Zpracování výsledků vyhledávání
+## <a name="handle-search-results"></a>Zpracování výsledků vyhledávání
 Metoda `Documents.Search` vrací objekt `DocumentSearchResult`, který obsahuje výsledky dotazu. Ukázka v předchozím oddílu používala pro vypsání výsledků vyhledávání do konzoly metodu s názvem `WriteDocuments`:
 
 ```csharp
@@ -169,6 +169,6 @@ Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

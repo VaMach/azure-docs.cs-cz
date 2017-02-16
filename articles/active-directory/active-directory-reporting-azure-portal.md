@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Generování sestav v Azure Active Directory – verze Preview
+# <a name="azure-active-directory-reporting---preview"></a>Generování sestav v Azure Active Directory – verze Preview
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Portál Azure Classic](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Existují dvě hlavní oblasti vytváření sestav:
 
 V závislosti na rozsahu hledaných dat můžete k těmto sestavám přistupovat po kliknutí buď na možnost **Uživatelé a skupiny**, nebo na možnost **Podnikové aplikace** v seznamu služeb na webu [Azure Portal](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Aktivity přihlašování
-### <a name="user-signin-activities"></a>Aktivity přihlašování uživatelů
+## <a name="sign-in-activities"></a>Aktivity přihlašování
+### <a name="user-sign-in-activities"></a>Aktivity přihlašování uživatelů
 Na základě informací poskytnutých sestavou přihlašování uživatelů najdete odpovědi na otázky tohoto typu:
 
 * Jaký je vzorec přihlašování uživatele?
@@ -97,7 +97,7 @@ Pomocí voliče sloupců můžete vybrat datová pole, která chcete zobrazit.
 
 ![Vytváření sestav](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtrování přihlášení
+### <a name="filtering-sign-ins"></a>Filtrování přihlášení
 Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
 
 * Datum a čas 
@@ -203,6 +203,6 @@ Přečtěte si článek [Příručka generování sestav v Azure Active Director
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

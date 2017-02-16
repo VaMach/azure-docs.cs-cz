@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
-ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
+ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
+ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
 
 
 ---
@@ -60,7 +60,7 @@ Pokud máte se službou SQL Data Warehouse nějaké problémy, můžete si vytvo
      Pokud máte plán podpory Premier Support, můžete také problémy týkající se služby SQL Data Warehouse nahlásit na [online portálu Microsoft Premier][Microsoft Premier online portal].  Další informace o různých plánech podpory, včetně rozsahu, doby odezvy, cen atd. najdete v tématu věnovaném [plánům podpory Azure][Azure support plan].  Nejčastější dotazy týkající se podpory Azure najdete v [nejčastějších dotazech týkajících se podpory k Azure][Azure support FAQs].  
      
      ![Plán podpory](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Vyberte **typ problému** a **kategorii**.
+8. Vyberte **typ problému** a **kategorii**. V tomto příkladu jsme vybrali typ problému „Nástroje“ a kategorii „Klientské nástroje“. 
    
     ![Kategorie typu problému](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. Popište problém a zvolte úroveň dopadu na chod firmy.
@@ -101,6 +101,6 @@ Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

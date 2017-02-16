@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Při prvním vytvoření trezoru Služeb zotavení určíte, jak má být úlož
 
 Nyní, když jste vytvořili trezor, připravíte infrastrukturu pro zálohování souborů a složek stažením agenta Služeb zotavení Microsoft Azure a přihlašovacích údajů trezoru. 
 
-## <a name="step-3-download-files"></a>Krok 3 – Stažení souborů
+## <a name="step-3---download-files"></a>Krok 3 – Stažení souborů
 1. V řídícím panelu trezoru Služeb zotavení klikněte na **Nastavení**.
    
     ![Otevřete okno cíle zálohování](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Nyní, když jste vytvořili trezor, připravíte infrastrukturu pro zálohován
    
     ![Příprava infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Krok 4 – Instalace a registrace agenta
+## <a name="step-4--install-and-register-the-agent"></a>Krok 4 – Instalace a registrace agenta
 > [!NOTE]
 > Povolení zálohování prostřednictvím portálu Azure bude možné již brzy. Prozatím použijte pro zálohování svých souborů a složek místního agenta Služeb zotavení Microsoft Azure.
 > 
@@ -184,6 +184,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
