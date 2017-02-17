@@ -77,9 +77,7 @@
 ### [Použití Phoenixu a SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analýza tweetů v reálném čase](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Vytvoření clusterů ve virtuální síti](hdinsight-hbase-provision-vnet.md)
-### [Konfigurace připojení k síti VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Konfigurace serverů DNS](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Konfigurace geografické replikace HBase](hdinsight-hbase-geo-replication.md)
+### [Konfigurace replikace HBase](hdinsight-hbase-replication.md)
 ### [Vývoj aplikace v Javě](hdinsight-hbase-build-java-maven-linux.md)
 ## Použití Stormu
 ### [Nasazení a správa topologií](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Začínáme s Hadoopem](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Začínáme s HBase](hdinsight-hbase-tutorial-get-started.md)
-### [Ukázková galerie služby HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Ukázky spouštění Hadoop MapReduce](hdinsight-run-samples.md)
 ### [Vytvoření clusterů Hadoop](hdinsight-provision-clusters.md)
 #### [Použití portálu Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -228,6 +225,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

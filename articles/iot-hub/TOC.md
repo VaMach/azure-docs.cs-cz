@@ -97,6 +97,28 @@
 #### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Začínáme s Arduinem (uzel)
+### [Začínáme s kartou Arduino: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lekce 1: Konfigurace zařízení
+#### [Konfigurace zařízení](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Získání nástrojů (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Získání nástrojů (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Vytvoření a nasazení aplikace blink](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lekce 2: Vytvoření služby IoT Hub
+#### [Získání nástrojů Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Čtení zpráv uchovávaných v úložišti](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lekce 4: Odesílání zpráv z cloudu do zařízení
+#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Volitelné: Změna chování indikátor LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Řešení problémů](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Začínáme se sadou Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Začínáme se sadou Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,11 @@
 ## [Java (zařízení)](/java/api/com.microsoft.azure.iothub)
 ## [Sady Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (identity zařízení)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Rozhraní REST API REST (zasílání zpráv zařízení)](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (identity zařízení)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (dvojčata zařízení)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
+## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (úlohy)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Související
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +264,6 @@
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

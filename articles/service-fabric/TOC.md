@@ -161,6 +161,7 @@
 ### [Zobrazení stavových sestav](service-fabric-view-entities-aggregated-health.md)
 
 ## Monitorování a diagnóza
+### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
 ### Místní monitorování a diagnostika služeb
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -208,6 +209,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

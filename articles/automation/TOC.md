@@ -26,6 +26,7 @@
 ### [Sledování úlohy runbooku](automation-runbook-execution.md)
 ### [Nastavení runbooku](automation-runbook-settings.md)
 ### [Správa dat Azure Automation](automation-managing-data.md)
+### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Nasazení správy konfigurace (DSC)
 ### [Konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)
@@ -53,7 +54,9 @@
 ### [Odebrání skupiny prostředků](automation-scenario-remove-resourcegroup.md)
 ### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
 ### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Monitorování](automation-manage-send-joblogs-log-analytics.md)
+## Monitorování
+### [Předávání dat úloh Azure Automation do Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Zrušení propojení účtu Azure Automation s Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrace
 ### [Migrace z Orchestratoru](automation-orchestrator-migration.md)
 ### [Přesun účtu služby Automation](automation-migrate-account-subscription.md)
@@ -78,6 +81,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

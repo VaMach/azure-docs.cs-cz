@@ -26,7 +26,6 @@
 ### [Weby SharePoint](app-insights-sharepoint.md)
 ### [Další platformy](app-insights-platforms.md)
 
-## [Nejčastější dotazy pro ASP.NET](app-insights-troubleshoot-faq.md)
 
 # Postup
 ## Plánování a návrh
@@ -36,14 +35,11 @@
 ### [Analýzy používání pomocí nástroje Application Insights](app-insights-overview-usage.md)
 ### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
-## Migrace
-### [Migrace od monitorování koncových bodů Azure k testování dostupnosti](app-insights-migrate-azure-endpoint-tests.md)
+
 
 ## Konfigurace
-### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Diagnostika](app-insights-azure-diagnostics.md)
-## [IP adresy](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Získání další telemetrie](app-insights-asp-net-more.md)
@@ -52,12 +48,15 @@
 #### [Čítače výkonu](app-insights-performance-counters.md)
 #### [Závislosti](app-insights-asp-net-dependencies.md)
 #### [Poznámky k verzi](app-insights-annotations.md)
+#### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
+#### [Nejčastější dotazy](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
 #### [Trasování protokolů](app-insights-java-trace-logs.md)
 #### [Unixové metriky](app-insights-java-collectd.md)
 #### [Závislosti](app-insights-java-agent.md)
+#### [Filtrování telemetrických dat](app-insights-java-filter-telemetry.md)
 
 ### Výstrahy
 
@@ -68,6 +67,8 @@
 #### [Anomálie selhání](app-insights-proactive-failure-diagnostics.md)
 #### [Anomálie výkonu](app-insights-proactive-performance-diagnostics.md)
 
+### [Vytvoření prostředku](app-insights-create-new-resource.md)
+
 ## Analýza
 
 ### Portál Application Insights
@@ -75,21 +76,22 @@
 #### [Řídicí panely](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metriky](app-insights-metrics-explorer.md)
-#### Analýzy
-
-##### [Analýzy](app-insights-analytics.md)
-##### [Seznámení s Analýzami](app-insights-analytics-tour.md)
-##### [Použití Analýz](app-insights-analytics-using.md)
 
 #### [Mapa aplikace](app-insights-app-map.md)
 #### [Aplikace HockeyApp](app-insights-hockeyapp-bridge-app.md)
-#### [Vytvoření prostředku](app-insights-create-new-resource.md)
 
 ### Visual Studio
 
 #### [F5 insights](app-insights-visual-studio.md)
 #### [Trendy](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Analýza
+
+#### [Přehled](app-insights-analytics.md)
+#### [Prohlídka](app-insights-analytics-tour.md)
+#### [Použití](app-insights-analytics-using.md)
+#### [Import](app-insights-analytics-import.md)
 
 ## Automatizace
 
@@ -98,61 +100,69 @@
 ### [Nastavení výstrah](app-insights-powershell-alerts.md)
 ### [Získání diagnostiky Azure](app-insights-powershell-azure-diagnostics.md)
 
-
-## Integrace
-
-### [Průběžný export](app-insights-export-telemetry.md)
-### [Export do Power BI](app-insights-export-power-bi.md)
-
 ## Vývoj
 
 ### [Rozhraní API pro vlastní události a metriky](app-insights-api-custom-events-metrics.md)
 ### [Filtrování a předběžné zpracování telemetrie](app-insights-api-filtering-sampling.md)
+### [Vzorkování](app-insights-sampling.md)
 ### [Jádro ASP.NET](app-insights-asp-net-core.md)
-
 
 ## Správa
 ### [Správa cen a kvót](app-insights-pricing.md)
 ### [Sledování výkonu aplikací pomocí Application Insights pro SCOM](app-insights-scom.md)
 
 ##Export
-## [Export datového modelu](app-insights-export-data-model.md)
+### [Průběžný export](app-insights-export-telemetry.md)
+### [Export datového modelu](app-insights-export-data-model.md)
+### [Export do Power BI](app-insights-export-power-bi.md)
 
 ## Zabezpečení
 ### [Shromažďování, uchovávání a ukládání dat](app-insights-data-retention-privacy.md)
 ### [Prostředky, role a řízení přístupu](app-insights-resources-roles-access-control.md)
+### [IP adresy](app-insights-ip-addresses.md)
+
 ## Řešení potíží
 ### [Žádná data v .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analýzy](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referenční informace
+## [Analýzy](app-insights-analytics-reference.md)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
 
-# Zdroje a prostředky
-## [Reference pro analýzy](app-insights-analytics-reference.md)
-## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Developer Analytics: jazyky, platformy a integrace](app-insights-platforms.md)
-### [Vzorkování](app-insights-sampling.md)
-### [Příklady a názorné postupy](app-insights-code-samples.md)
-#### [Názorný postup: zapnutí telemetrie pro Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-#### [Názorný postup: Export do SQL s použitím Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-#### [Ukázka kódu: Analýza exportovaných dat](app-insights-code-sample-export-telemetry-sql-database.md)
-## [Poznámky k vydání sady Application Insights SDK pro Windows Phone a Store](app-insights-release-notes-windows.md)
-## [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
-## [Poznámky k verzi sady SDK – Application Insights](app-insights-release-notes.md)
+# Zdroje
+
+## [Jazyky a platformy](app-insights-platforms.md)
+
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
-## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
-## [Podpora](app-insights-get-dev-support.md)
+
+## [Příklady a názorné postupy](app-insights-code-samples.md)
+### [Názorný postup: Povolení telemetrie pro Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
+### [Názorný postup: Export do SQL s použitím Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
+### [Ukázka kódu: Analýza exportovaných dat](app-insights-code-sample-export-telemetry-sql-database.md)
+
+## Novinky
+
+### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
+### [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Poznámky k verzi sady SDK](app-insights-release-notes.md)
+### [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
+
+
+## Nápověda
+### [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
+### [Podpora](app-insights-get-dev-support.md)
+
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
