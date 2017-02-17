@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysv
 2. Vyberte **Active Directory** a potom vyberte název adresáře své organizace.
 3. Vyberte kartu **Uživatelé** a na panelu příkazů vyberte **Přidat uživatele**.
 4. Na stránce **Informace o uživateli** vyberte v části **Typ uživatele** jedno z následujících:
-   
+
    * **Nový uživatel v organizaci** – přidá do vašeho adresáře nový uživatelský účet.
    * **Uživatel s existujícím účtem Microsoft** – přidá do vašeho adresáře existující účet Microsoft uživatele (například účet Outlook).
 5. V závislosti na tom, jaký **Typ uživatele** jste vybrali, zadejte buď uživatelské jméno (pro nového uživatele), nebo e-mailovou adresu (pro uživatele s účtem Microsoft).
@@ -37,11 +37,11 @@ Vyplňte svůj adresář uživateli, které nově přidáte. Tento článek vysv
 
 > [!IMPORTANT]
 > Pokud vaše organizace používá více než jednu doménu, měli byste vědět o následujících problémech týkajících se přidávání uživatelských účtů:
-> 
+>
 > * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com, **jako první** a **až potom** geoffgrisso@contoso.com.
-> * **Nepřidávejte** geoffgrisso@contoso.com dřív než geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
-> 
-> 
+> * **Nepřidávejte** geoffgrisso@contoso.com předtím, než přidáte geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
+>
+>
 
 ## <a name="change-user-information"></a>Změna informací o uživateli
 S výjimkou ID objektu můžete změnit jakýkoli atribut uživatele.
@@ -87,6 +87,6 @@ Potom můžete upravit možnosti řízení přístupu pro uživatele typu host.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
