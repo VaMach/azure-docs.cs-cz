@@ -3,7 +3,7 @@ title: "Vytvoření škálovací sady virtuálních počítačů pomocí PowerSh
 description: "Vytvoření škálovací sady virtuálních počítačů pomocí PowerShellu"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 6fa8b353c47091c9b71173e98021117245cc6694
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Tento postup navazuje na metodu vyplňování prázdných polí při vytvářen�
 Provedení kroků v tomto článku by mělo trvat asi 30 minut.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
-Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
+Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azureps-cmdlets-docs), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
 
 ## <a name="step-2-create-resources"></a>Krok 2: Vytvoření prostředků
 Vytvořte prostředky, které jsou potřebné pro vaši novou škálovací sadu.
@@ -225,6 +225,6 @@ Nakonec můžete vytvořit škálovací sadu.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

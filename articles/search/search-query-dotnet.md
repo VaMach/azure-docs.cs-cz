@@ -169,6 +169,6 @@ Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

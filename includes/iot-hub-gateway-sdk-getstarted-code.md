@@ -35,7 +35,7 @@ Tato část popisuje některé klíčové části kódu v ukázce Hello World.
 ### <a name="gateway-creation"></a>Vytvoření brány
 Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (zprostředkovatele), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. Sada SDK poskytuje funkci **Gateway_Create_From_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway_Create_From_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst. 
 
-Kód pro proces brány lze najít v ukázce Hello World v souboru [main.c][lnk-main-c]. Níže uvedený fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší. 
+Kód pro proces brány najdete v ukázce Hello World v souboru [main.c][lnk-main-c]. Níže uvedený fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší. 
 
 ```
 int main(int argc, char** argv)
@@ -114,7 +114,7 @@ Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Publikování zpráv modulu Hello World
-Kód, který používá modul Hello World k publikování zpráv, najdete v souboru ['hello_world.c'][lnk-helloworld-c]. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
+Kód, který používá modul Hello World k publikování zpráv, najdete v souboru [hello_world.c][lnk-helloworld-c]. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
 
 ```
 int helloWorldThread(void *param)
@@ -219,7 +219,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ## <a name="next-steps"></a>Další kroky
 Další informace o použití sady IoT Gateway SDK najdete v následujících tématech:
 
-* [IoT Gateway SDK – odesílání zpráv zařízení do cloudu pomocí simulovaného zařízení v systému Linux][lnk-gateway-simulated].
+* [IoT Gateway SDK – odesílání zpráv typu zařízení-cloud pomocí simulovaného zařízení v systému Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] na GitHubu.
 
 <!-- Links -->
@@ -229,6 +229,6 @@ Další informace o použití sady IoT Gateway SDK najdete v následujících t�
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

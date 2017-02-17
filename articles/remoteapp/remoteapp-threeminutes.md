@@ -46,6 +46,6 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

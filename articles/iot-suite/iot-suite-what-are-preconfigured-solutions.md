@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -32,7 +32,7 @@ Každé předkonfigurované řešení je kompletní a komplexní implementace, k
 Kromě nasazení a spuštění řešení v Azure si můžete stáhnout kompletní zdrojový kód a upravit a rozšířit řešení tak, aby odpovídalo vašim specifickým požadavkům na IoT.
 
 > [!NOTE]
-> Pokud chcete  nasadit některé z předkonfigurovaných řešení, navštivte [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Další informace, jak nasadit a spustit jedno z řešení, najdete v článku [Začínáme s předkonfigurovanými řešeními IoT][lnk-getstarted-preconfigured].
+> Pokud chcete nasadit některé z předkonfigurovaných řešení, navštivte web [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Další informace o nasazení a spuštění jednoho z řešení najdete v článku [Začínáme s předkonfigurovanými řešeními IoT][lnk-getstarted-preconfigured].
 > 
 > 
 
@@ -40,7 +40,7 @@ Následující tabulka ukazuje, jak se řešení mapují na určité funkce IoT.
 
 | Řešení | Přijímání dat | Identita zařízení | Příkazy a ovládání | Pravidla a akce | Prediktivní analýza |
 | --- | --- | --- | --- | --- | --- |
-| [Vzdálené sledování][lnk-getstarted-preconfigured] |Ano |Ano |Ano |Ano |- |
+| [Vzdálené monitorování][lnk-getstarted-preconfigured] |Ano |Ano |Ano |Ano |- |
 | [Prediktivní údržba][lnk-predictive-maintenance] |Ano |Ano |Ano |Ano |Ano |
 
 * *Přijímání dat*: Přijímání škálovaných dat do cloudu.
@@ -71,14 +71,14 @@ Když se zařízení poprvé připojí na IoT Hub v rámci předkonfigurovaného
 Do řešení můžete přidat další simulovaná zařízení, která vysílají stejná telemetrická data a odpovídají na stejné příkazy. 
 
 ## <a name="iot-hub"></a>IoT Hub
-V tomto předkonfigurovaném řešení odpovídá instance IoT Hubu *cloudové bráně* v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
+V tomto předkonfigurovaném řešení odpovídá instance služby IoT Hub *cloudové bráně* v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
 Centrum IoT získává telemetrická data ze zařízení v jednom koncovém bodě. IoT Hub také udržuje pro každé zařízení specifické koncové body, odkud zařízení získávají příkazy, které do nich byly zaslány.
 
 Centrum IoT zpřístupňuje získaná telemetrická data přes koncový bod čtení telemetrických dat na straně služby.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Předkonfigurované řešení používá tři úlohy [Azure Stream Analytics][lnk-asa] (ASA), jejichž pomocí filtruje datový proud telemetrie ze zařízení:
+Předkonfigurované řešení používá tři úlohy [Azure Stream Analytics][lnk-asa] (ASA), jejichž pomocí filtruje datový proud telemetrických dat ze zařízení:
 
 * *Úloha DeviceInfo (Informace o zařízení)* – Odesílá výstupní data do centra událostí, které do registru zařízení pro řešení směruje zprávy specifické pro registraci. Ty se ve chvíli, kdy se zařízení poprvé připojí nebo odpoví na příkaz **Change Device State**, odesílají do registru zařízení řešení (databáze DocumentDB). 
 * *Úloha Telemetry (Telemetrie)* – Odesílá veškerá nezpracovaná telemetrická data do služby Azure Blob Storage, uloží málo používaná data a vypočítá ze získaných telemetrických dat agregované hodnoty, které se zobrazují na řídicím panelu řešení.
@@ -87,12 +87,12 @@ Předkonfigurované řešení používá tři úlohy [Azure Stream Analytics][ln
 V tomto předkonfigurovaném řešení jsou úlohy ASA součástí **back-endu řešení IoT** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Procesor událostí
-V tomto předkonfigurovaném řešení je procesor událostí součástí **back-endu IoT řešení** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
+V tomto předkonfigurovaném řešení je procesor událostí součástí **back-endu řešení IoT** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
-Úlohy ASA **DeviceInfo** a **Rules** odesílají výstup do center událostí, odkud se přeposílají do dalších služeb back-endu. Toto řešení využívá instanci [EventPocessorHost][lnk-event-processor] spuštěnou v rámci [webové úlohy][lnk-web-job] ke čtení zpráv z těchto center událostí. **EventProcessorHost** používá data úlohy **DeviceInfo**, která slouží k aktualizaci dat zařízení v databázi DocumentDB. Dále používá data úlohy **Rules**, přes která vyvolává aplikaci logiky a aktualizuje zobrazování upozornění na portálu řešení.
+Úlohy ASA **DeviceInfo** a **Rules** odesílají výstup do center událostí, odkud se přeposílají do dalších služeb back-endu. Toto řešení využívá instanci třídy [EventPocessorHost][lnk-event-processor] spuštěnou v rámci [webové úlohy][lnk-web-job] ke čtení zpráv z těchto center událostí. **EventProcessorHost** používá data úlohy **DeviceInfo**, která slouží k aktualizaci dat zařízení v databázi DocumentDB. Dále používá data úlohy **Rules**, přes která vyvolává aplikaci logiky a aktualizuje zobrazování upozornění na portálu řešení.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Registr identity zařízení a databáze DocumentDB
-Každé centrum IoT obsahuje [registr identity zařízení][lnk-identity-registry], který ukládá klíče zařízení. IoT Hub používá tuto informaci k ověřování zařízení – pokud se má zařízení připojit k centru, musí být registrováno a mít platný klíč.
+Každá služba IoT Hub obsahuje [registr identit zařízení][lnk-identity-registry], který ukládá klíče zařízení. IoT Hub používá tuto informaci k ověřování zařízení – pokud se má zařízení připojit k centru, musí být registrováno a mít platný klíč.
 
 Toto řešení ukládá další informace o zařízení, například stav, příkazy, které zařízení podporují, a další metadata. Řešení používá databázi DocumentDB, do které ukládá data zařízení, specifická pro toto řešení. Portál řešení pak z této databáze data získává, aby je bylo možné zobrazit a editovat.
 
@@ -112,9 +112,9 @@ Portál řešení je uživatelské rozhraní, které je založené na webu a nas
 V tomto předkonfigurovaném řešení je portál řešení součástí **back-endu řešení IoT** a součástí **připojení pro zpracování a obchodní logiku** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o struktuře řešení IoT najdete v článku [Služby Microsoft Azure IoT: Referenční architektura][lnk-refarch].
+Další informace o architekturách řešení IoT najdete v tématu [Služby Microsoft Azure IoT: Referenční architektura][lnk-refarch].
 
-Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasazením *vzdáleného sledování* předkonfigurovaného řešení: [Začínáme s předkonfigurovanými řešeními][lnk-getstarted-preconfigured].
+Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasazením předkonfigurovaného řešení *vzdáleného monitorování*: [Začínáme s předkonfigurovanými řešeními][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -130,6 +130,6 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

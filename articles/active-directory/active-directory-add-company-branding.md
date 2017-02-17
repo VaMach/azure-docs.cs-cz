@@ -224,6 +224,6 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
