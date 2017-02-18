@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 3451e6d13119bacc66e9ccd861862edea5a5b4fe
 
 
 ---
@@ -37,7 +37,7 @@ Existuje několik způsobů, jimiž lze nastavit aplikaci v jazyce Java ve webov
 
 1. Vytvořte aplikaci a nakonfigurujte **Nastavení aplikace**.
    
-    Služba App Service poskytuje několik verzí Tomcat a Jetty s výchozí konfigurací. Pokud aplikace, kterou budete hostovat, bude pracovat s některou z integrovaných verzí, tato metoda nastavení webového kontejneru je nejjednodušší a současně je ideální v případě, že chcete pouze nahrát soubor war do webového kontejneru. U této metody vytvoříte aplikaci na webu Azure Portal a potom přejdete do okna **Nastavení aplikace** své aplikace a zvolíte verzi jazyka Java spolu s požadovaným webovým kontejnerem Java. Při použití této metody jsou jazyk Java i webový kontejner spuštěny z Program Files. Ostatní metody umisťují webový kontejner a potenciálně také prostředí Java Virtual Machine do místa na disku. Při použití tohoto modelu nemáte přístup k úpravě souborů v této části systému souborů. To znamená, že nemůžete provádět akce, jako je například konfigurace souboru *server.xml* či umisťování souborů knihovny do složky */lib*. Další informace naleznete dále v tomto kurzu v části [Vytvoření a konfigurace webové aplikace v jazyce Java](#appsettings) .
+    Služba App Service poskytuje několik verzí Tomcat a Jetty s výchozí konfigurací. Pokud aplikace, kterou budete hostovat, bude pracovat s některou z integrovaných verzí, tato metoda nastavení webového kontejneru je nejjednodušší a současně je ideální v případě, že chcete pouze nahrát soubor war do webového kontejneru. U této metody vytvoříte aplikaci na webu Azure Portal a potom přejdete do okna **Nastavení aplikace** své aplikace a zvolíte verzi jazyka Java spolu s požadovaným webovým kontejnerem Java. Při použití této metody jsou jazyk Java i webový kontejner spuštěny z Program Files. Ostatní metody umisťují webový kontejner a potenciálně také prostředí Java Virtual Machine do místa na disku. Při použití tohoto modelu nemáte přístup k úpravě souborů v této části systému souborů. To znamená, že nemůžete provádět akce, jako je například konfigurace souboru *server.xml* či umisťování souborů knihovny do složky */lib*. Další informace naleznete dále v tomto kurzu v části [Vytvoření a konfigurace webové aplikace v jazyce Java](#portal) .
 2. Použijte šablonu z Azure Marketplace.
    
     Azure Marketplace obsahuje šablony, které automaticky vytvářejí a konfigurují webové aplikace v jazyce Java s webovými kontejnery Tomcat nebo Jetty. Webové kontejnery vytvářené těmito šablonami lze konfigurovat. Další informace naleznete v tomto kurzu v části [Použití šablony Java z Azure Marketplace](#marketplace).
@@ -147,7 +147,7 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 [Azure Portal]: https://portal.azure.com/
 [aktivovat výhody předplatitele sady Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [zaregistrovat k bezplatné zkušební verzi]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Vyzkoušet službu App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Vyzkoušet službu App Service]: https://azure.microsoft.com/try/app-service/
 [webová aplikace ve službě Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Středisko pro vývojáře Java]: /develop/java/
 [Přehled Resource Manageru]: ../azure-resource-manager/resource-group-overview.md
@@ -169,6 +169,6 @@ Další informace týkající se vývoje aplikací v jazyce Java v Azure nalezne
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

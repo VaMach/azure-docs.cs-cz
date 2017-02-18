@@ -1,10 +1,10 @@
 ---
-title: "Správa zabezpečení v Azure | Dokumentace Microsoftu"
+title: "Zlepšení zabezpečení vzdálené správy v Azure | Dokumentace Microsoftu"
 description: "Tento článek popisuje kroky pro zlepšení zabezpečení vzdálené správy při správě prostředí Microsoft Azure včetně cloudových služeb, služby Virtual Machines a vlastních aplikací."
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b1f757678c9a88bd834482d67bf098279c463bfb
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
 
 
 ---
@@ -235,6 +235,6 @@ Následující prostředky vám poskytnou další obecné informace o Azure a so
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Přehled funkce Stretch Database | Dokumentace Microsoftu"
+title: "Archivace studených dat do Azure – Stretch Database | Dokumentace Microsoftu"
 description: "Zjistěte, jak funkce Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Přehled funkce Stretch Database
+# <a name="introduction-to-stretch-database"></a>Úvod do služby Stretch Database
 Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure.
 
 Pokud chcete ihned začít používat funkci Stretch Database, najdete informace v tématu [Začínáme spuštěním průvodce povolením funkce Stretch pro databázi](sql-server-stretch-database-wizard.md).
@@ -84,6 +84,6 @@ S využitím Poradce pro funkci Stretch Database, který je funkcí Poradce pro 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Řešení bezpečnostních incidentů v Azure Security Center | Dokumentace Microsoftu"
+title: "Zpracování výstrah zabezpečení ve službě Azure Security Center | Dokumentace Microsoftu"
 description: "Tento dokument vám pomůže používat funkce služby Azure Security Center k řešení bezpečnostních incidentů."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 
 
 ---
@@ -32,25 +32,25 @@ Ve službě Security Center představuje bezpečnostní incident souhrn všech v
 Aktuální incidenty zabezpečení můžete zkontrolovat jejich prohlížením na dlaždici Výstrahy zabezpečení. Přejděte na web Azure Portal a podle následujících pokynů zobrazte podrobnosti o jednotlivých incidentech zabezpečení:
 
 1. Na řídicím panelu Security Center uvidíte dlaždici **Výstrahy zabezpečení**.
-   
+
     ![Dlaždice Výstrahy zabezpečení ve službě Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Klikněte na tuto dlaždici a rozbalte ji. Pokud je zjištěn incident zabezpečení, zobrazí se v grafu výstrah zabezpečení, jak vidíte níže:
-   
+
     ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Popis incidentu zabezpečení má v porovnání s ostatními výstrahami jinou ikonu. Po kliknutí na ikonu se zobrazí podrobnosti o daném incidentu.
-   
+
     ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. Na dlaždici **Incident** se zobrazí další podrobnosti o daném incidentu zabezpečení, které obsahují úplný popis, závažnost (která je v tomto případě vysoká), aktuální stav (v tomto případě je stále *aktivní*, což naznačuje, že uživatel ještě nepodnikl žádné akce – to lze provést kliknutím pravým tlačítkem na incident v okně **Výstrahy zabezpečení**), napadené prostředky (v tomto případě *VM1*), postup nápravy incidentu a v dolním podokně se nachází výstrahy, které byly součástí tohoto incidentu. Pokud chcete získat další informace o jednotlivých výstrahách, klikněte na ně a otevře se další okno, jak vidíte níže:
-   
+
     ![Incident zabezpečení](./media/security-center-incident/security-center-incident-fig4.png)
 
 Informace v tomto okně se budou lišit podle výstrah. Další informace o řešení těchto výstrah najdete v tématu [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md). Některé důležité informace týkající se této funkce:
 
-* Nový filtr umožňuje přizpůsobit zobrazení na Pouze incident, Pouze výstrahy nebo obojí. 
-* Stejná výstraha může existovat jako součást incidentu (pokud se to na ni vztahuje) a zároveň může být viditelná jako samostatná výstraha. 
+* Nový filtr umožňuje přizpůsobit zobrazení na Pouze incident, Pouze výstrahy nebo obojí.
+* Stejná výstraha může existovat jako součást incidentu (pokud se to na ni vztahuje) a zároveň může být viditelná jako samostatná výstraha.
 
 ## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používat funkci incidentů zabezpečení. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
@@ -64,7 +64,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

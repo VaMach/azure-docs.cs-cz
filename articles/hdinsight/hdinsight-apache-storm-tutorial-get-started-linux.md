@@ -1,5 +1,5 @@
 ---
-title: "Kurz Apache Storm: Začínáme s linuxovým Stormem v HDInsight | Dokumentace Microsoftu"
+title: "Začínáme s Apache Storm v prostředí Azure HDInsight | Dokumentace Microsoftu"
 description: "Začněte s analýzami velkých objemů dat pomocí Apache Storm a ukázek Storm Starter na HDInsight se systémem Linux. Naučte se používat Storm pro zpracování dat v reálném čase."
 keywords: "apache storm,kurz apache storm,analýza velkého objemu dat,storm starter"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -80,7 +80,7 @@ V této části vytvoříte cluster HDInsight verze 3.5 (Storm verze 1.0.1) pomo
      > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Použití SSH (PuTTY) se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__ a klikněte na **OK**, pak vyberte __Připnout na řídicí panel__.
+3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__ a klikněte na **OK**, potom vyberte __Připnout na řídicí panel__.
 
 6. Klikněte na **Koupit**. Zobrazí se nová dlaždice s názvem Odeslání nasazení pro šablonu nasazení. Vytvoření clusteru trvá přibližně 20 minut.
 
@@ -216,6 +216,6 @@ Příklady topologií, které se dají použít se systémem Storm ve službě H
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

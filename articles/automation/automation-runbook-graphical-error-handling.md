@@ -15,60 +15,67 @@ ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: f9b359691122da9e5d93e51f3085cad51e55d8f2
-ms.openlocfilehash: 13c3e1693badcf4148738cb63666f34546d1696c
+ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
+ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
 
 ---
 
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Zpracování chyb v grafických runboocích Azure Automation
 
-Klíčovým aspektem návrhu runbooků, na který je třeba pamatovat, je identifikace různých problémů, se kterými se runbook může setkat – například úspěch, očekávané chybové stavy a neočekávané chybové podmínky.  Runbooky by měly zahrnovat zpracování chyb, aby je mohly odpovídajícím způsobem detekovat.  Kdybyste u grafických runbooků chtěli vhodným způsobem ověřit výstup aktivity nebo zpracovat chybu, možná byste pokračovali v psaní kódu PowerShellu, definovali podmíněnou logiku pro výstupní propojení aktivity nebo použili jinou metodu.          
+Klíčovým aspektem návrhu runbooků, na který je třeba pamatovat, je identifikace různých problémů, se kterými se runbook může setkat. Tyto problémy mohou zahrnovat úspěch, očekávané chybové stavy a neočekávané chybové podmínky.
 
-Při provádění runbooků se často stává, že pokud v aktivitě dojde k chybě, která ale nezpůsobí ukončení, zpracují se i následující aktivity bez ohledu na chybu.  Samozřejmě nejspíše dojde k vyvolání výjimky, ale podstatné je, že je umožněno spuštění další aktivity. Důvodem takového chování je způsob, jakým je navrženo zpracování chyb v jazyce PowerShellu.    
+Runbooky by měly zahrnovat zpracování chyb. K ověření výstupu aktivity nebo zpracování chyb v grafických runboocích můžete použít aktivitu s kódem PowerShellu, definovat podmíněnou logiku pro výstupní propojení aktivity nebo použít jinou metodu.          
 
-Během provádění se mohou objevit dva typy chyb PowerShellu – ukončující nebo neukončující.  Jsou mezi nimi tyto rozdíly:
+Často se stává, že pokud v aktivitě runbooku dojde k neukončující chybě, zpracují se i následující aktivity bez ohledu na chybu. Chyba pravděpodobně vygeneruje výjimku, ale přesto je umožněno spuštění další aktivity. Takto je v PowerShellu navrženo zpracování chyb.    
 
-* Ukončující chyba: závažná chyba během provádění, která úplně zastaví příkaz (nebo provádění skriptu). Příkladem mohou být neexistující rutiny, chyby syntaxe znemožňující spuštění rutiny nebo jiné závažné chyby.
+Během provádění se mohou objevit dva typy chyb PowerShellu – ukončující nebo neukončující. Rozdíly mezi ukončujícími a neukončujícími chybami jsou následující:
 
-* Neukončující chyba: méně závažná chyba, která umožňuje pokračovat v provádění bez ohledu na selhání. Jedná se například o provozní chyby, jako je nenalezení souboru, problémy s oprávněním atd.
+* **Ukončující chyba:** závažná chyba během provádění, která úplně zastaví příkaz (nebo provádění skriptu). Příkladem jsou neexistující rutiny, chyby syntaxe znemožňující spuštění rutiny nebo jiné závažné chyby.
 
-Grafické runbooky Azure Automation byly vylepšeny o schopnost zahrnovat zpracování chyb, takže je teď možné přepnout výjimky na neukončující chyby a vytvořit chybová propojení mezi aktivitami. Díky tomu může autor runbooku zachytávat chyby a má možnost obsloužit očekávané i neočekávané situace.  
+* **Neukončující chyba:** méně závažná chyba, která umožňuje pokračovat v provádění bez ohledu na selhání. Jedná se například o operační chyby, jako je nenalezení souboru nebo problémy s oprávněním.
 
-## <a name="when-to-use"></a>Kdy je použít
+Grafické runbooky Azure Automation byly vylepšeny o možnost zahrnovat zpracování chyb. Nyní můžete přepnout výjimky na neukončující chyby a vytvořit chybová propojení mezi aktivitami. Díky tomu může autor runbooku zachytávat chyby a spravovat očekávané i neočekávané situace.  
 
-Řízení provádění pracovního postupu je důležité pro zajištění, že kdykoli nějaká důležitá aktivita vyvolá chybu nebo výjimku, můžete zabránit pokračování na další aktivitu v runbooku a odpovídajícím způsobem chybu zpracovat.  To je obzvláště nutné v případě, kdy na vašich runboocích závisí podnikový proces nebo proces provozu služeb.
+## <a name="when-to-use-error-handling"></a>Kdy použít zpracování chyb
 
-Pro každou aktivitu, která by mohla vést k chybě, může autor runbooku přidat chybové propojení odkazující na jinou aktivitu.  Cílová aktivita může být libovolného typu: aktivita s kódem, aktivita vyvolávající rutinu, aktivita vyvolávající jiný runbook nebo cokoli jiného. 
+Kdykoli nějaká důležitá aktivita vyvolá chybu nebo výjimku, je důležité zabránit zpracování další aktivity v runbooku a odpovídajícím způsobem chybu zpracovat. To je obzvláště důležité v případě, kdy na vašich runboocích závisí podnikový proces nebo proces servisních operací.
 
-Kromě toho může cílová aktivita také obsahovat odchozí propojení (běžná nebo chybová), takže autor runbooku může implementovat komplexní logiku zpracování chyb bez nutnosti vkládat aktivitu s kódem.  Přestože doporučeným postupem je vytvoření vyhrazeného runbooku se společnými funkcemi pro zpracování chyb, není to nutné, a logika zpracování chyb v aktivitě s kódem PowerShellu není jedinou možností.  
+Pro každou aktivitu, která může vést k chybě, může autor runbooku přidat chybové propojení odkazující na jinou aktivitu.  Cílová aktivita může být libovolného typu, včetně aktivity s kódem, aktivity vyvolávající rutinu, aktivity vyvolávající jiný runbook atd.
 
-Mějme například runbook, který se pokusí spustit virtuální počítač a nainstalovat v něm aplikaci, ale pokud se virtuální počítač nespustí správně, provede runbook dvě akce: 
+Kromě toho může cílová aktivita také obsahovat odchozí propojení. Může se jednat o běžná propojení nebo chybová propojení. To znamená, že autor runbooku může implementovat komplexní logiku zpracování chyb bez nutnosti uchýlit se k aktivitě s kódem. Doporučeným postupem je vytvoření vyhrazeného runbooku s běžnými funkcemi pro zpracování chyb, ale není to nutné. Logika zpracování chyb v aktivitě s kódem PowerShellu není jedinou možností.  
 
-1. Odešle upozornění na tento problém.
-2. Spustí jiný runbook, který automaticky zřídí nový virtuální počítač. 
+Představte si například runbook, který se pokusí spustit virtuální počítač a nainstalovat v něm aplikaci. Pokud se virtuální počítač nespustí správně, provede runbook dvě akce:
 
-Jedním řešením může být vytvoření chybového propojení odkazujícího na aktivitu pro zpracování kroku 1 (například rutina **Write-Warning**), která je propojená s aktivitou pro provedení kroku 2 (například rutina **Start-AzureRmAutomationRunbook**). 
+1. Odešle oznámení o tomto problému.
+2. Spustí jiný runbook, který automaticky zřídí nový virtuální počítač.
 
-Toto chování můžete také zobecnit pro použití v mnoha runboocích tím, že obě aktivity umístíte do samostatného runbooku pro zpracování chyb podle výše navrhovaných pokynů.  Před voláním tohoto runbooku můžete z dat v původním runbooku vytvořit vlastní zprávu a předat ji jako parametr do runbooku pro zpracování chyb. 
+Jedním z řešení je vytvořit chybové propojení odkazující na aktivitu, která zpracuje krok&1;. Můžete například propojit rutinu **Write-Warning** s aktivitou pro krok&2;, například rutinou **Start-AzureRmAutomationRunbook**.
 
-## <a name="how-to-use"></a>Způsob použití
+Toto chování můžete také zobecnit pro použití v mnoha runboocích tím, že obě aktivity umístíte do samostatného runbooku pro zpracování chyb podle výše navrhovaných pokynů. Před voláním tohoto runbooku pro zpracování chyb můžete z dat v původním runbooku vytvořit vlastní zprávu a předat ji jako parametr do runbooku pro zpracování chyb.
 
-V konfiguraci každé aktivity je možnost přepnout výjimky na neukončující chyby. Ve výchozím nastavení je tato možnost zakázána.  Měli byste ji povolit u všech aktivit, pro které chcete zpracovávat chyby.  Povolením této možnosti zajistíte, že se s ukončujícími i neukončujícími chybami v aktivitě bude zacházet jako s neukončujícími chybami, a následně je můžete zpracovat pomocí chybového propojení.  Po konfiguraci tohoto nastavení vytvoříte aktivity, které budou zpracovávat chyby.  Pokud v aktivitě dojde k jakékoli chybě, použijí se odchozí chybová propojení a nikoli běžná propojení; běžná propojení se nepoužijí ani v případě, že aktivita vygenerovala kromě chyby i běžný výstup.<br><br> ![Příklad chybového propojení v runbooku Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
+## <a name="how-to-use-error-handling"></a>Jak použít zpracování chyb
 
-V následujícím jednoduchém příkladu máme runbook, který načte proměnnou obsahující název virtuálního počítače a pak se pokusí spustit virtuální počítač pomocí další aktivity.<br><br> ![Příklad zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+V nastavení konfigurace každé aktivity je možnost přepnout výjimky na neukončující chyby. Standardně je toto nastavení zakázáno. Doporučujeme toto nastavení povolit u všech aktivit, ve kterých chcete zpracovávat chyby.  
+
+Povolením této konfigurace zajistíte, že se s ukončujícími i neukončujícími chybami v aktivitě bude zacházet jako s neukončujícími chybami, které můžete zpracovat pomocí chybového propojení.  
+
+Po konfiguraci tohoto nastavení vytvoříte aktivitu, která bude zpracovávat chyby. Pokud v aktivitě dojde k jakékoli chybě, použijí se odchozí chybová propojení a nikoli běžná propojení; běžná propojení se nepoužijí ani v případě, že aktivita vygeneruje kromě chyby i běžný výstup.<br><br> ![Příklad chybového propojení v runbooku Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
+
+V následujícím příkladu runbook načte proměnnou obsahující název virtuálního počítače. Následně se pokusí spustit virtuální počítač pomocí další aktivity.<br><br> ![Příklad zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
 Aktivity **Get-AutomationVariable** a **Start-AzureRmVm** jsou nakonfigurované, aby převáděly výjimky na chyby.  Pokud dojde k problémům se získáním proměnné nebo spuštěním virtuálního počítače, vygenerují se chyby.<br><br> ![Nastavení aktivity pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
-Chybová propojení vedou z těchto aktivit do jediné aktivity **Error Management** (aktivita s kódem). V té je nakonfigurovaný jednoduchý výraz PowerShellu, který pomocí klíčového slova *Throw* zastaví zpracování a prostřednictvím *$Error.Exception.Message* získá zprávu s popisem aktuální výjimky.<br><br> ![Příklad kódu pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Chybová propojení vedou z těchto aktivit do jediné aktivity **Error Management** (aktivita s kódem). V této aktivitě je nakonfigurovaný jednoduchý výraz PowerShellu, který pomocí klíčového slova *Throw* zastaví zpracování a prostřednictvím *$Error.Exception.Message* získá zprávu s popisem aktuální výjimky.<br><br> ![Příklad kódu pro zpracování chyb v runbooku Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
 ## <a name="next-steps"></a>Další kroky
 
-* Další informace o propojeních a vysvětlení typů propojení v grafických runboocích najdete v tématu [Vytváření grafického obsahu v Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
+* Další informace o propojeních a typech propojení v grafických runboocích najdete v tématu [Grafické vytváření obsahu v Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
-* Další informace o spouštění runbooků, postupy při monitorování úloh runbooků a další technické podrobnosti najdete v článku [Sledování úlohy runbooku](automation-runbook-execution.md). 
+* Další informace o spouštění runbooků, postupy při monitorování úloh runbooků a další technické podrobnosti najdete v článku [Sledování úlohy runbooku](automation-runbook-execution.md).
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO1-->
 
 

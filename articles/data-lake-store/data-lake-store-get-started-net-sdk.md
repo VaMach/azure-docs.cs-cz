@@ -1,6 +1,6 @@
 ---
-title: "Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací | Dokumentace Microsoftu"
-description: "Použití sady .NET SDK pro Azure Data Lake Store k vývoji aplikací"
+title: "Vývoj aplikací pro Azure Data Lake Store pomocí .NET SDK | Dokumentace Microsoftu"
+description: "Přečtěte si, jak pomocí Azure Data Lake Store .NET SDK vytvořit účet Data Lake Store a provádět další základní operace."
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 
 ---
@@ -261,6 +261,6 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Propojení virtuálních sítí Azure pomocí VPN Gateway a PowerShellu | Dokumentace Microsoftu"
+title: "Připojení virtuální sítě Azure k jiné virtuální síti: PowerShell | Dokumentace Microsoftu"
 description: "Tento článek vás provede propojováním virtuálních sítí s použitím Azure Resource Manageru a prostředí PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Konfigurace propojení VNet-to-VNet pro Resource Manager pomocí PowerShellu
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Konfigurace připojení typu VNet-to-VNet pomocí PowerShellu
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ Tento článek vás provede postupem vytváření propojení mezi virtuálními 
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modely a metody nasazení pro propojení VNet-to-VNet
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích VNet-to-VNet. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
+Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích VNet-to-VNet. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
   
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
-### <a name="vnet-to-vnet-faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
+### <a name="vnet-to-vnet-considerations"></a>Aspekty propojení VNet-to-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
@@ -94,8 +94,8 @@ V příkladech používáme následující hodnoty:
 * Název brány: VNet1GW
 * Veřejná IP adresa: VNet1GWIP
 * Typ sítě VPN: RouteBased
-* Připojení (1 ke 4): VNet1toVNet4
-* Připojení (1 k 5): VNet1toVNet5
+* Připojení (1 ke&4;): VNet1toVNet4
+* Připojení (1 k&5;): VNet1toVNet5
 * Typ připojení: VNet2VNet
 
 **Hodnoty pro virtuální síť TestVNet4:**
@@ -434,6 +434,6 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

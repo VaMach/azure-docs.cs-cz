@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření funkce Azure s vazbou na službu Azure | Dokumentace Microsoftu"
-description: "Sestavení funkce Azure, aplikace bez serveru, která komunikuje s dalšími službami Azure."
+title: "Vytvoření funkce připojující se ke službám Azure | Dokumentace Microsoftu"
+description: "Pomocí Azure Functions vytvořte aplikaci bez serveru, která se připojuje k jiným službám Azure."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,175 +14,186 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a0a46708645be91f89b0a6ae9059468bc84aeb11
-ms.openlocfilehash: c6905452951910d3c62bc5152741a8ead26196ef
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Vytvoření funkce Azure s vazbou na službu Azure
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Pomocí Azure Functions vytvořte funkci, která se připojuje k jiným službám Azure.
 
-V tomto krátkém videu se dozvíte, jak vytvořit funkci Azure, která naslouchá zprávám ve frontě Azure a kopíruje zprávy do objektu Azure Blob.
+Toto téma ukazuje, jak vytvořit funkci v Azure Functions, která naslouchá zprávám ve frontě služby Azure Storage a kopíruje zprávy do řádků v tabulce Azure Storage. Funkce aktivovaná časovačem slouží k načítání zpráv do fronty. Druhá funkce čte z fronty a zapisuje zprávy do tabulky. Frontu i tabulku za vás vytvoří služba Azure Functions na základě definic vazeb. 
 
-## <a name="watch-the-video"></a>Přehrát video
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Aby to bylo zajímavější, jedna funkce je napsaná v JavaScriptu, zatímco druhá je skript v jazyce C#. To ukazuje, jak aplikace Function App může obsahovat funkce v různých jazycích. 
 
-## <a name="create-an-input-queue-trigger-function"></a>Vytvoření funkce pro aktivaci vstupní fronty
-Cílem této funkce je každých 10 sekund napsat zprávu do fronty. K tomu musíte vytvořit funkci a fronty zpráv a do nově vytvořených front přidat kód pro zápis zpráv.
+Předvedení tohoto scénáře zobrazuje [video na webu Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
-1. Přejděte na Azure Portal a najděte Azure Function App.
-2. Klikněte na **Nová funkce** > **TimerTrigger – Node**. Pojmenujte funkci **FunctionsBindingsDemo1**
-3. Zadejte hodnotu „0/10 * * * * *“ pro Plán. Tato hodnota má formu výrazu cron. Naplánuje, aby se časovač spouštěl každých 10 sekund.
-4. Kliknutím na **Vytvořit** vytvořte novou funkci.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Vytvoření funkce, která zapisuje do fronty
+
+Než se budete moci připojit k frontě úložiště, je nutné vytvořit funkci, která načítá frontu zpráv. Tato funkce JavaScriptu využívá trigger časovače, který každých 10 sekund zapisuje zprávu do fronty. Pokud ještě nemáte účet Azure, [vyzkoušejte si službu Azure Functions](https://functions.azure.com/try) nebo [si vytvořte bezplatný účet Azure](https://azure.microsoft.com/free/).
+
+1. Přejděte na Azure Portal a vyhledejte aplikaci Function App.
+
+2. Klikněte na **Nová funkce** > **TimerTrigger-JavaScript**. 
+
+3. Pojmenujte funkci **FunctionsBindingsDemo1**, jako **Plán** zadejte hodnotu výrazu Cron `0/10 * * * * *` a potom klikněte na **Vytvořit**.
    
-    ![Přidání funkcí časovače triggeru](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Zobrazením aktivity v protokolu zkontrolujte, jestli funkce funguje. Možná budete muset kvůli zobrazení podokna protokolů kliknout na odkaz **Protokoly** v pravém horním rohu.
-   
-   ![Kontrola funkčnosti funkce zobrazením protokolu](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+    ![Přidání funkce aktivované časovačem](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
-### <a name="add-a-message-queue"></a>Přidání fronty zpráv
-1. Přejděte na kartu **Integrace**.
-2. Zvolte **Nový výstup** > **Fronta Azure Storage** > **Vybrat**.
-3. Do textového pole **Název parametru zprávy** zadejte **myQueueItem**.
-4. Vyberte účet úložiště nebo kliknutím na **Nový** účet úložiště vytvořte, pokud ho ještě nemáte.
-5. Do textového pole **Název fronty** zadejte **functions-bindings**.
-6. Klikněte na **Uložit**.  
-   
-   ![Přidání funkcí časovače triggeru](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+    Nyní jste vytvořili funkci aktivovanou časovačem, která se spouští každých 10 sekund.
 
-### <a name="write-to-the-message-queue"></a>Zápis do fronty zpráv
-1. Vraťte se na kartu **Vývoj** a přidejte k funkci následující kód za existující kód:
+5. Na kartě **Vývoj** klikněte na **Protokoly** a zobrazte aktivitu v protokolu. Jak vidíte, každých 10 sekund se zapíše položka protokolu.
+   
+    ![Zobrazení protokolu pro kontrolu funkčnosti funkce](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Přidání výstupní vazby fronty zpráv
+
+1. Na kartě **Integrace** zvolte **Nový výstup** > **Azure Queue Storage** > **Vybrat**.
+
+    ![Přidání funkce časovače triggeru](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Zadejte `myQueueItem` jako **Název parametru zprávy** a `functions-bindings` jako **Název fronty**, vyberte existující **Připojení účtu úložiště** nebo kliknutím na **nový** vytvořte připojení účtu úložiště a potom klikněte na **Uložit**.  
+
+    ![Vytvoření výstupní vazby na frontu úložiště](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. Na kartě **Vývoj** přidejte k funkci následující kód:
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Upravte existující kód funkce, aby volal kód přidaný v kroku 1. Vložte následující kód kolem řádku 9 funkce za výraz *if*.
+2. Vyhledejte výraz *if* kolem řádku 9 funkce a vložte za tento výraz následující kód.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Tento kód vytvoří **myQueueItem** a nastaví vlastnost **time** (čas) na aktuální časové razítko. Pak novou položku fronty přidá do vazby myQueue podle kontextu.
+    Tento kód vytvoří **myQueueItem** a nastaví vlastnost **time** (čas) na aktuální časové razítko. Pak novou položku fronty přidá do vazby **myQueueItem** podle kontextu.
+
 3. Klikněte na **Uložit a spustit**.
-4. Zkontrolujte, jestli kód funguje, zobrazením fronty v sadě Visual Studio.
-   
-   * Otevřete Visual Studio a přejděte na **Zobrazení** > **Průzkumník** **cloudu**.
-   * Najděte účet úložiště a frontu **functions-bindings**, kterou jste použili při vytváření fronty myQueue. Měli byste vidět řádky dat protokolu. Možná se budete muset přihlásit k Azure pomocí sady Visual Studio.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Vytvoření funkce pro aktivaci výstupní fronty
-1. Klikněte na **Nová funkce** > **QueueTrigger – C#**. Pojmenujte funkci **FunctionsBindingsDemo2** Všimněte si, že je možné ve stejné aplikaci funkce kombinovat jazyky (v tomto případě Node a C#).
-2. Do pole **Název fronty** zadejte **functions-bindings**.
-3. Vyberte účet úložiště, který chcete použít, nebo vytvořte nový.
-4. Klikněte na **Vytvořit**
-5. Zkontrolujte, jestli nová funkce funguje, zobrazením protokolu funkce i sady Visual Studio s aktualizovanými informacemi. Protokol funkce ukazuje, že funkce běží a položky jsou odstraněné z fronty. Vzhledem k tomu, že je funkce vázaná k výstupní funkci **functions-bindings** jako vstupní aktivační událost, mělo by se při aktualizaci fronty **functions-bindings** v sadě Visual Studio ukázat, že položky zmizely. Jsou z fronty odstraněné.   
-   
-   ![Přidání funkcí časovače výstupní fronty](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Zobrazení aktualizací úložiště pomocí Storage Exploreru
+Fungování vaší funkce můžete ověřit zobrazením zpráv ve frontě, kterou jste vytvořili.  Můžete se připojit k vaší frontě úložiště pomocí Průzkumníku cloudu v sadě Visual Studio. Portál však umožňuje snadné připojení k účtu úložiště pomocí Microsoft Azure Storage Exploreru.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Změna typu položky fronty z JSON na objekt
-1. Nahraďte kód ve **FunctionsBindingsDemo2** následujícím kódem:    
+1. Na kartě **Integrace** klikněte na výstupní vazbu fronty > **Dokumentace**, zobrazte Připojovací řetězec pro účet úložiště a zkopírujte jeho hodnotu. Tuto hodnotu použijete pro připojení k účtu úložiště.
+
+    ![Stáhnutí Azure Storage Exploreru](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Pokud jste tak již neučinili, stáhněte a nainstalujte [Microsoft Azure Storage Explorer](http://storageexplorer.com). 
+ 
+3. Ve Storage Exploreru klikněte na ikonu připojit ke službě Azure Storage, do pole vložte připojovací řetězec a dokončete průvodce.
+
+    ![Přidání připojení ve Storage Exploreru](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. V části **Místní a připojené** rozbalte **Účty úložiště** > váš účet úložiště > **Fronty** > **functions-bindings** a ověřte, že se zprávy zapisují do fronty.
+
+    ![Zobrazení zpráv ve frontě](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Pokud fronta neexistuje nebo je prázdná, pravděpodobně je nějaký problém s vazbami nebo kódem vaší funkce.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Vytvoření funkce, která čte z fronty
+
+Teď, když se zprávy přidávají do fronty, můžete vytvořit další funkci, která neustále čte z fronty a zapisuje zprávy do tabulky Azure Storage.
+
+1. Klikněte na **Nová funkce** > **QueueTrigger-CSharp**. 
+ 
+2. Pojmenujte funkci `FunctionsBindingsDemo2`, do pole **Název fronty** zadejte **functions-bindings**, vyberte existující účet úložiště nebo vytvořte nový, a potom klikněte na **Vytvořit**.
+
+    ![Přidání funkce časovače výstupní fronty](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Volitelné) Fungování nové funkce můžete ověřit zobrazením nové fronty ve Storage Exploreru stejně jako předtím. Můžete také použít Průzkumník cloudu v sadě Visual Studio.  
+
+4. (Volitelné) Obnovte frontu **functions-bindings** a všimněte si, že z fronty byly odebrány položky. K odebrání dochází, protože je funkce vázaná na frontu **functions-bindings** jako vstupní trigger a tato funkce čte z fronty. 
+ 
+## <a name="add-a-table-output-binding"></a>Přidání výstupní vazby tabulky
+
+1. V aplikaci FunctionsBindingsDemo2 klikněte na **Integrace** > **Nový výstup** > **Azure Table Storage** > **Vybrat**.
+
+    ![Přidání vazby na tabulku Azure Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Zadejte `TableItem` jako **Název tabulky** a `functionbindings` jako **Název parametru tabulky**, zvolte **Připojení účtu úložiště** nebo vytvořte nové, a potom klikněte na **Uložit**.
+
+    ![Konfigurace vazby tabulky Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. Na kartě **Vývoj** nahraďte stávající kód funkce následujícím:
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Tento kód přidá dvě třídy, **TableItem** a **QItem**, který slouží ke čtení z front a zápisu do front. Kromě toho byla změněna funkce **Run** (Spustit), aby přijímala parametr **QItem** a **TraceWriter** místo parametru **string** (řetězec) a **TraceWriter**. 
-2. Klikněte na tlačítko **Uložit**.
-3. Ověřte, jestli kód funguje, zkontrolováním protokolu. Všimněte si, že funkce Azure vám objekt automaticky serializují a deserializují. Je tak snadné přistupovat k frontě s orientací na objekt k předávání dat. 
-
-## <a name="store-messages-in-an-azure-table"></a>Ukládání zpráv v tabulce Azure
-Když teď máte spolupracující fronty, je čas přidat tabulku Azure pro trvalé uložení dat front.
-
-1. Přejděte na kartu **Integrace**.
-2. Vytvořte tabulku úložišť v Azure pro výstup a pojmenujte ji **myTable**.
-3. Na otázku „To which table should the data be written?“ (Do které tabulky se mají data zapsat?) odpovězte **functionsbindings**.
-4. Změňte nastavení **PartitionKey** z **{project-id}** na **{partition}**.
-5. Vyberte účet úložiště nebo vytvořte nový.
-6. Klikněte na **Uložit**.
-7. Přejděte na kartu **Vývoj**.
-8. Vytvořte třídu **TableItem**, která bude reprezentovat tabulku Azure, a upravte funkci Run tak, aby přijímala nově vytvořený objekt TableItem. Všimněte si, že je nutné použít vlastnosti **PartitionKey** a **RowKey**, aby to fungovalo.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Klikněte na **Uložit**.
-10. Zkontrolujte, jestli kód funguje, zobrazením protokolů funkce a v sadě Visual Studio. V sadě Visual Studio to zkontrolujete tak, že pomocí **Průzkumníku cloudu** přejdete na tabulku Azure **functionbindings** a zkontrolujete, jestli obsahuje řádky.
+    Třída **TableItem** reprezentuje řádek v tabulce úložiště a položky přidáváte do kolekce `myTable` objektů **TableItem**. Abyste mohli vkládat do tabulky, je třeba nastavit vlastnosti **PartitionKey** a **RowKey**.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Klikněte na **Uložit**.  Nakonec můžete ověřit fungování funkce zobrazením tabulky ve Storage Exploreru nebo v Průzkumníku cloudu sady Visual Studio.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Volitelné) Ve svém účtu úložiště ve Storage Exploreru rozbalte **Tabulky** > **functionsbindings** a ověřte, že se do tabulky přidávají řádky. To samé můžete udělat v Průzkumníku cloudu v sadě Visual Studio.
+
+    ![Zobrazení řádků v tabulce](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Pokud tabulka neexistuje nebo je prázdná, pravděpodobně je nějaký problém s vazbami nebo kódem vaší funkce. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Další kroky
+Další informace o službě Azure Functions najdete v těchto tématech.
+
+* [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
+  Referenční informace pro programátory týkající se kódování funkcí a definování triggerů a vazeb.
+* [Testování Azure Functions](functions-test-a-function.md)  
+  Toto téma popisuje různé nástroje a techniky pro testování funkcí.
+* [Postup škálování Azure Functions](functions-scale.md)  
+  Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

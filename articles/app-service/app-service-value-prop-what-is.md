@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ App Service nabízí několik *typů aplikací*, z nichž každá je určena k h
 * [**Webové aplikace**](../app-service-web/app-service-web-overview.md) – k hostování webů a webových aplikací
 * [**Mobilní aplikace**](../app-service-mobile/app-service-mobile-value-prop.md) – k hostování back-endu mobilních aplikací
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) – k hostování rozhraní RESTful API.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) – k automatizaci obchodních procesů a integraci systémů a dat napříč cloudy bez psaní kódu.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) – k automatizaci obchodních procesů a integraci systémů a dat napříč cloudy bez psaní kódu.
 
 Slovem *aplikace* se zde označují prostředky hostování vyhrazené pro spouštění určité úlohy nebo procesu. Pokud zde například zmiňujeme „webovou aplikaci“, pravděpodobně jste zvyklí chápat webovou aplikaci jako výpočetní prostředky i kód aplikace, které společně poskytují v prohlížeči příslušné funkce. V App Service ale *webová aplikace* představuje výpočetní prostředky, které Azure poskytuje k hostování kódu aplikace. 
 
@@ -82,18 +82,18 @@ Pokud potřebujete větší škálovatelnost a izolaci sítě, můžete aplikace
 Informace o cenách služby App Service najdete v tématu [App Service – ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Vyzkoušejte si App Service
-[Vytvořte si ukázkovou webovou aplikaci, mobilní aplikaci nebo aplikaci logiky](http://go.microsoft.com/fwlink/?LinkId=523751), hodinu si s ní hrajte, a to bez platební karty, bez závazků a bez starostí.
+[Vytvořte si ukázkovou webovou aplikaci, mobilní aplikaci nebo aplikaci logiky](https://azure.microsoft.com/try/app-service/), hodinu si s ní hrajte, a to bez platební karty, bez závazků a bez starostí.
 
 Nebo si můžete otevřít [bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/) a vyzkoušet některý z našich úvodních kurzů:
 
 * [Kurz: Vytvoření webové aplikace](../app-service-web/app-service-web-get-started.md)
 * [Kurz: Vytvoření mobilní aplikace](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Kurz: Vytvoření aplikace API](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Kurz: Vytvoření aplikace logiky](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Kurz: Vytvoření aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

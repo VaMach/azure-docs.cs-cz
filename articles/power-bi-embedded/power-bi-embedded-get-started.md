@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ Projděme si postup pro sestavení **kolekce pracovních prostorů** na webu Azu
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. V části **Data + analýzy** klikněte na **Power BI Embedded**.
-4. V **okně pro vytvoření** zadejte požadované informace. Pokud jde o **cenu**, nahlédněte do [cen za Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. V okně **Kolekce pracovních prostorů** zadejte požadované informace. Pokud jde o **cenu**, nahlédněte do [cen za Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klikněte na **Vytvořit**.
@@ -68,6 +68,10 @@ Zkopírujte tyto klíče a zabezpečeně je uložte do své aplikace. Je velmi d
 Ačkoli jsou uvedeny dva klíče, najednou je zapotřebí pouze jeden z nich. Druhý klíč je k dispozici proto, abyste mohli klíče pravidelně obnovovat, aniž by to ovlivnilo přístup ke službě.
 
 Nyní když máte instanci Power BI pro vaši aplikaci a **přístupové klíče**, můžete do vlastní aplikace naimportovat sestavu. Než si řekneme, jak sestavu importovat, dozvíte se v další části, jak vytvářet datové sady a sestavy Power BI určené pro vložení do aplikace.
+
+## <a name="working-with-workspaces"></a>Práce s pracovními prostory
+
+Po vytvoření vaší kolekce pracovních prostorů musíte vytvořit pracovní prostor, který bude obsahovat vaše sestavy a datové sady. Pokud chcete vytvořit pracovní prostor, budete muset použít rozhraní [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Vytváření datových sad a sestav Power BI určených pro vložení do aplikace
 Nyní když jste si pro svou aplikaci vytvořili instanci Power BI a máte **přístupové klíče**, musíte si vytvořit datové sady a sestavy Power BI, které do ní chcete vložit. Datové sady a sestavy lze vytvořit pomocí **Power BI Desktop**. [Power BI Desktop si můžete stáhnout zdarma](https://go.microsoft.com/fwlink/?LinkId=521662). Nebo pokud chcete rychle začít, můžete si stáhnout [ukázkový soubor PBIX prodejní analýzy](http://go.microsoft.com/fwlink/?LinkID=780547).
@@ -109,6 +113,6 @@ Chcete se ještě na něco zeptat? [Vyzkoušejte komunitu Power BI](http://commu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

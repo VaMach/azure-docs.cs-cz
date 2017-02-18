@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s Data Lake Storem pomocí multiplatformního rozhraní příkazového řádku | Dokumentace Microsoftu"
+title: "Použití příkazového řádku k zahájení práce s Azure Data Lake Store | Dokumentace Microsoftu"
 description: "Použití multiplatformního rozhraní příkazového řádku Azure k vytvoření účtu Data Lake Store a provádění základních operací"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -33,9 +33,14 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 >
 >
 
+> [!NOTE]
+> V případě odesílání a stahování velkého množství dat (velké soubory, velký počet souborů nebo obojí), doporučujeme používat [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) nebo [Azure PowerShell](data-lake-store-get-started-powershell.md). Tyto možnosti mají lepší výkon, protože používají více vláken, aby přesun dat probíhal paralelně.
+> 
+>  
+
 Naučte se používat rozhraní příkazového řádku Azure k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
-Rozhraní příkazového řádku Azure je implementované v Node.js. Dá se použít na jakékoli platformě, která podporuje Node.js, včetně systému Windows, Mac a Linux. Rozhraní příkazového řádku Azure je typu Open Source. Zdrojový kód je spravován na webu GitHub na adrese <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Tento článek se týká jenom používání rozhraní příkazového řádku Azure se službou Data Lake Store. Obecné informace týkající se používání rozhraní příkazového řádku Azure najdete v tématu [Používání rozhraní příkazového řádku Azure][nástroje-příkazového-řádku-azure].
+Rozhraní příkazového řádku Azure je implementované v Node.js. Dá se použít na jakékoli platformě, která podporuje Node.js, včetně systému Windows, Mac a Linux. Rozhraní příkazového řádku Azure je typu Open Source. Zdrojový kód je spravován na webu GitHub na adrese <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Tento článek se týká jenom používání rozhraní příkazového řádku Azure se službou Data Lake Store. Obecné informace o použití Azure CLI najdete v článku [Jak používat Azure CLI][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:
@@ -173,10 +178,10 @@ Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[nástroje-příkazového-řádku-azure]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

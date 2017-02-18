@@ -1,22 +1,22 @@
 ---
-title: "Vzdálená plocha brány a server Azure Multi-Factor Authentication využívající protokol RADIUS"
+title: "RDG a Azure MFA Server pomocí protokolu RADIUS| Dokumentace Microsoftu"
 description: "Toto je stránka ověřování Azure Multi-Factor Authentication, která vám pomůže při nasazení brány vzdálené plochy (RD) a serveru Azure Multi-Factor Authentication využívajícím protokol RADIUS."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
 
 
 ---
@@ -37,7 +37,7 @@ Brána VP používá server NPS k odeslání požadavku protokolu RADIUS do Azur
 4. Zkopírujte tuto zásadu a vytvořte novou. Do nové zásady přidejte podmínku, která odpovídá popisnému názvu klienta s popisným názvem nastavení v kroku 2 výše pro klienta RADIUS serveru Azure Multi-Factor Authentication. Změňte zprostředkovatele ověřování na místním počítači. Tato zásada zajistí, že při odeslání požadavku RADIUS ze serveru Azure Multi-Factor Authentication dojde k místnímu ověření místo odesílání požadavku protokolu RADIUS zpět do serveru Azure Multi-Factor Authentication, které by vytvořilo smyčku. Chcete-li zabránit vzniku smyčky, musí být tato nová zásada přikázána nad původní zásadou, které přeposílá požadavky do serveru Multi-Factor Authentication.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Konfigurace Azure Multi-Factor Authentication
-- - -
+
 Server Azure Multi-Factor Authentication je nakonfigurován jako proxy server protokolu RADIUS mezi Bránou VP a serverem NPS.  Musí být nainstalován na serveru připojeném k doméně, který je oddělený od serveru Brána VP. Pomocí následujícího postupu nakonfigurujte server Azure Multi-Factor Authentication.
 
 1. Otevřete server Azure Multi-Factor Authentication a klikněte na ikonu ověření služby RADIUS. Zaškrtněte políčko Povolit ověřování pomocí protokolu RADIUS.
@@ -47,9 +47,14 @@ Server Azure Multi-Factor Authentication je nakonfigurován jako proxy server pr
 
 ![Ověřování Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## <a name="next-steps"></a>Další kroky
+
+- Integrace Azure MFA a [webových aplikací IIS](multi-factor-authentication-get-started-server-iis.md)
+
+- Získání odpovědí v části [Nejčastější dotazy k Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

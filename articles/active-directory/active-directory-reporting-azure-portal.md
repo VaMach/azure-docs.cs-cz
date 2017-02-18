@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Generování sestav v Azure Active Directory – verze Preview
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-reporting-azure-portal.md)
-> * [Portál Azure Classic](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Tato dokumentace je součástí [Příručky generování sestav v Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -48,15 +44,15 @@ Na základě informací poskytnutých sestavou přihlašování uživatelů najd
 
 Vaším vstupním bodem pro tato data je graf přihlašování uživatelů v oddílu **Přehled** v části **Uživatelé a skupiny**.
 
- ![Vytváření sestav](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+ ![Vytváření sestav](./media/active-directory-reporting-azure-portal/05.png "Vytváření sestav")
 
 V grafu přihlašování uživatelů jsou znázorněny týdenní agregace přihlášení všech uživatelů za dané časové období. Výchozí časové období je 30 dnů.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/02.png "Vytváření sestav")
 
 Když v grafu přihlašování kliknete na konkrétní den, zobrazí se podrobný seznam aktivit přihlašování.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/03.png "Vytváření sestav")
 
 Každý řádek v seznamu aktivit přihlašování obsahuje podrobné informace o vybraném přihlášení. Příklad:
 
@@ -75,27 +71,27 @@ S použitím zobrazení dat přihlašování zaměřeného na aplikace můžete 
 
 Vaším vstupním bodem k těmto datům jsou 3 nejpoužívanější aplikace v organizaci v rámci sestavy za posledních 30 dnů v oddílu **Přehled** v části **Podnikové aplikace**.
 
- ![Vytváření sestav](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+ ![Vytváření sestav](./media/active-directory-reporting-azure-portal/06.png "Vytváření sestav")
 
 Graf využívání aplikací s týdenními agregacemi přihlašování pro 3 nejpoužívanější aplikace v daném časovém období. Výchozí časové období je 30 dnů.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/78.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/78.png "Vytváření sestav")
 
 Pokud chcete, můžete se zaměřit na konkrétní aplikaci.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Vytváření sestav")
 
 Když v grafu využívání aplikací kliknete na konkrétní den, zobrazí se podrobný seznam aktivit přihlašování.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Vytváření sestav")
 
 Možnost **Přihlášení** poskytuje úplný přehled o všech událostech přihlašování pro vaše aplikace.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/85.png "Vytváření sestav")
 
 Pomocí voliče sloupců můžete vybrat datová pole, která chcete zobrazit.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/column_chooser.png "Vytváření sestav")
 
 ### <a name="filtering-sign-ins"></a>Filtrování přihlášení
 Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
@@ -106,12 +102,12 @@ Přihlášení můžete filtrovat pomocí následujících polí a omezit tak mn
 * Název klienta
 * Stav přihlášení
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/293.png "Vytváření sestav")
 
 Jinou metodou filtrování záznamů aktivit přihlašování je vyhledání konkrétních položek.
 Metoda hledání umožňuje omezit obor přihlášení na konkrétní **uživatele**, **skupiny** nebo **aplikace**.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/84.png "Vytváření sestav")
 
 ## <a name="audit-logs"></a>Protokoly auditu
 Protokoly auditování v Azure Active Directory obsahují záznamy aktivit systému kvůli dodržování předpisů.
@@ -126,15 +122,15 @@ Na webu Azure Portal jsou k dispozici tři hlavní kategorie aktivit souvisejíc
 
 Vaším vstupním bodem k veškerým datům auditování je možnost **Protokoly auditu** v oddílu **Aktivita** v **Azure Active Directory**.
 
-![Auditování](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/61.png "Auditování")
 
 Protokolu auditu nabízí zobrazení seznamu s účastníky (kdo), aktivitami (co) a cíli.
 
-![Auditování](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/345.png "Auditování")
 
 Kliknutím na položku v zobrazení seznamu zobrazíte další podrobnosti.
 
-![Auditování](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/873.png "Auditování")
 
 ### <a name="users-and-groups-audit-logs"></a>Protokoly auditu uživatelů a skupin
 S použitím sestav auditu orientovaných na uživatele a skupiny můžete najít odpovědi na otázky tohoto typu:
@@ -150,7 +146,7 @@ S použitím sestav auditu orientovaných na uživatele a skupiny můžete nají
 
 Pokud chcete jen zkontrolovat data auditování týkající se uživatelů a skupin, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Uživatelé a skupiny**.
 
-![Auditování](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/93.png "Auditování")
 
 ### <a name="application-audit-logs"></a>Protokoly auditu aplikací
 S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi na otázky tohoto typu:
@@ -163,7 +159,7 @@ S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi 
 
 Pokud chcete jen zkontrolovat data auditování týkající se aplikací, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Podnikové aplikace**.
 
-![Auditování](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/134.png "Auditování")
 
 ### <a name="filtering-audit-logs"></a>Filtrování protokolů auditu
 Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
@@ -173,7 +169,7 @@ Přihlášení můžete filtrovat pomocí následujících polí a omezit tak mn
 * Typ aktivity
 * Aktivita
 
-![Auditování](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/356.png "Auditování")
 
 Obsah seznamu **Typ aktivity** závisí na tom, kudy do tohoto okna vstoupíte.  
 Pokud je vstupním bodem služba Azure Active Directory, bude tento seznam obsahovat všechny možné typy aktivit:
@@ -186,16 +182,16 @@ Pokud je vstupním bodem služba Azure Active Directory, bude tento seznam obsah
 * Zásada
 * Ostatní
 
-![Auditování](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/825.png "Auditování")
 
 Obor aktivit uvedených v seznamu je nastaven podle typu aktivity.
 Pokud jste například jako **Typ aktivity** vybrali **Skupina**, bude seznam **Aktivita** obsahovat pouze aktivit související se skupinami.   
 
-![Auditování](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/654.png "Auditování")
 
 Jinou metodou filtrování záznamů protokolu auditu je vyhledání konkrétních položek.
 
-![Auditování](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![Auditování](./media/active-directory-reporting-azure-portal/237.png "Auditování")
 
 ## <a name="next-steps"></a>Další kroky
 Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
@@ -203,6 +199,6 @@ Přečtěte si článek [Příručka generování sestav v Azure Active Director
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -39,7 +39,7 @@ Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 > [!NOTE]
-> Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://tryappservice.azure.com/?appServiceName=mobile).  Ve službě App Service si můžete ihned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/mobile/).  Ve službě App Service si můžete ihned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -88,6 +88,6 @@ Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použí
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
