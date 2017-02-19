@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Logic Apps – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se vyvíjet aplikace logiky, které automatizují a zjednodušují obchodní pracovní postupy v místě i v cloudu. Kurzy, šablony a reference k rozhraní API"
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Dokumentace ke službě Logic Apps
 
 Naučte se vyvíjet Logic Apps, které zjednodušují a integrují škálovatelné pracovní postupy v cloudu. Kurzy, šablony a reference k rozhraní API vám pomůžou navrhovat a nasazovat automatizované obchodní pracovní postupy v místě i v cloudu.
@@ -150,6 +162,6 @@ Naučte se vyvíjet Logic Apps, které zjednodušují a integrují škálovateln
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure API Management – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API. Dokumentace ukazuje, jak vytvořit moderní brány rozhraní API pro stávající služby back-end."
+services: api-management
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
-ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Dokumentace ke službě API Management
@@ -130,18 +141,12 @@ Naučte se využívat API Management k bezpečnému a škálovanému publikován
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě API Management </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

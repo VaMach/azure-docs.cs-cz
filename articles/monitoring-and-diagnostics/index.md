@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: "Dokumentace k monitorování a diagnostice Azure – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat služby monitorování a diagnostiky ke sledování výkonu, správě zabezpečení a rozpoznávání trendů. Reference k rozhraní API, osvědčené postupy a další zdroje informací"
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1db31bcf230b588954e9df00dd55a1b23c8d95cf
-ms.openlocfilehash: 89826ce2901b9b08ef9c9658abb8acd36e3d71fd
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>Dokumentace ke službě Monitoring and Diagnostics
 
 Naučte se používat služby monitorování a diagnostiky Azure ke sledování výkonu, správě zabezpečení a rozpoznávání trendů. Kurzy, reference k rozhraní API, osvědčené postupy a další dokumentace vám pomůžou pochopit, jakým způsobem využívat monitorování a diagnostiku a jak plánovat a nasazovat škálovatelná a spolehlivá řešení.
@@ -164,6 +174,6 @@ Naučte se používat služby monitorování a diagnostiky Azure ke sledování 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

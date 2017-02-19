@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace k síti Azure CDN – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Content Delivery Network (CDN) k doručování obsahu z globálních datových center do libovolného zařízení. Kurzy, reference k rozhraní API a další dokumentace"
+services: cdn
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
-ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
 
 ---
 # <a name="cdn-documentation"></a>Dokumentace ke službě CDN
@@ -110,16 +121,10 @@ Naučte se využívat službu Content Delivery Network (CDN) k doručování ši
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Azure CDN </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

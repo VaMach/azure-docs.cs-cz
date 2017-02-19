@@ -50,10 +50,10 @@
 
 # Zdroje a prostředky
 ## [Ukázky pro PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Ukázky pro Azure CLI 2.0 (Preview)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Ukázky Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Seznam podporovaných metrik](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

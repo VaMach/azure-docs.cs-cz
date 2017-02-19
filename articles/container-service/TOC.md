@@ -1,5 +1,6 @@
 # Přehled
 ## [Co je Azure Container Service?](container-service-intro.md)
+## [Nejčastější dotazy](container-service-faq.md)
 # Začínáme
 ## [Nasazení clusteru ACS](container-service-deployment.md)
 ## [Nasazení do ACS pomocí Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md)
@@ -43,6 +44,6 @@
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

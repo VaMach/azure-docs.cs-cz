@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure Analysis Services – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se nastavit modelování dat pomocí Analysis Services v cloudu. Dokumentace ukazuje, jak vytvořit podnikové řešení BI pomocí tabelárních dat."
+services: analysis-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Dokumentace ke službě Analysis Services
 
-Služba Azure Analysis Services, která je založená na osvědčeném analytickém modulu Microsoft SQL Server Analysis Services, zajišťuje modelování dat na podnikové úrovni v cloudu.
+Naučte se nastavit a spravovat modelování dat pomocí Analysis Services. Kurzy a další dokumentace ukazují, jak vytvořit podnikové řešení BI pomocí tabelárních dat v cloudu i v místě.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +88,7 @@ Služba Azure Analysis Services, která je založená na osvědčeném analytick
                 <div class="card">
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -96,18 +108,10 @@ Služba Azure Analysis Services, která je založená na osvědčeném analytick
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Analysis Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

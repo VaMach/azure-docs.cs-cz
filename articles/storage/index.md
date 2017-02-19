@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Storage – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat Azure Storage – úložiště pro objekty blob, tabulky, fronty, soubory a disky virtuálních počítačů v cloudu. Kurzy, reference k rozhraní API a další dokumentace"
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -133,6 +144,7 @@ Zjistěte, jak používat Azure Storage, službu cloudového úložiště, kter�
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Objekty blob, tabulky, fronty a soubory</a></p>
                         <p><a href="/rest/api/storagerp">Poskytovatel prostředků</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Rozhraní REST API služby Storage Data</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +156,6 @@ Zjistěte, jak používat Azure Storage, službu cloudového úložiště, kter�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

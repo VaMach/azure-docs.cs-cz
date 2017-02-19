@@ -90,7 +90,7 @@
 ### [Integrace se službou Azure Search](../search/search-howto-index-documentdb.md)
 ### [Přesun dat pomocí služby Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analýza dat v reálném čase pomocí Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Získávání oznámení pomocí funkce Logic Apps](documentdb-change-notification.md)
+### [Získání změněného záznamu HL7 FHIR pomocí Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Zpracování dat ze snímačů v reálném čase](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Vizualizace dat pomocí Power BI](documentdb-powerbi-visualize.md)
 ### [Využití ovladače ODBC pro vizualizaci dat](documentdb-nosql-odbc-driver.md)

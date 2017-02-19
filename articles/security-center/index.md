@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Security Center – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se, jak nastavit monitorování zabezpečení a správu zásad pro prostředky Azure. Kurzy, reference k rozhraní REST API a další dokumentace"
+services: security-center
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security-center
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
+ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
+ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
 
 ---
 # <a name="security-center-documentation"></a>Dokumentace ke službě Security Center
@@ -83,12 +94,12 @@ Naučte se využívat službu Security Center k získání přehledu o zabezpeč
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

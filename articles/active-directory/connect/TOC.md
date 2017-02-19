@@ -11,7 +11,7 @@
 
 # Začínáme
 ## [Požadavky](active-directory-aadconnect-prerequisites.md)
-## [Instalace služby Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Instalace služby Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Expresní nastavení](active-directory-aadconnect-get-started-express.md)
 ### [Vlastní nastavení](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade z nástroje DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Správa synchronizace Azure AD Connect
-### [Podrobný postup pro obecný konektor SQL](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Prevence náhodného odstranění](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Účet služby Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Referenční informace
-## [Konektor Windows PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-## [Obecný konektor SQL](active-directory-aadconnectsync-connector-genericsql.md)
-## [Obecný konektor LDAP](active-directory-aadconnectsync-connector-genericldap.md)
-## [Konektor Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 ## [Synchronizace identit a odolnost duplicitních atributů](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porty a protokoly, které vyžaduje hybridní identita](active-directory-aadconnect-ports.md)
 ## [Funkce ve verzi Preview](active-directory-aadconnect-feature-preview.md)
 ## [Historie verzí](active-directory-aadconnect-version-history.md)
+## [Účty a oprávnění](active-directory-aadconnect-accounts-permissions.md)
 
 ## Synchronizace služby Azure AD Connect
 ### [Atributy synchronizované se službou Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Zastarání DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

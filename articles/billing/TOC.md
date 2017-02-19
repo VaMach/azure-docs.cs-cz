@@ -1,9 +1,10 @@
-# [Začínáme](billing-getting-started.md)
+# Začínáme
+## [Jak zabránit neočekávaným nákladům](billing-getting-started.md)
 ## [Registrace s použitím účtu Office 365](billing-use-existing-office-365-account-azure-subscription.md)
-## [Omezení a kvóty](../azure-subscription-service-limits.md)
+## [Omezení a kvóty](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Postup
 ## Sledování využití a nákladů
-### [Stažení faktury a dat o využití](billing-download-azure-invoice-daily-usage-date.md)
+### [Získání faktury a dat o využití](billing-download-azure-invoice-daily-usage-date.md)
 ### [Vysvětlení informací na faktuře](billing-understand-your-bill.md)
 ### [Principy poplatků za externí služby](billing-understand-your-azure-marketplace-charges.md)
 ### [Nastavení upozornění fakturace](billing-set-up-alerts.md)
@@ -32,6 +33,7 @@
 
 # Zdroje
 ## [Kontaktování podpory](../azure-supportability/how-to-create-azure-support-request.md)
+
 
 <!--HONumber=Feb17_HO2-->
 

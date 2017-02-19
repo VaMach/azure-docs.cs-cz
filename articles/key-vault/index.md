@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Key Vault – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Key Vault k vytváření a správě klíčů, kterí zajišťují přístup k vašim cloudovým prostředků, aplikacím a řešením a jejich šifrování. Kurzy, reference k rozhraní API a další zdroje informací"
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
+ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
 
 ---
+
 # <a name="key-vault-documentation"></a>Dokumentace ke službě Key Vault
 
 Naučte se využívat službu Azure Key Vault k ochraně kryptografických a tajných klíčů používaných cloudovými aplikacemi a službami. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy vytváření a správy klíčů, které umožňují přístup k vašim prostředkům a řešením a jejich šifrování.
@@ -154,6 +166,6 @@ Naučte se využívat službu Azure Key Vault k ochraně kryptografických a taj
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

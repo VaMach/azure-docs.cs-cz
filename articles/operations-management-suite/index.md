@@ -1,23 +1,20 @@
 ---
-title: "Přehled Operations Management Suite (OMS) | Dokumentace Microsoftu"
-description: "Microsoft Operations Management Suite (OMS) je cloudové řešení společnosti Microsoft pro správu IT, které pomáhá se správou a ochranou místních a cloudových infrastruktur.  Tento článek identifikuje různé služby zahrnuté v OMS a poskytuje odkazy na podrobné informace."
+title: "Dokumentace k sadě Azure Operations Management Suite (OMS) – kurzy | Dokumentace Microsoftu"
+description: "Microsoft Operations Management Suite (OMS) je cloudové řešení společnosti Microsoft pro správu IT, které pomáhá se správou a ochranou místních a cloudových infrastruktur. Tento článek identifikuje různé služby zahrnuté v OMS a poskytuje odkazy na podrobné informace."
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co je Operations Management Suite (OMS)?
@@ -32,7 +29,7 @@ Následující oddíly poskytují obecný popis oblastí OMS s různou hodnotou 
 
 Do Log Analytics můžete jednoduše přidávat řešení, která definují, jaká data se mají shromažďovat a logiku pro jejich analýzu.  Řešení mohou obsahovat další funkce, které se automaticky doručí do agentů s potřebou minimální nebo dokonce žádné konfigurace.  Kromě používání analytických nástrojů, které poskytují jednotlivá řešení, můžete provádět vlastní vyhledávání napříč celou datovou sadou pro korelaci dat mezi systémy a aplikacemi.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automatizace a řízení](media/operations-management-suite-overview/icon-automation-control.png) Automatizace a řízení
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Automatizace a řízení](media/operations-management-suite-overview/icon-automation-control.png) Automatizace a řízení
 Azure Automation umožňuje automatizovat procesy správy pomocí [runbooků](../automation/automation-runbook-types.md) založených na prostředí PowerShell, které běží v cloudu Azure.  Runbooky mohou přistupovat ke všem produktům a službám, které lze spravovat pomocí prostředí PowerShell, včetně prostředků v dalších cloudech, jako je například Amazon Web Services (AWS).  Runbooky se mohou provádět také na serveru ve vašem místním datovém centru a mohou spravovat místní prostředky.
 
 Azure Automation poskytuje správu konfigurace pomocí [PowerShell DSC](../automation/automation-dsc-overview.md).  Můžete vytvářet a spravovat prostředky DSC hostované v Azure a použít je na cloudové a místní systémy, aby definovaly a automaticky vynutily jejich konfiguraci.
@@ -58,6 +55,6 @@ Zabezpečení a dodržování předpisů pomáhá identifikovat, vyhodnotit a zm
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

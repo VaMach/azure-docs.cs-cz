@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Diskové úložiště 
+### [Vytvoření virtuálního počítače pomocí Resource Manageru a PowerShellu](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Připojení spravovaného disku k virtuálnímu počítači s Windows pomocí PowerShellu](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Přidání spravovaného disku k virtuálnímu počítači s Linuxem](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků ve Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků v Linuxu](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Postup
 ## [Vytvoření účtu úložiště](storage-create-storage-account.md)
 ## Úložiště objektů blob
@@ -62,13 +70,21 @@
 ### [Přehled](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Řešení problémů se Soubory Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Použití disků virtuálních počítačů
+## Použití disků
+### [Disky a virtuální pevné disky (VHD) pro virtuální počítače s Windows](storage-about-disks-and-vhds-windows.md)
+### [Disky a virtuální pevné disky (VHD) pro virtuální počítače s Linuxem](storage-about-disks-and-vhds-linux.md)
+### [Přehled služby Azure Managed Disks](storage-managed-disks-overview.md)
+### [Migrace virtuálních počítačů Azure na Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrace z AWS a dalších platforem na Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Nejčastější dotazy k diskům virtuálních počítačů Azure IaaS](storage-faq-for-disks.md)
 ### Storage úrovně Premium
-#### [Vysoce výkonné úložiště pro úlohy virtuálních počítačů](storage-premium-storage.md)
-#### [Migrace na službu Storage úrovně Premium](storage-migration-to-premium-storage.md)
+#### [Vysoce výkonná služba Storage úrovně Premium pro disky virtuálních počítačů](storage-premium-storage.md)
 #### [Návrh pro vysoký výkon](storage-premium-storage-performance.md)
 ### Storage úrovně Standard
-#### [Zálohování disků virtuálních počítačů s přírůstkovými snímky](storage-incremental-snapshots.md)
+#### [Nákladově efektivní služba Storage úrovně Standard a spravované a nespravované disky virtuálních počítačů](storage-standard-storage.md)
+### Použití nespravovaných disků
+#### [Migrace na službu Storage úrovně Premium](storage-migration-to-premium-storage.md)
+#### [Zálohování nespravovaných disků virtuálních počítačů pomocí přírůstkových snímků](storage-incremental-snapshots.md)
 ## Plánování a návrh
 ### [Replikace](storage-redundancy.md)
 ### [Škálovatelnost a cíle výkonnosti](storage-scalability-targets.md)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

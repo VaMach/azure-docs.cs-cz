@@ -44,6 +44,7 @@
 ### [Integrační moduly](automation-integration-modules.md)
 ### [Plány](automation-schedules.md)
 ### [Proměnné](automation-variables.md)
+### [Aktualizace modulů Azure PowerShellu](automation-update-azure-modules.md)
 ## Automatizace scénářů
 ### [Galerie runbooků](automation-runbook-gallery.md)
 ### [Spuštění/zastavení virtuálních počítačů](automation-solution-startstopvm-graphical.md)
@@ -81,6 +82,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

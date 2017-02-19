@@ -4,128 +4,132 @@
 ## [Přehled správy zařízení](iot-hub-device-management-overview.md)
 
 # Začínáme
-## Začínáme se simulovaným zařízením
-### [Začínáme se službou IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
-### [Začínáme se službou IoT Hub (Java)](iot-hub-java-java-getstarted.md)
-### [Začínáme se službou IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Použití simulovaného zařízení
+### [.NET](iot-hub-csharp-csharp-getstarted.md)
+### [Java](iot-hub-java-java-getstarted.md)
+### [Node](iot-hub-node-node-getstarted.md)
 
-## Začínáme s Raspberry Pi (Node)
-### [Začínáme s Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
-### Lekce 1: Konfigurace zařízení
-#### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-#### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-#### [Získání nástrojů (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-#### [Vytvoření a nasazení aplikace blink](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-### Lekce 2: Vytvoření služby IoT Hub
-#### [Získání nástrojů Azure (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-#### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### Lekce 4: Odesílání zpráv z cloudu do zařízení
-#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-#### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-### [Řešení problémů](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+## Použití karty Raspberry Pi
+### Node.js
+#### [Start](iot-hub-raspberry-pi-kit-node-get-started.md)
+#### Lekce 1: Konfigurace zařízení
+##### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
+##### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+##### [Vytvoření a nasazení aplikace blink](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů Azure (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+#### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+##### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
+#### Lekce 4: Odesílání zpráv z cloudu do zařízení
+##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
+##### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+#### [Řešení problémů](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-## Začínáme s Raspberry Pi (C)
-### [Začínáme s Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-get-started.md)
-### Lekce 1: Konfigurace zařízení
-#### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
-#### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
-#### [Získání nástrojů (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
-#### [Vytvoření a nasazení aplikace blink](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-### Lekce 2: Vytvoření služby IoT Hub
-#### [Získání nástrojů Azure (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
-#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
-### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
-#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-#### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
-### Lekce 4: Odesílání zpráv z cloudu do zařízení
-#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-#### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
-### [Řešení problémů](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+### C
+#### [Start](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### Lekce 1: Konfigurace zařízení
+##### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+##### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+##### [Vytvoření a nasazení aplikace blink](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů Azure (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+#### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+##### [Vytvoření Azure Function App a účtu úložiště](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+##### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+#### Lekce 4: Odesílání zpráv z cloudu do zařízení
+##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+##### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+#### [Řešení problémů](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
-## Začínáme s Intel Edison (Node)
-### [Začínáme s Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
-### Lekce 1: Konfigurace zařízení
-#### [Konfigurace zařízení](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
-#### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
-#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
-#### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
-#### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
-### Lekce 2: Vytvoření služby IoT Hub
-#### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
-#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
-#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
-#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
-### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
-#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
-#### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
-### Lekce 4: Odesílání zpráv z cloudu do zařízení
-#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
-#### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
-### [Řešení problémů](iot-hub-intel-edison-kit-node-troubleshooting.md)
+## Použití karty Intel Edison
+### Node.js
+#### [Start](iot-hub-intel-edison-kit-node-get-started.md)
+#### Lekce 1: Konfigurace zařízení
+##### [Konfigurace zařízení](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+##### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+##### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+#### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+##### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+#### Lekce 4: Odesílání zpráv z cloudu do zařízení
+##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+##### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+#### [Řešení problémů](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-## Začínáme s Intel Edison (C)
-### [Začínáme s Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
-### Lekce 1: Konfigurace zařízení
-#### [Konfigurace zařízení](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
-#### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
-#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
-#### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
-#### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
-### Lekce 2: Vytvoření služby IoT Hub
-#### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
-#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
-#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
-#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
-### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
-#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
-#### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
-### Lekce 4: Odesílání zpráv z cloudu do zařízení
-#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
-#### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
-### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
+### C
+#### [Start](iot-hub-intel-edison-kit-c-get-started.md)
+#### Lekce 1: Konfigurace zařízení
+##### [Konfigurace zařízení](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+##### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+##### [Vytvoření a nasazení aplikace blink](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů Azure (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+#### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+##### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+##### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+#### Lekce 4: Odesílání zpráv z cloudu do zařízení
+##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+##### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+#### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
-## Začínáme s Arduinem (uzel)
-### [Začínáme s kartou Arduino: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-### Lekce 1: Konfigurace zařízení
-#### [Konfigurace zařízení](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
-#### [Získání nástrojů (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
-#### [Získání nástrojů (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
-#### [Získání nástrojů (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
-#### [Vytvoření a nasazení aplikace blink](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
-### Lekce 2: Vytvoření služby IoT Hub
-#### [Získání nástrojů Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
-#### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
-#### [Získání nástrojů Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-#### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
-### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-#### [Vytvoření Azure Function App a účtu úložiště](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
-#### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
-#### [Čtení zpráv uchovávaných v úložišti](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
-### Lekce 4: Odesílání zpráv z cloudu do zařízení
-#### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
-#### [Volitelné: Změna chování indikátor LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
-### [Řešení problémů](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+## Použití karty Arduino
+### Node.js
+#### [Start](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### Lekce 1: Konfigurace zařízení
+##### [Konfigurace zařízení](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+##### [Získání nástrojů (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+##### [Získání nástrojů (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+##### [Vytvoření a nasazení aplikace blink](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+#### Lekce 2: Vytvoření služby IoT Hub
+##### [Získání nástrojů Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+#### Lekce 3: Odesílání zpráv ze zařízení do cloudu
+##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+##### [Čtení zpráv uchovávaných v úložišti](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+#### Lekce 4: Odesílání zpráv z cloudu do zařízení
+##### [Spuštění ukázkové aplikace pro příjem zpráv]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Volitelné: Změna chování indikátor LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+#### [Řešení problémů](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
-## [Začínáme se sadou Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
-## [Začínáme se sadou Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+## Použití sady Gateway SDK
+### [Simulace v Linuxu](iot-hub-linux-gateway-sdk-get-started.md)
+### [Simulace ve Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
-## Začínáme s úvodní sadou IoT Gateway
+## Použití sady IoT Gateway Starter Kit
 ### Simulované zařízení
 
-#### [Začínáme se simulovaným zařízením](iot-hub-gateway-kit-c-sim-get-started.md)
+#### [Start](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Lekce 1: Konfigurace NUC
 ##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -146,7 +150,7 @@
 #### [Řešení potíží](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### Zařízení SensorTag
-#### [Začínáme se zařízením SensorTag](iot-hub-gateway-kit-c-get-started.md)
+#### [Start](iot-hub-gateway-kit-c-get-started.md)
 #### Lekce 1: Konfigurace NUC
 ##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -165,73 +169,85 @@
 ##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
 
 ##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
-## Začínáme se sadou SDK pro zařízení Azure IoT
-### [Úvod do sady SDK pro zařízení Azure IoT pro jazyk C](iot-hub-device-sdk-c-intro.md)
-### [Sada SDK zařízení IoT pro jazyk C: další informace pro IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Sada SDK zařízení IoT pro jazyk C: další informace pro serializátor](iot-hub-device-sdk-c-serializer.md)
+
+## Použití sady SDK pro zařízení IoT pro C
+### [Úvod](iot-hub-device-sdk-c-intro.md)
+### [Použití IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [Použití serializátoru](iot-hub-device-sdk-c-serializer.md)
+
 # Postup
-## [Kurz zpracování zpráv ze zařízení na cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-## [Kurz zpracování zpráv ze zařízení na cloud (Java)](iot-hub-java-java-process-d2c.md)
-## [Kurz nahrávání souborů ze zařízení](iot-hub-csharp-csharp-file-upload.md)
-## [Posílání zpráv z cloudu na zařízení (.NET)](iot-hub-csharp-csharp-c2d.md)
-## [Posílání zpráv z cloudu na zařízení (Java)](iot-hub-java-java-c2d.md)
-## [Posílání zpráv z cloudu na zařízení (Node)](iot-hub-node-node-c2d.md)
-## [Začínáme s dvojčaty zařízení (Node)](iot-hub-node-node-twin-getstarted.md)
-## [Začínáme s dvojčaty zařízení (.NET/Node)](iot-hub-csharp-node-twin-getstarted.md)
-## [Použití přímých metod pro Node.js](iot-hub-node-node-direct-methods.md)
-## [Použití přímých metod pro .NET/Node](iot-hub-csharp-node-direct-methods.md)
-## [Začínáme se správou zařízení pro Node.js](iot-hub-node-node-device-management-get-started.md)
-## [Začínáme se správou zařízení pro .NET/Node](iot-hub-csharp-node-device-management-get-started.md)
-## [Jak používat vlastnosti dvojčat (Node)](iot-hub-node-node-twin-how-to-configure.md)
-## [Jak používat vlastnosti dvojčat (.NET/Node)](iot-hub-csharp-node-twin-how-to-configure.md)
-## [Použití úloh zařízení k aktualizaci firmwaru zařízení pro Node.js](iot-hub-node-node-firmware-update.md)
-## [Použití úloh zařízení k aktualizaci firmwaru zařízení pro .NET/Node](iot-hub-csharp-node-firmware-update.md)
-## [Úlohy vysílání a plánování pro Node.js](iot-hub-node-node-schedule-jobs.md)
-## [Úlohy vysílání a plánování pro .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
 ## Plánování
 ### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
 ## Vývoj
-### [Úvod](iot-hub-devguide.md)
-### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
-### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
-### [Průvodce funkcemi z cloudu do zařízení](iot-hub-devguide-c2d-guidance.md)
-### [Odeslání souborů ze zařízení](iot-hub-devguide-file-upload.md)
-### [Správa identit zařízení](iot-hub-devguide-identity-registry.md)
-### [Řízení přístupu k IoT Hubu](iot-hub-devguide-security.md)
-### [Principy dvojčat zařízení](iot-hub-devguide-device-twins.md)
-### [Vyvolání přímých metod v zařízení](iot-hub-devguide-direct-methods.md)
-### [Plánování úloh na několika zařízeních](iot-hub-devguide-jobs.md)
-### [Koncové body IoT Hubu](iot-hub-devguide-endpoints.md)
-### [Dotazovací jazyk](iot-hub-devguide-query-language.md)
-### [Kvóty a omezování](iot-hub-devguide-quotas-throttling.md)
-### [Příklady cen](iot-hub-devguide-pricing.md)
-### [Sady SDK pro zařízení a služby](iot-hub-devguide-sdks.md)
-### [Podpora MQTT](iot-hub-mqtt-support.md)
-### [Glosář](iot-hub-devguide-glossary.md)
-## Správa
-### [Vytvoření IoT Hubu pomocí portálu](iot-hub-create-through-portal.md)
-### [Vytvoření IoT Hubu pomocí rozhraní CLI 2.0 (Preview)](iot-hub-create-using-cli.md)
-### [Vytvoření IoT Hubu pomocí rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
-### [Vytvoření IoT Hubu pomocí rozhraní REST](iot-hub-rm-rest.md)
-### [Vytvoření IoT Hubu pomocí Powershellu](iot-hub-rm-template-powershell.md)
-### [Vytvoření IoT Hubu pomocí šablony](iot-hub-rm-template.md)
+### [Příručka pro vývojáře](iot-hub-devguide.md)
+#### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
+#### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
+#### [Průvodce funkcemi z cloudu do zařízení](iot-hub-devguide-c2d-guidance.md)
+#### [Odeslání souborů ze zařízení](iot-hub-devguide-file-upload.md)
+#### [Správa identit zařízení](iot-hub-devguide-identity-registry.md)
+#### [Řízení přístupu k IoT Hubu](iot-hub-devguide-security.md)
+#### [Principy dvojčat zařízení](iot-hub-devguide-device-twins.md)
+#### [Vyvolání přímých metod v zařízení](iot-hub-devguide-direct-methods.md)
+#### [Plánování úloh na několika zařízeních](iot-hub-devguide-jobs.md)
+#### [Koncové body IoT Hubu](iot-hub-devguide-endpoints.md)
+#### [Dotazovací jazyk](iot-hub-devguide-query-language.md)
+#### [Kvóty a omezování](iot-hub-devguide-quotas-throttling.md)
+#### [Příklady cen](iot-hub-devguide-pricing.md)
+#### [Sady SDK pro zařízení a služby](iot-hub-devguide-sdks.md)
+#### [Podpora MQTT](iot-hub-mqtt-support.md)
+#### [Glosář](iot-hub-devguide-glossary.md)
+### Zpracování zpráv ze zařízení do cloudu
+#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
+#### [Java](iot-hub-java-java-process-d2c.md)
+### Odesílání zpráv z cloudu do zařízení
+#### [.NET](iot-hub-csharp-csharp-c2d.md)
+#### [Java](iot-hub-java-java-c2d.md)
+#### [Node.js](iot-hub-node-node-c2d.md)
+### [Nahrání souborů ze zařízení](iot-hub-csharp-csharp-file-upload.md)
+### Začínáme s dvojčaty zařízení
+#### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-getstarted.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
+### Použití přímých metod
+#### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
+### Začínáme se správou zařízení
+#### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)
+### Jak používat vlastnosti dvojčat
+#### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-how-to-configure.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
+### Použití úloh zařízení k aktualizaci firmwaru zařízení
+#### [Back-end Node / zařízení Node](iot-hub-node-node-firmware-update.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-firmware-update.md)
+### Úlohy vysílání a plánování
+#### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-schedule-jobs.md)
+#### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-schedule-jobs.md)
+## Spravovat
+### Vytvoření centra IoT 
+#### [Použití portálu](iot-hub-create-through-portal.md)
+#### [Použití CLI 2.0 Preview](iot-hub-create-using-cli.md)
+#### [Použití rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
+#### [Použití rozhraní REST API](iot-hub-rm-rest.md)
+#### [Použití PowerShellu](iot-hub-rm-template-powershell.md)
+#### [Použití šablony z rozhraní .NET](iot-hub-rm-template.md)
 ### [Konfigurace odesílání souborů](iot-hub-configure-file-upload.md)
 ### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metriky využití](iot-hub-metrics.md)
 ### [Monitorování operací](iot-hub-operations-monitoring.md)
 ### [Konfigurace filtrování IP](iot-hub-ip-filtering.md)
-## Gateway SDK
-### [Kurz simulace zařízení pomocí sady Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Kurz simulace zařízení pomocí sady Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Kurz odeslání zprávy z reálného zařízení pomocí sady Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
 ## Zabezpečení
 ### [Zabezpečení od počátku](iot-hub-security-ground-up.md)
 ### [Osvědčené postupy zabezpečení](iot-hub-security-best-practices.md)
 ### [Architektura zabezpečení](iot-hub-security-architecture.md)
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
+## Gateway SDK
+### Simulace zařízení
+#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
+#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Použití skutečného zařízení](iot-hub-gateway-sdk-physical-device.md)
 
 # Referenční informace
 ## [Azure CLI 2.0 (Preview)](/cli/azure/iot)
@@ -264,6 +280,6 @@
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

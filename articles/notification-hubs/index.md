@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Notification Hubs – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se, jak pomocí Notification Hubs odesílat nabízená oznámení z jakéhokoli back-endu na jakékoli mobilní zařízení. Kurzy, reference k rozhraní API a další dokumentace"
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Dokumentace ke službě Notification Hubs
 
 Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro více platforem k zasílání nabízených oznámení, k rychlému rozesílání milionů zpráv. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavení a odesílání nabízených oznámení z jakéhokoli back-endu na jakékoli mobilní zařízení. 
@@ -205,6 +217,6 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
