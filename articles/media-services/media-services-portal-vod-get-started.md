@@ -1,5 +1,5 @@
 ---
-title: " Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal | Dokumentace Microsoftus"
+title: "Začínáme s doručováním videa na vyžádání (VoD) pomocí webu Azure Portal | Dokumentace Microsoftu"
 description: "V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 6b5ba034325ef1cbb7b085890c63302d06d0d927
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
 
 
 ---
@@ -168,6 +168,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

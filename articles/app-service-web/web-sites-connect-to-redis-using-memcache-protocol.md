@@ -1,5 +1,5 @@
 ---
-title: "Připojení webové aplikace ve službě Azure App Service k Redis Cache prostřednictvím protokolu Memcache | Dokumentace Microsoftu"
+title: "Připojení webové aplikace služby App Service k Redis prostřednictvím protokolu Memcache – Azure | Dokumentace Microsoftu"
 description: "Připojení webové aplikace ve službě Azure App Service k Redis Cache pomocí protokolu Memcache"
 services: app-service\web
 documentationcenter: php
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: 4d867f80cfbe5360962550fbda0091f88784b4af
 
 
 ---
@@ -180,7 +180,7 @@ Volání k vypsání klíčů by mělo vrátit hodnotu. Pokud ne, zkuste přejí
 Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v paměti, která pomáhá zvýšit propustnost. Nezapomeňte, že Web Apps Memcache Shim lze použít s libovolným klientem Memcache bez ohledu na programovací jazyk či rozhraní aplikace. Chcete-li poskytnout zpětnou vazbu nebo položit dotazy týkající se shimu Web Apps Memcache, zveřejněte příspěvek na [fórech na webu MSDN][10] nebo [StackOverflow][11].
 
 > [!NOTE]
-> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -204,6 +204,6 @@ Blahopřejeme! Aplikace WordPress má nyní centralizovanou mezipaměť v pamět
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

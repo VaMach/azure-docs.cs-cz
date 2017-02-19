@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 0175f2877a59db214a38bfe27eca74748518a498
+ms.sourcegitcommit: 757e91c3c702a62fb143f45a3144069400c5a757
+ms.openlocfilehash: e2c2611d6f1094d2c1ba2bdb2398b0b17723af8a
 
 
 ---
@@ -25,10 +25,11 @@ ms.openlocfilehash: 0175f2877a59db214a38bfe27eca74748518a498
 ## <a name="what-is-azure-data-factory"></a>Co je služba Azure Data Factory?
 Data Factory je cloudová služba pro integraci dat, která orchestruje a automatizuje **přesun** a **transformaci** dat. Pomocí služby Data Factory můžete vytvářet řešení pro integraci dat, která mohou ingestovat data z různých úložišť dat, transformovat a zpracovávat je, a výsledná data publikovat do úložišť dat.
 
-Služba Data Factory umožňuje vytvářet datové kanály, které přesouvají a transformují data, a následně tyto kanály spouštět podle zadaného plánu (každou hodinu, denně, týdně atd.). Poskytuje také bohaté vizualizace pro zobrazení rodokmenu a závislostí mezi vašimi datovými kanály a monitorování všech datových kanálů z jednoho jednotného zobrazení pro jednodušší identifikaci problémů a nastavení výstrah monitorování.
+Služba Data Factory umožňuje vytvářet datové kanály, které přesouvají a transformují data, a následně tyto kanály spouštět podle zadaného plánu (každou hodinu, denně, týdně atd.). Poskytuje také bohaté vizualizace pro zobrazení rodokmenu a závislostí mezi vašimi datovými kanály a monitorování kanálů z jednoho jednotného zobrazení pro jednodušší identifikaci problémů a nastavení výstrah monitorování.
 
-![Diagram: Přehled služby pro integraci dat Data Factory](./media/data-factory-introduction/what-is-azure-data-factory.png)
-**Obrázek 1** Ingestujte data z mnoha různých místních zdrojů dat, připravte, transformujte a analyzujte je, a poté publikujte data připravená k použití.
+![Diagram: Přehled služby Data Factory, služby pro integraci dat](./media/data-factory-introduction/what-is-azure-data-factory.png)
+
+**Obrázek&1;.** Ingestujte data z mnoha různých místních zdrojů dat, připravte, transformujte a analyzujte je, a poté publikujte data připravená k použití.
 
 ## <a name="pipelines-and-activities"></a>Kanály a aktivity
 V řešení Data Factory vytváříte jeden nebo více datových **kanálů**. Kanál je logické seskupení aktivit. Používají se k seskupování aktivit, které společně provádějí úlohy, do jednotek.
@@ -50,8 +51,8 @@ Pokud potřebujete přesunout data do nebo z úložiště dat, které aktivita k
 ## <a name="linked-services"></a>Propojené služby
 Propojené služby definují informace potřebné pro připojení služby Data Factory k externím prostředkům (například Azure Storage, místní SQL Server, Azure HDInsight). Propojené služby slouží ve službě Data Factory ke dvěma účelům:
 
-* Představují **úložiště dat**, k nimž mimo jiné patří například místní SQL Server, databáze Oracle, sdílená složka nebo účet Azure Blob Storage. Seznam podporovaných úložišť dat najdete v oddílu [Aktivity přesunu dat](data-factory-data-movement-activities.md).
-* Představují **výpočetní prostředek**, který může hostovat provádění aktivity. Například aktivita HDInsightHive se spouští na clusteru HDInsight Hadoop. Seznam podporovaných výpočetních prostředí najdete v oddílu [Aktivity transformace dat](data-factory-data-transformation-activities.md).
+* Představují **úložiště dat**, k nimž mimo jiné patří například místní SQL Server, databáze Oracle, sdílená složka nebo účet Azure Blob Storage. Seznam podporovaných úložišť dat najdete v oddílu [Aktivity přesunu dat](#data-movement-activities).
+* Představují **výpočetní prostředek**, který může hostovat provádění aktivity. Například aktivita HDInsightHive se spouští na clusteru HDInsight Hadoop. Seznam podporovaných výpočetních prostředí najdete v oddílu [Aktivity transformace dat](#data-transformation-activities).
 
 ## <a name="datasets"></a>Datové sady
 Propojené služby propojují úložiště dat s objektem pro vytváření dat Azure. Datové sady představují datové struktury v úložištích dat. Například propojená služba Azure Storage poskytuje službě Data Factory informace o připojení, aby se mohla připojit k účtu služby Azure Storage. Datová sada služby Azure Blob určuje kontejner objektů blob a složku ve službě Azure Blob Storage, ze kterých by měl kanál číst data. Podobně propojená služba Azure SQL poskytuje informace o připojení pro databázi Azure SQL a datová sada Azure SQL určuje tabulku, která obsahuje data.   
@@ -69,23 +70,23 @@ V současné době můžete vytvářet datové továrny v oblastech **Západní 
 
 Samotná služba Azure Data Factory žádná data neuchovává. Umožňuje vám vytvořit toky řízené daty k orchestraci přesouvání dat mezi [podporovanými úložišti dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats) a zpracování dat pomocí [výpočetních služeb](data-factory-compute-linked-services.md) v jiných oblastech nebo v místním prostředí. Také vám umožňuje [monitorovat a spravovat pracovní postupy](data-factory-monitor-manage-pipelines.md) pomocí uživatelského prostředí nebo prostřednictvím kódu programu.
 
-Přestože je služba Azure Data Factory dostupná pouze v oblastech **Západní USA**, **Východní USA** a **Severní Evropa**, služba pohánějící přesouvání dat ve službě Data Factory je dostupná [globálně](data-factory-data-movement-activities.md#global) v několika oblastech. V případě, že je úložiště dat umístěné za bránou firewall, se o přesouvání dat postará [Brána správy dat](data-factory-move-data-between-onprem-and-cloud.md) nainstalovaná ve vašem místním prostředí.
+Přestože je služba Data Factory dostupná pouze v oblastech **Západní USA**, **Východní USA** a **Severní Evropa**, služba pohánějící přesouvání dat ve službě Data Factory je dostupná [globálně](data-factory-data-movement-activities.md#global) v několika oblastech. V případě, že je úložiště dat umístěné za bránou firewall, se o přesouvání dat postará [Brána správy dat](data-factory-move-data-between-onprem-and-cloud.md) nainstalovaná ve vašem místním prostředí.
 
 Předpokládejme například, že vaše výpočetní prostředí, jako je cluster Azure HDInsight nebo Azure Machine Learning, běží v oblasti Západní Evropa. Můžete vytvořit instanci služby Azure Data Factory v oblasti Severní Evropa a použít ji k plánování úloh na výpočetních prostředích v oblasti Západní Evropa. Trvá několik milisekund, než Data Factory aktivuje úlohu na výpočetním prostředí, ale čas potřebný pro vykonání úlohy na výpočetním prostředí se nemění.
 
 V budoucnu plánujeme zajistit dostupnost služby Azure Data Factory ve všech oblastech podporovaných v Azure.
 
 ## <a name="next-steps"></a>Další kroky
-Chcete-li se dozvědět, jak sestavit datové továrny s datovými kanály, postupujte podle podrobných pokynů v následujících kurzech.
+Chcete-li se dozvědět, jak sestavit datové továrny s datovými kanály, postupujte podle podrobných pokynů v následujících kurzech:
 
 | Kurz | Popis |
 | --- | --- |
-| [Vytvoření datového kanálu, který zpracovává data pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md) |V tomto kurzu sestavíte svůj první objekt pro vytváření dat Azure s datovým kanálem, který **zpracovává data** pomocí skriptu Hive v clusteru Azure HDInsight (Hadoop). |
-| [Vytvoření datového kanálu pro přesun dat mezi dvěma cloudovými úložišti dat](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |V tomto kurzu vytvoříte objekt pro vytváření dat s kanálem, který **přesouvá data** ze služby Blob Storage do SQL Database. |
-| [Vytvoření datového kanálu pro přesun dat mezi místním úložištěm dat a cloudovým úložištěm dat pomocí brány správy dat](data-factory-move-data-between-onprem-and-cloud.md) |V tomto kurzu sestavíte objekt pro vytváření dat s kanálem, který **přesouvá data** z databáze **místního** systému SQL Server do objektu blob Azure. Jako součást návodu nainstalujete a nakonfigurujete ve svém počítači Bránu správy dat. |
+| [Přesun dat mezi dvěma cloudovými úložišti dat](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |V tomto kurzu vytvoříte objekt pro vytváření dat s kanálem, který **přesouvá data** ze služby Blob Storage do SQL Database. |
+| [Transformace dat pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md) |V tomto kurzu sestavíte svůj první objekt pro vytváření dat Azure s datovým kanálem, který **zpracovává data** pomocí skriptu Hive v clusteru Azure HDInsight (Hadoop). |
+| [Přesun dat mezi místním úložištěm dat a cloudovým úložištěm dat pomocí brány správy dat](data-factory-move-data-between-onprem-and-cloud.md) |V tomto kurzu sestavíte objekt pro vytváření dat s kanálem, který **přesouvá data** z databáze **místního** systému SQL Server do objektu blob Azure. Jako součást návodu nainstalujete a nakonfigurujete ve svém počítači Bránu správy dat. |
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

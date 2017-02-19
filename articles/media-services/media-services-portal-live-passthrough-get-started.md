@@ -1,5 +1,5 @@
 ---
-title: "Jak provést živé streamování pomocí místních kodérů na portálu Azure Portal | Dokumentace Microsoftu"
+title: "Živé streamování pomocí místních kodérů na portálu Azure Portal | Dokumentace Microsoftu"
 description: "Tento kurz vás provede kroky pro vytvoření Kanálu, který je nakonfigurován pro průchozí doručování."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: a00a75c6f4f45827a6e2ad22b96febc807590e57
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 
 ---
@@ -157,6 +157,6 @@ Prohlédněte si mapy kurzů k Media Services.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

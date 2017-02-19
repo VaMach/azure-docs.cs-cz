@@ -1,203 +1,203 @@
-# How to use the Azure Command-Line Tools for Mac and Linux
-This guide describes how to use the Azure Command-Line Tools for Mac and Linux to create and manage services in Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Azure Websites**, and **creating and managing Azure Virtual Machines**. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Jak používat nástroje příkazového řádku Azure pro Mac a Linux
+Tato příručka popisuje, jak vytvářet a spravovat služby v Azure pomocí nástrojů příkazového řádku Azure pro Mac a Linux. Mezi popisované scénáře patří **instalace nástrojů**, **import nastavení publikování**, **vytvoření a správa Azure Websites** a **vytvoření a správa Azure Virtual Machines**. Komplexní referenční dokumentaci najdete v tématu [Dokumentace k nástroji příkazového řádku Azure pro Mac a Linux][reference-docs]. 
 
-## Table of contents
-* [What are the Azure Command-Line Tools for Mac and Linux](#Overview)
-* [How to install the Azure Command-Line Tools for Mac and Linux](#Download)
-* [How to create an Azure account](#CreateAccount)
-* [How to download and import publish settings](#Account)
-* [How to create and manage an Azure Web Site](#WebSites)
-* [How to create and manage an Azure Virtual Machine](#VMs)
+## <a name="table-of-contents"></a>Obsah
+* [Co jsou nástroje příkazového řádku Azure pro Mac a Linux](#Overview)
+* [Instalace nástrojů příkazového řádku Azure pro Mac a Linux](#Download)
+* [Vytvoření účtu Azure](#CreateAccount)
+* [Stažení a import nastavení publikování](#Account)
+* [Vytvoření a správa webu Azure](#WebSites)
+* [Vytvoření a správa virtuálního počítače Azure](#VMs)
 
-<h2><a id="Overview"></a>What are the Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>Co jsou nástroje příkazového řádku Azure pro Mac a Linux</h2>
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services.
+Nástroje příkazového řádku Azure pro Mac a Linux jsou sadou nástrojů příkazového řádku pro nasazení a správu služeb Azure.
 
-The supported tasks include the following:
+Mezi podporované úlohy patří:
 
-* Import publishing settings.
-* Create and manage Azure Websites.
-* Create and manage Azure Virtual Machines.
+* Import nastavení publikování
+* Vytvoření a správa Azure Websites
+* Vytvoření a správa Azure Virtual Machines
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
+Úplný seznam podporovaných příkazů získáte zadáním `azure -help` na příkazovém řádku po instalaci nástrojů nebo si přečtěte [referenční dokumentaci][reference-docs].
 
-<h2><a id="Download">How to install the Azure Command-Line Tools for Mac and Linux</a></h2>
+<h2><a id="Download">Instalace nástrojů příkazového řádku Azure pro Mac a Linux</a></h2>
 
-The following list contains information for installing the command-line tools, depending on your operating system:
+Následující seznam obsahuje informace pro instalaci nástrojů příkazového řádku v závislosti na operačním systému:
 
-* **Mac**: Download the [Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Mac:** Stáhněte si [Instalační program sady Azure SDK][mac-installer]. Otevřete stažený soubor .pkg a na vyzvání dokončete postup instalace.
+* **Linux:** Nainstalujte si nejnovější verzi [Node.js][nodejs-org] (viz [Instalace Node.js přes Správce balíčků][install-node-linux]), pak spusťte následující příkaz:
   
         npm install azure-cli -g
   
-    **Note**: You may need to run this command with elevated privileges:
+    **Poznámka:** Možná bude nutné spustit tento příkaz se zvýšenými oprávněními:
   
         sudo npm install azure-cli -g
-* **Windows**: Run the Winows installer (.msi file), which is available here: [Azure Command Line Tools][windows-installer].
+* **Windows:** Spusťte instalační službu systému Windows (soubor .msi), která je k dispozici tady: [Nástroje příkazového řádku Azure][windows-installer].
 
-To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
+Chcete-li otestovat instalaci, zadejte na příkazovém řádku `azure`. Pokud byla instalace úspěšná, zobrazí se seznam všech dostupných příkazů `azure`.
 
-<h2><a id="CreateAccount"></a>How to create an Azure account</h2>
+<h2><a id="CreateAccount"></a>Vytvoření účtu Azure</h2>
 
-To use the Azure Command-Line Tools for Mac and Linux, you will need an Azure account.
+Pro použití nástrojů příkazového řádku Azure pro Mac a Linux budete potřebovat účet Azure.
 
-Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
+Otevřete webový prohlížeč, přejděte na [http://www.windowsazure.com][windowsazuredotcom] a klikněte na **bezplatný účet** v pravém horním rohu.
 
-![Azure Web Site][Azure Web Site]
+![Web Azure][Azure Web Site]
 
-Follow the instructions for creating an account.
+Postupujte podle pokynů pro vytvoření účtu.
 
-<h2><a id="Account"></a>How to download and import publish settings</h2>
+<h2><a id="Account"></a>Stažení a import nastavení publikování</h2>
 
-To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+Abyste mohli začít, musíte si nejprve stáhnout a naimportovat vlastní nastavení publikování. To vám umožní používat tyto nástroje k vytváření a správě služeb Azure. Ke stažení nastavení publikování použijte příkaz `account download`:
 
     azure account download
 
-This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
+Otevře se váš výchozí prohlížeč a budete vyzváni k přihlášení k Portálu pro správu. Po přihlášení se stáhne váš soubor `.publishsettings`. Poznamenejte si, kam se soubor uloží.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Dále soubor `.publishsettings` naimportujte spuštěním následujícího příkazu, kde nahradíte `{path to .publishsettings file}` cestou k vašemu souboru `.publishsettings`:
 
     azure account import {path to .publishsettings file}
 
-You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
+Všechny informace uložené příkazem <code>import</code> můžete odebrat pomocí příkazu <code>account clear</code>:
 
     azure account clear
 
-To see a list of options for `account` commands, use the `-help` option:
+Seznam možností pro příkazy `account` zobrazíte pomocí možnosti `-help`:
 
     azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+Po importu nastavení publikování byste soubor `.publishsettings` měli z bezpečnostních důvodů odstranit.
 
 > [!NOTE]
-> When you import publish settings, credentials for accessing your Azure subscription are stored inside your `user` folder. Your `user` folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your `user` folder. You can do so in the following ways:    
+> Při importu nastavení publikování jsou přihlašovací údaje pro přístup k vašemu předplatnému Azure uloženy ve vaší složce `user`. Vaše složka `user` je chráněna operačním systémem. Přesto se doporučuje podniknout další kroky k zašifrování vaší složky `user`. Můžete tak učinit následujícími způsoby:    
 > 
-> * On Windows, modify the folder properties or use BitLocker.
-> * On Mac, turn on FileVault for the folder.
-> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
+> * V systému Windows upravte vlastnosti složky nebo použijte nástroj BitLocker.
+> * V systému Mac zapněte pro složku FileVault.
+> * V Ubuntu použijte funkci Šifrovaný domovský adresář. Ostatní linuxové distribuce nabízí ekvivalentní funkce.
 > 
 > 
 
-You are now ready to being creating and managing Azure Websites and Azure Virtual Machines.  
+Nyní jste připraveni začít vytvářet a spravovat Azure Websites a Azure Virtual Machines.  
 
-<h2><a id="WebSites"></a>How to create and manage an Azure Website</h2>
+<h2><a id="WebSites"></a>Vytvoření a správa webu Azure</h2>
 
-### Create a Website
-To create an Azure website, first create an empty directory called `MySite` and browse into that directory.
+### <a name="create-a-website"></a>Vytvoření webu
+Pokud chcete vytvořit web Azure, nejprve vytvořte prázdný adresář `MySite` a přejděte do něj.
 
-Then, run the following command:
+Pak spusťte následující příkaz:
 
     azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+Výstup tohoto příkazu bude obsahovat výchozí adresu URL pro nově vytvořený web. Možnost `--git` umožňuje použít k publikování na váš web Git, který vytvoří úložiště Git v místním adresáři aplikace i v datovém centru vašeho webu. Poznámka: Pokud již vaše místní složka je úložištěm Git, tento příkaz přidá k existujícímu úložišti nový vzdálený odkaz, které bude odkazovat na úložiště v datovém centru vašeho webu.
 
-Note that you can execute the `azure site create` command with any of the following options:
+Všimněte si, že příkaz `azure site create` můžete spustit s některými z těchto možností:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. Tato možnost umožňuje zadat umístění datového centra, ve které je vytvořený váš web (např. „Západní USA“). Pokud tuto možnost vynecháte, budete vyzváni k výběru umístění.
+* `--hostname [custom host name]`. Tato možnost umožňuje zadat vlastní název hostitele pro váš web.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Azure: 
+Potom můžete přidat obsah do adresáře vašeho webu. K potvrzení obsahu použijte běžný postup Gitu (`git add`, `git commit`). Pomocí následujícího příkazu nuceně vložte (push) obsah vašeho webu do Azure: 
 
     git push azure master
 
-### Set up publishing from GitHub
-To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+### <a name="set-up-publishing-from-github"></a>Nastavení publikování z GitHubu
+Pokud chcete nastavit průběžné publikování z úložiště GitHub, při vytváření webu použijte možnost `--GitHub`:
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
 
-If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+Pokud máte místní klon úložiště GitHub nebo pokud máte úložiště s jedním vzdáleným odkazem na úložiště GitHub, tento příkaz automaticky publikuje kód v úložišti GitHub na váš web. Od této chvíle budou veškeré nuceně vložené (push) změny v úložišti GitHub automaticky publikovány na váš web.
 
-When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+Když nastavíte publikování z GitHubu, jako výchozí větev se použije hlavní větev. Pokud chcete zadat jinou větev, spusťte následující příkaz z místního úložiště:
 
     azure site repository <branch name>
 
-### Configure app settings
-App settings are key-value pairs that are available to your application at runtime. When set for an Azure Website, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+### <a name="configure-app-settings"></a>Konfigurace nastavení aplikace
+Nastavení aplikace jsou páry klíčů a hodnot, které jsou k dispozici vaší aplikaci za běhu. Pokud jsou nastavené pro web Azure, hodnoty nastavení aplikace přepíší nastavení se stejným klíčem definovaná v souboru Web.config vašeho webu. Pro aplikace v Node.js a PHP jsou nastavení aplikace k dispozici jako proměnné prostředí. Následující příklad ukazuje, jak nastavit pár klíče a hodnoty:
 
     azure site config add <key>=<value> 
 
-To see a list of all key/value pairs, use the following:
+Seznam všech párů klíčů a hodnot zobrazíte následovně:
 
     azure site config list 
 
-Or if you know the key and want to see the value, you can use:
+Případně pokud znáte klíč a chcete zobrazit hodnotu, můžete použít:
 
     azure site config get <key> 
 
-If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+Pokud chcete změnit hodnotu existujícího klíče, musíte nejprve vymazat existující klíč a pak jej znovu přidat. Příkaz pro vymazání je:
 
     azure site config clear <key> 
 
-### List and show sites
-To list your websites, use the following command:
+### <a name="list-and-show-sites"></a>Seznam a zobrazení webů
+K zobrazení seznamu vašich webů použijte následující příkaz:
 
     azure site list
 
-To get detailed information about a site, use the `site show` command. The following example shows details for `MySite`:
+Podrobné informace o webu získáte příkazem `site show`. Následující příklad zobrazí podrobnosti o webu `MySite`:
 
     azure site show MySite
 
-### Stop, start, or restart a site
-You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
+### <a name="stop-start-or-restart-a-site"></a>Zastavení, spuštění nebo restartování webu
+Zastavit, spustit nebo restartovat web můžete pomocí příkazů `site stop`, `site start`, nebo `site restart`:
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### Delete a site
-Finally, you can delete a site with the `site delete` command:
+### <a name="delete-a-site"></a>Odstranění webu
+Nakonec můžete web odstranit pomocí příkazu `site delete`:
 
     azure site delete MySite
 
-Note that if you are running any of above commands from inside the folder where you ran `site create`, you do not need to specify the site name `MySite` as the last parameter.
+Všimněte si, že pokud spouštíte některý z výše uvedených příkazů ze složky, ve které jste spustili příkaz `site create`, není nutné jako poslední parametr zadávat název webu `MySite`.
 
-To see a complete list of `site` commands, use the `-help` option:
+Úplný seznam příkazů `site` zobrazíte pomocí možnosti `-help`:
 
     azure site -help 
 
-<h2><a id="VMs"></a>How to create and manage an Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>Vytvoření a správa virtuálního počítače Azure</h2>
 
-an Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
+Virtuální počítač Azure se vytvoří z image virtuálního počítače (soubor .vhd), který poskytnete nebo který je k dispozici v galerii imagí. Dostupné image zobrazíte pomocí příkazu `vm image list`:
 
     azure vm image list
 
-You can provision and start a virtual machine from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the virtual machine are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the virtual machine is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
+Zřídit a spustit virtuální počítač z některé z dostupných imagí můžete pomocí příkazu `vm create`. Následující příklad ukazuje, jak vytvořit virtuální počítač s Linuxem (s názvem `myVM`) z image v galerii imagí (CentOS 6.2). Uživatelské jméno a heslo uživatele root pro virtuální počítač jsou `myusername`, respektive `Mypassw0rd`. (Všimněte si, že parametr `--location` určuje datové centrum, ve kterém se virtuální počítač vytváří. Pokud parametr `--location` vynecháte, budete vyzváni k výběru umístění.)
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
-You may consider passing the `--ssh` flag (Linux) or `--rdp` flag (Windows) to `vm create` to enable remote connections to the newly-created virtual machine.
+Můžete zvážit předání příznaku `--ssh` (Linux) nebo `--rdp` (Windows) k příkazu `vm create` pro povolení vzdálených připojení k nově vytvořenému virtuálnímu počítači.
 
-If you would rather provision a virtual machine from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the virtual machine. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
+Pokud byste raději zřídili virtuální počítač z vlastní image, můžete vytvořit image ze souboru .vhd pomocí příkazu `vm image create` a pak pomocí příkazu `vm create` zřídit virtuální počítač. Následující příklad ukazuje, jak vytvořit image Linuxu (s názvem `myImage`) z místního souboru .vhd. (Parametr `--location` určuje datové centrum, ve kterém se image uloží.)
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-Instead of creating an image from a local .vhd, you can create an image from a .vhd stored in Azure Blob Storage. You can do this with the `blob-url` parameter:
+Místo vytváření image z místního souboru .vhd můžete vytvořit image ze souboru .vhd uloženého ve službě Azure Blob Storage. Můžete to provést pomocí parametru `blob-url`:
 
     azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
-After creating an image, you can provision a virtual machine from the image by using `vm create`. The command below creates a virtual machine called `myVM` from the image created above (`myImage`).
+Po vytvoření image z ní můžete zřídit virtuální počítač pomocí příkazu `vm create`. Následující příkaz vytvoří virtuálního počítač `myVM` z image vytvořené v předchozím kroku (`myImage`).
 
     azure vm create myVM myImage myusername --location "West US"
 
-After you have provisioned a virtual machine, you may want to create endpoints to allow remote access to your virtual machine (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
+Po zřízení virtuálního počítače můžete vytvořit koncové body, které umožní vzdálený přístup k virtuálnímu počítači (například). Následující příklad pomocí příkazu `vm create endpoint` otevře externí port 22 a místní port 22 na virtuálním počítači `myVM`:
 
     azure vm endpoint create myVM 22 22
 
-You can get detailed information about a virtual machine (including IP address, DNS name, and endpoint information) with the `vm show` command:
+Podrobné informace o virtuálním počítači (včetně IP adresy, názvu DNS a informací o koncových bodech) získáte pomocí příkazu `vm show`:
 
     azure vm show myVM
 
-To shutdown, start, or restart the virtual machine, use one of the following commands:
+Pokud chcete vypnout, spustit nebo restartovat virtuální počítač, požijte některý z následujících příkazů:
 
     azure vm shutdown myVM
     azure vm start myVM
     azure vm restart myVM
 
-And finally, to delete the VM, use the `vm delete` command:
+A nakonec můžete virtuální počítač odstranit pomocí příkazu `vm delete`:
 
     azure vm delete myVM
 
-For a complete list of commands for creating and managing virtual machines, use the `-h` option:
+Úplný seznam příkazů pro vytváření a správu virtuálních počítačů získáte pomocí možnosti `-h`:
 
     azure vm -h
 
@@ -211,4 +211,9 @@ For a complete list of commands for creating and managing virtual machines, use 
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
+
+
+
+<!--HONumber=Jan17_HO5-->
+
 

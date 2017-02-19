@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Z
 ### <a name="create-a-new-android-project"></a>Vytvořte nový projekt Android
 1. V nástroji Android Studio spusťte nový projekt Android Studio.
    
-     ![Android Studio – nový projekt][13]
+   ![Android Studio – nový projekt][13]
 2. Zvolte faktor formuláře **Telefon i tablet** a hodnotu **Minimální SDK**, které chcete podporovat. Pak klikněte na tlačítko **Další**.
    
-     ![Android Studio – pracovní postup vytvoření projektu][14]
+   ![Android Studio – pracovní postup vytvoření projektu][14]
 3. Zvolte možnost **Prázdná aktivita** pro hlavní aktivitu, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Dokončit**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Přidejte do projektu služby Google Play
@@ -619,13 +619,14 @@ Kromě výše uvedeného zajistěte, že jste přidali účet Google do svého s
 #### <a name="running-the-application"></a>Spouštění aplikace.
 1. Spusťte aplikaci a všimněte si, že je ID registrace hlášené pro úspěšnou registraci.
    
-       ![Testing on Android - Channel registration][18]
+      ![Testování v systému Android – registrace kanálu][18]
 2. Zadejte zprávu oznámení k odeslání do všech zařízení Android, která byla zaregistrovaná v centru.
    
-       ![Testing on Android - sending a message][19]
+      ![Testování v systému Android – odesílání zprávy][19]
+
 3. Stiskněte tlačítko **Odeslat oznámení**. Všechna zařízení, které mají spuštěné aplikace, zobrazí instance `AlertDialog` se zprávou nabízených oznámení. Zařízení, která nemají spuštěnou aplikaci, ale byla dříve registrována pro nabízená oznámení, obdrží oznámení ve správci oznámení Android. Ta lze zobrazit potažením dolů z levého horního rohu.
    
-       ![Testing on Android - notifications][21]
+      ![Testování v systému Android – oznámení][21]
 
 ## <a name="next-steps"></a>Další kroky
 Jako další krok doporučujeme tutoriál [Použití centra oznámení pro nabízená oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
@@ -671,6 +672,6 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
