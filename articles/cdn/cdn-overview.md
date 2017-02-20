@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
+ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
-ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
+ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
+ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 
 
 ---
@@ -51,7 +51,8 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | --- | --- | --- | --- |
 | Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) nebo [prostředí PowerShellu](cdn-manage-powershell.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Podpora HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Podpora HTTPS s koncovými body CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS pro vlastní doménu | |**&#x2713;** |**&#x2713;** |
 | Vyrovnávání zatížení |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Ochrana proti útoku [DDoS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Duální sada protokolů IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -91,6 +92,6 @@ Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal: Začínáme s Azure SQL Database | Dokumentace Microsoftu"
-description: "Naučíte se vytvářet logický server SQL Database, pravidlo brány firewall na úrovni serveru a databáze pomocí webu Azure Portal. Dál se naučíte k dotazování využívat aplikaci SQL Server Management Studio."
+title: "Rychlý start: První Azure SQL Database | Dokumentace Microsoftu"
+description: "Naučíte se vytvářet logický server SQL Database, pravidlo brány firewall na úrovni serveru a databáze pomocí webu Azure Portal. Také se naučíte používat SQL Server Management Studio s Azure SQL Database."
 keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
 documentationcenter: 
@@ -14,38 +14,37 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Kurz k SQL Database: Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Rychlý úvodní kurz: První Azure SQL Database
 
-V tomto úvodním kurzu se naučíte, jak pomocí portálu Azure Portal provádět tyto akce:
+V tomto rychlém úvodním kurzu se naučíte:
 
-* Vytvoření nové skupiny prostředků Azure
-* Vytvoření logického SQL serveru Azure
-* Zobrazení vlastností logického SQL serveru Azure
-* Vytvoření pravidla brány firewall na úrovni serveru
-* Vytvoření ukázkové databáze Adventure Works LT jako izolované databáze
-* Zobrazení vlastností ukázkové databáze Adventure Works LT v Azure
+* [Vytvoření nového logického serveru](sql-database-get-started.md#create-a-new-logical-sql-server) 
+* [Zobrazení vlastností logického serveru](sql-database-get-started.md#view-the-logical-server-properties) 
+* [Vytvoření pravidla brány firewall na úrovni serveru](sql-database-get-started.md#create-a-server-level-firewall-rule) 
+* [Připojení k serveru pomocí SSMS](sql-database-get-started.md#connect-to-the-server-with-ssms) 
+* [Vytvoření databáze s ukázkovými daty](sql-database-get-started.md#create-a-database-with-sample-data) 
+* [Zobrazení vlastností databáze](sql-database-get-started.md#view-the-database-properties) 
+* [Dotazování databáze na webu Azure Portal](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
+* [Připojení a dotazování databáze pomocí SSMS](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
+* [Vytvoření prázdné databáze pomocí SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
+* [Řešení potíží s připojením](sql-database-get-started.md#troubleshoot-connectivity) 
+* [Odstranění databáze](sql-database-get-started.md#delete-a-single-database) 
 
-V tomto kurzu můžete také využít nejnovější verzi aplikace SQL Server Management Studio pro:
 
-* Připojení k logickému serveru a jeho hlavní databázi
-* Dotaz na hlavní databázi
-* Připojení k ukázkové databázi
-* Dotaz na ukázkovou databázi
+V tomto rychlém úvodním kurzu vytvoříte ukázkovou databázi a prázdnou databázi, která je spuštěná ve skupině prostředků Azure a připojená k logickému serveru. Dále vytvoříte dvě pravidla brány firewall na úrovni serveru nakonfigurovaná tak, aby umožňovala objektu zabezpečení na úrovni serveru přihlášení k serveru ze dvou zadaných IP adres. Nakonec se naučíte dotazovat databázi na webu Azure Portal a připojovat se a dotazovat pomocí aplikace SQL Server Management Studio. 
 
-Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databázi, která je spuštěná ve skupině prostředků Azure a připojená k logickému serveru. Dál budete mít nakonfigurované pravidlo brány firewall na úrovni serveru, které objektu zabezpečení na úrovni serveru umožňuje přihlášení k serveru ze zadaná IP adresy (nebo rozsahu IP adres). 
-
-**Časový odhad**: Tento kurz trvá přibližně 30 minut (za předpokladu, že už máte splněné požadavky).
+**Časový odhad:** Tento kurz trvá přibližně 30 minut (za předpokladu, že už máte splněné požadavky).
 
 > [!TIP]
-> Stejné úlohy můžete v úvodním kurzu provádět i pomocí jazyka [C#](sql-database-get-started-csharp.md) nebo prostředí [PowerShell](sql-database-get-started-powershell.md).
+> Stejné úlohy můžete provádět i pomocí jazyka [C#](sql-database-get-started-csharp.md) nebo [PowerShellu](sql-database-get-started-powershell.md).
 >
 
 ## <a name="prerequisites"></a>Požadavky
@@ -55,12 +54,12 @@ Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databá
 * Musíte být schopni připojit se k webu Azure Portal pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
-> Tento kurz vám pomůže seznámit se s obsahem těchto výukových okruhů: [Přehled serveru SQL Database](sql-database-server-overview.md), [přehled SQL Database](sql-database-overview.md) a [přehled pravidel brány firewall pro Azure SQL Database](sql-database-firewall-configure.md).
+> Tento rychlý úvodní kurz vám pomůže seznámit se s obsahem těchto výukových okruhů: [Přehled serveru SQL Database](sql-database-server-overview.md), [přehled SQL Database](sql-database-overview.md) a [přehled pravidel brány firewall pro Azure SQL Database](sql-database-firewall-configure.md).
 >  
 
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Přihlášení k webu Azure Portal pomocí účtu Azure
-Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/Index) se k webu Azure Portal připojíte následujícím postupem.
+### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Přihlášení k webu Azure Portal pomocí účtu Azure
+Pomocí [účtu Azure](https://account.windowsazure.com/Home/Index) se k webu Azure Portal připojíte následujícím postupem.
 
 1. Otevřete prohlížeč, kterému dáváte přednost, a připojte se k [portálu Azure](https://portal.azure.com/).
 2. Přihlaste se k webu [Portál Azure](https://portal.azure.com/).
@@ -71,7 +70,9 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Vytvoření nového logického SQL serveru na webu Azure Portal
+## <a name="create-a-new-logical-sql-server"></a>Vytvoření nového logického SQL Serveru
+
+Podle kroků v tomto postupu vytvořte nový logický server pomocí webu Azure Portal v oblasti podle svého výběru.
 
 1. Klikněte na **Nový**, zadejte **sql server** a potom klikněte na **ENTER**.
 
@@ -87,7 +88,7 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
     ![Název nového serveru](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > Plně kvalifikovaný název nového serveru bude <název_serveru>.database.windows.net.
+    > Plně kvalifikovaný název nového serveru má formát: <název_serveru>.database.windows.net.
     >
     
 4. Do textového pole Přihlášení správce serveru zadejte uživatelské jméno pro 	účet ověřování SQL pro tento server. Toto přihlášení se označuje jako přihlášení objektu zabezpečení serveru. Zelená značka zaškrtnutí označuje, že jste zadali platný název.
@@ -115,7 +116,9 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Tlačítko Vytvořit](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Zobrazení vlastností logického SQL serveru na webu Azure Portal
+## <a name="view-the-logical-server-properties"></a>Zobrazení vlastností logického serveru
+
+Podle kroků v tomto postupu zobrazte vlastnosti serveru pomocí webu Azure Portal. V následujícím postupu budete pro připojení k serveru potřebovat plně kvalifikovaný název tohoto serveru. 
 
 1. Na webu Azure Portal klikněte na **Další služby**.
 
@@ -137,17 +140,15 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Celý název sql serveru](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Vytvoření pravidla brány firewall na úrovni serveru na webu Azure Portal
+## <a name="create-a-server-level-firewall-rule"></a>Vytvoření pravidla brány firewall na úrovni serveru
+
+Podle kroků v tomto postupu vytvořte pomocí webu Azure Portal nové pravidlo brány firewall na úrovni serveru, které vám v dalším postupu umožní připojit se k serveru pomocí SQL Server Management Studia.
 
 1. V okně SQL Server v části Nastavení klikněte na **Brána firewall**. Otevře se okno Brána firewall pro SQL Server.
 
     ![Brána firewall SQL Serveru](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Zkontrolujte zobrazenou IP adresu klienta a pomocí prohlížeče podle vašeho výběru ověřte, že je to vaše IP adresa na internetu (zadejte dotaz Jaká je moje IP adresa). Čas od času si adresy z různých důvodů neodpovídají.
-
-    ![Vaše IP adresa](./media/sql-database-get-started/your-ip-address.png)
-
-3. Za předpokladu, že se IP adresy shodují, klikněte na panelu nástrojů na **Přidat IP adresu klienta**.
+2. Na panelu nástrojů klikněte na **Přidat IP adresu klienta**.
 
     ![Přidat IP adresu klienta](./media/sql-database-get-started/add-client-ip.png)
 
@@ -159,14 +160,16 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Přidat IP adresu klienta](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Připojení k SQL serveru pomocí aplikace SQL Server Management Studio (SSMS)
+## <a name="connect-to-the-server-with-ssms"></a>Připojení k serveru pomocí SSMS
+
+Podle kroků v tomto postupu se připojte k logickému serveru SQL pomocí SQL Server Management Studia.
 
 1. Pokud jste to ještě neudělali, stáhněte si nejnovější verzi SMSS v části [Stažení aplikace SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) a nainstalujte ji. Když bude k dispozici pro stažení novější verze, aplikace SSMS zobrazí upozornění, abyste mohli používat aktuální verzi.
 
 2. Po instalaci zadejte do vyhledávacího pole ve Windows text **Microsoft SQL Server Management Studio** a klikněte na **Enter**. SSMS se otevře:
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. V dialogovém okně Připojení k serveru zadejte informace potřebné k připojení k SQL serveru pomocí ověřování SQL Serveru.
+3. V dialogovém okně Připojení k serveru zadejte informace potřebné k připojení k SQL Serveru pomocí ověřování SQL Serveru.
 
     ![Připojení k serveru](./media/sql-database-get-started/connect-to-server.png)
 4. Klikněte na **Připojit**.
@@ -191,7 +194,9 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
     > Pokud chcete prozkoumat zabezpečení SQL, přečtěte se téma [Začínáme se zabezpečením SQL](sql-database-control-access-sql-authentication-get-started.md).
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Vytvoření nové databáze na webu Azure Portal pomocí ukázky Adventure Works LT
+## <a name="create-a-database-with-sample-data"></a>Vytvoření databáze s ukázkovými daty
+
+Podle kroků v tomto postupu vytvořte databázi s ukázkovými daty pomocí webu Azure Portal. Tuto databázi vytvoříte připojenou k logickému serveru, který jste dříve vytvořili. Pokud v oblasti, ve které jste vytvořili váš server, není k dispozici úroveň služeb Basic, odstraňte server a znovu ho vytvořte v jiné oblasti. Pokyny k odstranění najdete v posledním postupu tohoto kurzu.
 
 1. Na webu Azure Portal klikněte na **Databáze SQL** ve výchozím okně.
 
@@ -223,7 +228,9 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Tlačítko Vytvořit](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Zobrazení vlastností databáze na webu Azure Portal
+## <a name="view-the-database-properties"></a>Zobrazení vlastností databáze
+
+Podle kroků v tomto postupu dáte dotaz na databázi pomocí webu Azure Portal.
 
 1. V okně Databáze SQL klikněte na novou databázi. Zobrazíte tak její vlastnosti na webu Azure Portal. Další kurzy vám pomohou se s možnostmi, které jsou v tomto okně dostupné, seznámit blíž. 
 
@@ -242,7 +249,41 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Nová ukázková databáze v okně Essentials](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Připojení ukázkové databáze a zpracování dotazů pomocí aplikace SQL Server Management Studio
+## <a name="query-the-database-in-the-azure-portal"></a>Dotazování databáze na webu Azure Portal
+
+Podle kroků v tomto postupu dáte dotaz na databázi pomocí editoru dotazů na webu Azure Portal. Dotaz zobrazí objekty v databázi.
+
+1. V okně Databáze SQL klikněte v panelu nástrojů na **Nástroje**.
+
+    ![nástroje](./media/sql-database-get-started/tools.png)
+2. V okně Nástroje klikněte na **Editor dotazů (Preview)**.
+
+    ![editor dotazů](./media/sql-database-get-started/query-editor.png)
+3. Klikněte na zaškrtávací políčko a potvrďte, že jste vzali na vědomí, že editor dotazů je ve verzi Preview, a pak klikněte na **OK**.
+4. V okně **Editor dotazů** klikněte na **Přihlásit**.
+
+    ![okno editoru dotazů](./media/sql-database-get-started/query-editor-blade.png)
+5. Zkontrolujte typ autorizace a přihlašovací jméno a potom zadejte heslo pro přihlášení. 
+
+    ![přihlášení k editoru dotazů](./media/sql-database-get-started/query-editor-login.png)
+6. Kliknutím na **OK** se pokuste přihlásit.
+7. Jakmile se zobrazí chyba přihlášení s oznámením, že váš klient nemá oprávnění k přihlášení z důvodu absence pravidla brány firewall pro IP adresu vašeho klienta, zkopírujte IP adresu vašeho klienta v okně chyby a v okně SQL Serveru pro tuto databázi vytvořte pravidlo brány firewall na úrovni serveru.
+
+    ![chyba editoru dotazů](./media/sql-database-get-started/query-editor-error.png)
+8. Opakujte předchozích 6 kroků a přihlaste se k vaší databázi.
+9. Když jste ověřeni, do okna dotazu zadejte následující dotaz:
+
+   ```select * from sys.objects```
+
+    ![dotaz v editoru dotazů](./media/sql-database-get-started/query-editor-query.png)
+10.  Klikněte na **Run** (Spustit).
+11. Zkontrolujte výsledky dotazu v podokně **Výsledky**.
+
+    ![výsledky editoru dotazů](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="connect-and-query-the-database-with-ssms"></a>Připojení a dotazování databáze pomocí SSMS
+
+Podle kroků v tomto postupu se připojte k databázi pomocí SQL Server Management Studia a potom zadejte dotaz na ukázková data, abyste zobrazili objekty v databázi.
 
 1. Přepněte do aplikace SQL Server Management Studio a v Průzkumníku objektů klikněte na **Databáze**. Potom na panelu nástrojů klikněte na **Obnovit**. Zobrazí se ukázková databáze.
 
@@ -261,7 +302,9 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Systémové objekty nové ukázkové databáze pomocí SSMS](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Vytvoření nové prázdné databáze pomocí aplikace SQL Server Management Studio
+## <a name="create-a-blank-database-with-ssms"></a>Vytvoření prázdné databáze pomocí SSMS
+
+Podle kroků v tomto postupu vytvořte novou databázi na logickém serveru pomocí SQL Server Management Studia.
 
 1. V Průzkumníku objektů klikněte pravým tlačítkem na **Databáze** a potom klikněte na **Nová databáze**.
 
@@ -288,15 +331,34 @@ Pomocí [stávajícího předplatného](https://account.windowsazure.com/Home/In
 
     ![Nová prázdná databáze v Průzkumníku objektů](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>Řešení potíží s připojením
+
+> [!IMPORTANT]
+> Pokud máte problémy s připojením, přečtěte si téma [Problémy s připojením](sql-database-troubleshoot-common-connection-issues.md).
+> 
+
+## <a name="delete-a-single-database"></a>Odstranění izolované databáze
+
+Podle kroků v tomto postupu odstraníte izolovanou databázi pomocí webu Azure Portal.
+
+1. V okně webu Azure Portal pro vaši databázi SQL klikněte na **Odstranit**.
+
+    ![delete-database](./media/sql-database-get-started/delete-database.png)
+2. Kliknutím na **Ano** potvrďte, že chcete databázi trvale odstranit.
+
+    ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> Během výuky můžete ušetřit tím, že odstraníte databáze, které nepoužíváte. Databáze edice Basic můžete obnovit do sedmi dnů. Neodstraňujte ale server. Pokud to uděláte, nebude možné obnovit server ani žádnou z jeho odstraněných databází.
+> Během doby uchování pro vaši databázi ji můžete obnovit z automatických záloh spouštěných službou. Databáze edice Basic můžete obnovit do sedmi dnů. Neodstraňujte ale server. Pokud to uděláte, nebude možné obnovit server ani žádnou z jeho odstraněných databází. Další informace o zálohování databáze najdete v tématu [Další informace o zálohování SQL Database](sql-database-automated-backups.md) a informace o obnovení databáze ze zálohy najdete v tématu [Obnovení databáze](sql-database-recovery-using-backups.md). Článek o obnovení odstraněné databáze obsahuje téma [Obnovení odstraněné databáze SQL Azure – Azure Portal](sql-database-restore-deleted-database-portal.md).
 >
 
 
 ## <a name="next-steps"></a>Další kroky
 Tento kurz jste nyní dokončili, ale k dispozici je celá řada dalších kurzů, které staví na tom, co jste se v tomto kurzu naučili. 
 
-* Pokud se chcete začít seznamovat se zabezpečením Azure SQL Database, přečtěte si téma [Začínáme se zabezpečením](sql-database-control-access-sql-authentication-get-started.md).
+- Pokud chcete začít kurz ověřování SQL Serveru, přejděte k tématu [Ověřování a autorizace SQL](sql-database-control-access-sql-authentication-get-started.md).
+- Pokud chcete začít kurz ověřování Azure Active Directory, přejděte k tématu [Ověřování a autorizace AAD](sql-database-control-access-aad-authentication-get-started.md).
+* Pokud chcete zadat dotaz na ukázkovou databázi na webu Azure Portal, přejděte k tématu [Public Preview: Interaktivní práce s dotazy pro databáze SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/).
 * Pokud znáte Excel, zjistěte, jak se [připojit k databázi SQL v Azure pomocí aplikace Excel](sql-database-connect-excel.md).
 * Jste-li připraveni na psaní kódu, zvolte si programovací jazyk v tématu [Knihovny pro připojení ke službě SQL Database a systému SQL Server](sql-database-libraries.md).
 * Pokud chcete do Azure přesunout databáze z místního systému SQL Server, přečtěte si téma [Migrace databáze do služby SQL Database](sql-database-cloud-migrate.md).
@@ -305,12 +367,12 @@ Tento kurz jste nyní dokončili, ale k dispozici je celá řada dalších kurz�
 
 ## <a name="additional-resources"></a>Další zdroje
 
-- Technický přehled najdete v tématu [Co je SQL Database?](sql-database-technical-overview.md).
+- Technický přehled najdete v tématu [Co je SQL Database?](sql-database-technical-overview.md)
 - Informace o cenách najdete v tématu [Ceny Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

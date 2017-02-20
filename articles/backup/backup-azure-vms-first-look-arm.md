@@ -1,6 +1,6 @@
 ---
 title: "První pohled: chraňte virtuální počítače Azure pomocí trezoru Recovery Services | Dokumentace Microsoftu"
-description: "Virtuální počítače Azure s trezorem Recovery Services. Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem, virtuálních počítačů nasazených službou Classic a virtuálních počítačů služby Storage úrovně Premium. Vytvoření a registrace trezoru Recovery Services. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
+description: "Virtuální počítače Azure s trezorem Recovery Services. Ochrana dat pomocí záloh virtuálních počítačů nasazených Resource Managerem, virtuálních počítačů nasazených službou Classic, virtuálních počítačů služby Storage úrovně Premium, šifrovaných virtuálních počítačů a virtuálních počítačů na spravovaných discích. Vytvoření a registrace trezoru Recovery Services. Registrace virtuálních počítačů, vytváření zásad a ochrana virtuálních počítačů v Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 02/06/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
-ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
+ms.sourcegitcommit: b73d5bb1f4f9e7adc65bf38a3c98db846a341cb3
+ms.openlocfilehash: 2d8bedcf51cf55e13cc22d5a2d258218f0a786bb
 
 
 ---
@@ -33,10 +33,11 @@ Tento kurz vás provede kroky pro vytvoření trezoru Recovery Services a záloh
 * Virtuální počítače nasazené Azure Resource Managerem
 * Klasické virtuální počítače
 * Virtuální počítače služby Storage úrovně Standard
-* Virtuální počítače služby Storage úrovně Premium
+* Virtuální počítače služby Storage úrovně Premium 
+* Virtuální počítače spuštěné na spravovaných discích
 * Virtuální počítače jsou šifrované službou Azure Disk Encryption klíči BEK a KEK
 
-Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium naleznete v tématu [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup).
+Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium najdete v tématu [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Další informace o podpoře pro virtuální počítače se spravovanými disky najdete v tématu věnovaném [zálohování a obnovení virtuálních počítačů na spravovaných discích](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)
 
 > [!NOTE]
 > Tento kurz předpokládá, že už máte virtuální počítač ve svém předplatném Azure a že jste zavedli opatření, která umožní službě zálohování přístup k virtuálnímu počítači.
@@ -246,6 +247,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

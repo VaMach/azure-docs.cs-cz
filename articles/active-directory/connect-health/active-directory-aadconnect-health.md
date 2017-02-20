@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Se službou Azure AD Connect Health je velmi snadné začít. Postupujte násled
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Stažení a instalace agenta služby Azure AD Connect Health
-* Ověřte, jestli splňujete požadavky pro službu Azure AD Connect Health
-* Pokud chcete začít používat službu Azure AD Connect Health pro službu AD FS, můžete si nejnovější verzi agenta stáhnout pomocí následujícího odkazu: [Stáhnout agenta služby Azure AD Connect Health pro službu AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Pokud chcete začít používat službu Azure AD Connect Health pro synchronizaci, stáhněte a nainstalujte si [nejnovější verzi Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  Agent stavu bude nainstalován jako součást instalace služby Azure AD Connect (verze 1.0.9125.0 nebo vyšší).  Azure AD Connect podporuje místní upgrade z předchozích verzí.
-* Pokud chcete začít používat službu Azure AD Connect Health pro službu AD DS, můžete si nejnovější verzi agenta stáhnout pomocí následujícího odkazu: [Stáhnout agenta služby Azure AD Connect Health pro službu AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
-
+* Ověření [splnění požadavků] (active-directory-aadconnect-health-agent-install.md#requirements) pro Azure AD Connect Health
+* Začínáme s využitím Azure AD Connect Health pro službu AD FS
+    * [Stažení agenta Azure AD Connect Health pro službu AD FS](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Pokyny k instalaci](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Začínáme s využitím Azure AD Connect Health pro synchronizaci
+    * [Stažení a instalace nejnovější verze služby Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771) Agent stavu pro synchronizaci se nainstaluje jako součást instalace služby Azure AD Connect (verze 1.0.9125.0 nebo vyšší).
+* Začínáme s využitím Azure AD Connect Health pro službu AD DS
+    * [Stažení agenta Azure AD Connect Health pro službu AD DS](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Pokyny k instalaci](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>Portál služby Azure AD Connect Health
 Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, monitorovat výkon a analýzy využívání. Hlavního okno služby Azure AD Connect Health najdete na následující adrese: https://aka.MS/aadconnecthealth.  Je to v podstatě hlavní obrazovka této služby. V hlavním okně uvidíte možnosti rychlého startu, služeb v rámci Azure AD Connect Health a další možnosti konfigurace. Pod snímkem obrazovky následuje stručné vysvětlení každé z nich.  Jakmile nasadíte agenty, služba stavu se automaticky identifikuje pro služby, které Azure AD Connect Health monitoruje.
 
@@ -120,7 +123,6 @@ Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, moni
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: Zásada, kterou chcete použít k ověřování tokenů přicházejících na váš server. Tato zásada by měla být stejná jako ta, kterou používáte pro přihlašování na klientské aplikaci.
 
 > [!NOTE]
-> Pro naše B2C ve verzi Preview použijte stejné zásady v nastavení klienta i serveru. Pokud jste již dokončili návod a tyto zásady jste už vytvořili, nemusíte to dělat znovu. Vzhledem k tomu, že jste návod dokončili, nemělo by být třeba nastavovat nové zásady u návodů pro klienty na této stránce.
+> Použijte stejné zásady v nastavení klienta i serveru. Pokud jste již dokončili návod a tyto zásady jste už vytvořili, nemusíte to dělat znovu. Vzhledem k tomu, že jste návod dokončili, nemělo by být třeba nastavovat nové zásady u návodů pro klienty na této stránce.
 >
 >
 
@@ -763,6 +763,6 @@ Nyní se můžete přesunout k pokročilejším tématům, jako například:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

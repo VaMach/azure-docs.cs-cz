@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
+ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
+ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
 
 
 ---
@@ -59,7 +59,7 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
    
     ![Media Services – vytvoření](./media/media-services-create-account/media-services-new3.png)
    
-   1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a čísla, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
+   1. Do pole **Název účtu** zadejte název nového účtu AMS. Název účtu Media Services musí obsahovat jenom malá písmena a číslice, nesmí obsahovat mezery a musí mít délku 3 až 24 znaků.
    2. V poli Předplatné si vyberte z různých předplatných Azure, ke kterým máte přístup.
    3. V poli **Skupina prostředků** vyberte nový nebo existující prostředek.  Skupina prostředků je kolekce prostředků, které sdílejí životní cyklus, oprávnění a zásady. Další informace najdete [tady](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. V poli **Umístění** vyberte zeměpisnou oblast, která se bude používat k ukládání médií a záznamů metadat pro váš účet Media Services. Tato oblast se bude používat ke zpracování a streamování vašeho média. V rozevíracím seznamu se vám zobrazí pouze ty oblasti Media Services, které jsou dostupné. 
@@ -103,6 +103,6 @@ Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

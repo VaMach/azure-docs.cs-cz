@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
 ## <a name="overview"></a>Přehled
 Azure Functions je výpočetní prostředí na vyžádání založené na událostech. Rozšiřuje stávající platformu aplikací Azure o funkce pro implementaci kódu aktivovaného událostmi, ke kterým dochází v jiných službách Azure, produktech SaaS a místních systémech. Díky Azure Functions se aplikace škálují na vyžádání a vy platíte jenom za využité prostředky. Azure Functions umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
 
-Toto téma vám ukáže, jak pomocí rychlého startu Azure Functions na portálu vytvořit jednoduchou funkci „hello world“ v Node.js, která se vyvolá triggerem protokolu HTTP. Můžete také zhlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
+Toto téma vám ukáže, jak pomocí rychlého startu Azure Functions na portálu vytvořit jednoduchou funkci „hello world“ v JavaScriptu, která se vyvolá triggerem protokolu HTTP. Můžete také zhlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
 
 ## <a name="watch-the-video"></a>Přehrát video
 Následující video ukazuje, jak provést základní kroky obsažené v tomto kurzu. 
@@ -40,43 +40,23 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Podle těchto krok
 Je nutné, abyste před vytvořením první funkce měli aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/).
 
 1. Přejděte na stránku [portálu Azure Functions](https://functions.azure.com/signin) a přihlaste se pomocí účtu Azure.
-2. Zadejte jedinečný **název** nové aplikace funkce nebo přijměte vygenerovaný název, vyberte upřednostňovanou **Oblast** a klikněte na možnost **Vytvořit a začít**. 
-3. Na kartě **Rychlý start** klikněte na **WebHook + API** a **JavaScript** a potom klikněte na **Vytvořit funkci**. Vytvoří se nová předdefinovaná funkce v Node.js. 
+2. Zadejte jedinečný **název** nové aplikace funkce nebo přijměte název vygenerovaný automaticky, vyberte upřednostňovanou **Oblast** a klikněte na **Vytvořit a začít**. Všimněte si, že musíte zadat platný název, který může obsahovat pouze písmena, číslice a pomlčky. Podtržítko (**_**) není povolené znak.
+3. Na kartě **Rychlý start** klikněte na **WebHook + API** a **JavaScript** a potom klikněte na **Vytvořit funkci**. Vytvoří se nová předdefinovaná funkce v JavaScriptu. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 4. (Volitelné) V rychlém startu teď můžete absolvovat krátkou prohlídku funkcí Azure Functions na portálu. Až prohlídku dokončíte nebo přeskočíte, můžete novou funkci otestovat pomocí triggeru protokolu HTTP.
 
 ## <a name="test-the-function"></a>Testování funkce
-Rychlé starty Azure Functions obsahují funkční kód, a proto můžete novou funkci hned otestovat.
-
-1. Na kartě **Vývoj** si prohlédněte okno **Kód** a všimněte si, že tento kód v Node.js očekává žádost HTTP s hodnotou *name* předanou buď v textu zprávy, nebo v řetězci dotazu. Když je funkce spuštěná, tato hodnota je vrácená v odpovědi.
-   
-2. Kliknutím na **Otestovat** zobrazíte integrované podokno testovací žádosti HTTP pro tuto funkci.
- 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
-
-2. V textovém poli **Text žádosti** změňte hodnotu vlastnosti *name* na své jméno a klikněte na **Spustit**. Uvidíte, že provedení se aktivuje testovací žádostí HTTP, do protokolů streamování se zapíšou informace a ve **výstupu** se zobrazí odpověď „hello“.
- 
-3. Pokud chcete aktivovat provedení té samé funkce z jiného okna nebo karty prohlížeče, zkopírujte hodnotu adresy **URL funkce** na kartě **Vývoj** a vložte ji do adresního řádku prohlížeče. Připojte k adrese URL hodnotu řetězce dotazu `&name=yourname` a stiskněte Enter. Do protokolů se zapíší ty samé informace a v prohlížeči se jako odpověď opět zobrazí text „hello“.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>Další kroky
-Tento rychlý start předvádí jednoduché provedení základní funkce protokolu HTTP aktivované triggerem. Další informace o používání služby Azure Functions ve svých aplikacích najdete v následujících tématech:
-
-* [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)
-* [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
-  Referenční informace pro programátory týkající se kódování funkcí a definování triggerů a vazeb.
-* [Testování Azure Functions](functions-test-a-function.md)  
-  Toto téma popisuje různé nástroje a techniky pro testování funkcí.
-* [Postup škálování Azure Functions](functions-scale.md)  
-  Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu. 
-* [Co je Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
-  Služba Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

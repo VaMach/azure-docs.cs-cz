@@ -4,10 +4,9 @@
 * [CloudIdentity.com](http://cloudidentity.com)
 
 ## <a name="get-security-updates-for-our-products"></a>Získejte bezpečnostní aktualizace našich produktů
-Doporučujeme vám získávat oznámení o bezpečnostních incidentech tak, že navštívíte [tuto stránku](https://technet.microsoft.com/security/dd252948) a přihlásíte se k odběru služby Security Advisory Alerts.
+Doporučujeme využívat oznámení o incidentech zabezpečení. Navštivte proto [stránku TechCenter věnovanou technickým oznámením zabezpečení Microsoftu ](https://technet.microsoft.com/security/dd252948) a přihlaste se k odběru služby Security Advisory Alerts.
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

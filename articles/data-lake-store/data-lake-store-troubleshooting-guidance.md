@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -41,7 +41,7 @@ Pokud dojde k výpadku oblasti, máte pak k datům přístup v oblasti, kam se d
 I když Azure Data Lake Store zajišťuje odolnost dat prostřednictvím automatizovaných replik, nemůže vaší aplikaci (nebo vývojářům/uživatelům) zabránit v poškození nebo nechtěném odstranění dat.
 
 #### <a name="best-practices"></a>Osvědčené postupy
-Aby se zabránilo nechtěnému odstranění, doporučujeme nejdříve nastavit správné zásady přístupu k účtu Data Lake Store pomocí dostupných [funkcí zabezpečení Data Lake Storu](data-lake-store-security-overview.md). Doporučujeme také pravidelně vytvářet kopie důležitých dat pomocí [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShellu](data-lake-store-get-started-powershell.md) nebo [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) v jiném účtu Data Lake Store, složce nebo předplatném Azure.  Kopie pak můžete využít k obnovení poškozených nebo odstraněných dat. Azure Data Factory je užitečná služba pro opakované vytváření a nasazování kanálů k přesunu dat.
+Aby se zabránilo nechtěnému odstranění, doporučujeme nejdříve nastavit správné zásady přístupu k účtu Data Lake Store.  To zahrnuje použití [ámků prostředků Azure](../azure-resource-manager/resource-group-lock-resources.md) k uzamčení důležitých prostředků a také použití řízení přístupu na úrovni souborů a rolí pomocí dostupných [funkcí zabezpečení služby Data Lake Store](data-lake-store-security-overview.md). Doporučujeme také pravidelně vytvářet kopie důležitých dat pomocí [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShellu](data-lake-store-get-started-powershell.md) nebo [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) v jiném účtu Data Lake Store, složce nebo předplatném Azure.  Kopie pak můžete využít k obnovení poškozených nebo odstraněných dat. Azure Data Factory je užitečná služba pro opakované vytváření a nasazování kanálů k přesunu dat.
 
 Organizace také můžou povolit [protokolování diagnostiky](data-lake-store-diagnostic-logs.md) pro účet Azure Data Lake Store ke shromažďování záznamů pro audit přístupu k datům. Ty poskytují informace o tom, kdo mohl soubor odstranit nebo aktualizovat.
 
@@ -52,6 +52,6 @@ Organizace také můžou povolit [protokolování diagnostiky](data-lake-store-d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -39,7 +39,7 @@ Další informace o databázích SQL Azure najdete v tématu [Databáze SQL](sql
 
 ## <a name="what-features-are-supported"></a>Jaké funkce jsou podporovány?
 
-Následující tabulky uvádějí hlavní funkce služby Azure SQL Database a systému SQL Server, specifikují možnosti podpory a obsahují odkaz na další informace o funkci jednotlivých platforem. Funkce jazyka Transact-SQL zobrazíte pomocí následujícího odkazu v tabulce pro kategorii funkce. Přečtěte si také téma [Odlišnosti jazyka Transact-SQL ve službě Azure SQL Database](sql-database-transact-sql-information.md), kde najdete další informace o důvodech nedostatečné podpory určitých typů zařízení.
+Následující tabulky uvádějí hlavní funkce služby Azure SQL Database a systému SQL Server, specifikují možnosti podpory a obsahují odkaz na další informace o této funkci na jednotlivých platformách. Funkce jazyka Transact-SQL zobrazíte pomocí následujícího odkazu v tabulce pro kategorii funkce. Přečtěte si také téma [Odlišnosti jazyka Transact-SQL ve službě Azure SQL Database](sql-database-transact-sql-information.md), kde najdete další informace o důvodech nedostatečné podpory určitých typů zařízení.
 
 Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívit webovou stránku aktualizace služeb pro Azure a použít filtry, které obsahuje:
 
@@ -47,7 +47,7 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 * Filtrování na [oznámení všeobecné dostupnosti ](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) pro funkce služby SQL Database
 
 > [!TIP]
-> Pokud chcete otestovat stávající databázi na kompatibilitu s funkcí Azure SQL Database, získáte informace v části [Ověření kompatibility služby Azure SQL Database](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Pokud chcete otestovat kompatibilitu stávající databázi se službou Azure SQL Database, přečtěte si téma věnované [migraci databáze SQL Serveru do Azure](sql-database-cloud-migrate.md).
 >
 
 | **Funkce** | **SQL Server** | **Azure SQL Database** | 
@@ -161,6 +161,6 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

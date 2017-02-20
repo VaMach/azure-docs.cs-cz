@@ -1,6 +1,6 @@
 ---
-title: "Import dat do Azure Search pomocí indexerů na webu Azure Portal | Dokumentace Microsoftu"
-description: "Použití Průvodce importem dat do služby Azure Search na webu Azure Portal k procházení dat ze služby Azure Blob Storage, Table Storage, SQL Database a systému SQL Server na virtuálních počítačích Azure."
+title: "Import dat do služby Azure Search na portálu | Dokumentace Microsoftu"
+description: "Použijte Průvodce importem dat do služby Azure Search na webu Azure Portal k procházení dat Azure z NoSQL DocumentDB, ze služby Blob Storage, Table Storage, SQL Database a systému SQL Server na virtuálních počítačích Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
 
 
 ---
@@ -28,12 +28,14 @@ Azure Portal poskytuje v řídicím panelu služby Azure Search průvodce **Impo
 
 Průvodce interně konfiguruje a vyvolává *indexer*, čímž automatizuje několik kroků procesu indexování: 
 
-* Připojení k externímu zdroji dat v aktuálním předplatném Azure
-* Automatické generování schématu indexu na základě struktury zdroje dat
-* Vytváření dokumentů na základě sady řádků získané ze zdroje dat
-* Odeslání dokumentů do indexu vaší vyhledávací služby
+* Připojení k externímu zdroji dat ve stejném předplatném Azure
+* Generování upravitelného schématu indexu na základě struktury zdrojových dat
+* Načtení dokumentů JSON do indexu s použitím sady řádků získané ze zdroje dat
 
 Tento pracovní postup můžete vyzkoušet v DocumentDB s použitím vzorových dat. Pokyny najdete v tématu [Začínáme se službou Azure Search na webu Azure Portal](search-get-started-portal.md).
+
+> [!NOTE]
+> Z řídicího panelu DocumentDB můžete spustit průvodce **Importem dat** a zjednodušit tak indexování zdroje dat. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Zdroje dat podporované Průvodcem importem dat
 Průvodce importem dat podporuje následující zdroje dat: 
@@ -41,15 +43,13 @@ Průvodce importem dat podporuje následující zdroje dat:
 * Azure SQL Database
 * Relační data systému SQL Server na virtuálním počítači Azure
 * Azure DocumentDB
-* Azure Blob Storage (ve verzi Preview)
-* Azure Table Storage (ve verzi Preview)
+* Azure Blob Storage
+* Azure Table Storage
 
 Plochá datová sada je požadovaný vstup. Importovat můžete pouze z jedné tabulky, jednoho zobrazení databáze nebo ekvivalentní datové struktury. Tuto datovou strukturu byste měli vytvořit před spuštěním průvodce.
 
-Všimněte si, že několik indexerů je stále ve verzi Preview, to znamená, že definice indexeru je podpořena rozhraním API ve verzi Preview. Další informace a odkazy najdete v tématu [Přehled indexerů](search-indexer-overview.md).
-
 ## <a name="connect-to-your-data"></a>Připojení k datům
-1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) a otevřete řídicí panel služby. Kliknutím na **Vyhledávací služby** na panelu odkazů můžete zobrazit stávající služby v rámci aktuálního předplatného. 
+1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) a otevřete řídicí panel služby. Kliknutím na **Další služby** na panelu odkazů můžete vyhledávat stávající „vyhledávací služby“ v rámci aktuálního předplatného. 
 2. Kliknutím na **Import dat** na panelu příkazů otevřete vysouvací okno Import dat.  
 3. Klikněte na **Připojit k datům** a zadejte definici zdroje dat používanou indexerem. V případě zdrojů dat v rámci předplatného průvodce obvykle může rozpoznat a přečíst informace o připojení, čímž minimalizuje celkové požadavky na konfiguraci.
 
@@ -57,16 +57,16 @@ Všimněte si, že několik indexerů je stále ve verzi Preview, to znamená, �
 | --- | --- |
 | **Stávající zdroj dat** |Pokud již ve vyhledávací službě máte definované indexery, můžete pro další import vybrat stávající definici zdroje dat. |
 | **Azure SQL Database** |Název služby, přihlašovací údaje uživatele s oprávněním ke čtení a název databáze můžete zadat na této stránce nebo přes připojovací řetězec technologie ADO.NET. Chcete-li zobrazit nebo přizpůsobit vlastnosti, zvolte možnost připojovacího řetězce. <br/><br/>Na této stránce je třeba určit tabulku nebo zobrazení poskytující sadu řádků. Tato možnost se zobrazí po úspěšném připojení v podobě rozevíracího seznamu, ze kterého můžete vybírat. |
-| **SQL Server na virtuálním počítači Azure** |Zadejte plně kvalifikovaný název služby, ID a heslo uživatele a databázi jako připojovací řetězec. Abyste mohli použít tento zdroj dat, je třeba mít v místním úložišti dříve nainstalovaný certifikát šifrující připojení. <br/><br/>Na této stránce je třeba určit tabulku nebo zobrazení poskytující sadu řádků. Tato možnost se zobrazí po úspěšném připojení v podobě rozevíracího seznamu, ze kterého můžete vybírat. |
+| **SQL Server na virtuálním počítači Azure** |Zadejte plně kvalifikovaný název služby, ID a heslo uživatele a databázi jako připojovací řetězec. Abyste mohli použít tento zdroj dat, je třeba mít v místním úložišti dříve nainstalovaný certifikát šifrující připojení. Pokyny najdete v tématu [Připojení virtuálního počítače SQL ke službě Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Na této stránce je třeba určit tabulku nebo zobrazení poskytující sadu řádků. Tato možnost se zobrazí po úspěšném připojení v podobě rozevíracího seznamu, ze kterého můžete vybírat. |
 | **DocumentDB** |Požadavky zahrnují účet, databázi a kolekci. Všechny dokumenty v kolekci budou zahrnuty v indexu. Můžete definovat dotaz, který zploští nebo vyfiltruje sadu řádků nebo který rozpozná změněné dokumenty pro následné operace aktualizace dat. |
-| **Azure Blob Storage** |Požadavky zahrnují účet úložiště a kontejner. Pokud se názvy objektů blob řídí zásadami virtuálního pojmenovávání pro účely seskupování, můžete volitelně zadat část názvu obsahující virtuální adresář jako složku v kontejneru. Další informace najdete v oddílu [Indexování služby Blob Storage (ve verzi Preview)](search-howto-indexing-azure-blob-storage.md). |
-| **Azure Table Storage** |Požadavky zahrnují účet úložiště a název tabulky. Volitelně můžete zadat dotaz pro načtení podmnožiny tabulek. Další informace najdete v oddílu [Indexování služby Table Storage (ve verzi Preview)](search-howto-indexing-azure-tables.md). |
+| **Azure Blob Storage** |Požadavky zahrnují účet úložiště a kontejner. Pokud se názvy objektů blob řídí zásadami virtuálního pojmenovávání pro účely seskupování, můžete volitelně zadat část názvu obsahující virtuální adresář jako složku v kontejneru. Další informace najdete v tématu [Indexování služby Blob Storage](search-howto-indexing-azure-blob-storage.md). |
+| **Azure Table Storage** |Požadavky zahrnují účet úložiště a název tabulky. Volitelně můžete zadat dotaz pro načtení podmnožiny tabulek. Další informace najdete v tématu [Indexování služby Table Storage](search-howto-indexing-azure-tables.md). |
 
 ## <a name="customize-target-index"></a>Přizpůsobení cílového indexu
 Předběžný index je obvykle odvozen z datové sady. Přidejte, upravte nebo odstraňte pole a dokončete schéma. Případně nastavte atributy na úrovni pole k určení jeho chování při následném vyhledávání.
 
 1. V části **Přizpůsobit cílový index** zadejte název a **Klíč** sloužící k jedinečné identifikaci každého dokumentu. Hodnota Klíč musí být řetězec. Pokud hodnoty polí obsahují mezery nebo pomlčky, ujistěte se, že v části **Import dat** nastavíte rozšířené možnosti, které pro tyto znaky potlačí kontrolu platnosti.
-2. Zkontrolujte a zrevidujte zbývající pole. Název a typ pole jsou obvykle předvyplněné. Můžete změnit typ dat.
+2. Zkontrolujte a zrevidujte zbývající pole. Název a typ pole jsou obvykle předvyplněné. Datový typ můžete měnit, dokud se nevytvoří index. Pozdější změna bude vyžadovat opětovné sestavení.
 3. Pro každé pole nastavte atribut indexu:
    
    * Retrievable (Zobrazitelné) – vrátí pole ve výsledcích vyhledávání.
@@ -84,28 +84,38 @@ Předběžný index je obvykle odvozen z datové sady. Přidejte, upravte nebo o
 1. V části **Import dat** zadejte název indexeru. Připomínáme, že indexer je výsledkem Průvodce importem dat. Pokud jej později budete chtít zobrazit nebo upravit, místo opětovného spuštění průvodce jej vyberete z portálu. 
 2. Zadejte plán založený na časovém pásmu oblasti, ve které je služba zřízená.
 3. Nastavením rozšířených možností můžete zadat prahové hodnoty, podle kterých se určí, zda může indexování pokračovat v případě zrušení dokumentu. Případně můžete určit, zda pole **Klíč** mohou obsahovat mezery a lomítka.  
+4. Kliknutím na **OK** vytvořte index a zahajte import dat.
 
-## <a name="edit-an-existing-indexer"></a>Úprava existujícího indexeru
-Dvojím kliknutím na dlaždici Indexer v řídícím panelu služby vysuňte seznam všech indexerů vytvořených pro vaše předplatné. Dvakrát klikněte na indexery, které chcete spustit, upravit nebo odstranit. Index můžete nahradit jiným existujícím indexem, změnit zdroj dat a nastavit možnosti prahových hodnot chybu během indexování.
+Indexování můžete monitorovat na portálu. S načítáním dokumentů se bude zvyšovat počet dokumentů u indexu, který jste nadefinovali. Stránce portálu někdy trvá několik minut, než získá nejnovější aktualizace.
 
-## <a name="edit-an-existing-index"></a>Úprava existujícího indexu
-Ve vyhledávání systému Azure budou strukturální aktualizace indexu vyžadovat opětovné vytvoření tohoto indexu, který se skládá z odstranění indexu, opětovného vytvoření indexu a načtení dat. Strukturální aktualizace zahrnují změnu datového typu a přejmenování nebo odstranění pole.
-
-Úpravy, které nevyžadují opětovné sestavení zahrnují přidání nového pole, změnu vyhodnocování profilů, změna navrhovatelů nebo změnu analyzátorů jazyka. Další informace naleznete v [aktualizaci indexu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
+Index je připraven k dotazování, jakmile jsou načteny všechny dokumenty.
 
 ## <a name="query-an-index-using-search-explorer"></a>Dotazování indexu pomocí Průzkumník služby Search
 
-Portál zahrnuje **Průzkumníka služby Search**, kterého můžete použít k zadávání dotazů na index, aniž byste museli programovat. Průzkumníka služby Search můžete použít na jakýkoli index.
+Portál zahrnuje **Průzkumníka služby Search**, kterého můžete použít k zadávání dotazů na index, aniž byste museli programovat. [Průzkumníka služby Search](search-explorer.md) můžete použít na jakýkoli index.
 
-Funkce vyhledávání je založena na výchozím nastavení, jako je [jednoduchá syntaxe](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) a výchozí parametr dotazu searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents). Výsledky jsou vráceny ve formátu JSON, abyste si mohli prohlédnout celý dokument.
+Funkce vyhledávání je založena na výchozím nastavení, jako je [jednoduchá syntaxe](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) a výchozí parametr dotazu searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+
+Podrobné výsledky jsou vráceny ve formátu JSON, abyste si mohli prohlédnout celý dokument.
+
+## <a name="edit-an-existing-indexer"></a>Úprava existujícího indexeru
+Jak jsme uvedli, průvodce importem dat vytvoří **indexer**, který můžete na portálu upravit jako samostatnou konstrukci.
+
+Dvojím kliknutím na dlaždici Indexer v řídícím panelu služby vysuňte seznam všech indexerů vytvořených pro vaše předplatné. Dvakrát klikněte na indexery, které chcete spustit, upravit nebo odstranit. Index můžete nahradit jiným existujícím indexem, změnit zdroj dat a nastavit možnosti prahových hodnot chybu během indexování.
+
+## <a name="edit-an-existing-index"></a>Úprava existujícího indexu
+Průvodce vytvořil také **index**. Strukturální aktualizace indexu ve službě Azure Search vyžadují opětovné sestavení daného indexu. Opětovné sestavení zahrnuje odstranění indexu, opětovné vytvoření indexu s použitím zrevidovaného schématu s požadovanými změnami a načtení dat. Strukturální aktualizace zahrnují změnu datového typu a přejmenování nebo odstranění pole.
+
+Úpravy, které nevyžadují opětovné sestavení zahrnují přidání nového pole, změnu vyhodnocování profilů, změna navrhovatelů nebo změnu analyzátorů jazyka. Další informace naleznete v [aktualizaci indexu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
+
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o indexerech najdete na těchto odkazech:
 
 * [Indexování služby Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexování DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Indexování služby Blob Storage (ve verzi Preview)](search-howto-indexing-azure-blob-storage.md)
-* [Indexování služby Table Storage (ve verzi Preview)](search-howto-indexing-azure-tables.md)
+* [Indexování DocumentDB](search-howto-index-documentdb.md)
+* [Indexování služby Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Indexování služby Table Storage](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
@@ -113,6 +123,6 @@ Další informace o indexerech najdete na těchto odkazech:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

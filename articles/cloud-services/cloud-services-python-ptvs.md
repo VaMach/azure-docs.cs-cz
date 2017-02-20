@@ -15,30 +15,25 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 712c62ed3d5ff21847e2431df3530e7d39c6aae2
-ms.openlocfilehash: 53f7c17d8404bb02ab8bb2be9018ba2b179f1b08
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
 
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
-
-Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů pomocí nástrojů [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
+Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů Python pomocí nástrojů [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
 
 ## <a name="prerequisites"></a>Požadavky
 * Visual Studio 2013 nebo 2015
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] nebo [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
-* [Python 2.7 (32bitová verze)][Python 2.7 (32bitová verze)] nebo [Python 3.5 (32bitová verze)][Python 3.5 (32bitová verze)]
+* [Python 2.7 (32bitová verze)][Python 2.7 32-bit] nebo [Python 3.5 (32bitová verze)][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Co jsou webové role a role pracovních procesů Pythonu?
-Azure nabízí tři výpočetní modely pro provozování aplikací: [funkce Web Apps ve službě Azure App Service][prováděcí model – weby], [Azure Virtual Machines][prováděcí model – vms] a [Azure Cloud Services][prováděcí model – cloudové služby]. Všechny tři modely podporují Python. Služby Cloud Services, které obsahují webové role a role pracovních procesů, zajišťují *PaaS (Platform as a Service)*. Webová role v rámci cloudové služby poskytuje vyhrazený webový server Internetové informační služby (IIS) pro hostování front-endových webových aplikací, zatímco role pracovních procesů dokážou spouštět asynchronní, dlouhotrvající nebo trvalé úlohy, které jsou nezávislé na vstupu nebo interakci uživatelů.
+Azure nabízí tři počítačové modely pro spouštění aplikací: [funkci Web Apps v Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] a [Azure Cloud Services][execution model-cloud services]. Všechny tři modely podporují Python. Služby Cloud Services, které obsahují webové role a role pracovních procesů, zajišťují *PaaS (Platform as a Service)*. Webová role v rámci cloudové služby poskytuje vyhrazený webový server Internetové informační služby (IIS) pro hostování front-endových webových aplikací, zatímco role pracovních procesů dokážou spouštět asynchronní, dlouhotrvající nebo trvalé úlohy, které jsou nezávislé na vstupu nebo interakci uživatelů.
 
 Další informace najdete v článku [Co je cloudová služba?].
 
@@ -334,43 +329,43 @@ Po spuštění virtuálního počítače cloudové služby a instalaci Pythonu s
 ## <a name="next-steps"></a>Další kroky
 Další podrobné informace o práci s webovými rolemi a rolemi pracovních procesů v nástrojích Python Tools for Visual Studio najdete v dokumentaci k těmto nástrojům:
 
-* [Projekty cloudových služeb][Projekty cloudových služeb]
+* [Projekty cloudových služeb][Cloud Service Projects]
 
 Další podrobnosti o používání služeb Azure z vaší webové role a role pracovního procesu, například pomocí služeb Azure Storage nebo Azure Service Bus, najdete v následujících článcích.
 
-* [Služba objektů blob][Služba objektů blob]
-* [Služba Table][Služba Table]
-* [Služba front][Služba front]
-* [Fronty služby Service Bus][Fronty služby Service Bus]
-* [Témata služby Service Bus][Témata služby Service Bus]
+* [Služba Blob][Blob Service]
+* [Služba Table][Table Service]
+* [Služba front][Queue Service]
+* [Fronty služby Service Bus][Service Bus Queues]
+* [Témata služby Service Bus][Service Bus Topics]
 
 <!--Link references-->
 
 [Co je cloudová služba?]: cloud-services-choose-me.md
-[prováděcí model – weby]: ../app-service-web/app-service-web-overview.md
-[prováděcí model – vms]: ../virtual-machines/virtual-machines-windows-about.md
-[prováděcí model – cloudové služby]: cloud-services-choose-me.md
-[Středisko pro vývojáře programující v Pythonu]: /develop/python/
+[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: cloud-services-choose-me.md
+[Python Developer Center]: /develop/python/
 
-[Služba objektů blob]: ../storage/storage-python-how-to-use-blob-storage.md
-[Služba front]: ../storage/storage-python-how-to-use-queue-storage.md
-[Služba Table]: ../storage/storage-python-how-to-use-table-storage.md
-[Fronty služby Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Témata služby Service Bus]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Dokumentace nástrojů Python Tools pro Visual Studio]: http://aka.ms/ptvsdocs
-[Projekty cloudových služeb]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32bitová verze)]: https://www.python.org/downloads/
-[Python 3.5 (32bitová verze)]: https://www.python.org/downloads/
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

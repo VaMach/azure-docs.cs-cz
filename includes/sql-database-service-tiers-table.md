@@ -38,8 +38,8 @@ sql-database-service-tiers.md
 | Maximální počet souběžných relací | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Maximální velikost úložiště odkazuje na maximální velikost datových souborů a nezahrnuje místo, které využívají soubory protokolu.
+\* Maximální velikost databáze odkazuje na maximální velikost datových souborů a nezahrnuje místo, které využívají soubory protokolu.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
