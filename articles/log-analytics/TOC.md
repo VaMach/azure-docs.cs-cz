@@ -69,13 +69,14 @@
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
