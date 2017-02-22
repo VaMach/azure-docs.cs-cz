@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Kurz k SQL Database: Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database pomocí PowerShellu
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Kurz: Zajišťování a zpřístupňování Azure SQL Database pomocí PowerShellu
 
 V tomto úvodním kurzu se naučíte, jak pomocí prostředí PowerShell provádět tyto akce:
 
@@ -54,7 +54,7 @@ Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databá
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/free/) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musíte být přihlášeni pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Další kroky
 Právě jste dokončili tento první úvodní kurz a vytvořili jste databázi s ukázkovými daty. K dispozici je celá řada dalších kurzů, které staví na tom, co jste se v tomto kurzu naučili. 
 
-* Pokud se chcete začít seznamovat se zabezpečením Azure SQL Database, přečtěte si téma [Začínáme se zabezpečením](sql-database-control-access-sql-authentication-get-started.md).
+- Pokud chcete začít kurz ověřování SQL Serveru, přejděte k tématu [Ověřování a autorizace SQL](sql-database-control-access-sql-authentication-get-started.md).
+- Pokud chcete začít kurz ověřování Azure Active Directory, přejděte k tématu [Ověřování a autorizace Azure AD](sql-database-control-access-aad-authentication-get-started.md).
+* Pokud chcete zadat dotaz na ukázkovou databázi na webu Azure Portal, přejděte k tématu [Public Preview: Interaktivní práce s dotazy pro databáze SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/).
 * Pokud znáte Excel, zjistěte, jak se [připojit k databázi SQL v Azure pomocí aplikace Excel](sql-database-connect-excel.md).
 * Jste-li připraveni na psaní kódu, zvolte si programovací jazyk v tématu [Knihovny pro připojení ke službě SQL Database a systému SQL Server](sql-database-libraries.md).
 * Pokud chcete do Azure přesunout databáze z místního systému SQL Server, přečtěte si téma [Migrace databáze do služby SQL Database](sql-database-cloud-migrate.md).
@@ -578,6 +580,6 @@ Právě jste dokončili tento první úvodní kurz a vytvořili jste databázi s
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

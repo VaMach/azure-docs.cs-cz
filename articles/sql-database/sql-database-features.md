@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
 
 
 ---
@@ -57,12 +57,12 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 | Skupiny dostupnosti AlwaysOn | [Podporuje se](https://msdn.microsoft.com/library/hh510230.aspx) | Nepodporuje se – viz [Aktivní geografická replikace](sql-database-geo-replication-overview.md) |
 | Připojení databáze | [Podporuje se](https://msdn.microsoft.com/library/ms190209.aspx) | Nepodporuje se |
 | Aplikační role | [Podporuje se](https://msdn.microsoft.com/library/ms190998.aspx) | [Podporuje se](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Automatické škálování | Nepodporuje se | [Podporuje se](sql-database-scale-up.md) |
+| Automatické škálování | Nepodporuje se | [Podporuje se](sql-database-service-tiers.md) |
 | Azure Active Directory | Nepodporuje se | [Podporuje se](sql-database-aad-authentication.md) |
 | Azure Data Factory | Nepodporuje se – viz [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Podporuje se](https://azure.microsoft.com/services/data-factory/) |
-| Auditování | [Podporuje se](https://msdn.microsoft.com/library/cc280386.aspx) | [Podporuje se](sql-database-auditing-get-started.md) |
+| Auditování | [Podporuje se](https://msdn.microsoft.com/library/cc280386.aspx) | [Podporuje se](sql-database-auditing.md) |
 | Soubor BACPAC (export) | [Podporuje se](https://msdn.microsoft.com/library/hh213241.aspx) | [Podporuje se](sql-database-export.md) |
-| Soubor BACPAC (import) | [Podporuje se](https://msdn.microsoft.com/library/hh710052.aspx) | [Podporuje se](sql-database-import.md) |
+| Soubor BACPAC (import) | [Podporuje se](https://msdn.microsoft.com/library/hh710052.aspx) | [Podporuje se](sql-database-import-portal.md) |
 | Příkazy BACKUP a RESTORE | [Podporuje se](https://msdn.microsoft.com/library/ff848768.aspx) | Nepodporuje se |
 | Integrované funkce | [Podporuje se](https://msdn.microsoft.com/library/ms174318.aspx) | [Většina](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Change data capture | [Podporuje se](https://msdn.microsoft.com/library/cc645937.aspx) | Nepodporuje se |
@@ -132,7 +132,7 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 | SQL Server Integration Services (SSIS) | [Podporuje se](https://msdn.microsoft.com/library/ms141026.aspx) | Nepodporuje se – viz [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | PowerShell pro SQL Server | [Podporuje se](https://msdn.microsoft.com/library/hh245198.aspx) | [Podporuje se](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Podporuje se](https://msdn.microsoft.com/library/ms181091.aspx) | Nepodporuje se – viz [Rozšířené události](https://msdn.microsoft.com/library/ms181091.aspx) |
-| Replikace systému SQL Server | [Podporuje se](https://msdn.microsoft.com/library/ms151198.aspx) | [Jenom předplatitelé transakční replikace a replikace snímků](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replikace systému SQL Server | [Podporuje se](https://msdn.microsoft.com/library/ms151198.aspx) | [Jenom předplatitelé transakční replikace a replikace snímků](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Podporuje se](https://msdn.microsoft.com/library/ms159106.aspx) | Nepodporuje se |
 | Uložené procedury | [Podporuje se](https://msdn.microsoft.com/library/ms190782.aspx) | [Podporuje se](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Systémové uložené funkce | [Podporuje se](https://msdn.microsoft.com/library/ff848780.aspx) | [Některé](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -161,6 +161,6 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
