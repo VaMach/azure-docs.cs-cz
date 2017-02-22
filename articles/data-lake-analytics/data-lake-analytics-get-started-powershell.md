@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
-ms.openlocfilehash: 57c52a8c28e5a87a63fded3db7d0a2a785e47a53
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ V tomto kurzu budete vyvíjet úlohu, která načte soubor hodnot oddělených t
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Pracovní stanice s prostředím Azure PowerShell**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
+* **Pracovní stanice s prostředím Azure PowerShell**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-data-lake-analytics-account"></a>Vytvoření účtu Data Lake Analytics
 Je nutné, abyste před spuštěním jakékoli úlohy měli účet Data Lake Analytics. Pokud chcete vytvořit účet Data Lake Analytics, je nutné zadat tyto údaje:
@@ -209,6 +209,6 @@ Po dokončení úlohy můžete pomocí následujících rutin zobrazit výpis so
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

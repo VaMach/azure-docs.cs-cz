@@ -8,6 +8,7 @@
 ## [Proxy a brána firewall](log-analytics-proxy-firewall.md)
 ## [Údaje o využití](log-analytics-usage.md)
 ## [Nejčastější dotazy k Log Analytics](log-analytics-faq.md)
+## [Poskytovatelé služeb](log-analytics-service-providers.md)
 
 # Postup
 ## Shromažďování dat
@@ -15,7 +16,7 @@
 #### [Agenti systému Windows](log-analytics-windows-agents.md)
 #### [Agenti systému Linux](log-analytics-linux-agents.md)
 #### [Virtuální počítače Azure](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Prostředky Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [Brána OMS](log-analytics-oms-gateway.md)
@@ -45,6 +46,9 @@
 #### [Sledování změn](log-analytics-change-tracking.md)
 #### [Kontejnery](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
+#### Zprávy B2B Logic Apps
+##### [Řešení zpráv B2B Logic Apps](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Vlastní schéma sledování B2B Logic Apps](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Posouzení malwaru](log-analytics-malware.md)
 #### [Analýza sítě](log-analytics-azure-networking-analytics.md)
 #### [Sledování výkonu sítě](log-analytics-network-performance-monitor.md)
@@ -59,18 +63,20 @@
 ## Vývoj
 ### [Rozhraní API kolekce dat](log-analytics-data-collector-api.md)
 ### [Rutiny PowerShellu](log-analytics-powershell-workspace-configuration.md)
+### [Šablony Resource Manageru](log-analytics-template-workspace-configuration.md)
 ### [Rozhraní API pro prohledávání protokolů](log-analytics-log-search-api.md)
 ### [Rozhraní API pro výstrahy](log-analytics-api-alerts.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

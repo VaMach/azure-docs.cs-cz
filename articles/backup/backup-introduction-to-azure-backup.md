@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Tradiční řešení zálohování se vyvinula tak, že cloud považují za konc
 
 **Zálohování konzistentní s aplikací** – Bez ohledu na to, jestli zálohujete souborový server, virtuální počítač nebo databázi SQL, si potřebujete být jistí, že bod obnovení obsahuje veškerá požadovaná data pro obnovení záložní kopie. Azure Backup poskytuje zálohy konzistentní s aplikací, a tím je zajištěno, že pro obnovení dat nejsou potřebné další opravy. Obnovování dat konzistentních s aplikací zkracuje čas obnovení, což vám umožní rychle se vrátit do funkčního stavu.
 
-**Dlouhodobé uchovávání** – Do Azure můžete zálohovat data na 99 let. Namísto převádění záložní kopie z disku na pásku a následné přepravy pásky na místo mimo pracoviště za účelem dlouhodobého uložení můžete využívat krátkodobé i dlouhodobé uchovávání v Azure.
+**Dlouhodobé uchovávání** – Namísto převádění záložní kopie z disku na pásku a následné přepravy pásky na místo mimo pracoviště za účelem dlouhodobého uložení můžete využívat krátkodobé i dlouhodobé uchovávání v Azure. Azure neomezuje dobu, po kterou můžete ponechat data v trezoru služby Backup nebo Recovery Services. Data můžete v trezoru ponechat, jak dlouho chcete. Služba Azure Backup má omezení 9999 bodů obnovení na chráněnou instanci. Přečtěte si oddíl [Zálohování a uchovávání](backup-introduction-to-azure-backup.md#backup-and-retention) v tomto článku, kde najdete vysvětlení, jak může toto omezení ovlivnit vaše potřeby zálohování.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Které komponenty Azure Backup mám použít?
 Pokud si nejste jisti, která komponenta Azure Backup splňuje vaše potřeby, najdete v následující tabulce informace o tom, co můžete chránit pomocí jednotlivých komponent. Na portálu Azure Portal je k dispozici průvodce, který je integrovaný v portálu a provede vás výběrem komponenty ke stažení a nasazení. Průvodce, který je součástí vytváření trezoru služby Recovery Services, vás provede kroky výběru cíle zálohování a výběru dat nebo aplikace, kterou chcete chránit.
@@ -107,6 +107,15 @@ Po dokončení úlohy zálohování je pracovní umístění odstraněno. Cena �
 
 ### <a name="restore-premium-storage-vms"></a>Obnovení virtuálních počítačů služby Storage úrovně Premium
 Virtuální počítače služby Storage úrovně Premium je možné obnovit do úložiště Storage úrovně Premium nebo do normálního úložiště. Typickým procesem obnovení je obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do služby Storage úrovně Premium. Nicméně obnovení bodu zotavení virtuálního počítače služby Storage úrovně Premium do standardního úložiště může být cenově výhodnější. Tento typ obnovení lze použít, pokud potřebujete podmnožinu souborů z virtuálního počítače.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Používání virtuálních počítačů se spravovanými disky se službou Azure Backup
+Azure Backup chrání virtuální počítače se spravovanými disky. Díky zpravovaným diskům už nemusíte spravovat účty úložiště virtuálních počítačů a zřizování virtuálních počítačů je výrazně zjednodušené.
+
+### <a name="back-up-managed-disk-vms"></a>Zálohování virtuálních počítačů se spravovanými disky
+Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Můžete zálohovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Zálohování virtuálních počítačů na spravovaných discích je podporováno prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup v současné době nepodporuje zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Obnovení virtuálních počítačů se spravovanými disky
+Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Zatímco disky vytvořené během procesu obnovení spravuje Azure, účet úložiště vytvořený jako součást procesu obnovení je podobný ostatním účtům úložiště Resource Manageru a očekává se, že jej bude spravovat zákazník.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jaké jsou funkce jednotlivých komponent služby Backup?
 Následující části obsahují tabulky, které shrnují dostupnost nebo podporu různých funkcí v jednotlivých komponentách Azure Backup. Informace o další podpoře nebo podrobnosti najdete pod jednotlivými tabulkami.
@@ -175,7 +184,7 @@ Pokud svá data zálohujete do aplikace System Center DPM nebo na Azure Backup S
 #### <a name="network-throttling"></a>Omezování šířky pásma sítě
 Agent Azure Backup nabízí možnost omezování šířky pásma sítě, která vám umožňuje kontrolu využití šířky pásma sítě během přenosu dat. Omezování může být užitečné, pokud potřebujete zálohovat data v pracovní době, ale nechcete, aby proces zálohování narušoval ostatní internetový provoz. Omezování pro přenos dat platí pro činnosti zálohování a obnovení.
 
-### <a name="backup-and-retention"></a>Zálohování a uchovávání
+## <a name="backup-and-retention"></a>Zálohování a uchovávání
 
 Azure Backup má limit 9999 bodů obnovení (označovaných také jako záložní kopie nebo snímky) na jednu *chráněnou instanci*. Chráněná instance je počítač, server (fyzický nebo virtuální) nebo úloha nakonfigurovaná pro zálohování dat do Azure. Další informace najdete v části [Co je chráněná instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Instance je chráněná, jakmile se uloží záložní kopie dat. Ochranou je právě tato záložní kopie dat. Pokud dojde ke ztrátě nebo poškození zdrojových dat, je možné je obnovit ze záložní kopie. V následující tabulce jsou uvedené maximální frekvence zálohování pro jednotlivé komponenty. Konfigurace zásady zálohování určuje, jak rychle se spotřebovávají body obnovení. Pokud například vytváříte bod obnovení každý den, můžete zachovat body obnovení 27 let, teprve potom vám dojdou. Pokud vytváříte bod obnovení každý měsíc, můžete zachovat body obnovení 833 let, teprve potom vám dojdou. Služba Backup pro body obnovení nenastavuje omezení času vypršení platnosti.
 
@@ -234,6 +243,6 @@ Podrobnosti o ochraně jiných úloh můžete zkusit najít v některém z těch
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

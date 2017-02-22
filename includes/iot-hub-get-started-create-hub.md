@@ -37,6 +37,6 @@ Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

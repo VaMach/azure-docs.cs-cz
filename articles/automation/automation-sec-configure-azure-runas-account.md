@@ -6,7 +6,7 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "název instančního objektu, setspn, ověřování azure"
+keywords: "název objektu služby, název instančního objektu, setspn, ověřování azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
@@ -394,6 +394,6 @@ Můžete použít níže uvedený aktualizovaný ukázkový kód z ukázkového 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,30 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth
 Dvoustupňové ověřování je k dispozici ve výchozím nastavení pro globální správce, kteří mají uživatele služeb Azure Active Directory a Office 365. Pokud ale budete chtít využívat výhod [pokročilých funkcí](multi-factor-authentication-whats-next.md) měli byste si zakoupit plnou verzi Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
 > Poskytovatel ověřování Azure Multi-Factor Auth umožňuje využít výhod funkcí poskytovaných plnou verzí Azure MFA. Je určena pro uživatele, kteří **nemají licence prostřednictvím Azure MFA, Azure AD Premium nebo EMS**.  Azure MFA, Azure AD Premium a EMS zahrnují plnou verzi Azure MFA ve výchozím nastavení.  Pokud máte licence, nepotřebujete poskytovatele Azure Multi-Factor Auth.
-> 
-> 
 
 Pokud si chcete stáhnout sadu SDK, budete potřebovat poskytovatele Azure Multi-Factor Auth.
 
 > [!IMPORTANT]
 > Pokud chcete stáhnout sadu SDK, vytvořte poskytovatele Azure Multi-Factor Auth i v případě, že máte licence Azure MFA, AAD Premium nebo EMS.  Pokud vytvoříte poskytovatele Azure Multi-Factor Auth pro tento účel a máte už licence, nezapomeňte poskytovatele vytvořit podle modelu **Na povoleného uživatele**. Potom propojte poskytovatele s adresářem, ve kterém jsou uložené licence Azure MFA, Azure AD Premium nebo EMS.  Tím zajistíte, že nebudete dostávat faktury, pokud nemáte více jedinečných uživatelů využívajících sadu SDK než počet vlastněných licencí.
-> 
-> 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Vytvoření poskytovatele Multi-Factor Auth
+## <a name="create-a-multi-factor-auth-provider"></a>Vytvoření poskytovatele Multi-Factor Auth
 K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte následující postup.
 
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
@@ -64,6 +60,6 @@ K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte nás
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

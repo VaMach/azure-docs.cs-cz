@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/31/2016
+ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault
 K dokončení tohoto kurzu potřebujete:
 
 * Existující trezor klíčů, který již používáte.  
-* Azure PowerShell v **minimální verzi 1.0.1**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell v **minimální verzi 1.0.1**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`.  
 * Dostatečné úložiště v Azure pro vaše protokoly Key Vault.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Připojení k předplatným
@@ -66,14 +66,14 @@ Chcete-li specifikovat předplatné přidružené k trezoru klíčů, který bud
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md).
+Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Vytvoření nového účtu úložiště pro protokoly
 Pro svoje protokoly můžete použít i stávající účet úložiště, my však vytvoříme nový účet úložiště, který bude vyhrazený pro protokoly Key Vault. Abychom si usnadnili práci při pozdějším zadávání, uložíme si podrobnosti do proměnné s názvem **sa**.
 
 Pro další usnadnění správy použijeme také stejnou skupinu prostředků, jako ta, která obsahuje náš trezor klíčů. Z [kurzu Začínáme](key-vault-get-started.md) je název této skupiny prostředků **ContosoResourceGroup** a budeme pokračovat v používání umístění ve východní Asii. Tyto hodnoty nahraďte příslušnými vlastními hodnotami:
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
+    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]
@@ -266,6 +266,6 @@ Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s předávání hybridních připojení | Dokumentace Microsoftu"
+title: "Začínáme s hybridními připojeními Azure Relay v .NET | Dokumentace Microsoftu"
 description: "Postup při psaní konzolové aplikace v jazyce C# pro hybridní připojení"
 services: service-bus-relay
 documentationcenter: .net
@@ -12,24 +12,26 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 3ab92ba4e5c19d4b713ceb2da30835542f343d68
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Začínáme s hybridními připojeními pro přenos
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Tento kurz obsahuje úvod do [hybridních připojení Azure Relay](relay-what-is-it.md#hybrid-connections) a ukazuje, jak vytvořit klientskou aplikaci, která odesílá zprávy do příslušné aplikace naslouchacího procesu. 
+
 ## <a name="what-will-be-accomplished"></a>Co všechno zvládneme
-Protože hybridní připojení vyžaduje klienta i server, vytvoříme si v tomto kurzu dvě konzolové aplikace. Postup je následující:
+Protože hybridní připojení vyžadují komponentu klienta i serveru, tento kurz vytvoří dvě konzolové aplikace. Kroky jsou následující:
 
 1. Pomocí webu Azure Portal vytvoříme obor názvů přenosu.
 2. Pomocí webu Azure Portal vytvoříme hybridní připojení.
-3. Napíšeme serverovou aplikaci pro příjem zpráv.
-4. Napíšeme aplikaci klientské konzoly pro příjem zpráv.
+3. Napíšeme konzolovou aplikaci serveru (naslouchacího procesu) pro příjem zpráv.
+4. Napíšeme konzolovou aplikaci klienta (odesílatele) pro odesílání zpráv.
 
 ## <a name="prerequisites"></a>Požadavky
 1. [Visual Studio 2013 nebo Visual Studio 2015](http://www.visualstudio.com). V příklady v tomto kurzu se používá Visual Studio 2015.
@@ -74,6 +76,6 @@ Blahopřejeme, vytvořili jste kompletní aplikaci Hybridní připojení.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

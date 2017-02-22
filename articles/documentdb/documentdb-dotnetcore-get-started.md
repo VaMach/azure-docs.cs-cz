@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
-ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -78,7 +78,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
    ![Snímek obrazovky místní nabídky projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
 7. Ve výsledcích vyhledejte **Microsoft.Azure.DocumentDB.Core** a klikněte na **Nainstalovat**.
-   ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core).
+   ID balíčku klientské knihovny DocumentDB pro .NET Core je [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Pokud cílíte na verzi .NET Framework (třeba net461), kterou tento balíček .NET Core Nuget nepodporuje, použijte [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) podporující všechny verze .NET Framework počínaje verzí .NET Framework 4.5.
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
@@ -113,7 +113,7 @@ Dále přejděte na [Portál Azure](https://portal.azure.com) a získejte identi
 
 Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
 
-Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`. Pokud používáte emulátor Azure DocumentDB, použijte jako koncový bod `https://localhost:443` a dobře definovaný autorizační klíč z tématu [Postup vývoje pomocí emulátoru DocumentDB](documentdb-nosql-local-emulator.md).
+Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`. Pokud používáte emulátor Azure DocumentDB, použijte jako koncový bod `https://localhost:8081` a dobře definovaný autorizační klíč z tématu [Postup vývoje pomocí emulátoru DocumentDB](documentdb-nosql-local-emulator.md).
 
 ![Snímek obrazovky Portálu Azure, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v C#. Zobrazuje účet DocumentDB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
 
@@ -562,6 +562,6 @@ Pokud chcete obnovit odkazy na sadu DocumentDB .NET Core SDK v sadě Visual Stud
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
 
 
 ---
@@ -34,7 +34,7 @@ Tento kurz ukazuje, jak načíst data do SQL Data Warehouse s použitím AzCopy 
 * Vytvářením databázových objektů definovat data
 * Spuštěním dotazu T-SQL načítat data
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -43,7 +43,7 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat
 
 * Databázi SQL Data Warehouse
 * Účet úložiště Azure typu Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS) nebo Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
-* Nástroj příkazového řádku AzCopy. Stáhněte a nainstalujte si [nejnovější verzi AzCopy][nejnovější verzi AzCopy], která se instaluje s nástroji Microsoft Azure Storage Tools.
+* Nástroj příkazového řádku AzCopy. Stáhněte a nainstalujte si [nejnovější verzi AzCopy][latest version of AzCopy], která se instaluje s nástroji Microsoft Azure Storage Tools.
   
     ![Nástroje Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -106,7 +106,7 @@ Zkopírování vašich dat do Azure Blob Storage:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Viz také [Začínáme s nástrojem příkazového řádku AzCopy][nejnovější verzi AzCopy].
+Viz také [Začínáme s nástrojem příkazového řádku AzCopy][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Prozkoumání vašeho kontejneru úložiště objektů blob
 Zobrazení souboru, který jste nahráli do úložiště objektů blob:
@@ -126,7 +126,7 @@ Funkce PolyBase používá pro přístup k datům v Azure Blob Storage externí 
 
 V příkladě v tomto kroku se k vytvoření externí tabulky používají následující příkazy jazyka Transact-SQL.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného kódu přihlašovacích údajů pro vaši databázi
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] k šifrování tajného klíče vašich přihlašovacích údajů pro vaši databázi
 * [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] k zadání ověřovacích informací pro váš účet úložiště Azure
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] k určení umístění vaší služby Azure Blob Storage
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] k určení formátu vašich dat
@@ -237,25 +237,25 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Další informace viz [Statistika][Statistika].  
+Další informace viz [Statistika][Statistics].  
 
 ## <a name="next-steps"></a>Další kroky
-Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najdete další informace, které byste měli mít, když budete vyvíjet řešení využívající funkci PolyBase.
+Projděte si [průvodce funkcí PolyBase][PolyBase guide], kde najdete další informace, které byste měli mít, když budete vyvíjet řešení využívající funkci PolyBase.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Kurz k používání funkce PolyBase v SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Načtení dat pomocí bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Statistika]: ./sql-data-warehouse-tables-statistics.md
-[průvodce funkcí PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[nejnovější verzi AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[podporovaný zdroj/jímka]: https://msdn.microsoft.com/library/dn894007.aspx
-[aktivita kopírování]: https://msdn.microsoft.com/library/dn835035.aspx
-[Cílový adaptér SQL Serveru]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -276,6 +276,6 @@ Projděte si [průvodce funkcí PolyBase][průvodce funkcí PolyBase], kde najde
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

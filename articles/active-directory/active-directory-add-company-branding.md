@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
 Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jednotný vzhled všech webů a služeb, které spravují. Azure Active Directory tuto možnost nabízí a umožňuje přizpůsobení vzhledu následujících webových stránek, na které můžete přidat svoje firemní logo a vlastní barevná schémata:
 
 * **Přihlašovací stránka**: To je stránka, která se zobrazuje při přihlašování k Office 365 nebo k jiným webovým aplikacím, které používají Azure AD jako zprostředkovatele identity. Tuto stránku budete používat při vyhledávání domovské sféry nebo při zadávání přihlašovacích údajů. Vyhledávání domovské sféry umožňuje systému přesměrovat federované uživatele na jejich místní službu tokenů zabezpečení (například AD FS).
@@ -31,10 +31,10 @@ Toto téma popisuje možnosti přizpůsobení přihlašovací stránky a stránk
 > [!NOTE]
 > * Firemní branding je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory nebo jste uživatelem Office 365. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
 > * Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
-## <a name="customizing-the-signin-page"></a>Přizpůsobení přihlašovací stránky
+## <a name="customizing-the-sign-in-page"></a>Přizpůsobení přihlašovací stránky
 Pokud potřebujete v prohlížeči otevřít cloudové aplikace a služby, které si vaše organizace předplatila, obvykle použijete přihlašovací stránku.
 
 Pokud jste přihlašovací stránku změnili, může se taková změna projevit až za hodinu.
@@ -46,8 +46,8 @@ Když službu navštívíte pomocí adresy URL, která se neváže ke konkrétn�
 > [!NOTE]
 > * Název domény se musí v sekci portálu Azure Classic **Active Directory** > **Adresář** > **Domény**, kde jste branding nakonfigurovali, zobrazovat jako „Aktivní“.
 > * Branding přihlašovací stránky se nepřenáší na spotřebitelskou přihlašovací stránku Microsoftu. Pokud se přihlásíte pomocí osobního účtu Microsoft, může se vám zobrazit seznam uživatelských dlaždic s brandingem, které vykreslí Azure AD, ale branding vaší organizace se na přihlašovací stránku účtu Microsoft nepoužije.
-> 
-> 
+>
+>
 
 Pokud chcete na této stránce zobrazit značku, barvy a další přizpůsobitelné prvky vaší společnosti, prohlédněte si následující obrázky, abyste pochopili rozdíl mezi oběma prostředími.
 
@@ -91,8 +91,8 @@ Na přihlašovací stránce může přizpůsobit následující prvky:
 
 > [!NOTE]
 > Všechny prvky jsou volitelné. Pokud například určíte banner s logem, ale neurčíte žádný velký obrázek, přihlašovací stránka zobrazí vaše logo a obrázek z cílového webu (v tomto případě obrázek kalifornské dálnice z Office 365).
-> 
-> 
+>
+>
 
 Na přihlašovací stránce umožňuje zaškrtávací políčko **Zůstat přihlášeni**, aby příslušný uživatel zůstal přihlášen i po zavření a dalším spuštění prohlížeče. Na životnost relace to vliv nemá. Příslušné zaškrtávací políčko na přihlašovací stránce služby Azure Active Directory lze skrýt.
 
@@ -100,12 +100,12 @@ Zobrazení zaškrtávacího políčka závisí na nastavení **Skrýt políčko 
 
 ![][9]
 
-Chcete-li zaškrtávací políčko skrýt, použijte pro toto nastavení hodnotu **Skryté**. 
+Chcete-li zaškrtávací políčko skrýt, použijte pro toto nastavení hodnotu **Skryté**.
 
 > [!NOTE]
 > Některé funkce služeb SharePoint Online a Office 2010 závisí na tom, zda uživatelé mohou toto políčko zaškrtnout. Pokud je nastavíte jako skryté, mohou se vašim uživatelům zobrazovat další (neočekávané) výzvy k přihlášení.
-> 
-> 
+>
+>
 
 Všechny prvky na této stránce můžete lokalizovat. Po konfiguraci „výchozí“ sady prvků přizpůsobení můžete nakonfigurovat další verze pro různá národní prostředí. Různé prvky mezi sebou můžete kombinovat. Můžete například provést následující věci:
 
@@ -163,15 +163,15 @@ Nové změny brandingu přihlašovací stránky se můžou projevit třeba až z
 4. Klikněte na **Přizpůsobit branding**.
 5. Na stránce Přizpůsobit branding vyberte **Upravit nastavení existujícího brandingu** a potom přejděte na další stránku.
 6. Podle toho, jaký prvek chcete odebrat, proveďte jeden nebo několik z následujících kroků:
-   
+
     a. V části **Banner s logem** vyberte možnost **Odebrat nahrané logo**.
-   
+
     b. V části **Dlaždice s logem** vyberte možnost **Odebrat nahrané logo**.
-   
+
     c. Odeberte text ze všech textových polí.
-   
+
     d. Klikněte na **Další**.
-   
+
     e. Odeberte text ze všech textových polí.
 7. Kliknutím na **Uložit** prvky odeberete.
 8. V případě potřeby znovu klikněte na **Přizpůsobit branding** a opakujte tyto kroky pro každý branding pro konkrétní jazyk, který chcete odebrat.
@@ -199,12 +199,12 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 | Name (Název) | Popis | Omezení | Doporučení |
 | --- | --- | --- | --- |
-| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60 x 280 pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
-| Dlaždice s logem |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. |<p>JPG nebo PNG</p><p>120 x 120 pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
+| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60 x&280; pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
+| Dlaždice s logem |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. |<p>JPG nebo PNG</p><p>120 x&120; pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
 | </p> | | | |
 | Popisek uživatelského jména na přihlašovací stránce |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný řetězec „pracovní nebo školní účet“. Můžete ho nastavit třeba na „Účet Contoso“ nebo „Contoso ID“. |<p>Text v kódu Unicode, až 50 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |<p>Pište krátce a jednoduše.</p><p>Zeptejte se uživatelů, jak obvykle nazývají pracovní nebo školní účet, který jim poskytujete.</p> |
 | Text na přihlašovací stránce |Tento často používaný text se zobrazuje pod formulářem přihlašovací stránky a vy ho můžete použít ke sdělení dalších pokynů nebo k nasměrování na nápovědu a podporu. |<p>Text v kódu Unicode, až 256 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |Dodržte maximální délku textu 250 znaků (přibližně tři řádky textu). |
-| Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420 × 1200</p><p>500 kB</p> |<p>1420 × 1200 pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
+| Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420 ×&1200;</p><p>500 kB</p> |<p>1420 ×&1200; pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
 | Barva pozadí na přihlašovací stránce |Barva pozadí na přihlašovací stránce se používá v oblasti, která je nalevo od formuláře. |Musí to být barva RGB v šestnáctkovém formátu (příklad: #FFFFFF). |<p>Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma.</p><p>Doporučujeme vybrat primární barvu banneru s logem.</p> |
 
 ## <a name="next-steps"></a>Další kroky
@@ -224,6 +224,6 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

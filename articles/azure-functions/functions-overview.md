@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/17/2017
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ Azure Functions se integruje s celou řadou služeb Azure a služeb třetích st
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Kolik stojí Functions?
 Azure Functions nabízí dva druhy cenových plánů. Zvolte ten, který nejlíp vyhovuje vašim potřebám: 
 
-* **Plán Consumption** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. Úplné podrobnosti o cenách jsou dostupné na [stránce Ceny Functions](/pricing/details/functions). 
-* **Plán služby App Service** – Spouštějte funkce stejně jako webové a mobilní aplikace nebo aplikace API. Pokud již službu App Service používáte pro jiné aplikace, můžete spouštět funkce v tomtéž plánu bez dalších poplatků. Úplné podrobnosti najdete na [stránce App Service – ceny](/pricing/details/app-service/).
+* **Plán Consumption** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. 
+* **Plán služby App Service** – Spouštějte funkce stejně jako webové a mobilní aplikace nebo aplikace API. Pokud již službu App Service používáte pro jiné aplikace, můžete spouštět funkce v tomtéž plánu bez dalších poplatků. 
 
-Další informace o škálování funkcí najdete v tématu [Postup škálování Azure Functions](functions-scale.md).
+Úplné podrobnosti o cenách jsou dostupné na [stránce Ceny Functions](https://azure.microsoft.com/pricing/details/functions/). Další informace o škálování funkcí najdete v tématu [Postup škálování Azure Functions](functions-scale.md).
 
 ## <a name="next-steps"></a>Další kroky
 * [Vytvoření první funkce Azure](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Další informace o škálování funkcí najdete v tématu [Postup škálován�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

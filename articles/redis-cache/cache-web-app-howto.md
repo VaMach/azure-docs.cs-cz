@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azu
 
 ## <a name="create-the-visual-studio-project"></a>Vytvoření projektu sady Visual Studio
 1. Otevřete sadu Visual Studio a klikněte na **Soubor**, **Nový**, **Projekt**.
-2. Rozbalte uzel **Visual C#** v seznamu **Šablony**, vyberte **Cloud**, a klikněte na **Webová aplikace .NET**. Ujistěte se, že je vybrán **.NET Framework 4.5.2**.  Do textového pole **Název** zadejte **ContosoTeamStates** a klikněte na **OK**.
+2. Rozbalte uzel **Visual C#** v seznamu **Šablony**, vyberte **Cloud**, a klikněte na **Webová aplikace .NET**. Ujistěte se, že je vybrán **.NET Framework 4.5.2** nebo vyšší.  Do textového pole **Název** zadejte **ContosoTeamStates** a klikněte na **OK**.
    
     ![Vytvoření projektu][cache-create-project]
 3. Jako typ projektu vyberte **MVC**. Zrušte zaškrtnutí políčka **Hostovat v cloudu**. [Prostředky Azure zřídíte](#provision-the-azure-resources) a [aplikaci do Azure publikujete](#publish-the-application-to-azure) v dalších krocích tohoto kurzu. Příklad zřízení webové aplikace App Service ze sady Visual Studio se zaškrtnutým políčkem **Hostovat v cloudu** najdete v tématu [Začínáme s Web Apps v Azure App Service pomocí ASP.NET a sady Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -87,99 +87,106 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
 2. Jako název třídy zadejte `Team` a klikněte na **Přidat**.
    
     ![Přidání třídy modelu][cache-model-add-class-dialog]
-3. Nahraďte příkazy `using` v horní části souboru `Team.cs` za následující příkazy Using.
+3. Nahraďte příkazy `using` v horní části souboru `Team.cs` za následující příkazy `using`.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Data.Entity;
-        using System.Data.Entity.SqlServer;
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.SqlServer;
+    ```
 
 
 1. Nahraďte definici třídy `Team` za následující fragment kódu, který obsahuje kromě aktualizované definice třídy `Team` i některé další pomocné třídy Entity Frameworku. Další informace o přístupu Code First k Entity Frameworku, který používáme v tomto kurzu, najdete v tématu [Code First pro novou databázi](https://msdn.microsoft.com/data/jj193542).
 
-        public class Team
+    ```c#
+    public class Team
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Wins { get; set; }
+        public int Losses { get; set; }
+        public int Ties { get; set; }
+    
+        static public void PlayGames(IEnumerable<Team> teams)
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public int Wins { get; set; }
-            public int Losses { get; set; }
-            public int Ties { get; set; }
-
-            static public void PlayGames(IEnumerable<Team> teams)
+            // Simple random generation of statistics.
+            Random r = new Random();
+    
+            foreach (var t in teams)
             {
-                // Simple random generation of statistics.
-                Random r = new Random();
-
-                foreach (var t in teams)
-                {
-                    t.Wins = r.Next(33);
-                    t.Losses = r.Next(33);
-                    t.Ties = r.Next(0, 5);
-                }
+                t.Wins = r.Next(33);
+                t.Losses = r.Next(33);
+                t.Ties = r.Next(0, 5);
             }
         }
-
-        public class TeamContext : DbContext
+    }
+    
+    public class TeamContext : DbContext
+    {
+        public TeamContext()
+            : base("TeamContext")
         {
-            public TeamContext()
-                : base("TeamContext")
-            {
-            }
-
-            public DbSet<Team> Teams { get; set; }
         }
-
-        public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    
+        public DbSet<Team> Teams { get; set; }
+    }
+    
+    public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    {
+        protected override void Seed(TeamContext context)
         {
-            protected override void Seed(TeamContext context)
+            var teams = new List<Team>
             {
-                var teams = new List<Team>
-                {
-                    new Team{Name="Adventure Works Cycles"},
-                    new Team{Name="Alpine Ski House"},
-                    new Team{Name="Blue Yonder Airlines"},
-                    new Team{Name="Coho Vineyard"},
-                    new Team{Name="Contoso, Ltd."},
-                    new Team{Name="Fabrikam, Inc."},
-                    new Team{Name="Lucerne Publishing"},
-                    new Team{Name="Northwind Traders"},
-                    new Team{Name="Consolidated Messenger"},
-                    new Team{Name="Fourth Coffee"},
-                    new Team{Name="Graphic Design Institute"},
-                    new Team{Name="Nod Publishers"}
-                };
-
-                Team.PlayGames(teams);
-
-                teams.ForEach(t => context.Teams.Add(t));
-                context.SaveChanges();
-            }
+                new Team{Name="Adventure Works Cycles"},
+                new Team{Name="Alpine Ski House"},
+                new Team{Name="Blue Yonder Airlines"},
+                new Team{Name="Coho Vineyard"},
+                new Team{Name="Contoso, Ltd."},
+                new Team{Name="Fabrikam, Inc."},
+                new Team{Name="Lucerne Publishing"},
+                new Team{Name="Northwind Traders"},
+                new Team{Name="Consolidated Messenger"},
+                new Team{Name="Fourth Coffee"},
+                new Team{Name="Graphic Design Institute"},
+                new Team{Name="Nod Publishers"}
+            };
+    
+            Team.PlayGames(teams);
+    
+            teams.ForEach(t => context.Teams.Add(t));
+            context.SaveChanges();
         }
-
-        public class TeamConfiguration : DbConfiguration
+    }
+    
+    public class TeamConfiguration : DbConfiguration
+    {
+        public TeamConfiguration()
         {
-            public TeamConfiguration()
-            {
-                SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
-            }
+            SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
         }
+    }
+    ```
 
 
 1. V **Průzkumníku řešení** dvakrát klikněte na soubor **web.config** a otevřete jej.
    
     ![Soubor web.config][cache-web-config]
 2. Přidejte následující připojovací řetězec do oddílu `connectionStrings`. Název připojovacího řetězce se musí shodovat s názvem třídy kontextu databáze v Entity Frameworku, který je `TeamContext`.
-   
-       <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+
+    ```xml   
+    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+    ```
 
     Po přidání tohoto řádku kódu by měl oddíl `connectionStrings` vypadat podobně jako v následujícím příkladu.
 
-
-        <connectionStrings>
-            <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-                providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
-        </connectionStrings>
+    ```xml
+    <connectionStrings>
+        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
 
 ### <a name="add-the-controller"></a>Přidání kontroleru
 1. Projekt sestavíte stisknutím klávesy **F6**. 
@@ -195,15 +202,19 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
 5. V **Průzkumníku řešení** rozbalte **Global.asax** a dvojím kliknutím otevřete soubor **Global.asax.cs**.
    
     ![Soubor Global.asax.cs][cache-global-asax]
-6. Přidejte následující dva příkazy Using do horní části souboru pod ostatní příkazy Using.
+6. Přidejte následující dva příkazy `using` do horní části souboru pod ostatní příkazy `using`.
 
-        using System.Data.Entity;
-        using ContosoTeamStats.Models;
+    ```c#
+    using System.Data.Entity;
+    using ContosoTeamStats.Models;
+    ```
 
 
 1. Přidejte následující řádek kódu na konec metody `Application_Start`.
 
-        Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```c#
+    Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```
 
 
 1. V **Průzkumníku řešení** rozbalte `App_Start` a dvakrát klikněte na soubor `RouteConfig.cs`.
@@ -211,11 +222,13 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
     ![Soubor RouteConfig.cs][cache-RouteConfig-cs]
 2. Nahraďte `controller = "Home"` v následujícím kódu v metodě `RegisterRoutes` za `controller = "Teams"`, jak je znázorněno v následujícím příkladu.
 
-        routes.MapRoute(
-            name: "Default",
-            url: "{controller}/{action}/{id}",
-            defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
-        );
+    ```c#
+    routes.MapRoute(
+        name: "Default",
+        url: "{controller}/{action}/{id}",
+        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
+    );
+```
 
 
 ### <a name="configure-the-views"></a>Konfigurace zobrazení
@@ -224,7 +237,9 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
     ![Soubor _Layout.cshtml][cache-layout-cshtml]
 2. Změňte obsah elementu `title` a nahraďte `My ASP.NET Application` za `Contoso Team Stats`, jak je znázorněno v následujícím příkladu.
 
-        <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```html
+    <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```
 
 
 1. V oddílu `body` aktualizujte první příkaz `Html.ActionLink` a nahraďte hodnoty `Application name` za `Contoso Team Stats` a `Home` za `Teams`.
@@ -257,33 +272,41 @@ V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a nač
 3. V **Průzkumníku řešení** rozbalte složku **Kontrolery** a dvojím kliknutím otevřete soubor **TeamsController.cs**.
    
     ![Kontroler Teams][cache-teamscontroller]
-4. Přidejte následující dva příkazy Using do souboru **TeamsController.cs**.
-   
-        using System.Configuration;
-        using StackExchange.Redis;
+4. Přidejte následující dva příkazy `using` do souboru **TeamsController.cs**.
+
+    ```c#   
+    using System.Configuration;
+    using StackExchange.Redis;
+    ```
+
 5. Přidejte následující dvě vlastnosti do třídy `TeamsController`.
-   
-        // Redis Connection string info
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+
+    ```c#   
+    // Redis Connection string info
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
-   
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
+    }
+    ```
+
 6. Na svém počítači vytvořte soubor s názvem `WebAppPlusCacheAppSecrets.config` a umístěte jej do složky, která nebude registrována zároveň se zdrojovým kódem ukázkové aplikace v případě, že se ji rozhodnete někam registrovat. V tomto příkladu je soubor `AppSettingsSecrets.config` umístěn v `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
     Upravte soubor `WebAppPlusCacheAppSecrets.config` a přidejte následující obsah. Pokud aplikaci spouštíte místně, tyto údaje se použijí pro připojení k vaší instanci služby Azure Redis Cache. Později v tomto kurzu zřídíte instanci služby Azure Redis Cache a aktualizujete název mezipaměti a heslo. Pokud neplánujete spouštět ukázkovou aplikaci místně, můžete přeskočit vytvoření tohoto souboru a další kroky, které se tohoto souboru týkají. Při nasazení do Azure aplikace získá informace o připojení k mezipaměti z nastavení webové aplikace, a ne z tohoto souboru. Vzhledem k tomu, že se soubor `WebAppPlusCacheAppSecrets.config` nenasazuje do Azure společně s aplikací, nebudete ho potřebovat, pokud plánujete spouštět aplikaci pouze místně.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. V **Průzkumníku řešení** dvakrát klikněte na soubor **web.config** a otevřete jej.
@@ -294,7 +317,7 @@ V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a nač
    * Před: `<appSettings>`
    * Po: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
      
-     Modul runtime ASP.NET sloučí obsah externího souboru se značkami v elementu `<appSettings>`. Pokud zadaný soubor nelze nalézt, modul runtime atribut souboru ignoruje. Vaše tajné klíče (připojovací řetězce k mezipaměti) nejsou součástí zdrojového kódu aplikace. Při nasazení vaší webové aplikace do Azure se soubor `WebAppPlusCacheAppSecrests.config` nenasadí (přesně to chcete). Existuje několik způsobů určení těchto tajných klíčů v Azure – v tomto kurzu jsou pro vás automaticky nakonfigurované během [zřízení prostředků Azure](#provision-the-azure-resources) v dalším kroku kurzu. Další informace o práci s tajnými klíči v Azure najdete v tématu [Osvědčené postupy pro nasazování hesel a dalších citlivých dat do ASP.NET a do Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+   Modul runtime ASP.NET sloučí obsah externího souboru se značkami v elementu `<appSettings>`. Pokud zadaný soubor nelze nalézt, modul runtime atribut souboru ignoruje. Vaše tajné kódy (připojovací řetězce k mezipaměti) nejsou součástí zdrojového kódu aplikace. Při nasazení vaší webové aplikace do Azure se soubor `WebAppPlusCacheAppSecrests.config` nenasadí (přesně to chcete). Existuje několik způsobů určení těchto tajných kódů v Azure – v tomto kurzu jsou pro vás automaticky nakonfigurované během [zřízení prostředků Azure](#provision-the-azure-resources) v dalším kroku kurzu. Další informace o práci s tajnými kódy v Azure najdete v tématu [Osvědčené postupy pro nasazování hesel a dalších citlivých dat do ASP.NET a do Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Aktualizace třídy TeamsController pro vracení výsledků z mezipaměti nebo z databáze
 V této ukázce lze týmové statistiky získat z databáze nebo z mezipaměti. Týmové statistiky jsou v mezipaměti uložené pomocí datových typů Redis jako serializovaný seznam `List<Team>`, a také jako seřazená sada. Při načítání položek ze seřazené sady můžete načíst část položek, všechny položky nebo provézt dotaz na určité položky. V této ukázce provedete na seřazenou sadu dotaz pro získání Top 5 týmů podle počtu vítězství.
@@ -304,282 +327,299 @@ V této ukázce lze týmové statistiky získat z databáze nebo z mezipaměti. 
 > 
 > 
 
-1. Přidejte následující příkazy Using do horní části souboru `TeamsController.cs` k ostatním příkazům Using.
-   
-        using System.Diagnostics;
-        using Newtonsoft.Json;
-2. Nahraďte stávající metodu `public ActionResult Index()` za následující implementaci.
+1. Přidejte následující příkazy `using` do horní části souboru `TeamsController.cs` k ostatním příkazům `using`.
 
-        // GET: Teams
-        public ActionResult Index(string actionType, string resultType)
+    ```c#   
+    using System.Diagnostics;
+    using Newtonsoft.Json;
+    ```
+
+2. Nahraďte stávající implementaci metody `public ActionResult Index()` za následující implementaci.
+
+    ```c#
+    // GET: Teams
+    public ActionResult Index(string actionType, string resultType)
+    {
+        List<Team> teams = null;
+
+        switch(actionType)
         {
-            List<Team> teams = null;
+            case "playGames": // Play a new season of games.
+                PlayGames();
+                break;
 
-            switch(actionType)
-            {
-                case "playGames": // Play a new season of games.
-                    PlayGames();
-                    break;
+            case "clearCache": // Clear the results from the cache.
+                ClearCachedTeams();
+                break;
 
-                case "clearCache": // Clear the results from the cache.
-                    ClearCachedTeams();
-                    break;
-
-                case "rebuildDB": // Rebuild the database with sample data.
-                    RebuildDB();
-                    break;
-            }
-
-            // Measure the time it takes to retrieve the results.
-            Stopwatch sw = Stopwatch.StartNew();
-
-            switch(resultType)
-            {
-                case "teamsSortedSet": // Retrieve teams from sorted set.
-                    teams = GetFromSortedSet();
-                    break;
-
-                case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
-                    teams = GetFromSortedSetTop5();
-                    break;
-
-                case "teamsList": // Retrieve teams from the cached List<Team>.
-                    teams = GetFromList();
-                    break;
-
-                case "fromDB": // Retrieve results from the database.
-                default:
-                    teams = GetFromDB();
-                    break;
-            }
-
-            sw.Stop();
-            double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
-
-            // Add the elapsed time of the operation to the ViewBag.msg.
-            ViewBag.msg += " MS: " + ms.ToString();
-
-            return View(teams);
+            case "rebuildDB": // Rebuild the database with sample data.
+                RebuildDB();
+                break;
         }
+
+        // Measure the time it takes to retrieve the results.
+        Stopwatch sw = Stopwatch.StartNew();
+
+        switch(resultType)
+        {
+            case "teamsSortedSet": // Retrieve teams from sorted set.
+                teams = GetFromSortedSet();
+                break;
+
+            case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
+                teams = GetFromSortedSetTop5();
+                break;
+
+            case "teamsList": // Retrieve teams from the cached List<Team>.
+                teams = GetFromList();
+                break;
+
+            case "fromDB": // Retrieve results from the database.
+            default:
+                teams = GetFromDB();
+                break;
+        }
+
+        sw.Stop();
+        double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
+
+        // Add the elapsed time of the operation to the ViewBag.msg.
+        ViewBag.msg += " MS: " + ms.ToString();
+
+        return View(teams);
+    }
+    ```
 
 
 1. Přidejte následující tři metody do třídy `TeamsController` pro implementaci typů akcí `playGames`, `clearCache` a `rebuildDB` z výrazu switch, který jste přidali v předchozím fragmentu kódu.
    
     Metoda `PlayGames` aktualizuje týmové statistiky tak, že simuluje sezónu her, výsledky uloží do databáze, a vymaže již zastaralá data z mezipaměti.
 
-        void PlayGames()
-        {
-            ViewBag.msg += "Updating team statistics. ";
-            // Play a "season" of games.
-            var teams = from t in db.Teams
-                        select t;
+    ```c#
+    void PlayGames()
+    {
+        ViewBag.msg += "Updating team statistics. ";
+        // Play a "season" of games.
+        var teams = from t in db.Teams
+                    select t;
 
-            Team.PlayGames(teams);
+        Team.PlayGames(teams);
 
-            db.SaveChanges();
+        db.SaveChanges();
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
-
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
     Metoda `RebuildDB` znovu inicializuje databázi s výchozí sadou týmů, vygeneruje pro ně statistiky, a vymaže již zastaralá data z mezipaměti.
 
-        void RebuildDB()
-        {
-            ViewBag.msg += "Rebuilding DB. ";
-            // Delete and re-initialize the database with sample data.
-            db.Database.Delete();
-            db.Database.Initialize(true);
+    ```c#
+    void RebuildDB()
+    {
+        ViewBag.msg += "Rebuilding DB. ";
+        // Delete and re-initialize the database with sample data.
+        db.Database.Delete();
+        db.Database.Initialize(true);
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
-
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
     Metoda `ClearCachedTeams` odebere z mezipaměti všechny uložené týmové statistiky.
 
-
-        void ClearCachedTeams()
-        {
-            IDatabase cache = Connection.GetDatabase();
-            cache.KeyDelete("teamsList");
-            cache.KeyDelete("teamsSortedSet");
-            ViewBag.msg += "Team data removed from cache. ";
-        } 
+    ```c#
+    void ClearCachedTeams()
+    {
+        IDatabase cache = Connection.GetDatabase();
+        cache.KeyDelete("teamsList");
+        cache.KeyDelete("teamsSortedSet");
+        ViewBag.msg += "Team data removed from cache. ";
+    } 
+    ```
 
 
 1. Přidejte následující čtyři metody do třídy `TeamsController` pro implementaci různých způsobů načítání týmových statistik z mezipaměti a z databáze. Každá z těchto metod vrací seznam `List<Team>`, který se následně zobrazí v zobrazení.
    
     Metoda `GetFromDB` načítá týmové statistiky z databáze.
    
-        List<Team> GetFromDB()
-        {
-            ViewBag.msg += "Results read from DB. ";
-            var results = from t in db.Teams
-                orderby t.Wins descending
-                select t; 
-   
-            return results.ToList<Team>();
-        }
+    ```c#
+    List<Team> GetFromDB()
+    {
+        ViewBag.msg += "Results read from DB. ";
+        var results = from t in db.Teams
+            orderby t.Wins descending
+            select t; 
+
+        return results.ToList<Team>();
+    }
+    ```
 
     Metoda `GetFromList` načítá týmové statistiky z mezipaměti jako serializovaný seznam `List<Team>`. Dojde-li k neúspěšnému přístupu do mezipaměti, týmové statistiky se načtou z databáze a uloží se do mezipaměti pro další použití. V této ukázce používáme pro serializaci objektů .NET do a z mezipaměti serializaci JSON.NET. Další informace najdete v tématu [Práce s objekty .NET v Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-        List<Team> GetFromList()
+    ```c#
+    List<Team> GetFromList()
+    {
+        List<Team> teams = null;
+
+        IDatabase cache = Connection.GetDatabase();
+        string serializedTeams = cache.StringGet("teamsList");
+        if (!String.IsNullOrEmpty(serializedTeams))
         {
-            List<Team> teams = null;
+            teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
 
-            IDatabase cache = Connection.GetDatabase();
-            string serializedTeams = cache.StringGet("teamsList");
-            if (!String.IsNullOrEmpty(serializedTeams))
-            {
-                teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
-
-                ViewBag.msg += "List read from cache. ";
-            }
-            else
-            {
-                ViewBag.msg += "Teams list cache miss. ";
-                // Get from database and store in cache
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-            }
-            return teams;
+            ViewBag.msg += "List read from cache. ";
         }
+        else
+        {
+            ViewBag.msg += "Teams list cache miss. ";
+            // Get from database and store in cache
+            teams = GetFromDB();
 
+            ViewBag.msg += "Storing results to cache. ";
+            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
+        }
+        return teams;
+    }
+    ```
 
     Metoda `GetFromSortedSet` načítá týmové statistiky ze seřazené sady v mezipaměti. Dojde-li k neúspěšnému přístupu do mezipaměti, týmové statistiky se načtou z databáze a uloží se do mezipaměti jako seřazená sada.
 
-
-        List<Team> GetFromSortedSet()
+    ```c#
+    List<Team> GetFromSortedSet()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
+        if (teamsSortedSet.Count() > 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
-            if (teamsSortedSet.Count() > 0)
+            ViewBag.msg += "Reading sorted set from cache. ";
+            teams = new List<Team>();
+            foreach (var t in teamsSortedSet)
             {
-                ViewBag.msg += "Reading sorted set from cache. ";
-                teams = new List<Team>();
-                foreach (var t in teamsSortedSet)
-                {
-                    Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
-                    teams.Add(tt);
-                }
+                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
+                teams.Add(tt);
             }
-            else
-            {
-                ViewBag.msg += "Teams sorted set cache miss. ";
-
-                // Read from DB
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                foreach (var t in teams)
-                {
-                    Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
-                    cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
-                }
-            }
-            return teams;
         }
+        else
+        {
+            ViewBag.msg += "Teams sorted set cache miss. ";
 
+            // Read from DB
+            teams = GetFromDB();
+
+            ViewBag.msg += "Storing results to cache. ";
+            foreach (var t in teams)
+            {
+                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
+                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
+            }
+        }
+        return teams;
+    }
+    ```
 
     Metoda `GetFromSortedSetTop5` načítá Top 5 týmů ze seřazené sady v mezipaměti. Začne tím, že zjistí přítomnost klíče `teamsSortedSet` v mezipaměti. Pokud tento klíč neexistuje, zavolá se metoda `GetFromSortedSet`, která načte týmové statistiky a uloží je do mezipaměti. Poté se provede dotaz na seřazenou sadu k získání Top 5 týmů, které jsou následně vráceny.
 
+    ```c#
+    List<Team> GetFromSortedSetTop5()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
 
-        List<Team> GetFromSortedSetTop5()
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
+        if(teamsSortedSet.Count() == 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
+            // Load the entire sorted set into the cache.
+            GetFromSortedSet();
 
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            if(teamsSortedSet.Count() == 0)
-            {
-                // Load the entire sorted set into the cache.
-                GetFromSortedSet();
-
-                // Retrieve the top 5 teams.
-                teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            }
-
-            ViewBag.msg += "Retrieving top 5 teams from cache. ";
-            // Get the top 5 teams from the sorted set
-            teams = new List<Team>();
-            foreach (var team in teamsSortedSet)
-            {
-                teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
-            }
-            return teams;
+            // Retrieve the top 5 teams.
+            teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
         }
 
+        ViewBag.msg += "Retrieving top 5 teams from cache. ";
+        // Get the top 5 teams from the sorted set
+        teams = new List<Team>();
+        foreach (var team in teamsSortedSet)
+        {
+            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
+        }
+        return teams;
+    }
+    ```
 
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Aktualizace metod Create, Edit a Delete pro práci s mezipamětí
 Kód generování uživatelského rozhraní vygenerovaný jako součást této ukázky obsahuje metody pro přidávání, upravování a odstraňování týmů. Pokaždé když dojde k přidání, úpravě nebo odstranění týmu se data v mezipaměti stanou zastaralými. V této části upravíte tyto tři metody pro vymazávání týmů uložených v mezipaměti, aby nedocházelo k tomu, že mezipaměť nebude synchronizována s databází.
 
 1. Přejděte k metodě `Create(Team team)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
 
-        // POST: Teams/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    ```c#
+    // POST: Teams/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
-            {
-                db.Teams.Add(team);
-                db.SaveChanges();
-                // When a team is added, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-
-            return View(team);
-        }
-
-
-1. Přejděte k metodě `Edit(Team team)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
-
-        // POST: Teams/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(team).State = EntityState.Modified;
-                db.SaveChanges();
-                // When a team is edited, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-            return View(team);
-        }
-
-
-1. Přejděte k metodě `DeleteConfirmed(int id)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
-
-        // POST: Teams/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Team team = db.Teams.Find(id);
-            db.Teams.Remove(team);
+            db.Teams.Add(team);
             db.SaveChanges();
-            // When a team is deleted, the cache is out of date.
+            // When a team is added, the cache is out of date.
             // Clear the cached teams.
             ClearCachedTeams();
             return RedirectToAction("Index");
         }
+
+        return View(team);
+    }
+    ```
+
+
+1. Přejděte k metodě `Edit(Team team)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
+
+    ```c#
+    // POST: Teams/Edit/5
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
+        {
+            db.Entry(team).State = EntityState.Modified;
+            db.SaveChanges();
+            // When a team is edited, the cache is out of date.
+            // Clear the cached teams.
+            ClearCachedTeams();
+            return RedirectToAction("Index");
+        }
+        return View(team);
+    }
+    ```
+
+
+1. Přejděte k metodě `DeleteConfirmed(int id)` ve třídě `TeamsController`. Přidejte volání metody `ClearCachedTeams`, jak je znázorněno v následujícím příkladu.
+
+    ```c#
+    // POST: Teams/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Team team = db.Teams.Find(id);
+        db.Teams.Remove(team);
+        db.SaveChanges();
+        // When a team is deleted, the cache is out of date.
+        // Clear the cached teams.
+        ClearCachedTeams();
+        return RedirectToAction("Index");
+    }
+    ```
 
 
 ### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>Aktualizace zobrazení Teams Index pro práci s mezipamětí
@@ -592,39 +632,43 @@ Kód generování uživatelského rozhraní vygenerovaný jako součást této u
    
     Toto je odkaz pro vytvoření nového týmu. Nahraďte element odstavce za následující tabulku. Tato tabulka obsahuje odkazy pro vytvoření nového týmu, hraní nové sezóny her, vymazání mezipaměti, načtení týmů z mezipaměti v různých formátech, načtení týmů z databáze a nové sestavení databáze s novými vzorovými daty.
 
-        <table class="table">
-            <tr>
-                <td>
-                    @Html.ActionLink("Create New", "Create")
-                </td>
-                <td>
-                    @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
-                </td>
-                <td>
-                    @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
-                </td>
-                <td>
-                    @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
-                </td>
-                <td>
-                    @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
-                </td>
-                <td>
-                    @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
-                </td>
-                <td>
-                    @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
-                </td>
-                <td>
-                    @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
-                </td>
-            </tr>    
-        </table>
+    ```html
+    <table class="table">
+        <tr>
+            <td>
+                @Html.ActionLink("Create New", "Create")
+            </td>
+            <td>
+                @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
+            </td>
+            <td>
+                @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
+            </td>
+            <td>
+                @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
+            </td>
+            <td>
+                @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
+            </td>
+            <td>
+                @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
+            </td>
+            <td>
+                @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
+            </td>
+            <td>
+                @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
+            </td>
+        </tr>    
+    </table>
+    ```
 
 
 1. Přejděte do dolní části souboru **Index.cshtml** a přidejte následující element `tr` tak, aby byl posledním řádkem poslední tabulky v souboru.
    
-        <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```html
+    <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```
    
     Tento řádek zobrazuje hodnotu `ViewBag.Msg` obsahující zprávu o stavu aktuální operace, která se spustí po kliknutí na jeden z odkazů na akce z předchozího kroku.   
    
@@ -653,15 +697,13 @@ Kliknutím na tlačítko **Nasadit do Azure** se dostanete na web Azure Portal a
 
 ![Nasazení do Azure][cache-deploy-to-azure-step-1]
 
-1. V podokně **Vlastní nasazení** vyberte předplatné Azure, které se má použít, a vyberte stávající skupinu prostředků nebo vytvořte novou, a zadejte umístění skupiny prostředků.
-2. V podokně **Parametry** zadejte název účtu správce (**ADMINISTRATORLOGIN** – nepoužívejte **admin**), heslo správce (**ADMINISTRATORLOGINPASSWORD**) a název databáze (**DATABASENAME**). Další parametry jsou nakonfigurovány pro plán hostování služby App Service úrovně Free a další nízkonákladové možnosti pro služby SQL Database a Azure Redis Cache, které nejsou součástí úrovně Free.
-3. Pokud chcete, můžete změnit další nastavení, nebo ponechejte výchozí hodnoty, a klikněte na **OK**.
+1. V oddílu **Základy** vyberte předplatné Azure, které se má použít, a vyberte stávající skupinu prostředků nebo vytvořte novou, a zadejte umístění skupiny prostředků.
+2. V oddílu **Nastavení** zadejte název účtu správce (**ADMINISTRATORLOGIN** – nepoužívejte **admin**), heslo správce (**ADMINISTRATORLOGINPASSWORD**) a název databáze (**DATABASENAME**). Další parametry jsou nakonfigurovány pro plán hostování služby App Service úrovně Free a další nízkonákladové možnosti pro služby SQL Database a Azure Redis Cache, které nejsou součástí úrovně Free.
 
-![Nasazení do Azure][cache-deploy-to-azure-step-2]
+    ![Nasazení do Azure][cache-deploy-to-azure-step-2]
 
-1. Klikněte na **Přečíst si právní podmínky**.
-2. Přečtěte si podmínky v podokně **Zakoupení** a klikněte na **Zakoupit**.
-3. Zřízení prostředků zahájíte kliknutím na **Vytvořit** v podokně **Vlastní nasazení**.
+3. Po dokončení konfigurace požadovaných nastavení přejděte na konec stránky, přečtěte si podmínky a ujednání a zaškrtněte políčko **Souhlasím s podmínkami a ujednáními uvedenými nahoře**.
+4. Pokud chcete začít zřizovat prostředky, klikněte na **Nákup**.
 
 Chcete-li zobrazit průběh nasazování, klikněte na ikonu oznámení a na **Nasazení začalo**.
 
@@ -746,9 +788,11 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 1. Pomocí oblíbeného editoru otevřete soubor `WebAppPlusCacheAppSecrets.config`, který jste vytvořili během kroku [Konfigurace aplikace pro použití Redis Cache](#configure-the-application-to-use-redis-cache) v tomto kurzu.
 2. Upravte atribut `value`, nahraďte `MyCache.redis.cache.windows.net` za [název hostitele](cache-configure.md#properties) vaší mezipaměti a jako heslo zadejte [primární, nebo sekundární klíč](cache-configure.md#access-keys) vaší mezipaměti.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. Aplikaci spustíte stisknutím kombinace kláves **Ctrl+F5**.
@@ -808,6 +852,6 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

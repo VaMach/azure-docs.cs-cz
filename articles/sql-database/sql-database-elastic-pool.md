@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ Elastické fondy SQL DB poskytují jednoduché a nákladově efektivní řešen�
 ## <a name="how-it-works"></a>Jak to funguje
 Běžným vzorem aplikace SaaS je model databáze s jedním tenantem: každému zákazníkovi se přidělí vlastní databáze. Každý zákazník (databáze) má nepředvídatelné požadavky na prostředky – paměť, V/V a procesor. Jak můžete s tak velkými výkyvy poptávky efektivně a zároveň i nákladově efektivně přidělovat prostředky? Tradičně máte dvě možnosti: (1) přidělovat více prostředků na základě využití ve špičce a platit navíc, nebo (2) přidělovat méně prostředků a snížit tak náklady na úkor výkonu a spokojenosti zákazníků během špiček. Elastické fondy tento problém řeší tím, že zajišťují, aby databáze dostávaly potřebné prostředky výkonu v době, kdy je potřebují. Poskytují jednoduchý mechanismus přidělování prostředků v mezích předvídatelného rozpočtu. Další informace o návrhových schématech aplikací SaaS využívajících elastické fondy najdete v tématu [Návrhová schémata pro víceklientské aplikace SaaS využívající službu Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 Ve službě SQL Database je relativní míra schopnosti databáze zpracovávat požadavky na prostředky vyjádřena v jednotkách DTU (Database Transaction Unit) pro izolované databáze a v elastických jednotkách DTU (eDTU) pro databáze v elastickém fondu. Další informace o DTU a eDTU najdete v tématu [Úvod do služby SQL Database](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ Pro aplikace s mnohem vyššími požadavky na zotavení, které geografické ob
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

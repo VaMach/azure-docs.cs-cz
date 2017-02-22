@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 47f149fe38dfd238dc2a38fd02ea50fc9c65e469
+ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
+ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
 
 
 ---
 # <a name="virtual-networks"></a>Virtuální sítě
-Virtuální síť Azure je reprezentace vaší vlastní sítě v cloudu.  Je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. V rámci této sítě máte plnou kontrolu nad bloky IP adres, nastavením DNS, zásadami zabezpečení a směrovacími tabulkami. Virtuální síť taky můžete dál segmentovat do podsítí a spouštět virtuální počítače IaaS a/nebo [cloudové služby (instance rolí PaaS)](../cloud-services/cloud-services-choose-me.md). Virtuální síť můžete navíc připojit k místní síti pomocí jedné z [možností připojení](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) dostupných v Azure. V podstatě můžete svoji síť rozšířit do Azure s úplnou kontrolou nad bloky IP adres a s výhodou poskytovatelů Azure celopodnikového rozsahu.
+Virtuální síť Azure je reprezentace vaší vlastní sítě v cloudu.  Je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. V rámci této sítě máte plnou kontrolu nad bloky IP adres, nastavením DNS, zásadami zabezpečení a směrovacími tabulkami. Virtuální síť taky můžete dál segmentovat do podsítí a spouštět virtuální počítače IaaS a/nebo [cloudové služby (instance rolí PaaS)](../cloud-services/cloud-services-choose-me.md). Virtuální síť můžete navíc připojit k místní síti pomocí jedné z [možností připojení](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) dostupných v Azure. V podstatě můžete svoji síť rozšířit do Azure s úplnou kontrolou nad bloky IP adres a s výhodou poskytovatelů Azure celopodnikového rozsahu.
 
 Pokud chcete virtuálním sítím porozumět lépe, prohlédněte si následující schéma, které znázorňuje zjednodušenou místní síť.
 
@@ -37,16 +37,16 @@ Všimněte si, jak infrastruktura Azure přebírá roli směrovače a umožňuje
 
 > [!NOTE]
 > V Azure existují dva režimy nasazení: Classic (označovaný taky jako Service Management) a Azure Resource Manager (ARM). Virtuální sítě Classic se dají přidat do skupiny vztahů nebo vytvořit jako oblastní virtuální síť. Pokud máte virtuální síť ve skupině vztahů, doporučujeme ji [migrovat do oblastní virtuální sítě](virtual-networks-migrate-to-regional-vnet.md).
-> 
+>
 
 ## <a name="benefits"></a>Výhody
 * **Izolace.** Virtuální sítě jsou vzájemně zcela izolované. To vám umožňuje vytvářet oddělené sítě pro vývoj, testování a produkci, které používají stejné bloky adres CIDR.
 * **Přístup k veřejnému internetu.** Všechny virtuální počítače IaaS a instance rolí PaaS ve virtuální síti mají ve výchozím nastavení přístup k veřejnému internetu. Přístup můžete řídit pomocí skupin zabezpečení sítě (NSG).
 * **Přístup k virtuálním počítačům v rámci virtuální sítě.** Instance rolí PaaS a virtuální počítače IaaS se dají spustit ve stejné virtuální síti a můžou se vzájemně připojovat pomocí privátních IP adres, i když jsou v různých podsítích, aniž by bylo nutné konfigurovat bránu nebo použít veřejné IP adresy.
-* **Překlad adres IP.** Azure poskytuje interní překlad adres IP pro virtuální počítače IaaS a instance rolí PaaS nasazené ve vaší virtuální síti. Můžete taky nasadit vlastní servery DNS a nakonfigurovat virtuální síť tak, aby je používala.
+* **Překlad adres IP.** Azure poskytuje [interní překlad adres IP](virtual-networks-name-resolution-for-vms-and-role-instances.md) pro virtuální počítače IaaS a instance rolí PaaS nasazené ve vaší virtuální síti. Můžete taky nasadit vlastní servery DNS a nakonfigurovat virtuální síť tak, aby je používala.
 * **Zabezpečení.** Provoz vstupující do a vystupující z virtuálních počítačů a instancí rolí PaaS ve virtuální síti se dá řídit pomocí skupin zabezpečení sítě.
-* **Připojení.** Virtuální sítě je možné vzájemně propojit pomocí síťových bran nebo VNet Peeringu. Virtuální sítě je možné připojit k místním datovým centrům prostřednictvím sítí VPN typu site-to-site nebo služby Azure ExpressRoute. Další informace o připojení prostřednictvím sítí VPN typu site-to-site získáte v tématu [Informace o VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site). Další informace o službě ExpressRoute najdete v [technickém přehledu služby ExpressRoute](../expressroute/expressroute-introduction.md). Další informace o metodě VNet peering najdete v části [VNet peering](virtual-network-peering-overview.md).
-  
+* **Připojení.** Virtuální sítě je možné vzájemně propojit pomocí síťových bran nebo VNet Peeringu. Virtuální sítě je možné připojit k místním datovým centrům prostřednictvím sítí VPN typu site-to-site nebo služby Azure ExpressRoute. Další informace o připojení prostřednictvím sítí VPN typu site-to-site získáte v tématu [Informace o VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Další informace o službě ExpressRoute najdete v [technickém přehledu služby ExpressRoute](../expressroute/expressroute-introduction.md). Další informace o metodě VNet peering najdete v části [VNet peering](virtual-network-peering-overview.md).
+
   > [!NOTE]
   > Před nasazením jakýchkoli virtuálních počítačů IaaS nebo instancí rolí PaaS do prostředí Azure nezapomeňte vytvořit virtuální síť. Virtuální počítače založené na ARM vyžadují virtuální síť, a pokud nezadáte stávající virtuální síť, Azure vytvoří výchozí virtuální síť, jejíž blok adres CIDR může kolidovat s místní sítí. V důsledku toho nebudete moci připojit virtuální sítě k místní síti.
   >
@@ -91,7 +91,6 @@ Za použití služeb Virtual Networks se v Azure neúčtují žádné dodatečn�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

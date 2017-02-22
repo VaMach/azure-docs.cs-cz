@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,19 +43,19 @@ Nové záhlaví by se teď mělo zobrazovat na každé stránce portálu pro vý
 > 
 
 ## <a name="change-headers-styling"> </a>Změna stylu záhlaví
-Barvy, písma, velikosti, mezery a další související prvky stylu libovolné stránky na portálu se definují pomocí pravidel stylu. Pokud chcete styly upravit, klikněte v nabídce **Portál pro vývojáře** (na portálu vydavatele) na **Vzhled**, potom klikněte na **Zahájit přizpůsobení** a povolte editor stylů.
+Barvy, písma, velikosti, mezery a další související prvky stylu libovolné stránky na portálu se definují pomocí pravidel stylu. Pokud chcete upravit styly během činnosti v **portálu pro vývojáře**, otevřete panel nástrojů pro přizpůsobení na levé straně přesunutím ukazatele myši nad ikonu přizpůsobení a vyberte z panelu nástrojů položku Styly.
 
-Váš prohlížeč přepne na skrytou stránku v rámci portálu pro vývojáře, která obsahuje ukázkový obsah s příklady všech pravidel stylů používaných kdekoli na webu. Pokud chcete otevřít editor stylů, přesuňte kurzor na tenkou šedou čáru, která je umístěná svisle podél levého okraje stránky. Měl by se zobrazit panel nástrojů editoru.
+![Tlačítko panelu nástrojů pro přizpůsobení][api-management-customization-toolbar-button]
+
+Existují dva hlavní způsoby úpravy pravidel stylů: Můžete projít seznam všech použitých pravidel stylů, který se standardně zobrazí, a podle potřeby styl upravit, nebo můžete zvolit **Vybrat prvek na stránce** a pak kliknout na libovolné místo stránky a zobrazit jenom styly tohoto prvku.
+
+V této části chceme změnit styl jenom záhlaví. Klikněte na možnost **Vybrat prvek na stránce** z panelu nástrojů editoru stylů. 
 
 ![Přizpůsobení panelu nástrojů][api-management-customization-toolbar]
 
-Existují dva hlavní režimy úprav pravidel stylů – **Upravit všechna pravidla** zobrazí seznam všech pravidel stylů použitých na libovolném místě a **Vybrat prvek** vám umožní vybrat prvek na aktuální stránce a zobrazí styly jenom tohoto prvku.
+Když najedete myší na jednotlivé prvky, tyto prvky se zvýrazní, aby označily, jaké styly prvku byste začali upravovat, pokud byste myší klikli. Najeďte myší na text, který představuje název společnosti v záhlaví („Portál pro vývojáře Fabrikam“, pokud jste postupovali podle pokynů v předchozí části), a klikněte na něj. V editoru stylů se zobrazí sada pojmenovaných a podle kategorií seřazených pravidel stylů. Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uvedený v parametru @headings-font-family.
 
-V této části chceme změnit styl jenom záhlaví. Na panelu nástrojů editoru stylů klikněte na možnost **Vybrat prvek** a potom klikněte na **Vybrat prvek k přizpůsobení**. Když najedete myší na jednotlivé prvky, tyto prvky se zvýrazní, aby označily, jaké styly prvku byste začali upravovat, pokud byste myší klikli. Najeďte myší na text, který představuje název společnosti v záhlaví („Portál pro vývojáře Fabrikam“, pokud jste postupovali podle pokynů v předchozí části), a klikněte na něj. V editoru stylů se zobrazí sada pojmenovaných a podle kategorií seřazených pravidel stylů.
-
-Každé pravidlo představuje vlastnost stylu vybraného prvku. V případě výše vybraného textu záhlaví je například velikost textu určená v parametru @font-size-h1 a název písma s alternativami je uvedený v parametru @headings-font-family.
-
-> Pokud znáte architekturu [bootstrap][bootstrap], upřesňujeme, že tato pravidla jsou ve skutečnosti [proměnné LESS][proměnné LESS] v motivu spuštění, který používá portál pro vývojáře.
+> Pokud jste obeznámeni s architekturou [bootstrap][bootstrap], tato pravidla jsou ve skutečnosti [proměnné LESS][LESS variables] v motivu spuštění, který používá portál pro vývojáře.
 > 
 > 
 
@@ -63,7 +63,7 @@ Zkuste změnit barvu textu v nadpisu. Vyberte položku v poli **@headings-color*
 
 ![Výběr barvy][api-management-customization-toolbar-color-picker]
 
-Po dokončení změn stylů vybraného prvku klikněte na **Náhled změn** a zobrazte si výsledky na obrazovce. V tuto chvíli je vidí jenom správci. Pokud chcete tyto změny zviditelnit pro všechny uživatele, klikněte v editoru stylů na tlačítko **Publikovat** a potvrďte změny.
+Změny se zobrazují v reálném čase, jak je provádíte, ale jsou viditelné pouze správcům. Pokud chcete tyto změny zviditelnit pro všechny uživatele, klikněte v editoru stylů na tlačítko **Publikovat** a potvrďte změny.
 
 ![Nabídka Publikovat][api-management-customization-toolbar-publish-form]
 
@@ -87,15 +87,16 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 ## <a name="next-steps"> </a>Další kroky
 * Zjistěte, jak můžete přizpůsobit obsah stránek portálu pro vývojáře pomocí [šablon portálu pro vývojáře](api-management-developer-portal-templates.md).
 
-[Změna textu nebo loga v záhlaví stránek]: #change-page-headers
-[Změna stylu záhlaví]: #change-headers-styling
-[Úprava obsahu stránky]: #edit-page-contents
-[Další kroky]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Portál Azure Classic]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -103,10 +104,10 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 
 
 [bootstrap]: http://getbootstrap.com/
-[proměnné LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

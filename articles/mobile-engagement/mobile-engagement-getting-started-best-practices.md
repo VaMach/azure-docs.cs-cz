@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – příručka Začínáme s osvědčenými postupy
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – příručka Začínáme s osvědčenými postupy
 ## <a name="overview"></a>Přehled
 **Mobilní obrazovka je velmi frekventované místo:** Studie z roku 2013 zjistila, že na průměrném mobilním zařízení je nainstalováno 27 aplikací. Uživatelé obvykle stráví používáním svých aplikací asi 30 hodin měsíčně. Většina této doby připadá na používání sociálních sítí a hraní (asi 20 hodin). V roce 2014 si mohli uživatelé na trhu aplikací pro Android vybírat z více než 1,5 milionu produktů. V Apple App Storu pak bylo k dispozici asi 1,2 milionu aplikací. Popularita mobilních aplikací stále roste a vývojáři neustále uvádějí na trh nové mobilní aplikace. 
 
@@ -326,6 +326,6 @@ Až získáte dostatek zkušeností, můžete zvážit rozšíření svých prog
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

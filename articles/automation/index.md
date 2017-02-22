@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure Automation – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se používat službu Automation k automatizaci procesů a správy konfigurací s cílem šetřit čas a zvyšovat spolehlivost běžných administrativních úloh."
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Dokumentace ke službě Automation
 
-Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky.
+Naučte se používat službu Automation, a tím šetřit čas a zvyšovat spolehlivost běžných administrativních úloh prováděných v cloudovém prostředí. Kurzy, reference k rozhraním API a další dokumentace obsahují informace o tom, jak automatizovat procesy pomocí runbooků nebo jak automatizovat správu konfigurace pomocí DSC (požadovaný stav konfigurace).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -165,16 +177,10 @@ Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotr
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Automation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

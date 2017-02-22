@@ -1,60 +1,60 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+Azure Marketplace nabízí širokou škálu oblíbených webových aplikací vyvinutých společností Microsoft, jinými společnostmi a iniciativami v oblasti softwaru Open Source. Webové aplikace, které jsou vytvořené prostřednictvím Azure Marketplace, nevyžadují instalaci žádného softwaru kromě prohlížeče použitého pro připojení k [portálu Azure Preview](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
-In this tutorial, you'll learn:
+V tomto kurzu se naučíte:
 
-* How to create a new web app through the Azure Marketplace.
-* How to deploy the web app through the Azure Preview Portal.
+* Jak vytvořit novou webovou aplikaci prostřednictvím Azure Marketplace.
+* Jak tuto webovou aplikaci nasadit pomocí portálu Azure Preview.
 
-You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
+Vytvoříte blog WordPress, který využívá výchozí šablonu. Na následujícím obrázku je vidět hotová aplikace:
 
-![Wordpress blog][13]
+![Blog Wordpress][13]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
-## Create a web app in the portal
-1. Log in to the Azure Preview Portal.
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+## <a name="create-a-web-app-in-the-portal"></a>Vytvoření webové aplikace na portálu
+1. Přihlaste se k portálu Azure Preview.
+2. Otevřete Azure Marketplace, a to buď kliknutím na ikonu **Marketplace**:
    
-    ![Marketplace icon][marketplace]
+    ![Ikona Marketplace][marketplace]
    
-    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    nebo kliknutím na ikonu **Nová** v pravém horním rohu řídicího panelu a následným výběrem **Marketplace** v dolní části seznamu.
    
-    ![Create New][5]
-3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
+    ![Vytvořit nový][5]
+3. Vyberte **Web + mobilní zařízení**. Vyhledejte **WordPress** a klikněte na ikonu **WordPress**.
    
-    ![WordPress from list][7]
-4. After reading the description of the WordPress app, select **Create**.
-5. Click on **Web app**, and provide the required values for configuring your web app.
+    ![WordPress ze seznamu][7]
+4. Přečtěte si popis aplikace WordPress a potom vyberte **Vytvořit**.
+5. Klikněte na **Webová aplikace** zadejte požadované hodnoty pro konfiguraci vaší webové aplikace.
    
-    ![configure your app][8]
-6. Click on **Database**, and provide the required values for configuring your MySQL database. 
+    ![Konfigurace aplikace][8]
+6. Klikněte na **Databáze** a potom zadejte požadované hodnoty pro konfiguraci databáze MySQL. 
    
-    ![configure database][database]
-7. Provide a name for a new resource group.
+    ![Konfigurace databáze][database]
+7. Zadejte název nové skupiny prostředků.
    
-    ![Set resource group][groupname]
-8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
-9. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+    ![Nastavení skupiny prostředků][groupname]
+8. V případě potřeby klikněte na **PŘEDPLATNÉ** a určete, které předplatné se má použít. 
+9. Až dokončíte definici webové aplikace, klikněte na **Vytvořit** a počkejte, než se nová webová aplikace vytvoří.
    
-   When the app has been created, you will see the resource group containing web app and database.
+   Po vytvoření aplikace se zobrazí skupina prostředků obsahující webovou aplikaci a databázi.
    
-   ![show group][resourcegroup]
+   ![zobrazení skupiny][resourcegroup]
 
-## Launch and manage your WordPress web app
-1. Click on your new web app to see details about your app.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Spuštění a správa webové aplikace WordPress
+1. Kliknutím na novou webovou aplikaci zobrazíte podrobné údaje o této aplikaci.
    
-    ![launch dashboard][10]
-2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
+    ![řídicí panel spuštění][10]
+2. Na stránce **Základy ** klikněte na **Procházet** nebo na odkaz pod **adresou URL**. Otevře se úvodní stránka webové aplikace.
    
-    ![site URL][browse]
-3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
-4. Click **Login** and enter your credentials.  
-5. You'll have a new WordPress web app that looks similar to the web app below.    
+    ![adresa URL webu][browse]
+3. Pokud jste nenainstalovali WordPress, zadejte správné konfigurační informace, které WordPress vyžaduje, a klikněte na **Instalovat WordPress**. Konfigurace se dokončí a otevře se přihlašovací stránka webové aplikace.
+4. Klikněte na **Přihlásit** a zadejte svoje přihlašovací údaje.  
+5. Teď máte novou webovou aplikaci WordPress, která vypadá podobně jako webová aplikace uvedená níž.    
    
-    ![your WordPress site][13]
+    ![váš web WordPress][13]
 
 [5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
@@ -69,3 +69,8 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+
+
+<!--HONumber=Jan17_HO3-->
+
+

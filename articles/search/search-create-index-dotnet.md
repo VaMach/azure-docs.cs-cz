@@ -182,6 +182,6 @@ Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah]
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

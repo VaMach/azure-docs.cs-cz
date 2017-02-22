@@ -1,5 +1,5 @@
 ---
-title: "Přehled Apache Spark v HDInsight | Dokumentace Microsoftu"
+title: "Přehled Apache Spark ve službě Azure HDInsight | Dokumentace Microsoftu"
 description: "Úvod do Apache Spark v HDInsight a scénářů, ve kterých se má použít Spark v HDInsight v aplikacích."
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,23 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
 
 
 ---
-# <a name="overview-apache-spark-on-hdinsight-linux"></a>Přehled: Apache Spark v Linux HDInsight
+# <a name="overview-apache-spark-on-hdinsight"></a>Přehled: Apache Spark ve službě HDInsight
+
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> je opensource paralelní framework pro zpracování, který podporuje zpracování v paměti pro zvýšení výkonu velkých objemů dat analytických aplikací. Modul zpracování Spark je postaven pro rychlost, snadné použití a sofistikované analýzy. Možnosti výpočtů Spark v paměti představují dobrou volbu pro iterativní algoritmy ve výpočtech machine learning a grafů. Spark je také kompatibilní s úložištěm Azure Blob (WASB), takže existující data uložená v Azure lze snadno zpracovat prostřednictvím Spark.
 
 Když vytvoříte cluster Spark v HDInsight, vytvoříte výpočetní prostředky Azure s nainstalovaným a nakonfigurovaným Spark. Vytvoření clusteru Spark v HDInsight trvá pouze asi deset minut. Data ke zpracování se ukládají do úložiště Azure Blob. Další informace najdete v tématu [Použití Azure Blob Storage s HDInsight][hdinsight-storage].
 
 ![Apache Spark v Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark v Azure HDInsight")
 
-**Chcete začít pracovat s Apache Sparkem v Azure HDInsight?** Viz [Rychlý začátek: Vytvořte cluster Spark na systému HDInsight Linux a spusťte ukázkové aplikace pomocí Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+**Chcete začít pracovat s Apache Sparkem v Azure HDInsight?** Viz [Rychlý začátek: Vytvořte cluster Spark na systému HDInsight a spusťte ukázkové aplikace pomocí Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> Seznam známých problémů a omezení v aktuální verzi najdete v části [Známé problémy Apache Spark v Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> Seznam známých problémů a omezení v aktuální verzi najdete v části [Známé problémy Apache Spark v Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 > 
 > 
 
@@ -115,6 +116,6 @@ Začněte vytvořením clusteru Spark na systému HDInsight Linux. Viz [Rychlý 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

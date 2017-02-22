@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d59a749a19bc5b3a57cc7e62c056d454c51c4204
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: d59a749a19bc5b3a57cc7e62c056d454c51c4204
 Tento dokument vysvětluje, jakým způsobem vám mohou sestavy analýzy hrozeb v Azure Security Center pomoci zjistit více o hrozbě, který vygenerovala výstrahu zabezpečení.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Co je sestava analýzy hrozeb?
-Detekce hrozeb v Security Center funguje tak, že monitoruje informace o zabezpečení z prostředků Azure, ze sítě a připojených partnerských řešení. Za účelem identifikace hrozeb služba tyto informace analyzuje a často přitom koreluje data z různých zdrojů. Tento proces je součástí [možností detekce](security-center-detection-capabilities.md) v Security Center. 
+Detekce hrozeb v Security Center funguje tak, že monitoruje informace o zabezpečení z prostředků Azure, ze sítě a připojených partnerských řešení. Za účelem identifikace hrozeb služba tyto informace analyzuje a často přitom koreluje data z různých zdrojů. Tento proces je součástí [možností detekce](security-center-detection-capabilities.md) v Security Center.
 
-Když Security Center identifikuje hrozbu, aktivuje [výstrahu zabezpečení](security-center-managing-and-responding-alerts.md), která obsahuje podrobné informace týkající se konkrétní události, včetně návrhů na odstranění problémů. Security Center za účelem pomoci týmům reakce na incidenty s vyšetřením a odstraněním hrozeb zahrnuje sestavu analýzy hrozeb, která obsahuje informace o detekované hrozbě, včetně informací jako například: 
+Když Security Center identifikuje hrozbu, aktivuje [výstrahu zabezpečení](security-center-managing-and-responding-alerts.md), která obsahuje podrobné informace týkající se konkrétní události, včetně návrhů na odstranění problémů. Security Center za účelem pomoci týmům reakce na incidenty s vyšetřením a odstraněním hrozeb zahrnuje sestavu analýzy hrozeb, která obsahuje informace o detekované hrozbě, včetně informací jako například:
 
 * Identita nebo přidružení útočníka (pokud je tato informace k dispozici)
 * Cíle útočníků
@@ -38,29 +38,29 @@ Když Security Center identifikuje hrozbu, aktivuje [výstrahu zabezpečení](se
 
 > [!NOTE]
 > Množství informací v jednotlivých konkrétních sestavách se bude lišit. Úroveň podrobností závisí na aktivitě a rozšíření malwaru.
-> 
-> 
+>
+>
 
 Security Center obsahuje tři typy sestav hrozeb, které se mohou lišit podle útoku. K dispozici jsou tyto sestavy:
 
 * **Sestava skupiny aktivit**: poskytuje podrobné informace o útočnících, jejich cílech a taktice.
-* **Sestava kampaně**: zaměřuje se na podrobnosti o konkrétních útočných kampaních. 
+* **Sestava kampaně**: zaměřuje se na podrobnosti o konkrétních útočných kampaních.
 * **Sestava shrnutí hrozby**: pokrývá všechny položky v předchozích dvou sestavách.
 
-Tento typ informací je velmi užitečný během procesu [reakce na incidenty](security-center-incident-response.md), při kterém probíhá vyšetřování za účelem pochopení zdroje útoku, motivací útočníka a toho, co dělat pro zmírnění dalšího postupu tohoto problémů. 
+Tento typ informací je velmi užitečný během procesu [reakce na incidenty](security-center-incident-response.md), při kterém probíhá vyšetřování za účelem pochopení zdroje útoku, motivací útočníka a toho, co dělat pro zmírnění dalšího postupu tohoto problémů.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Jak získat přístup k sestavě analýzy hrozeb?
 Aktuální výstrahy můžete zkontrolovat jejich prohlížením na dlaždici **Výstrahy zabezpečení**. Otevřete Azure Portal a podle následujících pokynů zobrazte podrobnosti o jednotlivých výstrahách:
 
 1. Na řídicím panelu Security Center uvidíte dlaždici **Výstrahy zabezpečení**.
 2. Kliknutím na dlaždici otevřete okno **Výstrahy zabezpečení**, které obsahuje podrobnosti o výstrahách, a klikněte na výstrahu zabezpečení, o které chcete získat další informace.
-   
+
     ![Výstrahy zabezpečení](./media/security-center-threat-report/security-center-threat-report-fig1.png)
 3. V tomto případě se v okně **Spuštění podezřelého procesu** zobrazí podrobnosti o výstraze, jak je znázorněno níže:
-   
+
     ![Podrobnosti výstrahy zabezpečení](./media/security-center-threat-report/security-center-threat-report-fig2.png)
 4. Množství dostupných informací pro jednotlivé výstrahy zabezpečení se bude lišit podle typu výstrahy. V poli **SESTAVY** máte odkaz na sestavu analýzy hrozeb. Klikněte na něj a otevře se další okno prohlížeče se souborem PDF.
-   
+
    ![Výběr úložiště](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
 Odtud si můžete stáhnout soubor PDF pro tuto sestavu a přečíst si více o detekovaných potížích se zabezpečením a provést akce na základě poskytnutých informací.
@@ -78,7 +78,6 @@ V tomto dokumentu jste se dozvěděli, jak mohou sestavy analýzy hrozeb v Azure
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

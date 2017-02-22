@@ -62,6 +62,6 @@ Pokud se chcete v souvislosti s aplikacemi API na něco zeptat, otevřete vlákn
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Koncepty, terminologie a hierarchie entit Scheduleru
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Koncepty, terminologie a hierarchie entit Scheduleru
 ## <a name="scheduler-entity-hierarchy"></a>Hierarchie entit Scheduleru
 V následující tabulce jsou uvedené hlavní prostředky, které rozhraní API Scheduleru vystavuje nebo používá.
 

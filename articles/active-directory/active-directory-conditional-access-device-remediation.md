@@ -6,18 +6,17 @@ keywords: "přístup podmíněný zařízením, registrace zařízení, povolen�
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 81dcda2e11ff98f7f21495a83043a546786979c7
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Pokud vaše zařízení používá některou z následujících platforem, vyhle
 ### <a name="device-is-not-registered"></a>Zařízení není registrované
 Pokud zařízení není zaregistrované ve službě Azure AD a aplikace je chráněná zásadami, které jsou založené na konkrétním zařízení, může se zobrazit stránka s některou z těchto chybových zpráv:
 
-![Zprávy „Odsud se tam nelze dostat“ pro neregistrovaná zařízení](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Zprávy „Odsud se tam nelze dostat“ pro neregistrovaná zařízení](./media/active-directory-conditional-access-device-remediation/01.png "Scénář")
 
 Pokud je zařízení připojené k doméně služby Active Directory ve vaší organizaci, zkuste tohle:
 
@@ -122,7 +121,7 @@ Přístup vám může být odepřen, pokud se o přístup k aplikaci nebo služb
 
 Uvidíte chybovou stránku podobnou této:
 
-![Zpráva „Odsud se tam nelze dostat“ pro nepodporované prohlížeče](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Zpráva „Odsud se tam nelze dostat“ pro nepodporované prohlížeče](./media/active-directory-conditional-access-device-remediation/02.png "Scénář")
 
 Jedinou možností odstranění problému je použít prohlížeč, který aplikace pro platformu vašeho zařízení podporuje.
 
@@ -132,6 +131,6 @@ Jedinou možností odstranění problému je použít prohlížeč, který aplik
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

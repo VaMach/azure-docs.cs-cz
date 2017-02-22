@@ -23,8 +23,11 @@
 ## [Správa identit](security-identity-management-overview.md)
 ### [Osvědčené postupy zabezpečení správy identit](azure-security-identity-management-best-practices.md)
 ## Služby PaaS
-### [Osvědčené postupy zabezpečení IoT](azure-security-iot-best-practices.md)
+### [Zabezpečení nasazení PaaS](security-paas-deployments.md)
+#### [Zabezpečení aplikací PaaS pomocí SQL](security-paas-applications-using-sql.md)
+#### [Zabezpečení aplikací PaaS pomocí App Services](security-paas-applications-using-app-services.md)
 ### [Přehled zabezpečení IoT](security-internet-of-things-overview.md)
+### [Osvědčené postupy zabezpečení IoT](azure-security-iot-best-practices.md)
 ## Vertikální obory
 ### [Navrhování bezpečných řešení pro zdravotnictví](security-health-care-solution.md)
 ## [Architektura zabezpečení](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

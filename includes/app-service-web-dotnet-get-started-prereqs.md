@@ -1,14 +1,19 @@
-* The tutorial assumes you have worked with ASP.NET MVC. If you need an introduction, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter  app in App Service — no credit card required, and no commitments.
+* Kurz předpokládá, že jste již dříve pracovali s ASP.NET MVC. Pokud potřebujete úvodní informace, prostudujte téma [Začínáme s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](https://azure.microsoft.com/try/app-service/). Tam si můžete v App Service hned vytvořit krátkodobou úvodní aplikaci – nepožaduje se žádná platební karta, ani to s sebou nenese žádné závazky.
 
-### <a name="setupdevenv"></a>Visual Studio 2015 with the Azure SDK for .NET
-The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../articles/dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
+### <a name="a-namesetupdevenvavisual-studio-2015-with-the-azure-sdk-for-net"></a><a name="setupdevenv"></a>Visual Studio 2015 se sadou Azure SDK pro .NET
+Tento kurz je napsán pro sadu Visual Studio 2015 se [sadou Azure SDK pro .NET](../articles/dotnet-sdk.md)ve verzi 2.8.2 nebo novější. [Stáhněte si nejnovější verzi sady Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada Visual Studio se automaticky nainstaluje se sadou SDK, pokud ji ještě nemáte.
 
-If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations.
+Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azure SDK pro sadu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Některé obrazovky se mohou lišit od ilustrací.
 
 > [!NOTE]
-> Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
+> Instalace sady SDK může trvat delší dobu, od několika minut až více než půl hodiny, a to podle počtu závislostí sady SDK, které jsou již v počítači.
 > 
 > 
 
-### ASP.NET MVC 5
+### <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
+
+
+<!--HONumber=Jan17_HO3-->
+
+

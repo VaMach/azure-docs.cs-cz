@@ -12,11 +12,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 6de51407a78b3e33e6d3de544caeee714c9d1f4c
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 
 ---
@@ -55,6 +55,10 @@ Nejnovější sestavení [node_redis](https://github.com/mranney/node_redis) pos
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
+> [!NOTE]
+> Port bez SSL je pro nové instance Azure Redis Cache zakázaný. Pokud používáte jiného klienta, který nepodporuje SSL, přečtěte si téma věnované tomu, jak [povolit port bez SSL](cache-configure.md#access-ports).
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Přidání dat do mezipaměti a jejich načtení
 Následující příklad ukazuje, jak se připojit k instanci mezipaměti Redis Azure a uložit a načíst položku z mezipaměti. Pro další příklady použití Redis pomocí klienta [node_redis](https://github.com/mranney/node_redis) si zobrazte [http://redis.js.org/](http://redis.js.org/).
@@ -85,6 +89,6 @@ Výstup:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

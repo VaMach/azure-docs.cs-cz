@@ -1,5 +1,5 @@
 ---
-title: "Požadavky směrování pro ExpressRoute | Dokumentace Microsoftu"
+title: "Požadavky směrování pro Azure ExpressRoute | Dokumentace Microsoftu"
 description: "Tato stránka obsahuje podrobné požadavky pro konfiguraci a správu směrování pro okruhy ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -189,8 +189,12 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 | **Oblast Azure národních cloudů**| **Hodnota komunity protokolu BGP** |
 | --- | --- |
 | **US Government** |  |
+| USA (Gov) – Arizona | 12076:51106 |
 | USA (Gov) – Iowa | 12076:51109 |
 | USA (Gov) – Virginia | 12076:51105 |
+| USA (Gov) – Texas | 12076:51108 |
+| US DoD – střed | 12076:51209 |
+| US DoD – východ | 12076:51205 |
 
 
 | **Služba v národních cloudech** | **Hodnota komunity protokolu BGP** |
@@ -212,6 +216,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Přehled funkce Stretch Database | Dokumentace Microsoftu"
+title: "Archivace studených dat do Azure – Stretch Database | Dokumentace Microsoftu"
 description: "Zjistěte, jak funkce Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Přehled funkce Stretch Database
+# <a name="introduction-to-stretch-database"></a>Úvod do služby Stretch Database
 Stretch Database migruje vaše studená data transparentně a bezpečně do cloudu Microsoft Azure.
 
 Pokud chcete ihned začít používat funkci Stretch Database, najdete informace v tématu [Začínáme spuštěním průvodce povolením funkce Stretch pro databázi](sql-server-stretch-database-wizard.md).
@@ -28,13 +28,13 @@ Pokud chcete ihned začít používat funkci Stretch Database, najdete informace
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Jaké jsou výhody funkce Stretch Database?
 Funkce Stretch Database poskytuje následující výhody:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Poskytuje efektivní přístup pro studená data
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Poskytuje efektivní přístup pro studená data
 Díky funkci SQL Server Stretch Database lze dynamicky roztahovat teplá i studená data z SQL Serveru do Microsoft Azure. Na rozdíl od typického úložiště pomaleji přístupných dat jsou vaše data vždy online a k dispozici pro dotazy. Můžete poskytovat delší časové intervaly uchovávání dat i pro rozsáhlé tabulky, jako je třeba historie objednávek zákazníků, aniž by vás to zruinovalo. Využívejte nízké náklady na řešení Azure ve srovnání s místním úložištěm náročným na škálování. Můžete zvolit cenovou úroveň a konfigurovat nastavení na webu Azure Portal, takže si zachováte kontrolu nad náklady. Škálovat lze podle potřeby nahoru nebo dolů. Na stránce [Ceník funkce SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) najdete podrobnější informace.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Nevyžaduje změny dotazů ani aplikací
 Využívejte bezproblémový přístup ke svým datům v SQL Serveru bez ohledu na to, jestli jsou umístěná lokálně, nebo roztažená do cloudu.  Můžete nastavit zásady, které určují, kde jsou data uložena, a SQL Server provede přesun dat na pozadí. Celá tabulka je neustále online a k dispozici pro dotazy. Funkce Stretch Database navíc nevyžaduje žádné změny existujících dotazů ani aplikací – umístění dat je pro aplikaci zcela transparentní.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Zjednodušuje údržbu místních dat
+### <a name="streamlines-on-premises-data-maintenance"></a>Zjednodušuje údržbu místních dat
 Můžete omezit místní údržbu a zmenšit místní úložiště pro vaše data. Zálohy pro vaše místní data rychleji probíhají rychleji a jsou dokončeny v určeném časové období údržby. Zálohování cloudové části vašich dat probíhá automaticky. Vaše potřeby využití místní úložiště se výrazně snižují. Úložiště Azure může být o 80 % levnější než přidávání na místní disk SSD.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Zachovává zabezpečení dat i během migrace
@@ -84,6 +84,6 @@ S využitím Poradce pro funkci Stretch Database, který je funkcí Poradce pro 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,6 +12,7 @@
 ### [Sdílení prostředků různého původu](cdn-cors.md)
 
 ## Spravovat
+### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ### [Správa pomocí PowerShellu](cdn-manage-powershell.md)
 ### Konfigurace hodnoty TTL (time-to-live)
 #### [Obsah služeb Web Apps / Cloud Services, ASP.NET nebo IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Řešení potíží
-### [Stav 404](cdn-troubleshoot-endpoint.md)
+### [Stav&404;](cdn-troubleshoot-endpoint.md)
 ### [Komprese](cdn-troubleshoot-compression.md)
 
 # Referenční informace
@@ -62,6 +63,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

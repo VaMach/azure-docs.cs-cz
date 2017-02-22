@@ -1,5 +1,5 @@
 ---
-title: "Sledování stavu zabezpečení v Azure Security Center | Dokumentace Microsoftu"
+title: "Sledování zabezpečení v Azure Security Center | Dokumentace Microsoftu"
 description: "Tento článek vám pomůže začít pracovat s funkcemi sledování v Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ Tato část obsahuje sadu [doporučení pro každý virtuální počítač](secu
 
 > [!NOTE]
 > V seznamu **Síťová topologie** v okně **Stav sítě** se zobrazí jenom virtuální počítače s aspoň jedním veřejným koncovým bodem.
-> 
-> 
+>
+>
 
 Každé doporučení obsahuje sadu akcí, které můžete provést, když na ni kliknete. Pokud například kliknete na **Chybějící aktualizace systému**, otevře se okno **Chybějící aktualizace systému**. Uvádí seznam virtuálních počítačů, kterým chybí opravy, a závažnost chybějící aktualizace, jak je znázorněno na následujícím snímku obrazovky.
 
@@ -87,8 +87,8 @@ Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název virtuáln�
 
 > [!NOTE]
 > Bezpečnostní doporučení uvedená tady jsou stejná jako v okně **Doporučení**. Další informace o tom, jak řešit doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md). Týká se to nejen virtuálních počítačů, ale taky všech prostředků, které jsou k dispozici na dlaždici **Stav prostředku**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Část virtuálních počítačů
 Část virtuálních počítačů poskytuje přehled všech virtuálních počítačů a doporučení. Každý sloupec představuje jednu sadu doporučení, jak ukazuje následující snímek obrazovky:
@@ -108,7 +108,7 @@ Stav pro cloudové služby je součástí dlaždice **Stav zabezpečení** virtu
 
 ![Stav pro cloudové služby](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
 
-Je třeba postupovat podle kroků v doporučení a aktualizovat verzi operačního systému. Například když kliknete na červenou výstrahu v řádku Webová role 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS) nebo Role pracovního procesu 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS), otevře se nové okno s dalšími podrobnostmi týkajícími se tohoto doporučení, jak je znázorněno na následujícím snímku obrazovky:
+Je třeba postupovat podle kroků v doporučení a aktualizovat verzi operačního systému. Například když kliknete na červenou výstrahu v řádku Webová role&1; (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS) nebo Role pracovního procesu&1; (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS), otevře se nové okno s dalšími podrobnostmi týkajícími se tohoto doporučení, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Podrobnosti cloudové služby](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -217,7 +217,6 @@ V tomto článku jste zjistili, jak ve službě Azure Security Center používat
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

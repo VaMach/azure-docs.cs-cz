@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ V *Azure App Service* běží back-end kód *mobilní aplikace* ve stejném kont
 * (Pro .NET) Využití jakékoli funkce technologie ASP.NET, včetně MVC
 * (Pro Node.js) Využití jakékoli knihovny čistého JavaScriptu ekosystému Node, včetně běžných knihoven MVC
 
-## <a name="access-onpremises-data-using-vnet"></a>Přístup k lokálním datům přes virtuální síť
+## <a name="access-on-premises-data-using-vnet"></a>Přístup k lokálním datům přes virtuální síť
 Již dnes můžete pomocí Mobile Services používat hybridní připojení a připojovat se s nimi k lokálním prostředkům. Existují však situace, kdy je lepší použít řešení se sítí VPN. S *Azure App Services* můžete pro back-end mobilní aplikace použít Azure VNet.
 
 ## <a name="use-your-favorite-backend-language"></a>Využití oblíbeného jazyka pro back-end
@@ -67,6 +67,6 @@ Výhody *App Service* pro existující Mobile Service můžete začít využíva
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

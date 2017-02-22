@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ Služba SQL Database chrání vaše data poskytováním možností auditování 
 ### <a name="auditing"></a>Auditování
 Auditování služby SQL Database sleduje databázové aktivity a pomáhá dodržovat legislativní předpisy díky zaznamenávání databázových událostí do protokolu auditu ve vašem účtu služby Azure Storage. Auditování vám umožňuje pochopit probíhající databázové aktivity a pomocí analýzy a zkoumání historické aktivity identifikovat potenciální hrozby nebo možné zneužití a narušení zabezpečení. Další informace najdete v tématu [Začínáme s auditováním služby SQL Database](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Detekce hrozeb
+### <a name="auditing--threat-detection"></a>Auditování a zjišťování hrozeb 
+Auditování služby SQL Database sleduje databázové aktivity a pomáhá dodržovat legislativní předpisy díky zaznamenávání databázových událostí do protokolu auditu ve vašem účtu služby Azure Storage. Auditování vám umožňuje pochopit probíhající databázové aktivity a pomocí analýzy a zkoumání historické aktivity identifikovat potenciální hrozby nebo možné zneužití a narušení zabezpečení. Další informace najdete v tématu [Začínáme s auditováním služby SQL Database](sql-database-auditing-get-started.md).  
+ 
 Detekce hrozeb doplňuje auditování a poskytuje další integrovanou vrstvu analytických funkcí zabezpečení ve službě Azure SQL Database. Nepřetržitě studuje, profiluje a detekuje neobvyklé databázové aktivity. Upozorní vás na podezřelé aktivity, potenciální ohrožení zabezpečení, útoky prostřednictvím injektáže SQL a neobvyklé vzory přístupu k databázi. Na upozornění můžete reagovat pomocí poskytnutých informativních pokynů a pokynů s možností reakce. Další informace najdete v článku [Začínáme zjišťovat hrozby ve službě SQL Database](sql-database-threat-detection-get-started.md).  
-
+ 
+### <a name="data-masking"></a>Maskování dat 
+Dynamické maskování dat služby SQL Database omezuje riziko ohrožení citlivých dat pomocí jejich maskování pro neoprávněné uživatele. Dynamické maskování dat automaticky zjišťuje potenciálně citlivá data ve službě SQL Database a poskytuje užitečná doporučení pro maskování těchto polí s minimálním dopadem na aplikační vrstvu. Funguje tak, že maskuje citlivá data v sadě výsledků dotazu nad určenými poli databáze, zatímco data v databázi se nemění. Podrobnosti najdete v tématu [Začínáme s dynamickým maskováním dat v SQL Database](sql-database-dynamic-data-masking-get-started.md).
+ 
 ## <a name="compliance"></a>Dodržování předpisů
 Kromě uvedených vlastností a funkcí, které aplikaci pomáhají splnit nejrůznější požadavky týkající se dodržování bezpečnostních předpisů, služba Azure SQL Database také podléhá pravidelným auditům a získala certifikáty pro celou řadu norem v oblasti dodržování předpisů. Další informace najdete v [Centru zabezpečení Microsoft Azure](https://azure.microsoft.com/support/trust-center/), kde také najdete nejnovější seznam [certifikátů služby SQL Database v oblasti dodržování předpisů](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -84,6 +89,7 @@ Kromě uvedených vlastností a funkcí, které aplikaci pomáhají splnit nejr�
 - Diskuzi o proaktivním monitorování najdete v tématech [Začínáme s auditováním služby SQL Database](sql-database-auditing-get-started.md) a [Začínáme s detekcí hrozeb služby SQL Database](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

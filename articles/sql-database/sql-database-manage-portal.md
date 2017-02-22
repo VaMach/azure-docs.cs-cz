@@ -1,121 +1,135 @@
 ---
-title: Manage Azure SQL Database using the Azure Portal | Microsoft Docs
-description: Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
+title: "Správa služby Azure SQL Database pomocí portálu Azure Portal | Dokumentace Microsoftu"
+description: "Stručná referenční příručka pro správu relační databáze v cloudu pomocí portálu Azure Portal"
 services: sql-database
-documentationcenter: ''
-author: stevestein
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 01/10/2017
+ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
+ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
+
 
 ---
-# Managing Azure SQL Databases using the Azure portal
+# <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Správa databází služby Azure SQL Database pomocí portálu Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
+> * [Azure Portal](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-command-line-tools.md)
+> * [PowerShell](sql-database-manage-powershell.md)
 > 
 > 
 
-The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
+[Azure Portal](https://portal.azure.com/) umožňuje vytvářet, monitorovat a spravovat databáze a servery služby Azure SQL Database. Tento článek obsahuje stručný popis a odkazy na podrobnosti týkající se běžných úloh.
 
-## View your Azure SQL databases, servers, and pools
-To view the available SQL Database services, click **More services**, and type **SQL** in the search box:
+> [!TIP]
+> Pokud potřebujete kurz, ve kterém se naučíte vytvořit server, vytvořit bránu firewall založenou na serveru, zobrazit vlastnosti serveru, připojit se pomocí nástroje SQL Server Management Studio, vytvářet dotazy v hlavní databázi, vytvořit vzorovou databázi a prázdnou databázi nebo se připojit pomocí nástroje SQL Server Management Studio a vytvářet dotazy ve vzorové databázi, přejděte na stránku [kurzu Začínáme](sql-database-get-started.md).
+
+## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Zobrazení databází, serverů a fondů služby Azure SQL Database
+Dostupné služby SQL Database zobrazíte kliknutím na **Další služby** a zadáním **SQL** do vyhledávacího pole:
 
 ![SQL Database](./media/sql-database-manage-portal/sql-services.png)
 
-## How do I create or view Azure SQL databases?
-To open the **SQL databases** blade, click **SQL databases**, and then click the database you want to work with, or click **+Add** to create a SQL database. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+## <a name="how-do-i-create-or-view-azure-sql-databases"></a>Jak můžu vytvářet nebo prohlížet databáze služby Azure SQL Database?
+Kliknutím na **Databáze SQL** otevřete okno **Databáze SQL** a potom klikněte na databázi, se kterou chcete pracovat, nebo klikněte na **+ Přidat** a vytvořte databázi SQL. Podrobnosti najdete v části [Vytvoření databáze SQL během několika minut pomocí portálu Azure Portal](sql-database-get-started.md).
 
-![SQL databases](./media/sql-database-manage-portal/sql-databases.png)
+![Databáze SQL](./media/sql-database-manage-portal/sql-databases.png)
 
-## How do I create or view Azure SQL servers?
-To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+## <a name="how-do-i-create-or-view-azure-sql-servers"></a>Jak můžu vytvářet nebo prohlížet servery služby Azure SQL?
+Kliknutím na **SQL Servery** otevřete okno **SQL Servery** a potom klikněte na server, se kterým chcete pracovat, nebo klikněte na **+ Přidat** a vytvořte SQL server. Podrobnosti najdete v části [Vytvoření databáze SQL během několika minut pomocí portálu Azure Portal](sql-database-get-started.md).
 
-![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
+![SQL servery](./media/sql-database-manage-portal/sql-servers.png)
 
-## How do I create or view SQL elastic pools?
-To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
+## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>Jak můžu vytvářet nebo prohlížet elastické fondy služby SQL?
+Klepnutím na **Elastické fondy SQL** otevřete okno **Elastické fondy SQL** a potom klikněte na fond, se kterým chcete pracovat, nebo klikněte na **+ Přidat** a vytvořte fond. Podrobnosti najdete v tématu [Vytvoření nového elastického fondu pomocí portálu Azure Portal](sql-database-elastic-pool-create-portal.md).
 
-![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
+![Elastické fondy SQL](./media/sql-database-manage-portal/elastic-pools.png)
 
-## How do I update or view SQL database settings?
-To view or update your database settings, click the desired setting on the SQL database blade:
+## <a name="how-do-i-update-or-view-sql-database-settings"></a>Jak můžu aktualizovat nebo zobrazit nastavení databáze SQL?
+Pokud chcete zobrazit nebo aktualizovat nastavení databáze, klikněte na požadované nastavení v okně Databáze SQL:
 
-![SQL database settings](./media/sql-database-manage-portal/settings.png)
+![Nastavení databáze SQL](./media/sql-database-manage-portal/settings.png)
 
-## How do I find a SQL databases fully qualified server name?
-To view your databases server name, click **Overview** on the **SQL database** blade and note the server name:
+## <a name="how-do-i-find-a-sql-databases-fully-qualified-server-name"></a>Jak můžu najít plně kvalifikovaný název serveru databáze SQL?
+Název serveru vaší databáze zobrazíte kliknutím na **Přehled** v okně **Databáze SQL** a vyhledáním názvu serveru:
 
-![SQL database settings](./media/sql-database-manage-portal/server-name.png)
+![Nastavení databáze SQL](./media/sql-database-manage-portal/server-name.png)
 
-## How do I manage firewall rules to control access to my SQL server and database?
-To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md).
+## <a name="how-do-i-manage-firewall-rules-to-control-access-to-my-sql-server-and-database"></a>Jak můžu pomocí správy pravidel brány firewall řídit přístup ke svému SQL serveru a databázi?
+Pokud chcete zobrazit, vytvořit nebo aktualizovat pravidla brány firewall, klikněte na **Nastavit bránu firewall serveru** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Konfigurace pravidla brány firewall na úrovni serveru ve službě Azure SQL Database pomocí portálu Azure Portal](sql-database-configure-firewall-settings.md).
 
-![firewall rules](./media/sql-database-manage-portal/sql-database-firewall.png)
+![pravidla brány firewall](./media/sql-database-manage-portal/sql-database-firewall.png)
 
-## How do I change my SQL database service tier or performance level?
-To update the service tier or performance level of a SQL database, click **Pricing tier (scale DTUs)** on the **SQL database** blade. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+## <a name="how-do-i-change-my-sql-database-service-tier-or-performance-level"></a>Jak můžu změnit úroveň služby nebo úroveň výkonu u databáze SQL?
+Pokud chcete aktualizovat úroveň služby nebo výkonu u databáze SQL, klikněte na **Cenová úroveň (DTU škálování)** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Změna úrovně služby a úrovně výkonu (cenové úrovně) databáze SQL](sql-database-scale-up.md).
 
-![pricing tiers](./media/sql-database-manage-portal/pricing-tier.png)
+![cenové úrovně](./media/sql-database-manage-portal/pricing-tier.png)
 
-## How do I configure auditing and threat detection for a SQL database?
-To configure auditing and threat detection for a SQL database, click **Auditing and Threat detection** on the **SQL database** blade. For details, see [Get started with SQL database auditing](sql-database-auditing-get-started.md), and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
+## <a name="how-do-i-configure-auditing-and-threat-detection-for-a-sql-database"></a>Jak můžu konfigurovat auditování a detekci hrozeb u databáze SQL?
+Pokud chcete u databáze SQL nakonfigurovat auditování a detekci hrozeb, klikněte na **Auditování a detekce hrozeb** v okně **Databáze SQL**. Podrobnosti najdete v tématech [Začínáme s auditováním databází služby SQL Database](sql-database-auditing-get-started.md) a [Začínáme s detekcí hrozeb služby SQL Database](sql-database-threat-detection-get-started.md).
 
-## How do I configure dynamic data masking for a SQL database?
-To configure dynamic data masking for a SQL database, click **Dynamic data masking** on the **SQL database** blade. For details, see [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md).
+## <a name="how-do-i-configure-dynamic-data-masking-for-a-sql-database"></a>Jak můžu u databáze SQL nakonfigurovat dynamické maskování dat?
+Pokud chcete u databáze SQL nakonfigurovat dynamické maskování dat, klikněte na **Dynamické maskování dat** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Začínáme s dynamickým maskováním dat služby SQL Database](sql-database-dynamic-data-masking-get-started.md).
 
-## How do I configure transparent data encryption (TDE) for a SQL database?
-To configure transparent data encryption for a SQL database, click **Transparent data encryption** on the **SQL database** blade. For details, see [Enable TDE on a database using the portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
+## <a name="how-do-i-configure-transparent-data-encryption-tde-for-a-sql-database"></a>Jak můžu u databáze SQL nakonfigurovat transparentní šifrování dat (TDE)?
+Pokud chcete u databáze SQL nakonfigurovat transparentní šifrování dat, klikněte na **Transparentní šifrování dat** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Povolení šifrování TDE u databáze pomocí portálu](https://msdn.microsoft.com/library/dn948096#Anchor_1).
 
-## How do I view or change the max size of a SQL database?
-To view or change the size a SQL database, click **Database size** on the **SQL database** blade. Update the max size of a database by changing the service tier or performance level. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+## <a name="how-do-i-view-or-change-the-max-size-of-a-sql-database"></a>Jak můžu zobrazit nebo změnit maximální velikost databáze SQL?
+Pokud chcete zobrazit nebo změnit velikost databáze SQL, klikněte na **Velikost databáze** v okně **Databáze SQL**. Maximální velikost databáze můžete aktualizovat změnou úrovně služby nebo výkonu. Podrobnosti najdete v tématu [Změna úrovně služby a úrovně výkonu (cenové úrovně) databáze SQL](sql-database-scale-up.md).
 
-## How do I monitor and improve the performance of a SQL database?
-To monitor and improve performance characteristics of a SQL database, click **Performance overview** on the **SQL database** blade. For details, see [SQL Database Performance Insight](sql-database-performance.md).
+## <a name="how-do-i-monitor-and-improve-the-performance-of-a-sql-database"></a>Jak můžu monitorovat a zlepšit výkon databáze SQL?
+Pokud chcete monitorovat a zlepšovat výkonové charakteristiky databáze SQL, klikněte na **Přehled výkonu** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Nástroj SQL Database Performance Insight](sql-database-performance.md).
 
-## How do I configure Geo-Replication?
-To set up Geo-Replication for a SQL database, click **Geo-Replication** on the **SQL database** blade. For details, see [Configure Geo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
+## <a name="how-do-i-configure-geo-replication"></a>Jak můžu nakonfigurovat geografickou replikaci?
+Pokud chcete u databáze SQL nastavit geografickou replikaci, klikněte na **Geografická replikace** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Konfigurace geografické replikace u databáze služby Azure SQL Database pomocí portálu Azure Portal](sql-database-geo-replication-portal.md).
 
-## How do I failover to a geo-replicated SQL database?
-To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
+## <a name="how-do-i-fail-over-to-a-geo-replicated-sql-database"></a>Jak můžu nastavit převzetí služeb při selhání do geograficky replikované databáze SQL?
+Pokud chcete nastavit převzetí služeb při selhání do geograficky replikované sekundární databáze, klikněte na **Geografická replikace** v okně **Databáze SQL** a pak klikněte na **Převzetí služeb při selhání**. Podrobnosti najdete v tématu [Zahájení plánovaného nebo neplánovaného převzetí služeb při selhání u služby Azure SQL Database pomocí portálu Azure Portal](sql-database-geo-replication-failover-portal.md).
 
-## How do I copy a SQL database?
-To copy a SQL database, click **Copy** on the **SQL database** blade. For details, see [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md).
+## <a name="how-do-i-copy-a-sql-database"></a>Jak můžu zkopírovat databázi SQL?
+Pokud chcete zkopírovat databázi SQL, klikněte na **Kopírovat** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Kopírování databáze služby Azure SQL Database pomocí portálu Azure Portal](sql-database-copy-portal.md).
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-copy.png)
+![Nastavení databáze SQL](./media/sql-database-manage-portal/sql-database-copy.png)
 
-## How do I archive an Azure SQL database to a BACPAC file?
-To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export.md).
+## <a name="how-do-i-archive-an-azure-sql-database-to-a-bacpac-file"></a>Jak můžu archivovat databázi služby Azure SQL Database do souboru BACPAC?
+Pokud chcete vytvořit archiv BACPAC s databází SQL, klikněte na **Exportovat** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Archivace databáze služby SQL Azure Database do souboru BACPAC pomocí portálu Azure Portal](sql-database-export.md).
 
-![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
+![Export databáze SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
-## How do I restore a SQL database to a previous point in time?
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
+## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>Jak můžu obnovit databázi SQL k předchozímu bodu v čase?
+Pokud chcete obnovit databázi SQL, klikněte na **Obnovit** v okně **Databáze SQL**. Podrobnosti najdete v tématu [Obnovení databáze služby Azure SQL Database k předchozímu bodu v čase pomocí portálu Azure Portal](sql-database-point-in-time-restore.md).
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
+![Nastavení databáze SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
-## How do I create an Azure SQL database from a BACPAC file?
-To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
+## <a name="how-do-i-create-an-azure-sql-database-from-a-bacpac-file"></a>Jak můžu vytvořit databázi služby Azure SQL Database ze souboru BACPAC?
+Pokud chcete vytvořit databázi SQL ze souboru BACPAC, klikněte na **Importovat databázi** v okně **SQL Server**. Podrobnosti najdete v tématu [Import souboru BACPAC k vytvoření databáze služby Azure SQL Database](sql-database-import.md).
 
 ![SQL server](./media/sql-database-manage-portal/server-commands.png)
 
-## How do I restore a deleted SQL database?
-To restore a deleted SQL database, click **Deleted databases** on the **SQL server** blade (the SQL server that contained the database that was deleted). For details, see [Restore a deleted Azure SQL database using the Azure portal](sql-database-restore-deleted-database-portal.md).
+## <a name="how-do-i-restore-a-deleted-sql-database"></a>Jak můžu obnovit odstraněnou databázi SQL?
+Pokud chcete obnovit odstraněnou databázi SQL, klikněte na **Odstraněné databáze** v okně **SQL Server** (u SQL serveru, který obsahoval odstraněnou databázi). Podrobnosti najdete v tématu [Obnovení odstraněné databáze služby Azure SQL Database pomocí portálu Azure Portal](sql-database-restore-deleted-database-portal.md).
 
-## How do I delete a SQL database?
-To delete a SQL database, click **Delete** on the **SQL database** blade. 
+## <a name="how-do-i-delete-a-sql-database"></a>Jak můžu odstranit databázi SQL?
+Pokud chcete odstranit databázi SQL, klikněte na **Odstranit** v okně **Databáze SQL**. 
 
-![SQL database settings](./media/sql-database-manage-portal/sql-database-delete.png)
+![Nastavení databáze SQL](./media/sql-database-manage-portal/sql-database-delete.png)
 
-## Additional resources
+## <a name="additional-resources"></a>Další zdroje
 * [SQL Database](sql-database-technical-overview.md)
-* [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
+* [Monitorování a správa elastického fondu pomocí portálu Azure Portal](sql-database-elastic-pool-manage-portal.md)
+
+
+
+
+<!--HONumber=Dec16_HO3-->
+
 

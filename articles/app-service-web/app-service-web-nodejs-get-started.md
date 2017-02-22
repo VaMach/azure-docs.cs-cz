@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s webovými aplikacemi Node.js ve službě Azure App Service | Dokumentace Microsoftu"
+title: "Vývoj webových aplikací Node.js pro Azure App Service | Dokumentace Microsoftu"
 description: "Naučte se nasadit aplikaci Node.js do webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Začínáme s webovými aplikacemi Node.js ve službě Azure App Service
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Vývoj webových aplikací Node.js pro Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Tento kurz ukazuje, jak vytvořit jednoduchou aplikaci [Node.js] a nasadit ji do služby [Azure App Service] z prostředí příkazového řádku, jako je například cmd.exe nebo bash. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Node.js.
@@ -45,7 +45,7 @@ K dokončení úlohy můžete využít jednu z následujících verzí rozhraní
 * Účet Microsoft Azure. Pokud nemáte účet, můžete se [zaregistrovat k bezplatné zkušební verzi] nebo si [aktivovat výhody předplatitele sady Visual Studio].
 
 > [!NOTE]
-> [App Service si můžete vyzkoušet](http://go.microsoft.com/fwlink/?LinkId=523751) bez účtu Azure. Můžete si vytvořit úvodní aplikaci a celou hodinu si s ní hrát, bez platebních karet a bez závazků.
+> [App Service si můžete vyzkoušet](https://azure.microsoft.com/try/app-service/) bez účtu Azure. Můžete si vytvořit úvodní aplikaci a celou hodinu si s ní hrát, bez platebních karet a bez závazků.
 > 
 > 
 
@@ -303,6 +303,6 @@ Chcete-li povolit nástroj Node-Inspector, postupujte takto:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

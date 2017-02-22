@@ -179,6 +179,6 @@ Samoobslužný zápis je teď dokončený a uživatel je přihlášený k portá
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

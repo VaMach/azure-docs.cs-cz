@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření oboru názvů pro Relay pomocí webu Azure Portal | Dokumentace Microsoftu"
-description: "Abyste mohli začít používat Azure Relay, budete potřebovat obor názvů. Zde zjistíte, jak ho můžete vytvořit pomocí portálu Azure Portal."
+description: "Postup vytvoření oboru názvů pro Relay pomocí webu Azure Portal"
 services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
-
+ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
+ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
 
 ---
+
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Vytvoření oboru názvů přenosu pomocí webu Azure Portal
 Obor názvů je společný kontejner pro všechny součásti přenosu. Součástí jednoho oboru názvů může být několik přenosů, přičemž obory názvů často slouží jako kontejnery aplikací. Obory názvů služby Relay je v současnosti možné vytvořit dvěma způsoby.
 
@@ -39,6 +39,6 @@ Blahopřejeme! Právě jste vytvořili obor názvů služby Relay.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

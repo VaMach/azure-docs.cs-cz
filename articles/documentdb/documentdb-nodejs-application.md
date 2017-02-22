@@ -1,5 +1,5 @@
 ---
-title: "Výuka Node.js – kurz k DocumentDB Node.js | Microsoft Docs"
+title: "Výuka Node.js – kurz k DocumentDB Node.js | Dokumentace Microsoftu"
 description: "Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí Microsoft Azure DocumentDB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované na Webech Azure."
 keywords: "Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 82da4d7324db83d71b21741f51ebe4e364c5a8f7
-ms.openlocfilehash: bde5635ddb43271920e6258c5df46d6ae6b41985
+ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
+ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 
 ---
@@ -30,24 +30,11 @@ ms.openlocfilehash: bde5635ddb43271920e6258c5df46d6ae6b41985
 > 
 > 
 
-Tento kurz Node.js popisuje, jak pomocí služby Azure DocumentDB ukládat data a přistupovat k nim z aplikace Node.js Express hostované na Webech Azure.
-
-Doporučujeme začít následujícím videem, kde se naučíte zřizovat databázový účet Azure DocumentDB a ukládat dokumenty JSON v aplikaci Node.js. 
-
-> [! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
-> 
-> 
-
-Pak se vraťte zpět k tomuto kurzu Node.js, kde se dozvíte odpovědi na následující otázky:
-
-* Jak pracovat s DocumentDB pomocí modulu documentdb npm?
-* Jak nasadit webovou aplikaci na Weby Azure?
-
-Postupem v tomto kurzu vytvoříte jednoduchou webovou aplikaci pro správu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB.
+Tento kurz Node.js popisuje, jak pomocí Azure DocumentDB ukládat data a přistupovat k nim z aplikace Node.js Express hostované ve službě Azure Websites. Vytvoříte jednoduchou webovou aplikaci pro správu úkolů, aplikaci seznamu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB. Tento kurz vás provede procesem vytvoření a nasazení aplikace a vysvětlí, co se v každé části děje.
 
 ![Snímek obrazovky aplikace pro seznam úkolů vytvořené v tomto kurzu k Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? To není problém, celé ukázkové řešení si můžete stáhnout z [GitHubu][GitHub].
+Nemáte čas absolvovat celý tento kurz a chcete jen získat celé řešení? To není problém, celé ukázkové řešení si můžete stáhnout z [GitHubu][GitHub]. Pokud potřebujete pokyny, jak aplikaci spustit, stačí si přečíst soubor [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md).
 
 ## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Požadavky
 > [!TIP]
@@ -76,20 +63,23 @@ Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud pou
 ## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Krok 2: Postup vytvoření nové aplikace Node.js
 Nyní se naučíme, jak vytvořit základní projekt Node.js Hello World pomocí rozhraní [Express](http://expressjs.com/).
 
-1. Otevřete svůj oblíbený terminál.
-2. Pomocí generátoru Express vygenerujte novou aplikaci s názvem **todo**.
+1. Otevřete svůj oblíbený terminál, jako je třeba příkazový řádek Node.js.
+2. Přejděte do adresáře, do kterého chcete novou aplikaci uložit.
+3. Pomocí generátoru Express vygenerujte novou aplikaci s názvem **todo**.
    
         express todo
-3. Otevřete nový adresář **todo** a nainstalujte závislosti.
+4. Otevřete nový adresář **todo** a nainstalujte závislosti.
    
         cd todo
         npm install
-4. Spusťte novou aplikaci.
+5. Spusťte novou aplikaci.
    
         npm start
-5. Pokud si chcete zobrazit novou aplikaci, přejděte v prohlížeči na adresu [http://localhost:3000](http://localhost:3000).
+6. Pokud si chcete zobrazit novou aplikaci, přejděte v prohlížeči na adresu [http://localhost:3000](http://localhost:3000).
    
     ![Výuka Node.js – snímek obrazovky aplikace Hello World v okně prohlížeče](./media/documentdb-nodejs-application/image12.png)
+
+    Potom aplikaci zastavte stisknutím kombinace kláves CTRL + C v okně terminálu a ukončete dávkovou úlohu kliknutím na **y**.
 
 ## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Krok 3: Instalace dalších modulů
 Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu. Tento soubor obsahuje seznam dalších modulů, které aplikace Node.js vyžaduje. Později, až budete tuto aplikaci nasazovat na Weby Azure, se tento soubor použije k vyhodnocení, které moduly musí být v Azure pro podporu vaší aplikace nainstalovány. Pro tento kurz je ještě nutné nainstalovat další dva balíčky.
@@ -102,7 +92,25 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
         npm install documentdb --save
 3. Rychlý pohled do souboru **package.json** aplikace by měl odhalit další moduly. Tento soubor informuje Azure, které balíčky stáhnout a nainstalovat při spuštění aplikace. Měl by vypadat přibližně takto:
    
-    ![Snímek obrazovky karty package.json](./media/documentdb-nodejs-application/image17.png)
+        {
+          "name": "todo",
+          "version": "0.0.0",
+          "private": true,
+          "scripts": {
+            "start": "node ./bin/www"
+          },
+          "dependencies": {
+            "async": "^2.1.4",
+            "body-parser": "~1.15.2",
+            "cookie-parser": "~1.4.3",
+            "debug": "~2.2.0",
+            "documentdb": "^1.10.0",
+            "express": "~4.14.0",
+            "jade": "~1.11.0",
+            "morgan": "~1.7.0",
+            "serve-favicon": "~2.3.0"
+          }
+        }
    
     To říká uzlu (a později Azure), že vaše aplikace závisí na těchto dalších modulech.
 
@@ -110,7 +118,7 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
 Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Vytvoření modelu
-1. V adresáři projektu vytvořte nový adresář s názvem **models**.
+1. V adresáři projektu vytvořte nový adresář s názvem **models** ve stejném adresáři jako soubor package.json.
 2. V adresáři **models** vytvořte nový soubor s názvem **taskDao.js**. Tento soubor bude obsahovat model pro úkoly vytvořené v aplikaci.
 3. Ve stejném adresáři **models** vytvořte jiný soubor s názvem **docdbUtils.js**. V tomto souboru bude obsažen užitečný, opakovaně použitelný kód, který budeme používat v celé aplikaci. 
 4. Do **docdbUtils.js** zkopírujte následující kód.
@@ -387,7 +395,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         config.collectionId = "Items";
    
         module.exports = config;
-3. Aktualizujte v souboru **config.js** hodnoty HOST a AUTH_KEY hodnotami, které získáte v okně Klíče účtu DocumentDB na [Portálu Microsoft Azure](https://portal.azure.com):
+3. V souboru **config.js** aktualizujte hodnoty HOST a AUTH_KEY hodnotami, které získáte v okně Klíče účtu DocumentDB na [portálu Microsoft Azure Portal](https://portal.azure.com).
 4. Uložte a zavřete soubor **config.js**.
 
 ### <a name="modify-appjs"></a>Úprava souboru app.js
@@ -398,10 +406,10 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         var config = require('./config');
         var TaskList = require('./routes/tasklist');
         var TaskDao = require('./models/taskDao');
-3. Tento kód definuje konfigurační soubor, který bude použit, a načte z něj do proměnných hodnoty, které brzy využijeme.
+3. Tento kód definuje konfigurační soubor, který se má použít, a načte z něj do proměnných hodnoty, které brzy využijeme.
 4. Nahraďte v souboru **app.js** následující dva řádky:
    
-        app.use('/', routes);
+        app.use('/', index);
         app.use('/users', users); 
    
       následujícím fragmentem kódu:
@@ -424,64 +432,63 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
 Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé mohli s aplikací pracovat. Aplikace Express, kterou jsme vytvořili, používá jako zobrazovací modul **Jade**. Další informace o Jade najdete na stránce [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Soubor **layout.jade** v adresáři **views** slouží jako globální šablona pro ostatní soubory **.jade**. V tomto kroku jej upravíte tak, aby používal [Twitter Bootstrap](https://github.com/twbs/bootstrap). To je sada nástrojů, které usnadňují návrh pěkných webů. 
-2. Otevřete soubor **layout.jade** umístěný v adresáři **views** a nahraďte jeho obsah následujícím kódem:
+2. Otevřete soubor **layout.jade** umístěný v adresáři **views** a nahraďte jeho obsah tímto:
    
         doctype html
         html
-          head
-            title= title
-            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-            link(rel='stylesheet', href='/stylesheets/style.css')
-          body
-            nav.navbar.navbar-inverse.navbar-fixed-top
-              div.navbar-header
-                a.navbar-brand(href='#') My Tasks
-            block content
-            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+           head
+             title= title
+             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+             link(rel='stylesheet', href='/stylesheets/style.css')
+           body
+             nav.navbar.navbar-inverse.navbar-fixed-top
+               div.navbar-header
+                 a.navbar-brand(href='#') My Tasks
+             block content
+             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     Tímto modul **Jade** dostává instrukci vykreslovat pro naši aplikaci některý kód HTML a vytvoří **block** s názvem **content**, do kterého můžeme zadat rozložení stránek s obsahem.
     Uložte a zavřete tento soubor **layout.jade**.
 
-1. Nyní otevřete soubor **index.jade**, který představuje zobrazení používané v naší aplikaci a nahraďte jeho obsah následujícím kódem:
+3. Nyní otevřete soubor **index.jade**, který představuje zobrazení používané v naší aplikaci a nahraďte jeho obsah následujícím kódem:
    
         extends layout
-   
         block content
-          h1 #{title}
-          br
-   
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
-              tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if (typeof tasks === "undefined")
-                tr
-                  td
-              else
-                each task in tasks
-                  tr
-                    td #{task.name}
-                    td #{task.category}
-                    - var date  = new Date(task.date);
-                    - var day   = date.getDate();
-                    - var month = date.getMonth() + 1;
-                    - var year  = date.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name:
-            input(name="name", type="textbox")
-            label Item Category:
-            input(name="category", type="textbox")
-            br
-            button.btn(type="submit") Add item
+           h1 #{title}
+           br
+        
+           form(action="/completetask", method="post")
+             table.table.table-striped.table-bordered
+               tr
+                 td Name
+                 td Category
+                 td Date
+                 td Complete
+               if (typeof tasks === "undefined")
+                 tr
+                   td
+               else
+                 each task in tasks
+                   tr
+                     td #{task.name}
+                     td #{task.category}
+                     - var date  = new Date(task.date);
+                     - var day   = date.getDate();
+                     - var month = date.getMonth() + 1;
+                     - var year  = date.getFullYear();
+                     td #{month + "/" + day + "/" + year}
+                     td
+                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+             button.btn(type="submit") Update tasks
+           hr
+           form.well(action="/addtask", method="post")
+             label Item Name:
+             input(name="name", type="textbox")
+             label Item Category:
+             input(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
    
     Tento kód rozšiřuje rozložení a poskytuje obsah pro zástupný symbol **content**, který jsme viděli v souboru **layout.jade** výše.
    
@@ -490,7 +497,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
     Druhý formulář obsahuje dvě vstupní pole a tlačítko, které umožňuje vytvořit novou položku odesláním informací metodě kontroleru **/addtask**.
    
     To by mělo být vše, co potřebujeme ke zprovoznění aplikace.
-2. Otevřete soubor **style.css** v adresáři **public\stylesheets** a nahraďte kód tímto:
+4. Otevřete soubor **style.css** v adresáři **public\stylesheets** a nahraďte kód tímto:
    
         body {
           padding: 50px;
@@ -513,14 +520,20 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
     Uložte a zavřete tento soubor **style.css**.
 
 ## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Krok 6: Místní spuštění aplikace
-1. Pokud chcete aplikaci otestovat na místním počítači, spusťte v terminálu `npm start`, aby se spustila aplikace a prohlížeč se stránkou, která vypadá obdobně jako obrázek níže:
+1. Pokud chcete aplikaci otestovat na místním počítači, spusťte aplikaci spuštěním příkazu `npm start` v terminálu a pak aktualizujte stránku prohlížeče [http://localhost:3000](http://localhost:3000). Stránka by teď měla vypadat jako na obrázku níže:
    
     ![Snímek obrazovky aplikace Seznam úkolů v okně prohlížeče](./media/documentdb-nodejs-application/image18.png)
-2. Do polí Item (Položka), Item Name (Název položky) a Category (Kategorie) zadejte informace a klikněte na **Add Item** (Přidat položku).
+
+    > [!TIP]
+    > Pokud se vám zobrazí chyba týkající se odsazení v souboru layout.jade nebo index.jade, ujistěte se, že jsou první dva řádky v obou souborech zarovnané vlevo a nejsou tam žádné mezery. Pokud jsou před prvními dvěma řádky mezery, odeberte je, oba soubory uložte a pak aktualizujte okno prohlížeče. 
+
+2. Pro zadání nového úkolu použijte pole Položka, Název položky a Kategorie a pak klikněte na **Přidat položku**. Takto ve službě DocumentDB vytvoříte dokument s těmito vlastnostmi. 
 3. Stránka by se měla aktualizovat, aby se v seznamu úkolů zobrazila nově vytvořená položka.
    
     ![Snímek obrazovky aplikace s novou položkou v seznamu úkolů](./media/documentdb-nodejs-application/image19.png)
-4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly).
+4. Pokud chcete dokončit úkol, stačí zaškrtnout políčko ve sloupci Complete (Dokončeno) a kliknout na **Update tasks** (Aktualizovat úkoly). Takto se vámi vytvořený dokument aktualizuje.
+
+5. Pokud chcete aplikaci zastavit, stiskněte kombinace kláves CTRL + C v okně terminálu a pak ukončete dávkovou úlohu kliknutím na **y**.
 
 ## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Krok 7: Nasazení vývojového projektu aplikace na Azure Websites
 1. Pokud jste tak ještě neučinili, povolte úložiště Git pro Weby Azure. Pokyny, jak máte postupovat, najdete v tématu [Místní nasazení přes Git do Azure App Service](../app-service-web/app-service-deploy-local-git.md).
@@ -532,20 +545,24 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
         git push azure master
 4. Za několik sekund Git dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
+    Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci Node.js Express, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
+
+    Pokud chcete stáhnout nebo odkazovat na úplnou aplikaci referencí tohoto kurzu, můžete ji stáhnout z [GitHubu][GitHub].
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Další kroky
-Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci Node.js Express, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
 
-Zdrojový kód úplné referenční aplikace je možné stáhnout z [GitHubu][GitHub].
-
-Další informace najdete ve [Středisku pro vývojáře Node.js](https://azure.microsoft.com/develop/nodejs/).
+* Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
+* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
+* Projděte si [dokumentaci ke službě DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

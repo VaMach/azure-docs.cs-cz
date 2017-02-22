@@ -1,14 +1,15 @@
 # Přehled
 ## [Co je ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute – nejčastější dotazy](expressroute-faqs.md)
+## [Modely připojení](expressroute-connectivity-models.md)
 ## [Umístění a partneři](expressroute-locations.md)
 ### [Poskytovatelé podle umístění](expressroute-locations-providers.md)
 ### [Umístění podle poskytovatele](expressroute-locations.md)
 
 # Začínáme
-## [O okruzích a doménách směrování](expressroute-circuit-peerings.md)
 ## [Pracovní postupy](expressroute-workflows.md)
 ## [Požadavky](expressroute-prerequisites.md)
+## [O okruzích a doménách směrování](expressroute-circuit-peerings.md)
 ## [Požadavky směrování](expressroute-routing.md)
 ## [Optimalizace směrování](expressroute-optimize-routing.md)
 ## [Požadavky překladu adres (NAT)](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

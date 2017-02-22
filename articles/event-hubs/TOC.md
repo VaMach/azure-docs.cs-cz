@@ -1,47 +1,64 @@
 # Přehled
-
 ## [Co je Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Přehled služby Event Hubs](event-hubs-overview.md)
-## [Přehled rozhraní API služby Event Hubs](event-hubs-api-overview.md)
-## [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
-
+## [Nejčastější dotazy](event-hubs-faq.md)
 
 # Začínáme
-## [Začínáme s Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Průvodce programováním pro službu Event Hubs](event-hubs-programming-guide.md)
-## [Nejčastější dotazy k Event Hubs](event-hubs-faq.md)
+## [Vytvoření centra událostí](event-hubs-create.md)
+## Odesílání událostí
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Příjem událostí
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## [Průvodce programováním](event-hubs-programming-guide.md)
 
 # Postup
-## Spuštění ukázek
-### [Upozornění uživatelů na data přijatá ze senzorů](event-hubs-sensors-notify-users.md)
-### [Ukázková aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Horizontální zvyšování kapacity zpracování událostí pomocí ukázkové aplikace Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-
+## Plánování a návrh
+### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
+### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
+## Vývoj
+### [Dostupná rozhraní API](event-hubs-api-overview.md)
+#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Diagnostické protokoly](event-hubs-diagnostic-logs.md)
+### [Ověřování a autorizace](../service-bus-messaging/service-bus-sas.md)
+### [Průvodce protokolem AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Spravovat
 ### [Knihovny pro správu služby Service Bus](event-hubs-management-libraries.md)
-### [Event Hubs Archive](event-hubs-archive-overview.md)
-### [Povolení funkce Event Hubs Archive pomocí šablony](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### Archiv
+#### [Event Hubs Archive](event-hubs-archive-overview.md)
+#### [Povolení funkce Event Hubs Archive pomocí šablony](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+#### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
 ### [Streamování dat Diagnostiky Azure pomocí Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Vytvoření a nasazení centra událostí pomocí šablony Resource Manageru](event-hubs-resource-manager-namespace-event-hub.md)
-### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
 
 # Referenční informace
-## [.NET](/dotnet/api/microsoft.azure.eventhubs)
-## [Java](/java/api/com.microsoft.azure.eventhubs)
+## .NET
+### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
+## [Výjimky](event-hubs-messaging-exceptions.md)
+## [Kvóty](event-hubs-quotas.md)
 
 # Zdroje a prostředky
-## [Kvóty a omezení](event-hubs-quotas.md)
-## [Výjimky zasílání zpráv](event-hubs-messaging-exceptions.md)
-## [Průvodce protokolem AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Ceny](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Ukázky kódu](event-hubs-samples.md)
+## [Ceny](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

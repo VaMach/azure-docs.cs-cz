@@ -9,6 +9,6 @@ Nabídky softwaru jako služby, jako například Office 365 a Dynamics 365, byly
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

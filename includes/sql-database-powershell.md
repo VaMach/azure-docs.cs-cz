@@ -16,6 +16,6 @@ Pokud máte více předplatných, pomocí rutiny [**Set-AzureRmContext**](https:
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

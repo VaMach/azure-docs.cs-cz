@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -37,6 +37,9 @@ Aktivita kopírování provádí přesun dat ve službě Azure Data Factory. Akt
 
 > [!NOTE]
 > Tento článek nepopisuje všechny možnosti rozhraní .NET API služby Data Factory. Podrobné informace o sadě Data Factory .NET SDK najdete v [referencích k rozhraní .NET API služby Data Factory](https://msdn.microsoft.com/library/mt415893.aspx).
+> 
+> Datový kanál v tomto kurzu kopíruje data ze zdrojového úložiště dat do cílového úložiště dat. Neprovádí transformaci vstupních dat, aby vytvořil výstupní data. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz vytvoření kanálu, který umožňuje transformovat data pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md).
+
 
 ## <a name="prerequisites"></a>Požadavky
 * Projděte si [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete informace o kurzu, a proveďte **nutné** kroky.
@@ -50,41 +53,58 @@ Vytvořte aplikaci Azure Active Directory, vytvořte pro ni instanční objekt a
 1. Spusťte **PowerShell**.
 2. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
 
-        Login-AzureRmAccount
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
 3. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet.
 
-        Get-AzureRmSubscription
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 4. Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **&lt;NameOfAzureSubscription**&gt; zadejte název svého předplatného Azure.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 
    > [!IMPORTANT]
    > Poznamenejte si **SubscriptionId** a **TenantId** z výstupu tohoto příkazu.
 
 5. Spuštěním následujícího příkazu v PowerShellu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     Pokud skupina prostředků už existuje, určete, jestli se má aktualizovat (Y), nebo ponechat tak, jak je (N).
 
     Pokud používáte jinou skupinu prostředků, použijte v postupech v tomto kurzu místo skupiny ADFTutorialResourceGroup název vaší skupiny prostředků.
 6. Vytvořte aplikaci Azure Active Directory.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     Pokud se zobrazí následující chyba, zadejte jinou adresu URL a spusťte příkaz znovu.
-
-        Another object with the same value for property identifierUris already exists.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. Vytvořte instanční objekt služby AD.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. Přidejte instanční objekt k roli **Přispěvatel Data Factory**.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. Získejte ID aplikace.
 
-        $azureAdApplication
-
+    ```PowerShell
+    $azureAdApplication 
+    ```
     Poznamenejte si ID aplikace (**applicationID** ve výstupu).
 
 Z těchto kroků byste měli mít tyto čtyři hodnoty:
@@ -474,7 +494,10 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
 16. Sestavte konzolovou aplikaci. Klikněte v nabídce na **Sestavit** a potom klikněte na **Sestavit řešení**.
 17. Potvrďte, že kontejner **adftutorial** v Azure Blob Storage obsahuje alespoň jeden soubor. Pokud ne, vytvořte v Poznámkovém bloku soubor **Emp.txt** s následujícím obsahem a nahrajte ho do kontejneru adftutorial.
 
-       John, Doe    Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 18. Ukázku spusťte kliknutím na **Ladit** -> **Spustit ladění** v nabídce. Když se zobrazí **Získávání běhových podrobností o datovém řezu**, počkejte několik minut a stiskněte **ENTER**.
 19. Pomocí webu Azure Portal ověřte, že je objekt pro vytváření dat **APITutorialFactory** vytvořený s těmito artefakty:
    * Propojená služba: **LinkedService_AzureStorage**
@@ -483,12 +506,18 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
 20. Ověřte, že se v tabulce **emp** vytvořily dva záznamy zaměstnanců v zadané databázi Azure SQL.
 
 ## <a name="next-steps"></a>Další kroky
-* Pročtěte si článek [Aktivity přesunu dat](data-factory-data-movement-activities.md), který obsahuje podrobné informace o aktivitě kopírování použité v tomto kurzu.
-* Podrobné informace o sadě Data Factory .NET SDK najdete v [referencích k rozhraní .NET API služby Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). Tento článek nepopisuje všechny možnosti rozhraní .NET API služby Data Factory.
+| Téma | Popis |
+|:--- |:--- |
+| [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
+| [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
+| [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
+[Rozhraní .NET API služby Data Factory – referenční informace](/dotnet/api/) | Poskytuje podrobnosti o sadě Data Factory .NET SDK (vyhledejte položku Microsoft.Azure.Management.DataFactories.Models ve stromovém zobrazení). 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

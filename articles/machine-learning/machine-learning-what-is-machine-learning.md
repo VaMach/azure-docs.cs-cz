@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: ab8e5861dd7214dab41024e7048b739c072d3f64
-ms.openlocfilehash: 52a431c2af8b670fc4e4babb0a0d077051a46f54
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Úvod do strojového učení v cloudu
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Úvod do Azure Machine Learning v cloudu
 ## <a name="what-is-machine-learning"></a>Co je strojové učení?
 Strojové učení zahrnuje vědecké metody práce s daty, díky kterým se počítače z existujících dat učí předpovídat budoucí chování, výsledky a trendy.  
 
@@ -37,8 +37,6 @@ Můžete pracovat s knihovnou algoritmů připravených k použití, vytvářet 
 ![Co je strojové učení? Základní pracovní postup pro zprovoznění prediktivních analýz v Azure Machine Learning](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Nejenže Azure Machine Learning poskytuje nástroje pro modelování prediktivních analýz, ale přináší také plně spravovanou službu, pomocí které můžete své prediktivní modely nasazovat jako k použití připravené webové služby.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-predictive-analytics"></a>Co je prediktivní analýza?
 Při prediktivní analýze se používají matematické vzorce, neboli algoritmy, které analýzou historických či aktuálních dat identifikují vzorce a trendy a snaží se pomocí nich předpovídat budoucí události.
@@ -60,7 +58,7 @@ Rychlé vytváření prediktivních modelů v nástroji [Machine Learning Studio
 Následující kurzy vám ukážou, jak zprovoznit vlastní modely prediktivní analýzy:
 
  * [Nasazování webových služeb](machine-learning-publish-a-machine-learning-web-service.md)
- * [Trénování a přeučování modelů prostřednictvím API](machine-learning-retrain-models-programmatically.md)
+ * [Přeučování modelů prostřednictvím API](machine-learning-retrain-models-programmatically.md)
  * [Správa koncových bodů webové služby](machine-learning-create-endpoint.md)
  * [Škálování webové služby](machine-learning-scaling-webservice.md)
  * [Využívání webových služeb](machine-learning-consume-web-services.md)
@@ -69,7 +67,10 @@ Následující kurzy vám ukážou, jak zprovoznit vlastní modely prediktivní 
 Pojmy z oblasti strojového učení nemusí být na první pohled úplně jasné. Ke klíčovým pojmům zde najdete definice, které vám leccos objasní. Do komentářů dole na stránce nám můžete napsat, jaké další termíny byste chtěli definovat.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Zkoumání dat, deskriptivní analýza a prediktivní analýza
-**Zkoumání dat** je proces shromažďování informací o velké a často nestrukturované datové sadě s cílem najít charakteristiky pro přesně zacílenou analýzu. **Dolování dat** označuje automatizované zkoumání dat.
+
+**Zkoumání dat** je proces shromažďování informací o velké a často nestrukturované datové sadě s cílem najít charakteristiky pro přesně zacílenou analýzu.
+
+**Dolování dat** označuje automatizované zkoumání dat.
 
 **Deskriptivní analýza** je proces analyzování datové sady s cílem shrnout, co se stalo. Velká většina obchodních analýz – například prodejní sestavy, webové metriky a analýzy sociálních sítí – je deskriptivních.
 
@@ -114,6 +115,6 @@ Se základy prediktivní analýzy a strojového učení se můžete seznámit v 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

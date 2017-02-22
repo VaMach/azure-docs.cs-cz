@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
 
 
 ---
@@ -39,7 +39,7 @@ Pro vývoj mobilních řešení využívajících cloud jsou důležité násled
 * **Ověřování a autorizace** – vyberte si ze stále se rozšiřujícího seznamu zprostředkovatelů identity, mezi které patří Azure Active Directory pro podnikové ověřování i služby sociálních sítí, jako je Facebook, Google, Twitter a účet Microsoft.  Služba Azure Mobile Apps poskytuje službu OAuth 2.0 pro každého zprostředkovatele.  Můžete také integrovat sadu SDK pro daného zprostředkovatele, aby se zajistila specifická funkcionalita.
   
   Projděte si další informace o našich [funkcích ověřování].
-* **Přístup k datům** – Služba Azure Mobile Apps poskytuje zdroj dat OData verze 3, který skvěle funguje s mobilními zařízeními a je propojen se službou SQL Azure nebo místním systémem SQL Server.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
+* **Přístup k datům** – Služba Azure Mobile Apps poskytuje zdroj dat OData verze&3;, který skvěle funguje s mobilními zařízeními a je propojen se službou SQL Azure nebo místním systémem SQL Server.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
 * **Synchronizace offline dat** – naše klientské sady SDK usnadňují vytváření robustních a rychle reagujících mobilních aplikací, které budou pracovat s offline datovou sadou. Tu pak lze automaticky synchronizovat s back-endovými daty, a to i s podporou řešení konfliktů.
   
   Projděte si další informace o našich [datových funkcích].
@@ -74,12 +74,12 @@ Pokud chcete další informace o Azure Mobile Apps, nahlédněte prosím do naš
 Další informace o platformě Azure App Service najdete v článku [Azure App Service].
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://tryappservice.azure.com/?appServiceName=mobile), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/mobile/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
 <!-- URLs. -->
-[Migrace mobilní služby do App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Začínáme]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]: ../storage/storage-getting-started-guide.md
@@ -104,6 +104,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

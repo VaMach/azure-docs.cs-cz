@@ -1,3 +1,4 @@
+
 # Přehled
 ## [Co je DocumentDB?](documentdb-introduction.md)
 ## [Základní koncepty](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Dělení a škálování](documentdb-partition-data.md)
 ### [Konzistence](documentdb-consistency-levels.md)
 ### [Srovnání NoSQL a SQL](documentdb-nosql-vs-sql.md)
+### [Nákladově efektivní čtení a zápisy](documentdb-key-value-store-cost.md)
 
 ## Spravovat
 ### [Import dat](documentdb-import-data.md)
@@ -40,14 +42,13 @@
 ### [Přizpůsobení indexů](documentdb-indexing-policies.md)
 ### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
 ### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
-### [Úrovně výkonu](documentdb-performance-levels.md)
+### [Vyřazení S1, S2, S3](documentdb-performance-levels.md)
 ### [Jednotky žádostí](documentdb-request-units.md)
 ### Azure CLI
 #### [Vytvoření účtu](documentdb-automation-resource-manager-cli.md)
 #### [Přidání nebo odebrání oblastí](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Podpora brány firewall](documentdb-firewall-support.md)
-### [Uvedení údajů o účtu](documentdb-supercharge-your-account.md)
 
 ## Vývoj
 ### [Dotaz SQL](documentdb-sql-query.md)
@@ -71,6 +72,7 @@
 ## Použití portálu
 ### [Vytvoření účtu databáze](documentdb-create-account.md)
 ### [Vytvoření kolekce](documentdb-create-collection.md)
+### [Nastavení propustnosti](documentdb-set-throughput.md)
 ### [Přidání globální replikace](documentdb-portal-global-replication.md)
 ### [Přidání a úpravy dokumentů](documentdb-view-json-document-explorer.md)
 ### [Dotazování dokumentů](documentdb-query-collections-query-explorer.md)
@@ -88,9 +90,10 @@
 ### [Integrace se službou Azure Search](../search/search-howto-index-documentdb.md)
 ### [Přesun dat pomocí služby Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analýza dat v reálném čase pomocí Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Získávání oznámení pomocí funkce Logic Apps](documentdb-change-notification.md)
+### [Získání změněného záznamu HL7 FHIR pomocí Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Zpracování dat ze snímačů v reálném čase](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Vizualizace dat pomocí Power BI](documentdb-powerbi-visualize.md)
+### [Využití ovladače ODBC pro vizualizaci dat](documentdb-nosql-odbc-driver.md)
 
 
 # Referenční informace
@@ -123,6 +126,6 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

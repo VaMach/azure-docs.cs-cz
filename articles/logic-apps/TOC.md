@@ -23,6 +23,7 @@
 ### [Aplikace logiky jako volatelné koncové body](logic-apps-http-endpoint.md)
 ### [Smyčky, obory a rozdělení dávek](logic-apps-loops-and-scopes.md)
 ### [Použití vlastních rozhraní API](logic-apps-custom-hosted-api.md)
+### [Použití příkazů switch](logic-apps-switch-case.md)
 ### [Zpracování výjimek](logic-apps-exception-handling.md)
 ### [Scénář zpracování výjimek](logic-apps-scenario-error-and-exception-handling.md)
 ### [Zpracování typů obsahu](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

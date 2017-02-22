@@ -1,6 +1,6 @@
 ---
-title: "Začínáme se sadou SDK IoT Hub Gateway | Dokumentace Microsoftu"
-description: "Tento návod pro sadu SDK Azure IoT Gateway využívá pro ilustraci klíčových konceptů, kterým byste měli rozumět, pokud používáte sadu SDK Azure IoT Gateway, systém Linux."
+title: "Začínáme se sadou SDK Azure IoT Gateway (Linux) | Dokumentace Microsoftu"
+description: "Postup vytvoření brány na počítači s Linuxem a popis klíčových konceptů v sadě SDK Azure IoT Gateway, jako jsou moduly a konfigurační soubory JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
-ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Sada Azure IoT Gateway SDK – Začínáme používat systém Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Začínáme se sadou SDK Azure IoT Gateway (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Postup pro sestavení ukázky
@@ -28,7 +28,7 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 1. Otevřete prostředí.
 2. Přejděte do kořenové složky místní kopie úložiště **azure-iot-gateway-sdk**.
-3. Spusťte skript **tools/build.sh**. Tento skript vytvoří v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk** pomocí nástroje **cmake** složku s názvem **build** a vygeneruje soubor pravidel. Skript potom sestaví řešení a spustí testy.
+3. Spusťte skript **tools/build.sh**. Tento skript vytvoří v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk** pomocí nástroje **cmake** složku s názvem **build** a vygeneruje soubor pravidel. Skript potom sestaví řešení a přeskočí při tom testy jednotek a celkové testy. Pokud chcete sestavit a spustit testy jednotek, přidejte parametr **--run-unittests**. Pokud chcete sestavit a spustit celkové testy, přidejte parametr **--run-e2e-tests**.
 
 > [!NOTE]
 > Pokaždé když spustíte skript **build.sh**, odstraní a potom znovu vytvoří složku **build** v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk**.
@@ -78,11 +78,11 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
         ]
     }
     ```
-3. Přejděte do složky **azure-iot-gateway-sdk**.
+3. Přejděte do složky **azure-iot-gateway-sdk/build**.
 4. Spusťte následující příkaz:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -92,6 +92,6 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

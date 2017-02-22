@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse je cloudová, škálovatelná databáze, která dokáž
 
 SQL Data Warehouse:
 
-* Kombinuje relační databázi SQL Server s možnostmi cloudového škálování Azure. Během pár sekund můžete zvýšit, snížit, pozastavit nebo obnovit výpočty. Šetříte náklady, protože podle potřeby horizontálně navyšujete kapacitu CPU, zatímco v době mimo špičku snižujete využití.
+* Kombinuje relační databázi SQL Server s možnostmi cloudového škálování Azure. Během pár minut nebo sekund můžete zvýšit, snížit, pozastavit nebo obnovit výpočty. Šetříte náklady, protože podle potřeby horizontálně navyšujete kapacitu CPU, zatímco v době mimo špičku snižujete využití.
 * Využívá platformu Azure. Nasazení je snadné, údržba bezproblémová a díky automatickým zálohám je nástroj plně odolný proti selhání.
 * Doplňuje ekosystém SQL Server. Můžete vyvíjet pomocí známých nástrojů a jazyka SQL Server Transact-SQL (T-SQL).
 
@@ -96,21 +96,21 @@ Služba SQL Data Warehouse je založená na relačním databázovém stroji SQL 
 
 * SQL Data Warehouse používá syntaxi T-SQL pro mnoho operací. Také podporuje širokou škálu tradičních SQL konstruktorů, jako jsou uložené procedury, uživatelem definované funkce, vytváření oddílů tabulky, indexy a kolace.
 * SQL Data Warehouse taky obsahuje řadu novějších funkcí systému SQL Server, k nimž patří clusterované indexy **columnstore**, integrace PolyBase a auditování dat (včetně hodnocení hrozeb).
-* Některé elementy jazyka T-SQL, které jsou méně běžné pro úlohy datových skladů, nebo jsou pro SQL Server novější, nemusí být aktuálně k dispozici. Další informace najdete v tématu [Dokumentace k migraci][Dokumentace k migraci].
+* Některé elementy jazyka T-SQL, které jsou méně běžné pro úlohy datových skladů, nebo jsou pro SQL Server novější, nemusí být aktuálně k dispozici. Další informace najdete v tématu [Dokumentace k migraci][Migration documentation].
 
 Díky shodnému jazyku Transact-SQL a shodným funkcím systému SQL Server, služby SQL Data Warehouse, služby SQL Database a řešení Analytics Platform System můžete vyvinout řešení, které vyhovuje vašim datovým potřebám. Na základě požadavků na výkon, zabezpečení a škálování se můžete rozhodnout, kam svoje data uložíte, a potom data podle potřeby přenášet mezi různými systémy.
 
 ## <a name="data-protection"></a>Ochrana dat
-SQL Data Warehouse ukládá všechna data v úložišti Azure úrovně Premium pomocí místně redundantního úložiště. V místním datovém centru se udržuje několik synchronních kopií dat, aby se zajistila transparentní ochrana dat v případě lokálních selhání. Kromě toho SQL Data Warehouse automaticky zálohuje aktivní (ve stavu bez pozastavení) databáze v pravidelných intervalech pomocí Azure Storage Snapshots. Další informace o zálohování a obnovení najdete v článku [Přehled zálohování a obnovení][Přehled zálohování a obnovení].
+SQL Data Warehouse ukládá všechna data v úložišti Azure úrovně Premium pomocí místně redundantního úložiště. V místním datovém centru se udržuje několik synchronních kopií dat, aby se zajistila transparentní ochrana dat v případě lokálních selhání. Kromě toho SQL Data Warehouse automaticky zálohuje aktivní (ve stavu bez pozastavení) databáze v pravidelných intervalech pomocí Azure Storage Snapshots. Další informace o zálohování a obnovení najdete v článku [Přehled zálohování a obnovení][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Integrováno s nástroji společnosti Microsoft
 SDL Data Warehouse také integruje mnoho nástrojů, které znají uživatelé z používání systému SQL Server. Mezi ně patří:
 
 **Tradiční nástroje systému SQL Server:** Služba SQL Data Warehouse je plně integrovaná se Službou Analysis Services serveru SQL, SSIS a Reporting Services.
 
-**Cloudové nástroje:** Služba SQL Data Warehouse se dá používat souběžně s řadou nových nástrojů v Azure včetně služeb Data Factory, Stream Analytics, Machine Learning a Power BI. Úplnější seznam viz [Přehled integrovaných nástrojů][Přehled integrovaných nástrojů].
+**Cloudové nástroje:** Služba SQL Data Warehouse se dá používat souběžně s řadou nových nástrojů v Azure včetně služeb Data Factory, Stream Analytics, Machine Learning a Power BI. Úplnější seznam viz [Přehled integrovaných nástrojů][Integrated tools overview].
 
-**Nástroje třetích stran:** Velké množství poskytovatelů nástrojů třetích stran disponuje certifikovanou integrací svých nástrojů se službou SQL Data Warehouse. Úplný seznam najdete v tématu [Partneři řešení SQL Data Warehouse][Partneři řešení SQL Data Warehouse].
+**Nástroje třetích stran:** Velké množství poskytovatelů nástrojů třetích stran disponuje certifikovanou integrací svých nástrojů se službou SQL Data Warehouse. Úplný seznam najdete v tématu [Partneři řešení SQL Data Warehouse][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Scénáře hybridních zdrojů dat
 Použití služby SQL Data Warehouse společně s technologií PolyBase poskytuje uživatelům bezprecedentní možnost přesouvat data v rámci svého ekosystému a dává jim možnost nastavit pokročilé hybridní scénáře s nerelačními a místními zdroji dat.
@@ -122,10 +122,10 @@ PolyBase vám umožňuje využít data z různých zdrojů pomocí stejných př
 * PolyBase lze použít pro přístup k úložišti objektů blob, které se také používá jako úložiště clusteru HDInsight. To umožňuje přístup ke stejným datům pomocí relačních a nerelačních nástrojů.
 
 ## <a name="sla"></a>SLA
-SQL Data Warehouse nabízí smlouvu o úrovni služeb (SLA) na úrovni produktu jako součást smlouvy SLA pro Microsoft Online Services. Další informace najdete na stránkách [SLA pro SQL Data Warehouse][SLA pro SQL Data Warehouse]. Informace o smlouvách SLA ke všem dalším produktům najdete na stránce Azure věnované [smlouvám o úrovni služeb], případně si je můžete stáhnout na stránce o [multilicencích][Multilicence]. 
+SQL Data Warehouse nabízí smlouvu o úrovni služeb (SLA) na úrovni produktu jako součást smlouvy SLA pro Microsoft Online Services. Další informace najdete na stránkách [SLA pro SQL Data Warehouse][SLA for SQL Data Warehouse]. Informace o smlouvách SLA ke všem dalším produktům najdete na stránce Azure věnované [smlouvám o úrovni služeb], případně si je můžete stáhnout na stránce o [multilicencích][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychle [vytvořit SQL Data Warehouse][vytvořit SQL Data Warehouse] a [načíst ukázková data][načtení ukázkových dat]. Pokud s Azure začínáte, můžete využít [Glosář Azure][Glosář Azure], kde najdete potřebnou terminologii. Můžete se taky podívat na některé z těchto dalších zdrojů služby SQL Data Warehouse.  
+Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychle [vytvořit datový sklad SQL Data Warehouse][create a SQL Data Warehouse] a [načíst ukázková data][load sample data]. Pokud s Azure začínáte, může vám být užitečný [Glosář Azure][Azure glossary], kde najdete potřebnou terminologii. Můžete se taky podívat na některé z těchto dalších zdrojů služby SQL Data Warehouse.  
 
 * [Úspěšné zákaznické implementace]
 * [Blogy]
@@ -142,13 +142,13 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 
 <!--Article references-->
 [Vytvoření lístku podpory]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[načtení ukázkových dat]: ./sql-data-warehouse-load-sample-databases.md
-[vytvořit SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Dokumentace k migraci]: ./sql-data-warehouse-overview-migrate.md
-[Partneři řešení SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
-[Přehled integrovaných nástrojů]: ./sql-data-warehouse-overview-integrate.md
-[Přehled zálohování a obnovení]: ./sql-data-warehouse-restore-database-overview.md
-[Glosář Azure]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videa]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA pro SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[Multilicence]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [smlouvám o úrovni služeb]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

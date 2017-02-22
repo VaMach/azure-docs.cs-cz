@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure App Service – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Zjistěte, jak používat App Service k vytváření webových a mobilních aplikací pro jakoukoliv platformu nebo zařízení, pomocí kurzů, videí, referencí k rozhraní API a další dokumentace."
+services: app-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a9afed4d89a2eb114af42ae409ff8ab72899b598
-ms.openlocfilehash: a7ae2c57b4f894165df0f2fd7560f8476ac1db0d
+ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
+ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
 
 ---
 #<a name="app-service-documentation"></a>Dokumentace ke službě App Service
 
-App Service je služba Microsoft Azure typu platforma jako služba (PaaS). Webové a mobilní aplikace můžete vytvářet pro libovolnou platformu nebo zařízení. Své aplikace můžete integrovat s řešeními SaaS a propojovat s lokálními aplikacemi. A lze také automatizovat firemní procesy.
+Zjistěte, jak používat App Service k vývoji a hostování webových a mobilních aplikací pro jakoukoliv platformu nebo zařízení, pomocí kurzů, videí, referencí k rozhraní API a další dokumentace. Naučte se integrovat aplikace s řešeními SaaS, propojovat je s lokálními aplikacemi a automatizovat firemní procesy.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -120,50 +132,10 @@ App Service je služba Microsoft Azure typu platforma jako služba (PaaS). Webov
     </li>
 </ul>
 
----
-
-<h2>Referenční informace</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Zdroje a prostředky</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service%2ftoc.json">portál Azure</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service%2ftoc.json">Reference k App Service</a></p>
-                        <p><a href="/azure/app-service-web/app-service-best-practices?toc=%2fazure%2fapp-service%2ftoc.json">Osvědčené postupy</a></p>
-                        <p><a href="/azure/app-service-web/websites-webjobs-resources?toc=%2fazure%2fapp-service%2ftoc.json">Prostředky webových úloh (WebJob)</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service%2ftoc.json">WebJobs SDK</a></p>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/appservice/">Reference k rozhraní REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě App Service </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -23,7 +23,7 @@
 ### [Osvědčené postupy pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Běžné metriky pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Automatické škálování škálovacích sad virtuálních počítačů pomocí šablon Resource Manageru](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurace webhooků a e-mailových oznámení pro automatické škálování](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Použití protokolu aktivit
 ### [Zobrazení událostí v protokolu aktivit](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Použití rozhraní REST API
 ### [Návod s využitím rozhraní REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Diagnostics Schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Diagnostics Schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Diagnostics Schema 1.3 až 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Zdroje a prostředky
 ## [Ukázky pro PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Ukázky pro Azure CLI 2.0 (Preview)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Ukázky Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Seznam podporovaných metrik](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

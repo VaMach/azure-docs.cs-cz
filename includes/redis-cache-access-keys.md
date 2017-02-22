@@ -1,4 +1,4 @@
-Kvůli připojení k instanci Azure Redis Cache potřebují klienti mezipaměti název hostitele, porty a klíče této mezipaměti. Někteří klienti můžou tyto položky označovat trochu odlišnými názvy. Pokud chcete získat tyto položky, pomocí možnosti [Procházet](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) přejděte na svoji mezipaměť na [portálu Azure](https://portal.azure.com) a klikněte na **Nastavení** nebo **Všechna nastavení**. 
+Kvůli připojení k instanci Azure Redis Cache potřebují klienti mezipaměti název hostitele, porty a klíče této mezipaměti. Někteří klienti můžou tyto položky označovat trochu odlišnými názvy. Pokud chcete získat tyto položky, pomocí možnosti [Procházet](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) přejděte na svoji mezipaměť na webu [Azure Portal](https://portal.azure.com) a klikněte na požadovanou položku v **nabídce Prostředky**. 
 
 ![Nastavení mezipaměti Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ Pokud chcete získat přístupové klíče, klikněte na **Přístupové klíče
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

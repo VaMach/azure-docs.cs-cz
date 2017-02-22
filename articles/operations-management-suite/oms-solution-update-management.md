@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Aktualizace řešení pro správu v OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Aktualizace řešení pro správu v OMS
+# <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 Řešení pro správu aktualizací v OMS umožňuje spravovat aktualizace pro počítače s Windows a Linuxem.  Stav dostupných aktualizací na všech počítačích agenta můžete rychle vyhodnotit a zahájit proces instalace požadovaných aktualizací pro servery. 
 
 ## <a name="prerequisites"></a>Požadavky
@@ -33,7 +33,10 @@ ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
 * Agenty Linux musí mít přístup k úložišti aktualizací.  Agenta OMS pro Linux je možné stáhnout z webu [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## <a name="configuration"></a>Konfigurace
-Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a přidejte agenty Linux.  Agenti Windows se přidají automaticky bez dodatečné konfigurace.
+Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a přidejte agenty Linux. Agenti Windows se přidají automaticky bez dodatečné konfigurace.
+
+> [!NOTE]
+> Pokud v současné době povolíte toto řešení, každý počítač s Windows připojený k pracovnímu prostoru OMS se automaticky nakonfiguruje jako Hybrid Runbook Worker, aby podporoval runbooky, které jsou součástí tohoto řešení.  Nezaregistruje se však u žádných skupin Hybrid Worker, které jste vytvořili v účtu služby Automation, a není možné ho přidat do skupiny Hybrid Worker za účelem spouštění vlastních runbooků.  Pokud je počítač s Windows již určený jako Hybrid Runbook Worker a připojený k pracovnímu prostoru OMS, bude nutné ho před přidáním řešení odebrat z daného pracovního prostoru pro zajištění fungování runbooků podle očekávání.  
 
 1. Postupem popsaným v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md) přidejte řešení pro správu aktualizací z galerie řešení do pracovního prostoru.  
 2. Na portálu OMS vyberte **Nastavení** a potom **Připojené zdroje**.  Poznamenejte si **ID pracovního prostoru** a **primární klíč** nebo **sekundární klíč**.
@@ -41,11 +44,13 @@ Pomocí následujících kroků přidejte řešení pro správu aktualizací do 
    
    a.    Nainstalujte nejnovější verzi agenta OMS pro Linux spuštěním následujících příkazů.  Hodnotu <Workspace ID> nahraďte ID pracovního prostoru a hodnotu <Key> primárním nebo sekundárním klíčem.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Pokud chcete agenta odebrat, spusťte následující příkaz.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Sady Management Pack
 Pokud je vaše skupina pro správu Center Operations Manager připojená k pracovnímu prostoru OMS, do Operations Manageru se po přidání tohoto řešení nainstalují následující sady Management Pack. Není potřeba žádná konfigurace ani údržba těchto sad Management Pack. 
@@ -242,6 +247,6 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

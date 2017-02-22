@@ -1,5 +1,5 @@
 ---
-title: "Používání klíčů SSH s Hadoop na linuxových clusterech ze systému Windows | Dokumentace Microsoftu"
+title: "Použití SSH s clustery HDInsight pomocí PuTTY ze systému Windows | Dokumentace Microsoftu"
 description: "Zjistěte, jak vytvářet a používat klíče SSH k ověřování v clusterech HDInsight se systémem Linux z klientů se systémem Windows pomocí klienta SSH PuTTY."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/30/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 5498cfa6b8bcf50b1f375daa2e9adea585ce0d75
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-windows-with-putty"></a>Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Windows pomocí klienta PuTTY
+# <a name="use-ssh-with-hdinsight-hadoop-from-putty-on-windows"></a>Použití SSH s clustery HDInsight (Hadoop) pomocí PuTTY ze systému Windows
+
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umožňuje vzdáleně provádět různé operace v clusterech služby HDInsight v Linuxu pomocí rozhraní příkazového řádku. Tento dokument obsahuje informace o připojení k HDInsight z klientů se systémem Windows pomocí klienta PuTTY SSH.
 
@@ -99,7 +100,7 @@ Každá z těchto metod bude vyžadovat veřejný klíč. Úplné informace týk
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Pokud používáte [web Azure Portal][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, je nutné zadat **Uživatelské jméno SSH** a vybrat, zda chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
+Pokud používáte web [Azure Portal][preview-portal] k vytvoření clusteru HDInsight se systémem Linux, je nutné zadat **Uživatelské jméno SSH** a vybrat, zda chcete zadat **HESLO** nebo **VEŘEJNÝ KLÍČ SSH**.
 
 Pokud vyberete **VEŘEJNÝ KLÍČ SSH**, můžete buď vložit veřejný klíč (zobrazený v části **Veřejný klíč pro vložení do pole klíčů oprávnění\_OpenSSH** v PuttyGen,) do pole **SSH PublicKey** nebo vybrat možnost **Vybrat soubor** a procházet a vybrat soubor, který obsahuje veřejný klíč.
 
@@ -241,6 +242,6 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

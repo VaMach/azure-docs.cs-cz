@@ -21,25 +21,21 @@
 ## [Uložení hledání a připnutí datových prostředků](data-catalog-how-to-save-pin.md)
 ## [Jak nastavit obchodní glosář](data-catalog-how-to-business-glossary.md)
 
-## Vývoj
-### [Koncepce pro vývojáře](data-catalog-developer-concepts.md)
-### [Ukázky pro vývojáře](data-catalog-samples.md)
-
 # Referenční informace
 ## [REST](/rest/api/datacatalog/)
+## [Koncepce pro vývojáře](data-catalog-developer-concepts.md)
+## [Ukázky pro vývojáře](data-catalog-samples.md)
 
 # Zdroje a prostředky
 ## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologie](data-catalog-terminology.md)
-## Poznámky k verzi
-### [Poznámky k verzi – nové](data-catalog-whats-new.md)
-### [Poznámky k verzi](data-catalog-release-notes.md)
+## [Poznámky k verzi](data-catalog-whats-new.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

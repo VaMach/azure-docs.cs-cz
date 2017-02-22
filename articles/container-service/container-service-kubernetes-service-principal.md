@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
+ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-Kubernetes vyžaduje v Azure Container Service [instanční objekt služby Azure Active Directory](../active-directory/active-directory-application-objects.md) jako účet služby pro interakci s rozhraními API Azure. Instanční objekt je potřeba k dynamické správě prostředků, jako jsou například [uživatelem definované trasy](../virtual-network/virtual-networks-udr-overview.md) a vrstva 4 služby [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+Kubernetes vyžaduje v Azure Container Service [instanční objekt služby Azure Active Directory](../active-directory/active-directory-application-objects.md) jako účet služby pro interakci s rozhraními API Azure. Instanční objekt je potřeba k dynamické správě prostředků, jako jsou například uživatelem definované trasy a vrstva 4 služby Azure Load Balancer.
 
 Tento článek popisuje různé možnosti specifikace instančního objektu pro cluster Kubernetes. Pokud jste například nainstalovali a nastavili [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), můžete spustit příkaz [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) a vytvořit současně cluster Kubernetes i instanční objekt.
 
@@ -39,11 +39,11 @@ Tento článek popisuje různé možnosti specifikace instančního objektu pro 
 
 Toto jsou požadavky pro instanční objekt služby Azure Active Directory v clusteru Kubernetes v Azure Container Service. 
 
-* **Obor** – Předplatné Azure, do kterého se cluster nasazuje.
+* **Obor:** Předplatné Azure, do kterého se cluster nasazuje.
 
-* **Role** - **Přispěvatel**
+* **Role:** **Přispěvatel**
 
-* **Tajný kód klienta** – Musí to být heslo. V současné době nemůžete použít instanční objekt nastavený pro ověření certifikátu.
+* **Tajný kód klienta:** Musí se jednat o heslo. V současné době nemůžete použít instanční objekt nastavený pro ověření certifikátu.
 
 > [!NOTE]
 > Každý instanční objekt je přidružený k aplikaci Azure Active Directory. Instanční objekt pro cluster Kubernetes se dá přidružit jakémukoli platnému názvu aplikace Azure Active Directory.
@@ -56,28 +56,34 @@ Toto jsou požadavky pro instanční objekt služby Azure Active Directory v clu
 
 Při vytváření clusteru Kubernetes zadejte **ID klienta** (pro ID aplikace často označované jako `appId`) a **tajný kód klienta** (`password`) existujícího instančního objektu jako parametry. Pokud používáte existující instanční objekt, ujistěte se, že splňuje požadavky uvedené v předchozí části. Pokud instanční objekt potřebujete vytvořit, přečtěte si téma [Vytvoření instančního objektu](#create-a-service-principal-in-azure-active-directory) dále v tomto článku.
 
-Tyto parametry můžete při [nasazování clusteru Kubernetes](./container-service-deployment.md) určit pomocí portálu, rozhraní příkazového řádku Azure (CLI) nebo prostředí Azure PowerShell.
+Tyto parametry můžete při [nasazování clusteru Kubernetes](./container-service-deployment.md) určit pomocí portálu, rozhraní příkazového řádku Azure (CLI) 2.0 (Preview), Azure PowerShellu nebo jiné metody.
 
 >[!TIP] 
 >Při zadávání **ID klienta** se ujistěte, že používáte `appId` instančního objektu, a nikoli `ObjectId` instančního objektu.
 >
 
-Následující příklad ukazuje jeden ze způsobů předání parametrů pomocí [rozhraní příkazového řádku Azure](../xplat-cli-install.md) v [režimu Resource Manageru](../xplat-cli-connect.md). Tento příklad používá [šablonu Kubernetes pro rychlý start](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+Následující příklad ukazuje jeden ze způsobů předání parametrů pomocí rozhraní příkazového řádku Azure 2.0 Preview (viz [pokyny k instalaci a nastavení](/cli/azure/install-az-cli2)). Tento příklad používá [šablonu Kubernetes pro rychlý start](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. Soubor s parametry šablony azuredeploy.parameters.json [si stáhněte](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) z GitHubu.
+1. [Stáhněte si](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) soubor parametrů šablony `azuredeploy.parameters.json` z GitHubu.
 
 2. Instanční objekt specifikujte zadáním hodnot pro `servicePrincipalClientId` a `servicePrincipalClientSecret` v souboru. (Pro `dnsNamePrefix` a `sshRSAPublicKey` musíte zadat také vlastní hodnoty. V druhém případě se jedná o veřejný klíč SSH pro přístup ke clusteru.) Uložte soubor.
 
     ![Předání parametrů instančního objektu](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Spusťte následující příkaz a parametr `-e` použijte k nastavení cesty k souboru azuredeploy.parameters.json. Tento příkaz nasadí cluster v existující skupině prostředků s názvem `myResourceGroup`.
+3. Spusťte následující příkaz a možnost `--parameters` použijte k nastavení cesty k souboru azuredeploy.parameters.json. Tento příkaz nasadí cluster ve vámi vytvořené skupině prostředků s názvem `myResourceGroup` v oblasti Západní USA.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Možnost 2: Vygenerování instančního objektu při vytváření clusteru pomocí Azure CLI 2.0 Preview
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Možnost 2: Vygenerování instančního objektu při vytváření clusteru pomocí Azure CLI 2.0 (Preview)
 
 Pokud jste si nainstalovali a nastavili [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), můžete spustit příkaz [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) pro [vytvoření clusteru](./container-service-create-acs-cluster-cli.md).
 
@@ -93,16 +99,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Pokud chcete vytvořit instanční objekt v Azure Active Directory pro použití v clusteru Kubernetes, nabízí vám Azure několik metod. 
 
-Příkazy v následujícím příkladu vám ukážou, jak to můžete udělat pomocí [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). Instanční objekt můžete případně vytvořit pomocí [rozhraní příkazového řádku Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [prostředí Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) nebo [klasického portálu](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Příkazy v následujícím příkladu vám ukážou, jak to můžete udělat pomocí [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). Instanční objekt můžete případně vytvořit pomocí [Azure PowerShellu](../azure-resource-manager/resource-group-authenticate-service-principal.md), [portálu Classic](../azure-resource-manager/resource-group-create-service-principal-portal.md) nebo jinou metodou.
 
 > [!IMPORTANT]
 > Nezapomeňte si zkontrolovat požadavky pro instanční objekt uvedené výše v tomto článku.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +122,7 @@ Zvýrazní se **ID klienta** (`appId`) a **tajný kód klienta** (`password`), k
 
 Instanční objekt potvrďte otevřením nového prostředí a spuštěním následujících příkazů s nahrazením `appId`, `password` a `tenant`:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -137,6 +143,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

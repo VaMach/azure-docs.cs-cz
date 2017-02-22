@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure Active Directory Domain Services – kurzy | Dokumentace Microsoftu"
+description: "Naučte se, jak můžete používat Active Directory Domain Services k připojení virtuálních počítačů Azure k doméně bez použití řadiče domény a jak je spravovat pomocí zásad skupiny."
+services: active-directory-ds
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
+ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Dokumentace ke službě Active Directory Domain Services
 
-Azure AD Domain Services (DS) poskytuje služby spravované domény, například připojení k doméně, zásady skupiny, LDAP, ověřování protokolu Kerberos nebo NTLM, které jsou plně kompatibilní s Windows Server Active Directory.  Umožňuje uživatelům promptně nasazovat širokou škálu výpočetních řešení.
+Naučte se, jak můžete používat Active Directory Domain Services k připojení virtuálních počítačů Azure k doméně bez použití řadiče domény. Kurzy a další dokumentace ukazují, jak můžete spravovat virtuální počítače pomocí zásad skupiny.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -156,18 +168,9 @@ Azure AD Domain Services (DS) poskytuje služby spravované domény, například
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Active Directory Domain Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

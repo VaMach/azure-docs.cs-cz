@@ -136,6 +136,6 @@ Klikněte na **Vybrat** a **Ok**. Nyní vidíte uživatele a skupiny, které jst
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

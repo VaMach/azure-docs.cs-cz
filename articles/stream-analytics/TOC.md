@@ -17,19 +17,22 @@
 
 ## Vývoj
 ### [Běžné vzory dotazů](stream-analytics-stream-analytics-query-patterns.md)
+### [Nástroje pro Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Vytváření vstupů](stream-analytics-define-inputs.md)
 ### [Vytváření výstupů](stream-analytics-define-outputs.md)
 ### [Využití referenčních dat](stream-analytics-use-reference-data.md)
-### [Výstup do služby Azure Redis Cache](stream-analytics-functions-redis.md)
+### [Výstup do služby Azure Functions](stream-analytics-functions-redis.md)
 ### [Výstup do Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Výstup do DocumentDB](stream-analytics-documentdb-output.md)
 ### [Analýza dat pomocí Power BI](stream-analytics-power-bi-dashboard.md)
+### [Integrace UDF JavaScriptu](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrace Machine Learningu a REST API](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Použití Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [Funkce okna](stream-analytics-window-functions.md)
 
 ## Spravovat
 ### [Monitorování úloh](stream-analytics-monitoring.md)
+### [Diagnostické protokoly](stream-analytics-job-diagnostic-logs.md)
 ### [Programové monitorování úloh](stream-analytics-monitor-jobs.md)
 ### [Monitorování úloh s PowerShellem](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Škálování pro zvýšení prostupnosti](stream-analytics-scale-jobs.md)
@@ -58,6 +61,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

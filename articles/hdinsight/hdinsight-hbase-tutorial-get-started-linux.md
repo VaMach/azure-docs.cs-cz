@@ -1,5 +1,5 @@
 ---
-title: "Kurz HBase: Začínáme s clustery se systémem Linux HBase v Hadoop | Dokumentace Microsoftu"
+title: "Začínáme s HBase v prostředí Azure HDInsight | Dokumentace Microsoftu"
 description: "Pro začátky používání Apache HBase s Hadoop v HDInsight dokončete tento kurz HBase. Vytvářejte tabulky z prostředí HBase a dotazujte je pomocí Hive."
 keywords: "apache hbase, hbase, prostředí hbase, kurz hbase"
 services: hdinsight
@@ -13,20 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Kurz HBase: začněte používat Apache HBase se systémem Linux Hadoop v HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Kurz HBase: Začínáme používat Apache HBase v HDInsight
 
 Naučte se vytvářet cluster HBase v HDInsight, vytvářet tabulky HBase a dotazovat tabulky pomocí Hive. Obecné informace o HBase najdete v tématu [Přehled HBase ve službě HDInsight][hdinsight-hbase-overview].
-
-Informace v tomto dokumentu se týkají clusterů se systémem Linux HDInsight. Informace o clusterech založených na systému Windows využívají k přepínání volič karty v horní části stránky.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -207,7 +204,7 @@ Data v tabulkách HBase můžete dotazovat pomocí Hive. Tati část vytvoří t
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     Hodnoty určené v přepínači -d musíte zakódovat base64.  V příkladu:
@@ -286,6 +283,6 @@ Další informace naleznete v tématu:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

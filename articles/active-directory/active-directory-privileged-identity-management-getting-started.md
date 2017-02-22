@@ -3,7 +3,7 @@ title: "Začínáme s aplikací Azure AD Privileged Identity Management | Doku
 description: "Přečtěte si, jak spravovat privilegované identity pomocí aplikace Azure Active Directory Privileged Identity Management na webu Azure Portal."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Po nastavení Azure AD Privileged Identity Management se vždy, když aplikaci o
 * **Spravovat privilegované role** – zobrazí řídicí panel pro správce privilegovaných rolí, odkud se dá spravovat přiřazení rolí, měnit nastavení aktivace rolí, začít kontrolu přístupu atd. Možnosti na tomto řídicím panelu se zobrazují jen správcům privilegovaných rolí.
 * **Zkontrolovat privilegovaný přístup** – přejdete ke kontrolám přístupu, které je potřeba dokončit, ať už kontrolujete přístup sobě nebo někomu jinému. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Další kroky
 [Přehled aplikace Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) obsahuje podrobné informace o tom, jak můžete spravovat přístup pro správu ve vaší organizaci.
 
@@ -56,6 +55,6 @@ Po nastavení Azure AD Privileged Identity Management se vždy, když aplikaci o
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

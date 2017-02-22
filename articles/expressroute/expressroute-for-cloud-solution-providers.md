@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
 
 
 ---
@@ -38,7 +38,7 @@ Společnost Microsoft nabízí poskytovatelům CSP rozhraní API pro správu př
 ## <a name="microsoft-azure-resource-management"></a>Správa prostředků Microsoft Azure
 Způsob správy předplatného závisí na vaší smlouvě se zákazníkem. Poskytovatel CSP může přímo spravovat vytváření a správu prostředků, případně si může zákazník ponechat kontrolu nad předplatným Microsoft Azure a vytvářet prostředky Azure podle potřeby. Pokud zákazník spravuje vytváření prostředků v rámci svého předplatného Microsoft Azure, bude používat jeden ze dvou modelů: „Connect-Through“ (nepřímé připojení) nebo „Direct-To“ (přímé připojení). Tyto modely jsou podrobně popsány v následujících oddílech.  
 
-### <a name="connectthrough-model"></a>Model s nepřímým připojením
+### <a name="connect-through-model"></a>Model s nepřímým připojením
 ![alternativní text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 V případě modelu s nepřímým připojením poskytovatel CSP vytvoří přímé připojení mezi vaším datovým centrem a předplatným Azure zákazníka. Přímé připojení se vytvoří pomocí ExpressRoute, které propojuje vaši síť s Azure. Pak se zákazník připojí k vaší síti. Tento scénář vyžaduje, aby zákazník při přístupu ke službám Azure procházel sítí poskytovatele CSP. 
@@ -49,7 +49,7 @@ V případě poskytovatele CSP, který spravuje služby Azure, se předpokládá
 
 ![alternativní text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connectto-model"></a>Model s přímým připojením
+### <a name="connect-to-model"></a>Model s přímým připojením
 ![alternativní text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 V případě modelu s přímým připojením vytvoří poskytovatel služby přímé připojení mezi datovým centrem zákazníka předplatným Azure, které je zřizováno poskytovatelem CSP, s použitím ExpressRoute prostřednictvím sítě zákazníka.
@@ -82,10 +82,10 @@ ExpressRoute podporuje připojení více virtuálních sítí k jednomu okruhu E
 ## <a name="configuring-expressroute"></a>Konfigurace ExpressRoute
 ExpressRoute je možné konfigurovat tak, aby byly podporovány tři typy provozu ([domény směrování](#ExpressRoute-routing-domains)) na jednom okruhu ExpressRoute. Tento provoz je rozdělen na partnerský vztah Microsoftu, veřejný partnerský vztah Azure a privátní partnerský vztah. Můžete zvolit odesílání provozu jednoho nebo všech typů prostřednictvím jednoho okruhu ExpressRoute nebo můžete použít více okruhů ExpressRoute v závislosti na velikosti okruhu ExpressRoute a na izolaci požadované zákazníkem. Stav zabezpečení zákazníka, nemusí umožňovat využívání stejného okruhu pro veřejný i privátní provoz.
 
-### <a name="connectthrough-model"></a>Model s nepřímým připojením
+### <a name="connect-through-model"></a>Model s nepřímým připojením
 V případě konfigurace s nepřímým připojením budete odpovídat za podchycení veškerých aspektů sítí při připojování prostředků datových center zákazníků k předplatným hostovaným v Azure. Každý z vašich zákazníků, který chce využívat možnosti Azure, bude potřebovat vlastní připojení ExpressRoute, které budete spravovat vy. Budete používat tytéž metody, které by pro zajištění okruhu ExpressRoute používal zákazník. Postupujte podle stejných kroků uvedených v článku [Pracovní postupy ExpressRoute](expressroute-workflows.md) ohledně zřizování okruhů a stavů okruhů. Pak nakonfigurujte trasy protokolu BGP (Border Gateway Protocol) tak, aby mohl být řízen provoz mezi místní sítí a virtuální sítí Azure.
 
-### <a name="connectto-model"></a>Model s přímým připojením
+### <a name="connect-to-model"></a>Model s přímým připojením
 V případě konfigurace s přímým připojením již zákazník má vytvořeno připojení k Azure nebo vytvoří připojení k poskytovateli internetových služeb s cílem propojit ExpressRoute z vlastního datového centra zákazníka přímo s Azure, a nikoli s vaším datovým centrem. Zákazník zahájí proces zřizování podle kroků uvedených výše pro model s nepřímým připojením. Po vytvoření okruhu bude zákazník muset nakonfigurovat místní směrovače tak, aby měly přístup do vaší sítě i do virtuálních sítí Azure.
 
 Můžete být nápomocni při nastavování připojení a konfiguraci tras tak, aby prostředky ve vašich datových centrech mohly komunikovat s prostředky klienta ve vašem datovém centru nebo s prostředky hostovanými v Azure.
@@ -116,7 +116,7 @@ Výchozí směrovací tabulka obsahuje následující trasy:
 
 ![alternativní text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="userdefined-routing-udr"></a>Směrování definované uživatelem (UDR)
+### <a name="user-defined-routing-udr"></a>Směrování definované uživatelem (UDR)
 Trasy definované uživatelem umožňují řízení odchozího provozu z přiřazené podsítě do jiných podsítí ve virtuální síti nebo prostřednictvím některé z ostatních předdefinovaných bran (ExpressRoute; internet nebo VPN). Výchozí systémovou tabulku směrování je možné směrovací tabulkou definovanou uživatelem. V takovém případě se výchozí směrovací tabulka nahradí vlastními trasami. V případě směrování definovaného uživatelem mohou zákazníci vytvářet konkrétní trasy do zařízení, jako jsou brány firewall nebo zařízení pro detekci narušení, či blokovat přístup ke konkrétním podsítím z podsítě, která je hostitelem trasy definované uživatelem. Přehled tras definovaných uživatelem najdete [tady](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Zabezpečení
@@ -141,6 +141,6 @@ Další informace najdete prostřednictvím následujících odkazů:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

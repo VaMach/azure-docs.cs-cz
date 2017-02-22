@@ -25,7 +25,7 @@
 
 # Postup
 ## Přesun dat
-### [Průvodce kopírováním služby Data Factory](data-factory-copy-wizard.md)
+### [Průvodce kopírováním služby Data Factory](data-factory-azure-copy-wizard.md)
 #### [Načtení 1 TB za 15 minut](data-factory-load-sql-data-warehouse.md)
 ### [Aktivita kopírování](data-factory-data-movement-activities.md)
 #### [Výkon a průvodce laděním](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Referenční informace pro vývojáře řešení založených na Azure Data Factory](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Zdroje a prostředky

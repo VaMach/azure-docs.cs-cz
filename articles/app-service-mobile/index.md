@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Mobile Apps – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat Mobile Apps ve službě Azure App Service k sestavování a hostování nativních aplikací pro iOS, Android nebo Windows nebo aplikací pro více platforem pomocí Xamarinu nebo Cordovy."
+services: app-service\mobile
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5735759300fddfb650220cebc49bd5968621a8d4
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentace k Mobile Apps
@@ -185,8 +196,13 @@ Naučte se využívat Mobile Apps ve službě Azure App Service k sestavování 
                 <div class="card">
                     <div class="cardText">
                         <h3>Jazyky</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">Back-endová sada SDK pro .NET</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Back-endová sada SDK pro Node.js</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Klientská sada SDK pro Android</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">Klientská sada SDK pro iOS</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">Klientská sada SDK pro JavaScript/Cordovu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Klientská sada SDK pro Windows/Xamarin</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,6 +211,6 @@ Naučte se využívat Mobile Apps ve službě Azure App Service k sestavování 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -7,28 +7,30 @@
 ## [Podívejte se na základní přehled](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Začínáme
-## [Příprava nasazení](site-recovery-best-practices.md)
+## [Replikace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
+## [Replikace virtuálních počítačů VMware do Azure ve víceklientském nasazení (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replikace virtuálních počítačů Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
+## [Replikace virtuálních počítačů Hyper-V do Azure](site-recovery-hyper-v-site-to-azure.md)
+## [Replikace fyzických serverů a virtuálních počítačů VMware do sekundární lokality](site-recovery-vmware-to-vmware.md)
+## [Replikace virtuálních počítačů Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm.md)
 
 # Postup
 ## Plánování
-### [Plánování kapacity](site-recovery-capacity-planner.md)
-### [Výsledky testů výkonu a škálování](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Požadavky nasazení](site-recovery-prereq.md)
 ### [Důležité informace o síťové infrastruktuře](site-recovery-network-design.md)
-### [Mapování sítě](site-recovery-network-mapping.md)
-### [Mapování úložiště mezi místními lokalitami](site-recovery-storage-mapping.md)
-## Replikace
-### [Virtuální počítače VMware a fyzické servery do Azure](site-recovery-vmware-to-azure.md)
-### [Virtuální počítače VMware a fyzické servery do sekundární lokality](site-recovery-vmware-to-vmware.md)
-### [Virtuální počítače VMware s podporou více tenantů do pomocí programu CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
-### [Virtuální počítače Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
-### [Virtuální počítače Hyper-V do Azure (bez VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Virtuální počítače Hyper-V na sekundární lokalitu](site-recovery-vmm-to-vmm.md)
-### [Virtuální počítače Hyper-V na sekundární lokalitu se sítí SAN](site-recovery-vmm-san.md)
-### [Virtuální počítače Hyper-V s jedním serverem VMM](site-recovery-single-vmm.md)
+### [Použití nástroje Capacity Planner služby Site Recovery](site-recovery-capacity-planner.md)
+### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
+## Konfigurace
+### [Nastavení prostředí replikace zdroje](site-recovery-set-up-vmware-to-azure.md)
+### [Konfigurace nastavení replikace](site-recovery-setup-replication-settings-vmware.md)
+### [Nasazení služby Mobility pro replikaci VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [Nasazení služby Mobility pomocí nástroje System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+#### [Nasazení služby Mobility pomocí Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
 ## Migrace
 ### [Migrace do Azure](site-recovery-migrate-to-azure.md)
 ### [Migrace mezi oblastmi Azure](site-recovery-migrate-azure-to-azure.md)
-### [Instance Windows AWS do Azure](site-recovery-migrate-aws-to-azure.md)
+### [Migrace instancí Windows AWS do Azure](site-recovery-migrate-aws-to-azure.md)
 ## Úlohy
 ### [Active Directory a DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -39,14 +41,15 @@
 ### [SAP](site-recovery-workload.md#protect-sap)
 ### [Další úlohy](site-recovery-workload.md#workload-summary)
 ## Automatizace replikace
-### [Virtuální počítače Hyper-V (s VMM)](site-recovery-deploy-with-powershell.md)
-### [Virtuální počítače Hyper-V (bez VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Přidání automatizace do plánů obnovení](site-recovery-runbook-automation.md)
-### [Automatizace nasazení služby Mobility](site-recovery-automate-mobility-service-install.md)
-## Spravovat
-### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
+### [Automatizace replikace Hyper-V do Azure (bez VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Automatizace replikace Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [Automatizace replikace Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+## Převzetí služeb při selhání a navrácení služeb po obnovení
+### [Převzetí služeb při selhání ve službě Site Recovery](site-recovery-failover.md)
 ### [Nastavení plánů obnovení](site-recovery-create-recovery-plans.md)
-### [Převzetí služeb při selhání v Site Recovery](site-recovery-failover.md)
+#### [Přidání runbooků Azure do plánů obnovení](site-recovery-runbook-automation.md)
+### [Spuštění testovacího převzetí služeb při selhání z VMware do Azure](site-recovery-test-failover-to-azure.md)
+### [Spuštění testovacího převzetí služeb při selhání mezi dvěma umístěními VMM](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Navrácení fyzických serverů a virtuálních počítačů VMware po obnovení](site-recovery-failback-azure-to-vmware.md)
 ## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
 

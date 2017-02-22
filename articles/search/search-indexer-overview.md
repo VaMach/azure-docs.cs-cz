@@ -77,6 +77,6 @@ Teď jste získali základní představu. V dalším kroku se zaměříme na po�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

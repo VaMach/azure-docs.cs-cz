@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
+ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
 
 
 ---
@@ -132,7 +132,6 @@ Pokud chcete dalším uživatelům umožnit úplnou kontrolu databáze, přidejt
 
 > [!NOTE]
 > Běžným důvodem pro vytváření uživatelů databáze s ověřováním na základě přihlášení je, že máte uživatele s ověřováním SQL Serveru, kteří potřebují přístup k několika databázím. Uživatelé s ověřováním na základě přihlášení jsou vázáni s určitým přihlášením a pouze s jedním heslem, které se pro toto přihlášení udržuje. Uživatelé databází s omezením jsou v jednotlivých databázích jednotlivými entitami a pro každého se v každé databázi udržuje vlastní heslo. To může být pro uživatele databází s omezením matoucí, pokud neudržují stejná hesla.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurace brány firewall na úrovni databáze
 Uživatelé bez oprávnění správce by v rámci osvědčených postupů měli mít do databází, které používají, přístup pouze přes bránu firewall. Místo toho, abyste autorizovali jejich IP adresy pomocí brány firewall na úrovni serveru a umožnili jim tak přístup do všech databází, nakonfigurujte bránu firewall na úrovni databáze pomocí příkazu [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx). Bránu firewall na úrovni databáze nemůžete nakonfigurovat pomocí portálu.
@@ -158,7 +157,8 @@ Ve službě SQL Database je dostupných více než 100 oprávnění, která mů�
 ### <a name="considerations-and-restrictions"></a>Důležité informace a omezení
 Při správě přihlášení a uživatelů ve službě SQL Database mějte na paměti následující:
 
-* Když chcete provádět příkazy **, musíte být připojeni k **hlavní`CREATE/ALTER/DROP DATABASE` databázi. Databázový uživatel v hlavní databázi, který odpovídá přihlášení **správce serveru**, nejde změnit ani odpojit. 
+* Když chcete provádět příkazy **, musíte být připojeni k **hlavní`CREATE/ALTER/DROP DATABASE` databázi.   
+* Databázového uživatele, který odpovídá **správci serveru**, není možné změnit ani vyřadit. 
 * Výchozím jazykem přihlášení **správce serveru** je americká angličtina.
 * Příkazy `CREATE DATABASE` a `DROP DATABASE` mohou provádět jen správci (přihlášení **správce serveru** nebo správce Azure AD) a členové databázové role **dbmanager** v **hlavní** databázi.
 * Při provádění příkazů `CREATE/ALTER/DROP LOGIN` musíte být připojení k hlavní databázi. Nedoporučuje se používat přihlášení. Použijte raději databázové uživatele s omezením.
@@ -185,13 +185,14 @@ Při správě přihlášení a uživatelů ve službě SQL Database mějte na pa
 
 - Další informace o pravidlech brány firewall najdete v tématu [Brána firewall služby Azure SQL Database](sql-database-firewall-configure.md).
 - Přehled všech funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md).
-- Kurz najdete v tématu [Začínáme se zabezpečením SQL](sql-database-get-started-security.md).
+- Kurz najdete v tématu [Začínáme se zabezpečením SQL](sql-database-control-access-sql-authentication-get-started.md).
 - Informace o zobrazeních a uložených procedurách najdete v tématu [Vytváření zobrazení a uložených procedur](https://msdn.microsoft.com/library/ms365311.aspx).
 - Informace o udělování přístupu k databázovému objektu najdete v tématu [Udělování přístupu k databázovému objektu](https://msdn.microsoft.com/library/ms365327.aspx).
+- Kurz k ověřování pomocí SQL Serveru najdete v článku [Kurz k SQL Database: Ověřování pomocí SQL Serveru, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md).
+- Kurz k ověřování pomocí Azure Active Directory najdete v článku [Kurz k SQL Database: Ověřování AAD, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

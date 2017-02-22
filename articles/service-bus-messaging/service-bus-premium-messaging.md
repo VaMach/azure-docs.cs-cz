@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
-ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
+ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
+ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Úrovně zasílání zpráv Service Bus Premium a Standard
-Zasílání zpráv Service Bus, které zahrnuje entity zasílání zpráv, jako jsou fronty a témata, v sobě kombinuje funkce pro zasílání zpráv v rámci podniku s bohatou sémantikou publikování a odběru na úrovni cloudu. Zasílání zpráv Service Bus se používá jako páteřní prvek mnoha sofistikovaných cloudových řešení.
+Zasílání zpráv Service Bus, které zahrnuje entity jako jsou fronty a témata, v sobě kombinuje funkce pro zasílání zpráv v rámci podniku s bohatou sémantikou publikování a odběru na úrovni cloudu. Zasílání zpráv Service Bus se používá jako páteřní prvek mnoha sofistikovaných cloudových řešení.
 
 Úroveň *Premium* zasílání zpráv Service Bus řeší běžné požadavky zákazníků z pohledu rozsahu, výkonu a dostupnosti pro klíčové aplikace. Přestože mají tyto dvě úrovně skoro stejné sady funkcí, jsou určené pro použití v odlišných situacích.
 
@@ -50,11 +50,11 @@ Protože zasílání zpráv na úrovni Premium běží v kompletně izolovaném 
 
 ## <a name="get-started-with-premium-messaging"></a>Začínáme se zasíláním zpráv na úrovni Premium
 
-Využití zasílání zpráv na úrovni Premium je jednoduché a je podobné standardnímu zasílání zpráv. Nejdřív [vytvořte obor názvů](service-bus-create-namespace-portal.md). Zkontrolujte, že jste v části Cenová úroveň vybrali *Premium*.
+Využití zasílání zpráv na úrovni Premium je jednoduché a je podobné standardnímu zasílání zpráv. Nejdřív [vytvořte obor názvů](service-bus-create-namespace-portal.md). Zkontrolujte, že jste v části **Cenová úroveň** vybrali **Premium**.
 
 ![create-premium-namespace][create-premium-namespace]
 
-Teď můžete vytvořit [obor názvů Premium pomocí šablon Azure Resource Manageru](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Můžete také vytvářet [obory názvů Premium pomocí šablon Azure Resource Manageru](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -71,6 +71,6 @@ Pokud se o zasílání zpráv Service Bus chcete dozvědět víc, pročtěte si 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

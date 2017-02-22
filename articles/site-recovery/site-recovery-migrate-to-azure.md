@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 20aecf6df4af0b89fb6cafbd2047facdb345bae5
-ms.openlocfilehash: 8f658cb80a43e0eb21585ea851251b1339ab546b
+ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
+ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 
 ---
@@ -47,7 +47,7 @@ Můžete:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migrace místních virtuálních počítačů a fyzických serverů
 
-Při migraci místních virtuálních počítačů Hyper-V, virtuálních počítačů VMware a fyzických serverů postupujete téměř stejně jako při běžné replikaci. Nastavíte trezor služby Recovery Services, nakonfigurujete požadované servery pro správu (podle toho, co chcete migrovat), přidáte je do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání, abyste ověřili, že všechno funguje, jak by mělo.
+Při migraci místních virtuálních počítačů Hyper-V, VMware a fyzických serverů postupujete téměř stejně jako při běžné replikaci. Nastavíte trezor služby Recovery Services, nakonfigurujete požadované servery pro správu (podle toho, co chcete migrovat), přidáte je do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání, abyste ověřili, že všechno funguje, jak by mělo.
 
 Po ověření, že prostředí replikace funguje, použijete plánované nebo neplánované převzetí služeb při selhání v závislosti na tom, [kterou možnost váš scénář podporuje](site-recovery-failover.md#failover-and-failback). U migrace není nutné provádět převzetí služeb při selhání ani cokoli odstraňovat. Místo toho vyberete možnost **Dokončit migraci** pro každý počítač, který chcete migrovat. Akce **Dokončit migraci** dokončí proces migrace, odebere z počítače replikaci a zastaví fakturaci za Site Recovery pro daný počítač.
 
@@ -73,6 +73,6 @@ Můžete migrovat instance AWS do virtuálních počítačů Azure. V tomto scé
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

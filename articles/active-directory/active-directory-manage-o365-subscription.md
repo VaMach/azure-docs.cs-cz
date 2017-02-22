@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: f0d882509abde7f5dd3d380087e38557ed0163a6
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -25,7 +25,7 @@ Tento článek popisuje, jak spravovat adresář, který byl vytvořen pro před
 
 Po dokončení registrace předplatného služby Azure se budete moct přihlásit k portálu Azure Classic a používat služby Azure. Pro správu stejného adresáře, který ověřuje uživatele služeb Office 365, klikněte na rozšíření Active Directory.
 
-Pokud již máte předplatné služby Azure, proces správy dalšího adresáře je také snadný. Michael Smith má například předplatné služeb Office 365 pro doménu Contoso.com. Má také předplatné služby Azure, které si zaregistroval pomocí účtu Microsoft, msmith@hotmail.com.. V tomto případě spravuje dva adresáře.
+Pokud již máte předplatné služby Azure, proces správy dalšího adresáře je také snadný. Michael Smith má například předplatné služeb Office 365 pro doménu Contoso.com. Má také předplatné služby Azure, které si zaregistroval pomocí účtu Microsoft, msmith@hotmail.com. V tomto případě spravuje dva adresáře.
 
 | Předplatné | Office 365 | Azure |
 | --- | --- | --- |
@@ -46,20 +46,20 @@ Aby mohl Michael Smith spravovat oba adresáře, když je přihlášený do slu�
 >
 >
 
-1. Přihlásit se k [portálu Azure Classic](https://manage.windowsazure.com) pomocí účtu msmith@hotmail.com..
-2. Kliknout na tlačítko **Nový** > **App Services** > **Active Directory** > **Adresář** > **Vytvořit vlastní**.
+1. Přihlásit se k [portálu Azure Classic](https://manage.windowsazure.com) pomocí účtu msmith@hotmail.com.
+2. Klikněte na tlačítko **Nový** > **App Services** > **Active Directory** > **Adresář** > **Vytvořit vlastní**.
 3. Kliknout na možnost Použít existující adresář a zaškrtnout možnost **Nyní mě můžete odhlásit**.
-4. Přihlásit se k portálu Azure Classic jako globální správce Contoso.onmicrosoft.com (například msmith@contoso.com).
+4. Přihlásit se k portálu Azure Classic jako globální správce Contoso.onmicrosoft.com (třeba msmith@contoso.com)).
 5. Po zobrazení výzvy **Používat adresář Contoso se službou Azure?** kliknout na **Pokračovat**.
-6. Kliknout na tlačítko **Odhlásit**.
-7. Přihlásit se k portálu Azure Classic jako msmith@hotmail.com.. V rozšíření služby Active Directory se zobrazí adresář společnosti Contoso a výchozí adresář.
+6. Klikněte na tlačítko **Odhlásit**.
+7. Přihlásit se k portálu Azure Classic pomocí účtu msmith@hotmail.com. Adresář společnosti Contoso a výchozí adresář se zobrazí v rozšíření služby Active Directory.
 
 Po dokončení těchto kroků se účet msmith@hotmail.com stane globálním správcem v adresáři společnosti Contoso.
 
 ## <a name="to-administer-resources-as-the-global-admin"></a>Postup správy prostředků jako globální správce
-Nyní předpokládejme, že Jana Valentová potřebuje spravovat prostředky webových stránek a databází, které jsou spojené s předplatným služby Azure pro účet msmith@hotmail.com.. Aby jí to umožnil, musí Michael Smith provést ještě tyto kroky:
+Nyní předpokládejme, že Jana Valentová potřebuje spravovat prostředky webových stránek a databází, které jsou spojené s předplatným služby Azure pro účet msmith@hotmail.com. Než to bude moct provést, musí Michael Smith dokončit tyto další kroky:
 
-1. Přihlásit se k [portálu Azure Classic](https://manage.windowsazure.com) pomocí účtu správce služeb pro předplatné Azure (v tomto příkladu msmith@hotmail.com).).
+1. Přihlásit se k [portálu Azure Classic](https://manage.windowsazure.com) pomocí účtu správce služeb pro předplatné Azure (v tomto příkladu msmith@hotmail.com)).
 2. Převést předplatné do adresáře Contoso: kliknout na **Nastavení** > **Předplatné** > vybrat předplatné > **Upravit adresář** > a vybrat **Contoso (Contoso.com)**. V rámci převodu se odeberou veškeré pracovní nebo školní účty, které jsou spolusprávci předplatného.
 3. Přidat Janu Valentovou jako spolusprávce předplatného: kliknout na **Nastavení** > **Správci** > vybrat předplatné > **Přidat** > a zadat **JohnDoe@Contoso.com**.
 
@@ -68,6 +68,6 @@ Další informace o vztahu mezi předplatnými a adresáři najdete v článku, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

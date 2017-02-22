@@ -58,6 +58,6 @@ Ochrana dat je důležitá pro splnění požadavků na zabezpečení organizace
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

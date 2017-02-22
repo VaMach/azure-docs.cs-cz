@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
 
 
 ---
@@ -32,19 +32,19 @@ ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
 
 V tomto kurzu si ukážeme, jak se pomocí Power BI připojit k SQL Data Warehouse a vytvořit pár základních vizualizací.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Požadavky
 Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 
-* SQL Data Warehouse s předem načtenou databází AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Vytvoření SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][Ruční načtení ukázkových dat].
+* SQL Data Warehouse s předem načtenou databází AdventureWorksDW. Ke zřízení této konfigurace použijte článek [Vytvoření SQL Data Warehouse][Create a SQL Data Warehouse] a zvolte načtení ukázkových dat. Pokud už Data Warehouse máte, ale nemáte ukázková data, můžete [ukázková data načíst ručně][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Připojení k databázi
 Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksDW, postupujte takto:
 
-1. Přihlaste se na [portál Azure Portal][portál Azure Portal].
+1. Přihlaste se k webu [Azure Portal][Azure portal].
 2. Klikněte na **Databáze SQL** a zvolte databázi AdventureWorks služby SQL Data Warehouse.
    
     ![Vyhledání databáze][1]
@@ -89,7 +89,7 @@ Teď můžete pomocí Power BI analyzovat ukázková data databáze AdventureWor
 Kdykoli můžete rozdělanou práci uložit tak, že kliknete na **Soubor** a vyberete **Uložit**.
 
 ## <a name="next-steps"></a>Další kroky
-Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na [vývoj][vývoj], [načítání][načítání] nebo [migraci][migrace]. Nebo se podívejte na [web Power BI][web Power BI].
+Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na [vývoj][develop], [načítání][load] nebo [migraci][migrate]. Nebo se podívejte na [web Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,19 +106,19 @@ Vyzkoušeli jste si tedy práci s ukázkovými daty a teď se podívejte, jak na
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrace]: sql-data-warehouse-overview-migrate.md
-[vývoj]: sql-data-warehouse-overview-develop.md
-[načítání]: sql-data-warehouse-overview-load.md
-[Ruční načtení ukázkových dat]: sql-data-warehouse-load-sample-databases.md
-[připojení k SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Vytvoření SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[portál Azure Portal]: https://portal.azure.com/
-[web Power BI]: http://www.powerbi.com/
+[Azure portal]: https://portal.azure.com/
+[Power BI website]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

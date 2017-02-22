@@ -38,7 +38,7 @@
     ![Umístění serveru](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > V tomto okně nejde měnit zaškrtnutí políčka **Povolit službám Azure přístup k serveru**. Toto nastavení můžete změnit v okně brány firewall serveru. Další informace najdete v článku [Začínáme se zabezpečením](../articles/sql-database/sql-database-get-started-security.md).
+    > V tomto okně nejde měnit zaškrtnutí políčka **Povolit službám Azure přístup k serveru**. Toto nastavení můžete změnit v okně brány firewall serveru. Další informace najdete v článku [Začínáme se zabezpečením](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. Klikněte na možnost **Vytvořit**.
@@ -47,6 +47,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

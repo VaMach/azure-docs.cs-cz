@@ -6,12 +6,6 @@
 ### [Omezení prostředků](sql-database-resource-limits.md)
 ### [Funkce](sql-database-features.md)
 ### [SQL Database – nejčastější dotazy](sql-database-faq.md)
-## Výhody
-### [Učení a adaptace](sql-database-learn-and-adapt.md)
-### [Průběžné škálování](sql-database-scale-on-the-fly.md)
-### [Vytváření víceklientských aplikací](sql-database-build-multi-tenant-apps.md)
-### [Zabezpečení a ochrana](sql-database-helps-secures-and-protects.md)
-### [Fungování ve vašem prostředí](sql-database-works-in-your-environment.md)
 ## Porovnání
 ### [Srovnání SQL Database a SQL na virtuálním počítači](sql-database-paas-vs-sql-server-iaas.md)
 ### [Rozdíly v jazyce T-SQL](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [Kurzy pro SQL Database](sql-database-explore-tutorials.md)
 ## [Rychlé zprovoznění řešení](sql-database-solution-quick-starts.md)
 ## Zabezpečení
+### [Přehled zabezpečení](sql-database-security-overview.md)
 ### [Azure Security Center pro službu Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
 # Začínáme
@@ -69,12 +64,12 @@
 #### [Kopírování databáze SQL](sql-database-copy.md)
 ## Pravidla brány firewall, ověřování a autorizace
 ### Informace
-#### [Přehled](sql-database-security.md)
-#### [Pokyny pro zabezpečení](sql-database-security-guidelines.md)
+#### [Řízení přístupu](sql-database-control-access.md)
 #### [Brána firewall](sql-database-firewall-configure.md)
 #### [Správa přihlašování](sql-database-manage-logins.md)
 ### Správný postup
-#### [Ověřování a autorizace SQL](sql-database-get-started-security.md)
+#### [Ověřování a autorizace SQL](sql-database-control-access-sql-authentication-get-started.md)
+#### [Autorizace a ověřování Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Zabezpečení a ochrana dat
 ### Informace
 #### Auditování
@@ -106,7 +101,8 @@
 #### [Postup zotavení po havárii](sql-database-disaster-recovery-drills.md)
 #### [Přehled aktivní geografické replikace](sql-database-geo-replication-overview.md)
 ### Správný postup
-#### [Začínáme se zálohováním a obnovováním SQL Database](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: Zálohování a obnovení](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: Zálohování a obnovení](sql-database-get-started-backup-recovery-powershell.md)
 ## Vývoj aplikací
 ### Informace
 #### [Přehled vývoje databázových aplikací](sql-database-develop-overview.md)
@@ -150,7 +146,7 @@
 #### [Izolované databáze](sql-database-single-database-monitor.md)
 #### [Přehled služby SQL Database Advisor](sql-database-advisor.md)
 #### [Pokyny pro izolovanou databázi](sql-database-performance-guidance.md)
-#### [Přehledy úloh na webu Azure Portal](sql-database-performance.md)
+#### [Informace o výkonu: Azure Portal](sql-database-performance.md)
 #### [Použití dávkování](sql-database-use-batching-to-improve-performance.md)
 #### [Rozšířené události](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,15 +249,14 @@
 #### [Konfigurace dlouhodobého uchovávání záloh](sql-database-configure-long-term-retention.md)
 #### [Zobrazení záloh v trezoru služby Recovery Services](sql-database-view-backups-in-vault.md)
 #### [Obnovení z dlouhodobě uchovávaných záloh](sql-database-restore-from-long-term-retention.md)
+#### [Odstranění z dlouhodobě uchovávaných záloh](sql-database-long-term-retention-delete.md)
 ### Obnovení odstraněné databáze
 #### [Obnovení odstraněných položek prostřednictvím portálu Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [Obnovení odstraněných položek prostřednictvím prostředí PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Obnovení k určitému bodu v čase
 #### [Obnovení k určitému bodu v čase](sql-database-point-in-time-restore.md)
 #### [Zobrazení nejstaršího bodu obnovení](sql-database-view-oldest-restore-point.md)
-### Geografické obnovení
-#### [Geografické obnovení prostřednictvím portálu Azure Portal](sql-database-geo-restore-portal.md)
-#### [Geografické obnovení prostřednictvím prostředí PowerShell](sql-database-geo-restore-powershell.md)
+### [Obnovení z geograficky redundantní zálohy](sql-database-geo-restore.md)
 ## Aktivní geografická replikace
 ### [Konfigurace prostřednictvím portálu Azure Portal](sql-database-geo-replication-portal.md)
 ### [Konfigurace prostřednictvím prostředí PowerShell](sql-database-geo-replication-powershell.md)
@@ -309,6 +304,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

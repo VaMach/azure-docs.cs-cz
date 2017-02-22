@@ -1,5 +1,5 @@
 ---
-title: "Kurz Apache Storm: Začínáme s linuxovým Stormem v HDInsight | Dokumentace Microsoftu"
+title: "Začínáme s Apache Storm v prostředí Azure HDInsight | Dokumentace Microsoftu"
 description: "Začněte s analýzami velkých objemů dat pomocí Apache Storm a ukázek Storm Starter na HDInsight se systémem Linux. Naučte se používat Storm pro zpracování dat v reálném čase."
 keywords: "apache storm,kurz apache storm,analýza velkého objemu dat,storm starter"
 services: hdinsight
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm je škálovatelný výpočetní systém v reálném čase odolný proti chybám, distribuovaný určený pro zpracování datových proudů. Pomocí Storm v Azure HDInsight můžete vytvořit cloudový cluster Storm, který bude provádět analýzy velkých objemů dat v reálném čase.
 
-> [!NOTE]
-> Kroky v tomto článku vytváří cluster HDInsight se systémem Linux. Postup vytvoření Storm se systémem Windows v clusteru HDInsight, naleznete v části [Kurz Apache Storm: Začínáme s ukázkami používání analýzy dat Storm Starter v HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v článku [Vyřazení služby HDInsight pro Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -80,7 +80,7 @@ V této části vytvoříte cluster HDInsight verze 3.5 (Storm verze 1.0.1) pomo
      > * [Použití SSH se systémem Linux Hadoop ve službě HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Použití SSH (PuTTY) se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__ a klikněte na **OK**, pak vyberte __Připnout na řídicí panel__.
+3. Vyberte __Souhlasím s výše uvedenými podmínkami a ujednáními__ a klikněte na **OK**, potom vyberte __Připnout na řídicí panel__.
 
 6. Klikněte na **Koupit**. Zobrazí se nová dlaždice s názvem Odeslání nasazení pro šablonu nasazení. Vytvoření clusteru trvá přibližně 20 minut.
 
@@ -216,6 +216,6 @@ Příklady topologií, které se dají použít se systémem Storm ve službě H
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

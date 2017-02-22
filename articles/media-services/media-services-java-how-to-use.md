@@ -1,6 +1,6 @@
 ---
 title: "Začínáme s doručováním obsahu na vyžádání pomocí Javy | Dokumentace Microsoftu"
-description: "Popisuje, jak pomocí Azure Media Services provádět běžné úlohy, jako kódování, šifrování a streamování prostředků."
+description: "Tento kurz vás provede jednotlivými kroky implementace základní aplikace pro doručování videa na vyžádání (Video-on-Demand) pomocí služby Azure Media Services (AMS) v jazyce Java."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Začínáme s doručováním obsahu na vyžádání pomocí Javy
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Vytvoření účtu Azure pro Media Services
+Tento kurz vás provede jednotlivými kroky implementace základní aplikace pro doručování videa na vyžádání (Video-on-Demand) pomocí služby Azure Media Services (AMS) v jazyce Java.
 
-Účet Media Services vytvoříte na webu Azure Portal. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md). Po vytvoření účtu na webu Azure Portal budete připravení nastavit počítač pro vývoj pro Media Services.
- 
-Tato část popisuje požadavky na přípravu pro vývoj pro platformu Media Services pomocí sady Media Services SDK for Java.
+## <a name="prerequisites"></a>Požadavky
 
-### <a name="prerequisites"></a>Požadavky
-* Účet Media Services v novém nebo existujícím předplatném Azure. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
+K dokončení kurzu potřebujete následující:
+
+* Účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Účet Media Services. Pokud chcete vytvořit účet Media Services, přečtěte si článek [Jak vytvořit účet Media Services](media-services-portal-create-account.md).
 * Knihovny Azure Libraries for Java, které si můžete nainstalovat z [Azure střediska pro vývojáře Java][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Návod: Použití Media Services s Javou

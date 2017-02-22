@@ -1,5 +1,5 @@
 ---
-title: "Přidání funkce do první webové aplikace"
+title: "Přidání funkce do vaší první webové aplikace | Dokumentace Microsoftu"
 description: "Přidejte zajímavé funkce do své první webové aplikace během několika minut."
 services: app-service\web
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
@@ -157,6 +157,6 @@ Zjistěte, jak z nasazené aplikace vytěžit co nejvíce. Následující výče
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

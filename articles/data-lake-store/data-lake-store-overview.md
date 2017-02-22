@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Data uložená v Data Lake Store se dají snadno analyzovat pomocí analytickýc
 ### <a name="unlimited-storage-petabyte-files"></a>Neomezené úložiště, petabajtové soubory
 Služba Azure Data Lake Store poskytuje neomezené úložiště a je vhodná pro ukládání nejrůznějších dat k analýze. Neuplatňuje žádná omezení, pokud jde o velikosti účtů, velikosti souborů nebo množství dat, které se dá uložit do úložiště Data Lake. Velikost jednotlivých souborů se může pohybovat od kilobajtů až po petabajty, a díky tomu je služba skvělou volbou pro ukládání libovolného typu dat. Data se ukládají spolehlivě, protože se vytváří víc kopií a není omezená doba, po kterou můžou být data uložená v úložišti Data Lake.
 
-### <a name="performancetuned-for-big-data-analytics"></a>Optimalizace výkonu pro analýzu velkých objemů dat
+### <a name="performance-tuned-for-big-data-analytics"></a>Optimalizace výkonu pro analýzu velkých objemů dat
 Služba Azure Data Lake Store je sestavena pro spouštění rozsáhlých analytických systémů, které při dotazování a analýze velkých objemů dat vyžadují obrovskou propustnost. Úložiště Data Lake rozděluje části souborů do několika jednotlivých serverů úložiště. Tím se zvyšuje propustnost čtení při paralelním čtení souboru pro provádění analýz dat.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>Připraveno pro podniky: Vysoká dostupnost a zabezpečení
+### <a name="enterprise-ready-highly-available-and-secure"></a>Připraveno pro podniky: Vysoká dostupnost a zabezpečení
 Azure Data Lake Store poskytuje dostupnost a spolehlivost odpovídající standardům odvětví. Vaše datové prostředky se ukládají odolným způsobem díky vytváření redundantních kopií, které chrání před neočekávaným selháním. Podniky můžou v rámci svých řešení využít Azure Data Lake jako důležitou součást svojí stávající datové platformy.
 
 Data Lake Store taky zajišťuje zabezpečení uložených dat na podnikové úrovni. Další informace najdete v tématu [Zabezpečení dat v Azure Data Lake Store](#DataLakeStoreSecurity).
@@ -105,6 +105,6 @@ Pokud se raději učíte při sledování videa, služba Data Lake Store nabíz�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

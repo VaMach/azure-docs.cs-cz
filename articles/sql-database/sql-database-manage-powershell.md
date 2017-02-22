@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
-ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
+ms.sourcegitcommit: 3db60639507f14b24de00a46b1e2f4effa255f56
+ms.openlocfilehash: c264682b7bee875cdfbbcc0abbc6ec49f2ba8a26
 
 
 ---
@@ -48,7 +48,7 @@ Další informace najdete v tématu [Použití Azure PowerShellu s Azure Resourc
 Úplný kurz najdete na stránce [Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database pomocí Azure PowerShellu](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>Jak můžu vytvořit server služby SQL Database?
-Server služby SQL Database můžete vytvořit pomocí rutiny [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Hodnotu *server1* nahraďte názvem vašeho serveru. Názvy serverů musí být u všech serverů v rámci služby Azure SQL Database jedinečné. Pokud se již název používá, obdržíte chybu. Provedení tohoto příkazu může trvat i několik minut. Skupina prostředků už musí existovat ve vašem předplatném.
+Server služby SQL Database můžete vytvořit pomocí rutiny [New-AzureRmSqlServer](/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Hodnotu *server1* nahraďte názvem vašeho serveru. Názvy serverů musí být u všech serverů v rámci služby Azure SQL Database jedinečné. Pokud se již název používá, obdržíte chybu. Provedení tohoto příkazu může trvat i několik minut. Skupina prostředků už musí existovat ve vašem předplatném.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -58,8 +58,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -123,7 +123,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Další informace najdete v tématu [Možnosti a výkon služby SQL Database: co je dostupné v jednotlivých úrovních služby](sql-database-service-tiers.md). Vzorový skript najdete v tématu [Vzorový skript PowerShellu pro změnu úrovně služby a úrovně výkonu databáze služby SQL Database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+Další informace najdete v tématu [Možnosti a výkon služby SQL Database: co je dostupné v jednotlivých úrovních služby](sql-database-service-tiers.md). Vzorový skript najdete v tématu [Vzorový skript PowerShellu pro změnu úrovně služby a úrovně výkonu databáze služby SQL Database](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
 
 ## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>Jak můžu zkopírovat databázi služby SQL Database na stejný server?
 Pokud chcete zkopírovat databázi služby SQL Database na stejný server, použijte rutinu [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx). V parametrech `-CopyServerName` a `-CopyResourceGroupName` nastavte stejné hodnoty pro server a skupinu prostředků jako u vaší zdrojové databáze.
@@ -179,6 +179,6 @@ Podrobnosti o správě elastických fondů v PowerShellu najdete v tématu [Moni
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

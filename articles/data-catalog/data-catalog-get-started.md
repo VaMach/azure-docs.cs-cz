@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Teď můžete pomocí služby Azure Data Catalog zaregistrovat datové assety z 
 V tomto cvičení použijete registrační nástroj k registraci datových assetů z databáze Adventure Works do katalogu. Registrace je proces extrahování klíčových strukturálních metadat – například názvy, typy a umístění – ze zdroje dat a assetů v tomto zdroji a zkopírování těchto metadat do katalogu. Zdroj dat a datové assety zůstanou tam, kde jsou, ale jejich metadata použije katalog k tomu, aby byly tyto objekty snadněji zjistitelné a srozumitelnější.
 
 ### <a name="register-a-data-source"></a>Registrace zdroje dat
-1. Přejděte na [domovskou stránku služby Azure Data Catalog](https://azuredatacatalog.com) a klikněte na tlačítko **Publikovat data**.
+1. Přejděte na [domovskou stránku služby Azure Data Catalog](http://azuredatacatalog.com) a klikněte na tlačítko **Publikovat data**.
    
    ![Azure Data Catalog – tlačítko Publikovat data](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Klikněte na tlačítko **Spustit aplikaci** a stáhněte, nainstalujte a spusťte na svém počítači registrační nástroj.
@@ -366,6 +366,6 @@ V tomto kurzu jste prozkoumali základní možnosti služby Azure Data Catalog v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

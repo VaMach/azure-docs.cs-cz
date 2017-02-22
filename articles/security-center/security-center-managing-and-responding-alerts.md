@@ -1,10 +1,10 @@
 ---
-title: "Správa a zpracování výstrah zabezpečení v Azure Security Center | Dokumentace Microsoftu"
+title: "Správa výstrah zabezpečení ve službě Azure Security Center | Dokumentace Microsoftu"
 description: "Tento dokument vám pomůže používat funkce služby Azure Security Center ke správě výstrah zabezpečení a reagování na ně."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 
 
 ---
@@ -25,26 +25,27 @@ Tento dokument vám pomůže používat Azure Security Center ke správě výstr
 
 > [!NOTE]
 > Pokud chcete povolit rozšířené detekce, upgradujte na Azure Security Center Standard. K dispozici je bezplatná 90denní zkušební verze. Pokud chcete provést upgrade, vyberte v [zásadách zabezpečení](security-center-policies.md) cenovou úroveň. Další informace najdete v článku o [cenách Azure Security Center](security-center-pricing.md).
-> 
-> 
+>
+>
 
 ## <a name="what-are-security-alerts"></a>Co jsou výstrahy zabezpečení?
-Security Center automaticky shromažďuje, analyzuje a integruje data protokolu z vašich prostředků Azure, sítě a připojených partnerských řešení, jako jsou brány firewall a řešení ochrany koncových bodů, aby se zjistily skutečné hrozby a snížil počet falešných poplachů. Seznam upřednostňovaných výstrah zabezpečení se zobrazí ve službě Security Center spolu s informacemi, které potřebujete k rychlému prozkoumání problému, a doporučeními týkajícími se řešení útoku. Azure Security Center také agreguje výstrahy, které vedou k ukončení řetězových vzorů do podoby [Incidentů](security-center-incident.md). 
+Security Center automaticky shromažďuje, analyzuje a integruje data protokolu z vašich prostředků Azure, sítě a připojených partnerských řešení, jako jsou brány firewall a řešení ochrany koncových bodů, aby se zjistily skutečné hrozby a snížil počet falešných poplachů. Seznam upřednostňovaných výstrah zabezpečení se zobrazí ve službě Security Center spolu s informacemi, které potřebujete k rychlému prozkoumání problému, a doporučeními týkajícími se řešení útoku.
+
 
 > [!NOTE]
 > Další informace o tom, jak detekce služby Security Center pracuje, najdete v článku [Funkce detekce ve službě Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ## <a name="managing-security-alerts"></a>Správa výstrah zabezpečení
 Aktuální výstrahy můžete zkontrolovat jejich prohlížením na dlaždici **Výstrahy zabezpečení**. Přejděte na Azure Portal a podle následujících pokynů zobrazte podrobnosti o jednotlivých výstrahách:
 
 1. Na řídicím panelu Security Center uvidíte dlaždici **Výstrahy zabezpečení**.
-   
+
     ![Dlaždice Výstrahy zabezpečení ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
 2. Kliknutím na dlaždici **Výstrahy zabezpečení** otevřete okno, které obsahuje podrobnosti o výstrahách, jak je uvedeno dále.
-   
+
    ![Okno Výstrahy zabezpečení ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 V dolní části tohoto okna jsou uvedené podrobnosti pro každou výstrahu. Chcete-li je seřadit, klikněte na sloupec, podle kterého chcete řadit. Definice pro každý sloupec je uvedená dále:
@@ -61,7 +62,7 @@ V dolní části tohoto okna jsou uvedené podrobnosti pro každou výstrahu. Ch
 Výstrahy můžete filtrovat podle data, stavu nebo závažnosti. Filtrování výstrah může být užitečné v případech, kdy potřebujete zúžit obor zobrazených výstrah zabezpečení. Například můžete chtít zabývat se výstrahami zabezpečení, k nimž došlo v posledních 24 hodinách, protože zjišťujete případný průnik do systému.
 
 1. Klikněte v okně **Výstrahy zabezpečení** na **Filtr**. Otevře se okno **Filtr** a vy vyberte hodnoty pro datum, stav a závažnost výstrah, které chcete vidět.
-   
+
     ![Filtrování výstrah ve službě Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Reakce na výstrahy zabezpečení
@@ -79,8 +80,8 @@ Náprava navrhovaná službou Security Center se bude lišit podle výstrahy zab
 
 > [!NOTE]
 > Další informace o různých typech výstrah najdete v tématu [Výstrahy zabezpečení podle typu v Azure Security Center](security-center-alerts-type.md).
-> 
-> 
+>
+>
 
 ## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Security Center konfigurovat zásady zabezpečení. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
@@ -93,7 +94,6 @@ V tomto dokumentu jste zjistili, jak ve službě Security Center konfigurovat z�
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

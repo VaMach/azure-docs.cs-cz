@@ -6,18 +6,17 @@ documentationcenter:
 author: MarkusVi
 writer: markvi
 manager: femila
-editor: 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +65,7 @@ Pokud ještě nemáte předplatné cloudové služby Microsoftu, registrujte se 
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Správa výchozího adresáře poskytnutého službou Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Správa výchozího adresáře poskytnutého službou Azure
 Když se nyní zaregistrujete ke službě Azure, vytvoří se automaticky adresář a přidruží se k němu vaše předplatné. Pokud jste se ale ke službě Azure registrovali před říjnem roku 2013, adresář se automaticky nevytvořil. V takovém případě pro váš účet služba Azure pravděpodobně vytvořila výchozí adresář. Vaše předplatné bylo následně k tomuto výchozímu adresáři přidruženo.
 
 Adresáře byly poskytnuty v říjnu roku 2013 v rámci celkového zlepšení bezpečnostního modelu služby Azure. Díky tomu mohou všichni zákazníci služby Azure využívat funkce organizační identity a je zajištěno, aby přístup k veškerým prostředkům služby Azure probíhal v kontextu uživatele v adresáři. Bez adresáře nemůžete službu Azure používat. Aby toho bylo možné dosáhnout, musel si každý uživatel, který se registroval před 7. červencem 2013 a neměl adresář, jeden adresář vytvořit. Pokud jste již měli adresář vytvořený, vaše předplatné se k němu přidružilo.
@@ -150,6 +149,6 @@ Kontrolují se následující podmínky:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

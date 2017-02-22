@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,7 +27,7 @@ Azure Functions je výpočetní prostředí na vyžádání založené na událo
 V tomto tématu se dozvíte, jak vytvořit novou funkci v jazyce C#, která se spouští na základě časovače událostí a přidává zprávy do fronty úložiště. 
 
 ## <a name="prerequisites"></a>Požadavky
-Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/).
+Provádění funkcí v Azure je hostováno v aplikaci funkce. Pokud ještě nemáte účet Azure, [vyzkoušejte si službu Functions](https://functions.azure.com/try) nebo [si vytvořte bezplatný účet Azure](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-timer-triggered-function-from-the-template"></a>Vytvoření funkce spouštěné časovačem ze šablony
 Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/). 
@@ -79,6 +79,6 @@ Další informace o službě Azure Functions najdete v těchto tématech.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -4,11 +4,13 @@
 ## [Zabezpečení dat](security-center-data-security.md)
 ## Scénáře
 ### [Reakce na incidenty](security-center-incident-response.md)
+### [Doporučení k vylepšení zabezpečení](security-center-using-recommendations.md)
 
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
 ## [Oprávnění](security-center-permissions.md)
+## [Integrace partnerských řešení](security-center-partner-integration.md)
 ## [Nejčastější dotazy](security-center-faq.md)
 
 # Postup
@@ -19,11 +21,13 @@
 
 ### [Doporučení pro aplikace](security-center-application-recommendations.md)
 #### [Přidání brány firewall webových aplikací](security-center-add-web-application-firewall.md)
+#### [Finalizace ochrany aplikací](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Doporučení pro síť](security-center-network-recommendations.md)
 #### [Přidání brány firewall příští generace](security-center-add-next-generation-firewall.md)
 #### [Povolení skupin zabezpečení sítě](security-center-enable-network-security-groups.md)
 #### [Omezení přístupu prostřednictvím internetových koncových bodů](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Směrování provozu jenom přes NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Doporučení pro službu SQL](security-center-sql-service-recommendations.md)
 #### [Povolení auditování pro databáze SQL](security-center-enable-auditing-on-sql-databases.md)
@@ -34,9 +38,11 @@
 #### [Použití šifrování disku](security-center-apply-disk-encryption.md)
 #### [Instalace aktualizací systému](security-center-apply-system-updates.md)
 #### [Povolení shromažďování dat](security-center-enable-data-collection.md)
+#### [Povolení šifrování pro účet úložiště](security-center-enable-encryption-for-storage-account.md)
 #### [Povolení agenta virtuálního počítače](security-center-enable-vm-agent.md)
 #### [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Poskytnutí podrobností kontaktů zabezpečení](security-center-provide-security-contact-details.md)
+#### [Restartování po aktualizacích systému](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Náprava ohrožení zabezpečení operačního systému](security-center-remediate-os-vulnerabilities.md)
 #### [Vyřešení výstrah stavu služby Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Aktualizace verze operačního systému](security-center-update-os-version.md)
@@ -70,6 +76,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,23 @@
 ---
+title: "Dokumentace k sadě Azure IoT Suite – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
+ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
+ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
 
 ---
+
 # <a name="iot-suite-documentation"></a>Dokumentace k IoT Suite
 
 Se sadou Microsoft Azure IoT Suite dokážete rychle začít. Použijte předkonfigurovaná řešení a zrychlete vývoj vašeho řešení pro Internet věcí (IoT). Přidávejte nová zařízení – a připojujte ta existující – prostřednictvím sad SDK zařízení pro různé platformy, včetně Linuxu, Windows a operačních systémů pracujících v reálném čase. Snadno škálujte z několika málo senzorů na miliony současně připojených zařízení a spolehněte se na celosvětovou dostupnost služby Azure – na velikosti projektu vůbec nezáleží.
@@ -91,6 +104,6 @@ Se sadou Microsoft Azure IoT Suite dokážete rychle začít. Použijte předkon
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

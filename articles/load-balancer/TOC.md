@@ -40,6 +40,7 @@
 ## [Konfigurace více virtuálních IP adres cloudové služby](load-balancer-multivip.md)
 ## [Kombinace služeb pro vyrovnávání zatížení](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Použití více konfigurací IP](load-balancer-multiple-ip.md)
+### [Použití několika konfigurací IP (CLI)](load-balancer-multiple-ip-cli.md)
 ## [Log Analytics pro Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurace protokolu DHCPv6 pro virtuální počítače s Linuxem](load-balancer-ipv6-for-linux.md)
 

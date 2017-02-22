@@ -14,6 +14,7 @@
 ### [Vytvoření poskytovatele ověřování](multi-factor-authentication-get-started-auth-provider.md)
 ### [Konfigurace nastavení](multi-factor-authentication-whats-next.md)
 ### [Sestavy v MFA](multi-factor-authentication-manage-reports.md)
+### [Použití stávajících serverů NPS](multi-factor-authentication-nps-extension.md)
 ### Místní Azure MFA
 #### [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md)
 #### [Pokročilé konfigurace sítě VPN](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -28,7 +29,7 @@
 
 ## Integrace
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
+#### [Použití služby AD FS&2;.0](multi-factor-authentication-get-started-adfs-cloud.md)
 #### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 #### [Použití služby Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 ### Adresáře
@@ -38,7 +39,7 @@
 ### [Webové aplikace služby IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Brána vzdálené plochy](multi-factor-authentication-get-started-server-rdg.md)
 
-## Vývoj 
+## Vývoj
 ### [Sestavování do vlastních aplikací (sada SDK)](multi-factor-authentication-sdk.md)
 
 ## Řešení potíží
@@ -46,6 +47,6 @@
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

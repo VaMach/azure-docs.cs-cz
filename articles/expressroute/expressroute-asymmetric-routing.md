@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Zajistěte, aby vaše veřejné IP adresy byly inzerované v odpovídajících p
 
 Pokud chcete použít ExpressRoute pro ověřování, ujistěte se, že inzerujete veřejné IP adresy služby AD FS prostřednictvím ExpressRoute bez překladu adres (NAT). Provoz, který pochází z Microsoftu a míří na místní server služby AD FS, pak prochází přes ExpressRoute. Zpětný provoz od zákazníka do Microsoftu používá ExpressRoute, protože se jedná o trasu upřednostňovanou před internetem.
 
-### <a name="sourcebased-nat"></a>Překlad adres na základě zdroje
+### <a name="source-based-nat"></a>Překlad adres na základě zdroje
 Jiný způsob řešení problémů asymetrického směrování je prostřednictvím překladu adres na základě zdroje (SNAT). Předpokládejme, že jste neinzerovali veřejnou IP adresu místního serveru SMTP (Simple Mail Transfer Protocol) přes ExpressRoute, protože máte v úmyslu používat pro tento typ komunikace internet. Požadavek pocházející z Microsoftu a pokračující na váš místní server SMTP prochází internetem. U příchozího požadavku provedete překlad adresy zdroje na vnitřní IP adresu. Zpětný provoz ze serveru SMTP je směrován na hraniční bránu firewall (který používáte pro překlad adres), a ne přes ExpressRoute. Zpětný provoz se vrací přes internet.
 
 ![Konfigurace sítě s překladem adres na základě zdroje](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ Nejlepším způsobem, jak zajistit, že provoz z vaší sítě prochází oček
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -4,7 +4,7 @@
 > 
 > 
 
-Tento článek poskytuje podrobný návod k [ukázkovému kódu Hello World][lnk-helloworld-sample] ilustrujícího základní součásti architektury [sady Azure IoT Gateway SDK][lnk-gateway-sdk]. Příklad používá sadu IoT Hub Gateway SDK k vytvoření jednoduché brány, která každých pět sekund zaznamená do souboru zprávu „hello world“.
+Tento článek poskytuje podrobný návod k [ukázkovému kódu Hello World][lnk-helloworld-sample] pro ilustraci základních součástí architektury [sady SDK Azure IoT Gateway][lnk-gateway-sdk]. Ukázka používá sadu SDK Azure IoT Gateway k vytvoření jednoduché brány, která každých pět sekund zaznamená do souboru zprávu „hello world“.
 
 Tento návod ilustruje:
 
@@ -72,6 +72,6 @@ Obrázek nahoře ukazuje architekturu ukázky Hello World a relativní cesty ke 
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
