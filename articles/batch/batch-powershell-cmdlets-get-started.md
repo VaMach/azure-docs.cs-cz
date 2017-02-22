@@ -1,9 +1,9 @@
 ---
-title: "Začínáme s prostředím Azure PowerShell ve službě Batch | Dokumentace Microsoftu"
+title: "Začínáme se službou Azure Batch pomocí PowerShellu | Dokumentace Microsoftu"
 description: "Rychlý úvod do rutin prostředí Azure PowerShell, jejichž pomocí lze spravovat službu Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 10/20/2016
-ms.author: marsma
+ms.date: 01/23/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
 
 
 ---
@@ -30,7 +30,7 @@ Tento článek vychází z rutin prostředí Azure PowerShell verze 3.0.0. Prost
 ## <a name="prerequisites"></a>Požadavky
 Pokud chcete používat Azure PowerShell ke správě prostředků služby Batch, proveďte následující operace.
 
-* [Nainstalujte a nakonfigurujte Azure PowerShell.](../powershell-install-configure.md)
+* [Nainstalujte a nakonfigurujte Azure PowerShell.](/powershell/azureps-cmdlets-docs)
 * Spusťte rutinu **Login-AzureRmAccount**, abyste připojili své předplatné (rutiny služby Azure Batch jsou dodávané v modulu Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ Aktualizovali jste vlastnosti fondu ve službě Batch. Pokud chcete nový balí�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

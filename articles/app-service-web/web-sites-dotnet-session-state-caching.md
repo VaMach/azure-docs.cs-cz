@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a682e51bfaed9056b170c3e9473180ca210557b9
 
 
 ---
@@ -86,10 +86,10 @@ Následující kód tuto hodnotu načítá ze stavu relace.
        strValue = (string)objValue;    
 
 Můžete také použít službu Redis Cash k načtení objektů ve webové aplikaci do mezipaměti. Další informace naleznete v tématu [Filmová aplikace MVC se službou Azure Redis Cache během 15 minut](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Podrobnější informace o používání stavu relace ASP.NET najdete v článku [Přehled stavu relace ASP.NET][Přehled stavu relace ASP.NET].
+Podrobnější informace týkající se používání stavu relace ASP.NET naleznete v tématu [Přehled stavu relace ASP.NET][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -98,21 +98,21 @@ Podrobnější informace o používání stavu relace ASP.NET najdete v článku
   
   Autor: *Rick Anderson[](https://twitter.com/RickAndMSFT)*
 
-[nainstalován nejnovější]: http://www.windowsazure.com/downloads/?sdk=net  
-[Přehled stavu relace ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
+[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
-[NováIkona]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
-[DialogNováMezipaměť]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
-[IkonaMezipaměť]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
-[DialogNuGet]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
-[KonfigVýstup]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
-[KonfigMezipaměť]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
-[URLKoncovýBod]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[Správaklíčů]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
-
-
+[NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
+[NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
+[CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
+[NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
+[OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
+[CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
+[EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
+[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

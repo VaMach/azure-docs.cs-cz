@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
-ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
 
 
 ---
+
 # <a name="application-gateway-web-application-firewall-preview"></a>Firewall webových aplikací služby Application Gateway (Preview)
 
 Firewall webových aplikací (WAF) je funkce služby Azure Application Gateway, která poskytuje ochranu webovým aplikacím využívajícím aplikační bránu pro standardní funkce ADC (Application Delivery Controller). Firewall webových aplikací chrání webové aplikace před většinou z 10 nejčastějších webových hrozeb podle OWASP. Webové aplikace se čím dál častěji stávají cílem škodlivých útoků, které zneužívají běžně známé chyby zabezpečení. Mezi tyto běžné typy zneužití patří mimo jiné například útoky prostřednictvím injektáže SQL nebo skriptování mezi weby. Předcházet takovým útokům v kódu aplikace může být náročné a může vyžadovat pečlivou údržbu, opravy a monitorování několika vrstev topologie aplikace. Centralizovaný firewall webových aplikací, který chrání před webovými útoky, značně zjednodušuje správu zabezpečení a nabízí lepší ochranu aplikací před hrozbami neoprávněného vniknutí. Řešení Firewall webových aplikací (WAF) může také rychleji reagovat na ohrožení zabezpečení, protože opravuje známé chyby zabezpečení v centrálním umístění, namísto zabezpečování jednotlivých webových aplikací. Firewall webových aplikací umožňuje jednoduše převést stávající aplikační brány do služby Application Gateway.
@@ -91,6 +92,6 @@ Po získání informací o možnostech WAF navštivte téma [Postup konfigurace 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

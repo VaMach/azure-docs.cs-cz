@@ -16,16 +16,21 @@
 ### [Synchronizovaný tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # Postup
-## [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
-## [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
-## [Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Vytvoření OU ve spravované doméně](active-directory-ds-admin-guide-create-ou.md)
-## [Správa zásad skupiny ve spravované doméně](active-directory-ds-admin-guide-administer-group-policy.md)
+## Připojení ke spravované doméně
+### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Správa spravované domény
+### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
+### [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
+### [Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Vytvoření OU ve spravované doméně](active-directory-ds-admin-guide-create-ou.md)
+### [Správa zásad skupiny ve spravované doméně](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Výběr virtuální sítě](active-directory-ds-networking.md)
-
+## Nasazení aplikací
+### [Konfigurace podpory pro synchronizaci profilu pro SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Konfigurace omezeného delegování Kerberos](active-directory-ds-enable-kcd.md)
+### [Nasazení proxy aplikace služby Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
 ## Řešení potíží
 ### [Nejčastější dotazy](active-directory-ds-faqs.md)
 ### [Průvodce řešením problémů](active-directory-ds-troubleshooting.md)
@@ -42,6 +47,6 @@
 ## [Kontaktujte nás](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

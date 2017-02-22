@@ -26,7 +26,8 @@
 
 ## Postup
 ### [Správa prostřednictvím portálu Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalace nejnovější aktualizace](storsimple-virtual-array-install-update.md)
+#### [Instalace nejnovější aktualizace](storsimple-virtual-array-install-update-04.md)
+##### [Instalace aktualizace 0.3](storsimple-virtual-array-install-update.md)
 #### [Vytvoření a správa záloh](storsimple-virtual-array-backup.md)
 #### [Klonování ze zálohy](storsimple-virtual-array-clone.md)
 #### [Převzetí služeb při selhání a zotavení po havárii](storsimple-virtual-array-failover-dr.md)
@@ -56,7 +57,8 @@
 ### [Konfigurace prostřednictvím místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md)
 
 ## Poznámky k verzi
-### [Aktualizace 0.3 – aktuální](storsimple-ova-update-03-release-notes.md)
+### [Aktualizace 0.4 – aktuální](storsimple-virtual-array-update-04-release-notes.md)
+### [Aktualizace 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Aktualizace 0.2 a 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000 Series
@@ -150,6 +152,7 @@
 ### Monitorování
 #### [Použití řídicího panelu služby](storsimple-service-dashboard.md)
 #### [Použití řídicího panelu zařízení](storsimple-device-dashboard.md)
+#### [Použití grafů sledování](storsimple-monitor-device.md)
 #### [Použití upozornění služby](storsimple-manage-alerts.md)
 #### [Použití stavu hardwaru](storsimple-monitor-hardware-status.md)
 #### [Použití monitorovacích indikátorů LED](storsimple-monitoring-indicators.md)
@@ -220,6 +223,6 @@
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

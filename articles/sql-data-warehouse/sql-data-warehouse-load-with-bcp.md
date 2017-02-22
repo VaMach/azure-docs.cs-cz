@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
 
 
 ---
@@ -43,7 +43,7 @@ V tomto kurzu se dozvíte, jak:
 * Importovat data do tabulky pomocí příkazu bcp in
 * Exportovat data z tabulky pomocí příkazu bcp out
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
@@ -55,7 +55,7 @@ Pro jednotlivé kroky v tomto kurzu budete potřebovat:
 * Nainstalovaný nástroj příkazového řádku SQLCMD
 
 > [!NOTE]
-> Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][Stažení softwaru společnosti Microsoft].
+> Nástroje bcp a sqlcmd si můžete stáhnout z webu [Stažení softwaru společnosti Microsoft][Microsoft Download Center].
 > 
 > 
 
@@ -82,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Přehled tabulek][Přehled tabulek] nebo [Syntaxe CREATE TABLE][Syntaxe CREATE TABLE].
+> Další informace o vytváření tabulek v SQL Data Warehouse a možnostech dostupných v klauzuli WITH viz [Přehled tabulek][Table Overview] nebo [Syntaxe CREATE TABLE][CREATE TABLE syntax].
 > 
 > 
 
@@ -140,7 +140,7 @@ Tento dotaz by měl vrátit následující výsledky:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: Vytvoření statistiky pro vaše nově načtená data
-Azure SQL Data Warehouse zatím nepodporuje automatické vytváření ani automatickou aktualizaci statistik. Aby vám dotazy vracely co nejlepší výsledky, je důležité, aby se statistiky vytvořily pro všechny sloupce všech tabulek po prvním načtením nebo kdykoli, kdy v datech dojde k podstatným změnám. Podrobné vysvětlení statistiky najdete v tématu [Statistika][Statistika] ve skupině témat věnovaných vývoji. Níže je zběžný příklad vytvoření statistik pro tabulku načtenou v tomto příkladě.
+Azure SQL Data Warehouse zatím nepodporuje automatické vytváření ani automatickou aktualizaci statistik. Aby vám dotazy vracely co nejlepší výsledky, je důležité, aby se statistiky vytvořily pro všechny sloupce všech tabulek po prvním načtením nebo kdykoli, kdy v datech dojde k podstatným změnám. Podrobné vysvětlení statistiky najdete v tématu [Statistika][Statistics] ve skupině témat věnovaných vývoji. Níže je zběžný příklad vytvoření statistik pro tabulku načtenou v tomto příkladě.
 
 Proveďte následující příkazy CREATE STATISTICS na příkazovém řádku sqlcmd:
 
@@ -184,27 +184,27 @@ To, že se data vyexportovala správně, můžete ověřit tak, že nový soubor
 > 
 
 ## <a name="next-steps"></a>Další kroky
-Přehled načítání najdete v tématu [Načtení dat do SQL Data Warehouse][Načtení dat do SQL Data Warehouse].
-Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][Přehled vývoje SQL Data Warehouse].
+Přehled načítání najdete v tématu [Načtení dat do SQL Data Warehouse][Load data into SQL Data Warehouse].
+Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Načtení dat do SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Přehled vývoje SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Přehled tabulek]: ./sql-data-warehouse-tables-overview.md
-[Statistika]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Syntaxe CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Stažení softwaru společnosti Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

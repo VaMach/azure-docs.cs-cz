@@ -4,7 +4,7 @@ description: "Tato stránka poskytuje přehled služby Application Gateway pro v
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
-ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
+ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
+ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
 
 
 ---
@@ -67,7 +67,7 @@ V současnosti existují pro službu Application Gateway dvě skladové jednotky
 
 V rámci jednoho předplatného můžete vytvořit až 50 služeb Application Gateway a každá z nich může mít až 10 instancí. Každá služba Application Gateway se může skládat z 20 naslouchacích procesů HTTP. Úplný seznam omezení služby Application Gateway najdete na stránce [Omezení služby Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé instance služby Application Gateway:
+Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé instance služby Application Gateway s povoleným přesměrováním zpracování SSL:
 
 | Odezva back-endové stránky | Krátkodobé používání | Střednědobé používání | Dlouhodobé používání |
 | --- | --- | --- | --- |
@@ -75,9 +75,7 @@ Následující tabulka ukazuje průměrnou propustnost výkonu pro jednotlivé i
 | 100K |35 Mb/s |100 Mb/s |200 Mb/s |
 
 > [!NOTE]
-> Tyto hodnoty jsou přibližné hodnoty propustnosti služby Application Gateway. Skutečná propustnost závisí na různých podrobnostech o prostředí, jako jsou například průměrná velikost stránky, umístění back-endových instancí a doba zpracování potřebná k doručení stránky. Pro přesné údaje o výkonu byste měli spustit vlastní testy, tyto hodnoty slouží pouze jako pomůcka pro plánování kapacity.
->
->
+> Tyto hodnoty jsou přibližné hodnoty propustnosti služby Application Gateway. Skutečná propustnost závisí na různých podrobnostech o prostředí, jako jsou například průměrná velikost stránky, umístění back-endových instancí a doba zpracování potřebná k doručení stránky. Přesné údaje o výkonu získáte, když spustíte vlastní testy. Tyto hodnoty slouží jenom jako vodítko při plánování kapacity.
 
 ## <a name="health-monitoring"></a>Monitorování stavu
 
@@ -97,6 +95,6 @@ Další informace o vytvoření služby Application Gateway používající smě
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

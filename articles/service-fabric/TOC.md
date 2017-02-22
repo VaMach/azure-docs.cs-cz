@@ -21,11 +21,14 @@
 ## Sestavení aplikace
 ### [Vzory a scénáře](service-fabric-patterns-and-scenarios.md)
 ### Základy
-#### [Programovací model](service-fabric-choose-framework.md)
 #### [Aplikační model](service-fabric-application-model.md)
+#### [Podporovaný programovací model](service-fabric-choose-framework.md)
+#### [Stav služby](service-fabric-concepts-state.md)
 #### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
+#### [Přidání webového front-endu](service-fabric-add-a-web-frontend.md)
 #### [Prostředky manifestu služby](service-fabric-service-manifest-resources.md)
-#### [Nástroje](service-fabric-manage-application-in-visual-studio.md)
+#### [Správa aplikací v sadě Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Konfigurace zabezpečených připojení v sadě Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Ladění
 ##### [Ladění služby C# ve VS](service-fabric-debugging-your-application.md)
 ##### [Ladění služby Java v Eclipse](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [Konfigurace zásad zabezpečení pro aplikaci](service-fabric-application-runas-security.md)  
 #### [Konfigurace aplikace pro více prostředí](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [Běžné chyby a výjimky](service-fabric-errors-and-exceptions.md) 
+
+### Aplikace spustitelná hostem
+#### [Nasazení hostujícího spustitelného souboru](service-fabric-deploy-existing-app.md)
+#### [Nasazení několika hostujících spustitelných souborů](service-fabric-deploy-multiple-apps.md)
+
+### Aplikace typu kontejner
+#### [Přehled](service-fabric-containers-overview.md)
+#### [Nasazení kontejneru s Windows](service-fabric-deploy-container.md)
+#### [Nasazení kontejneru s Dockerem](service-fabric-deploy-container-linux.md)
 
 ### Aplikace Reliable Services
 #### [Přehled](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### Aplikace spustitelná hostem
-#### [Nasazení hostujícího spustitelného souboru](service-fabric-deploy-existing-app.md)
-#### [Nasazení několika hostujících spustitelných souborů](service-fabric-deploy-multiple-apps.md)
-
-### Aplikace typu kontejner
-#### [Přehled](service-fabric-containers-overview.md)
-#### [Nasazení kontejneru s Windows](service-fabric-deploy-container.md)
-#### [Nasazení kontejneru s Dockerem](service-fabric-deploy-container-linux.md)
-
 ## Migrace ze služby Cloud Services
 ### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrace do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,7 +98,7 @@
 #### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 #### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 #### [Správa clusteru pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md) 
-#### [Zabezpečení](service-fabric-cluster-security.md)
+#### [Zabezpečení clusteru](service-fabric-cluster-security.md)
 #### [Zotavení po havárii](service-fabric-disaster-recovery.md)
 
 ### Clustery v Azure
@@ -108,6 +111,7 @@
 #### [Odstranění clusteru](service-fabric-cluster-delete.md)
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-fabric-settings.md)
+#### [Zabezpečení clusteru pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)
 #### [Přidání nebo výměna certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bezplatné vyzkoušení Party Clusteru](http://aka.ms/tryservicefabric)
 
@@ -116,30 +120,15 @@
 #### [Vytvoření samostatného clusteru v Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Škálování clusteru](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Upgrade clusteru](service-fabric-cluster-upgrade-windows-server.md)
-#### [Zabezpečení clusteru](service-fabric-windows-cluster-x509-security.md)
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-manifest.md)
 #### [Zabezpečení clusteru pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)  
 #### [Zabezpečení clusteru pomocí zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md) 
 
-## Správa a orchestrace prostředků clusteru
-### [Přehled Cluster Resource Manageru](service-fabric-cluster-resource-manager-introduction.md)
-### [Architektura Cluster Resource Manageru](service-fabric-cluster-resource-manager-architecture.md)
-### [Popis clusteru](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Přehled skupin aplikací](service-fabric-cluster-resource-manager-application-groups.md)
-### [Konfigurace nastavení Cluster Resource Manageru](service-fabric-cluster-resource-manager-configure-services.md)
-### [Metriky spotřeby prostředků](service-fabric-cluster-resource-manager-metrics.md)
-### [Použití spřažení služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Zásady umístění služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Správa clusteru](service-fabric-cluster-resource-manager-management-integration.md)
-### [Defragmentace clusteru](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Vyvážení clusteru](service-fabric-cluster-resource-manager-balancing.md)
-### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Správa životního cyklu aplikace
 ### [Přehled](service-fabric-application-lifecycle.md)
 ### [Nastavení průběžné integrace](service-fabric-set-up-continuous-integration.md)
+### [Principy nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Nasazení nebo odebrání aplikací
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -161,6 +150,7 @@
 ### [Zobrazení stavových sestav](service-fabric-view-entities-aggregated-health.md)
 
 ## Monitorování a diagnóza
+### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
 ### Místní monitorování a diagnostika služeb
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -168,8 +158,8 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Shromažďování protokolů z procesu služeb](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
+### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [Řešení běžných potíží](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -191,6 +181,21 @@
 #### [Pomocí rozhraní API pro přechod uzlů](service-fabric-node-transition-apis.md)
 ### [Zátěžový test aplikace](service-fabric-vso-load-test.md)
 
+## Správa a orchestrace prostředků clusteru
+### [Přehled Cluster Resource Manageru](service-fabric-cluster-resource-manager-introduction.md)
+### [Architektura Cluster Resource Manageru](service-fabric-cluster-resource-manager-architecture.md)
+### [Popis clusteru](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Přehled skupin aplikací](service-fabric-cluster-resource-manager-application-groups.md)
+### [Konfigurace nastavení Cluster Resource Manageru](service-fabric-cluster-resource-manager-configure-services.md)
+### [Metriky spotřeby prostředků](service-fabric-cluster-resource-manager-metrics.md)
+### [Použití spřažení služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Zásady umístění služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Správa clusteru](service-fabric-cluster-resource-manager-management-integration.md)
+### [Defragmentace clusteru](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Vyvážení clusteru](service-fabric-cluster-resource-manager-balancing.md)
+### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # Referenční informace
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [Rozhraní API Java](/java/api/microsoft.servicefabric.services)
@@ -208,6 +213,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

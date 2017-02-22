@@ -19,10 +19,6 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Porovnání produktů monitorování](operations-management-suite-monitoring-product-comparison.md)
 ### [Správa výstrah](operations-management-suite-monitoring-alerts.md)
-## Spravovat
-### [Plánování a nasazení](operations-management-suite-solutions-creating.md)
-### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
-### [Zobrazení](operations-management-suite-solutions-resources-views.md)
 ## Automatizace
 ### [Přehled Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Zálohování
@@ -35,6 +31,11 @@
 ### [Posouzení malwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Posouzení aktualizace systému](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Produkty zabezpečení Connect](oms-security-connect-products.md)
+## Vytváření řešení
+### [Řešení pro správu](operations-management-suite-solutions-creating.md)
+### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
+### [Prohledávání protokolu a upozornění](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Zobrazení](operations-management-suite-solutions-resources-views.md)
 ## [Integrace s OMS](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

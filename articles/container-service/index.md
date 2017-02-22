@@ -1,14 +1,26 @@
 ---
+title: "Dokumentace ke službě Azure Container Service – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se používat službu Container Service k nasazování a správě kontejnerů aplikací pomocí DC/OS, Dockeru Swarm nebo Kubernetes. Kurzy, reference k rozhraní API a další zdroje informací"
+services: container-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: 8dd0b2fe35c7f6280e6c1032d788955c891668d2
+ms.openlocfilehash: b5e7c83af078678454e6fc036bff657de402cf73
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Dokumentace ke službě Azure Container Service
 
-Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správu clusteru virtuálních počítačů, ve kterých je předem nakonfigurované spouštění kontejnerizovaných aplikací. Container Service používá optimalizovanou konfiguraci oblíbených opensourcových nástrojů pro plánování a orchestraci. Díky tomu můžete při nasazování a správě kontejnerových aplikací v Microsoft Azure využívat své stávající dovednosti nebo stavět na rozsáhlých a stále se rozšiřujících odborných znalostech komunity.
+Naučte se používat službu Container Service k nasazování a správě plně přenositelných kontejnerů aplikací. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete škálovat a orchestrovat kontejnery pomocí DC/OS, Dockeru Swarm nebo Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,20 +71,8 @@ Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správ
                 <div class="card">
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
+                        <p><a href="/cli/azure/acs">Azure CLI 2.0 (Preview)</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Jazyky</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
-                   </div>
                 </div>
             </div>
         </div>
@@ -91,15 +91,9 @@ Služba Azure Container Service zjednodušuje vytváření, konfiguraci a správ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě Azure Container Service </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

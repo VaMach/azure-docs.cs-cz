@@ -6,10 +6,7 @@
 
 # Začínáme
 
-## Vytvoření SQL Data Warehouse
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Kurz pro začátečníky](sql-data-warehouse-get-started-tutorial.md)
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
 ## [Získat podporu](sql-data-warehouse-get-started-create-support-ticket.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalace sady Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Vytvořit
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Vývoj
 
@@ -78,6 +80,7 @@
 
 ### [Přehled](sql-data-warehouse-overview-load.md)
 ### [Ukázková data](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -145,6 +148,6 @@
 ### [Správa dat](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

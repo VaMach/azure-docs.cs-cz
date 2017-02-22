@@ -1,5 +1,5 @@
 ---
-title: Cloud Azure MFA vs. server | Dokumentace Microsoftu
+title: "Výběr mezi cloudovým a serverovým Azure MFA | Dokumentace Microsoftu"
 description: "Zvolte pro vás ideální řešení zabezpečení Multi-Factor Authentication položením otázky, co se pokoušíte zabezpečit a kde se nachází vaši uživatelé.  Pak vyberte cloud, server MFA nebo AD FS."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Pro určení správného řešení dvoustupňového ověření si nejdříve mus
 | --- |:---:|:---:|
 | Vlastní aplikace Microsoftu |● |● |
 | Aplikace Saas v galerii aplikací |● |● |
-| Aplikace služby IIS publikované prostřednictvím proxy aplikace Azure AD |● |● |
+| Webové aplikace publikované prostřednictvím proxy aplikace Azure AD |● |● |
 | Aplikace služby IIS nepublikované prostřednictvím proxy aplikace Azure AD | |● |
 | Vzdálený přístup, jako je například síť VPN, RDG | |● |
 
@@ -62,8 +62,8 @@ V následující tabulce je uvedeno porovnání funkcí, které jsou dostupné s
 | Jednosměrné služby SMS jako druhý faktor | ● | ● |
 | Obousměrné služby SMS jako druhý faktor | | ● |
 | Tokeny hardwaru jako druhý faktor | | ● |
-| Hesla aplikací pro klienty, kteří nepodporují MFA | ● | |
-| Kontrola správce nad metodami ověřování | | ● |
+| Hesla aplikací pro klienty Office 365, kteří nepodporují MFA | ● | |
+| Kontrola správce nad metodami ověřování | ● | ● |
 | Režim kódu PIN | | ● |
 | Výstraha podvodů |● | ● |
 | Sestavy MFA |● | ● |
@@ -73,7 +73,7 @@ V následující tabulce je uvedeno porovnání funkcí, které jsou dostupné s
 | Důvěryhodné IP adresy | ● | ● |
 | Zapamatovat MFA pro důvěryhodná zařízení | ● | |
 | Podmíněný přístup | ● | ● |
-| Mezipaměť | ● | ● |
+| Mezipaměť |  | ● |
 
 Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentication nebo server multi-factor authentication na místě, můžete začít s nastavováním a používáním Azure Multi-Factor Authentication. **Vyberte ikonu, která představuje váš scénář.**
 
@@ -87,6 +87,6 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

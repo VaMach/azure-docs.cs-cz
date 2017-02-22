@@ -69,15 +69,18 @@
 ## [Nasazení virtuálních počítačů s Linuxem](azure-stack-linux.md)
 ## [Správa aktualizací](azure-stack-updates.md)
 ## [Vývoj pro Azure Stack](azure-stack-developer.md)
-## Přidání poskytovatele prostředků SQL nebo MySQL
-### [Použití databází MySQL jako PaaS v Azure Stacku](azure-stack-mysql-resource-provider-deploy.md)
-### [Nasazení adaptéru poskytovatele prostředků SQL Serveru v Azure Stacku](azure-stack-sql-resource-provider-deploy.md)
+## Nabídka SQL nebo MySQL jako PaaS
+### [Nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md)
+### [Nasazení poskytovatele prostředků SQL](azure-stack-sql-resource-provider-deploy.md)
 
-## Plánování a nasazení App Service
+## Nabídka App Service jako PaaS
 ### [Přehled App Service v Azure Stacku](azure-stack-app-service-overview.md)
 ### [Než začnete](azure-stack-app-service-before-you-get-started.md)
+### [Nasazení poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)
 ### [Přidání dalších webových rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md)
-### [Přidání poskytovatele prostředků App Service do Azure Stacku](azure-stack-app-service-deploy.md)
+### [Povolení publikování FTP](azure-stack-app-service-enable-ftp.md)
+### [Konfigurace zdrojů nasazení](azure-stack-app-service-configure-deployment-sources.md)
+
 
 # Řešení potíží
 ## [Odstraňování potíží v Azure Stack](azure-stack-troubleshooting.md)
@@ -88,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

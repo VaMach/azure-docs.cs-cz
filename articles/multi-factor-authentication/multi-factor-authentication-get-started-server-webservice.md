@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Před instalací webové služby mobilní aplikace si uvědomte skutečnosti:
 
 <li>Z libovolného počítače otevřete webový prohlížeč a přejděte na adresu URL, kam byly nainstalovány webové služby mobilní aplikace (např. https://www.publicwebsite.com/PA). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurace serveru Azure Multi-Factor Authentication
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace serveru Azure Multi-Factor Authentication
 Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigurovat server Azure Multi-Factor Authentication pro práci s portálem.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurace mobilní aplikace na serveru Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace mobilní aplikace na serveru Azure Multi-Factor Authentication
 1. Na serveru Azure Multi-Factor Authentication klikněte na ikonu portálu pro uživatele. Pokud mají uživatelé povolení řídit své metody ověřování, na kartě Nastavení v části Povolit uživatele, zaškrtněte možnost Mobilní aplikace. Bez povolení této funkce bude nutné kontaktovat podporu a požádat o úplnou aktivaci mobilní aplikace.
 2. Zkontrolujte možnost Povolit uživatele pro aktivaci pole Mobilní aplikace.
 3. Zaškrtněte políčko Povolit zápis uživatele.
@@ -89,6 +89,6 @@ Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -58,6 +58,6 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

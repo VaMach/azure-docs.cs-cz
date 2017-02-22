@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault
 K dokončení tohoto kurzu potřebujete:
 
 * Předplatné Microsoft Azure. Pokud žádné nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/)
-* Azure PowerShell v **minimální verzi 1.1.0**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](../powershell-install-configure.md). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`. Máte-li nainstalovaný Azure PowerShell ve verzi 0.9.1 až 0.9.8, stále můžete tento kurz použít, pouze s menšími změnami. Například musíte použít příkaz `Switch-AzureMode AzureResourceManager` a zároveň se změnily některé příkazy Azure Key Vault. Seznam rutin Key Vault pro verze 0.9.1 až 0.9.8 naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell v **minimální verzi 1.1.0**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`. Máte-li nainstalovaný Azure PowerShell ve verzi 0.9.1 až 0.9.8, stále můžete tento kurz použít, pouze s menšími změnami. Například musíte použít příkaz `Switch-AzureMode AzureResourceManager` a zároveň se změnily některé příkazy Azure Key Vault. Seznam rutin Key Vault pro verze 0.9.1 až 0.9.8 naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 * Aplikaci, kterou nakonfigurujete pro použití klíče nebo hesla, které v tomto kurzu vytvoříte. Vzorová aplikace je k dispozici ve službě [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Pokyny naleznete v souvisejícím souboru Readme.
 
 Tento kurz je určen pro začátečníky v Azure PowerShellu, ale předpokládá, že chápete základní koncepty, jako jsou moduly, rutiny a relace. Další informace naleznete v tématu [Začínáme s Microsoft PowerShellem](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,7 +56,7 @@ Například pro získání nápovědy pro rutinu **Login-AzureRmAccount** zadejt
 
 Pro seznámení se s Azure Resource Managerem v Azure PowerShellu si také můžete přečíst následující kurzy:
 
-* [Jak nainstalovat a nakonfigurovat Azure PowerShell](../powershell-install-configure.md)
+* [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Použití Azure PowerShellu s Resource Managerem](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Připojení k předplatným
@@ -76,7 +76,7 @@ Poté pro určení předplatného, které se má použít, zadejte:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Další informace o konfiguraci prostředí Azure PowerShell najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md).
+Další informace o konfiguraci prostředí Azure PowerShell najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Vytvoření nové skupiny prostředků
 Používáte-li Azure Resource Manager, pak se všechny související prostředky vytváří v uvnitř skupiny prostředků. Pro účely tohoto kurzu vytvoříme novou skupinu prostředků s názvem **ContosoResourceGroup**:
@@ -237,6 +237,6 @@ Programátorské reference najdete v [příručce pro vývojáře Azure Key Vaul
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

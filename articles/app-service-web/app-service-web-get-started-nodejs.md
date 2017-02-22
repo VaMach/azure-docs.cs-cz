@@ -129,7 +129,7 @@ Blahopřejeme, úspěšně jste nasadili aplikaci do služby Azure App Service.
 ## <a name="see-your-app-running-live"></a>Sledování živého běhu aplikace
 Chcete-li sledovat živý běh v Azure, spusťte následující příkaz z libovolného adresáře v úložišti:
 
-    azure site browse
+    az appservice web browse -n <app-name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Provádění aktualizací aplikace
 Nyní můžete pomocí Git kdykoli provádět nucené doručení (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení kódu. Například pokaždé, když chcete nuceně doručit (push) novou změnu, kterou jste místně otestovali, stačí spustit následující příkazy z kořenového adresáře projektu (úložiště):
@@ -155,6 +155,6 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

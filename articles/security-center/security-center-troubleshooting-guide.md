@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
@@ -51,8 +51,16 @@ Další informace o procesu instalace můžete získat také přečtením protok
 
 > [!NOTE]
 > Pokud se agent služby Azure Security Center nechová podle očekávání, je třeba restartovat cílový virtuální počítač, protože pro zastavení a spuštění agenta není k dispozici žádný příkaz.
-> 
-> 
+
+
+Pokud stále máte problémy se shromažďováním dat, můžete agenta odinstalovat pomocí následujících kroků:
+
+1. Na webu **Azure Portal** vyberte virtuální počítač, u kterého dochází k problémům se shromažďováním dat, a klikněte na **Rozšíření**.
+2. Klikněte pravým tlačítkem myši na **Microsoft.Azure.Security.Monitoring** a klikněte na **Odinstalovat**.
+
+![Odebrání agenta](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+Rozšíření Azure Security Monitoring by se mělo během několika minut samo přeinstalovat.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Odstraňování potíží s instalací agenta sledování v systému Linux
 Při odstraňování potíží s instalací agenta virtuálního počítače v systému Linux je třeba zajistit, aby se rozšíření stáhlo do umístění /var/lib/waagent /. Spuštěním následujícího příkazu můžete ověřit, zda instalace proběhla:
@@ -68,8 +76,12 @@ Ve funkčním systému by mělo být vidět připojení k procesu mdsd na portu 
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Odstraňování potíží s načtením řídicího panelu
+
+Pokud dochází k problémům s načtením řídicího panelu služby Security Center, ujistěte se, že uživatel, který předplatné ke službě Security Center registruje (tj. uživatel, který s tímto předplatným otevřel službu Security Center) a uživatel, který chce zapnout shromažďování dat, mají u daného předplatného roli *Vlastník* nebo *Přispěvatel*. Od této chvíle budou moci i uživatelé, kteří u předplatného mají roli *Čtenář*, zobrazovat řídicí panel, upozornění, doporučení a zásady.
+
 ## <a name="contacting-microsoft-support"></a>Kontaktování oddělení podpory společnosti Microsoft
-Některé potíže lze identifikovat podle pokynů v tomto článku, některé další jsou také dokumentovány ve veřejném [fóru](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) služby Security Center. Pokud však potřebujete odstraňovat potíže mimo tento rámec, můžete otevřít nový požadavek na podporu prostřednictvím služby Azure Portal, jak je uvedeno níže: 
+Některé potíže lze identifikovat podle pokynů v tomto článku, některé další jsou také dokumentovány ve veřejném [fóru](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) služby Security Center. Pokud však potřebujete odstraňovat potíže mimo tento rámec, můžete vytvořit novou žádost o podporu prostřednictvím webu **Azure Portal**, jak je znázorněno níže: 
 
 ![Podpora společnosti Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfiguro
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Skupiny zabezpečení sítě | Dokumentace Microsoftu"
+title: "Skupiny zabezpečení sítě v Azure | Dokumentace Microsoftu"
 description: "Zjistěte, jak izolovat a řídit tok provozu ve virtuálních sítích pomocí distribuované brány firewall v Azure používající skupiny zabezpečení sítě."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Řízení toku provozu sítě pomocí skupin zabezpečení sítě
 
 Skupina zabezpečení sítě (NSG) obsahuje seznam pravidel seznamu řízení přístupu (ACL), která instancím virtuálních počítačů ve službě Virtual Network povolují nebo odpírají síťový provoz. Skupiny NSG můžou být přidružené buď k podsítím, nebo k jednotlivým instancím virtuálních počítačů v této podsíti. Pokud je skupina NSG přidružená k podsíti, pravidla seznamu ACL platí pro všechny instance virtuálních počítačů v této podsíti. Provoz směřující do konkrétního virtuálního počítače se navíc dá dál omezit tím, že se přímo k tomuto virtuálnímu počítači přidruží skupina NSG.
 
@@ -261,6 +261,6 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

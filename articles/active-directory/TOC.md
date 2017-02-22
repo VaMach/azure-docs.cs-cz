@@ -99,22 +99,6 @@
 ### [Registrace zařízení](active-directory-azureadjoin-personal-device.md)
 ### [Registrace zařízení s Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
-### [Podmíněný přístup](active-directory-conditional-access.md)
-#### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
-#### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
-#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
-##### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Správa aplikace Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
-#### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
-#### [Nasazení na místě](active-directory-conditional-access-on-premises-setup.md)
-#### [Nejčastější dotazy](active-directory-conditional-faqs.md)
-#### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
-#### [Referenční informace](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
@@ -124,10 +108,10 @@
 #### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
 #### [Vysvětlení integrace Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [použití zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
-
-### Ověřování pomocí certifikátů
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Nejčastější dotazy](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Řešení potíží
+##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
@@ -176,6 +160,7 @@
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
 #### [Certifikáty pro jednotné přihlašování](active-directory-sso-certs.md)
+#### [Exportní tenanta](active-directory-tenant-restrictions.md)
 
 ### [Použití uživatelů zřizování SCIM](active-directory-scim-provisioning.md)
 ### [Knihovna dokumentů](active-directory-apps-index.md)
@@ -207,14 +192,24 @@
 #### [Nejčastější dotazy](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Řešení problémů](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrace partnerů s Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Přehled](active-directory-b2b-collaboration-overview.md)
-#### [Jak to funguje](active-directory-b2b-how-it-works.md)
-#### [Porovnání možností](active-directory-b2b-compare-external-identities.md)
-#### [Názorný postup](active-directory-b2b-detailed-walkthrough.md)
-#### [Omezení](active-directory-b2b-current-preview-limitations.md)
-#### [Formát souboru CSV](active-directory-b2b-references-csv-file-format.md)
-#### [Uživatelské objekty](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [Tokeny uživatele](active-directory-b2b-references-external-user-token-format.md)
+#### [Správci přidávají uživatele B2B](active-directory-b2b-admin-add-users.md)
+#### [Informační pracovníci přidávají uživatele B2B](active-directory-b2b-iw-add-users.md)
+#### [-mailová pozvánka](active-directory-b2b-invitation-email.md)
+#### [Uplatnění pozvánky](active-directory-b2b-redemption-experience.md)
+#### [Správa licencí](active-directory-b2b-licensing.md)
+#### [Řešení potíží s B2B](active-directory-b2b-troubleshooting.md)
+#### [Nejčastější dotazy](active-directory-b2b-faq.md)
+#### [Rozhraní API a přizpůsobení](active-directory-b2b-api.md)
+#### [Vícefaktorové ověřování pro B2B](active-directory-b2b-mfa-instructions.md)
+#### [Přidání uživatele typu host do role](active-directory-b2b-add-guest-to-role.md)
+#### [Delegování pozvánek](active-directory-b2b-delegate-invitations.md)
+#### [Dynamické skupiny a B2B](active-directory-b2b-dynamic-groups.md)
+#### [Kód a ukázky pro PowerShell](active-directory-b2b-code-samples.md)
+#### [Konfigurace aplikací SaaS pro B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Tokeny uživatelů B2B](active-directory-b2b-user-token.md)
+#### [Mapování deklarací identity uživatelů B2B](active-directory-b2b-claims-mapping.md)
+#### [Externí sdílení Office 365](active-directory-b2b-o365-external-user.md)
+#### [Aktuální omezení](active-directory-b2b-current-limitations.md)
 ### [Integrace místních identit pomocí Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -238,6 +233,22 @@
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpečení identit
+### [Podmíněný přístup](active-directory-conditional-access.md)
+#### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
+#### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
+#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
+##### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Správa aplikace Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
+#### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
+#### [Nasazení na místě](active-directory-conditional-access-on-premises-setup.md)
+#### [Nejčastější dotazy](active-directory-conditional-faqs.md)
+#### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
+#### [Referenční informace](active-directory-conditional-access-technical-reference.md)
+### Ověřování pomocí certifikátů
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Povolení](active-directory-identityprotection-enable.md)
 #### [Rozpoznání ohrožení zabezpečení](active-directory-identityprotection-vulnerabilities.md)
@@ -301,6 +312,6 @@
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

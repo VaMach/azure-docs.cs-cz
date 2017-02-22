@@ -1,10 +1,10 @@
 ---
-title: "Umístění ExpressRoute | Dokumentace Microsoftu"
-description: "Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
+title: "Poskytovatelé připojení a umístění: Azure ExpressRoute | Dokumentace Microsoftu"
+description: "Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure. Řazení je podle poskytovatele připojení."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
+ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
 
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
+
+> [!div class="op_single_selector"]
+> * [Umístění podle poskytovatele](expressroute-locations.md)
+> * [Poskytovatelé podle umístění](expressroute-locations-providers.md)
+
+
 Tabulky v tomto článku poskytují informace o poskytovatelích připojení ExpressRoute, zeměpisném pokrytí ExpressRoute, cloudových službách Microsoftu podporovaných přes ExpressRoute a systémových integrátorech (SI) ExpressRoute.
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Poskytovatelé připojení ExpressRoute
@@ -35,31 +41,30 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- |
-| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Západní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střed USA – západ, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Québec, Toronto |
 | **Jižní Amerika** |Brazílie – jih |Sao Paulo |
 | **Evropa** |Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih |Amsterdam, Dublin, Londýn, Newport (Wales), Paříž |
 | **Asie** |Východní Asie, Jihovýchodní Asie |Hongkong, Singapur |
 | **Japonsko** |Japonsko – západ, Japonsko – východ |Ósaka, Tokio |
 | **Austrálie** |Austrálie – jihovýchod, Austrálie – východ |Melbourne, Sydney |
 | **Indie** |Indie – západ, Indie – střed, Indie – jih |Čennaj, Bombaj |
+| **Jižní Korea** |Korea – střed, Korea – jih |Busan, Soul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Oblasti a geopolitické hranice pro národní cloudy
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia |Chicago, Dallas, New York, Washington DC |
+| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia, US DoD – střed, US DoD – východ  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **Čína** |Severní Čína, Východní Čína |Peking, Šanghaj |
 | **Německo** |Střední Německo, Východní Německo |Berlín, Frankfurt |
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Umístění poskytovatele připojení
-> [!div class="op_single_selector"]
-> * [Umístění podle poskytovatele](expressroute-locations.md#locations)
-> * [Poskytovatelé podle umístění](expressroute-locations-providers.md#locations)
->
->
+
+Následující tabulka uvádí umístění podle poskytovatele služby. Pokud chcete zobrazit dostupné poskytovatele podle umístění, přečtěte si téma [Poskytovatelé služeb podle umístění](expressroute-locations-providers.md#locations).
+
 
 ### <a name="production-azure"></a>Produkční prostředí Azure
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365 a CRM Online** | **Umístění** |
@@ -71,27 +76,32 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Podporuje se |Podporuje se |Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Připravuje se |Připravuje se |Silicon Valley |
 | **China Telecom Global** |Podporuje se |Nepodporuje se |Hongkong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Podporuje se |Podporuje se |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Podporuje se |Podporuje se |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Podporuje se |Podporuje se |Amsterdam, Dublin, Londýn, Tokio |
 | **Comcast** |Podporuje se |Podporuje se |Chicago, Silicon Valley, Washington DC |
 | **Console**| Podporuje se | Podporuje se |Silicon Valley |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Podporuje se |Podporuje se |Los Angeles |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Podporuje se |Podporuje se |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, Londýn, Los Angeles, Melbourne, New York, Ósaka, Sao Paulo, Paříž+, Seattle, Silicon Valley, Singapur, Sydney, Tokio, Toronto, Washington DC |
 | **euNetworks** |Podporuje se |Podporuje se |Amsterdam |
+| **Global Cloud Exchange (GCX)** | Připravuje se | Připravuje se | Čennaj |
 | **GÉANT** |Podporuje se |Podporuje se |Amsterdam |
 | **[Internet Initiative Japan Inc. – IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Podporuje se |Podporuje se |Ósaka, Tokio |
 | **[InterCloud](https://www.intercloud.com/)** |Podporuje se |Podporuje se |Amsterdam, Londýn, Singapur, Washington DC |
 | **Internet Solutions – Cloud Connect** |Podporuje se |Podporuje se |Amsterdam, Londýn |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Podporuje se |Podporuje se |Amsterdam, Londýn, Paříž |
 | **Jisc** |Podporuje se |Podporuje se |Londýn |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas, Las Vegas+, Londýn, Seattle, Silicon Valley, Washington DC |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se |Podporuje se |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sydney, Toronto, Washington DC |
+| **KINX** |Podporuje se |Podporuje se |Soul |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Podporuje se | Podporuje se | Amsterdam | 
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas, Las Vegas+, Londýn, Seattle, Silicon Valley, Singapur, Washington DC |
+| **LG CNS** |Připravuje se |Připravuje se |Busan+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se |Podporuje se |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Québec, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Podporuje se |Podporuje se |Londýn |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Podporuje se |Podporuje se |Newport(Wales) |
 | **NEXTDC** |Podporuje se |Podporuje se |Melbourne, Sydney |
-| **NTT Communications** |Podporuje se |Podporuje se |Londýn, Los Angeles, Ósaka, Singapur, Tokio, Washington DC |
+| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Podporuje se |Podporuje se |Londýn, Los Angeles, Ósaka, Singapur, Tokio, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Podporuje se |Podporuje se |Amsterdam, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Washington DC |
 | **PCCW Global Limited** |Podporuje se |Podporuje se |Hongkong |
+| **Sejong Telecom** |Podporuje se |Podporuje se |Busan, Soul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Podporuje se |Podporuje se |Čennaj |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Podporuje se |Podporuje se |Singapur |
 | **Softbank** |Podporuje se |Podporuje se |Ósaka, Tokio |
@@ -112,8 +122,9 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Podporuje se |Podporuje se |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Chicago, New York+, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se | Podporuje se | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
 
 ### <a name="china"></a>Čína
@@ -130,6 +141,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Nepodporuje se |Frankfurt |
 | **e-shelter** |Podporuje se |Nepodporuje se |Berlín |
 | **Interxion** |Podporuje se |Nepodporuje se |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se  | Nepodporuje se | Berlín |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
 Pokud poskytovatel připojení není v předchozích částech uvedený, můžete přesto vytvořit připojení.
@@ -152,6 +164,8 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapur |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokio |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
+| **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londýn |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londýn, Slough |
@@ -171,15 +185,15 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 | **Systémový integrátor** | **Kontinent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Asie, Evropa, USA |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Evropa |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |USA |
-| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Austrálie |
+| **[Avanade Inc.](http://www.avanade.com/)** | Asie, Evropa, Severní Amerika, Jižní Amerika |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Evropa |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Severní Amerika |
+| **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Austrálie |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Evropa (Německo) |
-| **[Nelite](http://nelite.com/)** |Evropa |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asie |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |USA |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |USA |
+| **[Nelite](http://nelite.com/)** | Evropa |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Severní Amerika |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | Severní Amerika |
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -191,6 +205,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

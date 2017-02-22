@@ -1,5 +1,5 @@
 ---
-title: "Instalace aplikací Hadoop v HDInsight | Dokumentace Microsoftu"
+title: "Instalace vlastních aplikací Hadoop v Azure HDInsight | Dokumentace Microsoftu"
 description: "Informace o instalaci aplikací HDInsight na aplikace HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,13 +16,16 @@ ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02fbf7609ca2f2fac5105e347fcfc9aa5b794eb2
+ms.sourcegitcommit: eec0106ac43796b2a8a05e89d36cbb51fc222f5d
+ms.openlocfilehash: 9c90d46afd5aa8c1daa12c72e59e518bc42f3d0b
 
 
 ---
-# <a name="install-custom-hdinsight-applications"></a>Instalace vlastních aplikací HDInsight
-Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux.  Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se dozvíte, jak nainstalovat aplikaci HDInsight, která nebyla publikována na portálu Azure v HDInsight. Aplikace, kterou nainstalujete se jmenuje [Hue](http://gethue.com/). 
+# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Instalace vlastních aplikací Hadoop v Azure HDInsight
+
+V tomto článku se dozvíte, jak v Azure HDInsight nainstalovat aplikaci Hadoop, která nebyla publikována na webu Azure Portal. Aplikace, kterou v tomto článku nainstalujete, se jmenuje [Hue](http://gethue.com/).
+
+Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux.  Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými.  
 
 Další související články:
 
@@ -48,7 +51,7 @@ Soubory potřebné pro nasazení této aplikace (Hue):
 
 1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na portálu Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     Toto tlačítko otevře šablonu Resource Manageru na portálu Azure.  Šablony Resource Manageru se nachází na adrese [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Další informace o zápisu této šablony Resource Manageru naleznete v části [MSDN: instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Z okna **Parametry** zadejte následující údaje:
@@ -63,7 +66,7 @@ Soubory potřebné pro nasazení této aplikace (Hue):
 
 1. Klikněte na následující obrázek pro přihlášení do Azure a otevřete šablonu Resource Manageru na portálu Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     Toto tlačítko otevře šablonu Resource Manageru na portálu Azure.  Šablona Resource Manageru je umístěna na adrese [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Další informace o zápisu této šablony Resource Manageru naleznete v části [MSDN: instalace aplikace HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Pro vytvoření clusteru a instalaci aplikace Hue postupujte podle pokynů. Další informace o vytváření clusterů HDInsight naleznete v tématu [Vytváření clusterů Hadoop založených na Linuxu v nástroji HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
@@ -133,6 +136,6 @@ Pomocí Azure CLI můžete odstranit cluster nebo skupinu prostředků. Viz tém
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

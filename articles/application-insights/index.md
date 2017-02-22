@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure Application Insights – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se používat Application Insights, rozšiřitelnou správu výkonu aplikací, abyste zjistili, posoudili a diagnostikovali problémy ve webových aplikacích a službách."
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Dokumentace k Application Insights
 
-Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají. Je navržena tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Integruje se také s vaším procesem DevOps a obsahuje spojovací body s celou řadou dalších nástrojů.
+Naučte se používat Application Insights, rozšiřitelnou službu pro správu výkonu aplikací pro webové vývojáře. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak můžete zjišťovat, posuzovat a diagnostikovat problémy ve webových aplikacích a službách.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -151,16 +163,10 @@ Application Insights je rozšiřitelná služba pro správu výkonu aplikací (A
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci k Application Insights </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

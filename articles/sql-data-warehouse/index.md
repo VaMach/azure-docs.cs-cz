@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure SQL Data Warehouse – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat službu SQL Data Warehouse, která kombinuje SQL Server s architekturou MPP (Massively Parallel Processing). Dokumentace ukazuje, jak načítat, analyzovat, spravovat a exportovat data."
+services: sql-data-warehouse
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: sql-data-warehouse
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
+ms.sourcegitcommit: e065918a1380e006253aefb4ab9c897b9148dea5
+ms.openlocfilehash: 576e12831945701b880e891394c0cbb8374d333b
 
 ---
 
@@ -106,6 +117,6 @@ Naučte se používat službu SQL Data Warehouse, která relační databázi kom
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

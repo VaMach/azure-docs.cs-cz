@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Active Directory B2C – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se nasazovat komplexní správu identit zákazníků v cloudu. Dokumentace ukazuje, jak můžete chránit webové a mobilní aplikace namířené k zákazníkům."
+services: active-directory-b2c
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-b2c
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
-ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
+ms.sourcegitcommit: 51e27c26873f6caad5df19ff8f2b57f6cd03e219
+ms.openlocfilehash: d12fce2cf25cd7602564e4aa464a14959625073f
 
 ---
 
@@ -176,18 +187,9 @@ Naučte se nastavovat a spravovat komplexní správu identit zákazníků v clou
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě Active Directory B2C </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

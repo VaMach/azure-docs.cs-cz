@@ -1,15 +1,11 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>Partnerské virtuální sítě s modelem nasazení RM a klasickým modelem
-V tomto scénáři vytvoříte partnerský vztah mezi dvěma virtuálními sítěmi, konkrétně sítěmi **VNET1** a **VNET2**, z nichž první má model nasazení Azure Resource Manager a druhá klasický model nasazení.
+## <a name="a-namex-modelapeering-virtual-networks-created-through-different-deployment-models"></a><a name="x-model"></a>Vytvoření partnerského vztahu virtuálních sítí vytvořených pomocí různých modelů nasazení
+V tomto scénáři vytvoříte partnerský vztah mezi dvěma virtuálními sítěmi s názvy **VNET1** a **VNET2**. Síť VNET1 je vytvořená prostřednictvím modelu nasazení Resource Manager, zatímco síť VNET2 je vytvořená prostřednictvím modelu nasazení Classic.
 
-> [!NOTE]
-> Virtuální sítě musí být v rámci stejného předplatného.
 > 
-> 
-
 ![scénář nasazení asm – arm](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

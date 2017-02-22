@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
 
 
 ---
@@ -43,16 +43,16 @@ Chcete-li použít Baidu, musíte mít účet Baidu. Pokud již účet máte, p�
 
 1. Přejděte na stránku [portál Baidu] a klikněte na odkaz **登录** (**Přihlášení**). Klikněte na tlačítko **立即注册** s spusťte proces registrace účtu.
    
-       ![][1]
+   ![][1]
 2. Zadejte požadované podrobnosti – telefon a e-mailovou adresu, heslo a ověřovací kód – a klikněte na tlačítko **Registrace**.
    
-       ![][2]
+   ![][2]
 3. Na e-mailovou adresu, kterou jste zadali, vám dorazí e-mail s odkazem k aktivaci Baidu.
    
-       ![][3]
+   ![][3]
 4. Přihlaste se k e-mailovému účtu, otevřete e-mail pro aktivaci Baidu a kliknutím na aktivační odkaz účet Baidu aktivujte.
    
-       ![][4]
+   ![][4]
 
 Po aktivaci účtu Baidu se přihlaste na [portál Baidu].
 
@@ -449,6 +449,6 @@ Pro odeslání testovacího oznámení můžete použít kartu ladění na port�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

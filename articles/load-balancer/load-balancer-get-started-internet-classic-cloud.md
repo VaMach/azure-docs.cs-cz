@@ -1,5 +1,5 @@
 ---
-title: "Začínáme vytvářet internetový nástroj pro vyrovnávání zatížení pro cloudové služby v modelu nasazení Classic | Dokumentace Microsoftu"
+title: "Vytvoření internetového nástroje pro vyrovnávání zatížení pro cloudové služby Azure | Dokumentace Microsoftu"
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení pro cloudové služby v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 6a471050a03c8399b0715c331b54636c68fd71cb
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
 
 ---
 
@@ -93,6 +93,6 @@ Další informace najdete ve schématu definice služby pro [test stavu](https:/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

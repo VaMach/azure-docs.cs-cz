@@ -1,5 +1,5 @@
 ---
-title: "Úvod do Storage | Dokumentace Microsoftu"
+title: "Úvod do Azure Storage | Dokumentace Microsoftu"
 description: "Přehled Azure Storage, online úložiště v cloudu od Microsoftu. Naučte se, jak řešení cloudových úložišť co nejlépe využít ve svých aplikacích."
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Úvod do Microsoft Azure Storage
+
 ## <a name="overview"></a>Přehled
 Azure Storage je řešení cloudového úložiště pro moderní aplikace, které se opírají o odolnost, dostupnost a škálovatelnost, aby mohly vyhovět potřebám zákazníků. V tomto článku se vývojáři, profesionálové v oblasti IT a osoby odpovědné za klíčová obchodní rozhodnutí můžou dozvědět:
 
@@ -49,7 +50,7 @@ Azure Storage podporuje klienty běžící na různých operačních systémech 
 
 Azure Premium Storage nabízí podporu vysoce výkonných disků s nízkou latencí pro intenzivní úlohy náročné na oblast vstup/výstup, které běží ve virtuálních počítačích Azure. Se službou Azure Premium Storage můžete několik trvalých datových disků připojit k virtuálnímu počítači a nastavit je tak, aby odpovídaly vašim požadavkům na výkon. Pro maximální výkon vstupů/výstupů se každý datový disk může opřít o SSD disk v Azure Premium Storage. Další informace najdete v tématu [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](storage-premium-storage.md).
 
-## <a name="introducing-the-azure-storage-services"></a>Seznámení se službami Azure Storage Services
+## <a name="introducing-the-azure-storage-services"></a>Seznámení se službami Azure Storage
 Úložiště Azure nabízí tyto čtyři služby: úložiště Blob, úložiště Table, úložiště Queue, a úložiště File.
 
 * Blob Storage ukládá nestrukturované datové objekty. Objekt blob může být jakýkoli druh textu nebo binárních dat, jako je dokument, soubor médií nebo instalátor aplikace. Blob Storage se taky může říkat Úložiště objektů.
@@ -171,7 +172,7 @@ Služba Azure Import/Export nabízí způsob, jak importovat data objektů blob 
 ## <a name="pricing"></a>Ceny
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-## <a name="storage-apis-libraries-and-tools"></a>API úložiště, knihovny a nástroje
+## <a name="storage-apis-libraries-and-tools"></a>Rozhraní API, knihovny a nástroje služby Storage
 Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytvářet požadavky HTTP/HTTPS. Azure Storage dále nabízí programovací knihovny pro několik oblíbených jazyků. Tyto knihovny zjednodušují spoustu aspektů práce s Azure Storage, protože se starají o drobnosti jako synchronní a asynchronní vyvolání, dávkování operací, řízení výjimek, automatické opakování pokusů, operační chování atd. Knihovny jsou aktuálně dostupné pro následující jazyky a platformy, další se připravují:
 
 ### <a name="azure-storage-data-services"></a>Datové služby Azure Storage
@@ -208,6 +209,8 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 
 ### <a name="documentation"></a>Dokumentace
 * [Dokumentace k Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Vytvoření účtu úložiště](storage-create-storage-account.md)
+* [Začínáme se službou Azure Storage v pěti minutách](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>Pro správce
 * [Použití Azure Powershell s Azure Storage](storage-powershell-guide-full.md)
@@ -246,12 +249,8 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [Používání úložiště Queue z Pythonu](storage-python-how-to-use-queue-storage.md)
 * [Používání úložiště File z Pythonu](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Další kroky
-
-* [Vytvoření účtu úložiště](storage-create-storage-account.md)
-* [Začínáme se službou Azure Storage v pěti minutách](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

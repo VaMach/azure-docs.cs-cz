@@ -1,5 +1,5 @@
 ---
-title: "Načtení dat do SQL Data Warehouse pomocí nástroje Data Platform Studio od společnosti Redgate | Dokumentace Microsoftu"
+title: "Použití Redgate k načítání dat do datového skladu Azure | Dokumentace Microsoftu"
 description: "Naučte se používat Data Platform Studio od společnosti Redgate ve scénářích datového skladu."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
 
 
 ---
@@ -126,7 +126,7 @@ Pokud chcete prozkoumat data v SQL Data Warehouse, projděte si tyto zdroje info
 Další informace o nástroji Data Platform Studio od společnosti Redgate:
 
 * [Domovská stránka DPS](http://www.dataplatformstudio.com/)
-* [Ukázka DPS na Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Ukázka DPS na Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Přehled jiných způsobů migrace a načítání dat do SQL Data Warehouse:
 
@@ -154,6 +154,6 @@ Další tipy pro vývoj najdete v části [Přehled vývoje SQL Data Warehouse](
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

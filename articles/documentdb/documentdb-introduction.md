@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,13 +87,21 @@ DocumentDB umožňuje psát logiku aplikace jako pojmenované programy vytvořen
 
 Spouštění JavaScriptu v rámci DocumentDB je modelováno podle konceptů podporovaných relačními databázovými systémy. JavaScript zde slouží jako moderní náhrada Transact-SQL. Všechna logika JavaScriptu se spouští v ambientní transakci ACID s izolací snímku. Pokud během spouštění JavaScript vyvolá výjimku, je celá transakce zrušena.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>Existují nějaké online kurzy pro DocumentDB?
+
+Ano, existuje kurz [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) pro Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Další kroky
 Máte už účet Azure? Pak můžete začít s DocumentDB na webu [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [vytvořením databázového účtu DocumentDB](documentdb-create-account.md).
 
 Nemáte účet Azure? Můžete:
 
 * Zaregistrovat se k [bezplatné zkušební verzi Azure](https://azure.microsoft.com/free/), s níž získáte 30 dnů a 200 USD na vyzkoušení všech služeb Azure. 
-* Pokud máte předplatné MSDN, jste oprávněni získat [bezplatný kredit Azure v hodnotě 150 USD měsíčně](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), který můžete využít pro libovolnou službu Azure. 
+* Pokud máte předplatné MSDN, jste oprávněni získat [bezplatný kredit Azure v hodnotě&150; USD měsíčně](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), který můžete využít pro libovolnou službu Azure. 
 * Stáhněte si [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md) pro místní vývoj aplikací.
 
 Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu kurzů](https://azure.microsoft.com/documentation/learning-paths/documentdb/), kde si můžete projít všechny pro vás dostupné materiály. 
@@ -103,6 +111,6 @@ Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu k
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,17 +1,24 @@
 # Přehled
+
 ## [Co je Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [Co je Studio?](machine-learning-what-is-ml-studio.md)
-### [Možnosti sady Studio](machine-learning-studio-overview-diagram.md)
-### [Infografika: Základy ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Vědecké zpracování týmových dat
 ### [Přehled](http://aka.ms/datascienceprocess)
 ### [Životní cyklus](data-science-process-overview.md)
 ### [Návody](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [Co je Studio?](machine-learning-what-is-ml-studio.md)
+### [Možnosti sady Studio](machine-learning-studio-overview-diagram.md)
+### [Infografika: Základy ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Nejčastější dotazy](machine-learning-faq.md)
 ## [Co je nového?](machine-learning-whats-new.md)
+
 # Začínáme
+
 ## [Vytvoření prvního experimentu](machine-learning-create-experiment.md)
+
 ## Ukázka podrobného postupu
 ### [Vytvoření prediktivního řešení](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Vytvoření pracovního prostoru](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Trénování a vyhodnocení](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Nasazení webové služby](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Přístup k webové službě](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Vědecké zpracování dat pro začátečníky
 ### [1: Pět dotazů](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Jsou vaše data připravená?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [Rychlý start s R](machine-learning-r-quickstart.md)
 
-
 # Postup
+
 ## Nastavení nástrojů a pomůcek
 ### [Nastavení prostředí](machine-learning-data-science-environment-setup.md)
 ### [Nastavení virtuálních počítačů](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Řešení problémů](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Nasazení pomocí architektury ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Vytvoření v jiné oblasti](machine-learning-multi-geo.md)
+
 ## Analýza obchodních potřeb
 ### [Technické potřeby](machine-learning-data-science-plan-your-environment.md)
 ### [Určení scénáře](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Získání dat a jejich pochopení
 ### Načtení dat do úložiště
 #### [Přehled](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Modely skóre](machine-learning-data-science-spark-model-consumption.md)
 ##### [Pokročilé zkoumání dat](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Použití Scaly a Sparku](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Vývoj modelů
 ### Technické a vybrané funkce
 #### [Přehled](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [Výběr funkcí TDSP](machine-learning-data-science-select-features.md)
 ### Vytvoření a trénování modelů
 #### [Převod na bodování](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Správa životního cyklu experimentů](machine-learning-version-control.md)
 #### [Správa iterací](machine-learning-manage-experiment-iterations.md)
 #### [Vytváření modelů přes PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Výběr algoritmů
@@ -120,11 +132,11 @@
 ##### [Spouštění skriptů R](machine-learning-extend-your-experiment-with-r.md)
 ##### [Tvorba vlastních modulů R](machine-learning-custom-r-modules.md)
 ##### [Spouštění skriptů Pythonu](machine-learning-execute-python-scripts.md)
+
 ## Modely nasazení a využití
 ### [Přehled](machine-learning-deploy-consume-web-service-guide.md)
 ### Modely nasazení
 #### [Jak to funguje](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Nasazení nové webové služby](machine-learning-webservice-deploy-a-web-service.md)
 #### [Nasazení webové služby](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Použití externích dat](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Nasazení v několika oblastech](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Použití Excelu](machine-learning-consuming-from-excel.md)
 #### [Použití doplňků Excelu](machine-learning-excel-add-in-for-web-services.md)
 #### [Použití šablony webové aplikace](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Příklady
 ### [Ukázkové experimenty](machine-learning-sample-experiments.md)
 ### [Ukázkové datové sady](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Použití SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Referenční informace
+
 ## [Modul PowerShell (nový)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [Modul PowerShell (klasický)](machine-learning-powershell-module.md)
 ## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [REST API – referenční informace](/rest/api/machinelearning)
+## [Kódy chyb webových služeb](machine-learning-web-service-error-codes.md)
 
 # Související
 
@@ -176,6 +191,7 @@
 ### [Kurzy](machine-learning-gallery-tutorials.md)
 ### [Kolekce](machine-learning-gallery-collections.md)
 ### [Vlastní moduly](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### Rozhraní API
 #### [Detekce anomálií](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Nastavení](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Zdroje a prostředky
-## [Kódy chyb rozhraní REST služby Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Přehled funkcí Azure Batch pro vývojáře | Dokumentace Microsoftu"
+title: "Přehled služby Azure Batch pro vývojáře | Dokumentace Microsoftu"
 description: "Informace o funkcích služby Batch a jejích rozhraní API z hlediska vývoje."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Při vytváření fondu můžete zadat následující atributy:
     Všechny uzly ve fondu mají stejnou velikost. Pokud máte v úmyslu spouštět aplikace s různými požadavky na systém nebo úrovně zatížení, doporučujeme vám používat oddělené fondy.
 * **Cílový počet uzlů**
 
-    Toto je počet výpočetních uzlů, které chcete ve fondu nasadit. Označuje se jako *cílový* proto, že v některých situacích nemusí váš fond dosáhnout požadovaného počtu uzlů. Fond nemusí dosáhnout požadovaného počtu uzlů, pokud dosáhne [základní kvóty](batch-quota-limit.md#batch-account-quotas) pro váš účet Batch nebo pokud existuje vzorec automatického škálování, který jste použili pro fond a který omezuje maximální počet uzlů (viz následující část „Zásady škálování“).
+    Toto je počet výpočetních uzlů, které chcete ve fondu nasadit. Označuje se jako *cílový* proto, že v některých situacích nemusí váš fond dosáhnout požadovaného počtu uzlů. Fond nemusí dosáhnout požadovaného počtu uzlů, pokud dosáhne [základní kvóty](batch-quota-limit.md) pro váš účet Batch nebo pokud existuje vzorec automatického škálování, který jste použili pro fond a který omezuje maximální počet uzlů (viz následující část „Zásady škálování“).
 * **Zásady škálování**
 
     Pro dynamické úlohy můžete pro fond napsat a použít [vzorec automatického škálování](#scaling-compute-resources). Služba Batch pak vzorec pravidelně vyhodnocuje a upravuje počet uzlů v rámci fondu na základě různých vámi zadaných parametrů fondu, úloh a úkolů.
@@ -489,6 +489,6 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

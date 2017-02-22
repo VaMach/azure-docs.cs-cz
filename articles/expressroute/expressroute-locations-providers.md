@@ -1,10 +1,10 @@
 ---
-title: "Umístění ExpressRoute | Dokumentace Microsoftu"
-description: "Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure."
+title: "Umístění a poskytovatelé připojení: Azure ExpressRoute | Dokumentace Microsoftu"
+description: "Tento článek obsahuje podrobný přehled o umístěních, kde jsou nabízené služby, a jak se připojit k oblastem Azure. Řazení je podle umístění."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
-ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
-
+ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
+ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
+
+> [!div class="op_single_selector"]
+> * [Umístění podle poskytovatele](expressroute-locations.md)
+> * [Poskytovatelé podle umístění](expressroute-locations-providers.md)
+
+
 Tabulky v tomto článku poskytují informace o poskytovatelích připojení ExpressRoute, zeměpisném pokrytí ExpressRoute, cloudových službách Microsoftu podporovaných přes ExpressRoute a systémových integrátorech (SI) ExpressRoute.
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Poskytovatelé připojení ExpressRoute
@@ -35,37 +40,37 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- |
-| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Západní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střed USA – západ, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Québec, Toronto |
 | **Jižní Amerika** |Brazílie – jih |Sao Paulo |
 | **Evropa** |Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih |Amsterdam, Dublin, Londýn, Newport (Wales), Paříž |
 | **Asie** |Východní Asie, Jihovýchodní Asie |Hongkong, Singapur |
 | **Japonsko** |Japonsko – západ, Japonsko – východ |Ósaka, Tokio |
 | **Austrálie** |Austrálie – jihovýchod, Austrálie – východ |Melbourne, Sydney |
 | **Indie** |Indie – západ, Indie – střed, Indie – jih |Čennaj, Bombaj |
+| **Jižní Korea** |Korea – střed, Korea – jih |Busan, Soul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Oblasti a geopolitické hranice pro národní cloudy
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia |Chicago, Dallas, New York, Washington DC |
+| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia, US DoD – střed, US DoD – východ  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **Čína** |Severní Čína, Východní Čína |Peking, Šanghaj |
 | **Německo** |Střední Německo, Východní Německo |Berlín, Frankfurt |
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Umístění poskytovatele připojení
-> [!div class="op_single_selector"]
-> * [Umístění podle poskytovatele](expressroute-locations.md#locations)
-> * [Poskytovatelé podle umístění](expressroute-locations-providers.md#locations)
-> 
-> 
+
+Následující tabulka uvádí umístění připojení a poskytovatele služby pro každé umístění. Seznam poskytovatelů služeb a umístění, ve kterých působí, najdete v článku [Umístění podle poskytovatelů služeb](expressroute-locations.md#locations). 
+
 
 ### <a name="production-azure"></a>Produkční prostředí Azure
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions – Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions – Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
+| **Busan** |LG CNS+, Sejong Telecom |
 | **Čennaj** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -75,16 +80,18 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **New York** |Equinix, Megaport, Zayo Group |
+| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Next Generation Data |
-| **Montreal** |Cologix+ |
+| **Montreal** |Cologix |
 | **Bombaj** |Tata Communications |
 | **Ósaka** |Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, Softbank |
 | **Paříž** |Interxion, Equinix+ |
+| **Québec** | Megaport |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
+| **Soul** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
@@ -98,8 +105,9 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |Equinix, Verizon |
+| **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
+| **Silicon Valley** | Equinix |
 | **Washington, D.C.** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Čína
@@ -113,7 +121,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 ### <a name="germany"></a>Německo
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
-| **Berlín** |Colt+, e-shelter |
+| **Berlín** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
@@ -134,12 +142,14 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 
 | **Umístění** | **Výměna** | **Poskytovatelé připojení** |
 | --- | --- | --- |
-| **Londýn** | Equinix | Exponential E |
+| **Amsterdam** | Equinix | Eurofiber |
+| **Londýn** | Equinix | Exponential E, HSO |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapur** |Equinix |1CLOUDSTAR |
-| **Sydney** | Megaport | Macquarie |
+| **Sydney** | Megaport | Macquarie Telecom Group|
+| **Tokio** | Equinix | ARTERIA Networks Corporation |
 | **Washington, D.C.** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Systémoví integrátoři ExpressRoute
@@ -148,9 +158,10 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 | **Kontinent** | **Systémoví integrátoři** |
 | --- | --- |
 | **Asie** |Avanade Inc., OneAs1a |
-| **Evropa** |Avanade Inc., Dotnet Solutions |
-| **USA** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **Austrálie** | IT Consultancy |
+| **Evropa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Severní Amerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **Jižní Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Další kroky
 * Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 * Zkontrolujte, že jsou splněné všechny požadavky. Viz [Požadavky služby ExpressRoute](expressroute-prerequisites.md).
@@ -160,6 +171,6 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

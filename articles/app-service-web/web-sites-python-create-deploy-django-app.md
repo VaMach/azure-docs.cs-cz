@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Vytvoříte aplikaci pomocí webového rozhraní Django (pro rozhraní [Flask](w
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -112,10 +112,10 @@ Externí balíčky vyžadované touto aplikací. Skript nasazení nainstaluje n�
 
 Konfigurační soubory služby IIS. Skript nasazení použije příslušný soubor web.x.y.config a zkopíruje jej jako soubor web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Volitelné soubory – přizpůsobení nasazení
+### <a name="optional-files---customizing-deployment"></a>Volitelné soubory – přizpůsobení nasazení
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Volitelné soubory – modul Python runtime
+### <a name="optional-files---python-runtime"></a>Volitelné soubory – modul Python runtime
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Další soubory na serveru
@@ -135,7 +135,7 @@ Následující 3 části popisují postup při vývoji webové aplikace ve 3 rů
 * Windows s příkazovým řádkem
 * Mac/Linux s příkazovým řádkem
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Vývoj webových aplikací – Windows – nástroje Python Tools pro Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Vývoj webových aplikací – Windows – nástroje Python Tools pro Visual Studio
 ### <a name="clone-the-repository"></a>Klonování úložiště
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
@@ -201,7 +201,7 @@ Sada Visual Studio nezobrazuje průběh nasazení. Chcete-li překontrolovat vý
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-## <a name="web-app-development-windows-command-line"></a>Vývoj webových aplikací – Windows – příkazový řádek
+## <a name="web-app-development---windows---command-line"></a>Vývoj webových aplikací – Windows – příkazový řádek
 ### <a name="clone-the-repository"></a>Klonování úložiště
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
@@ -281,7 +281,7 @@ Zobrazí se výstup skriptu nasazení, včetně vytvoření virtuálního prost�
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-## <a name="web-app-development-maclinux-command-line"></a>Vývoj webových aplikací – Mac/Linux – příkazový řádek
+## <a name="web-app-development---maclinux---command-line"></a>Vývoj webových aplikací – Mac/Linux – příkazový řádek
 ### <a name="clone-the-repository"></a>Klonování úložiště
 Nejprve naklonujte úložiště pomocí adresy URL poskytnuté na portálu Azure a přidejte úložiště Azure jako vzdálené. Další informace naleznete v tématu [Místní nasazení přes Git do Azure App Service](app-service-deploy-local-git.md).
 
@@ -365,13 +365,13 @@ Zobrazí se výstup skriptu nasazení, včetně vytvoření virtuálního prost�
 
 Chcete-li zobrazit změny, přejděte na adresu URL Azure.
 
-## <a name="troubleshooting-package-installation"></a>Řešení potíží – instalace balíčku
+## <a name="troubleshooting---package-installation"></a>Řešení potíží – instalace balíčku
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Řešení potíží – virtuální prostředí
+## <a name="troubleshooting---virtual-environment"></a>Řešení potíží – virtuální prostředí
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Řešení potíží – statické soubory
+## <a name="troubleshooting---static-files"></a>Řešení potíží – statické soubory
 Rozhraní Django obsahuje koncepci shromažďování statických souborů. Tato akce kopíruje veškeré statické soubory z původního umístění do jediné složky. V případě této aplikace jsou kopírovány do složky `/static`.
 
 Tato akce se provádí proto, že statické soubory mohou pocházet z různých „aplikací“ Django. Statické soubory z rozhraní správce Django jsou například umístěny v podsložce knihovny Django ve virtuálním prostředí. Statické soubory definované touto aplikací jsou umístěny ve složce `/app/static`. Při používání vícero „aplikací“ Django se statické soubory nacházejí na více místech.
@@ -392,7 +392,7 @@ Potom bude nutné provést shromažďování ručně v místním počítači:
 
 Potom odeberte složku `\static` z `.gitignore` a přidejte ji do úložiště Git.
 
-## <a name="troubleshooting-settings"></a>Řešení potíží – nastavení
+## <a name="troubleshooting---settings"></a>Řešení potíží – nastavení
 Různá nastavení aplikace lze změnit v souboru `DjangoWebProject/settings.py`.
 
 Z důvodu usnadnění práce vývojářů je povolen režim ladění. Díky tomu je například možné při místním spuštění zobrazit obrázky a další statický obsah, aniž by bylo nutné shromažďovat statické soubory.
@@ -467,6 +467,6 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

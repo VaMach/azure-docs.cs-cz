@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-users-create-external-azure-portal.md)
 > * [Portál Azure Classic](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
 
@@ -34,7 +34,7 @@ Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve sl
 2. Vyberte **Active Directory** a otevřete svůj adresář.
 3. Vyberte kartu **Uživatelé** a na panelu příkazů vyberte **Přidat uživatele**.
 4. Na stránce **Informace o uživateli** vyberte v části **Typ uživatele** jedno z následujících:
-   
+
    * **Uživatel z jiného adresáře služby Azure AD** – přidá do vašeho adresáře uživatele, který pochází z jiného adresáře služby Azure AD. Uživatele z jiného adresáře můžete vybrat pouze v případě, že jste také členem daného adresáře.
    * **Uživatelé z partnerských společností** – pokud chcete do svého adresáře pozvat a autorizovat uživatele z partnerských společností. Další informace najdete v článku [Spolupráce B2B ve službě Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md). Budete muset [nahrát soubor .csv s e-mailovými adresami](active-directory-b2b-references-csv-file-format.md).
 5. Na stránce **Profil** uživatele zadejte jeho jméno, příjmení a uživatelské jméno a ze seznamu **Role** vyberte roli uživatele. Další informace o rolích uživatelů a správců najdete v článku [Přiřazení rolí správce ve službě Azure AD](active-directory-assign-admin-roles.md). Určete, jestli u uživatele chcete **Povolit službu Multi-Factor Authentication**.
@@ -42,11 +42,11 @@ Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve sl
 
 > [!IMPORTANT]
 > Pokud vaše organizace používá více než jednu doménu, měli byste vědět o následujících problémech týkajících se přidávání uživatelských účtů:
-> 
+>
 > * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com, **jako první** a **až potom** geoffgrisso@contoso.com.
-> * **Nepřidávejte** geoffgrisso@contoso.com dřív než geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
-> 
-> 
+> * **Nepřidávejte** geoffgrisso@contoso.com předtím, než přidáte geoffgrisso@contoso.onmicrosoft.com. Správné pořadí je důležité a náprava chyby může být náročná.
+>
+>
 
 Pokud chcete měnit informace u uživatele, jehož identita je synchronizována s místní službou Active Directory, nemůžete k tomu použít portál Azure Classic. Ke změně informací o uživateli použijte nástroje pro správu vaší místní služby Active Directory.
 
@@ -62,8 +62,8 @@ Jediné propojení, které mezi těmito dvěma účty existuje, spočívá v tom
 
 > [!NOTE]
 > Uživatele pořád můžete zakázat ve svém adresáři a zablokovat mu tak přístup do adresáře.
-> 
-> 
+>
+>
 
 Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstraněn ze svého domovského adresáře nebo zruší svůj účet Microsoft. Tento uživatel ale nebude mít přístup k prostředkům ve vašem adresáři, protože se nemůže ověřit prostřednictvím domovského adresáře nebo účtu Microsoft.
 
@@ -79,6 +79,7 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 * Služba PowerBI v současnosti přístup externích uživatelů nepodporuje.
 * Portál Office nepodporuje licencování externích uživatelů.
 * V rozhraní Azure AD PowerShell jsou externí uživatelé přihlašováni ke svým domovským adresářům a nemůžou spravovat adresáře, ve kterých jsou externími uživateli.
+* Při konfiguraci modulu plug-in Dynamics CRM Outlook se může stát, že externí uživatelé budou muset místo výběru CRM Online ručně zadat adresu URL tenanta Dynamics CRM Online.
 
 ## <a name="whats-next"></a>Kam dál
 * [Přidání nových uživatelů do služby Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

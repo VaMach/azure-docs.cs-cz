@@ -99,6 +99,6 @@ Když ho budete chtít zase použít, klikněte na tlačítko **Spustit **.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

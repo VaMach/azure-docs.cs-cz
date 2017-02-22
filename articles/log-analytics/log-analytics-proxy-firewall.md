@@ -1,5 +1,5 @@
 ---
-title: "Konfigurace nastavení proxy serveru a brány firewall v Log Analytics | Dokumentace Microsoftu"
+title: "Konfigurace nastavení proxy serveru a brány firewall ve službě Azure Log Analytics | Dokumentace Microsoftu"
 description: "Nakonfigurujte nastavení proxy serveru a brány firewall, pokud vaši agenti nebo služby OMS potřebují používat konkrétní porty."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Konfigurace nastavení proxy serveru a brány firewall v Log Analytics
-Akce potřebné ke konfiguraci nastavení proxy serveru a brány firewall pro Log Analytics v OMS se liší podle toho, zda používáte Operations Manager a jeho agenty, nebo agenty Microsoft Monitoring Agent, kteří se připojují přímo k serverům. Přečtěte si následující oddíly pro typ agenta, který používáte.
+Akce potřebné ke konfiguraci nastavení proxy serveru a brány firewall pro službu Log Analytics se liší podle typu agentů, které používáte. Přečtěte si následující oddíly pro typ agenta, který používáte.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Konfigurace nastavení proxy serveru a brány firewall pomocí Microsoft Monitoring Agent
+## <a name="settings-for-the-oms-gateway"></a>Nastavení pro bránu OMS
+
+Pokud vaši agenti nemají přístup k internetu, můžou použít vlastní síťové prostředky k odesílání dat do brány OMS. Brána shromažďuje jejich data a odesílá je do OMS za ně.
+
+Agenty komunikující s bránou OMS nakonfigurujte s použitím jejího plně kvalifikovaného názvu domény a vlastního čísla portu.
+
+Brána OMS potřebuje přístup k internetu. Pro bránu OMS použijte stejné nastavení proxy serveru nebo brány firewall, jaké jste použili pro agenty. Další informace o bráně OMS najdete v tématu [Připojení počítačů a zařízení k OMS pomocí brány OMS](log-analytics-oms-gateway.md).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Konfigurace nastavení pomocí agenta Microsoft Monitoring Agent
 Microsoft Monitoring Agent musí mít přístup k číslu portu vašich domén a k adresám URL, aby se mohl připojit a zaregistrovat do služby OMS. Pokud ke komunikaci mezi agentem a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Používáte-li k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup k OMS. Porty, které OMS potřebuje, jsou uvedené v následujících tabulkách.
 
 | **Prostředek agenta** | **Porty** | **Obejití kontroly protokolu HTTPS** |
@@ -71,7 +79,7 @@ Zkopírujte následující ukázku kódu, aktualizujte ji pomocí informací spe
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Konfigurace nastavení proxy serveru a brány firewall pomocí nástroje Operations Manager
+## <a name="configure-settings-with-operations-manager"></a>Konfigurace nastavení pomocí nástroje Operations Manager
 Skupina pro správu nástroje Operations Manager musí mít přístup k číslu portu vašich domén a k adresám URL, aby se mohla připojit a zaregistrovat do služby OMS. Pokud ke komunikaci mezi serverem pro správu nástroje Operations Manager a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Používáte-li k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup k OMS. I v případě, že server pro správu nástroje Operations Manager není za proxy server, mohou tam být jeho agenti. V tom případě by měl být proxy server nakonfigurován stejným způsobem jako agenti, aby bylo možné zapnout a povolit odesílání dat z řešení Zabezpečení a správa protokolů do webové služby OMS.
 
 Pro zajištění komunikace mezi agenty nástroje Operations Manager a službou OMS by vaše infrastruktura nástroje Operations Manager (včetně agentů) měla mít správné nastavení proxy serveru a správnou verzi. Nastavení proxy serveru pro agenty se zadává v konzole nástroje Operations Manager. Vaše verze by měla být jedna z těchto:
@@ -180,6 +188,6 @@ Nebo můžete sady Management Pack pro OMS zkontrolovat pomocí následujícího
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

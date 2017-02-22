@@ -1,6 +1,6 @@
 ---
-title: "Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway pro virtuální sítě Azure | Dokumentace Microsoftu"
-description: "Tento článek popisuje zařízení VPN a parametry protokolu IPsec pro připojení typu S2S ke službě VPN Gateway a obsahuje odkazy na pokyny ke konfiguraci a ukázky."
+title: "Zařízení VPN pro připojení mezi různými místy pomocí Azure | Dokumentace Microsoftu"
+description: "Tento článek probírá zařízení VPN a parametry protokolu IPsec pro připojení mezi různými místy pomocí VPN Gateway typu S2S. V článku najdete také odkazy na pokyny a příklady pro konfiguraci."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
-Ke konfiguraci připojení typu Site-to-Site (S2S) VPN je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace.
+Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace.
 
 > [!NOTE]
 > Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
 | --- | --- | --- |
 | Verze IKE |IKEv1 |IKEv2 |
-| Algoritmus hash |SHA1(SHA128) |SHA1(SHA128) |
+| Algoritmus hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Životnost přidružení zabezpečení (SA) Fáze 2 (čas) |3&600; sekund |3&600; sekund |
 | Životnost přidružení zabezpečení (SA) Fáze 2 (propustnost) |102&400;&000; kB |- |
 | Nabídky šifrování SA protokolu IPsec a ověřování (v pořadí podle preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Není k dispozici |Viz *Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased* (níže). |
@@ -153,6 +153,6 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

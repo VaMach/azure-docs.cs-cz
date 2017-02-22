@@ -1,5 +1,5 @@
 ---
-title: " Odeslání souborů do účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftu"
+title: " Odeslání souborů do účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftus"
 description: "Tento kurz vás provede kroky pro odeslání souborů do účtu služby Azure Media Services pomocí webu Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -29,9 +29,16 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 > [!NOTE]
 > K dokončení tohoto kurzu potřebujete mít účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
-> 
+
 
 Ve službě Media Services můžete digitální soubory nahrát do assetu. Asset může obsahovat video, zvuk, obrázky, kolekci miniatur, textové stopy a soubory titulků (a metadata o těchto souborech.) Jakmile soubory odešlete, bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování.
+
+
+## <a name="upload-files"></a>Nahrání souborů
+
+>[!NOTE]
+>Maximální velikost souboru podporovaná při zpracování ve službě Media Services je omezená. Podrobnosti o omezení velikosti souboru najdete [tady](media-services-quotas-and-limitations.md).
+>
 
 1. Na webu [Azure Portal](https://portal.azure.com/) zvolte účet Azure Media Services.
 2. V okně **Nastavení** klikněte na **Assety**.
@@ -54,6 +61,8 @@ Po dokončení nahrávání se nový prostředek zobrazí v okně **Assety**.
 ## <a name="next-steps"></a>Další kroky
 Nyní můžete kódovat nahrané assety. Další informace najdete v tématu [Kódování assetů](media-services-portal-encode.md).
 
+Můžete také použít službu Azure Functions k aktivaci úlohy kódování při příchodu souboru do nakonfigurovaného kontejneru. Další informace najdete v [této ukázce](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -63,6 +72,6 @@ Nyní můžete kódovat nahrané assety. Další informace najdete v tématu [K�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

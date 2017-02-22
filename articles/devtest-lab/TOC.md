@@ -21,11 +21,19 @@
 ### [Přidání úložiště artefaktů](devtest-lab-add-artifact-repo.md)
 ### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
 
-## Správa bází virtuálních počítačů
-### [Vytvoření vlastní image](devtest-lab-create-template.md)
+## Správa šablon a bází virtuálních počítačů
+### [Vytvoření prostředí více virtuálních počítačů pomocí šablony Azure Resource Manageru](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurace imagí Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Správa vzorců](devtest-lab-manage-formulas.md)
 ### [Srovnání imagí a vzorců](devtest-lab-comparing-vm-base-image-types.md)
+### [Správa vzorců](devtest-lab-manage-formulas.md)
+### [Vytvoření vlastní image z virtuálního počítače](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Vytvoření vlastní image z VHD pomocí webu Azure Portal](devtest-lab-create-template.md)
+### [Vytvoření vlastní image z VHD pomocí PowerShellu](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Nahrání souboru VHD pomocí AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [Nahrání souboru VHD pomocí PowerShellu](devtest-lab-upload-vhd-using-powershell.md)
+### [Nahrání souboru VHD pomocí průzkumníka úložišť](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # Zdroje a prostředky
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -35,6 +43,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

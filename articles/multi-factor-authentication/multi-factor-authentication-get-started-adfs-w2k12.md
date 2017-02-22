@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86a4bc7ea89416f2c67626439f08fa615a2e6511
+ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
+ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
 
 
 ---
-# <a name="secure-your-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Zabezpečení cloudových a místních prostředků pomocí Azure Multi-Factor Authentication Serveru s AD FS ve Windows Serveru 2012 R2
+# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Zabezpečení cloudových a místních prostředků pomocí Azure Multi-Factor Authentication Serveru s AD FS ve Windows Serveru 2012 R2
 Pokud používáte službu AD FS (Active Directory Federation Services) a chcete zabezpečit cloudové nebo místní prostředky, můžete nakonfigurovat Azure Multi-Factor Authentication Server pro práci se službou AD FS. Tato konfigurace aktivuje u citlivých koncových bodů dvoustupňové ověřování.
 
 V tomto článku se podíváme na to, jak používat Azure Multi-Factor Authentication Server s AD FS v systém Windows Server 2012 R2. Další informace najdete v tématu [Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multifactor-authentication-server"></a>Zabezpečení Windows Serveru 2012 R2 AD FS pomocí Azure Multi-Factor Authentication Serveru
+## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Zabezpečení Windows Serveru 2012 R2 AD FS pomocí Azure Multi-Factor Authentication Serveru
 Azure Multi-Factor Authentication Server můžete instalovat různě:
 
 * Nainstalujte Azure Multi-Factor Authentication Server lokálně na stejném serveru jako AD FS.
@@ -39,7 +39,7 @@ Před zahájením se ujistěte, že znáte následující informace:
 * Průvodce instalací adaptéru Multi-Factor Authentication AD FS vytvoří v instanci Active Directory skupinu zabezpečení s názvem PhoneFactor Admins. Potom přidá účet služby AD FS vaší služby federace do této skupiny. Doporučujeme, abyste v řadiči domény ověřili, že se skupina PhoneFactor Admins opravdu vytvořila a mezi jejími členy je účet služby AD FS. Pokud je to nutné, přidejte v řadiči domény účet služby AD FS do skupiny PhoneFactor Admins ručně.
 * Informace o tom, jak instalovat sadu SDK webové služby pomocí uživatelského portálu, najdete v tématu [Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
 
-### <a name="install-azure-multifactor-authentication-server-locally-on-the-ad-fs-server"></a>Instalace Azure Multi-Factor Authentication Server místně na serveru AD FS
+### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalace Azure Multi-Factor Authentication Server místně na serveru AD FS
 1. Stáhněte a nainstalujte Azure Multi-Factor Authentication Server na server AD FS. Informace o instalaci se dočtete v tématu [Začínáme s Azure Multi-Factor Authentication Serverem](multi-factor-authentication-get-started-server.md).
 2. V konzole pro správu Azure Multi-Factor Authentication Serveru klikněte na ikonu **služby AD FS** a potom vyberte možnosti **Povolit zápis uživatele** a **Povolit uživatelům výběr metody**.
 3. Vyberte další možnosti, které byste chtěli pro svou organizaci nastavit.
@@ -93,7 +93,7 @@ Pokud nechcete použít uživatelské jméno a heslo, postupujte podle těchto k
 3. Exportujte veřejný a privátní klíč klientského certifikátu do souboru .pfx.  
 4. Exportujte veřejný klíč ve formátu Base64 do souboru .cer.  
 5. Ve Správci serveru zkontrolujte, že je nainstalovaná funkce Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication. Pokud nainstalovaná není, přidejte ji kliknutím na **Přidat role a funkce**.  
-6. Ve Správci IIS na webové stránce, která obsahuje virtuální adresář sady SDK webové služby, poklikejte na **Editor konfigurace**. Tento krok je důležité provést na úrovni webové stránky, ne na úrovni virtuálního adresáře.  
+6. Ve Správci IIS na webové stránce, která obsahuje virtuální adresář sady SDK webové služby, poklikejte na **Editor konfigurace**. Je důležité vybrat na web, a ne virtuální adresář.  
 7. Přejděte do oddílu **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
 8. Hodnotu enabled nastavte na **true**.  
 9. Hodnotu oneToOneCertificateMappingsEnabled nastavte na **true**.  
@@ -116,12 +116,34 @@ Pokud nechcete použít uživatelské jméno a heslo, postupujte podle těchto k
 
 V prostředí PowerShell spusťte skript \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1. Adaptér je zaregistrovaný jako WindowsAzureMultiFactorAuthentication. Restartujte službu AD FS, aby se registrace projevila.
 
+## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpečení prostředků Azure AD pomocí služby AD FS
+K zabezpečení cloudových prostředků nastavte pravidlo deklarace identity tak, aby služba Active Directory Federation Services vyslala deklaraci identity multipleauthn, když uživatel úspěšně provede dvoustupňové ověření. Tato deklarace identity se předá Azure AD. Postupujte takto:
+
+1. Otevřete správu služby AD FS.
+2. Na levé straně vyberte **Vztahy důvěryhodnosti předávající strany**.
+3. Klikněte pravým tlačítkem na **Platforma identit Microsoft Office 365** a vyberte **Upravit pravidla deklarací identity**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+4. V pravidlech transformace vystavení klikněte na **Přidat pravidlo**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. V Průvodci přidáním pravidla – deklarace identity transformace vyberte v rozevíracím seznamu **Předávat nebo filtrovat příchozí deklarace** a klikněte na **Další**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Pojmenujte pravidlo. 
+7. Jako typ příchozí deklarace identity vyberte **Odkazy na metody ověřování**.
+8. Vyberte **Předávat všechny hodnoty deklarací identity**.
+    ![	Průvodce přidáním pravidla – deklarace identity transformace](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Klikněte na **Dokončit**. Uzavřete konzolu pro správu služby AD FS.
+
 ## <a name="related-topics"></a>Související témata
 Pomoc při řešení potíží najdete v tématu [Nejčastější dotazy ke službě Azure Multi-Factor Authentication](multi-factor-authentication-faq.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

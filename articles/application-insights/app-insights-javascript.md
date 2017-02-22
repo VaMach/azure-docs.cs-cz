@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -72,7 +72,7 @@ Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a
       // Insert here
     });
 
- [Dostupné parametry](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) zahrnují:
+[Dostupné parametry](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) zahrnují:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -170,7 +170,7 @@ Klikněte na libovolný řádek pro konkrétní podrobnosti.
 Klikněte na tlačítko `...` pro úplnou telemetrii volání Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Žádná nahlášená volání Ajax?
-Volání AJAX zahrnují HTTP volání ze skriptu webové stránky. Pokud je nevidíte nahlášená, zkontrolujte, zda fragment kódu nenastavil parametry `disableAjaxTracking` nebo `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Volání AJAX zahrnují HTTP/HTTPS volání ze skriptu webové stránky. Pokud je nevidíte nahlášená, zkontrolujte, zda fragment kódu nenastavil parametry `disableAjaxTracking` nebo `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="browser-exceptions"></a>Výjimky prohlížečů
 V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mřížka typů výjimek.
@@ -193,7 +193,7 @@ Vyberte další události pro zobrazení dalších podrobností. Na stránce pod
 > 
 > 
 
-Při hledání zobrazení stránek můžete také použít výkonný [analytický dotazovací jazyk](app-insights-analytics-tour.md).
+Při hledání zobrazení stránek můžete také použít výkonný [analytický dotazovací jazyk](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table).
 
 ### <a name="page-view-properties"></a>Zobrazení vlastností stránky
 * **Doba trvání zobrazení stránky** 
@@ -230,6 +230,6 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

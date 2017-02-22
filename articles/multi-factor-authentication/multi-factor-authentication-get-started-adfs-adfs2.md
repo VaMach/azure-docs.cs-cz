@@ -12,61 +12,73 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 639f11856fcb0828db2375e428d9f7efe640b5d7
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
 
 
 ---
-# <a name="secure-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-20"></a>Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0
-Tento článek je určený pro organizace, které jsou federované se službou Azure Active Directory a chtějí zabezpečit prostředky, které mají uložené místně nebo v cloudu. Chraňte své prostředky pomocí Azure Multi-Factor Authentication Serveru a jeho nakonfigurováním tak, aby fungoval se službou AD FS a bylo možné spouštět dvoustupňové ověření pro koncové body s vysokou hodnotou.
+# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0
+Tento článek je určený pro organizace, které jsou federované se službou Azure Active Directory a chtějí zabezpečit prostředky, které mají uložené místně nebo v cloudu. Chraňte své prostředky pomocí Azure Multi-Factor Authentication Serveru a jeho nakonfigurováním tak, aby fungoval s AD FS a bylo možné spouštět dvoustupňové ověření pro koncové body vysoké hodnoty.
 
-Tato dokumentace popisuje používání Azure Multi-Factor Authentication Serveru s AD FS 2.0  Další informace najdete v tématu [Zabezpečený cloud a místní prostředky používající ověřování Azure Multi-Factor Authentication Server s Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+Tato dokumentace popisuje používání Azure Multi-Factor Authentication Serveru s AD FS 2.0 Další informace o AD FS najdete v tématu [Zabezpečení cloudových a místních prostředků pomocí Azure Multi-Factor Authentication Serveru s Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md).
 
 ## <a name="secure-ad-fs-20-with-a-proxy"></a>Zabezpečení AD FS 2.0 pomocí serveru proxy
-Pro zabezpečení AD FS 2.0 pomocí serveru proxy nainstalujte Azure Multi-Factor Authentication Server na server proxy služby ADFS a nakonfigurujte ho.
+Pro zabezpečení AD FS 2.0 pomocí proxy serveru nainstalujte Azure Multi-Factor Authentication Server na proxy server služby AD FS.
 
 ### <a name="configure-iis-authentication"></a>Konfigurace ověřování IIS
-1. V Azure Multi-Factor Authentication Serveru klikněte v levé nabídce na ikonu **ověřování IIS**.
+1. V rámci Azure Multi-Factor Authentication Serveru klikněte na ikonu **Ověřování IIS** v levé nabídce.
 2. Klikněte na kartu **Založené na formulářích**.
-3. Klikněte na tlačítko **Přidat...** .
+3. Klikněte na tlačítko **Přidat**.
+
    <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
-4. K automatické detekci uživatelského jména, hesla a proměnných domény zadejte adresu URL pro přihlášení (například https://sso.contoso.com/adfs/ls) v rámci dialogového okna Automatická konfigurace webu založeného na formuláři a klikněte na tlačítko OK.
-5. Zaškrtněte políčko **Vyžadovat porovnání uživatele Azure Multi-Factor Authentication**, pokud byli nebo budou všichni uživatelé importováni na server a podstoupí dvoustupňové ověření. Pokud ještě na server nebyl importován velký počet uživatelů nebo budou uživatelé vyloučení z dvoustupňového ověření, nechte toto políčko nezaškrtnuté. Další informace o této funkci najdete v souboru nápovědy.
+
+4. Pokud chcete automaticky detekovat uživatelské jméno, heslo a proměnné domény, zadejte adresu URL pro přihlášení (například https://sso.contoso.com/adfs/ls) v dialogovém okně Automatická konfigurace webové stránky s formuláři a klikněte na **OK**.
+5. Zaškrtněte políčko **Vyžadovat porovnání uživatele Azure Multi-Factor Authentication**, pokud byli nebo budou všichni uživatelé importováni na server a podstoupí dvoustupňové ověření. Pokud ještě na server nebyl importován velký počet uživatelů nebo budou uživatelé vyloučení z dvoustupňového ověření, nechte toto políčko nezaškrtnuté. 
 6. Pokud proměnné stránky nejde rozpoznat automaticky, klikněte na **Zadat ručně...** v dialogovém okně Automatická konfigurace webu na základě formuláře.
-7. V dialogovém okně Přidat web na základě formuláře zadejte adresu URL k přihlašovací stránce do pole Adresa URL pro odeslání (např. https://sso.contoso.com/adfs/ls) a zadejte název aplikace (volitelný). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování. Další informace o Adrese URL pro odeslání naleznete v souboru nápovědy.
-8. Formát požadavku nastavte na „POST nebo GET“.
-9. Zadejte Proměnnou uživatelského jména (ctl00$ContentPlaceHolder1$UsernameTextBox) a Proměnnou hesla (ctl00$ContentPlaceHolder1$PasswordTextBox). Pokud vaše formulářová přihlašovací stránka zobrazí pole pro doménu, zadejte taky Proměnnou domény. Možná bude potřeba přejít na přihlašovací stránku ve webovém prohlížeči, kliknout pravým tlačítkem na stránku a vybrat možnost **Zdroj zobrazení** pro vyhledání názvů vstupních polí v rámci přihlašovací stránky.
+7. V dialogovém okně Přidat webovou stránku s formuláři zadejte adresu URL k přihlašovací stránce služby AD FS do pole Adresa URL pro odeslání (např. https://sso.contoso.com/adfs/ls) a zadejte Název aplikace (volitelný). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování. 
+8. Formát požadavku nastavte na **POST nebo GET**.
+9. Zadejte Proměnnou uživatelského jména (ctl00$ContentPlaceHolder1$UsernameTextBox) a Proměnnou hesla (ctl00$ContentPlaceHolder1$PasswordTextBox). Pokud vaše formulářová přihlašovací stránka zobrazí pole pro doménu, zadejte taky Proměnnou domény. Pokud chcete vyhledat názvy vstupních polí na přihlašovací stránce, přejděte ve webovém prohlížeči na přihlašovací stránku, klikněte na stránku pravým tlačítkem myši a vyberte **Zobrazit zdrojový kód**.
 10. Zaškrtněte políčko **Vyžadovat porovnání uživatele Azure Multi-Factor Authentication**, pokud byli nebo budou všichni uživatelé importováni na server a podstoupí dvoustupňové ověření. Pokud ještě na server nebyl importován velký počet uživatelů nebo budou uživatelé vyloučení z dvoustupňového ověření, nechte toto políčko nezaškrtnuté.
     <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
-11. Klikněte na tlačítko **Upřesnit...** pro kontrolu upřesňujícího nastavení. Nastavení můžete nakonfigurovat včetně schopnosti výběru vlastního souboru odmítnutí stránky, pro ukládání úspěšných ověření na webu do mezipaměti po dobu používání souborů cookie a vybrat, jak chcete ověřit primární přihlašovací údaje.
-12. Protože se server proxy ADFS pravděpodobně nepřipojí do domény, můžete použít LDAP pro připojení k řadiči domény pro předběžné ověření a import uživatelů. V dialogovém okně Rozšířená webová stránka s formuláři klikněte na kartu **Primární ověření** a pro typ ověření předběžného ověření vyberte **Vázání protokolu LDAP**.
-13. Po dokončení klikněte na tlačítko **OK** pro návrat do dialogového okna Přidat web založený na formuláři. Další informace o rozšířeném nastavení naleznete v souboru nápovědy.
-14. Zavřete dialogové okno kliknutím na tlačítko **OK**.
+11. Klikněte na **Upřesnit...** a zkontrolujte upřesňující nastavení. Mezi nastavení, která můžete konfigurovat, patří:
+
+    - Výběr vlastního souboru odmítnutí stránky
+    - Ukládání úspěšných ověření na webu do mezipaměti
+    - Výběr způsobu ověření primárních přihlašovacích údajů
+
+12. Protože se proxy server služby AD FS pravděpodobně nepřipojí k doméně, můžete použít protokol LDAP pro připojení k řadiči domény pro předběžné ověření a import uživatelů. V dialogovém okně Rozšířená webová stránka s formuláři klikněte na kartu **Primární ověření** a pro typ ověření předběžného ověření vyberte **Vázání protokolu LDAP**.
+13. Po dokončení se kliknutím na **OK** vraťte do dialogového okna Přidat webovou stránku s formuláři. 
+14. Kliknutím na **OK** zavřete dialogové okno.
 15. Po zjištění nebo zadání adresy URL a proměnných hodnot stránek se data webové stránky zobrazí v panelu založeném na formulářích.
-16. Klikněte na kartu **Nativní modul** a vyberte server, web, na kterém je spuštěný ADFS proxy (jako Výchozí web) nebo aplikaci ADFS proxy (jako „ls“ v části „adfs“) pro povolení modulu plug-in IIS na požadované úrovni.
+16. Klikněte na kartu **Nativní modul** a vyberte server, web, na kterém je spuštěný proxy server služby AD FS (jako Výchozí web) nebo aplikaci proxy serveru služby AD FS (jako „ls“ v části „adfs“) pro povolení modulu plug-in IIS na požadované úrovni.
 17. Zaškrtněte políčko **Povolit ověřování IIS** v horní části obrazovky.
-18. Teď je povolené IIS ověřování
+
+Teď je povolené IIS ověřování
 
 ### <a name="configure-directory-integration"></a>Konfigurace integrace adresáře
 Povolili jste ověřování IIS, ale abyste mohli provádět předběžné ověřování Active Directory (AD) přes LDAP, musíte připojení LDAP nakonfigurovat na řadič domény.
 
 1. Klikněte na ikonu **Integrace adresáře**.
 2. Na kartě Nastavení vyberte přepínač **Použít specifickou konfiguraci LDAP**.
+
    <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
-3. Klikněte na tlačítko **Upravit...** .
-4. V dialogovém okně Upravit konfiguraci LDAP vyplňte pole pomocí informací požadovaných pro připojení k řadiči domény AD. Popisy polí jsou zahrnuty v následující tabulce. Tyto informace jsou také uvedeny v souboru nápovědy serveru Azure Multi-Factor Authentication.
+
+3. Klikněte na **Upravit**.
+4. V dialogovém okně Upravit konfiguraci LDAP vyplňte pole pomocí informací požadovaných pro připojení k řadiči domény AD. Popisy těchto polí jsou uvedeny v souboru nápovědy Azure Multi-Factor Authentication Serveru.
 5. Otestujte připojení LDAP kliknutím na tlačítko **Test**.
+
    <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
-6. Pokud byl test připojení LDAP úspěšný, klikněte na tlačítko **OK**.
+
+6. Pokud byl test připojení LDAP úspěšný, klikněte na **OK**.
 
 ### <a name="configure-company-settings"></a>Konfigurace nastavení společnosti
 1. Dále klikněte na ikonu **Nastavení společnosti** a vyberte kartu **Překlad uživatelského jména**.
 2. Označte přepínač **Pro porovnávání uživatelských jmen použít atribut jedinečného identifikátoru LDAP**.
 3. Pokud uživatelé zadají své uživatelské jméno ve formátu „doména\uživatelské jméno“, Server musí být schopný při vytváření dotazu LDAP oddělit doménu od uživatelského jména. To můžete udělat nastavením registrů.
-4. Na 64bitovém serveru otevřete editor registrů a přejděte na HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor. Pokud jste na 32bitovém serveru, odeberte „Wow6432Node“ z cesty. Vytvořte klíč registru typu DWORD s názvem „UsernameCxz_stripPrefixDomain“ a nastavte hodnotu na 1. Azure Multi-Factor Authentication teď zabezpečuje proxy server ADFS.
+4. Na 64bitovém serveru otevřete editor registrů a přejděte na HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor. Pokud jste na 32bitovém serveru, odeberte „Wow6432Node“ z cesty. Vytvořte klíč registru typu DWORD s názvem „UsernameCxz_stripPrefixDomain“ a nastavte hodnotu na 1. Azure Multi-Factor Authentication teď zabezpečuje proxy server služby AD FS.
 
 Ověřte, že se uživatelé naimportovali z Active Directory do Serveru. Pokud chcete vytvořit bílou listinu interních IP adres, aby při přihlašování k webu z těchto umístění nebylo potřeba dvoustupňové ověření, projděte si část [Důvěryhodné IP adresy](#trusted-ips).
 
@@ -77,15 +89,19 @@ AD FS můžete zabezpečit, i když se server proxy AD FS nepoužívá. Nainstal
 
 1. V Azure Multi-Factor Authentication Serveru klikněte v levé nabídce na ikonu **ověřování IIS**.
 2. Klikněte na kartu **HTTP**.
-3. Klikněte na tlačítko **Přidat...** .
-4. V dialogovém okně Přidat základní adresu URL zadejte adresu URL pro webovou stránku ADFS, kde se provádí ověřování HTTP (například https://sso.domain.com/adfs/ls/auth/integrated) do pole Základní adresa URL. Potom zadejte název aplikace (volitelné). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
+3. Klikněte na tlačítko **Přidat**.
+4. V dialogovém okně Přidat základní adresu URL zadejte adresu URL pro web AD FS, kde se provádí ověřování pomocí protokolu HTTP (například https://sso.domain.com/adfs/ls/auth/integrated) do pole Základní adresa URL. Potom zadejte název aplikace (volitelné). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
 5. Podle potřeby upravte časový limit nečinnosti a maximální dobu trvání relace.
-6. Zaškrtněte políčko **Vyžadovat porovnání uživatele Azure Multi-Factor Authentication**, pokud byli nebo budou všichni uživatelé importováni na server a podstoupí dvoustupňové ověření. Pokud ještě na server nebyl importován velký počet uživatelů nebo budou uživatelé vyloučení z dvoustupňového ověření, nechte toto políčko nezaškrtnuté. Další informace o této funkci najdete v souboru nápovědy.
+6. Zaškrtněte políčko **Vyžadovat porovnání uživatele Azure Multi-Factor Authentication**, pokud byli nebo budou všichni uživatelé importováni na server a podstoupí dvoustupňové ověření. Pokud ještě na server nebyl importován velký počet uživatelů nebo budou uživatelé vyloučení z dvoustupňového ověření, nechte toto políčko nezaškrtnuté. 
 7. V případě potřeby zaškrtněte políčko mezipaměti souborů cookie.
+
    <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
+
 8. Klikněte na tlačítko **OK**.
-9. Klikněte na kartu **Nativní modul** a vyberte server, web (jako Výchozí web) nebo aplikaci ADFS proxy (jako „ls“ v části „adfs“) pro povolení modulu plug-in IIS na požadované úrovni.
-10. Zaškrtněte políčko **Povolit ověřování IIS** v horní části obrazovky. Azure Multi-Factor Authentication teď zabezpečuje ADFS.
+9. Klikněte na kartu **Nativní modul** a vyberte server, web (jako Výchozí web) nebo aplikaci služby AD FS (jako „ls“ v části „adfs“) pro povolení modulu plug-in IIS na požadované úrovni.
+10. Zaškrtněte políčko **Povolit ověřování IIS** v horní části obrazovky. 
+
+Azure Multi-Factor Authentication teď zabezpečuje službu AD FS.
 
 Ověřte, že se uživatelé naimportovali z Active Directory do Serveru. Pokud chcete vytvořit bílou listinu interních IP adres, aby při přihlašování k webu z těchto umístění nebylo potřeba dvoustupňové ověření, projděte si část Důvěryhodné IP adresy.
 
@@ -102,6 +118,6 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

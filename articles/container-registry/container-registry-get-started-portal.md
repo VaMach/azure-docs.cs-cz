@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření registru kontejnerů na portálu | Dokumentace Microsoftu"
+title: "Vytvoření registru kontejnerů Azure – portál | Dokumentace Microsoftu"
 description: "Začínáme vytvářet a spravovat registry kontejnerů Azure pomocí webu Azure Portal"
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: c22fee1a9172eba28d8f841d973704934cdb3ebb
+ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
+ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Vytvoření registru kontejnerů pomocí webu Azure Portal
@@ -52,7 +52,7 @@ Související informace a koncepty najdete v tématu [Co je Azure Container Regi
    > [!IMPORTANT]
    > Kromě poskytování přístupu prostřednictvím účtu uživatele s právy pro správu registry kontejnerů podporují ověřování zajišťované instančními objekty Azure Active Directory. Další informace a aspekty najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
    
-    e. **Účet úložiště** – Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění.
+    e. **Účet úložiště** – Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění. Upozorňujeme, že se nepodporují účty úložiště úrovně Premium a Classic.
 
 ## <a name="manage-registry-settings"></a>Správa nastavení registru
 Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vyhledejte nastavení registru. Nastavení můžete potřebovat například k přihlášení ke svému registru, nebo můžete chtít povolit nebo zakázat uživatele s právy pro správu.
@@ -77,6 +77,6 @@ Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vy
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

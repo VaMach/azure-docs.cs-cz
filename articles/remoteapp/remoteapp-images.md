@@ -40,7 +40,7 @@ Vaše předplatné Azure RemoteAppu obsahuje tři image šablon:
 
 Přečtěte si podrobnosti o tom, co každý image obsahuje.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (dále jen image vanilla)
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 (dále jen image vanilla)
 Tento image je založený na operačním systému Microsoft Windows Server 2012 R2 Datacenter a má nainstalované následující role a funkce, aby splnil požadavky pro image šablony Azure RemoteApp:
 
 * Rozhraní .NET Framework 4.5, 3.5.1, 3.5

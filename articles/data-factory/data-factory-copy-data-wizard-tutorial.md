@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
 
 
 ---
@@ -35,10 +35,9 @@ ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
 
 **Průvodce kopírováním** služby Azure Data Factory vám umožní snadno a rychle vytvořit kanál, který implementuje scénář příjmu/pohybu dat. Proto doporučujeme použít průvodce jako první krok k vytvoření ukázkového kanálu pro scénář pohybu dat. Tento návod ukazuje, jak vytvořit objekt pro vytváření dat Azure, spustit Průvodce kopírováním a projít posloupností kroků poskytnutí podrobností o vašem scénáři příjmu/pohybu dat. Po dokončení kroků v průvodci se automaticky vytvoří kanál s aktivitou kopírování pro kopírování dat z úložiště Azure Blob Storage do Azure SQL Database. Podrobnosti o aktivitě kopírování najdete v článku [Aktivity přesunu dat](data-factory-data-movement-activities.md). 
 
-> [!IMPORTANT]
-> Než se pustíte do tohoto kurzu, přečtěte si článek [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) obsahující přehled kurzu a proveďte **nutné** kroky.
-> 
-> 
+## <a name="prerequisites"></a>Požadavky
+- Projděte si [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete informace o kurzu, a proveďte **nutné** kroky.
+
 
 ## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
@@ -60,8 +59,8 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    2. Vyberte své **předplatné** Azure.
    3. Pro skupinu prostředků proveďte jeden z následujících kroků: 
       
-      1. Vyberte možnost **Použít existující** a vyberte existující skupinu prostředků.
-      2. Vyberte možnost **Vytvořit nový** a zadejte název pro skupinu prostředků.
+      - Vyberte možnost **Použít existující** a vyberte existující skupinu prostředků.
+      - Vyberte možnost **Vytvořit nový** a zadejte název pro skupinu prostředků.
          
           Některé kroky v tomto kurzu vychází z předpokladu, že pro skupinu prostředků použijete název **ADFTutorialResourceGroup**. Informace o skupinách prostředků najdete v článku [Použití skupin prostředků ke správě prostředků Azure](../azure-resource-manager/resource-group-overview.md).
    4. Vyberte **umístění** pro příslušný objekt pro vytváření dat.
@@ -146,23 +145,24 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    
    ![Monitorovací aplikace](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
    
-   > [!NOTE]
-   > Kliknutím na tlačítko **Aktualizovat** v seznamu **OKNA AKTIVITY** ve spodní části zobrazte nejnovější stav. Zobrazení se neobnovuje automaticky. 
-   > 
-   > 
+   
+   Kliknutím na tlačítko **Aktualizovat** v seznamu **OKNA AKTIVITY** ve spodní části zobrazte nejnovější stav. Zobrazení se neobnovuje automaticky. 
+
+> [!NOTE]
+> Datový kanál v tomto kurzu kopíruje data ze zdrojového úložiště dat do cílového úložiště dat. Neprovádí transformaci vstupních dat, aby vytvořil výstupní data. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz vytvoření prvního kanálu, který umožňuje transformovat data pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> Dvě aktivity můžete zřetězit (spustit jednu aktivitu po druhé) nastavením výstupní datové sady jedné aktivity jako vstupní datové sady druhé aktivity. Podrobné informace najdete v tématu s popisem [plánování a provádění ve službě Data Factory](data-factory-scheduling-and-execution.md).
 
 ## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
-| [Aktivity přesunu dat](data-factory-data-movement-activities.md) |Tento článek obsahuje podrobné informace o aktivitě kopírování, kterou jste v tomto kurzu použili. |
-| [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
 | [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
-| [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
+| [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

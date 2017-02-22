@@ -1,5 +1,5 @@
 ---
-title: "Začínáme vytvářet internetový nástroj pro vyrovnávání zatížení v režimu Classic pomocí prostředí PowerShell | Dokumentace Microsoftu"
+title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – Azure PowerShell Classic | Dokumentace Microsoftu"
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v režimu Classic pomocí prostředí PowerShell"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
+ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
+ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 ---
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
 
 Pokud chcete nastavit nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell, použijte následující postup:
 
-1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
+1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 2. Po vytvoření virtuálního počítače můžete pomocí rutin prostředí PowerShell přidat nástroj pro vyrovnávání zatížení do virtuálního počítače v rámci stejné cloudové služby.
 
 V následujícím příkladu přidáte sadu nástroje pro vyrovnávání zatížení s názvem webfarm do cloudové služby mytestcloud (nebo mytestcloud.cloudapp.net). Zároveň pro nástroj pro vyrovnávání zatížení přidáte koncové body do virtuálních počítačů s názvy web1 a web2. Nástroj pro vyrovnávání zatížení přijímá síťový provoz na portu 80 a vyrovnává zatížení mezi virtuální počítače definované místním koncovým bodem (v tomto případě portem 80) pomocí protokolu TCP.
@@ -76,6 +76,6 @@ Pokud vaše aplikace potřebuje udržovat aktivní připojení serverů, které 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

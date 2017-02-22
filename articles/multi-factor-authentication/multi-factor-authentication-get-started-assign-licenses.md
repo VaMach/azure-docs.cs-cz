@@ -1,6 +1,6 @@
 ---
-title: "Přiřazení licencí pro ověřování Azure MFA | Dokumentace Microsoftu"
-description: "Naučte se přiřazovat uživatelské licence pro ověřování Microsoft Azure Multi-Factor Authentication."
+title: "Přiřazení licencí pro Azure MFA | Dokumentace Microsoftu"
+description: "Naučte se přiřazovat uživatelské licence pro Microsoft Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c93db18866478556e91da8acbc9f0c749b65dc62
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
 
 
 ---
@@ -38,9 +38,11 @@ Pokud jste zakoupili licence ověřování Azure Multi-Factor Authentication, Az
 9. Zobrazí se zpráva uvádějící, kolik licencí bylo přiřazeno a kolik mohlo selhat.  Klikněte na tlačítko **OK**.
    ![Přiřazení licencí](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
+## <a name="next-steps"></a>Další kroky
+
+- Další informace najdete v tématu věnovaném [licencování Microsoft Azure Active Directory](../active-directory/active-directory-licensing-what-is.md).
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

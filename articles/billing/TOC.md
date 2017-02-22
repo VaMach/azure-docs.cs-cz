@@ -1,40 +1,40 @@
-# [Začínáme](billing-getting-started.md)
-## [Registrace s použitím účtu Office 365](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Podporované země a měny](../billing-countries-and-currencies.md)
-## [Omezení a kvóty](../azure-subscription-service-limits.md)
-## [Nejčastější dotazy](../billing-subscription-faq.md)
+# Začínáme
+## [Jak zabránit neočekávaným nákladům](billing-getting-started.md)
+## [Registrace s použitím účtu Office 365](billing-use-existing-office-365-account-azure-subscription.md)
+## [Omezení a kvóty](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Postup
 ## Sledování využití a nákladů
-### [Stažení faktury a dat o využití](../billing-download-azure-invoice-daily-usage-date.md)
+### [Získání faktury a dat o využití](billing-download-azure-invoice-daily-usage-date.md)
 ### [Vysvětlení informací na faktuře](billing-understand-your-bill.md)
-### [Principy poplatků za externí služby](../billing-understand-your-azure-marketplace-charges.md)
-### [Nastavení upozornění fakturace](../billing-set-up-alerts.md)
-### [Řešení zůstatku po splatnosti](../billing-azure-subscription-past-due-balance.md)
+### [Principy poplatků za externí služby](billing-understand-your-azure-marketplace-charges.md)
+### [Nastavení upozornění fakturace](billing-set-up-alerts.md)
+### [Řešení zůstatku po splatnosti](billing-azure-subscription-past-due-balance.md)
 ## Správa předplatných
-### [Správa rolí správce](../billing-add-change-azure-subscription-administrator.md)
-### [Převod vlastnictví předplatného](../billing-subscription-transfer.md)
-### [Nová aktivace deaktivovaného předplatného](../billing-subscription-become-disable.md)
-### [Upgrade bezplatného předplatného](../billing-upgrade-azure-subscription.md)
-### [Přepnutí nabídky předplatného](../billing-how-to-switch-azure-offer.md)
-### [Zrušení předplatného](../billing-how-to-cancel-azure-subscription.md)
+### [Správa rolí správce](billing-add-change-azure-subscription-administrator.md)
+### [Převod vlastnictví předplatného](billing-subscription-transfer.md)
+### [Nová aktivace deaktivovaného předplatného](billing-subscription-become-disable.md)
+### [Upgrade bezplatného předplatného](billing-upgrade-azure-subscription.md)
+### [Přepnutí nabídky předplatného](billing-how-to-switch-azure-offer.md)
+### [Zrušení předplatného](billing-how-to-cancel-azure-subscription.md)
 ## Správa účtu
-### [Úprava profilu](../billing-how-to-change-azure-account-profile.md)
-### [Aktualizace platebních informací](../billing-how-to-change-credit-card.md)
-### [Propojení tenanta Office 365](../billing-add-office-365-tenant-to-azure-subscription.md)
+### [Úprava profilu](billing-how-to-change-azure-account-profile.md)
+### [Aktualizace platebních informací](billing-how-to-change-credit-card.md)
+### [Propojení tenanta Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ## Řešení potíží
-### [Problémy s registrací](../billing-troubleshoot-azure-sign-up-issues.md)
-### [Odmítnutá karta](../billing-credit-card-fails-during-azure-sign-up.md)
-### [Problémy s přihlašováním](../billing-cannot-login-subscription.md)
+### [Problémy s registrací](billing-troubleshoot-azure-sign-up-issues.md)
+### [Odmítnutá karta](billing-credit-card-fails-during-azure-sign-up.md)
+### [Problémy s přihlašováním](billing-cannot-login-subscription.md)
 
 # Referenční informace
-## [Přehled rozhraní API](../billing-usage-rate-card-overview.md)
+## [Přehled rozhraní API](billing-usage-rate-card-overview.md)
 ## [REST API – referenční informace](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partnerské řešení: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
-## [Partnerské řešení: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
+## [Partnerské řešení: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Partnerské řešení: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Zdroje
-## [Kontaktování podpory](../billing-how-to-create-billing-support-ticket.md)
+## [Kontaktování podpory](../azure-supportability/how-to-create-azure-support-request.md)
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

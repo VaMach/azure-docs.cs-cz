@@ -12,13 +12,15 @@
 # Postup
 ## Konfigurace vysoké dostupnosti
 ### [Možnosti vysoké dostupnosti](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automaticky – pomocí šablony](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Ručně – požadavky](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Ručně – kurz](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Nástroj pro vyrovnávání zatížení – portál](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Nástroj pro vyrovnávání zatížení – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Několik oblastí](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Instance clusteru převzetí služeb při selhání
+#### [Konfigurace](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Spravovat
 ### [Použití rozšíření agenta SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

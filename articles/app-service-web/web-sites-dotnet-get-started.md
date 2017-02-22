@@ -1,5 +1,5 @@
 ---
-title: "Nasazení aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio | Dokumentace Microsoftu"
+title: "Nasazení aplikace ASP.NET do Azure pomocí sady Visual Studio | Dokumentace Microsoftu"
 description: "Zjistěte, jak nasadit webový projekt ASP.NET do nové webové aplikace ve službě Azure App Service pomocí sady Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Kromě času potřebného k instalaci sady Azure SDK pro rozhraní .NET bude abs
 * Kurz předpokládá, že jste již dříve pracovali s ASP.NET MVC a sadou Visual Studio. Pokud potřebujete úvodní informace, prostudujte téma [Začínáme s ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](http://go.microsoft.com/fwlink/?LinkId=523751). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
+    Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](https://azure.microsoft.com/try/app-service/). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Nastavení vývojového prostředí
 Kurz je napsán pro sadu Visual Studio 2015 se sadou [Azure SDK pro .NET](../dotnet-sdk.md) 2.9 nebo novější. 
@@ -222,6 +222,6 @@ V tomto kurzu jste se seznámili s postupem vytvoření jednoduché webové apli
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

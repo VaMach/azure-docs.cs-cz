@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s Data Lake Storem | Dokumentace Microsoftu"
-description: "Použití portálu k vytvoření účtu Data Lake Store a provádění základních operací v Data Lake Store"
+title: "Začínáme s Data Lake Storem pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "Jak používat Azure Portal k vytvoření účtu Data Lake Store a provádění základních operací v Data Lake Storu"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -51,7 +51,7 @@ Pokud chcete začít s Data Lake Store, podívejte se na následující videa.
 2. Klikněte na položku **NOVÝ**, **Data + úložiště** a potom **Azure Data Lake Store**. Přečtěte si informace v okně **Azure Data Lake Store** a potom klikněte v levém dolním rohu okna na tlačítko **Vytvořit**.
 3. V okně **Nová služba Data Lake Store** zadejte hodnoty tak, jak ukazuje následující snímek obrazovky:
    
-    ![Vytvoření nového účtu Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Vytvoření nového účtu Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Vytvoření nového účtu Azure Data Lake Store")
    
    * **Název**. Zadejte jedinečný název účtu Data Lake Storu.
    * **Předplatné**. Vyberte předplatné, v rámci kterého chcete vytvořit nový účet Data Lake Store.
@@ -62,10 +62,10 @@ Pokud chcete začít s Data Lake Store, podívejte se na následující videa.
      * (Volitelné) Z rozevíracího seznamu vyberte **Nepovolovat šifrování**, pokud šifrování používat nechcete.
      * (Výchozí) Vyberte **Používat klíče spravované službou Azure Data Lake**, pokud chcete, aby služba Azure Data Lake Store spravovala šifrovací klíče.
        
-         ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+         ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Šifrování Data Lake Storu")
      * (Volitelné) Vyberte **Zvolit klíče z Azure Key Vault**, pokud chcete používat vlastní klíče, které máte v Azure Key Vaultu. Pomocí této možnosti můžete také vytvořit účet a klíče Key Vaultu, pokud je ještě nemáte.
        
-         ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+         ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Šifrování Data Lake Storu")
        
        Klikněte na **OK** v okně **Nastavení šifrování**.
        
@@ -80,7 +80,7 @@ Pokud jste ke konfiguraci šifrování pro účet Data Lake Store použili klí�
 
 1. Pokud jste použili klíče z Azure Key Vaultu, v okně účtu Data Lake Store se nahoře zobrazí upozornění. Kliknutím na upozornění otevřete okno **Konfigurovat oprávnění pro Key Vault**.
    
-    ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Šifrování Data Lake Storu](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Šifrování Data Lake Storu")
 2. V okně se zobrazují dvě možnosti pro konfiguraci přístupu.
    
    * V první možnosti kliknutím na **Udělit oprávnění** nakonfigurujte přístup. První možnost je aktivní jenom v případě, že uživatel, který vytvořil účet Data Lake Store, je současně správcem pro Azure Key Vault.
@@ -92,30 +92,30 @@ V rámci účtu Data Lake Store můžete vytvářet složky, které slouží ke 
 1. Otevřete účet Data Lake Store, který jste právě vytvořili. V levém podokně klikněte na možnost **Procházet**, klikněte na možnost **Data Lake Store** a potom v okně Data Lake Store klikněte na název účtu, ve kterém chcete vytvořit složky. Pokud jste účet připnuli na úvodní panel, klikněte na dlaždici tohoto účtu.
 2. V okně účtu Data Lake Store klikněte na možnost **Průzkumník dat**.
    
-    ![Vytváření složek v účtu Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Vytváření složek v účtu Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Vytváření složek v účtu Data Lake Store")
 3. V okně účtu Data Lake Store klikněte na možnost **Nová složka**, zadejte název nové složky a klikněte na tlačítko **OK**.
    
-    ![Vytváření složek v účtu Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Vytváření složek v účtu Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Vytváření složek v účtu Data Lake Store")
    
     Nově vytvořená složka se zobrazí v okně **Průzkumníku dat**. Můžete vytvářet vnořené složky do libovolné úrovně.
    
-    ![Vytváření složek v účtu Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Vytváření složek v účtu Data Lake Store](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Vytváření složek v účtu Data Lake Store")
 
 ## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Nahrání dat do účtu služby Azure Data Lake Store
 Data můžete do účtu Azure Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do složky, kterou jste v rámci účtu vytvořili. Na níže zobrazeném snímku obrazovky je uvedený postup nahrání souboru do podsložky v okně **Průzkumníku dat**. Na tomto snímku obrazovky se soubor nahraje do podsložky, která je uvedená v popisu cesty (označená červeným rámečkem).
 
 Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít složku **Ambulance Data** z [úložiště Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Nahrání dat](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Nahrání dat](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Nahrání dat")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Vlastnosti a akce dostupné u uložených dat
 Kliknutím na nově přidaný soubor otevřete okno **Vlastnosti**. V tomto okně jsou dostupné vlastnosti přidružené k souboru a akce, které můžete se souborem provádět. Můžete taky zkopírovat úplnou cestu k souboru v účtu Azure Data Lake Store, která je na následujícím snímku obrazovky označená červeným rámečkem.
 
-![Vlastnosti dat](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Vlastnosti dat](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Vlastnosti dat")
 
 * Kliknutím na položku **Náhled** zobrazte přímo z prohlížeče náhled souboru. Můžete taky určit formát náhledu. Klikněte na položku **Náhled**, v okně **Náhled souboru** klikněte na položku **Formát** a v okně **Formát náhledu souboru** zadejte možnosti, jako je počet zobrazených řádků, kódování nebo oddělovač, které chcete použít, atd.
   
-  ![Formát náhledu souboru](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
+  ![Formát náhledu souboru](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formát náhledu souboru")
 * Pokud chcete soubor stáhnout do počítače, klikněte na možnost **Stáhnout**.
 * Pokud chcete soubor přejmenovat, klikněte na možnost **Přejmenovat soubor**.
 * Pokud chcete soubor odstranit, klikněte na možnost **Odstranit soubor**.
@@ -126,7 +126,7 @@ Data uložená v účtu Azure Data Lake Store můžete zabezpečit pomocí služ
 ## <a name="delete-azure-data-lake-store-account"></a>Odstranění účtu Azure Data Lake Store
 Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store klikněte na možnost **Odstranit**. Tuto akci je nutné potvrdit, a proto se zobrazí výzva k zadání názvu účtu, který chcete odstranit. Zadejte název účtu a klikněte na možnost **Odstranit**.
 
-![Odstranění účtu Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Odstranění účtu Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Odstranění účtu Data Lake")
 
 ## <a name="next-steps"></a>Další kroky
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
@@ -137,6 +137,6 @@ Pokud chcete odstranit účet Azure Data Lake Store, v okně Data Lake Store kli
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

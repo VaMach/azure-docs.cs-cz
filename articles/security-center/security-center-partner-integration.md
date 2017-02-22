@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ Postupem času bude Security Center rozšiřovat počet partnerů v těchto kate
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Jak nasadit partnerské řešení?
 
-Partnera řešení, které už jsou v Centru zabezpečení nasazená, jsou snadno přístupná na dlaždici Partnerská řešení v hlavním řídicím panelu Security Center:
+V závislosti na konfiguraci prostředí Azure a nadefinovaných zásadách zabezpečení může Security Center doporučit nasazení partnerského řešení. Doporučení vás provede procesem výběru a instalace partnerského řešení. Celkové prostředí nasazení se v tomto okamžiku může lišit podle typu řešení a partnera. Další informace najdete prostřednictvím následujících odkazů:
+
+- [Přidání brány firewall webových aplikací](security-center-add-web-application-firewall.md)
+- [Přidání brány firewall příští generace](security-center-add-next-generation-firewall.md)
+- [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
+- [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>Jak spravovat partnerská řešení?
+
+Jakmile je partnerské řešení nasazeno, můžete zobrazit informace o stavu řešení a provádět základní úlohy správy z dlaždice Partnerská řešení na hlavním řídicím panelu Security Center. Další informace o správě partnerských řešení v Security Center najdete v článku [Monitorování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md).
 
 ![Integrace partnerských řešení](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Nasazení nového partnerského řešení na základě doporučení služby Security Center provedete takto:
-
-> [!NOTE]
-> Postup v následující příkladu předpokládá, že máte úlohy, které chcete chránit pomocí brány firewall webových aplikací.
-
-1. Na řídicím panelu Security Center klikněte na dlaždici **Doporučení**.
-2. V okně **Doporučení** klikněte na možnost **Přidat bránu firewall webových aplikací**.
-3. Klikněte na název aplikace v okně **Přidání brány firewall webových aplikací**.
-4. V okně **Přidání brány firewall webových aplikací** klikněte na **Vytvořit novou**.
-5. Okno **Vytvoření nové brány firewall webových aplikací** okno nabízí seznam aktuálních partnerských řešení, implementujících bránu firewall webových aplikací.
-6. Vyberte požadované partnerské řešení a postupujte podle zobrazených pokynů (které se mohou lišit v závislosti na partnerovi).
-
-Také samotné prostředí nasazení se v tomto okamžiku může mezi různými partnery lišit. Další informace o správě partnerských řešení ve službě Security Center najdete v článku [Sledování partnerských řešení](security-center-partner-solutions.md) v Azure Security Center.
 
 ## <a name="see-also"></a>Viz také
 V tomto dokumentu jste se naučili integrovat partnerská řešení do služby Azure Security Center. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
@@ -76,6 +72,6 @@ V tomto dokumentu jste se naučili integrovat partnerská řešení do služby A
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

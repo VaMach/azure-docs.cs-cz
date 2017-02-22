@@ -97,9 +97,10 @@
 ##### [Ukázková aplikace](virtual-networks-sample-app.md)
 
 ## Konfigurace
-### Urychlení sítě
+### Urychlení sítě pro virtuální počítače
 #### [Azure Portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optimalizace propustnosti sítě virtuálních počítačů](virtual-network-optimize-network-bandwidth.md)
 ### Seznamy řízení přístupu
 #### [Portál Classic](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

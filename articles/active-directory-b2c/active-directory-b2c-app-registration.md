@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Chcete-li sestavit aplikaci, která podporuje registrace a přihlašování uži
 ## <a name="navigate-to-the-b2c-features-blade"></a>Přejděte do okna s funkcemi B2C.
 Pokud máte okno s funkcemi B2C připnuté na Úvodním panelu, okno se zobrazí na [portálu Azure](https://portal.azure.com/) ihned po přihlášení jako Globální správce klienta B2C.
 
-Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azure AD B2C** v levém navigačním podokně na [portálu Azure](https://portal.azure.com/).
+Přejít do okna je možné také kliknutím na **Další služby** a poté vyhledáním položky **Azure AD B2C** v levém navigačním podokně na webu [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Pro přístup k oknu s funkcemi B2C musíte být Globální správce klienta B2C. Globální správce jiného klienta ani uživatel jakéhokoli klienta nemají k oknu přístup.  Můžete přepnout na svého klienta B2C pomocí přepínače klienta v pravém horním rohu portálu Azure.
@@ -40,7 +40,7 @@ Přejít do okna je možné také kliknutím na **Procházet** a poté na **Azur
 1. V okně s funkcemi B2C na portálu Azure klikněte na **Aplikace**.
 2. Klikněte na **Přidat** v horní části okna.
 3. Zadejte **Název** aplikace, který popíše aplikaci uživatelům. Můžete například zadat „Aplikace Contoso B2C“.
-4. Pokud píšete webovou aplikaci, přepněte přepínač **Zahrnout webovou aplikaci / webové rozhraní API** na **Ano**. **Adresy URL odpovědí** jsou koncové body, kam Azure AD B2C vrátí všechny tokeny, které vaše aplikace požaduje. Zadejte například `https://localhost:44321/`. Pokud vaše webová aplikace také bude volat některé webové rozhraní API zabezpečené pomocí Azure AD B2C, budete chtít vytvořit **Tajný klíč aplikace** a také kliknout na tlačítko **Vygenerovat klíč**.
+4. Pokud píšete webovou aplikaci, přepněte přepínač **Zahrnout webovou aplikaci / webové rozhraní API** na **Ano**. **Adresy URL odpovědí** jsou koncové body, kam Azure AD B2C vrátí všechny tokeny, které vaše aplikace požaduje. Zadejte například `https://localhost:44316/`. Pokud vaše webová aplikace také bude volat některé webové rozhraní API zabezpečené pomocí Azure AD B2C, budete chtít vytvořit **Tajný klíč aplikace** a také kliknout na tlačítko **Vygenerovat klíč**.
    
    > [!NOTE]
    > **Tajný klíč aplikace** je důležitý údaj zabezpečení a musí být řádně zabezpečen.
@@ -63,6 +63,6 @@ Nyní, když máte aplikaci registrovanou v Azure AD B2C, můžete dokončit jed
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

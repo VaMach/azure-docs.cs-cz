@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Mobile Engagement – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích."
+services: mobile-engagement
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: mobile-engagement
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
+ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
+ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
 
 ---
+
 # <a name="mobile-engagement-documentation"></a>Dokumentace ke službě Mobile Engagement
 
 Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení mobilních aplikací s použitím služby Mobile Engagement. V kurzech, sadách SDK a další dokumentaci se dozvíte, jak získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích.
@@ -199,6 +211,6 @@ Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -78,6 +78,6 @@ Chcete-li nakonfigurovat klienta LDAP, postupujte podle pokynů:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

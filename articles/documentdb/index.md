@@ -1,13 +1,26 @@
 ---
+title: "Dokumentace ke službě Azure DocumentDB – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se používat DocumentDB, databázi dokumentů typu NoSQL bez schémat. Kurzy ukazují, jak zajistit integraci s aplikacemi a využívat dotazy SQL v dokumentech JSON."
+services: documentdb
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c0911518e954131f1c8de783d71fb17a9eea1945
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Dokumentace ke službě DocumentDB
 
-Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, elastické škálování, globální distribuci a jednoduchý vývoj. Protože je DocumentDB databáze NoSQL bez schématu, poskytuje bohaté a známé schopnosti příkazů jazyka SQL s konsistentní nízkou latencí dat JSON.
+Naučte se používat DocumentDB ve vysoce výkonných aplikacích pro web, mobilní zařízení, hraní her a IoT. Kurzy a další dokumentace ukazují, jak v této databázové službě NoSQL ukládat data JSON a spouštět dotazy SQL ve flexibilním schématu.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -209,18 +222,10 @@ Azure DocumentDB je plně spravovaná databázová služba NoSQL navržená pro 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stáhnout dokumentaci ke službě DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

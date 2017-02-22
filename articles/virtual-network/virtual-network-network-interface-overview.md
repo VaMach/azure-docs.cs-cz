@@ -1,10 +1,10 @@
 ---
-title: "Síťová rozhraní | Dokumentace Microsoftu"
-description: "Přečtěte si o síťových rozhraních Azure v Azure Resource Manageru."
+title: "Síťová rozhraní v Azure | Dokumentace Microsoftu"
+description: "Přečtěte si o síťových rozhraních Azure v modelu nasazení Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>Síťová rozhraní
+# <a name="network-interfaces-in-azure"></a>Síťová rozhraní v Azure
 Síťové rozhraní (NIC) je propojení mezi virtuálním počítačem a základní softwarovou sítí. Tento článek vysvětluje, co je síťové rozhraní a jak se používá v modelu nasazení Azure Resource Manager.
 
 Společnost Microsoft doporučuje nasazení nových prostředků pomocí modelu nasazení Resource Manager, ale virtuální počítače s připojením k síti můžete nasadit i v modelu nasazení [Classic](virtual-network-ip-addresses-overview-classic.md). Pokud již znáte model Classic, v modelu nasazení Resource Manager existují důležité rozdíly, co se týče sítí virtuálních počítačů. Další informace o těchto rozdílech najdete v článku [Sítě virtuálních počítačů – Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -56,6 +56,6 @@ K virtuálnímu počítači může být připojeno více síťových rozhraní, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

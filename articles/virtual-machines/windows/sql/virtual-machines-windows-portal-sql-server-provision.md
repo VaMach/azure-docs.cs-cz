@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ V tomto kurzu provedete následující:
    > Pokud účet Azure nemáte, můžete začít používat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**. Prostředky virtuálních počítačů se SQL Serverem jsou v Marketplace ve skupině **Virtuální počítače**.
-3. V okně **Nový** klikněte na **Virtuální počítače**.
-4. Pokud chcete zobrazit všechny dostupné image, klikněte v okně **Virtuální počítače** na **Zobrazit všechny**.
-   
-    ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. V části **Databázové servery** klikněte na **SQL Server**. Možná si budete muset posunout zobrazení, protože možnost **Databázové servery** bude až někde dole. Projděte si dostupné šablony SQL Serveru.
-   
-    ![Image s SQL Serverem v galerii virtuálních počítačů](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**. Prostředky virtuálních počítačů s SQL Serverem jsou v Marketplace ve skupině **Compute**.
+3. V okně **Nový** klikněte na **Compute** a pak klikněte na **Zobrazit všechno**.
+4. Do textového pole **Filtr** zadejte SQL Server a stiskněte klávesu ENTER.
+
+   ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Projděte si dostupné šablony SQL Serveru.
 6. U každé šablony je označena příslušná verze SQL Serveru a operační systém. Ze seznamu vyberte jednu z těchto imagí. Pak si v okně s podrobnostmi přečtěte popis image virtuálního počítače.
    
    > [!NOTE]
@@ -82,7 +81,7 @@ V okně **Základy** zadejte následující informace:
 * Zadejte **uživatelské jméno** pro účet místního správce ve virtuálním počítači. Tento účet je také přidán do pevné role serveru na serveru **sysadmin** SQL Serveru.
 * Zadejte silné **heslo**.
 * Pokud máte více předplatných, ověřte, že je předplatné správné pro nový virtuální počítač.
-* Do pole **Skupina prostředků** zadejte název pro novou skupinu prostředků. Pokud chcete použít existující skupinu prostředků, klikněte na **Vybrat existující**. Skupina prostředků je kolekce souvisejících prostředků v Azure (virtuální počítače, účty úložiště, virtuální sítě atd.).
+* Do pole **Skupina prostředků** zadejte název pro novou skupinu prostředků. Pokud chcete použít existující skupinu prostředků, klikněte na **Použít existující**. Skupina prostředků je kolekce souvisejících prostředků v Azure (virtuální počítače, účty úložiště, virtuální sítě atd.).
   
   > [!NOTE]
   > Použití nové skupinu prostředků je užitečné, pokud testujete nasazení SQL Serveru v Azure nebo se snažíte o něm dozvědět více. Až s testováním skončíte, odstraňte skupinu prostředků. Automaticky se tím odstraní virtuální počítač se všemi prostředky spojenými s danou skupinu prostředků. Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../../../azure-resource-manager/resource-group-overview.md).
@@ -216,10 +215,12 @@ Když povolíte automatizované zálohování SQL, můžete nakonfigurovat násl
 * Doba uchování dat (dny) pro zálohování
 * Účet úložiště, který se má používat pro zálohování
 * Možnost šifrování a heslo pro zálohování
+* Zálohování systémových databází
+* Konfigurování plánu zálohování
 
 Pokud chcete zálohy šifrovat, klikněte na **Povolit**. Pak zadejte **heslo**. Azure vytvoří certifikát pro šifrování záloh a používá zadané heslo k ochraně tohoto certifikátu.
 
-![Automatizované zálohování SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Automatizované zálohování SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Další informace najdete v tématu [Automatizované zálohování pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
@@ -302,6 +303,6 @@ Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v téma
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

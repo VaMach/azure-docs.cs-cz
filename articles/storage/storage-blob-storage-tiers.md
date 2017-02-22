@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 12/15/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
+ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
+ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Horká a studená úroveň úložiště
 ## <a name="overview"></a>Přehled
-Azure Storage teď nabízí dvě úrovně úložiště Blob (úložiště objektů), abyste náklady na ukládání dat mohli přizpůsobit tomu, jak často je využíváte. **Úroveň horkého úložiště** Azure je optimalizovaná pro ukládání dat, která se využívají často. **Úroveň studeného úložiště** Azure je optimalizovaná pro ukládání dat, která se nevyužívají často. U dat ve studeném úložišti se může tolerovat trochu horší dostupnost, ale přesto se u nich vyžaduje vysoká odolnost a podobná přístupová a přenosová rychlost jako u horkých dat. Úložiště pro studená data je výrazně levnější, ovšem za cenu mírně horší dostupnosti a vyšších nákladů na přístup.
+Azure Storage teď nabízí dvě úrovně úložiště pro ukládání objektů Blob. Data, abyste mohli data ukládat co nejhospodárněji – to znamená podle toho, jak je používáte. **Úroveň horkého úložiště** Azure je optimalizovaná pro ukládání dat, která se využívají často. **Úroveň studeného úložiště** Azure je optimalizovaná pro ukládání dat, která se nevyužívají často. U dat ve studeném úložišti se toleruje horší dostupnost, ale přesto se u nich vyžaduje vysoká odolnost a podobná přístupová a přenosová rychlost jako u horkých dat. U studených dat jsou poplatky za uložení výrazně levnější, ovšem za cenu mírně horší dostupnosti a vyšších nákladů na přístup.
 
-Data uložená v cloudu dnes narůstají exponenciální rychlostí. Pokud chcete mít pod kontrolou náklady na rostoucí potřeby úložiště, je čím dál výhodnější svoje data třídit třeba podle toho, jak často jsou potřeba nebo jak dlouho se mají zachovat. Data uložená v cloudu se můžou výrazně lišit podle toho, jak se vytvářejí, zpracovávají a využívají. Některá data se během svojí existence využívají nebo mění často. Některá data se využívají hlavně krátce po svém vytvoření a přístupy k nim později velmi rychle klesnou. Některá data se po uložení v cloudu využívají zřídka, pokud vůbec někdy.
+Data uložená v cloudu dnes narůstají exponenciální rychlostí. Pokud chcete náklady na rozšiřující se úložiště udržet pod kontrolou, je vhodné uspořádat data podle vlastností, jako je četnost přístupu a plánovaná doba uchování. Data uložená v cloudu se liší tím, jak se generují, zpracovávají a jak se k nim přistupuje po celou dobu jejich životnosti. Některá data se během svojí existence využívají nebo mění často. Některá data se používají často v rané fázi svého životního cyklu, ale s tím jak stárnou, přístup k nim výrazně klesá. Některá data se po uložení v cloudu využívají zřídka, pokud vůbec někdy.
 
 Pro každý z těchto scénářů využívání je vhodná jiná úroveň úložiště, která je optimalizovaná pro určitý vzor přístupu. Se zavedením horké a studené úrovně teď služba Azure Blob Storage vychází vstříc potřebě různých úrovní úložiště s odlišnými cenovými modely.
 
@@ -36,7 +36,7 @@ Pro každý z těchto scénářů využívání je vhodná jiná úroveň úlož
 > 
 > 
 
-Účty úložiště Blob zpřístupňují atribut **Úroveň přístupu**, který vám umožní označit úroveň úložiště jako **Horkou** nebo **Studenou** podle toho, jaká data jsou v účtu uložená. Pokud začnete k datům přistupovat jinak často, můžete mezi úrovněmi úložiště kdykoliv přepnout.
+Účty služby Blob Storage zpřístupňují atribut **Úroveň přístupu**, který umožňuje označit vrstvu úložiště jako **horkou** nebo **studenou** podle toho, jaká data se do účtu ukládají. Pokud začnete k datům přistupovat jinak často, můžete mezi úrovněmi úložiště kdykoliv přepnout.
 
 > [!NOTE]
 > Se změnou úrovně úložiště můžou být spojeny další poplatky. Další informace najdete v části [Ceny a fakturace](storage-blob-storage-tiers.md#pricing-and-billing).
@@ -53,12 +53,12 @@ Studená úroveň úložiště se hodí například pro tahle data:
 * Záloha, archivace a datové sady pro zotavení po havárii.
 * Starší obsah a média, které se již nezobrazují často, ale které by však měly být na vyžádání okamžitě dostupné.
 * Velké datové sady, které je potřeba levně uložit, zatímco se shromažďují další data pro budoucí zpracování. (*např.* dlouhodobé uložení vědeckých dat, nezpracovaná telemetrická data z výrobního závodu)
-* Původní (hrubá, nezpracovaná) data, která je potřeba zachovat i po jejich zpracování do konečné, použitelné podoby. (*např.* původní záznamy médií po překódování do jiných formátů)
+* Původní (hrubá, nezpracovaná) data, která je potřeba zachovat i po jejich zpracování do konečné, použitelné podoby. (*např.* původní multimediální záznamy po překódování do jiných formátů)
 * Data pro soulad a archivaci, které je potřeba uchovat po dlouhou dobu a téměř se k nim nepřistupuje. (*např.* záznamy z bezpečnostních kamer, staré rentgenové snímky / snímky magnetické rezonance pro zdravotnická zařízení, zvukové záznamy a přepisy zákaznických hovorů pro finanční služby)
 
 Další informace o účtech úložiště najdete v tématu [Účty Azure Storage](storage-create-storage-account.md).
 
-Pro aplikace, které potřebují jen úložiště objektů blob bloku a doplňovacích objektů blob doporučujeme použít účty úložiště Blob a využít tak výhody specializovaného cenového modelu úložiště děleného na úrovně. Chápeme ale, že to někdy nemusí být možné a použití účtů úložiště pro obecné účely by bylo vhodnější, třeba v těchto situacích:
+Pro aplikace, které potřebují jen úložiště objektů blob bloku a doplňovacích objektů blob doporučujeme použít účty úložiště Blob a využít tak výhody specializovaného cenového modelu úložiště děleného na úrovně. Uvědomujeme si, že za určitých okolností to nemusí být možné, protože někdy stačí použít účty úložiště pro obecné účely, třeba v těchto situacích:
 
 * Potřebujete používat tabulky, fronty nebo soubory a chcete mít svoje objekty blob uložené ve stejném účtu úložiště. Všimněte si, že kromě stejných sdílených klíčů nemá jejich uložení ve stejném účtu žádnou jinou technickou výhodu.
 * Stejně budete muset použít model nasazení Classic. Účty úložiště Blob jsou dostupné jen přes model nasazení Azure Resource Manager.
@@ -66,7 +66,7 @@ Pro aplikace, které potřebují jen úložiště objektů blob bloku a doplňov
 * Používáte verzi rozhraní [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx), která je starší než 14.2.2014, nebo klientskou knihovnu verze nižší než 4.x a nemůžete svoji aplikaci upgradovat.
 
 > [!NOTE]
-> Účty úložiště Blob se aktuálně podporují ve většině oblastí Azure, ke kterým se v budoucnu připojí další. Aktuální seznam dostupných oblastí najdete na stránce [Dostupnost Azure Services v jednotlivých oblastech](https://azure.microsoft.com/regions/#services).
+> Účty Blob Storage jsou aktuálně podporované ve všech oblastech Azure.
 > 
 > 
 
@@ -218,9 +218,9 @@ Když tuto funkci zapnete, data o transakcích API se budou každou hodinu shrom
 > 
 > 
 
-Abyste spotřebu dat a vzorec přistupování dobře odhadli, doporučujeme pro měření vybrat dobu uchování, která představuje pravidelné využití, a údaje extrapolovat.
+Pokud chcete dobře odhadnout spotřebu dat a přístup k nim, doporučujeme pro měření dat vybrat takovou dobu uchování, která dobře vystihuje pravidelné používání, a potom údaje extrapolovat.
 Můžete například měřená data uchovávat po sedm dní, sesbírat jednou za týden a analyzovat je na konci měsíce.
-Nebo naměřte a sesbírejte data za posledních 30 dní a na konci 30denního období je analyzujte.
+Nebo změřte a nasbírejte data za posledních 30 dní a na konci 30denního období je analyzujte.
 
 Podrobnosti o povolení, shromažďování a zobrazování dat metrik naleznete v tématu [Povolení metrik Azure Storage a prohlížení dat metrik](storage-enable-and-view-metrics.md).
 
@@ -285,14 +285,14 @@ Pomocí některé z knihoven klienta Azure nebo rozhraní REST API služeb úlo�
 Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Objekty blob šifrované na straně klienta ukládají metadata šifrování uložená s objektem blob. Je absolutně nezbytné, aby každý použitý mechanizmus kopírování zajistil, aby zůstala zachovaná metadata objektu blob, především metadata šifrování. Pokud objekty blob zkopírujete bez těchto metadat, obsah objektu blob bude nenávratně ztracený. Další informace o metadatech šifrování najdete v tématu [Šifrování Azure Storage na straně klienta](storage-client-side-encryption.md).
+> Objekty blob šifrované na straně klienta ukládají metadata šifrování uložená s objektem blob. Je absolutně nezbytné, aby každý použitý mechanizmus kopírování zajistil, aby zůstala zachovaná metadata objektu blob, především metadata šifrování. Pokud objekty blob zkopírujete bez těchto metadat, obsah objektu blob bude nenávratně ztracený. Podrobnější informace o šifrování metadat najdete v článku o [Azure Storage a šifrování na straně klienta](storage-client-side-encryption.md).
 > 
 > 
 
 ## <a name="faqs"></a>Nejčastější dotazy
 1. **Jsou existující účty úložiště stále dostupné?**
    
-    Ano, existující účty úložiště jsou stále dostupné a jejich funkce ani cena se nemění.  Není u nich možné vybrat úroveň úložiště a tuto možnost nebudou mít ani v budoucnu.
+    Ano, existující účty úložiště jsou stále dostupné a jejich funkce ani cena se nemění.  Není u nich možné vybrat úroveň úložiště a tato možnost nebude ani v budoucnosti.
 2. **Proč a kdy bych měl/a začít používat účty úložiště Blob?**
    
     Účty úložiště Blob se specializují na ukládání objektů blob a umožňují nám zavádět nové funkce pro objekty blob. Výhledově se pro ukládání objektů blob budou doporučovat účty úložiště Blob, protože budou mít funkce hierarchie a úrovní úložiště podle typu účtu. Kdy budete chtít migrovat ale záleží na vás a vašich obchodních potřebách.
@@ -318,7 +318,7 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
     Účty úložiště Blob podporují pouze objekty blob bloku a doplňovací objekty blob, nepodporují objekty blob stránky. Disky virtuálních počítačů Azure se opírají o objekty blob stránky, proto se účty úložiště Blob nedají použít k uložení disků virtuálních počítačů. Zálohy disků virtuálních počítačů se ale dají do účtu úložiště Blob uložit jako objekty blob bloku.
 9. **Budu muset změnit svoje existující aplikace, aby používaly účty úložiště Blob?**
    
-    Účty úložiště Blob mají rozhraní API 100% konzistentní s účty úložiště pro obecné účely pro objekty blob bloku a doplňující objekty blob. Pokud vaše aplikace používá objekty blob bloku nebo doplňující objekty blob a pokud používáte verzi rozhraní [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) z 14.2.2014 nebo novější, měla by vaše aplikace prostě fungovat. Pokud používáte starší verzi protokolu, budete muset svoji aplikaci aktualizovat, aby používala novou verzi, a mohla tak pracovat s oběma typy účtů úložiště zároveň. Celkově vždy doporučujeme používat nejnovější verzi bez ohledu na to, který typ účtu úložiště používáte.
+    Účty úložiště Blob mají rozhraní API 100% konzistentní s účty úložiště pro obecné účely pro objekty blob bloku a doplňující objekty blob. Pokud aplikace používá objekty blob bloku nebo objekty blob připojení a vy používáte verzi rozhraní [služby úložiště REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) z 14. 2. 2014 nebo novější, měla by aplikace fungovat. Pokud používáte starší verzi protokolu, budete muset svoji aplikaci aktualizovat, aby používala novou verzi, a mohla tak pracovat s oběma typy účtů úložiště zároveň. Celkově vždy doporučujeme používat nejnovější verzi bez ohledu na to, který typ účtu úložiště používáte.
 10. **Budu muset něco dělat jinak?**
     
     Účty úložiště Blob jsou velmi podobné účtům úložiště pro obecné účely pro ukládání objektů blob bloku a doplňovacích objektů blob a podporují všechny klíčové funkce Azure Storage, včetně vysoké odolnosti a dostupnosti, škálovatelnosti, výkonnosti a zabezpečení. Kromě funkcí a omezení charakteristických pro účty a úrovně úložiště Blob, jak jsme popsali výše, všechno ostatní zůstává při starém.
@@ -345,6 +345,6 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

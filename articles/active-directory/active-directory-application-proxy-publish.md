@@ -1,26 +1,31 @@
 ---
 title: "Publikování aplikací pomocí proxy aplikace služby Azure AD | Dokumentace Microsoftu"
-description: "Publikujte místní aplikace v cloudu pomocí proxy aplikace služby Azure AD."
+description: "Publikujte místní aplikace v cloudu pomocí proxy aplikací služby Azure AD v klasickém portálu."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
+ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 
 
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikování aplikací pomocí proxy aplikace služby Azure AD
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](application-proxy-publish-azure-portal.md)
+> * [Portál Azure Classic](active-directory-application-proxy-publish.md)
+
 Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních procesů publikováním místních aplikací, aby byly přístupné přes internet. V tomto bodě byste už měli mít [povolenou proxy aplikaci v portálu Azure Classic](active-directory-application-proxy-enable.md). Tento článek vám ukáže postup, jak publikovat aplikace, které běží v místní síti, a jak poskytnout zabezpečený vzdálený přístup mimo síť. Po dokončení tohoto článku budete připravení ke konfiguraci aplikace pomocí individuálních informací nebo požadavků na zabezpečení.
 
 > [!NOTE]
@@ -101,6 +106,6 @@ Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://b
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

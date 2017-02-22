@@ -13,8 +13,8 @@
 ## Vývoj
 ### [Vývoj aplikací Function App](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Práce s aktivačními událostmi a vazbami](functions-triggers-bindings.md)
 #### [Vazby DocumentDB](functions-bindings-documentdb.md)
 #### [Vazby centra událostí](functions-bindings-event-hubs.md)
@@ -28,7 +28,7 @@
 ##### [Vazby tabulek](functions-bindings-storage-table.md)
 #### [Trigger časovače](functions-bindings-timer.md)
 #### [Vazba výstupu z Twilia](functions-bindings-twilio.md)
-### [Vytvoření funkce na portálu Azure Portal](functions-create-first-azure-function-azure-portal.md)
+### [Vytvoření funkce na portálu Azure Portal](functions-create-first-azure-function-azure-portal.md) 
 ### [Testování Azure Functions](functions-test-a-function.md)
 ### [Místní vývoj a ladění](functions-run-local.md)
 ### [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)
@@ -39,6 +39,7 @@
 
 ## Nasazení
 ### [Průběžné nasazování se službou Azure Functions](functions-continuous-deployment.md)
+### [Nasazení funkcí s použitím infrastruktury jako kódu](functions-infrastructure-as-code.md)
 
 ## Monitorování
 ### [Monitorování Azure Functions](functions-monitoring.md)
@@ -47,9 +48,10 @@
 ## [Ceny](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Úložiště GitHub – Azure Functions](https://github.com/Azure/Azure-Functions/) 
 ## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

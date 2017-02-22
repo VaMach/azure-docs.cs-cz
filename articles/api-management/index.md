@@ -1,13 +1,25 @@
 ---
+title: "Dokumentace ke službě Azure API Management – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
+description: "Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API. Dokumentace ukazuje, jak vytvořit moderní brány rozhraní API pro stávající služby back-end."
+services: api-management
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Dokumentace ke službě API Management
 
-Služba API Management pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb.  Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, informací o podniku, analýz, zabezpečení a ochrany.
+Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API vývojářům ze strany externích dodavatelů, partnerů i zaměstnanců. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy vytváření a správy moderních bran rozhraní API pro stávající služby back-end, ať už jsou hostované kdekoli.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,18 +141,12 @@ Služba API Management pomáhá organizacím při publikování rozhraní API pr
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stažení dokumentace ke službě API Management </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

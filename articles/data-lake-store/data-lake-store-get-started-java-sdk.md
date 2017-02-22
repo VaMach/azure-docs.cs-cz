@@ -1,6 +1,6 @@
 ---
-title: "Použití sady Java SDK pro Data Lake Store k vývoji aplikací | Dokumentace Microsoftu"
-description: "Použití sady Java SDK pro Azure Data Lake Store k vývoji aplikací"
+title: "Vývoj aplikací pro Azure Data Lake Store pomocí Java SDK | Dokumentace Microsoftu"
+description: "Přečtěte si, jak pomocí Azure Data Lake Store Java SDK vytvořit účet Data Lake Store a provádět další základní operace."
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
+ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
+ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 
 
 ---
@@ -64,7 +64,7 @@ Ukázka kódu, která je k dispozici [na GitHubu](https://azure.microsoft.com/do
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.4</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -73,7 +73,7 @@ Ukázka kódu, která je k dispozici [na GitHubu](https://azure.microsoft.com/do
           </dependency>
         </dependencies>
    
-    První závislostí je použití sady SDK pro Data Lake Store (`azure-datalake-store`) z úložiště maven. Druhou závislostí (`slf4j-nop`) je zadání protokolovacího rozhraní, které se pro tuto aplikaci použije. Sada SDK pro službu Data Lake Store používá při protokolování [slf4j](http://www.slf4j.org/), takže máte možnost si vybrat z řady oblíbených protokolovacích rozhraní, jako je log4j, Java, logback atd., nebo nemusíte použít žádné protokolování. Pro tento příklad zakážeme protokolování a použijeme tedy vazbu **slf4j-nop**. Pokud chcete ve své aplikaci použít jiné možnosti protokolování, přečtěte si informace [zde](http://www.slf4j.org/manual.html#projectDep).
+    První závislostí je použití sady SDK pro Data Lake Store (`azure-data-lake-store-sdk`) z úložiště maven. Druhou závislostí (`slf4j-nop`) je zadání protokolovacího rozhraní, které se pro tuto aplikaci použije. Sada SDK pro službu Data Lake Store používá při protokolování [slf4j](http://www.slf4j.org/), takže máte možnost si vybrat z řady oblíbených protokolovacích rozhraní, jako je log4j, Java, logback atd., nebo nemusíte použít žádné protokolování. Pro tento příklad zakážeme protokolování a použijeme tedy vazbu **slf4j-nop**. Pokud chcete ve své aplikaci použít jiné možnosti protokolování, přečtěte si informace [zde](http://www.slf4j.org/manual.html#projectDep).
 
 ### <a name="add-the-application-code"></a>Přidání kódu aplikace
 Kód má tři hlavní části.
@@ -83,27 +83,39 @@ Kód má tři hlavní části.
 3. Použití klienta služby Data Lake Store k provedení operací
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>Krok 1: Získání tokenu Azure Active Directory
-V sadě SDK pro Data Lake Store jsou vhodné metody, které umožňují získat tokeny zabezpečení potřebné ke komunikaci s účtem služby Data Lake Store. Není ale povinné použít tuto sadu SDK a tyto metody. Můžete použít také jakýkoliv jiný způsob získání tokenu, například sadu [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) nebo vlastní kód.
+V sadě SDK pro Data Lake Store jsou vhodné metody, které umožňují spravovat tokeny zabezpečení potřebné ke komunikaci s účtem služby Data Lake Store. Není ale povinné použít tuto sadu SDK a tyto metody. Můžete použít také jakýkoliv jiný způsob získání tokenu, například sadu [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) nebo vlastní kód.
 
-Pokud chcete k získání tokenu pro webovou aplikaci služby Active Directory, kterou jste vytvořili dříve, použít sadu SDK pro Data Lake Store, použijte statické metody ve třídě `AzureADAuthenticator`. Místo **FILL-IN-HERE** zadejte skutečné hodnoty pro webovou aplikaci Azure Active Directory.
+Pokud chcete k získání tokenu pro webovou aplikaci služby Active Directory, kterou jste vytvořili dříve, použít sadu SDK pro Data Lake Store, použijte jednu z podtříd třídy `AccessTokenProvider` (dále uvedený příklad používá `ClientCredsTokenProvider`). Poskytovatel tokenu má uložené přihlašovací údaje v mezipaměti a automaticky token obnovuje, pokud má vypršet jeho platnost. Je možné vytvořit vlastní podtřídy třídy `AccessTokenProvider`, takže tokeny se získávají pomocí zákaznického kódu, ale pro tentokrát použijeme tu, která je součástí sady SDK.
+
+Místo **FILL-IN-HERE** zadejte skutečné hodnoty pro webovou aplikaci Azure Active Directory.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
     private static String clientKey = "FILL-IN-HERE";
 
-    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Krok 2: Vytvoření objektu klienta služby Azure Data Lake Store (ADLStoreClient)
-Pokud chcete vytvořit objekt [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/), musíte zadat název účtu služby Data Lake Store a token služby Azure Active Directory vygenerovaný v posledním kroku. Název účtu služby Data Lake Store musí být plně kvalifikovaný název domény. Například **FILL-IN-HERE** nahraďte něčím jako **mydatalakestore.azuredatalakestore.net**.
+Pokud chcete vytvořit objekt [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/), musíte zadat název účtu služby Data Lake Store a poskytovatele tokenu, kterého jste vygenerovali v minulém kroku. Název účtu služby Data Lake Store musí být plně kvalifikovaný název domény. Například **FILL-IN-HERE** nahraďte něčím jako **mydatalakestore.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
 ### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Krok 3: Použití objektu ADLStoreClient k provedení operací souborů a adresářů
 Kód níže obsahuje příklady fragmentů některých běžných operací. Na další operace se můžete podívat v kompletní [Dokumentaci rozhraní API sady Java SDK pro Azure Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) k objektu **ADLStoreClient**.
 
 Poznámka: Soubory se čtou a do souborů se zapisuje pomocí standardních streamů Java. Znamená to, že kterýkoliv stream Java můžete umístit do vrstvy nad streamy služby Data Lake Store. Díky tomu budete moct využít možností standardních funkcí Java (například streamů tisku pro formátovaný výstup nebo kteréhokoliv ze streamů komprese nebo šifrování pro získání dalších funkcí atd.).
 
+     // create file and write some content
+     String filename = "/a/b/c.txt";
+     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+     PrintStream out = new PrintStream(stream);
+     for (int i = 1; i <= 10; i++) {
+         out.println("This is line #" + i);
+         out.format("This is the same line (%d), but using formatted output. %n", i);
+     }
+     out.close();
+    
     // set file permission
     client.setPermission(filename, "744");
 
@@ -142,6 +154,7 @@ Poznámka: Soubory se čtou a do souborů se zapisuje pomocí standardních stre
 2. Jestliže chcete vytvořit samostatný soubor jar, který budete moct spustit z příkazového řádku, vytvořte ho se všemi závislostmi s použitím [modulu plug-in sestavení Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). U pom.xml v [ukázkovém zdrojovém kódu na githubu](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) najdete příklad, jak to provést.
 
 ## <a name="next-steps"></a>Další kroky
+* [Prozkoumání JavaDoc k sadě Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -149,6 +162,6 @@ Poznámka: Soubory se čtou a do souborů se zapisuje pomocí standardních stre
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

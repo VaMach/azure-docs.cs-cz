@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,7 +31,7 @@ Pokud se zajímáte o pokročilejší scénáře omezování pomocí zásad [rat
 V tomto kroku vytvoříte bezplatnou zkušební verzi produktu, který nevyžaduje schválení předplatného.
 
 > [!NOTE]
-> Pokud už máte produkt nakonfigurovaný a chcete ho v tomto kurzu použít, můžete přeskočit k části [Konfigurace zásad omezení četnosti a zásad kvót][Konfigurace zásad omezení četnosti a zásad kvót] a postupovat v kurzu odtamtud se svým produktem místo bezplatné zkušební verze produktu.
+> Pokud už máte produkt nakonfigurovaný a chcete ho v tomto kurzu použít, můžete přeskočit na článek [Konfigurace zásad omezení četnosti a zásad kvót][Configure call rate limit and quota policies] a postupovat v kurzu odtamtud se svým produktem místo bezplatné zkušební verze produktu.
 > 
 > 
 
@@ -39,7 +39,7 @@ Začněte tak, že na webu Azure Portal dané služby API Management kliknete na
 
 ![Portál vydavatele][api-management-management-console]
 
-> Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Vytvoření instance API Management] v kurzu [Správa vašeho prvního rozhraní API v Azure API Management][Správa vašeho prvního rozhraní API v Azure API Management].
+> Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Create an API Management service instance] v kurzu [Správa vašeho prvního rozhraní API v Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -67,7 +67,7 @@ Po zadání všech hodnot klikněte na **Uložit** a vytvořte produkt.
 
 Ve výchozím nastavení jsou nové produkty viditelné pro uživatele ve skupině **Správci**. Teď přidáme skupinu **Vývojáři**. Klikněte na **Bezplatná zkušební verze** a potom na kartu **Viditelnost**.
 
-> Ve službě API Management se ke správě viditelnosti produktů pro vývojáře používají skupiny. Produkty udělují viditelnost skupinám a vývojáři můžou zobrazovat a odebírat produkty, které jsou viditelné pro skupinu, do které patří. Další informace najdete v tématu [Vytvoření a používání skupin v Azure API Management][Vytvoření a používání skupin v Azure API Management].
+> Ve službě API Management se ke správě viditelnosti produktů pro vývojáře používají skupiny. Produkty udělují viditelnost skupinám a vývojáři můžou zobrazovat a odebírat produkty, které jsou viditelné pro skupinu, do které patří. Další informace najdete v článku [Vytvoření a používání skupin v Azure API Management][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Zaškrtněte políčko **Vývojáři** a potom klikněte na **Uložit**.
 ## <a name="add-api"> </a>Přidání rozhraní API do produktu
 V tomto kroku kurzu přidáme rozhraní API v programu Echo do nového produktu v bezplatné zkušební verzi.
 
-> Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním API programu Echo, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Správa vašeho prvního rozhraní API v Azure API Management][Správa vašeho prvního rozhraní API v Azure API Management].
+> Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním API programu Echo, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Správa vašeho prvního rozhraní API ve službě Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ Dvě zásady, které v tomto kurzu přidáváme, se nazývají [Omezení četnos
 
 Po umístění kurzoru v prvku **inbound** zásad klikněte na šipku vedle položky **Omezení četnosti volání podle předplatného** a vložte jeho šablonu zásad.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Omezení četnosti volání podle předplatného** můžete použít na úrovni produktu, ale dá se použít i na úrovni rozhraní API a na úrovni názvu jednotlivých operací. V tomto kurzu používáme jenom zásady na úrovni produktu, takže z prvku **rate-limit** můžete odstranit prvky **api** a **operation**, aby zůstal jenom vnější prvek **rate-limit**, jak je znázorněno v následujícím příkladu.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 V případě bezplatné zkušební verze produktu je maximální povolená četnost volání 10 volání za minutu, proto do atributu **call** zadejte hodnotu**10** a do atributu **renewal-period** zadejte hodnotu **60**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Pokud chcete nakonfigurovat zásady **Nastavení kvóty využití podle předplatného**, umístěte kurzor bezprostředně pod nově přidaný prvek **rate-limit** v prvku **inbound** a potom klikněte na šipku nalevo od **Nastavení kvóty využití podle předplatného**.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Vzhledem k tomu, že se tyto zásady mají používat i na úrovni produktu, odstraňte prvky názvu **api** a **operation**, jak je znázorněno v následujícím příkladu.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Kvóty můžou být založené na počtu volání za interval, na šířce pásma nebo na obojím. V tomto kurzu neprovádíme omezování na základě šířky pásma, proto můžete odstranit atribut **bandwidth** (šířka pásma).
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 V rámci bezplatné zkušební verze produktu má kvóta hodnotu 200 volání za týden. Do atributu **calls** zadejte hodnotu **200** a potom do atributu **renewal-period** zadejte hodnotu **604800**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > Intervaly zásad se zadávají v sekundách. Pokud chcete vypočítat interval pro týden, můžete počet dní (7) vynásobit počtem hodin za den (24), počtem minut za hodinu (60) a počtem sekund za minutu (60): 7 * 24 * 60 * 60 = 604800.
 > 
@@ -158,21 +172,23 @@ V rámci bezplatné zkušební verze produktu má kvóta hodnotu 200 volání z
 
 Zásady by po dokončení konfigurace měly odpovídat následujícímu příkladu.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 Po nakonfigurování požadovaných zásad klikněte na **Uložit**.
 
@@ -286,30 +302,30 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Přidání operací do rozhraní API]: api-management-howto-add-operations.md
-[Přidání a publikování produktu]: api-management-howto-add-products.md
-[Sledování a analýza]: ../api-management-monitoring.md
-[Přidání rozhraní API do produktu]: api-management-howto-add-products.md#add-apis
-[Publikování produktu]: api-management-howto-add-products.md#publish-product
-[Správa vašeho prvního rozhraní API v Azure API Management]: api-management-get-started.md
-[Vytvoření a používání skupin v Azure API Management]: api-management-howto-create-groups.md
-[Zobrazení předplatitelů produktu]: api-management-howto-add-products.md#view-subscribers
-[Začínáme s Azure API Management]: api-management-get-started.md
-[Vytvoření instance API Management]: api-management-get-started.md#create-service-instance
-[Další kroky]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Vytvoření produktu]: #create-product
-[Konfigurace zásad omezení četnosti a zásad kvót]: #policies
-[Přidání rozhraní API do produktu]: #add-api
-[Publikování produktu]: #publish-product
-[Přihlášení vývojářského účtu k odběru produktu]: #subscribe-account
-[Volání operace a testování omezení četnosti]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Omezení četnosti volání]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Nastavení kvóty využití]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

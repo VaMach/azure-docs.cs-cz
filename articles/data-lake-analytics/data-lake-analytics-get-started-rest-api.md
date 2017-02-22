@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ Zjistěte, jak používat rozhraní REST API WebHDFS a rozhraní REST API služb
 ## <a name="authenticate-with-azure-active-directory"></a>Ověřování pomocí Azure Active Directory
 Existují dvě metody ověřování pomocí Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Ověření koncového uživatele (interaktivní)
+### <a name="end-user-authentication-interactive"></a>Ověření koncového uživatele (interaktivní)
 Když použijete tuto metodu, aplikace vyzve uživatele k přihlášení a všechny operace se provádějí v kontextu uživatele. 
 
 Pokud chcete zavést interaktivní ověřování, postupujte následovně:
@@ -76,7 +76,7 @@ Pokud chcete zavést interaktivní ověřování, postupujte následovně:
 
 Další informace o interaktivním ověřování uživatelů najdete v tématu [Tok poskytování autorizačních kódů](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Ověřování služba-služba (neinteraktivní)
+### <a name="service-to-service-authentication-non-interactive"></a>Ověřování služba-služba (neinteraktivní)
 Když použijete tuto metodu, aplikace poskytuje své vlastní přihlašovací údaje k provedení operací. V tomto případě musíte vydat požadavek POST podobný tomu, který vidíte níže: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Nahraďte \<`REDACTED`\> autorizačním tokenem, \<`AzureSubscriptionID`\> svým
         ]
     }
 
-## <a name="submit-usql-jobs"></a>Odesílání úloh U-SQL
+## <a name="submit-u-sql-jobs"></a>Odesílání úloh U-SQL
 Následující příkaz cURL znázorňuje, jak odeslat úlohu U-SQL:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ Výstup je podobný tomuto:
     }
 
 
-## <a name="list-usql-jobs"></a>Zobrazení seznamu úloh U-SQL
+## <a name="list-u-sql-jobs"></a>Zobrazení seznamu úloh U-SQL
 Následující příkaz cURL znázorňuje, jak zobrazit seznam úloh U-SQL:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ Výstup je podobný tomuto:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

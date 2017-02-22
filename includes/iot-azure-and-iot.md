@@ -18,7 +18,7 @@ Následující diagram ukazuje typickou architekturu řešení IoT. Diagram neob
 > 
 
 ### <a name="device-connectivity"></a>Připojení zařízení
-Zařízení v této architektuře řešení IoT odesílají telemetrická data, například odečty snímačů z čerpací stanice, do koncového bodu cloudu, kde jsou uloženy a zpracovány. Ve scénáři prediktivní údržby může back-end použít datový proud s daty ze snímačů, aby zjistil, kdy konkrétní čerpadlo vyžaduje údržbu. Zařízení můžete také přijímat a reagovat na příkazy z cloudu do zařízení tak, že si přečte zprávy z koncového bodu cloudu. Ve scénáři prediktivní údržby může back-end řešení například odeslat příkazy jiným čerpadlům čerpací stanice, aby těsně před plánovaným začátkem údržby přesměrovala toky, a tím pracovníkovi údržby umožní začít s prací hned, jak dorazí na místo.
+Zařízení v této architektuře řešení IoT odesílají telemetrická data, například odečty snímačů z čerpací stanice, do koncového bodu cloudu, kde jsou uloženy a zpracovány. Ve scénáři prediktivní údržby může back-end řešení použít datový proud s daty ze snímačů k určení, kdy konkrétní čerpadlo vyžaduje údržbu. Zařízení může také přijímat a reagovat na zprávy typu cloud-zařízení tak, že si přečte zprávy z koncového bodu cloudu. Ve scénáři prediktivní údržby může back-end řešení například odesílat zprávy jiným čerpadlům čerpací stanice, aby těsně před plánovaným začátkem údržby přesměrovala toky, a tím pracovníkovi údržby umožní začít s prací hned, jak dorazí na místo.
 
 Jeden z největších problémů, kterým projekty IoT čelí, je způsob spolehlivého a bezpečného připojení zařízení k back-endu řešení. Zařízení IoT mají se srovnání s různými klienty, například s prohlížeči a mobilními aplikacemi, jiné vlastnosti. Zařízení IoT:
 
@@ -42,9 +42,9 @@ V rámci cloudu se většina dat zpracovává v back-endu řešení IoT, jedná 
 * Poskytuje možnosti registrace zařízení, které vám umožní zřizování zařízení a kontrolu toho, která zařízení mají povolení k připojení k vaší infrastruktuře.
 * Umožňuje sledování stavu zařízení a sledování jejich aktivit.
 
-Ve scénáři prediktivní údržby ukládá back-end řešení historická telemetrická data. Back-end může pomocí těchto dat rozpoznat vzorce, které naznačují, že je třeba provést údržbu konkrétního čerpadla.
+Ve scénáři prediktivní údržby ukládá back-end řešení historická telemetrická data. Back-end řešení může pomocí těchto dat rozpoznat vzorce, které naznačují, že je třeba provést údržbu konkrétního čerpadla.
 
-Řešení IoT může obsahovat smyčky automatické zpětné vazby. Analytický modul v back-endu může například z telemetrických dat rozpoznat, že teplota konkrétního zařízení překračuje běžnou provozní úroveň. Řešení následně může do zařízení odeslat příkaz s pokyny k provedení nápravné akce.
+Řešení IoT může obsahovat smyčky automatické zpětné vazby. Analytický modul v back-endu řešení může například z telemetrických dat rozpoznat, že teplota konkrétního zařízení překračuje běžnou provozní úroveň. Řešení následně může do zařízení odeslat příkaz s pokyny k provedení nápravné akce.
 
 ### <a name="presentation-and-business-connectivity"></a>Prezentační a obchodní připojení
 Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatelům pracovat s řešením IoT a se zařízeními. Umožňuje uživatelům zobrazit a analyzovat data shromážděná z jejich zařízení. Tato zobrazení můžou mít podobu řídicích panelů nebo sestav BI, které můžou zobrazit historická data i data téměř v reálném čase. Obsluha může například zkontrolovat stav konkrétní čerpací stanice a zobrazit všechny výstrahy vyvolané systémem. Tato vrstva také umožňuje integraci back-endu řešení IoT se stávajícími obchodními aplikacemi a jejich zapojení do podnikových obchodních procesů nebo pracovních postupů. Řešení prediktivní údržby se může integrovat například s plánovacím systémem, který zarezervuje návštěvu technika na čerpací stanici v případě, kdy řešení zjistí, že některé čerpadlo potřebuje údržbu.
@@ -60,6 +60,6 @@ Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatel�
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

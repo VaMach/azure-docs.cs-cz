@@ -91,6 +91,6 @@ Až nakonfigurujete svůj back-end mobilní aplikace, je možné buď vytvořit 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

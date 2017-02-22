@@ -209,6 +209,6 @@ Každý účet Data Lake Analytics vyžaduje účet Data Lake Store. Pokyny najd
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

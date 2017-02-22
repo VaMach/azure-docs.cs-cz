@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ V této části vytvoříte místní úložiště Git, které bude obsahovat ser
         git init
    
      ![Nové místní úložiště Git](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Spusťte následující příkaz, kterým přidáte vzdálené řízení Git pro úložiště vaší aplikace API. 
+3. Pokud jste to absolvovali první část kurzu a zkopírovali složku `ContactList`, kopie pravděpodobně obsahovala složku `node_modules`. Složku `node_modules` nechcete zahrnout do správy zdrojového kódu, protože se vytvořila pro vás během procesu nasazení prostřednictvím souboru `package.json` a příkazu `npm install`. Proto přidejte soubor `.gitignore` spuštěním následujícího příkazu v kořenovém adresáři projektu.
+
+         touch .gitignore
+      
+   Otevřete soubor .gitignore a přidejte `node_modules` na první řádek souboru. To, že správy zdrojového kódu složku `node_modules` ignoruje, můžete ověřit spuštěním příkazu `git status` a kontrolou, že adresář není uvedený. Chcete-li přidat další pravidla, v projektu NodeJS existuje (projekt GitHub)[https://github.com/github/gitignore/blob/master/Node.gitignore], který obsahuje doporučené soubory pro ignorování.
+ 
+4. Spusťte následující příkaz, kterým přidáte vzdálené řízení Git pro úložiště vaší aplikace API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Poznámka:**: Řetězec YOUR_GIT_CLONE_URL_HERE nahraďte vlastní adresou URL pro klon Git, kterou jste si zkopírovali dříve. 
-4. Spusťte následující příkazy, čímž vytvoření potvrzení změn, které bude obsahovat veškerý kód. 
+5. Spusťte následující příkazy, čímž vytvoření potvrzení změn, které bude obsahovat veškerý kód. 
    
         git add .
         git commit -m "initial revision"
    
     ![Výstup ve formě potvrzení změn ze systému Git ](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Spuštěním příkazu nuceně vložte (push) kód do Azure. Když se zobrazí výzva k zadání hesla, zadejte to, které jste si dříve nastavili na Portálu Azure.
+6. Spuštěním příkazu nuceně vložte (push) kód do Azure. Když se zobrazí výzva k zadání hesla, zadejte to, které jste si dříve nastavili na Portálu Azure.
    
         git push azure master
    
     Tím se spustí nasazování do vaší aplikace API.  
-6. V prohlížeči se vraťte do okna **Nasazení** pro vaši aplikaci API, kde uvidíte, že nasazování probíhá. 
+7. V prohlížeči se vraťte do okna **Nasazení** pro vaši aplikaci API, kde uvidíte, že nasazování probíhá. 
    
     ![Probíhající nasazení](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ V tomto okamžiku jste úspěšně vytvořili aplikaci API a nasadili do ní kó
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

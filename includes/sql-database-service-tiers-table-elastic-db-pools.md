@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Maximální počet eDTU na databázi | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Elastické databáze sdílí úložiště fondu, proto je velikost úložiště databáze omezena na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi.
+\* Databáze ve fondu sdílejí úložiště fondu, proto je velikost úložiště pro databáze omezená na menší z hodnot zbývajícího úložiště fondu a maximální velikosti úložiště na databázi. Maximální velikost úložiště na fond odkazuje na maximální velikost datových souborů ve fondu a nezahrnuje místo, které využívají soubory protokolu.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

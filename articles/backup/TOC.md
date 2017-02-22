@@ -1,3 +1,4 @@
+
 # Přehled
 ## [Co je Azure Backup?](backup-introduction-to-azure-backup.md)
 # Začínáme
@@ -13,7 +14,7 @@
 ### [DPM na portálu Azure Classic](backup-dpm-automation-classic.md)
 ### [Windows Server na webu Azure Portal](backup-client-automation.md)
 ### [Windows Server na portálu Azure Classic](backup-client-automation-classic.md)
-## Zálohování úloh aplikací
+## Zálohování a obnovení úloh aplikací
 ### [Příprava úloh DPM na webu Azure Portal](backup-azure-dpm-introduction.md)
 ### [Příprava úloh DPM na portálu Azure Classic](backup-azure-dpm-introduction-classic.md)
 ### [Příprava úloh Azure Backup Serveru na webu Azure Portal](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +23,7 @@
 ### [Obnovení dat v úložišti záloh na alternativní server DPM](backup-azure-alternate-dpm-server.md)
 ### [Použití DPM k zálohování úloh SQL Serveru](backup-azure-backup-sql.md)
 ### [Použití DPM k zálohování sharepointové farmy](backup-azure-backup-sharepoint.md)
-### [Trezor služby Recovery Services – nejčastější dotazy](backup-azure-backup-ibiza-faq.md)
-## Zálohování virtuálních počítačů Azure
+## Zálohování a obnovení virtuálních počítačů Azure
 ### [Příprava virtuálních počítačů Azure](backup-azure-vms-prepare.md)
 ### [Příprava virtuálních počítačů nasazených Resource Managerem](backup-azure-arm-vms-prepare.md)
 ### [Plánování infrastruktury zálohování virtuálních počítačů](backup-azure-vms-introduction.md)
@@ -33,9 +33,17 @@
 ### [Správa a sledování záloh virtuálních Počítačů Azure na klasickém portálu](backup-azure-manage-vms-classic.md)
 ### [Správa záloh virtuálních počítačů Azure na webu Azure Portal](backup-azure-manage-vms.md)
 ### [Monitorování výstrah pro zálohy virtuálních počítačů Azure na webu Azure Portal](backup-azure-monitor-vms.md)
+### [Obnovení souborů ze záloh virtuálních počítačů Azure](backup-azure-restore-files-from-vm.md)
 ### [Obnovení virtuálních počítačů v Azure](backup-azure-restore-vms.md)
 ### [Obnovení virtuálních počítačů nasazených Azure Resource Managerem na webu Azure Portal](backup-azure-arm-restore-vms.md)
-## Zálohování počítačů s Windows
+### [Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače pomocí Azure Backup](backup-azure-restore-key-secret.md)
+## Zálohování a obnovení Azure SQL Database
+### [Konfigurace dlouhodobého uchovávání záloh](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Zobrazení záloh v trezoru služby Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Obnovení z dlouhodobě uchovávaných záloh](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Odstranění dlouhodobých záloh Azure SQL](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Zálohování a obnovení počítačů s Windows
 ### [Windows Server s využitím klasického modelu nasazení](backup-configure-vault-classic.md)
 ### [Windows Server s využitím modelu nasazení Resource Manageru](backup-configure-vault.md)
 ### [Správa trezorů služby Backup s využitím klasického modelu nasazení](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +51,8 @@
 ### [Obnovení souborů na Windows Serveru s využitím modelu nasazení Resource Manager](backup-azure-restore-windows-server.md)
 ### [Obnovení souborů na Windows Serveru s využitím klasického modelu nasazení](backup-azure-restore-windows-server-classic.md)
 
+## [Použití řízení přístupu na základě rolí pro správu záloh](backup-rbac-rs-vault.md)
+## [Povolení funkcí zabezpečení pro hybridní zálohy](backup-azure-security-feature.md)
 ## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurace zálohování offline](backup-azure-backup-import-export.md)
 ## [Použití služby Azure Backup k náhradě páskové infrastruktury](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +68,11 @@
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

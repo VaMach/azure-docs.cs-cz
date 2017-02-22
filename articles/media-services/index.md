@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure Media Services – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak pomocí služby Media Services, rozšiřitelné cloudové platformy, bezpečně streamovat živé video nebo video na vyžádání ve vysílací kvalitě. Kurzy, reference k rozhraní API a další zdroje informací"
+services: media-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: media-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
+ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
+ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
 
 ---
+
 # <a name="media-services-documentation"></a>Dokumentace ke službě Media Services
 
 Zjistěte, jak pomocí služby Media Services, rozšiřitelné cloudové platformy, streamovat video ve vysílací kvalitě. Kurzy, reference k rozhraní API a další dokumentace ukazují, jak bezpečně doručovat živé video a video na vyžádání nebo zvukový stream, který se škáluje milionům uživatelů.
@@ -202,6 +214,6 @@ Zjistěte, jak pomocí služby Media Services, rozšiřitelné cloudové platfor
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

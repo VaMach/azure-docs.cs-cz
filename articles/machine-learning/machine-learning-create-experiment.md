@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 60e47e8fd0933ecd25b3bca6085edcd5785dc580
-ms.openlocfilehash: 69561ef82ce6d63bd8a90c871b5bc0cfe03e86ae
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -95,7 +95,9 @@ Tuto datovou sadu dostanete do svého experimentu takto.
 
 1. Kliknutím na **+NOVÝ** ve spodní části okna nástroje Machine Learning Studio vytvořte nový experiment a vyberte **EXPERIMENT** a **Prázdný experiment**.
 
-2. Experimentu se přiřadí výchozí název, který se zobrazí v horní části plátna. Vyberte tento text a přejmenujte jej na něco smysluplného, například **Predikce ceny automobilu**.
+2. Experimentu se přiřadí výchozí název, který se zobrazí v horní části plátna. Vyberte tento text a přejmenujte jej na něco smysluplného, například **Predikce ceny automobilu**. Název nemusí být jedinečný.
+
+    ![Přejmenování experimentu][rename-experiment]
 
 2. Nalevo od plátna experimentu je paleta datových sad a modulů. Do pole Hledat v horní části palety zadejte **automobile**. Vyhledá se datová sada **Automobile price data (Raw)**. Přetáhněte tuto datovou sadu na plátno experimentu.
 
@@ -111,7 +113,7 @@ Pokud se chcete podívat, jak tato data vypadají, klikněte na výstupní port 
 
 > [!TIP]
 > Vstupní a výstupní porty datových sad a modulů jsou reprezentované malými kroužky – vstupní porty v horní části, výstupní porty v dolní části.
-Abyste v experimentu vytvořili tok dat, propojíte tyto porty dohromady.
+Pokud chcete vytvořit tok dat prostřednictvím experimentu, připojte výstupní port jednoho modulu ke vstupnímu portu jiného.
 V libovolném okamžiku můžete kliknout na výstupní port datové sady nebo modulu a prohlédnout si, jak v tomto bodě vypadá tok dat.
 
 V této ukázkové datové sadě každou instanci automobilu představuje jeden řádek a proměnné přidružené k automobilům se zobrazují jako sloupce. Na základě hodnot proměnných pro konkrétní automobil se pokusíme odhadnout cenu ve sloupci nejvíce vpravo (sloupec 26 se záhlavím price).
@@ -139,7 +141,7 @@ Nejdříve přidáme modul, který úplně odebere sloupec **normalized-losses**
     <br/>
     ***Přidejte modul Výběr sloupců v datové sadě na plátno experimentu a připojte ho.***
 
-3. Klikněte na [Výběr sloupců v datové sadě][select-columns] a v podokně **Vlastnosti** klikněte na **Spustit selektor sloupců**.
+3. Klikněte na modul [Výběr sloupců v datové sadě][select-columns] a v podokně **Vlastnosti** klikněte na **Spustit selektor sloupců**.
 
     - Vlevo klikněte na **S pravidly**.
     - V části **Začít s** klikněte na **Všechny sloupce**. Tím modul [Výběr sloupců v datové sadě][select-columns] dostává instrukci, aby prošel všechny sloupce (kromě sloupců, které vyloučíme).
@@ -169,7 +171,7 @@ Nejdříve přidáme modul, který úplně odebere sloupec **normalized-losses**
     <br/>
     ***Pro modul Vyčištění chybějících dat nastavte režim čištění na Odstranit celý řádek.***
 
-4. Pod plátnem experimentu klikněte na **SPUSTIT**, aby se experiment spustil.
+4. Spusťte experiment kliknutím na **SPUSTIT** v dolní části stránky.
 
     Až se spuštění experimentu dokončí, u všech modulů se zobrazí zelená značka zaškrtnutí, která označuje, že jejich činnost úspěšně skončila. Všimněte si také stavu **Konec běhu** v pravém horním rohu.
 
@@ -246,10 +248,10 @@ Naše data můžeme použít jak pro trénování modelu, tak pro jeho otestová
 
 2. Spusťte experiment. Při spuštění experimentu moduly [Výběr sloupců v datové sadě][select-columns] a [Rozdělení dat][split] předají definice sloupců do modulů, které přidáme jako další.  
 
-3. Nyní vyberte algoritmus učení. Na paletě modulů nalevo od plátna rozbalte kategorii **Strojové učení** a pak **Inicializovat model**. Tímto se zobrazí několik kategorií modulů, které je možné použít k inicializaci algoritmů strojového učení. Pro tento experiment vyberte modul [Lineární regrese][linear-regression] v kategorii **Regrese**a přetáhněte ho na plátno experimentu.
+3. Nyní vyberte algoritmus učení. Na paletě modulů nalevo od plátna rozbalte kategorii **Strojové učení** a pak **Inicializovat model**. Tímto se zobrazí několik kategorií modulů, které je možné použít k inicializaci algoritmů strojového učení. Pro tento experiment vyberte modul [Lineární regrese][linear-regression] v kategorii **Regrese** a přetáhněte ho na plátno experimentu.
 (Tento modul můžete najít i tak, že do pole Hledat palety zadáte lineární regrese.)
 
-4. Najděte a přetáhněte modul [Trénování modelu][train-model] na plátno experimentu. Propojte výstup modulu [Lineární regrese][linear-regression] k levému vstupu modulu [Trénování modelu][train-model] a potom propojte výstup trénovacích dat (levý port) modulu [Rozdělení dat][split] k pravému vstupu modulu [Trénování modelu][train-model].
+4. Najděte modul [Trénování modelu][train-model] a přetáhněte ho na plátno experimentu. Propojte výstup modulu [Lineární regrese][linear-regression] s levým vstupem modulu [Trénování modelu][train-model] a potom propojte výstup trénovacích dat (levý port) modulu [Rozdělení dat][split] s pravým vstupem modulu [Trénování modelu][train-model].
 
     ![Připojte modul Trénování modelu k modulům Lineární regrese a Rozdělení dat.][connect-train-model]
     <br/>
@@ -275,7 +277,7 @@ Výsledkem je natrénovaný model, který je možné použít ke stanovení skó
 
 Nyní když jsme natrénovali model pomocí 75 procent dat, můžeme model použít ke stanovení skóre u zbylých 25 procent dat a zjistit, jak dobře model funguje.
 
-1. Najděte modul [Určení skóre modelu][score-model] a přetáhněte ho na plátno experimentu. Propojte výstup modulu [Trénování modelu][train-model] s levým vstupním portem modelu [Určení skóre modelu][score-model]. Propojte výstup testovacích dat (pravý port) modulu [Rozdělení dat][split] s pravým vstupním portem modulu [Určení skóre modelu][score-model].
+1. Najděte modul [Určení skóre modelu][score-model] a přetáhněte ho na plátno experimentu. Propojte výstup modulu [Trénování modelu][train-model] s levým vstupním portem modulu [Určení skóre modelu][score-model]. Propojte výstup testovacích dat (pravý port) modulu [Rozdělení dat][split] s pravým vstupním portem modulu [Určení skóre modelu][score-model].
 
     ![Propojte modul Určení skóre modelu s moduly Lineární regrese a Rozdělení dat.][connect-score-model]
     <br/>
@@ -326,20 +328,21 @@ Právě jste dokončili první kurz strojového učení a máte vytvořený expe
 Příklad porovnávání několik modelů v jednom experimentu najdete v tématu věnovaném [porovnání regresorů ](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) na webu [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Pomocí tlačítka **ULOŽIT JAKO** pod plátnem experimentu je možné zkopírovat kteroukoli iteraci experimentu. Všechny iterace experimentu si lze zobrazit kliknutím na **ZOBRAZIT HISTORII BĚHŮ** pod plátnem. Další podrobnosti najdete v tématu [Správa iterací experimentů v nástroji Azure Machine Learning Studio][runhistory].
+    > Pomocí tlačítka **ULOŽIT JAKO** v dolní části stránky je možné zkopírovat kteroukoli iteraci experimentu. Všechny iterace experimentu si můžete zobrazit kliknutím na **ZOBRAZIT HISTORII SPUŠTĚNÍ** v dolní části stránky. Další podrobnosti najdete v tématu [Správa iterací experimentů v nástroji Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-- **Nasazení modelu jako prediktivní webové služby** – Jakmile budete se svým modelem spokojeni, můžete ho nasadit jako webovou službu, která se dá použít k předvídání cen automobilů na základě nových dat. Další podrobnosti najdete v tématu [Nasazení webové služby Azure Machine Learning][publikování].
+- **Nasazení modelu jako prediktivní webové služby** – Jakmile budete se svým modelem spokojeni, můžete ho nasadit jako webovou službu, která se dá použít k předvídání cen automobilů na základě nových dat. Další podrobnosti najdete v tématu [Nasazení webové služby Azure Machine Learning][publish].
 
-[publikování]: machine-learning-publish-a-machine-learning-web-service.md
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Chcete se dozvědět víc? Rozsáhlejší a podrobnější návod k technikám pro vytváření, natrénování, stanovení skóre a nasazení modelu najdete v [názorném postupu] [Vývoj prediktivního řešení pomocí Azure Machine Learningu].
+Chcete se dozvědět víc? Rozsáhlejší a podrobnější návod k technikám pro vytváření, natrénování, stanovení skóre a nasazení modelu najdete v tématu [Vývoj prediktivního řešení pomocí služby Azure Machine Learning][walkthrough].
 
-[názorném postupu]: machine-learning-walkthrough-develop-predictive-solution.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Chcete se dozvědět víc? Rozsáhlejší a podrobnější návod k technikám p
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Začínáme s úložištěm Azure File ve Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Informace o škálovatelnosti a cílech výkonnosti pro File Storage najdete v t
 ## <a name="video-using-azure-file-storage-with-windows"></a>Video: Používání Azure File Storage s Windows
 Toto video ukazuje, jak ve Windows vytvořit a používat sdílené složky v Azure File.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -602,49 +602,61 @@ Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [
    
     Aktuálně nepodporujeme ověření založené na AD nebo ACL, je to však na našem seznamu požadovaných funkcí. Prozatím se k ověření ke sdílené složce používají klíče účtů Azure Storage. Nabízíme alternativní řešení, které využívá sdílené přístupové podpisy (SAS) přes REST API nebo knihovny klienta. Pomocí SAS můžete vygenerovat tokeny se specifickými oprávněními, které jsou platné po nastavenou dobu. Například můžete pro daný soubor vygenerovat token s přístupem jen pro čtení. Každý, kdo takový token má po dobu jeho platnosti, má k souboru přístup jen pro čtení.
    
-    SAS se podporuje jen přes REST API nebo knihovny klienta. Když připojíte sdílenou složku přes protokol SMB, nemůžete použít SAS pro delegování přístupu k jejímu obsahu.
-2. **Jsou sdílené složky Azure File viditelné veřejně přes internet nebo jsou dostupné jen přes Azure?**
-   
-    Když je otevřený port 445 (odchozí TCP) a váš klient podporuje protokol SMB 3.0 (*např.*, Windows 8 nebo Windows Server 2012), je vaše sdílená složka dostupná přes internet.  
-3. **Počítá se síťový provoz mezi virtuálním počítačem Azure a sdílenou složkou jako externí datové přenosy, které jsou zpoplatněné nad rámec předplatného?**
+    SAS se podporuje jen přes REST API nebo knihovny klienta. Když připojíte sdílenou složku přes protokol SMB, nemůžete použít SAS pro delegování přístupu k jejímu obsahu. 
+
+2. **Jak umožním přístup ke konkrétnímu souboru přes webový prohlížeč?**
+   Pomocí SAS můžete vygenerovat tokeny se specifickými oprávněními, které jsou platné po nastavenou dobu. Můžete například vygenerovat token s přístupem pouze pro čtení ke konkrétnímu souboru po určité časové období. Každý, kdo bude mít tuto adresu URL, může po dobu její platnosti provádět stahování z libovolného webového prohlížeče. Klíče SAS snadno vygenerujete z uživatelského rozhraní, jako je Průzkumník úložišť.
+
+3.   **Jakými způsoby se dá přistupovat k souborům ve službě Azure File Storage?**
+    Sdílenou složku můžete připojit na místním počítači pomocí protokolu SMB 3.0 nebo pro přístup k souborům ve sdílené složce použít nástroje, jako jsou [Průzkumník úložišť](http://storageexplorer.com/) nebo Cloudberry. V aplikaci můžete pro přístup k souborům ve sdílené složce služby Soubory Azure použít klientské knihovny, rozhraní REST API nebo PowerShell.
+    
+4.   **Jak připojím sdílenou složku služby Soubory Azure na místním počítači?** Sdílenou složku můžete připojit přes protokol SMB, pokud je otevřený port 445 (odchozí TCP) a váš klient podporuje protokol SMB 3.0 (*např.* Windows 8 nebo Windows Server 2012). Pokud chcete tento port odblokovat, obraťte se na svého poskytovatele internetových služeb. Do té doby můžete své soubory zobrazit pomocí Průzkumníka úložišť nebo jakékoli jiné aplikace třetí strany, jako je například Cloudberry.
+
+5. **Počítá se síťový provoz mezi virtuálním počítačem Azure a sdílenou složkou jako externí datové přenosy, které jsou zpoplatněné nad rámec předplatného?**
    
     Pokud jsou sdílená složka a virtuální počítač v různých oblastech, provoz mezi nimi bude účtován jako externí datové přenosy.
-4. **Pokud síťový provoz probíhá mezi virtuálním počítačem a sdílenou složkou ve stejné oblasti, je bezplatný?**
+6. **Pokud síťový provoz probíhá mezi virtuálním počítačem a sdílenou složkou ve stejné oblasti, je bezplatný?**
    
     Ano. Je bezplatný, pokud probíhá v jedné a té samé oblasti.
-5. **Závisí připojení z lokálních virtuálních počítačů k Azure File Storage na Azure ExpressRoute?**
+7. **Závisí připojení z lokálních virtuálních počítačů k Azure File Storage na Azure ExpressRoute?**
    
     Ne. Pokud nemáte ExpressRoute, můžete ke sdílené složce přistupovat z lokálního prostředí za předpokladu, že máte port 445 (odchozí TCP) otevřený pro přístup k internetu. Pokud ale chcete, ExpressRoute s úložištěm File použít můžete.
-6. **Je „určující sdílená složka“ pro cluster s podporou převzetí služeb při selhání jedním z případů využití Azure File Storage?**
+8. **Je „určující sdílená složka“ pro cluster s podporou převzetí služeb při selhání jedním z případů využití Azure File Storage?**
    
     To se aktuálně nepodporuje.
-7. **Úložiště File se teď replikuje jen přes LRS nebo GRS, je to tak?**  
+9. **Úložiště File se teď replikuje jen přes LRS nebo GRS, je to tak?**  
    
     Plánujeme podporu pro RA-GRS, ale nemáme pro to teď žádný časový horizont.
-8. **Kdy můžu začít používat existující účty úložiště pro Azure File Storage?**
+10. **Kdy můžu začít používat existující účty úložiště pro Azure File Storage?**
    
     Služba Azure File Storage je teď zapnutá pro všechny účty úložiště.
-9. **Přidáte do REST API taky operaci Přejmenovat?**
+11. **Přidáte do REST API taky operaci Přejmenovat?**
    
     Operace Přejmenovat se zatím v našem REST API nepodporuje.
-10. **Může mít člověk vnořené sdílené složky, jinými slovy sdílenou složku ve sdílené složce?**
+12. **Může mít člověk vnořené sdílené složky, jinými slovy sdílenou složku ve sdílené složce?**
     
     Ne. Sdílená složka je virtuální jednotka, kterou můžete připojit, takže vnořené sdílené složky se nepodporují.
-11. **Dá se pro složky ve sdílené složce specifikovat oprávnění jen pro čtení nebo jen pro zápis?**
+13. **Dá se pro složky ve sdílené složce specifikovat oprávnění jen pro čtení nebo jen pro zápis?**
     
     Takovou míru kontroly nad oprávněními nemáte, pokud sdílenou složku připojíte přes SMB. Můžete toho však dosáhnout vytvořením sdíleného přístupového podpisu (SAS) přes REST API nebo knihovny klienta.  
-12. **Když jsem se pokusil/a rozbalit soubory do úložiště File, šlo to velmi pomalu. Co bych měl/a dělat?**
+14. **Když jsem se pokusil/a rozbalit soubory do úložiště File, šlo to velmi pomalu. Co bych měl/a dělat?**
     
     Pokud chcete do úložiště File přenášet větší počet souborů, doporučujeme použít AzCopy, Azure PowerShell (Windows) nebo Azure CLI (Linux/Unix), protože tyto nástroje jsou optimalizované pro síťové přenosy.
-13. **Vydali jsme opravu problému s nízkou rychlostí Azure Files.**
+15. **Vydali jsme opravu problému s nízkou rychlostí Azure Files.**
     
     Tým Windows nedávno vydal opravu problému s nízkou rychlostí, když zákazník přistupuje k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2. Další informace najdete v článku znalostní báze [Pomalý výkon při přístupu k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
-14. **Používání Azure File Storage s IBM MQ**
+16. **Používání Azure File Storage s IBM MQ**
     
     Společnost IBM vydala dokument, který zákazníky IBM MQ provede konfigurací Azure File Storage pro jejich službu. Další informace najdete v tématu [Nastavení Manažera fronty více instancí IBM MQ se službou Microsoft Azure File](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
-15. **Jak mám řešit problémy s Azure File Storage?**
+17. **Jak mám řešit problémy s Azure File Storage?**
     
     Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) (Soubory Azure – řešení problémů).               
+
+18. **Jak povolím šifrování na straně serveru pro Soubory Azure?**
+
+    [Šifrování na straně serveru](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) je aktuálně ve verzi Preview. Ve verzi Preview je možné tuto funkci povolit pouze pro nově vytvořené účty úložiště Azure Resource Manageru.
+    Tuto funkci můžete pro účet úložiště Azure Resource Manageru povolit pomocí webu Azure Portal. Plánujeme, že do konce února bude k povolení šifrování pro úložiště souborů možné použít [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) nebo [rozhraní API poskytovatele prostředků služby Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts). Povolení této funkce je bez dalších poplatků. Když povolíte šifrování služby Storage pro službu Azure File Storage, vaše data budou automaticky šifrována. 
+    Další informace o šifrování služby Storage. S dalšími dotazy ohledně verze Preview nás kontaktujte na ssediscussions@microsoft.com.
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
@@ -657,6 +669,7 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 * [Použití Azure Powershell s Azure Storage](storage-powershell-guide-full.md)
 * [Použití nástroje AzCopy s Microsoft Azure Storage](storage-use-azcopy.md)
 * [Použití Azure CLI s Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Řešení potíží se službou Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referenční informace
 * [Klientská knihovna Storage pro .NET – referenční informace](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,6 +683,6 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

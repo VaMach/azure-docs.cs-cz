@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ Před zahájením tohoto názorného průvodce byste již měli mít [vytvořen�
 
 Pro vkládání dokumentů do indexu pomocí REST API budete vydávat na URL koncového bodu indexu požadavek HTTP POST. Text žádosti požadavku HTTP je objekt JSON obsahující dokumenty, které se mají přidat, upravit nebo odstranit.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifikace klíče api-key správce služby Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifikace klíče rozhraní API správce služby Azure Search
 Při odesílání požadavků HTTP na vaši službu pomocí REST API musí *každá* žádost na rozhraní API obsahovat klíč api-key, který byl vygenerovaný pro zřízenou službu Vyhledávání. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
-1. Pokud chcete najít klíče api-key svojí služby, musíte se přihlásit k webu [Azure Portal](https://portal.azure.com/).
+1. Pokud chcete najít klíče api-key svojí služby, přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 2. Přejděte do okna služby Azure Search.
 3. Klikněte na ikonu klíčů.
 
@@ -50,7 +50,7 @@ Vaše služba bude mít *klíče správce* a *klíče dotazů*.
 
 Pro účely importování dat do indexu můžete použít primární nebo sekundární klíč správce.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Rozhodněte, jakou akci indexování použít
+## <a name="decide-which-indexing-action-to-use"></a>Rozhodněte, jakou akci indexování použít
 Při používání REST API budete na URL koncového bodu indexu Azure Search vydávat požadavky HTTP POST s textem žádosti ve formátu JSON. Objekt JSON v požadavku HTTP bude obsahovat jedno pole JSON s názvem „value“ s objekty JSON reprezentujícími dokumenty, které si přejete přidat do indexu, aktualizovat nebo odstranit.
 
 Každý objekt JSON v poli „value“ reprezentuje dokument, který se má indexovat. Každý z těchto objektů obsahuje klíč dokumentu a určuje požadovanou akci indexování (odeslání, sloučení, odstranění atd.). V závislosti na zvolené akci musí objekt pro každý dokument obsahovat pouze určitá pole.
@@ -62,7 +62,7 @@ Každý objekt JSON v poli „value“ reprezentuje dokument, který se má inde
 | `mergeOrUpload` |Pokud již dokument s daným klíčem v indexu existuje, chová se tato akce jako `merge`. Pokud dokument neexistuje, chová se s novým dokumentem jako `upload`. |klíč a další pole, která si přejete definovat |- |
 | `delete` |Odebere z indexu zadaný dokument. |pouze klíč |Všechna zadaná pole kromě pole klíče budou ignorována. Chcete-li odebrat z dokumentu jednotlivá pole, použijte místo toho `merge` a jednoduše nastavte hodnotu pole na „null“. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. Konstrukce požadavku HTTP a textu žádosti
+## <a name="construct-your-http-request-and-request-body"></a>Konstrukce požadavku HTTP a textu žádosti
 Nyní, když jste shromáždili potřebné hodnoty polí pro akce indexu, jste připraveni vytvořit vlastní požadavek HTTP a text žádosti ve formátu JSON pro import vašich dat.
 
 #### <a name="request-and-request-headers"></a>Požadavek a hlavičky požadavku
@@ -126,7 +126,7 @@ Předpokládejme, že je ukázkový index „hotels“ již naplněný řadou do
 
 Mějte také na paměti, že můžete v jedné žádosti indexování zahrnout maximálně 1000 dokumentů (nebo 16 MB).
 
-## <a name="iv-understand-your-http-response-code"></a>IV. Pochopení kódu odpovědi HTTP
+## <a name="understand-your-http-response-code"></a>Pochopení kódu odpovědi HTTP
 #### <a name="200"></a>200
 Po odeslání úspěšné žádosti indexování obdržíte odpověď protokolu HTTP se stavovým kódem `200 OK`. Text JSON odpovědi protokolu HTTP bude následující:
 
@@ -177,11 +177,11 @@ Stavový kód `503` bude vrácen, pokud nedošlo k úspěšné indexaci položek
 
 Další informace o akcích dokumentu a úspěšných/neúspěšných odpovědích naleznete v tématu [Přidání, aktualizování nebo odstranění dokumentů](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Další informace o stavových kódech HTTP, které se mohou vrátit v případě selhání, naleznete v tématu [Stavové kódy HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## <a name="next"></a>Další
+## <a name="next-steps"></a>Další kroky
 Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro vyhledávání dokumentů.  Podrobnosti naleznete v tématu [Dotazování indexu Azure Search](search-query-overview.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

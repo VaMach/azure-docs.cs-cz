@@ -4,7 +4,7 @@ description: "Tento dokument pomáhá porozumět typům výstrah zabezpečení d
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ddc691f4f3d53dbff2e55b7a97446427b93a8a4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 
 ---
@@ -25,8 +25,8 @@ Tento dokument vám pomůže porozumět různým typům výstrah zabezpečení d
 
 > [!NOTE]
 > Pokud chcete povolit rozšířené detekce, upgradujte na Azure Security Center Standard. K dispozici je bezplatná 90denní zkušební verze. Pokud chcete provést upgrade, vyberte v [zásadách zabezpečení](security-center-policies.md) cenovou úroveň. Další informace najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>Jaké typy výstrah jsou k dispozici?
 Azure Security Center poskytuje celou řadu výstrah uspořádaných podle jednotlivých fází modelu Cyber Kill Chain. Následující obrázek obsahuje několik příkladů různých výstrah a jejich vztah k některým z těchto fází.
@@ -65,8 +65,8 @@ Azure Security Center může pomocí analýzy chování identifikovat ohrožené
 
 > [!NOTE]
 > Další informace o tom, jak detekce služby Security Center pracuje, najdete v článku [Funkce detekce ve službě Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>Analýza stavu systému
 Metoda analýzy paměti ve výpisu stavu systému slouží ke zjištění sofistikovaného malwaru, který je schopný se vyhnout běžným řešením zabezpečení. Různé formy malwaru se snaží snížit pravděpodobnost svého zjištění antivirovými produkty tím, že nikdy nezapisují na disk nebo softwarové komponenty ukládané na disk šifruje. Takový malware je jen obtížně zjistitelný pomocí obvyklých antimalwarových postupů. Takový malware lze ale zjistit pomocí analýzy paměti, protože aby malware mohl fungovat, musí v paměti zanechat stopy.
@@ -88,7 +88,7 @@ Tato výstraha navíc obsahuje následující pole:
 
 Příklad tohoto typu výstrahy:
 
-![Výstraha na skrytý spustitelný kód](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Výstraha na skrytý spustitelný kód](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>Zjištěno napadení modulu
 Systém Windows umožňuje softwaru využívat základní systémové funkce prostřednictvím knihoven DLL (Dynamic Link Libraries). Při napadení knihoven DLL malware pozmění pořadí načítání knihoven DLL tak, aby umožnil načtení škodlivých datových částí do paměti, ze které je pak bude možné spustit. Tato výstraha znamená, že při analýze výpisu stavu systému byly nalezeny dva moduly s podobným názvem, ale různými cestami. Jedna z načtených cest přitom odpovídá běžnému umístění binárních souborů systému Windows.
@@ -104,7 +104,7 @@ Kromě společných polí popsaných výše v části „Zjištěn skrytý spust
 
 Příklad tohoto typu výstrahy:
 
-![Výstraha na napadení modulu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Výstraha na napadení modulu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>Zjištěno maskování za modul systému Windows
 Malware může používat běžné názvy spustitelných souborů (např. SVCHOST.EXE) nebo modulů (např. NTDLL.DLL) systému Windows, aby nevyvolával podezření a skryl svou škodlivou povahu před správci systému. Tato výstraha znamená, že při analýze výpisu stavu systému byly nalezeny moduly, které svým názvem odpovídají systémovým modulům Windows, ale nesplňují další kritéria typická pro systémové moduly.. Další informace o povaze maskovaného modulu může poskytnout analýza kopie modulu na disku. Součástí analýzy může být:
@@ -123,7 +123,7 @@ Tato výstraha také extrahuje a zobrazuje určitá pole ze záhlaví PE modulu,
 
 Příklad tohoto typu výstrahy:
 
-![Výstraha na maskování za modul systému Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Výstraha na maskování za modul systému Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>Zjištěna úprava binárního systémového souboru
 Malware může upravit binární systémové soubory, aby mohl nepozorovaně přistupovat k datům nebo skrytě přetrvávat v napadeném systému. Tato výstraha znamená, že při analýze stavu systému byly v paměti nebo na disku nalezeny upravené binární soubory jádra systému Windows.
@@ -136,7 +136,7 @@ Kromě společných polí popsaných výše v části „Zjištěn skrytý spust
 
 Příklad tohoto typu výstrahy:
 
-![Výstraha na upravený binární systémový soubor](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![Výstraha na upravený binární systémový soubor](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Spuštění podezřelého procesu
 Security Center identifikuje provádění podezřelých procesů na cílovém virtuálním počítači a aktivuje výstrahu. Detekce nevyhledává konkrétní název procesu, ale podle jeho parametrů. Proto je služba Security Center schopná zjistit spustitelný soubor i v případě, že jej útočník přejmenuje.
@@ -158,7 +158,7 @@ Detekce síťových hrozeb ve službě Security Center funguje tak, že se autom
 ### <a name="suspicious-outgoing-traffic-detected"></a>Zjištěn podezřelý odchozí provoz
 Síťová zařízení lze zjistit a profilovat velmi podobně jako jiné typy systémů. Útočníci obvykle začínají skenováním portů (port scanning) nebo hledáním konkrétního otevřeného portu (port sweeping). Následující příklad ukazuje podezřelý provoz SSH z virtuálního počítače, který může provádět útok na SSH hrubou silou nebo cílit na konkrétní port externího prostředku.
 
-![Výstraha na podezřelý odchozí provoz](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Výstraha na podezřelý odchozí provoz](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 Tato výstraha vám pomůže identifikovat prostředek, který byl použitý k zahájení tohoto útoku, ohrožený počítač, čas detekce, protokol a port. V tomto okně se zobrazuje taky seznam nápravných kroků, kterými můžete problém zmírnit.
 
@@ -169,9 +169,12 @@ Azure Security Center může pomocí kanálů analýzy hrozeb Microsoft rozpozna
 
 Tato výstraha vám pomůže identifikovat prostředek použitý k provedení útoku, ohrožený prostředek, IP adresu oběti i útočníka a čas detekce.
 
-[AZURE.NOTE] V zájmu ochrany osobních údajů jsme ze snímku obrazovky odebrali skutečné IP adresy.
+> [!NOTE]
+> V zájmu ochrany osobních údajů jsme ze snímku obrazovky odebrali skutečné IP adresy.
+>
+>
 
-### <a name="possible-outgoing-denialofservice-attack-detected"></a>Zjištění možného odchozího útoku DoS
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Zjištění možného odchozího útoku DoS
 Neobvyklý síťový provoz pocházející z jednoho virtuálního počítače může vést ve službě Security Center k aktivaci výstrahy na potenciální útok DoS.
 
 Příklad tohoto typu výstrahy:
@@ -184,8 +187,8 @@ Analýza prostředků ve službě Security Center se soustředí na služby mode
 ### <a name="potential-sql-injection"></a>Potenciální útok prostřednictvím injektáže SQL
 Při útoku SQL Injection se škodlivý kód vkládá do řetězců, které jsou potom předány instanci SQL Serveru k parsování a spuštění. SQL Server spouští všechny syntakticky platné dotazy, které obdrží. Všechny procedury, které sestavují SQL příkazy, by tedy měly být chráněny proti tomuto typu útoku. Zjišťování hrozeb SQL využívá k určení podezřelých událostí, které mohou probíhat ve vašich službách Azure SQL Database, strojové učení, analýzu chování a detekci anomálií. Příklad:
 
-* Pokus o přístup k databázi bývalým zaměstnancem 
-* Útoky prostřednictvím injektáže SQL 
+* Pokus o přístup k databázi bývalým zaměstnancem
+* Útoky prostřednictvím injektáže SQL
 * Neobvyklý přístup k produkční databázi uživatelem z domova
 
 ![Výstraha na potenciální útok prostřednictvím injektáže SQL](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -213,7 +216,6 @@ V tomto dokumentu jste se dozvěděli o různých typech výstrah zabezpečení 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

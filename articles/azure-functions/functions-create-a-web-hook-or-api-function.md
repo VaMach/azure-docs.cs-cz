@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření funkce Azure volané webhookem nebo rozhraním API | Dokumentace Microsoftu"
-description: "Pomocí služby Azure Functions vytvoříte funkci, která je volána webhookem nebo rozhraním API."
+description: "Pomocí služby Azure Functions vytvoříte funkci bez serveru, která je vyvolána webhookem nebo voláním rozhraní API."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -13,18 +13,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 23a65319fe1825e2ba51f2fd5a2d0b65ca499472
 
 
 ---
 # <a name="create-a-webhook-or-api-azure-function"></a>Vytvoření funkce Azure volané webhookem nebo rozhraním API
 Azure Functions je výpočetní prostředí na vyžádání založené na událostech. Umožňuje vytvářet naplánované nebo aktivované jednotky kódu implementované v různých programovacích jazycích. Další informace o Azure Functions najdete v tématu [Přehled Azure Functions](functions-overview.md).
 
-Toto téma ukazuje, jak vytvořit funkci Node.js, která je vyvolána webhookem GitHubu. Nová funkce je vytvořena na základě předem definované šablony na portálu Azure Functions. Můžete také zhlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
+Toto téma ukazuje, jak vytvořit funkci JavaScriptu, která je vyvolána webhookem GitHubu. Nová funkce je vytvořena na základě předem definované šablony na portálu Azure Functions. Můžete také zhlédnout krátké video a podívat se, jak se tyto kroky na portálu provádějí.
+
+Obecné kroky v tomto kurzu lze použít i k vytvoření funkce jazyka C# nebo F# místo JavaScriptu. 
 
 ## <a name="watch-the-video"></a>Přehrát video
 Následující video ukazuje, jak provést základní kroky obsažené v tomto kurzu. 
@@ -33,14 +35,22 @@ Následující video ukazuje, jak provést základní kroky obsažené v tomto k
 >
 >
 
+## <a name="prerequisites"></a>Požadavky
+
+K dokončení tohoto kurzu potřebujete:
+
++ Aktivní účet Azure. Pokud ještě účet nemáte, můžete si [zaregistrovat bezplatný účet Azure](https://azure.microsoft.com/free/).  
+ Můžete si také [vyzkoušet službu Functions](https://functions.azure.com/try) a dokončit tento kurz bez účtu Azure.
++ Účet GitHub. Můžete si [zaregistrovat bezplatný účet GitHub](https://github.com/join), pokud jej ještě nemáte. 
+
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Vytvoření funkce aktivované webhookem ze šablony
-Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte funkci, potřebujete mít aktivní účet Azure. Pokud ještě nemáte účet Azure, [můžete použít bezplatné účty](https://azure.microsoft.com/free/). 
+Provádění funkcí v Azure je hostováno v aplikaci funkce. 
 
 1. Přejděte na stránku [portálu Azure Functions](https://functions.azure.com/signin) a přihlaste se pomocí účtu Azure.
 
 2. Pokud máte existující aplikaci Function App, kterou můžete použít, vyberte ji v části **Your function apps** (Vaše aplikace Function App) a klikněte na **Open** (Otevřít). Pokud chcete vytvořit aplikaci Function App, zadejte pro ni jedinečnou položku **Name** (Název) nebo přijměte vygenerovaný název, vyberte upřednostňovanou položku **Region** (Oblast) a klikněte na **Create + get started** (Vytvořit a začít). 
 
-3. Ve své aplikaci Function App klikněte na **+ New Function** (+ Nová funkce) > **GitHub Webhook - Node** (Webhook GitHubu - uzel) > **Create** (Vytvořit). Tento krok vytvoří funkci s výchozím názvem, která je založena na zadané šabloně. 
+3. Ve své aplikaci Function App klikněte na **+ New Function** (+ Nová funkce) > **GitHub Webhook – JavaScript** (Webhook GitHubu – JavaScript) > **Create** (Vytvořit). Tento krok vytvoří funkci s výchozím názvem, která je založena na zadané šabloně. Případně můžete vytvořit funkci jazyka C# nebo F#.
    
     ![Vytvoření funkce aktivované webhookem GitHubu](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
@@ -48,11 +58,14 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Než vytvoříte f
 
     ![Kontrola kódu funkce](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
 
-1. Zkopírujte hodnoty **Function URL** a **GitHub Secret**. Tyto hodnoty potřebujete k vytvoření webhooku na GitHubu. 
+1. Zkopírujte a uložte hodnoty **Function URL** a **GitHub Secret**. Tyto hodnoty použijete v další části ke konfiguraci webhooku na GitHubu. 
 
-2. Přejděte dolů na tlačítko **Run** (Spustit), všimněte si předdefinovaného obsahu JSON komentáře k problému v textu žádosti a pak klikněte na tlačítko **Run** (Spustit). 
+2. Klikněte na **Test** (Testovat), všimněte si předdefinovaného obsahu JSON komentáře k problému v **textu žádosti** a pak klikněte na **Run** (Spustit). 
+
+    ![Testování funkce webhooku v portálu](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Novou funkci založenou na šabloně můžete vždy otestovat přímo v záložce **Develop** (Vývoj) zadáním dat JSON a kliknutím na tlačítko **Run** (Spustit). V tomto případě má šablona předdefinovaný text komentáře k problému. 
+    > [!NOTE]
+    > Novou funkci založenou na šabloně můžete vždy otestovat přímo v záložce **Develop** (Vývoj) zadáním dat JSON a kliknutím na tlačítko **Run** (Spustit). V tomto případě má šablona předdefinovaný text komentáře k problému. 
 
 Dále vytvoříte skutečný webhook ve vašem úložišti GitHubu.
 
@@ -62,7 +75,10 @@ Dále vytvoříte skutečný webhook ve vašem úložišti GitHubu.
 2. Klikněte na tlačítko **Settings** (Nastavení)  > **Webhooks & services** (Webhooky a služby)  > **Add webhook** (Přidat webhook).
    
     ![Přidání webhooku GitHubu](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
-3. Vložte adresu URL funkce a tajný klíč do polí **Payload URL** (URL datové části) a **Secret** (Tajný klíč), poté klikněte na položku **Let me select individual events** (Vyberu jednotlivé události), vyberte položku **Issue comment** (Komentář k problému) a klikněte na tlačítko **Add webhook** (Přidat webhook).
+
+3. Vložte adresu URL funkce a tajný klíč do polí **Payload URL** (URL datové části) a **Secret** (Tajný klíč) a jako **Content type** (Typ obsahu) vyberte **application/json**.
+
+4. Klikněte na **Let me select individual events** (Vyberu jednotlivé události), vyberte **Issue comment** (Komentář k problému) a klikněte na **Add webhook** (Přidat webhook).
    
     ![Nastavení adresy URL a tajného klíče webhooku](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
 
@@ -70,9 +86,13 @@ V tomto okamžiku je webhook GitHubu nakonfigurován tak, aby aktivoval funkci v
 Teď je čas na otestování.
 
 ## <a name="test-the-function"></a>Testování funkce
-1. Ve svém úložišti GitHubu otevřete v novém okně prohlížeče záložku **Issues** (Problémy), klikněte na položku **New Issue** (Nový problém), zadejte název a stiskněte tlačítko **Submit new issue** (Odeslat nový problém). Můžete také otevřít stávající problém.
+1. Ve vašem úložišti GitHub otevřete kartu **Issues** (Problémy) na nové kartě prohlížeče.
 
-2. U problému zadejte komentář a klikněte na tlačítko **Comment** (Komentář). V tomto okamžiku se můžete vrátit k vašemu novému webhooku GitHubu a v části **Recent Deliveries** (Poslední doručené) naleznete informace o tom, že byl odeslán požadavek webhooku a text odpovědi je `New GitHub comment: <Your issue comment text>`.
+2. V novém okně klikněte na **New Issue** (Nový problém), zadejte název a klikněte na **Submit new issue** (Odeslat nový problém). Můžete také otevřít stávající problém.
+
+2. U problému zadejte komentář a klikněte na tlačítko **Comment** (Komentář). 
+
+3. V druhém okně s GitHubem klikněte na **Edit** (Upravit) vedle vašeho nového webhooku, přejděte dolů k části **Recent Deliveries** (Poslední doručené) a ověřte, že byl odeslán požadavek webhooku a text odpovědi je `New GitHub comment: <Your issue comment text>`.
 
 3. Zpět na portálu Functions se posuňte dolů na protokoly a uvidíte, že došlo ke spuštění funkce a hodnota `New GitHub comment: <Your issue comment text>` je zapsána v datovém proudu protokolů.
 
@@ -91,6 +111,6 @@ Další informace o službě Azure Functions najdete v těchto tématech.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

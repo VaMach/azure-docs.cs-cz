@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
 ## <a name="overview"></a>Přehled
-Microsoft Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje jednoduchá práci s daty v úložišti Azure Storage v operačních systémech Windows, OS X a Linux. V tomto článku se dozvíte, jakými různými způsoby se můžete připojovat k účtům Azure Storage a spravovat je.
+Microsoft Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje jednoduchá práci s daty v úložišti Azure Storage v operačních systémech Windows, macOS a Linux. V tomto článku se dozvíte, jakými různými způsoby se můžete připojovat k účtům Azure Storage a spravovat je.
 
 ![Microsoft Azure Storage Explorer (Preview)][15]
 
@@ -47,7 +47,7 @@ Storage Explorer (Preview) nabízí celou řadu způsobů, jak se připojit k ú
 1. V nástroji Storage Explorer (Preview) vyberte **Azure Account Settings** (Nastavení účtu Azure).
 
     ![Nastavení účtu Azure][0]
-2. V levém podokně se teď zobrazí všechny účty Microsoft, ke kterým jste přihlášeni. Pokud se chcete připojit k jinému účtu, vyberte položku **Add an account ** (Přidat účet) a podle pokynů v dialogových oknech se přihlaste účtem Microsoft, který je přidružený minimálně k jednomu aktivnímu předplatnému Azure.
+2. V levém podokně se zobrazí všechny účty Microsoft, ke kterým jste přihlášeni. Pokud se chcete připojit k jinému účtu, vyberte položku **Add an account ** (Přidat účet) a podle pokynů v dialogových oknech se přihlaste účtem Microsoft, který je přidružený minimálně k jednomu aktivnímu předplatnému Azure.
 > [!NOTE]
 >Připojení přes přihlášení k národnímu Azure, jako je Azure Black Forest, Azure Fairfax nebo Azure Mooncake, se v současné době nepodporuje. Informace o připojení k účtům úložiště národního Azure najdete v části **Připojení nebo odpojení externího účtu úložiště**.
 
@@ -72,7 +72,7 @@ Storage Explorer (Preview) umožňuje pracovat s místním úložištěm pomocí
 2. Pokud jste ještě nenainstalovali emulátor úložiště Azure, budete k tomu vyzváni prostřednictvím informačního panelu. Pokud se zobrazí informační panel, vyberte možnost **Download the latest version** (Stáhnout nejnovější verzi) a nainstalujte si emulátor.
 
     ![Výzva ke stažení emulátoru úložiště Azure Storage][22]
-3. Po nainstalování emulátoru budete mít možnost vytvářet místní objekty Blob, fronty a tabulky a pracovat s nimi. To, jak pracovat s jednotlivými typu účtu úložiště, zjistíte po kliknutí na příslušný odkaz níže:
+3. Po nainstalování emulátoru budete mít možnost vytvářet místní objekty Blob, fronty a tabulky a pracovat s nimi. To, jak pracovat s jednotlivými typu účtu úložiště, zjistíte po kliknutí na některý z následujících odkazů:
 
    * [Správa prostředků Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
    * Správa prostředků Azure File Share – *připravujeme*
@@ -210,6 +210,6 @@ Když budete chtít hledání vymazat, vyberte ve vyhledávacím poli tlačítko
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

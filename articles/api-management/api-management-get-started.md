@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,11 +59,11 @@ Systém se skládá z následujících součástí:
 
 ## <a name="create-service-instance"> </a>Vytvoření instance API Managementu
 > [!NOTE]
-> K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][Bezplatná zkušební verze Azure].
+> K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][Azure Free Trial].
 > 
 > 
 
-Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se na [Azure Portal][Azure Portal] a klikněte na **Nový**, **Web a mobilní zařízení**, **API Management**.
+Prvním krokem při práci se službou API Management je vytvoření instance služby. Přihlaste se na portál [Azure Portal][Azure Portal] a klikněte na **Nový**, **Web a mobilní zařízení**, **API Management**.
 
 ![Nová instance služby API Management][api-management-create-instance-menu]
 
@@ -74,7 +74,7 @@ Vyberte požadované **Předplatné**, **Skupinu prostředků** a **Oblast** pro
 Zadejte text **Contoso Ltd.** jako **Název organizace** a potom zadejte svou e-mailovou adresu do pole **E-mail správce**.
 
 > [!NOTE]
-> Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v tématu [Konfigurace oznámení a e-mailových šablon v Azure API Managementu][Konfigurace oznámení a e-mailových šablon v Azure API Managementu].
+> Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v článku [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Zadejte text **Contoso Ltd.** jako **Název organizace** a potom zadejte svou e-
 Instance služby API Management jsou dostupné ve třech úrovních: Developer (vývojář), Standard a Premium.
 
 > [!NOTE]
-> Úroveň Developer (vývojář) slouží k vývoji, testování a pilotnímu nasazení programů s rozhraním API v situacích, kde příliš nezáleží na dostupnosti. Na úrovních Standard a Premium můžete škálovat počet svých rezervovaných jednotek, abyste zvládli větší provoz. Úrovně Standard a Premium poskytují službě API Management maximum výpočetního a celkového výkonu. Tento kurz můžete dokončit pomocí libovolné úrovně. Další informace o úrovních služby API Management najdete v článku [Ceny služby API Management][Ceny služby API Management].
+> Úroveň Developer (vývojář) slouží k vývoji, testování a pilotnímu nasazení programů s rozhraním API v situacích, kde příliš nezáleží na dostupnosti. Na úrovních Standard a Premium můžete škálovat počet svých rezervovaných jednotek, abyste zvládli větší provoz. Úrovně Standard a Premium poskytují službě API Management maximum výpočetního a celkového výkonu. Tento kurz můžete dokončit pomocí libovolné úrovně. Další informace o úrovních služby API Management najdete v článku [Ceny služby API Management][API Management pricing].
 > 
 > 
 
@@ -199,24 +199,24 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 ## <a name="next-steps"> </a>Další kroky
 * Zjistěte, jak můžete [chránit rozhraní API omezením četnosti ](api-management-howto-product-with-rules.md).
 
-[Bezplatná zkušební verze Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Vytvoření instance API Managementu]: #create-service-instance
-[Vytvoření rozhraní API]: #create-api
-[Přidání operace]: #add-operation
-[Přidání nového rozhraní API do produktu]: #add-api-to-product
-[Přihlášení k odběru produktu, který obsahuje rozhraní API]: #subscribe
-[Volání operace z portálu pro vývojáře]: #call-operation
-[Zobrazení analýzy]: #view-analytics
-[Další kroky]: #next-steps
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
+[Call an operation from the Developer Portal]: #call-operation
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Správa účtů vývojářů v Azure API Managementu]: api-management-howto-create-or-invite-developers.md
-[Konfigurace nastavení pro rozhraní API]: api-management-howto-create-apis.md#configure-api-settings
-[Konfigurace oznámení a e-mailových šablon v Azure API Managementu]: api-management-howto-configure-notifications.md
-[Odezvy]: api-management-howto-add-operations.md#responses
-[Vytvoření a publikování produktu]: api-management-howto-add-products.md
-[Ceny služby API Management]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure Portal]: https://portal.azure.com/
 
@@ -257,6 +257,6 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

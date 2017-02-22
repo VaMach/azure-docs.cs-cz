@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -47,7 +47,7 @@ Ve [Středisku pro vývojáře Python] naleznete další články týkající se
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](http://go.microsoft.com/fwlink/?LinkId=523751), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není požadována platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není požadována platební karta a nevzniká žádný závazek.
 > 
 > 
 
@@ -163,7 +163,7 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
-[Python Tools pro Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 pro Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 pro Visual Studio – ukázky VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -179,6 +179,6 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
