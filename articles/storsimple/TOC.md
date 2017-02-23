@@ -41,6 +41,8 @@
 #### [Správa úloh](storsimple-virtual-array-manage-jobs.md)
 #### [Změna hesla zařízení](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnostika a řešení potíží](storsimple-virtual-array-diagnose-problems.md)
+#### [Protokolování žádosti o podporu](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Správa přes portál Azure Classic](storsimple-ova-manager-service-administration.md)
 #### [Instalace nejnovější aktualizace](storsimple-ova-install-update-01.md)
@@ -175,6 +177,7 @@
 #### [Z jiných zařízení úložišť](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizace
+#### [Instalace aktualizace 4](storsimple-install-update-4.md)
 #### [Instalace aktualizace 3](storsimple-install-update-3.md)
 #### [Instalace aktualizace 2.2](storsimple-install-update-21.md)
 #### [Instalace aktualizace 2](storsimple-install-update-2.md)
@@ -182,7 +185,8 @@
 #### [Aktualizace zařízení](storsimple-update-device.md)
 
 ## Poznámky k verzi
-### [Aktualizace 3 – aktuální](storsimple-update3-release-notes.md)
+### [Aktualizace 4 – aktuální](storsimple-update4-release-notes.md)
+### [Aktualizace 3](storsimple-update3-release-notes.md)
 ### [Aktualizace 2.2](storsimple-update21-release-notes.md)
 ### [Aktualizace 2](storsimple-update2-release-notes.md)
 ### [Aktualizace 1](storsimple-update1-release-notes.md)
@@ -206,6 +210,18 @@
 ## Postup
 ### [Transformace dat pomocí .NET](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple pro partnery
+## Přehled
+### [Informace o řešení](storsimple-partner-csp-overview.md)
+
+## Začínáme
+### [Nasazení virtuálního pole pro CSP](storsimple-partner-csp-deploy.md)
+
+## Poznámky k verzi
+### [Poznámky k verzi StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Poznámky k verzi CSP](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple pro CSP: Nejčastější dotazy](storsimple-partner-csp-faq.md)
+
 # Související
 ## [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
 
@@ -223,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

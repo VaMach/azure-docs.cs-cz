@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentace ke službě Azure IoT Hub – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízení milionů assetů Internetu věcí. Kurzy, reference k rozhraní API, videa a další dokumentace"
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
+ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
 
 ---
+
 #<a name="iot-hub-documentation"></a>Dokumentace ke službě IoT Hub
 
 Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízení milionů assetů Internetu věcí. Kurzy, reference k rozhraní API, videa a další dokumentace pomáhají nasadit spolehlivou a obousměrnou komunikaci mezi zařízeními IoT a back-endem řešení. 
@@ -127,8 +139,10 @@ Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízen�
                         <h3>Jazyky</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (služba)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (zařízení)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (služba)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (zařízení)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (služba)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (zařízení)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Node (služba)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Node (zařízení)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Sady Azure IoT SDK</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
@@ -157,6 +171,6 @@ Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízen�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

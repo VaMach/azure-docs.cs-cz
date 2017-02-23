@@ -27,7 +27,6 @@
 ### [Azure CLI](resource-group-template-deploy-cli.md)
 ### [Azure Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Vývojová a testovací prostředí](solution-dev-test-environments.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Spravovat
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -43,20 +42,23 @@
 ### [Vytvoření instančního objektu pomocí Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Vytvoření instančního objektu pomocí portálu](resource-group-create-service-principal-portal.md)
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
-### [Nastavení zásad správy](resource-manager-policy.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)
 ### [Aspekty zabezpečení](best-practices-resource-manager-security.md)
+## Nastavení zásad prostředků
+### [Co jsou zásady prostředků?](resource-manager-policy.md)
+### [Přiřazení a správa zásad](resource-manager-policy-create-assign.md)
+### [Zásady pro značky prostředků](resource-manager-policy-tags.md)
+### [Zásady pro úložiště](resource-manager-policy-storage.md)
+### [Zásady pro virtuální počítače s Linuxem](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zásady pro virtuální počítače s Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditování a odstraňování potíží
 ### [Řešení potíží s běžnými chybami nasazení](resource-manager-common-deployment-errors.md)
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)
-### [Zobrazení operací nasazení pomocí portálu](resource-manager-troubleshoot-deployments-portal.md)
-### [Zobrazení operací nasazení pomocí PowerShellu](resource-manager-troubleshoot-deployments-powershell.md)
-### [Zobrazení operací nasazení pomocí Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-### [Zobrazení operací nasazení pomocí REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [Zobrazení operací nasazení](resource-manager-deployment-operations.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -65,11 +67,12 @@
 
 # Zdroje a prostředky
 ## [Omezování požadavků](resource-manager-request-limits.md)
+## [Sledování asynchronních operací](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,7 +16,8 @@
 
 # Zdroje a prostředky
 ##[Připojení zdrojů dat](analysis-services-datasource.md)
-##[Poskytovatelé dat](analysis-services-data-providers.md) 
+##[Poskytovatelé dat](analysis-services-data-providers.md)
+##[Vytvoření souboru .odc](analysis-services-odc.md)
 
 
 <!--HONumber=Feb17_HO3-->

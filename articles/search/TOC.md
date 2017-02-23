@@ -8,6 +8,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Přidání dat](search-what-is-data-import.md)
+### [Azure Portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Prohledání indexu](search-query-overview.md)
@@ -25,7 +26,6 @@
 ### [Omezení služby](search-limits-quotas-capacity.md)
 ### [Škálovatelnost služby](search-capacity-planning.md)
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
-
 
 ## Vývoj
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
@@ -49,15 +49,16 @@
 ### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapování polí v indexerech](search-indexer-field-mappings.md)
-##  Návrh vyhledávání
+##  Vyhledávání
+### [Jednoduchá syntaxe dotazů](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Syntaxe dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 ### [Příklady dotazů syntaxe Lucene](search-query-lucene-examples.md)
-### [Profily skórování](search-get-started-scoring-profiles.md)
-### [Moduly pro návrhy](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
-### [Povyšování značek](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
+### [Syntaxe výrazů filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### [Vyhodnocování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Fasetová navigace](search-faceted-navigation.md)
-### [Analyzátory jazyka](https://msdn.microsoft.com/library/azure/dn879793)
-### [Vlastní analyzátory](https://msdn.microsoft.com/library/azure/mt605304)
-### [Vícejazyčné vyhledávání](search-language-support.md)
+### [Analyzátory jazyka](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Vlastní analyzátory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Referenční informace
 ## [.NET](/dotnet/api/microsoft.azure.search)
@@ -86,6 +87,6 @@
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

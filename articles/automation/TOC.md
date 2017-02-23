@@ -55,6 +55,7 @@
 ### [Odebrání skupiny prostředků](automation-scenario-remove-resourcegroup.md)
 ### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
 ### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Integrace správy zdrojového kódu pomocí VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Monitorování
 ### [Předávání dat úloh Azure Automation do Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Zrušení propojení účtu Azure Automation s Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

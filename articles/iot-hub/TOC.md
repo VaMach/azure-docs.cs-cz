@@ -7,11 +7,10 @@
 ## Použití simulovaného zařízení
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Použití karty Raspberry Pi
-### Node.js
-#### [Start](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [Volitelné: Změna chování indikátor LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Řešení problémů](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Řešení problémů](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Použití karty Intel Edison
-### Node.js
-#### [Start](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [Volitelné: Změna chování indikátor LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Řešení problémů](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Použití karty Arduino
-### Node.js
-#### [Start](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Simulace ve Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Použití sady IoT Gateway Starter Kit
-### Simulované zařízení
-
-#### [Start](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Simulované zařízení](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Lekce 1: Konfigurace NUC
 ##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Řešení potíží](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### Zařízení SensorTag
-#### [Start](iot-hub-gateway-kit-c-get-started.md)
+### [Zařízení SensorTag](iot-hub-gateway-kit-c-get-started.md)
 #### Lekce 1: Konfigurace NUC
 ##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## Použití sady SDK pro zařízení IoT pro C
-### [Úvod](iot-hub-device-sdk-c-intro.md)
+## [Použití sady SDK pro zařízení IoT pro C](iot-hub-device-sdk-c-intro.md)
 ### [Použití IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Použití serializátoru](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 
