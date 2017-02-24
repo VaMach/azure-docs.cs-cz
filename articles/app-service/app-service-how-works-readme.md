@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Jak funguje App Service
 Azure App Service je cloudová služba navržená k řešení praktických problémů, kterým čelí dnešní vývojáři.
-App Service se zaměřuje na zajištění vysoké produktivity při vývoji bez kompromisů při zajišťování aplikací v cloudovém rozsahu.
+App Service se zaměřuje na zajištění vysoké produktivity při vývoji bez kompromisů při zajišťování aplikací v cloudovém rozsahu. 
 
 Poskytuje funkce a rozhraní nezbytné k vytváření podnikových obchodních aplikací a současně podporuje vývojáře prostřednictvím nejoblíbenějších programovacích jazyků (jako jsou Microsoft .NET, Java, PHP, Node.js a Python).
 Se službou App Service mohou vývojáři:

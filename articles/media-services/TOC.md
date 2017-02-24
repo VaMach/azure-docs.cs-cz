@@ -4,6 +4,12 @@
 # Začínáme
 ## [Vytvoření a správa účtu](media-services-portal-create-account.md)
 ## [Vytvoření a nastavení vývojového prostředí](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Připojení prostřednictvím kódu programu
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Doručování videa na vyžádání
 ### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -14,20 +20,19 @@
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Postup
-## Správa
-### Správa účtů
+## Spravovat
+### Účty
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Správa entit
+### Entity
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Připojení prostřednictvím kódu programu
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Správa koncových bodů streamování](media-services-streaming-endpoints-overview.md)
+### [Koncové body streamování](media-services-streaming-endpoints-overview.md)
 #### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Postup aktualizace Media Services po postupném zavedení přístupových klíčů k úložišti](media-services-roll-storage-access-keys.md)
+### Úložiště
+#### [Aktualizace Media Services po postupném zavedení přístupových klíčů k úložišti](media-services-roll-storage-access-keys.md)
+#### [Správa prostředků napříč několika účty úložiště](meda-services-managing-multiple-storage-accounts.md)
 ### [Kvóty a omezení](media-services-quotas-and-limitations.md)
 
 ## Nahrání obsahu
@@ -35,6 +40,7 @@
 #### [Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Nahrávání velkých souborů pomocí Aspery](media-services-upload-files-with-aspera.md)
 ### [Kopírování existujících objektů blob](media-services-copying-existing-blob.md)
 
 ## [Kódování obsahu](media-services-encode-asset.md)
@@ -98,7 +104,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Živé streamování s použitím cloudového kodéru](media-services-manage-live-encoder-enabled-channels.md)
-### Kurzy použití cloudových kodérů
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurace místních kodérů pro použití s cloudovým kodérem](media-services-live-encoders-overview.md)
@@ -114,11 +119,14 @@
 ### [Konfigurace nezašifrovaného klíče AES-128 pro váš stream](media-services-protect-with-aes128.md)
 ### [Šifrování obsahu pomocí šifrování úložiště s použitím rozhraní AMS REST API](media-services-rest-storage-encryption.md)
 ### [Přehled šablon licencování Media Services PlayReady](media-services-playready-license-template-overview.md)
+### [Přehled šablon licencování Widevine](media-services-widevine-license-template-overview.md)
 ### [Doručování licencí DRM](media-services-deliver-keys-and-licenses.md)
 ### [Využití služeb partnerů k distribuci licencí Widevine pro Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Použití běžného dynamického šifrování PlayReady nebo Widevine](media-services-protect-with-drm.md)
 ### [Použití Azure Media Services ke streamování obsahu HLS chráněného technologií Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC využívající Multi-DRM a Access Control: Referenční návrh a implementace v prostředí Azure a Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Distribuce licencí Widevine pro Azure Media Services pomocí Axinomu](media-services-axinom-integration.md)
+### [Distribuce licencí Widevine pro Azure Media Services pomocí castLabs](media-services-castlabs-integration.md)
 
 ### Doručování prostředků
 #### Konfigurace zásad doručování prostředků
@@ -152,16 +160,16 @@
 ### [Zpracování médií](media-services-scale-media-processing-overview.md)
 #### [Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Koncové body streamování
 #### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Doručování obsahu](media-services-deliver-content-overview.md)
 ### [Dynamické balení](media-services-dynamic-packaging-overview.md)
 ### [Přehled filtrů a dynamických manifestů](media-services-dynamic-manifest-overview.md)
-### Vytváření filtrů
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Vytváření filtrů pomocí .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Vytváření filtrů pomocí REST](media-services-rest-dynamic-manifest.md)
+### [Zásady ukládání do mezipaměti CDN v rozšíření Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publikování obsahu
 #### [Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -177,21 +185,18 @@
 #### [Aplikace HTML5 využívající DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Přehrávače Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Vkládání reklam na straně klienta](media-services-inserting-ads-on-client-side.md)
+### [Licencování sady pro portování klienta Microsoft Smooth Streaming](media-services-sspk.md)
 
 ## Integrace
-### [Zásady ukládání do mezipaměti CDN v rozšíření Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licencování sady pro portování klienta Microsoft†" Smooth Streaming](media-services-sspk.md)
-### [Správa prostředků ve více účtech úložiště](meda-services-managing-multiple-storage-accounts.md)
-### [Distribuce licencí Widevine pro Azure Media Services pomocí Axinomu](media-services-axinom-integration.md)
-### [Distribuce licencí Widevine pro Azure Media Services pomocí castLabs](media-services-castlabs-integration.md)
-### [Přehled šablon licencování Widevine](media-services-widevine-license-template-overview.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Monitorování
 ### Kontrola průběhu úlohy
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Azure Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Služba Queue Storage pro monitorování oznámení úloh](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorování oznámení úloh pomocí Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorování oznámení úloh pomocí webhooků](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Řešení potíží
 ### [Nejčastější dotazy](media-services-frequently-asked-questions.md)
@@ -212,6 +217,6 @@
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@
 
 # Začínáme
 ## [Vytvoření registru na portálu](container-registry-get-started-portal.md)
-## [Vytvoření registru pomocí rozhraní CLI](container-registry-get-started-azure-cli.md)
+## [Vytvoření registru pomocí Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Nabízená a vyžádaná instalace image](container-registry-get-started-docker-cli.md)
 
 # Postup
@@ -14,7 +14,7 @@
 
 # Referenční informace
 
-## [Azure CLI 2.0 (Preview)](/cli/azure/acr)
+## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Související
@@ -27,6 +27,6 @@
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

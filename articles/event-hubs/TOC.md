@@ -20,6 +20,7 @@
 ## Plánování a návrh
 ### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
 ### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
+### [Dostupnost a konzistence](event-hubs-availability-and-consistency.md)
 ## Vývoj
 ### [Dostupná rozhraní API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

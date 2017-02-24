@@ -3,7 +3,7 @@
 ## [Nejčastější dotazy](container-service-faq.md)
 # Začínáme
 ## [Nasazení clusteru ACS](container-service-deployment.md)
-## [Nasazení do ACS pomocí Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md)
+## [Nasazení do ACS pomocí Azure CLI 2.0](container-service-create-acs-cluster-cli.md)
 ## [Připojení ke clusteru ACS](container-service-connect.md)
 ## [Škálování clusteru ACS](container-service-scale.md)
 # Postup
@@ -23,6 +23,7 @@
 #### [Monitorování pomocí služby Dynatrace](container-service-monitoring-dynatrace.md)
 ## Správa pomocí Kubernetes
 ### [Začínáme s Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Začínáme s Kubernetes a Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Konfigurace instančního objektu](container-service-kubernetes-service-principal.md)
 ### [Správa kontejnerů – uživatelské rozhraní Kubernetes](container-service-kubernetes-ui.md)
 ### [Vyrovnávání zatížení kontejnerů Kubernetes](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker a Docker Compose](container-service-docker-swarm.md)
 ### [Kontinuální integrace Dockeru Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Referenční informace
-## [Azure CLI 2.0 (Preview)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

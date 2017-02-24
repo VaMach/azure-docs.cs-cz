@@ -3,7 +3,7 @@ title: "Přidání vlastního názvu domény a nastavení federovaného přihla�
 description: "Postup přidání názvů domén vaší společnosti do Azure Active Directory a postup nastavení federovaného přihlašování mezi Azure Active Directory a místním federačním řešením."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
