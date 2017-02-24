@@ -3,6 +3,7 @@
 ## [Co je App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Plány služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service v Linuxu](app-service-linux-intro.md)
+## [Nejčastější dotazy k App Service v Linuxu](app-service-linux-faq.md)
 
 # Začínáme
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Aplikace Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### Aplikace v ASP.NET
 #### [Vytvoření aplikace v ASP.NET v Azure pomocí sady Visual Studio](web-sites-dotnet-get-started.md)
 #### [Vytvoření služby REST pomocí rozhraní Web API ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Vytvoření webové aplikace ASP.NET 5 v prostředí Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Použití .NET Core ve službě Web Apps v Linuxu](app-service-linux-using-dotnetcore.md)
+
 
 ### Aplikace v Node.js
 #### [Vývoj Node.js pro App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Vývoj a nasazení pomocí WebMatrixu](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplikace v PHP
-#### [Vývoj aplikací v PHP pro App Service](app-service-web-php-get-started.md) 
+#### [Vývoj aplikací v PHP pro App Service](app-service-web-php-get-started.md)    
 #### [Vytvoření webové aplikace v PHP-SQL a nasazení přes Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Vytvoření webové aplikace WordPress ve službě Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Vytvoření databáze MySQL v Azure a připojení k ní](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Flask a Table Storage s nástroji Python Tools 2.2 pro Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django a MySQL v Azure s nástroji Python Tools 2.2 pro Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django a databáze SQL Database v Azure s nástroji Python Tools 2.2 pro Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Aplikace v Ruby
+#### [Použití Ruby ve službě Web Apps v Linuxu](app-service-linux-using-ruby.md)
 
 ### [Nasazení první webové aplikace do Azure během pěti minut](app-service-web-get-started-html.md)
 ### [Začínáme s testováním v produkčním prostředí pro Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Konfigurace Pythonu](web-sites-python-configure.md)
 #### [Konfigurace spouštění Node.js v systému Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Vlastní domény
 #### [Zakoupení a konfigurace vlastních domén](custom-dns-web-site-buydomains-web-app.md)
 #### [Mapování vašich vlastních domén](web-sites-custom-domain-name.md)
+#### [Migrace aktivní vlastní domény](app-service-custom-domain-name-migrate.md)
 #### [Konfigurace domén GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Vlastní domény s Traffic Managerem](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

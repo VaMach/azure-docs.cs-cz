@@ -52,8 +52,19 @@
 ## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
 ## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
+## [Nástroj pro modelování hrozeb](azure-security-threat-modeling-tool.md)
+###[Auditování a protokolování](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Ověřování](azure-security-threat-modeling-tool-authentication.md)
+###[Autorizace](azure-security-threat-modeling-tool-authorization.md)
+###[Zabezpečení komunikace](azure-security-threat-modeling-tool-communication-security.md)
+###[Správa konfigurace](azure-security-threat-modeling-tool-configuration-management.md)
+###[Kryptografie](azure-security-threat-modeling-tool-cryptography.md)
+###[Správa výjimek](azure-security-threat-modeling-tool-exception-management.md)
+###[Ověření vstupu](azure-security-threat-modeling-tool-input-validation.md)
+###[Citlivá data](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Správa relací](azure-security-threat-modeling-tool-session-management.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

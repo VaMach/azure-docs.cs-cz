@@ -2,7 +2,7 @@
 ## [Co je Site Recovery?](site-recovery-overview.md)
 ## [Jak funguje Site Recovery?](site-recovery-components.md)
 ## [Jaké úlohy můžete chránit?](site-recovery-workload.md)
-## [Matice podpory Site Recovery](site-recovery-support-matrix.md)
+## [Matice podpory Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Nejčastější dotazy](site-recovery-faq.md)
 ## [Podívejte se na základní přehled](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,7 +26,14 @@
 ### [Nasazení služby Mobility pro replikaci VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Nasazení služby Mobility pomocí nástroje System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Nasazení služby Mobility pomocí Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
+## Převzetí služeb při selhání a navrácení služeb po obnovení
+### [Převzetí služeb při selhání ve službě Site Recovery](site-recovery-failover.md)
+### [Nastavení plánů obnovení](site-recovery-create-recovery-plans.md)
+#### [Přidání runbooků Azure do plánů obnovení](site-recovery-runbook-automation.md)
+### [Spuštění testovacího převzetí služeb při selhání do Azure](site-recovery-test-failover-to-azure.md)
+### [Spuštění testovacího převzetí služeb při selhání mezi dvěma umístěními VMM](site-recovery-test-failover-vmm-to-vmm.md)
+### [Navrácení fyzických serverů a virtuálních počítačů VMware po obnovení](site-recovery-failback-azure-to-vmware.md)
+
 ## Migrace
 ### [Migrace do Azure](site-recovery-migrate-to-azure.md)
 ### [Migrace mezi oblastmi Azure](site-recovery-migrate-azure-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Automatizace replikace Hyper-V do Azure (bez VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automatizace replikace Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatizace replikace Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Převzetí služeb při selhání a navrácení služeb po obnovení
-### [Převzetí služeb při selhání ve službě Site Recovery](site-recovery-failover.md)
-### [Nastavení plánů obnovení](site-recovery-create-recovery-plans.md)
-#### [Přidání runbooků Azure do plánů obnovení](site-recovery-runbook-automation.md)
-### [Spuštění testovacího převzetí služeb při selhání z VMware do Azure](site-recovery-test-failover-to-azure.md)
-### [Spuštění testovacího převzetí služeb při selhání mezi dvěma umístěními VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Navrácení fyzických serverů a virtuálních počítačů VMware po obnovení](site-recovery-failback-azure-to-vmware.md)
+## Spravovat
+### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
+### [Úprava nastavení replikace](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referenční informace
@@ -69,6 +72,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

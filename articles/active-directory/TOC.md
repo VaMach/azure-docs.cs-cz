@@ -2,7 +2,7 @@
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
 ## [Výběr edice](active-directory-editions.md)
 ## [Správa identit Azure](fundamentals-identity.md)
-## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
+## [Seznámení s prostředím portálu Azure AD](active-directory-preview-explainer.md)
 
 
 # Začínáme
@@ -34,7 +34,7 @@
 ### Správa skupin
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Portál Classic](active-directory-accessmanagement-manage-groups.md)
-#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
 ### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
 ### [Správa členství ve skupinách](active-directory-groups-membership-azure-portal.md)
@@ -50,8 +50,11 @@
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
-## [Zobrazení sestav přístupů a použití](active-directory-view-access-usage-reports.md)
+## [Zobrazení sestav zabezpečení a aktivit](active-directory-view-access-usage-reports.md)
 ### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
+### [Nejčastější dotazy](active-directory-reporting-faq.md)
+### [Migrace sestav](active-directory-reporting-migration.md)
+
 ### [Známé sítě](active-directory-known-networks.md)
 
 ### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
@@ -106,6 +109,7 @@
 #### [Nasazení](active-directory-azureadjoin-devices-group-policy.md)
 #### [Ověření bez hesla](active-directory-azureadjoin-passport.md)
 #### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Vysvětlení integrace Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [použití zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
 #### [Nejčastější dotazy](active-directory-conditional-access-automatic-device-registration-faq.md)
@@ -123,25 +127,31 @@
 
 ### [Umožnění vzdáleného přístupu k aplikacím](active-directory-application-proxy-get-started.md)
 #### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
+#### [Principy konektorů](application-proxy-understand-connectors.md)
+
 #### Publikování aplikací
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Portál Classic](active-directory-application-proxy-publish.md)
+#### [Zabezpečení](application-proxy-security-considerations.md)
+#### [Sítě](application-proxy-network-topology-considerations.md)
+#### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publikování v samostatných sítích
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Portál Classic](active-directory-application-proxy-connectors.md)
+#### [Proxy servery](application-proxy-working-with-proxy-servers.md)
 #### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
-#### [Jednotné přihlašování](active-directory-application-proxy-sso-using-kcd.md)
+#### [Přístup k aplikacím](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
+#### [Jednotné přihlašování](active-directory-application-proxy-sso-using-kcd.md)
 #### [Aplikace pracující s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
 #### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
+#### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
 #### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
 #### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
-### [Vysvětlení jednotného přihlašování pro aplikace](active-directory-appssoaccess-whatis.md)
-
-### Integrace aplikací SaaS
-#### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
-#### [Portál Classic](active-directory-sso-integrate-saas-apps.md)
 
 ### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)
@@ -164,7 +174,6 @@
 
 ### [Použití uživatelů zřizování SCIM](active-directory-scim-provisioning.md)
 ### [Knihovna dokumentů](active-directory-apps-index.md)
-
 
 ## Správa adresáře
 ### Vlastní názvy domén
@@ -191,25 +200,29 @@
 #### [Nastavení Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Nejčastější dotazy](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Řešení problémů](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Integrace partnerů s Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Správci přidávají uživatele B2B](active-directory-b2b-admin-add-users.md)
 #### [Informační pracovníci přidávají uživatele B2B](active-directory-b2b-iw-add-users.md)
 #### [-mailová pozvánka](active-directory-b2b-invitation-email.md)
 #### [Uplatnění pozvánky](active-directory-b2b-redemption-experience.md)
-#### [Správa licencí](active-directory-b2b-licensing.md)
-#### [Řešení potíží s B2B](active-directory-b2b-troubleshooting.md)
-#### [Nejčastější dotazy](active-directory-b2b-faq.md)
-#### [Rozhraní API a přizpůsobení](active-directory-b2b-api.md)
-#### [Vícefaktorové ověřování pro B2B](active-directory-b2b-mfa-instructions.md)
+#### [Uživatelské vlastnosti B2B](active-directory-b2b-user-properties.md)
 #### [Přidání uživatele typu host do role](active-directory-b2b-add-guest-to-role.md)
+#### [Rozhraní API a přizpůsobení](active-directory-b2b-api.md)
 #### [Delegování pozvánek](active-directory-b2b-delegate-invitations.md)
 #### [Dynamické skupiny a B2B](active-directory-b2b-dynamic-groups.md)
-#### [Kód a ukázky pro PowerShell](active-directory-b2b-code-samples.md)
-#### [Konfigurace aplikací SaaS pro B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Vícefaktorové ověřování pro B2B](active-directory-b2b-mfa-instructions.md)
 #### [Tokeny uživatelů B2B](active-directory-b2b-user-token.md)
 #### [Mapování deklarací identity uživatelů B2B](active-directory-b2b-claims-mapping.md)
 #### [Externí sdílení Office 365](active-directory-b2b-o365-external-user.md)
+#### [Konfigurace aplikací SaaS pro B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Kód a ukázky pro PowerShell](active-directory-b2b-code-samples.md)
 #### [Aktuální omezení](active-directory-b2b-current-limitations.md)
+#### [Správa licencí](active-directory-b2b-licensing.md)
+#### [Řešení potíží s B2B](active-directory-b2b-troubleshooting.md)
+#### [Porovnání spolupráce B2B s B2C](active-directory-b2b-compare-b2c.md)
+#### [Získání podpory pro B2B](active-directory-b2b-support.md)
+#### [Nejčastější dotazy](active-directory-b2b-faq.md)
 ### [Integrace místních identit pomocí Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -219,9 +232,9 @@
 ### [Jednotky pro správu](active-directory-administrative-units-management.md)
 ### [Přístup k prostředkům v Azure](active-directory-understanding-resource-access.md)
 ### [Řízení přístupu na základě rolí](role-based-access-control-what-is.md)
-#### Správa přístupu
-##### [Azure Portal](role-based-access-control-manage-assignments.md)
-##### [Portál Classic](role-based-access-control-configure.md)
+#### Správa přiřazení přístupu
+##### [Podle uživatele](role-based-access-control-manage-assignments.md)
+##### [Podle prostředku](role-based-access-control-configure.md)
 #### [Předdefinované role](role-based-access-built-in-roles.md)
 #### [Vlastní role](role-based-access-control-custom-roles.md)
 #### [Vytváření sestav](role-based-access-control-access-change-history-report.md)
@@ -312,6 +325,6 @@
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

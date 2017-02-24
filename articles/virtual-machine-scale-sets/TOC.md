@@ -3,6 +3,7 @@
 
 # Začínáme
 ## [Vytvoření škálovací sady v portálu](virtual-machine-scale-sets-portal-create.md)
+## [Vytvoření škálovací sady s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Postup
 ## Plánování a návrh
@@ -10,12 +11,18 @@
 
 ## Nasazení
 ### [Škálovací sada s využitím portálu](virtual-machine-scale-sets-portal-create.md)
+### [Škálovací sada se spravovanými disky](virtual-machine-scale-sets-managed-disks.md)
 ### [Škálovací sada s použitím sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Škálovací sada s použitím PowerShellu](virtual-machine-scale-sets-windows-create.md)
 ### [Škálovací sada s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Škálovací sada pro Linux s automatickým škálováním](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Škálovací sada pro Windows s automatickým škálováním](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikace ve škálovacích sadách](virtual-machine-scale-sets-deploy-app.md)
+### [Použití datových disků se škálovacími sadami](virtual-machine-scale-sets-attached-disks.md)
+### [Práce s velkými škálovacími sadami](virtual-machine-scale-sets-placement-groups.md)
+### [Převod šablony škálovací sady pro použití spravovaného disku](virtual-machine-scale-sets-convert-template-to-md.md)
+
+
 
 ## Spravovat
 ### [Škálovací sada pro Windows s použitím PowerShellu](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +31,7 @@
 ### [Upgrady pro škálovací sady](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Použití DSC a škálovacích sad](virtual-machine-scale-sets-dsc.md)
+### [Převod šablony na spravované disky](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Řešení potíží
 ### [Automatické škálování](virtual-machine-scale-sets-troubleshoot.md)
@@ -31,7 +39,7 @@
 # Referenční informace
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Zdroje a prostředky
 ## Ceny 
@@ -40,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

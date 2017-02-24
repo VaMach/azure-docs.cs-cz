@@ -39,9 +39,10 @@
 ## Integrace se službami Azure
 ### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí portálu](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí prostředí PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Vytvoření clusteru HDInsight se službou Data Lake Store pomocí šablony Resource Manageru](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight se službou Data Lake Store – portál](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [HDInsight se službou Data Lake Store jako výchozí úložištěm – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [HDInsight se službou Data Lake Store jako dalším úložištěm – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [HDInsight se službou Data Lake Store – šablona Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Použití se službou Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Použití se službou Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Použití s Power BI](data-lake-store-power-bi.md)
@@ -71,6 +72,6 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
