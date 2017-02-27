@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/14/2017
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
@@ -35,7 +35,7 @@ ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
 
 Jednoduchým způsobem, jak začít pracovat se škálovacími sadami spravovaného disku, je provést nasazení z webu Azure Portal. Další informace najdete v [tomto článku](./virtual-machine-scale-sets-portal-create.md). Dalším jednoduchým způsobem, jak začít, je nasadit škálovací sadu pomocí [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Následující příklad ukazuje, jak vytvořit škálovací sadu založenou na Ubuntu s 10 virtuálními počítači, z nichž každý má 50GB a 100GB datový disk:
 
-```bash
+```azurecli
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
