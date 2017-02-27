@@ -15,18 +15,16 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
 
 
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>Migrace do Azure pomocí Site Recovery?
+# <a name="migrate-to-azure-with-site-recovery"></a>Migrace do Azure pomocí Site Recovery
 
 V tomto článku najdete přehled používání služby Azure Site Recovery k migraci virtuálních počítačů a fyzických serverů.
 
-Organizace potřebují strategii BCDR, která určuje, jak aplikace, úlohy a data zůstanou spuštěné a dostupné během plánovaných a neplánovaných výpadků a jak co nejdříve obnovit normální provozní podmínky. Strategie BCDR by měla zajistit bezpečnost a obnovitelnost firemních dat a zajistit, aby v případě, že dojde k havárii, byly zpracovávané úlohy stále k dispozici.
-
-Site Recovery je služba Azure, která přispívá ke strategii BCDR orchestrací replikace místních fyzických serverů a virtuálních počítačů do cloudu (Azure) nebo do sekundárního datového centra. Pokud dojde k výpadkům ve vašem primárním umístění, předáte služby při selhání do sekundárního umístění, aby aplikace a úlohy zůstaly dostupné. Až se obnoví normální provozní podmínky, vrátíte služby po obnovení zpět do primárního umístění. Potřebujete další informace [O službě Site Recovery?](site-recovery-overview.md)
+Site Recovery je služba Azure, která přispívá ke strategii BCDR orchestrací replikace místních fyzických serverů a virtuálních počítačů do cloudu (Azure) nebo do sekundárního datového centra. Pokud dojde k výpadkům ve vašem primárním umístění, předáte služby při selhání do sekundárního umístění, aby aplikace a úlohy zůstaly dostupné. Až se obnoví normální provozní podmínky, vrátíte služby po obnovení zpět do primárního umístění. Potřebujete další informace [O službě Site Recovery?](site-recovery-overview.md) Službu Site Recovery můžete také použít k migraci existujících místních úloh do Azure pro uspíšení přechodu na cloud a využití nabídky funkcí, které Azure nabízí.
 
 Tento článek popisuje postup nasazení na webu [Azure Portal](https://portal.azure.com). [Portál Azure Classic](https://manage.windowsazure.com/) můžete použít k udržování existujících trezorů Site Recovery, ale ne k vytváření nových.
 
@@ -35,7 +33,7 @@ Případné připomínky můžete připojit v dolní části stránky. Technick�
 
 ## <a name="what-do-we-mean-by-migration"></a>Co myslíme pojmem migrace?
 
-Můžete nasadit Site Recovery a zajistit úplnou replikaci místních virtuálních počítačů a fyzických serverů do Azure nebo sekundární lokality. Můžete replikovat počítače, převzít z primární lokality služby při selhání v případě výpadku a po obnovení primární lokality je navrátit. Kromě úplné replikace můžete pomocí Site Recovery migrovat virtuální počítače a fyzické servery do Azure, aby uživatelé měli přístup k úlohám počítače z virtuálních počítačů Azure. Migrace zahrnuje replikaci a převzetí služeb při selhání z primární lokality do Azure. Na rozdíl od úplné replikace ale nezahrnuje mechanismus navrácení služeb po obnovení.
+Můžete nasadit službu Site Recovery pro replikaci místních virtuálních počítačů a fyzických serverů do Azure nebo sekundární lokality. Můžete replikovat počítače, provádět převzetí služeb při selhání z primární lokality při výpadcích a vracet je zpět, když je výpadek vyřešen. Kromě toho můžete pomocí Site Recovery migrovat virtuální počítače a fyzické servery do Azure, aby k nim uživatelé měli přístup jako k virtuálním počítačům Azure. Migrace zahrnuje replikaci a převzetí služeb při selhání z primární lokality do Azure a pokyn dokončení migrace.
 
 ## <a name="what-can-site-recovery-migrate"></a>Co může Site Recovery migrovat?
 
@@ -49,11 +47,13 @@ Můžete:
 
 Při migraci místních virtuálních počítačů Hyper-V, VMware a fyzických serverů postupujete téměř stejně jako při běžné replikaci. Nastavíte trezor služby Recovery Services, nakonfigurujete požadované servery pro správu (podle toho, co chcete migrovat), přidáte je do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání, abyste ověřili, že všechno funguje, jak by mělo.
 
-Po ověření, že prostředí replikace funguje, použijete plánované nebo neplánované převzetí služeb při selhání v závislosti na tom, [kterou možnost váš scénář podporuje](site-recovery-failover.md#failover-and-failback). U migrace není nutné provádět převzetí služeb při selhání ani cokoli odstraňovat. Místo toho vyberete možnost **Dokončit migraci** pro každý počítač, který chcete migrovat. Akce **Dokončit migraci** dokončí proces migrace, odebere z počítače replikaci a zastaví fakturaci za Site Recovery pro daný počítač.
+Po ověření, že prostředí replikace funguje, použijete plánované nebo neplánované převzetí služeb při selhání v závislosti na tom, [kterou možnost váš scénář podporuje](site-recovery-failover.md#failover-and-failback). U migrace není nutné provádět převzetí služeb při selhání. Místo toho vyberete možnost **Dokončit migraci** pro každý počítač, který chcete migrovat. Akce **Dokončit migraci** dokončí proces migrace, odebere z počítače replikaci a zastaví fakturaci za Site Recovery pro daný počítač.
+
+![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migrace mezi oblastmi Azure
 
-Pomocí Site Recovery můžete migrovat virtuální počítače Azure mezi oblastmi. V tomto scénáři je podporována pouze migrace. Jinými slovy, můžete replikovat virtuální počítače Azure a předat jejich služby při selhání do jiné oblasti, ale nemůžete navracet služby po obnovení. V tomto scénáři nastavíte trezor služby Recovery Services, nasadíte místní konfigurační server pro správu replikace, přidáte jej do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání. Potom spustíte neplánované převzetí služeb při selhání pomocí možnosti **Dokončit migraci**.
+Pomocí Site Recovery můžete migrovat virtuální počítače Azure mezi oblastmi. V tomto scénáři je podporována pouze migrace. Jinými slovy můžete replikovat virtuální počítače Azure a předat jejich služby při selhání do jiné oblasti, ale nemůžete navracet služby po obnovení. V tomto scénáři nastavíte trezor služby Recovery Services, nasadíte místní konfigurační server pro správu replikace, přidáte jej do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání. Potom spustíte neplánované převzetí služeb při selhání pomocí možnosti **Dokončit migraci**.
 
 ## <a name="migrate-aws-to-azure"></a>Migrace AWS do Azure
 
@@ -65,7 +65,6 @@ Můžete migrovat instance AWS do virtuálních počítačů Azure. V tomto scé
 ## <a name="next-steps"></a>Další kroky
 
 - [Migrace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
-- [Migrace fyzických serverů do Azure](site-recovery-vmware-to-azure.md)
 - [Migrace virtuálních počítačů Hyper-V v cloudech VMM do Azure](site-recovery-vmm-to-azure.md)
 - [Migrace virtuálních počítačů Hyper-V bez VMM do Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrace virtuálních počítačů Azure mezi oblastmi Azure](site-recovery-migrate-azure-to-azure.md)
@@ -73,6 +72,6 @@ Můžete migrovat instance AWS do virtuálních počítačů Azure. V tomto scé
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
 
 
 ---
@@ -24,13 +24,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Tento článek vám pomůže porozumět základní architektuře služby Azure Site Recovery a komponentám, které jí umožňují fungovat.
 
-Organizace potřebují strategii BCDR, která určuje, jak aplikace, úlohy a data zůstanou spuštěné a dostupné během plánovaných a neplánovaných výpadků a jak co nejdříve obnovit normální provozní podmínky. Strategie BCDR by měla zajistit bezpečnost a obnovitelnost firemních dat a zajistit, aby v případě, že dojde k havárii, byly zpracovávané úlohy stále k dispozici.
-
 Site Recovery je služba Azure, která přispívá ke strategii BCDR orchestrací replikace místní fyzických serverů a virtuálních počítačů do cloudu (Azure) nebo do sekundárního datového centra. Pokud dojde k výpadkům ve vašem primárním umístění, předáte služby při selhání do sekundárního umístění, aby aplikace a úlohy zůstaly dostupné. Až se obnoví normální provozní podmínky, vrátíte služby po obnovení zpět do primárního umístění. Potřebujete další informace [O službě Site Recovery?](site-recovery-overview.md)
 
 Tento článek popisuje postup nasazení na webu [Azure Portal](https://portal.azure.com). [Portál Azure Classic](https://manage.windowsazure.com/) můžete použít k udržování existujících trezorů Site Recovery, ale ne k vytváření nových.
 
-Případné připomínky můžete připojit v dolní části stránky. Technické dotazy můžete zadávat ve [fóru Služeb zotavení Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Jakékoli dotazy můžete publikovat na konci tohoto článku nebo na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="deployment-scenarios"></a>Scénáře nasazení
@@ -54,7 +52,7 @@ Site Recovery replikuje aplikace spouštěné na podporovaných virtuálních po
 **Komponenta** | **Podrobnosti**
 --- | ---
 **Azure** | Pro Azure potřebujete účet Microsoft Azure, účet úložiště Azure a síť Azure.<br/><br/> Účty úložiště a sítě můžou být klasické účty nebo účty Resource Manageru.<br/><br/>  Replikovaná data jsou uložena v účtu úložiště a virtuální počítače Azure se z replikovaných dat vytvoří, jakmile dojde k převzetí místních služeb při selhání. Virtuální počítače Azure se připojí k virtuální síti Azure po svém vytvoření.
-**Konfigurační server** | Potřebujete místní konfigurační server pro koordinaci komunikaci mezi místním prostředím a Azure a pro správu replikace dat.
+**Konfigurační server** | Potřebujete místní konfigurační server pro koordinaci komunikace mezi místním prostředím a Azure a pro správu replikace dat.
 **Procesový server** | Obvykle se instaluje na místní konfigurační server.<br/><br/> Funguje jako replikační brána. Přijímá replikační data z chráněných zdrojových počítačů, optimalizuje je pomocí ukládání do mezipaměti, komprese a šifrování a odesílá je do úložiště Azure.<br/><br/> Rovněž se stará o nabízenou instalaci služby Mobility na chráněné počítače a provádí automatické zjišťování virtuálních počítačů VMware.<br/><br/> Jak vaše nasazení poroste, můžete přidávat další samostatné vyhrazené procesní servery pro zpracování zvyšujícího se objemu replikačních přenosů.
 **Hlavní cílový server** | Obvykle se instaluje na místní konfigurační server.<br/><br/> Zpracovává replikační data během navracení služeb z Azure po obnovení. Pokud je objem přenosů při navracení služeb po obnovení příliš vysoký, můžete nasadit samostatný hlavní cílový server pro účely navrácení služeb po obnovení.
 **Servery VMware** | Servery vCenter a vSphere přidejte do vašeho trezoru služby Recovery Services, abyste mohli replikovat virtuální počítače VMware.<br/><br/> Pokud replikujete fyzické servery, budete pro navrácení služeb po obnovení potřebovat místní infrastrukturu VMware. Služby po obnovení nelze navrátit na fyzický server.
@@ -83,8 +81,8 @@ Site Recovery replikuje aplikace spouštěné na podporovaných virtuálních po
 ### <a name="failover-and-failback-process"></a>Proces převzetí služeb při selhání a navrácení služeb po obnovení
 
 1. Převzetí služeb při selhání můžete provést pouze z místních virtuálních počítačů VMware a fyzických serverů do Azure. Plánované převzetí služeb není podporované.
-2. Můžete převzít službu při selhání jednoho počítače nebo vytvořit [plány zotavení](site-recovery-create-recovery-plans.md) a orchestrovat převzetí služeb více počítačů.
-3. V průběhu převzetí služby se v Azure vytvoří replika virtuálního počítače. Po potvrzení procesu převzetí služeb můžete začít používat úlohu na replikovaném virtuálním počítači Azure.
+2. Můžete převzít službu při selhání jednoho počítače nebo vytvořit [plány zotavení](site-recovery-create-recovery-plans.md) a orchestrovat převzetí služeb při selhání více počítačů.
+3. V průběhu převzetí služeb při selhání se v Azure vytvoří replika virtuálního počítače. Po potvrzení procesu převzetí služeb můžete začít používat úlohu na replikovaném virtuálním počítači Azure.
 4. Až bude vaše místní lokalita opět dostupná, můžete službu navrátit. Nastavíte infrastrukturu navrácení služeb po obnovení, zahájíte replikaci počítače ze sekundární lokality na primární a spustíte neplánované převzetí služeb při selhání ze sekundární lokality. Jakmile toto navrácení služeb potvrdíte, budou data zpět v místní lokalitě a budete muset opět povolit replikaci do Azure. [Další informace](site-recovery-failback-azure-to-vmware.md)
 
 Pro navrácení služby po obnovení existuje několik požadavků:
@@ -133,10 +131,11 @@ Pro navrácení služby po obnovení existuje několik požadavků:
 
 **Komponenta** | **Podrobnosti**
 --- | ---
+
 **Azure** | Pro Azure potřebujete účet Microsoft Azure, účet úložiště Azure a síť Azure.<br/><br/> Účty úložiště a sítě můžou být klasické účty nebo účty Resource Manageru.<br/><br/> Replikovaná data jsou uložena v účtu úložiště a virtuální počítače Azure se z replikovaných dat vytvoří, jakmile dojde k převzetí místních služeb při selhání.<br/><br/> Virtuální počítače Azure se připojí k virtuální síti Azure po svém vytvoření.
-**Server VMM** | Pokud jsou vaši hostitelé Hyper-V umístěni v cloudech VMM, budete potřebovat logické a VM sítě, aby bylo možné nakonfigurovat [mapování sítě](site-recovery-network-mapping.md). Síť virtuálních počítačů musí být propojena na logickou síť, která je přidružena ke cloudu.
+**Server VMM** | Pokud jsou vaši hostitelé Hyper-V umístěni v cloudech VMM, budete potřebovat logické sítě a sítě virtuálních počítačů, aby bylo možné nakonfigurovat mapování sítě. Síť virtuálních počítačů musí být propojena na logickou síť, která je přidružena ke cloudu.
 **Hostitel Hyper-V** | Potřebujete jeden nebo více hostitelských serverů Hyper-V.
-**Virtuální počítače Hyper-V** | Na hostitelském serveru Hyper-V potřebujete jeden nebo několik virtuálních počítačů. Zprostředkovatel, který běží na hostiteli Hyper-V koordinuje a orchestruje replikaci pomocí služby Site Recovery přes internet. Agent zpracovává replikovaná data dat přes HTTPS 443. Komunikace z poskytovatele i agenta je zabezpečená a šifrovaná. Šifrují se rovněž replikovaná data v úložišti Azure.
+**Virtuální počítače Hyper-V** Potřebujete jeden nebo více virtuálních počítačů na hostitelském serveru Hyper-V. Zprostředkovatel, který běží na hostiteli Hyper-V koordinuje a orchestruje replikaci pomocí služby Site Recovery přes internet. Agent zpracovává replikovaná data dat přes HTTPS 443. Komunikace z poskytovatele i agenta je zabezpečená a šifrovaná. Šifrují se rovněž replikovaná data v úložišti Azure.
 
 
 ## <a name="replication-process"></a>Proces replikace
@@ -200,9 +199,9 @@ Pro navrácení služby po obnovení existuje několik požadavků:
 
 1. Můžete spustit plánované nebo neplánované [převzetí služeb při selhání](site-recovery-failover.md) mezi místními lokalitami. Pokud spustíte plánovanou operaci, dojde k ukončení zdrojových virtuálních počítačů, aby se zcela předešlo možné ztrátě dat.
 2. Můžete převzít službu při selhání jednoho počítače nebo vytvořit [plány zotavení](site-recovery-create-recovery-plans.md) a orchestrovat převzetí služeb více počítačů.
-4. Pokud proběhlo neplánované převzetí služeb při selhání sekundární lokalitou, po provedení převzetí služeb nebudou počítače v sekundární lokalitě chráněné pomocí replikace. Pokud jste provedli plánované převzetí služeb při selhání, počítače v sekundární lokalitě chráněné budou.
+4. Pokud proběhlo neplánované převzetí služeb při selhání sekundární lokalitou, po provedení převzetí služeb nebudou počítače v sekundární lokalitě chráněné pomocí replikace. Pokud jste spustili plánované převzetí služeb při selhání, počítače v sekundárním umístění chráněné budou.
 5. Po potvrzení převzetí služeb můžete začít používat úlohu na replikovaném virtuálním počítači.
-6. Až bude primární lokalita opět dostupná, zahájíte zpětnou replikaci ze sekundární lokality do primární. Po zpětné replikaci budou virtuální počítače v chráněném stavu, ale sekundární datové centrum bude stále aktivní lokalitou.
+6. Až bude primární lokalita opět dostupná, zahájíte zpětnou replikaci ze sekundární lokality do primární. Po zpětné replikaci budou virtuální počítače v chráněném stavu, ale sekundární datové centrum bude stále aktivním umístěním.
 7. Chcete-li z primární lokality opět udělat aktivní, zahajte plánované převzetí služeb ze sekundární lokality do primární, následované další zpětnou replikací.
 
 
@@ -223,10 +222,10 @@ Pro navrácení služby po obnovení existuje několik požadavků:
 
 ## <a name="next-steps"></a>Další kroky
 
-[Příprava nasazení](site-recovery-best-practices.md)
+[Kontrola požadavků](site-recovery-prereq.md)
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

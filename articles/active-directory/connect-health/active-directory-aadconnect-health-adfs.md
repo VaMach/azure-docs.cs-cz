@@ -1,124 +1,133 @@
 ---
-title: "Používání služby Azure AD Connect Health se synchronizací | Dokumentace Microsoftu"
-description: "Toto je stránka o službě Azure AD Connect Health, která popisuje sledování synchronizace Azure AD Connect."
+title: "Používání služby Azure AD Connect Health se službou AD FS | Dokumentace Microsoftu"
+description: "Toto je stránka o službě Azure AD Connect Health, která popisuje postup monitorování místní infrastruktury služby AD FS."
 services: active-directory
 documentationcenter: 
 author: karavar
 manager: samueld
 editor: curtand
-ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
+ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 2/15/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: fcea61a09654f41af57969a79fab3aabdba4e19c
+ms.sourcegitcommit: 738f9d5a8af6e1c641ebfab49bd1f01614ecc913
+ms.openlocfilehash: 9e4ba619d37e213b581f7d18d605b99474ad711b
 
 
 ---
-# <a name="using-azure-ad-connect-health-for-sync"></a>Používání služby Azure AD Connect Health pro synchronizaci
-Následující dokumentace se věnuje sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health.  Informace o sledování služby AD FS pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md).
+# <a name="using-azure-ad-connect-health-with-ad-fs"></a>Používání služby Azure AD Connect Health se službou AD FS
+Následující dokumentace se věnuje sledování infrastruktury služby AD FS ve službě Azure AD Connect Health. Informace o sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health pro synchronizaci](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+## <a name="alerts-for-ad-fs"></a>Upozornění služby AD FS
+Část pojednávající o upozorněních služby Azure AD Connect Health uvádí seznam aktivních upozornění. Každé upozornění obsahuje důležité informace, postup řešení a odkazy na související dokumentaci.
 
-## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Upozornění služby Azure AD Connect Health pro synchronizaci
-Část pojednávající o výstrahách služby Azure AD Connect Health pro synchronizaci uvádí seznam aktivních upozornění. Každé upozornění obsahuje důležité informace, postup řešení a odkazy na související dokumentaci. Výběrem aktivního nebo vyřešeného upozornění zobrazíte nové okno s doplňujícími informacemi, kroky, které můžete k vyřešení upozornění použít, a odkazy na další dokumentaci. Můžete si zobrazit i historické údaje o dříve vyřešených upozorněních.
+Dvojitým kliknutím na aktivní nebo vyřešené upozornění můžete otevřít nové okno s doplňujícími informacemi, kroky, které můžete k vyřešení upozornění použít, a odkazy na relevantní dokumentaci. Můžete si zobrazit i historické údaje o dříve vyřešených upozorněních.
 
-Výběrem některého upozornění zobrazíte doplňující informace, kroky, které můžete k vyřešení upozornění použít, a odkazy na další dokumentaci.
+![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
 
-![Chyba synchronizace služby Azure AD Connect](./media/active-directory-aadconnect-health-sync/alert.png)
+## <a name="usage-analytics-for-ad-fs"></a>Funkce analýzy využití služby AD FS
+Funkce analýzy využití služby Azure AD Connect Health analyzuje ověřovací provoz na federačních serverech. Dvojitým kliknutím na políčko funkce analýzy využití můžete otevřít okno analýzy využití, ve kterém je zobrazeno několik metrik a seskupení.
 
-### <a name="limited-evaluation-of-alerts"></a>Omezené vyhodnocení upozornění
-Pokud služba Azure AD Connect nepoužívá výchozí konfiguraci (například když je filtrování atributů změněné z výchozí konfigurace na vlastní), agent služby Azure AD Connect Health nebude odesílat chybové události související se službou Azure AD Connect.
+> [!NOTE]
+> Pokud chcete použít funkci analýzy využití ve službě AD FS, povolte auditování AD FS. Další informace najdete v článku o [povolení auditování služby AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+>
+>
 
-Služba tak bude při vyhodnocování upozornění omezená. Zobrazí se banner, který v rámci služby upozorňuje na tento stav na webu Azure Portal.
+![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
-![Azure AD Connect Health pro synchronizaci](./media/active-directory-aadconnect-health-sync/banner.png)
+Pokud chcete vybrat další metriky, určit časový rozsah nebo změnit seskupení, klikněte pravým tlačítkem na graf analýzy využití a vyberte Upravit graf. Potom můžete zadat časový rozsah, vybrat jiné metriky a změnit seskupení. Distribuci ověřovacího provozu můžete zobrazit podle různých „metrik“ a jednotlivé metriky můžete seskupit pomocí příslušných parametrů možnosti „Seskupit podle“, které jsou uvedené v následující části:
 
-Můžete to změnit kliknutím na „Nastavení“ a povolením, aby agent služby Azure AD Connect Health mohl odesílat všechny protokoly chyb.
+**Metrika: Celkový počet požadavků** – Celkový počet požadavků zpracovaných servery AD FS.
 
-![Azure AD Connect Health pro synchronizaci](./media/active-directory-aadconnect-health-sync/banner2.png)
-
-## <a name="sync-insight"></a>Analýza synchronizace
-Správce často zajímá, jak dlouho trvá synchronizace změn do služby Azure AD, a množství změn, které probíhají. Tato funkce poskytuje snadný způsob vizualizace těchto informací pomocí uvedených grafů:   
-
-* sledování latence operací synchronizace
-* sledování trendu změn objektů
-
-### <a name="sync-latency"></a>Latence synchronizace
-Tato funkce poskytuje grafické zobrazení trendu latence operací synchronizace (import, export atd.) pro jednotlivé konektory.  Díky tomu se nejen rychle a snadno seznámíte s latencí operací (latence je větší, pokud máte velké sady změn), ale budete moct i zjišťovat anomálie v latenci, které můžou vyžadovat další šetření.
-
-![Latence synchronizace](./media/active-directory-aadconnect-health-sync/synclatency02.png)
-
-Ve výchozím nastavení se zobrazuje jenom latence operace „exportu“ na konektoru Azure AD.  Pokud chcete zobrazit další operace na konektoru nebo zobrazit operace z jiných konektorů, klikněte pravým tlačítkem na graf, vyberte Upravit graf, nebo klikněte na tlačítko Upravit graf latence a zvolte konkrétní operaci a konektor.
-
-### <a name="sync-object-changes"></a>Změny objektů synchronizace
-Tato funkce nabízí grafické zobrazení trendu v počtu změn, které se vyhodnocují a exportují do služby Azure AD.  V současné době je snaha o shromáždění těchto informací z protokolů synchronizace obtížná.  Graf poskytuje nejen jednodušší způsob sledování počtu změn ve vašem prostředí, ale i vizuální zobrazení chyb, ke kterým dochází.
-
-![Latence synchronizace](./media/active-directory-aadconnect-health-sync/syncobjectchanges02.png)
-
-## <a name="object-level-synchronization-error-report-preview"></a>Sestava chyb synchronizace na úrovni objektu (verze Preview)
-Tato funkce poskytuje sestavu chyb synchronizace, ke kterým může dojít při synchronizaci dat identity mezi službou Windows Server AD a Azure AD pomocí služby Azure AD Connect.
-
-* Sestava obsahuje chyby zaznamenané klientem synchronizace (Azure AD Connect verze 1.1.281.0 nebo vyšší).
-* Zahrnuje chyby, ke kterým došlo při poslední operaci synchronizace u synchronizačního modulu. (Export v konektoru Azure AD)
-* Agent služby Azure AD Connect Health pro synchronizaci musí mít odchozí připojení k požadovaným koncovým bodům, aby se v sestavě mohla promítnout nejnovější data.
-* Sestava se **aktualizuje každých 30 minut** pomocí dat nahraných agentem služby Azure AD Connect Health pro synchronizaci.
-  Poskytuje následující klíčové funkce:
-
-  * Kategorizace chyb
-  * Seznam chybných objektů podle kategorie
-  * Všechna data o chybách na jednom místě
-  * Souběžné porovnání objektů, u kterých došlo k chybě z důvodu konfliktu
-  * Stažení sestavy chyb ve formátu CSV (připravuje se)
-
-### <a name="categorization-of-errors"></a>Kategorizace chyb
-Sestava zařazuje stávající chyby synchronizace do následujících kategorií:
-
-| Kategorie | Popis |
+|Seskupit podle | Co seskupení znamená a proč je užitečné? |
 | --- | --- |
-| Duplicitní atribut |Chyby vzniklé při pokusu služby Azure AD Connect o vytvoření nebo aktualizaci objektů s duplicitními hodnotami atributů ve službě Azure AD, které musí být v tenantovi jedinečné, například proxyAddresses, UserPrincipalName |
-| Neshoda dat |Chyby synchronizace vzniklé v důsledku neúspěšného měkkého párování objektů |
-| Chyba ověřování dat |Chyby vzniklé v důsledku neplatných dat, jako jsou nepodporované znaky v klíčových atributech (např. UserPrincipalName), chyby formátování, které se před zápisem do Azure AD nepodaří ověřit |
-| Rozsáhlý atribut |Chyby vzniklé v důsledku toho, že některé atributy překračují povolenou velikost, délku nebo počet |
-| Ostatní |Všechny ostatní chyby, které nevyhovují uvedeným kategoriím Na základě zpětné vazby rozdělíme tuto kategorii do podkategorií. |
+| Vše | Zobrazí celkový počet požadavků zpracovaných všemi servery AD FS.|
+| Aplikace | Seskupí celkový počet požadavků podle cílové přijímající strany. Toto seskupení vás seznámí s procentem celkového provozu, které jednotlivé aplikace přijímají. |
+|  Server |Seskupí celkový počet požadavků podle serveru, který požadavek zpracoval. Toto seskupení vás seznámí s distribucí zatížení celkového provozu.
+| Připojení k pracovišti |Seskupí celkový počet požadavků podle toho, jestli přicházejí ze zařízení, která jsou připojená k pracovišti (známá). Toto seskupení vás seznámí s tím, jestli se k vašim prostředkům přistupuje pomocí zařízení, které infrastruktura identity nezná. |
+|  Metoda ověřování | Seskupí celkový počet požadavků podle metody ověřování, která se k ověřování používá. Toto seskupení vás seznámí s běžnou metodu ověřování, která se k ověřování používá. Níže jsou uvedené možné metody ověřování. <ol> <li>integrované ověřování systému Windows (Windows)</li> <li>ověřování pomocí formulářů (formuláře)</li> <li>jednotné přihlašování (SSO)</li> <li>ověření certifikátem X509 (certifikát)</li> <br>Pokud federační servery požadavek přijmou pomocí souboru cookie jednotného přihlašování, příslušný požadavek se počítá jako jednotné přihlašování (SSO). V takových případech (pokud je soubor cookie platný) se od uživatele nevyžadují přihlašovací údaje a uživatel získá bezproblémový přístup k aplikaci. Toto chování je běžné v případě, kdy máte několik přijímajících stran, které jsou chráněné federačními servery. |
+| Umístění v síti | Seskupí celkový počet požadavků podle umístění uživatele v síti. Může to být intranet nebo extranet. Toto seskupení vás seznámí s procentuálním podílem provozu z intranetu vzhledem k provozu z extranetu. |
 
-![Souhrnná sestava chyb synchronizace](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Kategorie sestavy chyb synchronizace](./media/active-directory-aadconnect-health-sync/errorreport02.png)
 
-### <a name="list-of-objects-with-error-per-category"></a>Seznam chybných objektů podle kategorie
-Rozbalením jednotlivých kategorií zobrazíte seznam objektů, které mají chybu v dané kategorii.
-![Seznam sestav chyb synchronizace](./media/active-directory-aadconnect-health-sync/errorreport03.png)
+**Metrika: Celkový počet neúspěšných požadavků** – Celkový počet neúspěšných požadavků zpracovaných službou FS. (Tato metrika je dostupná pouze ve službě AD FS pro Windows Server 2012 R2.)
 
-### <a name="error-details"></a>Podrobnosti o chybě
-Následující data jsou k dispozici v podrobném zobrazení jednotlivých chyb.
+|Seskupit podle | Co seskupení znamená a proč je užitečné? |
+| --- | --- |
+| Typ chyby | Zobrazí počet chyb podle předdefinovaných typů chyb. Toto seskupení vás seznámí s běžnými typy chyb. <ul><li>Nesprávné uživatelské jméno nebo heslo: Chyby způsobené zadáním nesprávného uživatelského jména nebo hesla.</li> <li>„Uzamčení extranetu“: Selhání způsobené požadavky přijatými od uživatele, který má uzamčený přístup do extranetu. </li><li> „Prošlé heslo“: Chyby způsobené uživateli, kteří se přihlašují pomocí hesla, kterému vypršela platnost.</li><li>„Deaktivovaný účet“: Chyby způsobené uživateli, kteří se přihlašují pomocí deaktivovaného účtu.</li><li>„Ověřování zařízení“: Chyby způsobené uživateli, kteří neprovádějí ověřování pomocí ověření zařízení.</li><li>„Ověřování certifikátu uživatele“: Chyby způsobené uživateli, kterým nefunguje ověřování kvůli neplatnému certifikátu.</li><li>„MFA“: Chyby způsobené neúspěšným ověřením uživatele v případě použití Multi-Factor Authentication.</li><li>„Jiné přihlašovací údaje“: „Autorizace vystavení“: Chyby způsobené selháním autorizace.</li><li>„Delegování vystavení“: Chyby způsobené chybami delegace vystavení.</li><li>„Přijetí tokenu“: Chyby způsobené tím, že služba ADFS odmítla token od zprostředkovatele identity z řad třetích stran.</li><li>„Protokol“: Chyba způsobená chybami protokolu.</li><li>„Neznámá“: Zachytit vše. Jakékoli jiné chyby, které se nehodí do definovaných kategorií.</li> |
+| Server | Seskupí chyby podle serveru. Toto seskupení vás seznámí s distribucí chyb mezi servery. Nerovnoměrná distribuce může naznačovat vadný stav serveru. |
+| Umístění v síti | Seskupí chyby podle umístění požadavků v síti (intranet vs. extranet). Toto seskupení vás seznámí s typy neúspěšných požadavků. |
+|  Aplikace | Seskupí chyby podle cílové aplikace (přijímající strany). Toto seskupení vás seznámí s tím, která cílová aplikace zaznamenává největší počet chyb. |
 
-* Identifikátory příslušného *objektu AD*
-* Identifikátory příslušného *objektu Azure AD* (podle vhodnosti)
-* Popis chyby a její řešení
-* Související články
+**Metrika: Počet uživatelů** – Průměrný počet jedinečných uživatelů aktivně ověřujících pomocí AD FS
 
-![Podrobnosti sestavy chyb synchronizace](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+|Seskupit podle | Co seskupení znamená a proč je užitečné? |
+| --- | --- |
+|Vše |Tato metrika poskytuje průměrný počet uživatelů, kteří používají službu FS ve vybraném časovém intervalu. Uživatelé nejsou seskupení. <br>Průměr závisí na vybraném časovém intervalu. |
+| Aplikace |Seskupí průměrný počet uživatelů podle cílové aplikace (přijímající strany). Toto seskupení vás seznámí s počtem uživatelů používajících jednotlivé aplikace. |
 
-### <a name="download-the-error-report-as-csv"></a>Stažení sestavy chyb ve formátu CSV
-Pomocí tlačítka Exportovat můžete stáhnout soubor CSV s podrobnými informacemi o všech chybách.
+## <a name="performance-monitoring-for-ad-fs"></a>Sledování výkonu služby AD FS
+Sledování výkonu služby Azure AD Connect Health poskytuje sledovací informace o metrikách. Po zaškrtnutí políčka sledování se otevře nové okno s podrobnými informacemi o metrikách.
+
+![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
+
+Výběrem možnosti Filtrovat (v horní části okna) můžete filtrovat podle serveru a prohlédnout si metriky na jednotlivých serverech. Pokud chcete změnit metriky, klikněte pravým tlačítkem na graf sledování pod oknem sledování a vyberte Upravit graf (nebo vyberte tlačítko Upravit graf). V nově otevřeném okně můžete vybrat další metriky pomocí rozevíracího seznamu a také zadat časový rozsah pro zobrazení dat výkonu.
+
+## <a name="reports-for-ad-fs"></a>Sestavy služby AD FS
+Azure AD Connect Health poskytuje sestavy s informacemi o činnosti a výkonu služby AD FS. Tyto sestavy pomáhají správcům získat přehled o aktivitách na jejich serverech AD FS.
+
+### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Nejčastějších 50 uživatelů s neúspěšným přihlášením kvůli uživatelskému jména nebo heslu
+Jednou z běžných příčin neúspěšného požadavku na ověření na serveru AD FS je požadavek provedený s neplatnými přihlašovacími údaji, tedy s nesprávným uživatelským jménem nebo heslem. Do této situace se uživatelé zpravidla dostávají v důsledku používání složitých hesel, zapomenutí hesel nebo překlepů.
+
+Existují však i další důvody, které mohou mít za následek neočekávaný počet požadavků zpracovávaných vašimi servery služby AD FS. Příklady: Aplikace, která ukládá do mezipaměti přihlašovací údaje uživatelů a vypršení jejich platnosti nebo pokus uživatele se zlými úmysly o přihlášení k účtu s použitím řady známých hesel. Tyto dva příklady jsou legitimními důvody, které by mohly vést k prudkému nárůstu množství požadavků.
+
+Azure AD Connect Health pro ADFS poskytuje sestavy s nejčastějšími 50 uživateli, kteří se neúspěšně přihlašovali pomocí neplatného uživatelského jména nebo hesla. Tuto sestavu můžete vytvořit zpracováním událostí auditu, které jsou vygenerované všemi servery AD FS ve farmách.
+
+![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
+
+V rámci této sestavy máte snadný přístup k následujícím informacím:
+
+* Celkový počet neúspěšných požadavků s nesprávným uživatelským jménem nebo heslem za posledních 30 dní.
+* Průměrný počet uživatelů, kteří mají problém s přihlašováním kvůli chybnému uživatelskému jménu nebo heslu, za jeden den.
+
+Kliknutím na tuto část přejdete do hlavního okna sestavy, které vám nabídne další podrobnosti. Toto okno obsahuje graf informace o trendech, které vám usnadní vytváření směrného plánu pro požadavky s nesprávným uživatelským jménem nebo heslem. Kromě toho obsahuje seznam 50 uživatelů s nejvyšším počtem neúspěšných pokusů.
+
+Graf obsahuje následující informace:
+
+* Celkový počet neúspěšných přihlášení z důvodu chybného uživatelského jména nebo hesla na denní bázi.
+* Celkový počet jedinečných uživatelů s neúspěšným přihlášení na denní bázi.
+* IP adresa klienta posledního požadavku
+
+![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report3a.png)
+
+Sestava obsahuje následující informace:
+
+| Položky sestavy | Popis |
+| --- | --- |
+| ID uživatele |Zobrazuje použité ID uživatele. Tato hodnota odpovídá hodnotě zadané uživatelem, což je v některých případech nesprávné ID uživatele, které bylo použito. |
+| Neúspěšné pokusy |Zobrazuje celkový počet neúspěšných pokusů s konkrétním ID uživatele. Tabulka je řazená podle největšího počtu neúspěšných pokusů v sestupném pořadí. |
+| Poslední chyba |Zobrazuje časové razítko výskytu poslední chyby. |
+| IP adresa poslední chyby |Zobrazuje IP adresu klienta z posledního neúspěšného požadavku. |
+
+> [!NOTE]
+> Sestava se každé dvě hodiny automaticky aktualizuje novými informacemi, které byly za tu dobu shromážděné. V důsledku tohoto postupu nemusí být v sestavě zahrnuté přihlašovací pokusy za poslední dvě hodiny.
+>
+>
 
 ## <a name="related-links"></a>Související odkazy
-* [Řešení chyb při synchronizaci](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
-* [Odolnost duplicitních atributů](../connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalace agenta služby Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
-* [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md)
+* [Používání služby Azure AD Connect Health pro synchronizaci](active-directory-aadconnect-health-sync.md)
 * [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

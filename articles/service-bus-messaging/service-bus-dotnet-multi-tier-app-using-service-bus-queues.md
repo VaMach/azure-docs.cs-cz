@@ -1,5 +1,5 @@
 ---
-title: "Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus | Dokumentace Microsoftu"
+title: "Vícevrstvá aplikace .NET, která používá Azure Service Bus | Dokumentace Microsoftu"
 description: "Kurz .NET, který vám pomůže vytvořit vícevrstvou aplikaci v Azure, která používá fronty Service Bus ke komunikaci mezi vrstvami."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
 
 
 ---
@@ -61,7 +61,7 @@ V následující části se probírá kód, který tuto architekturu implementuj
 ## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
-1. Nainstalujte si Azure SDK pro .NET ze stránky [Stažení nástrojů a SDK](https://azure.microsoft.com/downloads/).
+1. Nainstalujte sadu Azure SDK pro .NET ze [stránky pro stažení SDK](https://azure.microsoft.com/downloads/).
 2. Ve sloupci **.NET** klikněte na verzi sady Visual Studio, kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
 3. Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 4. V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
@@ -397,6 +397,6 @@ Další informace o víceúrovňových scénářích najdete v:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

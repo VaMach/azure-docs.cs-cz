@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
 
 
 ---
@@ -29,14 +29,11 @@ Clustery Kubernetes, DC/OS a Docker Swarm poskytují koncové body HTTP místně
 
 V případě DC/OS a Docker Swarm je nutné vytvořit tunel Secure Shell (SSH) k internímu systému. Po vytvoření tunelu můžete spouštět příkazy, které využívají koncové body HTTP, a zobrazovat webové rozhraní clusteru z místního systému. 
 
-> [!NOTE]
-> Podpora pro Kubernetes je v Azure Container Service momentálně ve verzi preview.
->
 
 ## <a name="prerequisites"></a>Požadavky
 
 * Cluster Kubernetes, DC/OS nebo Swarm [nasazený ve službě v Azure Container Service](container-service-deployment.md)
-* Privátní klíč SSH odpovídající veřejnému klíči SSH přidaného do clusteru během nasazení Tyto příkazy předpokládají, že privátní klíč SSH je ve vašem počítači ve složce `$HOME/.ssh/id_rsa`. Tyto pokyny existují také pro [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo pro [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Pokud připojení SSH nefunguje, možná budete muset [resetovat vaše klíče SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Privátní klíč SSH RSA odpovídající veřejnému klíči SSH přidaného do clusteru během nasazení Tyto příkazy předpokládají, že privátní klíč SSH je ve vašem počítači ve složce `$HOME/.ssh/id_rsa`. Tyto pokyny existují také pro [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo pro [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Pokud připojení SSH nefunguje, možná budete muset [resetovat vaše klíče SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Připojení ke clusteru Kubernetes
 
@@ -47,7 +44,7 @@ Podle následujícího postupu nainstalujete a nakonfigurujete `kubectl` ve vaš
 > 
 
 ### <a name="install-kubectl"></a>Instalace kubectl
-Jedním ze způsobů, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 (Preview) `az acs kubernetes install-cli`. Pokud chcete spustit tento příkaz, ujistěte se, že jste [nainstalovali](/cli/azure/install-az-cli2) nejnovější příkazový řádek Azure CLI 2.0 (Preview) a jste přihlášení k účtu Azure (`az login`).
+Jedním ze způsobů, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 `az acs kubernetes install-cli`. Pokud chcete spustit tento příkaz, ujistěte se, že jste [nainstalovali](/cli/azure/install-az-cli2) nejnovější příkazový řádek Azure CLI 2.0 a jste přihlášení k účtu Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +54,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Případně si můžete klienta stáhnout přímo ze [stránky vydaných verzí](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Případně si můžete nejnovějšího klienta stáhnout přímo ze [stránky vydaných verzí Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Další informace najdete v tématu [Instalace a nastavení kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
 
 ### <a name="download-cluster-credentials"></a>Stažení přihlašovacích údajů clusteru
 Jakmile budete mít `kubectl` nainstalovaný, je třeba, abyste na svůj počítač zkopírovali přihlašovací údaje clusteru. Přihlašovací údaje můžete získat například příkazem `az acs kubernetes get-credentials`. Předejte název skupiny prostředků a název prostředku kontejnerové služby:
@@ -203,7 +200,7 @@ Tunely SSH je ve Windows možné vytvořit několika způsoby. Tato část popis
 
     ![Protokol událostí PuTTY](media/putty4.png)
 
-Až bude tunel pro DC/OS nakonfigurovaný, budete mít k příslušnému koncovému bodu přístup přes tyto adresy:
+Až bude tunel pro DC/OS nakonfigurovaný, budete mít k příslušným koncovým bodům přístup přes tyto adresy:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -221,6 +218,6 @@ Nasazení a správa kontejnerů ve vašem clusteru:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

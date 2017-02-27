@@ -1,94 +1,107 @@
 ---
-title: "Začínáme s webovou službou mobilní aplikace serveru MFA"
-description: "Aplikace Azure Multi-Factor Authentication nabízí možnost dalšího ověření mimo pásmo.  To umožňuje serveru MFA používat nabízená oznámení pro uživatele."
+title: "Webová služba mobilní aplikace Azure MFA Serveru | Dokumentace Microsoftu"
+description: "Aplikace Microsoft Authenticator nabízí možnost dalšího ověření mimo pásmo.  To umožňuje serveru MFA používat nabízená oznámení pro uživatele."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
+editor: yossib
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/04/2016
+ms.date: 02/15/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
+ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
+ms.openlocfilehash: d3a122d7d26635e13281b1cba450937519ed4be6
 
 
 ---
-# <a name="getting-started-the-mfa-server-mobile-app-web-service"></a>Začínáme s webovou službou mobilní aplikace serveru MFA
-Aplikace Azure Multi-Factor Authentication nabízí možnost dalšího ověření mimo pásmo. Namísto zahájení automatizovaného telefonního hovoru nebo SMS uživateli při přihlášení, doručí Azure Multi-Factor Authentication oznámení do aplikace Azure Multi-Factor Authentication na tablet nebo smartphone uživatele. Uživatel jednoduše klepne na položku „Ověřit“ (nebo zadá kód PIN a klepne na „Ověřit“) v aplikaci k přihlášení.
+# <a name="getting-started-with-the-mfa-server-mobile-app-web-service"></a>Začínáme s webovou službou mobilní aplikace MFA Serveru
+Aplikace Microsoft Authenticator nabízí možnost dalšího ověření mimo pásmo. Namísto zahájení automatizovaného telefonního hovoru nebo odeslání SMS zprávy uživateli při přihlášení, doručí služba Azure Multi-Factor Authentication oznámení do aplikace Microsoft Authenticator na tablet nebo smartphone uživatele. Uživatel v aplikaci jednoduše dokončí přihlášení klepnutím na **Ověřit** (nebo zadá kód PIN a klepne na Ověřit). 
 
-Chcete-li používat aplikaci Azure Multi-Factor Authentication, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s webovými službami mobilní aplikace:
+Použití mobilní aplikace pro dvojstupňové ověřování se upřednostňuje v případě, že je telefonní příjem nespolehlivý. Pokud aplikaci používáte jako generátor tokenu OAUTH, nevyžaduje připojení k síti ani k internetu. 
 
-* Hardwarové a softwarové požadavky naleznete v části Požadavky na hardware a software
-* Je třeba použít server Azure Multi-Factor Authentication verze 6.0 nebo vyšší
-* Webové služby mobilní aplikace musí být nainstalovány na internetovém webovém serveru s internetovými informačními službami Microsoft® (IIS) IIS 7.x nebo vyšší.  Další informace o službě IIS najdete v části [IIS.NET](http://www.iis.net/).
-* Ujistěte se, že je nainstalováno, registrováno a povoleno rozhraní ASP.NET v4.0.30319
-* Požadované role služby zahrnují technologie ASP.NET a kompatibilitu metabáze služby IIS 6
-* Webové služby mobilní aplikace musí být přístupné přes veřejnou adresu URL
-* Webové služby mobilní aplikace musí být zabezpečeny certifikátem SSL.
-* Sada Web Service SDK Azure Multi-Factor Authentication musí být nainstalován ve službě IIS 7.x nebo vyšší na serveru Azure Multi-Factor Authentication
-* Sada Web Service SDK Azure Multi-Factor Authentication musí být zabezpečená certifikátem SSL.
-* Webové služby mobilní aplikace musí být schopni se připojit k sadě Web Service SDK Azure Multi-Factor Authentication přes protokol SSL
-* Webové služby mobilní aplikace musí mít k ověření sady Web Service SDK Azure Multi-Factor Authentication pomocí pověření účtu služby, který je členem skupiny zabezpečení s názvem „PhoneFactor Admins“. Tento účet služby a skupina existují ve službě Active Directory, pokud server Azure Multi-Factor Authentication běží na serveru připojeném k doméně. Tento účet služby a skupina existují místně na Azure Multi-Factor Authentication Serveru, pokud není připojený k doméně.
+Instalace portálu uživatele na jiném serveru, než je Azure Multi-Factor Authentication Server, vyžaduje následující kroky:
 
-Instalace portálu uživatele na jiném serveru než je Azure Multi-Factor Authentication Server vyžaduje následující tři kroky:
-
-1. Instalaci sady SDK webové služby
+1. Instalace sady SDK webové služby
 2. Instalaci webové služby mobilní aplikace
 3. Konfigurace serveru Azure Multi-Factor Authentication
-4. Aktivace aplikace Azure Multi-Factor Authentication pro koncové uživatele
+4. Aktivace aplikace Microsoft Authenticator pro koncové uživatele
+
+## <a name="requirements"></a>Požadavky
+
+Pokud chcete použít aplikaci Microsoft Authenticator, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s webovou službou mobilní aplikace:
+
+* Azure Multi-Factor Authentication Server verze&6;.0 nebo vyšší
+* Instalace webové služby mobilní aplikace na internetovém webovém serveru s [Internetovou informační službou Microsoft® (IIS) IIS 7.x nebo vyšší](http://www.iis.net/)
+* Nainstalované, registrované a povolené rozhraní ASP.NET v4.0.30319
+* Požadované role služby zahrnují technologie ASP.NET a kompatibilitu metabáze služby IIS 6
+* Webová služba mobilní aplikace je přístupná přes veřejnou adresu URL.
+* Webová služba mobilní aplikace je zabezpečena certifikátem SSL.
+* Instalace sady SDK webové služby Azure Multi-Factor Authentication ve službě IIS 7.x nebo vyšší na stejném serveru jako Azure Multi-Factor Authentication Server.
+* Sada SDK webové služby Azure Multi-Factor Authentication je zabezpečená certifikátem SSL.
+* Webová služba mobilní aplikace se může připojit k sadě SDK webové služby Azure Multi-Factor Authentication přes protokol SSL.
+* Webová služba mobilní aplikace se může ověřit v sadě SDK webové služby Azure MFA pomocí přihlašovacích údajů účtu služby, který je členem skupiny zabezpečení „PhoneFactor Admins“. Tento účet služby a skupina existují ve službě Active Directory, pokud Azure Multi-Factor Authentication Server běží na serveru připojeném k doméně. Tento účet služby a skupina existují místně na Azure Multi-Factor Authentication Serveru, pokud není připojený k doméně.
+
 
 ## <a name="install-the-web-service-sdk"></a>Instalace sady SDK webové služby
-Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure Multi-Factor Authentication Server. Klikněte na ikonu sady SDK webové služby, klikněte na tlačítko Instalovat sadu SDK webové služby... a postupujte podle zobrazených pokynů. Sada SDK webové služby musí být zabezpečená certifikátem SSL. Certifikát podepsaný svým držitelem lze pro tento účel použít, ale musí být importován do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu pro uživatele tak, aby byl v budoucnu certifikát důvěryhodný při zahájení připojení SSL.
+Pokud sada SDK webové služby Azure Multi-Factor Authentication není na Azure Multi-Factor Authentication (MFA) Serveru nainstalovaná, přejděte k danému serveru a otevřete Azure MFA Server. 
 
-<center>![Nastavení](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
+1. Klikněte na ikonu sady SDK webové služby.
+2. Klikněte na **Nainstalovat sadu SDK webové služby** a postupujte podle zobrazených pokynů. 
+
+Sada SDK webové služby musí být zabezpečená certifikátem SSL. Pro tento účel stačí certifikát podepsaný svým držitelem. Importujte certifikát do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu User Portal tak, aby byl v budoucnu certifikát důvěryhodný při navazování připojení SSL.
+
+![Nastavení](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
 
 ## <a name="install-the-mobile-app-web-service"></a>Instalaci webové služby mobilní aplikace
-Před instalací webové služby mobilní aplikace si uvědomte skutečnosti:
+Před instalací webové služby mobilní aplikace mějte na paměti následující:
 
-* Pokud je portál pro uživatele Azure Multi-Factor Authentication již nainstalován na internetovém serveru, uživatelské jméno, heslo a adresu URL pro sadu Web Service SDK lze zkopírovat ze souboru web.config rozhraní portálu pro uživatele.
+* Pokud je portál Azure MFA User Portal již nainstalován na serveru s přístupem k internetu, uživatelské jméno, heslo a adresu URL pro sadu SDK webové služby lze zkopírovat ze souboru web.config portálu User Portal.
 * Je užitečné otevřít webový prohlížeč na webovém serveru s přístupem k internetu a přejít na adresu URL sady Web Service SDK, která byla zadán do souboru web.config. Pokud se prohlížeč úspěšně dostane k webové službě, měla by se zobrazit výzva k zadání přihlašovacích údajů. Zadejte uživatelské jméno a heslo, které jste zadali do souboru web.config, v naprosto stejném tvaru. Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
-* Pokud se před webovým serverem webové služby mobilní aplikace nachází reverzní proxy server nebo brána firewall a provádí snižování zátěže protokolu SSL, můžete upravit soubor web.config webové služby mobilní aplikace a přidat následující klíč do části <appSettings> tak, aby webové služby mobilní aplikace mohly používat protokol http místo protokolu https. SSL je však stále zapotřebí ve směru z mobilní aplikace k reverznímu proxy serveru / bráně firewall. <add key="SSL_REQUIRED" value="false"/>
+* Pokud se před webovým serverem webové služby mobilní aplikace nachází reverzní proxy server nebo brána firewall a provádí snižování zátěže protokolu SSL, můžete upravit soubor web.config webové služby mobilní aplikace tak, aby webová služba mobilní aplikace mohla používat protokol http místo protokolu https. SSL je však stále zapotřebí ve směru z mobilní aplikace k reverznímu proxy serveru / bráně firewall. Do části \<appSettings\> přidejte následující klíč: 
 
-### <a name="to-install-the-mobile-app-web-service"></a>Instalace webové služby mobilní aplikace
-<ol>
+        <add key="SSL_REQUIRED" value="false"/>
 
-<li>Otevřete Průzkumníka Windows na serveru Azure Multi-Factor Authentication a přejděte do složky, kde je nainstalován server Azure Multi-Factor Authentication (například C:\Program Files\Azure Multi-Factor Authentication). Zvolte 32bitovou nebo 64bitovou verzi instalačního souboru Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup v závislosti na serveru, na který bude webová služba mobilní aplikace nainstalována. Zkopírujte instalační soubor na server s přístupem k internetu.</li>
+### <a name="install-the-service"></a>Instalace služby
 
-<li>Na webovém serveru s přístupem k internetu je třeba instalační soubor spustit s oprávněním správce. Nejjednodušším způsobem je otevřít příkazový řádek jako správce a přejít do umístění, kam byl zkopírován instalační soubor.</li>  
+1. Otevřete Průzkumníka Windows na Azure Multi-Factor Authentication Serveru a přejděte do složky, kde je nainstalován Azure MFA Server (obvykle C:\Program Files\Azure Multi-Factor Authentication). Zvolte 32bitovou nebo 64bitovou verzi instalačního souboru Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup. Zkopírujte instalační soubor na server s přístupem k internetu.
 
-<li>Spusťte instalační soubor Multi-Factor AuthenticationMobileAppWebServiceSetup, změňte v případě potřeby web a změňte virtuální adresář na krátký název, například „PA“. Vzhledem k tomu, že budou muset uživatelé zadat adresu URL webové služby mobilní aplikace do mobilního zařízení během aktivace, doporučujeme použít krátký název virtuálního adresáře.</li>
+2. Na webovém serveru s přístupem k internetu spusťte instalační soubor s oprávněním správce. Otevřete příkazový řádek jako správce a přejděte do umístění, kam se zkopíroval instalační soubor.
 
-<li>Po dokončení instalace Azure Multi-Factor AuthenticationMobileAppWebServiceSetup vyhledejte C:\inetpub\wwwroot\PA (nebo příslušný adresář na základě názvu virtuálního adresáře) a upravte soubor web.config.</li>  
+3. Spusťte instalační soubor Multi-Factor AuthenticationMobileAppWebServiceSetup, změňte v případě potřeby web a změňte virtuální adresář na krátký název, například „PA“.
 
-<li>Vyhledejte klíče WEB_SERVICE_SDK_AUTHENTICATION_USERNAME a WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD a nastavte hodnoty na uživatelské jméno a heslo účtu služby, který je členem skupiny zabezpečení PhoneFactor Admins (viz část Požadavky výše). Může se jednat o stejný účet, který se používá jako identita portálu pro uživatele Azure Multi-Factor Authentication, pokud byl dříve nainstalován. Nezapomeňte vložit uživatelské jméno a heslo mezi uvozovky na konci řádku (hodnota = "" / >). Doporučujeme použít kvalifikované uživatelské jméno (například domain\username nebo machine\username).</li>  
+  Vzhledem k tomu, že budou muset uživatelé zadat adresu URL webové služby mobilní aplikace do mobilního zařízení během aktivace, doporučujeme použít krátký název virtuálního adresáře.
 
-<li>Vyhledejte nastavení pfMobile App Web Service_pfwssdk_PfWsSdk a změňte hodnotu z „http://localhost:4898/PfWsSdk.asmx“ na adresu URL sady Web Service SDK, která běží na serveru Azure Multi-Factor Authentication (např. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Vzhledem k tomu, že se pro toto připojení používá protokol SSL, musíte odkázat na sadu Web Service SDK pomocí názvu serveru a ne IP adresy, protože certifikát SSL byl vydán pro název serveru a použitá adresa URL se musí shodovat s názvem na certifikátu. Pokud název serveru neodpovídá IP adrese ze serveru s přístupem na internet, přidejte záznam do souboru hostitelů na tomto serveru pro namapování názvu serveru Azure Multi-Factor Authentication na jeho IP adresu. Po provedení změn uložte soubor web.config.</li>  
+4. Po dokončení instalace Azure Multi-Factor AuthenticationMobileAppWebServiceSetup vyhledejte C:\inetpub\wwwroot\PA (nebo příslušný adresář na základě názvu virtuálního adresáře) a upravte soubor web.config. 
 
-<li>Pokud web, na který byly nainstalovány webové služby mobilní aplikace (například výchozí web), nebyl dosud navázán na veřejně podepsaný certifikát, nainstalujte certifikát na server, otevřete správce služby IIS a vytvořte vazbu certifikátu k webu.</li>  
+5. Vyhledejte klíče WEB_SERVICE_SDK_AUTHENTICATION_USERNAME a WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD. Nastavte hodnoty na uživatelské jméno a heslo účtu služby, který je členem skupiny zabezpečení PhoneFactor Admins. Může se jednat o stejný účet, který se používá jako identita portálu pro uživatele Azure Multi-Factor Authentication, pokud byl dříve nainstalován. Nezapomeňte vložit uživatelské jméno a heslo mezi uvozovky na konci řádku (hodnota = "" / >). Použijte kvalifikované uživatelské jméno, například doména\uživatelské_jméno nebo počítač\uživatelské_jméno.  
 
-<li>Z libovolného počítače otevřete webový prohlížeč a přejděte na adresu URL, kam byly nainstalovány webové služby mobilní aplikace (např. https://www.publicwebsite.com/PA). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.</li>
+6. Vyhledejte nastavení pfMobile App Web Service_pfwssdk_PfWsSdk. Změňte hodnotu z *http://localhost:4898/PfWsSdk.asmx* na adresu URL sady SDK webové služby, která běží na Azure Multi-Factor Authentication Serveru (např. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). 
+
+  Vzhledem k tomu, že se pro toto připojení používá protokol SSL, je třeba na sadu SDK webové služby odkazovat pomocí názvu serveru, a ne pomocí IP adresy. Certifikát SSL by byl vydán pro název serveru a použitá adresa URL se musí shodovat s názvem na certifikátu. Název serveru nemusí odpovídat IP adrese ze serveru s přístupem na internet. Pokud je to váš případ, přidejte do souboru hostitelů na tomto serveru záznam pro namapování Azure Multi-Factor Authentication Serveru na jeho IP adresu. Po provedení změn uložte soubor web.config.
+
+7. Pokud web, na který byla nainstalována webová služba mobilní aplikace, nebyl dosud navázán na veřejně podepsaný certifikát, nainstalujte certifikát na server, otevřete Správce služby IIS a vytvořte vazbu certifikátu k webu.
+
+8. Z libovolného počítače otevřete webový prohlížeč a přejděte na adresu URL, kam byla nainstalována webová služba mobilní aplikace (např. https://www.publicwebsite.com/PA). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
 
 ### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace serveru Azure Multi-Factor Authentication
 Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigurovat server Azure Multi-Factor Authentication pro práci s portálem.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace mobilní aplikace na serveru Azure Multi-Factor Authentication
-1. Na serveru Azure Multi-Factor Authentication klikněte na ikonu portálu pro uživatele. Pokud mají uživatelé povolení řídit své metody ověřování, na kartě Nastavení v části Povolit uživatele, zaškrtněte možnost Mobilní aplikace. Bez povolení této funkce bude nutné kontaktovat podporu a požádat o úplnou aktivaci mobilní aplikace.
-2. Zkontrolujte možnost Povolit uživatele pro aktivaci pole Mobilní aplikace.
-3. Zaškrtněte políčko Povolit zápis uživatele.
+1. V Azure MFA Serveru klikněte na ikonu User Portal. Pokud mají uživatelé povolení řídit své metody ověřování, zaškrtněte možnost **Mobilní aplikace** na kartě Nastavení v části **Povolit uživatelům výběr metody**. Bez povolení této funkce bude nutné kontaktovat podporu a požádat o úplnou aktivaci mobilní aplikace.
+2. Zaškrtněte políčko **Povolit uživatelům aktivaci mobilní aplikace**.
+3. Zaškrtněte políčko **Povolit zápis uživatele**.
 4. Klikněte na ikonu Mobilní aplikace.
-5. Zadejte adresu URL používanou s virtuálním adresářem, který byl vytvořen při instalaci Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Název účtu může být zapsán v poskytnutém prostoru. Tento název společnosti se zobrazí v mobilní aplikaci. Pokud nebude zadáno, zobrazí se název poskytovatele služby Multi-Factor Auth vytvořený na portálu pro správu Azure.
+5. Zadejte adresu URL používanou s virtuálním adresářem, který byl vytvořen při instalaci Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Název účtu může být zapsán v poskytnutém prostoru. Tento název společnosti se zobrazí v mobilní aplikaci. Pokud nebude zadán, zobrazí se název poskytovatele služby Multi-Factor Auth vytvořený na portálu Azure Classic.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření první aplikace Service Fabric v sadě Visual Studio | Dokumentace Microsoftu"
+title: "Vytvoření vaší první aplikace mikroslužeb Azure | Dokumentace Microsoftu"
 description: "Vytvoření, nasazení a ladění aplikace Service Fabric pomocí Visual Studia"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 
 
 ---
@@ -36,7 +36,7 @@ Než začnete, ujistěte se, že máte [nastavené vývojové prostředí](servi
 ## <a name="video-walkthrough"></a>Video s návodem
 Následující video vás provede kroky v tomto kurzu:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +122,19 @@ Místní vývojový cluster je ve výchozím nastavení nakonfigurovaný tak, ab
 
 Po změně režimu clusteru se vývojový cluster restartuje a zároveň se z něj odeberou všechny na něm zřízené nebo spuštěné aplikace.
 
+Můžete také změnit režim clusteru pomocí PowerShellu:
+
+1. Jako správce spusťte nové okno prostředí PowerShell.
+2. Spusťte instalační skript clusteru z této složky sady SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Instalace clusteru bude chvíli trvat. Po dokončení instalace byste měli vidět výstup podobný tomuhle:
+   
+    ![Výstup po instalaci clusteru][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Čištění
 Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
 
@@ -150,9 +163,10 @@ Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Př
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 01/13/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
+ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
 
 
 ---
@@ -119,7 +119,7 @@ V části [Další kroky](#next-steps) najdete další věci, které můžete d�
 
 ## <a name="using-unmanaged-disks"></a>Použití nespravovaných disků 
 
-Virtuální počítače, které používají nespravované disky úložiště, mají nespravované účty úložiště. Nejprve zadáním příkazu [az group create](/cli/azure/group#create) vytvořte skupinu prostředků. která bude obsahovat všechny nasazené prostředky:
+Virtuální počítače, které používají nespravované disky úložiště, mají nespravované účty úložiště. Nejprve zadejte příkaz [az group create](/cli/azure/group#create), kterým vytvoříte skupinu prostředků k obsáhnutí všech nasazených prostředků:
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +142,7 @@ Výstup vypadá takto (pokud chcete, můžete zvolit jinou možnost `--output`):
 
 ### <a name="create-your-vm"></a>Vytvoření virtuálního počítače 
 
-Nyní můžete vytvořit virtuální počítač a jeho prostředí. Nezapomeňte nahradit hodnotu `--public-ip-address-dns-name` jedinečnou hodnotou, níže uvedená hodnota již může být obsazená.
+Nyní můžete vytvořit virtuální počítač a jeho prostředí. K vytvoření virtuálního počítače s nespravovanými disky použijte příznak `--use-unmanaged-disk`. Vytvoří se také účet nespravovaného úložiště. Nezapomeňte nahradit hodnotu `--public-ip-address-dns-name` jedinečnou hodnotou, níže uvedená hodnota již může být obsazená.
 
 ```azurecli
 az vm create \
@@ -153,7 +153,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 Výstup bude vypadat následovně. Poznamenejte si hodnotu `publicIpAddress` nebo `fqdn` pro přístup k virtuálnímu počítači přes **SSH**.
@@ -206,6 +206,6 @@ K [rychlému vytvoření virtuálního počítače s Linuxem jako hostitele Dock
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

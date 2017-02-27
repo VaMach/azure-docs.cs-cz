@@ -1,5 +1,5 @@
 ---
-title: "Nastavení vývojového prostředí | Dokumentace Microsoftu"
+title: "Vytvoření vývojového prostředí pro mikroslužby Azure | Dokumentace Microsoftu"
 description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 02/14/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
+ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
 
 
 ---
@@ -37,6 +37,7 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 * Windows 7
 * Windows 8 / Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +45,33 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Instalace modulu runtime, sady SDK a nástrojů
-Instalace webové platformy nabízí dvě konfigurace pro vývoj Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
+### <a name="to-use-visual-studio-2017-rc"></a>Použití sady Visual Studio 2017 RC
+Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017 RC. Povolte tuto úlohu jako součást instalace sady Visual Studio.
+Kromě toho budete muset sadu Microsoft Azure Service Fabric SDK nainstalovat pomocí instalačního programu webové platformy.
 
-Visual Studio 2017 (měly by být nainstalované úlohy pro vývoj a správu Azure):
+* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
-* [Instalace modulu runtime Service Fabric a sady SDK (bez nástrojů sady Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Použití sady Visual Studio 2015 (vyžaduje Visual Studio 2015 Update 2 nebo novější)
+Pro sadu Visual Studio 2015 jsou nainstalované nástroje Service Fabric společně se sadou SDK, pomocí Instalace webové platformy:
 
-Visual Studio 2015 (vyžaduje verzi Visual Studio 2015 Update 2 nebo novější):
+* [Instalace sady Microsoft Azure Service Fabric SDK a nástrojů][full-bundle-vs2015]
 
-* [Instalace modulu runtime Service Fabric, sady SDK a nástrojů)][full-bundle-vs2015]
-* [Instalace jenom modulu runtime Service Fabric a sady SDK (bez nástrojů sady Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Jenom instalace sady SDK
+Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
+* [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
 > [!WARNING]
-> Zákazníci nás informovali o chybách během instalace při použití těchto odkazů ke spuštění nebo při jejich použití v prohlížeči Chrome. Jedná se o známé problémy instalace webové platformy, kterými se zabýváme.  Jako alternativní řešení vyzkoušejte tento postup:
->- Otevřete výše uvedené odkazy v prohlížeči Internet Explorer nebo Edge, nebo
+> Zákazníci nás informovali o chybách během instalace při použití těchto odkazů ke spuštění nebo při jejich použití v prohlížeči Chrome. Jedná se o známé chyby instalačního programu webové platformy, kterými se zabýváme.  Vyzkoušejte následující postupy:
+>- Otevřete výše uvedené odkazy v prohlížeči Internet Explorer nebo Microsoft Edge nebo
 >- Spusťte instalaci webové platformy z nabídky Start, vyhledejte „Service Fabric“ a nainstalujte sadu SDK.
 > 
 > Omlouváme se za nepříjemnosti. 
 
 Aktuální verze jsou:
-* Sada Service Fabric SDK 2.4.145
-* Modul runtime Service Fabric 5.4.145
-* Nástroje sady Visual Studio 2015 1.4.41209
+* Sada Service Fabric SDK 2.4.164
+* Modul runtime Service Fabric 5.4.164
+* Nástroje sady Visual Studio 2015 1.4.50124
 
 Seznam podporovaných verzí najdete v tématu [Podpora pro Service Fabric](service-fabric-support.md)
 
@@ -97,6 +102,6 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

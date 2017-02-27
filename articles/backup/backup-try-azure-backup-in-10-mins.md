@@ -1,5 +1,5 @@
 ---
-title: "Zálohování souborů a složek z Windows do Azure s Azure Backup pomocí modelu nasazení Resource Manager | Dokumentace Microsoftu"
+title: "Zálohování souborů a složek z Windows do Azure pomocí modelu nasazení Resource Manageru | Dokumentace Microsoftu"
 description: "Postup zálohování souborů a složek z Windows do Azure v nasazení podle modelu Resource Manager."
 services: backup
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 2/10/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
 
 
 ---
@@ -232,6 +232,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

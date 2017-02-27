@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Trvalost disku 
+
+Následující tabulka ilustruje různé stavy pro různé disky ve virtuálních počítačích Azure a zda jsou data v jednotlivých stavech uchována.
+
+| Disk | Start | Stop/<br>Uvolnění | Pozastavení | Re-<br>startování | Vy-<br>pnutí | Odstranění | Selhání | Změna velikosti | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Disk s operačním systémem | Ano | Ano  | Ano | Ano | Ano  | Ne | Ne  | Ano | 
+| Paměť RAM  | Ano | Ano | Ano | Ano | Ne   | Ne | Ne | Ne | 
+| Místní dočasný disk | Ano | Ne | Ano | Ne | Ne  | Ne | Ne | Ne | 
+| Přídavný datový disk | Ano | Ano | Ano | Ano | Ano  | Ano | Ano | Ano | 
+
 ## <a name="about-vhds"></a>Virtuální pevné disky
 
 Virtuální pevné disky používané v Azure jsou soubory .vhd uložené jako objekty blob stránky v účtu úložiště úrovně Standard nebo Premium v Azure. Podrobnosti o objektech blob stránky najdete v tématu [Vysvětlení objektů blob bloku a objektů blob stránky](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Podrobnosti o úložišti úrovně Premium najdete v článku [Vysoce výkonné úložiště úrovně Premium a virtuální počítače Azure](../articles/storage/storage-premium-storage.md).
@@ -53,8 +64,6 @@ Následující tabulka obsahuje porovnání úrovní Premium a Standard pro spra
 | Maximální propustnost na disk | 200 MB/s | 60 MB/s |
 | Maximum vstupně-výstupních operací za sekundu (IOPS) na disk | 5 000 IOPS | 500 IOPS |
 
-
-
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
