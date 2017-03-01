@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: 1f7faf166c1ddab8b25fb6a1fe4cc432b8a47432
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Jak vytvořit účet NoSQL DocumentDB na webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](documentdb-create-account.md)
-> * [Rozhraní příkazového řádku Azure a Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 Pokud chcete vytvořit databázi pomocí Microsoft Azure DocumentDB, musíte:
 
@@ -80,16 +81,11 @@ K vytvoření nové kolekce a databáze můžete použít jeden z následující
 
 Po vytvoření databáze a kolekce je nutné do kolekcí [přidat dokumenty](documentdb-view-json-document-explorer.md).
 
-Jakmile máte v kolekci dokumenty, můžete [DocumentDB SQL](documentdb-sql-query.md) využít ke [spouštění dotazů](documentdb-sql-query.md#executing-sql-queries) nad těmito dokumenty. Ke spouštění dotazů je možné využít [Průzkumníka dotazů](documentdb-query-collections-query-explorer.md) na portálu, rozhraní [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) nebo jednu ze sad [SDK](documentdb-sdk-dotnet.md).
+Jakmile máte v kolekci dokumenty, můžete [DocumentDB SQL](documentdb-sql-query.md) využít ke [spouštění dotazů](documentdb-sql-query.md#ExecutingSqlQueries) nad těmito dokumenty. Ke spouštění dotazů je možné využít [Průzkumníka dotazů](documentdb-query-collections-query-explorer.md) na portálu, rozhraní [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) nebo jednu ze sad [SDK](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>Další informace
 Další informace o DocumentDB najdete v těchto materiálech:
 
 * [Studijní program pro DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Koncepty a hierarchický model prostředků DocumentDB](documentdb-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

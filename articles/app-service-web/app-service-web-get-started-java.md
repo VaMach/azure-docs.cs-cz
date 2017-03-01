@@ -4,7 +4,7 @@ description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit w
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Nasazení první webové aplikace v Javě do Azure během pěti minut (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [První web v HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [První aplikace v .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [První aplikace v PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [První aplikace v Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [První aplikace v Pythonu](app-service-web-get-started-python-cli-nodejs.md)
-> * [První aplikace v Javě](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci v Javě do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -127,10 +119,5 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 * Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). 
 * Zdokonalte aplikaci Azure o další úroveň. Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí. Viz téma [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

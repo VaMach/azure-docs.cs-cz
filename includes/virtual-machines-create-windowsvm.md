@@ -16,7 +16,7 @@ Okno Základy požaduje informace pro správu virtuálního počítače.
 
 2. Zadejte **uživatelské jméno** a silné **heslo**, které se použijí k vytvoření místního účtu ve virtuálním počítači. Místní účet slouží k přihlášení k virtuálnímu počítači a jeho správě. Uživatelské jméno v tomto příkladu je _azureuser_.
 
- Heslo musí mít 8 až 123 znaků a musí splňovat tři ze čtyř bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](../articles/virtual-machines.md/virtual-machines-windows-faq).
+ Heslo musí mít 8 až 123 znaků a musí splňovat tři ze čtyř bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](../articles/virtual-machines/virtual-machines-windows-faq.md).
 
 3. **Předplatné** je volitelné. Jedním z běžných nastavení jsou průběžné platby.
 
@@ -51,15 +51,6 @@ Okno Souhrn zobrazuje nastavení zadaná v předchozích oknech. Až budete při
 
  ![Sestava okna Souhrn s konkrétními nastaveními virtuálního počítače](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 Po vytvoření se nový virtuální počítač zobrazí na portálu v části **Všechny prostředky** a na řídicím panelu se zobrazí dlaždice tohoto virtuálního počítače. Současně se vytvoří a zobrazí odpovídající účet služby a cloudová služba. Virtuální počítač i cloudová služba se automaticky spustí a jejich stav bude uvedený jako **spuštěný**.
 
  ![Konfigurace agenta virtuálního počítače a koncových bodů virtuálního počítače](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

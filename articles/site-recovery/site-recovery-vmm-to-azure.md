@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
-ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -66,7 +67,7 @@ Tady je seznam všeho, co potřebujete místně.
 ## <a name="protected-machine-prerequisites"></a>Požadavky na chráněný počítač
 | **Požadavek** | **Podrobnosti** |
 | --- | --- |
-| **Chráněné virtuální počítače** |Před předáním služeb virtuálního počítače při selhání musíte zajistit, aby název přiřazený virtuálnímu počítači Azure odpovídal [požadavkům Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Tento název můžete po povolení replikace pro virtuální počítač upravit. <br/><br/> Kapacita jednotlivých disků na chráněných počítačích by neměla být větší než 1 023 GB. Virtuální počítač může mít až 64 disků (tedy až 64 TB).<br/><br/> Sdílené hostované clustery disků nejsou podporované.<br/><br/> Není podporované spouštění přes rozhraní UEFI (Unified Extensible Firmware Interface) / EFI (Extensible Firmware Interface).<br/><br/> Pokud zdrojový virtuální počítač využívá funkci seskupování síťových adaptérů, převede se po převzetí služeb při selhání do Azure na jeden síťový adaptér.<br/><br/>Ochrana virtuálních počítačů Hyper-V s Linuxem a statickou IP adresou není podporována. |
+| **Chráněné virtuální počítače** |Před předáním služeb virtuálního počítače při selhání musíte zajistit, aby název přiřazený virtuálnímu počítači Azure odpovídal [požadavkům Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). Tento název můžete po povolení replikace pro virtuální počítač upravit. <br/><br/> Kapacita jednotlivých disků na chráněných počítačích by neměla být větší než 1 023 GB. Virtuální počítač může mít až 64 disků (tedy až 64 TB).<br/><br/> Sdílené hostované clustery disků nejsou podporované.<br/><br/> Není podporované spouštění přes rozhraní UEFI (Unified Extensible Firmware Interface) / EFI (Extensible Firmware Interface).<br/><br/> Pokud zdrojový virtuální počítač využívá funkci seskupování síťových adaptérů, převede se po převzetí služeb při selhání do Azure na jeden síťový adaptér.<br/><br/>Ochrana virtuálních počítačů Hyper-V s Linuxem a statickou IP adresou není podporována. |
 
 ## <a name="prepare-for-deployment"></a>Příprava nasazení
 Při přípravě nasazení musíte:
@@ -359,7 +360,8 @@ Teď následujícím způsobem povolte replikaci:
 6. V nastavení **Virtuální počítače** > **Výběr virtuálních počítačů** klikněte a vyberte každý počítač, který chcete replikovat. Můžete vybrat pouze počítače, pro které je možné povolit replikaci. Pak klikněte na **OK**.
 
     ![Povolení replikace](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. V nastavení **Vlastnosti** > **Konfigurace vlastností** vyberte operační systém pro vybrané virtuální počítače a disk operačního systému. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky virtuálního počítače. Některé disky možná budete chtít z replikace vyloučit a snížit tak využití šířky pásma spojené s replikací nepotřebných dat do Azure. Například možná nebudete chtít replikovat disky s dočasnými daty nebo daty, která se obnovují při každém restartování počítače nebo aplikace (jako je například soubor pagefile.sys nebo databáze tempdb Microsoft SQL Serveru). Disk můžete z replikace vyloučit zrušením výběru disku. Ověřte, že název virtuálního počítače Azure (Název cíle) splňuje [požadavky na virtuální počítače Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) a v případě potřeby jej upravte. Pak klikněte na **OK**. Později můžete nastavit další vlastnosti.
+
+7. V nastavení **Vlastnosti** > **Konfigurace vlastností** vyberte operační systém pro vybrané virtuální počítače a disk operačního systému. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky virtuálního počítače. Některé disky možná budete chtít z replikace vyloučit a snížit tak využití šířky pásma spojené s replikací nepotřebných dat do Azure. Například možná nebudete chtít replikovat disky s dočasnými daty nebo daty, která se obnovují při každém restartování počítače nebo aplikace (jako je například soubor pagefile.sys nebo databáze tempdb Microsoft SQL Serveru). Disk můžete z replikace vyloučit zrušením výběru disku. Ověřte, že název virtuálního počítače Azure (Název cíle) splňuje [požadavky na virtuální počítače Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) a v případě potřeby jej upravte. Pak klikněte na **OK**. Později můžete nastavit další vlastnosti.
 
     ![Povolení replikace](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -380,7 +382,7 @@ Teď následujícím způsobem povolte replikaci:
 Průběh úlohy **povolení ochrany** můžete sledovat tady: **Nastavení** > **Úlohy** > **Úlohy Site Recovery**. Po spuštění úlohy **Dokončit ochranu** je počítač připravený k převzetí služeb při selhání.
 
 ### <a name="view-and-manage-vm-properties"></a>Zobrazení a správa vlastností virtuálního počítače
-Doporučujeme ověřit vlastnosti zdrojového počítače. Mějte na paměti, že název virtuálního počítače Azure musí být v souladu s [požadavky na virtuální počítače Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Doporučujeme ověřit vlastnosti zdrojového počítače. Mějte na paměti, že název virtuálního počítače Azure musí být v souladu s [požadavky na virtuální počítače Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Klikněte na **Nastavení** > **Chráněné položky** > **Replikované položky** a vyberte počítač. Zobrazí se jeho podrobnosti.
 
@@ -388,7 +390,7 @@ Doporučujeme ověřit vlastnosti zdrojového počítače. Mějte na paměti, ž
 2. V části **Vlastnosti** můžete zobrazit informace o replikaci a převzetí služeb při selhání pro virtuální počítač.
 
     ![Povolení replikace](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. V části **Výpočty a síť** > **Výpočetní vlastnosti** můžete zadat název a cílovou velikost virtuálního počítače Azure. Podle potřeby upravte název tak, aby byl souladu s [požadavky Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Můžete také zobrazit a upravit informace o cílové síti, podsíti a IP adrese, která je přiřazená k virtuálnímu počítači Azure.
+3. V části **Výpočty a síť** > **Výpočetní vlastnosti** můžete zadat název a cílovou velikost virtuálního počítače Azure. Podle potřeby upravte název tak, aby byl souladu s [požadavky Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). Můžete také zobrazit a upravit informace o cílové síti, podsíti a IP adrese, která je přiřazená k virtuálnímu počítači Azure.
 Poznámky:
 
    * Můžete nastavit cílovou IP adresu. Pokud adresu nezadáte, bude počítač, který převezme služby při selhání, používat DHCP. Pokud nastavíte adresu, která není k dispozici pro převzetí služeb při selhání, převzetí služeb při selhání se nezdaří. Stejnou cílovou IP adresu je možné použít pro testovací převzetí služeb při selhání, pokud je adresa k dispozici v testovací síti převzetí služeb při selhání.
@@ -457,9 +459,4 @@ Tady je postup, jak monitorovat nastavení konfigurace, stav a stavu nasazení S
 
 ## <a name="next-steps"></a>Další kroky
 Po nasazení a zprovoznění nasazení si můžete přečíst [další informace](site-recovery-failover.md) o různých typech převzetí služeb při selhání.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
