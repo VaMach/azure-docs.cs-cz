@@ -12,7 +12,6 @@
 ### [Srovnání SQL a NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 ## [Nástroje pro SQL Database](sql-database-manage-overview.md)
 ## [Kurzy pro SQL Database](sql-database-explore-tutorials.md)
-## [Rychlé zprovoznění řešení](sql-database-solution-quick-starts.md)
 ## Zabezpečení
 ### [Přehled zabezpečení](sql-database-security-overview.md)
 ### [Azure Security Center pro službu Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
@@ -273,6 +272,7 @@
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (elastická databáze)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -302,8 +302,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
