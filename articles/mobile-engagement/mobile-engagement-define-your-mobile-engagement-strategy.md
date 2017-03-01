@@ -4,7 +4,7 @@ description: "Naučte se ovládat a optimalizovat Mobile Engagement pomocí anal
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -130,10 +131,5 @@ Veškerá data tohoto typu se dají rozšířit o parametry (v Mobile Engagement
 <!-- URLs. -->
 [Koncepty Mobile Engagementu]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Kurzy]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

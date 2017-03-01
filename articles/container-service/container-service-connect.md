@@ -19,6 +19,7 @@ ms.author: rogardle
 translationtype: Human Translation
 ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
 ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -125,7 +126,7 @@ První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu neb
     **PATH_TO_PRIVATE_KEY** [NEPOVINNÉ] je cesta k privátnímu klíči, který odpovídá veřejnému klíči zadanému při vytváření clusteru. Tuto možnost použijte spolu s příznakem `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > Port pro připojení SSH je 2200, nikoli standardní port 22. V clusteru s více hlavními virtuálními počítači je to port pro připojení k prvnímu hlavnímu virtuálnímu počítači.
@@ -214,10 +215,5 @@ Nasazení a správa kontejnerů ve vašem clusteru:
 * [Práce s Azure Container Service a Kubernetes](container-service-kubernetes-ui.md)
 * [Práce se službou Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
 * [Práce s Azure Container Service a Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

@@ -19,6 +19,7 @@ ms.author: anhowe
 translationtype: Human Translation
 ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
 ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -81,7 +82,7 @@ az acs kubernetes install-cli
 Jakmile je `kubectl` nainstalovaný, spuštěním následujícího příkazu stáhněte hlavní konfiguraci clusteru Kubernetes do souboru ~/.kube/config:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 V tomto okamžiku byste měli být připravení přistoupit ke clusteru ze svého počítače. Zkuste spustit:
@@ -176,9 +177,4 @@ Informace o lepším využívání clusteru Kubernetes najdete v následujícíc
 * [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) – ukazuje, jak nasadit, škálovat, aktualizovat a ladit kontejnerizované aplikace.
 * [Uživatelská příručka Kubernetes](http://kubernetes.io/docs/user-guide/) – poskytuje informace o spouštění programů v existujícím clusteru Kubernetes.
 * [Příklady Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) – poskytuje příklady spouštění skutečných aplikací s využitím Kubernetes.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

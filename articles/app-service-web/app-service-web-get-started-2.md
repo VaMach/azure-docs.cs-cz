@@ -4,7 +4,7 @@ description: "Přidejte zajímavé funkce do své první webové aplikace během
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ Zjistěte, jak z nasazené aplikace vytěžit co nejvíce. Následující výče
   Zkontrolujte, zda webová aplikace není zranitelná moderními hrozbami, a to pomocí služby poskytované společností [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Spouštění úloh na pozadí](../azure-functions/functions-overview.md) – Spouštějte úlohy zpracování dat, vytváření sestav atd.
 * [Seznámení s fungováním služby App Service](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
