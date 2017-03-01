@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [REST API služby Storage](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Klientská knihovna pro úložiště pro .NET, Windows Phone a Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Klientská knihovna pro úložiště pro C++](https://github.com/Azure/azure-storage-cpp)
-* [Klientská knihovna pro úložiště pro Javu/Android](/develop/java/)
+* [Klientská knihovna pro úložiště pro Javu/Android](https://azure.microsoft.com/develop/java/)
 * [Klientská knihovna pro úložiště pro Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Klientská knihovna pro úložiště pro PHP](/develop/php/)
-* [Klientská knihovna pro úložiště pro Ruby](/develop/ruby/)
-* [Klientská knihovna pro úložiště pro Python](/develop/python/)
+* [Klientská knihovna pro úložiště pro PHP](https://azure.microsoft.com/develop/php/)
+* [Klientská knihovna pro úložiště pro Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Klientská knihovna pro úložiště pro Python](https://azure.microsoft.com/develop/python/)
 * [Rutiny pro úložiště pro PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Služby správy pro Azure Storage
-* [REST API pro poskytovatele prostředků úložiště – referenční informace](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Klientská knihovna pro .NET pro poskytovatele prostředků úložiště](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Rutiny pro PowerShell 1.0 pro poskytovatele prostředků úložiště](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [REST API pro poskytovatele prostředků úložiště – referenční informace](/rest/api/storagerp/)
+* [Klientská knihovna pro .NET pro poskytovatele prostředků úložiště](/dotnet/api/microsoft.azure.management.storage)
+* [Rutiny pro PowerShell 1.0 pro poskytovatele prostředků úložiště](/powershell/storage/)
 * [REST API pro správu služeb úložiště (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Služby pro přesun dat v Azure Storage
-* [REST API pro službu Import/export úložiště](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [REST API pro službu Import/export úložiště](storage-import-export-service.md)
 * [Klientská knihovna pro .NET pro přesun dat v úložišti](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Nástroje
@@ -248,9 +249,4 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [Používání úložiště Table z Pythonu](storage-python-how-to-use-table-storage.md)
 * [Používání úložiště Queue z Pythonu](storage-python-how-to-use-queue-storage.md)
 * [Používání úložiště File z Pythonu](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

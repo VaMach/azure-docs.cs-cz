@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+ms.sourcegitcommit: 0480c4f89b6036897bc8d7eff81b56262ea8806c
+ms.openlocfilehash: e4e0fa77552c4df2ea5bb9ddae916e7c661824d1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -56,10 +57,5 @@ Pokud chcete uživatelům umožnit, aby si nastavili službu Azure AD Join, mů�
 * [Další informace o scénářích použití pro službu Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Připojení zařízení k doméně služby Azure AD ve Windows 10 – ukázky z praxe](active-directory-azureadjoin-devices-group-policy.md)
 * [Nastavení služby Azure AD Join](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

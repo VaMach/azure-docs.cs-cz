@@ -50,6 +50,7 @@ Pro účely porovnávání výpočetního síly (výkonu procesoru) jednotlivýc
 | [G1-G5](#g-series) |180 - 240* |
 | [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
 Hodnoty ACU s hvězdičkou označují použití technologie Intel® Turbo, která může zvýšit frekvenci procesoru podle aktuální potřeby.  Množství nárůst se může lišit v závislosti na velikosti virtuálního počítače, úlohy a dalších úlohách spuštěných na stejném hostiteli.
 
@@ -251,8 +252,26 @@ Informace o použití těchto velikostí najdete v článku [Virtuální počít
 
 <br>
 
+
+## <a name="ls-series"></a>Řada Ls 
+
+Řada Ls je optimalizována pro úlohy, které vyžadují místní úložiště s nízkou latencí, jako jsou databáze NoSQL (např. Cassandra, MongoDB, Cloudera a Redis). Řada Ls nabízí až 32 procesorových jader a využívá [řadu procesorů Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). To je stejný výkon procesoru jako řady G/GS a má 8 GiB paměti na procesorové jádro.  
+
+ 
+| Velikost          | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost disku s mezipamětí: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Max. počet NIC / Šířka pásma sítě | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5 000 / 125                               | 2 / vysoká       | 
+| Standard_L8s  | 8    | 64   | 1&388; | 16             | NA / NA (0)          | 10 000 / 250                              | 4 / velmi vysoká  | 
+| Standard_L16s | 16   | 128  | 2&807; | 32             | NA / NA (0)          | 20 000 / 500                              | 8 / velmi vysoká | 
+| Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40 000 / 1 000                            | 8 / velmi vysoká | 
+ 
+MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů. 
+
+
+
 ## <a name="n-series"></a>N-series
 Velikosti NC a NV se také označují jako instance s podporou grafického procesoru. Jsou to specializované virtuální počítače s grafickými kartami NVIDIA, optimalizované pro různé scénáře a případy použití. Velikosti NV jsou optimalizované a navržené pro vzdálené vizualizace, streamování, hry, kódování a VDI díky využití architektur typu OpenGL a DirectX. Velikosti NC jsou vhodnější pro výpočetně a síťově náročné úlohy a algoritmy včetně aplikací a simulací využívajících technologie CUDA a OpenCL. 
+
 
 ### <a name="nv-instances"></a>Instance NV
 Instance NV jsou osazeny grafickými kartami NVIDIA Tesla M60 a NVIDIA GRID pro urychlení desktopových aplikací i virtuálních desktopů, na kterých budou zákazníci vizualizovat svoje data nebo simulace. Uživatelé budou moci vizualizovat své graficky náročné pracovní postupy na instancích NV a využít tak jejich špičkové grafické možnosti, a navíc spouštět úlohy s jednoduchou přesností, například kódování a vykreslování. Tesla M60 má 4096 jader CUDA v provedení dual-GPU a dokáže zpracovat až 36 datových proudů 1080p H.264. 
@@ -306,6 +325,6 @@ V klasickém modelu nasazení se některé názvy virtuálních počítačů s p
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

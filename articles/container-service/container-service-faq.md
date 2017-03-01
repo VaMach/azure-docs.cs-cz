@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
 
 
 ---
@@ -29,15 +29,15 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Jaké orchestrátory kontejneru podporujete ve službě Azure Container Service? 
 
-Podporuje se open source DC/OS, Docker Swarm a Kubernetes. Zatímco podpora DC/OS a Docker Swarm je všeobecně dostupná, podpora pro Kubernetes je aktuálně ve verzi Preview. Další informace najdete v tématu [Přehled](container-service-intro.md).
+Podporuje se open source DC/OS, Docker Swarm a Kubernetes. Další informace najdete v tématu [Přehled](container-service-intro.md).
  
-### <a name="do-you-support-swarm-mode"></a>Podporujete režim Swarm? 
+### <a name="do-you-support-docker-swarm-mode"></a>Podporujete režim Docker Swarm? 
 
 Režim Swarm v současné době není podporován, ale do budoucna se plánuje. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Podporuje služba Azure Container Service kontejnery Windows?  
 
-Aktuálně jsou podporovány kontejnery Linux. Podpora kontejnerů Windows s orchestrátory DC/OS, Docker Swarm a Kubernetes se plánuje do budoucna. 
+Aktuálně jsou podporovány kontejnery Linux se všemi orchestrátory. Podpora pro Windows kontejnery s Kubernetes je ve verzi Preview.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Doporučujete ve službě Azure Container Service použití konkrétního orchestrátoru? 
 Obecně nedoporučujeme konkrétní orchestrator. Pokud máte zkušenosti s některým z podporovaných orchestrátorů, můžete je využít ve službě Azure Container Service. Trendy v datech nicméně naznačují, že systém DC/OS se v produkčním prostředí osvědčil pro úlohy s velkým objemem dat a úlohy IoT, Kubernetes se skvěle hodí pro úlohy nativní pro cloud a Docker Swarm je známý svou integrací s nástroji Dockeru a jednoduchostí osvojování.
@@ -55,29 +55,23 @@ Azure Container Service je služba Azure, na kterou se vztahuje smlouva SLA, s f
 
 Můžete použít standardní nástroje vašeho operačního systému a vytvořit pro cluster pár veřejného a privátního klíče SSH RSA pro ověřování u virtuálních počítačů. Pokyny najdete v doprovodných materiálech k [OS X a Linuxu](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-Pokud k nasazení clusteru služby Container Service použijete [příkazy Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md), je možné klíče SSH pro cluster vygenerovat automaticky.
+Pokud k nasazení clusteru služby Container Service použijete [příkazy rozhraní příkazového řádku Azure 2.0 ](container-service-create-acs-cluster-cli.md), je možné klíče SSH pro cluster vygenerovat automaticky.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Jak vytvořím instanční objekt pro cluster Kubernetes?
 
 K vytvoření clusteru Kubernetes ve službě Azure Container Service je potřeba také ID a heslo instančního objektu služby Azure Active Directory. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 
 
-Pokud k nasazení clusteru Kubernetes použijete [příkazy Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md), je možné přihlašovací údaje instančního objektu pro cluster vygenerovat automaticky.
+Pokud k nasazení clusteru Kubernetes použijete [příkazy rozhraní příkazového řádku Azure 2.0 ](container-service-create-acs-cluster-cli.md), je možné přihlašovací údaje instančního objektu pro cluster vygenerovat automaticky.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Jak se dá po vytvoření clusteru zvýšit počet hlavních serverů? 
-Jakmile je cluster vytvořený, počet hlavních serverů je pevně daný a není možné jej změnit. Při vytváření clusteru byste v ideálním případě měli zvolit tři nebo pět hlavních serverů pro zajištění vysoké dostupnosti.
+Jakmile je cluster vytvořený, počet hlavních serverů je pevně daný a není možné jej změnit. Při vytváření clusteru byste v ideálním případě měli zvolit více hlavních serverů pro zajištění vysoké dostupnosti.
 
-> [!NOTE]
-> Ve verzi Preview může cluster Kubernetes ve službě Azure Container Service obsahovat pouze jeden hlavní server.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Jak se dá po vytvoření clusteru zvýšit počet agentů? 
 Počet agentů v clusteru můžete škálovat pomocí webu Azure Portal nebo nástrojů příkazového řádku. Viz [Škálování clusteru Azure Container Service](container-service-scale.md).
 
-> [!NOTE]
-> Ve verzi Preview má cluster Kubernetes ve službě Azure Container Service pevný počet agentů. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Jaké jsou adresy URL hlavních serverů a agentů? 
 Adresy URL prostředků clusteru ve službě Azure Container Service vycházejí z předpony názvu DNS, kterou jste zadali, a názvu oblasti Azure, kterou jste vybrali pro nasazení. Například plně kvalifikovaný název domény (FQDN) hlavního uzlu je v tomto formátu:
@@ -114,9 +108,9 @@ Další informace najdete v [Připojení ke clusteru služby Azure Container Ser
 ## <a name="next-steps"></a>Další kroky
 
 * [Další informace](container-service-intro.md) o službě Azure Container Service.
-* Nasazení clusteru služby Container Service pomocí [portálu](container-service-deployment.md) nebo [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md).
+* Nasazení clusteru služby Container Service pomocí [portálu](container-service-deployment.md) nebo [Azure CLI 2.0 ](container-service-create-acs-cluster-cli.md).
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

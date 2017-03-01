@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
+ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 >
 >
 
-Služba Azure Site Recovery přispívá ke strategii zachování plynulého chodu podniku a zotavení po havárii (BCDR) tím, že orchestruje replikaci, převzetí služeb při selhání a obnovení virtuálních počítačů a fyzických serverů. Počítače je možné replikovat do Azure nebo do sekundárního místního datového centra. Rychlý přehled najdete v článku [Co je Azure Site Recovery](site-recovery-overview.md).
+Služba Azure Site Recovery přispívá ke strategii zachování plynulého chodu podniku a zotavení po havárii (BCDR) tím, že orchestruje replikaci, převzetí služeb při selhání a obnovení virtuálních počítačů a fyzických serverů. Počítače je možné replikovat do Azure nebo do sekundárního místního datového centra. Rychlý přehled najdete v článku [Co je Azure Site Recovery?](site-recovery-overview.md)
 
 ## <a name="overview"></a>Přehled
 Tento článek popisuje postup nasazení služby Size Recovery k replikaci virtuálních počítačů Hyper-V na hostitelských serverech technologie Hyper-V, které jsou na privátních cloudech VMM, do Azure.
@@ -66,7 +66,7 @@ Tady je seznam toho, co budete potřebovat místně.
 Při ochraně virtuálních počítačů v síti Azure mapování mapuje sítě virtuálních počítačů na zdrojovém serveru VMM a cílové sítě Azure, aby bylo možné následující:
 
 * Všechny počítače, u kterých dojde k převzetí služeb při selhání ve stejné síti, se budou moct připojit k sobě navzájem, a to bez ohledu na to, v jakém jsou plánu obnovení.
-* Pokud je v cílové síti Azure nastavená brána sítě, virtuální počítače se budou moct připojit k jiným místním virtuálním počítačům.
+* Pokud je v cílové síti Azure nastavená síťová brána, virtuální počítače se budou moct připojit k jiným místním virtuálním počítačům.
 * Pokud nenakonfigurujete mapování sítě, budou se moct po předání služeb při selhání do Azure připojit k sobě navzájem pouze virtuální počítače, u kterých dojde k převzetí služeb při selhání v rámci stejného plánu obnovení.
 
 Pokud chcete nasadit mapování sítě, budete potřebovat následující:
@@ -74,13 +74,6 @@ Pokud chcete nasadit mapování sítě, budete potřebovat následující:
 * Virtuální počítače, který chcete chránit na zdrojovém serveru VMM, musí být připojené k síti virtuálních počítačů. Tato síť musí být propojená na logickou síť, která je přidružená ke cloudu.
 * Síť Azure, ke které se budou moct po převzetí služeb při selhání připojit replikované virtuální počítače. Tuto síť vyberete v okamžiku převzetí služeb při selhání. Síť musí být ve stejné oblasti jako vaše předplatné Azure Site Recovery.
 
-Připravte mapování sítě následujícím způsobem:
-
-1. [Přečtěte si informace o](site-recovery-network-mapping.md) požadavcích na mapování sítě.
-2. Připravte sítě virtuálních počítačů v nástroji VMM:
-
-   * [Nastavení logických sítí](https://technet.microsoft.com/library/jj721568.aspx).
-   * [Nastavení sítí virtuálních počítačů](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1: Vytvoření trezoru Site Recovery
 1. Přihlaste se k [portálu pro správu](https://portal.azure.com) ze serveru VMM, který chcete zaregistrovat.
@@ -146,7 +139,7 @@ Vygenerujte registrační klíč v trezoru. Po tom, co si stáhnete zprostředko
 12. V části **Synchronizovat metadata cloudu** vyberte, zda chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM.
 13. Dokončete proces kliknutím na **Další**. Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
 
-    ![LastPage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![Poslední stránka](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
 Po registraci načte Azure Site Recovery metadata ze serveru VMM. Server se zobrazí na kartě **Servery VMM** stránky **Servery** v trezoru.
 
@@ -217,7 +210,7 @@ Po zaregistrování serveru VMM můžete nakonfigurovat nastavení ochrany cloud
 2. Na kartě **Chráněné položky** klikněte na cloud, který chcete nakonfigurovat, a přejděte na kartu **Konfigurace**.
 3. V seznamu **Cíl** vyberte **Azure**.
 4. V seznamu **Účet úložiště** vyberte účet úložiště Azure, který používáte pro replikaci.
-5. Možnost **Šifrovat uložená data** nastavte na **Vypnuto**. Toto nastavení určuje, že data by se měla při replikaci mezi místní lokalitou a Azure šifrovat.
+5. Možnost **Šifrovat uložená data** nastavte na **Vypnuto**. Toto nastavení určuje, že se data mají při replikaci mezi místní lokalitou a Azure šifrovat.
 6. V části **Frekvence kopírování** nechejte vybrané výchozí nastavení. Tato hodnota určuje, jak často se mají synchronizovat data mezi zdrojovým a cílovým umístěním.
 7. V části **Zachovávat body obnovení po tuto dobu** nechejte vybrané výchozí nastavení. Pokud zůstane nastavená výchozí hodnota nula, bude na hostitelském serveru repliky uložený jenom nejnovější bod obnovení pro primární virtuální počítač.
 8. V nastavení **Frekvence snímků konzistentních s aplikací** nechejte zadané výchozí nastavení. Tato hodnota určuje, jak často se mají vytvářet snímky. Snímky využívají službu Stínová kopie svazku (VSS), aby bylo zajištěno, že aplikace budou při pořízení snímku v konzistentním stavu.  Pokud budete nastavovat vlastní hodnotu, musí být menší než počet dalších bodů obnovení, které nakonfigurujete.
@@ -299,7 +292,7 @@ Testovací převzetí služeb při selhání simuluje váš mechanismus převzet
 * Po převzetí služeb při selhání použijete veřejnou IP adresu pro připojení k virtuálnímu počítači v Azure pomocí Vzdálené plochy. Pokud to chcete provést, zkontrolujte, že nemáte žádné zásady domény, které by vám bránily v připojení k virtuálnímu počítači pomocí veřejné adresy.
 
 > [!NOTE]
-> Aby byl při předání služeb při selhání do Azure zajištěn nejvyšší možný výkon, zajistěte, abyste měli na chráněném počítači nainstalovaného agenta Azure. Tato funkce umožňuje rychlejší spouštění a také pomáhá s diagnostikou v případě problémů. Agenta pro Linux najdete [tady](https://github.com/Azure/WALinuxAgent) a agenta pro Windows [tady](http://go.microsoft.com/fwlink/?LinkID=394789).
+> Aby byl při předání služeb při selhání do Azure zajištěn nejvyšší možný výkon, nainstalujte na virtuální počítač agenta Azure. Umožní rychlejší spouštění a pomáhá při řešení potíží. Stáhněte si [agenta pro Linux](https://github.com/Azure/WALinuxAgent) nebo [agenta pro Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 >
 >
 
@@ -334,8 +327,8 @@ Pokud chcete spustit testovací převzetí služeb při selhání, udělejte tot
     ![Žádná síť](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Pokud je pro cloud povolené šifrování dat, vyberte v nastavení **Šifrovací klíč** certifikát, který byl vydán během instalace zprostředkovatele na serveru VMM, když jste zapnuli možnost povolení šifrování dat pro cloud.
 4. Na kartě **Úloha** můžete sledovat průběh převzetí služeb při selhání. Měli byste také mít možnost zobrazit si testovací repliku virtuálního počítače na portálu Azure. Pokud máte nastaven přístup k virtuálním počítačům ze své místní sítě, můžete iniciovat připojení k virtuálnímu počítači přes Vzdálenou plochu.
-5. Když převzetí služeb při selhání dosáhne fáze **Dokončit testování**, dokončete kliknutím na **Dokončit test** testovací převzetí služeb při selhání. Přechodem k podrobnostem na kartě **Úloha** můžete sledovat průběh a stav převzetí služeb při selhání a provádět všechny potřebné akce.
-6. Po převzetí služeb při selhání budete moct zobrazit testovací repliku virtuálního počítače na portálu Azure. Pokud máte nastaven přístup k virtuálním počítačům ze své místní sítě, můžete iniciovat připojení k virtuálnímu počítači přes Vzdálenou plochu. Udělejte toto:
+5. Když převzetí služeb při selhání dosáhne fáze **Dokončit testování**, dokončete proces kliknutím na **Dokončit test**. Přechodem k podrobnostem na kartě **Úloha** můžete sledovat průběh a stav převzetí služeb při selhání a provádět všechny potřebné akce.
+6. Po převzetí služeb při selhání budete moct zobrazit testovací repliku virtuálního počítače na webu Azure Portal. Pokud máte nastaven přístup k virtuálním počítačům ze své místní sítě, můžete iniciovat připojení k virtuálnímu počítači přes Vzdálenou plochu. Udělejte toto:
 
    1. Ověřte, že se virtuální počítače úspěšně spustí.
    2. Pokud se chcete připojit k virtuálnímu počítači v Azure pomocí Vzdálené plochy po převzetí služeb po selhání, pak před spuštěním testu převzetí služeb povolte na virtuálním počítači připojení ke Vzdálené ploše. Také budete muset na virtuálním počítači přidat koncový bod RDP. Můžete k tomu použít [Runbooky služby Azure Automation](site-recovery-runbook-automation.md).
@@ -351,6 +344,6 @@ Další informace o [nastavení plánů obnovení](site-recovery-create-recovery
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

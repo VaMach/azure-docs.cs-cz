@@ -4,7 +4,7 @@ description: "Tento článek vám objasní, jak toto řešení používat ke spr
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/21/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
+ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 
 
 ---
@@ -24,6 +24,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 Řešení pro správu aktualizací v OMS umožňuje spravovat aktualizace pro počítače s Windows a Linuxem.  Stav dostupných aktualizací na všech počítačích agenta můžete rychle vyhodnotit a zahájit proces instalace požadovaných aktualizací pro servery. 
 
 ## <a name="prerequisites"></a>Požadavky
+* Řešení podporuje pouze provádění vyhodnocení aktualizací pro systém Windows Server 2008 nebo novější a nasazení aktualizací pro systém Windows Server 2012 nebo novější.  Možnosti instalace Server Core a Nano Server nejsou podporované.
+* Klientské operační systémy Windows nejsou podporované.  
 * Agenti Windows musí být buď nakonfigurovaní na komunikaci se službou Windows Server Update Services (WSUS), nebo musí mít přístup ke službě Microsoft Update.  
   
   > [!NOTE]
@@ -104,7 +106,9 @@ Klikněte na dlaždici **Správa aktualizací**. Otevře se řídicí panel **Sp
 ## <a name="installing-updates"></a>Instalace aktualizací
 Po posouzení aktualizací pro všechny počítače s Windows ve vašem prostředí můžete nechat nainstalovat požadované aktualizace vytvořením *nasazení aktualizace*.  Nasazení aktualizace je plánovaná instalace požadovaných aktualizací pro jeden nebo více počítačů s Windows.  Kromě počítače nebo skupiny počítačů, které mají být součástí nasazení, určíte datum a čas nasazení.  
 
-Aktualizace se instalují podle runbooků ve službě Azure Automation.  Tyto runbooky není v současné době možné zobrazit a nevyžadují žádnou konfiguraci.  Při vytvoření nasazení aktualizace se vytvoří plán, ve kterém se spouští hlavní runbook aktualizace v zadanou dobu pro zahrnuté počítače.  Tento hlavní runbook spouští podřízený runbook na každém agentovi Windows, který instaluje požadované aktualizace.  
+Aktualizace se instalují podle runbooků ve službě Azure Automation.  Tyto runbooky není možné zobrazit a nevyžadují žádnou konfiguraci.  Při vytvoření nasazení aktualizace se vytvoří plán, ve kterém se spouští hlavní runbook aktualizace v zadanou dobu pro zahrnuté počítače.  Tento hlavní runbook spouští podřízený runbook na každém agentovi Windows, který instaluje požadované aktualizace.  
+
+Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
 
 ### <a name="viewing-update-deployments"></a>Zobrazení nasazení aktualizace
 Klikněte na dlaždici **Aktualizovat nasazení** zobrazíte seznam existujících nasazení aktualizace.  Jsou seskupené podle stavu – **Naplánované**, **Spuštěné** a **Dokončeno**.<br><br> ![Stránka Plán nasazení aktualizace](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -247,6 +251,6 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Začínáme se zálohováním a obnovením databází SQL Azure pro ochranu a obnovení dat pomocí Azure PowerShellu | Dokumentace Microsoftu"
+title: "PowerShell: Zálohování a obnovení – Azure SQL Database | Dokumentace Microsoftu"
 description: "Tento kurz vás seznámí s obnovením k určitému bodu v čase z automatizovaných záloh, ukládáním automatizovaných záloh v trezoru služby Azure Recovery Services a obnovením z trezoru služby Azure Recovery Services pomocí PowerShellu."
 keywords: kurz k sql database
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Začínáme se zálohováním a obnovením pro ochranu a obnovení dat pomocí PowerShellu
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Kurz: Zálohování a obnovení Azure SQL Database pomocí PowerShellu
 
-V tomto úvodním kurzu se naučíte, jak pomocí prostředí Azure PowerShell provádět tyto akce:
+V tomto kurzu se pomocí Azure PowerShellu naučíte:
 
 - Zobrazení existujících záloh databáze
 - Obnovení databáze k dřívějšímu bodu v čase
@@ -38,7 +38,7 @@ V tomto úvodním kurzu se naučíte, jak pomocí prostředí Azure PowerShell p
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/free/) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musíte být připojení k Azure pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
@@ -47,7 +47,7 @@ V tomto úvodním kurzu se naučíte, jak pomocí prostředí Azure PowerShell p
 * Dokončili jste kurz [Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio](sql-database-get-started.md) nebo ekvivalentní [verzi PowerShellu](sql-database-get-started-powershell.md). Pokud ne, tak tento požadovaný kurz dokončete nebo spusťte skript PowerShellu na konci [verze tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md) a teprve potom pokračujte.
 
 > [!TIP]
-> Stejné úlohy můžete v úvodním kurzu provádět i pomocí webu [Azure Portal](sql-database-get-started-backup-recovery.md).
+> Stejné úlohy můžete v úvodním kurzu provádět i pomocí webu [Azure Portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +114,7 @@ V této části kurzu [nakonfigurujete trezor služby Azure Recovery Services pr
 
 
 > [!TIP]
-> Chcete-li odstranit dlouhodobé uchovávání záloh, přečtěte si téma [Odstranění dlouhodobého uchovávání záloh](sql-database-long-term-retention-delete.md).
+> Pokud chcete odstranit dlouhodobě uchovávané zálohy, přečtěte si téma [Správa dlouhodobého uchovávání záloh pomocí PowerShellu](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru služby Recovery Services
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Další informace o obnovování ze záloh najdete v části [obnovení ze zálohy](sql-database-recovery-using-backups.md)
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,0 +1,117 @@
+---
+title: "Sestavy rizikových přihlášení na portálu Azure Active Directory ve verzi Preview | Dokumentace Microsoftu"
+description: "Informace o sestavách rizikových přihlášení na portálu Azure Active Directory ve verzi Preview"
+services: active-directory
+author: MarkusVi
+manager: femila
+ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
+ms.service: active-directory
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/21/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
+ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
+ms.lasthandoff: 02/22/2017
+
+
+---
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Sestavy rizikových přihlášení na portálu Azure Active Directory ve verzi Preview
+
+Sestavy zabezpečení ve verzi [Preview](active-directory-preview-explainer.md) služby Azure Active Directory umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
+
+Azure Active Directory detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+
+Zjištěné rizikové události se použijí k výpočtu těchto údajů:
+
+- **Riziková přihlášení** –Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
+
+- **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. Další podrobnosti najdete v tématu [Uživatelé označení příznakem rizika](active-directory-identityprotection.md#users-flagged-for-risk).  
+
+Na webu Azure Portal najdete sestavy zabezpečení v okně **Azure Active Directory** v části **Zabezpečení**. 
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="azure-active-directory-free-and-basic-edition"></a>Edice Free a Basic služby Azure Active Directory
+
+Edice Free a Basic služby Azure Active Directory poskytují seznam rizikových přihlášení, která byla zjištěná pro vaše uživatele. Sestava rizikových událostí obsahuje tyto údaje:
+
+- **Uživatel** – Jméno uživatele použité během přihlašovací operace
+- **IP** – IP adresa zařízení použitá pro připojení k Azure Active Directory
+- **Umístění** – Umístění použité pro připojení k Azure Active Directory
+- **Čas přihlášení** – Čas, kdy k přihlášení došlo
+- **Stav** – Stav přihlášení
+
+Tato sestava poskytuje možnost stažení příslušných dat.
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/01.png)
+
+Na základě prošetření rizikového přihlášení můžete službě Azure Active Directory poskytnout zpětnou vazbu ve formě následujících akcí:
+
+- Vyřešit
+- Označit jako falešně pozitivní
+- Ignorovat
+- Znovu aktivovat
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/21.png)
+
+další informace najdete v tématu věnovaném [ručnímu zavření rizikových událostí](active-directory-identityprotection.md#closing-risk-events-manually).
+
+## <a name="azure-active-directory-premium-editions"></a>Edice Premium služby Azure Active Directory
+
+Sestavy rizikových přihlášení v edicích Premium služby Azure Active Directory vám nabízí:
+
+- Agregované informace o [typech rizikových událostí](active-directory-identity-protection-risk-events.md), které byly zjištěné
+
+- Možnost stažení sestavy
+
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/456.png)
+
+
+Při výběru rizikové události získáte zobrazení podrobné sestavy pro tuto rizikovou událost, které umožňuje následující akce:
+
+- Výběr možnosti konfigurace [zásad odstraňování rizik uživatelů](active-directory-identityprotection.md#user-risk-security-policy)  
+
+- Kontrola časové osy zjištění pro rizikové události  
+
+- Kontrola seznamu uživatelů, pro které byla riziková událost zjištěná
+
+- [Ruční zavření rizikových událostí](active-directory-identityprotection.md#closing-risk-events-manually) nebo reaktivace ručně zavřené rizikové události 
+
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/457.png)
+
+Po výběru uživatele získáte podrobné zobrazení sestavy pro tohoto uživatele, které vám umožňuje:
+
+- Otevřít zobrazení Všechna přihlášení
+
+- Resetovat heslo uživatele
+
+- Zavřít všechny události
+
+- Vyšetřit rizikové události oznámené pro uživatele 
+
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/324.png)
+
+
+Pokud chcete vyšetřovat rizikovou událost, vyberte ji ze seznamu.  
+Tím otevřete okno **Podrobnosti** pro tuto rizikovou událost. V okně **Podrobnosti** můžete zvolit [ruční zavření rizikové události](active-directory-identityprotection.md#closing-risk-events-manually) nebo reaktivaci ručně zavřené rizikové události. 
+
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/325.png)
+
+
+
+
+
+## <a name="next-steps"></a>Další kroky
+
+- Další informace o Azure Active Directory Identity Protection najdete v tématu [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+
+

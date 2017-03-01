@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
 
 
 ---
@@ -182,7 +182,7 @@ Příklad tohoto typu výstrahy:
 ![Odchozí útok DoS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Analýza prostředků
-Analýza prostředků ve službě Security Center se soustředí na služby modelu PaaS, jako je například integrace s funkcí [Zjišťování hrozeb Azure SQL DB](../sql-database/sql-database-threat-detection-get-started.md). V závislosti na výsledcích analýzy z těchto oblastí služba Security Center aktivuje výstrahu vztahující se na prostředek.
+Analýza prostředků ve službě Security Center se soustředí na služby modelu PaaS, jako je například integrace s funkcí [Zjišťování hrozeb Azure SQL Database](../sql-database/sql-database-threat-detection.md). V závislosti na výsledcích analýzy z těchto oblastí služba Security Center aktivuje výstrahu vztahující se na prostředek.
 
 ### <a name="potential-sql-injection"></a>Potenciální útok prostřednictvím injektáže SQL
 Při útoku SQL Injection se škodlivý kód vkládá do řetězců, které jsou potom předány instanci SQL Serveru k parsování a spuštění. SQL Server spouští všechny syntakticky platné dotazy, které obdrží. Všechny procedury, které sestavují SQL příkazy, by tedy měly být chráněny proti tomuto typu útoku. Zjišťování hrozeb SQL využívá k určení podezřelých událostí, které mohou probíhat ve vašich službách Azure SQL Database, strojové učení, analýzu chování a detekci anomálií. Příklad:
@@ -216,6 +216,6 @@ V tomto dokumentu jste se dozvěděli o různých typech výstrah zabezpečení 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

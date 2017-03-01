@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
-ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
 
 
 ---
@@ -28,10 +28,7 @@ ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 Azure Container Service umožňuje rychlé nasazení oblíbených open-source řešení pro clustering a orchestraci kontejnerů. Tento dokument vás provede nasazením clusteru Azure Container Service pomocí webu Azure Portal nebo šablony Azure Resource Manageru pro rychlý start. 
 
-> [!NOTE]
-> Podpora pro Kubernetes je v Azure Container Service momentálně ve verzi preview.
-
-Cluster Azure Container Service můžete také nasadit pomocí [rozhraní příkazového řádku Azure 2.0 (Preview)](container-service-create-acs-cluster-cli.md) nebo rozhraní API služby Azure Container Service.
+Cluster Azure Container Service můžete také nasadit pomocí webu [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) nebo rozhraní API služby Azure Container Service.
 
 
 
@@ -39,7 +36,7 @@ Cluster Azure Container Service můžete také nasadit pomocí [rozhraní přík
 
 * **Předplatné Azure:** Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-* **Veřejný klíč SSH:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell), postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
 * **ID a tajný klíč klienta instančního objektu** (pouze Kubernetes): Další informace a pokyny k vytvoření instančního objektu najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 
@@ -58,32 +55,32 @@ Cluster Azure Container Service můžete také nasadit pomocí [rozhraní přík
 
     * **Uživatelské jméno:** Uživatelské jméno pro účet na všech virtuálních počítačích a ve škálovacích sadách virtuálních počítačů v clusteru Azure Container Service.
     * **Předplatné:** Vyberte předplatné Azure.
-    * **Skupina prostředků:** Vyberte existující skupinu prostředků nebo vytvořte novou.
+    * **Skupina prostředků:** Vyberte existující skupinu prostředků nebo vytvořte novou. Doporučuje se použít pro každé nasazení novou skupinu prostředků.
     * **Umístění:** Vyberte oblast Azure pro nasazení Azure Container Service.
-    * **Veřejný klíč SSH:** Přidejte veřejný klíč, který se bude používat pro ověřování u virtuálních počítačů Azure Container Service. Je důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu `ssh-rsa`. Přípona `username@domain` je volitelná. Klíč by měl vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Veřejný klíč SSH RSA:** Přidejte veřejný klíč, který se bude používat pro ověřování u virtuálních počítačů Azure Container Service. Je důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu `ssh-rsa`. Přípona `username@domain` je volitelná. Klíč by měl vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Až budete připravení pokračovat, klikněte na **OK**.
 
     ![Základní nastavení](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Vyberte typ orchestrace. Dostupné možnosti:
+5. V okně **Konfigurace rozhraní** vyberte **Konfigurace orchestrátoru**. Mezi možnosti patří:
 
   * **DC/OS:** Nasadí cluster DC/OS.
   * **Swarm:** Nasadí cluster Docker Swarm.
-  * **Kubernetes:** Nasadí cluster Kubernetes.
+  * **Kubernetes**: Nasadí cluster Kubernetes.
 
 
 6. Až budete připravení pokračovat, klikněte na **OK**.
 
     ![Volba orchestrátoru](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID a tajný kód klienta instančního objektu. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
+7. Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID (také pod názvem appId) a tajný kód klienta instančního objektu (heslo). Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 
     ![Zadání instančního objektu pro Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
 7. V okně nastavení **Azure Container Service** zadejte následující informace:
 
-    * **Počet hlavních serverů:** Počet hlavních serverů v clusteru. Pokud je vybráno Kubernetes, bude počet hlavních serverů nastaven na výchozí hodnotu 1.
+    * **Počet hlavních serverů:** Počet hlavních serverů v clusteru.
     * **Počet agentů:** U Docker Swarm a Kubernetes je tato hodnota počáteční počet agentů ve škálovací sadě agentů. U DC/OS se jedná o počáteční počet agentů v privátní škálovací sadě. Kromě toho se pro DC/OS vytvoří škálovací sada obsahující předem určený počet agentů. Počet agentů v této veřejné škálovací sadě závisí na tom, kolik hlavních serverů bylo vytvořeno v clusteru: jeden veřejný agent pro jeden hlavní server a dva veřejní agenti pro tři nebo pět hlavních serverů.
     * **Velikost virtuálního počítače agenta:** Velikost těchto virtuálních počítačů.
     * **Předpona DNS:** Celosvětově jedinečný název, který se bude používat jako předpona klíčových částí plně kvalifikované názvy domény pro službu.
@@ -112,12 +109,12 @@ Dokončení nasazení trvá několik minut. Potom bude cluster Azure Container S
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Vytvoření clusteru pomocí šablony pro rychlý start
 Pro nasazení clusteru ve službě Azure Container Service jsou k dispozici šablony Azure pro rychlý start. Poskytované šablony pro rychlý začátek lze upravit tak, aby obsahovaly další nebo rozšířenou konfiguraci Azure. K vytvoření clusteru Azure Container Service pomocí šablony Azure pro rychlý start potřebujete předplatné Azure. Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 2.0 (Preview) (viz [pokyny k instalaci a nastavení](/cli/azure/install-az-cli2.md)).
+Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 2.0 (viz [pokyny k instalaci a nastavení](/cli/azure/install-az-cli2.md)).
 
 > [!NOTE] 
 > Pokud jste v systému Windows, můžete k nasazení šablony podobným způsobem použít Azure PowerShell. Postup najdete dál v této části. Můžete taky nasadit šablonu prostřednictvím [portálu](../azure-resource-manager/resource-group-template-deploy-portal.md) nebo jiné metody.
 
-1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon z GitHubu. Všimněte si, že šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
+1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z šablon rychlého startu z GitHubu. Následuje dílčí seznam. Všimněte si, že šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
 
     * [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -165,7 +162,7 @@ Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 
 ### <a name="equivalent-powershell-commands"></a>Ekvivalentní příkazy PowerShellu
 Šablonu clusteru Azure Container Service můžete také nasadit v PowerShellu. Tento dokument je založen na verzi 1.0 [modulu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z následujících šablon. Všimněte si, že šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
+1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z šablon rychlého startu z GitHubu. Následuje dílčí seznam. Všimněte si, že šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
 
     * [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -214,6 +211,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

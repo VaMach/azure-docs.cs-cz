@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
 
 
 ---
@@ -55,7 +55,7 @@ Všimněte si, jak infrastruktura Azure přebírá roli směrovače a umožňuje
 Podsíť je rozsah IP adres ve virtuální síti. Virtuální síť můžete z organizačních a bezpečnostních důvodů rozdělit do několika podsítí. Virtuální počítače a instance rolí PaaS nasazené do podsítí (stejných nebo různých) v rámci jedné virtuální sítě můžou navzájem komunikovat bez jakékoli další konfigurace. Pro podsíť taky můžete konfigurovat směrovací tabulky a skupiny NSG.
 
 ## <a name="ip-addresses"></a>IP adresy
-Existují dva typy IP adres, které se přiřazují prostředkům v Azure: *veřejné* a *privátní*. Veřejné IP adresy umožňují prostředkům Azure komunikovat s internetem a jinými veřejnými službami Azure, jako je například [Azure Redis Cache](https://azure.microsoft.com/services/cache/) nebo [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privátní IP adresy umožňují komunikaci mezi prostředky ve virtuální síti a taky prostředky připojenými prostřednictvím sítě VPN, bez použití IP adres směrovatelných v internetu.
+Existují dva typy IP adres, které se přiřazují prostředkům v Azure: *veřejné* a *privátní*. Veřejné IP adresy umožňují prostředkům Azure komunikovat s internetem a jinými veřejnými službami Azure, jako je například [Azure Redis Cache](https://azure.microsoft.com/services/cache/) nebo [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privátní IP adresy umožňují komunikaci mezi prostředky ve virtuální síti a taky prostředky připojenými prostřednictvím sítě VPN bez použití IP adres směrovatelných v internetu.
 
 Další informace o IP adresách v Azure najdete v tématu [IP adresy ve virtuální síti](virtual-network-ip-addresses-overview-arm.md).
 
@@ -91,6 +91,6 @@ Za použití služeb Virtual Networks se v Azure neúčtují žádné dodatečn�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

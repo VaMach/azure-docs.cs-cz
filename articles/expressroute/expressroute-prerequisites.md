@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 304acc7d2bfdefffde700ecd469b6335b08b85e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -30,7 +31,7 @@ Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby Exp
 * Aktivní předplatné Office 365 (pokud používáte služby Office 365). Další informace najdete v tomto článku v části [Specifické požadavky Office 365](#office-365-specific-requirements).
 
 ## <a name="connectivity-provider"></a>Poskytovatel připojení
-* Abyste se připojili ke cloudu Microsoftu, můžete spolupracovat s [partnerem připojení ExpressRoute](expressroute-locations.md#partners). Připojení mezi místní sítí a Microsoftem můžete vytvořit [třemi způsoby](expressroute-introduction.md#howtoconnect) 
+* Abyste se připojili ke cloudu Microsoftu, můžete spolupracovat s [partnerem připojení ExpressRoute](expressroute-locations.md#partners). Připojení mezi místní sítí a Microsoftem můžete vytvořit [třemi způsoby](expressroute-introduction.md) 
 * Pokud váš poskytovatel není partnerem připojení ExpressRoute, můžete se pořád připojit ke cloudu Microsoftu prostřednictvím [poskytovatele cloudové výměny](expressroute-locations.md#nonpartners).
 
 ## <a name="network-requirements"></a>Síťové požadavky
@@ -64,10 +65,5 @@ Pokud chcete povolit CRM Online v ExpressRoute, přečtěte si následující do
   * [Vytvoření okruhu ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Konfigurace směrování](expressroute-howto-routing-classic.md)
   * [Propojení virtuální sítě s okruhem ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

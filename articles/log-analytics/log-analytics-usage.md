@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
 
 
 ---
@@ -47,6 +47,12 @@ Pokud jste denní limit využití překročili nebo se mu blížíte, můžete v
     - Čas potřebný k shromáždění a indexaci dat
 - Seznam dotazů
 
+## <a name="understanding-nodes-for-oms-offers"></a>Vysvětlení uzlů pro nabídky OMS
+
+Pokud jste na cenové úrovni *za uzel (OMS)*, pak se vám bude účtovat v závislosti na počtu uzlů a řešení, které jste povolili. V části *nabídek* řídicího panelu využití můžete zobrazit, kolik uzlů každé nabídky se používá.
+
+![řídicí panel využití](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Práce s daty o využití
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
 2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na** Log Analytics**.  
@@ -66,6 +72,6 @@ Pokud jste denní limit využití překročili nebo se mu blížíte, můžete v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

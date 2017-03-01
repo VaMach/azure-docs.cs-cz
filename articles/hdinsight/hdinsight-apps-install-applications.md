@@ -1,6 +1,6 @@
 ---
-title: "Instalace aplikací Hadoop v HDInsight | Dokumentace Microsoftu"
-description: "Informace o instalaci aplikací HDInsight na aplikace HDInsight."
+title: "Instalace aplikací Hadoop jiných výrobců v Azure HDInsight | Dokumentace Microsoftu"
+description: "Přečtěte si, jak v Azure HDInsight instalovat aplikace Hadoop jiných výrobců."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
+ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
 
 
 ---
-# <a name="install-hdinsight-applications"></a>Instalace aplikací HDInsight
-Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux. Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými. V tomto článku se seznámíte s postupem instalace publikované aplikace. Pokud instalujete vlastní aplikaci, přečtěte si článek [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalace aplikací Hadoop jiných výrobců v Azure HDInsight
 
-Aktuálně jsou dostupné tři publikované aplikace:
+V tomto článku se dozvíte, jak v Azure HDInsight nainstalovat aplikaci Hadoop jiného výrobce, která už byla publikována. Pokyny pro instalaci vašich vlastních aplikací najdete v článku [Instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md).
 
+Aplikace HDInsight je aplikace, kterou uživatelé mohou nainstalovat na clusteru HDInsight se systémem Linux. Tyto aplikace mohou být vytvořeny společností Microsoft, nezávislými dodavateli softwaru (ISV) nebo vámi samotnými.  
+
+Aktuálně jsou dostupné čtyři publikované aplikace:
+
+* **DATAIKU DDS v HDInsight:** Dataiku DSS (Data Science Studio) je software, který umožňuje odborníkům v oblasti dat (datoví vědci, obchodní analytici, vývojáři...) vytvářet prototypy, sestavovat a nasazovat vysoce specifické služby, které transformují nezpracovaná data na účinné obchodní předpovědi.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) nabízí analytikům interaktivní způsob zjišťování, analýzy a vizualizace výsledků v případě velkých objemů dat. Získávejte dalších zdroje dat snadněji, abyste mohli rychle zjišťovat nové vztahy a získávat potřebné odpovědi.
 * **Kolekce dat Streamsets pro HDInsight** poskytuje plně vybavené integrované vývojové prostředí (IDE) umožňující navrhovat, testovat, nasazovat a spravovat kanály ingestace typu any-to-any, které zachytávají streamovaná data a data dávek a zahrnují celou řadu transformací v průběhu streamování – to vše bez nutnosti psát vlastní kód. 
 * **Cask CDAP 3.5 pro HDInsight** poskytuje první jednotnou integrační platformu pro velké objemy dat, která o 80 % zkracuje dobu potřebnou k nasazení aplikací pracujících s daty a datových jezer do ostrého provozu. Tato aplikace podporuje pouze clustery Standard HBase 3.4.
@@ -42,18 +46,18 @@ Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do exi
 **Pokud chcete instalovat aplikace HDInsight, postupujte následovně:**
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na tlačítko **Procházet** a pak klikněte na tlačítko **Clustery HDInsight**.
+2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na **Další služby** a pak klikněte na **Clustery HDInsight**.
 3. Klikněte na cluster HDInsight.  Pokud ho ještě nemáte, vytvořte ho.  Viz článek [Vytvoření clusterů](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klikněte na **Aplikace** v kategorii **Konfigurace**. Zobrazí se seznam nainstalovaných aplikací, pokud tam nějaké jsou.
+4. Klikněte na **Aplikace** v kategorii **Konfigurace**. Zobrazí se seznam nainstalovaných aplikací, pokud tam nějaké jsou. Pokud nemůžete najít aplikace, znamená to, že žádné aplikace pro tuto verzi clusteru HDInsight neexistují.
    
-    ![nabídka portálu pro aplikace hdInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![Nabídka portálu pro aplikace HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. V nabídce okna klikněte na **Přidat**. 
    
-    ![nainstalované aplikace aplikací hdInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![Nainstalované aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     Zobrazí se seznam existujících aplikací HDInsight.
    
-    ![dostupné aplikace aplikací hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![Dostupné aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Klikněte na jednu z aplikací, přijměte smluvní podmínky a potom klikněte na **Vybrat**.
 
 Stav instalace aplikace můžete vidět v oznámeních portálu (klikněte na ikonu zvonku v horní části portálu). Aplikace se po instalaci zobrazí v okně Nainstalované aplikace.
@@ -89,7 +93,7 @@ Portál zobrazuje seznam nainstalovaných aplikací HDInsight pro cluster a vlas
 3. Klikněte na cluster HDInsight.
 4. Z okna **Nastavení** klikněte na tlačítko **Aplikace** pod kategorií **Obecné**. Okno Nainstalované aplikace uvádí všechny nainstalované aplikace. 
    
-    ![nainstalované aplikace aplikací hdInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![Nainstalované aplikace aplikací HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Kliknutím na jednu z nainstalovaných aplikací zobrazíte její vlastnosti. Okno vlastností uvádí následující:
    
    * Název aplikace: Název aplikace.
@@ -118,6 +122,6 @@ Viz článek [Řešení potíží instalace](hdinsight-apps-install-custom-appli
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

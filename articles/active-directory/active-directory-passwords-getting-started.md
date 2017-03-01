@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
-ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
+ms.sourcegitcommit: f9a0218b55ed30c0dd5022965241d1374c70c3d7
+ms.openlocfilehash: 1b5f96750b92bc7b7398fdaa177f360746747964
 
 
 ---
@@ -244,7 +244,7 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 > Pokud budete vyzváni k zadání přihlašovacích údajů, ujistěte se, že účet správce, který jste zadali jako parametr AzureADCredential, je **cloudový účet správce (vytvořený ve službě Azure AD)**, nikoliv federovaný účet (vytvořený v místní službě AD a synchronizovaný se službou Azure AD).
 > 
 > [!NOTE]
-> Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí prostředí PowerShell zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku 5, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).
+> Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí prostředí PowerShell zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku&5;, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).
 > 
 > 
 
@@ -393,6 +393,6 @@ Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel sl
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

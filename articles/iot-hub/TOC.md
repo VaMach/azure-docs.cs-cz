@@ -3,7 +3,7 @@
 ## [Co je Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Přehled správy zařízení](iot-hub-device-management-overview.md)
 
-# Začínáme
+# [Začínáme](iot-hub-get-started.md)
 ## Použití simulovaného zařízení
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Vytvoření Azure Function App a účtu úložiště](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Čtení zpráv uchovávaných v úložišti](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Lekce 4: Odesílání zpráv z cloudu do zařízení
@@ -66,7 +66,7 @@
 ##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Vytvoření Azure Function App a účtu úložiště](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Čtení zpráv uchovávaných v úložišti](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Lekce 4: Odesílání zpráv z cloudu do zařízení
@@ -107,13 +107,13 @@
 ##### [Získání nástrojů Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Získání nástrojů Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Získání nástrojů Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Vytvoření služby IoT Hub a registrace Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Vytvoření služby IoT Hub a registrace Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Lekce 3: Odesílání zpráv ze zařízení do cloudu
-##### [Vytvoření Azure Function App a účtu úložiště]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Vytvoření Azure Function App a účtu úložiště](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [Spuštění ukázkové aplikace pro odesílání zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Čtení zpráv uchovávaných v úložišti](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Lekce 4: Odesílání zpráv z cloudu do zařízení
-##### [Spuštění ukázkové aplikace pro příjem zpráv]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Volitelné: Změna chování indikátor LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Řešení problémů](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
 ### [Vysoká dostupnost a zotavení po havárii](iot-hub-ha-dr.md)
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
-## Vývoj
+## [Vývoj](iot-hub-how-to.md)
 ### [Příručka pro vývojáře](iot-hub-devguide.md)
 #### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
 #### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centrum pro vývojáře Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

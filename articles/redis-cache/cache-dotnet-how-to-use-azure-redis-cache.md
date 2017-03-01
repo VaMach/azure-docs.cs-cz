@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
+ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
+ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
 
 
 ---
@@ -40,7 +40,7 @@ Microsoft Azure Redis Cache je dostupná na následujících úrovních:
 
 Každá úroveň se liší z hlediska funkcí a cen. Informace o cenách najdete na stránce [Podrobnosti o cenách Azure Redis Cache][Cache Pricing Details].
 
-Tento průvodce vám ukáže, jak použít klienta [StackExchange.Redis][StackExchange.Redis] pomocí kódu v C\#. Pokryté scénáře zahrnují **vytvoření a konfiguraci mezipaměti**, **konfiguraci klientů mezipaměti** a **přidávání a odebírání objektů z mezipaměti**. Další informace o používání Azure Redis Cache najdete v oddílu [Další kroky][Next Steps]. Podrobný kurz vytvoření webové aplikace s Redis Cache pomocí ASP.NET MVC najdete v tématu [Vytvoření webové aplikace s Redis Cache](cache-web-app-howto.md).
+Tento průvodce vám ukáže, jak použít klienta [StackExchange.Redis][StackExchange.Redis] pomocí kódu v C\#. Pokryté scénáře zahrnují **vytvoření a konfiguraci mezipaměti**, **konfiguraci klientů mezipaměti** a **přidávání a odebírání objektů z mezipaměti**. Další informace o používání Azure Redis Cache najdete v části [Další kroky][Next Steps]. Podrobný kurz vytvoření webové aplikace s Redis Cache pomocí ASP.NET MVC najdete v tématu [Vytvoření webové aplikace s Redis Cache](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
@@ -88,9 +88,9 @@ Chcete-li pracovat s mezipamětí prostřednictvím kódu programu, potřebujete
 > 
 > 
 
-Připojení k Azure Redis Cache spravuje třída `ConnectionMultiplexer`. Tato třída je navržena pro sdílení a opětovné použití v rámci klientské aplikace, a není nutné ji vytvářet pro každou operaci zvlášť. 
+Připojení k Azure Redis Cache spravuje třída `ConnectionMultiplexer`. Tato třída by se měla sdílet a opětovně používat v rámci klientské aplikace, a není nutné vytvářet ji pro každou operaci zvlášť. 
 
-Chcete-li se připojit k Azure Redis Cache a vrátit instanci připojeného `ConnectionMultiplexer`, zavolejte statickou metodu `Connect` a předejte jí koncový bod mezipaměti a klíč jako v následujícím příkladu. Jako parametr hesla použijte klíč vygenerovaný na webu Azure Portal.
+Chcete-li se připojit k Azure Redis Cache a vrátit instanci připojeného `ConnectionMultiplexer`, zavolejte statickou metodu `Connect` a předejte jí koncový bod mezipaměti a klíč. Jako parametr hesla použijte klíč vygenerovaný na webu Azure Portal.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -106,7 +106,7 @@ Nechcete-li používat protokol SSL, nastavte hodnotu `ssl=false` nebo vynechejt
 > 
 > 
 
-Jeden ze způsobů sdílení instance `ConnectionMultiplexer` v aplikaci je pomocí statické vlastnosti, která vrací připojenou instanci, podobně jako v následujícím příkladu.  Tento přístup poskytuje způsob inicializace jedné připojené instance `ConnectionMultiplexer`, který je bezpečný pro přístup z více vláken. V těchto příkladech je hodnota `abortConnect` nastavená na false, to znamená, že volání bude úspěšné i v případě, že nedojde k vytvoření připojení k Azure Redis Cache. Klíčovou vlastností `ConnectionMultiplexer` je automatické obnovení připojení k mezipaměti po vyřešení problémů se sítí nebo jiných příčin.
+Jeden ze způsobů sdílení instance `ConnectionMultiplexer` v aplikaci je pomocí statické vlastnosti, která vrací připojenou instanci, podobně jako v následujícím příkladu.  Tento přístup poskytuje způsob inicializace jedné připojené instance `ConnectionMultiplexer`, který je bezpečný pro přístup z více vláken. V těchto příkladech je hodnota `abortConnect` nastavená na false, to znamená, že volání je úspěšné i v případě, že nedojde k vytvoření připojení k Azure Redis Cache. Klíčovou vlastností `ConnectionMultiplexer` je automatické obnovení připojení k mezipaměti po vyřešení problémů se sítí nebo jiných příčin.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -154,7 +154,7 @@ Položky lze ukládat a načítat z mezipaměti pomocí metod `StringSet``String
 
 Redis ukládá většinu dat jako řetězce Redis, ale tyto řetězce mohou obsahovat mnoho typů dat, včetně serializovaných binárních dat, která lze použít při ukládání objektů .NET v mezipaměti.
 
-Při volání metody `StringGet` se vrátí objekt, pokud existuje, a hodnota `null` V tomto případě můžete načíst hodnotu z požadovaného zdroje dat a uložit ji do mezipaměti pro pozdější použití. To se označuje jako princip s doplňováním mezipaměti.
+Při volání metody `StringGet` se vrátí objekt, pokud existuje, a hodnota `null` Pokud je vrácena hodnota `null`, můžete načíst hodnotu z požadovaného zdroje dat a uložit ji do mezipaměti pro pozdější použití. Tento způsob použití se označuje jako princip s doplňováním mezipaměti.
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -171,7 +171,7 @@ Chcete-li zadat vypršení platnosti položky v mezipaměti, použijte parametr 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Práce s objekty .NET v mezipaměti
-Azure Redis Cache může do mezipaměti ukládat objekty .NET i primitivní datové typy. Objekty .NET je však nutné před uložením do mezipaměti serializovat. To má na starosti vývojář aplikace, kterému je tak poskytnuta flexibilita při výběru serializátoru.
+Azure Redis Cache může do mezipaměti ukládat objekty .NET i primitivní datové typy. Objekty .NET je však nutné před uložením do mezipaměti serializovat. Serializaci objektů .NET má na starosti vývojář aplikace, kterému je tak poskytnuta flexibilita při výběru serializátoru.
 
 Jeden způsob, jak serializovat objekty, je použít metody serializace `JsonConvert` v balíčku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) a serializovat a deserializovat tak objekty do a z formátu JSON. Následující příklad ukazuje získání a nastavení pomocí instance objektu `Employee`
 
@@ -277,7 +277,7 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -299,6 +299,6 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

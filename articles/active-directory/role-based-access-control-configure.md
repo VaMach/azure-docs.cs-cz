@@ -1,5 +1,5 @@
 ---
-title: "Použití řízení přístupu na základě rolí na portálu Azure Portal | Dokumentace Microsoftu"
+title: "Řízení přístupu Access Control na portálu Azure Classic | Dokumentace Microsoftu"
 description: "Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Oprávnění k prostředkům se přiřazují pomocí přiřazení rolí."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
 
 
 ---
@@ -24,8 +24,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Správa přístupu podle uživatele nebo skupiny](role-based-access-control-manage-assignments.md)
 > * [Správa přístupu podle prostředku](role-based-access-control-configure.md)
-> 
-> 
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
 
@@ -44,8 +42,6 @@ Všimněte si, že některým uživatelům byl přístup **přiřazen**, zatímc
 
 > [!NOTE]
 > Správci a pomocní správci v klasickém modelu předplatného jsou v novém modelu řízení přístupu na základě role v Azure  považováni za vlastníky.
-> 
-> 
 
 ## <a name="add-access"></a>Přidání přístupu
 Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, které je v rozsahu platnosti přiřazení role.
@@ -61,12 +57,11 @@ Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, k
 Po úspěšném přiřazení role se přiřazení zobrazí v okně **Uživatelé**.
 
 ## <a name="remove-access"></a>Odebrání přístupu
-1. V okně Řízení přístupu vyberte přiřazení role.
-2. V okně podrobností přiřazení vyberte **Odebrat**.  
-3. Výběrem položky **ano** odebrání potvrďte.  
-    ![Snímek obrazovky s oknem Uživatelé – odebrání role](./media/role-based-access-control-configure/remove-access1.png)
+1. Používání zaškrtávacích políček v okně Access Control k výběru jednoho či více přiřazení rolí.
+2. Vyberte **Odebrat**.  
+3. Zobrazí se pole s výzvou k potvrzení akce. Pokud chcete odebrat přiřazení role, vyberte **Ano**.
 
-Zděděná přiřazení nelze odebrat. Na obrázku níže si všimněte, že je tlačítko odebrání neaktivní. Místo toho je nutné zobrazit podrobnosti **Přiřazený v uzlu**. Poté přejděte k prostředku, který je zde uvedený, a odeberte přiřazení role v něm.
+Zděděná přiřazení nelze odebrat. Pokud chcete odebrat zděděné přiřazení, je třeba to provést v oboru, ve kterém bylo přiřazení role vytvořené. Ve sloupci **Obor** vedle sloupce **Zděděný** je odkaz, pomocí kterého můžete přejít k prostředkům, kde byla role přiřazená. Poté přejděte k prostředku, který je zde uvedený, a odeberte přiřazení role v něm.
 
 ![Snímek obrazovky s oknem Uživatelé – neaktivní tlačítko odebrání u zděděného přístupu](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -85,6 +80,6 @@ Přiřazování rolí a správu přístupu pomocí řízení přístupu na zákl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -17,13 +17,13 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>Kurz k SQL Database: Ověřování AAD, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze
-V tomto úvodním kurzu se naučíte, jak pomocí sady SQL Server Management Studio pracovat s ověřováním pomocí Azure Active Directory, přihlašováním, uživateli a databázovými rolemi, které udělují přístup a oprávnění pro databáze a servery Azure SQL Database. Naučíte se tyto postupy:
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Ověřování Azure AD, přístup a pravidla brány firewall na úrovni databáze
+V tomto kurzu se naučíte, jak pomocí sady SQL Server Management Studio pracovat s ověřováním pomocí Azure Active Directory, přihlašováním, uživateli a databázovými rolemi, které udělují přístup a oprávnění pro databáze a servery Azure SQL Database. Naučíte se tyto postupy:
 
 - Zobrazení uživatelských oprávnění v hlavní databázi a uživatelských databázích
 - Vytváření přihlašovacích údajů a uživatelů na základě ověřování pomocí Azure Active Directory
@@ -36,14 +36,14 @@ V tomto úvodním kurzu se naučíte, jak pomocí sady SQL Server Management Stu
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](/pricing/free-trial/?WT.mc_id=A261C142F) nebo [aktivovat výhody pro předplatitele sady Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Potřebujete mít účet Azure. Můžete si [zdarma otevřít účet Azure](https://azure.microsoft.com/free/) nebo [aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musíte být schopni připojit se k webu Azure Portal pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
 * Dokončili jste kurz [Začínáme se servery, databázemi a pravidly brány firewall služby Azure SQL Database s využitím webu Azure Portal a aplikace SQL Server Management Studio](sql-database-get-started.md) nebo ekvivalentní [verzi tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md). Pokud ne, dokončete tento požadovaný kurz nebo spusťte skript prostředí PowerShell na konci [verze tohoto kurzu pro prostředí PowerShell](sql-database-get-started-powershell.md) a teprve potom pokračujte.
 
    > [!NOTE]
-   > Dokončení souvisejícího kurzu pro ověřování SQL Serveru ([Kurz k SQL Database: Ověřování SQL, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md)) není povinné, ale jsou v něm popsaná některá témata, kterým se v tomto kurzu už znovu nevěnujeme. Pokud jste už na stejných počítačích (se stejnými IP adresami) dokončili tento související kurz, postupy v tomto kurzu, které souvisejí s branami firewall na úrovni serveru a databáze, se nevyžadují a jsou z tohoto důvodu označené jako nepovinné. Také snímky obrazovky v tomto kurzu předpokládají, že jste tento související kurz dokončili. 
+   > Dokončení souvisejícího kurzu pro ověřování SQL Serveru ([Ověřování SQL, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md)) není povinné, ale jsou v něm popsaná některá témata, kterým se v tomto kurzu už znovu nevěnujeme. Pokud jste už na stejných počítačích (se stejnými IP adresami) dokončili tento související kurz, postupy v tomto kurzu, které souvisejí s branami firewall na úrovni serveru a databáze, se nevyžadují a jsou z tohoto důvodu označené jako nepovinné. Také snímky obrazovky v tomto kurzu předpokládají, že jste tento související kurz dokončili. 
    >
 
 * Už jste vytvořili a naplnili Azure Active Directory. Další informace najdete v tématech [Integrování místních identit do služby Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Přidání vlastního názvu domény do Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure podporuje federaci s Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Správa adresáře služby Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Správa služby Azure AD pomocí rozhraní Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) a [Porty a protokoly, které vyžaduje hybridní identita](../active-directory/active-directory-aadconnect-ports.md).
@@ -85,7 +85,7 @@ V této části kurzu zobrazíte na webu Azure Portal informace o konfiguraci za
    ![Uložení vybraného účtu správce AAD](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Pokud chcete zkontrolovat informace o připojení pro tento server, přejděte k tématu [Zobrazení nebo aktualizace nastavení serveru](sql-database-view-update-server-settings.md). Pro tuto řadu kurzů se jako plně kvalifikovaný název serveru používá sqldbtutorialserver.database.windows.net.
+> Pokud chcete zkontrolovat informace o připojení pro tento server, přejděte k tématu [Správa serverů](sql-database-manage-servers-portal.md). Pro tuto řadu kurzů se jako plně kvalifikovaný název serveru používá sqldbtutorialserver.database.windows.net.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Připojení k SQL serveru pomocí aplikace SQL Server Management Studio (SSMS)
@@ -256,7 +256,7 @@ V této části kurzu vytvoříte uživatelský účet v databázi AdventureWork
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Vytvoření pravidla brány firewall na úrovni databáze pro uživatele databáze AdventureWorksLT
 
 > [!NOTE]
-> Tento postup není nutné provádět, pokud jste dokončili ekvivalentní postup v souvisejícím kurzu pro ověřování SQL Serveru ([Kurz k SQL Database: Ověřování SQL, přihlašovací údaje a uživatelské účty, databázové role, oprávnění, pravidla brány firewall na úrovni serveru a pravidla brány firewall na úrovni databáze](sql-database-control-access-sql-authentication-get-started.md)) a při výuce používáte stejný počítač se stejnou IP adresou.
+> Tento postup není nutné dokončit, pokud jste dokončili ekvivalentní postup v souvisejícím kurzu pro ověřování SQL Serveru, [ověřování a autorizace SQL](sql-database-control-access-sql-authentication-get-started.md) a učíte se s použitím stejného počítače se stejnou IP adresou.
 >
 
 V této části kurzu se pokusíte přihlásit pomocí nového uživatelského účtu z počítače s jinou IP adresou, jako správce serveru vytvoříte pravidlo brány firewall na úrovni databáze a úspěšně se pomocí tohoto nového pravidla brány firewall na úrovni databáze přihlásíte. 
@@ -273,17 +273,17 @@ V této části kurzu se pokusíte přihlásit pomocí nového uživatelského �
 
 2. V okně **Připojit k serveru** zadejte název serveru a ověřovací informace pro připojení pomocí ověřování SQL Serveru s účtem aaduser1@microsoft.com. 
     
-   ![Připojení jako aaduser1@microsoft.com bez pravidla brány firewall 1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
+   ![Připojení jako aaduser1@microsoft.com bez pravidla brány firewall&1;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
 3. Klikněte na **Možnosti**, ke které se chcete připojit, a potom do rozevíracího seznamu **Připojit k databázi** na kartě **Vlastnosti připojení** zadejte **AdventureWorksLT**.
    
-   ![Připojení jako aaduser1 bez pravidla brány firewall 2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
+   ![Připojení jako aaduser1 bez pravidla brány firewall&2;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 
 4. Klikněte na **Připojit**. Zobrazí se dialogové okno oznamující, že počítač, ze kterého se pokoušíte připojit k SQL Database, nemá pravidlo brány firewall, které přístup k databázi povoluje. Dialogové okno, které se zobrazí, má dvě varianty. Závisí na krocích, které jste s branami firewall už provedli, ale obvykle se zobrazí první uvedené okno.
 
-   ![Připojení jako user1 bez pravidla brány firewall 3](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
+   ![Připojení jako user1 bez pravidla brány firewall&3;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
 
-   ![Připojení jako user1 bez pravidla brány firewall 4](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule4.png)
+   ![Připojení jako user1 bez pravidla brány firewall&4;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule4.png)
 
    > [!NOTE]
    > Nejnovější verze aplikace SSMS obsahuje funkci, která přispěvatelům a vlastníkům předplatného umožňuje přihlášení do Microsoft Azure a vytvoření pravidla brány firewall na úrovni serveru.
@@ -299,7 +299,7 @@ V této části kurzu se pokusíte přihlásit pomocí nového uživatelského �
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![Přidání pravidla brány firewall na úrovni databáze 4](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
+   ![Přidání pravidla brány firewall na úrovni databáze&4;](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
 
 8. Znovu přejděte k druhému počítači a kliknutí na **Připojit** v dialogovém okně **Připojit k serveru** se připojte k AdventureWorksLT jako aaduser1. 
 
@@ -317,6 +317,6 @@ V této části kurzu se pokusíte přihlásit pomocí nového uživatelského �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

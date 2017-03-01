@@ -1,6 +1,6 @@
 ---
 title: "Správa pracovních prostorů | Dokumentace Microsoftu"
-description: "Správa pracovních prostorů v Log Analytics pomocí různých úloh správy prováděných s uživateli, účty, pracovními prostory a účty Azure."
+description: "Správa pracovních prostorů v Azure Log Analytics pomocí různých úloh správy prováděných s uživateli, účty, pracovními prostory a účty Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
 
 
 ---
@@ -97,10 +97,13 @@ Ohledně webu Azure Portal je třeba pamatovat na několik věcí:
 
   Adresa URL vypadá takto: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Pokud například uživatel chce přidat nebo odebrat řešení pro správu, musí být při používání webu Azure Portal administrátorem nebo přispěvatelem předplatného Azure. Navíc musí být uživatel členem skupiny přispěvatelů pracovního prostoru OMS nebo mít roli administrátora na portálu OMS.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Správa uživatelů v portálu OMS
 Uživatele a skupiny můžete spravovat na kartě **Manage Users** (Správa uživatelů) v rámci karty **Accounts** (Účty) na stránce nastavení.   
 
 ![Správa uživatelů](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Přidání uživatele do existujícího pracovního prostoru
 Pomocí následujícího postupu přidáte k pracovnímu prostoru uživatele nebo skupinu.
@@ -298,6 +301,6 @@ Pokud jste správce a k pracovnímu prostoru bylo přidruženo víc uživatelů,
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

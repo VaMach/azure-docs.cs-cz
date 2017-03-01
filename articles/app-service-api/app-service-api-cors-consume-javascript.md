@@ -4,7 +4,7 @@ description: "Zjistěte, jak používat podporu CORS v Azure App Service."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Další informace o funkcích nástroje Visual Studio, které usnadňují řeše
 
 ## <a name="next-steps"></a>Další kroky
 V tomto článku jste se seznámili s postupem, jak povolit podporu CORS v App Service, aby mohl kód JavaScript klienta volat rozhraní API v jiné doméně. Pokud se chcete dozvědět další informace o aplikacích API, přečtěte si [úvod k ověřování v App Service](../app-service/app-service-authentication-overview.md) a pak přejděte na kurz [ověřování uživatele pro aplikace API](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
