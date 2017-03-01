@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 97bbb72e044d86375afd1dc2ba40c90681e5d9a1
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Vytvoření registru kontejnerů pomocí webu Azure Portal
-Pomocí webu Azure Portal můžete vytvořit registr kontejnerů a spravovat jeho nastavení. Vytvořit a spravovat registry kontejnerů můžete také pomocí [příkazů Azure CLI 2.0 Preview](container-registry-get-started-azure-cli.md) nebo programově pomocí rozhraní [REST API služby Container Registry](https://go.microsoft.com/fwlink/p/?linkid=834376).
+Pomocí webu Azure Portal můžete vytvořit registr kontejnerů a spravovat jeho nastavení. Vytvořit a spravovat registry kontejnerů můžete také pomocí [příkazů Azure CLI 2.0 ](container-registry-get-started-azure-cli.md) nebo programově pomocí rozhraní [REST API služby Container Registry](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
 Související informace a koncepty najdete v tématu [Co je Azure Container Registry?](container-registry-intro.md)
 
@@ -77,6 +77,6 @@ Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vy
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

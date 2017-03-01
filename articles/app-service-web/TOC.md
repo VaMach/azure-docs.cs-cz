@@ -257,7 +257,7 @@
 ### [Řešení potíží s výkonem webových aplikací](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referenční informace
-## [Azure CLI 2.0 (Preview)](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # Zdroje a prostředky
 ## [Osvědčené postupy](app-service-best-practices.md)
 ## [Seznam prostředků WebJobs](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

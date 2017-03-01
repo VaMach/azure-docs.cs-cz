@@ -13,57 +13,54 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 02/15/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 07cb3fe0d5688d5b63fe3312cad14c2274a58a09
-ms.openlocfilehash: e98a64910f28da0a8a9b4a58c717c40d791ccf00
+ms.sourcegitcommit: b652c0f817e5e56d4ff50701345b03db634f616c
+ms.openlocfilehash: 043c54094f53ae539c833eb8f167201781c677a6
 
 
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Názorný průvodce: Vývoj řešení prediktivní analýzy pro posuzování úvěrového rizika v Azure Machine Learning
 
-V tomto názorném průvodci se zaměříme na proces vývoje řešení v nástroji Machine Learning Studio. Vytvoříme si model prediktivní analýzy v nástroji Machine Learning Studio a pak ho nasadíme jako webovou službu Azure Machine Learning, ve které může model vytvářet predikce na základě nových dat. 
+V tomto názorném průvodci se zaměříme na proces vývoje řešení prediktivní analýzy v nástroji Machine Learning Studio. Vytvoříme si jednoduchý model v nástroji Machine Learning Studio a pak ho nasadíme jako webovou službu Azure Machine Learning, ve které může model vytvářet predikce na základě nových dat. 
 
-> [!TIP]
-> Tento názorný průvodce předpokládá, že jste nejméně jednou předtím použili Machine Learning Studio a že rozumíte konceptům strojového učení, i když bere v úvahu, že nejste odborníkem ani na jedno.
-> 
->Pokud jste nástroj **Azure Machine Learning Studio** ještě nikdy nepoužívali, možná budete chtít začít kurzem [Vytvoření prvního experimentu datové vědy v nástroji Azure Machine Learning Studio](machine-learning-create-experiment.md). V tomto kurzu se seznámíte s nástrojem Machine Learning Studio, zjistíte, jak pomocí myši přetáhnout moduly do experimentu, vzájemně je propojit, spustit experiment a prohlédnout si výsledky.
->
->Pokud se strojovým učením teprve začínáte, může pro vás být dobrým výchozím bodem seriál videí [Data Science for Beginners (Datová věda pro začátečníky)](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Tento seriál videí představuje vynikající úvod do strojového učení s využitím jazyka a konceptů každodenního života.
-> 
+Tento názorný průvodce předpokládá, že jste nejméně jednou předtím použili Machine Learning Studio a že rozumíte konceptům strojového učení. Bere ale v úvahu, že nejste odborníkem ani na jedno.
+
+Pokud jste nástroj **Azure Machine Learning Studio** ještě nikdy nepoužívali, možná budete chtít začít kurzem [Vytvoření prvního experimentu datové vědy v nástroji Azure Machine Learning Studio](machine-learning-create-experiment.md). Tento kurz vás poprvé provede nástrojem Machine Learning Studio. Ukáže vám základy toho, jak pomocí myši přetáhnout moduly do experimentu, vzájemně je propojit, spustit experiment a prohlédnout si výsledky. Dalším nástrojem, který vám může pomoci začít, je diagram s přehledem možností nástroje Machine Learning Studio. Stáhnout a vytisknout si ho můžete odtud: [Diagram s přehledem možností nástroje Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+ 
+Pokud se strojovým učením obecně teprve začínáte, může vám pomoci série videí. Má název [Datová věda pro začátečníky](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) a poskytuje vynikající úvod do strojového učení s využitím jazyka a konceptů každodenního života.
+
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+ 
 
 ## <a name="the-problem"></a>Problém
 
-Předpokládejme, že potřebujete předpovědět úvěrové riziko u jednotlivého zákazníka na základě údajů, které uvedou v žádosti o úvěr.  
+Předpokládejme, že potřebujete předpovědět úvěrové riziko u jednotlivých zákazníků na základě údajů, které uvedli v žádosti o úvěr.  
 
-Posouzení úvěrového rizika je samozřejmě složitý problém, ale trochu si můžeme jeho parametry zjednodušit. Potom tento postup použijeme jako příklad, jak pomocí Microsoft Azure Machine Learning s nástrojem Machine Learning Studio a webovou službou Machine Learning vytvořit řešení prediktivní analýzy.  
+Posouzení úvěrového rizika je komplexní problém, ale pro účely tohoto názorného průvodce jej můžeme zjednodušit. Použijeme jej jako příklad způsobu, jakým můžete vytvořit řešení prediktivní analýzy pomocí služby Microsoft Azure Machine Learning. Využijeme k tomu nástroj Azure Machine Learning Studio a webovou službu Machine Learning.  
 
 ## <a name="the-solution"></a>Řešení
 
-V tomto podrobném názorném průvodci začneme s veřejně dostupnými daty o úvěrovém riziku, na jejichž základě vyvineme a natrénujeme prediktivní model. Potom tento model nasadíme jako webovou službu, kterou můžou k posuzování úvěrového rizika využívat další uživatelé.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+V tomto podrobném průvodci začneme s veřejně dostupnými daty o úvěrovém riziku, na jejichž základě vyvineme a natrénujeme prediktivní model. Potom model nasadíme jako webovou službu, aby ji pro posuzování úvěrového rizika mohli využívat další uživatelé.
 
 Při vytváření řešení pro posuzování úvěrového rizika budeme postupovat po těchto krocích:  
 
 1. [Vytvoření pracovního prostoru Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Nahrání existujících dat](machine-learning-walkthrough-2-upload-data.md)
-3. [Vytvoření nového experimentu](machine-learning-walkthrough-3-create-new-experiment.md)
+3. [Vytvoření experimentu](machine-learning-walkthrough-3-create-new-experiment.md)
 4. [Natrénování a vyhodnocení modelů](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5. [Nasazení webové služby](machine-learning-walkthrough-5-publish-web-service.md)
 6. [Nastavení přístupu k webové službě](machine-learning-walkthrough-6-access-web-service.md)
 
-Tento názorný postup je založen na zjednodušené verzi ukázkového experimentu [Binární klasifikace: Predikce úvěrového rizika](http://go.microsoft.com/fwlink/?LinkID=525270) na webu [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
-
-
-> [!TIP]
-> Pokud si chcete stáhnout a vytisknout diagram s přehledem funkcí nástroje Machine Learning Studio, nahlédněte do tématu [Diagram s přehledem možností nástroje Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+> [!TIP] 
+> Pracovní kopii experimentu, který vyvíjíme v tomto názorném průvodci, najdete v [Galerii Cortana Intelligence](https://gallery.cortanaintelligence.com). Přejděte k části **[Názorný průvodce – Predikce úvěrového rizika](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**, klikněte na **Open in Studio** (Otevřít v sadě Studio) a stáhněte kopii experimentu do pracovního prostoru Machine Learning Studio.
 > 
-> 
+> Tento názorný postup je založen na zjednodušené verzi ukázkového experimentu [Binární klasifikace: Predikce úvěrového rizika](http://go.microsoft.com/fwlink/?LinkID=525270), který je také k dispozici v [Galerii](http://gallery.cortanaintelligence.com/).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

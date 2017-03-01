@@ -44,8 +44,9 @@
 ### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
 ### [Vyřazení S1, S2, S3](documentdb-performance-levels.md)
 ### [Jednotky žádostí](documentdb-request-units.md)
-### Azure CLI
-#### [Vytvoření účtu](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [Vytvoření účtu](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Přidání nebo odebrání oblastí](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Podpora brány firewall](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Vysvětlení konzistence dat pomocí baseballu](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Kniha: Použití Microsoft Azure DocumentDB v aplikaci Node.js](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

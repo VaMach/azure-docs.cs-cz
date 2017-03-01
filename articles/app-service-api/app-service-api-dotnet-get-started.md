@@ -4,7 +4,7 @@ description: "Naučte se vytvářet, nasazovat a využívat aplikace API technol
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -438,10 +439,5 @@ Pokud chcete vytvořit nový projekt aplikace API od začátku, použijte šablo
 ![Šablona aplikace API v nástroji Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Šablona projektu **aplikace API Azure** je ekvivalentem možnosti vybrání **prázdné** šablony ASP.NET 4.5.2, zaškrtnutí políčka pro přidání podpory webového rozhraní API a nainstalování balíčku NuGet Swashbuckle. Kromě toho přidá šablona určitý kód konfigurace Swashbuckle, který bude bránit vytvoření duplicitních ID operací Swagger. Po vytvoření projektu aplikace API můžete tento projekt nasadit do aplikace API stejným způsobem, jaký už znáte z tohoto kurzu.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

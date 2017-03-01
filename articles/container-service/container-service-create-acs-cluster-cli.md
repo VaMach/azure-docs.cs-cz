@@ -1,6 +1,6 @@
 ---
 title: "Nasazení clusteru kontejneru Dockeru – Azure CLI | Dokumentace Microsoftu"
-description: "Nasazení clusteru služby Azure Container Service pomocí Azure CLI 2.0 Preview"
+description: "Nasazení clusteru služby Azure Container Service pomocí Azure CLI 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0 (Preview)
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0
 
-Pomocí příkazů `az acs` v Azure CLI 2.0 (Preview) můžete vytvořit a spravovat clustery ve službě Azure Container Service. Cluster Azure Container Service můžete také nasadit pomocí webu [Azure Portal](container-service-deployment.md) nebo rozhraní API služby Azure Container Service.
+Pomocí příkazů `az acs` v Azure CLI 2.0 můžete vytvořit a spravovat clustery ve službě Azure Container Service. Cluster Azure Container Service můžete také nasadit pomocí webu [Azure Portal](container-service-deployment.md) nebo rozhraní API služby Azure Container Service.
 
 Nápovědu k příkazům `az acs` získáte předáním parametru `-h` příslušnému příkazu. Například: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Požadavky
-K vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0 (Preview) musíte mít:
+K vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0 musíte mít:
 * účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)),
-* nainstalované a nastavené [Azure CLI verze 2.0 (Preview)](/cli/azure/install-az-cli2).
+* nainstalované a nastavené [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Začínáme 
 ### <a name="log-in-to-your-account"></a>Přihlášení k účtu
@@ -41,7 +41,7 @@ K vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0 (Preview) m
 az login 
 ```
 
-Postupujte podle zobrazených výzev a interaktivně se přihlaste. Další způsoby přihlášení najdete v tématu [Začínáme s Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2).
+Postupujte podle zobrazených výzev a interaktivně se přihlaste. Další způsoby přihlášení najdete v tématu [Začínáme s Azure CLI 2.0](/cli/azure/get-started-with-az-cli2).
 
 ### <a name="set-your-azure-subscription"></a>Nastavení předplatného Azure
 
@@ -74,7 +74,7 @@ Ostatní vstupy jsou nastavené na výchozí hodnoty (viz následující obrazov
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Rychlý příkaz `acs create` s využitím výchozích hodnot
-Pokud máte soubor s veřejným klíčem SSH `id_rsa.pub` ve výchozím umístění (nebo jste jej vytvořili pro [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), použijte příkaz podobný tomuto:
+Pokud máte soubor s veřejným klíčem SSH RSA `id_rsa.pub` ve výchozím umístění (nebo jste jej vytvořili pro [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), použijte příkaz podobný tomuto:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -145,6 +145,6 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 * [Práce s Azure Container Service a Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

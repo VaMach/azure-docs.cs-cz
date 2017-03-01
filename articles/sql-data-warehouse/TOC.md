@@ -83,7 +83,6 @@
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Pokyny k PolyBase](sql-data-warehouse-load-polybase-guide.md)
@@ -146,8 +145,3 @@
 ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
 ### [Integrace dat](sql-data-warehouse-partner-data-integration.md)
 ### [Správa dat](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: 5adacea6033070e808f9bf5e76bae0f45f7f1199
+ms.openlocfilehash: e922590c500517c93f7682b5cca5ef6a2c89de53
 
 
 ---
@@ -49,6 +49,9 @@ Zde je výčet, co může Site Recovery poskytnout vašemu podniku:
 * **Převzetí služeb při selhání několika virtuálních počítačů** – Je možné nastavit plány obnovení, které zahrnují skripty a runbooky služby Azure Automation. Plány obnovení umožňují modelovat a přizpůsobit převzetí služeb při selhání a obnovení vícevrstvých aplikací, které jsou rozdělené do několika virtuálních počítačů.
 * **Integrace se stávajícími technologiemi BCDR** – Site Recovery se integruje s dalšími technologiemi BCDR. Site Recovery je například možné použít k ochraně back-endu systému SQL Server u firemních úloh, včetně nativní podpory pro SQL Server AlwaysOn, pokud jde o přebírání služeb skupin dostupnosti při selhání.
 
+## <a name="which-regions-are-supported"></a>Které oblasti jsou podporovány?
+Další informace o oblastech, ve kterých je služba Azure Site Recovery dostupná, najdete [zde](https://azure.microsoft.com/en-us/regions/services/). 
+
 ## <a name="what-can-i-replicate"></a>Co mohu replikovat?
 Zde naleznete souhrn toho, co dokáže nástroj Site Recovery replikovat.
 
@@ -78,7 +81,6 @@ Site Recovery poskytuje replikaci se sledováním aplikací, aby úlohy a aplika
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

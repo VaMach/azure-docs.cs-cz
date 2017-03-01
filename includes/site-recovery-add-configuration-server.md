@@ -3,7 +3,7 @@
     ![Než začnete](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. Na stránce **Licence k softwaru jiného výrobce** vyberte **Souhlasím** pro stažení a instalaci MySQL.
 
-    ![Software jiného výrobce](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Software jiných výrobců](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. Na stránce **Registrace** vyberte registrační klíč, který jste si stáhli z trezoru.
 
     ![Registrace](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * Pokud stávající proxy server vyžaduje ověření nebo pokud chcete pro připojení zprostředkovatele používat vlastní proxy server, vyberte **Připojit se s vlastním nastavením proxy serveru**.
 
      * Pokud použijete vlastní proxy server, budete muset zadat adresu, port a přihlašovací údaje.
-     * Pokud používáte proxy server, měli byste už mít povolené adresy URL popisované v [požadavcích](#configuration-server-prerequisites).
+     * Pokud používáte proxy server, měli byste už mít povolené adresy URL popisované v [požadavcích](#prerequisites).
 
      ![Brána firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Na stránce **Kontrola předpokladů** instalační program provede kontrolu a ověří, že lze spustit instalaci. Pokud se zobrazí varování u položky **Kontrola synchronizace globálního času**, ověřte, že čas na systémových hodinách (nastavení **Datum a čas**) je stejný jako časové pásmo.
@@ -42,6 +42,6 @@
 Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

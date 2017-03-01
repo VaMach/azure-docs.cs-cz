@@ -39,6 +39,7 @@
 ### [Dělené fronty a témata](service-bus-partitioning.md)
 ### [Fronty nedoručených zpráv](service-bus-dead-letter-queues.md)
 ### [Zpracování transakcí](service-bus-transactions.md)
+### [Diagnostické protokoly](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

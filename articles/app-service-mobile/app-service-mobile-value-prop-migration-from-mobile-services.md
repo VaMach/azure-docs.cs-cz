@@ -4,7 +4,7 @@ description: "Zjistěte, jaké výhody přináší služba App Service pro exist
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -63,10 +64,5 @@ Back-end a databáze je možné automaticky zálohovat. Kód a data jsou zabezpe
 S *Azure App Service* je nyní možné pro své mobilní aplikace vytvořit několik privátních testovacích a přípravných prostředí. Můžete je využít k otestování aplikací předtím, než je nasadíte. Do ostrého provozu je možné přejít zcela bez výpadku. Webové aplikace se načítají předem – díky tomu mají zákazníci maximální pohodlí.
 
 Výhody *App Service* pro existující Mobile Service můžete začít využívat tak, že si projdete tento [kurz](app-service-mobile-migrating-from-mobile-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

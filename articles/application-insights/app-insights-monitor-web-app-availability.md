@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
 
 
 ---
@@ -29,7 +29,7 @@ Webové testy můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, kte
 Existují dva typy webového testu:
 
 * [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure.
-* [Vícekrokový test webu](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Ultimate nebo Visual Studio Enterprise a odeslat na portál.
+* [Vícekrokový webový test](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Enterprise a odeslat na portál.
 
 Můžete vytvořit až 10 webových testů na prostředek aplikace.
 
@@ -78,37 +78,20 @@ Tyto grafy kombinují výsledky pro všechny webové testy aplikace.
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Pokud se zobrazí chyby
 Klikněte na červenou tečku.
 
-![Klikněte na červenou tečku](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Klikněte na červenou tečku](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Případně přejděte dolů a klikněte na tlačítko test, kde uvidíte menší než 100% úspěch.
 
-![Klikněte na konkrétní test webu](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Z výsledku webového testu můžete provádět následující akce:
 
-Otevřou se výsledky tohoto testu.
+* Kontrolovat odpověď přijatou ze serveru.
+* Otevřít telemetrii zaslanou aplikací serveru při zpracovávání instance neúspěšné žádosti.
+* Zaznamenat problém nebo pracovní položku do Gitu nebo VSTS kvůli sledování problému. Chyba bude obsahovat odkaz na tuto událost.
+* Otevřít výsledek webového testu v sadě Visual Studio.
 
-![Klikněte na konkrétní test webu](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Test se spouští z několika umístění&#151; vyberte takový, kde jsou výsledky méně než 100%.
-
-![Klikněte na konkrétní test webu](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Přejděte dolů na **Nezdařené testy** a vyberte výsledek.
-
-Klikněte na výsledek pro vyhodnocení na portálu a podívejte se, proč byl neúspěšný.
-
-![Výsledek spuštění webového testu](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Alternativně můžete stáhnout soubor s výsledky a zkontrolovat v sadě Visual Studio.
 
 *Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
 
-### <a name="open-the-server-request-and-exceptions"></a>Otevření požadavku serveru a výjimek
-
-Z podrobných vlastností konkrétního testu můžete otevřít sestavu požadavku a dalších událostí, například výjimek, na straně serveru.
-
-![Výsledek spuštění webového testu](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Pokud související položky nevidíte, může to být způsobené spuštěným [vzorkováním](app-insights-sampling.md).
+*Žádné související položky?* To může být způsobené tím, že je v probíhá [Vzorkování](app-insights-sampling.md).
 
 ## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
@@ -122,7 +105,7 @@ Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Stud
 Všimněte si, že nemůžete použít kódované funkce ve svých testech: kroky scénáře musí být obsaženy jako skript v souboru .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Záznam scénáře
-Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise nebo Ultimate.
+Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
 1. Vytvořte projekt testu výkonnosti webu.
 
@@ -239,7 +222,7 @@ V okně Přehled otevřete **Nastavení**, **Testy výkonnosti**. Při vytváře
 Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 ## <a name="automation"></a>Automation
-* [Automaticky používat skripty prostředí PowerShell k nastavení webového](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) testu.
+* [Automaticky používat skripty prostředí PowerShell k nastavení webového](app-insights-powershell.md#add-an-availability-test) testu.
 * Nastavení [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
 
 ## <a name="questions-problems"></a>Máte dotazy? Problémy?
@@ -294,6 +277,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
