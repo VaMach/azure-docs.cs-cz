@@ -28,6 +28,20 @@
 ### [Aplikace Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
+# Běžné příklady
+## Příklady rozhraní příkazového řádku
+### [Vytvoření webové aplikace a nasazení kódu z Githubu](./scripts/app-service-cli-deploy-github.md)
+### [Vytvoření webové aplikace s průběžným nasazováním z Githubu](./scripts/app-service-cli-continuous-deployment-github.md)
+### [Vytvoření webové aplikace a nasazení kódu z místního úložiště Git](./scripts/app-service-cli-deploy-local-git.md)
+### [Vytvoření webové aplikace a nasazení kódu do přípravného prostředí](./scripts/app-service-cli-deploy-staging-environment.md)
+### [Vytvoření webové aplikace ASP.NET Core v kontejneru Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
+### [Mapování vlastní domény na webovou aplikaci](./scripts/app-service-cli-configure-custom-domain.md)
+### [Ruční škálování webové aplikace](./scripts/app-service-cli-scale-manual.md)
+### [Škálování webové aplikace po celém světě s využitím architektury s vysokou dostupností](./scripts/app-service-cli-scale-high-availability.md)
+### [Připojení webové aplikace k databázi SQL](./scripts/app-service-cli-app-service-sql.md)
+### [Připojení webové aplikace k účtu úložiště](./scripts/app-service-cli-app-service-storage.md)
+### [Monitorování webové aplikace pomocí protokolů webového serveru](./scripts/app-service-cli-monitor.md)
+
 # Postup
 
 ## Plánování a návrh
@@ -156,8 +170,3 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=app-service) 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

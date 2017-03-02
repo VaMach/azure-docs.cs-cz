@@ -15,6 +15,7 @@
 ### [Ochrana webového rozhraní API back-endu pomocí AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Připojení k virtuální síti](api-management-using-with-vnet.md)
 ### [Připojení k interní virtuální síti](api-management-using-with-internal-vnet.md)
+### [Integrace Application Gateway v interní virtuální síti](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Vzájemné ověřování certifikátů](api-management-howto-mutual-certificates.md)
 ## Konfigurace zásad
 ### [Vlastní ukládání do mezipaměti](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Rejstřík referenčních informací o zásadách](api-management-policy-reference.md)
 ### [Přehled zásad](api-management-howto-policies.md)
 ### [Správa tajných klíčů pomocí vlastností](api-management-howto-properties.md)
+### [Zabezpečení rozhraní API pomocí ověření klientského certifikátu](api-management-howto-mutual-certificates-for-clients.md)
 ## Přizpůsobení prostředí pro vývojáře
-### [Přizpůsobení portálu pro vývojáře](api-management-customize-portal.md)
+### [Změna rozložení a obsahu stránek](api-management-modify-content-layout.md)
+### [Přizpůsobení stylu prvků na stránce](api-management-customize-styles.md)
+### [Přizpůsobení systémových stránek pomocí šablon](api-management-developer-portal-templates.md)
 ### [Ověřování pomocí AAD](api-management-howto-aad.md)
+### [Ověřování pomocí AAD B2C](api-management-howto-aad-b2c.md)
 ### [Delegované ověřování](api-management-howto-setup-delegation.md)
 ### [E-mailová oznámení a šablony](api-management-howto-configure-notifications.md)
 ### [Povolení podpory OAuth v konzole](api-management-howto-oauth2.md)
-### [Přizpůsobení pomocí šablon](api-management-developer-portal-templates.md)
 ## Správa v produkčním prostředí
 ### [Správa skupin](api-management-howto-create-groups.md)
 ### [Nasazení do několika oblastí Azure](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Poskytnutí přístupu podobného RBAC pomocí rozhraní REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Nastavení nástroje PostMan pro volání rozhraní API služby API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Plug-in API Management pro SmartBear Ready! Rozhraní API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -45,9 +45,17 @@
 
 ## [Kódování obsahu](media-services-encode-asset.md)
 ### [Porovnání kodérů](media-services-compare-encoders.md)
-### [Kódy chyb](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Kodeky a formáty Media Encoderu Standard](media-services-media-encoder-standard-formats.md)
+#### [Použití MES k automatickému vygenerování žebříčku přenosových rychlostí](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Kódování pomocí Media Encoderu Standard
+##### [Azure Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Pokročilé kódování pomocí MES](media-services-advanced-encoding-with-mes.md)
+##### [Přizpůsobení předvoleb Media Encoderu Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Postup generování miniatur pomocí kodéru Media Encoder Standard a .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Oříznutí videa pomocí kodéru Media Encoder Standard](media-services-crop-video.md)
 #### Schémata MES
 ##### [Schéma Media Encoderu Standard](media-services-mes-schema.md)
 ##### [Vstupní metadata](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Kódování pomocí Media Encoderu Standard
-##### [Azure Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Pokročilé kódování pomocí MES](media-services-advanced-encoding-with-mes.md)
-##### [Postup generování miniatur pomocí kodéru Media Encoder Standard a .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Oříznutí videa pomocí kodéru Media Encoder Standard](media-services-crop-video.md)
 ### Pracovní postup kodéru Media Encoder Premium
 #### [Formáty a kodeky pracovního postupu Media Encoderu Premium](media-services-premium-workflow-encoder-formats.md)
 #### Kódování pomocí pracovního postupu kodéru Media Encoder Premium
@@ -92,9 +93,11 @@
 ##### [Výukové kurzy k pracovním postupům kodéru Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Vytváření pokročilých pracovních postupů kódování pomocí Návrháře postupu provádění](media-services-workflow-designer.md)
 ##### [Pracovní postup Premium s více vstupy](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Vytvoření úlohy, která generuje bloky fMP4](media-services-generate-fmp4-chunks.md)
 ### Procesory médií
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Kódy chyb](media-services-encoding-error-codes.md)
 ### Zastaralé
 #### [Statické balení a šifrování](media-services-static-packaging.md)
 
@@ -215,8 +218,3 @@
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Komunita Azure Media Services](media-services-community.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
