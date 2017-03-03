@@ -105,6 +105,7 @@
 #### Vytvoření clusteru v Azure
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio a Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Typy uzlů a škálovací sady virtuálních počítačů](service-fabric-cluster-nodetypes.md)
 #### [Škálování clusteru](service-fabric-cluster-scale-up-down.md)
 #### [Upgrade clusteru](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Bezplatné vyzkoušení Party Clusteru](http://aka.ms/tryservicefabric)
 
 ### Samostatné clustery
+#### [Plánování a příprava nasazení](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Obsah samostatného balíčku Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Vytvoření samostatného clusteru](service-fabric-cluster-creation-for-windows-server.md)
 #### [Vytvoření samostatného clusteru v Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Škálování clusteru](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

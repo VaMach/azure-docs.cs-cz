@@ -21,6 +21,7 @@
 ### [Pomocí DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Nahrávání dat z offline zdrojů](data-lake-store-offline-bulk-data-upload.md)
+### [Migrace Azure Data Lake Store napříč oblastmi](data-lake-store-migration-cross-region.md)
 
 ## Zabezpečení dat
 ### [Přehled zabezpečení](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

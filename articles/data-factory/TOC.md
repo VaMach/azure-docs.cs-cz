@@ -63,6 +63,7 @@
 ### [Aktivita MapReduce služby HDInsight](data-factory-map-reduce.md)
 ### [Aktivita Streamování služby HDInsight](data-factory-hadoop-streaming-activity.md)
 ### [Aktivita Provedení dávky služby Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+### [Aktivita Aktualizace prostředků služby Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Aktivita Uložená procedura](data-factory-stored-proc-activity.md)
 ### [Aktivita U-SQL služby Data Lake Analytics](data-factory-usql-activity.md)
 ### [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
@@ -99,8 +100,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

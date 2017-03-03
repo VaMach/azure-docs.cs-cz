@@ -9,12 +9,31 @@
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Správa licencí AD](active-directory-licensing-what-is.md)
+## Správa licencí Azure AD
+### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
+### [Portál Classic](active-directory-licensing-what-is.md)
 ## [Získejte Azure pro vaši organizaci](sign-up-organization.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
 ## [Kurzy aplikací SaaS](active-directory-saas-tutorial-list.md)
 
 # Postup
+## Plánování a návrh
+### [Nasazení řešení s hybridní identitou](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Určení požadavků
+##### [Identita](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Synchronizace adresářů](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Vícefaktorové ověřování](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Strategie životního cyklu identit](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Plánování zabezpečení dat](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Ochrana dat](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Správa obsahu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Řízení přístupu](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Reakce na incidenty](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Plánování životního cyklu identity
+##### [Úlohy](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Strategie přijetí](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Další kroky](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Porovnání nabídek](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Správa uživatelů
 ### Přidání uživatelů
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -47,17 +66,26 @@
 ### Vytváření rozšířených pravidel
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Portál Classic](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Licencování na základě skupin](active-directory-licensing-whatis-azure-portal.md)
+#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifikace a řešení potíží s licencemi pro skupinu](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Postup migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
-## [Zobrazení sestav zabezpečení a aktivit](active-directory-view-access-usage-reports.md)
-### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
+## [Zobrazení sestav aktivit](active-directory-view-access-usage-reports.md)
+### [Přihlášení](active-directory-reporting-activity-sign-ins.md)
+### [Protokoly auditu](active-directory-reporting-activity-audit-logs.md)
+### [Ohrožení uživatelé](active-directory-reporting-security-user-at-risk.md)
+### [Riziková přihlášení](active-directory-reporting-security-risky-sign-ins.md)
 ### [Nejčastější dotazy](active-directory-reporting-faq.md)
 ### [Migrace sestav](active-directory-reporting-migration.md)
-
 ### [Známé sítě](active-directory-known-networks.md)
 
-### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
+### Portál Classic
+#### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
+#### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
 #### [Preview](active-directory-reporting-azure-portal.md)
 #### [Rozhraní API](active-directory-reporting-api-getting-started.md)
 ##### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [Požadavky](active-directory-reporting-api-prerequisites.md)
 ##### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [Události auditu](active-directory-reporting-audit-events.md)
 #### [Uchování](active-directory-reporting-retention.md)
 #### [Latence](active-directory-reporting-latencies.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
-### Vysvětlení sestav
-#### [Nestandardní přihlašování](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Několik neúspěchů](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Podezřelé IP adresy](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Několik geografických poloh](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Potenciální nakažená zařízení](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Neznámé zdroje](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Vysvětlení sestav
+##### [Nestandardní přihlašování](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Několik neúspěchů](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Podezřelé IP adresy](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Několik geografických poloh](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Potenciální nakažená zařízení](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Neznámé zdroje](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Správa hesel](active-directory-manage-passwords.md)
 ### [Aktualizace vlastního hesla](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [Řešení problémů](active-directory-passwords-troubleshoot.md)
 
 ## Správa zařízení
+### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
+#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
+#### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Registrace zařízení](active-directory-azureadjoin-personal-device.md)
 ### [Registrace zařízení s Windows 10](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [Knihovna dokumentů](active-directory-apps-index.md)
 
 ## Správa adresáře
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Vlastní názvy domén
 #### [Přehled](active-directory-add-domain-concepts.md)
 #### Přidání názvu domény
@@ -249,10 +278,6 @@
 ### [Podmíněný přístup](active-directory-conditional-access.md)
 #### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
-#### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
-#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
-##### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Správa aplikace Authenticator](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
 #### [Nasazení na místě](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Nasazení na virtuální počítače Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Nasazení AD DS na virtuálních počítačích Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory na virtuálních počítačích Azure](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replika řadiče domény ve virtuální síti Azure](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Nová doménová struktura ve virtuální síti Azure](active-directory-new-forest-virtual-machine.md)
 
-## [Nasazení řešení s hybridní identitou](active-directory-hybrid-identity-design-considerations-overview.md)
-### Určení požadavků
-#### [Identita](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Synchronizace adresářů](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Vícefaktorové ověřování](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Strategie životního cyklu identit](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Plánování zabezpečení dat](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Ochrana dat](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [Správa obsahu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Řízení přístupu](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Reakce na incidenty](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Plánování životního cyklu identity
-#### [Úlohy](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Strategie přijetí](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Další kroky](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Porovnání nabídek](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Nasazení AD FS v Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Vysoká dostupnost](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
