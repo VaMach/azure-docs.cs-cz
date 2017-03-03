@@ -54,6 +54,7 @@
 ### [Instalace nástroje RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Kontexty služby Compute](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Použití Sparku pro zpracování v paměti
+### [Použití Caffe pro získání hlubších znalostí](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Pomocí Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Samostatná aplikace](hdinsight-apache-spark-create-standalone-application.md)
@@ -223,8 +224,3 @@
 # Zdroje
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

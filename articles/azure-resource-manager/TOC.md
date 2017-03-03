@@ -17,6 +17,7 @@
 ### [Vytváření šablon](resource-group-authoring-templates.md)
 ### [Funkce šablon](resource-group-template-functions.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
+### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
 ### [Vytvoření více instancí prostředku daného typu](resource-group-create-multiple.md)
 ### [Předání zabezpečených hodnot během nasazení](resource-manager-keyvault-parameter.md)
 ### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

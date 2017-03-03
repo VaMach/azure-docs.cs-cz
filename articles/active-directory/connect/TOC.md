@@ -22,8 +22,10 @@
 ## Plánování a návrh
 ### [Koncepty návrhu](active-directory-aadconnect-design-concepts.md)
 ### [Topologie pro Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Jednotné přihlašování](active-directory-aadconnect-sso.md)
+### [Služba AD FS (Active Directory Federation Service) v Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Speciální aspekty pro instance](active-directory-aadconnect-instances.md)
-
+### [Pokud už máte Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Správa služby Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Obnovení certifikátů pro O365 a Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Povolení zpětného zápisu zařízení](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Automatický upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Správa synchronizace Azure AD Connect
 ### [Prevence náhodného odstranění](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Předávací ověřování](active-directory-aadconnect-pass-through-authentication.md)
 ### [Účet služby Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Průvodce instalací](active-directory-aadconnectsync-installation-wizard.md)
 ### [Změna výchozí konfigurace](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurace filtrování](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Provoz](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Provoz](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Konektory](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Návrhář Metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Vyhledávání Metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Správa federačních služeb
 ### [Správa a přizpůsobení](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Zdroje a prostředky
 ##[Azure AD Connect – nejčastější dotazy](active-directory-aadconnect-faq.md)
 ##[Zastarání DirSync](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

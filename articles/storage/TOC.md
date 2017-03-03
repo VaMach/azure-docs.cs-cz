@@ -45,7 +45,7 @@
 
 ## Diskové úložiště 
 ### [Vytvoření virtuálního počítače pomocí Resource Manageru a PowerShellu](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Připojení spravovaného disku k virtuálnímu počítači s Windows pomocí PowerShellu](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Přidání spravovaného disku k virtuálnímu počítači s Linuxem](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků ve Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Nastavení a načtení vlastností a metadat](storage-properties-metadata.md)
 ## Spravovat
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Zabezpečení
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

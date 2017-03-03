@@ -5,7 +5,7 @@
 
 # Začínáme
 ## [Vytvoření testovacího prostředí](devtest-lab-create-lab.md)
-## [Vytvoření artefaktů VM](devtest-lab-add-vm-with-artifacts.md)
+## [Vytvoření virtuálního počítače](devtest-lab-add-vm.md)
 ## [Vytvoření testovacího prostředí pro školení](devtest-lab-training-lab.md)
 ## [Nejčastější dotazy](devtest-lab-faq.md)
 
@@ -20,6 +20,7 @@
 ## Správa artefaktů
 ### [Přidání úložiště artefaktů](devtest-lab-add-artifact-repo.md)
 ### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
+### [Správa artefaktů](devtest-lab-add-vm-with-artifacts.md)
 
 ## Správa šablon a bází virtuálních počítačů
 ### [Vytvoření prostředí více virtuálních počítačů pomocí šablony Azure Resource Manageru](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
