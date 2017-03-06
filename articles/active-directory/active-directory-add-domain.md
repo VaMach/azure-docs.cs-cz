@@ -3,7 +3,7 @@ title: "Přidání vlastního názvu domény do Azure Active Directory | Dokumen
 description: "Postup přidání firemních názvů domén do Azure Active Directory a způsob ověření názvu domény."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-Vlastníte jeden nebo několik názvů domén, které vaše organizace používá ke své obchodní činnosti, a vaši uživatelé se do podnikové sítě přihlašují pomocí firemního názvu domény. Teď, když používáte Azure Active Directory (Azure AD), můžete do Azure AD přidat i název vaší firemní domény. V adresáři díky tomu můžete přiřazovat uživatelská jména, které jsou pro uživatele srozumitelná, například ‘alice@contoso.com.’. Postup je jednoduchý:
+Vlastníte jeden nebo několik názvů domén, které vaše organizace používá ke své obchodní činnosti, a vaši uživatelé se do podnikové sítě přihlašují pomocí firemního názvu domény. Teď, když používáte Azure Active Directory (Azure AD), můžete do Azure AD přidat i název vaší firemní domény. V adresáři díky tomu můžete přiřazovat uživatelská jména, které jsou pro uživatele srozumitelná, například alice@contoso.com. Proces je jednoduchý:
 
 1. Přidání vlastního názvu domény do adresáře
 2. Přidání položky DNS pro název domény u registrátora názvu domény
@@ -85,10 +86,5 @@ Pokud vaše organizace používá několik vlastních názvů domén, napříkla
 * [Další informace o konceptech správy domén ve službě Azure AD](active-directory-add-domain-concepts.md)
 * [Zobrazení firemního brandingu během přihlašování uživatelů](active-directory-add-company-branding.md)
 * [Používání PowerShellu ke správě názvů domén ve službě Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
