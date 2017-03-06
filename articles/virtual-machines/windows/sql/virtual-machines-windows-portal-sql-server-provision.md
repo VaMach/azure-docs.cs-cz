@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,11 +53,14 @@ V tomto kurzu provedete následující:
 
    ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Projděte si dostupné šablony SQL Serveru.
-6. U každé šablony je označena příslušná verze SQL Serveru a operační systém. Ze seznamu vyberte jednu z těchto imagí. Pak si v okně s podrobnostmi přečtěte popis image virtuálního počítače.
+5. Projděte si dostupné šablony SQL Serveru. U každé šablony je označena příslušná verze SQL Serveru a operační systém. 
+6. Vyberte šablonu pro SQL Server 2016 SP1 Developer v systému Windows Server 2016.
+
+   > [!TIP]
+   > V tomto kurzu se používá edice Developer, protože je to plná verze SQL Serveru, která je zdarma pro účely testování vývoje. Platíte jenom náklady na provozování virtuálního počítače.
    
    > [!NOTE]
-   > Bitové kopie virtuálního počítače SQL zahrnují licenční náklady na SQL Server do ceny vytvořených virtuálních počítačů za minutu. Existuje další možnost používání vlastní licence (BYOL) a platby pouze za virtuální počítače. Tyto názvy bitových kopií mají předponu {BYOL}. Další informace o této možnosti najdete v tématu [Začínáme se serverem SQL ve službě Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > Image virtuálního počítače SQL zahrnují licenční náklady na SQL Server do minutové ceny vytvořených virtuálních počítačů (s výjimkou edic Developer a Express). SQL Server Developer je zdarma pro vývoj/testování (ale ne pro produkci) a SQL Express je zdarma pro nenáročné úlohy (méně než 1 GB paměti, méně než 10GB úložiště). Existuje další možnost používání vlastní licence (BYOL) a platby pouze za virtuální počítače. Tyto názvy bitových kopií mají předponu {BYOL}. Další informace o této možnosti najdete v tématu [Začínáme se serverem SQL ve službě Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. U nových virtuálních počítačů se doporučuje používat model nasazení Resource Manageru. Klikněte na možnost **Vytvořit**.
@@ -243,14 +247,10 @@ Další informace najdete v tématu [Konfigurace Integrace se službou Azure Key
 Po dokončení konfigurace nastavení SQL Serveru klikněte na **OK**.
 
 ### <a name="r-services"></a>Služby R
-V edici SQL Serveru 2016 Enterprise je dostupná možnost [Služby R na SQL Serveru](https://msdn.microsoft.com/library/mt604845.aspx). Ta umožňuje pomocí SQL Serveru 2016 provádět pokročilou analýzu. V okně **Nastavení SQL Serveru** klikněte na **Povolit**.
+Je dostupná možnost pro povolení [služeb R na SQL Serveru](https://msdn.microsoft.com/library/mt604845.aspx). Ta umožňuje pomocí SQL Serveru 2016 provádět pokročilou analýzu. V okně **Nastavení SQL Serveru** klikněte na **Povolit**.
 
 ![Povolení služeb R na SQL Serveru](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> Image SQL Serveru v jiné edici než 2016 Enterprise možnost povolit služby R nemají.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Kontrola souhrnných informací
 V okně **Souhrn** zkontrolujte souhrn a pak kliknutím na **OK** vytvořte SQL Server, skupinu prostředků a prostředky zadané pro tento virtuální počítač.
@@ -299,10 +299,5 @@ Další informace o používání SQL Serveru v Azure najdete v tématu [SQL Ser
 Podívejte se na video s přehledem SQL Serveru v Azure Virtual Machines v tématu [Azure Virtual Machines je nejlepší platformou pro SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
 [Projděte si mapy kurzů](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pro SQL Server na virtuálních počítačích Azure.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

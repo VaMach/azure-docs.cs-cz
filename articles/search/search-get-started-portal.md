@@ -13,11 +13,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
-ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
+ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
+ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -102,50 +103,93 @@ Pokud chcete monitorovat import dat, vraťte se na řídicí panel služby, pře
 ## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Dotazování indexu
 Nyní máte index vyhledávání, který je připraven k dotazování. **Průzkumník služby Search** je nástroj pro dotazování, který je integrovaný v portálu. Poskytuje vyhledávací pole, abyste mohli ověřit, jestli výsledky hledání odpovídají vašemu očekávání. 
 
-   ![Příkaz průzkumníka služby Search][5]
-
 > [!TIP]
 > Ve [videu s přehledem Azure Search](https://channel9.msdn.com/Events/Connect/2016/138) jsou tyto kroky předvedené přibližně 6 min 8 s od zahájení.
 >
 
 1. Klikněte na **Průzkumník služby Search** na panelu příkazů.
 
+   ![Příkaz průzkumníka služby Search][5]
+
 2. Kliknutím na **Změnit index** na panelu příkazů přejdete k *realestate-us-sample*.
 
    ![Příkazy rozhraní API a index][6]
 
-3. Kliknutím na **Nastavit verzi API** na panelu příkazů zobrazíte, která rozhraní REST API jsou dostupná. Rozhraní API ve verzi Preview poskytují přístup k novým funkcím, které ještě nejsou obecně dostupné. Obecně dostupnou verzi (1. září&2016;) používejte, dokud nedostanete jiné pokyny. 
+3. Kliknutím na **Nastavit verzi API** na panelu příkazů zobrazíte, která rozhraní REST API jsou dostupná. Rozhraní API ve verzi Preview poskytují přístup k novým funkcím, které ještě nejsou obecně dostupné. Pro níže uvedené dotazy používejte obecně dostupnou verzi (1. září&2016;), pokud nedostanete jiné pokyny. 
 
     > [!NOTE]
     > [Rozhraní REST API služby Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) a [knihovna .NET](search-howto-dotnet-sdk.md#core-scenarios) jsou plně ekvivalentní, ale **průzkumník služby Search** umožňuje zpracovat jenom volání REST. Přijímá syntaxi pro [jednoduché dotazy](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i [kompletní analyzátor dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) a navíc všechny parametry hledání, které jsou dostupné pro operace [hledání v dokumentech](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
-    > **Průzkumník služby Search** vrátí výsledky ve formátu JSON, který je podrobný a těžko čitelný, pokud mají dokumenty kompaktní strukturu. V závislosti na vašich dokumentech bude možná nutné napsat kód, který výsledky hledání zpracuje a extrahuje z nich důležité elementy.
 
 4. Na panelu hledání zadejte uvedené řetězce dotazu a klikněte na **Hledat**.
 
   ![Příklad vyhledávacího dotazu][7]
 
-**`search=seattle`** Parametr `search` se používá pro zadání hledání klíčového slova. V tomto případě vrátí výpisy v King County ve státě Washington, které v libovolném prohledávatelném poli dokumentu obsahují text Seattle.
+**`search=seattle`**
 
-**`search=seattle&facet=beds`** Parametr `facet` vrací navigační strukturu, kterou můžete předat ovládacímu prvku uživatelského rozhraní. Vrací kategorie a počet. V takovém případě jsou kategorie založené na počtu ložnic, s počtem dokumentů nebo shod u každé z nich. Pole `"beds"` je možné použít jako omezující vlastnost, protože je v indexu označené jako filtrovatelné a kategorizovatelné a hodnoty, které obsahuje (číselné, od 1 do 5), jsou vhodné pro zařazení výpisů do skupin (výpisy se 3 ložnicemi nebo se 4 ložnicemi).  Ke spojení parametrů hledání se používá symbol `&`.
++ Parametr `search` se používá k zadání klíčového slova pro fulltextové vyhledávání. V tomto případě vrátí výpisy v King County ve státě Washington, které v libovolném prohledávatelném poli dokumentu obsahují text *Seattle*. 
 
-**`search=seattle&filter=bed gt 3`** Parametr `filter` vrací výsledky odpovídající kritériím, která jste zadali. V tomto případě víc než 3 ložnice. Syntaxe parametru Filter je založená na konstruktech jazyka OData. Další informace najdete v tématu věnovaném [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ **Průzkumník služby Search** vrátí výsledky ve formátu JSON, který je podrobný a těžko čitelný, pokud mají dokumenty kompaktní strukturu. V závislosti na vašich dokumentech bude možná nutné napsat kód, který výsledky hledání zpracuje a extrahuje z nich důležité elementy. 
 
-**`search=granite countertops&highlight=description`** Zvýrazňování shod doplní k textu odpovídajícímu klíčovému slovu další formátování (ze předpokladu, že se v konkrétním poli našly shody). Pokud je hledaný termín schovaný v popisu, můžete pomocí zvýrazňování shod usnadnit jeho nalezení. V tomto případě je formátovaná fráze `"granite countertops"` v poli popisu lépe viditelná.
++ Dokumenty se skládají ze všech polí označených v indexu jako Retrievable (zobrazitelné). Pokud chcete zobrazit atributy indexu na portálu, klikněte na *realestate-us-sample* na dlaždici **Indexy**.
 
-**`search=mice&highlight=description`**Fulltextové vyhledávání vyhledá tvary slov s podobnou sémantikou. V tomto případě výsledky hledání obsahují zvýrazněný text „mouse“ u domů se zamořením myšmi, a to v reakci na hledání klíčového slova „mice“. Ve výsledcích se díky lingvistické analýze mohou zobrazit různé tvary téhož slova. Azure Search podporuje 56 analyzátorů od společností Lucene a Microsoft. Jako výchozí se pro Azure Search používá standardní analyzátor Lucene. 
+**`search=seattle&$count=true&$top=100`**
 
-**`search=samamish`** Chybně napsaná slova, třeba Samamish místo Samammish v okolí Seattlu, při typickém hledání obvykle nevrátí shodu. Ke zpracování chybně napsaných slov můžete využít vyhledávání přibližných shod, které je popsaném v dalším příkladu.
++ Symbol `&` slouží k připojení parametrů vyhledávání, které lze zadat v libovolném pořadí. 
 
-**`search=samamish~&queryType=full`** Vyhledávání přibližných shod se povolí, pokud zadáte symbol `~` a použijete kompletní analyzátor dotazů, který syntaxi `~` správně interpretuje a parsuje. Ve výchozím nastavení se použije jednoduchý analyzátor dotazů, protože je rychlejší, ale pokud potřebujete použít vyhledávání přibližných shod, regulární výrazy, vyhledávání blízkých výrazů nebo jiné pokročilé typy dotazů, můžete se rozhodnout pro použití kompletního analyzátoru dotazů. Další informace o scénářích, které umožňuje použít kompletní analyzátor dotazů, najdete v tématu věnovaném [syntaxi dotazů Lucene ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++  Parametr `$count=true` vrací počet všech vrácených dokumentů. Monitorováním změn hlášených parametrem `$count=true` můžete ověřovat filtrovací dotazy. 
 
-**`search=*`** Prázdné hledání vrátí všechno. Prázdný dotaz můžete použít k získání celkového počtu dokumentů v indexu nebo pokud chcete použít filtr nebo omezující vlastnost pro kompletní sadu dokumentů, jak je popsáno dále.
++ Parametr `$top=100` vrací 100 dokumentů s nejvyšším hodnocením. Ve výchozím nastavení vrací služba Azure Search prvních 50 nejlepších shod. Pomocí parametru `$top` můžete tento počet navýšit nebo snížit.
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Geoprostorové hledání je podporované prostřednictvím [datového typu edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) v polích, které obsahují souřadnice. Tento dotaz vyfiltruje všechny výsledky pro poziční data, kde jsou výsledky od daného bodu (zadaného pomocí zeměpisné šířky a délky) vzdálené méně než 10 kilometrů. Geoprostorové hledání je typ filtru určený v [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+**`search=*&facet=city&$top=2`**
 
-Filtrovací výrazy se obvykle zadávají ve tvaru $filter se znakem `$`. V průzkumníku služby Search byste měli `$` vynechat.
++ Parametr `search=*` znamená prázdné vyhledávání. Prázdné vyhledávání prohledává všechno. Jedním z důvodů odeslání prázdného dotazu je použití filtru nebo omezující vlastnosti na kompletní sadu dokumentů. Chcete například, aby se fasetová navigační struktura skládala ze všech měst v indexu.
 
-Geoprostorové hledání je užitečné, pokud vaše vyhledávací aplikace obsahuje funkci typu „najít poblíž“ nebo používá navigaci podle map. Není to ale fulltextové vyhledávání. Pokud chcete, aby uživatelé mohli hledat město nebo okres podle názvu, přidejte kromě souřadnic také pole, která budou obsahovat názvy města nebo okresu.
++  Parametr `facet` vrací navigační strukturu, kterou můžete předat ovládacímu prvku uživatelského rozhraní. Vrací kategorie a počet. V tomto případě kategorie závisí na počtu měst. Ve službě Azure Search neexistuje agregace, ale můžete ji odhadnout pomocí parametru `facet`, který vrací počet dokumentů v každé kategorii.
+
++ Parametr `$top=2` vrací dva dokumenty a ilustruje, že parametr `top` můžete použít ke snížení i navýšení počtu výsledků.
+
+**`search=seattle&facet=beds`**
+
++ Tento dotaz je omezující vlastností na postele v textovém vyhledávání výrazu *Seattle*. Pole `"beds"` je možné použít jako omezující vlastnost, protože je v indexu označené jako Retrievable, Filterable a Facetable (zobrazitelné, filtrovatelné a kategorizovatelné) a hodnoty, které obsahuje (číselné, od 1 do 5), jsou vhodné pro zařazení výpisů do skupin (výpisy se 3 ložnicemi nebo se 4 ložnicemi). 
+
++ Kategorizovat je možné pouze filtrovatelná pole. Ve výsledcích je možné vrátit pouze zobrazitelná pole.
+
+**`search=seattle&$filter=beds gt 3`**
+
++ Parametr `filter` vrací výsledky odpovídající kritériím, která jste zadali. V tomto případě víc než 3 ložnice. 
+
++ Syntaxe parametru Filter je založená na konstruktech jazyka OData. Další informace najdete v tématu věnovaném [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+**`search=granite countertops&highlight=description`**
+
++ Zvýrazňování shod označuje formátování textu odpovídajícího klíčovému slovu (za předpokladu, že se v konkrétním poli našly shody). Pokud je hledaný termín schovaný v popisu, můžete pomocí zvýrazňování shod usnadnit jeho nalezení. V tomto případě je formátovaná fráze `"granite countertops"` v poli popisu lépe viditelná.
+
+**`search=mice&highlight=description`**
+
++ Fulltextové vyhledávání vyhledá tvary slov s podobnou sémantikou. V tomto případě výsledky hledání obsahují zvýrazněný text „mouse“ u domů se zamořením myšmi, a to v reakci na hledání klíčového slova „mice“. Ve výsledcích se díky lingvistické analýze mohou zobrazit různé tvary téhož slova. 
+
++ Azure Search podporuje 56 analyzátorů od společností Lucene a Microsoft. Jako výchozí se pro Azure Search používá standardní analyzátor Lucene. 
+
+**`search=samamish`**
+
++ Chybně napsaná slova, třeba Samamish místo Samammish v okolí Seattlu, při typickém hledání obvykle nevrátí shodu. Ke zpracování chybně napsaných slov můžete využít vyhledávání přibližných shod, které je popsaném v dalším příkladu.
+
+**`search=samamish~&queryType=full`**
+
++ Vyhledávání přibližných shod se povolí, pokud zadáte symbol `~` a použijete kompletní analyzátor dotazů, který syntaxi `~` interpretuje a správně parsuje. 
+
++ Vyhledávání přibližných shod bude dostupné, když vyjádříte výslovný souhlas s použitím kompletního analyzátoru dotazů nastavením parametru `queryType=full`. Další informace o scénářích, které umožňuje použít kompletní analyzátor dotazů, najdete v tématu věnovaném [syntaxi dotazů Lucene ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+
++ Když parametr `queryType` není zadaný, použije se výchozí jednoduchý analyzátor dotazů. Jednoduchý analyzátor dotazů je rychlejší, ale pokud vyžadujete vyhledávání přibližných shod, regulární výrazy, vyhledávání blízkých výrazů nebo jiné pokročilé typy dotazů, budete potřebovat celou syntaxi. 
+
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+
++ Geoprostorové hledání je podporované prostřednictvím [datového typu edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) v polích, které obsahují souřadnice. Geoprostorové hledání je typ filtru určený v [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
++ Tento vzorový dotaz vyfiltruje všechny výsledky pro poziční data, kde jsou výsledky od daného bodu (zadaného pomocí zeměpisné šířky a délky) vzdálené méně než 5 kilometrů. Přidáním parametru `$count` můžete zobrazit, kolik výsledků se vrátí, když změníte vzdálenost nebo souřadnice. 
+
++ Geoprostorové hledání je užitečné, pokud vaše vyhledávací aplikace obsahuje funkci typu „najít poblíž“ nebo používá navigaci podle map. Není to ale fulltextové vyhledávání. Pokud chcete, aby uživatelé mohli hledat město nebo okres podle názvu, přidejte kromě souřadnic také pole, která budou obsahovat názvy města nebo okresu.
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -153,9 +197,9 @@ Geoprostorové hledání je užitečné, pokud vaše vyhledávací aplikace obsa
 
   Chcete-li zobrazit jednotlivé komponenty, klikněte na dlaždice **Index**, **Indexer** nebo **Zdroje dat** na řídicím panelu, aby se zobrazil seznam existujících objektů. Další informace o úpravách indexu, které nevyžadují opětovné sestavení, najdete v části věnované [aktualizaci indexu (rozhraní REST API služby Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Uvedené nástroje a kroky vyzkoušejte i pro další zdroje dat. Ukázková datová sada, `realestate-us-sample`, je ze služby Azure SQL Database, kterou může Azure Search procházet. Kromě Azure SQL Database může Azure Search procházet také Azure Table Storage, Blob Storage, SQL Server na virtuálním počítači Azure a DocumentDB. Tento průvodce podporuje všechny tyto zdroje dat. V kódu můžete index snadno vytvořit a naplnit pomocí *indexeru*.
++ Uvedené nástroje a kroky vyzkoušejte i pro další zdroje dat. Ukázková datová sada, `realestate-us-sample`, je ze služby Azure SQL Database, kterou může Azure Search procházet. Kromě služby Azure SQL Database může Azure Search procházet také ploché struktury dat (a odvozovat z nich indexy) ve službách Azure Table Storage, Blob Storage, SQL Server na virtuálním počítači Azure a DocumentDB. Tento průvodce podporuje všechny tyto zdroje dat. V kódu můžete index snadno vytvořit a naplnit pomocí *indexeru*.
 
-+ Všechny ostatní zdroje dat jsou podporované prostřednictvím modelu Push, kdy kód do indexu aktivně vkládá nové a změněné sady řádků ve formátu JSON. Další informace najdete v tématu věnovaném [přidání, aktualizaci a odstranění dokumentů ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ Všechny ostatní zdroje dat bez indexeru jsou podporované prostřednictvím modelu Push, kdy kód do indexu aktivně vkládá nové a změněné sady řádků ve formátu JSON. Další informace najdete v tématu věnovaném [přidání, aktualizaci a odstranění dokumentů ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Další informace o ostatních funkcích uvedených v tomto článku najdete pomocí těchto odkazů:
 
@@ -175,8 +219,3 @@ Další informace o ostatních funkcích uvedených v tomto článku najdete pom
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
-
-
-<!--HONumber=Feb17_HO3-->
-
-

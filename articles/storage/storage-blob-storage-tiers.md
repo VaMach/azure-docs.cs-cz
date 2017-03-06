@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Horká a studená úroveň úložiště
 ## <a name="overview"></a>Přehled
-Azure Storage teď nabízí dvě úrovně úložiště pro ukládání objektů Blob. Data, abyste mohli data ukládat co nejhospodárněji – to znamená podle toho, jak je používáte. **Úroveň horkého úložiště** Azure je optimalizovaná pro ukládání dat, která se využívají často. **Úroveň studeného úložiště** Azure je optimalizovaná pro ukládání dat, která se nevyužívají často. U dat ve studeném úložišti se toleruje horší dostupnost, ale přesto se u nich vyžaduje vysoká odolnost a podobná přístupová a přenosová rychlost jako u horkých dat. U studených dat jsou poplatky za uložení výrazně levnější, ovšem za cenu mírně horší dostupnosti a vyšších nákladů na přístup.
+Azure Storage nabízí dvě úrovně úložiště pro ukládání objektů Blob. Data, abyste mohli data ukládat co nejhospodárněji – to znamená podle toho, jak je používáte. **Úroveň horkého úložiště** Azure je optimalizovaná pro ukládání dat, která se využívají často. **Úroveň studeného úložiště** Azure je optimalizovaná pro ukládání dat, která se nevyužívají často. U dat ve studeném úložišti se toleruje horší dostupnost, ale přesto se u nich vyžaduje vysoká odolnost a podobná přístupová a přenosová rychlost jako u horkých dat. U studených dat jsou poplatky za uložení výrazně levnější, ovšem za cenu mírně horší dostupnosti a vyšších nákladů na přístup.
 
 Data uložená v cloudu dnes narůstají exponenciální rychlostí. Pokud chcete náklady na rozšiřující se úložiště udržet pod kontrolou, je vhodné uspořádat data podle vlastností, jako je četnost přístupu a plánovaná doba uchování. Data uložená v cloudu se liší tím, jak se generují, zpracovávají a jak se k nim přistupuje po celou dobu jejich životnosti. Některá data se během svojí existence využívají nebo mění často. Některá data se používají často v rané fázi svého životního cyklu, ale s tím jak stárnou, přístup k nim výrazně klesá. Některá data se po uložení v cloudu využívají zřídka, pokud vůbec někdy.
 
@@ -100,11 +101,11 @@ V této tabulce najdete srovnání obou úrovní úložiště:
 </tr>
 <tr>
     <td><strong><center>Minimální velikost objektu<center></strong></td>
-    <td colspan="2"><center>Není k dispozici</center></td>
+    <td colspan="2"><center>–</center></td>
 </tr>
 <tr>
     <td><strong><center>Minimální doba uložení<center></strong></td>
-    <td colspan="2"><center>neuvedeno</center></td>
+    <td colspan="2"><center>–</center></td>
 </tr>
 <tr>
     <td><strong><center>Latence<br>(Čas do prvního bajtu)<center></strong></td>
@@ -341,10 +342,5 @@ Další informace najdete v tématu [Začínáme s úložištěm Azure Blob](sto
 [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
 
 [Procházení a prozkoumání účtů úložiště](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

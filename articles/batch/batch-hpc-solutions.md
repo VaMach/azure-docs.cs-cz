@@ -1,5 +1,5 @@
 ---
-title: "Řešení pro Batch a prostředí HPC v cloudu | Dokumentace Microsoftu"
+title: "Řešení pro Batch a prostředí HPC v cloudu – Azure | Dokumentace Microsoftu"
 description: "Další informace o scénářích a možnostech řešení pro dávky (batch) a vysokovýkonné výpočetní prostředí (HPC a Big Compute) v Azure"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Řešení pro Batch a prostředí HPC v cloudu Azure
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Řešení pro Batch a prostředí HPC pro rozsáhlé výpočetní úlohy
+
 Azure nabízí efektivní a škálovatelná cloudová řešení pro dávky (batch) a vysokovýkonné výpočetní prostředí (HPC) – taky známé jako *Big Compute* (provádění výpočtů ve velkém měřítku). Přečtěte si zde o úlohách řešení Big Compute a službách Azure, které je podporují, nebo přejděte přímo na [scénáře řešení](#scenarios) dále v tomto článku. Tento článek je zaměřen především na lidi, kteří mají na starosti technická rozhodnutí ve firmě, manažery pro IT a nezávislé dodavatele softwaru, ale i ostatní vývojáři a profesionálové v oblasti IT ho mohou využít k bližšímu seznámení s těmito řešeními. 
 
 Organizace musí řešit rozsáhlé výpočetní problémy: technický návrh a analýza, vykreslování obrázků, komplexní modelování, simulace typu Monte Carlo, výpočty finančních rizik a další. Azure organizacím pomáhá s řešením těchto problémů s potřebnými prostředky, rozsahem a časovým plánem. Díky službě Azure organizace můžou:
@@ -134,9 +137,4 @@ K připojení vašeho řešení Big Compute k místním prostředkům nebo prost
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

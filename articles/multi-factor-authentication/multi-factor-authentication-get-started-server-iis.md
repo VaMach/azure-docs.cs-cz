@@ -1,5 +1,5 @@
 ---
-title: "Ověření služby IIS a server Azure Multi-Factor Authentication"
+title: "Ověřování služby IIS a server Azure MFA | Dokumentace Microsoftu"
 description: "Toto je stránka Azure Multi-Factor Authentication, která vám pomůže při nasazení ověření IIS a serveru Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 6f1e4d5f8e86b621d2bfc446583324163424dc60
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="iis-authentication"></a>Ověřování IIS
+# <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurace serveru Azure Multi-Factor Authentication pro webové aplikace IIS
+
 Část Ověření služby IIS Azure Multi-Factor Authentication (MFA) Serveru použijte k povolení a konfiguraci ověřování služby IIS pro integraci s webovými aplikacemi IIS Microsoftu. Azure MFA Server nainstaluje modul plug-in, který dokáže filtrovat požadavky prováděné na webovém serveru IIS, aby bylo možné přidat Azure Multi-Factor Authentication. Modul plug-in služby IIS poskytuje podporu pro ověřování na základě formuláře a integrované HTTP ověřování systému Windows. Důvěryhodné IP adresy mohou být také nakonfigurovány k vyloučení interních IP adres z dvoufaktorového ověřování.
 
 ![Ověřování IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
@@ -74,10 +76,5 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 2. Klikněte na tlačítko **Přidat**.
 3. Jakmile se zobrazí dialogové okno Přidat důvěryhodné IP adresy, vyberte přepínač **Samostatná IP adresa**, **Rozsah IP adres** nebo **Podsíť**.
 4. Zadejte IP adresu, rozsah IP adres nebo podsíť, které chcete zařadit na seznam povolených adres. Pokud zadáváte podsíť, vyberte příslušnou síťovou masku a klikněte na **OK**. Seznam povolených adres byl přidán.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

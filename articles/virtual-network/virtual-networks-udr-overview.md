@@ -1,10 +1,10 @@
 ---
-title: "Co jsou trasy definované uživatelem a předávání IP?"
-description: "Naučte se pomocí tras definovaných uživatelem (UDR) a předávání IP přesměrovat provoz do síťových virtuálních zařízení v Azure."
+title: "Uživatelem definované trasy a předávání IP v Azure | Dokumentace Microsoftu"
+description: "Naučte se konfigurovat trasy definované uživatelem (UDR) a předávání IP pro přesměrování provozu do síťových virtuálních zařízení v Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Co jsou trasy definované uživatelem a předávání IP?
+# <a name="user-defined-routes-and-ip-forwarding"></a>Uživatelem definované trasy a předávání IP
+
 Když přidáte virtuální počítače do virtuální sítě v Azure, uvidíte, že tyto virtuální počítače automaticky umí vzájemně komunikovat prostřednictvím sítě. Není nutné určit bránu, ani když jsou virtuální počítače v různých podsítích. Totéž platí pro komunikaci z virtuálních počítačů do veřejného internetu, a dokonce i do vaší místní sítě, pokud je dostupné hybridní připojení z Azure do vlastního datacentra.
 
 Tento tok komunikace je možný díky tomu, že Azure pomocí řady systémových tras definuje toky provozu IP. Systémové trasy řídí tok komunikace v těchto scénářích:
@@ -53,8 +56,8 @@ Pakety se přes síť TCP/IP směrují na základě směrovací tabulky definova
 | Vlastnost | Popis | Omezení | Požadavky |
 | --- | --- | --- | --- |
 | Předpona adresy |Cílový rozsah CIDR, na který se trasa vztahuje, například 10.1.0.0/16. |Toto musí být platný rozsah CIDR, který reprezentuje adresy ve veřejném internetu, virtuální síti Azure nebo místním datacentru. |Ujistěte se, že **Předpona adresy** neobsahuje adresu uvedenou ve vlastnosti **Adresa dalšího segmentu**, jinak se pakety dostanou do smyčky mezi zdrojem a dalším segmentem a nikdy nedorazí do cíle. |
-| Typ dalšího segmentu |Typ segmentu Azure, do kterého se má paket odeslat. |Toto musí být jedna z následujících hodnot: <br/> **Virtuální síť**. Představuje místní virtuální síť. Pokud máte například dvě podsítě, 10.1.0.0/16 a 10.2.0.0/16, ve stejné virtuální síti, trasa každé podsítě ve směrovací tabulce bude obsahovat hodnotu dalšího segmentu *Virtuální síť*. <br/> **Brána virtuální sítě**. Představuje bránu Azure S2S VPN Gateway. <br/> **Internet.** Představuje výchozí internetovou bránu poskytovanou infrastrukturou Azure. <br/> **Virtuální zařízení.** Představuje virtuální zařízení, které jste přidali do virtuální sítě Azure. <br/> **Žádný**. Představuje černou díru. Pakety předané do černé díry se nepředají vůbec. |Typ **Žádný** se vám může hodit, pokud chcete zastavit tok paketů do určitého cíle. |
-| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Musí to být IP adresa, která je dosažitelná z virtuální sítě, ve které je použitá uživatelem definovaná trasa. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. |
+| Typ dalšího segmentu |Typ segmentu Azure, do kterého se má paket odeslat. |Toto musí být jedna z následujících hodnot: <br/> **Virtuální síť**. Představuje místní virtuální síť. Pokud máte například dvě podsítě, 10.1.0.0/16 a 10.2.0.0/16, ve stejné virtuální síti, trasa každé podsítě ve směrovací tabulce bude obsahovat hodnotu dalšího segmentu *Virtuální síť*. <br/> **Brána virtuální sítě**. Představuje bránu Azure S2S VPN Gateway. <br/> **Internet.** Představuje výchozí internetovou bránu poskytovanou infrastrukturou Azure. <br/> **Virtuální zařízení.** Představuje virtuální zařízení, které jste přidali do virtuální sítě Azure. <br/> **Žádný**. Představuje černou díru. Pakety předané do černé díry se nepředají vůbec. |Zvažte použití **virtuálního zařízení** k přímému směrování provozu na virtuálního počítač nebo interní IP adresu služby Azure Load Balancer.  Tento typ umožňuje specifikaci IP adresy, jak je popsáno níže. Typ **Žádný** se vám může hodit, pokud chcete zastavit tok paketů do určitého cíle. |
+| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Musí to být IP adresa, která je dosažitelná z virtuální sítě, ve které je použitá uživatelem definovaná trasa. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. Pokud IP adresa představuje interní IP adresu služby Azure Load Balancer, ujistěte se, že máte odpovídající pravidlo vyrovnávání zatížení pro každý z portů, pro který chcete vyrovnat zatížení.|
 
 V prostředí Azure PowerShell mají některé hodnoty „NextHopType“ odlišné názvy:
 
@@ -108,10 +111,5 @@ Tento virtuální počítač virtuálního zařízení musí být schopný přij
 ## <a name="next-steps"></a>Další kroky
 * Naučte se [vytvářet trasy v modelu nasazení Resource Manager](virtual-network-create-udr-arm-template.md) a přidružovat je k podsítím. 
 * Naučte se [vytvářet trasy v modelu nasazení Classic](virtual-network-create-udr-classic-ps.md) a přidružovat je k podsítím.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
-ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
+ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
+ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,16 +35,23 @@ K dispozici jsou i alternativní témata, na která se v případě zájmu můž
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a>Krok 1: Přidání sady Application Insights SDK
-Pokud se jedná o nový projekt, při jeho vytváření v sadě Visual Studio se ujistěte, že je vybrána možnost Application Insights.
 
-![Snímek obrazovky nového projektu ASP.NET](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-Pokud se jedná o existující projekt, klikněte pravým tlačítkem myši na Průzkumníka řešení a zvolte **Přidat telemetrii Application Insights...** nebo **Konfigurovat Application Insights**.
+Klikněte pravým tlačítkem myši na projekt webové aplikace v Průzkumníku řešení a vyberte postupně **Přidat**, **Telemetrie Application Insights...** nebo **Konfigurovat Application Insights**.
 
 ![Snímek obrazovky Průzkumníka řešení se zvýrazněnou možností Přidat telemetrii Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> Pokud pracujete s projektem jádra ASP.NET, [opravte několik řádků kódu podle těchto pokynů](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(V sadě Visual Studio 2015 je také možné přidat Application Insights v dialogovém okně Nový projekt.)
+
+Přejděte na konfigurační stránku Application Insights:
+
+![Snímek obrazovky stránky registrace vaší aplikace v Application Insights](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Vyberte účet a předplatné, které používáte pro přístup k Azure.
+2. V Azure vyberte prostředek, ve kterém chcete zobrazit data z vaší aplikace. Pro každou aplikaci obvykle vytvoříte samostatný prostředek. Pokud chcete nastavit skupinu prostředků nebo umístění, kde jsou vaše data uložená, klikněte na **Konfigurovat nastavení**. Skupiny prostředků slouží k řízení přístupu k datům. Pokud například máte několik aplikací, které tvoří součást stejného systému, můžete jejich data Application Insights ukládat do stejné skupiny prostředků.
+3. Služba Application Insights je do určitého objemu telemetrie bezplatná. Je možné nastavit limit objemu dat a vyhnout se tak poplatkům. Po vytvoření prostředku můžete výběr na portálu změnit tak, že otevřete **Funkce a ceny**, **Správa dat**, **Denní limit objemu**.
+4. Pokračujte kliknutím na **Registrovat** a nakonfigurujte Application Insights pro vaši webovou aplikaci. Telemetrie se bude posílat na web [Azure Portal](https://portal.azure.com), jak během ladění aplikace, tak po jejím publikování.
+5. Další možností je přidat k aplikaci sadu Application Insights SDK. V takovém případě vám bude telemetrie zobrazovat v sadě Visual Studio během ladění. Později se můžete na tuto stránku konfigurace vrátit, nebo počkat až po nasazení aplikace a [přepnout na telemetrie za běhu](app-insights-monitor-performance-live-website-now.md).
+
 
 ## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a>Krok 2: Spuštění aplikace
 Spusťte aplikaci pomocí F5. Otevřete různé stránky k vygenerování nějaké telemetrie.
@@ -194,9 +202,4 @@ Pokud používáte Visual Studio Team Services, můžete [získat značku pozná
 **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Zahrnuje informace o ladění pomocí telemetrie, diagnostických hledáních a podrobném procházení kódem.
 
 **[Práce s portálem Application Insights](app-insights-dashboards.md)**<br/> Zahrnuje informace o řídicích panelech, výkonných nástrojích pro diagnostiku a analýzy, výstrahách, aktivních mapách závislostí vaší aplikace a exportu telemetrie.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

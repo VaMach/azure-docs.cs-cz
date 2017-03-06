@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Přehled škálovacích sad virtuálních počítačů
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. V těchto sadách jsou všechny virtuální počítače nakonfigurované stejně, protože jejich účelem je podporovat skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Díky tomu je snazší zajistit rozsáhlé služby nabízející vysoký výpočetní výkon a zpracovávající velké objemy dat nebo kontejnerové úlohy.
 
 U aplikací, které vyžadují horizontální navyšování a snižování výpočetní kapacity, se škálovací operace implicitně vyvažují napříč doménami selhání a aktualizačními doménami. Úvod ke škálovacím sadám virtuálních počítačů najdete v tématu [Oznámení k Blogu Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 **Otázka:** Spolupracují škálovací sady virtuálních počítačů se skupinami dostupnosti Azure?
 
 **Odpověď:** Ano. Škálovací sada virtuálních počítačů je implicitní skupina dostupnosti s 5 doménami selhání a 5 aktualizačními doménami. Pod virtualMachineProfile nemusíte nic konfigurovat. Škálovací sady virtuálních počítačů s více než 100 virtuálních počítačů pokrývají více skupin umístění odpovídajících více skupinám dostupnosti. Skupina dostupnosti virtuálních počítačů může existovat ve stejné virtuální síti jako škálovací sada virtuálních počítačů. Běžnou konfigurací je umístění virtuálních počítačů řídicích uzlů, které často vyžadují jedinečnou konfiguraci, do skupiny dostupnosti, a datových uzlů do škálovací sady.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
-ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-overview"></a>Přehled služby Application Gateway
+# <a name="overview-of-application-gateway"></a>Přehled služby Application Gateway
 
 ## <a name="what-is-application-gateway"></a>Co je Application Gateway
 
@@ -92,9 +94,4 @@ Službu Application Gateway můžete vytvořit a spravovat pomocí rozhraní RES
 Po získání informací o službě Application Gateway můžete [vytvořit službu Application Gateway](application-gateway-create-gateway-portal.md) nebo [vytvořit přesměrování zpracování SSL ve službě Application Gateway](application-gateway-ssl-arm.md) pro vyrovnávání zatížení připojení HTTPS.
 
 Další informace o vytvoření služby Application Gateway používající směrování obsahu na základě adresy URL najdete v tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-arm-ps.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

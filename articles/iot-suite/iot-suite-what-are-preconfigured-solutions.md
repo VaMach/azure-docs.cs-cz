@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
-ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
+ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
+ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -38,37 +39,56 @@ Kromě nasazení a spuštění řešení v Azure si můžete stáhnout kompletn�
 
 Následující tabulka ukazuje, jak se řešení mapují na určité funkce IoT.
 
-| Řešení | Přijímání dat | Identita zařízení | Příkazy a ovládání | Pravidla a akce | Prediktivní analýza |
-| --- | --- | --- | --- | --- | --- |
-| [Vzdálené monitorování][lnk-getstarted-preconfigured] |Ano |Ano |Ano |Ano |- |
-| [Prediktivní údržba][lnk-predictive-maintenance] |Ano |Ano |Ano |Ano |Ano |
+| Řešení | Přijímání dat | Identita zařízení | Správa zařízení | Příkazy a ovládání | Pravidla a akce | Prediktivní analýza |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Vzdálené monitorování][lnk-getstarted-preconfigured] |Ano |Ano |Ano |Ano |Ano |- |
+| [Prediktivní údržba][lnk-predictive-maintenance] |Ano |Ano |- |Ano |Ano |Ano |
 
 * *Přijímání dat*: Přijímání škálovaných dat do cloudu.
-* *Identita zařízení*: Úprava jedinečné identity každého připojeného zařízení.
-* *Příkazy a ovládání*: Odesílání zpráv z cloudu do zařízení tak, aby zařízení provedlo určitou akci.
+* *Identita zařízení:* Správa jedinečných identit zařízení a řízení přístupu zařízení k řešení.
+* *Správa zařízení:* Správa metadat zařízení a provádění operací, jako například restartování zařízení a upgrady firmwaru.
+* *Příkazy a ovládání:* Odesílání zpráv z cloudu do zařízení tak, aby zařízení provedlo určitou akci.
 * *Pravidla a akce*: Back-end řešení používá pravidla, podle kterých pracuje na určitých datech typu zařízení-cloud.
-* *Prediktivní analýza*: Back-end řešení analyzuje data typu zařízení-cloud a z nich pak předpovídá, kdy by mělo dojít k určitým událostem. Například může analyzovat telemetrická data motoru letadla a určit, kdy bude zapotřebí provést údržbu.
+* *Prediktivní analýza:* Back-end řešení analyzuje data typu zařízení-cloud a z nich pak předpovídá, kdy by mělo dojít k určitým událostem. Například může analyzovat telemetrická data motoru letadla a určit, kdy bude zapotřebí provést údržbu.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Přehled předkonfigurovaného řešení vzdáleného monitorování
 V tomto článku se budeme zabývat předkonfigurovaným řešením vzdáleného monitorování, protože ilustruje mnoho běžných prvků návrhu, které sdílejí i jiná řešení.
 
-Následující diagram ilustruje klíčové prvky řešení vzdáleného monitorování. Následující odstavce poskytují další informace o těchto prvcích.
+Následující diagram ilustruje klíčové prvky řešení vzdáleného monitorování. Následující části poskytují další informace o těchto prvcích.
 
 ![Architektura předkonfigurovaného řešení vzdáleného monitorování][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Zařízení
-Když nasadíte předkonfigurované řešení vzdáleného monitorování, bude obsahovat čtyři předem zřízená simulovaná zařízení, simulující chladicí zařízení. Tato simulovaná zařízení mají předdefinovaný model teploty a vlhkosti, který vysílá telemetrická data. Tato simulovaná zařízení jsou připojena, aby ilustrovala komplexní tok dat v řešení a poskytovala praktický zdroj telemetrický dat a cíl pro příkazy. To jistě ocení vývojáři back-endů používající řešení jako výchozí bod pro vlastní implementaci.
+Když nasadíte předkonfigurované řešení vzdáleného monitorování, bude obsahovat čtyři předem zřízená simulovaná zařízení, simulující chladicí zařízení. Tato simulovaná zařízení mají předdefinovaný model teploty a vlhkosti, který vysílá telemetrická data. Tato simulovaná zařízení jsou zahrnuta, protože:
+- Znázorňují tok dat řešením od začátku do konce.
+- Poskytují praktický zdroj telemetrie.
+- Můžou být cílem pro metody nebo příkazy, pokud jste vývojář back-endu a používáte řešení jako výchozí bod pro vlastní implementaci.
 
-Když se zařízení poprvé připojí na IoT Hub v rámci předkonfigurovaného řešení vzdáleného monitorování, odešle do centra IoT informační zprávu. V ní bude uveden seznam příkazů, na které zařízení může reagovat. Příkazy pro předkonfigurované řešení vzdáleného monitorování jsou následující: 
+Simulovaná zařízení v tomto řešení můžou reagovat na následující komunikace typu cloud-zařízení:
 
-* *Ping Device* (Odeslat do zařízení příkaz ping): Zařízení na tento příkaz odpoví potvrzením. Tímto způsobem snadno zjistíte, zda je zařízení stále aktivní a naslouchá.
+- *Metody ([přímé metody][lnk-direct-methods]):* Způsob obousměrné komunikace, u kterého se očekává, že připojené zařízení bude reagovat okamžitě.
+- *Příkazy (zprávy typu cloud-zařízení):* Způsob jednosměrné komunikace, při které zařízení načítá příkazy z trvalé fronty.
+
+Porovnání těchto rozdílných přístupů najdete v [doprovodných materiálech ke komunikaci typu cloud-zařízení][lnk-c2d-guidance].
+
+Když se zařízení poprvé připojí ke službě IoT Hub v rámci předkonfigurovaného řešení, odešle do služby zprávu s informacemi o zařízení. V ní bude uveden seznam metod, na které zařízení může reagovat. V předkonfigurovaném řešení vzdáleného monitorování podporují simulovaná zařízení tyto metody:
+
+* *Initiate Firmware Update* (Zahájit aktualizaci firmwaru): Tato metoda v zařízení zahájí asynchronní úlohu, která provede aktualizaci firmwaru. Asynchronní úloha pomocí ohlášených vlastností doručuje aktualizace stavu do řídicího panelu služby.
+* *Reboot* (Restartovat): Tato metoda způsobí, že se simulované zařízení restartuje.
+* *FactoryReset* (Obnovení do výrobního nastavení): Tato metoda v simulovaném zařízení aktivuje obnovení do výrobního nastavení.
+
+Když se zařízení poprvé připojí ke službě IoT Hub v rámci předkonfigurovaného řešení, odešle do služby zprávu s informacemi o zařízení. V ní bude uveden seznam příkazů, na které zařízení může reagovat. V předkonfigurovaném řešení vzdáleného monitorování podporují simulovaná zařízení tyto příkazy:
+
+* *Ping Device* (Odeslat do zařízení příkaz ping): Zařízení na tento příkaz odpoví potvrzením. Tímto příkazem snadno zjistíte, zda je zařízení stále aktivní a naslouchá.
 * *Start Telemetry* (Spustit telemetrii): Dá zařízení pokyn, aby začalo odesílat telemetrii.
 * *Stop Telemetry* (Zastavit telemetrii): Dá zařízení pokyn, aby přestalo odesílat telemetrii.
-* *Change Set Point Temperature* (Změnit nastavenou teplotu): Ovládá hodnoty simulované teplotní telemetrie, které zařízení odesílá. Tímto způsobem snadno otestujete logiku back-endu.
+* *Change Set Point Temperature* (Změnit nastavenou teplotu): Ovládá hodnoty simulované teplotní telemetrie, které zařízení odesílá. Tímto příkazem snadno otestujete logiku back-endu.
 * *Diagnostic Telemetry* (Diagnostická telemetrie): Ovládá, zda má zařízení odesílat externí teplotu jako telemetrický údaj.
-* *Change Device State* (Změnit stav zařízení): Nastaví vlastnosti metadat o stavu zařízení, která zařízení odesílá. Tímto způsobem snadno otestujete logiku back-endu.
+* *Change Device State* (Změnit stav zařízení): Nastaví vlastnosti metadat o stavu zařízení, která zařízení odesílá. Tímto příkazem snadno otestujete logiku back-endu.
 
-Do řešení můžete přidat další simulovaná zařízení, která vysílají stejná telemetrická data a odpovídají na stejné příkazy. 
+Do řešení můžete přidat další simulovaná zařízení, která vysílají stejnou telemetrii a reagují na stejné metody a příkazy.
+
+Řešení kromě reagování na příkazy a metody využívá i [dvojčata zařízení][lnk-device-twin]. Zařízení pomocí dvojčat zařízení hlásí hodnoty vlastností do back-endu řešení. Řídicí panel řešení používá dvojčata zařízení k nastavení nových hodnot požadovaných vlastností v zařízeních. Například během procesu aktualizace firmwaru simulované zařízení pomocí ohlášených vlastností hlásí stav aktualizace.
 
 ## <a name="iot-hub"></a>IoT Hub
 V tomto předkonfigurovaném řešení odpovídá instance služby IoT Hub *cloudové bráně* v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
@@ -77,29 +97,43 @@ Centrum IoT získává telemetrická data ze zařízení v jednom koncovém bod�
 
 Centrum IoT zpřístupňuje získaná telemetrická data přes koncový bod čtení telemetrických dat na straně služby.
 
+Možnost správy zařízení služby IoT Hub umožňuje spravovat vlastnosti zařízení z portálu řešení a plánovat úlohy provádějící operace, jako třeba:
+
+- Restartování zařízení
+- Změna stavu zařízení
+- Aktualizace firmwaru
+
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Předkonfigurované řešení používá tři úlohy [Azure Stream Analytics][lnk-asa] (ASA), jejichž pomocí filtruje datový proud telemetrických dat ze zařízení:
 
-* *Úloha DeviceInfo (Informace o zařízení)* – Odesílá výstupní data do centra událostí, které do registru zařízení pro řešení směruje zprávy specifické pro registraci. Ty se ve chvíli, kdy se zařízení poprvé připojí nebo odpoví na příkaz **Change Device State**, odesílají do registru zařízení řešení (databáze DocumentDB). 
+* *Úloha DeviceInfo* (Informace o zařízení) – Odesílá výstupní data do centra událostí, které do registru zařízení pro řešení (databáze DocumentDB) směruje zprávy specifické pro registraci zařízení. Zpráva se odešle ve chvíli, kdy se zařízení poprvé připojí, nebo v reakci na příkaz **Change Device State**.
 * *Úloha Telemetry (Telemetrie)* – Odesílá veškerá nezpracovaná telemetrická data do služby Azure Blob Storage, uloží málo používaná data a vypočítá ze získaných telemetrických dat agregované hodnoty, které se zobrazují na řídicím panelu řešení.
-* *Úloha Rules (Pravidla)* – Filtruje datový proud telemetrie podle hodnot, které přesahují stanovené mezní hodnoty pravidel. Výstupní data odesílá do centra událostí. Jakmile se spustí pravidlo, na řídicím panelu portálu řešení se tato událost objeví jako nový řádek v tabulce historie alarmů. Také spustí akci založenou na nastaveních definovaných v sekcích portálu Pravidla a akce.
+* *Úloha Rules (Pravidla)* – Filtruje datový proud telemetrie podle hodnot, které přesahují stanovené mezní hodnoty pravidel. Výstupní data odesílá do centra událostí. Jakmile se spustí pravidlo, na řídicím panelu portálu řešení se tato událost objeví jako nový řádek v tabulce historie alarmů. Tato pravidla můžou také aktivovat akce v závislosti na nastaveních definovaných v zobrazeních **Pravidla** a **Akce** na portálu řešení.
 
 V tomto předkonfigurovaném řešení jsou úlohy ASA součástí **back-endu řešení IoT** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Procesor událostí
 V tomto předkonfigurovaném řešení je procesor událostí součástí **back-endu řešení IoT** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
-Úlohy ASA **DeviceInfo** a **Rules** odesílají výstup do center událostí, odkud se přeposílají do dalších služeb back-endu. Toto řešení využívá instanci třídy [EventPocessorHost][lnk-event-processor] spuštěnou v rámci [webové úlohy][lnk-web-job] ke čtení zpráv z těchto center událostí. **EventProcessorHost** používá data úlohy **DeviceInfo**, která slouží k aktualizaci dat zařízení v databázi DocumentDB. Dále používá data úlohy **Rules**, přes která vyvolává aplikaci logiky a aktualizuje zobrazování upozornění na portálu řešení.
+Úlohy ASA **DeviceInfo** a **Rules** odesílají výstup do center událostí, odkud se přeposílají do dalších služeb back-endu. Toto řešení využívá instanci třídy [EventPocessorHost][lnk-event-processor] spuštěnou v rámci [webové úlohy][lnk-web-job] ke čtení zpráv z těchto center událostí. Instance **EventProcessorHost** využívá:
+- Data úlohy **DeviceInfo** k aktualizaci dat zařízení v databázi DocumentDB.
+- Data úlohy **Rules** k vyvolání aplikace logiky a aktualizaci zobrazování upozornění na portálu řešení.
 
-## <a name="device-identity-registry-and-documentdb"></a>Registr identity zařízení a databáze DocumentDB
+## <a name="device-identity-registry-device-twin-and-documentdb"></a>Registr identit zařízení, dvojčata zařízení a DocumentDB
 Každá služba IoT Hub obsahuje [registr identit zařízení][lnk-identity-registry], který ukládá klíče zařízení. IoT Hub používá tuto informaci k ověřování zařízení – pokud se má zařízení připojit k centru, musí být registrováno a mít platný klíč.
 
-Toto řešení ukládá další informace o zařízení, například stav, příkazy, které zařízení podporují, a další metadata. Řešení používá databázi DocumentDB, do které ukládá data zařízení, specifická pro toto řešení. Portál řešení pak z této databáze data získává, aby je bylo možné zobrazit a editovat.
+[Dvojče zařízení][lnk-device-twin] je dokument JSON spravovaný službou IoT Hub. Dvojče každého zařízení obsahuje:
+
+- Ohlášené vlastnosti, které zařízení odeslalo do služby IoT Hub. Tyto vlastnosti můžete zobrazit na portálu řešení.
+- Požadované vlastnosti, které chcete odeslat do zařízení. Tyto vlastnosti můžete nastavit na portálu řešení.
+- Značky, které existují pouze ve dvojčeti zařízení a nikoli v samotném zařízení. Pomocí těchto značek můžete na portálu řešení filtrovat seznamy zařízení.
+
+Toto řešení využívá dvojčata zařízení ke správě metadat zařízení. Řešení také využívá databázi DocumentDB, ve které ukládá další data zařízení specifická pro řešení, jako jsou příkazy podporované jednotlivými zařízeními nebo historie příkazů.
 
 Řešení musí také udržovat informace o identitě registru zařízení stále synchronizované s obsahem databáze DocumentDB. Příkaz **EventProcessorHost** používá k řízení synchronizace data z úlohy analýzy datového proudu **DeviceInfo**.
 
 ## <a name="solution-portal"></a>Portál řešení
-![Řídicí panel řešení][img-dashboard]
+![portál řešení][img-dashboard]
 
 Portál řešení je uživatelské rozhraní, které je založené na webu a nasazené v cloudu jako součást předkonfigurovaného řešení. Umožňuje:
 
@@ -107,7 +141,9 @@ Portál řešení je uživatelské rozhraní, které je založené na webu a nas
 * Zřizovat nová zařízení.
 * Spravovat a sledovat zařízení.
 * Odesílat příkazy na konkrétní zařízení.
+* Vyvolávat metody v konkrétních zařízeních.
 * Upravovat pravidla a akce.
+* Plánovat spouštění úloh v jednom nebo více zařízeních.
 
 V tomto předkonfigurovaném řešení je portál řešení součástí **back-endu řešení IoT** a součástí **připojení pro zpracování a obchodní logiku** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
@@ -127,9 +163,7 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 

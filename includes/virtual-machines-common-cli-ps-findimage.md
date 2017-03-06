@@ -1,8 +1,8 @@
 
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (Preview)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Až si [nainstalujete Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), zobrazte pomocí příkazu `az vm image list` seznam oblíbených imagí virtuálních počítačů v mezipaměti. Například následující použití příkazu `az vm image list -o table` zobrazí:
+Až si [nainstalujete Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), zobrazte pomocí příkazu `az vm image list` seznam oblíbených imagí virtuálních počítačů v mezipaměti. Například následující použití příkazu `az vm image list -o table` zobrazí:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -294,7 +294,3 @@ Z tohoto seznamu si zkopírujte název zvolené skladové jednotky (SKU) a máte
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Feb17_HO3-->
-
-

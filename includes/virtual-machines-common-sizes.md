@@ -92,44 +92,45 @@ Informace o použití těchto velikostí najdete v článku [Virtuální počít
 
 ## <a name="av2-series"></a>Av2-series
 
-| Velikost        | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost datového disku: IOPS | Max. počet NIC / Šířka pásma sítě |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2×500              | 1 / střední              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4×500              | 2 / střední              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8×500              | 4 / vysoká                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16×500             | 8 / vysoká                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4×500              | 2 / střední              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8×500              | 4 / vysoká                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16×500             | 8 / vysoká                  |
-
+| Velikost            | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Maximální propustnost místního disku: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet NIC / Šířka pásma sítě |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2×500                         | 1 / střední                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4×500                         | 2 / střední                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4×500                         | 2 / střední                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16×500                       | 8 / vysoká                     |
 
 ## <a name="d-series"></a>D-series
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost datového disku: IOPS | Max. počet NIC / Šířka pásma sítě |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2×500 |1 / střední |
-| Standard_D2 |2 |7 |100 |4 |4×500 |2 / vysoká |
-| Standard_D3 |4 |14 |200 |8 |8×500 |4 / vysoká |
-| Standard_D4 |8 |28 |400 |16 |16×500 |8 / vysoká |
-| Standard_D11 |2 |14 |100 |4 |4×500 |2 / vysoká |
-| Standard_D12 |4 |28 |200 |8 |8×500 |4 / vysoká |
-| Standard_D13 |8 |56 |400 |16 |16×500 |8 / vysoká |
-| Standard_D14 |16 |112 |800 |32 |32×500 |8 / velmi vysoká |
 
+| Velikost         | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Maximální propustnost místního disku: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet NIC / Šířka pásma sítě |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2×500                         | 1 / střední                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / vysoká                     |
+| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / vysoká                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / velmi vysoká                |
 <br>
 
 ## <a name="dv2-series"></a>Dv2-series
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost datového disku: IOPS | Max. počet NIC / Šířka pásma sítě |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2×500 |1 / střední |
-| Standard_D2_v2 |2 |7 |100 |4 |4×500 |2 / vysoká |
-| Standard_D3_v2 |4 |14 |200 |8 |8×500 |4 / vysoká |
-| Standard_D4_v2 |8 |28 |400 |16 |16×500 |8 / vysoká |
-| Standard_D5_v2 |16 |56 |800 |32 |32×500 |8 / velmi vysoká |
-| Standard_D11_v2 |2 |14 |100 |4 |4×500 |2 / vysoká |
-| Standard_D12_v2 |4 |28 |200 |8 |8×500 |4 / vysoká |
-| Standard_D13_v2 |8 |56 |400 |16 |16×500 |8 / vysoká |
-| Standard_D14_v2 |16 |112 |800 |32 |32×500 |8 / velmi vysoká |
-| Standard_D15_v2** |20 |140 |1&000; |40 |40x500 |8 / velmi vysoká* |
+
+
+| Velikost              | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Maximální propustnost místního disku: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet NIC / Šířka pásma sítě |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2×500                         | 1 / střední                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / vysoká                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / velmi vysoká           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / vysoká                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / velmi vysoká           |
+| Standard_D15_v2** | 20        | 140         | 1&000;          | 60000 / 937 / 468                                        | 40 / 40×500                       | 8 / velmi vysoká*          |
 
 *V některých oblastech je k dispozici pro velikost Standard_D15_v2 urychlení sítě. Další informace jejím využití a dostupnosti najdete v článku [Urychlení sítě je ve verzi Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) a [Urychlení sítě pro virtuální počítače](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
@@ -179,14 +180,14 @@ MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 <br>
 
 ## <a name="f-series"></a>F-series
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost disku: IOPS | Max. počet NIC / Šířka pásma sítě |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2×500 |1 / střední |
-| Standard_F2 |2 |4 |32 |4 |4×500 |2 / vysoká |
-| Standard_F4 |4 |8 |64 |8 |8×500 |4 / vysoká |
-| Standard_F8 |8 |16 |128 |16 |16×500 |8 / vysoká |
-| Standard_F16 |16 |32 |256 |32 |32×500 |8 / velmi vysoká |
 
+| Velikost         | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Maximální propustnost místního disku: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet NIC / Šířka pásma sítě |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2×500                         | 1 / střední                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / vysoká                     |
+| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / vysoká                     |
+| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / vysoká                     |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / velmi vysoká           |
 <br>
 
 ## <a name="fs-series"></a>Fs-series*
@@ -205,13 +206,14 @@ MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 <br>
 
 ## <a name="g-series"></a>G-series
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost disku: IOPS | Max. počet NIC / Šířka pásma sítě |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 × 500 |1 / vysoká |
-| Standard_G2 |4 |56 |768 |8 |8 × 500 |2 / vysoká |
-| Standard_G3 |8 |112 |1&536; |16 |16 × 500 |4 / velmi vysoká |
-| Standard_G4 |16 |224 |3&072; |32 |32 × 500 |8 / velmi vysoká |
-| Standard_G5* |32 |448 |6&144; |64 |64 × 500 |8 / velmi vysoká |
+
+| Velikost         | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | Maximální propustnost místního disku: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet NIC / Šířka pásma sítě |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 × 500                       | 1 / vysoká                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 × 500                       | 2 / vysoká                     |
+| Standard_G3  | 8         | 112         | 1&536;          | 24000 / 375 / 187                                        | 16 / 16 × 500                     | 4 / velmi vysoká                |
+| Standard_G4  | 16        | 224         | 3&072;          | 48000 / 750 / 375                                        | 32 / 32 × 500                     | 8 / velmi vysoká           |
+| Standard_G5* | 32        | 448         | 6&144;          | 96000 / 1500 / 750                                       | 64 / 64 × 500                     | 8 / velmi vysoká           |
 
 *Instance je izolovaná na hardwaru vyhrazeném pro jediného zákazníka.
 <br>
@@ -227,7 +229,7 @@ MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 
 MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 
-*Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače GS-series může být omezená počtem, velikostí a prokládáním připojených disků. 
+*Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače GS-series může být omezená počtem, velikostí a prokládáním připojených disků. Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/storage/storage-premium-storage.md). 
 
 *Instance je izolovaná na hardwaru vyhrazeném pro jediného zákazníka.
 <br>
@@ -253,7 +255,7 @@ Informace o použití těchto velikostí najdete v článku [Virtuální počít
 <br>
 
 
-## <a name="ls-series"></a>Řada Ls 
+## <a name="ls-series"></a>Ls-series* 
 
 Řada Ls je optimalizována pro úlohy, které vyžadují místní úložiště s nízkou latencí, jako jsou databáze NoSQL (např. Cassandra, MongoDB, Cloudera a Redis). Řada Ls nabízí až 32 procesorových jader a využívá [řadu procesorů Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). To je stejný výkon procesoru jako řady G/GS a má 8 GiB paměti na procesorové jádro.  
 
@@ -263,9 +265,13 @@ Informace o použití těchto velikostí najdete v článku [Virtuální počít
 | Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5 000 / 125                               | 2 / vysoká       | 
 | Standard_L8s  | 8    | 64   | 1&388; | 16             | NA / NA (0)          | 10 000 / 250                              | 4 / velmi vysoká  | 
 | Standard_L16s | 16   | 128  | 2&807; | 32             | NA / NA (0)          | 20 000 / 500                              | 8 / velmi vysoká | 
-| Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40 000 / 1 000                            | 8 / velmi vysoká | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40 000 / 1 000                            | 8 / velmi vysoká | 
  
 MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů. 
+
+*Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače Ls-series může být omezená počtem, velikostí a prokládáním připojených disků. Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/storage/storage-premium-storage.md). 
+
+*Instance je izolovaná na hardwaru vyhrazeném pro jediného zákazníka.
 
 
 
@@ -322,9 +328,4 @@ V klasickém modelu nasazení se některé názvy virtuálních počítačů s p
 ## <a name="next-steps"></a>Další kroky
 * Další informace o [Limitech, kvótách a omezeních předplatného a služeb Azure](../articles/azure-subscription-service-limits.md)
 * Další informace o [Virtuálních počítačích H-series a A-series pro výpočetně náročné aplikace](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (HPC)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

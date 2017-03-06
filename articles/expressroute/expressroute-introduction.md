@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Co se týká připojení, může se jednat o síť typu any-to-any (IP VPN), sí
 * Dynamické směrování mezi vaší sítí a Microsoftem prostřednictvím standardních protokolů (BGP).
 * Vestavěná redundance v každém umístění partnerského vztahu z důvodu vyšší spolehlivosti.
 * Smlouva [SLA](https://azure.microsoft.com/support/legal/sla/) pro provoz připojení.
-* Technologie QoS a podpora víc tříd služby pro speciální aplikace, jako je Skype pro firmy.
+* Podpora technologie QoS pro Skype pro firmy.
 
 Další informace najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ Můžete si vybrat fakturační model, který vám nejlépe vyhovuje. Zvolte si 
   * [Vytvoření okruhu ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Konfigurace směrování](expressroute-howto-routing-portal-resource-manager.md)
   * [Propojení virtuální sítě s okruhem ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

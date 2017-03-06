@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření oboru názvů služby Service Bus pomocí portálu Azure Portal | Dokumentace Microsoftu"
-description: "Abyste mohli začít používat Service Bus, budete potřebovat obor názvů. Zde zjistíte, jak ho můžete vytvořit pomocí portálu Azure Portal."
+title: "Vytvoření oboru názvů služby Service Bus na webu Azure Portal | Dokumentace Microsoftu"
+description: "Postup vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal"
 services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: ba7093f8a2c06ab4cecf11207174a4871435ae64
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,9 +37,4 @@ Podívejte se na naše [ukázky GitHub][github-samples], které představují n�
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: Co je Azure Backup? | Dokumentace Microsoftu
-description: "Pomocí Azure Backup a Recovery Services můžete zálohovat a obnovovat data a aplikace z Windows Serverů, počítačů s Windows, serverů System Center DPM a virtuálních počítačů Azure."
+description: "Pomocí služeb Azure Backup a Recovery Services můžete zálohovat a obnovovat data a aplikace ze serverů a pracovních stanic s Windows, serverů a úloh aplikace System Center DPM a virtuálních počítačů Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 2/23/2017
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
-ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
+ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
+ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -45,7 +46,7 @@ Tradiční řešení zálohování se vyvinula tak, že cloud považují za konc
 
 **Zálohování konzistentní s aplikací** – Bez ohledu na to, jestli zálohujete souborový server, virtuální počítač nebo databázi SQL, si potřebujete být jistí, že bod obnovení obsahuje veškerá požadovaná data pro obnovení záložní kopie. Azure Backup poskytuje zálohy konzistentní s aplikací, a tím je zajištěno, že pro obnovení dat nejsou potřebné další opravy. Obnovování dat konzistentních s aplikací zkracuje čas obnovení, což vám umožní rychle se vrátit do funkčního stavu.
 
-**Dlouhodobé uchovávání** – Namísto převádění záložní kopie z disku na pásku a následné přepravy pásky na místo mimo pracoviště za účelem dlouhodobého uložení můžete využívat krátkodobé i dlouhodobé uchovávání v Azure. Azure neomezuje dobu, po kterou můžete ponechat data v trezoru služby Backup nebo Recovery Services. Data můžete v trezoru ponechat, jak dlouho chcete. Služba Azure Backup má omezení 9999 bodů obnovení na chráněnou instanci. Přečtěte si oddíl [Zálohování a uchovávání](backup-introduction-to-azure-backup.md#backup-and-retention) v tomto článku, kde najdete vysvětlení, jak může toto omezení ovlivnit vaše potřeby zálohování.  
+**Dlouhodobé uchovávání** – Namísto převádění záložní kopie z disku na pásku a přemístění pásky na místo mimo pracoviště můžete využít krátkodobé a dlouhodobé uchovávání v Azure. Azure neomezuje dobu, po kterou data zůstanou v trezoru služby Backup nebo Recovery Services. Data můžete v trezoru ponechat, jak dlouho chcete. Služba Azure Backup má omezení 9999 bodů obnovení na chráněnou instanci. Přečtěte si oddíl [Zálohování a uchovávání](backup-introduction-to-azure-backup.md#backup-and-retention) v tomto článku, kde najdete vysvětlení, jak může toto omezení ovlivnit vaše potřeby zálohování.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Které komponenty Azure Backup mám použít?
 Pokud si nejste jisti, která komponenta Azure Backup splňuje vaše potřeby, najdete v následující tabulce informace o tom, co můžete chránit pomocí jednotlivých komponent. Na portálu Azure Portal je k dispozici průvodce, který je integrovaný v portálu a provede vás výběrem komponenty ke stažení a nasazení. Průvodce, který je součástí vytváření trezoru služby Recovery Services, vás provede kroky výběru cíle zálohování a výběru dat nebo aplikace, kterou chcete chránit.
@@ -96,7 +97,7 @@ Následující tabulka uvádí komponenty Azure Backup s podporou pro Linux.
 Azure Backup chrání virtuální počítače služby Storage úrovně Premium. Azure Premium Storage představuje úložiště využívající disky SSD (solid-state drive) určené pro podporu úloh náročných na množství vstupně-výstupních operací. Služba Storage úrovně Premium je zajímavá pro úlohy virtuálních počítačů. Další informace o službě Storage úrovně Premium najdete v tématu [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Zálohování virtuálních počítačů služby Storage úrovně Premium
-Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění. Pracovní umístění s názvem „AzureBackup-“ odpovídá celkové velikosti dat na prémiových discích připojených k virtuálnímu počítači. Zkontrolujte, jestli v účtu úložiště je dostatek volného místa pro dočasné pracovní umístění. Další informace najdete v článku věnovaném [omezení Storage úrovně Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění. Pracovní umístění s názvem „AzureBackup-“ odpovídá celkové velikosti dat na prémiových discích připojených k virtuálnímu počítači. Zkontrolujte, jestli v účtu úložiště je dostatek volného místa pro dočasné pracovní umístění. Další informace najdete v článku věnovaném [omezení služby Storage úrovně Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > Pracovní umístění neměňte, ani neupravujte.
@@ -112,10 +113,10 @@ Virtuální počítače služby Storage úrovně Premium je možné obnovit do �
 Azure Backup chrání virtuální počítače se spravovanými disky. Díky zpravovaným diskům už nemusíte spravovat účty úložiště virtuálních počítačů a zřizování virtuálních počítačů je výrazně zjednodušené.
 
 ### <a name="back-up-managed-disk-vms"></a>Zálohování virtuálních počítačů se spravovanými disky
-Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Můžete zálohovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Zálohování virtuálních počítačů na spravovaných discích je podporováno prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup v současné době nepodporuje zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
+Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Na webu Azure Portal můžete úlohu zálohování konfigurovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Virtuální počítače na spravovaných discích můžete zálohovat prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup v současné době nepodporuje zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Obnovení virtuálních počítačů se spravovanými disky
-Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Zatímco disky vytvořené během procesu obnovení spravuje Azure, účet úložiště vytvořený jako součást procesu obnovení je podobný ostatním účtům úložiště Resource Manageru a očekává se, že jej bude spravovat zákazník.
+Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Azure během procesu obnovení spravuje spravované disky. Vy (zákazník) spravujete účet úložiště vytvořený jako součást procesu obnovení.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jaké jsou funkce jednotlivých komponent služby Backup?
 Následující části obsahují tabulky, které shrnují dostupnost nebo podporu různých funkcí v jednotlivých komponentách Azure Backup. Informace o další podpoře nebo podrobnosti najdete pod jednotlivými tabulkami.
@@ -137,8 +138,6 @@ Trezor záloh je upřednostňovaným cílem úložiště napříč všemi kompon
 #### <a name="compression"></a>Komprese
 Díky komprimování záloh dochází ke zmenšení potřebného prostoru úložiště. Jedinou komponentou, která nepoužívá komprimaci, je rozšíření virtuálního počítače. Rozšíření virtuálního počítače kopíruje veškerá zálohovaná data z vašeho účtu úložiště do trezoru služby Backup ve stejné oblasti. Při přenosu dat se nepoužívá žádná komprese. Přenosem dat bez komprese se mírně zvýší využití úložiště. Ukládání dat bez komprese však umožňuje rychlejší obnovení v případě, že potřebujete tento bod obnovení.
 
-#### <a name="incremental-backup"></a>Přírůstkové zálohování
-Všechny komponenty podporují přírůstkové zálohování bez ohledu na typ cílového úložiště (disk, páska, trezor záloh). Přírůstkové zálohování díky přenášení pouze změn od poslední zálohy zajišťuje efektivitu zálohování z hlediska úložiště a času.
 
 #### <a name="disk-deduplication"></a>Odstranění duplicit disku
 Výhody odstranění duplicit můžete využívat při nasazení aplikace System Center DPM nebo Azure Backup Serveru [na virtuálním počítači Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server odstraňuje duplicity disku (na úrovni hostitele) na virtuálních pevných discích (VHD), které jsou k virtuálnímu počítači připojené jako úložiště pro zálohu.
@@ -147,6 +146,21 @@ Výhody odstranění duplicit můžete využívat při nasazení aplikace System
 > Odstranění duplicit není v Azure k dispozici pro žádné komponenty služby Backup. Jsou-li aplikace System Center DPM a Server Backup nasazené v Azure, nelze na discích úložiště, připojených k virtuálnímu počítači, provést odstranění duplicit.
 >
 >
+
+### <a name="incremental-backup-explained"></a>Vysvětlení přírůstkového zálohování
+Všechny komponenty služby Azure Backup podporují přírůstkové zálohování bez ohledu na typ cílového úložiště (disk, páska, trezor záloh). Přírůstkové zálohování díky přenášení pouze změn od poslední zálohy zajišťuje efektivitu zálohování z hlediska úložiště a času.
+
+#### <a name="comparing-full-differential-and-incremental-backup"></a>Porovnání úplného, rozdílového a přírůstkového zálohování
+
+Využití úložiště, plánovaná doba obnovení (RTO) a využití sítě se liší u každého způsobu zálohování. Pokud chcete, aby celkové náklady na vlastnictví (TCO) byly co nejnižší, musíte vědět, jak zvolit nejlepší řešení zálohování. Následující obrázek porovnává úplné zálohování, rozdílové zálohování a přírůstkové zálohování. Na obrázku se zdroj dat A skládá z 10 bloků úložiště A1–A10, které se zálohují každý měsíc. Bloky A2, A3, A4 a A9 se mění první měsíc a blok A5 se mění následující měsíc.
+
+![obrázek ukazující porovnání způsobů zálohování](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
+
+U **úplného zálohování** každá záložní kopie obsahuje celý zdroj dat. Úplné zálohování při každém přenosu záložní kopie spotřebovává velkou část úložiště a šířky pásma sítě.
+
+**Rozdílové zálohování** ukládá pouze bloky, které se změnily od prvotní úplné zálohy, a tak spotřebovává menší část úložiště a šířky pásma sítě. Rozdílové zálohování neuchovává redundantní kopie nezměněných dat. Protože se však přenáší a ukládají bloky dat, které se nezměnily mezi dalšími zálohami, je rozdílové zálohování neefektivní. Druhý měsíc se zálohují změněné bloky A2, A3, A4 a A9. Třetí měsíc se znovu zálohují tyto stejné bloky, společně se změněným blokem A5. Změněné bloky se budou zálohovat až do doby, kdy dojde k dalšímu úplnému zálohování.
+
+**Přírůstkové zálohování** dosahuje vysoké efektivity využití úložiště a sítě díky tomu, že ukládá pouze bloky dat, které se změnily od předchozí zálohy. S přírůstkovým zálohováním není nutné pravidelně vytvářet úplné zálohy. V tomto příkladu se po vytvoření úplné zálohy v prvním měsíci označí bloky A2, A3, A4 a A9 jako změněné a přenesou se další měsíc. Třetí měsíc se označí a přenese pouze změněný blok A5. Přenos menšího objemu dat šetří prostředky úložiště a sítě a snižuje tak celkové náklady na vlastnictví.   
 
 ### <a name="security"></a>Zabezpečení
 | Funkce | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
@@ -179,7 +193,7 @@ Zálohování virtuálních počítačů Azure vyžaduje nastavení šifrování
 
 Rozšíření virtuálního počítače (ve virtuálním počítači IaaS) čte data přímo z účtu úložiště Azure přes síť úložiště, takže není potřeba tento provoz komprimovat.
 
-Pokud svá data zálohujete do aplikace System Center DPM nebo na Azure Backup Server, komprese dat, komprimujte data z primárního serveru na záložní server. Komprese dat před jejich zálohováním do DPM nebo na Azure Backup Server šetří šířku pásma.
+Pokud data zálohujete do aplikace System Center DPM nebo na Azure Backup Server, komprimujte data přenášená z primárního serveru na záložní server. Komprese dat před jejich zálohováním do DPM nebo na Azure Backup Server šetří šířku pásma.
 
 #### <a name="network-throttling"></a>Omezování šířky pásma sítě
 Agent Azure Backup nabízí možnost omezování šířky pásma sítě, která vám umožňuje kontrolu využití šířky pásma sítě během přenosu dat. Omezování může být užitečné, pokud potřebujete zálohovat data v pracovní době, ale nechcete, aby proces zálohování narušoval ostatní internetový provoz. Omezování pro přenos dat platí pro činnosti zálohování a obnovení.
@@ -203,8 +217,8 @@ Chráněná instance je obecný odkaz na počítač se systémem Windows, server
 Mezi běžné příklady chráněných instancí patří virtuální počítače, aplikační servery, databáze a osobní počítače s operačním systémem Windows. Například:
 
 * Virtuální počítač se spuštěnými prostředky infrastruktury hypervisoru Azure IaaS nebo Hyper-V. Hostovanými operačními systémy pro virtuální počítač může být Windows Server nebo Linux.
-* Aplikační server: Aplikačním serverem může být fyzický nebo virtuální počítač se systémem Windows Server a úlohy s daty, která je potřeba zálohovat. Mezi běžné úlohy patří Microsoft SQL Server, server Microsoft Exchange, server Microsoft SharePoint, Microsoft Dynamics a role souborového serveru ve Windows Serveru. K zálohování těchto úloh potřebujete System Center Data Protection Manager (DPM) nebo Azure Backup Server.
-* Osobní nebo přenosný počítač s operačním systémem Windows.
+* Aplikační server: Aplikačním serverem může být fyzický nebo virtuální počítač se systémem Windows Server a úlohy s daty, která je potřeba zálohovat. Mezi běžné úlohy patří Microsoft SQL Server, server Microsoft Exchange, server Microsoft SharePoint a role souborového serveru ve Windows Serveru. K zálohování těchto úloh potřebujete System Center Data Protection Manager (DPM) nebo Azure Backup Server.
+* Osobní počítač, pracovní stanice nebo přenosný počítač s operačním systémem Windows.
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Co je soubor s přihlašovacími údaji trezoru?
@@ -213,7 +227,7 @@ Soubor s přihlašovacími údaji trezoru je certifikát vytvořený portálem p
 Přihlašovací údaje úložiště slouží jen k registraci serverů nebo počítačů. S přihlašovacími údaji trezoru je ale třeba nakládat opatrně. V případě jejich ztráty nebo jejich získání jinými uživateli mohou být použity k registraci jiných počítačů pro stejný trezor. Vzhledem k tomu, že jsou zálohovaná data šifrovaná pomocí hesla přístupného jen pro vás, nemůže dojít k ohrožení bezpečnosti stávajících zálohovaných dat. Platnost přihlašovacích údajů trezoru vyprší po 48 hodinách. I když přihlašovací údaje pro trezor služby Backup můžete stahovat, jak často chcete, k registraci je možné použít jen nejnovější přihlašovací údaje.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Čím se liší Azure Backup od Azure Site Recovery?
-Služby Azure Backup a Azure Site Recovery spolu souvisí v tom smyslu, že obě služby zálohují data a můžou tato data obnovovat, liší se však v základní nabídce hodnoty.
+Služby Azure Backup a Azure Site Recovery spolu souvisí v tom smyslu, že obě služby zálohují data a můžou tato data obnovit. Tyto služby se ale liší v nabídce hodnoty.
 
 Azure Backup chrání data v místním a cloudovém úložišti. Azure Site Recovery koordinuje replikaci, převzetí služeb při selhání a navrácení služeb po obnovení mezi virtuálním počítačem a fyzickým serverem. Obě služby jsou důležité, protože je třeba, aby řešení zotavení po havárii zachovalo vaše data zabezpečená a obnovitelná (služba Backup) *a* aby vaše úlohy byly dostupné (služba Site Recovery) i v případě výpadku.
 
@@ -240,9 +254,4 @@ Podrobnosti o ochraně jiných úloh můžete zkusit najít v některém z těch
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

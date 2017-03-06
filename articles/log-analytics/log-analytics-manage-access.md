@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
 ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -298,9 +299,4 @@ Pokud jste správce a k pracovnímu prostoru bylo přidruženo víc uživatelů,
 * Postup přidání agentů a shromažďování dat obsahuje článek [Propojení počítačů s Windows se službou Log Analytics](log-analytics-windows-agents.md).
 * Článek [Přidání řešení Log Analytics z galerie řešení](log-analytics-add-solutions.md) popisuje přidání funkcí a shromažďování dat.
 * Pokud vaše organizace používá proxy server nebo bránu firewall, postupujte podle článku [Konfigurace nastavení proxy serveru a brány firewall ve službě Log Analytics](log-analytics-proxy-firewall.md), aby agenti mohli se službou Log Analytics komunikovat.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

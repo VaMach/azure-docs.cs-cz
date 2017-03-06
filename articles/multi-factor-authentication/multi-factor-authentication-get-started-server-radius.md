@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 749267a5bb6e45714daa1fc06cd3aabcac326e76
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: e696b95c9db86b062440f0c4fd788bf97223317a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>Ověření služby RADIUS a server Azure Multi-Factor Authentication
+# <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrace ověření služby RADIUS se serverem Azure Multi-Factor Authentication
 Ověřování pomocí protokolu RADIUS můžete povolit a konfigurovat v části Azure MFA Serveru Ověřování pomocí protokolu RADIUS. RADIUS je standardní protokol pro přijímání požadavků na ověření a zpracování těchto požadavků. Azure Multi-Factor Authentication Server funguje jako server protokolu RADIUS. Vložte jej mezi vašeho klienta protokolu RADIUS (např. zařízení sítě VPN) a cíl ověřování, kterým může být služba Active Directory (AD), adresář LDAP nebo jiný server protokolu RADIUS, aby bylo možné přidat službu Azure Multi-Factor Authentication. Aby služba Azure Multi-Factor Authentication (MFA) fungovala, je nutné Azure MFA Server nakonfigurovat tak, aby komunikoval s klientskými servery i s cílem ověřování. Azure MFA Server přijímá požadavky od klienta protokolu RADIUS, ověřuje přihlašovací údaje proti cíli ověřování, přidává ověřování Azure Multi-Factor Authentication a odesílá odpověď zpět do klienta protokolu RADIUS. Požadavek na ověření bude úspěšný pouze v případě, že uspěje primární ověřování i ověřování Multi-Factor Authentication.
 
 > [!NOTE]
@@ -76,10 +77,5 @@ Chcete-li nakonfigurovat klienta RADIUS, postupujte podle pokynů:
 * Nakonfigurujte zařízení/server k ověřování prostřednictvím protokolu RADIUS nIP adrese serveru Azure Multi-Factor Authentication, která bude fungovat jako RADIUS server.
 * Použijte stejný sdílený tajný klíč, který byl nakonfigurován dříve.
 * Časový limit platnosti protokolu RADIUS nakonfigurujte na 30–60 sekund, aby byl dostatek času na ověření přihlašovacích údajů uživatele, provedení dvoustupňového ověřování, obdržení odpovědi a následnou odpověď na žádost o přístup protokolu RADIUS.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit w
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 27c50be7-421a-47c9-8279-506519e404a4
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
-ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
+ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
+ms.openlocfilehash: 93b9ec270ffc69fcfde56bcc56c8953024133fcd
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>Nasazení vaší první webové aplikace HTML do Azure během pěti minut
-
-> [!div class="op_single_selector"]
-> * [První web v HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [První aplikace v .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [První aplikace v PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [První aplikace v Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [První aplikace v Pythonu](app-service-web-get-started-python-cli-nodejs.md)
-> * [První aplikace v Javě](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 Tento kurz vám pomůže nasadit jednoduchou webovou aplikaci HTML+CSS do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Vaším úkolem je:
 K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-html.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
+- [Azure CLI 2.0](app-service-web-get-started-html.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
 
 ## <a name="prerequisites"></a>Požadavky
 * [Git](http://www.git-scm.com/downloads)
@@ -131,10 +123,5 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 * Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). Pokud třeba chcete pro nasazení použít některé z úložišť GitHubu, stačí v části **Možnosti nasazení** místo **Místní úložiště Git** vybrat **GitHub**.
 * Zdokonalte aplikaci Azure o další úroveň. Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí. Viz téma [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

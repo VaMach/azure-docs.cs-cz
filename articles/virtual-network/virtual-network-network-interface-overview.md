@@ -1,6 +1,6 @@
 ---
 title: "Síťová rozhraní v Azure | Dokumentace Microsoftu"
-description: "Přečtěte si o síťových rozhraních Azure v modelu nasazení Azure Resource Manager."
+description: "Další informace o síťových rozhraních Azure a jak se používají s virtuálními počítači"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Síťová rozhraní v Azure
+# <a name="what-are-network-interfaces"></a>Co jsou síťových rozhraní?
+
 Síťové rozhraní (NIC) je propojení mezi virtuálním počítačem a základní softwarovou sítí. Tento článek vysvětluje, co je síťové rozhraní a jak se používá v modelu nasazení Azure Resource Manager.
 
 Společnost Microsoft doporučuje nasazení nových prostředků pomocí modelu nasazení Resource Manager, ale virtuální počítače s připojením k síti můžete nasadit i v modelu nasazení [Classic](virtual-network-ip-addresses-overview-classic.md). Pokud již znáte model Classic, v modelu nasazení Resource Manager existují důležité rozdíly, co se týče sítí virtuálních počítačů. Další informace o těchto rozdílech najdete v článku [Sítě virtuálních počítačů – Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -34,7 +37,7 @@ Síťové rozhraní v Azure:
 4. Může být připojené k virtuálnímu počítači, ale pouze k jednomu, který je ve stejném umístění jako síťové rozhraní.
 5. Má adresu MAC, která přetrvává v síťovém rozhraní po celou dobu jeho připojení k virtuálnímu počítači. Adresa MAC přetrvává i v případě restartování virtuálního počítače (z operačního systému) nebo jeho zastavení (zrušení přidělení) a spuštění pomocí webu Azure Portal, Azure PowerShellu nebo rozhraní příkazového řádku Azure (Azure CLI). V případě odpojení síťového rozhraní od virtuálního počítače a připojení k jinému virtuálnímu počítači obdrží jinou adresu MAC. Pokud je síťové rozhraní odstraněno, adresa MAC se přiřadí jiným síťovým rozhraním.
 6. Musí mít přiřazenou jednu primární **privátní** statickou nebo dynamickou IP adresu *IPv4*.
-7. Může mít přiřazen jeden prostředek veřejné IP adresy.
+7. Může mít přiřazený jeden nebo více prostředků s veřejnou IP adresou. Další informace najdete v dokumentaci popisující použití [více IP adres pro síťové rozhraní](virtual-network-multiple-ip-addresses-portal.md).
 8. Podporuje urychlení sítí pomocí rozhraní SR-IOV (single-root I/O virtualization) pro určité velikosti virtuálních počítačů, na kterých běží určité verze operačního systému Microsoft Windows Server. Další informace o této funkci ve verzi PREVIEW najdete v článku [Urychlení sítí pro virtuální počítač](virtual-network-accelerated-networking-powershell.md).
 9. Může přijímat provoz, který není určen pro jemu přiřazené privátní IP adresy, pokud je pro dané síťové rozhraní povolené předávání IP adres. Pokud například na virtuálním počítači běží software brány firewall, směruje pakety, které nejsou určené pro jeho IP adresy. Na virtuálním počítači musí běžet software, který dokáže směrovat nebo předávat provoz, ale aby to mohl provádět, musí pro síťové rozhraní být povolené předávání IP adres.
 10. Je často vytvořené ve stejné skupině prostředků jako virtuální počítač, k němuž je připojené, nebo jako virtuální síť, k níž je připojené, přestože to není nutné.
@@ -52,10 +55,5 @@ K virtuálnímu počítači může být připojeno více síťových rozhraní, 
 * Zjistěte, jak vytvořit virtuální počítač s jedním síťovým rozhraním v článku [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Zjistěte, jak vytvořit virtuální počítač s více síťovými rozhraními v článku [Nasazení virtuálního počítače s několika síťovými rozhraními](virtual-network-deploy-multinic-arm-ps.md).
 * Zjistěte, jak vytvořit síťové rozhraní s několika konfiguracemi protokolu IP v článku [Virtuální počítače Azure s několika IP adresami](virtual-network-multiple-ip-addresses-powershell.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
