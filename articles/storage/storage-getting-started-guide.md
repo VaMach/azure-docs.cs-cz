@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,7 +30,7 @@ Než se na tento kód podíváme, můžete si v části [Další kroky](#next-st
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, bude nutné splnit následující požadavky:
 
-1. Pro zkompilování a vybuildování aplikace budete muset mít na počítači nainstalovanou verzi sady [Visual Studio](https://www.visualstudio.com/).
+1. Ke zkompilování a sestavení aplikace musíte mít na počítači nainstalovanou sadu [Visual Studio 2015](https://www.visualstudio.com/) nebo novější.
 2. Nainstalujte si nejnovější verzi sady [Azure SDK for .NET](https://azure.microsoft.com/downloads/). Tato sada SDK obsahuje ukázkové projekty Azure QuickStart, emulátor úložiště Azure a [Klientskou knihovnu pro úložiště Azure pro .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Na počítači musíte mít nainstalované rozhraní [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653). To je nutné pro ukázkové projekty Azure QuickStart, které budeme používat v tomto kurzu.
 
@@ -45,9 +46,12 @@ Jakmile budete mít účet úložiště Azure, můžete si pomocí jednoho z uk�
 1. Spusťte Visual Studio.
 2. V nabídce **Soubor** klikněte na **Nový projekt**.
 3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
-    a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
-    b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
-    c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
+   
+   a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
+   
+   b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
+   
+   c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
 
     ![Ukázkové projekty Azure Rychlý start][Image1]
 
@@ -55,11 +59,11 @@ Před spuštěním aplikace si můžete projít zdrojový kód. Pokud si ho bude
 
 Dále pak stáhněte ukázkovou aplikaci:
 
-1. V sadě Visual Studio v nabídce **Zobrazení** vyberte **Průzkumník řešení**. Otevřete soubor App.config a odkomentujte připojovací řetězec pro emulátor úložiště Azure:
+1. V sadě Visual Studio v nabídce **Zobrazení** vyberte **Průzkumník řešení**. Otevřete soubor **App.config** a odkomentujte připojovací řetězec pro emulátor úložiště Azure:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Odkomentujte připojovací řetězec pro službu Azure Storage a zadejte název účtu úložiště a přístupový klíč v souboru App.config:
+2. Odkomentujte připojovací řetězec pro službu Azure Storage v souboru App.config a zadejte místo `[AccountName]` a `[AccountKey]` zadejte přihlašovací údaje k vašemu účtu:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Vyzkoušejte si to: vytvoříme jednoduchou aplikaci Azure Storage pomocí jedno
 1. Spusťte Visual Studio.
 2. V nabídce **Soubor** klikněte na **Nový projekt**.
 3. V dialogovém okně **Nový projekt** klikněte na **Nainstalováno** > **Šablony** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
+    
     a. Zvolte jednu z následujících šablon: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues** nebo **Azure Storage: Tables**.
+    
     b. Zkontrolujte, že je jako cílové rozhraní vybrané rozhraní **.NET Framework 4.5**.
+    
     c. Zadejte název projektu a vytvořte nové řešení sady Visual Studio, jak je znázorněno na obrázku:
 
     ![Ukázkové projekty Azure Rychlý start][Image1]
@@ -109,9 +116,4 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 * [REST API služby Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

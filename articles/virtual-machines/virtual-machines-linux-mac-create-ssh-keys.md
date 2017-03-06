@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření páru klíčů SSH pro virtuální počítače s Linuxem v Azure | Dokumentace Microsoftu"
-description: "Vytvořte bezpečně dvojici veřejného a privátního klíče SSH pro virtuální počítače s Linuxem."
+description: "Vytvořte bezpečně dvojici veřejného a privátního klíče SSH pro virtuální počítače Azure s Linuxem."
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2016
+ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: e5f93bab46620e06e56950ba7b3686b15f789a9d
-ms.openlocfilehash: 1ee0368b75e4ef2fc759251db32c5aed5c1a168d
+ms.sourcegitcommit: 6776fe5cf1faadfbcfc9bbd6c69ec1380c2429c7
+ms.openlocfilehash: 67dce2c226f5ec5f396ef51cd59781d532d76795
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,6 +42,9 @@ Přidejte nově vytvořený klíč do `ssh-agent`:
 ```bash
 ssh-add ~/.ssh/id_rsa
 ```
+
+> [!NOTE] 
+> Výše uvedené příkazy fungují v operačních systémech Linux téměř všech distribucí, ale nemusí pracovat v kontejnerech, protože prostředí může být výrazně omezené.
 
 ## <a name="detailed-walkthrough"></a>Podrobný postup
 
@@ -249,9 +253,4 @@ Dalším krokem je vytvoření virtuálního počítače Azure s Linuxem pomocí
 * [Vytvoření zabezpečeného virtuálního počítače s Linuxem pomocí šablony Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Vytvoření zabezpečeného virtuálního počítače s Linuxem pomocí webu Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Vytvoření zabezpečeného virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

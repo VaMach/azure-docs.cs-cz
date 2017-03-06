@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ Tento kurz vám pomůže začít s protokolováním v Azure Key Vault, vytvořen
 > V současné době nelze Azure Key Vault konfigurovat na portálu Azure. Místo toho použijte tyto pokyny pro Azure PowerShell.
 > 
 > 
-
-Shromážděné protokoly je možné vizualizovat pomocí služby Log Analytics ze sady Operations Management Suite. Další informace najdete v článku [Řešení Azure Key Vault (Preview) ve službě Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault?](key-vault-whatis.md).
 
@@ -254,6 +253,10 @@ Následující tabulka obsahuje seznam operací (operationName) a odpovídajíc�
 | SecretList |[Výpis tajných kódů v trezoru](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Výpis verzí tajného kódu](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Použití Log Analytics
+
+Řešení Azure Key Vault v Log Analytics můžete využít ke kontrole protokolů AuditEvent služby Azure Key Vault. Další informace včetně nastavení najdete v tématu [Řešení Azure Key Vault v Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Tento článek také obsahuje pokyny, pokud je potřeba migrovat z původního řešení Key Vault, které se nabízelo pro Log Analytics ve verzi Preview, kdy jste protokoly nejdřív směrovaly do účtu Azure Storage a potom nakonfigurovali službu Log Analytics, aby je odtud četla.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Další kroky
 Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na kurz [Použití Azure Key Vault z webové aplikace](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Programátorské reference najdete v [příručce pro vývojáře Azure Key Vaul
 Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

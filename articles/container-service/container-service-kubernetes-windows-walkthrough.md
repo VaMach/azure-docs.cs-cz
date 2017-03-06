@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: dlepow
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 010a9a4a9ad0f6f7584b1c9a54e665557078d25b
+ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
+ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,9 +56,13 @@ Všechny virtuální počítače jsou ve stejné privátní virtuální síti a 
 
 ## <a name="create-the-cluster"></a>Vytvoření clusteru
 
-K [vytvoření clusteru Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) s agentskými uzly Windows můžete použít Azure Portal. 
+K [vytvoření clusteru Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) s agentskými uzly Windows můžete použít Azure Portal. Při vytváření clusteru si všimněte následujících nastavení:
 
-V podokně **Konfigurace rozhraní** v části **Konfigurace orchestrátoru** vyberte **Kubernetes – Windows**. 
+* V okně **Základy** v části **Orchestrátor** vyberte **Kubernetes**. 
+* V okně **Hlavní konfigurace** zadejte uživatelské přihlašovací údaje a přihlašovací údaje instančního objektu pro hlavní linuxové uzly.
+* V okně **Konfigurace agenta** v části **Operační systém**, vyberte **Windows (Preview)**. Zadejte přihlašovací údaje správce pro uzly agenta systému Windows.
+
+Podrobnosti najdete v tématu [Nasazení clusteru Azure Container Service](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 
@@ -67,7 +72,7 @@ Pomocí nástroje příkazového řádku `kubectl` se můžete připojit z míst
 
 Po vytvoření clusteru a připojení pomocí `kubectl` můžete vyzkoušet spuštění základní webové aplikace Windows a její zpřístupnění na internetu. V tomto příkladu určíte prostředky kontejneru pomocí souboru YAML a následně kontejner vytvoříte pomocí příkazu `kubctl apply`.
 
-1. Pokud chcete zobrazit seznam uzlů, zadejte `kubectl get nodes`.  Pokud chcete zobrazit úplné podrobnosti o uzlech, zadejte:  
+1. Pokud chcete zobrazit seznam uzlů, zadejte `kubectl get nodes`. Pokud chcete zobrazit úplné podrobnosti o uzlech, zadejte:  
 
   ```
   kubectl get nodes -o yaml
@@ -198,8 +203,3 @@ Zde jsou doporučené odkazy na další informace o Kubernetes:
 * [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) – ukazuje, jak nasadit, škálovat, aktualizovat a ladit kontejnerizované aplikace.
 * [Uživatelská příručka Kubernetes](http://kubernetes.io/docs/user-guide/) – poskytuje informace o spouštění programů v existujícím clusteru Kubernetes.
 * [Příklady Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) – poskytuje příklady spouštění skutečných aplikací s využitím Kubernetes.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

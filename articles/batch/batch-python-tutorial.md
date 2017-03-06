@@ -1,6 +1,6 @@
 ---
 title: "Kurz – použití sady Azure Batch SDK pro Python | Dokumentace Microsoftu"
-description: "Seznamte se se základními koncepty Azure Batch a s postupy vývoje služby Batch pomocí jednoduchého scénáře."
+description: "Informace o základních konceptech služby Azure Batch a vytvoření jednoduchého řešení pomocí Pythonu"
 services: batch
 documentationcenter: python
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
-ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-python-client"></a>Začínáme s klientem Azure Batch Python
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Začínáme se sadou SDK služby Batch pro Python
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -705,9 +708,4 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Přihlašovací údaje Batch na portálu"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Přihlašovací údaje služby Storage na portálu"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Pracovní postup řešení Batch (minimální diagram)"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 02/22/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
+ms.sourcegitcommit: 716a6f4507b05b8a8548cd34f8227e8366a91645
+ms.openlocfilehash: 17a4ab1920e020ddf453e9b42319ba260e9700a5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -30,15 +31,16 @@ Azure Container Service umožňuje rychlé nasazení oblíbených open-source ř
 
 Cluster Azure Container Service můžete také nasadit pomocí webu [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) nebo rozhraní API služby Azure Container Service.
 
+Související informace najdete v tématu [Úvod do služby Azure Container Service](container-service-intro.md).
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-* **Předplatné Azure:** Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+* **Předplatné Azure:** Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
 * **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-* **ID a tajný klíč klienta instančního objektu** (pouze Kubernetes): Další informace a pokyny k vytvoření instančního objektu najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
+* **ID a tajný klíč klienta instančního objektu** (pouze Kubernetes): Další informace a pokyny k vytvoření instančního objektu služby Azure Active Directory najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 
 
 
@@ -47,63 +49,61 @@ Cluster Azure Container Service můžete také nasadit pomocí webu [Azure CLI 2
 
     ![Azure Container Service na Marketplace](media/container-service-deployment/acs-portal1.png)  <br />
 
-2. Vyberte **Azure Container Service** a klikněte na **Vytvořit**.
+2. Klikněte na **Azure Container Service** a potom na **Vytvořit**.
 
-    ![Vytvoření služby kontejneru](media/container-service-deployment/acs-portal2.png)  <br />
+3. V okně **Základy** zadejte následující informace:
 
-3. Zadejte následující informace:
-
-    * **Uživatelské jméno:** Uživatelské jméno pro účet na všech virtuálních počítačích a ve škálovacích sadách virtuálních počítačů v clusteru Azure Container Service.
+    * **Orchestrátor:** Vyberte některý z orchestrátorů kontejneru pro nasazení clusteru.
+        * **DC/OS:** Nasadí cluster DC/OS.
+        * **Swarm:** Nasadí cluster Docker Swarm.
+        * **Kubernetes**: Nasadí cluster Kubernetes.
     * **Předplatné:** Vyberte předplatné Azure.
-    * **Skupina prostředků:** Vyberte existující skupinu prostředků nebo vytvořte novou. Doporučuje se použít pro každé nasazení novou skupinu prostředků.
-    * **Umístění:** Vyberte oblast Azure pro nasazení Azure Container Service.
-    * **Veřejný klíč SSH RSA:** Přidejte veřejný klíč, který se bude používat pro ověřování u virtuálních počítačů Azure Container Service. Je důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu `ssh-rsa`. Přípona `username@domain` je volitelná. Klíč by měl vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-
-4. Až budete připravení pokračovat, klikněte na **OK**.
-
+    * **Skupina prostředků:** Zadejte název nové skupiny prostředků pro nasazení.
+    * **Umístění:** Vyberte oblast Azure pro nasazení Azure Container Service. Informace o dostupnosti najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/regions/services/).
+    
     ![Základní nastavení](media/container-service-deployment/acs-portal3.png)  <br />
+    
+    Až budete připravení pokračovat, klikněte na **OK**.
 
-5. V okně **Konfigurace rozhraní** vyberte **Konfigurace orchestrátoru**. Mezi možnosti patří:
+4. V okně **Konfigurace hlavních uzlů** zadejte následující nastavení pro hlavní linuxový uzel nebo uzly v clusteru (některá nastavení se u jednotlivých orchestrátorů liší):
 
-  * **DC/OS:** Nasadí cluster DC/OS.
-  * **Swarm:** Nasadí cluster Docker Swarm.
-  * **Kubernetes**: Nasadí cluster Kubernetes.
-
-
-6. Až budete připravení pokračovat, klikněte na **OK**.
-
-    ![Volba orchestrátoru](media/container-service-deployment/acs-portal4-new.png)  <br />
-
-7. Pokud je v rozevírací nabídce vybráno **Kubernetes**, budete muset zadat ID (také pod názvem appId) a tajný kód klienta instančního objektu (heslo). Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
-
-    ![Zadání instančního objektu pro Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
-
-7. V okně nastavení **Azure Container Service** zadejte následující informace:
-
+    * **Název DNS hlavního uzlu:** Předpona, která slouží k vytvoření jedinečného plně kvalifikovaného názvu domény pro hlavní uzel. Plně kvalifikovaný název domény hlavního uzlu je ve formátu *předpona*mgmt.*umístění*.cloudapp.azure.com.
+    * **Uživatelské jméno:** Uživatelské jméno účtu na každém virtuálním počítači s Linuxem v clusteru.
+    * **Veřejný klíč SSH RSA:** Přidejte veřejný klíč, který se použije k ověřování u virtuálních počítačů s Linuxem. Je důležité, aby tento klíč neobsahoval žádné konce řádků a zahrnoval předponu `ssh-rsa`. Přípona `username@domain` je volitelná. Klíč by měl vypadat nějak takto: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Instanční objekt:** Pokud jste vybrali orchestrátor Kubernetes, zadejte **ID klienta instančního objektu** (označuje se taky jako appId) a **Tajný kód klienta instančního objektu** (heslo) služby Azure Active Directory. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
     * **Počet hlavních serverů:** Počet hlavních serverů v clusteru.
-    * **Počet agentů:** U Docker Swarm a Kubernetes je tato hodnota počáteční počet agentů ve škálovací sadě agentů. U DC/OS se jedná o počáteční počet agentů v privátní škálovací sadě. Kromě toho se pro DC/OS vytvoří škálovací sada obsahující předem určený počet agentů. Počet agentů v této veřejné škálovací sadě závisí na tom, kolik hlavních serverů bylo vytvořeno v clusteru: jeden veřejný agent pro jeden hlavní server a dva veřejní agenti pro tři nebo pět hlavních serverů.
+    * **Diagnostika virtuálních počítačů:** Pro některé orchestrátory můžete povolit diagnostiku virtuálních počítačů v hlavních uzlech.
+
+    ![Konfigurace hlavních uzlů](media/container-service-deployment/acs-portal4.png)  <br />
+
+    Až budete připravení pokračovat, klikněte na **OK**.
+
+5. V okně **Konfigurace agentů** zadejte následující informace:
+
+    * **Počet agentů:** U Docker Swarm a Kubernetes je tato hodnota počáteční počet agentů ve škálovací sadě agentů. U DC/OS se jedná o počáteční počet agentů v privátní škálovací sadě. Kromě toho se pro DC/OS vytvoří škálovací sada obsahující předem určený počet agentů. Počet agentů v této veřejné škálovací sadě závisí na počtu hlavních uzlů v clusteru: jeden veřejný agent pro jeden hlavní uzel a dva veřejní agenti pro tři nebo pět hlavních uzlů.
     * **Velikost virtuálního počítače agenta:** Velikost těchto virtuálních počítačů.
-    * **Předpona DNS:** Celosvětově jedinečný název, který se bude používat jako předpona klíčových částí plně kvalifikované názvy domény pro službu.
-    * **Diagnostika virtuálních počítačů:** Pro některé zvolené orchestrátory můžete povolit diagnostiku virtuálních počítačů.
+    * **Operační systém:** Toto nastavení je aktuálně dostupné, pouze pokud jste vybrali orchestrátor Kubernetes. Vyberte linuxovou distribuci nebo operační systém Windows Server, který poběží na agentech. Toto nastavení určuje, jestli v clusteru bude možné spouštět aplikace typu kontejner Linux nebo Windows. 
 
-8. Až budete připravení pokračovat, klikněte na **OK**.
+        > [!NOTE]
+        > Podpora kontejnerů Windows je pro clustery Kubernetes ve verzi Preview. V clusterech DC/OS a Swarm jsou v současné době ve službě Azure Container Service podporováni pouze linuxoví agenti.
 
-    ![Nastavení služby Container Service](media/container-service-deployment/acs-portal5.png)  <br />
+    * **Přihlašovací údaje agentů:** Pokud jste vybrali operační systém Windows, zadejte **Uživatelské jméno** a **Heslo** správce virtuálních počítačů agentů. 
 
-9. Až se dokončí ověření služby, klikněte na **OK**.
+    ![Konfigurace agentů](media/container-service-deployment/acs-portal5.png)  <br />
+
+    Až budete připravení pokračovat, klikněte na **OK**.
+
+6. Až se dokončí ověření služby, klikněte na **OK**.
 
     ![Ověření](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. Přečtěte si podmínky. Kliknutím na **Koupit** zahájíte proces nasazení.
-
-    ![Koupit](media/container-service-deployment/acs-portal7.png)  <br />
+7. Přečtěte si podmínky. Proces nasazení zahájíte kliknutím na **Vytvořit**.
 
     Pokud se rozhodnete nasazení připnout na Azure Portal, uvidíte jeho stav.
 
     ![Stav nasazení](media/container-service-deployment/acs-portal8.png)  <br />
 
 Dokončení nasazení trvá několik minut. Potom bude cluster Azure Container Service připravený k použití.
-
 
 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Vytvoření clusteru pomocí šablony pro rychlý start
@@ -114,7 +114,7 @@ Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 
 > [!NOTE] 
 > Pokud jste v systému Windows, můžete k nasazení šablony podobným způsobem použít Azure PowerShell. Postup najdete dál v této části. Můžete taky nasadit šablonu prostřednictvím [portálu](../azure-resource-manager/resource-group-template-deploy-portal.md) nebo jiné metody.
 
-1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z šablon rychlého startu z GitHubu. Následuje dílčí seznam. Všimněte si, že šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
+1. Pokud chcete nasadit cluster DC/OS, Docker Swarm nebo Kubernetes, vyberte jednu z šablon rychlého startu z GitHubu. Následuje dílčí seznam. Šablony DC/OS a Swarm jsou stejné s výjimkou orchestrátoru, který je vybrán jako výchozí.
 
     * [Šablona DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Šablona Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -186,16 +186,16 @@ Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
     ```
 
-5. Po vytvoření skupiny prostředků můžete vytvořit cluster pomocí následujícího příkazu. Pro parametr `-TemplateUri` bude zadán identifikátor URI požadované šablony. Při spuštění tohoto příkazu vás PowerShell vyzve k zadání hodnot parametrů nasazení.
+5. Po vytvoření skupiny prostředků můžete vytvořit cluster pomocí následujícího příkazu. Identifikátor URI požadované šablony se určuje pomocí parametru `-TemplateUri`. Při spuštění tohoto příkazu vás PowerShell vyzve k zadání hodnot parametrů nasazení.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
     ```
 
 #### <a name="provide-template-parameters"></a>Zadání parametrů šablony
-Pokud PowerShell znáte, víte, že mezi parametry dostupnými pro rutinu můžete cyklicky přepínat zadáním znaménka minus (-) a následným stisknutím klávesy TAB. Stejně to funguje i při práci s parametry, které definujete v šabloně. Jakmile zadáte název šablony, rutina načte šablonu, provede analýzu parametrů a dynamicky přidá parametry šablony do příkazu. Díky tomu je zadání hodnot parametrů šablony velmi snadné. A pokud zapomenete zadat hodnotu požadovaného parametru, prostředí PowerShell vás vyzve k jejímu zadání.
+Pokud PowerShell znáte, víte, že mezi parametry dostupnými pro rutinu můžete cyklicky přepínat zadáním znaménka minus (-) a následným stisknutím klávesy TAB. Stejně to funguje i při práci s parametry, které definujete v šabloně. Jakmile zadáte název šablony, rutina načte šablonu, provede analýzu parametrů a dynamicky přidá parametry šablony do příkazu. Díky tomu je zadání hodnot parametr šablony snadné. A pokud zapomenete zadat hodnotu požadovaného parametru, prostředí PowerShell vás vyzve k jejímu zadání.
 
-Níže je celý příkaz i s vloženými parametry. Pro názvy prostředků můžete zadat vlastní hodnoty.
+Tady je celý příkaz včetně parametrů. Pro názvy prostředků zadejte vlastní hodnoty.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
@@ -208,9 +208,4 @@ Nyní když máte funkční cluster, nahlédněte do těchto dokumentů, kde nal
 * [Práce se službou Azure Container Service a DC/OS](container-service-mesos-marathon-rest.md)
 * [Práce se službou Azure Container Service a nástrojem Docker Swarm](container-service-docker-swarm.md)
 * [Práce s Azure Container Service a Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

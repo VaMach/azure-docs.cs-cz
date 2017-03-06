@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
-ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a přidejte agenty Linux. Agenti Windows se přidají automaticky bez dodatečné konfigurace.
 
 > [!NOTE]
-> Pokud v současné době povolíte toto řešení, každý počítač s Windows připojený k pracovnímu prostoru OMS se automaticky nakonfiguruje jako Hybrid Runbook Worker, aby podporoval runbooky, které jsou součástí tohoto řešení.  Nezaregistruje se však u žádných skupin Hybrid Worker, které jste vytvořili v účtu služby Automation, a není možné ho přidat do skupiny Hybrid Worker za účelem spouštění vlastních runbooků.  Pokud je počítač s Windows již určený jako Hybrid Runbook Worker a připojený k pracovnímu prostoru OMS, bude nutné ho před přidáním řešení odebrat z daného pracovního prostoru pro zajištění fungování runbooků podle očekávání.  
+> Pokud povolíte toto řešení, každý počítač s Windows připojený k pracovnímu prostoru OMS se automaticky nakonfiguruje jako Hybrid Runbook Worker, aby podporoval runbooky, které jsou zahrnuté v tomto řešení.  Není ale zaregistrovaný v žádné skupině Hybrid Worker, které už jste možná pro svůj účet Automation vytvořili.  Můžete ho přidat do skupiny Hybrid Runbook Worker ve vašem účtu Automation pro podporu runbooků Automation, pokud používáte stejný účet pro toto řešení a i pro členství ve skupině Hybrid Runbook Worker.  Tuto funkci jsme do funkce Hybrid Runbook Worker přidali ve verzi 7.2.12024.0.   
 
 1. Postupem popsaným v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md) přidejte řešení pro správu aktualizací z galerie řešení do pracovního prostoru.  
 2. Na portálu OMS vyberte **Nastavení** a potom **Připojené zdroje**.  Poznamenejte si **ID pracovního prostoru** a **primární klíč** nebo **sekundární klíč**.
@@ -247,10 +248,5 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 * K zobrazení podrobných údajů o aktualizaci použijte Hledání v protokolu služby [Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * [Vytvářejte vlastní řídicí panely](../log-analytics/log-analytics-dashboards.md) zobrazující shodu aktualizace pro vaše spravované počítače.
 * [Vytvářejte výstrahy](../log-analytics/log-analytics-alerts.md) při zjištění, že v počítačích chybí důležité aktualizace nebo že má počítač zakázané automatické aktualizace.  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

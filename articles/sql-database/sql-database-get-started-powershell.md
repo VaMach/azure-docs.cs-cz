@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/09/2016
+ms.date: 02/23/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
-ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
+ms.sourcegitcommit: 78d9194f50bcdc4b0db7871f2480f59b26cfa8f6
+ms.openlocfilehash: 7b7273edfa33f297cb5dc30ef380b6a737787b33
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ V tomto kurzu provedete také následující:
 * Připojení k ukázkové databázi
 * Zobrazení vlastností uživatelské databáze
 
-Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databázi, která je spuštěná ve skupině prostředků Azure a připojená k logickému serveru. Dál budete mít nakonfigurované pravidlo brány firewall na úrovni serveru, které objektu zabezpečení na úrovni serveru umožňuje přihlášení k serveru ze zadaná IP adresy (nebo rozsahu IP adres). 
+Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databázi, která je spuštěná ve skupině prostředků Azure a připojená k logickému serveru. Dál budete mít nakonfigurované pravidlo brány firewall na úrovni serveru, které objektu zabezpečení na úrovni serveru umožňuje přihlášení k serveru ze zadané IP adresy (nebo rozsahu IP adres). 
 
 **Časový odhad:** Tento kurz trvá přibližně 30 minut (za předpokladu, že už máte splněné požadavky).
 
@@ -58,27 +59,14 @@ Po dokončení tohoto kurzu budete mít ukázkovou databázi a prázdnou databá
 
 * Musíte být přihlášeni pomocí účtu, který je členem role přispěvatele nebo vlastníka předplatného. Další informace o řízení přístupu na základě role (RBAC) najdete v tématu [Začínáme se správou přístupu na webu Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
-* Musíte mít v Azure Blob Storage soubor .bacpac ukázkové databáze AdventureWorksLT
-
-### <a name="download-the-adventureworkslt-sample-database-bacpac-file-and-save-it-in-azure-blob-storage"></a>Stažení souboru .bacpac ukázkové databáze AdventureWorksLT a jeho uložení do Azure Blob Storage
-
-V tomto kurzu se vytvoří nová databáze AdventureWorksLT importováním souboru .bacpac ze služby Azure Storage. Prvním krokem je získání kopie souboru AdventureWorksLT.bacpac a její nahrání do úložiště objektů blob.
-Následující kroky připraví ukázkovou databázi k importu:
-
-1. [Stáhněte soubor AdventureWorksLT.bacpac](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) a uložte jej s příponou .bacpac.
-2. [Vytvořte účet úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) – k vytvoření účtu úložiště můžete použít výchozí nastavení.
-3. Vytvořte nový **Kontejner** tak, že přejdete do účtu úložiště, vyberete **Objekty blob** a kliknete na **+Kontejner**.
-4. Nahrajte soubor .bacpac do kontejneru objektů blob ve svém účtu úložiště. Můžete k tomu použít tlačítko **Nahrát** v horní části stránky kontejneru nebo [použijte AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
-5. Po uložení souboru AdventureWorksLT.bacpac budete potřebovat adresu URL a klíč účtu úložiště, které později v tomto kurzu použijete ve fragmentu kódu pro import. 
-   * Vyberte soubor bacpac a zkopírujte adresu URL. Bude podobná jako https://{název_účtu_úložiště}.blob.core.windows.net/{název_kontejneru}/AdventureWorksLT.bacpac. Na stránce účtu úložiště klikněte na **Přístupové klíče** a zkopírujte hodnotu **key1**.
-
-
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
 ## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Vytvoření nového logického serveru SQL pomocí prostředí Azure PowerShell
 
 Potřebujete skupinu prostředků, která bude obsahovat server. Prvním krokem je tedy vytvoření nové skupiny prostředků a serveru (rutiny [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), nebo získání odkazu na existující skupinu prostředků a server (rutiny [Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
+
+
 Následující fragmenty kódu vytvoří skupinu prostředků a server SQL Azure, pokud ještě neexistují:
 
 Seznam platných umístění Azure a formát řetězce najdete v části [Fragmenty pomocných rutin](#helper-snippets) dále v tomto kurzu.
@@ -178,6 +166,25 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allow Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
+
 ```
 
 
@@ -217,8 +224,8 @@ $connection.Close()
 
 ## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Vytvoření nové ukázkové databáze AdventureWorksLT pomocí prostředí Azure PowerShell
 
-Následující fragment kódu pomocí rutiny [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) naimportuje soubor bacpac ukázkové databáze AdventureWorksLT. Soubor bacpac se nachází v Azure Blob Storage. Po spuštění rutiny importu můžete sledovat průběh operace importu pomocí rutiny [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus).
-$storageUri je vlastnost adresy URL souboru bacpac, který jste nahráli na portál v předchozích krocích, a měla by být podobná jako https://{účet_úložiště}.blob.core.windows.net/{kontejner}/AdventureWorksLT.bacpac.
+Následující fragment kódu pomocí rutiny [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) naimportuje soubor bacpac ukázkové databáze AdventureWorksLT. Soubor bacpac je uložený ve veřejném účtu Azure Blob Storage, který je jen pro čtená. Po spuštění rutiny importu můžete sledovat průběh operace importu pomocí rutiny [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus).
+
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -228,9 +235,9 @@ $databaseName = "AdventureWorksLT"
 $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
-$storageKeyType = "StorageAccessKey"
-$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
-$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
+$storageKeyType = "SharedAccessKey"
+$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$storageKey = "?"
 
 $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -348,10 +355,14 @@ $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
 $myDatabaseServiceLevel = "Basic"
 
-$myStorageKeyType = "StorageAccessKey"
-# Get these values from your Azure storage account:
-$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
-$myStorageKey = "{your-storage-key}"
+
+# Storage account details for locating
+# and accessing the sample .bacpac 
+# Do Not Edit for this tutorial
+$myStorageKeyType = "SharedAccessKey"
+$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$myStorageKey = "?"
+
 
 
 # Create new, or get existing resource group
@@ -415,9 +426,8 @@ Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
-
-# Create or update server firewall rule
-#######################################
+# Create or update server firewall rules
+########################################
 
 $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
@@ -435,6 +445,24 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allows Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
 
 
 # Connect to the server and master database
@@ -577,9 +605,4 @@ Právě jste dokončili tento první úvodní kurz a vytvořili jste databázi s
 
 ## <a name="additional-resources"></a>Další zdroje
 [Co je SQL Database?](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

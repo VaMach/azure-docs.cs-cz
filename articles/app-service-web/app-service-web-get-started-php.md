@@ -4,7 +4,7 @@ description: "Nasazením ukázkové aplikace v PHP zjistíte, jak snadné je spu
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,25 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: f739bf6101936ff6bb25738e4888476e3b33a38f
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 68298208d2e2cc1fe7ab4050afecb25ca7d619cd
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Nasazení první webové aplikace v PHP do Azure během pěti minut (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [První web v HTML](app-service-web-get-started-html.md)
-> * [První aplikace v .NET](app-service-web-get-started-dotnet.md)
-> * [První aplikace v PHP](app-service-web-get-started-php.md)
-> * [První aplikace v Node.js](app-service-web-get-started-nodejs.md)
-> * [První aplikace v Pythonu](app-service-web-get-started-python.md)
-> * [První aplikace v Javě](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Tento kurz vám pomůže nasadit první webovou aplikaci v PHP do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Vaším úkolem je:
 K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-php.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
+- [Azure CLI 2.0](app-service-web-get-started-php.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
 
 ## <a name="prerequisites"></a>Požadavky
 * [Git](http://www.git-scm.com/downloads)
@@ -62,7 +54,7 @@ K dokončení úlohy můžete využít jednu z následujících verzí rozhraní
 > 
 
 ## <a name="deploy-a-php-web-app"></a>Nasazení webové aplikace v PHP
-1. Otevřete nový příkazový řádek systému Windows, okno prostředí PowerShell, prostředí Linux nebo terminál OS X. Spusťte `git --version` a `azure --version` ověřte, zda jsou v počítači nainstalovány Git a rozhraní příkazového řádku Azure CLI.
+1. Otevřete nový příkazový řádek systému Windows, okno prostředí PowerShell, prostředí Linux nebo terminál OS X. Spusťte `git --version` a `az --version` ověřte, zda jsou v počítači nainstalovány Git a rozhraní příkazového řádku Azure CLI.
    
     ![Test instalace nástrojů rozhraní příkazového řádku pro první webovou aplikaci v Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -77,7 +69,7 @@ K dokončení úlohy můžete využít jednu z následujících verzí rozhraní
 
 3. Nastavte uživatele nasazení pro App Service. Později pomocí těchto přihlašovacích údajů nasadíte kód.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
 
 3. Vytvořte novou [skupinu prostředků](../azure-resource-manager/resource-group-overview.md). V tomto prvním kurzu ke službě App Service ještě ani nepotřebujete vědět, co to je.
 
@@ -128,7 +120,7 @@ Blahopřejeme, úspěšně jste nasadili aplikaci do služby Azure App Service.
 ## <a name="see-your-app-running-live"></a>Sledování živého běhu aplikace
 Chcete-li sledovat živý běh v Azure, spusťte následující příkaz z libovolného adresáře v úložišti:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Provádění aktualizací aplikace
 Nyní můžete pomocí Git kdykoli provádět nucené doručení (push) z kořenového adresáře projektu (úložiště) a aktualizovat živý web. Postup je stejný jako při prvním nasazení kódu. Například pokaždé, když chcete nuceně doručit (push) novou změnu, kterou jste místně otestovali, stačí spustit následující příkazy z kořenového adresáře projektu (úložiště):
@@ -151,10 +143,5 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 * Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). Pokud třeba chcete pro nasazení použít některé z úložišť GitHubu, stačí v části **Možnosti nasazení** místo **Místní úložiště Git** vybrat **GitHub**.
 * Zdokonalte aplikaci Azure o další úroveň. Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí. Viz téma [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

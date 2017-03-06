@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s frontami služby Service Bus | Dokumentace Microsoftu"
+title: "Vytvoření programu, který používá fronty Azure Service Bus | Dokumentace Microsoftu"
 description: "Postup při psaní konzolové aplikace v jazyce C# pro zasílání zpráv ve službě Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
-ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 83649bdad1d369cdfe4edf3c2bdaa67180db8668
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ V tomto kurzu provedeme tyto kroky:
 4. Napíšeme konzolovou aplikaci pro příjem zpráv.
 
 ## <a name="prerequisites"></a>Požadavky
-1. [Visual Studio 2013 nebo Visual Studio 2015](http://www.visualstudio.com). V příklady v tomto kurzu se používá Visual Studio 2015.
+1. [Visual Studio 2015 nebo vyšší](http://www.visualstudio.com). V příklady v tomto kurzu se používá Visual Studio 2015.
 2. Předplatné Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -175,9 +176,4 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

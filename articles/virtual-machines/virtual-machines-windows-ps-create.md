@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Vytvoření virtuálního počítače s Windows pomocí Resource Manageru a PowerShellu
 
-Tento článek ukazuje, jak rychle vytvořit virtuální počítač Azure s Windows Serverem a prostředky, které potřebuje, pomocí [Resource Manageru](../azure-resource-manager/resource-group-overview.md) a prostředí PowerShell. Žádný z kroků pro vytvoření virtuálního počítače v tomto článku není možné vynechat a celý postup by neměl trvat déle než 30 minut. Příklad hodnot parametrů v příkazech nahraďte názvy, které dávají smysl pro vaše prostředí.
+Tento článek ukazuje, jak rychle vytvořit virtuální počítač Azure s Windows Serverem a prostředky, které potřebuje, pomocí [Resource Manageru](../azure-resource-manager/resource-group-overview.md) a Azure PowerShellu.  
+
+Žádný z kroků pro vytvoření virtuálního počítače v tomto článku není možné vynechat a celý postup by neměl trvat déle než 30 minut. Příklad hodnot parametrů v příkazech nahraďte názvy, které dávají smysl pro vaše prostředí.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok1: Nainstalování prostředí Azure PowerShell
 
 Projděte si článek [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azureps-cmdlets-docs), kde najdete informace o instalaci nejnovější verze prostředí Azure PowerShell, výběru předplatného a přihlášení k účtu.
+
+> [!NOTE]
+> Abyste měli funkce popisované v tomto článku, může být potřeba Azure PowerShell přeinstalovat. Funkce Managed Disks jsou obsažené ve verzi 3.5 a vyšší.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>Krok2: Vytvoření skupiny prostředků
 
@@ -175,10 +183,5 @@ Teď, když máte vytvořené všechno potřebné, je čas vytvořit si virtuál
 * Pokud byly nějaké problémy s nasazením, je dalším krokem článek [Řešení chyb nasazení v Azure pomocí Azure Resource Manageru](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Projděte si téma [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), kde najdete informace o tom, jak spravovat virtuální počítač, který jste vytvořili.
 * Podle informací v tématu [Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) můžete vytvořit virtuální počítač pomocí šablony.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
