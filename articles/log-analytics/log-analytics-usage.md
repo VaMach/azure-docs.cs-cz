@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
 ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -69,9 +70,4 @@ Pokud jste na cenové úrovni *za uzel (OMS)*, pak se vám bude účtovat v záv
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete zobrazit podrobné informace shromážděné a odeslané do OMS funkcemi a řešeními, přečtěte si téma [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

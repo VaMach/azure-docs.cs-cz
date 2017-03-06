@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 02/25/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: d3a122d7d26635e13281b1cba450937519ed4be6
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="getting-started-with-the-mfa-server-mobile-app-web-service"></a>Začínáme s webovou službou mobilní aplikace MFA Serveru
+# <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Povolení ověření přes mobilní aplikaci se serverem Azure Multi-Factor Authentication
+
 Aplikace Microsoft Authenticator nabízí možnost dalšího ověření mimo pásmo. Namísto zahájení automatizovaného telefonního hovoru nebo odeslání SMS zprávy uživateli při přihlášení, doručí služba Azure Multi-Factor Authentication oznámení do aplikace Microsoft Authenticator na tablet nebo smartphone uživatele. Uživatel v aplikaci jednoduše dokončí přihlášení klepnutím na **Ověřit** (nebo zadá kód PIN a klepne na Ověřit). 
 
 Použití mobilní aplikace pro dvojstupňové ověřování se upřednostňuje v případě, že je telefonní příjem nespolehlivý. Pokud aplikaci používáte jako generátor tokenu OAUTH, nevyžaduje připojení k síti ani k internetu. 
@@ -99,9 +101,4 @@ Teď, když je instalována webová služba mobilní aplikace, musíte nakonfigu
 5. Zadejte adresu URL používanou s virtuálním adresářem, který byl vytvořen při instalaci Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Název účtu může být zapsán v poskytnutém prostoru. Tento název společnosti se zobrazí v mobilní aplikaci. Pokud nebude zadán, zobrazí se název poskytovatele služby Multi-Factor Auth vytvořený na portálu Azure Classic.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

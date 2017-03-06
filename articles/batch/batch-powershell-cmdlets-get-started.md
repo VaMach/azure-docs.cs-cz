@@ -1,6 +1,6 @@
 ---
 title: "Začínáme se službou Azure Batch pomocí PowerShellu | Dokumentace Microsoftu"
-description: "Rychlý úvod do rutin prostředí Azure PowerShell, jejichž pomocí lze spravovat službu Azure Batch"
+description: "Rychlý úvod do rutin prostředí Azure PowerShell, jejichž pomocí lze spravovat prostředky služby Batch"
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Začínáme s prostředím PowerShell ve službě Azure Batch
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Správa prostředků služby Batch pomocí rutin PowerShellu
+
 Pomocí rutin prostředí PowerShell služby Batch můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí pomocí rozhraní API služby Batch, webu Azure Portal a rozhraní příkazového řádku (CLI) Azure. Tento článek obsahuje rychlý úvod do rutin, s jejichž pomocí můžete spravovat účty Batch a pracovat s prostředky služby Batch, jako jsou fondy, úlohy a úkoly.
 
 Úplný seznam rutin prostředí Batch a podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
@@ -236,10 +239,5 @@ Aktualizovali jste vlastnosti fondu ve službě Batch. Pokud chcete nový balí�
 ## <a name="next-steps"></a>Další kroky
 * Podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 * Další informace o aplikacích a balíčcích aplikací ve službě Batch najdete v tématu [Nasazení aplikace v balíčcích aplikace služby Azure Batch](batch-application-packages.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

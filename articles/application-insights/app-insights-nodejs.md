@@ -1,21 +1,22 @@
 ---
-title: "Přidání Application Insights SDK pro sledování aplikace Node.js | Dokumentace Microsoftu"
-description: "Analýza místního využití, dostupnosti a výkonu nebo webová aplikace Microsoft Azure s nástrojem Application Insights."
+title: "Sledování aplikace Node.js pomocí sady Azure Application Insights SDK | Dokumentace Microsoftu"
+description: "Analýza místního využití, dostupnosti a výkonu nebo webová aplikace Microsoft Azure pomocí Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,15 +32,14 @@ Sada SDK poskytuje automatický sběr hodnot příchozích požadavků HTTP a od
 #### <a name="before-you-start"></a>Než začnete
 Budete potřebovat:
 
-* Visual Studio 2013 nebo novější. Později je lepší.
 * Předplatné [Microsoft Azure](http://azure.com). Pokud váš tým nebo společnost má předplatné Azure, vlastník vás do něj může přidat pomocí vašeho [účtu Microsoft](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a> Vytvoření prostředku Application Insights
-Přihlaste se k portálu [Azure][portál] a vytvořte nový prostředek Application Insights. [Role][prostředků] v Azure je instance služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
+Přihlaste se k webu [Azure Portal][portal] a vytvořte nový prostředek Application Insights. [Prostředek][roles] v Azure je instancí služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
 
 ![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Vyberte jako typ aplikace Jiný. Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v metrikách [Průzkumníku metrik][].
+Vyberte jako typ aplikace Obecný. Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v [Průzkumníku metrik][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Zkopírovat klíč instrumentace
 Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá data do prostředku.
@@ -74,13 +74,13 @@ Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo
 
 ![Proklikejte se k dalším datům](./media/app-insights-nodejs/12-first-perf.png)
 
-Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][výkon]
+Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][perf]
 
 #### <a name="no-data"></a>Žádná data?
 * Použijte aplikaci a otevřete různé stránky tak, aby došlo k vygenerování nějaké telemetrie.
 * Otevřete dlaždici [Vyhledávání](app-insights-diagnostic-search.md) a zobrazte jednotlivé události. Někdy trvá událostem trochu déle, než se dostanou skrz kanály metriky.
 * Počkejte několik sekund a klikněte na tlačítko **Aktualizovat**. Grafy se pravidelně samy aktualizují, ale můžete je aktualizovat ručně, pokud čekáte na zobrazení některých dat.
-* Viz [Poradce při potížích][qna].
+* Další informace najdete v tématu [Poradce při potížích][qna].
 
 ## <a name="publish-your-app"></a>Publikování aplikace
 Teď nasaďte aplikaci do služby IIS nebo do Azure a sledujte shromažďování dat.
@@ -192,14 +192,9 @@ server.on("listening", () => {
 <!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
-[metriky]: app-insights-metrics-explorer.md
-[výkon]: app-insights-web-monitor-performance.md
-[portál]: http://portal.azure.com/
+[metrics]: app-insights-metrics-explorer.md
+[perf]: app-insights-web-monitor-performance.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[prostředků]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[roles]: app-insights-resources-roles-access-control.md
 

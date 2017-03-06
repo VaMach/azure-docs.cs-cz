@@ -4,7 +4,7 @@ description: "Nasazením ukázkové aplikace v Pythonu zjistíte, jak snadné je
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b0ffb91c2a92075b723b050338e8bedcc1e03ce7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5df82f438eab04d7ef2753c02b87eb5162c5c19d
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-python-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Nasazení první webové aplikace v Pythonu do Azure během pěti minut (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [První web v HTML](app-service-web-get-started-html.md)
-> * [První aplikace v .NET](app-service-web-get-started-dotnet.md)
-> * [První aplikace v PHP](app-service-web-get-started-php.md)
-> * [První aplikace v Node.js](app-service-web-get-started-nodejs.md)
-> * [První aplikace v Pythonu](app-service-web-get-started-python.md)
-> * [První aplikace v Javě](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Tento kurz vám pomůže nasadit první webovou aplikaci v Pythonu do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Službu App Service můžete používat při vytváření webových aplikací, [back-endů mobilních aplikací](/documentation/learning-paths/appservice-mobileapps/) a [aplikací API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Vaším úkolem je:
 K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
 
 - [Azure CLI 1.0](app-service-web-get-started-python-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-python.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
+- [Azure CLI 2.0](app-service-web-get-started-python.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
 
 ## <a name="prerequisites"></a>Požadavky
 * [Git](http://www.git-scm.com/downloads)
@@ -150,10 +142,5 @@ Další možností je pokračovat v práci s první webovou aplikací. Příklad
 
 * Vyzkoušejte si [další způsoby nasazení kódu do Azure](web-sites-deploy.md). Pokud třeba chcete pro nasazení použít některé z úložišť GitHubu, stačí v části **Možnosti nasazení** místo **Místní úložiště Git** vybrat **GitHub**.
 * Zdokonalte aplikaci Azure o další úroveň. Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí. Viz téma [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

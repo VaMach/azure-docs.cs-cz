@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
-ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,7 +61,7 @@ Tady je seznam toho, co budete potřebovat místně.
 | --- | --- |
 | **VMM** |Budete potřebovat minimálně jeden server VMM nasazený jako fyzický nebo virtuální samostatný server nebo jako virtuální cluster. <br/><br/>Na serveru VMM by měl běžet System Center 2012 R2 s nejnovější kumulativními aktualizacemi.<br/><br/>Na serveru VMM budete muset mít nakonfigurovaný aspoň jeden cloud.<br/><br/>Zdrojový cloud, který chcete chránit, musí obsahovat minimálně jednu skupinu hostitelů VMM.<br/><br/>Další informace o nastavení cloudů najdete na blogu Keithema Mayera v příspěvku [Návod: vytvoření privátních cloudů pomocí produktu System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx). |
 | **Hyper-V** |Budete potřebovat jeden nebo více hostitelských serverů Hyper-V nebo clusterů v cloudu VMM. Hostitelský server by měl mít a jeden nebo více virtuálních počítačů. <br/><br/>Na serveru Hyper-V musí běžet minimálně **Windows Server 2012 R2** s rolí Hyper-V nebo **Microsoft Hyper-V Server 2012 R2** a musí být na něm nainstalované nejnovější aktualizace.<br/><br/>Jakýkoli server Hyper-V obsahující virtuální počítače, které chcete chránit, musí být v cloudu VMM.<br/><br/>Pokud používáte technologii Hyper-V v clusteru, je důležité vědět, že zprostředkovatel clusteru se nevytvoří automaticky, pokud máte clustery založené na statických IP adresách. Budete ho muset nakonfigurovat ručně. [Další informace](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) v najdete blogu Aidana Finna. |
-| **Chráněné počítače** |Virtuální počítače, které chcete chránit, by měly splňovat [požadavky Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
+| **Chráněné počítače** | Virtuální počítače, které chcete chránit, by měly splňovat [požadavky Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). |
 
 ## <a name="network-mapping-prerequisites"></a>Požadavky na mapování sítě
 Při ochraně virtuálních počítačů v síti Azure mapování mapuje sítě virtuálních počítačů na zdrojovém serveru VMM a cílové sítě Azure, aby bylo možné následující:
@@ -73,6 +74,12 @@ Pokud chcete nasadit mapování sítě, budete potřebovat následující:
 
 * Virtuální počítače, který chcete chránit na zdrojovém serveru VMM, musí být připojené k síti virtuálních počítačů. Tato síť musí být propojená na logickou síť, která je přidružená ke cloudu.
 * Síť Azure, ke které se budou moct po převzetí služeb při selhání připojit replikované virtuální počítače. Tuto síť vyberete v okamžiku převzetí služeb při selhání. Síť musí být ve stejné oblasti jako vaše předplatné Azure Site Recovery.
+
+
+Připravte sítě v nástroji VMM:
+
+   * [Nastavení logických sítí](https://technet.microsoft.com/library/jj721568.aspx).
+   * [Nastavení sítí virtuálních počítačů](https://technet.microsoft.com/library/jj721575.aspx).
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1: Vytvoření trezoru Site Recovery
@@ -246,7 +253,7 @@ Pamatujte, že pokud má cílová síť více podsítí a jedna z těchto podsí
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>Krok 8: Povolení ochrany pro virtuální počítače
 Po správném nakonfigurování serverů, cloudů a sítí můžete povolit ochranu pro virtuální počítače v cloudu. Je třeba počítat s následujícím:
 
-* Virtuální počítače, musí splňovat [požadavky Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Virtuální počítače, musí splňovat [požadavky Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 * Aby bylo možné povolit ochranu, musí být pro virtuální počítač nastavené vlastnosti operačního systému a disku operačního systému. Vlastnost můžete nastavit při vytváření virtuálního počítače v nástroji VMM pomocí šablony virtuálního počítače. Tyto vlastnosti také můžete nastavit pro existující virtuální počítače, a to na kartách **Obecné** a **Konfigurace hardwaru** ve vlastnostech virtuálního počítače. Pokud tyto vlastnosti nenastavíte v nástroji VMM, budete je moct nakonfigurovat na portálu Azure Site Recovery.
 
     ![Vytvoření virtuálního počítače](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -315,7 +322,7 @@ Testovací předání služeb při selhání do Azure je možné spustit dvěma 
 * **Testovací převzetí služeb při selhání bez sítě Azure:** Tento typ testovacího převzetí služeb při selhání ověří, že virtuální počítač se zobrazí správně v Azure. Virtuální počítač nebude po převzetí služeb při selhání připojen k žádné síti Azure.
 * **Testovací převzetí služeb při selhání se sítí Azure:** Tento typ převzetí služeb při selhání kontroluje, že se očekávaným způsobem zobrazí celé prostředí replikace a že virtuální počítače, které převzaly služby při selhání, budou připojené k zadané cílové síti Azure. Aby bylo zajištěno, že bude použita správná podsíť, vybere se pro testovací převzetí služeb při selhání podsíť testovacího virtuálního počítače na základě podsítě virtuálního počítače repliky. Tím se replikace liší od standardní replikace, při které je podsíť virtuálního počítače repliky založena na podsíti zdrojového virtuálního počítače.
 
-Pokud chcete spustit testovací předání služeb při selhání pro virtuální počítač, pro který je povolená ochrana, do Azure bez zadání cílové sítě Azure, nemusíte dělat žádné další přípravy. Pokud chcete spustit testovací převzetí služeb při selhání s cílovou sítí Azure, budete muset vytvořit novou síť Azure, která bude izolovaná od produkční sítě Azure (což je výchozí chování při vytváření nových sítí v Azure). Podívejte se na další podrobnosti o tom, jak [spustit testovací převzetí služeb](site-recovery-failover.md#run-a-test-failover).
+Pokud chcete spustit testovací předání služeb při selhání pro virtuální počítač, pro který je povolená ochrana, do Azure bez zadání cílové sítě Azure, nemusíte dělat žádné další přípravy. Pokud chcete spustit testovací převzetí služeb při selhání s cílovou sítí Azure, budete muset vytvořit novou síť Azure, která bude izolovaná od produkční sítě Azure (což je výchozí chování při vytváření nových sítí v Azure). Podívejte se na další podrobnosti o tom, jak [spustit testovací převzetí služeb](site-recovery-failover.md).
 
 Také budete muset nastavit infrastrukturu, aby replikovaný virtuální počítač fungoval podle očekávání. Například virtuální počítač s řadičem domény a DNS je možné replikovat do Azure pomocí Azure Site Recovery a je možné ho vytvořit v testovací síti pomocí testovacího převzetí služeb při selhání. Další podrobnosti najdete v tématu věnovaném [aspektům, které je třeba zvážit při testování převzetí služeb při selhání pro Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
@@ -341,9 +348,4 @@ Pokud chcete spustit testovací převzetí služeb při selhání, udělejte tot
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o [nastavení plánů obnovení](site-recovery-create-recovery-plans.md) a [převzetí služeb při selhání](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

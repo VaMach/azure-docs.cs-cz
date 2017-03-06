@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření sady škálování virtuálních počítačů | | Dokumentace Microsoftu"
-description: "Vytvoření sady škálování virtuálních počítačů pomocí Azure CLI"
+title: "Vytvoření škálovací sady virtuálních počítačů pomocí Azure CLI 2.0 | Dokumentace Microsoftu"
+description: "Naučte se vytvářet sady škálování virtuálních počítačů pomocí Azure CLI 2.0."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -13,20 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2016
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 89e8e1dd9524c80e76aea8927bbd0578d475fc39
+ms.sourcegitcommit: 9b2ef23effa32e9b7507ad6e6eb29e97609a2034
+ms.openlocfilehash: e4f12b0d2959a0238753499e7068c930155072d9
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-virtual-machine-scale-set-using-azure-cli"></a>Vytvoření sady škálování virtuálních počítačů s Linuxem pomocí Azure CLI
+# <a name="create-a-linux-virtual-machine-scale-set-with-the-azure-cli-20"></a>Vytvoření škálovací sady virtuálních počítačů s Linuxem pomocí Azure CLI 2.0
+
+V tomto článku se používá Azure CLI 2.0. Pokud chcete použít Azure CLI 1.0, přečtěte si [tento článek](./virtual-machine-scale-sets-linux-create-cli-nodejs.md).
+
 [!INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

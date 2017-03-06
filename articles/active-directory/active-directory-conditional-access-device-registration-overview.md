@@ -5,7 +5,7 @@ services: active-directory
 keywords: "registrace zařízení, povolení registrace zařízení, registrace zařízení a MDM"
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ Zařízení se systémy Windows 7 a Windows 8.1 budou nástroj Registrace zaří
 
 Je nutné vytvořit záznam DNS CNAME, který odkazuje na záznam A přidružený k vašemu nástroji Registrace zařízení služby Azure Active Directory. Záznam CNAME musí použít známou předponu enterpriseregistration, za kterou následuje přípona UPN, kterou používají uživatelské účty ve vaší organizaci. Pokud vaše organizace používá více přípon UPN, je nutné v záznamech DNS vytvořit více záznamů CNAME.
 
-Pokud například v organizaci používáte dvě přípony UPN s názvy @contoso.com a @region.contoso.com,, musíte vytvořit následující záznamy DNS.
+Pokud například v organizaci používáte dvě přípony UPN s názvy @contoso.com a @region.contoso.com, musíte vytvořit následující záznamy DNS.
 
 | Záznam | Typ | Adresa |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ Zařízení se systémy Windows 7 a Windows 8.1 připojená k doméně můžete 
 * [Konfigurace automatické registrace zařízení u zařízení se systémem Windows 7 připojených k doméně](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Konfigurace automatické registrace zařízení u zařízení se systémem Windows 8.1 připojených k doméně](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Automatická registrace zařízení ve službě Azure Active Directory u zařízení se systémem Windows 10 připojených k doméně](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Nasazení služby AD FS v Azure
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Nasazení služby AD FS (Active Directory Federation Service) v Azure
 Služby AD FS nabízí zjednodušené možnosti zabezpečené federace identit a jednotného přihlašování na webu (SSO). Federace pomocí Azure AD nebo O365 uživatelům umožňuje ověřování pomocí místních přihlašovacích údajů a přístup ke všem prostředkům v cloudu. V důsledku toho je důležité mít vysoce dostupnou infrastrukturu služby AD FS, která zajistí přístup k místním prostředkům i k prostředkům v cloudu. Nasazení služby AD FS v Azure může zajistit požadovanou vysokou dostupnost při minimálním úsilí.
 Níže uvádíme některé z řady výhod, které nasazení služby AD FS v Azure přináší:
 
@@ -37,7 +38,7 @@ Výše uvedený diagram zobrazuje doporučenou základní topologii, podle kter�
 
 * **Řadič domény a servery služby AD FS**: Pokud máte méně než 1000 uživatelů, můžete roli služby AD FS jednoduše nainstalovat na řadiče domény. Pokud nechcete ovlivnit výkon řadičů domény nebo pokud máte více než 1000 uživatelů, potom službu AD FS nasaďte na samostatné servery.
 * **Server WAP** – je nutné nasadit proxy servery webových aplikací, aby se uživatelé mohli spojit se službou AD FS i když jsou mimo síť společnosti.
-* **DMZ**: Proxy servery webových aplikací budou umístěny v zóně DMZ a mezi zónou DMZ a interní podsítí je povolený přístup jenom prostřednictvím protokolu TCP a portu 443.
+* **DMZ**: Proxy servery webových aplikací budou umístěny v zóně DMZ a mezi zónou DMZ a interní podsítí je povolený přístup jenom prostřednictvím protokolu TCP a portu&443;.
 * **Nástroje pro vyrovnávání zatížení**: Pokud chcete zajistit vysokou dostupnost služby AD FS a proxy serverů webových aplikací, doporučujeme na serverech služby AD FS používat interní nástroj pro vyrovnávání zatížení a na proxy serverech webových aplikací zase službu Azure Load Balancer.
 * **Skupiny dostupnosti**: Pokud chcete zajistit redundanci pro nasazení služby AD FS, doporučujeme v případě podobných zatížení seskupit dva nebo více virtuálních počítačů do skupiny dostupnosti. Tato konfigurace zajišťuje, aby během plánované nebo neplánované události údržby zůstal dostupný alespoň jeden virtuální počítač.
 * **Účty úložiště**: Je doporučeno mít dva účty úložiště. Pokud máte jen jeden účet úložiště, může se takový účet stát jediným bodem selhání a může způsobit nedostupnost nasazení v nepravděpodobném scénáři, kdy se účet úložiště ocitne mimo provoz. Když budete mít dva účty úložiště, můžete ke každé chybové linii přidružit jeden účet úložiště.
@@ -353,10 +354,5 @@ Při nasazování této šablony můžete použít stávající virtuální sí�
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurace a správa služby AD FS pomocí služby Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -17,8 +17,9 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
+ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
+ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Co je SQL Database? Úvod do služby SQL Database
@@ -43,7 +44,7 @@ Ať už si vyberete kteroukoli cestu – izolované databáze nebo elastické fo
 Jak ale můžeme srovnávat relativní výkon izolovaných databází a elastických fondů? Jak poznáme správnou hodnotu nastavení při přidávání nebo ubírání výkonu? Můžete použít [integrované nástroje pro monitorování výkonu](sql-database-performance.md) a [upozorňování](sql-database-insights-alerts-portal.md) v kombinaci s hodnocením výkonu na základě [jednotek DTU (Database Transaction Unit) pro izolované databáze a elastických DTU (eDTU) pro elastické fondy](sql-database-what-is-a-dtu.md). Pomocí těchto nástrojů můžete rychle posoudit dopad vertikálního navýšení nebo snížení kapacity v závislosti na stávajících nebo předpokládaných požadavcích. Podrobnosti viz téma [Výkon a možnosti služby SQL Database: Co je k dispozici v jednotlivých úrovních služeb](sql-database-service-tiers.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Udržujte své aplikace a podnikáni v chodu
-Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.microsoft.com/support/legal/sla/) dosahuje špičkové hodnoty 99,99 %, protože staví na globální síti Microsoftem spravovaných datových center. Může tedy udržet vaše aplikace v nepřetržitém provozu každý den po celý rok. S každou databází SQL využíváte integrované zabezpečení, odolnost proti chybám a [ochranu dat](sql-database-automated-backups.md), které byste jinak museli kupovat nebo navrhovat, sestavovat a spravovat. SQL Database nabízí v každé úrovni služby komplexní sadu funkcí a možností pro zajištění kontinuity podnikových procesů, které můžete využít k zahájení a udržení provozu. Můžete využít [obnovení databáze do určitého bodu v čase](sql-database-recovery-using-backups.md), a to až 35 dnů zpět. Můžete nakonfigurovat [dlouhodobé uchovávání záloh](sql-database-long-term-retention.md) a ukládat zálohy v bezpečném trezoru po dobu až 10 let. Kromě toho, pokud dojde k výpadku datového centra hostujícího vaše databáze, můžete databáze obnovit z [geograficky redundantních kopií nedávných záloh]((sql-database-recovery-using-backups.md). V případě potřeby můžete také nakonfigurovat [geograficky redundantní repliky pro čtení](sql-database-geo-replication-overview.md) v jedné nebo několika oblastech pro rychlé převzetí služeb při selhání, pokud dojde k výpadku datového centra. Tyto repliky můžete také využít pro zvýšení výkonu při čtení v různých geografických oblastech nebo pro [upgrade aplikací bez výpadků](sql-database-manage-application-rolling-upgrade.md). 
+Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.microsoft.com/support/legal/sla/) dosahuje špičkové hodnoty 99,99 %, protože staví na globální síti Microsoftem spravovaných datových center. Může tedy udržet vaše aplikace v nepřetržitém provozu každý den po celý rok. S každou databází SQL využíváte integrované zabezpečení, odolnost proti chybám a [ochranu dat](sql-database-automated-backups.md), které byste jinak museli kupovat nebo navrhovat, sestavovat a spravovat. SQL Database nabízí v každé úrovni služby komplexní sadu funkcí a možností pro zajištění kontinuity podnikových procesů, které můžete využít k zahájení a udržení provozu. Můžete využít [obnovení databáze do určitého bodu v čase](sql-database-recovery-using-backups.md), a to až 35 dnů zpět. Můžete nakonfigurovat [dlouhodobé uchovávání záloh](sql-database-long-term-retention.md) a ukládat zálohy v bezpečném trezoru po dobu až 10 let. Kromě toho, pokud dojde k výpadku datového centra hostujícího vaše databáze, můžete databáze obnovit z [geograficky redundantních kopií nedávných záloh](sql-database-recovery-using-backups.md). V případě potřeby můžete také nakonfigurovat [geograficky redundantní repliky pro čtení](sql-database-geo-replication-overview.md) v jedné nebo několika oblastech pro rychlé převzetí služeb při selhání, pokud dojde k výpadku datového centra. Tyto repliky můžete také využít pro zvýšení výkonu při čtení v různých geografických oblastech nebo pro [upgrade aplikací bez výpadků](sql-database-manage-application-rolling-upgrade.md). 
 
 ![Geografická replikace služby SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,9 +60,4 @@ Nyní, když jste si přečetli úvod do služby SQL Database a znáte odpověď
 * Další informace [elastických fondech](sql-database-elastic-pool.md).
 * Začněte [vytvářet první databáze](sql-database-get-started.md).
 * Začněte vytvářet vaši první aplikaci v jazyce C#, Java, Node.js, PHP, Python nebo Ruby: [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
+ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
+ms.openlocfilehash: 8248e0a02cb0775a87f0c8130e53b98f8bcfe581
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 ## <a name="introduction"></a>Úvod
 [Předkonfigurovaná řešení][lnk-preconfigured-solutions] pro sadu Azure IoT Suite kombinují více služeb Azure IoT, aby mohla poskytovat komplexní řešení implementující běžné obchodní scénáře IoT. Předkonfigurované řešení *vzdálené monitorování* se připojuje k zařízením a monitoruje je. Řešení můžete použít k analýze streamu dat ze všech zařízení a ke zlepšení obchodních výsledků díky tomu, že procesy mohou automaticky reagovat na tento stream dat.
 
-V tomto kurzu se dozvíte, jak zřídit předkonfigurované řešení vzdáleného monitorování. Také se seznámíte se základními funkcemi předkonfigurovaného řešení vzdáleného monitorování. Mnohé z těchto funkcí jsou přístupné prostřednictvím řídicího panelu řešení, který se nasazuje spolu s předem nakonfigurovaným řešením:
+V tomto kurzu se dozvíte, jak zřídit předkonfigurované řešení vzdáleného monitorování. Také se seznámíte se základními funkcemi předkonfigurovaného řešení. Mnohé z těchto funkcí jsou přístupné z řídicího panelu řešení, který se nasazuje jako součást předkonfigurovaného řešení:
 
 ![Řídicí panel předkonfigurovaného řešení vzdáleného monitorování][img-dashboard]
 
@@ -53,28 +54,68 @@ Přes řídicí panel řešení můžete spravovat nasazené řešení. Můžete
 * Mapa zobrazuje umístění každého zařízení, které je připojené k řešení. Když řešení poprvé spustíte, zahrnuje čtyři simulovaná zařízení. Simulovaná zařízení jsou implementována jako Azure WebJobs a řešení k vykreslování informací na mapě používá Bing Maps API.
 * Na panelu **Historie telemetrie** se skoro v reálném čase zobrazuje telemetrie vlhkosti a teploty z vybraného zařízení a agregovaná data (tj. minimum, maximum a průměrná vlhkost).
 * Panel **Historie alarmů** zobrazuje události, kdy v poslední době hodnota telemetrie překročila stanovenou mez. Kromě příkladů vytvořených předkonfigurovaným řešením můžete definovat i vlastní alarmy.
+* Na panelu **Úlohy** se zobrazují informace o plánovaných úlohách. Vlastní úlohy můžete plánovat na stránce **Úlohy správy**.
 
 ## <a name="view-the-device-list"></a>Zobrazení seznamu zařízení
-V seznamu zařízení jsou uvedena všechna zařízení, která jsou zaregistrována v řešení. Můžete sledovat a upravovat metadata v zařízení, přidávat nebo odebírat zařízení a odesílat do nich příkazy.
+V *seznamu zařízení* jsou uvedena všechna zařízení, která jsou zaregistrována v řešení. V seznamu zařízení můžete zobrazit a upravovat metadata zařízení, přidávat a odebírat zařízení a vyvolávat v zařízeních metody.
 
-1. Pokud v levé nabídce kliknete na možnost **Zařízení**, zobrazí se panel *Seznam zařízení* pro toto řešení.
+1. Pokud v nabídce vlevo kliknete na **Zařízení**, zobrazí se seznam zařízení pro toto řešení.
    
    ![Seznam zařízení na řídicím panelu][img-devicelist]
-2. V seznamu zařízení jsou uvedena čtyři simulovaná zařízení, která byla vytvořena během procesu zřizování.
-3. Pokud kliknete na některé zařízení v seznamu, zobrazí se podrobnosti o tomto zařízení.
+2. V seznamu zařízení jsou zpočátku uvedena čtyři simulovaná zařízení, která byla vytvořena během procesu zřizování. Do řešení můžete přidat další simulovaná a fyzická zařízení.
+3. Informace, které se zobrazují v seznamu zařízení, si můžete přizpůsobit kliknutím na **Editor sloupců**. Můžete přidat a odebrat sloupce, které zobrazují hodnoty ohlašovaných vlastností a značek. Můžete také změnit pořadí sloupců a přejmenovat je:
+   
+   ![Editor sloupců na řídicím panelu][img-columneditor]
+4. Pokud chcete zobrazit podrobnosti o zařízení, klikněte na některé v seznamu zařízení.
    
    ![Podrobnosti o zařízení na řídicím panelu][img-devicedetails]
 
-Panel **Informace o zařízení** se skládá ze tří částí:
+Panel **Podrobnosti o zařízení** se skládá ze šesti částí:
 
-* V části **Akce** jsou uvedeny akce, které můžete na zařízení provádět. Pokud zařízení vypnete, zrušíte mu tím i povolení odesílat telemetrická data nebo přijímat příkazy. Pokud zařízení vypnete, můžete je později znovu zapnout. Můžete přidat pravidlo, které bude spojeno se zařízením a které spustí alarm pokaždé, když hodnota telemetrie přesáhne určitou mez. Také můžete na zařízení poslat příkaz. Když se zařízení poprvé připojí, sdělí řešení příkazy, na které může reagovat.
-* V části **Vlastnosti zařízení** je uveden seznam metadat zařízení. Některá z těchto metadat pocházejí ze samotného zařízení (například výrobce), jiná generuje řešení (například čas vytvoření). Odsud můžete upravit metadata zařízení.
-* V části **Ověřovací klíče** je uveden seznam klíčů, které může zařízení použít k ověřování při komunikaci s řešením.
+* Kolekce odkazů, pomocí kterých si můžete přizpůsobit ikonu zařízení, zakázat zařízení, přidat pravidlo, vyvolat metodu nebo odeslat příkaz. Porovnání příkazů (zpráv typu zařízení-cloud) a metod (přímých metod) najdete v [doprovodných materiálech ke komunikaci typu cloud-zařízení][lnk-c2d-guidance].
+* V části **Dvojče zařízení – Značky** můžete upravovat hodnoty značek pro zařízení. Hodnoty značek můžete zobrazit v seznamu zařízení a s jejich pomocí seznam zařízení filtrovat.
+* V části **Dvojče zařízení – Požadované vlastnosti** můžete nastavit hodnoty vlastností, které se odešlou do zařízení.
+* V části **Dvojče zařízení – Ohlášené vlastnosti** se zobrazují hodnoty vlastností odeslané ze zařízení.
+* V části **Vlastnosti zařízení** se zobrazují informace z registru identit, jako například ID zařízení a ověřovací klíče.
+* V části **Poslední úlohy** se zobrazují informace o všech úlohách, které nedávno cílily na příslušné zařízení.
+
+## <a name="customize-the-device-icon"></a>Přizpůsobení ikony zařízení
+
+Ikonu zařízení, která se zobrazuje v seznamu zařízení, si můžete přizpůsobit na panelu **Podrobnosti o zařízení** podle následujícího postupu:
+
+1. Kliknutím na ikonu tužky otevřete panel **Upravit obrázek** pro zařízení:
+   
+   ![Otevřený editor obrázku zařízení][img-startimageedit]
+2. Nahrajte nový obrázek nebo použijte některý z existujících obrázků a potom klikněte na **Uložit**:
+   
+   ![Editor Upravit obrázek zařízení][img-imageedit]
+3. Obrázek, který jste vybrali, se teď zobrazí ve sloupci **Ikona** pro zařízení.
+
+> [!NOTE]
+> Obrázek se ukládá v úložišti objektů blob. Značka ve dvojčeti zařízení obsahuje odkaz na tento obrázek v úložišti objektů blob.
+> 
+> 
+
+## <a name="invoke-a-method-on-a-device"></a>Vyvolání metody v zařízení
+Na panelu **Podrobnosti o zařízení** můžete vyvolávat metody v zařízení. Jakmile se zařízení poprvé spustí, odešle do řešení informace o metodách, které podporuje.
+
+1. Na panelu **Podrobnosti o zařízení** pro vybrané zařízení klikněte na **Metody**:
+   
+   ![Metody zařízení na řídicím panelu][img-devicemethods]
+2. V seznamu metod vyberte **Reboot** (Restartovat).
+3. Klikněte na **Vyvolat metodu**.
+4. Stav volání metody se zobrazí v historii metod.
+   
+   ![Stav metody na řídicím panelu][img-pingmethod]
+
+Řešení sleduje stav každé metody, kterou vyvolá. Jakmile se metoda v zařízení dokončí, zobrazí se v tabulce historie metod nový záznam.
+
+Některé metody v zařízení spouští asynchronní úlohy. Například metoda **InitiateFirmwareUpdate** (Zahájit aktualizaci firmwaru) spustí asynchronní úlohu, která provede aktualizaci. Zařízení pomocí ohlášených vlastností průběžně hlásí stav aktualizace firmwaru.
 
 ## <a name="send-a-command-to-a-device"></a>Odeslání příkazu na zařízení
-V podokně s informacemi o zařízení jsou uvedeny všechny příkazy, které toto zařízení podporuje, a umožňuje vám odesílat příkazy na zařízení. Jakmile zařízení poprvé spustíte, odešle do řešení informace o příkazech, které podporuje.
+Na panelu **Podrobnosti o zařízení** můžete odesílat příkazy do zařízení. Jakmile zařízení poprvé spustíte, odešle do řešení informace o příkazech, které podporuje.
 
-1. V podokně informací o vybraném zařízení klikněte na **Příkazy**.
+1. Na panelu **Podrobnosti o zařízení** pro vybrané zařízení klikněte na **Příkazy**:
    
    ![Příkazy zařízení na řídicím panelu][img-devicecommands]
 2. Ze seznamu příkazů vyberte **PingDevice** (Otestovat zařízení příkazem ping).
@@ -91,7 +132,7 @@ Při nasazení předkonfigurovaného řešení jsou automaticky zřízena čtyř
 Následující kroky ukazují, jak do řešení přidat simulované zařízení:
 
 1. Vraťte se zpět k seznamu zařízení.
-2. Přidejte zařízení kliknutím na možnost **+ Přidat zařízení** (vlevo dole).
+2. Pokud chcete přidat zařízení, klikněte na **+ Přidat zařízení** vlevo dole.
    
    ![Přidání zařízení do předkonfigurovaného řešení][img-adddevice]
 3. Klikněte na příkaz **Přidat nové**, který se nachází na dlaždici **Simulované zařízení**.
@@ -111,29 +152,70 @@ Následující kroky ukazují, jak do řešení přidat simulované zařízení:
    
     ![Zobrazení telemetrie z nového zařízení][img-runningnew-2]
 
-## <a name="edit-the-device-metadata"></a>Úprava metadat zařízení
-Když se zařízení připojí k řešení poprvé, odešle do řešení svá metadata. Při úpravě metadat zařízení prostřednictvím řídicího panelu řešení odešle nové hodnoty metadat do zařízení a uloží nové hodnoty v databázi řešení DocumentDB. Další informace najdete v tématu [Registr identit zařízení a databáze DocumentDB][lnk-devicemetadata].
+## <a name="device-properties"></a>Vlastnosti zařízení
+Předkonfigurované řešení vzdáleného monitorování pomocí [dvojčat zařízení][lnk-device-twin] synchronizuje metadata zařízení mezi zařízeními a back-endem řešení. Dvojče zařízení je dokument JSON uložený ve službě IoT Hub, který uchovává hodnoty vlastností pro jednotlivá zařízení. Zařízení pravidelně odesílají metadata do back-endu řešení jako *ohlášené vlastnosti*, které se uloží ve dvojčeti zařízení. Back-end řešení může pomocí nastavení *požadovaných vlastností* ve dvojčeti zařízení odesílat aktualizace metadat do zařízení. Ohlášené vlastnosti ukazují nejnovější hodnoty metadat odeslané ze zařízení. Další informace najdete v tématu [Registr identit zařízení, dvojče zařízení a databáze DocumentDB][lnk-devicemetadata].
+
+> [!NOTE]
+> Řešení také využívá databázi DocumentDB, ve které ukládá data specifická pro zařízení, která souvisí s příkazy a metodami.
+> 
+> 
 
 1. Vraťte se zpět k seznamu zařízení.
-2. Na panelu **Seznam zařízení** vyberte nové zařízení a klikněte na tlačítko **Upravit**, kterým upravíte **vlastnosti zařízení**.
+2. Na panelu **Seznam zařízení** vyberte nové zařízení a klikněte na **Upravit**, kterým upravíte **Dvojče zařízení – Požadované vlastnosti**:
    
-   ![Úprava metadat zařízení][img-editdevice]
-3. Přejděte dolů a změňte hodnoty zeměpisné délky a šířky. Pak klikněte na možnost **Uložit změny do registru zařízení**.
+   ![Upravení požadovaných vlastností zařízení][img-editdevice]
+3. **Název požadované vlastnosti** nastavte na **Zeměpisná šířka** a hodnotu nastavte na **47.639521**. Pak klikněte na **Uložit změny do registru zařízení**:
    
-    ![Úprava metadat zařízení][img-editdevice2]
-4. Po návratu na řídicí panel se umístění zařízení na mapě změní:
+    ![Upravení požadované vlastnosti zařízení][img-editdevice2]
+4. Na panelu **Podrobnosti o zařízení** se zpočátku zobrazí nová hodnota zeměpisné šířky jako požadovaná vlastnost a stará hodnota zeměpisné šířky jako ohlášená vlastnost:
    
-    ![Úprava metadat zařízení][img-editdevice3]
+    ![Zobrazení ohlášené vlastnosti][img-editdevice3]
+5. V současné době simulovaná zařízení v rámci předkonfigurovaného řešení zpracovávají pouze požadované vlastnosti **Desired.Config.TemperatureMeanValue** a **Desired.Config.TelemetryInterval**. Skutečné zařízení by mělo ze služby IoT Hub načítat všechny požadované vlastnosti, provádět změny ve své konfiguraci a hlásit nové hodnoty do služby IoT Hub jako ohlášené vlastnosti.
+
+Na panelu **Podrobnosti o zařízení** můžete také upravit **Dvojče zařízení – Značky**, a to stejným způsobem jako **Dvojče zařízení – Požadované vlastnosti**. Na rozdíl od požadovaných vlastností se však značky nesynchronizují se zařízením. Značky existují pouze ve dvojčeti zařízení ve službě IoT Hub. Pomocí značek můžete snadno sestavovat vlastní filtry v seznamu zařízení.
+
+## <a name="sort-the-device-list"></a>Řazení seznamu zařízení
+
+Seznam zařízení můžete řadit kliknutím vedle záhlaví sloupce. První kliknutí seřadí seznam vzestupně, druhé kliknutí sestupně:
+
+![Řazení seznamu zařízení][img-sortdevices]
+
+## <a name="filter-the-device-list"></a>Filtrování seznamu zařízení
+
+V seznamu zařízení můžete vytvořit, uložit a znovu načíst filtry, pomocí kterých zobrazíte přizpůsobený seznam zařízení připojených k vaší službě IoT Hub. Vytvoření filtru:
+
+1. Klikněte na ikonu filtru nad seznamem zařízení:
+   
+   ![Otevření editoru filtru][img-editfiltericon]
+2. V **Editoru filtru** přidejte pole, operátory a hodnoty, podle kterých chcete filtrovat seznam zařízení. Filtr můžete upřesnit přidáním více klauzulí. Kliknutím na **Filtrovat** použijte filtr:
+   
+   ![Vytvoření filtru][img-filtereditor]
+3. V tomto příkladu je seznam filtrovaný podle výrobce a čísla modelu:
+   
+   ![Filtrovaný seznam][img-filterelist]
+4. Pokud chcete filtr uložit s vlastním názvem, klikněte na ikonu **Uložit jako**:
+   
+   ![Uložení filtru][img-savefilter]
+5. Pokud chcete znovu použít dříve uložený filtr, klikněte na ikonu **Otevřít uložený filtr**:
+   
+   ![Otevření filtru][img-openfilter]
+
+Můžete vytvořit filtry na základě ID zařízení, stavu zařízení, požadovaných vlastností, ohlášených vlastností a značek.
+
+> [!NOTE]
+> V **Editoru filtru** můžete pomocí **Rozšířeného zobrazení** upravit přímo text dotazu.
+> 
+> 
 
 ## <a name="add-a-rule-for-the-new-device"></a>Přidání pravidla pro nové zařízení
 Pro zařízení, které jste právě přidali, ještě nejsou stanovena žádná pravidla. V této sekci přidáte pravidlo, které spustí alarm, jakmile teplota hlášená novým zařízením přesáhne 47 stupňů. Ještě než začnete, všimněte si, že historie telemetrie nového zařízení na řídicím panelu ukazuje, že teplota měřená tímto zařízením nikdy nepřesáhne 45 stupňů.
 
 1. Vraťte se zpět k seznamu zařízení.
-2. Na panelu **Seznam zařízení** vyberte nové zařízení a potom klikněte na tlačítko **Přidat pravidlo**. Tím přidáte pravidlo pro zařízení.
+2. Pokud chcete přidat pravidlo pro zařízení, vyberte nové zařízení na panelu **Seznam zařízení** a potom klikněte na **Přidat pravidlo**.
 3. Vytvořte pravidlo, které jako datové pole používá **teplotu**, a pokud tato veličina přesáhne 47 stupňů, použije jako výstup **AlarmTemp** (teplotní alarm):
    
     ![Přidání pravidla pro zařízení][img-adddevicerule]
-4. Změny uložte kliknutím na možnost **Uložit a zobrazit pravidla**.
+4. Změny uložíte kliknutím na **Uložit a zobrazit pravidla**.
 5. V podokně informací o novém zařízení klikněte na možnost **Příkazy**.
    
    ![Přidání pravidla pro zařízení][img-adddevicerule2]
@@ -155,14 +237,55 @@ Pro zařízení, které jste právě přidali, ještě nejsou stanovena žádná
 > 
 > 
 
-## <a name="other-features"></a>Další funkce
-Pomocí portálu řešení můžete hledat zařízení s konkrétními vlastnostmi, jako je například číslo modelu:
-
-![Vyhledávání zařízení][img-search]
-
+## <a name="disable-and-remove-devices"></a>Zakázání a odebrání zařízení
 Zařízení můžete zakázat, zakázané zařízení lze následně odebrat:
 
 ![Zakázání a odebrání zařízení][img-disable]
+
+## <a name="run-jobs"></a>Spouštění úloh
+Můžete plánovat úlohy, které budou provádět hromadné operace s vašimi zařízeními. Úlohu vytváříte pro seznam zařízení. Tento seznam může obsahovat všechna vaše zařízení, nebo to může být filtrovaný seznam, který jste vytvořili pomocí [nástrojů filtrování](#filter-the-device-list) v seznamu zařízení. Úloha může v každém zařízení v seznamu vyvolat metodu nebo pro každé zařízení v seznamu aktualizovat dvojče zařízení.
+
+### <a name="create-a-job-to-invoke-a-method"></a>Vytvoření úlohy vyvolávající metodu
+
+Následující kroky ukazují, jak vytvořit úlohu, která vyvolá metodu aktualizace firmwaru v každém zařízení v seznamu. Tato metoda se vyvolá pouze v zařízeních, které ji podporují:
+
+1. Pomocí nástrojů filtrování v seznamu zařízení vytvořte seznam zařízení, která obdrží aktualizaci firmwaru:
+   
+   ![Otevření editoru filtru][img-editfiltericon]
+2. Ve filtrovaném seznamu klikněte na **Plánovač úloh**:
+   
+   ![Otevření plánovače úloh][img-clickjobscheduler]
+3. Na panelu **Naplánovat úlohu** klikněte na **Vyvolání metody**.
+4. Na stránce **Vyvolání metody** zadejte podrobnosti o metodě, která se má vyvolat, a potom klikněte na **Naplánovat**:
+   
+   ![Konfigurace úlohy s metodou][img-invokemethodjob]
+
+Metoda **InitiateFirmwareUpdate** asynchronně spustí úlohu v zařízení a okamžitě se vrátí. Proces aktualizace firmwaru pak bude pomocí ohlášených vlastností průběžně hlásit stav procesu aktualizace.
+
+### <a name="create-a-job-to-edit-the-device-twin"></a>Vytvoření úlohy upravující dvojče zařízení
+
+Následující kroky ukazují, jak vytvořit úlohu, která upraví dvojče zařízení pro každé zařízení v seznamu:
+
+1. Pomocí nástrojů filtrování v seznamu zařízení vytvořte seznam zařízení, která obdrží úpravy dvojčete zařízení:
+   
+   ![Otevření editoru filtru][img-editfiltericon]
+2. Ve filtrovaném seznamu klikněte na **Plánovač úloh**:
+   
+   ![Otevření plánovače úloh][img-clickjobscheduler]
+3. Na panelu **Naplánovat úlohu** klikněte na **Úprava dvojčete zařízení**.
+4. Na stránce **Úprava dvojčete zařízení** potom zadejte podrobnosti o **Požadovaných vlastnostech** a **Značkách**, které se mají upravit, a klikněte na **Naplánovat**:
+   
+   ![Konfigurace úlohy s metodou][img-edittwinjob]
+
+### <a name="monitor-the-job"></a>Monitorování úlohy
+Stav úloh, které plánujete, můžete monitorovat na stránce **Úlohy správy**. Na panelu **Podrobnosti o úloze** se zobrazují informace o vybrané úloze:
+   
+   ![Zobrazení stavu úlohy][img-jobstatus]
+
+Informace o úlohách můžete zobrazit také na **Řídicím panelu**:
+   
+   ![Zobrazení úloh na řídicím panelu][img-jobdashboard]
+
 
 ## <a name="behind-the-scenes"></a>Informace pro pokročilé uživatele
 Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na webu [Azure Portal][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
@@ -196,7 +319,9 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 [img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
 [img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
 [img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
+[img-devicemethods]: media/iot-suite-getstarted-preconfigured-solutions/devicemethods.png
 [img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
+[img-pingmethod]: media/iot-suite-getstarted-preconfigured-solutions/pingmethod.png
 [img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
@@ -212,8 +337,21 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
-[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
 [img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
+[img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
+[img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
+[img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
+[img-sortdevices]: media/iot-suite-getstarted-preconfigured-solutions/sortdevices.png
+[img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
+[img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
+[img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
+[img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
+[img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
+[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
+[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
+[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
+[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
+[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -221,14 +359,10 @@ Když jste teď nasadili fungující předkonfigurované řešení, můžete pok
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-device-twin-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 (Preview) | Microsoft Azure"
-description: "Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 (Preview)."
+title: "Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 | Microsoft Azure"
+description: "Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
-ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0 Preview (az.py)
-Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu [az vm create](/cli/azure/vm#create) v Azure CLI 2.0 (Preview) s použitím spravovaných disků i disků v nativních účtech úložiště.
-
-> [!NOTE] 
-> Azure CLI 2.0 Preview je naše multiplatformní rozhraní příkazového řádku příští generace. [Vyzkoušejte si ho.](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Informace o vytvoření virtuálního počítače pomocí stávajícího Azure CLI 1.0, a ne Azure CLI 2.0 Preview, najdete v tématu [Vytvoření virtuálního počítače pomocí Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0
+Tento článek ukazuje, jak rychle nasadit virtuální počítač s Linuxem na platformě Azure pomocí příkazu [az vm create](/cli/azure/vm#create) rozhraní Azure CLI 2.0 s použitím spravovaných disků i disků v nativních účtech úložiště. K provedení těchto kroků můžete také využít [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 K vytvoření virtuálního počítače potřebujete: 
 
 * účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)),
-* nainstalované rozhraní [Azure CLI verze 2.0 (Preview)](/cli/azure/install-az-cli2),
+* nainstalované rozhraní [Azure CLI 2.0](/cli/azure/install-az-cli2),
 * být přihlášeni ke svému účtu Azure (zadejte [az login](/cli/azure/#login)).
 
 (Virtuální počítač s Linuxem můžete také nasadit pomocí webu [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -202,10 +198,5 @@ Příkaz `az vm create` představuje způsob, jak rychle nasadit virtuální po�
 * [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 K [rychlému vytvoření virtuálního počítače s Linuxem jako hostitele Docker můžete použít také ovladač Azure `docker-machine` s různými příkazy](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pokud používáte Javu, vyzkoušejte metodu [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

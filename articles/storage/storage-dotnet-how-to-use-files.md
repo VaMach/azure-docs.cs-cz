@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
-ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Abychom ukázali, jak připojit sdílenou složku Azure, vytvoříme teď virtu�
 3. Ve virtuálním počítači otevřete okno PowerShell.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Nastavení přihlašovacích údajů pro účet úložiště ve virtuálním počítači jako trvalé
-Než připojíte sdílenou složku, nejdřív svoje přihlašovací údaje účtu úložiště nastavte ve virtuálním počítači jako trvalé. Tento krok systému Windows umožní vás po restartu virtuálního počítače automaticky znovu připojit ke sdílené složce. Pokud chcete svoje přihlašovací údaje nastavit jako trvalé, spusťte v okně PowerShell ve virtuálním počítači příkaz `cmdkey`. Místo `<storage-account-name>` zadejte název svého účtu úložiště a místo `<storage-account-key>` zadejte klíč účtu úložiště.
+Než připojíte sdílenou složku, nejdřív svoje přihlašovací údaje účtu úložiště nastavte ve virtuálním počítači jako trvalé. Tento krok systému Windows umožní vás po restartu virtuálního počítače automaticky znovu připojit ke sdílené složce. Pokud chcete svoje přihlašovací údaje nastavit jako trvalé, spusťte v okně PowerShell ve virtuálním počítači příkaz `cmdkey`. Místo `<storage-account-name>` zadejte název svého účtu úložiště a místo `<storage-account-key>` zadejte klíč účtu úložiště. Musíte explicitně zadat doménu „AZURE“ jako v následující ukázce. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Windows vás teď po restartu virtuálního počítače automaticky znovu připojí ke sdílené složce. Úspěšné automatické připojení můžete zkontrolovat spuštěním příkazu `net use` z okna PowerShell.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Protože jsou vaše přihlašovací údaje z předchozího kroku nastavené jako trvalé, nemusíte je s příkazem `net use` zadávat. Pokud jste svoje přihlašovací údaje ještě nenastavili jako trvalé, zadejte je jako parametr předaný příkazu `net use`, jak je vidět na následujícím příkladu.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Teď můžete se sdílenou složkou pracovat z virtuálního počítače stejně jako s jakoukoli jinou jednotkou. Můžete zadávat standardní souborové příkazy v příkazovém řádku nebo připojenou složku a její soubory zobrazit v Průzkumníku souborů. Taky můžete spustit kód na virtuálním počítači, který přistupuje k souborové složce přes standardní API Windows pro vstup a výstup souborů, jako třeba API v [oborech názvů System.IO](http://msdn.microsoft.com/library/gg145019.aspx) v platformě .NET Framework.
@@ -680,9 +681,4 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 * [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Nastavení trvalých připojení k Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

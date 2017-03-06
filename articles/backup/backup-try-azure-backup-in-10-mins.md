@@ -1,5 +1,5 @@
 ---
-title: "Zálohování souborů a složek z Windows do Azure pomocí modelu nasazení Resource Manageru | Dokumentace Microsoftu"
+title: "Zálohování souborů a složek z Windows do Azure (Resource Manager) | Dokumentace Microsoftu"
 description: "Postup zálohování souborů a složek z Windows do Azure v nasazení podle modelu Resource Manager."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
-ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ Tento článek vysvětluje, jak postupovat při zálohování souborů a složek
 
 Chcete-li se dozvědět více o Azure Backup, přečtěte si tento [přehled](backup-introduction-to-azure-backup.md).
 
-Pro zálohování souborů a složek do Azure postupujte následovně:
-
-![Krok 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Získejte předplatné Azure (pokud ho ještě nemáte).<br>
-![Krok 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Vytvořte trezor služby Recovery Services.<br>
-![Krok 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Stáhněte potřebné soubory.<br>
-![Krok 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Nainstalujte a zaregistrujte agenta Recovery Services.<br>
-![Krok 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Zazálohujte soubory a složky.
-
-![Jak zálohovat počítač se systémem Windows s Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Získání předplatného Azure
 Pokud předplatné Azure nemáte, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/), který vám umožní přístup ke službám Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru služby Recovery Services
@@ -70,6 +60,7 @@ Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb z
   Kompletní informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
 
 7. Klikněte na **Oblast** a vyberte zeměpisnou oblast trezoru. Tato volba určuje geografickou oblast, kam jsou zasílaná vaše zálohovaná data.
+
 8. V dolní části okna trezoru služby Recovery Services klikněte na **Vytvořit**.
 
     Vytvoření trezoru služby Recovery Services může trvat několik minut. Sledujte oznámení o stavu v pravé horní části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Služeb zotavení. Pokud se trezor nezobrazí ani po několika minutách, klikněte na **Obnovit**.
@@ -229,9 +220,4 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 * Zdroj dalších informací o [zálohování počítačů se systémem Windows](backup-configure-vault.md).
 * Teď, když jste zálohovali své soubory a složky, můžete [spravovat svoje trezory a servery](backup-azure-manage-windows-server.md).
 * Potřebujete-li obnovit zálohu, použijte tento článek k [obnovení souborů na počítač se systémem Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
