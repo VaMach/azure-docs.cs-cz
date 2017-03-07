@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
 ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -81,7 +82,7 @@ Během vytváření clusteru máte možnost instalace aplikací HDInsight. Běhe
 7. Klikněte na **Přihlašovací údaje** a potom zadejte heslo uživatele s rolí správce. Musíte zadat také **Uživatelské jméno SSH** a buď **HESLO**, nebo **VEŘEJNÝ KLÍČ**, který se bude používat k ověřování uživatele SSH. Doporučujeme používat veřejný klíč. Klikněte v dolní části na tlačítko **Vybrat** a uložte konfiguraci přihlašovacích údajů.
 8. Klikněte na **Zdroj dat**, vyberte jeden z existujících účtů úložiště nebo vytvořte nový účet úložiště, který chcete použít jako výchozí účet úložiště clusteru.
 9. Kliknutím na možnost **Skupina prostředků** zobrazíte existující skupinu prostředků, popřípadě klikněte na **Nová** a vytvořte novou skupinu prostředků.
-10. V okně **Nový cluster HDInsight** zkontrolujte, jestli je vybraná možnost **Připnout na Úvodní panel **, a potom klikněte na **Vytvořit**. 
+10. V okně **Nový cluster HDInsight** zkontrolujte, jestli je vybraná možnost **Připnout na Úvodní panel**, a potom klikněte na **Vytvořit**. 
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Zobrazení seznamu nainstalovaných aplikací HDInsight a jejich vlastností
 Portál zobrazuje seznam nainstalovaných aplikací HDInsight pro cluster a vlastnosti jednotlivých nainstalovaných aplikací.
@@ -118,10 +119,5 @@ Viz článek [Řešení potíží instalace](hdinsight-apps-install-custom-appli
 * [Přizpůsobení clusterů HDInsight v systému Linux pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md): další informace o použití akce skriptu k instalaci dalších aplikací.
 * [Vytváření clusterů Hadoop na systému Linux v HDInsight pomocí šablon Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Zjistěte, jak voláním šablon Resource Manageru vytvoříte clustery HDInsight.
 * [Použití prázdných hraničních uzlů v HDInsight](hdinsight-apps-use-edge-node.md): Zjistěte, jak lze pomocí prázdných hraničních uzlů přistupovat ke clusteru HDInsight, testovat aplikace HDInsight a hostovat aplikace HDInsight.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

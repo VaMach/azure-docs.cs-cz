@@ -56,7 +56,7 @@ Pokud jste na cenové úrovni *za uzel (OMS)*, pak se vám bude účtovat v záv
 
 ## <a name="to-work-with-usage-data"></a>Práce s daty o využití
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
-2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na** Log Analytics**.  
+2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na**Log Analytics**.  
     ![Centrum Azure](./media/log-analytics-usage/hub.png)
 3. Na řídicím panelu **Log Analytics** se zobrazí seznam vašich pracovních prostorů. Vyberte pracovní prostor.
 4. Na řídicím panelu *pracovního prostoru* klikněte na **Využití Log Analytics**.

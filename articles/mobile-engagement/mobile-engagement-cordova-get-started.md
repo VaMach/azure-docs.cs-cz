@@ -183,7 +183,7 @@ Nyní vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat
    
    * Zadejte **Název** kampaně. 
    * Vyberte **Typ doručení** –nastavte *Oznámení systému* *Jednoduché*
-   * Vyberte **Čas doručení ** – nastavte na *„Kdykoliv“*
+   * Vyberte **Čas doručení** – nastavte na *„Kdykoliv“*
    * Zadejte **Nadpis** oznámení, který se bude nacházet v prvním řádku nabízeného oznámení.
    * Vyplňte pole **Zpráva** pro oznámení (hlavní text zprávy). 
      

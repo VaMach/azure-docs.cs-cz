@@ -58,8 +58,3 @@
 ## [Ukázky mezipaměti Redis Cache](cache-redis-samples.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/cache/)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

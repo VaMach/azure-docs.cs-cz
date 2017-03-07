@@ -70,7 +70,7 @@ Po aktivaci účtu Baidu se přihlaste na [portál Baidu].
 4. Na další stránce klikněte na tlačítko **注册开发者** (**Registrovaní vývojáři**) z nabídky v pravém horním rohu.
    
       ![][8]
-5. Zadejte své jméno, popis a číslo mobilního telefonu pro příjem ověřovací textové zprávy a pak klikněte na tlačítko **送验证码** (**Odeslat ověřovací kód**). Všimněte si, že pro mezinárodní telefonní čísla bude nutné uvést kód země v závorkách. Například pro USA se bude jednat o číslo **(1) 1234567890**.
+5. Zadejte své jméno, popis a číslo mobilního telefonu pro příjem ověřovací textové zprávy a pak klikněte na tlačítko **送验证码** (**Odeslat ověřovací kód**). Všimněte si, že pro mezinárodní telefonní čísla bude nutné uvést kód země v závorkách. Například pro USA se bude jednat o číslo **(1)&12345;67890**.
    
       ![][9]
 6. Následně byste měli obdržet textovou zprávu s číslem ověření, jak je znázorněno v následujícím příkladu:
@@ -118,7 +118,7 @@ Při vytváření projektu nabízených oznámení cloudu Baidu obdržíte své 
     
     ![][33]
 
-Zobrazí se **保存成功!zpráva ** (**Úspěšně uloženo!**).
+Zobrazí se **保存成功!** zpráva (**Úspěšně uloženo!**) .
 
 ## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
 1. Přihlaste se k [portál Azure Classic] a v dolní části obrazovky klikněte na **+ NOVÝ**.

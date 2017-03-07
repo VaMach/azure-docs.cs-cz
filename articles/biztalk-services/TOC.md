@@ -29,8 +29,3 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
