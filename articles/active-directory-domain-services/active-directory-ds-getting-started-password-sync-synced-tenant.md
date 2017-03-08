@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -30,8 +31,8 @@ Potřebný postup se liší podle toho, jestli má vaše organizace výhradně c
 > [!div class="op_single_selector"]
 > * [Výhradně cloudový tenant Azure AD](active-directory-ds-getting-started-password-sync.md)
 > * [Synchronizovaný tenant Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -47,8 +48,8 @@ Doporučená verze: **1.1.281.0** – publikováno 7. září 2016.
 
 > [!WARNING]
 > Chcete-li povolit synchronizaci starších verzí přihlašovacích hesel (požadovaných pro ověřování protokolů NTLM a Kerberos) do svého tenanta služby Azure AD, JE NUTNÉ nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. V předchozích verzích služby Azure AD Connect ani u starší verze nástroje DirSync není tato funkce dostupná.
-> 
-> 
+>
+>
 
 Pokyny k instalaci služby Azure AD Connect jsou dostupné v následujícím článku – [Začínáme se službou Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
@@ -78,10 +79,4 @@ Synchronizace hodnot hash přihlašovacích údajů do služby Azure AD bude v z
 * [Správa spravované domény služby Azure AD Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Připojení virtuálního počítače s Windows k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Připojení virtuálního počítače se systémem Red Hat Enterprise Linux k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -115,8 +115,3 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -22,8 +22,3 @@
 # Zdroje a prostředky
 ##[Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

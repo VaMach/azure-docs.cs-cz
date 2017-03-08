@@ -478,7 +478,7 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvo�
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Než spustíte aplikaci, klikněte v nabídce **Projekt** na *Název projektu*, **Vlastnosti... ** a potom klikněte na **Sestavit**. Zrušte zaškrtnutí políčka **Preferovat 32bitovou verzi**, protože informace o směrování oddílů se při spuštěném 32bitovém procesu nedají z dotazu extrahovat.
+Než spustíte aplikaci, klikněte v nabídce **Projekt** na *Název projektu*, **Vlastnosti...** a potom klikněte na **Sestavit**. Zrušte zaškrtnutí políčka **Preferovat 32bitovou verzi**, protože informace o směrování oddílů se při spuštěném 32bitovém procesu nedají z dotazu extrahovat.
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
@@ -615,7 +615,7 @@ K vytvoření řešení GetStarted budete potřebovat toto:
 
 Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual Studio, klikněte v Průzkumníkovi řešení pravým tlačítkem na řešení **GetStarted** a pak levým na **Povolit obnovení balíčků NuGet**. Dále v souboru App.config aktualizujte hodnoty EndpointUrl a AuthorizationKey tak, jak je popsáno v části [Připojení k účtu DocumentDB](#Connect).
 
-Než spustíte aplikaci, klikněte v nabídce **Projekt** na *Název projektu*, **Vlastnosti... ** a potom klikněte na **Sestavit**. Zrušte zaškrtnutí políčka **Preferovat 32bitovou verzi**.
+Než spustíte aplikaci, klikněte v nabídce **Projekt** na *Název projektu*, **Vlastnosti...** a potom klikněte na **Sestavit**. Zrušte zaškrtnutí políčka **Preferovat 32bitovou verzi**.
 
 A to je vše, stačí sestavit a máte hotovo.
 

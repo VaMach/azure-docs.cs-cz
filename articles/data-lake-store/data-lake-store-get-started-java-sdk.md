@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -51,7 +51,7 @@ V tomto kurzu používáme tajný kód klienta aplikace Azure AD k načtení tok
 2. Načtení ID klienta, tajného kódu klienta a koncového bodu tokenu pro webovou aplikaci Azure AD
 3. Konfigurace přístupu pro webovou aplikaci Azure AD pro soubor nebo složku služby Data Lake Store, ke kterým chcete získat přístup z aplikace Java, kterou vytváříte
 
-Pokyny k provedení těchto kroků najdete v tématu [Vytvoření aplikace služby Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Pokyny k provedení těchto kroků najdete v tématu [Vytvoření aplikace služby Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 V Azure Active Directory jsou také další možnosti, jak načíst token. Můžete vybírat z mnoha různých ověřovacích mechanismů vhodných pro váš scénář, jako je například spuštění aplikace v prohlížeči, distribuce aplikace jako desktopové aplikace nebo spuštění serverové aplikace místně nebo na virtuálním počítači Azure. Vybírat můžete také z různých typů přihlašovacích údajů, jako jsou hesla, certifikáty, dvojúrovňové ověřování atd. Kromě toho umožňuje Azure Active Directory synchronizaci uživatelů místní služby Active Directory s cloudem. Podrobnosti najdete v tématu [Scénáře ověřování pro Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 

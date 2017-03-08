@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -117,7 +118,8 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 | Polybase | [Podporuje se](https://msdn.microsoft.com/library/mt143171.aspx) | [Nepodporuje se]
 | Správa na základě zásad | [Podporuje se](https://msdn.microsoft.com/library/bb510667.aspx) | Nepodporuje se |
 | Predikáty | [Podporuje se](https://msdn.microsoft.com/library/ms189523.aspx) | [Většina](https://msdn.microsoft.com/library/ms189523.aspx)
-| Správce prostředků | [Podporuje se](https://msdn.microsoft.com/library/bb933866.aspx) | [Integrované](sql-database-service-tiers.md) |
+| Služby R | [Podporuje se](https://msdn.microsoft.com/library/mt604845.aspx)
+| Správce prostředků | [Podporuje se](https://msdn.microsoft.com/library/bb933866.aspx) | Nepodporuje se |
 | Obnovení databáze ze zálohy | [Podporuje se](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Jenom z integrovaných záloh](sql-database-recovery-using-backups.md) |
 | Zabezpečení na úrovni řádků | [Podporuje se](https://msdn.microsoft.com/library/dn765131.aspx) | [Podporuje se](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Příkazy zabezpečení | [Podporuje se](https://msdn.microsoft.com/library/ff848791.aspx) | [Některé](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -158,9 +160,4 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 - Informace o konkrétních kvótách a omezeních prostředků závisí na vaší **úrovni služeb**. Přehled úrovní služeb najdete v tématu [Úrovně služeb SQL Database](sql-database-service-tiers.md).
 - Přehled funkcí zabezpečení najdete v tématu [Přehled zabezpečení služby Azure SQL Database](sql-database-security-overview.md).
 - Informace o dostupnosti a podpoře ovladačů pro službu SQL Database najdete v tématu [Knihovny pro připojení ke službě SQL Database a serveru SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
