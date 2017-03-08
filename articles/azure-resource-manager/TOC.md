@@ -36,8 +36,6 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Použití značek k uspořádání prostředků](resource-group-using-tags.md)
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
-### [Propojení se souvisejícími prostředky](resource-group-link-resources.md)
-### [Průzkumník prostředků Azure](resource-manager-resource-explorer.md)
 ## Řízení přístupu
 ### [Vytvoření instančního objektu pomocí PowerShellu](resource-group-authenticate-service-principal.md)
 ### [Vytvoření instančního objektu pomocí Azure CLI](resource-group-authenticate-service-principal-cli.md)

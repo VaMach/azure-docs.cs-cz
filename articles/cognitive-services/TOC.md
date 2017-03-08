@@ -2,6 +2,7 @@
 # Přehled
 ## [Co je služba Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Začínáme
+## [Vytvoření účtu](cognitive-services-apis-create-account.md)
 ## [Začínáme s rozhraním Text Analytics](cognitive-services-text-analytics-quick-start.md)
 ## [Začínáme s rozhraním Recommendations](cognitive-services-recommendations-quick-start.md)
 
