@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru Služeb zotavení
+
 1. Přihlaste se k [Azure Portal](https://portal.azure.com) > **Site Recovery**
 2. Klikněte na **Nový** > **Správa** >
 3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Máte-li více předplatných, vyberte jedno z nich.
@@ -8,8 +8,3 @@
    ![Nový trezor](./media/site-recovery-create-vault/new-vault-settings.png)
 
    Nový trezor se zobrazí v části **Řídicí panel** > **Všechny prostředky** a v hlavním okně **Trezory Služeb zotavení**.
-
-
-<!--HONumber=Feb17_HO4-->
-
-
