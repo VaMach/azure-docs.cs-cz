@@ -288,7 +288,7 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
 18. Klikněte na **Další služby > App Services**.
     
     ![Procházení služeb App Services](./media/app-service-api-dotnet-get-started/browseas.png)
-19. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na webu Azure Portal, označujeme jako *okna *.)
+19. V okně **App Services** vyhledejte a vyberte novou aplikaci API. (Oddíly, které se otevřou vpravo na webu Azure Portal, označujeme jako *okna*.)
     
     ![Okno App Services](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
     

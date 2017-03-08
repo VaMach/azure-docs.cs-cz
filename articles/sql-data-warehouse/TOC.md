@@ -3,6 +3,7 @@
 ## [Co je SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Úlohy datového skladu](sql-data-warehouse-overview-workload.md)
 ## [Distribuovaná data](sql-data-warehouse-distributed-data.md)
+## [Nejčastější dotazy](sql-data-warehouse-overview-faq.md)
 
 # Začínáme
 
@@ -10,6 +11,7 @@
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
 ## [Získat podporu](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Řešení problémů](sql-data-warehouse-troubleshoot.md)
 
 # Postup
 
@@ -114,7 +116,6 @@
 ### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Dotazy](sql-data-warehouse-manage-monitor.md)
 ### [Úloha](sql-data-warehouse-develop-concurrency.md)
-### [Řešení problémů](sql-data-warehouse-troubleshoot.md)
 
 ## Zabezpečení
 

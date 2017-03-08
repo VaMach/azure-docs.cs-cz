@@ -16,7 +16,7 @@
 #### [Agenti systému Windows](log-analytics-windows-agents.md)
 #### [Agenti systému Linux](log-analytics-linux-agents.md)
 #### [Virtuální počítače Azure](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Prostředky Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [Brána OMS](log-analytics-oms-gateway.md)

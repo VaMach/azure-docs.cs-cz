@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Tato tabulka ukazuje několik způsobů, jak můžete získat seznam dostupných
 | Metoda | Popis |
 | --- | --- |
 | portál Azure |Při vytváření virtuálního počítače vyberte umístění ze seznamu. |
-| Azure PowerShell |Použijte příkaz [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| REST API |Použijte operaci [Vypsat umístění](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Použijte příkaz [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| REST API |Použijte operaci [Vypsat umístění](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Velikost virtuálního počítače
 [Velikost](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtuálního počítače, který použijete, se určuje podle úlohy, kterou chcete spustit. Velikost, kterou vyberete, pak určuje další faktory, jako například výpočetní výkon, paměť a kapacitu úložiště. Azure nabízí širokou škálu velikostí, které podporují mnoho typů použití.
@@ -79,8 +80,8 @@ Tato tabulka ukazuje několik způsobů, jak můžete najít informace o imagi.
 | Metoda | Popis |
 | --- | --- |
 | portál Azure |Hodnoty se pro vás zadají automaticky, když vyberete image, která se má použít. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "umístění"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "umístění" -Publisher "název_vydavatele"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "umístění" -Publisher "název_vydavatele" -Offer "název_nabídky" |
-| Rozhraní REST API |[Vypsat vydavatele imagí](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Vypsat nabídky imagí](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Vypsat skladové jednotky (SKU) imagí](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "umístění"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "umístění" -Publisher "název_vydavatele"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "umístění" -Publisher "název_vydavatele" -Offer "název_nabídky" |
+| Rozhraní REST API |[Vypsat vydavatele imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Vypsat nabídky imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Vypsat skladové jednotky (SKU) imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 Můžete se rozhodnout [nahrát a použít vlastní image](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pokud tak učiníte, název vydavatele, nabídka a skladová jednotka (SKU) se nepoužijí.
 
@@ -91,7 +92,7 @@ Pomocí rozšíření můžete provádět tyto běžné úlohy:
 
 * **Spuštění vlastních skriptů** – [Rozšíření vlastních skriptů](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pomáhá konfigurovat úlohy na virtuálním počítači spuštěním vašeho skriptu při zřízení virtuálního počítače.
 * **Nasazení a správa konfigurací** – [Rozšíření Konfigurace požadovaného stavu prostředí PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pomáhá nastavit konfiguraci požadovaného stavu na virtuálním počítači za účelem správy konfigurací a prostředí.
-* **Shromažďování diagnostických dat** – [Rozšíření Azure Diagnostics](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) pomáhá konfigurovat virtuální počítač pro shromažďování diagnostických dat, která lze použít k monitorování stavu aplikace.
+* **Shromažďování diagnostických dat** – [Rozšíření Azure Diagnostics](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pomáhá konfigurovat virtuální počítač pro shromažďování diagnostických dat, která lze použít k monitorování stavu aplikace.
 
 ### <a name="related-resources"></a>Související prostředky
 Prostředky v této tabulce používá virtuální počítač a je nutné, aby existovaly nebo byly vytvořeny při vytváření virtuálního počítače.
@@ -116,7 +117,7 @@ Tato tabulka obsahuje informace, které vám pomůžou začít vytvářet virtu�
 | Šablony |[Vytvoření virtuálního počítače s Windows pomocí šablony Resource Manageru](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Klientské sady SDK |[Nasazení prostředků Azure pomocí jazyka C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Rozhraní REST API |[Vytvořit nebo aktualizovat virtuální počítač](https://msdn.microsoft.com/library/mt163591.aspx) |
+| Rozhraní REST API |[Vytvořit nebo aktualizovat virtuální počítač](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 Věříte, že se to nikdy nestane, ale občas dojde k nějaké chybě. Pokud taková situace nastane u vás, podívejte se na informace v tématu [Řešení potíží v nasazení Resource Manager s vytvářením virtuálního počítače s Windows v Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -130,7 +131,7 @@ Tato tabulka uvádí některé způsoby, jakými můžete získat informace o vi
 | --- | --- |
 | portál Azure |V nabídce centra klikněte na **Virtual Machines** a ze seznamu vyberte virtuální počítač. V okně příslušného virtuálního počítače máte přístup k souhrnným informacím, hodnotám nastavení a metrikám monitorování. |
 | Azure PowerShell |Informace o použití prostředí PowerShell ke správě virtuálních počítačů najdete v tématu [Správa virtuálních počítačů Azure pomocí Resource Manageru a prostředí PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST API |Pro získání informací o virtuálním počítači použijte operaci [Získat informace o virtuálním počítači](https://msdn.microsoft.com/library/mt163682.aspx). |
+| REST API |Pro získání informací o virtuálním počítači použijte operaci [Získat informace o virtuálním počítači](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get). |
 | Klientské sady SDK |Informace o použití jazyka C# ke správě virtuálních počítačů najdete v tématu [Správa virtuálních počítačů Azure pomocí Resource Manageru a jazyka C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Přihlášení k virtuálnímu počítači
@@ -148,10 +149,5 @@ Aby se na vaše nasazení vztahovala záruka 99,95% dostupnosti virtuálního po
 * Pokud máte v úmyslu pracovat s virtuálními počítači s Linuxem, podívejte se na téma [Azure a Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Další informace o pokynech ohledně nastavení infrastruktury najdete v tématu [Průvodce ukázkovou infrastrukturou Azure](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Je třeba dodržovat [Osvědčené postupy pro spuštění virtuálního počítače s Windows v Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

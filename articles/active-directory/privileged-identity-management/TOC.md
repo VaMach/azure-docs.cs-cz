@@ -25,8 +25,3 @@
 # Související
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Řízení přístupu na základě role](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
