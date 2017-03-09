@@ -34,15 +34,13 @@
 ##### [Strategie přijetí](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Další kroky](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Porovnání nabídek](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Správa uživatelů
 ### Přidání uživatelů
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Portál Classic](active-directory-create-users.md)
 
-### Přidávání uživatelů z jiných adresářů
-#### [Azure Portal](active-directory-users-create-external-azure-portal.md)
-#### [Portál Classic](active-directory-create-users-external.md)
-
+### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
 ### [Odstranění uživatelů](active-directory-users-delete-user-azure-portal.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
@@ -69,32 +67,33 @@
 ### [Licencování na základě skupin](active-directory-licensing-whatis-azure-portal.md)
 #### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifikace a řešení potíží s licencemi pro skupinu](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Postup migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
-## [Zobrazení sestav aktivit](active-directory-view-access-usage-reports.md)
-### [Přihlášení](active-directory-reporting-activity-sign-ins.md)
-### [Protokoly auditu](active-directory-reporting-activity-audit-logs.md)
+## [Správa sestav](active-directory-reporting-azure-portal.md)
+### [Aktivita přihlášení](active-directory-reporting-activity-sign-ins.md)
+### [Aktivita auditování](active-directory-reporting-activity-audit-logs.md)
 ### [Ohrožení uživatelé](active-directory-reporting-security-user-at-risk.md)
 ### [Riziková přihlášení](active-directory-reporting-security-risky-sign-ins.md)
+### [Rizikové události](active-directory-reporting-risk-events.md)
+### [Pojmenované sítě](active-directory-known-networks-azure-portal.md)
 ### [Nejčastější dotazy](active-directory-reporting-faq.md)
 ### [Migrace sestav](active-directory-reporting-migration.md)
-### [Známé sítě](active-directory-known-networks.md)
-
-### Portál Classic
+### [Uchování](active-directory-reporting-retention.md)
+###    Programový přístup
+#### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
+#### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
+#### [Požadavky](active-directory-reporting-api-prerequisites.md)
+#### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Portál Classic](active-directory-view-access-usage-reports.md)
 #### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
 #### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
-#### [Preview](active-directory-reporting-azure-portal.md)
+#### [Známé sítě](active-directory-known-networks.md)
 #### [Rozhraní API](active-directory-reporting-api-getting-started.md)
-##### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
-##### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
-##### [Požadavky](active-directory-reporting-api-prerequisites.md)
-##### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Události auditu](active-directory-reporting-audit-events.md)
-#### [Uchování](active-directory-reporting-retention.md)
 #### [Latence](active-directory-reporting-latencies.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
 #### Vysvětlení sestav
@@ -108,6 +107,7 @@
 
 ## [Správa hesel](active-directory-manage-passwords.md)
 ### [Aktualizace vlastního hesla](active-directory-passwords-update-your-own-password.md)
+### [Nastavení samoobslužného resetování hesla](active-directory-passwords.md)
 ### [Vysvětlení správy hesel](active-directory-passwords-how-it-works.md)
 ### [Vysvětlení zásad a omezení](active-directory-passwords-policy.md)
 ### Resetování hesel
@@ -117,7 +117,6 @@
 ### Povolení správy hesel
 #### [Začínáme](active-directory-passwords-getting-started.md)
 #### [Nasazení](active-directory-passwords-best-practices.md)
-#### [Nastavení samoobslužného resetování hesla](active-directory-passwords.md)
 #### [Přizpůsobení](active-directory-passwords-customize.md)
 #### [Zobrazení sestav](active-directory-passwords-get-insights.md)
 #### [Další informace](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
 #### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
 #### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Registrace zařízení](active-directory-azureadjoin-personal-device.md)
-### [Registrace zařízení s Windows 10](active-directory-azureadjoin-user-upgrade.md)
+#### [Nejčastější dotazy](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Řešení potíží
+##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
 #### [Registrace nových zařízení](active-directory-azureadjoin-user-frx.md)
 #### [Nasazení](active-directory-azureadjoin-devices-group-policy.md)
-#### [Ověření bez hesla](active-directory-azureadjoin-passport.md)
-#### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Vysvětlení integrace Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [použití zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Nejčastější dotazy](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Řešení potíží
-##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Připojení zařízení](active-directory-azureadjoin-personal-device.md)
+#### [Připojení k zařízení s Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [Uplatnění pozvánky](active-directory-b2b-redemption-experience.md)
 #### [Uživatelské vlastnosti B2B](active-directory-b2b-user-properties.md)
 #### [Přidání uživatele typu host do role](active-directory-b2b-add-guest-to-role.md)
+#### [Auditování a sestavy](active-directory-b2b-auditing-and-reporting.md)
 #### [Rozhraní API a přizpůsobení](active-directory-b2b-api.md)
 #### [Delegování pozvánek](active-directory-b2b-delegate-invitations.md)
 #### [Dynamické skupiny a B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
 #### [Referenční informace](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Ověření bez hesla](active-directory-azureadjoin-passport.md)
+#### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)
 ### Ověřování pomocí certifikátů
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

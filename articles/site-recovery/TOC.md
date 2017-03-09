@@ -1,10 +1,11 @@
 # Přehled
 ## [Co je Site Recovery?](site-recovery-overview.md)
 ## [Jak funguje Site Recovery?](site-recovery-components.md)
+## [Jak funguje replikace Hyper-V do Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Jaké úlohy můžete chránit?](site-recovery-workload.md)
 ## [Matice podpory Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Nejčastější dotazy](site-recovery-faq.md)
-## [Podívejte se na základní přehled](https://www.youtube.com/watch?v=eOOwMQPBKfM)
+## [Podívejte se na základní přehled](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Začínáme
 ## [Replikace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
@@ -18,7 +19,7 @@
 ## Plánování
 ### [Požadavky nasazení](site-recovery-prereq.md)
 ### [Důležité informace o síťové infrastruktuře](site-recovery-network-design.md)
-### [Použití nástroje Capacity Planner služby Site Recovery](site-recovery-capacity-planner.md)
+### [Spuštění Site Recovery Capacity Planneru pro replikaci Hyper-V](site-recovery-capacity-planner.md)
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
 ### [Spuštění plánovače nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
 ## Konfigurace

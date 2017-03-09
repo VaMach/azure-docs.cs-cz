@@ -1,3 +1,4 @@
+
 # Přehled
 ## [Co je Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,7 +32,8 @@
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
-### [Networking](documentation-government-networking.md)
+### [Inteligentní funkce a analýzy](documentation-government-services-intelligenceandanalytics.md)
+### [Sítě](documentation-government-networking.md)
 ### [Zabezpečení a identita](documentation-government-services-securityandidentity.md)
 ### [Monitorování a správa](documentation-government-services-monitoringandmanagement.md)
 ### [Webové a mobilní služby](documentation-government-services-webandmobile.md)
@@ -42,8 +44,3 @@
 ## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Web Azure Government](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

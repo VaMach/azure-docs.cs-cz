@@ -79,6 +79,7 @@
 ### [Možnosti překladu názvů DNS](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Použití Azure DNS s virtuálními počítači](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Použití Azure Traffic Manageru s virtuálními počítači](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Použití PF FreeBSD k vytvoření brány firewall NAT](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Nasazení
 ### [Kopírování virtuálního počítače](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

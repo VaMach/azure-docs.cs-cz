@@ -9,13 +9,13 @@
 ### [Osvědčené postupy šifrování a zabezpečení dat](azure-security-data-encryption-best-practices.md)
 ### [Příručka zabezpečení úložiště](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
+### [Osvědčené postupy pro virtuální počítače Azure](azure-security-best-practices-vms.md)
 ### [Osvědčené postupy pro úlohy IaaS](azure-security-iaas.md)
 ### [Antimalware od Microsoftu](azure-security-antimalware.md)
 ### [Šifrování disku](azure-security-disk-encryption.md)
 ### [Šifrování virtuálních počítačů Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Monitorování a správa zabezpečení](security-management-and-monitoring-overview.md)
 ### [Správa zabezpečení](azure-security-management.md)
-### [Osvědčené postupy pro aktualizace softwaru na IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Integrace protokolů Azure](security-azure-log-integration-overview.md)
 #### [Začínáme](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[Ověření vstupu](azure-security-threat-modeling-tool-input-validation.md)
 ###[Citlivá data](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Správa relací](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

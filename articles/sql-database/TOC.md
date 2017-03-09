@@ -58,33 +58,37 @@
 ## Migrace a přesun dat
 ### Informace
 #### [Migrace databáze](sql-database-cloud-migrate.md)
-#### [Transakční replikace](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Export databáze](sql-database-export.md)
 #### [Synchronizace dat](sql-database-get-started-sql-data-sync.md)
 #### [Kopírování databáze SQL](sql-database-copy.md)
 ## Pravidla brány firewall, ověřování a autorizace
 ### Informace
 #### [Řízení přístupu](sql-database-control-access.md)
-#### [Brána firewall](sql-database-firewall-configure.md)
+#### [Pravidla brány firewall](sql-database-firewall-configure.md)
 #### [Správa přihlašování](sql-database-manage-logins.md)
+#### [Ověřování Azure AD](sql-database-aad-authentication.md)
+#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Správný postup
 #### [Ověřování a autorizace SQL](sql-database-control-access-sql-authentication-get-started.md)
 #### [Autorizace a ověřování Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Zabezpečení a ochrana dat
 ### Informace
 #### Auditování
-##### [Auditování](sql-database-auditing-get-started.md)
+##### [Auditování](sql-database-auditing.md)
 ##### [Podpora klientů nižší úrovně a změny koncových bodů IP pro auditování](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Detekce hrozeb](sql-database-threat-detection-get-started.md)
+#### [Detekce hrozeb](sql-database-threat-detection.md)
 #### Šifrování dat
-##### [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Transparentní šifrování dat](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Šifrování sloupců](https://msdn.microsoft.com/library/azure/ms179331)
 #### Maskování dat
-##### Dynamické maskování dat
-###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dynamické maskování dat](sql-database-dynamic-data-masking-get-started.md)
 ### Správný postup
-#### [Dynamické maskování dat s využitím webu Azure Portal](sql-database-dynamic-data-masking-get-started.md)
-##### [Funkce Always Encrypted s použitím úložiště certifikátů systému Windows](sql-database-always-encrypted.md)
+#### [Dynamické maskování dat s využitím webu Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Konfigurace auditování pomocí webu Azure Portal](sql-database-auditing-portal.md)
+#### [Konfigurace auditování pomocí PowerShellu](sql-database-auditing-powershell.md)
+#### [Konfigurace auditování pomocí REST API](sql-database-auditing-rest.md)
+#### [Funkce Always Encrypted s využitím certifikátů systému Windows](sql-database-always-encrypted.md)
+#### [Funkce Always Encrypted s využitím Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Kontinuita podnikových procesů
 ### Informace
 #### [Přehled](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [Postup zotavení po havárii](sql-database-disaster-recovery-drills.md)
 #### [Přehled aktivní geografické replikace](sql-database-geo-replication-overview.md)
 ### Správný postup
-#### [Azure Portal: Zálohování a obnovení](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: Zálohování a obnovení](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: Zálohování a obnovení](sql-database-get-started-backup-recovery-powershell.md)
 ## Vývoj aplikací
 ### Informace
@@ -140,7 +144,7 @@
 ### Správný postup
 #### [Vývoj pro SQL Server](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [Implementace OLTP v paměti](sql-database-in-memory-oltp-migration.md)
-## Sledování a ladění
+## Monitorování a ladění
 ### Informace
 #### [Izolované databáze](sql-database-single-database-monitor.md)
 #### [Přehled služby SQL Database Advisor](sql-database-advisor.md)
@@ -157,69 +161,57 @@
 #### [Upgrade s využitím PowerShellu](sql-database-upgrade-server-powershell.md)
 # Postup
 ## Vytvoření a správa
-### [Správa SQL Database prostřednictvím portálu Azure Portal](sql-database-manage-portal.md)
-### [Správa SQL Database prostřednictvím prostředí PowerShell](sql-database-manage-powershell.md)
-### [Správa SQL Database s použitím aplikace SSMS](sql-database-manage-azure-ssms.md)
+### [Správa s využitím webu Azure Portal](sql-database-manage-portal.md)
+### [Správa s využitím PowerShellu](sql-database-manage-powershell.md)
+### [Správa s využitím SSMS](sql-database-manage-azure-ssms.md)
 ### Servery
-#### [Vytváření serverů](sql-database-create-servers.md)
-#### [Zobrazení nebo aktualizace nastavení serveru](sql-database-view-update-server-settings.md)
+#### [Správa s využitím webu Azure Portal](sql-database-manage-servers-portal.md)
+#### [Správa s využitím PowerShellu](sql-database-manage-servers-powershell.md)
 ### Izolované databáze
-#### [Vytváření izolovaných databází](sql-database-create-databases.md)
-#### [Zobrazení nebo aktualizace nastavení databáze](sql-database-view-update-database-settings.md)
+#### [Správa s využitím webu Azure Portal](sql-database-manage-single-databases-portal.md)
+#### [Správa s využitím PowerShellu](sql-database-manage-single-databases-powershell.md)
+#### [Správa s využitím jazyka Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Pravidla brány firewall
-#### [Vytváření pravidel brány firewall prostřednictvím portálu Azure Portal](sql-database-configure-firewall-settings.md)
-#### [Vytváření pravidel brány firewall prostřednictvím prostředí PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Vytváření pravidel brány prostřednictvím rozhraní API REST](sql-database-configure-firewall-settings-rest.md)
-#### [Vytváření pravidel brány s použitím jazyka T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Vytvoření s použitím webu Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Vytvoření s použitím PowerShellu](sql-database-configure-firewall-settings-powershell.md)
+#### [Vytvoření s použitím REST API](sql-database-configure-firewall-settings-rest.md)
+#### [Vytvoření s použitím T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Více databází
 #### [Upgrade klientské knihovny v klientských aplikacích](sql-database-elastic-scale-upgrade-client-library.md)
 #### Horizontálně dělené databáze
 ##### [Konfigurace zabezpečení](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Přidání horizontálního oddílu](sql-database-elastic-scale-add-a-shard.md)
 ##### [Odstraňování problémů s horizontálními oddíly mapy](sql-database-elastic-database-recovery-manager.md)
-##### [Migrace stávajících databází s horizontálním navýšením kapacity na horizontálně dělené databáze](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migrace do horizontálně dělené databáze](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Vytváření čítačů výkonu pro správce mapování horizontálních oddílů](sql-database-elastic-database-perf-counters.md)
 #### Elastické úlohy
-##### [Jak nainstalovat službu elastických úloh?](sql-database-elastic-jobs-service-installation.md)
-##### [Vytváření a správa elastických úloh s využitím PowerShellu](sql-database-elastic-jobs-powershell.md) 
-##### [Vytváření a správa elastických úloh prostřednictvím portálu Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [Jak odinstalovat elastické úlohy?](sql-database-elastic-jobs-uninstall.md)
+##### [Jak postupovat při instalaci?](sql-database-elastic-jobs-service-installation.md)
+##### [Správa s využitím PowerShellu](sql-database-elastic-jobs-powershell.md) 
+##### [Správa s využitím webu Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
+##### [Jak postupovat při odinstalaci?](sql-database-elastic-jobs-uninstall.md)
 #### Elastické fondy
-##### [Vytvoření s použitím webu Azure Portal](sql-database-elastic-pool-create-portal.md)
-##### [Vytvoření s použitím PowerShellu](sql-database-elastic-pool-create-powershell.md)
-##### [Vytvoření s použitím C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Správa s využitím webu Azure Portal](sql-database-elastic-pool-manage-portal.md)
 ##### [Správa s využitím PowerShellu](sql-database-elastic-pool-manage-powershell.md)
 ##### [Správa s využitím C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Správa s využitím T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Ověřování a autorizace
-### [Ověřování Azure AD](sql-database-aad-authentication.md)
-### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+## Ověřování a autorizace
+### [Konfigurace ověřování Azure AD](sql-database-aad-authentication-configure.md)
+### [Konfigurace vícefaktorového ověřování](sql-database-ssms-mfa-authentication-configure.md)
+## Konfigurace zjišťování hrozeb
+### [Konfigurace zjišťování hrozeb s využitím webu Azure Portal](sql-database-threat-detection-portal.md)
 ## Šifrování dat
 ### [Transparentní šifrování dat](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Šifrování sloupců](https://msdn.microsoft.com/library/azure/ms179331)
-## Migrace databází
-### Určení kompatibility
-#### [Určování kompatibility pomocí nástroje SQL Package](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Určování kompatibility s použitím aplikace SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Oprava problémů s kompatibilitou
-#### [Oprava problémů s kompatibilitou s použitím rozšíření SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Oprava problémů s kompatibilitou s použitím aplikace SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Oprava problémů s kompatibilitou s použitím SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Migrace s použitím Průvodce migrací aplikace SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Monitorování a ladění
 ### [Query Performance Insight](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
 ### [Zobrazení dynamické správy](sql-database-monitoring-with-dmvs.md)
 ### [Úrovně kompatibility](sql-database-compatibility-level-query-performance-130.md)
 ### [Tipy pro ladění výkonu](sql-database-troubleshoot-performance.md)
-### Změna úrovní služby a úrovně výkonu
-#### [Změna úrovní služeb prostřednictvím portálu Azure Portal](sql-database-scale-up.md)
-#### [Změna úrovní služeb prostřednictvím prostředí PowerShell](sql-database-scale-up-powershell.md)
 ### [Vytváření výstrah](sql-database-insights-alerts-portal.md)
-#### [Monitorování úložiště OLTP v paměti](sql-database-in-memory-oltp-monitoring.md)
+### [Monitorování úložiště OLTP v paměti](sql-database-in-memory-oltp-monitoring.md)
 ### Úložiště dotazů
-#### [Monitorování výkonu pomocí úložiště dotazů](https://msdn.microsoft.com/library/dn817826.aspx)
+#### [Monitorování výkonu s využitím úložiště dotazů](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Scénáře použití úložiště dotazů](https://msdn.microsoft.com/library/mt614796.aspx)
 #### [Provoz úložiště dotazů](sql-database-operate-query-store.md)
 ### Rozšířené události
@@ -231,31 +223,30 @@
 #### [Kopírování s použitím PowerShellu](sql-database-copy-powershell.md)
 #### [Kopírování s použitím T-SQL](sql-database-copy-transact-sql.md)
 ### Export databáze do souboru BACPAC
-#### [Export prostřednictvím portálu Azure Portal](sql-database-export.md)
-#### [Export prostřednictvím aplikace SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Export pomocí nástroje SQL Package](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Export prostřednictvím portálu Azure Portal](sql-database-export-portal.md)
+#### [Export pomocí nástroje SQL Package](sql-database-export-sqlpackage.md)
 #### [Export prostřednictvím prostředí PowerShell](sql-database-export-powershell.md)
-### Import databáze ze souboru BACPAC
-#### [Import prostřednictvím portálu Azure Portal](sql-database-import.md)
-#### [Import prostřednictvím prostředí PowerShell](sql-database-import-powershell.md)
-#### [Import prostřednictvím aplikace SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Import pomocí nástroje SQL Package](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Export prostřednictvím aplikace SSMS](sql-database-export-ssms.md)
+## Import dat
+### [Import prostřednictvím portálu Azure Portal](sql-database-import-portal.md)
+### [Import prostřednictvím prostředí PowerShell](sql-database-import-powershell.md)
+### [Import s využitím SQLPackage](sql-database-import-sqlpackage.md)
 ### [Načtení ze souboru CSV pomocí BCP](sql-database-load-from-csv-with-bcp.md)
 ## Dotaz
 ### [Dotazování prostřednictvím aplikace SSMS](sql-database-connect-query-ssms.md)
 ## Zálohování a obnovení
 ### Dlouhodobé uchovávání záloh
-#### [Konfigurace dlouhodobého uchovávání záloh](sql-database-configure-long-term-retention.md)
-#### [Zobrazení záloh v trezoru služby Recovery Services](sql-database-view-backups-in-vault.md)
-#### [Obnovení z dlouhodobě uchovávaných záloh](sql-database-restore-from-long-term-retention.md)
-#### [Odstranění z dlouhodobě uchovávaných záloh](sql-database-long-term-retention-delete.md)
+#### [Správa dlouhodobého uchování záloh s využitím webu Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Správa dlouhodobého uchování záloh s využitím PowerShellu](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Obnovení odstraněné databáze
 #### [Obnovení odstraněných položek prostřednictvím portálu Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [Obnovení odstraněných položek prostřednictvím prostředí PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Obnovení k určitému bodu v čase
-#### [Obnovení k určitému bodu v čase](sql-database-point-in-time-restore.md)
-#### [Zobrazení nejstaršího bodu obnovení](sql-database-view-oldest-restore-point.md)
-### [Obnovení z geograficky redundantní zálohy](sql-database-geo-restore.md)
+### Obnovení databáze k určitému bodu v čase
+#### [Obnovení k určitému bodu v čase s využitím webu Azure Portal](sql-database-point-in-time-restore-portal.md)
+#### [Obnovení databáze k určitému bodu v čase s využitím PowerShellu](sql-database-point-in-time-restore-powershell.md)
+### Obnovení z geograficky redundantní zálohy
+### [Geografické obnovení prostřednictvím portálu Azure Portal](sql-database-geo-restore-portal.md)
+### [Geografické obnovení prostřednictvím prostředí PowerShell](sql-database-geo-restore-powershell.md)
 ## Aktivní geografická replikace
 ### [Konfigurace prostřednictvím portálu Azure Portal](sql-database-geo-replication-portal.md)
 ### [Konfigurace prostřednictvím prostředí PowerShell](sql-database-geo-replication-powershell.md)
