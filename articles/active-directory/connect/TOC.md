@@ -60,7 +60,8 @@
 ## Řešení potíží
 ### [Připojení](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Chyby při synchronizaci](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Objekt není synchronizovaný](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Synchronizace hesel](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Referenční informace
 ## [Synchronizace identit a odolnost duplicitních atributů](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

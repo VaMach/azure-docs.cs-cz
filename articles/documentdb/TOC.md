@@ -1,6 +1,7 @@
 
 # Přehled
 ## [Co je DocumentDB?](documentdb-introduction.md)
+## [Co je DocumentDB: API pro MongoDB?](documentdb-protocol-mongodb.md)
 ## [Základní koncepty](documentdb-resources.md)
 ## [Globální distribuce](documentdb-distribute-data-globally.md)
 ## [Analýza celkových nákladů na vlastnictví NoSQL](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [Aplikace konzoly .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplikace konzoly Java](documentdb-java-get-started.md)
 ### [Aplikace konzoly Node.js](documentdb-nodejs-get-started.md)
+### [Aplikace konzoly Node.js pro rozhraní API MongoDB](documentdb-mongodb-samples.md)
 ### [Aplikace konzoly C++](documentdb-cpp-get-started.md)
 ## Vytvoření webové aplikace
 ### [Webová aplikace .NET](documentdb-dotnet-application.md)
+### [Webová aplikace .NET pro rozhraní API MongoDB](documentdb-mongodb-application.md)
 ### [Webová aplikace Node.js](documentdb-nodejs-application.md)
 ### [Webová aplikace Java](documentdb-java-application.md)
 ### [Webová aplikace Python Flask](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Spravovat
 ### [Import dat](documentdb-import-data.md)
+### [Import do API pro MongoDB](documentdb-mongodb-migrate.md)
+### [Připojení k účtu MongoDB](documentdb-connect-mongodb-account.md)
+### [Použití MongoChef](documentdb-mongodb-mongochef.md)
+### [Použití Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelování dat](documentdb-modeling-data.md)
 ### [Použití geoprostorových dat](documentdb-geospatial.md)
 ### [Vývoj pro více oblastí](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Osvědčené postupy
 #### [Nastavení s několika hlavními databázemi](documentdb-multi-region-writers.md)
 #### [Typy DateTime](documentdb-working-with-dates.md)
-
-## Použití podpory DocumentDB pro MongoDB
-### [Podpora protokolů pro MongoDB](documentdb-protocol-mongodb.md)
-### [Vytvoření účtu](documentdb-create-mongodb-account.md)
-### [Připojení k účtu](documentdb-connect-mongodb-account.md)
-### [Migrace dat](documentdb-mongodb-migrate.md)
-### [Použití Robomongo](documentdb-mongodb-robomongo.md)
-### [Použití MongoChef](documentdb-mongodb-mongochef.md)
-### [Ukázky podpory protokolů](documentdb-mongodb-samples.md)
 
 ## Použití portálu
 ### [Vytvoření účtu databáze](documentdb-create-account.md)

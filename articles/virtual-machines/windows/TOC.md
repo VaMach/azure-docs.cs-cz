@@ -43,6 +43,7 @@
 ### [Přehled převodu virtuálního počítače na Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Použití Azure Powershellu](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Rozšíření disku operačního systému](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Rozbalení datového disku](../virtual-machines-windows-expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Použití disku D: jako datového disku](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Šifrování disku](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
