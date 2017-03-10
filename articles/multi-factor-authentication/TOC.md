@@ -1,6 +1,7 @@
 # Přehled
 ## [Co je Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [Jak to funguje](multi-factor-authentication-how-it-works.md)
+## [Jak získat Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Začínáme
 ## [Výběr místa nasazení](multi-factor-authentication-get-started.md)
@@ -20,6 +21,7 @@
 #### [Pokročilé konfigurace sítě VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webová služba mobilní aplikace](multi-factor-authentication-get-started-server-webservice.md)
 #### [Ověřování systému Windows](multi-factor-authentication-get-started-server-windows.md)
+#### [Upgrade serveru MFA](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade z PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Správa uživatelů
@@ -45,8 +47,3 @@
 ## Řešení potíží
 ### [Nejčastější dotazy](multi-factor-authentication-faq.md)
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -264,6 +264,7 @@
 
 # Související
 ## [Poznámky k verzi Azure SDK pro .NET](azure-sdk-dotnet-release-notes.md)
+### [Verze&3;.0](azure-sdk-dotnet-release-notes-3-0.md)
 ### [Verze&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
 ### [Verze&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
 ### [Verze&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)

@@ -12,8 +12,7 @@
 ### [Překlad adres IP](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Začínáme
-## [Vytvoření virtuální sítě](virtual-networks-create-vnet-arm-pportal.md)
-## [Nasazení virtuálního počítače do virtuální sítě](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Vytvoření první virtuální sítě](virtual-network-get-started-vnet-subnet.md)
 
 # Postup
 ## Plánování a návrh
@@ -146,8 +145,3 @@
 ## [Fórum o sítích](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -81,9 +81,10 @@
 #### [Časovače a připomenutí](service-fabric-reliable-actors-timers-reminders.md)
 #### [Události](service-fabric-reliable-actors-events.md)
 #### [Správa stavu](service-fabric-reliable-actors-state-management.md)
-#### [Konfigurace zprostředkovatele stavu](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Konfigurace KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Konfigurace ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Migrace ze služby Cloud Services
 ### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio a Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Vzory zapojení clusteru do sítě](service-fabric-patterns-networking.md)
 #### [Typy uzlů a škálovací sady virtuálních počítačů](service-fabric-cluster-nodetypes.md)
 #### [Škálování clusteru](service-fabric-cluster-scale-up-down.md)
 #### [Upgrade clusteru](service-fabric-cluster-upgrade.md)

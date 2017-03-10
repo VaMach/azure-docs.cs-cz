@@ -1,12 +1,16 @@
 # Přehled
 ## [Co je Azure Automation?](automation-intro.md)
-## [Zabezpečení v Azure Automation](automation-security-overview.md)
 # Začínáme
 ## [Vytvoření runbooku](automation-first-runbook-graphical.md)
 ## [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
 ## [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
 ## [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
 # Postup
+## Nastavení ověřování
+### [Ověřování ve službě Azure Automation](automation-security-overview.md)
+### [Účet Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md)
+### [Správa služeb Azure a Správce prostředků](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Vytváření runbooků
 ### [Typy runbooků](automation-runbook-types.md)
 ### [Vytváření a import runbooků](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Správa dat Azure Automation](automation-managing-data.md)
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Nasazení správy konfigurace (DSC)
-### [Konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
+### [Přehled konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)
 ### [Připojování počítačů pro správu](automation-dsc-onboarding.md)
 ### [Kompilace konfigurací DSC](automation-dsc-compile.md)
 ### [Nepřetržité nasazování pomocí Chocolatey](automation-dsc-cd-chocolatey.md)
-## Nastavení ověřování
-### [Správa služeb Azure a Správce prostředků](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Účet Azure typu Spustit jako](automation-sec-configure-azure-runas-account.md)
 ## Správa prostředků Automation
 ### [Certifikáty](automation-certificates.md)
 ### [Připojení](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Aktualizace modulů Azure PowerShellu](automation-update-azure-modules.md)
 ## Automatizace scénářů
 ### [Galerie runbooků](automation-runbook-gallery.md)
-### [Spuštění/zastavení virtuálních počítačů](automation-solution-startstopvm-graphical.md)
-### [Spuštění/zastavení virtuálních počítačů pomocí PowerShellu](automation-solution-startstopvm-psworkflow.md)
 ### [Vytvoření virtuálního počítače webové služby Amazon](automation-scenario-aws-deployment.md)
 ### [Náprava výstrah virtuálních počítačů Azure](automation-azure-vm-alert-integration.md)
 ### [Spuštění/zastavení virtuálního počítače se značkami JSON](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Školení pro Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

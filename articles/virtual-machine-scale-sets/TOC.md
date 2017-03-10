@@ -4,6 +4,7 @@
 # Začínáme
 ## [Vytvoření škálovací sady v portálu](virtual-machine-scale-sets-portal-create.md)
 ## [Vytvoření škálovací sady s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Vytvoření škálovací sady s použitím šablony Resource Manageru](virtual-machine-scale-sets-mvss-start.md)
 
 # Postup
 ## Plánování a návrh
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
