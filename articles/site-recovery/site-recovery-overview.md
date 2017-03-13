@@ -12,28 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/23/2017
+ms.date: 02/26/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 31c0d8a3b525d24861090adb0edf0351fae7467e
-ms.openlocfilehash: de89ea7309736ac1636e7950d1cd7e68f9ec2f0e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
+ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Co je Site Recovery?
 
-Vítá vás služba Azure Site Recovery!
+Vítá vás služba Azure Site Recovery! Tento článek poskytuje přehled služby a odkazy na další informace.
 
-Tento článek poskytuje přehled služby Azure Site Recovery a odkazy na další informace.
+Obchodní výpadky jsou způsobené přírodními událostmi a provozními chybami. Vaše organizace potřebuje strategii pro provozní kontinuitu a zotavení po havárii (BCDR), která zajistí zabezpečení dat a dostupnost aplikací během plánovaných i neplánovaných výpadků a co nejrychlejší obnovení normální pracovních podmínek.
 
-Obchodní výpadky jsou způsobené přírodními událostmi a provozními chybami. Vaše organizace potřebuje strategii pro provozní kontinuitu a zotavení po havárii (BCDR), která zajistí zabezpečení a dostupnost aplikací a dat během plánovaných i neplánovaných výpadků a co nejrychleji je obnoví do normální pracovních podmínek.
+Služba Azure Recovery Services přispívá ke strategii BCDR. Služba [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) zajišťuje bezpečnost a obnovitelnost vašich dat. Site Recovery replikuje, přebírá služby při selhání a obnovuje úlohy, aby zůstaly dostupné i v případě selhání.
 
-Služba Azure Recovery Services přispívá ke strategii BCDR. Pomocí služby [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) můžete zajistit bezpečnost a obnovitelnost dat. Pomocí Site Recovery můžete replikovat, přebírat služby při selhání a obnovovat úlohy, aby zůstaly dostupné i v případě selhání.
-
-## <a name="benefits"></a>Výhody
-
-Zde se dozvíte, jak Site Recovery pomáhá strategii BCDR:
+## <a name="what-does-site-recovery-provide"></a>Co Site Recovery poskytuje?
 
 - **Zotavení po havárii v cloudu** – Úlohy běžící ve virtuálních počítačích a na fyzických serverech můžete replikovat do Azure namísto sekundární lokality. Tím se eliminují náklady a složitost spojené s udržováním sekundárního datového centra.
 - **Flexibilní replikace pro hybridní prostředí** – Můžete replikovat libovolné úlohy běžící v podporovaných místních virtuálních počítačích Hyper-V a VMware a na fyzických serverech s Windows nebo Linuxem.
@@ -45,33 +41,31 @@ Replikovaná data se ukládají ve službě Azure Storage s odolností, kterou t
 - **Konzistentnost aplikací** – Počítače se replikují pomocí snímků konzistentních vzhledem k aplikacím. Kromě zachytávání dat na disku zachycují snímky konzistentní vzhledem k aplikacím i veškerá data v paměti a všechny probíhající transakce.
 - **Testování bez výpadků** – Můžete snadno spouštět testovací převzetí služeb při selhání, což umožňuje nácvik zotavení po havárii, aniž by to mělo dopad na produkční prostředí.
 - **Flexibilní převzetí služeb při selhání a obnovení** – Pro očekávané výpadky můžete spouštět plánovaná převzetí služeb při selhání bez ztráty dat. V případě neočekávaných havárií pak mohou proběhnout neplánovaná převzetí služeb při selhání s minimálními ztrátami dat (v závislosti na četnosti replikací). Služby potom můžete po obnovení snadno navrátit do primární lokality, až bude znovu dostupná.
-- **Poskytuje bohaté plány obnovení** – Plány obnovení umožňují modelovat a přizpůsobit převzetí služeb při selhání a obnovení vícevrstvých aplikací, které jsou rozdělené do několika virtuálních počítačů. V rámci plánů řadíte skupiny a přidáváte skripty a ručně prováděné akce. Plány obnovení je možné integrovat s runbooky služby Azure Automation.
+- **Vlastní plány obnovení** – Plány obnovení umožňují modelovat a přizpůsobit převzetí služeb při selhání a obnovení vícevrstvých aplikací, které jsou rozdělené do několika virtuálních počítačů. V rámci plánů řadíte skupiny a přidáváte skripty a ručně prováděné akce. Plány obnovení je možné integrovat s runbooky služby Azure Automation.
 - **Vícevrstvé aplikace** – Můžete vytvářet plány obnovení pro navazující převzetí služeb při selhání a obnovení vícevrstvých aplikací. V rámci plánu obnovení můžete počítače seskupovat v různých úrovních (například databáze, web, aplikace) a upravovat, jakým způsobem u každé skupiny probíhá převzetí služeb při selhání a spouštění.
 * **Integrace se stávajícími technologiemi BCDR** – Site Recovery se integruje s dalšími technologiemi BCDR. Site Recovery je například možné použít k ochraně back-endu systému SQL Server u firemních úloh, včetně nativní podpory pro SQL Server AlwaysOn, pokud jde o přebírání služeb skupin dostupnosti při selhání.
 * **Integrace s knihovnou Automation** – Bohatá knihovna Azure Automation obsahuje předpřipravené skripty specifické pro aplikace, které je možné stáhnout a integrovat se Site Recovery.
 * **Jednoduchá správa sítě** – Pokročilá správa sítě v Site Recovery a Azure, která zjednodušuje požadavky aplikací na síť, včetně rezervace IP adres, konfigurace nástrojů pro vyrovnávání zatížení a integrace služby Azure Traffic Manager pro efektivní přepínání sítí.
 
-## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery na portálu Azure
+## <a name="which-azure-portal"></a>Který portál Azure?
 
 * Site Recovery je možné nasadit na novějším webu [Azure Portal](https://portal.azure.com) i na [portálu Azure Classic](https://manage.windowsazure.com/).
 * Na portálu Azure Classic můžete podporovat Site Recovery s klasickým modelem správy služeb.
 * Na webu Azure Portal můžete podporovat klasický model nasazení nebo novější [model nasazení Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 - Portál Classic by se měl používat jenom k údržbě stávajících nasazení Site Recovery. Na portálu Classic nelze vytvářet nové trezory.
 
-Informace v tomto článku se vztahují na klasické nasazení i na nasazení portálu Azure. Případné rozdíly jsme popsali.
+## <a name="whats-supported"></a>Co je podporováno?
 
-## <a name="whats-supported"></a>Co je podporováno
-
-**Podporováno** | **Podrobnosti**
+**Podporuje se** | **Podrobnosti**
 --- | ---
-**Které oblasti jsou podporovány?** | [Podporované oblasti](https://azure.microsoft.com/en-us/regions/services/) |
+**Které oblasti jsou podporovány pro Site Recovery?** | [Podporované oblasti](https://azure.microsoft.com/en-us/regions/services/) |
 **Co můžu replikovat?** | Místní virtuální počítače VMware a Hyper-V a fyzické servery s Windows nebo Linuxem.
-**Které operační systémy se podporují pro replikované počítače?** | [Operační systémy](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pro virtuální počítače VMware<br/><br/> Pro virtuální počítače Hyper-V se podporuje každý [hostovaný operační systém](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), který podporuje Azure a Hyper-V.<br/><br/> [Operační systémy](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pro fyzické servery
-**Kam můžu replikovat?** | Azure nebo sekundární datacentrum<br/><br/> Do sekundárního datacentra je možné replikovat pouze virtuální počítače na hostitelích Hyper-V v cloudech System Center VMM.
+**Které operační systémy replikované počítače potřebují?** | [Podporované operační systémy](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pro virtuální počítače VMware<br/><br/> Pro virtuální počítače Hyper-V se podporuje každý [hostovaný operační systém](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), který podporuje Azure a Hyper-V.<br/><br/> [Operační systémy](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pro fyzické servery
+**Kam můžu replikovat?** | Do úložiště Azure nebo do sekundárního datacentra<br/><br/> Pro Hyper-V je možné do sekundárního datacentra replikovat pouze virtuální počítače na hostitelích Hyper-V spravovaných v cloudech System Center VMM.
 **Jaké servery nebo hostitele VMware potřebuji?** | Virtuální počítače VMware, které chcete replikovat, můžou být spravované [podporovanými hostiteli vSphere nebo servery vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-**Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace.
+**Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace. Kromě toho tým Site Recovery [pro řadu aplikací](site-recovery-workload.md#workload-summary) provedl testování specifické pro aplikace.
 
 ## <a name="next-steps"></a>Další kroky
-* Více informací o Site Recovery najdete v tématu [Jaké úlohy je možné chránit pomocí Site Recovery?](site-recovery-workload.md).
-* Další informace o architektuře Site Recovery najdete v článku [Jak funguje Site Recovery?](site-recovery-components.md).
+* Další informace o [podpoře úloh](site-recovery-workload.md)
+* Další informace o [Architektuře a komponentách Site Recovery](site-recovery-components.md)
 

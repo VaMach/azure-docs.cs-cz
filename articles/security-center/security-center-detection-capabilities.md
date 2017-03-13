@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8d24ab744715df69c707df5a119fa71c72338b62
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
 Tento dokument popisuje pokročilé schopnosti detekce služby Azure Security Center, které pomáhají při identifikaci aktivních hrozeb cílených na prostředky Microsoft Azure, a poskytuje vám informace potřebné pro rychlou reakci na tyto hrozby.
 
 > [!NOTE]
-> Rozšířená detekce je k dispozici v úrovni Standard služby Azure Security Center. K dispozici je bezplatná 90denní zkušební verze. Upgrade můžete provést z nabídky cenových úrovní v [Zásadách zabezpečení](security-center-policies.md). Další informace o cenách naleznete na stránce [služby Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
+> Rozšířená detekce je k dispozici v úrovni Standard služby Azure Security Center. K dispozici je bezplatná 60denní zkušební verze. Upgrade můžete provést z nabídky cenových úrovní v [Zásadách zabezpečení](security-center-policies.md). Další informace o cenách naleznete na stránce [služby Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
 > 
 > 
 
@@ -89,10 +90,5 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center funguje d
 * [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – Zjistěte, jak pomocí Azure Security Center sledovat stav vašich partnerských řešení.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

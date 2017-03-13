@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,7 +129,7 @@ Začněte s postupem Začínáme tím, že zvolíte, jak chcete Site Recovery na
 ## <a name="step-1-choose-your-protection-goals"></a>Krok 1: Volba cílů ochrany
 Vyberte, jak chcete počítače replikovat a kam je chcete replikovat.
 
-1. V okně **Trezory Recovery Services** vyberte trezor a klikněte na **Nastavení**.
+1. V okně **Trezory služby Recovery Services** vyberte trezor.
 2. V části **Začínáme** klikněte na **Site Recovery** > **Krok 1: Připravte infrastrukturu** > **Cíl ochrany**.
 
     ![Zvolte cíle.](./media/site-recovery-vmm-to-azure/choose-goals.png)
@@ -143,17 +143,17 @@ Nainstalujte zprostředkovatele Azure Site Recovery na server VMM a zaregistrujt
 1. Klikněte na **Krok 2: Připravte infrastrukturu** > **Zdroj**.
 
     ![Nastavení zdroje](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. V okně **Připravit zdroj** klikněte na **+ VMM** a přidejte server VMM.
 
     ![Nastavení zdroje](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. V okně **Přidat server** zkontrolujte, že se v části **Typ serveru** zobrazí **server VMM System Center** a že server VMM splňuje [obecné požadavky a požadavky na adresu URL](#on-premises-prerequisites).
 4. Stáhněte si instalační soubor zprostředkovatele Azure Site Recovery.
 5. Stáhněte si registrační klíč. Budete ho potřebovat, když spustíte instalaci. Klíč je platný pět dní od jeho vygenerování.
 
     ![Nastavení zdroje](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Nainstalujte zprostředkovatele Azure Site Recovery na server VMM.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Nastavení zprostředkovatele Azure Site Recovery
@@ -180,7 +180,7 @@ Nainstalujte zprostředkovatele Azure Site Recovery na server VMM a zaregistrujt
 9. Pokud chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru, zaškrtněte políčko **Synchronizovat metadata cloudu**. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM. Kliknutím na **Zaregistrovat** proces dokončete.
 
     ![Registrace serveru](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Spustí se registrace. Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.
+10. Spustí se registrace. Po dokončení registrace se server zobrazí v části **Infrastruktura Site Recovery** >  **Servery VMM**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Instalace zprostředkovatele Azure Site Recovery pomocí příkazového řádku
 Zprostředkovatele Azure Site Recovery je možné nainstalovat z příkazového řádku. Tuto metodu je možné použít k instalaci zprostředkovatele na jádro serveru pro Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Zadejte účet úložiště Azure, který se má používat pro replikaci, a sí
 
 Nakonfigurujte mapování následujícím způsobem:
 
-1. V části **Nastavení** > **Infrastruktura Site Recovery** > **Mapování sítí** > **Mapování sítě** klikněte na ikonu **+Mapování sítě**.
+1. V části **Infrastruktura Site Recovery** > **Mapování sítí** > **Mapování sítě** klikněte na ikonu **+Mapování sítě**.
 
     ![Mapování sítě](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. V části **Přidání mapování sítě** vyberte zdrojový server VMM a jako cíl vyberte **Azure**.
@@ -295,7 +295,7 @@ Když se začne mapovat síť, dojde k tomuto:
 7. V nastavení **Šifrovat úložiště dat ve službě Azure** určete, jestli chcete v úložišti Azure šifrovat neaktivní data. Pak klikněte na **OK**.
 
     ![Zásady replikace](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Když vytvoříte novou zásadu, automaticky se přidruží ke cloudu VMM. Klikněte na **OK**. K této zásadě replikace můžete přidružit další cloudy VMM (a virtuální počítače v nich), a to tady: **Nastavení** > **Replikace** > Název zásady > **Přidružit cloud VMM**.
+8. Když vytvoříte novou zásadu, automaticky se přidruží ke cloudu VMM. Klikněte na tlačítko **OK**. K této zásadě replikace můžete přidružit další cloudy VMM (a virtuální počítače v nich) v části **Replikace** > název_zásady > **Přidružit cloud VMM**.
 
     ![Zásady replikace](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Teď následujícím způsobem povolte replikaci:
     >
 
 
-8. V **Nastavení replikace** > **Konfigurace nastavení replikace** vyberte zásadu replikace, kterou chcete použít pro chráněné virtuální počítače. Pak klikněte na **OK**. Zásady replikace můžete změnit v **Nastavení** > **Zásady replikace** > název zásady > **Upravit nastavení**. Změny, které použijete, se použijí pro počítače, které už replikujete, a nové počítače.
+8. V **Nastavení replikace** > **Konfigurace nastavení replikace** vyberte zásadu replikace, kterou chcete použít pro chráněné virtuální počítače. Pak klikněte na **OK**. Zásady replikace můžete změnit v části **Zásady replikace** > název_zásady > **Upravit nastavení**. Změny, které použijete, se použijí pro počítače, které už replikujete, a nové počítače.
 
    ![Povolení replikace](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Průběh úlohy **povolení ochrany** můžete sledovat tady: **Nastavení** > **Úlohy** > **Úlohy Site Recovery**. Po spuštění úlohy **Dokončit ochranu** je počítač připravený k převzetí služeb při selhání.
+Průběh úlohy **Povolení ochrany** můžete sledovat v části **Úlohy** > **Úlohy Site Recovery**. Po spuštění úlohy **Dokončit ochranu** je počítač připravený k převzetí služeb při selhání.
 
 ### <a name="view-and-manage-vm-properties"></a>Zobrazení a správa vlastností virtuálního počítače
 Doporučujeme ověřit vlastnosti zdrojového počítače. Mějte na paměti, že název virtuálního počítače Azure musí být v souladu s [požadavky na virtuální počítače Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Klikněte na **Nastavení** > **Chráněné položky** > **Replikované položky** a vyberte počítač. Zobrazí se jeho podrobnosti.
+1. V části **Chráněné položky** klikněte na **Replikované položky** a vyberte počítač. Zobrazí se jeho podrobnosti.
 
     ![Povolení replikace](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. V části **Vlastnosti** můžete zobrazit informace o replikaci a převzetí služeb při selhání pro virtuální počítač.
@@ -438,10 +438,10 @@ Pokud chcete po převzetí služeb při selhání získat přístup k virtuáln�
 ## <a name="step-7-test-your-deployment"></a>Krok 7: Otestování nasazení
 Pokud budete chtít otestovat nasazení, můžete spustit test převzetí služeb při selhání pro jediný virtuální počítač nebo plán obnovení, který obsahuje jeden nebo více virtuálních počítačů.
 
-1. Pokud chcete převzít služby při selhání pro jeden virtuální počítač, klikněte v **Nastavení** > **Replikované položky** na virtuální počítač > **+Testovací převzetí služeb při selhání**.
-1. Pokud chcete pro převzetí služeb při selhání použít plán obnovení, klikněte v **Nastavení** > **Plány obnovení** pravým tlačítkem myši na plán > **Testovací převzetí služeb při selhání**. Pokud chcete vytvořit plán obnovení, [postupujte podle těchto pokynů](site-recovery-create-recovery-plans.md).
+1. Pokud chcete převzít služby při selhání pro jeden virtuální počítač, klikněte v části **Replikované položky** na virtuální počítač > **+Testovací převzetí služeb při selhání**.
+1. Pokud chcete pro převzetí služeb při selhání použít plán obnovení, klikněte v části **Plány obnovení** pravým tlačítkem myši na plán > **Testovací převzetí služeb při selhání**. Pokud chcete vytvořit plán obnovení, [postupujte podle těchto pokynů](site-recovery-create-recovery-plans.md).
 1. V části **Testovací převzetí služeb při selhání** vyberte síť Azure, ke které se virtuální počítače Azure připojí, když dojde k převzetí služeb při selhání.
-1. Kliknutím na **OK** zahajte převzetí služeb při selhání. Pokud chcete sledovat průběh, otevřete kliknutím na virtuální počítač jeho vlastnosti, případně můžete kliknout na úlohu **Testovací převzetí služeb při selhání** v **Nastavení** > **Úlohy Site Recovery**.
+1. Kliknutím na **OK** zahajte převzetí služeb při selhání. Pokud chcete sledovat průběh, otevřete kliknutím na virtuální počítač jeho vlastnosti, případně můžete kliknout na úlohu **Testovací převzetí služeb při selhání** v části **Úlohy Site Recovery**.
 1. Po dokončení převzetí služeb při selhání by se vám také měl zobrazit počítač Azure repliky na portálu Azure Portal > **Virtuální počítače**. Měli byste zajistit, aby měl virtuální počítač odpovídající velikost, byl připojený k odpovídající síti a aby běžel.
 1. Pokud jste [připravili připojení po převzetí služeb při selhání](#prepare-to-connect-to-Azure-VMs-after-failover), měli byste být schopni se k virtuálnímu počítači Azure připojit.
 1. Až budete hotovi, klikněte v plánu obnovení na **Cleanup test failover** (Vyčistit po testu převzetí při selhání). V části **Poznámky** si zaznamenejte a uložte jakékoli připomínky související s testovacím převzetím služeb při selhání. Tím odstraníte virtuální počítače, které se vytvořily během testu.
@@ -454,9 +454,9 @@ Tady je postup, jak monitorovat nastavení konfigurace, stav a stavu nasazení S
 1. Klikněte na název trezoru. Tím se dostanete na řídicí panel **Základy**. V tomto řídicím panelu uvidíte úlohy Site Recovery, stav replikace, plány obnovení, stav serveru a události.  Řídicí panel **Základy** si můžete přizpůsobit, aby se na něm zobrazovaly dlaždice a rozložení, které jsou pro vás nejužitečnější, včetně stavu dalších trezorů Site Recovery a Backup.
 
     ![Základy](./media/site-recovery-vmm-to-azure/essentials.png)
-2. V části *Stav* můžete monitorovat problémy na místních serverech (servery VMM nebo konfigurační servery) a události vyvolané službou Site Recovery za posledních 24 hodin.
-3. Na dlaždicích **Replikované položky**, **Plány obnovení** a **Úlohy Site Recovery** můžete spravovat a monitorovat replikaci. Podrobnosti o úlohách si můžete zobrazit tady: **Nastavení** > **Úlohy** > **Úlohy Site Recovery**.
+2. V části **Stav** můžete monitorovat problémy na místních serverech (servery VMM nebo konfigurační servery) a události vyvolané službou Site Recovery za posledních 24 hodin.
+3. Na dlaždicích **Replikované položky**, **Plány obnovení** a **Úlohy Site Recovery** můžete spravovat a monitorovat replikaci. Podrobnosti o úlohách si můžete zobrazit v části **Úlohy** > **Úlohy Site Recovery**.
 
 ## <a name="next-steps"></a>Další kroky
-Po nasazení a zprovoznění nasazení si můžete přečíst [další informace](site-recovery-failover.md) o různých typech převzetí služeb při selhání.
+Po nastavení a zprovoznění nasazení si můžete přečíst [další informace](site-recovery-failover.md) o převzetí služeb při selhání.
 
