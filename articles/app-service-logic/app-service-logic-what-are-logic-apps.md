@@ -80,6 +80,6 @@ Následující pojmy představují některé z klíčových součástí, které 
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
