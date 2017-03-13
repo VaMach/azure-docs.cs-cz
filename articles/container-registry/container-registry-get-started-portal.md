@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření registru kontejnerů Azure – portál | Dokumentace Microsoftu"
-description: "Začínáme vytvářet a spravovat registry kontejnerů Azure pomocí webu Azure Portal"
+title: "Vytvoření soukromého registru Dockeru – Azure Portal | Dokumentace Microsoftu"
+description: "Začínáme vytvářet a spravovat soukromé registry kontejnerů Dockeru pomocí webu Azure Portal"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 97bbb72e044d86375afd1dc2ba40c90681e5d9a1
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Vytvoření registru kontejnerů pomocí webu Azure Portal
+
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Vytvoření soukromého registru kontejnerů Dockeru pomocí webu Azure Portal
 Pomocí webu Azure Portal můžete vytvořit registr kontejnerů a spravovat jeho nastavení. Vytvořit a spravovat registry kontejnerů můžete také pomocí [příkazů Azure CLI 2.0 ](container-registry-get-started-azure-cli.md) nebo programově pomocí rozhraní [REST API služby Container Registry](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-Související informace a koncepty najdete v tématu [Co je Azure Container Registry?](container-registry-intro.md)
+Související informace a koncepty najdete v tématu [s přehledem](container-registry-intro.md).
 
 
 > [!NOTE]
@@ -41,18 +44,20 @@ Související informace a koncepty najdete v tématu [Co je Azure Container Regi
     ![Nastavení registru kontejnerů](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. V okně **Container Registry** zadejte následující informace. Až budete hotovi, klikněte na **Vytvořit**.
    
-    a. **Název registru** – Globálně jedinečný název domény nejvyšší úrovně konkrétního registru. V tomto příkladu je název registru *myRegistry01*, ale nahraďte jej vlastním jedinečným názvem. Název může obsahovat pouze písmena a číslice.
+    a. **Název registru:** Globálně jedinečný název domény nejvyšší úrovně konkrétního registru. V tomto příkladu je název registru *myRegistry01*, ale nahraďte jej vlastním jedinečným názvem. Název může obsahovat pouze písmena a číslice.
    
-    b. **Skupina prostředků** – Vyberte existující [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. 
+    b. **Skupina prostředků:** Vyberte existující [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo zadejte název nové skupiny prostředků. 
    
-    c. **Umístění** – Vyberte umístění datového centra Azure, ve kterém je tato služba [dostupná](https://azure.microsoft.com/regions/services/), například **Střed USA – jih**. 
+    c. **Umístění:** Vyberte umístění datového centra Azure, ve kterém je tato služba [dostupná](https://azure.microsoft.com/regions/services/), například **Střed USA – jih**. 
    
-    d. **Uživatel s právy pro správu** – Pokud chcete, povolte uživateli s právy pro správu přístup k registru. Toto nastavení můžete po vytvoření registru změnit.
+    d. **Uživatel s právy pro správu:** Pokud chcete, povolte uživateli s právy pro správu přístup k registru. Toto nastavení můžete po vytvoření registru změnit.
    
-   > [!IMPORTANT]
-   > Kromě poskytování přístupu prostřednictvím účtu uživatele s právy pro správu registry kontejnerů podporují ověřování zajišťované instančními objekty Azure Active Directory. Další informace a aspekty najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
-   
-    e. **Účet úložiště** – Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění. Upozorňujeme, že se nepodporují účty úložiště úrovně Premium a Classic.
+    > [!IMPORTANT]
+    > Kromě poskytování přístupu prostřednictvím účtu uživatele s právy pro správu registry kontejnerů podporují ověřování zajišťované instančními objekty Azure Active Directory. Další informace a aspekty najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
+    >
+    
+    e. **Účet úložiště:** Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění. Storage úrovně Premium se v tuto chvíli nepodporuje.
+
 
 ## <a name="manage-registry-settings"></a>Správa nastavení registru
 Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vyhledejte nastavení registru. Nastavení můžete potřebovat například k přihlášení ke svému registru, nebo můžete chtít povolit nebo zakázat uživatele s právy pro správu.
@@ -73,10 +78,5 @@ Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vy
 * [Nahrání první image pomocí rozhraní příkazového řádku Dockeru](container-registry-get-started-docker-cli.md)
 
 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

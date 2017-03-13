@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Tento úvod bez kódu vám pomůže začít s předdefinovanými daty, abyste mo
 
 **časový odhad:** Přibližně 15 minut, ale déle, pokud se vyžaduje také registrace účtu nebo služby. 
 
-Další možností je shlédnout 6minutovou ukázku kroků v tomto kurzu, která začíná přibližně po prvních třech minutách v tomto [videu s přehledem Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Případně to můžete urychlit pomocí [úvodu založeném na kódu do programování Azure Search v .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
 Tento kurz předpokládá [předplatné Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) a [službu Azure Search](search-create-service-portal.md). 
+
+Pokud nechcete zřizovat službu hned, můžete shlédnout 6minutovou ukázku kroků v tomto kurzu, která začíná přibližně po prvních třech minutách v tomto [videu s přehledem Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Vyhledání služby
 1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
@@ -57,7 +59,7 @@ Mnoho zákazníků začíná s bezplatnou službou. Tato verze je omezená na t�
 > ![Dlaždice pro indexery a zdroje dat][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a>Vytvoření indexu a načtení dat
+## <a name="create-index"></a>Vytvoření indexu a načtení dat
 Vyhledávací dotazy provádějí iterace *indexu* obsahujícího data s možností vyhledávání, metadata a konstrukce používané k optimalizaci určitého chování vyhledávání.
 
 Aby bylo možné provést tuto úlohu z portálu, použijeme integrovanou ukázkovou datovou sadu, kterou je možné procházet pomocí indexeru prostřednictvím průvodce **importem dat**. 
@@ -100,7 +102,7 @@ Pokud chcete monitorovat import dat, vraťte se na řídicí panel služby, pře
 
    ![Zpráva indexeru o průběhu][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Dotazování indexu
+## <a name="query-index"></a> Dotazování indexu
 Nyní máte index vyhledávání, který je připraven k dotazování. **Průzkumník služby Search** je nástroj pro dotazování, který je integrovaný v portálu. Poskytuje vyhledávací pole, abyste mohli ověřit, jestli výsledky hledání odpovídají vašemu očekávání. 
 
 > [!TIP]
