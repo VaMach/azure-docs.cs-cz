@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Nejčastější dotazy: Azure Container Service
+# <a name="container-service-frequently-asked-questions"></a>Nejčastější dotazy ke službě Azure Container Service
 
 
 ## <a name="orchestrators"></a>Orchestrátory
@@ -81,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Běžně používané adresy URL pro váš cluster najdete na webu Azure Portal, v Průzkumníku prostředků Azure a dalších nástrojích Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Jak zjistím, která verze orchestrátoru je spuštěna v mém clusteru?
+
+* DC/OS: Viz [Dokumentace Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-).
+* Docker Swarm: Spusťte příkaz `docker version`.
+* Kubernetes: Spusťte příkaz `kubectl version`.
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Jak můžu upgradovat orchestrátor po nasazení?
+
+Azure Container Service v současné době nenabízí nástroje pro upgrade verze orchestrátoru, který jste nasadili v clusteru. Pokud služba Container Service podporuje novější verzi, můžete nasadit nový cluster. Další možností je použít k místnímu upgradu clusteru nástroje specifické pro orchestrátor, pokud jsou k dispozici. Podívejte se například na [Upgrade DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Kde najdu připojovací řetězec SSH k mému clusteru?
 
@@ -109,8 +122,3 @@ Další informace najdete v [Připojení ke clusteru služby Azure Container Ser
 
 * [Další informace](container-service-intro.md) o službě Azure Container Service.
 * Nasazení clusteru služby Container Service pomocí [portálu](container-service-deployment.md) nebo [Azure CLI 2.0 ](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO4-->
-
-

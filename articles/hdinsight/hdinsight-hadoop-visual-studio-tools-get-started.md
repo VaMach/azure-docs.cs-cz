@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8bea5c13b8657be737cdc135b2d46bd0068b6b88
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,17 +32,11 @@ Nástroje Data Lake Tools pro Visual Studio můžete použít pro přístup k Da
 
 Pro dokončení tohoto kurzu a používání nástrojů Data Lake Tools v sadě Visual Studio budete potřebovat:
 
-* Cluster služby Azure HDInsight: cluster založený na systému Linux nebo Windows bude pracovat s kroky v tomto dokumentu. Viz jedna z následujících informací týkajících se vytvoření clusteru:
-  
-  * [Začněte používat HDInsight s Linuxem](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Začněte používat HDInsight s Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+* Cluster Azure HDInsight: Chcete-li ho vytvořit, přečtěte si o [začátku používání HDInsightu s Linuxem](hdinsight-hadoop-linux-tutorial-get-started.md).
 * Pracovní stanice s následující softwarem:
   
-  * Windows 8.1, Windows 8 nebo Windows 7
-  * Visual Studio (jedna z následujících verzí):
-    
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate s [aktualizací 4](https://www.microsoft.com/download/details.aspx?id=44921)
-    * Visual Studio 2015 (Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8 nebo Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > Nástroje Data Lake Tools pro Visual Studio jsou v současnosti dostupné jenom v angličtině.
@@ -49,7 +44,8 @@ Pro dokončení tohoto kurzu a používání nástrojů Data Lake Tools v sadě 
     > 
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Instalace nástrojů Data Lake Tools pro Visual Studio
-Data Lake Tools můžete nainstalovat pomocí [Instalace webové platformy](https://www.microsoft.com/web/downloads/). Je nutné zvolit ten, který se shoduje s vaší verzí sady Visual Studio. Pokud nemáte nainstalované Visual Studio, můžete nainstalovat poslední verzi nástroje Visual Studio Community a Azure SDK pomocí [Instalace webové platformy](https://www.microsoft.com/web/downloads/):
+
+Data Lake Tools se pro sadu Visual Studio 2017 instalují ve výchozím nastavení. U starších verzí je můžete nainstalovat pomocí [Instalačního programu webové platformy](https://www.microsoft.com/web/downloads/). Je nutné zvolit ten, který se shoduje s vaší verzí sady Visual Studio. Pokud nemáte nainstalované Visual Studio, můžete nainstalovat poslední verzi nástroje Visual Studio Community a Azure SDK pomocí [Instalace webové platformy](https://www.microsoft.com/web/downloads/):
 
 ![Instalace webové platformy pro Data Lake Tools pro Visual Studio][1]
 
@@ -128,7 +124,7 @@ Grafické uživatelské rozhraní můžete použít k vytvoření tabulky Hive n
    
     ![Data Lake Tools: nástroje HDInsight sady Visual Studio vytvoří tabulku Hive][7]
 
-### <a name="a-namerunqueriesavalidate-and-run-hive-queries"></a><a name="run.queries"></a>Ověřování a spouštění dotazů Hive
+### <a name="run.queries"></a>Ověřování a spouštění dotazů Hive
 Existují dva způsoby, jak vytvářet a spouštět dotazy Hive:
 
 * Vytváření dotazů ad-hoc
@@ -278,9 +274,4 @@ V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight z
 [hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
