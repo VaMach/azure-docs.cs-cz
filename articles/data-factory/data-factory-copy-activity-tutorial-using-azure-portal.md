@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
 ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -103,7 +104,7 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
 1. V okně **Objekt pro vytváření dat** klikněte na dlaždici **Vytvořit a nasadit**, abyste spustili **Editor** pro objekt pro vytváření dat.
    
    ![Dlaždice Vytvořit a nasadit](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
-2. V **editoru ** klikněte na panelu nástrojů na tlačítko **Nové datové úložiště** a z rozevírací nabídky vyberte **Úložiště Azure**. V pravém podokně by se měla zobrazit šablona JSON pro vytvoření propojené služby Azure Storage. 
+2. V **editoru** klikněte na panelu nástrojů na tlačítko **Nové datové úložiště** a z rozevírací nabídky vyberte **Úložiště Azure**. V pravém podokně by se měla zobrazit šablona JSON pro vytvoření propojené služby Azure Storage. 
    
     ![Tlačítko Nové datové úložiště v editoru](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Hodnoty `<accountname>` a `<accountkey>` nahraďte názvem účtu služby Azure Storage a jeho klíčem. 
@@ -412,9 +413,4 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 | [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
