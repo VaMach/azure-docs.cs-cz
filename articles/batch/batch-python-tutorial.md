@@ -215,7 +215,7 @@ Během operace odesílání souborů skript *python_tutorial_client.py* nejdří
 
 Když používáte obsah seznamu, bude se pro každý soubor v kolekci volat funkce `upload_file_to_container` a zaplní se dvě kolekce [ResourceFile][py_resource_file]. Funkce `upload_file_to_container` se zobrazí níže:
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Krok 8: Odstranění kontejnerů
 Vzhledem k tomu, že musíte platit za data, která si necháváte ve službě Azure Storage, doporučujeme odebrat všechny objekty blob, které už pro úlohy Batch nepotřebujete. Ve skriptu *python_tutorial_client.py* se to provádí pomocí tří volání [BlockBlobService.delete_container][py_delete_container]:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)
