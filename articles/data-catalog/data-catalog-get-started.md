@@ -18,6 +18,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -129,7 +130,7 @@ V tomto cvičení použijete registrační nástroj k registraci datových asset
 4. Na stránce **Microsoft Azure Data Catalog** klikněte na **SQL Server** a poté na **Další**.
    
     ![Azure Data Catalog – zdroje dat](media/data-catalog-get-started/data-catalog-data-sources.png)
-5. Zadejte vlastnosti připojení systému SQL Server pro databázi ** AdventureWorks2014** (viz následující příklad) a klikněte na **PŘIPOJIT**.
+5. Zadejte vlastnosti připojení systému SQL Server pro databázi **AdventureWorks2014** (viz následující příklad) a klikněte na **PŘIPOJIT**.
    
    ![Azure Data Catalog – nastavení připojení k SQL Serveru](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 6. Zaregistrujte metadata datového assetu. V tomto příkladu zaregistrujete objekty **Production/Product** z oboru názvů AdventureWorks Production:
@@ -305,7 +306,7 @@ V tomto cvičení jste se připojili k datovým assetům zjištěným pomocí sl
    
     ![Azure Data Catalog – žádost o přístup](media/data-catalog-get-started/data-catalog-request-access.png)
 
-Kliknutím na možnost **Zobrazit připojovací řetězce ** zobrazte připojovací řetězce pro ADF.NET, ODBC a OLEDB, které pak můžete zkopírovat do schránky a použít ve své aplikaci.
+Kliknutím na možnost **Zobrazit připojovací řetězce** zobrazte připojovací řetězce pro ADF.NET, ODBC a OLEDB, které pak můžete zkopírovat do schránky a použít ve své aplikaci.
 
 ## <a name="manage-data-assets"></a>Správa datových assetů
 V tomto kroku se dozvíte, jak nastavit zabezpečení datových assetů. Služba Data Catalog neposkytuje uživatelům přístup k samotným datům. O udělení přístupu k datům rozhoduje vlastník zdroje dat.
@@ -362,10 +363,5 @@ V tomto kurzu jste prozkoumali základní možnosti služby Azure Data Catalog v
 * [Dokumentování datových prostředků](data-catalog-how-to-documentation.md)
 * [Jak se připojit k datovým prostředkům](data-catalog-how-to-connect.md)
 * [Jak spravovat datové prostředky](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
