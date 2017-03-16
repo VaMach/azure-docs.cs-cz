@@ -31,8 +31,3 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-<!--HONumber=Nov16_HO5-->
-
-
