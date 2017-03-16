@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Pokud je vaším preferovaným jazykem němčina, zobrazí se vám výchozí ban
 
 Technicky je možné nakonfigurovat sadu pro každý jazyk podporovaný službou Azure AD, přesto doporučujeme raději menší počet variant – z důvodu snazší údržby a lepšího výkonu.
 
+> [!IMPORTANT]
+> Yammer nezobrazuje přihlašovací stránku Azure AD s brandingem, dokud se uživatel nepřihlásí. Uživateli se nejdřív zobrazí obecná přihlašovací stránka Office 365, a pak stránka s brandingem.   
+ 
+ 
 **Pokud chcete do adresáře přidat vlastní firemní branding, postupujte takto:**
 
 1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako správce adresáře, který chcete přizpůsobit.
@@ -148,7 +153,7 @@ Nové změny brandingu přihlašovací stránky se můžou projevit třeba až z
 
 1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com) jako správce adresáře, který chcete přizpůsobit.
 2. Vyberte adresář, který chcete přizpůsobit.
-3. Na panelu nástrojů v horní části stránky klikněte na **Konfigurovat**.
+fs3. Na panelu nástrojů v horní části stránky klikněte na **Konfigurovat**.
 4. Klikněte na **Přizpůsobit branding**.
 5. Klikněte na **Přidat branding pro konkrétní jazyk**.
 6. Vyberte jazyk, pro který chcete logo přizpůsobit, a potom klikněte na **Další**.
@@ -221,9 +226,4 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

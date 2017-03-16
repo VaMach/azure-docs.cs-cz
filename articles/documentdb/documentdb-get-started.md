@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 1622566c34c1ff9c8e83f0356e04743f8a890e96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Node.js pro MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Krok 2: Nastavení řešení v sadě Visual Studio
+## <a id="SetupVS"></a>Krok 2: Nastavení řešení v sadě Visual Studio
 1. Otevřete v počítači **Visual Studio 2015**.
 2. V nabídce **Soubor** vyberte **Nový** a zvolte **Projekt**.
 3. V dialogovém okně **Nový projekt** vyberte **Šablony** / **Visual C#** / **Konzolová aplikace**, pojmenujte svůj projekt a klikněte na **OK**.
@@ -81,7 +83,7 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
     using System;
@@ -214,7 +216,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Krok 5: Vytvoření kolekce
+## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce
 > [!WARNING]
 > **CreateDocumentCollectionAsync** vytvoří novou kolekci s vyhrazenou propustností, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -271,7 +273,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili kolekci dokumentů DocumentDB.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
+## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
 [Dokument](documentdb-resources.md#documents) je možné vytvořit pomocí metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) třídy **DocumentClient**. Dokumenty představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit jeden nebo více dokumentů. Pokud již máte data, která chcete uložit do databáze, můžete použít [nástroj pro migraci dat](documentdb-import-data.md) služby DocumentDB a importovat tato data do databáze.
 
 Nejprve musíme vytvořit třídu **Family**, která bude v této ukázce představovat objekty uložené v DocumentDB. Kromě toho vytvoříme i podtřídy **Parent**, **Child**, **Pet** a **Address**, které se použijí v rámci **Family**. Povšimněte si, že dokumenty musí mít vlastnost **Id** serializovanou jako **id** ve formátu JSON. Vytvořte tyto třídy tak, že za metodu **GetStartedDemo** přidáte následující vnitřní podtřídy.
@@ -432,7 +434,7 @@ Blahopřejeme! Úspěšně jste vytvořili dva dokumenty DocumentDB.
 
 ![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
+## <a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
 DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi DocumentDB SQL, tak LINQ – které spouštíme oproti dokumentům vloženým v předchozím kroku.
 
 Zkopírujte a vložte metodu **ExecuteSimpleQuery** za metodu **CreateFamilyDocumentIfNotExists**.
@@ -490,7 +492,7 @@ Následující diagram ilustruje, jak se volá syntaxe dotazu DocumentDB SQL pro
 
 Klíčové slovo [FROM](documentdb-sql-query.md#FromClause) je v dotazu volitelné, protože dotazy DocumentDB již mají obor nastaven na jedinou kolekci. Proto je možné příkaz „FROM Families f“ vyměnit za „FROM root r“ nebo jakoukoli jinou proměnnou, kterou si zvolíte. DocumentDB standardně vyvodí, že Families, root nebo zvolený název proměnné odkazují na aktuální kolekci.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
+## <a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
 DocumentDB podporuje nahrazování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **ReplaceFamilyDocument** za metodu **ExecuteSimpleQuery**.
@@ -527,7 +529,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
+## <a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
 DocumentDB podporuje odstraňování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **DeleteFamilyDocument** za metodu **ReplaceFamilyDocument**.
@@ -559,7 +561,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
+## <a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
 Pokud chcete odstranit celou databázi a její podřízené prostředky, zkopírujte a vložte následující kód do metody **GetStartedDemo** za odstranění dokumentu.
@@ -576,7 +578,7 @@ Stisknutím klávesy **F5** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili databázi DocumentDB.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
+## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
 Stiskněte v nástroji Visual Studio klávesu F5 – aplikace se sestaví v režimu ladění.
 
 Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výsledky dotazů, které jsme přidali, a měl by odpovídat ukázkovému textu níže.
@@ -604,7 +606,7 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výs
 
 Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka C#!
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
+## <a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
 Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu, nebo si jen chcete stáhnout ukázky kódu, můžete je získat z [Githubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 K vytvoření řešení GetStarted budete potřebovat toto:

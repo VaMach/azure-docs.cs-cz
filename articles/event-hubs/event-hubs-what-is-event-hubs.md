@@ -3,15 +3,21 @@ title: "Co je Azure Event Hubs a proč tuto službu používat | Microsoft Docs"
 description: "Přehled a úvod do služby Azure Event Hubs – ingestování telemetrických údajů z webů, aplikací a zařízení v cloudovém měřítku"
 services: event-hubs
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
+manager: timlt
+editor: 
 ms.assetid: 
 ms.service: event-hubs
+ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/07/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 62eefb7a4591c712c5389d3ed7e5ff9675a80042
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,7 +38,7 @@ V architekturách řešení hraje služba Event Hubs běžně roli „předních
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
-Služba Event Hubs zpracovává události a telemetrii v cloudovém měřítku, s nízkou latencí a vysokou spolehlivostí. Služba Event Hubs poskytuje možnost zpracovávat datové proudy zpráv. Její charakteristiky ji značně odlišují od tradičních podnikových způsobů zasílání zpráv. Možnosti služby Event Hubs jsou vycházejí ze scénářů zpracování událostí a vysoké propustnosti. V důsledku toho služba Event Hubs neimplementuje některé možnosti zasílání zpráv, které jsou dostupné pro entity přenosu zpráv, jako jsou třeba témata.
+Služba Event Hubs zpracovává události a telemetrii v cloudovém měřítku, s nízkou latencí a vysokou spolehlivostí. Služba Event Hubs poskytuje možnost zpracovávat datové proudy zpráv. Její charakteristiky ji odlišují od tradičních podnikových způsobů zasílání zpráv. Možnosti služby Event Hubs jsou vycházejí ze scénářů zpracování událostí a vysoké propustnosti. V důsledku toho služba Event Hubs neimplementuje některé možnosti zasílání zpráv, které jsou dostupné pro entity přenosu zpráv, jako jsou třeba témata.
 
 Centrum událostí se vytváří na úrovni oboru názvů a jako svoje primární rozhraní API využívá AMQP a HTTP.
 
@@ -40,13 +46,13 @@ Centrum událostí se vytváří na úrovni oboru názvů a jako svoje primárn�
 Každá entita, která odesílá data do centra událostí, je *zdroj události*. Zdroje událostí mohou publikovat události pomocí protokolu HTTPS nebo AMQP 1.0. Zdroje událostí se v centru událostí identifikují pomocí tokenu sdíleného přístupového podpisu (SAS) a mohou mít jedinečnou identitu, nebo mohou používat společný token SAS.
 
 ### <a name="publishing-an-event"></a>Publikování události
-Událost můžete publikovat prostřednictvím protokolu AMQP 1.0 nebo HTTPS. Služba Service Bus poskytuje třídu [EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient), která slouží k publikování událostí od klientů .NET do centra událostí. Pro jiné moduly runtime a platformy můžete použít libovolného klienta protokolu AMQP 1.0, například [Apache Qpid](http://qpid.apache.org/). Události můžete publikovat samostatně nebo v dávce. Jedna publikace (instance dat události) je omezena limitem 256 KB – bez ohledu na to, jestli se jedná o jedinou událost nebo dávku (batch). Pokus publikovat události, které tento limit přesahují, skončí chybou. Nejvhodnějším postupem pro zdroje je nezajímat se o oddíly v centru událostí a specifikovat pouze *klíč oddílu* (představíme v další části) nebo svoji identitu prostřednictvím tokenu SAS.
+Událost můžete publikovat prostřednictvím protokolu AMQP 1.0 nebo HTTPS. Služba Service Bus poskytuje třídu [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), která slouží k publikování událostí od klientů .NET do centra událostí. Pro jiné moduly runtime a platformy můžete použít libovolného klienta protokolu AMQP 1.0, například [Apache Qpid](http://qpid.apache.org/). Události můžete publikovat samostatně nebo v dávce. Jedna publikace (instance dat události) je omezena limitem 256 KB – bez ohledu na to, jestli se jedná o jedinou událost nebo dávku (batch). Pokus publikovat události, které tento limit přesahují, skončí chybou. Nejvhodnějším postupem pro zdroje je nezajímat se o oddíly v centru událostí a specifikovat pouze *klíč oddílu* (představíme v další části) nebo svoji identitu prostřednictvím tokenu SAS.
 
 Volba, jestli se použije protokol AMQP nebo HTTPS, závisí na konkrétním scénáři použití. Protokol AMQP vyžaduje nejen protokol TLS (Transport Level Security) nebo SSL/TLS, ale i vytvoření trvalého obousměrného soketu. AMQP má vyšší náklady na síť při inicializaci relace, ale HTTPS pro každý požadavek vyžaduje další režii SSL. AMQP má pro často používané zdroje vyšší výkon.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/partition_keys.png)
 
-Služba Event Hubs zajišťuje, aby se všechny události, které sdílejí stejnou hodnotu klíče oddílu, v pořádku doručily do stejného oddílu. Pokud se klíče oddílů používají společně se zásadami zdroje, musí si identita zdroje a hodnota klíče oddílu odpovídat. V opačném případě dojde k chybě.
+Služba Event Hubs zajišťuje, aby se všechny události, které sdílejí hodnotu klíče oddílu, v pořádku doručily do stejného oddílu. Pokud se klíče oddílů používají společně se zásadami zdroje, musí si identita zdroje a hodnota klíče oddílu odpovídat. V opačném případě dojde k chybě.
 
 ### <a name="publisher-policy"></a>Zásady zdroje
 Služba Event Hubs umožňuje podrobnou kontrolu nad zdroji událostí prostřednictvím *zásad zdroje*. Zásady zdroje jsou běhové funkce, které byly navržené pro usnadnění kontroly nad velkým množstvím nezávislých zdrojů událostí. Zásady zdroje poskytují s použitím následujícího mechanismu každému zdroji vlastní identifikátor, který se používá při publikování událostí do centra událostí.
@@ -70,17 +76,19 @@ Služba Event Hubs uchovává data po nakonfigurovanou dobu uchování, která s
 
 Počet oddílů je určený při vytvoření a musí být v rozsahu 2 až 32. Počet oddílů není možné měnit. Proto je při nastavování počtu oddílů potřeba uvažovat z dlouhodobého hlediska. Oddíly slouží jako mechanismus pro organizaci dat a souvisí se stupněm paralelismu příjmu dat, který vyžadují přijímací aplikace. Počet oddílů v centru událostí přímo souvisí s počtem souběžných čtenářů, které plánujete mít. Pokud chcete použít vyšší počet oddílů než 32, kontaktujte tým služby Event Hubs.
 
-I když lze oddíly identifikovat a je možné posílat jim data přímo, odesílání dat na konkrétní oddíly se nedoporučuje. Místo toho můžete použít konstrukce vyšší úrovně, které představujeme v tématech věnovaných [zdroji událostí](#event-publishers) a [kapacitě](#capacity).
+I když lze oddíly identifikovat a je možné posílat jim data přímo, odesílání dat na konkrétní oddíly se nedoporučuje. Místo toho můžete použít konstrukce vyšší úrovně, které představujeme v tématech věnovaných [zdroji událostí](#event-publishers) a [kapacitě](#capacity). 
 
 Oddíly jsou naplněné posloupností dat událostí, která obsahují tělo události, uživatelem definovaný kontejner objektů a dat a různá metadata události, jako je třeba posun v rámci oddílu a pořadí v posloupnosti datového proudu.
 
+Další informace o oddílech a kompromisu mezi dostupností a spolehlivostí najdete v tématech [Průvodce programováním pro službu Event Hubs](event-hubs-programming-guide.md#partition-key) a [Dostupnost a konzistence ve službě Event Hubs](event-hubs-availability-and-consistency.md).
+
 ### <a name="partition-key"></a>Klíč oddílu
-Klíč oddílu můžete použít k mapování příchozích dat událostí do konkrétních oddílů pro účely organizace dat. Klíč oddílu je hodnota zadaná odesílatelem, která byla předaná do centra událostí. Zpracovává se pomocí statické hashovací funkce, která vytvoří přiřazení k oddílu. Pokud při publikování události nezadáte klíč oddílu, použije se přiřazení metodou kruhového dotazování.
+[Klíč oddílu](event-hubs-programming-guide.md#partition-key) můžete použít k mapování příchozích dat událostí do konkrétních oddílů pro účely organizace dat. Klíč oddílu je hodnota zadaná odesílatelem, která byla předaná do centra událostí. Zpracovává se pomocí statické hashovací funkce, která vytvoří přiřazení k oddílu. Pokud při publikování události nezadáte klíč oddílu, použije se přiřazení metodou kruhového dotazování.
 
 Zdroj události zná jenom svůj klíč oddílu, a ne oddíl, do kterého se události publikují. Díky tomuto oddělení klíče a oddílu odesílatel toho nepotřebuje vědět o zpracování příjmu dat příliš mnoho. Vhodným klíčem oddílu je jedinečná identita uživatele nebo zařízení, ale k seskupení souvisejících událostí do jednoho oddílu je možné použít i další atributy, například geografickou polohu.
 
 ## <a name="sas-tokens"></a>Tokeny SAS
-Event Hubs využívá *sdílené přístupové podpisy*, které jsou dostupné na úrovni oboru názvů a centra událostí. Token SAS, který se generuje z klíče SAS, je adresa URL, která je zašifrovaná pomocí hašovacího algoritmu SHA a zakódovaná ve specifickém formátu. Služba Event Hubs může znovu vygenerovat hash kód pomocí názvu klíče (zásady) a tokenu, a ověřit tak odesílatele. Za normálních okolností se tokeny SAS pro zdroje událostí vytváří jen s oprávněními pro **odesílání** na konkrétní centrum událostí. Tento mechanismus adresy URL a tokenu SAS slouží jako základ pro identifikaci zdroje, kterou představíme v části o zásadách zdroje. Další informace o práci s tokenem SAS naleznete v tématu o [ověřování u služby Service Bus pomocí sdíleného přístupového podpisu](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+Služba Event Hubs využívá *sdílené přístupové podpisy*, které jsou dostupné na úrovni oboru názvů a centra událostí. Token SAS, který se generuje z klíče SAS, je adresa URL, která je zašifrovaná pomocí hašovacího algoritmu SHA a zakódovaná ve specifickém formátu. Služba Event Hubs může znovu vygenerovat hash kód pomocí názvu klíče (zásady) a tokenu, a ověřit tak odesílatele. Za normálních okolností se tokeny SAS pro zdroje událostí vytváří jen s oprávněními pro **odesílání** na konkrétní centrum událostí. Tento mechanismus adresy URL a tokenu SAS slouží jako základ pro identifikaci zdroje, kterou představíme v části o zásadách zdroje. Další informace o práci s tokenem SAS naleznete v tématu o [ověřování u služby Service Bus pomocí sdíleného přístupového podpisu](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Příjemci událostí
 *Příjemcem událostí* je každá entita, která čte data událostí z centra událostí. Všichni příjemci se ve službě Event Hubs připojují pomocí relace protokolu AMQP 1.0 a události se doručují tak, jak jsou postupně dostupné. Klient se na dostupnost dat nemusí dotazovat.
@@ -92,7 +100,7 @@ V architektuře zpracování datového proudu se každá aplikace pro příjem d
 
 Následují příklady konvenčního zápisu identifikátoru URI skupiny příjemců:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
@@ -100,12 +108,12 @@ Následují příklady konvenčního zápisu identifikátoru URI skupiny příje
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Posuny datového proudu
-*Posun* je pozice události v rámci oddílu. Posun si můžete představit jako kurzor na straně klienta. Posun je číslo bajtu události. To umožňuje příjemci události (čtenáři) určit bod v datovém proudu událostí, od kterého chce události začít číst. Posun můžete zadat v podobě časového razítka nebo hodnoty posunu. Příjemci si sami zodpovídají za uložení svých hodnot posunu mimo službu Event Hubs. Každá událost v rámci oddílu zahrnuje posun.
+*Posun* je pozice události v rámci oddílu. Posun si můžete představit jako kurzor na straně klienta. Posun je číslo bajtu události. Tento posun umožňuje příjemci události (čtenáři) určit bod v datovém proudu událostí, od kterého chce události začít číst. Posun můžete zadat v podobě časového razítka nebo hodnoty posunu. Příjemci si sami zodpovídají za uložení svých hodnot posunu mimo službu Event Hubs. Každá událost v rámci oddílu zahrnuje posun.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/partition_offset.png)
 
 ### <a name="checkpointing"></a>Vytváření kontrolních bodů
-*Vytváření kontrolních bodů* je proces, pomocí kterého čtenáři označují nebo potvrzují svou pozici v rámci posloupnosti událostí v oddílu. Za vytváření kontrolních bodů zodpovídá příjemce. Proces probíhá na bázi oddílů ve skupinách příjemců. To znamená, že si každý čtenář oddílu v každé skupině příjemců musí udržovat přehled o své aktuální pozici v datovém proudu událostí a může informovat službu, když bude považovat datový proud za dokončený.
+*Vytváření kontrolních bodů* je proces, pomocí kterého čtenáři označují nebo potvrzují svou pozici v rámci posloupnosti událostí v oddílu. Za vytváření kontrolních bodů zodpovídá příjemce. Proces probíhá na bázi oddílů ve skupinách příjemců. Taková zodpovědnost znamená, že si každý čtenář oddílu v každé skupině příjemců musí udržovat přehled o své aktuální pozici v datovém proudu událostí a může informovat službu, když bude považovat datový proud za dokončený.
 
 Pokud se čtenář z oddílu odpojí, začne při opětovném připojení číst od kontrolního bodu, který dříve zaslal poslední čtenář daného oddílu z této skupiny příjemců. Když se čtenář připojí, předá tento posun do centra událostí, a určí tak umístění, od kterého začne číst. Takto můžete vytváření kontrolních bodů použít jak k označování událostí jako „dokončených“, tak k zajištění ochrany pro případ, že nastane selhání u čtenářů spuštěných na různých strojích. Ke starším datům se je možné vrátit tak, že určíte nižší posun od tohoto kontrolního bodu. Díky tomuto mechanismu umožňuje vytváření kontrolních bodů nejen obnovu při selhání, ale i opakované přehrání datového proudu.
 
@@ -113,7 +121,7 @@ Pokud se čtenář z oddílu odpojí, začne při opětovném připojení číst
 Všichni příjemci se ve službě Event Hubs připojují prostřednictvím obousměrného komunikačního kanálu AMQP 1.0., který rozpoznává relaci a stav. Každý oddíl má relaci AMQP 1.0, která usnadňuje transport událostí rozdělených do oddílů.
 
 #### <a name="connect-to-a-partition"></a>Připojení k oddílu
-Při přímém připojení k oddílům se obvykle používá mechanismus „pronájmu“, aby se připojení čtenářů ke konkrétním oddílům koordinovala. Díky tomu je možné mít u každého oddílu ve skupině příjemců pouze jednoho aktivního čtenáře. Použití kontrolních bodů, pronájem a správu čtenářů zjednodušuje použití třídy [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) pro klienty .NET. [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) je inteligentní agent příjemce.
+Při přímém připojení k oddílům se obvykle používá mechanismus „pronájmu“, aby se připojení čtenářů ke konkrétním oddílům koordinovala. Díky tomu je možné mít u každého oddílu ve skupině příjemců pouze jednoho aktivního čtenáře. Použití kontrolních bodů, pronájem a správu čtenářů zjednodušuje použití třídy [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) pro klienty .NET. EventProcessorHost je inteligentní agent příjemce.
 
 #### <a name="read-events"></a>Čtení událostí
 Po otevření připojení a relace AMQP 1.0 u konkrétního oddílu služba Event Hubs doručí události do klienta protokolu AMQP 1.0. Tento mechanismus doručení umožňuje vyšší propustnost a nižší latenci než mechanismy založené na operaci Pull, jako je například metoda GET protokolu HTTP. Události se posílají klientovi a každá instance dat události obsahuje důležitá metadata, jako je posun a číslo posloupnosti, která se používají k zjednodušení vytváření kontrolních bodů v posloupnosti událostí.
@@ -131,12 +139,12 @@ Správa posunu je na vás.
 Služba Event Hubs využívá vysoce škálovatelnou paralelní architekturu a při nastavování velikosti a škálování je potřeba zvážit několik klíčových aspektů.
 
 ### <a name="throughput-units"></a>Jednotky propustnosti
-Kapacita propustnosti je ve službě Event Hubs řízená prostřednictvím *jednotek propustnosti*. Jednotky propustnosti jsou předem zakoupené jednotky kapacity. Jedna jednotka propustnosti zahrnuje následující:
+Kapacita propustnosti je ve službě Event Hubs řízená prostřednictvím *jednotek propustnosti*. Jednotky propustnosti jsou předem zakoupené jednotky kapacity. Jedna jednotka propustnosti zahrnuje následující kapacitu:
 
 * Příchozí data: Až 1 MB za sekundu nebo 1000 událostí za sekundu (podle toho, co nastane dříve)
 * Odchozí data: Až 2 MB za sekundu
 
-Nad rámec kapacity zakoupených jednotek propustnosti je příjem příchozích dat omezen a vrátí se výjimka [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). Odchozí data nezpůsobují takové výjimky, ale jsou omezená na objem přenosu dat, který poskytují zakoupené jednotky propustnosti. Pokud se vám objevují výjimky související s frekvencí publikování nebo v budoucnu očekáváte větší objem odchozích dat, zkontrolujte, kolik jednotek propustnosti jste pro konkrétní obor názvů zakoupili. Ke správě jednotek propustnosti můžete využít okno **Škálování** oboru názvů na webu [Azure Portal][Azure portal]. Stejného účelu můžete také dosáhnout programově, a to využitím rozhraní Azure API.
+Nad rámec kapacity zakoupených jednotek propustnosti je příjem příchozích dat omezen a vrátí se výjimka [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). Odchozí data nezpůsobují takové výjimky, ale jsou omezená na objem přenosu dat, který poskytují zakoupené jednotky propustnosti. Pokud se vám objevují výjimky související s frekvencí publikování nebo v budoucnu očekáváte větší objem odchozích dat, zkontrolujte, kolik jednotek propustnosti jste pro konkrétní obor názvů zakoupili. Ke správě jednotek propustnosti můžete využít okno **Škálování** oboru názvů na webu [Azure Portal][Azure portal]. Jednotky propustnosti můžete spravovat také programově pomocí rozhraní API Azure.
 
 Jednotky propustnosti se kupují předem a účtují se po hodinách. Zakoupené jednotky propustnosti se účtují minimálně za jednu hodinu. Pro obor názvů služby Event Hubs můžete zakoupit až 20 jednotek propustnosti, které se sdílejí napříč všemi centry událostí v tomto oboru názvů.
 
@@ -149,16 +157,12 @@ Podrobné informace o cenách naleznete v článku o [cenách služby Event Hubs
 ## <a name="next-steps"></a>Další kroky
 
 * Úvodní [kurz služby Event Hubs][Event Hubs tutorial]
-* Úplná [ukázková aplikace, která používá službu Event Hubs]
 * [Průvodce programováním pro službu Event Hubs](event-hubs-programming-guide.md)
+* [Dostupnost a konzistence ve službě Event Hubs](event-hubs-availability-and-consistency.md)
 * [Nejčastější dotazy k Event Hubs](event-hubs-faq.md)
+* [Ukázkové aplikace, které používají službu Event Hubs]
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
-[ukázková aplikace, která používá službu Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Ukázkové aplikace, které používají službu Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Azure portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

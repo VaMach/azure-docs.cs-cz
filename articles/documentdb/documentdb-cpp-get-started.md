@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js pro MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Vytvořme účet DocumentDB. Pokud už máte účet, který chcete použít, mů
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Krok 2: Nastavení aplikace C++
+## <a id="SetupC++"></a>Krok 2: Nastavení aplikace C++
 1. Otevřete Visual Studio a v nabídce **Soubor** klikněte na **Nový** a potom na **Projekt**. 
 2. V okně **Nový projekt** v podokně **Nainstalováno** rozbalte nabídku **Visual C++**, klikněte na **Win32** a potom klikněte na **Konzolová aplikace Win32**. Jako název dokumentu zadejte hellodocumentdb a klikněte na **OK**. 
    
@@ -79,12 +81,12 @@ Vytvořme účet DocumentDB. Pokud už máte účet, který chcete použít, mů
    
     Jakmile se balíčky přidají do vašeho projektu, můžeme začít psát kód.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Krok 3: Zkopírování podrobností o připojení z webu Azure Portal pro databázi DocumentDB
+## <a id="Config"></a>Krok 3: Zkopírování podrobností o připojení z webu Azure Portal pro databázi DocumentDB
 Otevřete web [Azure Portal](https://portal.azure.com) a přejděte do databázového účtu NoSQL (DocumentDB), který jste vytvořili. Pro další krok budete z webu Azure Portal potřebovat identifikátor URI a primární klíč, pomocí kterých navážete připojení z fragmentu kódu v jazyce C++. 
 
 ![Identifikátor URI a klíče pro DocumentDB na webu Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 4: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 4: Připojení k účtu DocumentDB
 1. Do zdrojového kódu zadejte níže uvedené hlavičky a obory názvů za `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ Otevřete web [Azure Portal](https://portal.azure.com) a přejděte do databázo
    
     Nyní, když máte kód pro inicializaci klienta documentdb, se budeme věnovat práci s prostředky DocumentDB.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Krok 5: Vytvoření databáze a kolekce v jazyce C++
+## <a id="CreateDBColl"></a>Krok 5: Vytvoření databáze a kolekce v jazyce C++
 Pokud s DocumentDB začínáte, přečtěte si ještě před provedením tohoto kroku, jak databáze, kolekce a dokumenty vzájemně komunikují. [Databáze](documentdb-resources.md#databases) je logický kontejner úložiště dokumentů rozděleného mezi kolekcemi. [Kolekce](documentdb-resources.md#collections) je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace. Další informace o konceptech a hierarchickém modelu prostředků DocumentDB najdete v tématu [Koncepty a hierarchický model prostředků DocumentDB](documentdb-resources.md).
 
 Databázi a odpovídající kolekci vytvoříte vložením níže uvedeného kódu na konec hlavní funkce. Prostřednictvím konfigurace klienta deklarované v předchozím kroku vznikne databáze „FamilyRegistry“ a kolekce „FamilyCollection“.
@@ -115,7 +117,7 @@ Databázi a odpovídající kolekci vytvoříte vložením níže uvedeného kó
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Krok 6: Vytvoření dokumentu
+## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentu
 [Dokumenty](documentdb-resources.md#documents) představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit dokument do DocumentDB. Dokument můžete vytvořit zkopírováním níže uvedeného kódu na konec hlavní funkce. 
 
     try {
@@ -137,7 +139,7 @@ Souhrnně řečeno, tento kód vytvoří databázi, kolekci a dokumenty, na kter
 
 ![Kurz k C++ – diagram ilustrující hierarchický vztah mezi účtem, databází, kolekcí a dokumenty](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Krok 7: Dotazování prostředků DocumentDB
+## <a id="QueryDB"></a>Krok 7: Dotazování prostředků DocumentDB
 DocumentDB podporuje [bohaté dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázkový kód ukazuje dotaz vytvořený pomocí syntaxe DocumentDB SQL, kterou můžete spouštět oproti dokumentům vytvořeným v předchozím kroku.
 
 Tato funkce využívá jako argumenty společně s klientem dokumentu i unikátní identifikátor nebo ID prostředku databáze a kolekce. Vložte tento kód před hlavní funkci.
@@ -168,7 +170,7 @@ Tato funkce využívá jako argumenty společně s klientem dokumentu i unikátn
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Krok 8: Nahrazení dokumentu
+## <a id="Replace"></a>Krok 8: Nahrazení dokumentu
 DocumentDB podporuje nahrazování dokumentů JSON, jak můžete vidět na níže uvedeném kódu. Tento kód vložte za funkci executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB podporuje nahrazování dokumentů JSON, jak můžete vidět na níž
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Krok 9: Odstranění dokumentu
+## <a id="Delete"></a>Krok 9: Odstranění dokumentu
 DocumentDB podporuje odstraňování dokumentů JSON. Provedete to tak, že zkopírujete a vložíte níže uvedený kód za funkci replacedocument. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB podporuje odstraňování dokumentů JSON. Provedete to tak, že zkop
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Krok 10: Odstranění databáze
+## <a id="DeleteDB"></a>Krok 10: Odstranění databáze
 Odstraněním vytvořené databáze dojde k odebrání databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
 Zkopírujte a za funkci deletedocument vložte následující fragment kódu (vyčištění funkce), který odebere databázi a všechny podřízené prostředky.
@@ -216,7 +218,7 @@ Zkopírujte a za funkci deletedocument vložte následující fragment kódu (vy
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
+## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
 Vložili jsme kód, pomocí kterého můžete vytvářet, upravovat a odstraňovat různé prostředky DocumentDB nebo se na ně dotazovat.  Pojďme ho uvést do provozu přidáním volání těchto funkcí z naší hlavní funkce v projektu hellodocumentdb.cpp a některých diagnostických zpráv.
 
 Provedete to tak, že hlavní funkci vaší aplikace nahradíte níže uvedeným kódem. account_configuration_uri a primary_key, které jste do kódu zkopírovali v kroku 3, se přepíší, takže tento řádek uložte nebo hodnoty znovu zkopírujte z webu. 
@@ -276,7 +278,7 @@ Měl by se zobrazit výstup počáteční aplikace. Tento výstup by se měl sho
 
 Blahopřejeme! Dokončili jste kurz k C++ a máte svou první konzolovou aplikaci DocumentDB!
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Získání úplného řešení kurzu k C++
+## <a id="GetSolution"></a>Získání úplného řešení kurzu k C++
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
 * [Účet DocumentDB][documentdb-create-account]
@@ -289,10 +291,5 @@ Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky toh
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

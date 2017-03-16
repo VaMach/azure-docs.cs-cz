@@ -4,20 +4,20 @@
 | Prostředek | Výchozí omezení | 
 | --- | --- | 
 | Účty Azure Media Services (AMS) v rámci jednoho předplatného | 25 (pevné) |
-| Rezervované jednotky médií (RU) na jeden účet AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Úlohy na jeden účet AMS | 50 000<sup>2</sup> |
+| Rezervované jednotky médií (RU) na jeden účet AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Úlohy na jeden účet AMS | 50 000<sup>(2)</sup> |
 | Zřetězené úkoly na jednu úlohu | 30 (pevné) |
 | Prostředky na jeden účet AMS | 1 000 000|
 | Prostředky na jeden úkol | 50 |
 | Prostředky na jednu úlohu | 100 |
-| Jedinečné lokátory přidružené k prostředku najednou | 5<sup>4</sup> |
+| Jedinečné lokátory přidružené k prostředku najednou | 5<sup>(4)</sup> |
 | Živé kanály na jeden účet AMS |5|
 | Programy v zastaveném stavu na jeden kanál |50|
 | Programy ve spuštěném stavu na jeden kanál |3|
 | Koncové body streamování ve spuštěném stavu na jeden účet AMS|2|
 | Jednotky streamování na jeden koncový bod streamování |10 |
-| Účty úložiště | 1 000<sup>5</sup> (pevné) |
-| Zásady | 1 000 000<sup>6</sup> |
+| Účty úložiště | 1 000<sup>(5)</sup> (pevné) |
+| Zásady | 1 000 000<sup>(6)</sup> |
 | Velikost souboru| V některých scénářích je omezená maximální velikost souboru, která je podporovaná při zpracování ve službě Media Services. <sup>7</sup> |
   
 <sup>1</sup> Jednotky RU S3 nejsou dostupné v oblasti Indie – západ.
@@ -44,8 +44,3 @@ Od 1. dubna 2017 se automaticky odstraní libovolný záznam úlohy ve vašem ú
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

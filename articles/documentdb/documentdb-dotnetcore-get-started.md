@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/11/2017
+ms.date: 03/06/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: e31be1a97b9b3d7718e4e6f58f22a2c6f5550beb
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: e7c88dcc071712c80e372c1bfc0a088923295b92
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,8 +25,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js pro MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -59,7 +60,7 @@ Ujistěte se prosím, že máte následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). 
     * Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
-* Sada [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) a [.NET Core 1.0.1 – VS 2015 Tooling Preview 2](https://go.microsoft.com/fwlink/?LinkID=827546)
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
     * Pokud pracujete v systému MacOS nebo Linux, můžete vyvíjet aplikace .NET Core z příkazového řádku instalací sady [.NET Core SDK](https://www.microsoft.com/net/core#macos) pro vámi zvolenou platformu. 
     * Pokud pracujete v systému Windows, můžete vyvíjet aplikace .NET Core z příkazového řádku instalací sady [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * Můžete použít vlastní editor nebo si bezplatně stáhnout editor [Visual Studio Code](https://code.visualstudio.com/), který funguje na systémech Windows, Linux a MacOS. 
@@ -69,28 +70,31 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Krok 2: Nastavení řešení v sadě Visual Studio
-1. Otevřete v počítači **Visual Studio 2015**.
+## <a id="SetupVS"></a>Krok 2: Nastavení řešení v sadě Visual Studio
+1. Otevřete v počítači **Visual Studio 2017**.
 2. V nabídce **Soubor** vyberte **Nový** a zvolte **Projekt**.
-3. V dialogovém okně **Nový projekt** vyberte **Šablony** / **Visual C#** / **.NET Core**/**Konzolová aplikace (.NET Core)**, pojmenujte projekt a pak klikněte na **OK**.
+3. V dialogovém okně **Nový projekt** vyberte **Šablony** / **Visual C#** / **.NET Core**/**Konzolová aplikace (.NET Core)**, pojmenujte projekt **DocumentDBGettingStarted** a pak klikněte na **OK**.
+
    ![Snímek obrazovky okna Nový projekt](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
-4. V **Průzkumníku řešení** klikněte pravým tlačítkem na novou konzolovou aplikaci v rámci řešení v nástroji Visual Studio.
-5. Nabídku neopouštějte a klikněte na **Spravovat balíčky NuGet**.
+4. V **Průzkumníku řešení** klikněte pravým tlačítkem myši na **DocumentDBGettingStarted**.
+5. Nabídku neopouštěje a klikněte na **Spravovat balíčky NuGet...**.
+
    ![Snímek obrazovky místní nabídky projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
+6. Na kartě **NuGet** klikněte v horní části stránky na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
 7. Ve výsledcích vyhledejte **Microsoft.Azure.DocumentDB.Core** a klikněte na **Nainstalovat**.
    ID balíčku klientské knihovny DocumentDB pro .NET Core je [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Pokud cílíte na verzi .NET Framework (třeba net461), kterou tento balíček .NET Core Nuget nepodporuje, použijte [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) podporující všechny verze .NET Framework počínaje verzí .NET Framework 4.5.
+8. Na vyzvání přijměte instalaci balíčku NuGet a licenční smlouvu.
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
     using System;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     // ADD THIS PART TO YOUR CODE
+    using System.Linq;
+    using System.Threading.Tasks;
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -103,7 +107,7 @@ Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
 Nyní přidejte tyto dvě konstanty a proměnnou *client* pod veřejnou třídu *Program*.
 
-    public class Program
+    class Program
     {
         // ADD THIS PART TO YOUR CODE
         private const string EndpointUri = "<your endpoint URI>";
@@ -114,7 +118,7 @@ Dále přejděte na [Portál Azure](https://portal.azure.com) a získejte identi
 
 Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
 
-Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`. Pokud používáte emulátor Azure DocumentDB, použijte jako koncový bod `https://localhost:8081` a dobře definovaný autorizační klíč z tématu [Postup vývoje pomocí emulátoru DocumentDB](documentdb-nosql-local-emulator.md).
+Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`. Pokud používáte emulátor Azure DocumentDB, použijte jako koncový bod `https://localhost:8081` a dobře definovaný autorizační klíč z tématu [Postup vývoje pomocí emulátoru DocumentDB](documentdb-nosql-local-emulator.md). Nezapomeňte odstranit znaky < a >, ale ponechte uvozovky kolem vašeho koncového bodu a klíče.
 
 ![Snímek obrazovky Portálu Azure, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v C#. Zobrazuje účet DocumentDB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
 
@@ -158,7 +162,7 @@ Přidejte následující kód, aby se asynchronní úkol spustil z metody **Main
                     Console.ReadKey();
             }
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** sestavte a spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste se připojili k účtu DocumentDB. Nyní se podívejme, jak se pracuje s prostředky DocumentDB.  
 
@@ -186,11 +190,11 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvo
         // ADD THIS PART TO YOUR CODE
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Krok 5: Vytvoření kolekce
+## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce
 > [!WARNING]
 > **CreateDocumentCollectionAsync** vytvoří novou kolekci s vyhrazenou propustností, za kterou se hradí poplatky. Další podrobnosti najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -205,13 +209,13 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvo
         await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+         await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili kolekci dokumentů DocumentDB.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
+## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
 [Dokument](documentdb-resources.md#documents) je možné vytvořit pomocí metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) třídy **DocumentClient**. Dokumenty představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit jeden nebo více dokumentů. Pokud již máte data, která chcete uložit do databáze, můžete použít [nástroj pro migraci dat](documentdb-import-data.md) DocumentDB.
 
 Nejprve musíme vytvořit třídu **Family**, která bude v této ukázce představovat objekty uložené v DocumentDB. Kromě toho vytvoříme i podtřídy **Parent**, **Child**, **Pet** a **Address**, které se použijí v rámci **Family**. Povšimněte si, že dokumenty musí mít vlastnost **Id** serializovanou jako **id** ve formátu JSON. Vytvořte tyto třídy tak, že za metodu **GetStartedDemo** přidáte následující vnitřní podtřídy.
@@ -366,13 +370,13 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvo
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste vytvořili dva dokumenty DocumentDB.  
 
 ![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
+## <a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
 DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi DocumentDB SQL, tak LINQ – které spouštíme oproti dokumentům vloženým v předchozím kroku.
 
 Zkopírujte a vložte metodu **ExecuteSimpleQuery** pod metodu **CreateFamilyDocumentIfNotExists**.
@@ -418,7 +422,7 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod vytvo
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste provedli dotaz proti kolekci DocumentDB.
 
@@ -428,7 +432,7 @@ Následující diagram ilustruje, jak se volá syntaxe dotazu DocumentDB SQL pro
 
 Klíčové slovo [FROM](documentdb-sql-query.md#FromClause) je v dotazu volitelné, protože dotazy DocumentDB již mají obor nastaven na jedinou kolekci. Proto je možné příkaz „FROM Families f“ vyměnit za „FROM root r“ nebo jakoukoli jinou proměnnou, kterou si zvolíte. DocumentDB standardně vyvodí, že Families, root nebo zvolený název proměnné odkazují na aktuální kolekci.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
+## <a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
 DocumentDB podporuje nahrazování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **ReplaceFamilyDocument** pod metodu **ExecuteSimpleQuery**.
@@ -461,11 +465,11 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod spuš
 
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
+## <a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
 DocumentDB podporuje odstraňování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **DeleteFamilyDocument** pod metodu **ReplaceFamilyDocument**.
@@ -493,11 +497,11 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** pod spuš
     // ADD THIS PART TO CODE
     await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
+## <a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
 
 Pokud chcete odstranit celou databázi a její podřízené prostředky, zkopírujte a vložte následující kód do metody **GetStartedDemo** pod odstranění dokumentu.
@@ -510,12 +514,12 @@ Pokud chcete odstranit celou databázi a její podřízené prostředky, zkopír
     // Clean up/delete the database
     await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
-Stisknutím klávesy **F5** spusťte aplikaci.
+Stisknutím tlačítka **DocumentDBGettingStarted** spusťte aplikaci.
 
 Blahopřejeme! Úspěšně jste odstranili databázi DocumentDB.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
-Stiskněte v nástroji Visual Studio klávesu F5 – aplikace se sestaví v režimu ladění.
+## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
+Stisknutím tlačítka **DocumentDBGettingStarted** v sadě Visual Studio sestavte aplikaci v režimu ladění.
 
 Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výsledky dotazů, které jsme přidali, a měl by odpovídat ukázkovému textu níže.
 
@@ -542,7 +546,7 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výs
 
 Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka C#!
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
+## <a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).

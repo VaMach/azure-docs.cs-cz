@@ -1,6 +1,6 @@
 ---
-title: "Obrázky Dockeru v registru kontejnerů Azure | Dokumentace Microsoftu"
-description: "Nahrání a stažení imagí Dockeru do registru kontejnerů Azure pomocí rozhraní příkazového řádku Dockeru"
+title: "Nahrání image Dockeru do soukromého registru Azure | Dokumentace Microsoftu"
+description: "Nahrání a stažení imagí Dockeru do soukromého registru kontejnerů v Azure pomocí rozhraní příkazového řádku Dockeru"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Nahrání první image do registru kontejnerů pomocí rozhraní příkazového řádku Dockeru
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Nahrání první image do soukromého registru kontejnerů Dockeru pomocí rozhraní příkazového řádku Dockeru
 Registr kontejnerů Azure uchovává a spravuje privátní image kontejnerů [Dockeru](http://hub.docker.com) podobným způsobem, jakým [Docker Hub](https://hub.docker.com/) uchovává veřejné image Dockeru. K [přihlášení](https://docs.docker.com/engine/reference/commandline/login/), [nahrávání](https://docs.docker.com/engine/reference/commandline/push/), [stahování](https://docs.docker.com/engine/reference/commandline/pull/) a dalším operacím nad svým registrem kontejnerů použijete [rozhraní příkazového řádku Dockeru](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI). 
 
-Další související informace a koncepty najdete v tématu [Co je Azure Container Registry?](container-registry-intro.md)
+Další související informace a koncepty najdete v tématu [s přehledem](container-registry-intro.md).
 
 
 > [!NOTE]
@@ -114,10 +116,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Nyní již znáte základy a jste připraveni používat svůj registr! Můžete například začít nasazovat image kontejnerů do clusteru [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 
