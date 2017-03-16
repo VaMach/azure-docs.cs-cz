@@ -55,6 +55,8 @@
 #### [Než začnete](azure-stack-app-service-before-you-get-started.md)
 #### [Nasazení poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)
 #### [Přidání dalších webových rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md)
+#### [Konfigurace zdrojů nasazení](azure-stack-app-service-configure-deployment-sources.md)
+#### [Povolení FTP ve službě App Service v Azure Stacku](azure-stack-app-service-enable-ftp.md)
 ### Naplnění webu Marketplace
 #### [Přehled webu Marketplace](azure-stack-marketplace.md)
 #### [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)
@@ -110,8 +112,9 @@
 
 # Řešení potíží
 ## [Známé problémy](azure-stack-troubleshooting.md)
+## [Diagnostika v Azure Stacku](azure-stack-diagnostics.md)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 

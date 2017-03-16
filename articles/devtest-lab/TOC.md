@@ -5,17 +5,20 @@
 
 # Začínáme
 ## [Vytvoření testovacího prostředí](devtest-lab-create-lab.md)
+## [Vytváření vzorců](devtest-lab-create-formulas.md)
 ## [Vytvoření virtuálního počítače](devtest-lab-add-vm.md)
+## [Správa základních zásad testovacího prostředí](devtest-lab-get-started-with-lab-policies.md)
 ## [Vytvoření testovacího prostředí pro školení](devtest-lab-training-lab.md)
 ## [Nejčastější dotazy](devtest-lab-faq.md)
 
 # Postup
 ## Správa testovacích prostředí
 ### [Přidání uživatelů a vlastníků testovacího prostředí](devtest-lab-add-devtest-user.md)
-### [Definice zásad testovacího prostředí](devtest-lab-set-lab-policy.md)
+### [Správa všech zásad testovacího prostředí](devtest-lab-set-lab-policy.md)
 ### [Udělení oprávnění pro zásady](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Konfigurace správy nákladů](devtest-lab-configure-cost-management.md)
 ### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
+### [Principy sdílených IP adres](devtest-lab-shared-ip.md)
 
 ## Správa artefaktů
 ### [Přidání úložiště artefaktů](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [Nahrání souboru VHD pomocí AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Nahrání souboru VHD pomocí PowerShellu](devtest-lab-upload-vhd-using-powershell.md)
 ### [Nahrání souboru VHD pomocí průzkumníka úložišť](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Zdroje a prostředky
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=devtest-lab)

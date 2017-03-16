@@ -96,7 +96,10 @@
 #### [Řešení problémů](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Použití karty Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekce 1: Konfigurace zařízení
 ##### [Konfigurace zařízení](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Získání nástrojů (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [Spuštění ukázkové aplikace pro příjem zpráv](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Volitelné: Změna chování indikátor LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Řešení problémů](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Použití sady Gateway SDK
 ### [Simulace v Linuxu](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Lekce 5: Vytvoření prvního modulu Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Řešení potíží](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [Zařízení SensorTag](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Lekce 4: Uložení zpráv do Azure Table Storage
 ##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Lekce 5: Vytvoření prvního modulu Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,7 +227,7 @@
 ## Spravovat
 ### Vytvoření centra IoT 
 #### [Použití portálu](iot-hub-create-through-portal.md)
-#### [Použití CLI 2.0 Preview](iot-hub-create-using-cli.md)
+#### [Použití CLI 2.0](iot-hub-create-using-cli.md)
 #### [Použití rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
 #### [Použití rozhraní REST API](iot-hub-rm-rest.md)
 #### [Použití PowerShellu](iot-hub-rm-template-powershell.md)

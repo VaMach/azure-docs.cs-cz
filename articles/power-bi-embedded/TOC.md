@@ -13,8 +13,11 @@
 
 ## Spravovat
 ### [Připojení ke zdroji dat](power-bi-embedded-connect-datasource.md)
-### [Vložení sestavy Power BI pomocí elementu IFrame](power-bi-embedded-iframe.md)
+### [Vložení sestavy Power BI](power-bi-embedded-embed-report.md)
 ### [Interakce se sestavami](power-bi-embedded-interact-with-reports.md)
+### [Vytvoření nové sestavy z datové sady](power-bi-embedded-create-report-from-dataset.md)
+### [Ukládání sestav](power-bi-embedded-save-reports.md)
+### [Přepínání mezi zobrazením a úpravami](power-bi-embedded-toggle-mode.md)
 
 ## Zabezpečení
 ### [Ověření a autorizace](power-bi-embedded-app-token-flow.md)
@@ -22,13 +25,17 @@
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
-## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Stažení sady .NET SDK](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+## [Rozhraní REST API pro správu](/rest/api/powerbiembedded/)
+## [Rozhraní REST API](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 
 
 # Zdroje a prostředky
-## [Ukázky](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Ukázková aplikace](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Vložená ukázka JavaScriptu](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [Úložiště Git JavaScriptu](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Úložiště Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

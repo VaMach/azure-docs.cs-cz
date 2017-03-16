@@ -39,9 +39,10 @@
 ## [Konfigurace BGP pro Azure VPN Gateway pomocí PowerShellu](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurace vysoce dostupných připojení typu aktivní-aktivní](vpn-gateway-activeactive-rm-powershell.md)
 ## [Úprava nastavení místní síťové brány pomocí PowerShellu](vpn-gateway-modify-local-network-gateway.md)
-## [Ověření připojení brány](vpn-gateway-verify-connection-resource-manager.md)
-## [Resetování služby Azure VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [Jak pracovat s certifikáty podepsanými svým držitelem (self-signed certificate) pro připojení typu Point-to-Site](vpn-gateway-certificates-point-to-site.md)
+## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
+## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
+## [Odstranění brány VPN](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Vytvoření kořenových certifikátů podepsaných svým držitelem pro připojení P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Referenční informace
@@ -64,8 +65,3 @@
 ## [Ceny](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

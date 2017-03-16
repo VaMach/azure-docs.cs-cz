@@ -19,9 +19,10 @@
 ## Plánování
 ### [Požadavky nasazení](site-recovery-prereq.md)
 ### [Důležité informace o síťové infrastruktuře](site-recovery-network-design.md)
-### [Spuštění Site Recovery Capacity Planneru pro replikaci Hyper-V](site-recovery-capacity-planner.md)
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
-### [Spuštění plánovače nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
+### [Plánovač nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
+### [Site Recovery Capacity Planner pro replikaci Hyper-V](site-recovery-capacity-planner.md)
+
 ## Konfigurace
 ### [Nastavení zdrojového prostředí](site-recovery-set-up-vmware-to-azure.md)
 ### [Nastavení cílového prostředí](site-recovery-prepare-target-vmware-to-azure.md)
@@ -29,14 +30,14 @@
 ### [Nasazení služby Mobility pro replikaci VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Nasazení služby Mobility s využitím System Center Configuration Manageru](site-recovery-install-mobility-service-using-sccm.md)
 #### [Nasazení služby Mobility s využitím Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### [Povolení replikace](site-recovery-replicate-vmware-to-azure.md)
 ## Převzetí služeb při selhání a navrácení služeb po obnovení
-### [Převzetí služeb při selhání ve službě Site Recovery](site-recovery-failover.md)
+### [Převzetí služeb při selhání u chráněných počítačů](site-recovery-failover.md)
 ### [Nastavení plánů obnovení](site-recovery-create-recovery-plans.md)
 #### [Přidání runbooků Azure do plánů obnovení](site-recovery-runbook-automation.md)
-### [Spuštění testovacího převzetí služeb při selhání do Azure](site-recovery-test-failover-to-azure.md)
-### [Spuštění testovacího převzetí služeb při selhání mezi dvěma umístěními VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Navrácení služeb fyzických serverů a virtuálních počítačů VMware z Azure po obnovení](site-recovery-how-to-failback-azure-to-vmware.md)
-### [Navrácení služeb virtuálních počítačů Hyper-V z Azure po obnovení](site-recovery-failback-from-azure-to-hyper-v.md)
+### [Spuštění testovacího převzetí služeb při selhání](site-recovery-test-failover-to-azure.md)
+### [Znovunastavení ochrany počítačů po převzetí služeb při selhání](site-recovery-how-to-reprotect.md)
+### [Navrácení služeb po obnovení z Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migrace
 ### [Migrace do Azure](site-recovery-migrate-to-azure.md)
@@ -56,9 +57,13 @@
 ### [Automatizace replikace Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatizace replikace Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Spravovat
+### [Úprava nastavení replikace](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
+### [Správa procesových serverů v Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
+### [Správa konfiguračního serveru](site-recovery-vmware-to-azure-manage-configuration-server.md)
+### [Správa procesových serverů s horizontálním navýšením kapacity](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Správa serverů vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
-### [Horizontální navýšení kapacity procesových serverů](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
-### [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
+## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
