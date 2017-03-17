@@ -37,9 +37,10 @@
 ### [Zabezpečení a identita](documentation-government-services-securityandidentity.md)
 ### [Monitorování a správa](documentation-government-services-monitoringandmanagement.md)
 ### [Webové a mobilní služby](documentation-government-services-webandmobile.md)
+### [Media Services](documentation-government-services-media.md)
 
 
-# Zdroje a prostředky
+# Zdroje
 ## [Ceny](https://azure.microsoft.com/pricing/)
 ## [Zkušební verze](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)

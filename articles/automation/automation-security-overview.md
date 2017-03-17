@@ -1,28 +1,30 @@
 ---
-title: "Zabezpečení Azure Automation | Dokumentace Microsoftu"
-description: "Tento článek nabízí přehled zabezpečení automatizace a různé metody ověřování, které jsou dostupné pro účty Automation ve službě Azure Automation."
+title: "Úvod do ověřování ve službě Azure Automation | Dokumentace Microsoftu"
+description: "Tento článek nabízí přehled zabezpečení služby Automation a různé metody ověřování, které jsou dostupné pro účty Automation ve službě Azure Automation."
 services: automation
 documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: "zabezpečení automatizace, bezpečná automatizace"
+keywords: automation security, secure automation; automation authentication
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: 432321c66fc991136b0b473abd0880876c31887e
+ms.sourcegitcommit: 7224da31e71f3f6c912cd486198135945f90a8a4
+ms.openlocfilehash: aa639886ba3379ef30f9abef8f3dff4acb5b1181
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-automation-security"></a>Zabezpečení služby Azure Automation
-Azure Automation umožňuje automatizovat úlohy s prostředky v Azure, místně a u jiných poskytovatelů cloudu, například Amazon Web Services (AWS).  Aby mohl runbook provádět požadované akce, musí mít oprávnění pro bezpečný přístup k prostředkům s minimálními požadovanými právy v rámci předplatného.  
+# <a name="introduction-to-authentication-in-azure-automation"></a>Úvod do ověřování ve službě Azure Automation  
+Azure Automation umožňuje automatizovat úlohy s prostředky v Azure, místně a u jiných poskytovatelů cloudu, například Amazon Web Services (AWS).  Aby mohl runbook provádět požadované akce, musí mít oprávnění pro bezpečný přístup k prostředkům s minimálními požadovanými právy v rámci předplatného. 
+ 
 Tento článek se bude zabývat různými scénáři ověřování, které Azure Automation podporuje, a ukáže vám, jak začít pracovat s ohledem na prostředí, které nebo která potřebujete spravovat.  
 
 ## <a name="automation-account-overview"></a>Přehled účtu Automation
@@ -32,7 +34,6 @@ Prostředky Automation jednotlivých účtů Automation jsou přidružené k jed
 
 > [!NOTE]
 > Účty Automation a v nich obsažené prostředky, které jsou vytvořené pomocí portálu Azure, nemůžete otevírat pomocí portálu Azure Classic. Pokud chcete tyto účty nebo jejich prostředky spravovat pomocí rozhraní Windows PowerShell, použijte moduly Azure Resource Manageru.
-> 
 > 
 
 Všechny úlohy, které s prostředky provádíte pomocí správce Azure Resource Manager a rutin Azure ve službě Azure Automation, se musí ověřovat pro službu Azure pomocí ověření na základě přihlašovacích údajů organizační identity v Azure Active Directory.  Ověřování pomocí certifikátů bylo původní metodou ověřování v režimu Azure Service Management, ale jeho instalace byla složitá.  Ověřování v Azure pomocí uživatele Azure AD bylo znovu zavedeno v roce 2014, nejen kvůli zjednodušení procesu konfigurace ověřovacího účtu, ale také kvůli podpoře možnosti neinteraktivního ověření pro Azure pomocí jediného uživatelského účtu, který pracoval s nástrojem Azure Resource Manager a klasickými prostředky.   
@@ -56,10 +57,5 @@ Následující tabulka shrnuje různé metody ověřování pro jednotlivá pros
 | Azure Classic spuštěné jako účet |Azure Service Management |[Ověření runbooků pomocí účtu Spustit v Azure jako](automation-sec-configure-azure-runas-account.md) |
 | Ověřování systému Windows |Místní datové centrum |[Ověření runbooků pro proces Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | Přihlašovací údaje služby Amazon Web Services |Amazon Web Services |[Ověření runbooků pomocí Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

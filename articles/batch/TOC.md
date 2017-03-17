@@ -1,6 +1,7 @@
 # Přehled
 ## [Co je Azure Batch?](batch-technical-overview.md)
 ## [Přehled funkcí](batch-api-basics.md)
+## [Rozhraní API a nástroje](batch-apis-tools.md)
 ## [Kvóty a omezení](batch-quota-limit.md)
 # Začínáme
 ## [Vytvoření účtu služby Batch](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [Diagnostické protokoly služby Batch](batch-diagnostics.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,9 +47,4 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

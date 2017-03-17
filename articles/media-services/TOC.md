@@ -45,6 +45,7 @@
 
 ## [Kódování obsahu](media-services-encode-asset.md)
 ### [Porovnání kodérů](media-services-compare-encoders.md)
+### [Správa rychlosti a souběžného zpracování vašeho kódování](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Kodeky a formáty Media Encoderu Standard](media-services-media-encoder-standard-formats.md)
 #### [Použití MES k automatickému vygenerování žebříčku přenosových rychlostí](media-services-autogen-bitrate-ladder-with-mes.md)
@@ -120,16 +121,16 @@
 ## [Ochrana](media-services-content-protection-overview.md)
 ### [Konfigurace ochrany obsahu pomocí portálu](media-services-portal-protect-content.md)
 ### [Konfigurace nezašifrovaného klíče AES-128 pro váš stream](media-services-protect-with-aes128.md)
-### [Šifrování obsahu pomocí šifrování úložiště s použitím rozhraní AMS REST API](media-services-rest-storage-encryption.md)
+### [Použití REST k šifrování obsahu pomocí šifrování úložiště](media-services-rest-storage-encryption.md)
 ### [Přehled šablon licencování Media Services PlayReady](media-services-playready-license-template-overview.md)
 ### [Přehled šablon licencování Widevine](media-services-widevine-license-template-overview.md)
 ### [Doručování licencí DRM](media-services-deliver-keys-and-licenses.md)
-### [Využití služeb partnerů k distribuci licencí Widevine pro Azure Media Services](media-services-licenses-partner-integration.md)
+### [Doručování licencí Widevine do Media Services s využitím služeb partnerů](media-services-licenses-partner-integration.md)
 ### [Použití běžného dynamického šifrování PlayReady nebo Widevine](media-services-protect-with-drm.md)
-### [Použití Azure Media Services ke streamování obsahu HLS chráněného technologií Apple FairPlay](media-services-protect-hls-with-fairplay.md)
-### [CENC využívající Multi-DRM a Access Control: Referenční návrh a implementace v prostředí Azure a Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
-### [Distribuce licencí Widevine pro Azure Media Services pomocí Axinomu](media-services-axinom-integration.md)
-### [Distribuce licencí Widevine pro Azure Media Services pomocí castLabs](media-services-castlabs-integration.md)
+### [Streamování obsahu HLS chráněného technologií Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Šifrování CENC s více technologiemi DRM a řízením přístupu](media-services-cenc-with-multidrm-access-control.md)
+### [Doručování licencí Widevine do Media Services s využitím Axinomu](media-services-axinom-integration.md)
+### [Doručování licencí Widevine do Media Services s využitím castLabs](media-services-castlabs-integration.md)
 
 ### Doručování prostředků
 #### Konfigurace zásad doručování prostředků
@@ -191,7 +192,8 @@
 ### [Licencování sady pro portování klienta Microsoft Smooth Streaming](media-services-sspk.md)
 
 ## Integrace
-### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Použití Azure Functions se službou Media Services](media-services-dotnet-how-to-use-azure-functions.md)
+### [Příklady Azure Functions se službou Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitorování
 ### Kontrola průběhu úlohy

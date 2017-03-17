@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ Můžete zakoupit víc než jeden okruh ExpressRoute na geopolitickou oblast. Po
 | Indie – jih |12076:51019 |
 | Indie – západ |12076:51018 |
 | Indie – střed |12076:51017 |
+| **Korea** | |
+| Korea – jih |12076:51028 |
+| Korea – střed |12076:51029 |
 
 Všechny trasy inzerované Microsoftem budou označené odpovídající hodnotou komunity. 
 
@@ -212,10 +216,5 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
   * [Vytvoření okruhu ExpressRoute pro model nasazení Classic](expressroute-howto-circuit-classic.md) nebo [Vytvoření a úprava okruhu ExpressRoute pomocí Azure Resource Manageru](expressroute-howto-circuit-arm.md)
   * [Konfigurace směrování pro model nasazení Classic](expressroute-howto-routing-classic.md) nebo [Konfigurace směrování pro model nasazení Resource Manager](expressroute-howto-routing-arm.md)
   * [Připojení klasické virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-classic.md) nebo [Připojení virtuální sítě Resource Manageru k okruhu ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

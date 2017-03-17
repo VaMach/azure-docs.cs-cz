@@ -54,7 +54,6 @@
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
-#### [Architektura](service-fabric-reliable-services-platform-architecture.md)
 #### [Životní cyklus Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Použití Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorfismus](service-fabric-reliable-actors-polymorphism.md)
 #### [Vícenásobný přístup](service-fabric-reliable-actors-reentrancy.md)
+#### [Události](service-fabric-reliable-actors-events.md) 
 #### [Časovače a připomenutí](service-fabric-reliable-actors-timers-reminders.md)
-#### [Události](service-fabric-reliable-actors-events.md)
 #### [Správa stavu](service-fabric-reliable-actors-state-management.md)
 #### [Konfigurace KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Řešení běžných potíží](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Škálování aplikací
 ### [Dělení Reliable Services](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Pomocí řízeného chaosu](service-fabric-controlled-chaos.md)
 #### [Pomocí testovacích akcí](service-fabric-testability-actions.md)
 #### [Během úloh](service-fabric-testability-workload-tests.md)
-#### [Vyvoláním ztráty dat](service-fabric-use-data-loss-api.md)
 #### [Pomocí testovacích scénářů](service-fabric-testability-scenarios.md)
 #### [Pomocí rozhraní API pro přechod uzlů](service-fabric-node-transition-apis.md)
 ### [Zátěžový test aplikace](service-fabric-vso-load-test.md)

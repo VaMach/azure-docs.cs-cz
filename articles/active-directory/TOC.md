@@ -79,9 +79,12 @@
 ### [Riziková přihlášení](active-directory-reporting-security-risky-sign-ins.md)
 ### [Rizikové události](active-directory-reporting-risk-events.md)
 ### [Pojmenované sítě](active-directory-known-networks-azure-portal.md)
-### [Nejčastější dotazy](active-directory-reporting-faq.md)
 ### [Migrace sestav](active-directory-reporting-migration.md)
 ### [Uchování](active-directory-reporting-retention.md)
+### [Nejčastější dotazy](active-directory-reporting-faq.md)
+### Řešení potíží
+#### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Chybějící data v souborech ke stažení](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programový přístup
 #### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
 #### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Řešení problémů](active-directory-passwords-troubleshoot.md)
 
 ## Správa zařízení
-### [Registrace zařízení](active-directory-conditional-access-device-registration-overview.md)
-#### [Správa automatické registrace](active-directory-conditional-access-automatic-device-registration.md)
+### [Registrace zařízení](active-directory-device-registration-overview.md)
+#### [Správa automatické registrace](active-directory-device-registration.md)
 #### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Nejčastější dotazy](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
+#### [Nejčastější dotazy](active-directory-device-registration-faq.md)
 #### Řešení potíží
-##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
-#### [Nasazení na místě](active-directory-conditional-access-on-premises-setup.md)
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
 #### [Referenční informace](active-directory-conditional-access-technical-reference.md)

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -25,9 +26,11 @@ ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 Tento článek obsahuje přehled používání webových rolí a rolí pracovních procesů Python pomocí nástrojů [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dozvíte se, jak použít službu Visual Studio k vytvoření a nasazení základní cloudové služby, která používá Python.
 
 ## <a name="prerequisites"></a>Požadavky
-* Visual Studio 2013 nebo 2015
+* [Visual Studio 2013, 2015 nebo 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] nebo [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
+* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] nebo  
+[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] nebo  
+[Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 (32bitová verze)][Python 2.7 32-bit] nebo [Python 3.5 (32bitová verze)][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -359,13 +362,9 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

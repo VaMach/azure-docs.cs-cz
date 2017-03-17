@@ -2,13 +2,16 @@
 ## [Co jsou škálovací sady virtuálních počítačů?](virtual-machine-scale-sets-overview.md)
 
 # Začínáme
-## [Vytvoření škálovací sady v portálu](virtual-machine-scale-sets-portal-create.md)
-## [Vytvoření škálovací sady s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Vytvoření škálovací sady s použitím šablony Resource Manageru](virtual-machine-scale-sets-mvss-start.md)
+## [Nasazení škálovací sady na portálu](virtual-machine-scale-sets-portal-create.md)
+## [Nasazení škálovací sady s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Nasazení jednoduché škálovací sady s použitím šablony Resource Manageru](virtual-machine-scale-sets-mvss-start.md)
 
 # Postup
 ## Plánování a návrh
 ### [Aspekty návrhu](virtual-machine-scale-sets-design-overview.md)
+## Vytváření šablon škálovacích sad
+### [Nasazení jednoduché škálovací sady](virtual-machine-scale-sets-mvss-start.md)
+### [Nasazení škálovací sady do existující virtuální sítě](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Nasazení
 ### [Škálovací sada s využitím portálu](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Řešení potíží
 ### [Automatické škálování](virtual-machine-scale-sets-troubleshoot.md)
+
+## Nejčastější dotazy
+### [Nejčastější dotazy týkající se škálovacích sad](virtual-machine-scale-sets-faq.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření registru kontejnerů Azure – rozhraní příkazového řádku | Dokumentace Microsoftu"
-description: "Začínáme vytvářet a spravovat registry kontejnerů Azure pomocí Azure CLI 2.0"
+title: "Vytvoření soukromého registru kontejnerů Dockeru – Azure CLI | Dokumentace Microsoftu"
+description: "Začínáme vytvářet a spravovat soukromé registry kontejnerů Dockeru pomocí Azure CLI 2.0"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/03/2017
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 6ef43ed43358357c94460a27d3e2b2c8530b6c54
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-cli"></a>Vytvoření registru kontejnerů pomocí Azure CLI
+# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Vytvoření soukromého registru kontejnerů Dockeru pomocí Azure CLI 2.0
 Pomocí příkazů na stránce [Azure CLI 2.0](https://github.com/Azure/azure-cli) můžete vytvořit registr kontejnerů a spravovat jeho nastavení z počítače se systémem Linux, Mac nebo Windows. Vytvořit a spravovat registry kontejnerů můžete také pomocí webu [Azure Portal](container-registry-get-started-portal.md) nebo programově pomocí rozhraní [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) služby Container Registry.
 
 
-* Související informace a koncepty najdete v tématu [Co je Azure Container Registry?](container-registry-intro.md)
+* Související informace a koncepty najdete v tématu [s přehledem](container-registry-intro.md).
 * Nápovědu k příkazům rozhraní příkazového řádku služby Container Registry (příkazy `az acr`) získáte předáním parametru `-h` příslušnému příkazu.
 
 > [!NOTE]
@@ -34,10 +36,10 @@ Pomocí příkazů na stránce [Azure CLI 2.0](https://github.com/Azure/azure-cl
 > 
 
 ## <a name="prerequisites"></a>Požadavky
-* **Azure CLI 2.0** – Chcete-li nainstalovat a začít používat Azure CLI 2.0, přečtěte si [pokyny k instalaci](https://github.com/Azure/azure-cli/blob/master/README.rst). Přihlaste se ke svému předplatnému Azure spuštěním příkazu `az login`.
-* **Skupina prostředků** – Než vytvoříte registr kontejnerů, vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo použijte existující skupinu prostředků. Ujistěte se, že je skupina prostředků v umístění, kde je služba Container Registry [dostupná](https://azure.microsoft.com/regions/services/). Chcete-li vytvořit skupinu prostředků pomocí Azure CLI 2.0, podívejte se na [ukázky Azure CLI 2.0](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Účet úložiště** (volitelné) – Pro účely zálohování registru kontejnerů vytvořte standardní [účet úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Pokud při vytváření registru pomocí příkazu `az acr create` nezadáte účet úložiště, příkaz ho vytvoří za vás. Chcete-li vytvořit účet úložiště pomocí Azure CLI 2.0, podívejte se na [ukázky Azure CLI 2.0](https://github.com/Azure/azure-cli-samples/tree/master/storage).
-* **Instanční objekt** (volitelné) – Pokud vytvoříte registr pomocí rozhraní příkazového řádku, ve výchozím nastavení nebude nastavený pro přístup. Podle potřeby můžete k registru přiřadit existující instanční objekt Azure Active Directory (nebo vytvořit a přiřadit nový) nebo povolit uživatelský účet s právy pro správu registru. Pokyny najdete v dalších částech tohoto článku. Další informace o přístupu k registru najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md). 
+* **Azure CLI 2.0:** Chcete-li nainstalovat a začít používat Azure CLI 2.0, přečtěte si [pokyny k instalaci](/cli/azure/install-azure-cli). Přihlaste se ke svému předplatnému Azure spuštěním příkazu `az login`. Další informace najdete v článku [Začínáme s Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
+* **Skupina prostředků:** Než vytvoříte registr kontejnerů, vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo použijte existující skupinu prostředků. Ujistěte se, že je skupina prostředků v umístění, kde je služba Container Registry [dostupná](https://azure.microsoft.com/regions/services/). Chcete-li vytvořit skupinu prostředků pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/group). 
+* **Účet úložiště** (volitelné): Pro účely zálohování registru kontejnerů vytvořte standardní [účet úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Pokud při vytváření registru pomocí příkazu `az acr create` nezadáte účet úložiště, příkaz ho vytvoří za vás. Chcete-li vytvořit účet úložiště pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/storage/account). Storage úrovně Premium se v tuto chvíli nepodporuje.
+* **Instanční objekt** (volitelné): Pokud vytvoříte registr pomocí rozhraní příkazového řádku, ve výchozím nastavení nebude nastavený pro přístup. Podle potřeby můžete k registru přiřadit existující instanční objekt Azure Active Directory (nebo vytvořit a přiřadit nový) nebo povolit uživatelský účet s právy pro správu registru. Pokyny najdete v dalších částech tohoto článku. Další informace o přístupu k registru najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md). 
 
 ## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
 Spuštěním příkazu `az acr create` vytvořte registr kontejnerů. 
@@ -127,10 +129,5 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 ## <a name="next-steps"></a>Další kroky
 * [Nahrání první image pomocí rozhraní příkazového řádku Dockeru](container-registry-get-started-docker-cli.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

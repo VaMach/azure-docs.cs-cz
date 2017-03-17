@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
-ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 278caf2afa889466736f3d98ff4ad292f72e5098
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 Tabulky v tomto článku poskytují informace o poskytovatelích připojení ExpressRoute, zeměpisném pokrytí ExpressRoute, cloudových službách Microsoftu podporovaných přes ExpressRoute a systémových integrátorech (SI) ExpressRoute.
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Poskytovatelé připojení ExpressRoute
+## <a name="partners"></a>Poskytovatelé připojení ExpressRoute
 Služba ExpressRoute je podporovaná ve všech umístěních a oblastech Azure. Následující mapa obsahuje seznam oblastí Azure a umístění ExpressRoute. Umístění ExpressRoute odkazují na ty, kde má Microsoft partnerský vztah s několika poskytovateli služeb.
 
 ![Mapa umístění][0]
@@ -61,7 +61,7 @@ Následující tabulka obsahuje informace o oblastech a geopolitických hranicí
 
 Připojení přes geopolitické oblasti není pomocí standardní SKU pro ExpressRoute podporované. Aby bylo podporované globální připojení, budete muset povolit doplněk ExpressRoute Premium. Připojení k prostředím národních cloudů není podporované. Podle potřeby můžete spolupracovat se svým poskytovatelem připojení.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Umístění poskytovatele připojení
+## <a name="locations"></a>Umístění poskytovatele připojení
 
 Následující tabulka uvádí umístění připojení a poskytovatele služby pro každé umístění. Seznam poskytovatelů služeb a umístění, ve kterých působí, najdete v článku [Umístění podle poskytovatelů služeb](expressroute-locations.md#locations). 
 
@@ -73,8 +73,8 @@ Následující tabulka uvádí umístění připojení a poskytovatele služby p
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS+, Sejong Telecom |
 | **Čennaj** |Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
 | **Dublin** |Colt, Telecity Group |
 | **Hongkong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londýn** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -125,7 +125,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 | **Berlín** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
+## <a name="nonpartners"></a>Připojení prostřednictvím neuvedených poskytovatelů služeb
 Pokud poskytovatel připojení není v předchozích částech uvedený, můžete přesto vytvořit připojení.
 
 * Zkontrolujte u svého poskytovatele připojení, jestli je připojený k některé z výměn v předchozí tabulce. Můžete zkontrolovat následující odkazy, abyste získali další informace o službách nabízených poskytovateli výměny. Několik poskytovatelů připojení je už připojeno k ethernetovým výměnám.
