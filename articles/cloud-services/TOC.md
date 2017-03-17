@@ -36,8 +36,8 @@
 #### [Použití úlohy pro instalaci .NET v roli cloudové služby](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurace vzdálené plochy
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portál Classic](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Nasazení
