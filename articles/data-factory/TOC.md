@@ -62,12 +62,12 @@
 ### [Aktivita Pig služby HDInsight](data-factory-pig-activity.md)
 ### [Aktivita MapReduce služby HDInsight](data-factory-map-reduce.md)
 ### [Aktivita Streamování služby HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Aktivita Sparku služby HDInsight](data-factory-spark.md)
 ### [Aktivita Provedení dávky služby Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 ### [Aktivita Aktualizace prostředků služby Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Aktivita Uložená procedura](data-factory-stored-proc-activity.md)
 ### [Aktivita U-SQL služby Data Lake Analytics](data-factory-usql-activity.md)
 ### [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
-### [Vyvolání programů Spark](data-factory-spark.md)
 ### [Vyvolání skriptů jazyka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Vývoj
 ### [Šablona Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)

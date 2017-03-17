@@ -38,7 +38,8 @@
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
 ## Řízení přístupu
 ### [Vytvoření instančního objektu pomocí PowerShellu](resource-group-authenticate-service-principal.md)
-### [Vytvoření instančního objektu pomocí Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Vytvoření instančního objektu pomocí Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytvoření instančního objektu pomocí Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Vytvoření instančního objektu pomocí portálu](resource-group-create-service-principal-portal.md)
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)

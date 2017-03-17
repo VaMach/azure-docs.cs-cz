@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívi
 | Aplikační role | [Podporuje se](https://msdn.microsoft.com/library/ms190998.aspx) | [Podporuje se](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Automatické škálování | Nepodporuje se | [Podporuje se](sql-database-service-tiers.md) |
 | Azure Active Directory | Nepodporuje se | [Podporuje se](sql-database-aad-authentication.md) |
-| Azure Data Factory | Nepodporuje se – viz [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Podporuje se](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Podporuje se](../data-factory/data-factory-introduction.md) | [Podporuje se](../data-factory/data-factory-introduction.md) |
 | Auditování | [Podporuje se](https://msdn.microsoft.com/library/cc280386.aspx) | [Podporuje se](sql-database-auditing.md) |
 | Soubor BACPAC (export) | [Podporuje se](https://msdn.microsoft.com/library/hh213241.aspx) | [Podporuje se](sql-database-export.md) |
 | Soubor BACPAC (import) | [Podporuje se](https://msdn.microsoft.com/library/hh710052.aspx) | [Podporuje se](sql-database-import-portal.md) |

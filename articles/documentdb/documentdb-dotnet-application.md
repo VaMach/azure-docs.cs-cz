@@ -16,19 +16,20 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
+# <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
->  
+> * [.NET](documentdb-dotnet-application.md)
+> * [.NET pro MongoDB](documentdb-mongodb-application.md)
+> * [Node.js](documentdb-nodejs-application.md)
+> * [Java](documentdb-java-application.md)
+> * [Python](documentdb-python-application.md)
+> 
 > 
 
 Pro větší názornost, jak lze pomocí Azure DocumentDB efektivně ukládat dokumenty JSON a zadávat na ně dotazy, obsahuje tento článek úplný podrobný návod, jak pomocí Azure DocumentDB vytvořit aplikaci pro seznam úkolů. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB.
@@ -42,7 +43,7 @@ Tento návod popisuje, jak pomocí služby DocumentDB, kterou poskytuje Azure, u
 > 
 > 
 
-## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Předpoklady pro tento databázový kurz
+## <a name="_Toc395637760"></a>Předpoklady pro tento databázový kurz
 Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, že máte následující:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -55,7 +56,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Visual Studio 2013 s aktualizací Update 4 a sady Azure SDK pro .NET verze 2.5.1. Pokud konfigurace vašeho serveru využívá jiné verze, je možné, že se vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte předpoklady uvedené výše, řešení by mělo fungovat.
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
+## <a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
 Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -65,7 +66,7 @@ Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud pou
 <br/>
 Nyní vám ukážeme, jak od základů vytvořit novou aplikaci ASP.NET MVC. 
 
-## <a name="a-nametoc395637762astep-2-create-a-new-aspnet-mvc-application"></a><a name="_Toc395637762"></a>Krok 2: Vytvoření nové aplikace ASP.NET MVC
+## <a name="_Toc395637762"></a>Krok 2: Vytvoření nové aplikace ASP.NET MVC
 Nyní když máte účet, můžeme vytvořit nový projekt ASP.NET.
 
 1. V nástroji Visual Studio najeďte myší v nabídce **Soubor** na **Nový** a klikněte na **Projekt**.
@@ -97,7 +98,7 @@ Nyní když máte účet, můžeme vytvořit nový projekt ASP.NET.
    
     Lokální spouštění projektu přeskočíme, protože všichni jsme již určitě viděli aplikaci ASP.NET Hello World. Přejděme rovnou na přidání DocumentDB do projektu a sestavení aplikace.
 
-## <a name="a-nametoc395637767astep-3-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>Krok 3: Přidání DocumentDB do projektu webové aplikace MVC
+## <a name="_Toc395637767"></a>Krok 3: Přidání DocumentDB do projektu webové aplikace MVC
 Teď již máme za sebou většinu potřebných příprav technologie ASP.NET MVC, které potřebujeme pro toto řešení. Přejděme tedy ke skutečnému účelu tohoto kurzu, a tím je přidání Azure DocumentDB k webové aplikaci MVC.
 
 1. Sada DocumentDB .NET SDK se připravuje a distribuuje jako balíček NuGet. Balíček NuGet získáte v nástroji Visual Studio tak, že v něm použijete správce balíčků NuGet. Klikněte pravým tlačítkem na projekt v **Průzkumníkovi řešení** a pak levým na **Spravovat balíčky NuGet**.
@@ -118,14 +119,14 @@ Teď již máme za sebou většinu potřebných příprav technologie ASP.NET MV
    
       ![Snímek obrazovky se dvěma přidanými referencemi na datový projekt JSON v Průzkumníkovi řešení](./media/documentdb-dotnet-application/image22.png)
 
-## <a name="a-nametoc395637763astep-4-set-up-the-aspnet-mvc-application"></a><a name="_Toc395637763"></a>Krok 4: Nastavení aplikace ASP.NET MVC
+## <a name="_Toc395637763"></a>Krok 4: Nastavení aplikace ASP.NET MVC
 Nyní k této aplikaci MVC přidejme modely, zobrazení a kontrolery:
 
 * [Přidání modelu](#_Toc395637764)
 * [Přidání kontroleru](#_Toc395637765)
 * [Přidání zobrazení](#_Toc395637766)
 
-### <a name="a-nametoc395637764aadd-a-json-data-model"></a><a name="_Toc395637764"></a>Přidání datového modelu JSON
+### <a name="_Toc395637764"></a>Přidání datového modelu JSON
 Začněme vytvořením velkého **M** v MVC, tedy modelem. 
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku **Modely**, pak levým na **Přidat** a nakonec také levým na **Třída**.
@@ -162,7 +163,7 @@ Začněme vytvořením velkého **M** v MVC, tedy modelem.
    
     Nejenže můžete určovat formát názvu vlastnosti, když se ukládá do formátu JSON, ale můžete zcela přejmenovat vlastnosti .NET, jako jsme to udělali s vlastností **Popis**. 
 
-### <a name="a-nametoc395637765aadd-a-controller"></a><a name="_Toc395637765"></a>Přidání kontroleru
+### <a name="_Toc395637765"></a>Přidání kontroleru
 Tím je vyřešeno **M**, teď vytvořme **C** z MVC, tedy třídu kontroleru (angl. controller).
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku **Kontrolery**, pak levým na **Přidat** a nakonec také levým na **Kontroler**.
@@ -181,14 +182,14 @@ Tím je vyřešeno **M**, teď vytvořme **C** z MVC, tedy třídu kontroleru (a
    
     Soubor ItemController.cs můžete zavřít – vrátíme se k němu později. 
 
-### <a name="a-nametoc395637766aadd-views"></a><a name="_Toc395637766"></a>Přidání zobrazení
+### <a name="_Toc395637766"></a>Přidání zobrazení
 Nyní pojďme vytvořit **V** z MVC, tedy zobrazení (angl. view):
 
 * [Přidání zobrazení Index položky](#AddItemIndexView)
 * [Přidání zobrazení Nová položka](#AddNewIndexView)
 * [Přidání zobrazení Upravit položku](#_Toc395888515)
 
-#### <a name="a-nameadditemindexviewaadd-an-item-index-view"></a><a name="AddItemIndexView"></a>Přidání zobrazení Index položky
+#### <a name="AddItemIndexView"></a>Přidání zobrazení Index položky
 1. V **Průzkumníkovi řešení** rozbalte složku **Zobrazení**, klikněte pravým tlačítkem na prázdnou složku **Položka**, kterou pro vás Visual Studio vytvořilo již dříve (když jste přidali **ItemController**), klikněte na **Přidat** a nakonec klikněte na **Zobrazení**.
    
     ![Snímek obrazovky Průzkumníka řešení, na kterém se zobrazuje složka Položka vytvořená nástrojem Visual Studio se zvýrazněnými příkazy Přidat zobrazení](./media/documentdb-dotnet-application/image17.png)
@@ -203,7 +204,7 @@ Nyní pojďme vytvořit **V** z MVC, tedy zobrazení (angl. view):
      ![Snímek obrazovky ukazující dialogové okno Přidat zobrazení](./media/documentdb-dotnet-application/image18.png)
 3. Jakmile jsou všechny tyto hodnoty nastaveny, klikněte na **Přidat** a nechejte Visual Studio vytvořit novou šablonu zobrazení. Až se to dokončí, otevře se soubor cshtml, který se vytvoří. Tento soubor můžeme v nástroji Visual Studio zavřít, protože se k němu vrátíme později.
 
-#### <a name="a-nameaddnewindexviewaadd-a-new-item-view"></a><a name="AddNewIndexView"></a>Přidání zobrazení Nová položka
+#### <a name="AddNewIndexView"></a>Přidání zobrazení Nová položka
 Podobným způsobem, jakým jsme vytvořili zobrazení **Index položky**, vytvoříme nyní nové zobrazení pro vytváření nových **položek**.
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku **Položka**, pak levým na **Přidat** a nakonec také levým na **Zobrazení**.
@@ -216,7 +217,7 @@ Podobným způsobem, jakým jsme vytvořili zobrazení **Index položky**, vytvo
    * Do pole stránky rozložení zadejte ***~/Views/Shared/_Layout.cshtml***.
    * Klikněte na **Přidat**.
 
-#### <a name="a-nametoc395888515aadd-an-edit-item-view"></a><a name="_Toc395888515"></a>Přidání zobrazení Upravit položku
+#### <a name="_Toc395888515"></a>Přidání zobrazení Upravit položku
 A nakonec stejným způsobem jako předtím přidejte jedno poslední zobrazení pro úpravu **položky**.
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku **Položka**, pak levým na **Přidat** a nakonec také levým na **Zobrazení**.
@@ -231,7 +232,7 @@ A nakonec stejným způsobem jako předtím přidejte jedno poslední zobrazení
 
 Až bude vše hotovo, zavřete všechny dokumenty cshtml v nástroji Visual Studio, protože se k těmto zobrazením vrátíme později.
 
-## <a name="a-nametoc395637769astep-5-wiring-up-documentdb"></a><a name="_Toc395637769"></a>Krok 5: Připojení DocumentDB
+## <a name="_Toc395637769"></a>Krok 5: Připojení DocumentDB
 Nyní, když jsou vyřešeny všechny standardní náležitosti MVC, se můžeme zaměřit na přidávání kódu pro DocumentDB. 
 
 V této části přidáme kód pro zpracování následujícího:
@@ -240,7 +241,7 @@ V této části přidáme kód pro zpracování následujícího:
 * [Přidávání položek](#_Toc395637771)
 * [Úprava položek](#_Toc395637772)
 
-### <a name="a-nametoc395637770alisting-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>Výpis neúplných položek ve webové aplikaci MVC
+### <a name="_Toc395637770"></a>Výpis neúplných položek ve webové aplikaci MVC
 První věc, kterou je zde potřeba udělat, je přidat třídu, která bude obsahovat všechnu logiku pro připojení a používání DocumentDB. Pro účely tohoto kurzu zapouzdříme všechnu tuto logiku do třídy úložiště nazvané DocumentDBRepository. 
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku projekt, pak levým na **Přidat** a nakonec také levým na **Třída**. Pojmenujte novou třídu **DocumentDBRepository** a klikněte na **Přidat**.
@@ -391,7 +392,7 @@ Pokud teď projekt sestavíte a spustíte, mělo by se zobrazit něco přibližn
 
 ![Snímek obrazovky webové aplikace vytvořené v tomto databázovém kurzu](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="a-nametoc395637771aadding-items"></a><a name="_Toc395637771"></a>Přidávání položek
+### <a name="_Toc395637771"></a>Přidávání položek
 Přidejme do databáze nějaké položky, abychom tam neměli jen prázdnou mřížku.
 
 Přidejme nějaký kód do DocumentDBRepository a ItemController, aby byl záznam v DocumentDB zachován jako trvalý.
@@ -437,7 +438,7 @@ Přidejme nějaký kód do DocumentDBRepository a ItemController, aby byl zázna
 
 Tímto je kód potřebný k přidávání nových položek do databáze hotový.
 
-### <a name="a-nametoc395637772aediting-items"></a><a name="_Toc395637772"></a>Úprava položek
+### <a name="_Toc395637772"></a>Úprava položek
 Ještě musíme implementovat jednu poslední funkci, a to přidat schopnost upravit **položky** v databázi a označit je jako dokončené. Zobrazení pro úpravy již bylo do projektu přidáno, takže nyní potřebujeme jen opět přidat kód do kontroleru a třídy **DocumentDBRepository**.
 
 1. Do třídy **DocumentDBRepository** přidejte následující kód.
@@ -511,7 +512,7 @@ Ještě musíme implementovat jednu poslední funkci, a to přidat schopnost upr
 
 To je vše, nic dalšího ke spuštění aplikace, vypsání neúplných **položek**, přidávání nových **položek** a úpravě **položek** nepotřebujeme.
 
-## <a name="a-nametoc395637773astep-6-run-the-application-locally"></a><a name="_Toc395637773"></a>Krok 6: Místní spuštění aplikace
+## <a name="_Toc395637773"></a>Krok 6: Místní spuštění aplikace
 Aplikaci otestujete na svém místním počítači tak, že provedete následující akce:
 
 1. Stiskněte v nástroji Visual Studio klávesu F5 – aplikace se sestaví v režimu ladění. Po sestavení aplikace by se měl spustit prohlížeč se stránkou s prázdnou mřížkou, kterou jsme viděli dříve:
@@ -532,7 +533,7 @@ Aplikaci otestujete na svém místním počítači tak, že provedete následuj�
     ![Snímek obrazovky zobrazení Index se zaškrtnutým políčkem Dokončeno](./media/documentdb-dotnet-application/image27.png)
 5. Až budete s testováním aplikace hotovi, stiskněte Ctrl+F5, aby se ukončilo ladění aplikace. Jste připraveni aplikaci nasadit!
 
-## <a name="a-nametoc395637774astep-7-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>Krok 7: Nasazení aplikace na Azure Websites
+## <a name="_Toc395637774"></a>Krok 7: Nasazení aplikace na Azure Websites
 Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme tuto webovou aplikaci na Weby Azure. Pokud jste při vytváření prázdného projektu ASP.NET MVC vybrali možnost **Hostovat v cloudu**, Visual Studio tento krok velmi usnadní a většinu práce odvede za vás. 
 
 1. K publikování této aplikace stačí kliknout pravým tlačítkem na projekt v **Průzkumníkovi řešení** a kliknout na **Publikovat**.
@@ -544,7 +545,7 @@ Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme 
 
 Za několik sekund Visual Studio dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Řešení potíží
+## <a name="Troubleshooting"></a>Řešení potíží
 
 Pokud se při pokusu o nasazení webové aplikace zobrazí chyba „Během zpracování vaší žádosti došlo k chybě“, postupujte následovně: 
 
@@ -563,7 +564,7 @@ Pokud se při pokusu o nasazení webové aplikace zobrazí chyba „Během zprac
     Aplikace se pak zobrazí v prohlížeči.
 
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Další kroky
+## <a name="_Toc395637775"></a>Další kroky
 Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které nebyly součástí tohoto kurzu, si můžete stáhnout nebo naklonovat z [GitHubu][GitHub]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
 
 Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupná v [knihovně .NET DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) a nebojte se přispět do knihovny .NET DocumentDB na [GitHubu][GitHub]. 
@@ -574,9 +575,4 @@ Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupn
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

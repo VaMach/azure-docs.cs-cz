@@ -13,35 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
-ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
 Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace.
 
-> [!NOTE]
-> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
->
->
-
-Není-li vaše zařízení v tabulce [Ověřená zařízení VPN](#devicetable), přejděte k oddílu [Neověřená zařízení VPN](#additionaldevices) tohoto článku. Je možné, že vaše zařízení bude i přesto fungovat s Azure. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
 > [!IMPORTANT]
 > Pokud mezi místními zařízeními VPN a bránami VPN Azure dochází k problémům s připojením, vyhledejte informace v části [Známé problémy s kompatibilitou zařízení](#known).
+> 
+> 
 
-**Při procházení tabulek si všimněte:**
+
+###<a name="items-to-note-when-viewing-the-tables"></a>Při procházení tabulek si všimněte:
 
 * Došlo ke změně terminologie pro statické a dynamické směrování. Pravděpodobně narazíte na oba výrazy. Funkce se nezměnily, změnily se pouze jejich názvy.
   * Statické směrování = PolicyBased
   * Dynamické směrování = RouteBased
 * Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure.
 
-## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Ověřená zařízení VPN
+> [!NOTE]
+> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
+>
+>
+
+
+## <a name="devicetable"></a>Ověřená zařízení VPN
 Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat.
 
 Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
@@ -73,13 +77,13 @@ Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají př
 
 (*) Směrovače řady ISR 7200 podporují pouze sítě VPN typu PolicyBased.
 
-## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Neověřená zařízení VPN
-Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je možné, že bude fungovat s připojením typu Site-to-Site. Ověřte, že vaše zařízení VPN splňuje minimální požadavky uvedené v oddílu Požadavky služby Gateway článku [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md). Zařízení splňující minimální požadavky by také měla fungovat s bránami VPN. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
+## <a name="additionaldevices"></a>Neověřená zařízení VPN
+Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je možné, že bude fungovat s připojením typu Site-to-Site. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
 
-## <a name="editing-device-configuration-samples"></a>Ukázky úpravy konfigurace zařízení
+## <a name="editing"></a>Ukázky úpravy konfigurace zařízení
 Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé hodnoty tak, aby odpovídaly nastavení vašeho prostředí.
 
-**Postup úpravy ukázky:**
+###<a name="to-edit-a-sample"></a>Chcete-li upravit ukázku:
 
 1. Otevřete ukázku pomocí Poznámkového bloku.
 2. Vyhledejte všechny řetězce *text* a nahraďte je hodnotami, které odpovídají vašemu prostředí. Nezapomeňte zahrnout < a >. Zadané názvy by měly být jedinečné. Pokud příkaz nefunguje, obraťte se na dokumentaci výrobce zařízení.
@@ -98,7 +102,7 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | &lt;SP_AzureGatewayIpAddress&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako **IP adresa brány**. |
 | &lt;SP_PresharedKey&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako Správa klíče. |
 
-## <a name="ipsec-parameters"></a>Parametry protokolu IPsec
+## <a name="IPSec"></a>Parametry protokolu IPsec
 > [!NOTE]
 > Přestože jsou hodnoty uvedené v následující tabulce podporovány službou Azure VPN Gateway, v současné době neexistuje způsob, jak zadat nebo vybrat konkrétní kombinaci ze služby Azure VPN Gateway. Musíte zadat jakákoli omezení ze strany místního zařízení VPN. Kromě toho musíte uchytit MSS na 1350.
 >
@@ -121,7 +125,7 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | Algoritmus hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Životnost přidružení zabezpečení (SA) Fáze 2 (čas) |3&600; sekund |3&600; sekund |
 | Životnost přidružení zabezpečení (SA) Fáze 2 (propustnost) |102&400;&000; kB |- |
-| Nabídky šifrování SA protokolu IPsec a ověřování (v pořadí podle preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Není k dispozici |Viz *Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased* (níže). |
+| Nabídky šifrování SA protokolu IPsec a ověřování (v pořadí podle preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Není k dispozici |Viz Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased (níže). |
 | Metoda Perfect Forward Secrecy (PFS) |Ne |Ne (*) |
 | Detekce mrtvých partnerských zařízení |Nepodporuje se |Podporuje se |
 
@@ -154,7 +158,7 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 * U vysokovýkonných bran sítě VPN a bran VPN typu RouteBased můžete zadat šifrování protokolu IPsec s prázdným ESP. Prázdné šifrování neposkytuje ochranu přenášených dat a mělo by se používat pouze pokud je vyžadována maximální propustnost a minimální latence.  Klienti toho mohou využít ve scénářích komunikace typu VNet-to-VNet nebo pokud k šifrování dochází jinde v rámci řešení.
 * Pro připojení mezi různými místy prostřednictvím Internetu použijte výchozí nastavení služby Azure VPN Gateway s šifrováním a algoritmy hash uvedenými v tabulkách výše, abyste zajistili bezpečnost důležité komunikace.
 
-## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Známé problémy s kompatibilitou zařízení
+## <a name="known"></a>Známé problémy s kompatibilitou zařízení
 
 > [!IMPORTANT]
 > Jsou známy problémy s kompatibilitou mezi zařízeními VPN třetích stran a bránami VPN Azure. Tým Azure aktivně spolupracuje s dodavateli na řešení problémů, které jsou zde uvedeny. Po vyřešení problémů bude tato stránka aktualizována, aby obsahovala nejnovější informace. Pravidelně se sem vracejte.
@@ -165,10 +169,5 @@ Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověř
 
 1. Zkontrolujte verzi firmwaru zařízení Palo Alto Networks. Pokud je verze PAN-OS starší než 7.1.4, proveďte upgrade na verzi 7.1.4.
 2. Na zařízení Palo Alto Networks změňte při připojování k bráně VPN Azure životnost přidružení zabezpečení (SA) Fáze 2 (nebo přidružení zabezpečení rychlého režimu) na 28 800 sekund (8 hodin).
-3. Pokud i nadále dochází k problému s připojením, otevřete žádost o podporu na webu Azure Portal. 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+3. Pokud i nadále dochází k problému s připojením, otevřete žádost o podporu na webu Azure Portal.
 

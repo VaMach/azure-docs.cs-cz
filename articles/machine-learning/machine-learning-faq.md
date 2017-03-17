@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Data můžete do experimentu Machine Learning Studio stáhnout třemi způsoby:
 
 Další informace o podporovaných formátech souborů najdete v tématu o [importu trénovacích dat do nástroje Machine Learning Studio](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Jak velká může být datová sada pro moje moduly?
+#### <a id="ModuleLimit"></a>Jak velká může být datová sada pro moje moduly?
 Moduly v nástroji Machine Learning Studio podporují datové sady, které obsahují až 10 GB hustých číselných dat pro běžné případy použití. Pokud modul přijímá víc než jeden vstup, celková velikost všech vstupních velikostí je 10 GB. Větší datové sady je před ingestováním možné vzorkovat pomocí dotazů Hive nebo Azure SQL Database. Je možné také použít předzpracování metodou Learning by Counts.  
 
 Během normalizace funkcí je možné následující typy dat rozšířit do větších datových sad. Tyto typy jsou omezené na méně než 10 GB:
@@ -101,7 +102,7 @@ Následující moduly jsou omezené na datové sady menší než 10 GB:
 * Moduly, kde velikost výstupních dat může být větší než velikost vstupních dat, třeba Join nebo Feature Hashing
 * Pro velmi velký počet iterací Cross-validation, Tune Model Hyperparameters, Ordinal Regression a One-vs-All Multiclass
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Jaké jsou limity pro nahrávání dat?
+#### <a id="UploadLimit"></a>Jaké jsou limity pro nahrávání dat?
 Pro datové sady větší než několik GB byste měli nahrát data do Azure Storage nebo Azure SQL Database, případně použít HDInsight, a nenahrávat přímo z místního souboru.
 
 **Je možné číst data z Amazonu S3?**
@@ -429,7 +430,11 @@ Doporučujeme začít s úrovní Standard S1 a monitorovat využití prostředk�
 
 **Ve kterých oblastech jsou nové plány dostupné?**
 
-Informace o místní dostupnosti najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/regions/services/).
+Nové fakturační plány jsou dostupné ve třech produkčních oblastech, kde podporujeme nové webové služby:
+
+* Střed USA – jih
+* Západní Evropa
+* Jihovýchodní Asie
 
 **Webové služby využívám v několika různých oblastech. Potřebuji plán pro každou oblast?**
 
@@ -464,7 +469,13 @@ Ano, klasické webové služby jsou ve službě Azure Machine Learning stále do
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning – úrovně Free a Standard
 **Co je ve službě Azure Machine Learning součástí úrovně Free?**
 
-Úroveň Free služby Azure Machine Learning slouží vás má detailně uvést do nástroje Azure Machine Learning Studio. K registraci stačí jen účet Microsoft. Úroveň Free zahrnuje bezplatný přístup do jednoho pracovního prostoru Azure Machine Learning Studio ke každému [účtu Microsoft](https://www.microsoft.com/account/default.aspx). Na této úrovni můžete využít až 10 GB úložiště a z modelů vytvářet rozhraní API přípravného prostředí. Úlohy úrovně Free nejsou předmětem smlouvy SLA a jsou určeny jenom pro vývoj a osobní užití. Úlohy úrovně Free nemůžou přistupovat k datům tak, že se připojí k místnímu serveru se spuštěným SQL Serverem.
+Úroveň Free služby Azure Machine Learning slouží vás má detailně uvést do nástroje Azure Machine Learning Studio. K registraci stačí jen účet Microsoft. Úroveň Free zahrnuje bezplatný přístup do jednoho pracovního prostoru Azure Machine Learning Studio ke každému [účtu Microsoft](https://www.microsoft.com/account/default.aspx). Na této úrovni můžete využít až 10 GB úložiště a z modelů vytvářet rozhraní API přípravného prostředí. Úlohy úrovně Free nejsou předmětem smlouvy SLA a jsou určeny jenom pro vývoj a osobní užití. 
+
+Pracovní prostory úrovně Free mají následující omezení:
+
+* Úlohy nemůžou přistupovat k datům tak, že se připojí k místnímu serveru se spuštěným SQL Serverem.
+* Nejde nasadit nové webové služby využívajících Resource Manager.
+
 
 **Co je ve službě Azure Machine Learning součástí úrovně a plánů Standard?**
 
@@ -546,9 +557,4 @@ Přístup hosta je omezený zkušební přístup. Umožňuje vytvářet a spouš
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

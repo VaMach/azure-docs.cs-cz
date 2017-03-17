@@ -4,6 +4,7 @@
 ## [Co je DocumentDB: API pro MongoDB?](documentdb-protocol-mongodb.md)
 ## [Základní koncepty](documentdb-resources.md)
 ## [Globální distribuce](documentdb-distribute-data-globally.md)
+## [Zabezpečení](documentdb-nosql-database-security.md)
 ## [Analýza celkových nákladů na vlastnictví NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scénáře
 ### [Běžné případy použití](documentdb-use-cases.md)
@@ -36,32 +37,33 @@
 ### [Nákladově efektivní čtení a zápisy](documentdb-key-value-store-cost.md)
 
 ## Spravovat
+### [Jednotky žádostí](documentdb-request-units.md)
 ### [Import dat](documentdb-import-data.md)
 ### [Import do API pro MongoDB](documentdb-mongodb-migrate.md)
 ### [Připojení k účtu MongoDB](documentdb-connect-mongodb-account.md)
 ### [Použití MongoChef](documentdb-mongodb-mongochef.md)
 ### [Použití Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelování dat](documentdb-modeling-data.md)
-### [Použití geoprostorových dat](documentdb-geospatial.md)
-### [Vývoj pro více oblastí](documentdb-developing-with-multiple-regions.md)
-### [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
 ### [Automatické vypršení dat](documentdb-time-to-live.md)
-### [Přizpůsobení indexů](documentdb-indexing-policies.md)
-### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
 ### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
+### [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Vytvoření účtu](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Přidání nebo odebrání oblastí](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Zabezpečení
+#### [Zabezpečený přístup k datům](documentdb-secure-access-to-data.md)
+#### [Podpora brány firewall](documentdb-firewall-support.md)
 ### [Vyřazení S1, S2, S3](documentdb-performance-levels.md)
-### [Jednotky žádostí](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Vytvoření účtu](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Přidání nebo odebrání oblastí](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Podpora brány firewall](documentdb-firewall-support.md)
 
 ## Vývoj
 ### [Dotaz SQL](documentdb-sql-query.md)
 ### [Uložené procedury, triggery a funkce UDF](documentdb-programming.md)
+### [Přizpůsobení indexů](documentdb-indexing-policies.md)
+### [Vývoj pro více oblastí](documentdb-developing-with-multiple-regions.md)
 ### [Sledování změn pomocí kanálu změn](documentdb-change-feed.md)
+### [Použití geoprostorových dat](documentdb-geospatial.md)
 ### [Testování výkonu](documentdb-performance-testing.md)
 ### [Tipy pro zvýšení výkonu](documentdb-performance-tips.md)
 ### Osvědčené postupy

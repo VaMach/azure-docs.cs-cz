@@ -29,7 +29,7 @@
 ### [Zobrazení událostí v protokolu aktivit](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Konfigurace webhooku v upozornění protokolu aktivit](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archivace protokolu aktivit](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
-### [Streamování protokolu aktivit do služby Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [Streamování protokolů aktivit do služby Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operací pomocí Resource Manageru](../azure-resource-manager/resource-group-audit.md)
 ## Správa diagnostických protokolů
 ### [Archiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
@@ -37,6 +37,8 @@
 ### [Povolení diagnostických nastavení pomocí šablon Resource Manageru](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Použití rozhraní REST API
 ### [Návod s využitím rozhraní REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Použití diagnostiky Azure
+### [Odeslání do Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
@@ -52,8 +54,3 @@
 ## [Ukázky pro PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Ukázky Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Seznam podporovaných metrik](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

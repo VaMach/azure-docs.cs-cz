@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -125,7 +126,7 @@ Teď, když se zprávy přidávají do fronty, můžete vytvořit další funkci
 
     ![Přidání vazby na tabulku Azure Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Zadejte `TableItem` jako **Název tabulky** a `functionbindings` jako **Název parametru tabulky**, zvolte **Připojení účtu úložiště** nebo vytvořte nové, a potom klikněte na **Uložit**.
+2. Zadejte `functionbindings` jako **Název tabulky** a `myTable` jako **Název parametru tabulky**, zvolte **Připojení účtu úložiště** nebo vytvořte nové, a potom klikněte na **Uložit**.
 
     ![Konfigurace vazby tabulky Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Teď, když se zprávy přidávají do fronty, můžete vytvořit další funkci
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o službě Azure Functions najdete v těchto tématech.
+Další informace o službě Azure Functions najdete v těchto tématech:
 
 * [Referenční informace pro vývojáře Azure Functions](functions-reference.md)  
   Referenční informace pro programátory týkající se kódování funkcí a definování triggerů a vazeb.
@@ -190,10 +191,5 @@ Další informace o službě Azure Functions najdete v těchto tématech.
   Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
