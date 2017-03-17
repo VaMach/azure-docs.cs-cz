@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 ## <a name="prerequisites"></a>Požadavky
 * **Visual Studio 2013 nebo 2015**. Níže uvedené pokyny používají Visual Studio 2015.
+
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Účet Azure Data Lake Store**. Pokyny k vytvoření účtu najdete v tématu [Začínáme s Azure Data Lake Store](data-lake-store-get-started-portal.md).
+
 * **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Vytvoření aplikace .NET
@@ -58,9 +62,9 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
    2. Ujistěte se, že na kartě **Správce balíčků Nuget** je položka **Zdroj balíčku** nastavena na možnost **nuget.org** a je zaškrtnuto políčko **Zahrnout předběžné verze**.
    3. Vyhledejte a nainstalujte následující balíčky NuGet:
       
-      * `Microsoft.Azure.Management.DataLake.Store` – Tento kurz používá verzi v0.12.5-preview.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` – Tento kurz používá verzi v0.10.6-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – Tento kurz používá verzi v2.2.8-preview.
+      * `Microsoft.Azure.Management.DataLake.Store` – Tento kurz používá verzi v1.0.4.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` – Tento kurz používá verzi v1.0.1-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – Tento kurz používá verzi v2.2.11.
         
         ![Přidání zdroje Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Vytvoření nového účtu Azure Data Lake")
    4. Zavřete **Správce balíčků Nuget**.
@@ -71,7 +75,11 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Deklarujte proměnné, jak vidíte níže, a zadejte hodnoty názvu služby Data Lake Store a názvu skupiny prostředků, které již existují. Taky se ujistěte, že místní cesta a název souboru, které tady zadáte, existují na počítači. Za deklarace oboru názvů přidejte následující fragment kódu.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné metody rozhraní .NET k provádění operací, jako je ověřování, nahrávání souborů atd.
 
 ## <a name="authentication"></a>Authentication
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
-Použijte tento fragment kódu se stávající aplikací „Nativní klient“ Azure AD – jedna je pro vás k dispozici níže. Chcete-li tento kurz projít rychleji, doporučujeme vám použít tento přístup.
+
+Tuto metodu použijte se stávající nativní aplikací Azure AD, pokud chcete ověřovat vaši aplikaci **interaktivně**, což znamená, že budete vyzváni k zadání přihlašovacích údajů Azure. 
+
+Následující fragment kódu pro snadnější použití pro ID klienta a identifikátor URI přesměrování používá výchozí hodnoty, které budou fungovat s jakýmkoli předplatným Azure. Chcete-li tento kurz projít rychleji, doporučujeme vám použít tento přístup. V následujícím fragmentu kódu stačí zadat hodnotu vašeho ID tenanta. Můžete jej zjistit pomocí pokynů uvedených v tématu [Vytvoření aplikace Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Několik věcí, které je vhodné vědět o fragmentu kódu uvedeném výše.
 
 * Abychom vám umožnili projít tento kurz rychleji, využívá tento fragment kódu doménu a ID klienta služby Azure AD, které jsou ve výchozím nastavení dostupné pro všechna předplatná Azure. Můžete tedy **použít ve své aplikaci tento fragment kódu bez jakýchkoli úprav**.
-* Pokud však chcete používat vlastní doménu a ID klienta aplikace služby Azure AD, musíte vytvořit nativní aplikaci služby Azure AD a pak pro vytvořenou aplikaci použít příslušnou doménu, ID klienta a identifikátor URI pro přesměrování služby Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
-
-> [!NOTE]
-> Pokyny na výše uvedených odkazech se týkají webových aplikací Azure AD. Nicméně postup je úplně stejný i pokud jste se rozhodli vytvořit místo toho nativní klientskou aplikaci. 
-> 
-> 
+* Pokud však chcete používat vlastní doménu a ID klienta aplikace Azure AD, musíte vytvořit nativní aplikaci Azure AD a pak pro vytvořenou aplikaci použít příslušné ID tenanta, ID klienta a identifikátor URI přesměrování Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory pro ověřování koncového uživatele pomocí služby Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Pokud používáte ověřování služba-služba s tajným klíčem klienta
-Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Následující fragment kódu můžete použít k **neinteraktivnímu** ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace. Pokyny k vytvoření webové aplikace Azure AD a zjištění ID a tajného klíče klienta v následujícím fragmentu kódu najdete v tématu [Vytvoření aplikace Active Directory pro ověřování služba-služba pomocí služby Data Lake Store](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ Následující fragment kódu lze použít k neinteraktivnímu ověřování va�
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Pokud používáte ověřování služba-služba s certifikátem
-Třetí možností je použít následující fragment kódu k neinteraktivnímu ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt. Použijte tento fragment kódu se stávající [aplikací „Webová aplikace“ Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Třetí možností je použít následující fragment kódu k **neinteraktivnímu** ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt Azure Active Directory. Použijte tento fragment kódu se stávající [aplikací Azure AD s certifikáty](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Referenční dokumentace sady SDK rozhraní .NET služby Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Referenční dokumentace architektury REST služby Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
